@@ -446,10 +446,10 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
         // get columns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_CommonFunctions::getInstance()->backquote(
-                PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($db)
+            . PMA_Util::backquote(
+                PMA_Util::unescapeMysqlWildcards($db)
             )
-            . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ';'
+            . '.' . PMA_Util::backquote($table) . ';'
         );
         $columns = array();
         if ($res) {
@@ -1193,7 +1193,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
-        . PMA_CommonFunctions::getInstance()->showHint(
+        . PMA_Util::showHint(
             __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
         )
         . '</div>' . "\n";
@@ -1289,8 +1289,8 @@ function PMA_getGrants($user, $host)
 {
     $grants = PMA_DBI_fetch_result(
         "SHOW GRANTS FOR '"
-        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($user) . "'@'"
-        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($host) . "'"
+        . PMA_Util::sqlAddSlashes($user) . "'@'"
+        . PMA_Util::sqlAddSlashes($host) . "'"
     );
     $response = '';
     foreach ($grants as $one_grant) {
@@ -1706,7 +1706,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                 if (! isset($current['Db']) || $current['Db'] == '*') {
                     $html_output .= __('global');
                 } elseif (
-                    $current['Db'] == PMA_CommonFunctions::getInstance()->escapeMysqlWildcards(
+                    $current['Db'] == PMA_Util::escapeMysqlWildcards(
                         $_REQUEST['checkprivs']
                     )
                 ) {
@@ -1839,7 +1839,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
     if (strlen($sql_query)) {
         $extra_data['sql_query']
-            = PMA_CommonFunctions::getInstance()->getMessage(null, $sql_query);
+            = PMA_Util::getMessage(null, $sql_query);
     }
 
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
@@ -1963,7 +1963,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . ' <legend>'
         . __('Create a new user with the same privileges and ...')
         . '</legend>' . "\n";
-    $html_output .= PMA_CommonFunctions::getInstance()->getRadioFields(
+    $html_output .= PMA_Util::getRadioFields(
         'mode', $choices, '4', true
     );
     $html_output .= '</fieldset>' . "\n"
@@ -1994,7 +1994,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
         . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
         . htmlspecialchars($dbname) . ': '
-        . PMA_CommonFunctions::getInstance()->getTitleForTarget(
+        . PMA_Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabDatabase']
         )
         . "</a> ]\n";
@@ -2005,7 +2005,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
             . '&amp;db=' . $url_dbname
             . '&amp;table=' . htmlspecialchars(urlencode($tablename))
             . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
-            . PMA_CommonFunctions::getInstance()->getTitleForTarget(
+            . PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             )
             . "</a> ]\n";
@@ -2844,7 +2844,7 @@ function PMA_getAddUserHtmlFieldset($conditional_class)
         . '<a href="server_privileges.php?' . $GLOBALS['url_query']
         . '&amp;adduser=1" '
         . 'class="' . $conditional_class . '">' . "\n"
-        . PMA_CommonFunctions::getInstance()->getIcon('b_usradd.png')
+        . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n"
         . '</fieldset>' . "\n";
 }
@@ -2865,7 +2865,7 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
     $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
 ) {
     $html_output = '<h2>' . "\n"
-       . PMA_CommonFunctions::getInstance()->getIcon('b_usredit.png')
+       . PMA_Util::getIcon('b_usredit.png')
        . __('Edit Privileges') . ': '
        . __('User');
 
@@ -2919,7 +2919,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export
 ) {
     $html_output = '<h2>' . "\n"
-       . PMA_CommonFunctions::getInstance()->getIcon('b_usrlist.png')
+       . PMA_Util::getIcon('b_usrlist.png')
        . __('Users overview') . "\n"
        . '</h2>' . "\n";
 

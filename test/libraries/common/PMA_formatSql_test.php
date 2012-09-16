@@ -51,7 +51,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $sql = "SELECT * FROM tTable;";
         $this->assertEquals(
             "<pre>\n$sql\n</pre>",
-            PMA_CommonFunctions::getInstance()->formatSql($sql)
+            PMA_Util::formatSql($sql)
         );
     }
 
@@ -89,7 +89,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $expected,
-            PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -139,7 +139,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $expected = '<span class="syntax"><span class="inner_sql"><span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span></a>  <span class="syntax_punct">*</span> <br /><span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>  <span class="syntax_quote syntax_quote_backtick">`tTable`</span> <span class="syntax_punct syntax_punct_queryend">;</span><br /><br /></span></span>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -277,7 +277,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $expected = '<span class="syntax"><span class="inner_sql"><span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span></a>  <span class="syntax_punct">*</span> <br /><span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>  <span class="syntax_quote syntax_quote_backtick">`tTable_A`</span> <span class="syntax_alpha syntax_alpha_identifier">A</span><br /><span class="syntax_alpha syntax_alpha_reservedWord">INNER</span>  <span class="syntax_alpha syntax_alpha_reservedWord">JOIN</span>  <span class="syntax_quote syntax_quote_backtick">`tTable_B`</span> <span class="syntax_alpha syntax_alpha_identifier">B</span> <span class="syntax_alpha syntax_alpha_reservedWord">ON</span> <span class="syntax_alpha syntax_alpha_identifier">B</span><span class="syntax_punct syntax_punct_qualifier">.</span><span class="syntax_alpha syntax_alpha_identifier">ID</span> <span class="syntax_punct">=</span></a> <span class="syntax_alpha syntax_alpha_identifier">A</span><span class="syntax_punct syntax_punct_qualifier">.</span><span class="syntax_alpha syntax_alpha_identifier">ID</span><span class="syntax_punct syntax_punct_queryend">;</span><br /><br /></span></span>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -314,7 +314,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $expected = '<span class="inner_sql">SELECT</a> 1 ;<br /><br /></span>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -364,7 +364,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable` ;<br /><br /></span>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -501,7 +501,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable_A` A<br />INNER  JOIN  `tTable_B` B ON B.ID =</a> A.ID;<br /><br /></span>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
     }
 
@@ -538,12 +538,12 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT 1;\n</pre></span>";
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
 
         $expected = "SELECT 1;";
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+            $expected, PMA_Util::formatSql($sql)
         );
     }
 
@@ -593,12 +593,12 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT * from `tTable`;\n</pre></span>";
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
 
         $expected = "SELECT * from `tTable`;";
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+            $expected, PMA_Util::formatSql($sql)
         );
     }
 
@@ -735,12 +735,12 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;\n</pre></span>";
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+            $expected, PMA_Util::formatSql($sql, $unparsed)
         );
 
         $expected = 'SELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;';
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+            $expected, PMA_Util::formatSql($sql)
         );
     }
 
@@ -772,7 +772,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
           ),
           'len' => 3,
         );
-        $this->assertEmpty(PMA_CommonFunctions::getInstance()->formatSql($sql));
+        $this->assertEmpty(PMA_Util::formatSql($sql));
     }
 
     function testFormatSQLError()
@@ -782,7 +782,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $sql = array("raw" => "& \" < >");
         $this->assertEquals(
             "&amp; &quot; &lt; &gt;",
-            PMA_CommonFunctions::getInstance()->formatSql($sql)
+            PMA_Util::formatSql($sql)
         );
         $SQP_errorString = false;
     }

@@ -288,7 +288,7 @@ function PMA_sqlQueryFormInsert(
             .'multiple="multiple" ondblclick="insertValueQuery()">' . "\n";
         foreach ($fields_list as $field) {
             echo '<option value="'
-                .PMA_CommonFunctions::getInstance()->backquote(htmlspecialchars($field['Field'])) . '"';
+                .PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field'])
                 && strlen($field['Field'])
                 && isset($field['Comment'])
@@ -411,7 +411,7 @@ function PMA_sqlQueryFormBookmark()
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
     echo __('Variable');
-    echo PMA_CommonFunctions::getInstance()->showDocu('faqbookmark');
+    echo PMA_Util::showDocu('faqbookmark');
     echo '<input type="text" name="bookmark_variable" class="textfield"'
         .' size="10" />' . "\n";
     echo '</div>' . "\n";

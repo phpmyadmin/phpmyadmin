@@ -72,7 +72,7 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $d,
-            (string) PMA_CommonFunctions::getInstance()->formatNumber(
+            (string) PMA_Util::formatNumber(
                 $a, $b, $c, false
             )
         );
@@ -102,7 +102,7 @@ class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
      */
     public function testFormatByteDown($a, $b, $c, $e)
     {
-        $result = PMA_CommonFunctions::getInstance()->formatByteDown($a, $b, $c);
+        $result = PMA_Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
         $this->assertEquals($e, $result);
     }

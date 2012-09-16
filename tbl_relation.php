@@ -492,7 +492,7 @@ if (count($columns) > 0) {
             <select name="destination_foreign[<?php echo $myfield_md5; ?>]" class="referenced_column_dropdown">
                 <?php
                 if (isset($existrel_foreign[$myfield])) {
-                    // need to PMA_CommonFunctions::getInstance()->backquote to support a dot character inside
+                    // need to PMA_Util::backquote to support a dot character inside
                     // an element
                     $foreign_field    = PMA_Util::backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
                              . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'

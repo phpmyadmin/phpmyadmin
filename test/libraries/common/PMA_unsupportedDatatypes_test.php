@@ -19,7 +19,7 @@ class PMA_unsupportedDatatypes_test extends PHPUnit_Framework_TestCase
     {
         $no_support_types = array();
         $this->assertEquals(
-            $no_support_types, PMA_CommonFunctions::getInstance()->unsupportedDatatypes()
+            $no_support_types, PMA_Util::unsupportedDatatypes()
         );
     }
 }

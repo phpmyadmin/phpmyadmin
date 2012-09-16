@@ -36,7 +36,7 @@ class PMA_showPHPDocu_test extends PHPUnit_Framework_TestCase
             . __('Documentation') . '" alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals(
-            $expected, PMA_CommonFunctions::getInstance()->showPHPDocu($target)
+            $expected, PMA_Util::showPHPDocu($target)
         );
     }
 }

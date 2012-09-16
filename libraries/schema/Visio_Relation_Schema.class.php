@@ -282,7 +282,7 @@ class Table_Stats
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $tableName);
         // index
-        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_CommonFunctions::getInstance()->backquote($tableName) . ';', null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';', null, PMA_DBI_QUERY_STORE);
         if (PMA_DBI_num_rows($result) > 0) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {

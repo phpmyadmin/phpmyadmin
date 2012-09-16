@@ -64,7 +64,7 @@ if (isset($result)) {
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo PMA_CommonFunctions::getInstance()->getMessage(
+    echo PMA_Util::getMessage(
         $_message, $sql_query, $_type, $is_view = true
     );
     unset($_message, $_type);

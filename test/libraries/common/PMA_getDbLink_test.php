@@ -30,7 +30,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
     function testGetDbLinkEmpty()
     {
         $GLOBALS['db'] = null;
-        $this->assertEmpty(PMA_CommonFunctions::getInstance()->getDbLink());
+        $this->assertEmpty(PMA_Util::getDbLink());
     }
 
     function testGetDbLinkNull()
@@ -43,7 +43,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink()
+            PMA_Util::getDbLink()
         );
     }
 
@@ -56,7 +56,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink($database)
+            PMA_Util::getDbLink($database)
         );
     }
 
@@ -70,7 +70,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink($database)
+            PMA_Util::getDbLink($database)
         );
     }
 }

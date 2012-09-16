@@ -173,7 +173,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo __('Log in');
-        echo PMA_CommonFunctions::getInstance()->showDocu('');
+        echo PMA_Util::showDocu('');
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
@@ -536,7 +536,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA_CommonFunctions::getInstance()->clearUserCache();
+            PMA_Util::clearUserCache();
 
             PMA_Response::getInstance()->disable();
 

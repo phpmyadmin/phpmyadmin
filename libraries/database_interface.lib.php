@@ -59,7 +59,7 @@ if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
     PMA_warnMissingExtension(
         $GLOBALS['cfg']['Server']['extension'],
         false,
-        PMA_CommonFunctions::getInstance()->showDocu('faqmysql')
+        PMA_Util::showDocu('faqmysql')
     );
 
     if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
@@ -73,7 +73,7 @@ if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
         PMA_warnMissingExtension(
             $GLOBALS['cfg']['Server']['extension'],
             true,
-            PMA_CommonFunctions::getInstance()->showDocu('faqmysql')
+            PMA_Util::showDocu('faqmysql')
         );
     }
 
@@ -101,7 +101,7 @@ function PMA_DBI_query($query, $link = null, $options = 0,
     $cache_affected_rows = true
 ) {
     $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
-        or PMA_CommonFunctions::getInstance()->mysqlDie(PMA_DBI_getError($link), $query);
+        or PMA_Util::mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
 }
 
@@ -314,7 +314,7 @@ function PMA_DBI_convert_message($message)
 function PMA_DBI_get_tables($database, $link = null)
 {
     return PMA_DBI_fetch_result(
-        'SHOW TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($database) . ';',
+        'SHOW TABLES FROM ' . PMA_Util::backquote($database) . ';',
         null,
         0,
         $link,

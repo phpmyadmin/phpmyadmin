@@ -35,7 +35,7 @@ class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
     public function testForeignkeySupported($a, $e)
     {
         $this->assertEquals(
-            $e, PMA_CommonFunctions::getInstance()->isForeignKeySupported($a)
+            $e, PMA_Util::isForeignKeySupported($a)
         );
     }
 }

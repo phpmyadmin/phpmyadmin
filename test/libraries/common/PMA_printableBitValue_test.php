@@ -36,7 +36,7 @@ class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
     public function testPrintableBitValue($a, $b, $e)
     {
         $this->assertEquals(
-            $e, PMA_CommonFunctions::getInstance()->printableBitValue($a, $b)
+            $e, PMA_Util::printableBitValue($a, $b)
         );
     }
 }

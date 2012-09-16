@@ -38,7 +38,7 @@ function PMA_RTE_getList($type, $items)
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";
-    $retval .= "        " . PMA_CommonFunctions::getInstance()->showMySQLDocu('SQL-Syntax', PMA_RTE_getWord('docu')) . "\n";
+    $retval .= "        " . PMA_Util::showMySQLDocu('SQL-Syntax', PMA_RTE_getWord('docu')) . "\n";
     $retval .= "    </legend>\n";
     $retval .= "    <div class='$class1' id='nothing2display'>\n";
     $retval .= "      " . PMA_RTE_getWord('nothing') . "\n";
@@ -133,7 +133,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $sql_drop = sprintf(
         'DROP %s IF EXISTS %s',
         $routine['ROUTINE_TYPE'],
-        PMA_CommonFunctions::getInstance()->backquote($routine['SPECIFIC_NAME'])
+        PMA_Util::backquote($routine['SPECIFIC_NAME'])
     );
     $type_link = "item_type={$routine['ROUTINE_TYPE']}";
 
@@ -310,7 +310,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     
     $sql_drop = sprintf(
         'DROP EVENT IF EXISTS %s',
-        PMA_CommonFunctions::getInstance()->backquote($event['EVENT_NAME'])
+        PMA_Util::backquote($event['EVENT_NAME'])
     );
 
     $retval  = "        <tr class='noclick $rowclass'>\n";

@@ -108,8 +108,8 @@ function PMA_analyzeWhereClauses(
     foreach ($where_clause_array as $key_id => $where_clause) {
 
         $local_query     = 'SELECT * FROM '
-            . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
-            . PMA_CommonFunctions::getInstance()->backquote($table)
+            . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
         $result[$key_id] = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
@@ -145,7 +145,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
         PMA_Response::getInstance()->addHtml(
-            PMA_CommonFunctions::getInstance()->getMessage(
+            PMA_Util::getMessage(
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $local_query
             )
@@ -158,7 +158,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
         $meta = PMA_DBI_get_fields_meta($result[$key_id]);
 
         list($unique_condition, $tmp_clause_is_unique)
-            = PMA_CommonFunctions::getInstance()->getUniqueCondition(
+            = PMA_Util::getUniqueCondition(
                 $result[$key_id], count($meta), $meta, $rows[$key_id], true
             );
 
@@ -181,8 +181,8 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
 function PMA_loadFirstRowInEditMode($table, $db)
 {
     $result = PMA_DBI_query(
-        'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($db)
-        . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ' LIMIT 1;',
+        'SELECT * FROM ' . PMA_Util::backquote($db)
+        . '.' . PMA_Util::backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
@@ -1113,7 +1113,7 @@ function PMA_getBinaryAndBlobColumn(
     ) {
         $html_output .= __('Binary - do not edit');
         if (isset($data)) {
-            $data_size = PMA_CommonFunctions::getInstance()->formatByteDown(
+            $data_size = PMA_Util::formatByteDown(
                 strlen(stripslashes($data)), 3, 1
             );
             $html_output .= ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
@@ -1200,7 +1200,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
 function PMA_getSelectOptionForUpload($vkey, $column)
 {
     $files = PMA_getFileSelectOptions(
-        PMA_CommonFunctions::getInstance()->userDir($GLOBALS['cfg']['UploadDir'])
+        PMA_Util::userDir($GLOBALS['cfg']['UploadDir'])
     );
 
     if ($files === false) {
@@ -1246,7 +1246,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
         $this_field_max_size = $max_field_sizes[$column['pma_type']];
     }
     $html_output
-        = PMA_CommonFunctions::getInstance()->getFormattedMaximumUploadSize(
+        = PMA_Util::getFormattedMaximumUploadSize(
             $this_field_max_size
         ) . "\n";
     // do not generate here the MAX_FILE_SIZE, because we should
@@ -1563,7 +1563,7 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
 function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
 {
     return '<td>'
-    . PMA_CommonFunctions::getInstance()->showHint(
+    . PMA_Util::showHint(
         __('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')
     )
     . '</td>'
@@ -1898,8 +1898,8 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
         $insert_command = 'INSERT ';
     }
     $query[] = $insert_command . 'INTO '
-        . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['db']) . '.'
-        . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['table'])
+        . PMA_Util::backquote($GLOBALS['db']) . '.'
+        . PMA_Util::backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES ('
         . implode('), (', $value_sets) . ')';
     unset($insert_command, $query_fields);

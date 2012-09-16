@@ -125,7 +125,7 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
 {
     $drop_query = 'DROP '
         . (($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
-        . ' ' . PMA_CommonFunctions::getInstance()->backquote(
+        . ' ' . PMA_Util::backquote(
             $current_table['TABLE_NAME']
         );
     $drop_message = sprintf(
@@ -360,7 +360,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
         . '<a href="db_printview.php?' . $url_query . '">'
-        . PMA_CommonFunctions::getInstance()->getIcon(
+        . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
             true
@@ -377,7 +377,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 function PMA_getHtmlForDataDictionaryLink($url_query)
 {
     return '<a href="db_datadict.php?' . $url_query . '">'
-        . PMA_CommonFunctions::getInstance()->getIcon(
+        . PMA_Util::getIcon(
             'b_tblanalyse.png',
             __('Data Dictionary'),
             true
@@ -775,7 +775,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'</th>'
         // larger values are more interesting so default sort order is DESC
         .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
-        . PMA_CommonFunctions::getInstance()->showHint(
+        . PMA_Util::showHint(
             PMA_sanitize(
                 __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
             )
@@ -907,7 +907,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
-    return PMA_CommonFunctions::getInstance()->linkOrButton(
+    return PMA_Util::linkOrButton(
         $url, $title . $order_img, $order_link_params
     );
 }
@@ -1606,7 +1606,7 @@ function PMA_getHtmlForAddColumn($columns_list)
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = PMA_CommonFunctions::getInstance()->getDivForSliderEffect(
+    $html_output = PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
     $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);

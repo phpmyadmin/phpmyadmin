@@ -382,7 +382,7 @@ function PMA__getRelationsParam()
     //  fear it might be too slow
 
     $tab_query = 'SHOW TABLES FROM '
-        . PMA_CommonFunctions::getInstance()->backquote(
+        . PMA_Util::backquote(
             $GLOBALS['cfg']['Server']['pmadb']
         );
     $tab_rs    = PMA_queryAsControlUser($tab_query, false, PMA_DBI_QUERY_STORE);

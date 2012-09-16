@@ -548,8 +548,8 @@ class PMA_Table
                 // fast enough
                 if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
                     $row_count = PMA_DBI_fetch_value(
-                        'SELECT COUNT(*) FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
-                        . PMA_CommonFunctions::getInstance()->backquote($table)
+                        'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
+                        . PMA_Util::backquote($table)
                     );
                 } else {
                     // For complex views, even trying to get a partial record
@@ -612,7 +612,7 @@ class PMA_Table
         $attribute, $collation, $null, $default_type, $default_value,
         $extra, $comment, &$field_primary, $index, $move_to
     ) {
-        return PMA_CommonFunctions::getInstance()->backquote($oldcol) . ' '
+        return PMA_Util::backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $index, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,

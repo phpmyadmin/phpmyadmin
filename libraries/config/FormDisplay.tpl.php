@@ -168,7 +168,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         } else {
             // In this case we just use getImage() because it's available
             foreach ($icon_init as $k => $v) {
-                $icons[$k] = PMA_CommonFunctions::getInstance()->getImage(
+                $icons[$k] = PMA_Util::getImage(
                     $v[0], $v[1]
                 );
             }

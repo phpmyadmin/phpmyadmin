@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/bookmark.lib.php';
 
-PMA_CommonFunctions::getInstance()->checkParameters(array('db'));
+PMA_Util::checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
@@ -61,7 +61,7 @@ if (! isset($is_db) || ! $is_db) {
 if (isset($submitcollation) && !empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
     $sql_query        = 'ALTER DATABASE '
-        . PMA_CommonFunctions::getInstance()->backquote($db)
+        . PMA_Util::backquote($db)
         . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     $result           = PMA_DBI_query($sql_query);
     $message          = PMA_Message::success();

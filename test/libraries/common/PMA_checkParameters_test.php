@@ -35,7 +35,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputRegex("/Missing parameter: field/");
 
-        PMA_CommonFunctions::getInstance()->checkParameters(
+        PMA_Util::checkParameters(
             array('db', 'table', 'field')
         );
     }
@@ -50,7 +50,7 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
 
         $this->expectOutputString("");
-        PMA_CommonFunctions::getInstance()->checkParameters(
+        PMA_Util::checkParameters(
             array('db', 'table', 'field', 'sql_query')
         );
     }

@@ -32,7 +32,7 @@ class PMA_ContainsNonPrintableAsciiTest extends PHPUnit_Framework_TestCase
     function testContainsNonPrintableAscii($str, $res)
     {
         $this->assertEquals(
-            $res, PMA_CommonFunctions::getInstance()->containsNonPrintableAscii($str)
+            $res, PMA_Util::containsNonPrintableAscii($str)
         );
     }
 

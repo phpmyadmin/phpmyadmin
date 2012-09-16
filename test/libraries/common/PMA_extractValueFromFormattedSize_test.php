@@ -19,7 +19,7 @@ class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             -1,
-            PMA_CommonFunctions::getInstance()->extractValueFromFormattedSize(100)
+            PMA_Util::extractValueFromFormattedSize(100)
         );
     }
 
@@ -27,7 +27,7 @@ class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             10737418240,
-            PMA_CommonFunctions::getInstance()->extractValueFromFormattedSize("10GB")
+            PMA_Util::extractValueFromFormattedSize("10GB")
         );
     }
 
@@ -35,7 +35,7 @@ class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             15728640,
-            PMA_CommonFunctions::getInstance()->extractValueFromFormattedSize("15MB")
+            PMA_Util::extractValueFromFormattedSize("15MB")
         );
     }
 
@@ -43,7 +43,7 @@ class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             262144,
-            PMA_CommonFunctions::getInstance()->extractValueFromFormattedSize("256K")
+            PMA_Util::extractValueFromFormattedSize("256K")
         );
     }
 }

@@ -29,7 +29,7 @@ require 'libraries/server_common.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . PMA_CommonFunctions::getInstance()->getImage('b_engine.png')
+   . PMA_Util::getImage('b_engine.png')
    . "\n" . __('Plugins') . "\n"
    . '</h2>' . "\n";
 
@@ -86,7 +86,7 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
             <caption class="tblHeaders">
                 <a class="top" href="#serverinfo"><?php
                     echo __('Begin');
-                    echo PMA_CommonFunctions::getInstance()->getImage('s_asc.png');
+                    echo PMA_Util::getImage('s_asc.png');
                     ?></a>
                 <?php echo htmlspecialchars($plugin_type); ?>
             </caption>

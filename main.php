@@ -568,7 +568,7 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
         echo '</a>' . "\n";
     }
     if (null !== $mysql_help_page) {
-        echo PMA_CommonFunctions::getInstance()->showMySQLDocu('', $mysql_help_page);
+        echo PMA_Util::showMySQLDocu('', $mysql_help_page);
     }
     echo '</li>';
 }

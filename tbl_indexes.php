@@ -206,7 +206,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
                 <label for="input_index_name">
                     <?php echo __('Index name:'); ?>
                     <?php
-echo PMA_CommonFunctions::getInstance()->showHint(
+echo PMA_Util::showHint(
     PMA_Message::notice(
         __(
             '("PRIMARY" <b>must</b> be the name of'

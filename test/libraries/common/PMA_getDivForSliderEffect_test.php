@@ -23,7 +23,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
+            PMA_Util::getDivForSliderEffect($id, $message),
             '<div id="' . $id . '" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
         );
     }
@@ -37,7 +37,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
+            PMA_Util::getDivForSliderEffect($id, $message),
             '<div id="' . $id . '" style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
         );
         
@@ -52,7 +52,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
+            PMA_Util::getDivForSliderEffect($id, $message),
             '<div id="' . $id . '">'
         );
     }

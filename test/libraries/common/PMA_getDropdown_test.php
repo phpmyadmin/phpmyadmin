@@ -25,7 +25,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $result,
-            PMA_CommonFunctions::getInstance()->getDropdown(
+            PMA_Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );
@@ -50,7 +50,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $result,
-            PMA_CommonFunctions::getInstance()->getDropdown(
+            PMA_Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );
@@ -75,7 +75,7 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $result,
-            PMA_CommonFunctions::getInstance()->getDropdown(
+            PMA_Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );

@@ -220,7 +220,7 @@ class ExportLatex extends ExportPlugin
         }
         $head .= $crlf
             . '% ' . __('Generation Time') . ': '
-            . PMA_CommonFunctions::getInstance()->localisedDate() . $crlf
+            . PMA_Util::localisedDate() . $crlf
             . '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
             . '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
@@ -560,7 +560,7 @@ class ExportLatex extends ExportPlugin
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
-                = PMA_CommonFunctions::getInstance()->extractColumnSpec(
+                = PMA_Util::extractColumnSpec(
                     $row['Type']
                 );
             $type = $extracted_columnspec['print_type'];

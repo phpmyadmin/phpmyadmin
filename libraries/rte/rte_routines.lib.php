@@ -51,7 +51,7 @@ function PMA_RTN_main()
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "'";
+    $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
     $items    = PMA_DBI_fetch_result(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
@@ -104,7 +104,7 @@ function PMA_RTN_parseOneParameter($value)
     if ($parsed_param[$pos]['type'] == 'alpha_identifier'
         || $parsed_param[$pos]['type'] == 'quote_backtick'
     ) {
-        $retval[1] = PMA_CommonFunctions::getInstance()->unQuote(
+        $retval[1] = PMA_Util::unQuote(
             $parsed_param[$pos]['data']
         );
         $pos++;
@@ -246,7 +246,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
         } else if ($fetching == true
             && $parsed_query[$i]['type'] == 'quote_backtick'
         ) {
-            $retval .= PMA_CommonFunctions::getInstance()->unQuote(
+            $retval .= PMA_Util::unQuote(
                 $parsed_query[$i]['data']
             );
         } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {

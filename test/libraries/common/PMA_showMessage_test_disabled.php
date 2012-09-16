@@ -63,9 +63,9 @@ class PMA_showMessage_test extends PHPUnit_Framework_TestCase
             ]</div></div>"
         );
 
-        echo PMA_CommonFunctions::getInstance()->getMessage("msg");
+        echo PMA_Util::getMessage("msg");
 
-        //$this->assertEquals("", PMA_CommonFunctions::getInstance()->getMessage("msg"));
+        //$this->assertEquals("", PMA_Util::getMessage("msg"));
         $this->assertTrue(true);
     }
 }

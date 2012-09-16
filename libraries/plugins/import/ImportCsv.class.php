@@ -124,7 +124,7 @@ class ImportCsv extends ImportPlugin
             $leaf->setName("columns");
             $leaf->setText(
                 __('Column names: ')
-                . PMA_CommonFunctions::getInstance()->showHint($hint)
+                . PMA_Util::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }

@@ -44,7 +44,7 @@ class PMA_getBrowseUploadFileBlock_test extends PHPUnit_Framework_TestCase
     function testBrowseUploadFile($size, $unit, $res)
     {
         $this->assertEquals(
-            PMA_CommonFunctions::getInstance()->getBrowseUploadFileBlock($size),
+            PMA_Util::getBrowseUploadFileBlock($size),
             '<label for="input_import_file">' . __("Browse your computer:") . '</label>'
             . '<div id="upload_form_status" style="display: none;"></div>'
             . '<div id="upload_form_status_info" style="display: none;"></div>'

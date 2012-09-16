@@ -109,7 +109,7 @@ function PMA_EVN_getFooterLinks()
     $retval .= "        </legend>\n";
     $retval .= "        <div class='wrap'>\n";
     // show the toggle button
-    $retval .= PMA_CommonFunctions::getInstance()->toggleButton(
+    $retval .= PMA_Util::toggleButton(
         "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
         'sql_query',
         $options,

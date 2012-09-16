@@ -186,7 +186,7 @@ class PMA_StorageEngine
                   . '    <td>' . "\n";
             if (! empty($details['desc'])) {
                 $ret .= '        '
-                    . PMA_CommonFunctions::getInstance()->showHint($details['desc'])
+                    . PMA_Util::showHint($details['desc'])
                     . "\n";
             }
             $ret .= '    </td>' . "\n"
@@ -199,7 +199,7 @@ class PMA_StorageEngine
                 unset($parsed_size);
                 break;
             case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
-                $ret .= PMA_CommonFunctions::getInstance()->formatNumber($details['value']) . ' ';
+                $ret .= PMA_Util::formatNumber($details['value']) . ' ';
                 break;
             default:
                 $ret .= htmlspecialchars($details['value']) . '   ';
@@ -232,7 +232,7 @@ class PMA_StorageEngine
      */
     function resolveTypeSize($value)
     {
-        return PMA_CommonFunctions::getInstance()->formatByteDown($value);
+        return PMA_Util::formatByteDown($value);
     }
 
     /**

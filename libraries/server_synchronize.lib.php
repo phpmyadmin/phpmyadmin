@@ -426,8 +426,8 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
  */
 function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $index, &$row_count)
 {
-    $query = "SELECT COUNT(*) FROM " . PMA_CommonFunctions::getInstance()->backquote($src_db) . "."
-        . PMA_CommonFunctions::getInstance()->backquote($source_tables_uncommon[$index]);
+    $query = "SELECT COUNT(*) FROM " . PMA_Util::backquote($src_db) . "."
+        . PMA_Util::backquote($source_tables_uncommon[$index]);
     $rows  = PMA_DBI_fetch_result($query, null, null, $src_link);
     $row_count[$index] = $rows[0];
 }

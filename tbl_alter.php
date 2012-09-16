@@ -177,7 +177,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $fields = array();
         foreach ($key_fields as $each_field) {
             if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
-                $fields[] = PMA_CommonFunctions::getInstance()->backquote($_REQUEST['field_name'][$each_field]);
+                $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$each_field]);
             }
         } // end for
         $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';

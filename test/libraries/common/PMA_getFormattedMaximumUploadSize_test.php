@@ -40,7 +40,7 @@ class PMA_getFormattedMaximumUploadSize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "(" . __('Max: '). $res . $unit .")",
-            PMA_CommonFunctions::getInstance()->getFormattedMaximumUploadSize($size)
+            PMA_Util::getFormattedMaximumUploadSize($size)
         );
 
     }

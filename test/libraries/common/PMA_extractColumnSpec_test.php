@@ -33,7 +33,7 @@ class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
     public function testParsing($in, $out)
     {
         $this->assertEquals(
-            $out, PMA_CommonFunctions::getInstance()->extractColumnSpec($in)
+            $out, PMA_Util::extractColumnSpec($in)
         );
     }
 

@@ -2797,7 +2797,7 @@ class PMA_DisplayResults
             ) {
 
                 $parsed_sql = PMA_SQP_parse($row[$i]);
-                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql(
+                $row[$i] = PMA_Util::formatSql(
                     $parsed_sql, $row[$i]
                 );
                 include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];

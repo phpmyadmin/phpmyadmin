@@ -606,7 +606,7 @@ class ExportSql extends ExportPlugin
         $head .=
             $this->_exportComment(
                 __('Generation Time') . ': '
-                .  PMA_CommonFunctions::getInstance()->localisedDate()
+                .  PMA_Util::localisedDate()
             )
             .  $this->_exportComment(
                 __('Server version') . ': ' . PMA_MYSQL_STR_VERSION
@@ -759,7 +759,7 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment(
                 __('Database') . ': '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_CommonFunctions::getInstance()->backquoteCompat($db, $compat)
+                ? PMA_Util::backquoteCompat($db, $compat)
                 : '\'' . $db . '\'')
             )
             . $this->_exportComment();

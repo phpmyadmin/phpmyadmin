@@ -35,7 +35,7 @@ $cfgRelation = PMA_getRelationsParam();
 // speedup view on locked tables
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if ($cfg['SkipLockedTables'] == true) {
-    $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ';');
+    $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';');
     // Blending out tables in use
     if ($result != false && PMA_DBI_num_rows($result) > 0) {
         while ($tmp = PMA_DBI_fetch_row($result)) {
@@ -47,11 +47,11 @@ if ($cfg['SkipLockedTables'] == true) {
         PMA_DBI_free_result($result);
 
         if (isset($sot_cache)) {
-            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
+            $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
             if ($result != false && PMA_DBI_num_rows($result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
-                        $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ' LIKE \'' . sqlAddSlashes($tmp[0], true) . '\';');
+                        $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db) . ' LIKE \'' . sqlAddSlashes($tmp[0], true) . '\';');
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
                         $tables[]    = $sts_tmp;
                     } else { // table in use
@@ -67,7 +67,7 @@ if ($cfg['SkipLockedTables'] == true) {
 }
 
 if (! isset($sot_ready)) {
-    $result      = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ';');
+    $result      = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db) . ';');
     if (PMA_DBI_num_rows($result) > 0) {
         while ($sts_tmp = PMA_DBI_fetch_assoc($result)) {
             $tables[] = $sts_tmp;

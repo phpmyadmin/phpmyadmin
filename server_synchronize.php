@@ -1317,7 +1317,7 @@ if (! isset($_REQUEST['submit_connect'])
     /**
     * Displays the sub-page heading
     */
-    echo '<h2>' . PMA_CommonFunctions::getInstance()->getImage('s_sync.png') . __('Synchronize') .'</h2>';
+    echo '<h2>' . PMA_Util::getImage('s_sync.png') . __('Synchronize') .'</h2>';
 
     echo  '<div id="serverstatus">
     <form name="connection_form" id="connection_form" method="post" action="server_synchronize.php"
@@ -1355,7 +1355,7 @@ if (! isset($_REQUEST['submit_connect'])
             $database_header = __('Target database');
         }
 
-        $database_header .= PMA_CommonFunctions::getInstance()->showHint(
+        $database_header .= PMA_Util::showHint(
             PMA_sanitize(
                 sprintf(
                     '%sAllowArbitraryServer%s',

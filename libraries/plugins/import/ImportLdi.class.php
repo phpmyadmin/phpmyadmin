@@ -153,7 +153,7 @@ class ImportLdi extends ImportPlugin
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PMA_CommonFunctions::getInstance()->whichCrlf() == "\n")
+                    = (PMA_Util::whichCrlf() == "\n")
                         ? '\n'
                         : '\r\n';
             }

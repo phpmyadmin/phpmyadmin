@@ -37,7 +37,7 @@ class PMA_generateHiddenMaxFileSize_test extends PHPUnit_Framework_TestCase
     function test_generateHiddenMaxFileSize($size)
     {
         $this->assertEquals(
-            PMA_CommonFunctions::getInstance()->generateHiddenMaxFileSize($size),
+            PMA_Util::generateHiddenMaxFileSize($size),
             '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '" />'
         );
     }

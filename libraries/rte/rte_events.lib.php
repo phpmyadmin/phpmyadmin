@@ -60,7 +60,7 @@ function PMA_EVN_main()
      * Display a list of available events
      */
     $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-    $where   = "EVENT_SCHEMA='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "'";
+    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
              . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
     $items   = PMA_DBI_fetch_result($query);

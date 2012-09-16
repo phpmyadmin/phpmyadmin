@@ -38,7 +38,7 @@ class PMA_getTitleForTarget_test extends PHPUnit_Framework_TestCase
     function testGetTitleForTarget($target, $result)
     {
         $this->assertEquals(
-            $result, PMA_CommonFunctions::getInstance()->getTitleForTarget($target)
+            $result, PMA_Util::getTitleForTarget($target)
         );
     }
 

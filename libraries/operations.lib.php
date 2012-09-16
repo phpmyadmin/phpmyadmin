@@ -70,7 +70,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<legend>';
 
     if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $html_output .= PMA_CommonFunctions::getInstance()->getImage('b_edit.png');
+        $html_output .= PMA_Util::getImage('b_edit.png');
     }
     $html_output .= __('Rename database to') . ':'
         . '</legend>';
@@ -239,7 +239,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
     if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $html_output .= PMA_CommonFunctions::getInstance()->getImage('s_asci.png');
+        $html_output .= PMA_Util::getImage('s_asci.png');
     }
     $html_output .= '<label for="select_db_collation">' . __('Collation')
         . ':</label>' . "\n"
@@ -274,7 +274,7 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
     $html_output = '<div class="operations_full_width">'
         . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $html_output .= PMA_CommonFunctions::getInstance()->getImage(
+        $html_output .= PMA_Util::getImage(
             'b_edit.png'
         );
     }
@@ -343,7 +343,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     }
 
     $local_query = 'CREATE DATABASE '
-        . PMA_CommonFunctions::getInstance()->backquote($_REQUEST['newname']);
+        . PMA_Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
         $local_query .= ' DEFAULT'
             . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
@@ -517,7 +517,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = PMA_DBI_fetch_result(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db, true) . '\';'
+        . PMA_Util::sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
@@ -792,7 +792,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
 
     //Storage engine
     $html_output .= '<tr><td>' . __('Storage Engine')
-        . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+        . PMA_Util::showMySQLDocu(
             'Storage_engines', 'Storage_engines'
         )
         . '</td>'
@@ -891,7 +891,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
         $html_output .= '<tr><td>'
             . '<label for="new_row_format">ROW_FORMAT</label></td>'
             . '<td>';
-        $html_output .= PMA_CommonFunctions::getInstance()->getDropdown(
+        $html_output .= PMA_Util::getDropdown(
             'new_row_format', $possible_row_formats[$tbl_storage_engine],
             $current_row_format, 'new_row_format'
         );
@@ -1015,7 +1015,7 @@ function PMA_getHtmlForCopytable()
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only'));
 
-    $html_output .= PMA_CommonFunctions::getInstance()->getRadioFields(
+    $html_output .= PMA_Util::getRadioFields(
         'what', $choices, 'data', true
     );
 
@@ -1220,7 +1220,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link,
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action
         . '</a>'
-        . PMA_CommonFunctions::getInstance()->showMySQLDocu($chapter, $link)
+        . PMA_Util::showMySQLDocu($chapter, $link)
         . '</li>';
 }
 
@@ -1282,7 +1282,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
             : ''
         ) . '>'
         . $link . '</a>'
-        . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+        . PMA_Util::showMySQLDocu(
             'SQL-Syntax', $syntax
         )
         . '</li>';

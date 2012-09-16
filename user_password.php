@@ -83,7 +83,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
             $response->addJSON('message', $change_password_message['msg']);
             $response->isSuccess(false);
         } else {
-            $sql_query = PMA_CommonFunctions::getInstance()->getMessage(
+            $sql_query = PMA_Util::getMessage(
                 $change_password_message['msg'],
                 $sql_query,
                 'success'
@@ -232,7 +232,7 @@ function PMA_changePassAuthType($_url_params, $password)
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-    echo PMA_CommonFunctions::getInstance()->getMessage(
+    echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
     echo '<a href="index.php'.PMA_generate_common_url($_url_params)

@@ -149,7 +149,7 @@ if (isset($zoom_submit)
             $tmpRow[] = $val;
         }
         //Get unique conditon on each row (will be needed for row update)
-        $uniqueCondition = PMA_CommonFunctions::getInstance()->getUniqueCondition(
+        $uniqueCondition = PMA_Util::getUniqueCondition(
             $result, count($table_search->getColumnNames()), $fields_meta, $tmpRow,
             true
         );

@@ -1114,7 +1114,7 @@ EOT;
 
         $html_output = '<ul id="topmenu2">';
         foreach ($this->_getSubTabs() as $tab) {
-            $html_output .= PMA_CommonFunctions::getInstance()->getHtmlTab($tab, $url_params);
+            $html_output .= PMA_Util::getHtmlTab($tab, $url_params);
         }
         $html_output .= '</ul>';
         $html_output .= '<div class="clearfloat"></div>';

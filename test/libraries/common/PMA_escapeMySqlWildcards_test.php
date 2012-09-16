@@ -37,7 +37,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     public function testEscape($a, $b)
     {
         $this->assertEquals(
-            $a, PMA_CommonFunctions::getInstance()->escapeMysqlWildcards($b)
+            $a, PMA_Util::escapeMysqlWildcards($b)
         );
     }
 
@@ -49,7 +49,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     public function testUnEscape($a, $b)
     {
         $this->assertEquals(
-            $b, PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($a)
+            $b, PMA_Util::unescapeMysqlWildcards($a)
         );
     }
 }

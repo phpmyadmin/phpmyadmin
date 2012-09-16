@@ -54,7 +54,7 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
     {
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
         $this->assertEquals(
-            $out, PMA_CommonFunctions::getInstance()->expandUserString($in)
+            $out, PMA_Util::expandUserString($in)
         );
     }
 
@@ -73,7 +73,7 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
         $this->assertEquals(
             htmlspecialchars($out),
-            PMA_CommonFunctions::getInstance()->expandUserString(
+            PMA_Util::expandUserString(
                 $in, 'htmlspecialchars'
             )
         );

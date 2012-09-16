@@ -27,7 +27,7 @@ require_once 'libraries/Index.class.php';
 /**
  * Check parameters
  */
-PMA_CommonFunctions::getInstance()->checkParameters(array('db'));
+PMA_Util::checkParameters(array('db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -125,8 +125,8 @@ foreach ($tables as $table) {
         // http://bugs.mysql.com/20910.
 
         $show_create_table_query = 'SHOW CREATE TABLE '
-            . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
-            . PMA_CommonFunctions::getInstance()->backquote($table);
+            . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table);
         $show_create_table = PMA_DBI_fetch_value(
             $show_create_table_query, 0, 1
         );
@@ -186,7 +186,7 @@ foreach ($tables as $table) {
             $row['Null'] = 'NO';
         }
         $extracted_columnspec
-            = PMA_CommonFunctions::getInstance()->extractColumnSpec($row['Type']);
+            = PMA_Util::extractColumnSpec($row['Type']);
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
@@ -285,6 +285,6 @@ foreach ($tables as $table) {
 /**
  * Displays the footer
  */
-echo PMA_CommonFunctions::getInstance()->getButton();
+echo PMA_Util::getButton();
 
 ?>

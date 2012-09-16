@@ -92,7 +92,7 @@ function PMA_TRI_handleEditor()
                         }
                     } else {
                         $message = PMA_Message::success(__('Trigger %1$s has been modified.'));
-                        $message->addParam(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']));
+                        $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
                         $sql_query = $drop_item . $item_query;
                     }
                 }
@@ -108,7 +108,7 @@ function PMA_TRI_handleEditor()
                     . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $message = PMA_Message::success(__('Trigger %1$s has been created.'));
-                    $message->addParam(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']));
+                    $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
                     $sql_query = $item_query;
                 }
             }
@@ -123,7 +123,7 @@ function PMA_TRI_handleEditor()
             $message->addString('</ul>');
         }
 
-        $output = PMA_CommonFunctions::getInstance()->getMessage($message, $sql_query);
+        $output = PMA_Util::getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
@@ -196,8 +196,8 @@ function PMA_TRI_handleEditor()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($db))
+                htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PMA_Util::backquote($db))
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
@@ -299,7 +299,7 @@ function PMA_TRI_getEditorForm($mode, $item)
                        . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
     $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
-    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "' ";
+    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_Util::sqlAddSlashes($db) . "' ";
     $query .= "AND `TABLE_TYPE`='BASE TABLE'";
     $tables = PMA_DBI_fetch_result($query);
 

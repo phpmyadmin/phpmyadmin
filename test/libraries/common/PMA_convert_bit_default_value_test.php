@@ -30,7 +30,7 @@ class PMA_ConvertBitDefaultValueTest extends PHPUnit_Framework_TestCase
     function testConvert_bit_default_value_test($bit, $val)
     {
         $this->assertEquals(
-            $val, PMA_CommonFunctions::getInstance()->convertBitDefaultValue($bit)
+            $val, PMA_Util::convertBitDefaultValue($bit)
         );
 
     }

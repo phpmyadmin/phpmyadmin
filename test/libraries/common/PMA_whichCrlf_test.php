@@ -31,11 +31,11 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 
             if (PMA_USR_OS == 'Win') {
                 $this->assertEquals(
-                    "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\r\n", PMA_Util::whichCrlf()
                 );
             } else {
                 $this->assertEquals(
-                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\n", PMA_Util::whichCrlf()
                 );
             }
 
@@ -46,7 +46,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
             if ($runkit) {
                 define('PMA_USR_OS', 'Linux');
                 $this->assertEquals(
-                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\n", PMA_Util::whichCrlf()
                 );
             }
 
@@ -56,7 +56,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
                 define('PMA_USR_OS', 'Win');
             }
             $this->assertEquals(
-                "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                "\r\n", PMA_Util::whichCrlf()
             );
 
         }
