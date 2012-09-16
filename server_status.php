@@ -440,6 +440,12 @@ $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
 $GLOBALS['js_include'][] = 'date.js';
 
+// temporarily load this here, to be able to follow via Firebug
+//
+$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'jquery/jquery.json-2.2.js';
+$GLOBALS['js_include'][] = 'server_status_monitor.js';
+
 /**
  * flush status variables if requested
  */
