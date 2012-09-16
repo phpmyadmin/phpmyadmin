@@ -40,7 +40,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             header('Content-Type: text/html; charset=UTF-8');
             $varValue = PMA_DBI_fetch_single_row(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";',
+                . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '";',
                 'NUM'
             );
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
@@ -48,7 +48,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             ) {
                 exit(
                     implode(
-                        ' ', $common_functions->formatByteDown($varValue[1], 3, 3)
+                        ' ', PMA_Util::formatByteDown($varValue[1], 3, 3)
                     )
                 );
             }
@@ -74,12 +74,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     'gb' => 3,
                     'gib' => 3
                 );
-                $value = floatval($matches[1]) * $common_functions->pow(
+                $value = floatval($matches[1]) * PMA_Util::pow(
                     1024,
                     $exp[strtolower($matches[3])]
                 );
             } else {
-                $value = $common_functions->sqlAddSlashes($value);
+                $value = PMA_Util::sqlAddSlashes($value);
             }
 
             if (! is_numeric($value)) {
@@ -95,7 +95,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 // Some values are rounded down etc.
                 $varValue = PMA_DBI_fetch_single_row(
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                    . $common_functions->sqlAddSlashes($_REQUEST['varName'])
+                    . PMA_Util::sqlAddSlashes($_REQUEST['varName'])
                     . '";', 'NUM'
                 );
                 $response->addJSON(
@@ -118,9 +118,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-$output = '<h2>' . $common_functions->getImage('s_vars.png')
+$output = '<h2>' . PMA_Util::getImage('s_vars.png')
     . '' . __('Server variables and settings') . "\n"
-    . $common_functions->showMySQLDocu(
+    . PMA_Util::showMySQLDocu(
         'server_system_variables', 'server_system_variables'
     )
     . '</h2>' . "\n";
@@ -170,7 +170,7 @@ foreach ($serverVars as $name => $value) {
 
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
-        $output .= $common_functions->showMySQLDocu(
+        $output .= PMA_Util::showMySQLDocu(
             $VARIABLE_DOC_LINKS[$name][1],
             $VARIABLE_DOC_LINKS[$name][1],
             false,
@@ -214,11 +214,11 @@ function formatVariable($name, $value)
             && $VARIABLE_DOC_LINKS[$name][3]=='byte'
         ) {
             return '<abbr title="'
-                . $common_functions->formatNumber($value, 0) . '">'
-                . implode(' ', $common_functions->formatByteDown($value, 3, 3))
+                . PMA_Util::formatNumber($value, 0) . '">'
+                . implode(' ', PMA_Util::formatByteDown($value, 3, 3))
                 . '</abbr>';
         } else {
-            return $common_functions->formatNumber($value, 0);
+            return PMA_Util::formatNumber($value, 0);
         }
     }
     return htmlspecialchars($value);

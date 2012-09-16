@@ -104,7 +104,7 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
         } else {
             $value = $formatted_size;
         }
-        return $common_functions->formatByteDown($value);
+        return PMA_Util::formatByteDown($value);
     }
 
     //--------------------

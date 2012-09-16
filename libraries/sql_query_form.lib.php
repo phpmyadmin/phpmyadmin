@@ -218,7 +218,7 @@ function PMA_sqlQueryFormInsert(
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = $common_functions->expandUserString(
+            $query = PMA_Util::expandUserString(
                 $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
             );
         }
@@ -242,12 +242,12 @@ function PMA_sqlQueryFormInsert(
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = $common_functions->expandUserString(
+            $query = PMA_Util::expandUserString(
                 $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
             );
         }
     }
-    $legend .= ': ' . $common_functions->showMySQLDocu('SQL-Syntax', 'SELECT');
+    $legend .= ': ' . PMA_Util::showMySQLDocu('SQL-Syntax', 'SELECT');
 
     if (count($fields_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
@@ -455,7 +455,7 @@ function PMA_sqlQueryFormUpload()
 
     if (!empty($GLOBALS['cfg']['UploadDir'])) {
         $files = PMA_getFileSelectOptions(
-            $common_functions->userDir($GLOBALS['cfg']['UploadDir']), $matcher,
+            PMA_Util::userDir($GLOBALS['cfg']['UploadDir']), $matcher,
             (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
             ? $local_import_file
             : ''
@@ -470,9 +470,9 @@ function PMA_sqlQueryFormUpload()
     echo __('Browse your computer:') . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';
-    echo $common_functions->getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
+    echo PMA_Util::getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
     // some browsers should respect this :)
-    echo $common_functions->generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
+    echo PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
     echo '</div>';
 
     if ($files === false) {

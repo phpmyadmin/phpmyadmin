@@ -19,7 +19,7 @@ if (isset($_REQUEST['field'])) {
 }
 
 // Check parameters
-$common_functions->checkParameters(array('db', 'table'));
+PMA_Util::checkParameters(array('db', 'table'));
 
 /**
  * Gets tables informations
@@ -59,7 +59,7 @@ if (isset($_REQUEST['move_columns'])
 
         // it is not, let's move it to index $i
         $data = $columns[$column];
-        $extracted_columnspec = $common_functions->extractColumnSpec($data['Type']);
+        $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
         if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
             $extracted_columnspec['attribute'] = $data['Extra'];
             unset($data['Extra']);
@@ -108,7 +108,7 @@ if (isset($_REQUEST['move_columns'])
         $response->isSuccess(false);
         exit;
     }
-    $move_query = 'ALTER TABLE ' . $common_functions->backquote($table) . ' ';
+    $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
     $result = PMA_DBI_try_query($move_query);
@@ -187,14 +187,14 @@ if (isset($_REQUEST['do_save_data'])) {
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     if (! PMA_DBI_select_db($db)) {
-        $common_functions->mysqlDie(
+        PMA_Util::mysqlDie(
             PMA_DBI_getError(),
-            'USE ' . $common_functions->backquote($db) . ';',
+            'USE ' . PMA_Util::backquote($db) . ';',
             '',
             $err_url
         );
     }
-    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($table) . ' ';
+    $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
     $sql_query .= ';';
     $result    = PMA_DBI_try_query($sql_query);
@@ -248,7 +248,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $response->addJSON('message', $message);
             $response->addJSON(
                 'sql_query',
-                $common_functions->getMessage(null, $sql_query)
+                PMA_Util::getMessage(null, $sql_query)
             );
             exit;
         }
@@ -256,7 +256,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $active_page = 'tbl_structure.php';
         include 'tbl_structure.php';
     } else {
-        $common_functions->mysqlDie('', '', '', $err_url, false);
+        PMA_Util::mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
@@ -275,7 +275,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if ($abort == false) {
     if (! isset($selected)) {
-        $common_functions->checkParameters(array('field'));
+        PMA_Util::checkParameters(array('field'));
         $selected[]   = $_REQUEST['field'];
         $selected_cnt = 1;
     } else { // from a multiple submit
@@ -306,7 +306,7 @@ if ($abort == false) {
     // in MySQL 4.0.25).
 
     $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table),
+        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
         0, 1
     );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));

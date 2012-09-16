@@ -173,9 +173,9 @@ function PMA_ChangePassUrlParamsAndSubmitQuery(
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
-        : $hashing_function . '(\'' . $common_functions->sqlAddSlashes($password) . '\')');
+        : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
-            or $common_functions->mysqlDie(
+            or PMA_Util::mysqlDie(
                 PMA_DBI_getError(), $sql_query, false, $err_url
             );
 }

@@ -52,7 +52,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
 <?php
     echo '<a target="frame_content" href="main.php?' . $query_url . '"'
         .' title="' . __('Home') . '">'
-        . $common_functions->getImage('b_home.png', __('Home'))
+        . PMA_Util::getImage('b_home.png', __('Home'))
         .'</a>' . "\n";
     // if we have chosen server
     if ($server != 0) {
@@ -61,7 +61,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
             echo '<a href="index.php?' . $query_url . '&amp;old_usr='
                 .urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . __('Log out') . '" >'
-                . $common_functions->getImage('s_loggoff.png', __('Log out'))
+                . PMA_Util::getImage('s_loggoff.png', __('Log out'))
                 .'</a>' . "\n";
         } // end if ($GLOBALS['cfg']['Server']['auth_type'] != 'config'
 
@@ -70,16 +70,16 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
         echo '<a href="' . $anchor . '&amp;no_js=true"'
             .' title="' . __('Query window') . '"';
         echo ' onclick="if (window.parent.open_querywindow()) return false;"';
-        echo '>' . $common_functions->getImage('b_selboard.png', __('Query window')) . '</a>' . "\n";
+        echo '>' . PMA_Util::getImage('b_selboard.png', __('Query window')) . '</a>' . "\n";
     } // end if ($server != 0)
 
     echo '    <a href="Documentation.html" target="documentation"'
         .' title="' . __('phpMyAdmin documentation') . '" >';
 
-    echo $common_functions->getImage('b_docs.png', __('phpMyAdmin documentation'));
+    echo PMA_Util::getImage('b_docs.png', __('phpMyAdmin documentation'));
     echo '</a>';
 
-    echo $common_functions->showMySQLDocu('', '', true) . "\n";
+    echo PMA_Util::showMySQLDocu('', '', true) . "\n";
 
     $params = array('uniqid' => uniqid());
     if (!empty($GLOBALS['db'])) {
@@ -87,7 +87,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     }
     echo '<a href="navigation.php?' . PMA_generate_common_url($params)
         . '" title="' . __('Reload navigation frame') . '" target="frame_navigation">';
-    echo $common_functions->getImage('s_reload.png', __('Reload navigation frame'));
+    echo PMA_Util::getImage('s_reload.png', __('Reload navigation frame'));
     echo '</a>';
 
 echo '</div>' . "\n";

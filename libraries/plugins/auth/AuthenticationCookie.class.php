@@ -390,11 +390,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
-            $common_functions->cacheUnset('is_create_db_priv', true);
-            $common_functions->cacheUnset('is_process_priv', true);
-            $common_functions->cacheUnset('is_reload_priv', true);
-            $common_functions->cacheUnset('db_to_create', true);
-            $common_functions->cacheUnset('dbs_where_create_table_allowed', true);
+            PMA_Util::cacheUnset('is_create_db_priv', true);
+            PMA_Util::cacheUnset('is_process_priv', true);
+            PMA_Util::cacheUnset('is_reload_priv', true);
+            PMA_Util::cacheUnset('db_to_create', true);
+            PMA_Util::cacheUnset('dbs_where_create_table_allowed', true);
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             exit;

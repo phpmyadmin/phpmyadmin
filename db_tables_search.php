@@ -12,7 +12,7 @@ require_once 'libraries/Util.class.php';
 $db = $_GET['db'];
 $table_term = $_GET['table'];
 $common_url_query = PMA_generate_common_url($GLOBALS['db']);
-$tables_full = $common_functions->getTableList($db);
+$tables_full = PMA_Util::getTableList($db);
 $tables_response = array();
 
 foreach ($tables_full as $key => $table) {
@@ -21,7 +21,7 @@ foreach ($tables_full as $key => $table) {
             . htmlspecialchars($link_title)
             . ': ' . htmlspecialchars($table['Comment'])
             . ' ('
-            . $common_functions->formatNumber($table['Rows'], 0)
+            . PMA_Util::formatNumber($table['Rows'], 0)
             . ' ' . __('Rows') . ')"' . ' id="quick_'
             . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
             . ' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?'
@@ -33,11 +33,11 @@ foreach ($tables_full as $key => $table) {
             'id' => 'icon_' . htmlspecialchars($table_db . '.' . $table['Name'])
         );
         if (PMA_Table::isView($table_db, $table['Name'])) {
-            $link .= $common_functions->getImage(
+            $link .= PMA_Util::getImage(
                 's_views.png', htmlspecialchars($link_title), $attr
             );
         } else {
-            $link .= $common_functions->getImage(
+            $link .= PMA_Util::getImage(
                 'b_browse.png', htmlspecialchars($link_title), $attr
             );
         }
@@ -48,12 +48,12 @@ foreach ($tables_full as $key => $table) {
                 . urlencode($table['Name']) . '&amp;pos=0';
         $link .= '<a href="' . $href . '" title="'
             . htmlspecialchars(
-                $common_functions->getTitleForTarget(
+                PMA_Util::getTitleForTarget(
                     $GLOBALS['cfg']['DefaultTabTable']
                 )
                 . ': ' . $table['Comment']
                 . ' (' .
-                $common_functions->formatNumber($table['Rows'], 0)
+                PMA_Util::formatNumber($table['Rows'], 0)
                 . ' ' . __('Rows') . ')'
             )
             . '" id="' . htmlspecialchars($table_db . '.' . $table['Name'])

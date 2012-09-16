@@ -71,10 +71,10 @@ function PMA_getExistingTranformationData($db)
     // Get the existing transformation details of the same database
     // from pma_column_info table
     $pma_transformation_sql = 'SELECT * FROM '
-        . $common_functions->backquote($cfgRelation['db']) . '.'
-        . $common_functions->backquote($cfgRelation['column_info'])
+        . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['column_info'])
         . ' WHERE `db_name` = \''
-        . $common_functions->sqlAddSlashes($db) . '\'';
+        . PMA_Util::sqlAddSlashes($db) . '\'';
 
     return PMA_DBI_try_query($pma_transformation_sql);
     
@@ -99,8 +99,8 @@ function PMA_getNewTransformationDataSql(
     
     // Need to store new transformation details for VIEW
     $new_transformations_sql = 'INSERT INTO '
-        . $common_functions->backquote($cfgRelation['db']) . '.'
-        . $common_functions->backquote($cfgRelation['column_info'])
+        . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['column_info'])
         . ' (`db_name`, `table_name`, `column_name`, `comment`, '
         . '`mimetype`, `transformation`, `transformation_options`)'
         . ' VALUES ';
@@ -132,7 +132,7 @@ function PMA_getNewTransformationDataSql(
                     . '\'' . $data_row['mimetype'] . '\', '
                     . '\'' . $data_row['transformation'] . '\', '
                     . '\''
-                    . $common_functions->sqlAddSlashes(
+                    . PMA_Util::sqlAddSlashes(
                         $data_row['transformation_options']
                     )
                     . '\')';

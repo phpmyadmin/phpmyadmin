@@ -62,16 +62,16 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         $sql_query = '';
         foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
             if ($sql_query == '') {
-                $sql_query .= 'SELECT ' . $common_functions->backquote($sval);
+                $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
             } else {
-                $sql_query .=  ', ' . $common_functions->backquote($sval);
+                $sql_query .=  ', ' . PMA_Util::backquote($sval);
             }
         }
 
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
-        $sql_query .= ' FROM ' . $common_functions->backquote($db)
-        . '.' . $common_functions->backquote($table);
+        $sql_query .= ' FROM ' . PMA_Util::backquote($db)
+        . '.' . PMA_Util::backquote($table);
         include 'sql.php';
         exit;
     } else {
@@ -141,8 +141,8 @@ $fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
 $show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
-    . $common_functions->backquote($table),
+    'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+    . PMA_Util::backquote($table),
     0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -228,7 +228,7 @@ foreach ($fields as $row) {
     $columns_list[]   = $row['Field'];
 
     $type             = $row['Type'];
-    $extracted_columnspec = $common_functions->extractColumnSpec($row['Type']);
+    $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
 
     if ('set' == $extracted_columnspec['type']
         || 'enum' == $extracted_columnspec['type']

@@ -126,7 +126,7 @@ if (! empty($disp_message)) {
     if (! isset($disp_query)) {
         $disp_query     = null;
     }
-    $response->addHTML($common_functions->getMessage($disp_message, $disp_query));
+    $response->addHTML(PMA_Util::getMessage($disp_message, $disp_query));
 }
 
 /**
@@ -134,7 +134,7 @@ if (! empty($disp_message)) {
  * @todo should be handled by class Table
  */
 $show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table),
+    'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
     0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -212,7 +212,7 @@ if ($is_upload) {
 $html_output .= '>';
 $html_output .= PMA_generate_common_hidden_inputs($_form_params);
 
-$titles['Browse'] = $common_functions->getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -262,7 +262,7 @@ foreach ($rows as $row_id => $current_row) {
         }
         
         $extracted_columnspec
-            = $common_functions->extractColumnSpec($column['Type']);
+            = PMA_Util::extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
             $column['len'] = PMA_DBI_field_len($current_result, $i);
@@ -301,7 +301,7 @@ foreach ($rows as $row_id => $current_row) {
         } //End if
 
         // Get a list of GIS data types.
-        $gis_data_types = $common_functions->getGISDatatypes();
+        $gis_data_types = PMA_Util::getGISDatatypes();
 
         // Prepares the field value
         $real_null_value = false;
@@ -327,7 +327,7 @@ foreach ($rows as $row_id => $current_row) {
         $tabindex = $idindex;
 
         // Get a list of data types that are not yet supported.
-        $no_support_types = $common_functions->unsupportedDatatypes();
+        $no_support_types = PMA_Util::unsupportedDatatypes();
 
         // The function column
         // -------------------
@@ -395,7 +395,7 @@ $html_output .= PMA_getActionsPanel(
 
 if ($biggest_max_file_size > 0) {
     $html_output .= '        '
-        . $common_functions->generateHiddenMaxFileSize(
+        . PMA_Util::generateHiddenMaxFileSize(
             $biggest_max_file_size
         ) . "\n";
 }

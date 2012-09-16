@@ -60,7 +60,7 @@ if ($multi_tables) {
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
-                  . $common_functions->backquote($table);
+                  . PMA_Util::backquote($table);
     }
     echo '<strong>'.  __('Showing tables') . ': '
         . htmlspecialchars($tbl_list) . '</strong>' . "\n";
@@ -101,7 +101,7 @@ foreach ($the_tables as $key => $table) {
     // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
     $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
+        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
         . PMA_CommonFunctions::getInstance()->backquote($table),
         0, 1
     );
@@ -142,7 +142,7 @@ foreach ($the_tables as $key => $table) {
     echo '</thead>';
     echo '<tbody>';
     foreach ($columns as $row) {
-        $extracted_columnspec = $common_functions->extractColumnSpec($row['Type']);
+        $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
         $type             = $extracted_columnspec['print_type'];
         $attribute     = $extracted_columnspec['attribute'];
 
@@ -244,22 +244,22 @@ foreach ($the_tables as $key => $table) {
 
                 $mergetable = PMA_Table::isMerge($db, $table);
 
-                list($data_size, $data_unit) = $common_functions->formatByteDown(
+                list($data_size, $data_unit) = PMA_Util::formatByteDown(
                     $showtable['Data_length']
                 );
                 if ($mergetable == false) {
                     list($index_size, $index_unit)
-                        = $common_functions->formatByteDown(
+                        = PMA_Util::formatByteDown(
                             $showtable['Index_length']
                         );
                 }
                 if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
                     list($free_size, $free_unit)
-                        = $common_functions->formatByteDown(
+                        = PMA_Util::formatByteDown(
                             $showtable['Data_free']
                         );
                     list($effect_size, $effect_unit)
-                        = $common_functions->formatByteDown(
+                        = PMA_Util::formatByteDown(
                             $showtable['Data_length'] + $showtable['Index_length']
                             - $showtable['Data_free']
                         );
@@ -267,16 +267,16 @@ foreach ($the_tables as $key => $table) {
                     unset($free_size);
                     unset($free_unit);
                     list($effect_size, $effect_unit)
-                        = $common_functions->formatByteDown(
+                        = PMA_Util::formatByteDown(
                             $showtable['Data_length'] + $showtable['Index_length']
                         );
                 }
-                list($tot_size, $tot_unit) = $common_functions->formatByteDown(
+                list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
                     $showtable['Data_length'] + $showtable['Index_length']
                 );
                 if ($num_rows > 0) {
                     list($avg_size, $avg_unit)
-                        = $common_functions->formatByteDown(
+                        = PMA_Util::formatByteDown(
                             ($showtable['Data_length'] + $showtable['Index_length'])
                             / $showtable['Rows'],
                             6,
@@ -364,7 +364,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Rows') . '</td>';
                     echo '<td class="right">';
-                    echo $common_functions->formatNumber($showtable['Rows'], 0);
+                    echo PMA_Util::formatNumber($showtable['Rows'], 0);
                     echo '</td>';
                     echo '</tr>';
                 }
@@ -375,7 +375,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Row length') . '&nbsp;&oslash;</td>';
                     echo '<td>';
-                    echo $common_functions->formatNumber(
+                    echo PMA_Util::formatNumber(
                         $showtable['Avg_row_length'], 0
                     );
                     echo '</td>';
@@ -398,7 +398,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Next autoindex'). ' </td>';
                     echo '<td class="right">';
-                    echo $common_functions->formatNumber(
+                    echo PMA_Util::formatNumber(
                         $showtable['Auto_increment'], 0
                     );
                     echo '</td>';
@@ -409,7 +409,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Creation') . '</td>';
                     echo '<td class="right">';
-                    echo $common_functions->localisedDate(
+                    echo PMA_Util::localisedDate(
                         strtotime($showtable['Create_time'])
                     );
                     echo '</td>';
@@ -420,7 +420,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Last update') . '</td>';
                     echo '<td class="right">';
-                    echo $common_functions->localisedDate(
+                    echo PMA_Util::localisedDate(
                         strtotime($showtable['Update_time'])
                     );
                     echo '</td>';
@@ -431,7 +431,7 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Last check') . '</td>';
                     echo '<td class="right">';
-                    echo $common_functions->localisedDate(
+                    echo PMA_Util::localisedDate(
                         strtotime($showtable['Check_time'])
                     );
                     echo '</td>';
@@ -457,7 +457,7 @@ foreach ($the_tables as $key => $table) {
 /**
  * Displays the footer
  */
-echo $common_functions->getButton();
+echo PMA_Util::getButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 ?>

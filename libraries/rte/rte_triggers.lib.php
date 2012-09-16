@@ -406,15 +406,15 @@ function PMA_TRI_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . $common_functions->backquote($arr[0]);
-            $query .= '@' . $common_functions->backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
+            $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
     }
     $query .= 'TRIGGER ';
     if (! empty($_REQUEST['item_name'])) {
-        $query .= $common_functions->backquote($_REQUEST['item_name']) . ' ';
+        $query .= PMA_Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
         $errors[] = __('You must provide a trigger name');
     }
@@ -430,7 +430,7 @@ function PMA_TRI_getQueryFromRequest()
     }
     $query .= 'ON ';
     if (! empty($_REQUEST['item_table']) && in_array($_REQUEST['item_table'], PMA_DBI_get_tables($db))) {
-        $query .= $common_functions->backquote($_REQUEST['item_table']);
+        $query .= PMA_Util::backquote($_REQUEST['item_table']);
     } else {
         $errors[] = __('You must provide a valid table name');
     }

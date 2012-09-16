@@ -1198,7 +1198,7 @@ function PMA_SQP_analyze($arr)
             case 'quote_backtick':
             case 'quote_double':
             case 'quote_single':
-                $identifier = $common_functions->unQuote($arr[$i]['data']);
+                $identifier = PMA_Util::unQuote($arr[$i]['data']);
                 break;
             } // end switch
 
@@ -2007,7 +2007,7 @@ function PMA_SQP_analyze($arr)
 
             if ($arr[$i]['type'] == 'quote_backtick') {
                 // remove backquotes
-                $identifier = $common_functions->unQuote($arr[$i]['data']);
+                $identifier = PMA_Util::unQuote($arr[$i]['data']);
             } else {
                 $identifier = $arr[$i]['data'];
             }
@@ -2354,7 +2354,7 @@ function PMA_SQP_formatHtml(
             if ($docu && isset($PMA_SQPdata_operators_docs[$arr[$i]['data']])
                 && ($arr[$i]['data'] != '*' || in_array($arr[$i]['type'], array('digit_integer','digit_float','digit_hex')))
             ) {
-                $before .= $common_functions->showMySQLDocu(
+                $before .= PMA_Util::showMySQLDocu(
                     'functions',
                     $PMA_SQPdata_operators_docs[$arr[$i]['data']]['link'],
                     false,
@@ -2405,7 +2405,7 @@ function PMA_SQP_formatHtml(
                 case 'bit':
                 case 'boolean':
                 case 'serial':
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'data-types',
                         'numeric-types',
                         false,
@@ -2419,7 +2419,7 @@ function PMA_SQP_formatHtml(
                 case 'timestamp':
                 case 'time':
                 case 'year':
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'data-types',
                         'date-and-time-types',
                         false,
@@ -2442,7 +2442,7 @@ function PMA_SQP_formatHtml(
                 case 'longblob':
                 case 'enum':
                 case 'set':
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'data-types',
                         'string-types',
                         false,
@@ -2496,7 +2496,7 @@ function PMA_SQP_formatHtml(
         case 'alpha_functionName':
             $funcname = strtoupper($arr[$i]['data']);
             if ($docu && isset($PMA_SQPdata_functions_docs[$funcname])) {
-                $before .= $common_functions->showMySQLDocu(
+                $before .= PMA_Util::showMySQLDocu(
                     'functions',
                     $PMA_SQPdata_functions_docs[$funcname]['link'],
                     false,
@@ -2581,7 +2581,7 @@ function PMA_SQP_formatHtml(
                     case 'SERVER':
                     case 'DATABASE':
                     case 'VIEW':
-                        $before .= $common_functions->showMySQLDocu(
+                        $before .= PMA_Util::showMySQLDocu(
                             'SQL-Syntax',
                             $arr[$i]['data'] . '_' . $arr[$i + 1]['data'],
                             false,
@@ -2594,7 +2594,7 @@ function PMA_SQP_formatHtml(
                     if ($arr[$i + 1]['data'] == 'LOGFILE'
                         && $arr[$i + 2]['data'] == 'GROUP'
                     ) {
-                        $before .= $common_functions->showMySQLDocu(
+                        $before .= PMA_Util::showMySQLDocu(
                             'SQL-Syntax',
                             $arr[$i]['data'] . '_LOGFILE_GROUP',
                             false,
@@ -2627,7 +2627,7 @@ function PMA_SQP_formatHtml(
                 break;
             case 'SET':
                 if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         $arr[$i]['data'],
                         false,
@@ -2647,7 +2647,7 @@ function PMA_SQP_formatHtml(
             case 'SHOW':
             case 'UPDATE':
                 if ($docu) {
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         $arr[$i]['data'],
                         false,
@@ -2664,7 +2664,7 @@ function PMA_SQP_formatHtml(
             case 'INSERT':
             case 'REPLACE':
                 if ($docu) {
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         $arr[$i]['data'],
                         false,
@@ -2684,7 +2684,7 @@ function PMA_SQP_formatHtml(
                 break;
             case 'SELECT':
                 if ($docu) {
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         'SELECT',
                         false,
@@ -2700,7 +2700,7 @@ function PMA_SQP_formatHtml(
             case 'DO':
             case 'HANDLER':
                 if ($docu) {
-                    $before .= $common_functions->showMySQLDocu(
+                    $before .= PMA_Util::showMySQLDocu(
                         'SQL-Syntax',
                         $arr[$i]['data'],
                         false,
@@ -2737,7 +2737,7 @@ function PMA_SQP_formatHtml(
                             . $arr[$i + 1]['data'] . '_'
                             . $arr[$i + 2]['data']
                         );
-                        $before .= $common_functions->showMySQLDocu(
+                        $before .= PMA_Util::showMySQLDocu(
                             'functions',
                             $PMA_SQPdata_functions_docs[$tempname]['link'],
                             false,
@@ -2754,7 +2754,7 @@ function PMA_SQP_formatHtml(
                         $tempname = strtoupper(
                             $arr[$i]['data'] . '_' . $arr[$i + 1]['data']
                         );
-                        $before .= $common_functions->showMySQLDocu(
+                        $before .= PMA_Util::showMySQLDocu(
                             'functions',
                             $PMA_SQPdata_functions_docs[$tempname]['link'],
                             false,
@@ -2763,7 +2763,7 @@ function PMA_SQP_formatHtml(
                         );
                         $close_docu_link = true;
                     } else {
-                        $before .= $common_functions->showMySQLDocu(
+                        $before .= PMA_Util::showMySQLDocu(
                             'functions',
                             $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'],
                             false,

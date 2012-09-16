@@ -178,7 +178,7 @@ if (! $GLOBALS['server']) {
     }
 
     $_url_params = array('pos' => $pos);
-    echo $common_functions->getListNavigator(
+    echo PMA_Util::getListNavigator(
         count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php',
         'frame_navigation', $GLOBALS['cfg']['MaxDbList']
     );
@@ -197,8 +197,8 @@ if (! $GLOBALS['server']) {
 //    or $GLOBALS['cfg']['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 
-$img_plus = $common_functions->getImage('b_plus.png', '+', array('id' => 'el%dImg'));
-$img_minus = $common_functions->getImage('b_minus.png', '-', array('id' => 'el%dImg'));
+$img_plus = PMA_Util::getImage('b_plus.png', '+', array('id' => 'el%dImg'));
+$img_minus = PMA_Util::getImage('b_minus.png', '-', array('id' => 'el%dImg'));
 
 $href_left = '<a onclick="if (toggle(\'%d\')) return false;"'
     .' href="navigation.php?%s" target="_self">';
@@ -207,7 +207,7 @@ $element_counter = 0;
 
 
 if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
-    $table_list = $common_functions->getTableList(
+    $table_list = PMA_Util::getTableList(
         $GLOBALS['db'],
         null,
         $tpos,
@@ -261,7 +261,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
               'pos' => $tpos,
               'db' => $GLOBALS['db']
             );
-            echo $common_functions->getListNavigator(
+            echo PMA_Util::getListNavigator(
                 $table_count, $tpos, $_url_params, 'navigation.php',
                 'frame_navigation', $GLOBALS['cfg']['MaxTableList']
             );
@@ -271,7 +271,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList']
             && $table_count > $GLOBALS['cfg']['MaxTableList']
         ) {
-            echo $common_functions->getListNavigator(
+            echo PMA_Util::getListNavigator(
                 $table_count, $tpos, $_url_params, 'navigation.php',
                 'frame_navigation', $GLOBALS['cfg']['MaxTableList']
             );
@@ -286,7 +286,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         echo '<ul id="newtable"><li><a target="frame_content" href="tbl_create.php'
             . PMA_generate_common_url(array('db' => $GLOBALS['db']))
             . '"  class="'.$class .'" >'
-            . $common_functions->getImage(
+            . PMA_Util::getImage(
                 'b_snewtbl.png',
                 _pgettext('short form', 'Create table'),
                 array('id' => "icon_newtable")
@@ -302,7 +302,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
-    echo $common_functions->getListNavigator(
+    echo PMA_Util::getListNavigator(
         count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php',
         'frame_navigation', $GLOBALS['cfg']['MaxDbList']
     );
@@ -467,7 +467,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                 || $db['num_tables']
             ) {
                 if (isset($tables_full[$db['name']])) {
-                    $tables = $common_functions->getTableList(
+                    $tables = PMA_Util::getTableList(
                         $db['name'],
                         $tables_full[$db['name']]
                     );
@@ -478,12 +478,12 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                     // but information_schema.TABLES gives `test`
                     // bug #1436171
                     // sf.net/tracker/?func=detail&aid=1436171&group_id=23067&atid=377408
-                    $tables = $common_functions->getTableList(
+                    $tables = PMA_Util::getTableList(
                         $db['name'],
                         $tables_full[strtolower($db['name'])]
                     );
                 } else {
-                    $tables = $common_functions->getTableList($db['name']);
+                    $tables = PMA_Util::getTableList($db['name']);
                 }
                 $child_visible
                     = (bool) (count($GLOBALS['pma']->databases) === 1 || $db_start == $db['name']);
@@ -616,7 +616,7 @@ function PMA_displayTableList(
                     }
                 }
             }
-            $link_title = $common_functions->getTitleForTarget(
+            $link_title = PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['LeftDefaultTabTable']
             );
             // quick access icon next to each table name
@@ -625,7 +625,7 @@ function PMA_displayTableList(
                 . htmlspecialchars($link_title)
                 . ': ' . htmlspecialchars($table['Comment'])
                 .' ('
-                . $common_functions->formatNumber($table['Rows'], 0)
+                . PMA_Util::formatNumber($table['Rows'], 0)
                 . ' ' . __('Rows') . ')"'
                 .' id="quick_' . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
                 .' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?'
@@ -637,13 +637,13 @@ function PMA_displayTableList(
                 'id' => 'icon_' . htmlspecialchars($table_db . '.' . $table['Name'])
             );
             if (PMA_Table::isView($table_db, $table['Name'])) {
-                echo $common_functions->getImage(
+                echo PMA_Util::getImage(
                     's_views.png',
                     htmlspecialchars($link_title),
                     $attr
                 );
             } else {
-                echo $common_functions->getImage(
+                echo PMA_Util::getImage(
                     'b_browse.png',
                     htmlspecialchars($link_title),
                     $attr
@@ -657,12 +657,12 @@ function PMA_displayTableList(
                 .urlencode($table['Name']) . '&amp;pos=0';
             echo '<a target="frame_content" href="' . $href . '" title="'
                 . htmlspecialchars(
-                    $common_functions->getTitleForTarget(
+                    PMA_Util::getTitleForTarget(
                         $GLOBALS['cfg']['DefaultTabTable']
                     )
                     . ': ' . $table['Comment']
                     .' ('
-                    . $common_functions->formatNumber(
+                    . PMA_Util::formatNumber(
                         $table['Rows'], 0
                     )
                     . ' ' . __('Rows') . ')'

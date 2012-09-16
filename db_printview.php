@@ -14,7 +14,7 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
-$common_functions->checkParameters(array('db'));
+PMA_Util::checkParameters(array('db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -132,9 +132,9 @@ if ($num_tables == 0) {
     <td class="right">
             <?php
             if ($merged_size) {
-                echo '<i>' . $common_functions->formatNumber($sts_data['TABLE_ROWS'], 0) . '</i>' . "\n";
+                echo '<i>' . PMA_Util::formatNumber($sts_data['TABLE_ROWS'], 0) . '</i>' . "\n";
             } else {
-                echo $common_functions->formatNumber($sts_data['TABLE_ROWS'], 0) . "\n";
+                echo PMA_Util::formatNumber($sts_data['TABLE_ROWS'], 0) . "\n";
             }
             ?>
     </td>
@@ -146,7 +146,7 @@ if ($num_tables == 0) {
                 $tblsize =  $sts_data['Data_length'] + $sts_data['Index_length'];
                 $sum_size += $tblsize;
                 list($formated_size, $unit)
-                    =  $common_functions->formatByteDown($tblsize, 3, 1);
+                    =  PMA_Util::formatByteDown($tblsize, 3, 1);
                 ?>
     <td class="right nowrap">
         <?php echo $formated_size . ' ' . $unit; ?>
@@ -183,7 +183,7 @@ if ($num_tables == 0) {
                 ?>
                 <tr>
                     <td class="right"><?php echo __('Creation') . ': '; ?></td>
-                    <td class="right"><?php echo $common_functions->localisedDate(strtotime($sts_data['Create_time'])); ?></td>
+                    <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -192,7 +192,7 @@ if ($num_tables == 0) {
                 ?>
                 <tr>
                     <td class="right"><?php echo __('Last update') . ': '; ?></td>
-                    <td class="right"><?php echo $common_functions->localisedDate(strtotime($sts_data['Update_time'])); ?></td>
+                    <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -201,7 +201,7 @@ if ($num_tables == 0) {
                 ?>
                 <tr>
                     <td class="right"><?php echo __('Last check') . ': '; ?></td>
-                    <td class="right"><?php echo $common_functions->localisedDate(strtotime($sts_data['Check_time'])); ?></td>
+                    <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                 </tr>
                 <?php
             }
@@ -217,10 +217,10 @@ if ($num_tables == 0) {
     ?>
 <tr>
     <th class="center">
-        <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), $common_functions->formatNumber($num_tables, 0)); ?>
+        <?php echo sprintf(_ngettext('%s table', '%s tables', $num_tables), PMA_Util::formatNumber($num_tables, 0)); ?>
     </th>
     <th class="right nowrap">
-        <?php echo $common_functions->formatNumber($sum_entries, 0); ?>
+        <?php echo PMA_Util::formatNumber($sum_entries, 0); ?>
     </th>
     <th class="center">
         --
@@ -228,7 +228,7 @@ if ($num_tables == 0) {
     <?php
     if ($cfg['ShowStats']) {
         list($sum_formated, $unit)
-            = $common_functions->formatByteDown($sum_size, 3, 1);
+            = PMA_Util::formatByteDown($sum_size, 3, 1);
         ?>
     <th class="right nowrap">
         <?php echo $sum_formated . ' ' . $unit; ?>
@@ -246,7 +246,7 @@ if ($num_tables == 0) {
 /**
  * Displays the footer
  */
-echo $common_functions->getButton();
+echo PMA_Util::getButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 ?>

@@ -404,13 +404,13 @@ function PMA_DBI_get_tables_full($database, $table = false,
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                  . $common_functions->escapeMysqlWildcards($common_functions->sqlAddSlashes($table)) . '%\'';
+                  . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table)) . '%\'';
             } elseif ('comment' === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
-                  . $common_functions->escapeMysqlWildcards($common_functions->sqlAddSlashes($table)) . '%\'';
+                  . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table)) . '%\'';
             } else {
                 $sql_where_table = 'AND t.`TABLE_NAME` = \''
-                    . $common_functions->sqlAddSlashes($table) . '\'';
+                    . PMA_Util::sqlAddSlashes($table) . '\'';
             }
         } else {
             $sql_where_table = '';
@@ -426,7 +426,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
         $this_databases = array_map('sqlAddSlashes', $databases);
 
         if (PMA_DRIZZLE) {
-            $engine_info = $common_functions->cacheGet('drizzle_engines', true);
+            $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
             $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
             if (isset($engine_info['InnoDB'])
                 && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -549,13 +549,13 @@ function PMA_DBI_get_tables_full($database, $table = false,
         foreach ($databases as $each_database) {
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
-                    . $common_functions->backquote($each_database)
+                    . PMA_Util::backquote($each_database)
                     .' LIKE \''
-                    . $common_functions->escapeMysqlWildcards($common_functions->sqlAddSlashes($table, true))
+                    . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table, true))
                     . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
-                    . $common_functions->backquote($each_database);
+                    . PMA_Util::backquote($each_database);
             }
 
             $useStatusCache = false;
@@ -817,7 +817,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
         // get table information from information_schema
         if ($database) {
             $sql_where_schema = 'WHERE `SCHEMA_NAME` LIKE \''
-                . $common_functions->sqlAddSlashes($database) . '\'';
+                . PMA_Util::sqlAddSlashes($database) . '\'';
         } else {
             $sql_where_schema = '';
         }
@@ -838,7 +838,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             $sql .= '
                    FROM data_dictionary.SCHEMAS s';
             if ($force_stats) {
-                $engine_info = $common_functions->cacheGet('drizzle_engines', true);
+                $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
                 $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
                 if (isset($engine_info['InnoDB'])
                     && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -855,7 +855,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             }
             $sql .= $sql_where_schema . '
                     GROUP BY s.SCHEMA_NAME
-                    ORDER BY ' . $common_functions->backquote($sort_by) . ' ' . $sort_order
+                    ORDER BY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
                 . $limit;
         } else {
             $sql = 'SELECT
@@ -881,7 +881,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             }
             $sql .= $sql_where_schema . '
                     GROUP BY BINARY s.SCHEMA_NAME
-                    ORDER BY BINARY ' . $common_functions->backquote($sort_by) . ' ' . $sort_order
+                    ORDER BY BINARY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
                 . $limit;
         }
 
@@ -889,7 +889,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 
         $mysql_error = PMA_DBI_getError($link);
         if (! count($databases) && $GLOBALS['errno']) {
-            $common_functions->mysqlDie($mysql_error, $sql);
+            PMA_Util::mysqlDie($mysql_error, $sql);
         }
 
         // display only databases also in official database list
@@ -929,7 +929,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 
                 $res = PMA_DBI_query(
                     'SHOW TABLE STATUS FROM '
-                    . $common_functions->backquote($database_name) . ';'
+                    . PMA_Util::backquote($database_name) . ';'
                 );
 
                 while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -1004,19 +1004,19 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         // get columns information from information_schema
         if (null !== $database) {
             $sql_wheres[] = '`TABLE_SCHEMA` = \''
-                . $common_functions->sqlAddSlashes($database) . '\' ';
+                . PMA_Util::sqlAddSlashes($database) . '\' ';
         } else {
             $array_keys[] = 'TABLE_SCHEMA';
         }
         if (null !== $table) {
             $sql_wheres[] = '`TABLE_NAME` = \''
-                . $common_functions->sqlAddSlashes($table) . '\' ';
+                . PMA_Util::sqlAddSlashes($table) . '\' ';
         } else {
             $array_keys[] = 'TABLE_NAME';
         }
         if (null !== $column) {
             $sql_wheres[] = '`COLUMN_NAME` = \''
-                . $common_functions->sqlAddSlashes($column) . '\' ';
+                . PMA_Util::sqlAddSlashes($column) . '\' ';
         } else {
             $array_keys[] = 'COLUMN_NAME';
         }
@@ -1089,9 +1089,9 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         }
 
         $sql = 'SHOW FULL COLUMNS FROM '
-            . $common_functions->backquote($database) . '.' . $common_functions->backquote($table);
+            . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table);
         if (null !== $column) {
-            $sql .= " LIKE '" . $common_functions->sqlAddSlashes($column, true) . "'";
+            $sql .= " LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'";
         }
 
         $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
@@ -1206,15 +1206,15 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 NULL               AS `Privileges`,
                 column_comment     AS `Comment`" : '') . "
             FROM data_dictionary.columns
-            WHERE table_schema = '" . $common_functions->sqlAddSlashes($database) . "'
-                AND table_name = '" . $common_functions->sqlAddSlashes($table) . "'
+            WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
+                AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                 " . (($column != null) ? "
-                AND column_name = '" . $common_functions->sqlAddSlashes($column) . "'" : '');
+                AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
         // ORDER BY ordinal_position
     } else {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
-            FROM ' . $common_functions->backquote($database) . '.' . $common_functions->backquote($table)
-            . (($column != null) ? "LIKE '" . $common_functions->sqlAddSlashes($column, true) . "'" : '');
+            FROM ' . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
+            . (($column != null) ? "LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
     }
     return $sql;
 }
@@ -1262,8 +1262,8 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
                 FROM data_dictionary.indexes i
                     JOIN data_dictionary.index_parts p
                     USING (table_schema, table_name)
-                WHERE i.table_schema = '" . $common_functions->sqlAddSlashes($database) . "'
-                    AND i.table_name = '" . $common_functions->sqlAddSlashes($table) . "'
+                WHERE i.table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
+                    AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                     AND i.is_unique
                         AND NOT i.is_nullable";
             $fs = PMA_DBI_fetch_result($sql, 'index_name', null, $link);
@@ -1330,12 +1330,12 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
             FROM data_dictionary.index_parts ip
                 LEFT JOIN data_dictionary.indexes i
                 USING (table_schema, table_name, index_name)
-            WHERE table_schema = '" . $common_functions->sqlAddSlashes($database) . "'
-                AND table_name = '" . $common_functions->sqlAddSlashes($table) . "'
+            WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
+                AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
         ";
     } else {
-        $sql = 'SHOW INDEXES FROM ' . $common_functions->backquote($database) . '.'
-            . $common_functions->backquote($table);
+        $sql = 'SHOW INDEXES FROM ' . PMA_Util::backquote($database) . '.'
+            . PMA_Util::backquote($table);
     }
     if ($where) {
         $sql .= (PMA_DRIZZLE ? ' AND (' : ' WHERE (') . $where . ')';
@@ -1411,22 +1411,22 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
 {
 
     if (! defined('PMA_MYSQL_INT_VERSION')) {
-        if ($common_functions->cacheExists('PMA_MYSQL_INT_VERSION', true)) {
+        if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define(
                 'PMA_MYSQL_INT_VERSION',
-                $common_functions->cacheGet('PMA_MYSQL_INT_VERSION', true)
+                PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION', true)
             );
             define(
                 'PMA_MYSQL_MAJOR_VERSION',
-                $common_functions->cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
+                PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
             );
             define(
                 'PMA_MYSQL_STR_VERSION',
-                $common_functions->cacheGet('PMA_MYSQL_STR_VERSION', true)
+                PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION', true)
             );
             define(
                 'PMA_MYSQL_VERSION_COMMENT',
-                $common_functions->cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
+                PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
             );
         } else {
             $version = PMA_DBI_fetch_single_row(
@@ -1452,22 +1452,22 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 define('PMA_MYSQL_STR_VERSION', '5.00.15');
                 define('PMA_MYSQL_VERSION_COMMENT', '');
             }
-            $common_functions->cacheSet(
+            PMA_Util::cacheSet(
                 'PMA_MYSQL_INT_VERSION',
                 PMA_MYSQL_INT_VERSION,
                 true
             );
-            $common_functions->cacheSet(
+            PMA_Util::cacheSet(
                 'PMA_MYSQL_MAJOR_VERSION',
                 PMA_MYSQL_MAJOR_VERSION,
                 true
             );
-            $common_functions->cacheSet(
+            PMA_Util::cacheSet(
                 'PMA_MYSQL_STR_VERSION',
                 PMA_MYSQL_STR_VERSION,
                 true
             );
-            $common_functions->cacheSet(
+            PMA_Util::cacheSet(
                 'PMA_MYSQL_VERSION_COMMENT',
                 PMA_MYSQL_VERSION_COMMENT,
                 true
@@ -1483,7 +1483,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
             $set_collation_con_query = "SET collation_connection = '"
-                . $common_functions->sqlAddSlashes($GLOBALS['collation_connection']) . "';";
+                . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection']) . "';";
             PMA_DBI_query(
                 $set_collation_con_query,
                 $link,
@@ -1499,7 +1499,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     }
 
     // Cache plugin list for Drizzle
-    if (PMA_DRIZZLE && !$common_functions->cacheExists('drizzle_engines', true)) {
+    if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines', true)) {
         $sql = "SELECT p.plugin_name, m.module_library
             FROM data_dictionary.plugins p
                 JOIN data_dictionary.modules m USING (module_name)
@@ -1507,7 +1507,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                 AND p.is_active = 'YES'";
         $engines = PMA_DBI_fetch_result($sql, 'plugin_name', null, $link);
-        $common_functions->cacheSet('drizzle_engines', $engines, true);
+        PMA_Util::cacheSet('drizzle_engines', $engines, true);
     }
 }
 
@@ -1811,8 +1811,8 @@ function PMA_DBI_get_warnings($link = null)
 function PMA_isSuperuser()
 {
 
-    if ($common_functions->cacheExists('is_superuser', true)) {
-        return $common_functions->cacheGet('is_superuser', true);
+    if (PMA_Util::cacheExists('is_superuser', true)) {
+        return PMA_Util::cacheGet('is_superuser', true);
     }
 
     // when connection failed we don't have a $userlink
@@ -1832,12 +1832,12 @@ function PMA_isSuperuser()
                 PMA_DBI_QUERY_STORE
             );
         }
-        $common_functions->cacheSet('is_superuser', $r, true);
+        PMA_Util::cacheSet('is_superuser', $r, true);
     } else {
-        $common_functions->cacheSet('is_superuser', false, true);
+        PMA_Util::cacheSet('is_superuser', false, true);
     }
 
-    return $common_functions->cacheGet('is_superuser', true);
+    return PMA_Util::cacheGet('is_superuser', true);
 }
 
 /**
@@ -1884,8 +1884,8 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
         'VIEW'      => 'Create View'
     );
     $query = 'SHOW CREATE ' . $which . ' '
-        . $common_functions->backquote($db) . '.'
-        . $common_functions->backquote($name);
+        . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($name);
     return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
 }
 
@@ -1915,16 +1915,16 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
             . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
             . ', EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER'
             . ' FROM information_schema.TRIGGERS'
-            . ' WHERE TRIGGER_SCHEMA= \'' . $common_functions->sqlAddSlashes($db) . '\'';
+            . ' WHERE TRIGGER_SCHEMA= \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
         if (! empty($table)) {
             $query .= " AND EVENT_OBJECT_TABLE = '"
-                . $common_functions->sqlAddSlashes($table) . "';";
+                . PMA_Util::sqlAddSlashes($table) . "';";
         }
     } else {
-        $query = "SHOW TRIGGERS FROM " . $common_functions->backquote($db);
+        $query = "SHOW TRIGGERS FROM " . PMA_Util::backquote($db);
         if (! empty($table)) {
-            $query .= " LIKE '" . $common_functions->sqlAddSlashes($table, true) . "';";
+            $query .= " LIKE '" . PMA_Util::sqlAddSlashes($table, true) . "';";
         }
     }
 
@@ -1948,7 +1948,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $one_result['full_trigger_name'] = $common_functions->backquote(
+            $one_result['full_trigger_name'] = PMA_Util::backquote(
                 $trigger['TRIGGER_NAME']
             );
             $one_result['drop'] = 'DROP TRIGGER IF EXISTS '
@@ -1957,7 +1957,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
                 . $one_result['full_trigger_name'] . ' '
                 . $trigger['ACTION_TIMING']. ' '
                 . $trigger['EVENT_MANIPULATION']
-                . ' ON ' . $common_functions->backquote($trigger['EVENT_OBJECT_TABLE'])
+                . ' ON ' . PMA_Util::backquote($trigger['EVENT_OBJECT_TABLE'])
                 . "\n" . ' FOR EACH ROW '
                 . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
 

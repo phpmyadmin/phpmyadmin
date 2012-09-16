@@ -212,7 +212,7 @@ class ImportCsv extends ImportPlugin
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            $common_functions->mysqlDie($message->getMessage(), '', '', $err_url);
+            PMA_Util::mysqlDie($message->getMessage(), '', '', $err_url);
         }
 
         $buffer = '';
@@ -227,7 +227,7 @@ class ImportCsv extends ImportPlugin
                     $sql_template .= ' IGNORE';
                 }
             }
-            $sql_template .= ' INTO ' . $common_functions->backquote($table);
+            $sql_template .= ' INTO ' . PMA_Util::backquote($table);
 
             $tmp_fields = PMA_DBI_get_columns($db, $table);
 
@@ -263,7 +263,7 @@ class ImportCsv extends ImportPlugin
                         break;
                     }
                     $fields[] = $field;
-                    $sql_template .= $common_functions->backquote($val);
+                    $sql_template .= PMA_Util::backquote($val);
                 }
                 $sql_template .= ') ';
             }
@@ -495,7 +495,7 @@ class ImportCsv extends ImportPlugin
                                 $sql .= 'NULL';
                             } else {
                                 $sql .= '\''
-                                    . $common_functions->sqlAddSlashes($val)
+                                    . PMA_Util::sqlAddSlashes($val)
                                     . '\'';
                             }
 

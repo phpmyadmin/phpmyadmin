@@ -465,10 +465,10 @@ EOT;
             $parens_close = '';
         }
         $enum_where = '\''
-            . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
+            . PMA_Util::sqlAddSlashes($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {
             $enum_where .= ', \''
-                . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
+                . PMA_Util::sqlAddSlashes($criteriaValues[$e]) . '\'';
         }
 
         return ' ' . $func_type . ' ' . $parens_open
@@ -595,7 +595,7 @@ EOT;
                 // quote values one by one
                 $values = explode(',', $criteriaValues);
                 foreach ($values as &$value) {
-                    $value = $quot . $common_functions->sqlAddSlashes(trim($value))
+                    $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
@@ -609,7 +609,7 @@ EOT;
                 }
             } else {
                 $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                    . $common_functions->sqlAddSlashes($criteriaValues) . $quot;
+                    . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
             }
         } // end if
 

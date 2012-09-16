@@ -23,7 +23,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/insert_edit.lib.php';
 
 // Check parameters
-$common_functions->checkParameters(array('db', 'table', 'goto'));
+PMA_Util::checkParameters(array('db', 'table', 'goto'));
 
 PMA_DBI_select_db($GLOBALS['db']);
 
@@ -221,8 +221,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . $common_functions->backquote($GLOBALS['db'])
-                . '.' . $common_functions->backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['db'])
+                . '.' . PMA_Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -367,7 +367,7 @@ if ($response->isAjax()) {
     );
 
     $extra_data['sql_query']
-        = $common_functions->getMessage($message, $GLOBALS['display_query']);
+        = PMA_Util::getMessage($message, $GLOBALS['display_query']);
 
     $response = PMA_Response::getInstance();
     $response->isSuccess($message->isSuccess());

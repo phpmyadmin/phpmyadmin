@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/Util.class.php';
 
-$common_functions->checkParameters(array('db', 'table', 'action', 'num_fields'));
+PMA_Util::checkParameters(array('db', 'table', 'action', 'num_fields'));
 
 
 // Get available character sets and storage engines
@@ -86,8 +86,8 @@ $header_cells[] = __('Name');
 $header_cells[] = __('Type')
     . PMA_CommonFunctions::getInstance()->showMySQLDocu('SQL-Syntax', 'data-types');
 $header_cells[] = __('Length/Values')
-    . $common_functions->showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
-$header_cells[] = __('Default') . $common_functions->showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
+    . PMA_Util::showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
+$header_cells[] = __('Default') . PMA_Util::showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
 $header_cells[] = __('Collation');
 $header_cells[] = __('Attributes');
 $header_cells[] = __('Null');
@@ -114,7 +114,7 @@ $header_cells[] = __('Comments');
 
 if (isset($fields_meta)) {
     // for moving, load all available column names
-    $move_columns_sql_query    = 'SELECT * FROM ' . $common_functions->backquote($table);
+    $move_columns_sql_query    = 'SELECT * FROM ' . PMA_Util::backquote($table);
     $move_columns_sql_result = PMA_DBI_try_query($move_columns_sql_query);
     $move_columns = PMA_DBI_get_fields_meta($move_columns_sql_result);
     unset($move_columns_sql_query, $move_columns_sql_result);
@@ -142,7 +142,7 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $header_cells[] = __('MIME type');
     $header_cells[] = __('Browser transformation');
     $header_cells[] = __('Transformation options')
-        . $common_functions->showHint(
+        . PMA_Util::showHint(
             __(
                 'Please enter the values for transformation options using this'
                 . ' format: \'a\', 100, b,\'c\'...<br />If you ever need to put'
@@ -297,10 +297,10 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if (isset($row['Type'])) {
-        $extracted_columnspec = $common_functions->extractColumnSpec($row['Type']);
+        $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
         if ($extracted_columnspec['type'] == 'bit') {
             $row['Default']
-                = $common_functions->convertBitDefaultValue($row['Default']);
+                = PMA_Util::convertBitDefaultValue($row['Default']);
         }
     }
     // Cell index: If certain fields get left out, the counter shouldn't change.
@@ -361,7 +361,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     $type_upper = strtoupper($type);
 
     $content_cells[$i][$ci]
-        .= $common_functions->getSupportedDatatypes(true, $type_upper);
+        .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $content_cells[$i][$ci] .= '    </select>';
     $ci++;
 
@@ -416,7 +416,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     if ($type_upper == 'BIT') {
         $row['DefaultValue']
-            = $common_functions->convertBitDefaultValue($row['DefaultValue']);
+            = PMA_Util::convertBitDefaultValue($row['DefaultValue']);
     }
 
     $content_cells[$i][$ci] = '<select name="field_default_type[' . $i
@@ -614,7 +614,7 @@ for ($i = 0; $i < $num_fields; $i++) {
                 .'>'
                 . sprintf(
                     __('after %s'),
-                    $common_functions->backquote($move_columns[$mi]->name)
+                    PMA_Util::backquote($move_columns[$mi]->name)
                 )
                 . '</option>';
         }
@@ -757,7 +757,7 @@ if (is_array($content_cells) && is_array($header_cells)) {
 
     echo '<table id="table_columns" class="noclick">';
     echo '<caption class="tblHeaders">' . __('Structure')
-        . $common_functions->showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
+        . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
 
         ?>
 <tr>
@@ -831,7 +831,7 @@ if ($action == 'tbl_create.php') {
         <th><?php echo __('Table comments'); ?>:&nbsp;</th>
         <td width="25">&nbsp;</td>
         <th><?php echo __('Storage Engine'); ?>:
-            <?php echo $common_functions->showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
+            <?php echo PMA_Util::showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
         </th>
         <td width="25">&nbsp;</td>
         <th><?php echo __('Collation');?>:&nbsp;</th>
@@ -872,7 +872,7 @@ if ($action == 'tbl_create.php') {
         ?>
     <tr class="vtop">
         <th><?php echo __('PARTITION definition'); ?>:&nbsp;<?php
-            echo $common_functions->showMySQLDocu('Partitioning', 'Partitioning'); ?>
+            echo PMA_Util::showMySQLDocu('Partitioning', 'Partitioning'); ?>
         </th>
     </tr>
     <tr>

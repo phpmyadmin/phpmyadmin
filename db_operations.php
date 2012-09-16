@@ -122,7 +122,7 @@ if (strlen($db)
             PMA_relationsCleanupDatabase($db);
 
             // if someday the RENAME DATABASE reappears, do not DROP
-            $local_query = 'DROP DATABASE ' . $common_functions->backquote($db) . ';';
+            $local_query = 'DROP DATABASE ' . PMA_Util::backquote($db) . ';';
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
 
@@ -166,7 +166,7 @@ if (strlen($db)
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
-            $common_functions->getMessage(null, $sql_query)
+            PMA_Util::getMessage(null, $sql_query)
         );
         exit;
     }
@@ -200,7 +200,7 @@ if (empty($is_info)) {
     echo "\n";
 
     if (isset($message)) {
-        echo $common_functions->getMessage($message, $sql_query);
+        echo PMA_Util::getMessage($message, $sql_query);
         unset($message);
     }
 }
@@ -279,9 +279,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
          SELECT *
-           FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . $common_functions->backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\'';
+           FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['pdf_pages']) . '
+          WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
     $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*

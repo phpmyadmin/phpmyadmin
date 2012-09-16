@@ -91,7 +91,7 @@ if (isset($_GET['sql_query'])) {
 
 echo '<div class="exportoptions" id="header">';
 echo '<h2>';
-echo $common_functions->getImage('b_export.png', __('Export'));
+echo PMA_Util::getImage('b_export.png', __('Export'));
 if ($export_type == 'server') {
     echo __('Exporting databases from the current server');
 } elseif ($export_type == 'database') {
@@ -209,7 +209,7 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     echo '<label for="checkbox_quick_dump_onserver">';
     printf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars($common_functions->userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
     );
     echo '</label>';
     echo '</li>';
@@ -246,7 +246,7 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     echo '<label for="checkbox_dump_onserver">';
     printf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars($common_functions->userDir($cfg['SaveDir']))
+        htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
     );
     echo '</label>';
     echo '</li>';
@@ -288,7 +288,7 @@ $msg->addParam(
 );
 $msg->addParam('</a>', false);
 
-echo $common_functions->showHint($msg);
+echo PMA_Util::showHint($msg);
 echo '</label>';
 echo '<input type="text" name="filename_template" id="filename_template" ';
 echo ' value="';
@@ -432,7 +432,7 @@ if (function_exists('PMA_set_enc_form')) {
 
 echo '<div class="exportoptions" id="submit">';
 
-echo $common_functions->getExternalBug(
+echo PMA_Util::getExternalBug(
     __('SQL compatibility mode'), 'mysql', '50027', '14515'
 );
 

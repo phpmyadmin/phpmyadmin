@@ -146,8 +146,8 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if ($routine['ROUTINE_DEFINITION'] !== null
-        && $common_functions->currentUserHasPrivilege('ALTER ROUTINE', $db)
-        && $common_functions->currentUserHasPrivilege('CREATE ROUTINE', $db)
+        && PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)
+        && PMA_Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
     ) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_routines.php?'
@@ -162,7 +162,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if ($routine['ROUTINE_DEFINITION'] !== null
-        && $common_functions->currentUserHasPrivilege('EXECUTE', $db)
+        && PMA_Util::currentUserHasPrivilege('EXECUTE', $db)
     ) {
         // Check if he routine has any input parameters. If it does,
         // we will show a dialog to get values for these parameters,
@@ -205,7 +205,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($common_functions->currentUserHasPrivilege('ALTER ROUTINE', $db)) {
+    if (PMA_Util::currentUserHasPrivilege('ALTER ROUTINE', $db)) {
         $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
@@ -254,7 +254,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
         $retval .= "            </td>\n";
     }
     $retval .= "            <td>\n";
-    if ($common_functions->currentUserHasPrivilege('TRIGGER', $db, $table)) {
+    if (PMA_Util::currentUserHasPrivilege('TRIGGER', $db, $table)) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_triggers.php?'
                                          . $url_query
@@ -274,7 +274,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
                                          . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($common_functions->currentUserHasPrivilege('TRIGGER', $db)) {
+    if (PMA_Util::currentUserHasPrivilege('TRIGGER', $db)) {
         $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query
@@ -324,7 +324,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     $retval .= "                 {$event['STATUS']}\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($common_functions->currentUserHasPrivilege('EVENT', $db)) {
+    if (PMA_Util::currentUserHasPrivilege('EVENT', $db)) {
         $retval .= '                <a ' . $ajax_class['edit']
                                          . ' href="db_events.php?'
                                          . $url_query
@@ -344,7 +344,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
                                      . '">' . $titles['Export'] . "</a>\n";
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($common_functions->currentUserHasPrivilege('EVENT', $db)) {
+    if (PMA_Util::currentUserHasPrivilege('EVENT', $db)) {
         $retval .= '                <a ' . $ajax_class['drop']
                                          . ' href="sql.php?'
                                          . $url_query

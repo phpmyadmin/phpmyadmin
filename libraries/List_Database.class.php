@@ -451,7 +451,7 @@ class PMA_List_Database extends PMA_List
             SELECT DISTINCT `Db` FROM `mysql`.`db`
             WHERE `Select_priv` = 'Y'
             AND `User`
-            IN ('" . $common_functions->sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
+            IN ('" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
         $tmp_mydbs = PMA_DBI_fetch_result(
             $local_query, null, null, $GLOBALS['controllink']
         );
@@ -511,7 +511,7 @@ class PMA_List_Database extends PMA_List
         $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
         $local_query .= ' AND `User` = \'';
-        $local_query .= $common_functions->sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
+        $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {

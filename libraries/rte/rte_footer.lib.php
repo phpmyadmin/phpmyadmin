@@ -28,17 +28,17 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     $retval .= "<fieldset class='left'>\n";
     $retval .= "    <legend>" . __('New'). "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
-    if ($common_functions->currentUserHasPrivilege($priv, $db)) {
+    if (PMA_Util::currentUserHasPrivilege($priv, $db)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1'>";
-        $retval .= $common_functions->getIcon($icon);
+        $retval .= PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
-        $retval .= "            " . $common_functions->getIcon($icon);
+        $retval .= "            " . PMA_Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('no_create') . "\n";
     }
-    $retval .= "            " . $common_functions->showMySQLDocu('SQL-Syntax', $docu) . "\n";
+    $retval .= "            " . PMA_Util::showMySQLDocu('SQL-Syntax', $docu) . "\n";
     $retval .= "        </div>\n";
     $retval .= "</fieldset>\n";
     $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";

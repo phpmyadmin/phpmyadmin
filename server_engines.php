@@ -28,7 +28,7 @@ if (empty($_REQUEST['engine'])
      * Displays the sub-page heading
      */
     echo '<h2>' . "\n"
-       . $common_functions->getImage('b_engine.png')
+       . PMA_Util::getImage('b_engine.png')
        . "\n" . __('Storage Engines') . "\n"
        . '</h2>' . "\n";
 
@@ -77,9 +77,9 @@ if (empty($_REQUEST['engine'])
 
     $engine_plugin = PMA_StorageEngine::getEngine($_REQUEST['engine']);
     echo '<h2>' . "\n"
-       . $common_functions->getImage('b_engine.png')
+       . PMA_Util::getImage('b_engine.png')
        . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
-       . '    ' . $common_functions->showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
+       . '    ' . PMA_Util::showMySQLDocu('', $engine_plugin->getMysqlHelpPage()) . "\n"
        . '</h2>' . "\n\n";
     echo '<p>' . "\n"
        . '    <em>' . "\n"

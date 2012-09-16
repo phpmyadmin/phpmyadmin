@@ -535,7 +535,7 @@ class PMA_Index
         if (! $print_mode) {
             $r  = '<fieldset>';
             $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= $common_functions->showMySQLDocu(
+            $r .= PMA_Util::showMySQLDocu(
                 'optimization', 'optimizing-database-structure'
             );
 
@@ -587,13 +587,13 @@ class PMA_Index
                 }
                 $r .= '" ' . $row_span . '>' . '    <a href="tbl_indexes.php'
                     . PMA_generate_common_url($this_params) . '">'
-                    . $common_functions->getIcon('b_edit.png', __('Edit')) . '</a>'
+                    . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
 
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
                     $this_params['sql_query'] = 'ALTER TABLE '
-                        . $common_functions->backquote($table)
+                        . PMA_Util::backquote($table)
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
                         = __('The primary key has been dropped');
@@ -602,8 +602,8 @@ class PMA_Index
                     );
                 } else {
                     $this_params['sql_query'] = 'ALTER TABLE '
-                        . $common_functions->backquote($table) . ' DROP INDEX '
-                        . $common_functions->backquote($index->getName()) . ';';
+                        . PMA_Util::backquote($table) . ' DROP INDEX '
+                        . PMA_Util::backquote($index->getName()) . ';';
                     $this_params['message_to_show'] = sprintf(
                         __('Index %s has been dropped'), $index->getName()
                     );
@@ -624,7 +624,7 @@ class PMA_Index
                 }
                 $r .= ' href="sql.php' . PMA_generate_common_url($this_params)
                    . '" >'
-                   . $common_functions->getIcon('b_drop.png', __('Drop'))  . '</a>'
+                   . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
             }
 

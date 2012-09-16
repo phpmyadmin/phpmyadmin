@@ -1374,9 +1374,9 @@ function PMA_getColumnSize($column, $extracted_columnspec)
  */
 function PMA_getHTMLforGisDataTypes()
 {
-    $edit_str = $common_functions->getIcon('b_edit.png', __('Edit/Insert'));
+    $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
     return '<span class="open_gis_editor">'
-        . $common_functions->linkOrButton(
+        . PMA_Util::linkOrButton(
             '#', $edit_str, array(), false, false, '_blank'
         )
         . '</span>';
@@ -1638,12 +1638,12 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = '';
         $data = $current_row[$column['Field']];
     } elseif ($column['True_Type'] == 'bit') {
-        $special_chars = $common_functions->printableBitValue(
+        $special_chars = PMA_Util::printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
-        $current_row[$column['Field']] = $common_functions->asWKT(
+        $current_row[$column['Field']] = PMA_Util::asWKT(
             $current_row[$column['Field']], true
         );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
@@ -1661,7 +1661,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
                 $column['display_binary_as_hex'] = true;
             } else {
                 $current_row[$column['Field']]
-                    = $common_functions->replaceBinaryContents(
+                    = PMA_Util::replaceBinaryContents(
                         $current_row[$column['Field']]
                     );
             }
@@ -1671,7 +1671,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         //We need to duplicate the first \n or otherwise we will lose
         //the first newline entered in a VARCHAR or TEXT column
         $special_chars_encoded
-            = $common_functions->duplicateFirstNewline($special_chars);
+            = PMA_Util::duplicateFirstNewline($special_chars);
 
         $data = $current_row[$column['Field']];
     } // end if... else...
@@ -1808,8 +1808,8 @@ function PMA_isInsertRow()
 function PMA_setSessionForEditNext($one_where_clause)
 {
 
-    $local_query = 'SELECT * FROM ' . $common_functions->backquote($GLOBALS['db'])
-        . '.' . $common_functions->backquote($GLOBALS['table']) . ' WHERE '
+    $local_query = 'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['db'])
+        . '.' . PMA_Util::backquote($GLOBALS['table']) . ' WHERE '
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
     $res            = PMA_DBI_query($local_query);
@@ -1818,7 +1818,7 @@ function PMA_setSessionForEditNext($one_where_clause)
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
-        = $common_functions->getUniqueCondition(
+        = PMA_Util::getUniqueCondition(
             $res, count($meta), $meta, $row, true
         );
     if (! empty($unique_condition)) {
@@ -2014,10 +2014,10 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     );
     // Field to display from the foreign table?
     if (isset($display_field) && strlen($display_field)) {
-        $dispsql = 'SELECT ' . $common_functions->backquote($display_field)
-            . ' FROM ' . $common_functions->backquote($map[$relation_field]['foreign_db'])
-            . '.' . $common_functions->backquote($map[$relation_field]['foreign_table'])
-            . ' WHERE ' . $common_functions->backquote($map[$relation_field]['foreign_field'])
+        $dispsql = 'SELECT ' . PMA_Util::backquote($display_field)
+            . ' FROM ' . PMA_Util::backquote($map[$relation_field]['foreign_db'])
+            . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
+            . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
         $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
         if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
@@ -2059,9 +2059,9 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
         'table' => $map[$relation_field]['foreign_table'],
         'pos'   => '0',
         'sql_query' => 'SELECT * FROM '
-            . $common_functions->backquote($map[$relation_field]['foreign_db'])
-            . '.' . $common_functions->backquote($map[$relation_field]['foreign_table'])
-            . ' WHERE ' . $common_functions->backquote($map[$relation_field]['foreign_field'])
+            . PMA_Util::backquote($map[$relation_field]['foreign_db'])
+            . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
+            . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison
     );
     $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
@@ -2207,7 +2207,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
-                $query_fields[] = $common_functions->backquote(
+                $query_fields[] = PMA_Util::backquote(
                     $multi_edit_columns_name[$key]
                 );
             }
@@ -2221,11 +2221,11 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         // field had the null checkbox before the update
         // field no longer has the null checkbox
         $query_values[]
-            = $common_functions->backquote($multi_edit_columns_name[$key])
+            = PMA_Util::backquote($multi_edit_columns_name[$key])
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && ("'" . $common_functions->sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
+        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
     ) {
         // No change for this column and no MySQL function is used -> next column
     } elseif (! empty($current_value)) {
@@ -2236,7 +2236,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             || empty($multi_edit_columns_null[$key])
         ) {
              $query_values[]
-                 = $common_functions->backquote($multi_edit_columns_name[$key])
+                 = PMA_Util::backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
         }
     }
@@ -2274,7 +2274,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
         $protected_row = PMA_DBI_fetch_single_row(
-            'SELECT * FROM ' . $common_functions->backquote($table) . ' WHERE ' . $where_clause . ';'
+            'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';'
         );
     }
 
@@ -2301,7 +2301,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         } elseif ($type == 'set') {
             if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
                 $current_value = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
-                $current_value = "'" . $common_functions->sqlAddSlashes($current_value) . "'";
+                $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
             } else {
                  $current_value = "''";
             }
@@ -2321,11 +2321,11 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             }
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
-            $current_value = "b'" . $common_functions->sqlAddSlashes($current_value) . "'";
+            $current_value = "b'" . PMA_Util::sqlAddSlashes($current_value) . "'";
         } elseif (! ($type == 'datetime' || $type == 'timestamp')
             || $current_value != 'CURRENT_TIMESTAMP'
         ) {
-            $current_value = "'" . $common_functions->sqlAddSlashes($current_value) . "'";
+            $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
         }
 
         // Was the Null checkbox checked for this field?

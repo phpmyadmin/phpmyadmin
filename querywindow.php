@@ -79,7 +79,7 @@ if ($no_js) {
     }
 }
 
-$titles['Change'] = $common_functions->getIcon('b_edit.png', __('Change'));
+$titles['Change'] = PMA_Util::getIcon('b_edit.png', __('Change'));
 $url_query = PMA_generate_common_url($db, $table);
 
 if (! empty($sql_query)) {
@@ -135,7 +135,7 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
 echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
-    echo $common_functions->getHtmlTabs($tabs, array());
+    echo PMA_Util::getHtmlTabs($tabs, array());
     unset($tabs);
 }
 
@@ -170,9 +170,9 @@ if (! empty($_sql_history)
 
         if (! empty($query['db'])) {
             echo '[';
-            echo htmlspecialchars($common_functions->backquote($query['db']));
+            echo htmlspecialchars(PMA_Util::backquote($query['db']));
             if (! empty($query['table'])) {
-                echo '.' . htmlspecialchars($common_functions->backquote($query['table']));
+                echo '.' . htmlspecialchars(PMA_Util::backquote($query['table']));
             }
             echo  '] ';
         }

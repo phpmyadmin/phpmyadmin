@@ -258,11 +258,11 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'Create the needed tables with the '
             . '<code>examples/create_tables.sql</code>.'
         );
-        $retval .= ' ' . $common_functions->showDocu('linked-tables');
+        $retval .= ' ' . PMA_Util::showDocu('linked-tables');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __('Create a pma user and give access to these tables.');
-        $retval .= ' ' . $common_functions->showDocu('pmausr');
+        $retval .= ' ' . PMA_Util::showDocu('pmausr');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __(
@@ -270,7 +270,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             . '(<code>config.inc.php</code>), for example by '
             . 'starting from <code>config.sample.inc.php</code>.'
         );
-        $retval .= ' ' . $common_functions->showDocu('quick_install');
+        $retval .= ' ' . PMA_Util::showDocu('quick_install');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __(
@@ -506,11 +506,11 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
                     `foreign_db`,
                     `foreign_table`,
                     `foreign_field`
-               FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['relation']) . '
-              WHERE `master_db`    = \'' . $common_functions->sqlAddSlashes($db) . '\'
-                AND `master_table` = \'' . $common_functions->sqlAddSlashes($table) . '\' ';
+               FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['relation']) . '
+              WHERE `master_db`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+                AND `master_table` = \'' . PMA_Util::sqlAddSlashes($table) . '\' ';
         if (strlen($column)) {
-            $rel_query .= ' AND `master_field` = \'' . $common_functions->sqlAddSlashes($column) . '\'';
+            $rel_query .= ' AND `master_field` = \'' . PMA_Util::sqlAddSlashes($column) . '\'';
         }
         $foreign = PMA_DBI_fetch_result($rel_query, 'master_field', null, $GLOBALS['controllink']);
     }
@@ -518,7 +518,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     if (($source == 'both' || $source == 'foreign') && strlen($table)) {
 
         $show_create_table_query = 'SHOW CREATE TABLE '
-            . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
+            . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
         $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 1);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
@@ -610,9 +610,9 @@ function PMA_getDisplayField($db, $table)
     if ($cfgRelation['displaywork']) {
         $disp_query = '
              SELECT `display_field`
-               FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['table_info']) . '
-              WHERE `db_name`    = \'' . $common_functions->sqlAddSlashes($db) . '\'
-                AND `table_name` = \'' . $common_functions->sqlAddSlashes($table) . '\'';
+               FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info']) . '
+              WHERE `db_name`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+                AND `table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
 
         $row = PMA_DBI_fetch_single_row($disp_query, 'ASSOC', $GLOBALS['controllink']);
         if (isset($row['display_field'])) {
@@ -689,8 +689,8 @@ function PMA_getDbComment($db)
         // pmadb internal db comment
         $com_qry = "
              SELECT `comment`
-               FROM " . $common_functions->backquote($cfgRelation['db']) . "." . $common_functions->backquote($cfgRelation['column_info']) . "
-              WHERE db_name     = '" . $common_functions->sqlAddSlashes($db) . "'
+               FROM " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['column_info']) . "
+              WHERE db_name     = '" . PMA_Util::sqlAddSlashes($db) . "'
                 AND table_name  = ''
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
@@ -722,7 +722,7 @@ function PMA_getDbComments()
         // pmadb internal db comment
         $com_qry = "
              SELECT `db_name`, `comment`
-               FROM " . $common_functions->backquote($cfgRelation['db']) . "." . $common_functions->backquote($cfgRelation['column_info']) . "
+               FROM " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['column_info']) . "
               WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
@@ -759,20 +759,20 @@ function PMA_setDbComment($db, $comment = '')
     if (strlen($comment)) {
         $upd_query = "
              INSERT INTO
-                    " . $common_functions->backquote($cfgRelation['db']) . "." . $common_functions->backquote($cfgRelation['column_info']) . "
+                    " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['column_info']) . "
                     (`db_name`, `table_name`, `column_name`, `comment`)
              VALUES (
-                   '" . $common_functions->sqlAddSlashes($db) . "',
+                   '" . PMA_Util::sqlAddSlashes($db) . "',
                    '',
                    '(db_comment)',
-                   '" . $common_functions->sqlAddSlashes($comment) . "')
+                   '" . PMA_Util::sqlAddSlashes($comment) . "')
              ON DUPLICATE KEY UPDATE
-                `comment` = '" . $common_functions->sqlAddSlashes($comment) . "'";
+                `comment` = '" . PMA_Util::sqlAddSlashes($comment) . "'";
     } else {
         $upd_query = '
              DELETE FROM
-                    ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info']) . '
-              WHERE `db_name`     = \'' . $common_functions->sqlAddSlashes($db) . '\'
+                    ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info']) . '
+              WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
                 AND `table_name`  = \'\'
                 AND `column_name` = \'(db_comment)\'';
     }
@@ -832,18 +832,18 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
 
     PMA_queryAsControlUser(
         'INSERT INTO
-                ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['history']) . '
+                ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
               (`username`,
                 `db`,
                 `table`,
                 `timevalue`,
                 `sqlquery`)
         VALUES
-              (\'' . $common_functions->sqlAddSlashes($username) . '\',
-               \'' . $common_functions->sqlAddSlashes($db) . '\',
-               \'' . $common_functions->sqlAddSlashes($table) . '\',
+              (\'' . PMA_Util::sqlAddSlashes($username) . '\',
+               \'' . PMA_Util::sqlAddSlashes($db) . '\',
+               \'' . PMA_Util::sqlAddSlashes($table) . '\',
                NOW(),
-               \'' . $common_functions->sqlAddSlashes($sqlquery) . '\')'
+               \'' . PMA_Util::sqlAddSlashes($sqlquery) . '\')'
     );
 } // end of 'PMA_setHistory()' function
 
@@ -869,8 +869,8 @@ function PMA_getHistory($username)
          SELECT `db`,
                 `table`,
                 `sqlquery`
-           FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['history']) . '
-          WHERE `username` = \'' . $common_functions->sqlAddSlashes($username) . '\'
+           FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
+          WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
        ORDER BY `id` DESC';
 
     return PMA_DBI_fetch_result($hist_query, null, null, $GLOBALS['controllink']);
@@ -902,16 +902,16 @@ function PMA_purgeHistory($username)
 
     $search_query = '
          SELECT `timevalue`
-           FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['history']) . '
-          WHERE `username` = \'' . $common_functions->sqlAddSlashes($username) . '\'
+           FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
+          WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
        ORDER BY `timevalue` DESC
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
     if ($max_time = PMA_DBI_fetch_value($search_query, 0, 0, $GLOBALS['controllink'])) {
         PMA_queryAsControlUser(
             'DELETE FROM
-                    ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['history']) . '
-              WHERE `username` = \'' . $common_functions->sqlAddSlashes($username) . '\'
+                    ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
+              WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
                 AND `timevalue` <= \'' . $max_time . '\''
         );
     }
@@ -1100,15 +1100,15 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
             // foreign_display can be false if no display field defined:
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
-            $f_query_main = 'SELECT ' . $common_functions->backquote($foreign_field)
-                        . (($foreign_display == false) ? '' : ', ' . $common_functions->backquote($foreign_display));
-            $f_query_from = ' FROM ' . $common_functions->backquote($foreign_db) . '.' . $common_functions->backquote($foreign_table);
-            $f_query_filter = empty($foreign_filter) ? '' : ' WHERE ' . $common_functions->backquote($foreign_field)
-                            . ' LIKE "%' . $common_functions->sqlAddSlashes($foreign_filter, true) . '%"'
-                            . (($foreign_display == false) ? '' : ' OR ' . $common_functions->backquote($foreign_display)
-                                . ' LIKE "%' . $common_functions->sqlAddSlashes($foreign_filter, true) . '%"'
+            $f_query_main = 'SELECT ' . PMA_Util::backquote($foreign_field)
+                        . (($foreign_display == false) ? '' : ', ' . PMA_Util::backquote($foreign_display));
+            $f_query_from = ' FROM ' . PMA_Util::backquote($foreign_db) . '.' . PMA_Util::backquote($foreign_table);
+            $f_query_filter = empty($foreign_filter) ? '' : ' WHERE ' . PMA_Util::backquote($foreign_field)
+                            . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
+                            . (($foreign_display == false) ? '' : ' OR ' . PMA_Util::backquote($foreign_display)
+                                . ' LIKE "%' . PMA_Util::sqlAddSlashes($foreign_filter, true) . '%"'
                                 );
-            $f_query_order = ($foreign_display == false) ? '' :' ORDER BY ' . $common_functions->backquote($foreign_table) . '.' . $common_functions->backquote($foreign_display);
+            $f_query_order = ($foreign_display == false) ? '' :' ORDER BY ' . PMA_Util::backquote($foreign_table) . '.' . PMA_Util::backquote($foreign_display);
             $f_query_limit = isset($foreign_limit) ? $foreign_limit : '';
 
             if (!empty($foreign_filter)) {
@@ -1179,10 +1179,10 @@ function PMA_getRelatives($all_tables, $master)
         $in_know = '(\'' . implode('\', \'', $known_tables) . '\')';
         $in_left = '(\'' . implode('\', \'', $remaining_tables) . '\')';
         $rel_query = 'SELECT *'
-                   . '  FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
-                   .       '.' . $common_functions->backquote($GLOBALS['cfgRelation']['relation'])
-                   . ' WHERE ' . $from . '_db = \'' . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\''
-                   . '   AND ' . $to   . '_db = \'' . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\''
+                   . '  FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                   .       '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['relation'])
+                   . ' WHERE ' . $from . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
+                   . '   AND ' . $to   . '_db = \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\''
                    . '   AND ' . $from . '_table IN ' . $in_know
                    . '   AND ' . $to   . '_table IN ' . $in_left;
         $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
@@ -1191,11 +1191,11 @@ function PMA_getRelatives($all_tables, $master)
             if (isset($remaining_tables[$found_table])) {
                 $fromclause
                     .= "\n" . ' LEFT JOIN '
-                    . $common_functions->backquote($GLOBALS['db']) . '.' . $common_functions->backquote($row[$to . '_table']) . ' ON '
-                    . $common_functions->backquote($row[$from . '_table']) . '.'
-                    . $common_functions->backquote($row[$from . '_field']) . ' = '
-                    . $common_functions->backquote($row[$to . '_table']) . '.'
-                    . $common_functions->backquote($row[$to . '_field']) . ' ';
+                    . PMA_Util::backquote($GLOBALS['db']) . '.' . PMA_Util::backquote($row[$to . '_table']) . ' ON '
+                    . PMA_Util::backquote($row[$from . '_table']) . '.'
+                    . PMA_Util::backquote($row[$from . '_field']) . ' = '
+                    . PMA_Util::backquote($row[$to . '_table']) . '.'
+                    . PMA_Util::backquote($row[$to . '_field']) . ' ';
                 $known_tables[$found_table] = $found_table;
                 unset($remaining_tables[$found_table]);
             }
@@ -1203,7 +1203,7 @@ function PMA_getRelatives($all_tables, $master)
         $run++;
         if ($run > 5) {
             foreach ($remaining_tables as $table) {
-                $emerg .= ', ' . $common_functions->backquote($table);
+                $emerg .= ', ' . PMA_Util::backquote($table);
                 unset($remaining_tables[$table]);
             }
         }
@@ -1231,32 +1231,32 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 
     if ($cfgRelation['displaywork']) {
         $table_query = 'UPDATE '
-            . $common_functions->backquote($cfgRelation['db']) . '.'
-            . $common_functions->backquote($cfgRelation['table_info'])
-            . '   SET display_field = \'' . $common_functions->sqlAddSlashes($new_name) . '\''
-            . ' WHERE db_name       = \'' . $common_functions->sqlAddSlashes($db) . '\''
-            . '   AND table_name    = \'' . $common_functions->sqlAddSlashes($table) . '\''
-            . '   AND display_field = \'' . $common_functions->sqlAddSlashes($field) . '\'';
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['table_info'])
+            . '   SET display_field = \'' . PMA_Util::sqlAddSlashes($new_name) . '\''
+            . ' WHERE db_name       = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . '   AND table_name    = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . '   AND display_field = \'' . PMA_Util::sqlAddSlashes($field) . '\'';
         PMA_queryAsControlUser($table_query);
     }
 
     if ($cfgRelation['relwork']) {
         $table_query = 'UPDATE '
-            . $common_functions->backquote($cfgRelation['db']) . '.'
-            . $common_functions->backquote($cfgRelation['relation'])
-            . '   SET master_field = \'' . $common_functions->sqlAddSlashes($new_name) . '\''
-            . ' WHERE master_db    = \'' . $common_functions->sqlAddSlashes($db) . '\''
-            . '   AND master_table = \'' . $common_functions->sqlAddSlashes($table) . '\''
-            . '   AND master_field = \'' . $common_functions->sqlAddSlashes($field) . '\'';
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['relation'])
+            . '   SET master_field = \'' . PMA_Util::sqlAddSlashes($new_name) . '\''
+            . ' WHERE master_db    = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . '   AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . '   AND master_field = \'' . PMA_Util::sqlAddSlashes($field) . '\'';
         PMA_queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
-            . $common_functions->backquote($cfgRelation['db']) . '.'
-            . $common_functions->backquote($cfgRelation['relation'])
-            . '   SET foreign_field = \'' . $common_functions->sqlAddSlashes($new_name) . '\''
-            . ' WHERE foreign_db    = \'' . $common_functions->sqlAddSlashes($db) . '\''
-            . '   AND foreign_table = \'' . $common_functions->sqlAddSlashes($table) . '\''
-            . '   AND foreign_field = \'' . $common_functions->sqlAddSlashes($field) . '\'';
+            . PMA_Util::backquote($cfgRelation['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['relation'])
+            . '   SET foreign_field = \'' . PMA_Util::sqlAddSlashes($new_name) . '\''
+            . ' WHERE foreign_db    = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . '   AND foreign_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+            . '   AND foreign_field = \'' . PMA_Util::sqlAddSlashes($field) . '\'';
         PMA_queryAsControlUser($table_query);
 
     } // end if relwork
@@ -1283,14 +1283,14 @@ function PMA_REL_renameSingleTable($table,
 ) {
 
     $query = 'UPDATE '
-        . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
-        . $common_functions->backquote($GLOBALS['cfgRelation'][$table])
-        . ' SET ' . $db_field . ' = \'' . $common_functions->sqlAddSlashes($target_db) . '\', '
-        . ' ' . $table_field . ' = \'' . $common_functions->sqlAddSlashes($target_table) . '\''
+        . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_Util::backquote($GLOBALS['cfgRelation'][$table])
+        . ' SET ' . $db_field . ' = \'' . PMA_Util::sqlAddSlashes($target_db) . '\', '
+        . ' ' . $table_field . ' = \'' . PMA_Util::sqlAddSlashes($target_table) . '\''
         . ' WHERE '
-        . $db_field . '  = \'' . $common_functions->sqlAddSlashes($source_db) . '\''
+        . $db_field . '  = \'' . PMA_Util::sqlAddSlashes($source_db) . '\''
         . ' AND '
-        . $table_field . ' = \'' . $common_functions->sqlAddSlashes($source_table) . '\'';
+        . $table_field . ' = \'' . PMA_Util::sqlAddSlashes($source_table) . '\'';
     PMA_queryAsControlUser($query);
 }
 
@@ -1389,12 +1389,12 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         $newpage = __('no description');
     }
     $ins_query   = 'INSERT INTO '
-        . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
-        . $common_functions->backquote($cfgRelation['pdf_pages'])
+        . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['pdf_pages'])
         . ' (db_name, page_descr)'
         . ' VALUES (\''
-        . $common_functions->sqlAddSlashes($db) . '\', \''
-        . $common_functions->sqlAddSlashes($newpage) . '\')';
+        . PMA_Util::sqlAddSlashes($db) . '\', \''
+        . PMA_Util::sqlAddSlashes($newpage) . '\')';
     PMA_queryAsControlUser($ins_query, false);
 
     return PMA_DBI_insert_id(

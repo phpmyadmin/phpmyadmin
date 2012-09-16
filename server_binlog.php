@@ -70,7 +70,7 @@ if (empty($_REQUEST['dontlimitchars'])) {
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . $common_functions->getImage('s_tbl.png')
+   . PMA_Util::getImage('s_tbl.png')
    . '    ' . __('Binary log') . "\n"
    . '</h2>' . "\n";
 
@@ -95,7 +95,7 @@ if (count($binary_logs) > 1) {
             echo ' ('
                 . implode(
                     ' ',
-                    $common_functions->formatByteDown(
+                    PMA_Util::formatByteDown(
                         $each_log['File_size'], 3, 2
                     )
                 )
@@ -107,7 +107,7 @@ if (count($binary_logs) > 1) {
     echo count($binary_logs) . ' ' . __('Files') . ', ';
     if ($full_size > 0) {
         echo implode(
-            ' ', $common_functions->formatByteDown($full_size)
+            ' ', PMA_Util::formatByteDown($full_size)
         );
     }
     echo '</fieldset>';
@@ -117,7 +117,7 @@ if (count($binary_logs) > 1) {
     echo '</form>';
 }
 
-echo $common_functions->getMessage(PMA_Message::success());
+echo PMA_Util::getMessage(PMA_Message::success());
 
 /**
  * Displays the page

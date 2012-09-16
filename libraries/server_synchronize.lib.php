@@ -160,16 +160,16 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
             if (isset($source_result_set[$j]) && ($all_keys_match)) {
 
                 // Query the target server to see which rows already exist
-                $trg_select_query = "SELECT * FROM " . $common_functions->backquote($trg_db) . "."
-                    . $common_functions->backquote($matching_table[$matching_table_index])
+                $trg_select_query = "SELECT * FROM " . PMA_Util::backquote($trg_db) . "."
+                    . PMA_Util::backquote($matching_table[$matching_table_index])
                     . " WHERE ";
 
                 if (count($is_key) == 1) {
-                    $trg_select_query .= $common_functions->backquote($is_key[0])
+                    $trg_select_query .= PMA_Util::backquote($is_key[0])
                         . "='" . $source_result_set[$j] . "'";
                 } elseif (count($is_key) > 1) {
                     for ($k=0; $k < count($is_key); $k++) {
-                        $trg_select_query .= $common_functions->backquote($is_key[$k])
+                        $trg_select_query .= PMA_Util::backquote($is_key[$k])
                             . "='" . $source_result_set[$j][$is_key[$k]] . "'";
                         if ($k < (count($is_key)-1)) {
                             $trg_select_query .= " AND ";
@@ -187,16 +187,16 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
 
                     // Fetch the row from the source server to do a comparison
                     $src_select_query = "SELECT * FROM "
-                        . $common_functions->backquote($src_db) . "."
-                        . $common_functions->backquote($matching_table[$matching_table_index])
+                        . PMA_Util::backquote($src_db) . "."
+                        . PMA_Util::backquote($matching_table[$matching_table_index])
                         . " WHERE ";
 
                     if (count($is_key) == 1) {
-                        $src_select_query .= $common_functions->backquote($is_key[0])
+                        $src_select_query .= PMA_Util::backquote($is_key[0])
                             . "='" . $source_result_set[$j] . "'";
                     } elseif (count($is_key) > 1) {
                         for ($k=0; $k< count($is_key); $k++) {
-                            $src_select_query .= $common_functions->backquote($is_key[$k])
+                            $src_select_query .= PMA_Util::backquote($is_key[$k])
                                 . "='" . $source_result_set[$j][$is_key[$k]] . "'";
                             if ($k < (count($is_key) - 1)) {
                                 $src_select_query .= " AND ";
@@ -463,11 +463,11 @@ function PMA_updateTargetTables(
                 if (isset($update_array[$matching_table_index][$update_row])) {
                     $update_fields_num = count($update_array[$matching_table_index][$update_row])-count($matching_table_keys[$matching_table_index]);
                     if ($update_fields_num > 0) {
-                        $query = "UPDATE " . $common_functions->backquote($trg_db) . "." .$common_functions->backquote($table[$matching_table_index]) . " SET ";
+                        $query = "UPDATE " . PMA_Util::backquote($trg_db) . "." .PMA_Util::backquote($table[$matching_table_index]) . " SET ";
 
                         for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
                             if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
-                                $query .= $common_functions->backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
+                                $query .= PMA_Util::backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
                             }
                             if ($update_field < ($update_fields_num - 2)) {
                                 $query .= ", ";
@@ -477,7 +477,7 @@ function PMA_updateTargetTables(
                         if (isset($matching_table_keys[$matching_table_index])) {
                             for ($key = 0; $key < count($matching_table_keys[$matching_table_index]); $key++) {
                                 if (isset($matching_table_keys[$matching_table_index][$key])) {
-                                    $query .= $common_functions->backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
+                                    $query .= PMA_Util::backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
                                 }
                                 if ($key < (count($matching_table_keys[$matching_table_index]) - 1)) {
                                     $query .= " AND ";
@@ -556,7 +556,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
             for ($insert_row = 0; $insert_row< count($array_insert[$matching_table_index]); $insert_row++) {
                 if (isset($array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][0]])) {
 
-                    $select_query = "SELECT * FROM " . $common_functions->backquote($src_db) . "." . $common_functions->backquote($matching_table[$matching_table_index]) . " WHERE ";
+                    $select_query = "SELECT * FROM " . PMA_Util::backquote($src_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) . " WHERE ";
                     for ($i = 0; $i < count($matching_tables_keys[$matching_table_index]); $i++) {
                         $select_query .= $matching_tables_keys[$matching_table_index][$i] . "='";
                         $select_query .= $array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][$i]] . "'" ;
@@ -567,10 +567,10 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                     }
                     $select_query .= "; ";
                     $result = PMA_DBI_fetch_result($select_query, null, null, $src_link);
-                    $insert_query = "INSERT INTO " . $common_functions->backquote($trg_db) . "." . $common_functions->backquote($matching_table[$matching_table_index]) ." (";
+                    $insert_query = "INSERT INTO " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) ." (";
 
                     for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
-                        $insert_query .=  $common_functions->backquote($table_fields[$matching_table_index][$field_index]);
+                        $insert_query .=  PMA_Util::backquote($table_fields[$matching_table_index][$field_index]);
 
                         $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db ."'
                                          AND TABLE_NAME = '" . $matching_table[$matching_table_index]. "'AND COLUMN_NAME = '" .
@@ -675,11 +675,11 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
                     }
                     $insert_query .= ") VALUES(";
                     if (count($table_fields[$matching_table_index]) == 1) {
-                         $insert_query .= "'" . $common_functions->sqlAddSlashes($result[0]) . "'";
+                         $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0]) . "'";
                     } else {
                         for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
                             if (isset($result[0][$table_fields[$matching_table_index][$field_index]])) {
-                                $insert_query .= "'" . $common_functions->sqlAddSlashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
+                                $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
                             } else {
                                 $insert_query .= "'NULL'";
                             }
@@ -735,8 +735,8 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
         $uncommon_tables_fields[$table_index] = $fields;
 
         $Create_Query = PMA_DBI_fetch_value(
-            "SHOW CREATE TABLE " . $common_functions->backquote($src_db) . '.'
-            . $common_functions->backquote($uncommon_tables[$table_index]),
+            "SHOW CREATE TABLE " . PMA_Util::backquote($src_db) . '.'
+            . PMA_Util::backquote($uncommon_tables[$table_index]),
             0,
             1,
             $src_link
@@ -744,8 +744,8 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
 
         // Replace the src table name with a `dbname`.`tablename`
         $Create_Table_Query = preg_replace(
-            '/' . preg_quote($common_functions->backquote($uncommon_tables[$table_index]), '/') . '/',
-            $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($uncommon_tables[$table_index]),
+            '/' . preg_quote(PMA_Util::backquote($uncommon_tables[$table_index]), '/') . '/',
+            PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($uncommon_tables[$table_index]),
             $Create_Query,
             $limit = 1
         );
@@ -795,19 +795,19 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
     // @todo: maybe display some of the queries if they are not too numerous
     $display = false;
     $unbuffered_result = PMA_DBI_try_query(
-        'SELECT * FROM ' . $common_functions->backquote($src_db) . '.'
-        . $common_functions->backquote($uncommon_tables[$table_index]),
+        'SELECT * FROM ' . PMA_Util::backquote($src_db) . '.'
+        . PMA_Util::backquote($uncommon_tables[$table_index]),
         $src_link,
         PMA_DBI_QUERY_UNBUFFERED
     );
     if (false !== $unbuffered_result) {
-        $insert_query = 'INSERT INTO ' . $common_functions->backquote($trg_db) . '.'
-            . $common_functions->backquote($uncommon_tables[$table_index]) . ' VALUES';
+        $insert_query = 'INSERT INTO ' . PMA_Util::backquote($trg_db) . '.'
+            . PMA_Util::backquote($uncommon_tables[$table_index]) . ' VALUES';
         while ($one_row = PMA_DBI_fetch_row($unbuffered_result)) {
             $insert_query .= '(';
             $key_of_last_value = count($one_row) - 1;
             foreach ($one_row as $key => $value) {
-                $insert_query .= "'" . $common_functions->sqlAddSlashes($value) . "'";
+                $insert_query .= "'" . PMA_Util::sqlAddSlashes($value) . "'";
                 if ($key < $key_of_last_value) {
                     $insert_query .= ",";
                 }
@@ -842,9 +842,9 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
     
     for ($i = 0; $i < count($delete_array[$table_index]); $i++) {
         if (isset($target_tables_keys[$table_index])) {
-            $delete_query = 'DELETE FROM ' . $common_functions->backquote($trg_db) . '.' .$common_functions->backquote($matching_tables[$table_index]) . ' WHERE ';
+            $delete_query = 'DELETE FROM ' . PMA_Util::backquote($trg_db) . '.' .PMA_Util::backquote($matching_tables[$table_index]) . ' WHERE ';
             for ($y = 0; $y < count($target_tables_keys[$table_index]); $y++) {
-                $delete_query .= $common_functions->backquote($target_tables_keys[$table_index][$y]) . " = '";
+                $delete_query .= PMA_Util::backquote($target_tables_keys[$table_index][$y]) . " = '";
 
                 if (count($target_tables_keys[$table_index]) == 1) {
                     $delete_query .= $delete_array[$table_index][$i] . "'";
@@ -864,11 +864,11 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
                 if ($result_size > 0) {
                     for ($b = 0; $b < $result_size; $b++) {
                         $drop_pk_query = "DELETE FROM "
-                            . $common_functions->backquote($pk_query_result[$b]['TABLE_SCHEMA'])
+                            . PMA_Util::backquote($pk_query_result[$b]['TABLE_SCHEMA'])
                             . "."
-                            . $common_functions->backquote($pk_query_result[$b]['TABLE_NAME'])
+                            . PMA_Util::backquote($pk_query_result[$b]['TABLE_NAME'])
                             . " WHERE "
-                            . $common_functions->backquote($pk_query_result[$b]['COLUMN_NAME'])
+                            . PMA_Util::backquote($pk_query_result[$b]['COLUMN_NAME'])
                             . " = " . $target_tables_keys[$table_index][$y] . ";";
                         PMA_DBI_try_query($drop_pk_query, $trg_link, 0);
                     }
@@ -1016,8 +1016,8 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
     
     for ($i = 0; $i < count($matching_tables_fields[$table_counter]); $i++) {
         if (isset($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]])) {
-            $query = "ALTER TABLE " . $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($matching_tables[$table_counter]). " ADD COLUMN " .
-            $common_functions->backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
+            $query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($matching_tables[$table_counter]). " ADD COLUMN " .
+            PMA_Util::backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . " " . $source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Type'];
 
             if ($source_columns[$table_counter][$matching_tables_fields[$table_counter][$i]]['Null'] == 'NO') {
                 $query .= ' Not Null ';
@@ -1048,7 +1048,7 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
                 }
                 $query .= " , ADD PRIMARY KEY (";
                 for ($t = 0; $t < count($matching_tables_keys[$table_counter]); $t++) {
-                    $query .= $common_functions->backquote($matching_tables_keys[$table_counter][$t]);
+                    $query .= PMA_Util::backquote($matching_tables_keys[$table_counter][$t]);
                     if ($t < (count($matching_tables_keys[$table_counter]) - 1)) {
                         $query .= " , " ;
                     }
@@ -1079,10 +1079,10 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
                     PMA_createTargetTables($src_db, $trg_db, $trg_link, $src_link, $uncommon_tables, $table_index[0], $uncommon_tables_fields, $display);
                     unset($uncommon_tables[$table_index[0]]);
                 }
-                $fk_query = "ALTER TABLE " . $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($matching_tables[$table_counter]) .
-                            "ADD CONSTRAINT FOREIGN KEY " . $common_functions->backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . "
-                            (" . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . ") REFERENCES " . $common_functions->backquote($trg_db) .
-                             '.' . $common_functions->backquote($is_fk_result[0]['REFERENCED_TABLE_NAME']) . " (" . $is_fk_result[0]['REFERENCED_COLUMN_NAME'] . ");";
+                $fk_query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($matching_tables[$table_counter]) .
+                            "ADD CONSTRAINT FOREIGN KEY " . PMA_Util::backquote($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]]) . "
+                            (" . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] . ") REFERENCES " . PMA_Util::backquote($trg_db) .
+                             '.' . PMA_Util::backquote($is_fk_result[0]['REFERENCED_TABLE_NAME']) . " (" . $is_fk_result[0]['REFERENCED_COLUMN_NAME'] . ");";
 
                 PMA_DBI_try_query($fk_query, $trg_link, null);
             }
@@ -1166,13 +1166,13 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
 
     $pri_query = null;
     if (! $check) {
-        $pri_query = "ALTER TABLE " . $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($matching_tables[$matching_table_index]);
+        $pri_query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($matching_tables[$matching_table_index]);
         if (count($target_tables_keys[$matching_table_index]) > 0) {
             $pri_query .= "  DROP PRIMARY KEY ," ;
         }
         $pri_query .= "  ADD PRIMARY KEY (";
         for ($z = 0; $z < count($matching_tables_keys[$matching_table_index]); $z++) {
-            $pri_query .= $common_functions->backquote($matching_tables_keys[$matching_table_index][$z]);
+            $pri_query .= PMA_Util::backquote($matching_tables_keys[$matching_table_index][$z]);
             if ($z < (count($matching_tables_keys[$matching_table_index]) - 1)) {
                 $pri_query .= " , " ;
             }
@@ -1188,8 +1188,8 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
     }
     for ($t = 0; $t < count($matching_tables_fields[$matching_table_index]); $t++) {
         if ((isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]])) && (count($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]) > 0)) {
-            $sql_query = 'ALTER TABLE ' . $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($matching_tables[$matching_table_index]) . ' MODIFY ' .
-            $common_functions->backquote($matching_tables_fields[$matching_table_index][$t]) . ' ' . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'];
+            $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($matching_tables[$matching_table_index]) . ' MODIFY ' .
+            PMA_Util::backquote($matching_tables_fields[$matching_table_index][$t]) . ' ' . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]]['Type'];
             $found = false;
             for ($i = 0; $i < count($criteria); $i++) {
                 if (isset($alter_str_array[$matching_table_index][$matching_tables_fields[$matching_table_index][$t]][$criteria[$i]]) && $criteria[$i] != 'Key') {
@@ -1248,12 +1248,12 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
         }
     }
     $check = false;
-    $query = "ALTER TABLE " . $common_functions->backquote($trg_db) . '.'
-        . $common_functions->backquote($matching_tables[$matching_table_index]);
+    $query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . '.'
+        . PMA_Util::backquote($matching_tables[$matching_table_index]);
     for ($p = 0; $p < count($matching_tables_keys[$matching_table_index]); $p++) {
         if ((isset($alter_str_array[$matching_table_index][$matching_tables_keys[$matching_table_index][$p]]['Key']))) {
             $check = true;
-            $query .= ' MODIFY ' . $common_functions->backquote($matching_tables_keys[$matching_table_index][$p]) . ' '
+            $query .= ' MODIFY ' . PMA_Util::backquote($matching_tables_keys[$matching_table_index][$p]) . ' '
             . $source_columns[$matching_table_index][$matching_tables_fields[$matching_table_index][$p]]['Type'] . ' Not Null ';
             if ($p < (count($matching_tables_keys[$matching_table_index]) - 1)) {
                 $query .= ', ';
@@ -1288,8 +1288,8 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
 ) {
     
     if (isset($uncommon_columns[$table_counter])) {
-        $drop_query = "ALTER TABLE " . $common_functions->backquote($trg_db) . "."
-            . $common_functions->backquote($matching_tables[$table_counter]);
+        $drop_query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . "."
+            . PMA_Util::backquote($matching_tables[$table_counter]);
         for ($a = 0; $a < count($uncommon_columns[$table_counter]); $a++) {
             //Checks if column to be removed is a foreign key in any table
             $pk_query = "SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_SCHEMA = '" . $trg_db . "'
@@ -1301,8 +1301,8 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
 
             if ($result_size > 0) {
                 for ($b = 0; $b < $result_size; $b++) {
-                    $drop_pk_query = "ALTER TABLE " . $common_functions->backquote($pk_query_result[$b]['TABLE_SCHEMA']) . "." . $common_functions->backquote($pk_query_result[$b]['TABLE_NAME']) . "
-                                      DROP FOREIGN KEY " . $common_functions->backquote($pk_query_result[$b]['CONSTRAINT_NAME']) . ", DROP COLUMN " . $common_functions->backquote($pk_query_result[$b]['COLUMN_NAME']) . ";";
+                    $drop_pk_query = "ALTER TABLE " . PMA_Util::backquote($pk_query_result[$b]['TABLE_SCHEMA']) . "." . PMA_Util::backquote($pk_query_result[$b]['TABLE_NAME']) . "
+                                      DROP FOREIGN KEY " . PMA_Util::backquote($pk_query_result[$b]['CONSTRAINT_NAME']) . ", DROP COLUMN " . PMA_Util::backquote($pk_query_result[$b]['COLUMN_NAME']) . ";";
                     PMA_DBI_try_query($drop_pk_query, $trg_link, 0);
                 }
             }
@@ -1313,9 +1313,9 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
             $result = PMA_DBI_fetch_result($query, null, null, $trg_link);
 
             if (count($result) > 0) {
-                $drop_query .= " DROP FOREIGN KEY " . $common_functions->backquote($result[0]['CONSTRAINT_NAME']) . ",";
+                $drop_query .= " DROP FOREIGN KEY " . PMA_Util::backquote($result[0]['CONSTRAINT_NAME']) . ",";
             }
-            $drop_query .=  " DROP COLUMN " . $common_functions->backquote($uncommon_columns[$table_counter][$a]);
+            $drop_query .=  " DROP COLUMN " . PMA_Util::backquote($uncommon_columns[$table_counter][$a]);
             if ($a < (count($uncommon_columns[$table_counter]) - 1)) {
                 $drop_query .= " , " ;
             }
@@ -1426,7 +1426,7 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
     
     //Adds indexes on target table
     if (isset($add_indexes_array[$table_counter])) {
-        $sql = "ALTER TABLE " . $common_functions->backquote($trg_db) . "." . $common_functions->backquote($matching_tables[$table_counter]) . " ADD" ;
+        $sql = "ALTER TABLE " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_tables[$table_counter]) . " ADD" ;
         for ($a = 0; $a < count($source_indexes[$table_counter]); $a++) {
             if (isset($add_indexes_array[$table_counter][$a])) {
                 for ($b = 0; $b < count($source_indexes[$table_counter]); $b++) {
@@ -1434,7 +1434,7 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
                         if ($source_indexes[$table_counter][$b]['Non_unique'] == '0') {
                             $sql .= " UNIQUE ";
                         }
-                        $sql .= " INDEX " . $common_functions->backquote($source_indexes[$table_counter][$b]['Key_name']) . " (" . $add_indexes_array[$table_counter][$a] . " );";
+                        $sql .= " INDEX " . PMA_Util::backquote($source_indexes[$table_counter][$b]['Key_name']) . " (" . $add_indexes_array[$table_counter][$a] . " );";
                         if ($display == true) {
                             echo '<p>' . $sql . '</p>';
                         }
@@ -1447,10 +1447,10 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
     //Alter indexes of target table
 
     if (isset($alter_indexes_array[$table_counter])) {
-        $query = "ALTER TABLE " . $common_functions->backquote($trg_db) . "." . $common_functions->backquote($matching_tables[$table_counter]);
+        $query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_tables[$table_counter]);
         for ($a = 0; $a < count($alter_indexes_array[$table_counter]); $a++) {
             if (isset($alter_indexes_array[$table_counter][$a])) {
-                $query .= ' DROP INDEX ' . $common_functions->backquote($alter_indexes_array[$table_counter][$a]) . " , ADD ";
+                $query .= ' DROP INDEX ' . PMA_Util::backquote($alter_indexes_array[$table_counter][$a]) . " , ADD ";
                 $got_first_index_column = false;
                 for ($z = 0; $z < count($source_indexes[$table_counter]); $z++) {
                     if ($source_indexes[$table_counter][$z]['Key_name'] == $alter_indexes_array[$table_counter][$a]) {
@@ -1458,11 +1458,11 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
                             if ($source_indexes[$table_counter][$z]['Non_unique'] == '0') {
                                 $query .= " UNIQUE ";
                             }
-                            $query .= " INDEX " . $common_functions->backquote($source_indexes[$table_counter][$z]['Key_name']) . " (" . $common_functions->backquote($source_indexes[$table_counter][$z]['Column_name']);
+                            $query .= " INDEX " . PMA_Util::backquote($source_indexes[$table_counter][$z]['Key_name']) . " (" . PMA_Util::backquote($source_indexes[$table_counter][$z]['Column_name']);
                             $got_first_index_column = true;
                         } else {
                             // another column for this index
-                            $query .= ', ' . $common_functions->backquote($source_indexes[$table_counter][$z]['Column_name']);
+                            $query .= ', ' . PMA_Util::backquote($source_indexes[$table_counter][$z]['Column_name']);
                         }
                     }
                 }
@@ -1477,10 +1477,10 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
     }
     //Removes indexes from target table
     if (isset($remove_indexes_array[$table_counter])) {
-        $drop_index_query = "ALTER TABLE " . $common_functions->backquote($trg_db) . "." . $common_functions->backquote($matching_tables[$table_counter]);
+        $drop_index_query = "ALTER TABLE " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_tables[$table_counter]);
         for ($a = 0; $a < count($target_indexes[$table_counter]); $a++) {
             if (isset($remove_indexes_array[$table_counter][$a])) {
-                $drop_index_query .= " DROP INDEX " . $common_functions->backquote($remove_indexes_array[$table_counter][$a]);
+                $drop_index_query .= " DROP INDEX " . PMA_Util::backquote($remove_indexes_array[$table_counter][$a]);
             }
             if ($a < (count($remove_indexes_array[$table_counter]) - 1)) {
                 $drop_index_query .= " , " ;
@@ -1607,12 +1607,12 @@ function PMA_getColumnValues($database, $table, $column, $link = null)
     
     $query = 'SELECT ';
     for ($i = 0; $i < count($column); $i++) {
-        $query.= $common_functions->backquote($column[$i]);
+        $query.= PMA_Util::backquote($column[$i]);
         if ($i < (count($column)-1)) {
             $query.= ', ';
         }
     }
-    $query.= ' FROM ' . $common_functions->backquote($database) . '.' . $common_functions->backquote($table);
+    $query.= ' FROM ' . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table);
     $field_values = PMA_DBI_fetch_result($query, null, null, $link);
 
     if (! is_array($field_values) || count($field_values) < 1) {

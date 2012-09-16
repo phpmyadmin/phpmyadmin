@@ -111,11 +111,11 @@ function PMA_buildHtmlForDb(
                 $column_order[$stat_name]['footer'] += $current[$stat_name];
             }
             if ($stat['format'] === 'byte') {
-                list($value, $unit) = $common_functions->formatByteDown(
+                list($value, $unit) = PMA_Util::formatByteDown(
                     $current[$stat_name], 3, 1
                 );
             } elseif ($stat['format'] === 'number') {
-                $value = $common_functions->formatNumber(
+                $value = PMA_Util::formatNumber(
                     $current[$stat_name], 0
                 );
             } else {
@@ -145,7 +145,7 @@ function PMA_buildHtmlForDb(
                 $replication_info[$type]['Ignore_DB']
             );
             if (strlen($key) > 0) {
-                $out .= $common_functions->getIcon('s_cancel.png',  __('Not replicated'));
+                $out .= PMA_Util::getIcon('s_cancel.png',  __('Not replicated'));
             } else {
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
@@ -156,7 +156,7 @@ function PMA_buildHtmlForDb(
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {
                     // if ($key != null) did not work for index "0"
-                    $out .= $common_functions->getIcon('s_success.png', __('Replicated'));
+                    $out .= PMA_Util::getIcon('s_success.png', __('Replicated'));
                 }
             }
 
@@ -178,7 +178,7 @@ function PMA_buildHtmlForDb(
                )
                . '">'
                . ' '
-               . $common_functions->getIcon('s_rights.png', __('Check Privileges'))
+               . PMA_Util::getIcon('s_rights.png', __('Check Privileges'))
                . '</a></td>';
     }
     return array($column_order, $out);

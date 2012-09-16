@@ -308,7 +308,7 @@ class ExportLatex extends ExportPlugin
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
                     array(
                         'texEscape',
@@ -318,7 +318,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -344,7 +344,7 @@ class ExportLatex extends ExportPlugin
             if (isset($GLOBALS['latex_caption'])) {
                 if (! PMA_exportOutputHandler(
                     '\\caption{'
-                    . $common_functions->expandUserString(
+                    . PMA_Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
                         array(
                             'texEscape',
@@ -518,7 +518,7 @@ class ExportLatex extends ExportPlugin
         // Table caption for first page and label
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     array(
                         'texEscape',
@@ -528,7 +528,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -540,7 +540,7 @@ class ExportLatex extends ExportPlugin
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     array(
                         'texEscape',

@@ -77,7 +77,7 @@ require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 $db_collation = PMA_getDbCollation($db);
 
-$titles = $common_functions->buildActionTitles();
+$titles = PMA_Util::buildActionTitles();
 
 // 1. No tables
 
@@ -117,7 +117,7 @@ if (isset($_REQUEST['sort_order'])) {
 }
 
 $response->addHTML(
-    $common_functions->getListNavigator(
+    PMA_Util::getListNavigator(
         $total_num_tables, $pos, $_url_params, 'db_structure.php',
         'frame_content', $GLOBALS['cfg']['MaxTableList']
     )
@@ -307,7 +307,7 @@ $response->addHTML('</form>'); //end of form
 
 // display again the table list navigator
 $response->addHTML(
-    $common_functions->getListNavigator(
+    PMA_Util::getListNavigator(
         $total_num_tables, $pos, $_url_params, 'db_structure.php',
         'frame_content', $GLOBALS['cfg']['MaxTableList']
     )

@@ -31,12 +31,12 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
         $db_and_table = '*.*';
     } else {
         if (strlen($tablename)) {
-            $db_and_table = $common_functions->backquote(
-                $common_functions->unescapeMysqlWildcards($dbname)
+            $db_and_table = PMA_Util::backquote(
+                PMA_Util::unescapeMysqlWildcards($dbname)
             )
-            . '.' . $common_functions->backquote($tablename);
+            . '.' . PMA_Util::backquote($tablename);
         } else {
-            $db_and_table = $common_functions->backquote($dbname) . '.*';
+            $db_and_table = PMA_Util::backquote($dbname) . '.*';
         }
     }
     return $db_and_table;
@@ -56,9 +56,9 @@ function PMA_rangeOfUsers($initial = '')
     // might be BINARY, so LIKE would be case sensitive
     if (! empty($initial)) {
         $ret = " WHERE `User` LIKE '"
-            . $common_functions->sqlAddSlashes($initial, true) . "%'"
+            . PMA_Util::sqlAddSlashes($initial, true) . "%'"
             . " OR `User` LIKE '"
-            . $common_functions->sqlAddSlashes(strtolower($initial), true) . "%'";
+            . PMA_Util::sqlAddSlashes(strtolower($initial), true) . "%'";
     } else {
         $ret = '';
     }
@@ -349,21 +349,21 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
     
     if ($db == '*') {
         return "SELECT * FROM `mysql`.`user`"
-            ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
+            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
     } elseif ($table == '*') {
         return "SELECT * FROM `mysql`.`db`"
-            ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "'"
-            ." AND '" . $common_functions->unescapeMysqlWildcards($db) . "'"
+            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            ." AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
             ." LIKE `Db`;";
     }
     return "SELECT `Table_priv`"
         ." FROM `mysql`.`tables_priv`"
-        ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
-        ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "'"
-        ." AND `Db` = '" . $common_functions->unescapeMysqlWildcards($db) . "'"
-        ." AND `Table_name` = '" . $common_functions->sqlAddSlashes($table) . "';";
+        ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+        ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+        ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
 }
 /**
  * Displays the privileges form table
@@ -582,15 +582,15 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
         'SELECT `Column_name`, `Column_priv`'
         .' FROM `mysql`.`columns_priv`'
         .' WHERE `User`'
-        .' = \'' . $common_functions->sqlAddSlashes($username) . "'"
+        .' = \'' . PMA_Util::sqlAddSlashes($username) . "'"
         .' AND `Host`'
-        .' = \'' . $common_functions->sqlAddSlashes($hostname) . "'"
+        .' = \'' . PMA_Util::sqlAddSlashes($hostname) . "'"
         .' AND `Db`'
-        .' = \'' . $common_functions->sqlAddSlashes(
-            $common_functions->unescapeMysqlWildcards($db)
+        .' = \'' . PMA_Util::sqlAddSlashes(
+            PMA_Util::unescapeMysqlWildcards($db)
         ) . "'"
         .' AND `Table_name`'
-        .' = \'' . $common_functions->sqlAddSlashes($table) . '\';'
+        .' = \'' . PMA_Util::sqlAddSlashes($table) . '\';'
     );
 
     while ($row1 = PMA_DBI_fetch_row($res)) {
@@ -608,7 +608,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
         . 'value="' . count($columns) . '" />' . "\n"
         . '<fieldset id="fieldset_user_priv">' . "\n"
         . '<legend>' . __('Table-specific privileges')
-        . $common_functions->showHint(
+        . PMA_Util::showHint(
             __('Note: MySQL privilege names are expressed in English')
         )
         . '</legend>' . "\n";
@@ -1336,21 +1336,21 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
 
         // in $sql_query which will be displayed, hide the password
         $sql_query        = 'SET PASSWORD FOR \''
-            . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = '
+            . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
             . (($_POST['pma_pw'] == '')
                 ? '\'\''
                 : $hashing_function . '(\''
                 . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
 
         $local_query      = 'SET PASSWORD FOR \''
-            . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = '
+            . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
             . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-            . '(\'' . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\')');
+            . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
 
         PMA_DBI_try_query($local_query)
-            or $common_functions->mysqlDie(
+            or PMA_Util::mysqlDie(
                 PMA_DBI_getError(), $sql_query, false, $err_url
             );
         $message = PMA_Message::success(
@@ -1383,12 +1383,12 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \''
-        . $common_functions->sqlAddSlashes($username) . '\'@\''
-        . $common_functions->sqlAddSlashes($hostname) . '\';';
+        . PMA_Util::sqlAddSlashes($username) . '\'@\''
+        . PMA_Util::sqlAddSlashes($hostname) . '\';';
 
     $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
-        . ' FROM \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
-        . $common_functions->sqlAddSlashes($hostname) . '\';';
+        . ' FROM \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
+        . PMA_Util::sqlAddSlashes($hostname) . '\';';
 
     PMA_DBI_query($sql_query0);
     if (! PMA_DBI_try_query($sql_query1)) {
@@ -1451,7 +1451,7 @@ function PMA_getHtmlForAddUser($random_n, $dbname)
     $GLOBALS['url_query'] .= '&amp;adduser=1';
 
     $html_output = '<h2>' . "\n"
-       . $common_functions->getIcon('b_usradd.png') . __('Add user') . "\n"
+       . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
        . '<form name="usersForm" id="addUsersForm_' . $random_n
        . '" action="server_privileges.php" method="post">' . "\n"
@@ -1461,13 +1461,13 @@ function PMA_getHtmlForAddUser($random_n, $dbname)
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . __('Database for user') . '</legend>' . "\n";
 
-    $html_output .= $common_functions->getCheckbox(
+    $html_output .= PMA_Util::getCheckbox(
         'createdb-1',
         __('Create database with same name and grant all privileges'),
         false, false
     );
     $html_output .= '<br />' . "\n";
-    $html_output .= $common_functions->getCheckbox(
+    $html_output .= PMA_Util::getCheckbox(
         'createdb-2',
         __('Grant all privileges on wildcard name (username\\_%)'),
         false, false
@@ -1475,7 +1475,7 @@ function PMA_getHtmlForAddUser($random_n, $dbname)
     $html_output .= '<br />' . "\n";
 
     if (! empty($dbname) ) {
-        $html_output .= $common_functions->getCheckbox(
+        $html_output .= PMA_Util::getCheckbox(
             'createdb-3',
             sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)),
             true,
@@ -1572,7 +1572,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
     $html_output = '<form id="usersForm" action="server_privileges.php">'
         . '<fieldset>' . "\n";
     $html_output .= '<legend>' . "\n"
-        . $common_functions->getIcon('b_usrcheck.png')
+        . PMA_Util::getIcon('b_usrcheck.png')
         . '    '
         . sprintf(
             __('Users having access to &quot;%s&quot;'),
@@ -1601,7 +1601,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 
     $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`'
         .' FROM `mysql`.`db`'
-        .' WHERE \'' . $common_functions->sqlAddSlashes($_REQUEST['checkprivs'])
+        .' WHERE \'' . PMA_Util::sqlAddSlashes($_REQUEST['checkprivs'])
         . "'"
         .' LIKE `Db`'
         .' AND NOT (' . $list_of_compared_privileges. ')) '
@@ -1643,7 +1643,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
             . '&amp;'.$GLOBALS['url_query']
             . '" class="'.$conditional_class
             .'" name="db_specific">' . "\n"
-            . $common_functions->getIcon('b_usradd.png')
+            . PMA_Util::getIcon('b_usradd.png')
             . '        ' . __('Add user') . '</a>' . "\n";
 
         $html_output .= '</fieldset>' . "\n";
@@ -1786,7 +1786,7 @@ function PMA_getStandardLinks($conditional_class)
         . '&amp;hostname=%s'
         . '&amp;dbname=%s'
         . '&amp;tablename=%s">'
-        . $common_functions->getIcon('b_usredit.png', __('Edit Privileges'))
+        . PMA_Util::getIcon('b_usredit.png', __('Edit Privileges'))
         . '</a>';
 
     $link_revoke = '<a href='
@@ -1797,7 +1797,7 @@ function PMA_getStandardLinks($conditional_class)
         . '&amp;dbname=%s'
         . '&amp;tablename=%s'
         . '&amp;revokeall=1">'
-        . $common_functions->getIcon('b_usrdrop.png', __('Revoke'))
+        . PMA_Util::getIcon('b_usrdrop.png', __('Revoke'))
         . '</a>';
 
     $link_export = '<a class="export_user_anchor ' . $conditional_class . '"'
@@ -1807,7 +1807,7 @@ function PMA_getStandardLinks($conditional_class)
         . '&amp;hostname=%s'
         . '&amp;initial=%s'
         . '&amp;export=1">'
-        . $common_functions->getIcon('b_tblexport.png', __('Export'))
+        . PMA_Util::getIcon('b_tblexport.png', __('Export'))
         . '</a>';
 
     return array($link_edit, $link_revoke, $link_export);
@@ -2036,7 +2036,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         $user_host_condition .=
             ' AND `Db`'
             .' LIKE \''
-            . $common_functions->sqlAddSlashes($dbname, true) . "'";
+            . PMA_Util::sqlAddSlashes($dbname, true) . "'";
         $tables_to_search_for_users = array('columns_priv',);
         $dbOrTableName = 'Table_name';
     }
@@ -2046,7 +2046,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = '
                 SELECT DISTINCT `' . $dbOrTableName .'`
-                FROM `mysql`.' . $common_functions->backquote($table_search_in)
+                FROM `mysql`.' . PMA_Util::backquote($table_search_in)
                . $user_host_condition;
         }
     }
@@ -2072,7 +2072,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             // only Db names in the table `mysql`.`db` uses wildcards
             // as we are in the db specific rights display we want
             // all db names escaped, also from other sources
-            $db_rights_row['Db'] = $common_functions->escapeMysqlWildcards(
+            $db_rights_row['Db'] = PMA_Util::escapeMysqlWildcards(
                 $db_rights_row['Db']
             );
         }
@@ -2248,9 +2248,9 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
         . '</thead>' . "\n";
 
     $user_host_condition = ' WHERE `User`'
-        . ' = \'' . $common_functions->sqlAddSlashes($username) . "'"
+        . ' = \'' . PMA_Util::sqlAddSlashes($username) . "'"
         . ' AND `Host`'
-        . ' = \'' . $common_functions->sqlAddSlashes($hostname) . "'";
+        . ' = \'' . PMA_Util::sqlAddSlashes($hostname) . "'";
 
     // table body
     // get data
@@ -2298,7 +2298,7 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
             . '<option value="" selected="selected">'
             . __('Use text field') . ':</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
-            $current_db = $common_functions->escapeMysqlWildcards($current_db);
+            $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
             // because the list of databases has special characters
             // already escaped in $found_rows,
@@ -2311,7 +2311,7 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
         $html_output .= '</select>' . "\n";
     }
     $html_output .= '<input type="text" id="text_dbname" name="dbname" />' . "\n"
-        . $common_functions->showHint(
+        . PMA_Util::showHint(
             __('Wildcards % and _ should be escaped with a \ to use them literally')
         );
     return $html_output;
@@ -2334,8 +2334,8 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
         . __('Add privileges on the following table') . ':</label>' . "\n";
 
     $result = @PMA_DBI_try_query(
-        'SHOW TABLES FROM ' . $common_functions->backquote(
-            $common_functions->unescapeMysqlWildcards($dbname)
+        'SHOW TABLES FROM ' . PMA_Util::backquote(
+            PMA_Util::unescapeMysqlWildcards($dbname)
         ) . ';',
         null,
         PMA_DBI_QUERY_STORE
@@ -2405,7 +2405,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '<th>' . __('Host') . '</th>' . "\n"
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
-        . $common_functions->showHint(
+        . PMA_Util::showHint(
             __('Note: MySQL privilege names are expressed in English')
         )
         . '</th>' . "\n"
@@ -2430,7 +2430,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         .'<label for="checkall">' . __('Check All') . '</label> '
         .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
-    $html_output .= $common_functions->getButtonOrImage(
+    $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_export',
         __('Export'), 'b_tblexport.png', 'export'
     );
@@ -2544,13 +2544,13 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
     $html_output .= '<a href="server_privileges.php?'
         . $GLOBALS['url_query'] . '&amp;adduser=1"'
         . 'class="' . $conditional_class . '">' . "\n"
-        . $common_functions->getIcon('b_usradd.png')
+        . PMA_Util::getIcon('b_usradd.png')
         . '            ' . __('Add user') . '</a>' . "\n";
     $html_output .= '</fieldset>' . "\n";
 
     $html_output .= '<fieldset id="fieldset_delete_user">'
         . '<legend>' . "\n"
-        . $common_functions->getIcon('b_usrdrop.png')
+        . PMA_Util::getIcon('b_usrdrop.png')
         . '            ' . __('Remove selected users') . '' . "\n"
         . '</legend>' . "\n";
 
@@ -2738,13 +2738,13 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
-        . ' FROM \'' . $common_functions->sqlAddSlashes($username)
-        . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        . ' FROM \'' . PMA_Util::sqlAddSlashes($username)
+        . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
 
     if (! isset($_POST['Grant_priv']) || $_POST['Grant_priv'] != 'Y') {
         $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
-            . ' FROM \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
-            . $common_functions->sqlAddSlashes($hostname) . '\';';
+            . ' FROM \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
+            . PMA_Util::sqlAddSlashes($hostname) . '\';';
     } else {
         $sql_query1 = '';
     }
@@ -2754,8 +2754,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
     if (! (strlen($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
             . ' ON ' . $db_and_table
-            . ' TO \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
-            . $common_functions->sqlAddSlashes($hostname) . '\'';
+            . ' TO \'' . PMA_Util::sqlAddSlashes($username) . '\'@\''
+            . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
             || (! strlen($dbname)
@@ -3033,8 +3033,8 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     );
 
     $sql = "SELECT '1' FROM `mysql`.`user`"
-        . " WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
-        . " AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
 
     $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
 
@@ -3138,13 +3138,13 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             'SELECT `Column_name`, `Column_priv`'
             .' FROM `mysql`.`columns_priv`'
             .' WHERE `User`'
-            .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+            .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
             .' AND `Host`'
-            .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . '\''
+            .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\''
             .' AND `Db`'
-            .' = \'' . $common_functions->sqlAddSlashes($row['Db']) . "'"
+            .' = \'' . PMA_Util::sqlAddSlashes($row['Db']) . "'"
             .' AND `Table_name`'
-            .' = \'' . $common_functions->sqlAddSlashes($row['Table_name']) . "'"
+            .' = \'' . PMA_Util::sqlAddSlashes($row['Table_name']) . "'"
             .';',
             null,
             PMA_DBI_QUERY_STORE
@@ -3187,10 +3187,10 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         }
 
         $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
-            . ' ON ' . $common_functions->backquote($row['Db']) . '.'
-            . $common_functions->backquote($row['Table_name'])
-            . ' TO \'' . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\''
+            . ' ON ' . PMA_Util::backquote($row['Db']) . '.'
+            . PMA_Util::backquote($row['Table_name'])
+            . ' TO \'' . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
             . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
     }
     return $queries;
@@ -3210,17 +3210,17 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 ) {
     
     $user_host_condition = ' WHERE `User`'
-        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         .' AND `Host`'
-        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . '\';';
+        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\';';
 
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
 
     while ($row = PMA_DBI_fetch_assoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
-            .' ON ' . $common_functions->backquote($row['Db']) . '.*'
-            .' TO \'' . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\''
+            .' ON ' . PMA_Util::backquote($row['Db']) . '.*'
+            .' TO \'' . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
             . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
     }
     PMA_DBI_free_result($res);
@@ -3259,8 +3259,8 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     if (isset($_REQUEST['createdb-1'])) {
         // Create database with same name and grant all privileges
         $q = 'CREATE DATABASE IF NOT EXISTS '
-            . $common_functions->backquote(
-                $common_functions->sqlAddSlashes($username)
+            . PMA_Util::backquote(
+                PMA_Util::sqlAddSlashes($username)
             ) . ';';
         $sql_query .= $q;
         if (! PMA_DBI_try_query($q)) {
@@ -3274,17 +3274,17 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
             // this is needed in case tracking is on:
             $GLOBALS['db'] = $username;
             $GLOBALS['reload'] = true;
-            echo $common_functions->getReloadNavigationScript();
+            echo PMA_Util::getReloadNavigationScript();
         }
 
         $q = 'GRANT ALL PRIVILEGES ON '
-            . $common_functions->backquote(
-                $common_functions->escapeMysqlWildcards(
-                    $common_functions->sqlAddSlashes($username)
+            . PMA_Util::backquote(
+                PMA_Util::escapeMysqlWildcards(
+                    PMA_Util::sqlAddSlashes($username)
                 )
             ) . '.* TO \''
-            . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+            . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
         if (! PMA_DBI_try_query($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
@@ -3294,11 +3294,11 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     if (isset($_REQUEST['createdb-2'])) {
         // Grant all privileges on wildcard name (username\_%)
         $q = 'GRANT ALL PRIVILEGES ON '
-            . $common_functions->backquote(
-                $common_functions->sqlAddSlashes($username) . '\_%'
+            . PMA_Util::backquote(
+                PMA_Util::sqlAddSlashes($username) . '\_%'
             ) . '.* TO \''
-            . $common_functions->sqlAddSlashes($username)
-            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+            . PMA_Util::sqlAddSlashes($username)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
         if (! PMA_DBI_try_query($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
@@ -3308,11 +3308,11 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     if (isset($_REQUEST['createdb-3'])) {
         // Grant all privileges on the specified database to the new user
         $q = 'GRANT ALL PRIVILEGES ON '
-        . $common_functions->backquote(
-            $common_functions->sqlAddSlashes($dbname)
+        . PMA_Util::backquote(
+            PMA_Util::sqlAddSlashes($dbname)
         ) . '.* TO \''
-        . $common_functions->sqlAddSlashes($username)
-        . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        . PMA_Util::sqlAddSlashes($username)
+        . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
         if (! PMA_DBI_try_query($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
@@ -3335,21 +3335,21 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     
     $sql_query = '';
     $create_user_real = 'CREATE USER \''
-        . $common_functions->sqlAddSlashes($username) . '\'@\''
-        . $common_functions->sqlAddSlashes($hostname) . '\'';
+        . PMA_Util::sqlAddSlashes($username) . '\'@\''
+        . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
     $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
-        . $common_functions->sqlAddSlashes($username) . '\'@\''
-        . $common_functions->sqlAddSlashes($hostname) . '\'';
+        . PMA_Util::sqlAddSlashes($username) . '\'@\''
+        . PMA_Util::sqlAddSlashes($hostname) . '\'';
 
     if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
         $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
         $real_sql_query .= ' IDENTIFIED BY \''
-            . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+            . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
         if (isset($create_user_real)) {
             $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
             $create_user_real .= ' IDENTIFIED BY \''
-                . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+                . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\'';
         }
     } else {
         if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
