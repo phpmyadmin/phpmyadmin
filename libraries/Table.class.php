@@ -66,21 +66,6 @@ class PMA_Table
      */
     var $messages = array();
 
-    private $_common_functions;
-
-    /**
-     * Get CommmonFunctions
-     *
-     * @return CommonFunctions object
-     */
-    public function getCommonFunctions()
-    {
-        if (is_null($this->_common_functions)) {
-            $this->_common_functions = PMA_CommonFunctions::getInstance();
-        }
-        return $this->_common_functions;
-    }
-
     /**
      * Constructor
      *
@@ -146,7 +131,7 @@ class PMA_Table
     function getName($backquoted = false)
     {
         if ($backquoted) {
-            return $this->getCommonFunctions()->backquote($this->name);
+            return PMA_Util::backquote($this->name);
         }
         return $this->name;
     }
@@ -173,7 +158,7 @@ class PMA_Table
     function getDbName($backquoted = false)
     {
         if ($backquoted) {
-            return $this->getCommonFunctions()->backquote($this->db_name);
+            return PMA_Util::backquote($this->db_name);
         }
         return $this->db_name;
     }
@@ -1205,8 +1190,8 @@ class PMA_Table
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
-                $sql = 'DROP TRIGGER IF EXISTS ' . $this->getCommonFunctions()->backquote($this->getDbName())
-                    . '.' . $this->getCommonFunctions()->backquote($trigger['name']) . ';';
+                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_Util::backquote($this->getDbName())
+                    . '.' . PMA_Util::backquote($trigger['name']) . ';';
                 PMA_DBI_query($sql);
             }
         }
@@ -1288,7 +1273,7 @@ class PMA_Table
                 continue;
             }
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? $this->getCommonFunctions()->backquote($index[0]) : $index[0]);
+                . ($backquoted ? PMA_Util::backquote($index[0]) : $index[0]);
         }
 
         return $return;
@@ -1318,7 +1303,7 @@ class PMA_Table
         $return = array();
         foreach ($indexed as $column) {
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? $this->getCommonFunctions()->backquote($column) : $column);
+                . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 
         return $return;
@@ -1341,7 +1326,7 @@ class PMA_Table
         $return = array();
         foreach ($indexed as $column) {
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? $this->getCommonFunctions()->backquote($column) : $column);
+                . ($backquoted ? PMA_Util::backquote($column) : $column);
         }
 
         return $return;
@@ -1354,14 +1339,14 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['pmadb']) ."."
-            . $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) ."."
+            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
             . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
-            . " AND `db_name` = '" . $this->getCommonFunctions()->sqlAddSlashes($this->db_name) . "'"
-            . " AND `table_name` = '" . $this->getCommonFunctions()->sqlAddSlashes($this->name) . "'";
+            . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
+            . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
 
         $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
@@ -1378,14 +1363,14 @@ class PMA_Table
      */
     protected function saveUiPrefsToDb()
     {
-        $pma_table = $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
+            . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . $this->getCommonFunctions()->sqlAddSlashes($this->db_name)
-            . "', '" . $this->getCommonFunctions()->sqlAddSlashes($this->name) . "', '"
-            . $this->getCommonFunctions()->sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
+            . " VALUES ('" . $username . "', '" . PMA_Util::sqlAddSlashes($this->db_name)
+            . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
+            . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1415,7 +1400,7 @@ class PMA_Table
                 $message = PMA_Message::error(
                     sprintf(
                         __('Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'),
-                        $this->getCommonFunctions()->showDocu('cfg_Servers_MaxTableUiprefs')
+                        PMA_Util::showDocu('cfg_Servers_MaxTableUiprefs')
                     )
                 );
                 $message->addMessage('<br /><br />');
