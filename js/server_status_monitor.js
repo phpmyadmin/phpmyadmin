@@ -1203,11 +1203,12 @@ $(function() {
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
-            //get date from timestamp
-            //alert(new Date(Math.ceil(selectionTimeDiff[0])) + " \n to \n " + new Date(Math.ceil(selectionTimeDiff[1])));
-            selectionTimeDiff = [];
             $('#selection_box').attr({ id: '' });
-            selectionBox.remove();
+            //get date from timestamp
+            var min = new Date(Math.ceil(selectionTimeDiff[0]));
+            var max = new Date(Math.ceil(selectionTimeDiff[1]));
+            PMA_getLogAnalyseDialog(min, max);
+            selectionTimeDiff = [];
 	    });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
@@ -1283,6 +1284,45 @@ $(function() {
             buttons: dlgBtns
         });
     }
+
+    function PMA_getLogAnalyseDialog(min, max) {
+        $('#logAnalyseDialog input[name="dateStart"]')
+            .attr('value', formatDate(min, 'yyyy-MM-dd HH:mm:ss'));
+        $('#logAnalyseDialog input[name="dateEnd"]')
+            .attr('value', formatDate(max, 'yyyy-MM-dd HH:mm:ss'));
+
+        var dlgBtns = { };
+
+        dlgBtns[PMA_messages['strFromSlowLog']] = function() {
+            loadLog('slow', min, max);
+            $(this).dialog("close");
+        };
+                        
+        dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
+            loadLog('general', min, max);
+            $(this).dialog("close");
+        };
+
+        $('#logAnalyseDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    }
+
+    function loadLog(type, min, max) {
+        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
+        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
+
+        loadLogStatistics({
+            src: type,
+            start: dateStart,
+            end: dateEnd,
+            removeVariables: $('input#removeVariables').prop('checked'),
+            limitTypes: $('input#limitTypes').prop('checked')
+        });
+    }
+                        
     
     /* Removes a chart from the grid */
     function removeChart(chartObj) {
