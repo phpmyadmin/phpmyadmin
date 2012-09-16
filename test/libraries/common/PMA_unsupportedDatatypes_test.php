@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::unsupportedDatatypes from common.lib
+ ** Test for PMA_Util::unsupportedDatatypes from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

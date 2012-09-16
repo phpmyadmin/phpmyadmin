@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::checkParameters from Util.class.php
+ ** Test for PMA_Util::checkParameters from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

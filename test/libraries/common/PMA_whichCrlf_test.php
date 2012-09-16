@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test PMA_CommonFunctions::whichCrlf function
+ * Test PMA_Util::whichCrlf function
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

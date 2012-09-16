@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::extractColumnSpec from Util.class.php
+ ** Test for PMA_Util::extractColumnSpec from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 require_once 'libraries/Util.class.php';
 
 /**
- * Test for PMA_CommonFunctions::extractColumnSpec function.
+ ** Test for PMA_Util::extractColumnSpec function.
  *
  * @package PhpMyAdmin-test
  */

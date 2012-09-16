@@ -34,7 +34,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA_CommonFunctions::unQuote test
+     * data provider for PMA_Util::unQuote test
      *
      * @return array
      */
@@ -49,7 +49,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_CommonFunctions::unQuote test
+     * PMA_Util::unQuote test
      * @dataProvider unQuoteProvider
      */
     public function testUnQuote($param, $expected)
@@ -60,7 +60,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA_CommonFunctions::unQuote test with chosen quote
+     * data provider for PMA_Util::unQuote test with chosen quote
      *
      * @return array
      */
@@ -75,7 +75,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_CommonFunctions::unQuote test with chosen quote
+     * PMA_Util::unQuote test with chosen quote
      * @dataProvider unQuoteSelectedProvider
      */
     public function testUnQuoteSelectedChar($param, $expected)

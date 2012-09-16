@@ -39,7 +39,7 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA_CommonFunctions::flipstring test
+     * data provider for PMA_Util::flipstring test
      *
      * @return array
      */
@@ -62,7 +62,7 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA_CommonFunctions::userDir test
+     * data provider for PMA_Util::userDir test
      *
      * @return array
      */

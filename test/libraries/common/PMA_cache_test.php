@@ -49,7 +49,7 @@ class PMA_cache_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test if PMA_CommonFunctions::cacheGet does not return data for non existing caache entries
+     * Test if PMA_Util::cacheGet does not return data for non existing caache entries
      */
     public function testCacheGet()
     {

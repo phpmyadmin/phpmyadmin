@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::convertBitDefaultValue from common.lib
+ ** Test for PMA_Util::convertBitDefaultValue from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

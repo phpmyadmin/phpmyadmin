@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA_CommonFunctions::pow() function from Util.class.php
+ * Tests for PMA_Util::pow() function from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests

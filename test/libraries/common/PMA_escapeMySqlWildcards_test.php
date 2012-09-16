@@ -30,7 +30,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_CommonFunctions::escapeMysqlWildcards tests
+     * PMA_Util::escapeMysqlWildcards tests
      * @dataProvider escapeDataProvider
      */
 
@@ -42,7 +42,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_CommonFunctions::unescapeMysqlWildcards tests
+     * PMA_Util::unescapeMysqlWildcards tests
      * @dataProvider escapeDataProvider
      */
 

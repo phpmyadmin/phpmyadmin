@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::expandUserString from Util.class.php
+ ** Test for PMA_Util::expandUserString from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -15,7 +15,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Config.class.php';
 
 /**
- * Test for PMA_CommonFunctions::expandUserString function.
+ ** Test for PMA_Util::expandUserString function.
  *
  * @package PhpMyAdmin-test
  */

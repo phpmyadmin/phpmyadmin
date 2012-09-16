@@ -96,17 +96,6 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getCommonFunctions
-     */
-    public function testGetCommonFunctions()
-    {
-        $this->assertInstanceOf(
-            'PMA_CommonFunctions',
-            $this->object->getCommonFunctions()
-        );
-    }
-
-    /**
      * Test for _getSortSelectCell
      */
     public function testGetSortSelectCell()
