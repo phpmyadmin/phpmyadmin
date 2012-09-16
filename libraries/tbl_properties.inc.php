@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once './libraries/CommonFunctions.class.php';
+require_once './libraries/Util.class.php';
 
 $common_functions = PMA_CommonFunctions::getInstance();
 $common_functions->checkParameters(array('db', 'table', 'action', 'num_fields'));

@@ -14,7 +14,7 @@ require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
 class PMA_Footer_test extends PHPUnit_Framework_TestCase

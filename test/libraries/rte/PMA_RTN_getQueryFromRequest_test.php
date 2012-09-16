@@ -9,7 +9,7 @@
 /*
  * Needed for backquote() and PMA_RTN_getQueryFromRequest()
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once './libraries/Types.class.php';
 

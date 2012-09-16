@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/js_escape.lib.php';

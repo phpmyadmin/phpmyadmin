@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once './libraries/Types.class.php';
 
 /*

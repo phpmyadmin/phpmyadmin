@@ -12,7 +12,7 @@
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/core.lib.php';
 
 class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA_CommonFunctions::pow() function from CommonFunctions.class.php
+ * Tests for PMA_CommonFunctions::pow() function from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_pow_test extends PHPUnit_Framework_TestCase
 {

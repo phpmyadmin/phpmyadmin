@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 

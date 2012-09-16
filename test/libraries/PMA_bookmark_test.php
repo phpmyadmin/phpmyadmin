@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_bookmark_test extends PHPUnit_Framework_TestCase

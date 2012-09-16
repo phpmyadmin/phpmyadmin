@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 {
