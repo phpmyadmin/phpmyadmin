@@ -25,9 +25,6 @@ $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-// Get instance of PMA_CommonFunctions
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Sets globals from $_POST
  */

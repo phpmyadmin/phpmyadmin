@@ -11,7 +11,6 @@
 require_once './libraries/common.inc.php';
 
 PMA_Response::getInstance()->disable();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 require_once 'libraries/pmd_common.php';
 $die_save_pos = 0;

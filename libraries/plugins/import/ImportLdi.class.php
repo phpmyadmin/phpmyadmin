@@ -115,8 +115,6 @@ class ImportLdi extends ImportPlugin
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
             $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         if ($import_file == 'none'
             || $compression != 'none'
             || $charset_conversion

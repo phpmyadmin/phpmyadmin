@@ -13,7 +13,6 @@ require_once 'libraries/common.inc.php';
 
 $response = PMA_Response::getInstance();
 $response->getHeader()->enablePrintView();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 require 'libraries/tbl_common.inc.php';
 

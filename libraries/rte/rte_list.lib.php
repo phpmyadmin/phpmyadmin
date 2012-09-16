@@ -130,8 +130,6 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $titles;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $sql_drop = sprintf(
         'DROP %s IF EXISTS %s',
         $routine['ROUTINE_TYPE'],
@@ -241,8 +239,6 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $table, $titles;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
     $retval .= "                <span class='drop_sql hide'>{$trigger['drop']}</span>\n";
@@ -312,8 +308,6 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
 {
     global $ajax_class, $url_query, $db, $titles;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $sql_drop = sprintf(
         'DROP EVENT IF EXISTS %s',
         PMA_CommonFunctions::getInstance()->backquote($event['EVENT_NAME'])

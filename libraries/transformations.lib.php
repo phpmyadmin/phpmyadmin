@@ -163,7 +163,7 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
  */
 function PMA_getMIME($db, $table, $strict = false)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -250,7 +250,6 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $transformation_options, $forcedelete = false
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -380,7 +379,6 @@ function PMA_transformation_global_html_replace($buffer, $options = array())
 function PMA_clearTransformations($db, $table = '', $column = '')
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     
     $delete_sql = 'DELETE FROM '

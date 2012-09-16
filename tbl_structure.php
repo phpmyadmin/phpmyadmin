@@ -23,7 +23,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * handle multiple field commands if required

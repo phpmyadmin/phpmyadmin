@@ -24,8 +24,6 @@ require_once 'libraries/db_info.inc.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Now in ./libraries/relation.lib.php we check for all tables
  * that we need, but if we don't find them we are quiet about it

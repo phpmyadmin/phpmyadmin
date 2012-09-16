@@ -10,8 +10,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 // Check parameters
 $common_functions->checkParameters(array('db', 'table'));
 

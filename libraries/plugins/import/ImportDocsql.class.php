@@ -113,9 +113,8 @@ class ImportDocsql extends ImportPlugin
     public function doImport()
     {
         global $error, $timeout_passed, $finished;
+        
         $cfgRelation = $this->_getCfgRelation();
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         $tab = $_POST['docsql_table'];
         $buffer = '';
 

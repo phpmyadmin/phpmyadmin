@@ -23,8 +23,6 @@ require_once 'libraries/db_table_exists.lib.php';
  */
 require_once 'libraries/insert_edit.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Sets global variables.
  * Here it's better to use a if, instead of the '?' operator

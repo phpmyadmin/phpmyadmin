@@ -192,9 +192,7 @@ class PMA_Export_Relation_Schema
     {
         global $cfgRelation;
         
-        $common_functions = PMA_CommonFunctions::getInstance();
-        
-         // Get All tables
+        // Get All tables
         $tab_sql = 'SELECT table_name FROM '
             . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
             . $common_functions->backquote($cfgRelation['table_coords'])

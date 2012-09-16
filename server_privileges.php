@@ -22,7 +22,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 $_add_user_error = false;
 

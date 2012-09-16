@@ -28,7 +28,6 @@ $response = PMA_Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Rename/move or copy database

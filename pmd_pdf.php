@@ -8,8 +8,6 @@
 require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
   * Sets globals from $_POST
   */

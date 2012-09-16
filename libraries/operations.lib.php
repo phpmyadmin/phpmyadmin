@@ -96,8 +96,7 @@ function PMA_getHtmlForRenameDatabase($db)
  */
 function PMA_getHtmlForDropDatabaseLink($db)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($db);
     $this_url_params = array(
         'sql_query' => $this_sql_query,
@@ -142,7 +141,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
  */
 function PMA_getHtmlForCopyDatabase($db)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $drop_clause = 'DROP TABLE / DROP VIEW';
     $choices = array(
         'structure' => __('Structure only'),
@@ -1075,8 +1074,7 @@ function PMA_getHtmlForCopytable()
 function PMA_getHtmlForTableMaintenance(
     $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
@@ -1108,7 +1106,7 @@ function PMA_getHtmlForTableMaintenance(
 function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     $is_innodb, $url_params, $is_berkeleydb
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $html_output = '';
 
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
@@ -1300,8 +1298,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
  */
 function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $choices = array(
         'ANALYZE' => __('Analyze'),
         'CHECK' => __('Check'),
@@ -1366,8 +1363,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
  */
 function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $html_output = '<div class="operations_half_width">'
         . '<fieldset>'
         . '<legend>' . __('Check referential integrity:') . '</legend>';
@@ -1417,8 +1413,7 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
 function PMA_getQueryAndResultForReorderingTable()
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $sql_query = 'ALTER TABLE '
         . $common_functions->backquote($GLOBALS['table'])
         . ' ORDER BY '
@@ -1457,7 +1452,7 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
     $is_pbxt, $row_format, $tbl_storage_engine, $transactional, $tbl_collation
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $table_alters = array();
 
     if (isset($_REQUEST['comment'])

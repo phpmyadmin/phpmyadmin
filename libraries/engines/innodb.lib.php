@@ -153,8 +153,6 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     function getPageBufferpool()
     {
         
-        $common_functions = PMA_CommonFunctions::getInstance();
-        
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)

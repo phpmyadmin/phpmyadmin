@@ -35,8 +35,6 @@ $GLOBALS['is_superuser'] = PMA_isSuperuser();
 function PMA_analyseShowGrant()
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     if ($common_functions->cacheExists('is_create_db_priv', true)) {
         $GLOBALS['is_create_db_priv']  = $common_functions->cacheGet('is_create_db_priv', true);
         $GLOBALS['is_process_priv']    = $common_functions->cacheGet('is_process_priv', true);

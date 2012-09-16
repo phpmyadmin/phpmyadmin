@@ -172,8 +172,6 @@ function PMA_sqlQueryFormInsert(
     $query = '', $is_querywindow = false, $delimiter = ';'
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     // enable auto select text in textarea
     if ($GLOBALS['cfg']['TextareaAutoSelect']) {
         $auto_sel = ' onclick="selectContent(this, sql_box_locked, true)"';
@@ -450,7 +448,6 @@ function PMA_sqlQueryFormBookmark()
 function PMA_sqlQueryFormUpload()
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $errors = array ();
 
     // we allow only SQL here

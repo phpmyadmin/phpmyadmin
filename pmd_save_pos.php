@@ -12,7 +12,6 @@ require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 if (! $cfgRelation['designerwork']) {
     PMD_err_sav();

@@ -169,7 +169,7 @@ function PMA_changePassHashingFunction()
 function PMA_ChangePassUrlParamsAndSubmitQuery(
     $password, $_url_params, $sql_query, $hashing_function
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''

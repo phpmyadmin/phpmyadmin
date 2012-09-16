@@ -16,7 +16,6 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/server_common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
 $url_params = array();
 
 /**

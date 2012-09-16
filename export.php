@@ -13,8 +13,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Sets globals from all $_POST (in export.php only)
  * Would it not be tiresome to list all export-plugin options here?

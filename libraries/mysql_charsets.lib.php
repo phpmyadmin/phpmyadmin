@@ -8,11 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
-$common_functions = PMA_CommonFunctions::getInstance();
-
 if (! $common_functions->cacheExists('mysql_charsets', true)) {
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
@@ -169,8 +164,6 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     
     if (PMA_is_system_schema($db)) {
         // We don't have to check the collation of the virtual

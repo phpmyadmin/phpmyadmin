@@ -9,8 +9,6 @@
 
 require_once 'libraries/common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Ajax request
  */
@@ -994,7 +992,6 @@ function printQueryStatistics()
 {
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $hour_factor   = 3600 / $server_status['Uptime'];
 
     $total_queries = array_sum($used_queries);
@@ -1103,7 +1100,6 @@ function printServerTraffic()
     global $server_status, $PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $hour_factor    = 3600 / $server_status['Uptime'];
 
     /**
@@ -1492,8 +1488,6 @@ function printVariablesTable()
 {
     global $server_status, $server_variables, $allocationMap, $links;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     /**
      * Messages are built using the message name
      */
@@ -1759,9 +1753,7 @@ function printVariablesTable()
 function printMonitor()
 {
     global $server_status, $server_db_isLocal;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
 ?>
     <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">

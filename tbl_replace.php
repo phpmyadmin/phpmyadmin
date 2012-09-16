@@ -22,8 +22,6 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/insert_edit.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 // Check parameters
 $common_functions->checkParameters(array('db', 'table', 'goto'));
 

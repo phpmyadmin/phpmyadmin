@@ -242,7 +242,7 @@ class ExportCodegen extends ExportPlugin
     private function _handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines = array();
-        $common_functions = PMA_CommonFunctions::getInstance();
+        
         $result = PMA_DBI_query(
             sprintf(
                 'DESC %s.%s', $common_functions->backquote($db),
@@ -328,7 +328,6 @@ class ExportCodegen extends ExportPlugin
     private function _handleNHibernateXMLBody($db, $table, $crlf)
     {
         $lines = array();
-        $common_functions = PMA_CommonFunctions::getInstance();
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . ExportCodegen::cgMakeIdentifier($db) . '" '

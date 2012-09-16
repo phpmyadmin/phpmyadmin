@@ -265,8 +265,6 @@ function PMA_RTN_handleEditor()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
     ) {
@@ -444,8 +442,6 @@ function PMA_RTN_getDataFromRequest()
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $retval = array();
     $indices = array('item_name',
                      'item_original_name',
@@ -562,7 +558,6 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 {
     global $db;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $retval  = array();
 
     // Build and execute the query
@@ -689,8 +684,6 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 {
     global $param_directions, $param_opts_num, $titles;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if ($index === null) {
         // template row for AJAX request
@@ -1045,7 +1038,6 @@ function PMA_RTN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
         ? $_REQUEST['item_type'] : '';
 
@@ -1202,8 +1194,6 @@ function PMA_RTN_getQueryFromRequest()
 function PMA_RTN_handleExecute()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     /**
      * Handle all user requests other than the default of listing routines
@@ -1449,8 +1439,6 @@ function PMA_RTN_handleExecute()
 function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     // Escape special characters
     $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);

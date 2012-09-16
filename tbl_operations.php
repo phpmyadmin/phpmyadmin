@@ -17,7 +17,6 @@ require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 $response = PMA_Response::getInstance();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Runs common work

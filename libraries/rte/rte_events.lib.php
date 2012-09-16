@@ -80,8 +80,6 @@ function PMA_EVN_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
     ) {
@@ -275,8 +273,6 @@ function PMA_EVN_getDataFromName($name)
 {
     global $db;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $retval = array();
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
@@ -516,8 +512,6 @@ function PMA_EVN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {

@@ -10,8 +10,6 @@ if (! defined('PHPMYADMIN')) {
 
 require_once 'libraries/transformations.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 $request_params = array(
     'clause_is_unique',
     'goto',

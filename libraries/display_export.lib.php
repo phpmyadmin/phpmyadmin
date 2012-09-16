@@ -9,7 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$common_functions = PMA_CommonFunctions::getInstance();
 // Get relations & co. status
 $cfgRelation = PMA_getRelationsParam();
 

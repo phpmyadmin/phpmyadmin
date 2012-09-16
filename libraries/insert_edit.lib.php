@@ -1374,7 +1374,6 @@ function PMA_getColumnSize($column, $extracted_columnspec)
  */
 function PMA_getHTMLforGisDataTypes()
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $edit_str = $common_functions->getIcon('b_edit.png', __('Edit/Insert'));
     return '<span class="open_gis_editor">'
         . $common_functions->linkOrButton(
@@ -1631,7 +1630,6 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $real_null_value, $gis_data_types, $column_name_appendix
 ) {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $special_chars_encoded = '';
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
@@ -1810,7 +1808,6 @@ function PMA_isInsertRow()
 function PMA_setSessionForEditNext($one_where_clause)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $local_query = 'SELECT * FROM ' . $common_functions->backquote($GLOBALS['db'])
         . '.' . $common_functions->backquote($GLOBALS['table']) . ' WHERE '
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
@@ -2011,8 +2008,6 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
 ) {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $display_field = PMA_getDisplayField(
         $map[$relation_field]['foreign_db'],
         $map[$relation_field]['foreign_table']
@@ -2049,8 +2044,6 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $where_comparison, $dispval, $relation_field_value
 ) {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational key" in the display options, so
@@ -2207,8 +2200,6 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
 ) {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
@@ -2276,8 +2267,6 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
     $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table
 ) {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     // Fetch the current values of a row to use in case we have a protected field
     if ($is_insert

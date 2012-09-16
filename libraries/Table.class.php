@@ -202,8 +202,6 @@ class PMA_Table
     static public function isView($db = null, $table = null)
     {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         if (empty($db) || empty($table)) {
             return false;
         }
@@ -383,7 +381,6 @@ class PMA_Table
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
         $query = $common_functions->backquote($name) . ' ' . $type;
@@ -519,8 +516,6 @@ class PMA_Table
         $is_view = null
     ) {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
@@ -649,7 +644,6 @@ class PMA_Table
         $where_fields, $new_fields
     ) {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $last_id = -1;
 
         if (isset($GLOBALS['cfgRelation']) && $GLOBALS['cfgRelation'][$work]) {
@@ -731,8 +725,6 @@ class PMA_Table
         $target_table, $what, $move, $mode
     ) {
         global $err_url;
-
-        $common_functions = PMA_CommonFunctions::getInstance();
 
         /* Try moving table directly */
         if ($move && $what == 'data') {

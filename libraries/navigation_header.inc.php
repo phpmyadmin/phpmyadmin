@@ -9,11 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
-/**
- *
- */
 if (empty($query_url)) {
     // avoid putting here $db because it could display a db name
     // to which the next user does not have access

@@ -15,7 +15,6 @@ require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/display_import_ajax.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
 /* Scan for plugins */
 $import_list = PMA_getPlugins(
     "import",

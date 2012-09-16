@@ -27,8 +27,6 @@ function PMA_exitNavigationFrame()
 require_once 'libraries/Util.class.php';
 require_once 'libraries/RecentTable.class.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
@@ -342,8 +340,6 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
     global $element_counter, $img_minus, $img_plus, $href_left,
         $db_start, $common_url_query;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     // get table list, for all databases
     // doing this in one step takes advantage of
     // a single query with information_schema!
@@ -532,8 +528,6 @@ function PMA_displayTableList(
     $tables, $visible = false,
     $tab_group_full = '', $table_db = ''
 ) {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (! is_array($tables) || count($tables) === 0) {
         return;

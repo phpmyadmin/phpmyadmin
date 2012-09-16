@@ -13,7 +13,6 @@ require_once 'libraries/common.inc.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 $common_functions->checkParameters(array('db'));
 

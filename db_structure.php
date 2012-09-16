@@ -21,7 +21,6 @@ $scripts  = $header->getScripts();
 $scripts->addFile('db_structure.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/timepicker.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 $post_params = array(
     'error',

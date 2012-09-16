@@ -14,8 +14,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 if (isset($_REQUEST['field'])) {
     $GLOBALS['field'] = $_REQUEST['field'];
 }

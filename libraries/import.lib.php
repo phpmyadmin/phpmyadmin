@@ -918,8 +918,6 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     &$additional_sql = null, $options = null
 ) {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];

@@ -13,7 +13,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_databases.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 require 'libraries/server_common.inc.php';
 if (! PMA_DRIZZLE) {

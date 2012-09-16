@@ -10,7 +10,6 @@
 require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
-$common_functions = PMA_CommonFunctions::getInstance();
 
 $titles = $common_functions->buildActionTitles();
 

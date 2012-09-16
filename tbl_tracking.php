@@ -13,7 +13,6 @@ require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';;
 $url_params['back'] = 'tbl_tracking.php';
-$common_functions = PMA_CommonFunctions::getInstance();
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {

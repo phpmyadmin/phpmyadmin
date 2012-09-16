@@ -12,7 +12,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_variables.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 PMA_addJSVar('pma_token', $_SESSION[' PMA_token ']);
 PMA_addJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
@@ -209,8 +208,6 @@ $response->addHtml($output);
 function formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (is_numeric($value)) {
         if (isset($VARIABLE_DOC_LINKS[$name][3])

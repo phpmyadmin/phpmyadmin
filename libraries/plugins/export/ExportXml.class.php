@@ -167,7 +167,6 @@ class ExportXml extends ExportPlugin
         $table = $this->_getTable();
         $tables = $this->_getTables();
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $export_struct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
             || isset($GLOBALS['xml_export_tables'])

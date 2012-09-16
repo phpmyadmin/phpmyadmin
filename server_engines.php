@@ -17,8 +17,6 @@ require_once 'libraries/common.inc.php';
 require 'libraries/server_common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Did the user request information about a certain storage engine?
  */

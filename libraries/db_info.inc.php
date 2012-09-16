@@ -15,8 +15,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * limits for table list
  */
@@ -42,8 +40,6 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (strstr($table['Comment'], '; InnoDB free') === false) {
         if (!strstr($table['Comment'], 'InnoDB free') === false) {

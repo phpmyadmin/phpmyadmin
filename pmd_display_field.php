@@ -13,8 +13,6 @@ PMA_Response::getInstance()->disable();
 
 require_once 'libraries/pmd_common.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 $table = $T;
 $display_field = $F;
 

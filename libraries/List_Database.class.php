@@ -445,8 +445,6 @@ class PMA_List_Database extends PMA_List
     protected function checkAgainstPrivTables()
     {
         
-        $common_functions = PMA_CommonFunctions::getInstance();
-        
         // 1. get allowed dbs from the "mysql.db" table
         // User can be blank (anonymous user)
         $local_query = "

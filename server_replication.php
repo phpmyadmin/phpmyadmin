@@ -18,7 +18,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 require 'libraries/server_common.inc.php';
 require 'libraries/replication.inc.php';

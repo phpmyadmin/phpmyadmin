@@ -305,8 +305,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
-        
         // BEGIN Swekey Integration
         if (! Swekey_auth_check()) {
             return false;

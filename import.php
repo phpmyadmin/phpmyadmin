@@ -16,8 +16,6 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Sets globals from $_POST
  */

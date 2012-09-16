@@ -13,8 +13,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/tbl_common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 // Get fields and stores their name/type
 $fields = array();
 foreach (PMA_DBI_get_columns_full($db, $table) as $row) {

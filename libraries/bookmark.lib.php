@@ -54,7 +54,6 @@ function PMA_Bookmark_getList($db)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
@@ -113,7 +112,6 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 ) {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
@@ -154,7 +152,6 @@ function PMA_Bookmark_save($fields, $all_users = false)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
@@ -188,7 +185,6 @@ function PMA_Bookmark_delete($db, $id)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {

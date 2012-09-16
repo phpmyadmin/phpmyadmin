@@ -22,8 +22,6 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     $icon = 'b_' . strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";

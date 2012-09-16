@@ -29,8 +29,6 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once 'libraries/bookmark.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 $querydisplay_tabs = array(
     'sql',
     'files',

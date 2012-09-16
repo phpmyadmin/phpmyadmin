@@ -110,8 +110,6 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
     &$delete_array, &$fields_num, $matching_table_index, &$matching_tables_keys
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     if (isset($matching_table[$matching_table_index])) {
         $fld = array();
         $fld_results = PMA_DBI_get_columns(
@@ -457,8 +455,6 @@ function PMA_updateTargetTables(
     $trg_link, $matching_table_index, $matching_table_keys, $display
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     if (isset($update_array[$matching_table_index])) {
         if (count($update_array[$matching_table_index])) {
 
@@ -554,8 +550,6 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
     &$alter_str_array, &$source_indexes, &$target_indexes, &$add_indexes_array,
     &$alter_indexes_array, &$delete_array, &$update_array, $display
 ) {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     
     if (isset($array_insert[$matching_table_index])) {
         if (count($array_insert[$matching_table_index])) {
@@ -725,8 +719,6 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
     &$uncommon_tables, $table_index, &$uncommon_tables_fields, $display
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     if (isset($uncommon_tables[$table_index])) {
         $fields_result = PMA_DBI_get_columns(
             $src_db,
@@ -800,8 +792,6 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
     $uncommon_tables, $table_index, $uncommon_tables_fields, $display
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     // @todo: maybe display some of the queries if they are not too numerous
     $display = false;
     $unbuffered_result = PMA_DBI_try_query(
@@ -849,8 +839,6 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
 function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
     $table_index, $target_tables_keys, $delete_array, $display
 ) {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     
     for ($i = 0; $i < count($delete_array[$table_index]); $i++) {
         if (isset($target_tables_keys[$table_index])) {
@@ -1026,8 +1014,6 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
     &$uncommon_tables_fields, $table_counter, $uncommon_cols, $display
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     for ($i = 0; $i < count($matching_tables_fields[$table_counter]); $i++) {
         if (isset($add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]])) {
             $query = "ALTER TABLE " . $common_functions->backquote($trg_db) . '.' . $common_functions->backquote($matching_tables[$table_counter]). " ADD COLUMN " .
@@ -1165,7 +1151,6 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
     &$matching_tables_keys, &$target_tables_keys, $matching_table_index, $display
 ) {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $check = true;
     $sql_query = '';
     $found = false;
@@ -1301,8 +1286,6 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
 function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
     $uncommon_columns, $table_counter, $display
 ) {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     
     if (isset($uncommon_columns[$table_counter])) {
         $drop_query = "ALTER TABLE " . $common_functions->backquote($trg_db) . "."
@@ -1440,8 +1423,6 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
     $target_indexes, $add_indexes_array, $alter_indexes_array,
     $remove_indexes_array, $table_counter, $display
 ) {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     
     //Adds indexes on target table
     if (isset($add_indexes_array[$table_counter])) {
@@ -1624,7 +1605,6 @@ function PMA_syncDisplayDataCompare($rows)
 function PMA_getColumnValues($database, $table, $column, $link = null)
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $query = 'SELECT ';
     for ($i = 0; $i < count($column); $i++) {
         $query.= $common_functions->backquote($column[$i]);

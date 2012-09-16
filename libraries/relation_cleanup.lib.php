@@ -19,7 +19,6 @@ if (! defined('PHPMYADMIN')) {
 function PMA_relationsCleanupColumn($db, $table, $column)
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {
@@ -62,7 +61,6 @@ function PMA_relationsCleanupColumn($db, $table, $column)
 function PMA_relationsCleanupTable($db, $table)
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {
@@ -114,7 +112,6 @@ function PMA_relationsCleanupTable($db, $table)
 function PMA_relationsCleanupDatabase($db)
 {
     
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {

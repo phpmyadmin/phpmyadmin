@@ -289,7 +289,6 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
@@ -442,8 +441,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-        $common_functions = PMA_CommonFunctions::getInstance();
-
+        
         /**
          * Get the unique keys in the table
          */

@@ -441,7 +441,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $text = '';
         $delimiter = '$$';
 
@@ -692,7 +691,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
@@ -779,7 +777,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $result = true;
         if (isset($GLOBALS['sql_constraints'])) {
             $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
@@ -845,7 +842,6 @@ class ExportSql extends ExportPlugin
     public function getTableDefStandIn($db, $view, $crlf)
     {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $create_query = '';
         if (! empty($GLOBALS['sql_drop_table'])) {
             $create_query .= 'DROP VIEW IF EXISTS '
@@ -898,7 +894,6 @@ class ExportSql extends ExportPlugin
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
             $sql_constraints_query, $sql_drop_foreign_keys;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
         $auto_increment = '';
         $new_crlf = $crlf;
@@ -1325,7 +1320,6 @@ class ExportSql extends ExportPlugin
     ) {
         global $cfgRelation, $sql_backquotes;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
 
         // Check if we can use Relations
@@ -1443,7 +1437,6 @@ class ExportSql extends ExportPlugin
         $dates = false
     ) {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
@@ -1541,7 +1534,6 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
             ? $common_functions->backquoteCompat($table, $compat)
             : '\'' . $table . '\'';

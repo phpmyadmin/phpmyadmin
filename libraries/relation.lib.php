@@ -80,7 +80,6 @@ function PMA_getRelationsParam()
 function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $retval = '';
 
     $messages['error'] = '<font color="red"><strong>'
@@ -498,7 +497,6 @@ function PMA__getRelationsParam()
 function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     $foreign = array();
 
@@ -604,7 +602,6 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 function PMA_getDisplayField($db, $table)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     /**
@@ -685,7 +682,6 @@ function PMA_getComments($db, $table = '')
 function PMA_getDbComment($db)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     $comment = '';
 
@@ -719,7 +715,6 @@ function PMA_getDbComment($db)
 function PMA_getDbComments()
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     $comments = array();
 
@@ -755,7 +750,6 @@ function PMA_getDbComments()
 function PMA_setDbComment($db, $comment = '')
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -804,8 +798,6 @@ function PMA_setDbComment($db, $comment = '')
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
         return;
@@ -867,7 +859,6 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
 function PMA_getHistory($username)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['historywork']) {
@@ -900,7 +891,6 @@ function PMA_getHistory($username)
 function PMA_purgeHistory($username)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $cfgRelation['historywork']) {
         return;
@@ -1088,8 +1078,6 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filter, $foreign_limit)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     // we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
     $foreign_link = false;
@@ -1172,7 +1160,7 @@ function PMA_getRelatives($all_tables, $master)
 {
     $fromclause = '';
     $emerg = '';
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     // The list of tables that we still couldn't connect
     $remaining_tables = $all_tables;
     unset($remaining_tables[$master]);
@@ -1239,7 +1227,6 @@ function PMA_getRelatives($all_tables, $master)
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['displaywork']) {
@@ -1294,8 +1281,6 @@ function PMA_REL_renameSingleTable($table,
     $source_table, $target_table,
     $db_field, $table_field
 ) {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     $query = 'UPDATE '
         . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
@@ -1399,8 +1384,6 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
  */
 function PMA_REL_createPage($newpage, $cfgRelation, $db)
 {
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');

@@ -160,7 +160,6 @@ class ImportCsv extends ImportPlugin
         global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
         global $error, $timeout_passed, $finished;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $replacements = array(
             '\\n'   => "\n",
             '\\t'   => "\t",

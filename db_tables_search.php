@@ -11,7 +11,6 @@ require_once 'libraries/Util.class.php';
 
 $db = $_GET['db'];
 $table_term = $_GET['table'];
-$common_functions = PMA_CommonFunctions::getInstance();
 $common_url_query = PMA_generate_common_url($GLOBALS['db']);
 $tables_full = $common_functions->getTableList($db);
 $tables_response = array();

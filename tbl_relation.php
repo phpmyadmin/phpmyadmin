@@ -24,7 +24,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php';

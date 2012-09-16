@@ -525,7 +525,6 @@ class PMA_Index
     static public function getView($table, $schema, $print_mode = false)
     {
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $indexes = PMA_Index::getFromTable($table, $schema);
 
         $no_indexes_class = count($indexes) > 0 ? ' hide' : '';

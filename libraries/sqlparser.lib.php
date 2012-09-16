@@ -853,8 +853,6 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
 function PMA_SQP_analyze($arr)
 {
 
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     if ($arr == array() || ! isset($arr['len'])) {
         return array();
     }
@@ -2148,8 +2146,6 @@ function PMA_SQP_formatHtml(
     $number_of_tokens=-1
 ) {
     global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
-
-    $common_functions = PMA_CommonFunctions::getInstance();
 
     //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
     // then check for an array

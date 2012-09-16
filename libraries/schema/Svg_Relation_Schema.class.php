@@ -382,7 +382,6 @@ class Table_Stats
     ) {
         global $svg, $cfgRelation, $db;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . $common_functions->backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);

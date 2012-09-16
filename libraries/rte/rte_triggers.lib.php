@@ -402,7 +402,6 @@ function PMA_TRI_getQueryFromRequest()
 {
     global $_REQUEST, $db, $errors, $action_timings, $event_manipulations;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {

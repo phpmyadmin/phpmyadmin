@@ -14,7 +14,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_structure.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.

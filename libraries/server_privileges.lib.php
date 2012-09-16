@@ -26,7 +26,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_wildcardEscapeForGrant($dbname, $tablename)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     if (! strlen($dbname)) {
         $db_and_table = '*.*';
     } else {
@@ -51,7 +51,7 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
  */
 function PMA_rangeOfUsers($initial = '')
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     // strtolower() is used because the User field
     // might be BINARY, so LIKE would be case sensitive
     if (! empty($initial)) {
@@ -346,7 +346,7 @@ function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
  */
 function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     if ($db == '*') {
         return "SELECT * FROM `mysql`.`user`"
             ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
@@ -577,7 +577,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
 function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
     , $table, $columns,$row
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $res = PMA_DBI_query(
         'SELECT `Column_name`, `Column_priv`'
         .' FROM `mysql`.`columns_priv`'
@@ -1326,8 +1326,7 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
 
     // here $nopass could be == 1
     if (empty($message)) {
-        $common_functions = PMA_CommonFunctions::getInstance();
-
+        
         $hashing_function
             = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
                 ? 'OLD_'
@@ -1379,8 +1378,7 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
 function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
     $tablename, $username, $hostname
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -1449,7 +1447,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
  */
 function PMA_getHtmlForAddUser($random_n, $dbname)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $GLOBALS['url_query'] .= '&amp;adduser=1';
 
     $html_output = '<h2>' . "\n"
@@ -1569,7 +1567,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  */
 function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     // check the privileges for a particular database.
     $html_output = '<form id="usersForm" action="server_privileges.php">'
         . '<fieldset>' . "\n";
@@ -1780,8 +1778,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
  */
 function PMA_getStandardLinks($conditional_class)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $link_edit = '<a class="edit_user_anchor ' . $conditional_class . '"'
         . ' href="server_privileges.php?'
         . str_replace('%', '%%', $GLOBALS['url_query'])
@@ -2029,8 +2026,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  */
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     if (! strlen($dbname)) {
         $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
@@ -2220,8 +2216,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
 function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     , $link_edit, $link_revoke, $dbname
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     // table header
     $html_output = PMA_generate_common_hidden_inputs('', '')
         . '<input type="hidden" name="username" '
@@ -2293,8 +2288,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
  */
 function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
 
     $html_output = '<label for="text_dbname">'
@@ -2333,8 +2327,7 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
  */
 function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $html_output = '<input type="hidden" name="dbname"
         '. 'value="' . htmlspecialchars($dbname) . '"/>' . "\n";
     $html_output .= '<label for="text_tablename">'
@@ -2394,8 +2387,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
@@ -2547,8 +2539,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
  */
 function PMA_getFieldsetForAddDeleteUser($conditional_class)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $html_output = '<fieldset id="fieldset_add_user">' . "\n";
     $html_output .= '<a href="server_privileges.php?'
         . $GLOBALS['url_query'] . '&amp;adduser=1"'
@@ -2743,8 +2734,7 @@ function PMA_deleteUser($queries)
  */
 function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
@@ -3037,8 +3027,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     $random_n, $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
@@ -3137,7 +3126,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
     $queries, $username, $hostname
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $res = PMA_DBI_query(
         'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition,
         $GLOBALS['userlink'],
@@ -3219,8 +3208,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
 function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
     $queries, $username, $hostname
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     $user_host_condition = ' WHERE `User`'
         .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
         .' AND `Host`'
@@ -3259,8 +3247,7 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     $username, $hostname
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
+    
     if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
         $_REQUEST['createdb-1'] = $_REQUEST['createdb-2']
             = $_REQUEST['createdb-3'] = false;
@@ -3345,7 +3332,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
  */
 function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $sql_query = '';
     $create_user_real = 'CREATE USER \''
         . $common_functions->sqlAddSlashes($username) . '\'@\''
