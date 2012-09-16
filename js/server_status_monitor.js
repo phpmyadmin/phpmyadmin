@@ -1188,14 +1188,14 @@ $(function() {
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
             $('#selection_box').remove();
-            selectionBox = $('<div style="border:1px #FF00FF solid; position:fixed;">').hide();
+            selectionBox = $('<div style="z-index:1000;height:250px;border:1px solid; position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);">');
             $(document.body).append(selectionBox);
-            selectionStartX = gridpos.x;
-            selectionStartY = gridpos.y;
+            selectionStartX = ev.pageX;
+            selectionStartY = ev.pageY;
             selectionBox
                 .attr({id: 'selection_box'})
                 .css({
-                    top: selectionStartY,
+                    top: selectionStartY-gridpos.y,
                     left: selectionStartX
                 })
                 .fadeIn();
@@ -1204,20 +1204,24 @@ $(function() {
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
             //get date from timestamp
-            alert(new Date(Math.ceil(selectionTimeDiff[0])) + " \n to \n " + new Date(Math.ceil(selectionTimeDiff[1])));
+            //alert(new Date(Math.ceil(selectionTimeDiff[0])) + " \n to \n " + new Date(Math.ceil(selectionTimeDiff[1])));
             selectionTimeDiff = [];
             $('#selection_box').attr({ id: '' });
+            selectionBox.remove();
 	    });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
             if (selectionStartX != undefined) {
                 $('#selection_box')
                     .css({
-                        width: Math.abs(gridpos.x - selectionStartX), 
-                        height: Math.abs(gridpos.y - selectionStartY), 
+                        width: Math.abs(ev.pageX - selectionStartX)
                     })
                     .fadeIn();
             }
+	    });
+
+        $(document.body).mouseup(function() {
+            selectionBox.remove();
 	    });
 
         // Edit, Print icon only in edit mode
