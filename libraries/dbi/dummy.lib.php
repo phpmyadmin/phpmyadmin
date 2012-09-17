@@ -2,6 +2,10 @@
 /**
  * Fake database driver for testing purposes
  *
+ * It has hardcoded results for given queries what makes easy to use it
+ * in testsuite. Feel free to include other queries which your test will
+ * need.
+ *
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
