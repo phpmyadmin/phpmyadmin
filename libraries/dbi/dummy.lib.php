@@ -71,6 +71,7 @@ $GLOBALS['dummy_db'] = '';
 
 /* Some basic setup for dummy driver */
 $GLOBALS['userlink'] = 1;
+$GLOBALS['controllink'] = 2;
 $GLOBALS['cfg']['DBG']['sql'] = False;
 if (! defined('PMA_DRIZZLE')) {
     define('PMA_DRIZZLE', 0);
