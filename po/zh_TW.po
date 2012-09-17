@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/"
-"phpmyadmin/3-5/zh_TW/>\n"
+"PO-Revision-Date: 2012-09-17 04:30+0200\n"
+"Last-Translator: ChihChnug Ma <mcc1@livemail.tw>\n"
+"Language-Team: Chinese (Taiwan) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -802,13 +802,12 @@ msgstr "資料庫日誌"
 #: enum_editor.php:23 js/messages.php:272
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET 編輯器"
 
 #: enum_editor.php:28 js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "%s 欄位的值"
+msgstr "新欄位的值"
 
 #: enum_editor.php:30 js/messages.php:273
 #, fuzzy, php-format
@@ -817,16 +816,14 @@ msgid "Values for column %s"
 msgstr "%s 欄位的值"
 
 #: enum_editor.php:34 js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "請將資料填入以下欄位"
+msgstr "請分別將資料填入以下欄位"
 
 #: enum_editor.php:93
-#, fuzzy
 #| msgid "+ Add a new value"
 msgid "Add a value"
-msgstr "+ 增加"
+msgstr "新增一個值"
 
 #: enum_editor.php:99 gis_data_editor.php:317
 msgid "Output"
@@ -890,82 +887,78 @@ msgstr "SRID"
 #: gis_data_editor.php:151 js/messages.php:326
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr ""
+msgstr "幾何體"
 
 #: gis_data_editor.php:172 js/messages.php:322
 msgid "Point"
-msgstr ""
+msgstr "點"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:320
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:321
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "點 %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:329
 #, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "新增索引"
+msgstr "新增點"
 
 #: gis_data_editor.php:220 js/messages.php:324
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "資料分行使用字元："
+msgstr "線"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "外環"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "內環"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "新增新使用者"
+msgstr "新增線"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "新增新使用者"
+msgstr "新增內環"
 
 #: gis_data_editor.php:266 js/messages.php:325
 msgid "Polygon"
 msgstr "多邊形"
 
 #: gis_data_editor.php:306 js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "新增欄位"
+msgstr "新增多邊形"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "新增伺服器"
+msgstr "新增幾何體"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
-msgstr ""
+msgstr "從 \"函數\" 欄中選擇 \"GeomFromText\" 並且將底下內容到 \"數值\" 中"
 
 #: import.php:57
 #, php-format
@@ -1004,13 +997,13 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"沒有接收到要匯入的資料。可能是檔案名稱沒有送出，也可能是檔案大小超出 PHP 限制"
-"參見 [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]"
+"沒有接收到要匯入的資料。可能是檔案名稱沒有送出，也可能是檔案大小超出 PHP 限制。參考 "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]。"
 
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
