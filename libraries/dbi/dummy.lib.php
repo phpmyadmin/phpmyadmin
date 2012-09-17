@@ -67,6 +67,12 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SHOW VARIABLES LIKE \'collation_server\'',
+        'result' => array(
+            array('collation_server', 'utf8_general_ci'),
+        )
+    ),
+    array(
         'query' => 'SHOW TABLES FROM `pma_test`;',
         'result' => array(
             array('table1'),
