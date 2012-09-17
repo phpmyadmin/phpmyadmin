@@ -63,14 +63,14 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW TABLES FROM `qbe_test`;',
+        'query' => 'SHOW TABLES FROM `pma_test`;',
         'result' => array(
             array('table1'),
             array('table2'),
         )
     ),
     array(
-        'query' => 'SHOW COLUMNS FROM `qbe_test`.`table1`',
+        'query' => 'SHOW COLUMNS FROM `pma_test`.`table1`',
         'columns' => array(
             'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
         ),
@@ -80,7 +80,7 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW COLUMNS FROM `qbe_test`.`table2`',
+        'query' => 'SHOW COLUMNS FROM `pma_test`.`table2`',
         'columns' => array(
             'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
         ),
@@ -90,12 +90,22 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SHOW INDEXES FROM `qbe_test`.`table1`',
+        'query' => 'SHOW INDEXES FROM `pma_test`.`table1`',
         'result' => array(),
     ),
     array(
-        'query' => 'SHOW INDEXES FROM `qbe_test`.`table2`',
+        'query' => 'SHOW INDEXES FROM `pma_test`.`table2`',
         'result' => array(),
+    ),
+    array(
+        'query' => 'SHOW COLUMNS FROM `pma`.`table1`',
+        'columns' => array(
+            'Field', 'Type', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'
+        ),
+        'result' => array(
+            array('i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment', 'select,insert,update,references', ''),
+            array('o', 'int(11)', 'NO', 'MUL', 'NULL', '', 'select,insert,update,references', ''),
+        )
     ),
 
 );

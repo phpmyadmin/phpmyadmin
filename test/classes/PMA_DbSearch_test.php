@@ -15,6 +15,8 @@ require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 /**
  * Tests for database search.
@@ -37,16 +39,7 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! function_exists('PMA_DBI_get_tables')) {
-            function PMA_DBI_get_tables()
-            {
-                return array(
-                    'table1',
-                    'table2'
-                );
-            }
-        }
-        $this->object = new PMA_DbSearch('pma');
+        $this->object = new PMA_DbSearch('pma_test');
     }
 
     /**
@@ -95,15 +88,6 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     {
 
         $GLOBALS['db'] = 'pma';
-        if (! function_exists('PMA_DBI_get_columns')) {
-            function PMA_DBI_get_columns()
-            {
-                return array(
-                    'column1',
-                    'column2'
-                );
-            }
-        }
 
         $this->assertEquals(
             array (
@@ -143,18 +127,12 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
         $each_table, $newsearchsqls, $odd_row, $output
     ) {
 
-        if (! function_exists('PMA_DBI_fetch_value')) {
-            function PMA_DBI_fetch_value()
-            {
-                return 2;
-            }
-        }
         $GLOBALS['cfg']['AjaxEnable'] = true;
         $this->assertEquals(
             $output,
             $this->_callProtectedFunction(
                 '_getResultsRow',
-                array($each_table, $newsearchsqls, $odd_row)
+                array($each_table, $newsearchsqls, $odd_row, 2)
             )
         );
     }

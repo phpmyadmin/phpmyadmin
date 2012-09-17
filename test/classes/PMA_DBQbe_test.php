@@ -33,7 +33,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_DBQbe('qbe_test');
+        $this->object = new PMA_DBQbe('pma_test');
     }
 
     /**
