@@ -29,8 +29,12 @@ $GLOBALS['dummy_queries'] = array(
  */
 $GLOBALS['dummy_db'] = '';
 
+/* Some basic setup for dummy driver */
 $GLOBALS['userlink'] = 1;
 $GLOBALS['cfg']['DBG']['sql'] = False;
+if (! defined('PMA_DRIZZLE')) {
+    define('PMA_DRIZZLE', 0);
+}
 
 
 /**

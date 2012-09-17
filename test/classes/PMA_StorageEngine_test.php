@@ -31,9 +31,6 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! defined('PMA_DRIZZLE')) {
-            define('PMA_DRIZZLE', 0);
-        }
         $this->object = $this->getMockForAbstractClass('PMA_StorageEngine', array('dummy'));
     }
 
