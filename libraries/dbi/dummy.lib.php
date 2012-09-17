@@ -138,6 +138,11 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=\'pma_test\' AND `TABLE_TYPE`=\'BASE TABLE\'',
         'result' => array(),
     ),
+    array(
+        'query' => 'SELECT upper(plugin_name) f FROM data_dictionary.plugins WHERE plugin_name IN (\'MYSQL_PASSWORD\',\'ROT13\') AND plugin_type = \'Function\' AND is_active',
+        'columns' => array('f'),
+        'result' => array(array('ROT13')),
+    ),
 );
 
 /**
