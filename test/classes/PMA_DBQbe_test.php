@@ -64,7 +64,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
         if (! defined('PMA_DBI_QUERY_STORE')) {
             define('PMA_DBI_QUERY_STORE', 1);
         }
-        $this->object = $this->getMockForAbstractClass('PMA_DBQbe', array('pma'));
+        $this->object = new PMA_DBQbe('pma');
     }
 
     /**

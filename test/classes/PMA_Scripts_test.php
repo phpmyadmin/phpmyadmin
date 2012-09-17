@@ -27,7 +27,7 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_Scripts');
+        $this->object = new PMA_Scripts();
     }
 
     /**

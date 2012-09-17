@@ -29,10 +29,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass(
-            'PMA_Error',
-            array('2', 'Compile Error', 'error.txt', 15)
-        );
+        $this->object = new PMA_Error('2', 'Compile Error', 'error.txt', 15);
     }
 
     /**

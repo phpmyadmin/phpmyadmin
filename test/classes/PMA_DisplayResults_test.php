@@ -37,10 +37,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass(
-            'PMA_DisplayResults',
-            array('as', '','','')
-        );
+        $this->object = new PMA_DisplayResults('as', '','','');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $SESSION[' PMA_Token '] = 'token';

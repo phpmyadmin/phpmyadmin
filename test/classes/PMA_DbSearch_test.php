@@ -46,10 +46,7 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
                 );
             }
         }
-        $this->object = $this->getMockForAbstractClass(
-            'PMA_DbSearch',
-            array('pma')
-        );
+        $this->object = new PMA_DbSearch('pma');
     }
 
     /**

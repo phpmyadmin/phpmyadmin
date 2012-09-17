@@ -27,7 +27,7 @@ class PMA_StreamReader_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('StreamReader');
+        $this->object = new StreamReader();
 
     }
 

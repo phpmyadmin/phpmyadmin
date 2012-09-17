@@ -45,7 +45,7 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
         $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
-        $this->object = $this->getMockForAbstractClass('PMA_Footer');
+        $this->object = new PMA_Footer();
     }
 
     /**

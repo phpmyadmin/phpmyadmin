@@ -28,7 +28,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_Error_Handler');
+        $this->object = new PMA_Error_Handler();
 
     }
 
