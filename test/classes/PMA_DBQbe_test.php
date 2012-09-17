@@ -13,6 +13,8 @@ require_once 'libraries/DBQbe.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 
 class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
@@ -31,40 +33,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! function_exists('PMA_DBI_query')) {
-            function PMA_DBI_query()
-            {
-                return array('table1', 'table2');
-            }
-        }
-        if (! function_exists('PMA_DBI_num_rows')) {
-            function PMA_DBI_num_rows()
-            {
-                return 2;
-            }
-        }
-        if (! function_exists('PMA_DBI_fetch_row')) {
-            function PMA_DBI_fetch_row()
-            {
-                return false;
-            }
-        }
-        if (! function_exists('PMA_DBI_get_columns')) {
-            function PMA_DBI_get_columns()
-            {
-                return array('column1', 'column2');
-            }
-        }
-        if (! function_exists('PMA_DBI_free_result')) {
-            function PMA_DBI_free_result()
-            {
-                return true;
-            }
-        }
-        if (! defined('PMA_DBI_QUERY_STORE')) {
-            define('PMA_DBI_QUERY_STORE', 1);
-        }
-        $this->object = new PMA_DBQbe('pma');
+        $this->object = new PMA_DBQbe('qbe_test');
     }
 
     /**
@@ -308,12 +277,6 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     public function testGetIndexes()
     {
-        if (! function_exists('PMA_DBI_get_table_indexes')) {
-            function PMA_DBI_get_table_indexes()
-            {
-                return array(2,3);
-            }
-        }
         $this->assertEquals(
             array(
                 'unique' => array(),
@@ -335,12 +298,6 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     public function test_getLeftJoinColumnCandidates()
     {
-        if (! function_exists('PMA_DBI_select_db')) {
-            function PMA_DBI_select_db()
-            {
-                return 'pma';
-            }
-        }
         $this->assertEquals(
             array(
                 0 => 'column2'
@@ -369,7 +326,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
                     array('table1','table2'),
                     array('column1', 'column2', 'column3'),
                     array('column2'),
-                    array('pma')
+                    array('qbe_test')
                 )
             )
         );

@@ -62,6 +62,42 @@ $GLOBALS['dummy_queries'] = array(
             array('innodb_file_format', 'Antelope'),
         )
     ),
+    array(
+        'query' => 'SHOW TABLES FROM `qbe_test`;',
+        'result' => array(
+            array('table1'),
+            array('table2'),
+        )
+    ),
+    array(
+        'query' => 'SHOW COLUMNS FROM `qbe_test`.`table1`',
+        'columns' => array(
+            'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
+        ),
+        'result' => array(
+            array('i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'),
+            array('o', 'int(11)', 'NO', 'MUL', 'NULL', ''),
+        )
+    ),
+    array(
+        'query' => 'SHOW COLUMNS FROM `qbe_test`.`table2`',
+        'columns' => array(
+            'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
+        ),
+        'result' => array(
+            array('i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'),
+            array('o', 'int(11)', 'NO', 'MUL', 'NULL', ''),
+        )
+    ),
+    array(
+        'query' => 'SHOW INDEXES FROM `qbe_test`.`table1`',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SHOW INDEXES FROM `qbe_test`.`table2`',
+        'result' => array(),
+    ),
+
 );
 
 /**
@@ -176,6 +212,12 @@ function PMA_DBI_fetch_any($result)
 function PMA_DBI_fetch_array($result)
 {
     $data = PMA_DBI_fetch_any($result);
+    if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
+        foreach ($data as $key => $val) {
+            $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+        }
+        return $data;
+    }
     return $data;
 }
 
@@ -189,6 +231,13 @@ function PMA_DBI_fetch_array($result)
 function PMA_DBI_fetch_assoc($result)
 {
     $data = PMA_DBI_fetch_any($result);
+    if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
+        $ret = array();
+        foreach ($data as $key => $val) {
+            $ret[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+        }
+        return $ret;
+    }
     return $data;
 }
 
@@ -263,6 +312,35 @@ function PMA_DBI_num_rows($result)
 {
     if (!is_bool($result)) {
         return count($GLOBALS['dummy_queries'][$result]['result']);
+    } else {
+        return 0;
+    }
+}
+
+/**
+ * returns the number of rows affected by last query
+ *
+ * @param resource $link the mysql object
+ * @param bool     $get_from_cache
+ *
+ * @return string|int
+ */
+function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
+{
+    return 0;
+}
+
+/**
+ * return number of fields in given $result
+ *
+ * @param resource $result MySQL result
+ *
+ * @return int  field count
+ */
+function PMA_DBI_num_fields($result)
+{
+    if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
+        return count($GLOBALS['dummy_queries'][$result]['columns']);
     } else {
         return 0;
     }
