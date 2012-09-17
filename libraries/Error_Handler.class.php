@@ -31,7 +31,15 @@ class PMA_Error_Handler
      */
     public function __construct()
     {
-        set_error_handler(array($this, 'handleError'));
+        /**
+         * Do not set ourselves as error handler in case of testsuite.
+         *
+         * This behavior is not tested there and breaks other tests as they
+         * rely on PHPUnit doing it's own error handling which we break here.
+         */
+        if (!defined('TESTSUITE')) {
+            set_error_handler(array($this, 'handleError'));
+        }
     }
 
     /**
@@ -71,8 +79,6 @@ class PMA_Error_Handler
                 }
             }
         }
-        // Restore previous error handling
-        restore_error_handler();
     }
 
     /**
