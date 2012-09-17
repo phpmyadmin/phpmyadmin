@@ -155,7 +155,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     public function testCheckSavedErrors()
     {
 
-        $_SESSION['errors'] = true;
+        $_SESSION['errors'] = array();
 
         $this->_callProtectedFunction(
             'checkSavedErrors',
