@@ -21,7 +21,47 @@ $GLOBALS['dummy_queries'] = array(
             array('Engine' => 'dummy2', 'Support' => 'NO', 'Comment' => 'dummy2 comment'),
         )
     ),
-
+    array(
+        'query' => 'SHOW STATUS WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\' OR Variable_name = \'Innodb_page_size\';',
+        'result' => array(
+            array('Innodb_buffer_pool_pages_data', 0),
+            array('Innodb_buffer_pool_pages_dirty', 0),
+            array('Innodb_buffer_pool_pages_flushed', 0),
+            array('Innodb_buffer_pool_pages_free', 0),
+            array('Innodb_buffer_pool_pages_misc', 0),
+            array('Innodb_buffer_pool_pages_total', 4096),
+            array('Innodb_buffer_pool_read_ahead_rnd', 0),
+            array('Innodb_buffer_pool_read_ahead', 0),
+            array('Innodb_buffer_pool_read_ahead_evicted', 0),
+            array('Innodb_buffer_pool_read_requests', 64),
+            array('Innodb_buffer_pool_reads', 32),
+            array('Innodb_buffer_pool_wait_free', 0),
+            array('Innodb_buffer_pool_write_requests', 64),
+            array('Innodb_page_size', 16384),
+        )
+    ),
+    array(
+        'query' => 'SHOW INNODB STATUS;',
+        'result' => false,
+    ),
+    array(
+        'query' => 'SELECT @@innodb_version;',
+        'result' => array(
+            array('1.1.8'),
+        )
+    ),
+    array(
+        'query' => 'SHOW GLOBAL VARIABLES LIKE \'innodb_file_per_table\';',
+        'result' => array(
+            array('innodb_file_per_table', 'OFF'),
+        )
+    ),
+    array(
+        'query' => 'SHOW GLOBAL VARIABLES LIKE \'innodb_file_format\';',
+        'result' => array(
+            array('innodb_file_format', 'Antelope'),
+        )
+    ),
 );
 
 /**
@@ -93,10 +133,15 @@ function PMA_DBI_select_db($dbname, $link = null)
  */
 function PMA_DBI_real_query($query, $link = null, $options = 0)
 {
+    $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
     for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
         if ($GLOBALS['dummy_queries'][$i]['query'] == $query) {
             $GLOBALS['dummy_queries'][$i]['pos'] = 0;
-            return $i;
+            if (is_array($GLOBALS['dummy_queries'][$i]['result'])) {
+                return $i;
+            } else {
+                return false;
+            }
         }
     }
     echo "Not supported query: $query\n";
