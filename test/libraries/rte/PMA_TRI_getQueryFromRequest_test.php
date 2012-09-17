@@ -20,18 +20,15 @@ require_once 'libraries/php-gettext/gettext.inc';
  * Include to test.
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 
 class PMA_TRI_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        if (! function_exists('PMA_DBI_get_tables')) {
-            function PMA_DBI_get_tables($db)
-            {
-                return array('table1', 'table`2');
-            }
-        }
+        $GLOBALS['db'] = 'pma_test';
     }
 
     /**

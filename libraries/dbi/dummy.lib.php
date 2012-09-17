@@ -107,7 +107,27 @@ $GLOBALS['dummy_queries'] = array(
             array('o', 'int(11)', 'NO', 'MUL', 'NULL', '', 'select,insert,update,references', ''),
         )
     ),
-
+    array(
+        'query' => 'SELECT * FROM information_schema.CHARACTER_SETS',
+        'columns' => array('CHARACTER_SET_NAME', 'DEFAULT_COLLATE_NAME', 'DESCRIPTION', 'MAXLEN'),
+        'result' => array(
+            array('utf8', 'utf8_general_ci', 'UTF-8 Unicode', 3),
+        )
+    ),
+    array(
+        'query' => 'SELECT * FROM information_schema.COLLATIONS',
+        'columns' => array(
+            'COLLATION_NAME', 'CHARACTER_SET_NAME', 'ID', 'IS_DEFAULT', 'IS_COMPILED', 'SORTLEN'
+        ),
+        'result' => array(
+            array('utf8_general_ci', 'utf8', 33, 'Yes', 'Yes', 1),
+            array('utf8_bin', 'utf8', 83, '', 'Yes', 1),
+        )
+    ),
+    array(
+        'query' => 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=\'\' AND `TABLE_TYPE`=\'BASE TABLE\'',
+        'result' => array(),
+    ),
 );
 
 /**
@@ -354,4 +374,16 @@ function PMA_DBI_num_fields($result)
     } else {
         return 0;
     }
+}
+
+/**
+ * returns last error message or false if no errors occured
+ *
+ * @param resource $link mysql link
+ *
+ * @return string|bool $error or false
+ */
+function PMA_DBI_getError($link = null)
+{
+    return false;
 }
