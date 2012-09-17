@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-11 10:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_TW/>\n"
+"PO-Revision-Date: 2012-09-17 04:30+0200\n"
+"Last-Translator: ChihChnug Ma <mcc1@livemail.tw>\n"
+"Language-Team: Chinese (Taiwan) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -539,76 +539,72 @@ msgstr "SRID"
 #: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
-msgstr ""
+msgstr "幾何體"
 
 #: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
-msgstr ""
+msgstr "點"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "點 %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 #, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "新增索引"
+msgstr "新增點"
 
 #: gis_data_editor.php:262 js/messages.php:324
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "資料分行使用字元："
+msgstr "線"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "外環"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "內環"
 
 #: gis_data_editor.php:303
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "新增新使用者"
+msgstr "新增線"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "新增新使用者"
+msgstr "新增內環"
 
 #: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "多邊形"
 
 #: gis_data_editor.php:384 js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "新增欄位"
+msgstr "新增多邊形"
 
 #: gis_data_editor.php:390
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "新增伺服器"
+msgstr "新增幾何體"
 
 #: gis_data_editor.php:399
 msgid "Output"
@@ -665,7 +661,7 @@ msgstr ""
 #: import.php:431
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集"
 
 #: import.php:468 libraries/display_import.lib.php:30
 msgid "Could not load import plugins, please check your installation!"
@@ -1575,7 +1571,7 @@ msgstr ""
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET 編輯器"
 
 #: js/messages.php:273
 #, fuzzy, php-format
@@ -1584,16 +1580,14 @@ msgid "Values for column %s"
 msgstr "%s 欄位的值"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "%s 欄位的值"
+msgstr "新欄位的值"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "請將資料填入以下欄位"
+msgstr "請分別將資料填入以下欄位"
 
 #: js/messages.php:276
 #, fuzzy, php-format
