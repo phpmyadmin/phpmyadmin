@@ -21,6 +21,7 @@ class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
     {
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['db'] = 'pma_test';
     }
 
     /**

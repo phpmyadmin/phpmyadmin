@@ -129,7 +129,7 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
-        'query' => 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=\'\' AND `TABLE_TYPE`=\'BASE TABLE\'',
+        'query' => 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=\'pma_test\' AND `TABLE_TYPE`=\'BASE TABLE\'',
         'result' => array(),
     ),
 );
