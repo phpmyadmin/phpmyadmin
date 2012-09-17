@@ -1215,7 +1215,7 @@ $(function() {
             if (selectionStartX != undefined) {
                 $('#selection_box')
                     .css({
-                        width: Math.abs(ev.pageX - selectionStartX)
+                        width: Math.ceil(ev.pageX - selectionStartX)
                     })
                     .fadeIn();
             }
