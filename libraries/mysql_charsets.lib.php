@@ -14,10 +14,13 @@ if (! defined('PHPMYADMIN')) {
 $common_functions = PMA_CommonFunctions::getInstance();
 
 if (! $common_functions->cacheExists('mysql_charsets', true)) {
+    global $mysql_charsets, $mysql_charsets_descriptions,
+        $mysql_charsets_available, $mysql_collations, $mysql_collations_available,
+        $mysql_default_collations, $mysql_collations_flat;
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
         : 'SELECT * FROM information_schema.CHARACTER_SETS';
-    $res = PMA_DBI_query($sql);    
+    $res = PMA_DBI_query($sql);
 
     $mysql_charsets = array();
     while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -169,9 +172,9 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (PMA_is_system_schema($db)) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
