@@ -44,48 +44,57 @@ function PMA_DBI_checkDbExtension($extension = 'mysql')
     return false;
 }
 
-/**
- * check for requested extension
- */
-if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
-
-    // if it fails try alternative extension ...
-    // and display an error ...
+if (defined('TESTSUITE')) {
+    /**
+     * For testsuite we use dummy driver which can fake some queries.
+     */
+    require_once './libraries/dbi/dummy.lib.php';
+} else {
 
     /**
-     * @todo add different messages for alternative extension
-     * and complete fail (no alternative extension too)
+     * check for requested extension
      */
-    PMA_warnMissingExtension(
-        $GLOBALS['cfg']['Server']['extension'],
-        false,
-        PMA_CommonFunctions::getInstance()->showDocu('faqmysql')
-    );
+    if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
 
-    if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
-        $alternativ_extension = 'mysqli';
-    } else {
-        $alternativ_extension = 'mysql';
-    }
+        // if it fails try alternative extension ...
+        // and display an error ...
 
-    if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
-        // if alternative fails too ...
+        /**
+         * @todo add different messages for alternative extension
+         * and complete fail (no alternative extension too)
+         */
         PMA_warnMissingExtension(
             $GLOBALS['cfg']['Server']['extension'],
-            true,
+            false,
             PMA_CommonFunctions::getInstance()->showDocu('faqmysql')
         );
+
+        if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
+            $alternativ_extension = 'mysqli';
+        } else {
+            $alternativ_extension = 'mysql';
+        }
+
+        if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
+            // if alternative fails too ...
+            PMA_warnMissingExtension(
+                $GLOBALS['cfg']['Server']['extension'],
+                true,
+                PMA_CommonFunctions::getInstance()->showDocu('faqmysql')
+            );
+        }
+
+        $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
+        unset($alternativ_extension);
     }
 
-    $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
-    unset($alternativ_extension);
-}
+    /**
+     * Including The DBI Plugin
+     */
+    require_once './libraries/dbi/'
+        . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
-/**
- * Including The DBI Plugin
- */
-require_once './libraries/dbi/'
-    . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
+}
 
 /**
  * runs a query
