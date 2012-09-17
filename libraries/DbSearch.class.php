@@ -309,7 +309,7 @@ class PMA_DbSearch
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(
-                $each_table, $newsearchsqls, $odd_row
+                $each_table, $newsearchsqls, $odd_row, $res_cnt
             );
             $odd_row = ! $odd_row;
         } // end for
@@ -334,13 +334,14 @@ class PMA_DbSearch
      * Provides search results row with browse/delete links.
      * (for a table)
      *
-     * @param string $each_table    Tables on which search is to be performed
-     * @param array  $newsearchsqls Contains SQL queries
-     * @param bool   $odd_row       For displaying contrasting table rows
+     * @param string  $each_table    Tables on which search is to be performed
+     * @param array   $newsearchsqls Contains SQL queries
+     * @param bool    $odd_row       For displaying contrasting table rows
+     * @param integer $res_cnt       Number of results found
      *
      * @return string HTML row
      */
-    private function _getResultsRow($each_table, $newsearchsqls, $odd_row)
+    private function _getResultsRow($each_table, $newsearchsqls, $odd_row, $res_cnt)
     {
         $this_url_params = array(
             'db'    => $GLOBALS['db'],
@@ -348,7 +349,6 @@ class PMA_DbSearch
             'pos'   => 0,
             'is_js_confirmed' => 0,
         );
-        $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
         // Start forming search results row
         $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         // Displays results count for a table
