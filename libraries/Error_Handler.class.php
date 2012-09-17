@@ -71,6 +71,8 @@ class PMA_Error_Handler
                 }
             }
         }
+        // Restore previous error handling
+        restore_error_handler();
     }
 
     /**
