@@ -285,8 +285,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
                 array(
                     'BIN',
                     'CHAR',
-                    'CURRENT_USER',
                     'COMPRESS',
+                    'CURRENT_USER',
                     'DATABASE',
                     'DAYNAME',
                     'DES_DECRYPT',
