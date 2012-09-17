@@ -13,6 +13,8 @@ require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/innodb.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
 {
@@ -30,31 +32,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! defined('PMA_DRIZZLE')) {
-            define('PMA_DRIZZLE', 1);
-        }
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array(
-                    'dummy' => 'table1',
-                    'engine' => 'table`2',
-                    'Innodb_buffer_pool_pages_total' => 10,
-                    'Innodb_page_size' => 4,
-                    'Innodb_buffer_pool_pages_free' => 4,
-                    'Innodb_buffer_pool_pages_dirty' => 3,
-                    'Innodb_buffer_pool_pages_data' => 2,
-                    'Innodb_buffer_pool_pages_flushed' => 5,
-                    'Innodb_buffer_pool_pages_misc' => 1,
-                    'Innodb_buffer_pool_pages_latched' => 2,
-                    'Innodb_buffer_pool_read_requests' => 3,
-                    'Innodb_buffer_pool_write_requests' => 4,
-                    'Innodb_buffer_pool_reads' => 4,
-                    'Innodb_buffer_pool_wait_free' => 3,
-                );
-            }
-        }
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_innodb', array('dummy'));
+        $this->object = new PMA_StorageEngine_innodb('innodb');
     }
 
     /**

@@ -11,6 +11,8 @@
 
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/mrg_myisam.lib.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_mrg_myisam_test extends PHPUnit_Framework_TestCase
 {
@@ -28,19 +30,7 @@ class PMA_StorageEngine_mrg_myisam_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! defined('PMA_DRIZZLE')) {
-            define('PMA_DRIZZLE', 1);
-        }
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array(
-                    'dummy' => 'table1',
-                    'engine' => 'table`2'
-                );
-            }
-        }
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_mrg_myisam', array('dummy'));
+        $this->object = new PMA_StorageEngine_mrg_myisam('mrg_myisam');
     }
 
     /**
