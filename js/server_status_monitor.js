@@ -1188,7 +1188,7 @@ $(function() {
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
             $('#selection_box').remove();
-            selectionBox = $('<div style="z-index:1000;height:250px;border:1px solid; position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);">');
+            selectionBox = $('<div style="z-index:1000;height:250px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
             $(document.body).append(selectionBox);
             selectionStartX = ev.pageX;
             selectionStartY = ev.pageY;
