@@ -308,8 +308,8 @@ function PMA_DBI_fetch_row($result)
 /**
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @param $result
- * @param $offset
+ * @param resource $result database result
+ * @param integer  $offset offset to seek
  *
  * @return bool true on success, false on failure
  */
@@ -321,7 +321,7 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param mysqli_result $result
+ * @param mysqli_result $result database result
  *
  * @return void
  */
@@ -521,8 +521,8 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @param mysqli  $link           the mysqli object
- * @param boolean $get_from_cache
+ * @param mysqli $link           the mysqli object
+ * @param bool   $get_from_cache whether to retrieve from cache
  *
  * @return string|int
  */

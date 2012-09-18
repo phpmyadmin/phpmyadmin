@@ -247,7 +247,7 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param PMA_DrizzleResult  $result
+ * @param PMA_DrizzleResult $result database result
  */
 function PMA_DBI_free_result($result)
 {
@@ -427,7 +427,7 @@ function PMA_DBI_insert_id($link = null)
  * returns the number of rows affected by last query
  *
  * @param PMA_DrizzleResult $link           connection object
- * @param bool              $get_from_cache
+ * @param bool              $get_from_cache whether to retrieve from cache
  *
  * @return string|int
  */
