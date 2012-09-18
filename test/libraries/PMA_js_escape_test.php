@@ -10,7 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
 {

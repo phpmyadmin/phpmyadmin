@@ -24,8 +24,6 @@ require_once 'libraries/db_info.inc.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Now in ./libraries/relation.lib.php we check for all tables
  * that we need, but if we don't find them we are quiet about it
@@ -36,24 +34,24 @@ $common_functions = PMA_CommonFunctions::getInstance();
  */
 if (! $cfgRelation['relwork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'relation', 'config.inc.php') . '<br />' . "\n"
-         . $common_functions->showDocu('relation') . "\n";
+         . PMA_Util::showDocu('relation') . "\n";
     exit;
 }
 
 if (! $cfgRelation['displaywork']) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_info', 'config.inc.php') . '<br />' . "\n"
-         . $common_functions->showDocu('table_info') . "\n";
+         . PMA_Util::showDocu('table_info') . "\n";
     exit;
 }
 
 if (! isset($cfgRelation['table_coords'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'table_coords', 'config.inc.php') . '<br />' . "\n"
-         . $common_functions->showDocu('table_coords') . "\n";
+         . PMA_Util::showDocu('table_coords') . "\n";
     exit;
 }
 if (! isset($cfgRelation['pdf_pages'])) {
     echo sprintf(__('<b>%s</b> table not found or not set in %s'), 'pdf_page', 'config.inc.php') . '<br />' . "\n"
-         . $common_functions->showDocu('pdf_pages') . "\n";
+         . PMA_Util::showDocu('pdf_pages') . "\n";
     exit;
 }
 

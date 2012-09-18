@@ -113,9 +113,8 @@ class ImportDocsql extends ImportPlugin
     public function doImport()
     {
         global $error, $timeout_passed, $finished;
+        
         $cfgRelation = $this->_getCfgRelation();
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         $tab = $_POST['docsql_table'];
         $buffer = '';
 
@@ -145,14 +144,14 @@ class ImportDocsql extends ImportPlugin
                 if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
                     $qry = '
                          INSERT INTO
-                                ' . $common_functions->backquote($cfgRelation['db']) . '.'
-                        . $common_functions->backquote($cfgRelation['column_info']) . '
+                                ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+                        . PMA_Util::backquote($cfgRelation['column_info']) . '
                               (db_name, table_name, column_name, comment)
                          VALUES (
-                                \'' . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($tab)) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($inf[0])) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($inf[1])) . '\')';
+                                \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($tab)) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($inf[0])) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($inf[1])) . '\')';
 
                     PMA_importRunQuery(
                         $qry, $qry . '-- ' . htmlspecialchars($tab)
@@ -164,17 +163,17 @@ class ImportDocsql extends ImportPlugin
                     $for = explode('->', $inf[2]);
                     $qry = '
                          INSERT INTO
-                                ' . $common_functions->backquote($cfgRelation['db']) . '.'
-                        . $common_functions->backquote($cfgRelation['relation']) . '
+                                ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+                        . PMA_Util::backquote($cfgRelation['relation']) . '
                               (master_db, master_table, master_field,'
                         . ' foreign_db, foreign_table, foreign_field)
                          VALUES (
-                                \'' . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($tab)) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($inf[0])) . '\',
-                                \'' . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($for[0])) . '\',
-                                \'' . $common_functions->sqlAddSlashes(trim($for[1])) . '\')';
+                                \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($tab)) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($inf[0])) . '\',
+                                \'' . PMA_Util::sqlAddSlashes($GLOBALS['db']) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($for[0])) . '\',
+                                \'' . PMA_Util::sqlAddSlashes(trim($for[1])) . '\')';
 
                     PMA_importRunQuery(
                         $qry, $qry . '-- ' . htmlspecialchars($tab)

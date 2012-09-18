@@ -208,7 +208,7 @@ class ExportMediawiki extends ExportPlugin
             // Print structure comment
             $output = $this->_exportComment(
                 "Table structure for "
-                . PMA_CommonFunctions::getInstance()->backquote($table)
+                . PMA_Util::backquote($table)
             );
 
             // Begin the table construction
@@ -282,7 +282,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         // Print data comment
         $output = $this->_exportComment(
-            "Table data for ". PMA_CommonFunctions::getInstance()->backquote($table)
+            "Table data for ". PMA_Util::backquote($table)
         );
 
         // Begin the table construction

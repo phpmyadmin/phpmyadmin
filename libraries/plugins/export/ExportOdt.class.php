@@ -699,7 +699,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>';
 
         $extracted_columnspec
-            = PMA_CommonFunctions::getInstance()->extractColumnSpec($column['Type']);
+            = PMA_Util::extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
             $type = '&nbsp;';

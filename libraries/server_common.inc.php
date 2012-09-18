@@ -50,7 +50,7 @@ $binary_logs = PMA_DRIZZLE
         PMA_DBI_QUERY_STORE
     );
 
-PMA_CommonFunctions::getInstance()->checkParameters(
+PMA_Util::checkParameters(
     array('is_superuser', 'url_query'), false
 );
 ?>

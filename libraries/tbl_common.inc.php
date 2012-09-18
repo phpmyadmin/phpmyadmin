@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/bookmark.lib.php';
 
 // Check parameters
-PMA_CommonFunctions::getInstance()->checkParameters(array('db', 'table'));
+PMA_Util::checkParameters(array('db', 'table'));
 
 $db_is_information_schema = PMA_is_system_schema($db);
 

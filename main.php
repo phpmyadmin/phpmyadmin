@@ -15,8 +15,6 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/display_git_revision.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
@@ -32,7 +30,7 @@ $show_query = '1';
 
 // Any message to display?
 if (! empty($message)) {
-    echo $common_functions->getMessage($message);
+    echo PMA_Util::getMessage($message);
     unset($message);
 }
 
@@ -120,7 +118,7 @@ if ($server > 0
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . $common_functions->showMySQLDocu(
+           . PMA_Util::showMySQLDocu(
                'MySQL_Database_Administration',
                'Charset-connection'
            )
@@ -197,7 +195,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_info'
     );
     PMA_printListItem(
-        __('Software') . ': ' . $common_functions->getServerType(),
+        __('Software') . ': ' . PMA_Util::getServerType(),
         'li_server_type'
     );
     PMA_printListItem(
@@ -245,7 +243,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 
             $php_ext_string = __('PHP extension') . ': '
                 . $GLOBALS['cfg']['Server']['extension'] . ' '
-                . $common_functions->showPHPDocu(
+                . PMA_Util::showPHPDocu(
                     'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
                 );
             PMA_printListItem(
@@ -570,7 +568,7 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
         echo '</a>' . "\n";
     }
     if (null !== $mysql_help_page) {
-        echo PMA_CommonFunctions::getInstance()->showMySQLDocu('', $mysql_help_page);
+        echo PMA_Util::showMySQLDocu('', $mysql_help_page);
     }
     echo '</li>';
 }

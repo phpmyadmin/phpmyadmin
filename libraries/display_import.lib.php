@@ -15,7 +15,6 @@ require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/display_import_ajax.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
 /* Scan for plugins */
 $import_list = PMA_getPlugins(
     "import",
@@ -139,7 +138,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                             <?php
                             // reload the left sidebar when the import is finished
                             $GLOBALS['reload'] = true;
-                            echo $common_functions->getReloadNavigationScript(true);
+                            echo PMA_Util::getReloadNavigationScript(true);
                             ?>
 
                         } // if finished
@@ -153,7 +152,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     <?php
 } else { // no plugin available
     ?>
-                $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . $common_functions->showDocu('faq2_9'); ?>');
+                $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else
@@ -183,7 +182,7 @@ echo '    <input type="hidden" name="import_type" value="' . $import_type . '" /
 
     <div class="exportoptions" id="header">
         <h2>
-            <?php echo $common_functions->getImage('b_import.png', __('Import')); ?>
+            <?php echo PMA_Util::getImage('b_import.png', __('Import')); ?>
             <?php
 if ($import_type == 'server') {
     echo __('Importing into the current server');
@@ -226,24 +225,24 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />
                 <?php
-    echo $common_functions->getBrowseUploadFileBlock($max_upload_size);
+    echo PMA_Util::getBrowseUploadFileBlock($max_upload_size);
                 ?>
             </li>
             <li>
                 <input type="radio" name="file_location" id="radio_local_import_file" />
                 <?php
-    echo $common_functions->getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+    echo PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
                 ?>
             </li>
             </ul>
         <?php
 } elseif ($GLOBALS['is_upload']) {
     $uid = uniqid('');
-    echo $common_functions->getBrowseUploadFileBlock($max_upload_size);
+    echo PMA_Util::getBrowseUploadFileBlock($max_upload_size);
 } elseif (!$GLOBALS['is_upload']) {
     PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
 } elseif (!empty($cfg['UploadDir'])) {
-    echo $common_functions->getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+    echo PMA_Util::getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
 } // end if (web-server upload directory)
 ?>
         </div>

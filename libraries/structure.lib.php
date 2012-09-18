@@ -28,7 +28,6 @@ if (!defined('PHPMYADMIN')) {
 function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_query,
     $titles, $truename, $db_is_information_schema, $url_query
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $empty_table = '';
 
     if ($current_table['TABLE_ROWS'] > 0 || $table_is_view) {
@@ -64,7 +63,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
-            'TRUNCATE ' . $common_functions->backquote($current_table['TABLE_NAME'])
+            'TRUNCATE ' . PMA_Util::backquote($current_table['TABLE_NAME'])
         );
         $empty_table .= '&amp;message_to_show='
             . urlencode(
@@ -91,14 +90,14 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . $truename . '">'
-                . $common_functions->getImage(
+                . PMA_Util::getImage(
                     'eye.png', __('Tracking is active.')
                 )
                 . '</a>';
         } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . $truename . '">'
-                . $common_functions->getImage(
+                . PMA_Util::getImage(
                     'eye_grey.png', __('Tracking is not active.')
                 )
                 . '</a>';
@@ -125,7 +124,7 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
 {
     $drop_query = 'DROP '
         . (($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
-        . ' ' . PMA_CommonFunctions::getInstance()->backquote(
+        . ' ' . PMA_Util::backquote(
             $current_table['TABLE_NAME']
         );
     $drop_message = sprintf(
@@ -165,14 +164,12 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
     $check_time_all, $sum_row_count_pre
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     if ($is_show_stats) {
-        list($sum_formatted, $unit) = $common_functions->formatByteDown(
+        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
             $sum_size, 3, 1
         );
         list($overhead_formatted, $overhead_unit)
-            = $common_functions->formatByteDown($overhead_size, 3, 1);
+            = PMA_Util::formatByteDown($overhead_size, 3, 1);
     }
 
     $html_output = '<tbody id="tbl_summary_row">'
@@ -180,7 +177,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $html_output .= '<th class="tbl_num nowrap">';
     $html_output .= sprintf(
         _ngettext('%s table', '%s tables', $num_tables),
-        $common_functions->formatNumber($num_tables, 0)
+        PMA_Util::formatNumber($num_tables, 0)
     );
     $html_output .= '</th>';
 
@@ -191,7 +188,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
-        . $sum_row_count_pre . $common_functions->formatNumber($sum_entries, 0)
+        . $sum_row_count_pre . PMA_Util::formatNumber($sum_entries, 0)
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -232,7 +229,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         $html_output .= '<th class="value tbl_creation">' . "\n"
             . '        '
             . ($create_time_all
-                ? $common_functions->localisedDate(strtotime($create_time_all))
+                ? PMA_Util::localisedDate(strtotime($create_time_all))
                 : '-'
             )
             . '</th>';
@@ -242,7 +239,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         $html_output .= '<th class="value tbl_last_update">' . "\n"
             . '        '
             . ($update_time_all
-                ? $common_functions->localisedDate(strtotime($update_time_all))
+                ? PMA_Util::localisedDate(strtotime($update_time_all))
                 : '-'
             )
             . '</th>';
@@ -252,7 +249,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         $html_output .= '<th class="value tbl_last_check">' . "\n"
             . '        '
             . ($check_time_all
-                ? $common_functions->localisedDate(strtotime($check_time_all))
+                ? PMA_Util::localisedDate(strtotime($check_time_all))
                 : '-'
             )
             . '</th>';
@@ -363,7 +360,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
         . '<a href="db_printview.php?' . $url_query . '">'
-        . PMA_CommonFunctions::getInstance()->getIcon(
+        . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
             true
@@ -380,7 +377,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 function PMA_getHtmlForDataDictionaryLink($url_query)
 {
     return '<a href="db_datadict.php?' . $url_query . '">'
-        . PMA_CommonFunctions::getInstance()->getIcon(
+        . PMA_Util::getIcon(
             'b_tblanalyse.png',
             __('Data Dictionary'),
             true
@@ -458,8 +455,6 @@ function PMA_getHtmlForStructureTableRow(
     $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
     $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
     $odd_row = ! $odd_row;
     $html_output .= ($table_is_view ? ' is_view' : '')
@@ -478,10 +473,10 @@ function PMA_getHtmlForStructureTableRow(
     if ($server_slave_status) {
         $html_output .= '<td class="center">'
             . ($ignored
-                ? $common_functions->getImage('s_cancel.png', 'NOT REPLICATED')
+                ? PMA_Util::getImage('s_cancel.png', 'NOT REPLICATED')
                 : '')
             . ($do
-                ? $common_functions->getImage('s_success.png', 'REPLICATED')
+                ? PMA_Util::getImage('s_success.png', 'REPLICATED')
                 : '')
             . '</td>';
     }
@@ -603,26 +598,25 @@ function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
  */
 function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '';
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         $html_output .= '<td class="value tbl_creation">'
             . ($create_time
-                ? $common_functions->localisedDate(strtotime($create_time))
+                ? PMA_Util::localisedDate(strtotime($create_time))
                 : '-' )
             . '</td>';
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         $html_output .= '<td class="value tbl_last_update">'
             . ($update_time
-                ? $common_functions->localisedDate(strtotime($update_time))
+                ? PMA_Util::localisedDate(strtotime($update_time))
                 : '-' )
             . '</td>';
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         $html_output .= '<td class="value tbl_last_check">'
             . ($check_time
-                ? $common_functions->localisedDate(strtotime($check_time))
+                ? PMA_Util::localisedDate(strtotime($check_time))
                 : '-' )
             . '</td>';
     }
@@ -650,7 +644,6 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     $collation, $is_show_stats, $tbl_url_query, $formatted_size, $unit,
     $overhead, $create_time, $update_time, $check_time
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '';
     $row_count_pre = '';
     $show_superscript = '';
@@ -662,7 +655,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
         ) {
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
-            $show_superscript = $common_functions->showHint(
+            $show_superscript = PMA_Util::showHint(
                 PMA_sanitize(
                     sprintf(
                         __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
@@ -682,7 +675,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     }
 
     $html_output .= '<td class="value tbl_rows">'
-        . $row_count_pre . $common_functions->formatNumber(
+        . $row_count_pre . PMA_Util::formatNumber(
             $current_table['TABLE_ROWS'], 0
         )
         . $show_superscript . '</td>';
@@ -781,7 +774,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'</th>'
         // larger values are more interesting so default sort order is DESC
         .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
-        . PMA_CommonFunctions::getInstance()->showHint(
+        . PMA_Util::showHint(
             PMA_sanitize(
                 __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
             )
@@ -848,7 +841,6 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
  */
 function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     // Set some defaults
     $requested_sort = 'table';
     $requested_sort_order = $future_sort_order = $initial_sort_order;
@@ -871,12 +863,12 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         if ($requested_sort_order == 'ASC') {
             $future_sort_order = 'DESC';
             // current sort order is ASC
-            $order_img  = ' ' . $common_functions->getImage(
+            $order_img  = ' ' . PMA_Util::getImage(
                 's_asc.png',
                 __('Ascending'),
                 array('class' => 'sort_arrow', 'title' => '')
             );
-            $order_img .= ' ' . $common_functions->getImage(
+            $order_img .= ' ' . PMA_Util::getImage(
                 's_desc.png',
                 __('Descending'),
                 array('class' => 'sort_arrow hide', 'title' => '')
@@ -888,12 +880,12 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         } else {
             $future_sort_order = 'ASC';
             // current sort order is DESC
-            $order_img  = ' ' . $common_functions->getImage(
+            $order_img  = ' ' . PMA_Util::getImage(
                 's_asc.png',
                 __('Ascending'),
                 array('class' => 'sort_arrow hide', 'title' => '')
             );
-            $order_img .= ' ' . $common_functions->getImage(
+            $order_img .= ' ' . PMA_Util::getImage(
                 's_desc.png',
                 __('Descending'),
                 array('class' => 'sort_arrow', 'title' => '')
@@ -913,7 +905,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
-    return PMA_CommonFunctions::getInstance()->linkOrButton(
+    return PMA_Util::linkOrButton(
         $url, $title . $order_img, $order_link_params
     );
 }
@@ -1019,7 +1011,6 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
 function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
     $is_show_stats, $table_is_view, $sum_size, $overhead_size
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $formatted_size = '-';
     $unit = '';
     $formatted_overhead = '';
@@ -1109,7 +1100,6 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
     $is_show_stats, $sum_size, $overhead_size, $formatted_size, $unit,
     $formatted_overhead, $overhead_unit
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     if ($db_is_information_schema) {
         $current_table['Rows'] = PMA_Table::countRecords(
             $GLOBALS['db'], $current_table['Name']
@@ -1120,12 +1110,12 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
         $tblsize = doubleval($current_table['Data_length'])
             + doubleval($current_table['Index_length']);
         $sum_size += $tblsize;
-        list($formatted_size, $unit) = $common_functions->formatByteDown(
+        list($formatted_size, $unit) = PMA_Util::formatByteDown(
             $tblsize, 3, ($tblsize > 0) ? 1 : 0
         );
         if (isset($current_table['Data_free']) && $current_table['Data_free'] > 0) {
             list($formatted_overhead, $overhead_unit)
-                = $common_functions->formatByteDown(
+                = PMA_Util::formatByteDown(
                     $current_table['Data_free'], 3,
                     (($current_table['Data_free'] > 0) ? 1 : 0)
                 );
@@ -1149,7 +1139,6 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
  */
 function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     if (($current_table['ENGINE'] == 'InnoDB'
         && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
         || !isset($current_table['TABLE_ROWS'])
@@ -1167,7 +1156,7 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
     if ($is_show_stats && $current_table['Data_length'] !== null) {
         $tblsize =  $current_table['Data_length'] + $current_table['Index_length'];
         $sum_size += $tblsize;
-        list($formatted_size, $unit) = $common_functions->formatByteDown(
+        list($formatted_size, $unit) = PMA_Util::formatByteDown(
             $tblsize, 3, (($tblsize > 0) ? 1 : 0)
         );
     }
@@ -1254,8 +1243,6 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<td class="center">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
@@ -1293,7 +1280,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     if (isset($row['Default'])) {
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
-            $html_output .= $common_functions->convertBitDefaultValue($row['Default']);
+            $html_output .= PMA_Util::convertBitDefaultValue($row['Default']);
         } else {
             $html_output .= $row['Default'];
         }
@@ -1329,7 +1316,6 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
 function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     $url_query, $field_encoded, $titles, $table, $row
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '';
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
@@ -1342,8 +1328,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '')
             . ' href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($table)
-                . ' DROP ' . $common_functions->backquote($row['Field']) . ';'
+                'ALTER TABLE ' . PMA_Util::backquote($table)
+                . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'
             )
             . '&amp;dropped_column=' . urlencode($row['Field'])
             . '&amp;message_to_show=' . urlencode(
@@ -1374,8 +1360,6 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<img class="selectallarrow" '
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
@@ -1387,37 +1371,37 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $html_output .= '<i style="margin-left: 2em">'
         . __('With selected:') . '</i>';
 
-    $html_output .= $common_functions->getButtonOrImage(
+    $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_browse',
         __('Browse'), 'b_browse.png', 'browse'
     );
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
-        $html_output .= $common_functions->getButtonOrImage(
+        $html_output .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_change',
             __('Change'), 'b_edit.png', 'change'
         );
-        $html_output .= $common_functions->getButtonOrImage(
+        $html_output .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_drop',
             __('Drop'), 'b_drop.png', 'drop'
         );
         if ('ARCHIVE' != $tbl_storage_engine) {
-            $html_output .= $common_functions->getButtonOrImage(
+            $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_primary',
                 __('Primary'), 'b_primary.png', 'primary'
             );
-            $html_output .= $common_functions->getButtonOrImage(
+            $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_unique',
                 __('Unique'), 'b_unique.png', 'unique'
             );
-            $html_output .= $common_functions->getButtonOrImage(
+            $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_index',
                 __('Index'), 'b_index.png', 'index'
             );
         }
 
         if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-            $html_output .= $common_functions->getButtonOrImage(
+            $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_spatial',
                 __('Spatial'), 'b_spatial.png', 'spatial'
             );
@@ -1427,7 +1411,7 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
             || $tbl_storage_engine == 'ARIA'
             || $tbl_storage_engine == 'MARIA')
         ) {
-            $html_output .= $common_functions->getButtonOrImage(
+            $html_output .= PMA_Util::getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_fulltext',
                 __('Fulltext'), 'b_ftext.png', 'ftext'
             );
@@ -1469,13 +1453,11 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $create_view = PMA_DBI_get_definition(
         $GLOBALS['db'], 'VIEW', $GLOBALS['table']
     );
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
-    $html_output = $common_functions->linkOrButton(
+    $html_output = PMA_Util::linkOrButton(
         'tbl_sql.php' . PMA_generate_common_url(
             $url_params +
             array(
@@ -1483,7 +1465,7 @@ function PMA_getHtmlForEditView($url_params)
                 'show_query' => '1',
             )
         ),
-        $common_functions->getIcon('b_edit.png', __('Edit view'), true)
+        PMA_Util::getIcon('b_edit.png', __('Edit view'), true)
     );
     return $html_output;
 }
@@ -1503,10 +1485,8 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
-        . $common_functions->getIcon('b_print.png', __('Print view'), true)
+        . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
@@ -1514,10 +1494,10 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
 
         if ($cfgRelation['relwork']
-            || $common_functions->isForeignKeySupported($tbl_storage_engine)
+            || PMA_Util::isForeignKeySupported($tbl_storage_engine)
         ) {
             $html_output .= '<a href="tbl_relation.php?' . $url_query . '">'
-                . $common_functions->getIcon(
+                . PMA_Util::getIcon(
                     'b_relations.png', __('Relation view'), true
                 )
                 . '</a>';
@@ -1525,26 +1505,26 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         if (!PMA_DRIZZLE) {
             $html_output .= '<a href="sql.php?' . $url_query
                 . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
-                    'SELECT * FROM ' . $common_functions->backquote($GLOBALS['table'])
+                    'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['table'])
                     . ' PROCEDURE ANALYSE()'
                 ) . '">'
-                . $common_functions->getIcon(
+                . PMA_Util::getIcon(
                     'b_tblanalyse.png',
                     __('Propose table structure'),
                     true
                 )
                 . '</a>';
-            $html_output .= $common_functions->showMySQLDocu(
+            $html_output .= PMA_Util::showMySQLDocu(
                 'Extending_MySQL', 'procedure_analyse'
             ) . "\n";
         }
         if (PMA_Tracker::isActive()) {
             $html_output .= '<a href="tbl_tracking.php?' . $url_query . '">'
-                . $common_functions->getIcon('eye.png', __('Track table'), true)
+                . PMA_Util::getIcon('eye.png', __('Track table'), true)
                 . '</a>';
         }
         $html_output .= '<a href="#" id="move_columns_anchor">'
-            . $common_functions->getIcon('b_move.png', __('Move columns'), true)
+            . PMA_Util::getIcon('b_move.png', __('Move columns'), true)
             . '</a>';
     }
 
@@ -1560,8 +1540,6 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
  */
 function PMA_getHtmlForAddColumn($columns_list)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<form method="post" action="tbl_addfield.php" '
         . 'id="addColumns" name="addColumns" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
@@ -1578,7 +1556,7 @@ function PMA_getHtmlForAddColumn($columns_list)
         $GLOBALS['table']
     );
     if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $html_output .=$common_functions->getImage(
+        $html_output .=PMA_Util::getImage(
             'b_insrow.png',
             __('Add column')
         );
@@ -1606,7 +1584,7 @@ function PMA_getHtmlForAddColumn($columns_list)
         'first' => __('At Beginning of Table'),
         'after' => sprintf(__('After %s'), '')
     );
-    $html_output .= $common_functions->getRadioFields(
+    $html_output .= PMA_Util::getRadioFields(
         'field_where', $choices, 'last', false
     );
     $html_output .= $column_selector;
@@ -1623,7 +1601,7 @@ function PMA_getHtmlForAddColumn($columns_list)
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = PMA_CommonFunctions::getInstance()->getDivForSliderEffect(
+    $html_output = PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
     $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
@@ -1677,16 +1655,14 @@ function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
  */
 function PMA_getHtmlForOptimizeLink($url_query)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<tr class="tblFooters">';
     $html_output .= '<td colspan="3" class="center">';
     $html_output .= '<a href="sql.php?' . $url_query
         . '&pos=0&amp;sql_query=' . urlencode(
-            'OPTIMIZE TABLE ' . $common_functions->backquote($GLOBALS['table'])
+            'OPTIMIZE TABLE ' . PMA_Util::backquote($GLOBALS['table'])
         )
         . '">'
-        . $common_functions->getIcon('b_tbloptimize.png', __('Optimize table'))
+        . PMA_Util::getIcon('b_tbloptimize.png', __('Optimize table'))
         . '</a>';
     $html_output .= '</td>';
     $html_output .= '</tr>';
@@ -1705,8 +1681,6 @@ function PMA_getHtmlForOptimizeLink($url_query)
  */
 function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<tr class="' . (($odd_row = !$odd_row) ? 'odd' : 'even') . '">';
     $html_output .= '<th class="name">' . $name . '</th>';
     $html_output .= '<td class="value">' . $value . '</td>';
@@ -1730,8 +1704,6 @@ function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 function getHtmlForRowStatsTable($showtable, $tbl_collation,
     $is_innodb, $mergetable, $avg_size, $avg_unit
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $odd_row = false;
     $html_output = '<table id="tablerowstats" class="data">';
     $html_output .= '<caption class="tblHeaders">'
@@ -1774,7 +1746,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Rows'),
-            $common_functions->formatNumber($showtable['Rows'], 0)
+            PMA_Util::formatNumber($showtable['Rows'], 0)
         );
         $odd_row = !$odd_row;
     }
@@ -1785,7 +1757,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Row length'),
-            $common_functions->formatNumber($showtable['Avg_row_length'], 0)
+            PMA_Util::formatNumber($showtable['Avg_row_length'], 0)
         );
         $odd_row = !$odd_row;
     }
@@ -1805,7 +1777,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Next autoindex'),
-            $common_functions->formatNumber($showtable['Auto_increment'], 0)
+            PMA_Util::formatNumber($showtable['Auto_increment'], 0)
         );
         $odd_row = !$odd_row;
     }
@@ -1813,14 +1785,14 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Creation'),
-            $common_functions->localisedDate(strtotime($showtable['Create_time']))
+            PMA_Util::localisedDate(strtotime($showtable['Create_time']))
         );
     }
     if (isset($showtable['Update_time'])) {
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Last update'),
-            $common_functions->localisedDate(strtotime($showtable['Update_time']))
+            PMA_Util::localisedDate(strtotime($showtable['Update_time']))
         );
         $odd_row = !$odd_row;
     }
@@ -1828,7 +1800,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Last check'),
-            $common_functions->localisedDate(strtotime($showtable['Check_time']))
+            PMA_Util::localisedDate(strtotime($showtable['Check_time']))
         );
     }
     $html_output .= '</tbody>'
@@ -1859,17 +1831,15 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
     $message, $isPrimary
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<div  class="' . $class . '">';
     if ($isActionEnabled) {
         $html_output .= '<a href="sql.php?' .  $url_query
             . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
+                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
                 . ' ' . $syntax . '('
-                . $common_functions->backquote($row['Field']) . ');'
+                . PMA_Util::backquote($row['Field']) . ');'
             )
             . '&amp;message_to_show=' . urlencode(
                 sprintf(
@@ -1908,10 +1878,8 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
     $url_query, $row, $hidden_titles, $unique_enabled, $index_enabled,
     $fulltext_enabled, $spatial_enabled, $primary
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<td class="more_opts" id="more_opts' . $rownum . '">';
-    $html_output .= $common_functions->getImage(
+    $html_output .= PMA_Util::getImage(
         'more.png', __('Show more actions')
     ) . __('More');
     $html_output .= '<div class="structure_actions_dropdown" id="row_' . $rownum . '">';
@@ -1957,11 +1925,11 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
         $html_output .= '<div class="action_browse replace_in_more">';
         $html_output .= '<a href="sql.php?' . $url_query
             . '&amp;sql_query=' . urlencode(
-                'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows'))
-                . ', ' . $common_functions->backquote($row['Field'])
-                . ' FROM ' . $common_functions->backquote($GLOBALS['table'])
-                . ' GROUP BY ' . $common_functions->backquote($row['Field'])
-                . ' ORDER BY ' . $common_functions->backquote($row['Field'])
+                'SELECT COUNT(*) AS ' . PMA_Util::backquote(__('Rows'))
+                . ', ' . PMA_Util::backquote($row['Field'])
+                . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
+                . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
+                . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
             )
             . '&amp;browse_distinct=1">'
             . $hidden_titles['DistinctValues']
@@ -1998,8 +1966,6 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
     $message, $action, $titles, $row, $isPrimary
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<td class="'. $class .'">';
 
     if ($type == 'text'
@@ -2015,10 +1981,10 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
             . ($hasLinkClass ? 'class="add_primary_key_anchor" ' : '')
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
+                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
                 . ' ' . $syntax . '('
-                . $common_functions->backquote($row['Field']) . ');'
+                . PMA_Util::backquote($row['Field']) . ');'
             )
             . '&amp;message_to_show=' . urlencode(
                 sprintf(
@@ -2050,7 +2016,6 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="fulltext replaced_by_more center nowrap">';
     if (! empty($tbl_storage_engine)
         && ($tbl_storage_engine == 'MYISAM'
@@ -2062,8 +2027,8 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         $html_output .= "\n";
         $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
-                . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field'])
+                'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
+                . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
                 . ');'
             )
             . '&amp;message_to_show='
@@ -2098,15 +2063,14 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
  */
 function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="browse replaced_by_more center">';
     $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
         . urlencode(
-            'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows'))
-            . ', ' . $common_functions->backquote($row['Field'])
-            . ' FROM ' . $common_functions->backquote($GLOBALS['table'])
-            . ' GROUP BY ' . $common_functions->backquote($row['Field'])
-            . ' ORDER BY ' . $common_functions->backquote($row['Field'])
+            'SELECT COUNT(*) AS ' . PMA_Util::backquote(__('Rows'))
+            . ', ' . PMA_Util::backquote($row['Field'])
+            . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
+            . ' GROUP BY ' . PMA_Util::backquote($row['Field'])
+            . ' ORDER BY ' . PMA_Util::backquote($row['Field'])
         )
         . '">'
         . $titles['DistinctValues']
@@ -2212,40 +2176,38 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
  */
 function PMA_getHiddenTitlesArray()
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $hidden_titles = array();
-    $hidden_titles['DistinctValues'] = $common_functions->getIcon(
+    $hidden_titles['DistinctValues'] = PMA_Util::getIcon(
         'b_browse.png', __('Distinct values'), true
     );
-    $hidden_titles['Primary'] = $common_functions->getIcon(
+    $hidden_titles['Primary'] = PMA_Util::getIcon(
         'b_primary.png', __('Add primary key'), true
     );
-    $hidden_titles['NoPrimary'] = $common_functions->getIcon(
+    $hidden_titles['NoPrimary'] = PMA_Util::getIcon(
         'bd_primary.png', __('Add primary key'), true
     );
-    $hidden_titles['Index'] = $common_functions->getIcon(
+    $hidden_titles['Index'] = PMA_Util::getIcon(
         'b_index.png', __('Add index'), true
     );
-    $hidden_titles['NoIndex'] = $common_functions->getIcon(
+    $hidden_titles['NoIndex'] = PMA_Util::getIcon(
         'bd_index.png', __('Add index'), true
     );
-    $hidden_titles['Unique'] = $common_functions->getIcon(
+    $hidden_titles['Unique'] = PMA_Util::getIcon(
         'b_unique.png', __('Add unique index'), true
     );
-    $hidden_titles['NoUnique'] = $common_functions->getIcon(
+    $hidden_titles['NoUnique'] = PMA_Util::getIcon(
         'bd_unique.png', __('Add unique index'), true
     );
-    $hidden_titles['Spatial'] = $common_functions->getIcon(
+    $hidden_titles['Spatial'] = PMA_Util::getIcon(
         'b_spatial.png', __('Add SPATIAL index'), true
     );
-    $hidden_titles['NoSpatial'] = $common_functions->getIcon(
+    $hidden_titles['NoSpatial'] = PMA_Util::getIcon(
         'bd_spatial.png', __('Add SPATIAL index'), true
     );
-    $hidden_titles['IdxFulltext'] = $common_functions->getIcon(
+    $hidden_titles['IdxFulltext'] = PMA_Util::getIcon(
         'b_ftext.png', __('Add FULLTEXT index'), true
     );
-    $hidden_titles['NoIdxFulltext'] = $common_functions->getIcon(
+    $hidden_titles['NoIdxFulltext'] = PMA_Util::getIcon(
         'bd_ftext.png', __('Add FULLTEXT index'), true
     );
 
@@ -2259,37 +2221,35 @@ function PMA_getHiddenTitlesArray()
  */
 function PMA_getActionTitlesArray()
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $titles = array();
     $titles['Change']
-        = $common_functions->getIcon('b_edit.png', __('Change'));
+        = PMA_Util::getIcon('b_edit.png', __('Change'));
     $titles['Drop']
-        = $common_functions->getIcon('b_drop.png', __('Drop'));
+        = PMA_Util::getIcon('b_drop.png', __('Drop'));
     $titles['NoDrop']
-        = $common_functions->getIcon('b_drop.png', __('Drop'));
+        = PMA_Util::getIcon('b_drop.png', __('Drop'));
     $titles['Primary']
-        = $common_functions->getIcon('b_primary.png', __('Primary'));
+        = PMA_Util::getIcon('b_primary.png', __('Primary'));
     $titles['Index']
-        = $common_functions->getIcon('b_index.png', __('Index'));
+        = PMA_Util::getIcon('b_index.png', __('Index'));
     $titles['Unique']
-        = $common_functions->getIcon('b_unique.png', __('Unique'));
+        = PMA_Util::getIcon('b_unique.png', __('Unique'));
     $titles['Spatial']
-        = $common_functions->getIcon('b_spatial.png', __('Spatial'));
+        = PMA_Util::getIcon('b_spatial.png', __('Spatial'));
     $titles['IdxFulltext']
-        = $common_functions->getIcon('b_ftext.png', __('Fulltext'));
+        = PMA_Util::getIcon('b_ftext.png', __('Fulltext'));
     $titles['NoPrimary']
-        = $common_functions->getIcon('bd_primary.png', __('Primary'));
+        = PMA_Util::getIcon('bd_primary.png', __('Primary'));
     $titles['NoIndex']
-        = $common_functions->getIcon('bd_index.png', __('Index'));
+        = PMA_Util::getIcon('bd_index.png', __('Index'));
     $titles['NoUnique']
-        = $common_functions->getIcon('bd_unique.png', __('Unique'));
+        = PMA_Util::getIcon('bd_unique.png', __('Unique'));
     $titles['NoSpatial']
-        = $common_functions->getIcon('bd_spatial.png', __('Spatial'));
+        = PMA_Util::getIcon('bd_spatial.png', __('Spatial'));
     $titles['NoIdxFulltext']
-        = $common_functions->getIcon('bd_ftext.png', __('Fulltext'));
+        = PMA_Util::getIcon('bd_ftext.png', __('Fulltext'));
     $titles['DistinctValues']
-        = $common_functions->getIcon('b_browse.png', __('Distinct values'));
+        = PMA_Util::getIcon('b_browse.png', __('Distinct values'));
 
     return $titles;
 }
@@ -2311,8 +2271,6 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine, $url_query,
     $tbl_collation
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $html_output = '<div id="tablestatistics">';
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo(
@@ -2335,11 +2293,11 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     // this is to display for example 261.2 MiB instead of 268k KiB
     $max_digits = 3;
     $decimals = 1;
-    list($data_size, $data_unit) = $common_functions->formatByteDown(
+    list($data_size, $data_unit) = PMA_Util::formatByteDown(
         $showtable['Data_length'], $max_digits, $decimals
     );
     if ($mergetable == false) {
-        list($index_size, $index_unit) = $common_functions->formatByteDown(
+        list($index_size, $index_unit) = PMA_Util::formatByteDown(
             $showtable['Index_length'], $max_digits, $decimals
         );
     }
@@ -2348,25 +2306,25 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         && isset($showtable['Data_free'])
         && $showtable['Data_free'] > 0
     ) {
-        list($free_size, $free_unit) = $common_functions->formatByteDown(
+        list($free_size, $free_unit) = PMA_Util::formatByteDown(
             $showtable['Data_free'], $max_digits, $decimals
         );
-        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
+        list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
             $max_digits, $decimals
         );
     } else {
-        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
+        list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length'],
             $max_digits, $decimals
         );
     }
-    list($tot_size, $tot_unit) = $common_functions->formatByteDown(
+    list($tot_size, $tot_unit) = PMA_Util::formatByteDown(
         $showtable['Data_length'] + $showtable['Index_length'],
         $max_digits, $decimals
     );
     if ($table_info_num_rows > 0) {
-        list($avg_size, $avg_unit) = $common_functions->formatByteDown(
+        list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
             ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
             6, 1
         );

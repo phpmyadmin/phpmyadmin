@@ -68,8 +68,7 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         $i = 0;
         foreach ($row as $col => $val) {
             if ($fields_meta[$i]->type == 'bit') {
-                $row[$col] = PMA_CommonFunctions::getInstance()
-                    ->printableBitValue($val, $fields_meta[$i]->length);
+                $row[$col] = PMA_Util::printableBitValue($val, $fields_meta[$i]->length);
             }
             $i++;
         }
@@ -149,7 +148,7 @@ if (isset($zoom_submit)
             $tmpRow[] = $val;
         }
         //Get unique conditon on each row (will be needed for row update)
-        $uniqueCondition = PMA_CommonFunctions::getInstance()->getUniqueCondition(
+        $uniqueCondition = PMA_Util::getUniqueCondition(
             $result, count($table_search->getColumnNames()), $fields_meta, $tmpRow,
             true
         );

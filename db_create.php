@@ -29,7 +29,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-PMA_CommonFunctions::getInstance()->checkParameters(array('new_db'));
+PMA_Util::checkParameters(array('new_db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -39,7 +39,7 @@ $err_url = 'main.php?' . PMA_generate_common_url();
 /**
  * Builds and executes the db creation sql query
  */
-$sql_query = 'CREATE DATABASE ' . PMA_CommonFunctions::getInstance()->backquote($new_db);
+$sql_query = 'CREATE DATABASE ' . PMA_Util::backquote($new_db);
 if (! empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
     if (in_array($db_charset, $mysql_charsets)
@@ -137,7 +137,7 @@ if (! $result) {
         $response->addJSON('new_db_string', $new_db_string);
         $response->addJSON(
             'sql_query',
-            PMA_CommonFunctions::getInstance()->getMessage(
+            PMA_Util::getMessage(
                 null, $sql_query, 'success'
             )
         );

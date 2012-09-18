@@ -22,7 +22,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 $_add_user_error = false;
 
@@ -119,10 +118,10 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
 }
 
 if (isset($dbname)) {
-    $unescaped_db = $common_functions->unescapeMysqlWildcards($dbname);
-    $db_and_table = $common_functions->backquote($unescaped_db) . '.';
+    $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
+    $db_and_table = PMA_Util::backquote($unescaped_db) . '.';
     if (isset($tablename)) {
-        $db_and_table .= $common_functions->backquote($tablename);
+        $db_and_table .= PMA_Util::backquote($tablename);
     } else {
         $db_and_table .= '*';
     }
@@ -146,7 +145,7 @@ if (isset($dbname)) {
 if (! $is_superuser) {
     $response->addHTML(
         '<h2>' . "\n"
-        . $common_functions->getIcon('b_usrlist.png')
+        . PMA_Util::getIcon('b_usrlist.png')
         . __('Privileges') . "\n"
         . '</h2>' . "\n"
     );
@@ -162,9 +161,9 @@ $random_n = mt_rand(0, 1000000);
  */
 if (isset($_REQUEST['change_copy'])) {
     $user_host_condition = ' WHERE `User` = '
-        . "'". $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+        . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         . ' AND `Host` = '
-        . "'" . $common_functions->sqlAddSlashes($_REQUEST['old_hostname']) . "';";
+        . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
     $row = PMA_DBI_fetch_single_row(
         'SELECT * FROM `mysql`.`user` ' . $user_host_condition
     );
@@ -209,8 +208,8 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         break;
     }
     $sql = "SELECT '1' FROM `mysql`.`user`"
-        . " WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
-        . " AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
     if (PMA_DBI_fetch_value($sql) == 1) {
         $message = PMA_Message::error(__('The user %s already exists!'));
         $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
@@ -319,17 +318,17 @@ if (isset($_REQUEST['delete'])
             )
             . ' ...';
         $queries[] = 'DROP USER \''
-            . $common_functions->sqlAddSlashes($this_user)
-            . '\'@\'' . $common_functions->sqlAddSlashes($this_host) . '\';';
+            . PMA_Util::sqlAddSlashes($this_user)
+            . '\'@\'' . PMA_Util::sqlAddSlashes($this_host) . '\';';
 
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS '
-                . $common_functions->backquote($this_user) . ';';
+                . PMA_Util::backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
                 $response->addHTML(
-                    $common_functions->getReloadNavigationScript()
+                    PMA_Util::getReloadNavigationScript()
                 );
             }
         }
@@ -419,7 +418,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     $response->addHTML($content . "\n");
 } else {
     if (! empty($GLOBALS['message'])) {
-        $response->addHTML($common_functions->getMessage($GLOBALS['message']));
+        $response->addHTML(PMA_Util::getMessage($GLOBALS['message']));
         unset($GLOBALS['message']);
     }
 }

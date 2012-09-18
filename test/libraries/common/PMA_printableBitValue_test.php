@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test PMA_CommonFunctions::printableBitValue function
+ * Test PMA_Util::printableBitValue function
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
 {
@@ -36,7 +36,7 @@ class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
     public function testPrintableBitValue($a, $b, $e)
     {
         $this->assertEquals(
-            $e, PMA_CommonFunctions::getInstance()->printableBitValue($a, $b)
+            $e, PMA_Util::printableBitValue($a, $b)
         );
     }
 }

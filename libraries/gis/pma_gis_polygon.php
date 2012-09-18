@@ -451,9 +451,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public static function getPointOnSurface($ring)
     {
-
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         // Find two consecutive distinct points.
         for ($i = 0; $i < count($ring) - 1; $i++) {
             if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
@@ -476,8 +473,8 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
         $denominator = sqrt(
-            $common_functions->pow(($y1 - $y0), 2)
-            + $common_functions->pow(($x0 - $x1), 2)
+            PMA_Util::pow(($y1 - $y0), 2)
+            + PMA_Util::pow(($x0 - $x1), 2)
         );
         $pointA = array(); $pointB = array();
 
@@ -499,7 +496,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
             } else {
                 //If both are outside the polygon reduce the epsilon and
                 //recalculate the points(reduce exponentially for faster convergance)
-                $epsilon = $common_functions->pow($epsilon, 2);
+                $epsilon = PMA_Util::pow($epsilon, 2);
                 if ($epsilon == 0) {
                     return false;
                 }

@@ -83,7 +83,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
             $response->addJSON('message', $change_password_message['msg']);
             $response->isSuccess(false);
         } else {
-            $sql_query = PMA_CommonFunctions::getInstance()->getMessage(
+            $sql_query = PMA_Util::getMessage(
                 $change_password_message['msg'],
                 $sql_query,
                 'success'
@@ -169,13 +169,12 @@ function PMA_changePassHashingFunction()
 function PMA_ChangePassUrlParamsAndSubmitQuery(
     $password, $_url_params, $sql_query, $hashing_function
 ) {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
-        : $hashing_function . '(\'' . $common_functions->sqlAddSlashes($password) . '\')');
+        : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
-            or $common_functions->mysqlDie(
+            or PMA_Util::mysqlDie(
                 PMA_DBI_getError(), $sql_query, false, $err_url
             );
 }
@@ -232,7 +231,7 @@ function PMA_changePassAuthType($_url_params, $password)
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-    echo PMA_CommonFunctions::getInstance()->getMessage(
+    echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
     echo '<a href="index.php'.PMA_generate_common_url($_url_params)

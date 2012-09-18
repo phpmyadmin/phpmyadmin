@@ -54,25 +54,24 @@ function PMA_Bookmark_getList($db)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
         return array();
     }
 
-    $query  = 'SELECT label, id FROM '. $common_functions->backquote($cfgBookmark['db'])
-        . '.' . $common_functions->backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . $common_functions->sqlAddSlashes($db) . '\''
-        . ' AND user = \'' . $common_functions->sqlAddSlashes($cfgBookmark['user']) . '\''
+    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+        . '.' . PMA_Util::backquote($cfgBookmark['table'])
+        . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+        . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . ' ORDER BY label';
     $per_user = PMA_DBI_fetch_result(
         $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
     );
 
-    $query  = 'SELECT label, id FROM '. $common_functions->backquote($cfgBookmark['db'])
-        . '.' . $common_functions->backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . $common_functions->sqlAddSlashes($db) . '\''
+    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+        . '.' . PMA_Util::backquote($cfgBookmark['table'])
+        . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'\''
         . ' ORDER BY label';
     $global = PMA_DBI_fetch_result(
@@ -113,26 +112,25 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 ) {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
         return '';
     }
 
-    $query = 'SELECT query FROM ' . $common_functions->backquote($cfgBookmark['db'])
-        . '.' . $common_functions->backquote($cfgBookmark['table'])
-        . ' WHERE dbase = \'' . $common_functions->sqlAddSlashes($db) . '\'';
+    $query = 'SELECT query FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        . '.' . PMA_Util::backquote($cfgBookmark['table'])
+        . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
     if (!$action_bookmark_all) {
-        $query .= ' AND (user = \'' . $common_functions->sqlAddSlashes($cfgBookmark['user']) . '\'';
+        $query .= ' AND (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\'';
         if (!$exact_user_match) {
             $query .= ' OR user = \'\'';
         }
         $query .= ')';
     }
 
-    $query .= ' AND ' . $common_functions->backquote($id_field) . ' = ' . $id;
+    $query .= ' AND ' . PMA_Util::backquote($id_field) . ' = ' . $id;
 
     return PMA_DBI_fetch_value($query, 0, 0, $controllink);
 } // end of the 'PMA_Bookmark_get()' function
@@ -154,20 +152,19 @@ function PMA_Bookmark_save($fields, $all_users = false)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
         return false;
     }
 
-    $query = 'INSERT INTO ' . $common_functions->backquote($cfgBookmark['db'])
-        . '.' . $common_functions->backquote($cfgBookmark['table'])
+    $query = 'INSERT INTO ' . PMA_Util::backquote($cfgBookmark['db'])
+        . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' (id, dbase, user, query, label)'
-        . ' VALUES (NULL, \'' . $common_functions->sqlAddSlashes($fields['dbase']) . '\', '
-        . '\'' . ($all_users ? '' : $common_functions->sqlAddSlashes($fields['user'])) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes(urldecode($fields['query'])) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($fields['label']) . '\')';
+        . ' VALUES (NULL, \'' . PMA_Util::sqlAddSlashes($fields['dbase']) . '\', '
+        . '\'' . ($all_users ? '' : PMA_Util::sqlAddSlashes($fields['user'])) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes(urldecode($fields['query'])) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($fields['label']) . '\')';
     return PMA_DBI_query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
 
@@ -188,16 +185,15 @@ function PMA_Bookmark_delete($db, $id)
 {
     global $controllink;
 
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
     if (empty($cfgBookmark)) {
         return false;
     }
 
-    $query  = 'DELETE FROM ' . $common_functions->backquote($cfgBookmark['db'])
-        . '.' . $common_functions->backquote($cfgBookmark['table'])
-        . ' WHERE (user = \'' . $common_functions->sqlAddSlashes($cfgBookmark['user']) . '\''
+    $query  = 'DELETE FROM ' . PMA_Util::backquote($cfgBookmark['db'])
+        . '.' . PMA_Util::backquote($cfgBookmark['table'])
+        . ' WHERE (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . '        OR user = \'\')'
         . ' AND id = ' . $id;
     return PMA_DBI_try_query($query, $controllink);

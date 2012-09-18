@@ -7,7 +7,7 @@
  */
 
 require_once 'libraries/sqlparser.lib.php';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 /*
  * Include to test
  */

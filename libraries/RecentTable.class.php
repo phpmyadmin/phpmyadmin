@@ -47,8 +47,8 @@ class PMA_RecentTable
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
             && strlen($GLOBALS['cfg']['Server']['recent'])
         ) {
-            $this->pma_table = PMA_CommonFunctions::getInstance()->backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-                . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['cfg']['Server']['recent']);
+            $this->pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
+                . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
         }
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
@@ -102,7 +102,7 @@ class PMA_RecentTable
         $sql_query
             = " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
                 " VALUES ('" . $username . "', '"
-                . PMA_CommonFunctions::getInstance()->sqlAddSlashes(
+                . PMA_Util::sqlAddSlashes(
                     json_encode($this->tables)
                 ) . "')";
 

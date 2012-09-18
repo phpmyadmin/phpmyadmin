@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/List_Database.class.php';
 require_once 'libraries/relation.lib.php';
 

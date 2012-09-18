@@ -10,7 +10,7 @@
  * Include required files
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 /**

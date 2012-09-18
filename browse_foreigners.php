@@ -11,7 +11,7 @@ require_once 'libraries/transformations.lib.php';
 
 $field = $_REQUEST['field'];
 
-PMA_CommonFunctions::getInstance()->checkParameters(array('db', 'table', 'field'));
+PMA_Util::checkParameters(array('db', 'table', 'field'));
 
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
@@ -65,7 +65,7 @@ if (is_array($foreignData['disp_row'])) {
     $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
-        $gotopage = PMA_CommonFunctions::getInstance()->pageselector(
+        $gotopage = PMA_Util::pageselector(
             $session_max_rows,
             $pageNow,
             $nbTotalPage,

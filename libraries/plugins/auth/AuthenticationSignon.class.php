@@ -186,7 +186,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA_CommonFunctions::getInstance()->clearUserCache();
+            PMA_Util::clearUserCache();
         }
 
         // Returns whether we get authentication settings or not

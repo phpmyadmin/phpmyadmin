@@ -14,7 +14,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_structure.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -61,9 +60,9 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-     $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
-     $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
-     ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($_REQUEST['db']) . '\' ' .
+     PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
+     PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+     ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db']) . '\' ' .
      ' GROUP BY table_name' .
      ' ORDER BY table_name ASC';
 
@@ -95,7 +94,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= $common_functions->getImage(
+        $drop_image_or_text .= PMA_Util::getImage(
             'b_drop.png',
             __('Delete tracking data for this table')
         );
@@ -110,10 +109,10 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
     while ($one_result = PMA_DBI_fetch_array($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
-             $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
-             $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
-             ' WHERE `db_name` = \'' . $common_functions->sqlAddSlashes($_REQUEST['db'])
-             . '\' AND `table_name`  = \'' . $common_functions->sqlAddSlashes($table_name)
+             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
+             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+             ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($_REQUEST['db'])
+             . '\' AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table_name)
              . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_queryAsControlUser($table_query);
@@ -160,7 +159,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
 // Get list of tables
-$table_list = $common_functions->getTableList($GLOBALS['db']);
+$table_list = PMA_Util::getTableList($GLOBALS['db']);
 
 // For each table try to get the tracking version
 foreach ($table_list as $key => $value) {
@@ -212,7 +211,7 @@ if (isset($my_tables)) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) .'">';
-            $my_link .= $common_functions->getIcon('eye.png', __('Track table'));
+            $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
         ?>
             <tr class="noclick <?php echo $style;?>">
@@ -240,7 +239,7 @@ if (count($data['ddlog']) > 0) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
             . $entry['statement'] . "\n";
     }
-    echo $common_functions->getMessage(__('Database Log'), $log);
+    echo PMA_Util::getMessage(__('Database Log'), $log);
 }
 
 ?>

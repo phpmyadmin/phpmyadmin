@@ -10,10 +10,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 // Check parameters
-$common_functions->checkParameters(array('db', 'table'));
+PMA_Util::checkParameters(array('db', 'table'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -58,11 +56,11 @@ if (PMA_isValid($_REQUEST['new_name'])) {
         } else {
             $message = PMA_Message::success(__('Table %s has been copied to %s.'));
         }
-        $old = $common_functions->backquote($db) . '.'
-            . $common_functions->backquote($table);
+        $old = PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table);
         $message->addParam($old);
-        $new = $common_functions->backquote($_REQUEST['target_db']) . '.'
-            . $common_functions->backquote($_REQUEST['new_name']);
+        $new = PMA_Util::backquote($_REQUEST['target_db']) . '.'
+            . PMA_Util::backquote($_REQUEST['new_name']);
         $message->addParam($new);
 
         /* Check: Work on new table or on old table? */
@@ -89,7 +87,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         $response->addJSON('db', $GLOBALS['db']);
         $response->addJSON(
             'sql_query',
-            $common_functions->getMessage(null, $sql_query)
+            PMA_Util::getMessage(null, $sql_query)
         );
     } else {
         $response->isSuccess(false);

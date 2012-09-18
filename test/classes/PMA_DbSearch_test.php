@@ -11,7 +11,7 @@
 
 require_once 'libraries/DbSearch.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
@@ -74,17 +74,6 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
-    }
-
-    /**
-     * Test for getCommonFunctions
-     */
-    public function testGetCommonFunctions()
-    {
-        $this->assertInstanceOf(
-            'PMA_CommonFunctions',
-            $this->object->getCommonFunctions()
-        );
     }
 
     /**
