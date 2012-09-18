@@ -2015,17 +2015,10 @@ $(function() {
                     return false;
                 });
 
-                profilingChart = PMA_createProfilingChart(chartData, {
-                    chart: {
-                        renderTo: 'queryProfiling'
-                    },
-                    plotOptions: {
-                        pie: {
-                            size: '50%'
-                        }
-                    }
-                });
-
+                profilingChart = PMA_createProfilingChartJqplot(
+                        'queryProfiling', 
+                        chartData
+                );
 
                 $('div#queryProfiling').resizable();
             }

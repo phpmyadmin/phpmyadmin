@@ -1686,46 +1686,9 @@ function PMA_createChart(passedSettings)
     return new Highcharts.Chart(settings);
 }
 
-
-/*
- * Creates a Profiling Chart. Used in server_status_monitor.js
- */
-function PMA_createProfilingChart(data, options)
-{
-    return PMA_createChart($.extend(true, {
-        chart: {
-            renderTo: 'profilingchart',
-            type: 'pie'
-        },
-        title: { text:'', margin:0 },
-        series: [{
-            type: 'pie',
-            name: PMA_messages['strQueryExecutionTime'],
-            data: data
-        }],
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    distance: 35,
-                    formatter: function() {
-                        return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
-                   }
-                }
-            }
-        },
-        tooltip: {
-            formatter: function() {
-                return '<b>'+ this.point.name +'</b><br/>'+PMA_prettyProfilingNum(this.y)+'<br/>('+Highcharts.numberFormat(this.percentage, 2) +' %)';
-            }
-        }
-    },options));
-}
-
 /*
  * Creates a Profiling Chart with jqplot. Used in sql.js
+ * and in server_status_monitor.js
  */
 function PMA_createProfilingChartJqplot(target, data)
 {
@@ -1767,7 +1730,7 @@ function PMA_createProfilingChartJqplot(target, data)
 }
 
 /**
- * Formats a profiling duration nicely (in us and ms time). Used in PMA_createProfilingChart() and server_status.js
+ * Formats a profiling duration nicely (in us and ms time). Used in server_status.js
  *
  * @param   integer     Number to be formatted, should be in the range of microsecond to second
  * @param   integer     Acuracy, how many numbers right to the comma should be
