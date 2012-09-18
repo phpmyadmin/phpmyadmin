@@ -160,18 +160,7 @@ class PMA_DisplayResults
      * One element of this array represent all relavant columns in all tables in
      * one specific database
      */
-    public $sytax_highlighting_column_info = array(
-        'information_schema' => array(
-            'processlist' => array(
-                'info' => array(
-                    'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
-                    'Text_Plain_Formatted',
-                    'Text_Plain'
-                )
-            )
-        )
-
-    );
+    public $sytax_highlighting_column_info;
 
 
     /**
@@ -231,6 +220,19 @@ class PMA_DisplayResults
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
+        $this->sytax_highlighting_column_info = array(
+            'information_schema' => array(
+                'processlist' => array(
+                    'info' => array(
+                        'libraries/plugins/transformations/'
+                            . 'Text_Plain_Formatted.class.php',
+                        'Text_Plain_Formatted',
+                        'Text_Plain'
+                    )
+                )
+            )
+        );
+
         $this->__set('_db', $db);
         $this->__set('_table', $table);
         $this->__set('_goto', $goto);
