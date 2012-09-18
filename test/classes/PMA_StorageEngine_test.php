@@ -15,7 +15,12 @@ require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
+/**
+ * Tests for StorageEngine.class.php
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -31,7 +36,9 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine', array('dummy'));
+        $this->object = $this->getMockForAbstractClass(
+            'PMA_StorageEngine', array('dummy')
+        );
     }
 
     /**
@@ -48,6 +55,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getStorageEngines
+     *
+     * @return void
      */
     public function testGetStorageEngines()
     {
@@ -72,6 +81,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getHtmlSelect
      *
+     * @return void
+     *
      * @group medium
      */
     public function testGetHtmlSelect()
@@ -90,6 +101,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getEngine
+     *
+     * @return void
      */
     public function testGetEngine()
     {
@@ -102,6 +115,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for isValid
+     *
+     * @return void
      */
     public function testIsValid()
     {
@@ -122,6 +137,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPage
+     *
+     * @return void
      */
     public function testGetPage()
     {
@@ -133,6 +150,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getInfoPages
+     *
+     * @return void
      */
     public function testGetInfoPages()
     {
@@ -145,6 +164,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariablesLikePattern
+     *
+     * @return void
      */
     public function testGetVariablesLikePattern()
     {
@@ -156,6 +177,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getMysqlHelpPage
+     *
+     * @return void
      */
     public function testGetMysqlHelpPage()
     {
@@ -168,6 +191,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariables
+     *
+     * @return void
      */
     public function testGetVariables()
     {
@@ -180,6 +205,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getSupportInformationMessage
+     *
+     * @return void
      */
     public function testGetSupportInformationMessage()
     {
@@ -209,6 +236,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getComment
+     *
+     * @return void
      */
     public function testGetComment()
     {
@@ -221,6 +250,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getTitle
+     *
+     * @return void
      */
     public function testGetTitle()
     {
@@ -233,6 +264,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for engine_init
+     *
+     * @return void
      */
     public function testEngine_init()
     {
@@ -244,6 +277,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for resolveTypeSize
+     *
+     * @return void
      */
     public function testResolveTypeSize()
     {
