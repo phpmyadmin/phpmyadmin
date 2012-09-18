@@ -57,12 +57,12 @@ function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password,
 /**
  * connects to the database server
  *
- * @param string $user                    drizzle user name
- * @param string $password                drizzle user password
- * @param bool   $is_controluser
- * @param array  $server host/port/socket
- * @param bool   $auxiliary_connection    when true, don't go back to
- *                                         login if connection fails
+ * @param string $user                 drizzle user name
+ * @param string $password             drizzle user password
+ * @param bool   $is_controluser       whether this is a control user connection
+ * @param array  $server               host/port/socket/persistent
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */

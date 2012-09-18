@@ -195,9 +195,10 @@ function PMA_DBI_real_multi_query($link, $query)
  *
  * @param string $user                 mysql user name
  * @param string $password             mysql user password
- * @param bool   $is_controluser
+ * @param bool   $is_controluser       whether this is a control user connection
  * @param array  $server               host/port/socket/persistent
- * @param bool   $auxiliary_connection (when true, don't go back to login if connection fails)
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */
@@ -257,10 +258,11 @@ function PMA_DBI_real_query($query, $link = null, $options = 0)
  */
 function PMA_DBI_fetch_any($result)
 {
-    if ($GLOBALS['dummy_queries'][$result]['pos'] >= count($GLOBALS['dummy_queries'][$result]['result'])) {
+    $query_data = $GLOBALS['dummy_queries'][$result];
+    if ($query_data['pos'] >= count($query_data['result'])) {
         return false;
     }
-    $ret = $GLOBALS['dummy_queries'][$result]['result'][$GLOBALS['dummy_queries'][$result]['pos']];
+    $ret = $query_data['result'][$query_data['pos']];
     $GLOBALS['dummy_queries'][$result]['pos'] += 1;
     return $ret;
 }

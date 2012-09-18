@@ -103,14 +103,17 @@ function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_p
  *
  * @param string $user                 mysql user name
  * @param string $password             mysql user password
- * @param bool   $is_controluser
- * @param array  $server               host/port/socket
- * @param bool   $auxiliary_connection (when true, don't go back to login if connection fails)
+ * @param bool   $is_controluser       whether this is a control user connection
+ * @param array  $server               host/port/socket/persistent
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
-{
+function PMA_DBI_connect(
+    $user, $password, $is_controluser = false, $server = null,
+    $auxiliary_connection = false
+) {
     global $cfg;
 
     if ($server) {
@@ -370,7 +373,7 @@ function PMA_DBI_next_result($link = null)
 /**
  * Store the result returned from multi query
  *
- * @return mixed false when empty results / result set when not empty 
+ * @return mixed false when empty results / result set when not empty
  */
 function PMA_DBI_store_result()
 {
