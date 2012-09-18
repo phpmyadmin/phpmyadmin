@@ -42,7 +42,10 @@ function PMA_getSysInfo()
     $sysinfo = array();
 
     if (in_array($php_os, $supported)) {
-        return eval("return new PMA_sysinfo" . $php_os . "();");
+        $ret = eval("return new PMA_sysinfo" . $php_os . "();");
+        if ($ret->supported()) {
+            return $ret;
+        }
     }
 
     return new PMA_Sysinfo_Default;
@@ -75,6 +78,11 @@ class PMA_sysinfoWinnt
         }
 
         return array('loadavg' => $sum / count($buffer));
+    }
+
+    function supported()
+    {
+        return true;
     }
 
     private function _getWMI($strClass, $strValue = array())
@@ -148,6 +156,11 @@ class PMA_sysinfoLinux
         );
     }
 
+    function supported()
+    {
+        return is_readable('/proc/meminfo') && is_readable('/proc/stat');
+    }
+
     function memory()
     {
         preg_match_all(
@@ -188,6 +201,11 @@ class PMA_sysinfoSunos
         return array('loadavg' => $load1);
     }
 
+    function supported()
+    {
+        return is_readable('/proc/meminfo');
+    }
+
     public function memory()
     {
         preg_match_all(
@@ -220,5 +238,10 @@ class PMA_sysinfoDefault
     public function memory()
     {
         return array();
+    }
+
+    function supported()
+    {
+        return true;
     }
 }
