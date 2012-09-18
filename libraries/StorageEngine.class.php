@@ -142,10 +142,8 @@ class PMA_StorageEngine
     static public function getEngine($engine)
     {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
-        $engine_lowercase_filename = strtolower($engine);
-        if (file_exists('./libraries/engines/' . $engine_lowercase_filename . '.lib.php')
-            && include_once './libraries/engines/' . $engine_lowercase_filename . '.lib.php'
-        ) {
+        $filename = './libraries/engines/' . strtolower($engine) . '.lib.php';
+        if (file_exists($filename) && include_once $filename) {
             $class_name = 'PMA_StorageEngine_' . $engine;
             $engine_object = new $class_name($engine);
         } else {
