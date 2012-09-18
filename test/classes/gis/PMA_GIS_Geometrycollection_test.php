@@ -60,13 +60,11 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
      */
     public function testScaleRow($spatial, $output)
     {
-
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
 
     public function providerForScaleRow()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
@@ -94,7 +92,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateWkt($gis_data, $index, $empty, $output)
     {
-
         $this->assertEquals(
             $output,
             $this->object->generateWkt($gis_data, $index, $empty = '')
@@ -103,7 +100,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
     public function providerForGenerateWkt()
     {
-
         $temp1 = array(
             0 => array(
                 'gis_type' => 'LINESTRING',
@@ -137,35 +133,31 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
      */
     public function testGenerateParams($value, $output)
     {
-
         $this->assertEquals($output, $this->object->generateParams($value));
     }
 
     public function providerForGenerateParams()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
                 array(
                     'srid' => 0,
                     'GEOMETRYCOLLECTION' => Array('geom_count' => 1),
-
-                '0' => Array(
-                    'gis_type' => 'LINESTRING',
-                    'LINESTRING' => Array(
-                        'no_of_points' => 2,
-                        '0' => Array(
-                            'x' => 5.02,
-                            'y' => 8.45
-                        ),
-                        '1' => Array(
-                            'x' => 6.14,
-                            'y' => 0.15
+                    '0' => Array(
+                        'gis_type' => 'LINESTRING',
+                        'LINESTRING' => Array(
+                            'no_of_points' => 2,
+                            '0' => Array(
+                                'x' => 5.02,
+                                'y' => 8.45
+                            ),
+                            '1' => Array(
+                                'x' => 6.14,
+                                'y' => 0.15
+                            )
                         )
                     )
-
-                )
                 ),
             ),
         );
@@ -188,7 +180,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testPrepareRowAsPng(
         $spatial, $label, $line_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
@@ -198,7 +189,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
@@ -232,7 +222,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testPrepareRowAsPdf(
         $spatial, $label, $line_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
@@ -241,7 +230,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
@@ -274,7 +262,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testPrepareRowAsSvg(
         $spatial, $label, $line_color, $scale_data, $output
     ) {
-
         $string = $this->object->prepareRowAsSvg(
             $spatial, $label, $line_color, $scale_data
         );
@@ -289,7 +276,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
@@ -323,7 +309,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testPrepareRowAsOl(
         $spatial, $srid, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -334,7 +319,6 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
@@ -351,7 +335,5 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-
 }
-
 ?>

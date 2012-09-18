@@ -182,7 +182,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPng(
         $spatial, $label, $line_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
@@ -192,7 +191,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -207,7 +205,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
                 imagecreatetruecolor('120', '150'),
                 ''
             )
-
         );
     }
 
@@ -224,7 +221,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPdf(
         $spatial, $label, $line_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
@@ -233,7 +229,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -263,7 +258,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsSvg(
         $spatial, $label, $line_color, $scale_data, $output
     ) {
-
         $string = $this->object->prepareRowAsSvg(
             $spatial, $label, $line_color, $scale_data
         );
@@ -272,7 +266,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -303,7 +296,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsOl(
         $spatial, $srid, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -314,7 +306,6 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',

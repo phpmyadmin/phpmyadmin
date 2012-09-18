@@ -238,7 +238,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPng(
         $spatial, $label, $line_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
@@ -248,7 +247,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
@@ -263,7 +261,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                 imagecreatetruecolor('120', '150'),
                 ''
             )
-
         );
     }
 
@@ -280,7 +277,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPdf(
         $spatial, $label, $line_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
@@ -289,7 +285,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
@@ -319,7 +314,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsSvg(
         $spatial, $label, $line_color, $scale_data, $output
     ) {
-
         $string = $this->object->prepareRowAsSvg(
             $spatial, $label, $line_color, $scale_data
         );
@@ -328,7 +322,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
@@ -359,7 +352,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsOl(
         $spatial, $srid, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -370,7 +362,6 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',

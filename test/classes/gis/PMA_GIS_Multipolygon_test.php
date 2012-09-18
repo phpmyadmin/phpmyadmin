@@ -276,7 +276,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPng(
         $spatial, $label, $line_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
@@ -286,7 +285,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
@@ -318,7 +316,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPdf(
         $spatial, $label, $line_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
@@ -327,7 +324,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
@@ -357,7 +353,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsSvg(
         $spatial, $label, $line_color, $scale_data, $output
     ) {
-
         $string = $this->object->prepareRowAsSvg(
             $spatial, $label, $line_color, $scale_data
         );
@@ -366,7 +361,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
@@ -397,7 +391,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsOl(
         $spatial, $srid, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -408,7 +401,6 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
