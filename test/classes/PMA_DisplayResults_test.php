@@ -21,7 +21,7 @@ require_once 'libraries/Config.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
+class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -37,7 +37,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_DisplayResults('as', '','','');
+        $this->object = new PMA_DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $SESSION[' PMA_Token '] = 'token';
@@ -85,6 +85,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *                               (just a copy of $unlim_num_rows if it exists,
      *                               elsecomputed inside this function)
      * @param string  $output        output from the _setDisplayMode method
+     *
+     * @return void
      *
      * @dataProvider providerForTestSetDisplayModeCase1
      */
@@ -164,6 +166,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *                               (just a copy of $unlim_num_rows if it exists,
      *                               elsecomputed inside this function)
      * @param string  $output        output from the _setDisplayMode method
+     *
+     * @return void
      *
      * @dataProvider providerForTestSetDisplayModeCase2
      */
@@ -246,6 +250,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *                               elsecomputed inside this function)
      * @param string  $output        output from the _setDisplayMode method
      *
+     * @return void
+     *
      * @dataProvider providerForTestSetDisplayModeCase3
      */
     public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output)
@@ -315,6 +321,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _isSelect function
+     *
+     * @return void
      */
     public function testisSelect()
     {
@@ -332,12 +340,16 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for navigation buttons
+     *
      * @param string  $caption        iconic caption for button
      * @param string  $title          text for button
      * @param integer $pos            position for next query
      * @param string  $html_sql_query query ready for display
      * @param string  $output         output from the _getTableNavigationButton
      *                                method
+     *
+     * @return void
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
@@ -386,12 +398,16 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for table navigation
+     *
      * @param integer $pos_next                  the offset for the "next" page
      * @param integer $pos_prev                  the offset for the "previous" page
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
      * @param boolean $is_innodb                 the table type is innoDb or not
      * @param string  $output                    output from the _getTableNavigation
      *                                           method
+     *
+     * @return void
      *
      * @dataProvider providerForTestGetTableNavigation
      */
@@ -423,6 +439,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Provider for testing table navigation
+     *
      * @return array data for testGetTableNavigation
      */
     public function providerForTestGetTableNavigation()
@@ -469,6 +487,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param integer $row_no           the row index
      * @param string  $output           output of__getResettedClassForInlineEdit
      *
+     * @return void
+     *
      * @dataProvider dataProviderForTestGetResettedClassForInlineEdit
      */
     public function testGetResettedClassForInlineEdit(
@@ -495,6 +515,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getClassForDateTimeRelatedFields - case 1
+     *
+     * @return void
      */
     public function testGetClassForDateTimeRelatedFieldsCase1()
     {
@@ -509,6 +531,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getClassForDateTimeRelatedFields - case 2
+     *
+     * @return void
      */
     public function testGetClassForDateTimeRelatedFieldsCase2()
     {
@@ -523,6 +547,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getClassForDateTimeRelatedFields - case 3
+     *
+     * @return void
      */
     public function testGetClassForDateTimeRelatedFieldsCase3()
     {
@@ -557,6 +583,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @param string $operation edit/copy/delete
      * @param string $output    output of _getOperationLinksForVerticleTable
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
      */
@@ -611,6 +639,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @param string $operation edit/copy/delete
      * @param string $output    output of _getOperationLinksForVerticleTable
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
      */
@@ -667,6 +697,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $operation edit/copy/delete
      * @param string $output    output of _getOperationLinksForVerticleTable
      *
+     * @return void
+     *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
      */
     public function testGetOperationLinksForVerticleTableCase3(
@@ -719,6 +751,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $dir    _left / _right
      * @param string $output output of _getCheckBoxesForMultipleRowOperations
      *
+     * @return void
+     *
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
     public function testGetCheckBoxesForMultipleRowOperations(
@@ -746,6 +780,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOffsets - case 1
+     *
+     * @return void
      */
     public function testGetOffsetsCase1()
     {
@@ -758,6 +794,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOffsets - case 2
+     *
+     * @return void
      */
     public function testGetOffsetsCase2()
     {
@@ -786,6 +824,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @param string $order_by_clause the order by clause of the sql query
      * @param string $output          output of _getSortParams
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetSortParamsCase1
      */
@@ -823,6 +863,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @param string $order_by_clause the order by clause of the sql query
      * @param string $output          output of _getSortParams
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetSortParamsCase2
      */
@@ -881,6 +923,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $class             css classes for the td element
      * @param string $output            output of _getCheckboxForMultiRowSubmissions
      *
+     * @return void
+     *
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
     public function testGetCheckboxForMultiRowSubmissions(
@@ -929,6 +973,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param string $output            output of _getEditLink
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetEditLink
      */
@@ -982,6 +1028,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $class             css classes for the td element
      * @param string $output            output of _getCopyLink
      *
+     * @return void
+     *
      * @dataProvider dataProviderForGetCopyLink
      */
     public function testGetCopyLink(
@@ -1030,6 +1078,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $js_conf text for the JS confirmation
      * @param string $class   css classes for the td element
      * @param string $output  output of _getDeleteLink
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetDeleteLink
      */
@@ -1119,6 +1169,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $del_str           text for the delete link
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase1
      */
@@ -1211,6 +1263,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
      *
+     * @return void
+     *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase2
      */
     public function testGetCheckboxAndLinksCase2(
@@ -1296,6 +1350,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
      *
+     * @return void
+     *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase3
      */
     public function testGetCheckboxAndLinksCase3(
@@ -1320,6 +1376,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _mimeDefaultFunction
+     *
+     * @return void
      */
     public function testMimeDefaultFunction()
     {
@@ -1393,6 +1451,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $del_str           the label for delete row
      * @param string  $js_conf           text for the JS confirmation
      * @param string  $output            output of _getPlacedLinks
+     *
+     * @return void
      *
      * @dataProvider dataProviderForGetPlacedLinks
      */
@@ -1471,6 +1531,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $field  the field name
      * @param boolean $output output of _isNeedToSyntaxHighlight
      *
+     * @return void
+     *
      * @dataProvider dataProviderForTestIsNeedToSyntaxHighlight
      */
     public function testIsNeedToSyntaxHighlight($db, $table, $data, $field,  $output)
@@ -1522,6 +1584,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $table  the table name
      * @param string  $field  the field name
      * @param boolean $output output of _isFieldNeedToLink
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestIsFieldNeedToLink
      */
@@ -1610,6 +1674,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param array   $row_info     information about row
      * @param string  $field_name   column name
      * @param boolean $output       output of _getSpecialLinkUrl
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
@@ -1723,6 +1789,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param array   $col_order   the column order
      * @param boolean $output      output of _getRowInfoForSpecialLinks
      *
+     * @return void
+     *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
@@ -1771,6 +1839,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $goto           the URL to go back in case of errors
      * @param string $html_sql_query the sql encoded by html special characters
      * @param string $output         output of _getRowInfoForSpecialLinks
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestGetShowAllButtonForTableNavigation
      */
@@ -1829,6 +1899,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @param array $analyzed_sql the analyzed query
      * @param array $output       setting value of _setHighlightedColumnGlobalField
+     *
+     * @return void
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
