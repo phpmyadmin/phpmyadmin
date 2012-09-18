@@ -278,7 +278,7 @@ class PMA_StorageEngine
         return $mysql_vars;
     }
 
-    function engine_init()
+    function engineInit()
     {
     }
 
@@ -312,7 +312,7 @@ class PMA_StorageEngine
                 $this->support = PMA_ENGINE_SUPPORT_NO;
             }
         } else {
-            $this->engine_init();
+            $this->engineInit();
         }
     }
 

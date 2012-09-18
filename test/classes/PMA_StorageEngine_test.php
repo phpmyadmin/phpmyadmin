@@ -263,15 +263,15 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for engine_init
+     * Test for engineInit
      *
      * @return void
      */
-    public function testEngine_init()
+    public function testEngineInit()
     {
 
         $this->assertNull(
-            $this->object->engine_init()
+            $this->object->engineInit()
         );
     }
 
