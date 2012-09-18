@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-11 10:37+0200\n"
-"PO-Revision-Date: 2012-09-05 09:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-09-18 08:32+0200\n"
+"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -601,17 +601,16 @@ msgid "Output"
 msgstr "ส่งออก"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
-msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั่น และวางลงในข้อความช่อง \"ค่า\""
+msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชัน และวางลงในข้อความช่อง \"ค่า\""
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -619,8 +618,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
-"เพื่อแก้ไขปัญหาดังกล่าวนี้ "
+"คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s "
+"เอกสารช่วยเหลือ เพื่อแก้ไขปัญหาดังกล่าวนี้ "
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -1215,7 +1214,6 @@ msgid "Jump to Log table"
 msgstr "ข้ามไปยังตารางเก็บประวัติ"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "ไม่มีข้อมูล"
@@ -1258,15 +1256,13 @@ msgid "Chart"
 msgstr "ชุดแสดงผล"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขแผนภูมิ"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Series"
-msgstr "คำค้น SQL"
+msgstr "ชุด"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1338,16 +1334,14 @@ msgid "Import"
 msgstr "นำเข้า"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "การตั้งค่าติดตามภายในเครื่องไม่เข้ากัน"
+msgstr "ตั้งค่าการตรวจสอบการนำเข้า"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
+msgstr "กรุณาเลือกไฟล์ที่คุณต้องการนำเข้า"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1462,16 +1456,14 @@ msgid "Foreign key check:"
 msgstr ""
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "เปิดใช้อยู่"
+msgstr "(เปิดใช้งาน)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "ระงับการใช้อยู่"
+msgstr "(ปิดใช้งาน)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1582,9 +1574,8 @@ msgid "Hovering over a point will show its label."
 msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
 
 #: js/messages.php:304
-#, fuzzy
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "﻿เมื่อต้องการย่อ/ขยาย เลือกส่วนของจุดโดยใช้เมาส์"
+msgstr "เมื่อต้องการย่อ/ขยาย ให้เลือกส่วนของจุดโดยใช้เมาส์"
 
 #: js/messages.php:306
 #, fuzzy
