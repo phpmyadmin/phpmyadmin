@@ -28,5 +28,33 @@ class PMA_dbi_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(array('1'), PMA_DBI_fetch_array(0));
     }
+
+    /**
+     * Test for system schema detection
+     *
+     * @param string $schema   schema name
+     * @param bool   $expected expected result
+     *
+     * @return void
+     *
+     * @dataProvider schemaData
+     */
+    function testSystemSchema($schema, $expected)
+    {
+        $this->assertEquals($expected, PMA_is_system_schema($schema));
+    }
+
+    /**
+     * Data provider for schema test
+     *
+     * @return array with test data
+     */
+    function schemaData()
+    {
+        return array(
+            array('information_schema', true),
+            array('pma_test', false),
+        );
+    }
 }
 
