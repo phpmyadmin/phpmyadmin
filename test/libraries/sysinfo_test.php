@@ -13,7 +13,7 @@ require_once 'libraries/sysinfo.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_SysinfoTest extends PHPUnit_Framework_TestCase
+class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test for OS detection
@@ -55,7 +55,7 @@ class PMA_SysinfoTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSysInfo()
     {
-        $this->assertInstanceOf('PMA_sysinfo', PMA_getSysInfo());
+        $this->assertInstanceOf('PMA_SysInfo', PMA_getSysInfo());
     }
 
     /**
