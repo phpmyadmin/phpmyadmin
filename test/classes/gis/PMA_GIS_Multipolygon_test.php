@@ -240,7 +240,8 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     {
         return array(
             array(
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
+                    . '((105 0,56 20,78 73,105 0)))',
                 array(
                     'minX' => 16,
                     'maxX' => 147,
@@ -294,7 +295,8 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     {
         return array(
             array(
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
+                    . '((105 0,56 20,78 73,105 0)))',
                 'image',
                 '#B02EE0',
                 array(
@@ -340,7 +342,8 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     {
         return array(
             array(
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
+                    . '((105 0,56 20,78 73,105 0)))',
                 'pdf',
                 '#B02EE0',
                 array(
@@ -384,7 +387,8 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     {
         return array(
             array(
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
+                    . '((105 0,56 20,78 73,105 0)))',
                 'svg',
                 '#B02EE0',
                 array(
@@ -431,7 +435,8 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
     {
         return array(
             array(
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
+                    . '((105 0,56 20,78 73,105 0)))',
                 4326,
                 'Ol',
                 '#B02EE0',
