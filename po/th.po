@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 09:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-09-18 08:32+0200\n"
+"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/3-5/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -1548,7 +1548,6 @@ msgid "Jump to Log table"
 msgstr "ข้ามไปยังตารางเก็บประวัติ"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "ไม่มีข้อมูล"
@@ -1588,15 +1587,13 @@ msgid "Chart"
 msgstr "ชุดแสดงผล"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "แก้ไขแผนภูมิ"
 
 #: js/messages.php:196
-#, fuzzy
 msgid "Series"
-msgstr "คำค้น SQL"
+msgstr "ชุด"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1668,16 +1665,14 @@ msgid "Import"
 msgstr "นำเข้า"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "การตั้งค่าติดตามภายในเครื่องไม่เข้ากัน"
+msgstr "ตั้งค่าการตรวจสอบการนำเข้า"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "กรุณาเลือกคีย์หลักหรือคียเดี่ยว"
+msgstr "กรุณาเลือกไฟล์ที่คุณต้องการนำเข้า"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1873,9 +1868,8 @@ msgid "Hovering over a point will show its label."
 msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
 
 #: js/messages.php:304
-#, fuzzy
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "﻿เมื่อต้องการย่อ/ขยาย เลือกส่วนของจุดโดยใช้เมาส์"
+msgstr "เมื่อต้องการย่อ/ขยาย ให้เลือกส่วนของจุดโดยใช้เมาส์"
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
