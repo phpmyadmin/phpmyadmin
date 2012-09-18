@@ -10,6 +10,11 @@
  * Include to test.
  */
 require_once 'libraries/transformations.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/relation.lib.php';
+require_once 'libraries/Theme.class.php';
 
 /**
  * tests for transformation wrappers
@@ -18,6 +23,35 @@ require_once 'libraries/transformations.lib.php';
  */
 class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Set up global environment.
+     *
+     * @return void
+     */
+    public function setup()
+    {
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['db'] = 'db';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['cfg'] = array(
+            'MySQLManualType' => 'none',
+            'AjaxEnable' => true,
+            'ServerDefault' => 1,
+            'PropertiesIconic' => true,
+        );
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = '';
+        $GLOBALS['cfg']['Server']['relation'] = '';
+        $GLOBALS['cfg']['Server']['table_info'] = '';
+        $GLOBALS['cfg']['Server']['table_coords'] = '';
+        $GLOBALS['cfg']['Server']['designer_coords'] = '';
+        $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
+        $GLOBALS['cfg']['DBG']['sql'] = false;
+    }
 
     /**
      * Test for parsing options.
@@ -102,6 +136,23 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                 ),
             ),
             PMA_getAvailableMIMEtypes()
+        );
+    }
+
+    /**
+     * Tests getting mime types for table
+     *
+     * @return void
+     */
+    public function testGetMime()
+    {
+        $this->assertEquals(
+            array('o' => array(
+                'column_name' => 'o',
+                'mimetype' => 'Text/plain',
+                'transformation' => 'Sql',
+            )),
+            PMA_getMIME('pma_test', 'table1')
         );
     }
 }

@@ -80,6 +80,12 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SHOW TABLES FROM `pmadb`',
+        'result' => array(
+            array('column_info'),
+        )
+    ),
+    array(
         'query' => 'SHOW COLUMNS FROM `pma_test`.`table1`',
         'columns' => array(
             'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
@@ -114,7 +120,7 @@ $GLOBALS['dummy_queries'] = array(
         ),
         'result' => array(
             array('i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment', 'select,insert,update,references', ''),
-            array('o', 'int(11)', 'NO', 'MUL', 'NULL', '', 'select,insert,update,references', ''),
+            array('o', 'varchar(100)', 'NO', 'MUL', 'NULL', '', 'select,insert,update,references', ''),
         )
     ),
     array(
@@ -142,6 +148,13 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT upper(plugin_name) f FROM data_dictionary.plugins WHERE plugin_name IN (\'MYSQL_PASSWORD\',\'ROT13\') AND plugin_type = \'Function\' AND is_active',
         'columns' => array('f'),
         'result' => array(array('ROT13')),
+    ),
+    array(
+        'query' => 'SELECT `column_name`, `mimetype`, `transformation`, `transformation_options` FROM `pmadb`.`column_info` WHERE `db_name` = \'pma_test\' AND `table_name` = \'table1\' AND ( `mimetype` != \'\' OR `transformation` != \'\' OR `transformation_options` != \'\')',
+        'columns' => array('column_name', 'mimetype', 'transformation', 'transformation_options'),
+        'result' => array(
+            array('o', 'text/plain', 'sql'),
+        )
     ),
 );
 
@@ -201,7 +214,8 @@ function PMA_DBI_connect(
  */
 function PMA_DBI_select_db($dbname, $link = null)
 {
-    return $GLOBALS['dummy_db'];
+    $GLOBALS['dummy_db'] = $dbname;
+    return true;
 }
 
 /**
