@@ -26,6 +26,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -34,6 +36,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for isUnaryOperator
+     *
+     * @return void
      */
     public function testUnary()
     {
@@ -43,6 +47,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getUnaryOperators
+     *
+     * @return void
      */
     public function testGetUnaryOperators()
     {
@@ -59,6 +65,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getNullOperators
+     *
+     * @return void
      */
     public function testGetNullOperators()
     {
@@ -73,6 +81,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getEnumOperators
+     *
+     * @return void
      */
     public function testGetEnumOperators()
     {
@@ -87,6 +97,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getTextOperators
+     *
+     * @return void
      */
     public function testgetTextOperators()
     {
@@ -113,6 +125,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getNumberOperators
+     *
+     * @return void
      */
     public function testGetNumberOperators()
     {
@@ -136,22 +150,28 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string  $type Type of field
-     * @param boolean $null Whether field can be NULL
-     * @param $output
+     * Test for getting type operators
+     *
+     * @param string  $type   Type of field
+     * @param boolean $null   Whether field can be NULL
+     * @param string  $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForGetTypeOperators
      */
     public function testGetTypeOperators($type, $null, $output)
     {
         $this->assertEquals(
-          $output,
-          $this->object->getTypeOperators($type, $null)
+            $output,
+            $this->object->getTypeOperators($type, $null)
         );
     }
 
     /**
      * data provider for testGetTypeOperators
+     *
+     * @return data for testGetTypeOperators
      */
     public function providerForGetTypeOperators()
     {
@@ -201,12 +221,15 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
      * @param string  $type             Type of field
      * @param boolean $null             Whether field can be NULL
      * @param string  $selectedOperator Option to be selected
-     * @param $output
+     * @param string  $output           Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
-    public function testGetTypeOperatorsHtml($type, $null, $selectedOperator, $output)
-    {
+    public function testGetTypeOperatorsHtml(
+        $type, $null, $selectedOperator, $output
+    ) {
         $this->assertEquals(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
@@ -215,6 +238,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetTypeOperatorsHtml
+     *
+     * @return test data for getTypeOperatorsHtml
      */
     public function providerForTestGetTypeOperatorsHtml()
     {
@@ -223,13 +248,16 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
                 'enum',
                 false,
                 '=',
-                '<option value="=" selected="selected">=</option><option value="!=">!=</option>'
+                '<option value="=" selected="selected">=</option>'
+                . '<option value="!=">!=</option>'
             )
         );
     }
 
     /**
      * Test for getTypeDescription
+     *
+     * @return void
      */
     public function testGetTypeDescription()
     {
@@ -241,6 +269,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getFunctionsClass
+     *
+     * @return void
      */
     public function testGetFunctionsClass()
     {
@@ -252,6 +282,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getFunctions
+     *
+     * @return void
      */
     public function testGetFunctions()
     {
@@ -263,6 +295,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getAllFunctions
+     *
+     * @return void
      */
     public function testGetAllFunctions()
     {
@@ -274,6 +308,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getAttributes
+     *
+     * @return void
      */
     public function testGetAttributes()
     {
@@ -285,6 +321,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getColumns
+     *
+     * @return void
      */
     public function testGetColumns()
     {
