@@ -51,6 +51,8 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['designer_coords'] = '';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
         $GLOBALS['cfg']['DBG']['sql'] = false;
+        // need to clear relation test cache
+        unset($_SESSION['relation']);
     }
 
     /**
