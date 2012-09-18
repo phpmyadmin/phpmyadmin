@@ -48,7 +48,7 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    require_once './libraries/dbi/dummy.lib.php';
+    include_once './libraries/dbi/dummy.lib.php';
 } else {
 
     /**
@@ -91,7 +91,7 @@ if (defined('TESTSUITE')) {
     /**
      * Including The DBI Plugin
      */
-    require_once './libraries/dbi/'
+    include_once './libraries/dbi/'
         . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
 }
