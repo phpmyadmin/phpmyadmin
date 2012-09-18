@@ -164,8 +164,7 @@ class PMA_DisplayResults
         'information_schema' => array(
             'processlist' => array(
                 'info' => array(
-                    'libraries/plugins/transformations/'
-                    . 'Text_Plain_Formatted.class.php',
+                    'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
                     'Text_Plain_Formatted',
                     'Text_Plain'
                 )
