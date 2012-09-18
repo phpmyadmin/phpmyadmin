@@ -63,6 +63,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
 
+    /**
+     * Data provider for testScaleRow() test case
+     *
+     * @return array test data for testScaleRow() test case
+     */
     public function providerForScaleRow()
     {
         return array(
@@ -98,6 +103,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testGenerateWkt() test case
+     *
+     * @return array test data for testGenerateWkt() test case
+     */
     public function providerForGenerateWkt()
     {
         $temp1 = array(
@@ -136,6 +146,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($output, $this->object->generateParams($value));
     }
 
+    /**
+     * Data provider for testGenerateParams() test case
+     *
+     * @return array test data for testGenerateParams() test case
+     */
     public function providerForGenerateParams()
     {
         return array(
@@ -187,6 +202,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(150, imagesy($return));
     }
 
+    /**
+     * Data provider for testPrepareRowAsPng() test case
+     *
+     * @return array test data for testPrepareRowAsPng() test case
+     */
     public function providerForPrepareRowAsPng()
     {
         return array(
@@ -228,6 +248,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('TCPDF', $return);
     }
 
+    /**
+     * Data provider for testPrepareRowAsPdf() test case
+     *
+     * @return array test data for testPrepareRowAsPdf() test case
+     */
     public function providerForPrepareRowAsPdf()
     {
         return array(
@@ -274,6 +299,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testPrepareRowAsSvg() test case
+     *
+     * @return array test data for testPrepareRowAsSvg() test case
+     */
     public function providerForPrepareRowAsSvg()
     {
         return array(
@@ -317,6 +347,11 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testPrepareRowAsOl() test case
+     *
+     * @return array test data for testPrepareRowAsOl() test case
+     */
     public function providerForPrepareRowAsOl()
     {
         return array(
