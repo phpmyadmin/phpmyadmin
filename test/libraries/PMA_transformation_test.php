@@ -18,43 +18,38 @@ require_once 'libraries/transformations.lib.php';
  */
 class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
 {
-    public function testDefault()
+
+    /**
+     * Test for parsing options.
+     *
+     * @param string $input    String to parse
+     * @param array  $expected Expected result
+     *
+     * @return void
+     *
+     * @dataProvider getOptionsData
+     */
+    public function testGetOptions($input, $expected)
     {
         $this->assertEquals(
-            array('option1 ', ' option2 '),
-            PMA_transformation_getOptions("option1 , option2 ")
+            $expected,
+            PMA_transformation_getOptions($input)
         );
     }
 
-    public function testQuoted()
+    /**
+     * Data provided for parsing options
+     *
+     * @return array with test data
+     */
+    public function getOptionsData()
     {
-        $this->assertEquals(
-            array('option1', ' option2'),
-            PMA_transformation_getOptions("'option1' ,' option2' ")
-        );
-    }
-
-    public function testComma()
-    {
-        $this->assertEquals(
-            array('2,3', ' ,, option ,,'),
-            PMA_transformation_getOptions("'2,3' ,' ,, option ,,' ")
-        );
-    }
-
-    public function testEmptyOptions()
-    {
-        $this->assertEquals(
-            array('', '', ''),
-            PMA_transformation_getOptions("'',,")
-        );
-    }
-
-    public function testEmpty()
-    {
-        $this->assertEquals(
-            array(),
-            PMA_transformation_getOptions('')
+        return array(
+            array("option1 , option2 ", array('option1 ', ' option2 ')),
+            array("'option1' ,' option2' ", array('option1', ' option2')),
+            array("'2,3' ,' ,, option ,,' ", array('2,3', ' ,, option ,,')),
+            array("'',,", array('', '', '')),
+            array('', array()),
         );
     }
 
