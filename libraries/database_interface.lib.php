@@ -117,12 +117,13 @@ function PMA_DBI_query($query, $link = null, $options = 0,
 /**
  * Stores query data into session data for debugging purposes
  *
- * @param string  $query Query text
- * @param integer $time  Time to execute query
+ * @param string   $query  Query text
+ * @param resource $result Query result
+ * @param integer  $time   Time to execute query
  *
  * @return void
  */
-function PMA_DBI_DBG_query($query, $time)
+function PMA_DBI_DBG_query($query, $result, $time)
 {
     $hash = md5($query);
 
@@ -130,7 +131,7 @@ function PMA_DBI_DBG_query($query, $time)
         $_SESSION['debug']['queries'][$hash]['count']++;
     } else {
         $_SESSION['debug']['queries'][$hash] = array();
-        if ($r == false) {
+        if ($result == false) {
             $_SESSION['debug']['queries'][$hash]['error']
                 = '<b style="color:red">' . mysqli_error($link) . '</b>';
         }
@@ -179,7 +180,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
         $time = microtime(true);
     }
 
-    $r = PMA_DBI_real_query($query, $link, $options);
+    $result = PMA_DBI_real_query($query, $link, $options);
 
     if ($cache_affected_rows) {
         $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows(
@@ -189,14 +190,14 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
-        PMA_DBI_DBG_query($query, $time);
+        PMA_DBI_DBG_query($query, $result, $time);
 
     }
-    if ($r != false && PMA_Tracker::isActive() == true ) {
+    if ($result != false && PMA_Tracker::isActive() == true ) {
         PMA_Tracker::handleQuery($query);
     }
 
-    return $r;
+    return $result;
 }
 
 /**
@@ -1858,16 +1859,16 @@ function PMA_isSuperuser()
             // Known authorization libraries: regex_policy, simple_user_policy
             // Plugins limit object visibility (dbs, tables, processes), we can
             // safely assume we always deal with superuser
-            $r = true;
+            $result = true;
         } else {
             // check access to mysql.user table
-            $r = (bool) PMA_DBI_try_query(
+            $result = (bool) PMA_DBI_try_query(
                 'SELECT COUNT(*) FROM mysql.user',
                 $GLOBALS['userlink'],
                 PMA_DBI_QUERY_STORE
             );
         }
-        $common_functions->cacheSet('is_superuser', $r, true);
+        $common_functions->cacheSet('is_superuser', $result, true);
     } else {
         $common_functions->cacheSet('is_superuser', false, true);
     }
