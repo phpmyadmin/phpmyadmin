@@ -48,4 +48,13 @@ class PMA_SysinfoTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getting sysinfo object.
+     *
+     * @return void
+     */
+    public function testGetSysInfo()
+    {
+        $this->assertTrue(PMA_getSysInfo()->supported());
+    }
 }
