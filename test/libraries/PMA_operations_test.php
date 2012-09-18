@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for mime.lib.php
+ * tests for operations
  *
  * @package PhpMyAdmin-test
  */
@@ -10,17 +10,28 @@
  * Include to test.
  */
 
+$GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
-class PMA_operations_test extends PHPUnit_Framework_TestCase
+/**
+ * tests for operations
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Operations_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Set up global environment.
+     *
+     * @return void
      */
     public function setup()
     {
@@ -35,24 +46,14 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
             'PropertiesIconic' => true,
         );
         $GLOBALS['server'] = 1;
-
-        if (! function_exists('PMA_generateCharsetDropdownBox')) {
-            function PMA_generateCharsetDropdownBox()
-            {
-            }
-        }
-        if (! defined('PMA_CSDROPDOWN_CHARSET')) {
-            define('PMA_CSDROPDOWN_CHARSET', '');
-        }
-        if (! defined('PMA_CSDROPDOWN_COLLATION')) {
-            define('PMA_CSDROPDOWN_COLLATION', '');
-        }
     }
 
     /**
      * Test for PMA_getHtmlForDatabaseComment
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForDatabaseComment()
+    public function testGetHtmlForDatabaseComment()
     {
 
         $this->assertRegExp(
@@ -63,8 +64,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForRenameDatabase
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForRenameDatabase()
+    public function testGetHtmlForRenameDatabase()
     {
 
         $_REQUEST['db_collation'] = 'db1';
@@ -76,8 +79,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForDropDatabaseLink
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForDropDatabaseLink()
+    public function testGetHtmlForDropDatabaseLink()
     {
 
         $this->assertRegExp(
@@ -88,8 +93,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForCopyDatabase
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForCopyDatabase()
+    public function testGetHtmlForCopyDatabase()
     {
 
         $_REQUEST['db_collation'] = 'db1';
@@ -101,8 +108,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForChangeDatabaseCharset
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForChangeDatabaseCharset()
+    public function testGetHtmlForChangeDatabaseCharset()
     {
 
         $_REQUEST['db_collation'] = 'db1';
@@ -114,8 +123,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForExportRelationalSchemaView
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForExportRelationalSchemaView()
+    public function testGetHtmlForExportRelationalSchemaView()
     {
 
         $this->assertRegExp(
@@ -126,8 +137,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForOrderTheTable
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForOrderTheTable()
+    public function testGetHtmlForOrderTheTable()
     {
 
         $this->assertRegExp(
@@ -140,8 +153,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForTableRow
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForTableRow()
+    public function testGetHtmlForTableRow()
     {
 
         $this->assertEquals(
@@ -152,8 +167,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getMaintainActionlink
+     *
+     * @return void
      */
-    public function testPMA_getMaintainActionlink()
+    public function testGetMaintainActionlink()
     {
 
         $this->assertRegExp(
@@ -169,8 +186,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForDeleteDataOrTable
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForDeleteDataOrTable()
+    public function testGetHtmlForDeleteDataOrTable()
     {
 
         $this->assertRegExp(
@@ -183,8 +202,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getDeleteDataOrTablelink
+     *
+     * @return void
      */
-    public function testPMA_getDeleteDataOrTablelink()
+    public function testGetDeleteDataOrTablelink()
     {
 
         $this->assertRegExp(
@@ -200,8 +221,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForPartitionMaintenance
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForPartitionMaintenance()
+    public function testGetHtmlForPartitionMaintenance()
     {
 
         $this->assertRegExp(
@@ -215,8 +238,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getHtmlForReferentialIntegrityCheck
+     *
+     * @return void
      */
-    public function testPMA_getHtmlForReferentialIntegrityCheck()
+    public function testGetHtmlForReferentialIntegrityCheck()
     {
 
         $this->assertRegExp(

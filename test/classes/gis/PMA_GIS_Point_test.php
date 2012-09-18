@@ -169,7 +169,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
         );
     }
 
-
     /**
      *
      * @param type $spatial
@@ -184,7 +183,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPng(
         $spatial, $label, $line_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
@@ -194,7 +192,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'POINT(12 35)',
@@ -209,7 +206,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                 imagecreatetruecolor('120', '150'),
                 ''
             )
-
         );
     }
 
@@ -226,7 +222,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsPdf(
         $spatial, $label, $line_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
@@ -235,7 +230,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'POINT(12 35)',
@@ -265,7 +259,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsSvg(
         $spatial, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsSvg(
@@ -276,7 +269,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'POINT(12 35)',
@@ -307,7 +299,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsOl(
         $spatial, $srid, $label, $line_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -318,7 +309,6 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'POINT(12 35)',

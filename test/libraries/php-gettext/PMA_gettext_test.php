@@ -29,7 +29,7 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $reader = new StringReader("cchars/nint");
-        $this->object = $this->getMockForAbstractClass('gettext_reader', array($reader));
+        $this->object = new gettext_reader($reader);
 
     }
 

@@ -28,7 +28,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_Error_Handler');
+        $this->object = new PMA_Error_Handler();
 
     }
 
@@ -71,10 +71,12 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      */
     public function testHandleError($errno, $errstr, $errfile, $errline, $output)
     {
-
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
 
-        $this->assertEquals( $output, $this->object->handleError($errno, $errstr, $errfile, $errline));
+        $this->assertEquals(
+            $output,
+            $this->object->handleError($errno, $errstr, $errfile, $errline)
+        );
     }
 
     /**
@@ -155,7 +157,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     public function testCheckSavedErrors()
     {
 
-        $_SESSION['errors'] = true;
+        $_SESSION['errors'] = array();
 
         $this->_callProtectedFunction(
             'checkSavedErrors',

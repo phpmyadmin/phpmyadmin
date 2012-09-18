@@ -13,6 +13,8 @@ require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/innodb.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
 {
@@ -30,31 +32,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! defined('PMA_DRIZZLE')) {
-            define('PMA_DRIZZLE', 1);
-        }
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array(
-                    'dummy' => 'table1',
-                    'engine' => 'table`2',
-                    'Innodb_buffer_pool_pages_total' => 10,
-                    'Innodb_page_size' => 4,
-                    'Innodb_buffer_pool_pages_free' => 4,
-                    'Innodb_buffer_pool_pages_dirty' => 3,
-                    'Innodb_buffer_pool_pages_data' => 2,
-                    'Innodb_buffer_pool_pages_flushed' => 5,
-                    'Innodb_buffer_pool_pages_misc' => 1,
-                    'Innodb_buffer_pool_pages_latched' => 2,
-                    'Innodb_buffer_pool_read_requests' => 3,
-                    'Innodb_buffer_pool_write_requests' => 4,
-                    'Innodb_buffer_pool_reads' => 4,
-                    'Innodb_buffer_pool_wait_free' => 3,
-                );
-            }
-        }
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_innodb', array('dummy'));
+        $this->object = new PMA_StorageEngine_innodb('innodb');
     }
 
     /**
@@ -75,7 +53,6 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetVariables()
     {
         $this->assertEquals(
-            $this->object->getVariables(),
             array(
                 'innodb_data_home_dir' => array(
                     'title' => __('Data home directory'),
@@ -168,7 +145,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
                 'innodb_thread_sleep_delay' => array(
                     'type'  => 2,
                 ),
-            )
+            ),
+            $this->object->getVariables()
         );
     }
 
@@ -178,8 +156,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetVariablesLikePattern()
     {
         $this->assertEquals(
-            $this->object->getVariablesLikePattern(),
-            'innodb\\_%'
+            'innodb\\_%',
+            $this->object->getVariablesLikePattern()
         );
     }
 
@@ -189,16 +167,16 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetInfoPages()
     {
         $this->assertEquals(
-            $this->object->getInfoPages(),
-            array()
+            array(),
+            $this->object->getInfoPages()
         );
         $this->object->support = 2;
         $this->assertEquals(
-            $this->object->getInfoPages(),
             array (
                 'Bufferpool' => 'Buffer Pool',
                 'Status' => 'InnoDB Status'
-            )
+            ),
+            $this->object->getInfoPages()
         );
     }
 
@@ -208,7 +186,6 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetPageBufferpool()
     {
         $this->assertEquals(
-            $this->object->getPageBufferpool(),
             '<table class="data" id="table_innodb_bufferpool_usage">
     <caption class="tblHeaders">
         Buffer Pool Usage
@@ -217,34 +194,34 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
         <tr>
             <th colspan="2">
                 Total
-                : 10&nbsp;pages / 40&nbsp;B
+                : 4,096&nbsp;pages / 65,536&nbsp;KiB
             </th>
         </tr>
     </tfoot>
     <tbody>
         <tr class="odd">
             <th>Free pages</th>
-            <td class="value">4</td>
+            <td class="value">0</td>
         </tr>
         <tr class="even">
             <th>Dirty pages</th>
-            <td class="value">3</td>
+            <td class="value">0</td>
         </tr>
         <tr class="odd">
             <th>Pages containing data</th>
-            <td class="value">2
+            <td class="value">0
 </td>
         </tr>
         <tr class="even">
             <th>Pages to be flushed</th>
-            <td class="value">5
+            <td class="value">0
 </td>
         </tr>
         <tr class="odd">
             <th>Busy pages</th>
-            <td class="value">1
+            <td class="value">0
 </td>
-        </tr>        <tr class="even">            <th>Latched pages</th>            <td class="value">2</td>        </tr>    </tbody>
+        </tr>    </tbody>
 </table>
 
 <table class="data" id="table_innodb_bufferpool_activity">
@@ -254,38 +231,38 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     <tbody>
         <tr class="odd">
             <th>Read requests</th>
-            <td class="value">3
+            <td class="value">64
 </td>
         </tr>
         <tr class="even">
             <th>Write requests</th>
-            <td class="value">4
+            <td class="value">64
 </td>
         </tr>
         <tr class="odd">
             <th>Read misses</th>
-            <td class="value">4
+            <td class="value">32
 </td>
         </tr>
         <tr class="even">
             <th>Write waits</th>
-            <td class="value">3
+            <td class="value">0
 </td>
         </tr>
         <tr class="odd">
             <th>Read misses in %</th>
-            <td class="value">133.33   %
+            <td class="value">50   %
 </td>
         </tr>
         <tr class="even">
             <th>Write waits in %</th>
-            <td class="value">75   %
+            <td class="value">0 %
 </td>
         </tr>
     </tbody>
 </table>
-'
-
+',
+            $this->object->getPageBufferpool()
         );
     }
 
@@ -294,18 +271,9 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
      */
     public function testGetPageStatus()
     {
-        if (! function_exists('PMA_DBI_fetch_value')) {
-            function PMA_DBI_fetch_value()
-            {
-                return 2;
-            }
-        }
-
         $this->assertEquals(
-            $this->object->getPageStatus(),
-            '<pre id="pre_innodb_status">' . "\n"
-                . 2 . "\n"
-                . '</pre>' . "\n"
+            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
+            $this->object->getPageStatus()
         );
 
     }
@@ -320,10 +288,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
         );
         $this->object->support = 2;
         $this->assertEquals(
-            $this->object->getPage('Status'),
-            '<pre id="pre_innodb_status">' . "\n"
-                . 2 . "\n"
-                . '</pre>' . "\n"
+            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
+            $this->object->getPage('Status')
         );
     }
 
@@ -333,8 +299,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetMysqlHelpPage()
     {
         $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'innodb'
+            'innodb',
+            $this->object->getMysqlHelpPage()
         );
 
     }
@@ -345,8 +311,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetInnodbPluginVersion()
     {
         $this->assertEquals(
-            $this->object->getInnodbPluginVersion(),
-            2
+            '1.1.8',
+            $this->object->getInnodbPluginVersion()
         );
 
     }
@@ -356,9 +322,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
      */
     public function testSupportsFilePerTable()
     {
-        $this->assertEquals(
-            $this->object->supportsFilePerTable(),
-            false
+        $this->assertFalse(
+            $this->object->supportsFilePerTable()
         );
 
     }
@@ -369,8 +334,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetInnodbFileFormat()
     {
         $this->assertEquals(
-            $this->object->getInnodbFileFormat(),
-            2
+            'Antelope',
+            $this->object->getInnodbFileFormat()
         );
 
     }

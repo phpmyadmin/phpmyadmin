@@ -169,30 +169,35 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 
 
     /**
+     * test case for prepareRowAsPng() method
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $image
-     * @param type $output
+     * @param string $spatial     GIS MULTIPOINT object
+     * @param string $label       label for the GIS MULTIPOINT object
+     * @param string $point_color color for the GIS MULTIPOINT object
+     * @param array  $scale_data  array containing data related to scaling
+     * @param object $image       image object
+     * @param string $output      expected output
      *
-     *@dataProvider providerForPrepareRowAsPng
+     * @return void
+     * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image, $output
+        $spatial, $label, $point_color, $scale_data, $image, $output
     ) {
-
         $return = $this->object->prepareRowAsPng(
-            $spatial, $label, $line_color, $scale_data, $image
+            $spatial, $label, $point_color, $scale_data, $image
         );
         /* TODO: this never fails */
         $this->assertTrue(true);
     }
 
+    /**
+     * data provider for testPrepareRowAsPng() test case
+     *
+     * @return array test data for testPrepareRowAsPng() test case
+     */
     public function providerForPrepareRowAsPng()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -207,33 +212,37 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
                 imagecreatetruecolor('120', '150'),
                 ''
             )
-
         );
     }
 
     /**
+     * test case for prepareRowAsPdf() method
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $pdf
+     * @param string $spatial     GIS MULTIPOINT object
+     * @param string $label       label for the GIS MULTIPOINT object
+     * @param string $point_color color for the GIS MULTIPOINT object
+     * @param array  $scale_data  array containing data related to scaling
+     * @param object $pdf         TCPDF instance
      *
-     *@dataProvider providerForPrepareRowAsPdf
+     * @return void
+     * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial, $label, $line_color, $scale_data, $pdf
+        $spatial, $label, $point_color, $scale_data, $pdf
     ) {
-
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $line_color, $scale_data, $pdf
+            $spatial, $label, $point_color, $scale_data, $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
 
+    /**
+     * data provider for testPrepareRowAsPdf() test case
+     *
+     * @return array test data for testPrepareRowAsPdf() test case
+     */
     public function providerForPrepareRowAsPdf()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -251,28 +260,33 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsSvg() method
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial     GIS MULTIPOINT object
+     * @param string $label       label for the GIS MULTIPOINT object
+     * @param string $point_color color for the GIS MULTIPOINT object
+     * @param array  $scale_data  array containing data related to scaling
+     * @param string $output      expected output
      *
-     *@dataProvider providerForPrepareRowAsSvg
+     * @return void
+     * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial, $label, $line_color, $scale_data, $output
+        $spatial, $label, $point_color, $scale_data, $output
     ) {
-
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $line_color, $scale_data
+            $spatial, $label, $point_color, $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
 
+    /**
+     * data provider for testPrepareRowAsSvg() test case
+     *
+     * @return array test data for testPrepareRowAsSvg() test case
+     */
     public function providerForPrepareRowAsSvg()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -290,31 +304,36 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsOl() method
      *
-     * @param type $spatial
-     * @param type $srid
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial     GIS MULTIPOINT object
+     * @param int    $srid        spatial reference ID
+     * @param string $label       label for the GIS MULTIPOINT object
+     * @param string $point_color color for the GIS MULTIPOINT object
+     * @param array  $scale_data  array containing data related to scaling
+     * @param string $output      expected output
      *
-     *@dataProvider providerForPrepareRowAsOl
+     * @return void
+     * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial, $srid, $label, $line_color, $scale_data, $output
+        $spatial, $srid, $label, $point_color, $scale_data, $output
     ) {
-
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $line_color, $scale_data
+                $spatial, $srid, $label, $point_color, $scale_data
             )
         );
     }
 
+    /**
+     * data provider for testPrepareRowAsOl() test case
+     *
+     * @return array test data for testPrepareRowAsOl() test case
+     */
     public function providerForPrepareRowAsOl()
     {
-
         return array(
             array(
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',

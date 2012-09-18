@@ -7,6 +7,7 @@
  */
 
 require_once 'libraries/Util.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 require_once './libraries/Types.class.php';
 
 /*

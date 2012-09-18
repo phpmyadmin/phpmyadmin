@@ -45,7 +45,9 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
         $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
-        $this->object = $this->getMockForAbstractClass('PMA_Footer');
+        $this->object = new PMA_Footer();
+        unset($GLOBALS['error_message']);
+        unset($GLOBALS['sql_query']);
     }
 
     /**
@@ -84,19 +86,21 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
     public function testGetDebugMessage()
     {
 
-        $_SESSION['debug']['queries'] = array('SELECT * FROM `pma_bookmark` WHERE 1', 'SELECT * FROM `db` WHERE 1');
+        $_SESSION['debug']['queries'] = array(
+            'abc' => array(
+                'count' => 1,
+                'time' => 0.2,
+                'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
+            ),
+            'def' => array(
+                'count' => 1,
+                'time' => 2.5,
+                'query' => 'SELECT * FROM `db` WHERE 1',
+            ),
+        );
 
-        $this->assertEquals(
-            '<div>2 queries executed 0 times in 0 seconds<pre>Array
-(
-    [queries] => Array
-        (
-            [0] => SELECT * FROM `pma_bookmark` WHERE 1
-            [1] => SELECT * FROM `db` WHERE 1
-        )
-
-)
-</pre></div>',
+        $this->assertRegExp(
+            '/<div>2 queries executed 2 times in 2.7 seconds<pre>/',
             $this->_callPrivateFunction(
                 '_getDebugMessage',
                 array()

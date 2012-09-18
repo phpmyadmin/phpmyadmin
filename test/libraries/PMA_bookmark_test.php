@@ -11,32 +11,14 @@
  */
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/relation.lib.php';
 
 class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        if (! function_exists('PMA_getRelationsParam')) {
-            function PMA_getRelationsParam()
-            {
-                $cfgRelation['bookmarkwork'] = false;
-                return $cfgRelation;
-            }
-        }
-
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result()
-            {
-                return array(
-                    'table1',
-                    'table2'
-                );
-            }
-        }
-
-        if (! defined('PMA_DBI_QUERY_STORE')) {
-            define('PMA_DBI_QUERY_STORE', 1);
-        }
 
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
@@ -79,12 +61,6 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_Bookmark_get()
     {
-        if (! function_exists('PMA_DBI_fetch_value')) {
-            function PMA_DBI_fetch_value()
-            {
-                return '';
-            }
-        }
         $this->assertEquals(
             '',
             PMA_Bookmark_get('phpmyadmin', '1')
@@ -98,13 +74,6 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_Bookmark_save()
     {
-        if (! function_exists('PMA_DBI_query')) {
-            function PMA_DBI_query()
-            {
-                return false;
-            }
-        }
-
         $bookmark = array(
             'dbase' => 'phpmyadmin',
             'user' => 'phpmyadmin',
@@ -122,12 +91,6 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_Bookmark_delete()
     {
-        if (! function_exists('PMA_DBI_try_query')) {
-            function PMA_DBI_try_query()
-            {
-                return false;
-            }
-        }
         $this->assertFalse(
             PMA_Bookmark_delete('phpmyadmin', '1')
         );

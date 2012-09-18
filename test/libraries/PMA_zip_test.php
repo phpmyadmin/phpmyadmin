@@ -27,7 +27,7 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('ZipFile');
+        $this->object = new ZipFile();
 
     }
 

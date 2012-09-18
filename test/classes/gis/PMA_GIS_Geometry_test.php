@@ -248,15 +248,17 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * test case for getBoundsForOl() method
      *
-     * @param type $srid
-     * @param type $scale_data
-     * @param type $output
+     * @param string $srid       spatial reference ID
+     * @param array  $scale_data data related to scaling
+     * @param string $output     rxpected output
+     *
+     * @return void
      * @dataProvider providerForTestGetBoundsForOl
      */
     public function testGetBoundsForOl($srid, $scale_data, $output)
     {
-
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'getBoundsForOl',
@@ -266,9 +268,13 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * data provider for testGetBoundsForOl() test case
+     *
+     * @return array test data for the testGetBoundsForOl() test case
+     */
     public function providerForTestGetBoundsForOl()
     {
-
         return array(
             array(
                 4326,
@@ -278,23 +284,30 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ),
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));'
+                'bound = new OpenLayers.Bounds(); '
+                    . 'bound.extend(new OpenLayers.LonLat(0, 0).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject())); '
+                    . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject()));'
             )
 
         );
     }
 
     /**
+     * test case for getPolygonArrayForOpenLayers() method
      *
-     * @param type $polygons
-     * @param type $srid
-     * @param type $output
+     * @param array  $polygons x and y coordinate pairs for each polygon
+     * @param string $srid     spatial reference id
+     * @param string $output   expected output
      *
-     *@dataProvider providerForTestGetPolygonArrayForOpenLayers
+     * @return void
+     * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
     public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output)
     {
-
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'getPolygonArrayForOpenLayers',
@@ -304,18 +317,27 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * data provider for testGetPolygonArrayForOpenLayers() test case
+     *
+     * @return array test data for testGetPolygonArrayForOpenLayers() test case
+     */
     public function providerForTestGetPolygonArrayForOpenLayers()
     {
-
         return array(
             array(
                 array('Triangle'),
                 4326,
-                'new Array(new OpenLayers.Geometry.Polygon(new Array(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.Geometry.Point(,)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))))'
+                'new Array('
+                    . 'new OpenLayers.Geometry.Polygon('
+                    . 'new Array('
+                    . 'new OpenLayers.Geometry.LinearRing('
+                    . 'new Array('
+                    . '(new OpenLayers.Geometry.Point(,)).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject()))))))'
             )
-
         );
     }
-
 }
 ?>

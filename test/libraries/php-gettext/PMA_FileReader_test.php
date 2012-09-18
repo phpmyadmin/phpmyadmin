@@ -27,7 +27,7 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('FileReader', array('./test/test_data/test.file'));
+        $this->object = new FileReader('./test/test_data/test.file');
 
     }
 

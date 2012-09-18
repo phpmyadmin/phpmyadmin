@@ -27,7 +27,7 @@ class PMA_StringReader_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('StringReader', array('sample string'));
+        $this->object = new StringReader('sample string');
 
     }
 

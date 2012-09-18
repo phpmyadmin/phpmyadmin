@@ -17,7 +17,13 @@ require_once './libraries/logging.lib.php';
  */
 if (!defined('PMA_MYSQL_CLIENT_API')) {
     $client_api = explode('.', mysqli_get_client_info());
-    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    define(
+        'PMA_MYSQL_CLIENT_API',
+        (int)sprintf(
+            '%d%02d%02d',
+            $client_api[0], $client_api[1], intval($client_api[2])
+        )
+    );
     unset($client_api);
 }
 
@@ -52,20 +58,22 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
 /**
  * Helper function for connecting to the database server
  *
- * @param mysqli $link
- * @param string $host
- * @param string $user
- * @param string $password
- * @param string $dbname
- * @param int    $server_port
- * @param string $server_socket
- * @param int    $client_flags
- * @param bool   $persistent
+ * @param mysqli $link          connection link
+ * @param string $host          mysql hostname
+ * @param string $user          mysql user name
+ * @param string $password      mysql user password
+ * @param string $dbname        database name
+ * @param int    $server_port   server port
+ * @param string $server_socket server socket
+ * @param int    $client_flags  client flags of connection
+ * @param bool   $persistent    whether to use peristent connection
  *
  * @return bool
  */
-function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket, $client_flags = null, $persistent = false)
-{
+function PMA_DBI_real_connect(
+    $link, $host, $user, $password, $dbname, $server_port,
+    $server_socket, $client_flags = null, $persistent = false
+) {
     global $cfg;
 
     // mysqli persistent connections only on PHP 5.3+
@@ -103,14 +111,17 @@ function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_p
  *
  * @param string $user                 mysql user name
  * @param string $password             mysql user password
- * @param bool   $is_controluser
- * @param array  $server               host/port/socket
- * @param bool   $auxiliary_connection (when true, don't go back to login if connection fails)
+ * @param bool   $is_controluser       whether this is a control user connection
+ * @param array  $server               host/port/socket/persistent
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
-{
+function PMA_DBI_connect(
+    $user, $password, $is_controluser = false, $server = null,
+    $auxiliary_connection = false
+) {
     global $cfg;
 
     if ($server) {
@@ -162,7 +173,10 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
             $client_flags
         );
         // Retry with empty password if we're allowed to
-        if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+        if ($return_value == false
+            && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword']
+            && !$is_controluser
+        ) {
             $return_value = @PMA_DBI_real_connect(
                 $link,
                 $cfg['Server']['host'],
@@ -236,7 +250,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @param string $query   query to execute
  * @param mysqli $link    mysqli object
- * @param int    $options
+ * @param int    $options query options
  *
  * @return mysqli_result|bool
  */
@@ -305,8 +319,8 @@ function PMA_DBI_fetch_row($result)
 /**
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @param $result
- * @param $offset
+ * @param resource $result database result
+ * @param integer  $offset offset to seek
  *
  * @return bool true on success, false on failure
  */
@@ -318,7 +332,7 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param mysqli_result $result
+ * @param mysqli_result $result database result
  *
  * @return void
  */
@@ -370,7 +384,7 @@ function PMA_DBI_next_result($link = null)
 /**
  * Store the result returned from multi query
  *
- * @return mixed false when empty results / result set when not empty 
+ * @return mixed false when empty results / result set when not empty
  */
 function PMA_DBI_store_result()
 {
@@ -452,8 +466,6 @@ function PMA_DBI_getError($link = null)
         $link =& $GLOBALS['userlink'];
         // Do not stop now. We still can get the error code
         // with mysqli_connect_errno()
-//    } else {
-//        return false;
     }
 
     if (null !== $link) {
@@ -518,8 +530,8 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @param mysqli  $link           the mysqli object
- * @param boolean $get_from_cache
+ * @param mysqli $link           the mysqli object
+ * @param bool   $get_from_cache whether to retrieve from cache
  *
  * @return string|int
  */
@@ -704,7 +716,11 @@ function PMA_DBI_field_flags($result, $i)
     // structure. Watch out: some types like DATE returns 63 in charsetnr
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
-    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING) && 63 == $charsetnr) {
+    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
+        || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
+        || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
+        && 63 == $charsetnr
+    ) {
         $flags .= 'binary ';
     }
     if ($f & MYSQLI_ZEROFILL_FLAG) {

@@ -18,7 +18,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
-        $this->object = $this->getMockForAbstractClass('PMA_List_Database');
+        $this->object = new PMA_List_Database();
     }
 
     /**

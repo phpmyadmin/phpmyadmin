@@ -15,6 +15,8 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 /**
  * Tests for database search.
@@ -37,19 +39,13 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! function_exists('PMA_DBI_get_tables')) {
-            function PMA_DBI_get_tables()
-            {
-                return array(
-                    'table1',
-                    'table2'
-                );
-            }
-        }
-        $this->object = $this->getMockForAbstractClass(
-            'PMA_DbSearch',
-            array('pma')
-        );
+        $this->object = new PMA_DbSearch('pma_test');
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['lang'] = 'en';
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
+        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
     }
 
     /**
@@ -87,15 +83,6 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     {
 
         $GLOBALS['db'] = 'pma';
-        if (! function_exists('PMA_DBI_get_columns')) {
-            function PMA_DBI_get_columns()
-            {
-                return array(
-                    'column1',
-                    'column2'
-                );
-            }
-        }
 
         $this->assertEquals(
             array (
@@ -135,18 +122,12 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
         $each_table, $newsearchsqls, $odd_row, $output
     ) {
 
-        if (! function_exists('PMA_DBI_fetch_value')) {
-            function PMA_DBI_fetch_value()
-            {
-                return 2;
-            }
-        }
         $GLOBALS['cfg']['AjaxEnable'] = true;
         $this->assertEquals(
             $output,
             $this->_callProtectedFunction(
                 '_getResultsRow',
-                array($each_table, $newsearchsqls, $odd_row)
+                array($each_table, $newsearchsqls, $odd_row, 2)
             )
         );
     }
@@ -189,7 +170,7 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 <input type="radio" name="criteriaSearchType" id="criteriaSearchType_3" value="3" />
 <label for="criteriaSearchType_3">the exact phrase</label><br />
 <input type="radio" name="criteriaSearchType" id="criteriaSearchType_4" value="4" />
-<label for="criteriaSearchType_4">as regular expression <a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.0%2Fen%2Fregexp.html&amp;server=0&amp;lang=en&amp;token=token" target="mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation" alt="Documentation" /></a></label><br />
+<label for="criteriaSearchType_4">as regular expression <a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fregexp.html&amp;server=0&amp;lang=en&amp;token=token" target="mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation" alt="Documentation" /></a></label><br />
 </td></tr><tr><td class="right vtop">Inside tables:</td><td rowspan="2"><select name="criteriaTables[]" size="6" multiple="multiple"><option value="table1">table1</option><option value="table2">table2</option></select></td></tr><tr><td class="right vbottom"><a href="db_search.php?0=param1&amp;1=param2&amp;selectall=1&amp;server=0&amp;lang=en&amp;token=token#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">Select All</a> &nbsp;/&nbsp;<a href="db_search.php?0=param1&amp;1=param2&amp;unselectall=1&amp;server=0&amp;lang=en&amp;token=token#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect All</a></td></tr><tr><td class="right">Inside column:</td><td><input type="text" name="criteriaColumnName" size="60"value="" /></td></tr></table></fieldset><fieldset class="tblFooters"><input type="submit" name="submit_search" value="Go" id="buttonGo" /></fieldset></form><!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>',
             $this->object->getSelectionForm($url_params)
         );

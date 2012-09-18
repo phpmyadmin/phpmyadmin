@@ -452,8 +452,8 @@ class PMA_Types_MySQL extends PMA_Types
             return array(
                 'BIN',
                 'CHAR',
-                'CURRENT_USER',
                 'COMPRESS',
+                'CURRENT_USER',
                 'DATABASE',
                 'DAYNAME',
                 'DES_DECRYPT',
@@ -794,8 +794,8 @@ class PMA_Types_Drizzle extends PMA_Types
             $ret = array(
                 'BIN',
                 'CHAR',
-                'CURRENT_USER',
                 'COMPRESS',
+                'CURRENT_USER',
                 'DATABASE',
                 'DAYNAME',
                 'HEX',

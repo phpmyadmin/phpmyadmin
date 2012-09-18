@@ -17,18 +17,24 @@ require_once './libraries/logging.lib.php';
  */
 if (! defined('PMA_MYSQL_CLIENT_API')) {
     $client_api = explode('.', mysql_get_client_info());
-    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    define(
+        'PMA_MYSQL_CLIENT_API',
+        (int)sprintf(
+            '%d%02d%02d',
+            $client_api[0], $client_api[1], intval($client_api[2])
+        )
+    );
     unset($client_api);
 }
 
 /**
  * Helper function for connecting to the database server
  *
- * @param string  $server
- * @param string  $user
- * @param string  $password
- * @param int     $client_flags
- * @param bool    $persistent
+ * @param array  $server       host/port/socket
+ * @param string $user         mysql user name
+ * @param string $password     mysql user password
+ * @param int    $client_flags client flags of connection
+ * @param bool   $persistent   whether to use peristent connection
  *
  * @return mixed   false on error or a mysql connection resource on success
  */
@@ -77,14 +83,17 @@ function PMA_DBI_real_multi_query($link, $query)
  *
  * @param string $user                 mysql user name
  * @param string $password             mysql user password
- * @param bool   $is_controluser
+ * @param bool   $is_controluser       whether this is a control user connection
  * @param array  $server               host/port/socket/persistent
- * @param bool   $auxiliary_connection (when true, don't go back to login if connection fails)
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
-{
+function PMA_DBI_connect(
+    $user, $password, $is_controluser = false, $server = null,
+    $auxiliary_connection = false
+) {
     global $cfg;
 
     if ($server) {
@@ -250,8 +259,8 @@ function PMA_DBI_fetch_row($result)
 /**
  * Adjusts the result pointer to an arbitrary row in the result
  *
- * @param $result
- * @param $offset
+ * @param resource $result database result
+ * @param integer  $offset offset to seek
  *
  * @return bool true on success, false on failure
  */
@@ -263,7 +272,9 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param resource $result
+ * @param resource $result database result
+ *
+ * @return void
  */
 function PMA_DBI_free_result($result)
 {
@@ -433,8 +444,8 @@ function PMA_DBI_insert_id($link = null)
 /**
  * returns the number of rows affected by last query
  *
- * @param resource $link the mysql object
- * @param bool     $get_from_cache
+ * @param resource $link           the mysql object
+ * @param bool     $get_from_cache whether to retrieve from cache
  *
  * @return string|int
  */
@@ -458,10 +469,11 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
 /**
  * returns metainfo for fields in $result
  *
- * @todo add missing keys like in mysqli_query (decimals)
  * @param resource $result MySQL result
  *
  * @return array meta info for fields in $result
+ *
+ * @todo add missing keys like in mysqli_query (decimals)
  */
 function PMA_DBI_get_fields_meta($result)
 {
@@ -493,7 +505,7 @@ function PMA_DBI_num_fields($result)
  * returns the length of the given field $i in $result
  *
  * @param resource $result MySQL result
- * @param int      $i       field
+ * @param int      $i      field
  *
  * @return int length of field
  */
@@ -506,7 +518,7 @@ function PMA_DBI_field_len($result, $i)
  * returns name of $i. field in $result
  *
  * @param resource $result MySQL result
- * @param int      $i       field
+ * @param int      $i      field
  *
  * @return string name of $i. field in $result
  */
@@ -519,7 +531,7 @@ function PMA_DBI_field_name($result, $i)
  * returns concatenated string of human readable field flags
  *
  * @param resource $result MySQL result
- * @param int      $i       field
+ * @param int      $i      field
  *
  * @return string field flags
  */

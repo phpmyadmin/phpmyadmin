@@ -42,7 +42,8 @@ class PMA_StorageEngine
     /**
      * @var string engine lang description
      */
-    var $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
+    var $comment
+        = 'If you read this text inside phpMyAdmin, something went wrong...';
 
     /**
      * @var integer engine supported by current server
@@ -142,10 +143,8 @@ class PMA_StorageEngine
     static public function getEngine($engine)
     {
         $engine = str_replace('/', '', str_replace('.', '', $engine));
-        $engine_lowercase_filename = strtolower($engine);
-        if (file_exists('./libraries/engines/' . $engine_lowercase_filename . '.lib.php')
-            && include_once './libraries/engines/' . $engine_lowercase_filename . '.lib.php'
-        ) {
+        $filename = './libraries/engines/' . strtolower($engine) . '.lib.php';
+        if (file_exists($filename) && include_once $filename) {
             $class_name = 'PMA_StorageEngine_' . $engine;
             $engine_object = new $class_name($engine);
         } else {
@@ -174,7 +173,8 @@ class PMA_StorageEngine
     /**
      * returns as HTML table of the engine's server variables
      *
-     * @return string The table that was generated based on the retrieved information
+     * @return string The table that was generated based on the retrieved
+     *                information
      */
     function getHtmlVariables()
     {
@@ -190,7 +190,8 @@ class PMA_StorageEngine
                     . "\n";
             }
             $ret .= '    </td>' . "\n"
-                  . '    <th>' . htmlspecialchars($details['title']) . '</th>' . "\n"
+                  . '    <th>' . htmlspecialchars($details['title']) . '</th>'
+                  . "\n"
                   . '    <td class="value">';
             switch ($details['type']) {
             case PMA_ENGINE_DETAILS_TYPE_SIZE:
@@ -211,7 +212,9 @@ class PMA_StorageEngine
 
         if (! $ret) {
             $ret = '<p>' . "\n"
-                 . '    ' . __('There is no detailed status information available for this storage engine.') . "\n"
+                 . '    '
+                 . __('There is no detailed status information available for this storage engine.')
+                 . "\n"
                  . '</p>' . "\n";
         } else {
             $ret = '<table class="data">' . "\n" . $ret . '</table>' . "\n";
@@ -227,6 +230,8 @@ class PMA_StorageEngine
      * This function should be overridden when
      * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
      * handled differently for a particular engine.
+     *
+     * @param integer $value Value to format
      *
      * @return string the formatted value and its unit
      */
@@ -270,16 +275,13 @@ class PMA_StorageEngine
             }
 
             if (! isset($mysql_vars[$row['Variable_name']]['type'])) {
-                $mysql_vars[$row['Variable_name']]['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+                $mysql_vars[$row['Variable_name']]['type']
+                    = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
             }
         }
         PMA_DBI_free_result($res);
 
         return $mysql_vars;
-    }
-
-    function engine_init()
-    {
     }
 
     /**
@@ -311,8 +313,6 @@ class PMA_StorageEngine
             default:
                 $this->support = PMA_ENGINE_SUPPORT_NO;
             }
-        } else {
-            $this->engine_init();
         }
     }
 

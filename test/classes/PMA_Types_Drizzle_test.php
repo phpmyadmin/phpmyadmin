@@ -11,6 +11,8 @@
 
 require_once 'libraries/Types.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
 {
@@ -175,13 +177,6 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     public function testGetFunctionsClass($class, $output)
     {
 
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array('table1', 'table`2');
-            }
-        }
-
         $this->assertEquals(
             $output,
             $this->object->getFunctionsClass($class)
@@ -288,18 +283,17 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
                     11 => 'MONTHNAME',
                     12 => 'QUOTE',
                     13 => 'REVERSE',
-                    14 => 'RTRIM',
-                    15 => 'SCHEMA',
-                    16 => 'SPACE',
-                    17 => 'TRIM',
-                    18 => 'UNCOMPRESS',
-                    19 => 'UNHEX',
-                    20 => 'UPPER',
-                    21 => 'USER',
-                    22 => 'UUID',
-                    23 => 'VERSION',
-                    24 => 'table1',
-                    25 => 'table`2'
+                    14 => 'ROT13',
+                    15 => 'RTRIM',
+                    16 => 'SCHEMA',
+                    17 => 'SPACE',
+                    18 => 'TRIM',
+                    19 => 'UNCOMPRESS',
+                    20 => 'UNHEX',
+                    21 => 'UPPER',
+                    22 => 'USER',
+                    23 => 'UUID',
+                    24 => 'VERSION',
                 )
             ),
             array(

@@ -8,6 +8,8 @@
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 /*
  * Include to test.
  */
@@ -17,33 +19,9 @@ class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array('table1', 'table`2');
-            }
-        }
-        $GLOBALS['tear_down']['token'] = false;
-        $GLOBALS['tear_down']['server'] = false;
-        if (! isset($_SESSION[' PMA_token '])) {
-            $_SESSION[' PMA_token '] = '';
-            $GLOBALS['tear_down']['token'] = true;
-        }
-        if (! isset($GLOBALS['cfg']['ServerDefault'])) {
-            $GLOBALS['cfg']['ServerDefault'] = '';
-            $GLOBALS['tear_down']['server'] = true;
-        }
-    }
-
-    public function tearDown()
-    {
-        if ($GLOBALS['tear_down']['token']) {
-            unset($_SESSION[' PMA_token ']);
-        }
-        if ($GLOBALS['tear_down']['server']) {
-            unset($GLOBALS['cfg']['ServerDefault']);
-        }
-        unset($GLOBALS['tear_down']);
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['db'] = 'pma_test';
     }
 
     /**

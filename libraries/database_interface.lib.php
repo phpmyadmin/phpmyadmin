@@ -44,48 +44,57 @@ function PMA_DBI_checkDbExtension($extension = 'mysql')
     return false;
 }
 
-/**
- * check for requested extension
- */
-if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
-
-    // if it fails try alternative extension ...
-    // and display an error ...
+if (defined('TESTSUITE')) {
+    /**
+     * For testsuite we use dummy driver which can fake some queries.
+     */
+    include_once './libraries/dbi/dummy.lib.php';
+} else {
 
     /**
-     * @todo add different messages for alternative extension
-     * and complete fail (no alternative extension too)
+     * check for requested extension
      */
-    PMA_warnMissingExtension(
-        $GLOBALS['cfg']['Server']['extension'],
-        false,
-        PMA_Util::showDocu('faqmysql')
-    );
+    if (! PMA_DBI_checkDbExtension($GLOBALS['cfg']['Server']['extension'])) {
 
-    if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
-        $alternativ_extension = 'mysqli';
-    } else {
-        $alternativ_extension = 'mysql';
-    }
+        // if it fails try alternative extension ...
+        // and display an error ...
 
-    if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
-        // if alternative fails too ...
+        /**
+         * @todo add different messages for alternative extension
+         * and complete fail (no alternative extension too)
+         */
         PMA_warnMissingExtension(
             $GLOBALS['cfg']['Server']['extension'],
-            true,
+            false,
             PMA_Util::showDocu('faqmysql')
         );
+
+        if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
+            $alternativ_extension = 'mysqli';
+        } else {
+            $alternativ_extension = 'mysql';
+        }
+
+        if (! PMA_DBI_checkDbExtension($alternativ_extension)) {
+            // if alternative fails too ...
+            PMA_warnMissingExtension(
+                $GLOBALS['cfg']['Server']['extension'],
+                true,
+                PMA_Util::showDocu('faqmysql')
+            );
+        }
+
+        $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
+        unset($alternativ_extension);
     }
 
-    $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
-    unset($alternativ_extension);
-}
+    /**
+     * Including The DBI Plugin
+     */
+    include_once './libraries/dbi/'
+        . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
 
-/**
- * Including The DBI Plugin
- */
-require_once './libraries/dbi/'
-    . $GLOBALS['cfg']['Server']['extension'] . '.dbi.lib.php';
+}
 
 /**
  * runs a query
@@ -103,6 +112,47 @@ function PMA_DBI_query($query, $link = null, $options = 0,
     $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
         or PMA_Util::mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
+}
+
+/**
+ * Stores query data into session data for debugging purposes
+ *
+ * @param string   $query  Query text
+ * @param resource $result Query result
+ * @param integer  $time   Time to execute query
+ *
+ * @return void
+ */
+function PMA_DBI_DBG_query($query, $result, $time)
+{
+    $hash = md5($query);
+
+    if (isset($_SESSION['debug']['queries'][$hash])) {
+        $_SESSION['debug']['queries'][$hash]['count']++;
+    } else {
+        $_SESSION['debug']['queries'][$hash] = array();
+        if ($result == false) {
+            $_SESSION['debug']['queries'][$hash]['error']
+                = '<b style="color:red">' . mysqli_error($link) . '</b>';
+        }
+        $_SESSION['debug']['queries'][$hash]['count'] = 1;
+        $_SESSION['debug']['queries'][$hash]['query'] = $query;
+        $_SESSION['debug']['queries'][$hash]['time'] = $time;
+    }
+
+    $trace = array();
+    foreach (debug_backtrace() as $trace_step) {
+        $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
+            . $trace_step['line'] . ': '
+            . (isset($trace_step['class']) ? $trace_step['class'] : '')
+            . (isset($trace_step['type']) ? $trace_step['type'] : '')
+            . (isset($trace_step['function']) ? $trace_step['function'] : '')
+            . '('
+            . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
+            . ')'
+            ;
+    }
+    $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
 }
 
 /**
@@ -130,7 +180,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
         $time = microtime(true);
     }
 
-    $r = PMA_DBI_real_query($query, $link, $options);
+    $result = PMA_DBI_real_query($query, $link, $options);
 
     if ($cache_affected_rows) {
         $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows(
@@ -140,41 +190,14 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
+        PMA_DBI_DBG_query($query, $result, $time);
 
-        $hash = md5($query);
-
-        if (isset($_SESSION['debug']['queries'][$hash])) {
-            $_SESSION['debug']['queries'][$hash]['count']++;
-        } else {
-            $_SESSION['debug']['queries'][$hash] = array();
-            if ($r == false) {
-                $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">' . mysqli_error($link) . '</b>';
-            }
-            $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
-            $_SESSION['debug']['queries'][$hash]['time'] = $time;
-        }
-
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
-                . $trace_step['line'] . ': '
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
-    if ($r != false && PMA_Tracker::isActive() == true ) {
+    if ($result != false && PMA_Tracker::isActive() == true ) {
         PMA_Tracker::handleQuery($query);
     }
 
-    return $r;
+    return $result;
 }
 
 /**
@@ -1815,16 +1838,16 @@ function PMA_isSuperuser()
             // Known authorization libraries: regex_policy, simple_user_policy
             // Plugins limit object visibility (dbs, tables, processes), we can
             // safely assume we always deal with superuser
-            $r = true;
+            $result = true;
         } else {
             // check access to mysql.user table
-            $r = (bool) PMA_DBI_try_query(
+            $result = (bool) PMA_DBI_try_query(
                 'SELECT COUNT(*) FROM mysql.user',
                 $GLOBALS['userlink'],
                 PMA_DBI_QUERY_STORE
             );
         }
-        PMA_Util::cacheSet('is_superuser', $r, true);
+        PMA_Util::cacheSet('is_superuser', $result, true);
     } else {
         PMA_Util::cacheSet('is_superuser', false, true);
     }

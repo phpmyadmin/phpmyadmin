@@ -57,12 +57,12 @@ function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password,
 /**
  * connects to the database server
  *
- * @param string $user                    drizzle user name
- * @param string $password                drizzle user password
- * @param bool   $is_controluser
- * @param array  $server host/port/socket
- * @param bool   $auxiliary_connection    when true, don't go back to
- *                                         login if connection fails
+ * @param string $user                 drizzle user name
+ * @param string $password             drizzle user password
+ * @param bool   $is_controluser       whether this is a control user connection
+ * @param array  $server               host/port/socket/persistent
+ * @param bool   $auxiliary_connection (when true, don't go back to login if
+ *                                     connection fails)
  *
  * @return mixed false on error or a mysqli object on success
  */
@@ -182,7 +182,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @param string         $query   query to execute
  * @param PMA_DrizzleCon $link    connection object
- * @param int            $options
+ * @param int            $options query options
  *
  * @return PMA_DrizzleResult
  */
@@ -247,7 +247,9 @@ function PMA_DBI_data_seek($result, $offset)
 /**
  * Frees memory associated with the result
  *
- * @param PMA_DrizzleResult  $result
+ * @param PMA_DrizzleResult $result database result
+ *
+ * @return void
  */
 function PMA_DBI_free_result($result)
 {
@@ -427,7 +429,7 @@ function PMA_DBI_insert_id($link = null)
  * returns the number of rows affected by last query
  *
  * @param PMA_DrizzleResult $link           connection object
- * @param bool              $get_from_cache
+ * @param bool              $get_from_cache whether to retrieve from cache
  *
  * @return string|int
  */

@@ -14,6 +14,8 @@ require_once 'libraries/engines/pbxt.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Tracker.class.php';
 
 class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
 {
@@ -31,19 +33,7 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        if (! defined('PMA_DRIZZLE')) {
-            define('PMA_DRIZZLE', 1);
-        }
-        if (! function_exists('PMA_DBI_fetch_result')) {
-            function PMA_DBI_fetch_result($query)
-            {
-                return array(
-                    'dummy' => 'table1',
-                    'engine' => 'table`2'
-                );
-            }
-        }
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_pbxt', array('dummy'));
+        $this->object = new PMA_StorageEngine_pbxt('pbxt');
     }
 
     /**
