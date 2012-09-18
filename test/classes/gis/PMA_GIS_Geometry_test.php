@@ -284,7 +284,13 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ),
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));'
+                'bound = new OpenLayers.Bounds(); '
+                    . 'bound.extend(new OpenLayers.LonLat(0, 0).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject())); '
+                    . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject()));'
             )
 
         );
@@ -322,7 +328,14 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             array(
                 array('Triangle'),
                 4326,
-                'new Array(new OpenLayers.Geometry.Polygon(new Array(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.Geometry.Point(,)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))))'
+                'new Array('
+                    . 'new OpenLayers.Geometry.Polygon('
+                    . 'new Array('
+                    . 'new OpenLayers.Geometry.LinearRing('
+                    . 'new Array('
+                    . '(new OpenLayers.Geometry.Point(,)).transform('
+                    . 'new OpenLayers.Projection("EPSG:4326"), '
+                    . 'map.getProjectionObject()))))))'
             )
         );
     }

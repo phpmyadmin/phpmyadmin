@@ -72,7 +72,8 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+                    . '(20 30,35 32,30 20,20 30)))',
                 array(
                     'maxX' => 45.0,
                     'minX' => 10.0,
@@ -211,7 +212,8 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+                    . '(20 30,35 32,30 20,20 30)))',
                 'image',
                 '#B02EE0',
                 array(
@@ -257,7 +259,8 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+                    . '(20 30,35 32,30 20,20 30)))',
                 'pdf',
                 '#B02EE0',
                 array(
@@ -308,7 +311,8 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+                    . '(20 30,35 32,30 20,20 30)))',
                 'svg',
                 '#B02EE0',
                 array(
@@ -317,7 +321,10 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16, 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)(" class="polygon vector" stroke="black" stroke-width="0.5" fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/'
+                '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
+                    . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)'
+                    . '(" class="polygon vector" stroke="black" stroke-width="0.5"'
+                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/'
             )
         );
     }
@@ -356,7 +363,8 @@ class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+                    . '(20 30,35 32,30 20,20 30)))',
                 4326,
                 'Ol',
                 '#B02EE0',
