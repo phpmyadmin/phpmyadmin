@@ -46,6 +46,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new PMA_Footer();
+        unset($GLOBALS['error_message']);
+        unset($GLOBALS['sql_query']);
     }
 
     /**
