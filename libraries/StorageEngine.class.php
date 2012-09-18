@@ -276,10 +276,6 @@ class PMA_StorageEngine
         return $mysql_vars;
     }
 
-    function engineInit()
-    {
-    }
-
     /**
      * Constructor
      *
@@ -309,8 +305,6 @@ class PMA_StorageEngine
             default:
                 $this->support = PMA_ENGINE_SUPPORT_NO;
             }
-        } else {
-            $this->engineInit();
         }
     }
 
