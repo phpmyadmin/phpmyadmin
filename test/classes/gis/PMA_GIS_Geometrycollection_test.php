@@ -16,7 +16,7 @@ require_once 'libraries/tcpdf/tcpdf.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
+class PMA_GIS_GeometryCollectionTest extends PHPUnit_Framework_TestCase
 {
 
     /**
