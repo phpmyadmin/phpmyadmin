@@ -12,7 +12,12 @@
 require_once 'libraries/Types.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
+/**
+ * Testcase for MySQL types handling.
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @var PMA_Types
@@ -22,6 +27,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -31,8 +38,10 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeDescription
      *
-     * @param string $type The data type to get a description.
-     * @param $output string
+     * @param string $type   The data type to get a description.
+     * @param string $output Expected output
+     *
+     * @return void
      *
      * @dataProvider providerForTestGetTypeDescription
      */
@@ -46,6 +55,7 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetTypeDescription
+     *
      * @return array
      */
     public function providerForTestGetTypeDescription()
@@ -217,8 +227,10 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeClass
      *
-     * @param $type
-     * @param $output
+     * @param string $type   Type to check
+     * @param string $output Expected result
+     *
+     * @return void
      *
      * @dataProvider providerFortTestGetTypeClass
      */
@@ -230,6 +242,11 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for type testing
+     *
+     * @return array for testing type detection
+     */
     public function providerFortTestGetTypeClass()
     {
         return array(
@@ -259,8 +276,10 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getFunctionsClass
      *
-     * @param string $class The class to get function list.
-     * @param $output array
+     * @param string $class  The class to get function list.
+     * @param array  $output Expected function list
+     *
+     * @return void
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
@@ -277,6 +296,11 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testing function lists
+     *
+     * @return array with test data
+     */
     public function providerFortTestGetFunctionsClass()
     {
         return array(
@@ -424,6 +448,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getAttributes
+     *
+     * @return void
      */
     public function testGetAttributes()
     {
@@ -441,6 +467,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getColumns
+     *
+     * @return void
      */
     public function testGetColumns()
     {
