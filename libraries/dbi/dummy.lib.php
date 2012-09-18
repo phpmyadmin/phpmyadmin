@@ -340,6 +340,8 @@ function PMA_DBI_data_seek($result, $offset)
  * Frees memory associated with the result
  *
  * @param resource $result database result
+ *
+ * @return void
  */
 function PMA_DBI_free_result($result)
 {

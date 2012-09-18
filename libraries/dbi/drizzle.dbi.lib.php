@@ -182,7 +182,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @param string         $query   query to execute
  * @param PMA_DrizzleCon $link    connection object
- * @param int            $options
+ * @param int            $options query options
  *
  * @return PMA_DrizzleResult
  */
@@ -248,6 +248,8 @@ function PMA_DBI_data_seek($result, $offset)
  * Frees memory associated with the result
  *
  * @param PMA_DrizzleResult $result database result
+ *
+ * @return void
  */
 function PMA_DBI_free_result($result)
 {

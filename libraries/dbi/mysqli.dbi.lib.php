@@ -17,7 +17,13 @@ require_once './libraries/logging.lib.php';
  */
 if (!defined('PMA_MYSQL_CLIENT_API')) {
     $client_api = explode('.', mysqli_get_client_info());
-    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    define(
+        'PMA_MYSQL_CLIENT_API',
+        (int)sprintf(
+            '%d%02d%02d',
+            $client_api[0], $client_api[1], intval($client_api[2])
+        )
+    );
     unset($client_api);
 }
 
@@ -52,20 +58,22 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
 /**
  * Helper function for connecting to the database server
  *
- * @param mysqli $link
- * @param string $host
- * @param string $user
- * @param string $password
- * @param string $dbname
- * @param int    $server_port
- * @param string $server_socket
- * @param int    $client_flags
- * @param bool   $persistent
+ * @param mysqli $link          connection link
+ * @param string $host          mysql hostname
+ * @param string $user          mysql user name
+ * @param string $password      mysql user password
+ * @param string $dbname        database name
+ * @param int    $server_port   server port
+ * @param string $server_socket server socket
+ * @param int    $client_flags  client flags of connection
+ * @param bool   $persistent    whether to use peristent connection
  *
  * @return bool
  */
-function PMA_DBI_real_connect($link, $host, $user, $password, $dbname, $server_port, $server_socket, $client_flags = null, $persistent = false)
-{
+function PMA_DBI_real_connect(
+    $link, $host, $user, $password, $dbname, $server_port,
+    $server_socket, $client_flags = null, $persistent = false
+) {
     global $cfg;
 
     // mysqli persistent connections only on PHP 5.3+
@@ -165,7 +173,10 @@ function PMA_DBI_connect(
             $client_flags
         );
         // Retry with empty password if we're allowed to
-        if ($return_value == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
+        if ($return_value == false
+            && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword']
+            && !$is_controluser
+        ) {
             $return_value = @PMA_DBI_real_connect(
                 $link,
                 $cfg['Server']['host'],
@@ -239,7 +250,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @param string $query   query to execute
  * @param mysqli $link    mysqli object
- * @param int    $options
+ * @param int    $options query options
  *
  * @return mysqli_result|bool
  */
@@ -705,7 +716,11 @@ function PMA_DBI_field_flags($result, $i)
     // structure. Watch out: some types like DATE returns 63 in charsetnr
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
-    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING) && 63 == $charsetnr) {
+    if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
+        || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
+        || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
+        && 63 == $charsetnr
+    ) {
         $flags .= 'binary ';
     }
     if ($f & MYSQLI_ZEROFILL_FLAG) {
