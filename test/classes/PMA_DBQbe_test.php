@@ -364,7 +364,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
             'table1',
             $this->_callProtectedFunction(
                 '_getFromClause',
-                array(array('relwork' => False))
+                array(array('relwork' => false))
             )
         );
     }
@@ -379,7 +379,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array(array('relwork' => False))
+                array(array('relwork' => false))
             )
         );
     }
