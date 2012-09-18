@@ -96,7 +96,6 @@ function PMA_getHtmlForRenameDatabase($db)
  */
 function PMA_getHtmlForDropDatabaseLink($db)
 {
-    
     $this_sql_query = 'DROP DATABASE ' . PMA_Util::backquote($db);
     $this_url_params = array(
         'sql_query' => $this_sql_query,
@@ -141,7 +140,6 @@ function PMA_getHtmlForDropDatabaseLink($db)
  */
 function PMA_getHtmlForCopyDatabase($db)
 {
-    
     $drop_clause = 'DROP TABLE / DROP VIEW';
     $choices = array(
         'structure' => __('Structure only'),
@@ -1074,7 +1072,6 @@ function PMA_getHtmlForCopytable()
 function PMA_getHtmlForTableMaintenance(
     $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
 ) {
-    
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
@@ -1106,7 +1103,6 @@ function PMA_getHtmlForTableMaintenance(
 function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     $is_innodb, $url_params, $is_berkeleydb
 ) {
-    
     $html_output = '';
 
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
@@ -1298,7 +1294,6 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
  */
 function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
 {
-    
     $choices = array(
         'ANALYZE' => __('Analyze'),
         'CHECK' => __('Check'),
@@ -1363,7 +1358,6 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
  */
 function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 {
-    
     $html_output = '<div class="operations_half_width">'
         . '<fieldset>'
         . '<legend>' . __('Check referential integrity:') . '</legend>';
@@ -1413,7 +1407,6 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
 function PMA_getQueryAndResultForReorderingTable()
 {
-    
     $sql_query = 'ALTER TABLE '
         . PMA_Util::backquote($GLOBALS['table'])
         . ' ORDER BY '
@@ -1452,7 +1445,6 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
     $is_pbxt, $row_format, $tbl_storage_engine, $transactional, $tbl_collation
 ) {
-    
     $table_alters = array();
 
     if (isset($_REQUEST['comment'])

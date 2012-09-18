@@ -186,7 +186,6 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
-
         if (empty($db) || empty($table)) {
             return false;
         }
@@ -365,7 +364,6 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
         $query = PMA_Util::backquote($name) . ' ' . $type;
@@ -500,7 +498,6 @@ class PMA_Table
     static public function countRecords($db, $table, $force_exact = false,
         $is_view = null
     ) {
-
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
@@ -628,7 +625,6 @@ class PMA_Table
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
     ) {
-
         $last_id = -1;
 
         if (isset($GLOBALS['cfgRelation']) && $GLOBALS['cfgRelation'][$work]) {

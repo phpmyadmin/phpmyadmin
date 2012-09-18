@@ -65,7 +65,6 @@ function PMA_getColumnMap($sql_query, $view_columns)
  */
 function PMA_getExistingTranformationData($db)
 {
-    
     $cfgRelation = PMA_getRelationsParam();
     
     // Get the existing transformation details of the same database
@@ -94,7 +93,6 @@ function PMA_getExistingTranformationData($db)
 function PMA_getNewTransformationDataSql(
     $pma_tranformation_data, $column_map, $view_name, $db
 ) {
-    
     $cfgRelation = PMA_getRelationsParam();
     
     // Need to store new transformation details for VIEW

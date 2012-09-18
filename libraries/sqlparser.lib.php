@@ -852,7 +852,6 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
  */
 function PMA_SQP_analyze($arr)
 {
-
     if ($arr == array() || ! isset($arr['len'])) {
         return array();
     }

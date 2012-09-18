@@ -93,7 +93,6 @@ class PMA_Tracker
      */
     static protected function init()
     {
-        
         self::$pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
                            PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']);
 
@@ -196,7 +195,6 @@ class PMA_Tracker
      */
     static public function isTracked($dbname, $tablename)
     {
-        
         if (! self::$enabled) {
             return false;
         }
@@ -358,7 +356,6 @@ class PMA_Tracker
      */
     static public function deleteTracking($dbname, $tablename)
     {
-        
         $sql_query = "/*NOTRACK*/\n"
             . "DELETE FROM " . self::$pma_table
             . " WHERE `db_name` = '"
@@ -386,7 +383,6 @@ class PMA_Tracker
     static public function createDatabaseVersion($dbname, $version, $query,
         $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
     ) {
-        
         $date = date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
@@ -478,7 +474,6 @@ class PMA_Tracker
     static public function changeTrackingData($dbname, $tablename,
         $version, $type, $new_data
     ) {
-        
         if ($type == 'DDL') {
             $save_to = 'schema_sql';
         } elseif ($type == 'DML') {
@@ -557,7 +552,6 @@ class PMA_Tracker
      */
     static public function getVersion($dbname, $tablename, $statement = null)
     {
-        
         $sql_query = " SELECT MAX(version) FROM " . self::$pma_table .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
         " AND `table_name` = '" . PMA_Util::sqlAddSlashes($tablename) . "' ";
@@ -587,7 +581,6 @@ class PMA_Tracker
      */
     static public function getTrackedData($dbname, $tablename, $version)
     {
-        
         if (! isset(self::$pma_table)) {
             self::init();
         }
@@ -931,7 +924,6 @@ class PMA_Tracker
      */
     static public function handleQuery($query)
     {
-        
         // If query is marked as untouchable, leave
         if (strstr($query, "/*NOTRACK*/")) {
             return;

@@ -18,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_relationsCleanupColumn($db, $table, $column)
 {
-    
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {
@@ -60,7 +59,6 @@ function PMA_relationsCleanupColumn($db, $table, $column)
  */
 function PMA_relationsCleanupTable($db, $table)
 {
-    
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {
@@ -111,7 +109,6 @@ function PMA_relationsCleanupTable($db, $table)
  */
 function PMA_relationsCleanupDatabase($db)
 {
-    
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['commwork']) {

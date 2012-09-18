@@ -528,7 +528,6 @@ function PMA_displayTableList(
     $tables, $visible = false,
     $tab_group_full = '', $table_db = ''
 ) {
-
     if (! is_array($tables) || count($tables) === 0) {
         return;
     }

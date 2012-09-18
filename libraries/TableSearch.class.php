@@ -430,7 +430,6 @@ EOT;
      */
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
-        
         if (! is_array($criteriaValues)) {
             $criteriaValues = explode(',', $criteriaValues);
         }
@@ -529,7 +528,6 @@ EOT;
     private function _getWhereClause($criteriaValues, $names, $types, $collations,
         $func_type, $unaryFlag, $geom_func = null
     ) {
-
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(

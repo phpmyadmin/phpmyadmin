@@ -40,7 +40,6 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {
-
     if (strstr($table['Comment'], '; InnoDB free') === false) {
         if (!strstr($table['Comment'], 'InnoDB free') === false) {
             // here we have just InnoDB generated part

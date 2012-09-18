@@ -79,7 +79,6 @@ function PMA_getRelationsParam()
  */
 function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
-
     $retval = '';
 
     $messages['error'] = '<font color="red"><strong>'
@@ -496,7 +495,6 @@ function PMA__getRelationsParam()
  */
 function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 {
-
     $cfgRelation = PMA_getRelationsParam();
     $foreign = array();
 
@@ -601,7 +599,6 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
  */
 function PMA_getDisplayField($db, $table)
 {
-
     $cfgRelation = PMA_getRelationsParam();
 
     /**
@@ -681,7 +678,6 @@ function PMA_getComments($db, $table = '')
  */
 function PMA_getDbComment($db)
 {
-
     $cfgRelation = PMA_getRelationsParam();
     $comment = '';
 
@@ -714,7 +710,6 @@ function PMA_getDbComment($db)
  */
 function PMA_getDbComments()
 {
-
     $cfgRelation = PMA_getRelationsParam();
     $comments = array();
 
@@ -749,7 +744,6 @@ function PMA_getDbComments()
  */
 function PMA_setDbComment($db, $comment = '')
 {
-
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -798,7 +792,6 @@ function PMA_setDbComment($db, $comment = '')
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
-
     if (strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
         return;
     }
@@ -858,7 +851,6 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
  */
 function PMA_getHistory($username)
 {
-
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['historywork']) {
@@ -890,7 +882,6 @@ function PMA_getHistory($username)
  */
 function PMA_purgeHistory($username)
 {
-
     $cfgRelation = PMA_getRelationsParam();
     if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $cfgRelation['historywork']) {
         return;
@@ -1077,7 +1068,6 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
 
 function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filter, $foreign_limit)
 {
-
     // we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
     $foreign_link = false;
@@ -1226,7 +1216,6 @@ function PMA_getRelatives($all_tables, $master)
  */
 function PMA_REL_renameField($db, $table, $field, $new_name)
 {
-
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['displaywork']) {
@@ -1281,7 +1270,6 @@ function PMA_REL_renameSingleTable($table,
     $source_table, $target_table,
     $db_field, $table_field
 ) {
-
     $query = 'UPDATE '
         . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
         . PMA_Util::backquote($GLOBALS['cfgRelation'][$table])
@@ -1384,7 +1372,6 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
  */
 function PMA_REL_createPage($newpage, $cfgRelation, $db)
 {
-
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
     }

@@ -41,7 +41,6 @@ function PMA_userprefs_pageinit()
  */
 function PMA_load_userprefs()
 {
-    
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
@@ -79,7 +78,6 @@ function PMA_load_userprefs()
  */
 function PMA_save_userprefs(array $config_array)
 {
-    
     $cfgRelation = PMA_getRelationsParam();
     $server = isset($GLOBALS['server'])
         ? $GLOBALS['server']

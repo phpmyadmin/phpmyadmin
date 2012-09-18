@@ -451,7 +451,6 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
      */
     public static function getPointOnSurface($ring)
     {
-
         // Find two consecutive distinct points.
         for ($i = 0; $i < count($ring) - 1; $i++) {
             if ($ring[$i]['y'] != $ring[$i + 1]['y']) {

@@ -75,7 +75,6 @@ function PMA_buildHtmlForDb(
     $current, $is_superuser, $checkall, $url_query,
     $column_order, $replication_types, $replication_info
 ) {
-
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
         $out .= '<td class="tool">';

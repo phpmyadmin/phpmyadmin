@@ -917,7 +917,6 @@ $import_notice = null;
 function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     &$additional_sql = null, $options = null
 ) {
-
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];

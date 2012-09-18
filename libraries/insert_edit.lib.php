@@ -1628,7 +1628,6 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     $current_row, $column, $extracted_columnspec,
     $real_null_value, $gis_data_types, $column_name_appendix
 ) {
-
     $special_chars_encoded = '';
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
@@ -1805,7 +1804,6 @@ function PMA_isInsertRow()
  */
 function PMA_setSessionForEditNext($one_where_clause)
 {
-
     $local_query = 'SELECT * FROM ' . PMA_Util::backquote($GLOBALS['db'])
         . '.' . PMA_Util::backquote($GLOBALS['table']) . ' WHERE '
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
@@ -2005,7 +2003,6 @@ function PMA_getWarningMessages()
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
 ) {
-
     $display_field = PMA_getDisplayField(
         $map[$relation_field]['foreign_db'],
         $map[$relation_field]['foreign_table']
@@ -2042,7 +2039,6 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $where_comparison, $dispval, $relation_field_value
 ) {
-
     if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational key" in the display options, so
         // the title contains the display field
@@ -2197,7 +2193,6 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     $multi_edit_funcs,$is_insert, $query_values, $query_fields,
     $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
 ) {
-
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
@@ -2265,7 +2260,6 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
     $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table
 ) {
-
     // Fetch the current values of a row to use in case we have a protected field
     if ($is_insert
         && $using_key && isset($multi_edit_columns_type)

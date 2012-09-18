@@ -16,7 +16,6 @@ if (! defined('PHPMYADMIN')) {
 */
 function PMA_printGitRevision()
 {
-    
     if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);

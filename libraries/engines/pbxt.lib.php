@@ -97,7 +97,6 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
      */
     function resolveTypeSize($formatted_size)
     {
-        
         if (preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
             $value = PMA_Util::extractValueFromFormattedSize($formatted_size);
         } else {

@@ -386,7 +386,6 @@ function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false,  $link = null, $limit_offset = 0,
     $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
 ) {
-
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }
@@ -788,7 +787,6 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
     $limit_offset = 0, $limit_count = false
 ) {
-
     $sort_order = strtoupper($sort_order);
 
     if (true === $limit_count) {
@@ -994,7 +992,6 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 function PMA_DBI_get_columns_full($database = null, $table = null,
     $column = null, $link = null
 ) {
-
     $columns = array();
 
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -1168,7 +1165,6 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  */
 function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
-
     if (PMA_DRIZZLE) {
         // `Key` column:
         // * used in primary key => PRI
@@ -1234,7 +1230,6 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
     $link = null
 ) {
-
     $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
     if (! is_array($fields) || count($fields) == 0) {
@@ -1309,7 +1304,6 @@ function PMA_DBI_get_column_names($database, $table, $link = null)
 */
 function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 {
-
     if (PMA_DRIZZLE) {
         $sql = "SELECT
                 ip.table_name          AS `Table`,
@@ -1409,7 +1403,6 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
-
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define(
@@ -1810,7 +1803,6 @@ function PMA_DBI_get_warnings($link = null)
  */
 function PMA_isSuperuser()
 {
-
     if (PMA_Util::cacheExists('is_superuser', true)) {
         return PMA_Util::cacheGet('is_superuser', true);
     }
@@ -1900,7 +1892,6 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  */
 function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 {
-
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support triggers
         return array();

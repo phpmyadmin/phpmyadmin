@@ -841,7 +841,6 @@ class ExportSql extends ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf)
     {
-
         $create_query = '';
         if (! empty($GLOBALS['sql_drop_table'])) {
             $create_query .= 'DROP VIEW IF EXISTS '
@@ -1436,7 +1435,6 @@ class ExportSql extends ExportPlugin
         $mime = false,
         $dates = false
     ) {
-
         if (isset($GLOBALS['sql_compatibility'])) {
             $compat = $GLOBALS['sql_compatibility'];
         } else {
