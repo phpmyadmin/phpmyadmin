@@ -410,7 +410,7 @@ class PMA_Message
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string  $string
+     * @param string  $string   string to set
      * @param boolean $sanitize whether to sanitize $string or not
      *
      * @return void
@@ -445,8 +445,9 @@ class PMA_Message
      * $message->addParam('<img src="img" />', false);
      * </code>
      *
-     * @param mixed $param
-     * @param boolean $raw
+     * @param mixed   $param parameter to add
+     * @param boolean $raw   whether parameter should be passed as is
+     *                       without html escaping
      *
      * @return void
      */
@@ -514,8 +515,8 @@ class PMA_Message
     /**
      * set all params at once, usually used in conjunction with string
      *
-     * @param array   $params
-     * @param boolean $sanitize
+     * @param array   $params   parameters to set
+     * @param boolean $sanitize whether to sanitize params
      *
      * @return void
      */
@@ -707,7 +708,7 @@ class PMA_Message
     /**
      * sets and returns whether the message was displayed or not
      *
-     * @param boolean $is_displayed
+     * @param boolean $isDisplayed whether to set displayed flag
      *
      * @return boolean PMA_Message::$isDisplayed
      */
