@@ -47,11 +47,30 @@ function PMA_getSysInfo()
         }
     }
 
-    return new PMA_Sysinfo_Default;
+    return new PMA_sysinfo;
 }
 
+class PMA_sysinfo
+{
+    public $os = PHP_OS;
 
-class PMA_sysinfoWinnt
+    public function loadavg()
+    {
+        return array('loadavg' => 0);
+    }
+
+    public function memory()
+    {
+        return array();
+    }
+
+    function supported()
+    {
+        return true;
+    }
+}
+
+class PMA_sysinfoWinnt extends PMA_sysinfo
 {
     private $_wmi;
 
@@ -141,7 +160,7 @@ class PMA_sysinfoWinnt
     }
 }
 
-class PMA_sysinfoLinux
+class PMA_sysinfoLinux extends PMA_sysinfo
 {
     public $os = 'Linux';
 
@@ -179,7 +198,7 @@ class PMA_sysinfoLinux
     }
 }
 
-class PMA_sysinfoSunos
+class PMA_sysinfoSunos extends PMA_sysinfo
 {
     public $os = 'SunOS';
 
@@ -222,25 +241,5 @@ class PMA_sysinfoSunos
         $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
         return $mem;
-    }
-}
-
-class PMA_sysinfoDefault
-{
-    public $os = PHP_OS;
-
-    public function loadavg()
-    {
-        return array('loadavg' => 0);
-    }
-
-    public function memory()
-    {
-        return array();
-    }
-
-    function supported()
-    {
-        return true;
     }
 }
