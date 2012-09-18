@@ -73,6 +73,10 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SHOW VARIABLES LIKE \'language\';',
+        'result' => array(),
+    ),
+    array(
         'query' => 'SHOW TABLES FROM `pma_test`;',
         'result' => array(
             array('table1'),
