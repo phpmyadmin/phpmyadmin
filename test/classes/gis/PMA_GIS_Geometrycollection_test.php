@@ -68,7 +68,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                Array(
+                array(
                     'maxX' => 45.0,
                     'minX' => 10.0,
                     'maxY' => 45.0,
@@ -143,16 +143,16 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
                 'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
                 array(
                     'srid' => 0,
-                    'GEOMETRYCOLLECTION' => Array('geom_count' => 1),
-                    '0' => Array(
+                    'GEOMETRYCOLLECTION' => array('geom_count' => 1),
+                    '0' => array(
                         'gis_type' => 'LINESTRING',
-                        'LINESTRING' => Array(
+                        'LINESTRING' => array(
                             'no_of_points' => 2,
-                            '0' => Array(
+                            '0' => array(
                                 'x' => 5.02,
                                 'y' => 8.45
                             ),
-                            '1' => Array(
+                            '1' => array(
                                 'x' => 6.14,
                                 'y' => 0.15
                             )
