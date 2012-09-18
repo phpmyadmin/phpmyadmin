@@ -18,9 +18,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_getSysInfoOs()
+function PMA_getSysInfoOs($php_os = PHP_OS)
 {
-    $php_os = PHP_OS;
 
     // look for common UNIX-like systems
     $unix_like = array('FreeBSD');
