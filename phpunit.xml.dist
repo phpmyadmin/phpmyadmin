@@ -48,5 +48,12 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
         <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
-
+    <filter>
+        <!-- we don't care about coverage of embedded libraries -->
+        <blacklist>
+            <directory suffix=".php">libraries/tcpdf</directory>
+            <directory suffix=".php">libraries/bfShapeFiles</directory>
+            <directory suffix=".php">libraries/php-gettext</directory>
+        </blacklist>
+    </filter>
 </phpunit>
