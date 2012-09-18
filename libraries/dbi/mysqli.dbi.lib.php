@@ -455,8 +455,6 @@ function PMA_DBI_getError($link = null)
         $link =& $GLOBALS['userlink'];
         // Do not stop now. We still can get the error code
         // with mysqli_connect_errno()
-//    } else {
-//        return false;
     }
 
     if (null !== $link) {
