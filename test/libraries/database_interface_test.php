@@ -17,13 +17,28 @@ require_once 'libraries/Tracker.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_dbi_test extends PHPUnit_Framework_TestCase
+class PMA_DBI_Test extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Simple test for basic query
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
     function testQuery()
     {
         $this->assertEquals(0, PMA_DBI_real_query('SELECT 1'));
     }
 
+    /**
+     * Simple test for fetching results of query
+     *
+     * This relies on dummy driver internals
+     *
+     * @return void
+     */
     function testFetch()
     {
         $this->assertEquals(array('1'), PMA_DBI_fetch_array(0));
