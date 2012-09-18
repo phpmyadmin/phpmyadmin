@@ -115,6 +115,46 @@ function PMA_DBI_query($query, $link = null, $options = 0,
 }
 
 /**
+ * Stores query data into session data for debugging purposes
+ *
+ * @param string  $query Query text
+ * @param integer $time  Time to execute query
+ *
+ * @return void
+ */
+function PMA_DBI_DBG_query($query, $time)
+{
+    $hash = md5($query);
+
+    if (isset($_SESSION['debug']['queries'][$hash])) {
+        $_SESSION['debug']['queries'][$hash]['count']++;
+    } else {
+        $_SESSION['debug']['queries'][$hash] = array();
+        if ($r == false) {
+            $_SESSION['debug']['queries'][$hash]['error']
+                = '<b style="color:red">' . mysqli_error($link) . '</b>';
+        }
+        $_SESSION['debug']['queries'][$hash]['count'] = 1;
+        $_SESSION['debug']['queries'][$hash]['query'] = $query;
+        $_SESSION['debug']['queries'][$hash]['time'] = $time;
+    }
+
+    $trace = array();
+    foreach (debug_backtrace() as $trace_step) {
+        $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
+            . $trace_step['line'] . ': '
+            . (isset($trace_step['class']) ? $trace_step['class'] : '')
+            . (isset($trace_step['type']) ? $trace_step['type'] : '')
+            . (isset($trace_step['function']) ? $trace_step['function'] : '')
+            . '('
+            . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
+            . ')'
+            ;
+    }
+    $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
+}
+
+/**
  * runs a query and returns the result
  *
  * @param string   $query               query to run
@@ -149,35 +189,8 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
+        PMA_DBI_DBG_query($query, $time);
 
-        $hash = md5($query);
-
-        if (isset($_SESSION['debug']['queries'][$hash])) {
-            $_SESSION['debug']['queries'][$hash]['count']++;
-        } else {
-            $_SESSION['debug']['queries'][$hash] = array();
-            if ($r == false) {
-                $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">' . mysqli_error($link) . '</b>';
-            }
-            $_SESSION['debug']['queries'][$hash]['count'] = 1;
-            $_SESSION['debug']['queries'][$hash]['query'] = $query;
-            $_SESSION['debug']['queries'][$hash]['time'] = $time;
-        }
-
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
-                . $trace_step['line'] . ': '
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
     }
     if ($r != false && PMA_Tracker::isActive() == true ) {
         PMA_Tracker::handleQuery($query);
