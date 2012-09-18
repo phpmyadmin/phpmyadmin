@@ -272,9 +272,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetPageStatus()
     {
         $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n"
-                . "\n"
-                . '</pre>' . "\n",
+            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
             $this->object->getPageStatus()
         );
 
@@ -290,9 +288,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
         );
         $this->object->support = 2;
         $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n"
-                . "\n"
-                . '</pre>' . "\n",
+            '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
             $this->object->getPage('Status')
         );
     }

@@ -71,10 +71,12 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      */
     public function testHandleError($errno, $errstr, $errfile, $errline, $output)
     {
-
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
 
-        $this->assertEquals( $output, $this->object->handleError($errno, $errstr, $errfile, $errline));
+        $this->assertEquals(
+            $output,
+            $this->object->handleError($errno, $errstr, $errfile, $errline)
+        );
     }
 
     /**

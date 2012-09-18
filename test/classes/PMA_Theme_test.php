@@ -289,7 +289,7 @@ background: -o-linear-gradient(top, #12345, #54321);'
     {
         $this->assertEquals(
             $this->object->getCssCodeMirror(),
-                'span.cm-keyword, span.cm-statement-verb {
+            'span.cm-keyword, span.cm-statement-verb {
     color: #909;
 }
 span.cm-variable {
