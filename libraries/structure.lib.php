@@ -146,7 +146,8 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  *
  * @param integer $num_tables               number of tables
  * @param boolean $server_slave_status      server slave state
- * @param boolean $db_is_information_schema whether database is information schema or not
+ * @param boolean $db_is_information_schema whether database is information
+ *                                          schema or not
  * @param integer $sum_entries              sum entries
  * @param string  $db_collation             collation of given db
  * @param boolean $is_show_stats            whether stats is show or not
@@ -268,7 +269,8 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
  * @param string  $pmaThemeImage            pma theme image url
  * @param string  $text_dir                 url for text directory
  * @param string  $overhead_check           overhead check
- * @param boolean $db_is_information_schema whether database is information schema or not
+ * @param boolean $db_is_information_schema whether database is information
+ *                                          schema or not
  * @param string  $hidden_fields            hidden fields
  *
  * @return string $html_output
@@ -448,7 +450,8 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  *
  * @return array $html_output, $odd_row
  */
-function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $current_table,
+function PMA_getHtmlForStructureTableRow(
+    $curr, $odd_row, $table_is_view, $current_table,
     $checked, $browse_table_label, $tracking_icon,$server_slave_status,
     $browse_table, $tbl_url_query, $search_table,
     $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
@@ -745,11 +748,12 @@ function PMA_getHtmlForRepairtable(
 }
 
 /**
- * void PMA_TableHeader([bool $db_is_information_schema = false])
  * display table header (<table><thead>...</thead><tbody>)
  *
- * @param boolean $db_is_information_schema
- * @param boolean $replication
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $replication              whether to sho replication status
+ *
+ * @return html data
  */
 function PMA_TableHeader($db_is_information_schema = false, $replication = false)
 {
@@ -1220,7 +1224,8 @@ function PMA_getHtmlForTableStructureHeader(
 
 /**
  * Get HTML for structure table's rows and return $odd_row parameter also
- * For "Action" Column, this function contains only HTML code for "Change" and "Drop"
+ * For "Action" Column, this function contains only HTML code for "Change"
+ * and "Drop"
  *
  * @param array   $row                      current row
  * @param string  $rownum                   row number
@@ -1233,7 +1238,8 @@ function PMA_getHtmlForTableStructureHeader(
  * @param string  $type_mime                mime type
  * @param string  $field_charset            field charset
  * @param string  $attribute                attribute (BINARY, UNSIGNED,
- *                                          UNSIGNED ZEROFILL, on update CURRENT_TIMESTAMP)
+ *                                          UNSIGNED ZEROFILL,
+ *                                          on update CURRENT_TIMESTAMP)
  * @param boolean $tbl_is_view              whether tables is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param string  $url_query                url query
@@ -1328,7 +1334,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
-            . '<a href="tbl_alter.php?' . $url_query . '&amp;field=' . $field_encoded . '">'
+            . '<a href="tbl_alter.php?' . $url_query . '&amp;field='
+            . $field_encoded . '">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
             . '<a '
@@ -1353,7 +1360,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 }
 
 /**
- * Get HTML for "check all" check box with "with selected" actions in table structure
+ * Get HTML for "check all" check box with "with selected" actions in table
+ * structure
  *
  * @param string  $pmaThemeImage            pma theme image url
  * @param string  $text_dir                 test directory
@@ -1455,7 +1463,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
 /**
  * Get HTML for edit views'
  *
- * @param string $url_params
+ * @param string $url_params URL parameters
  *
  * @return string $html_output
  */
@@ -1463,7 +1471,9 @@ function PMA_getHtmlForEditView($url_params)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
 
-    $create_view = PMA_DBI_get_definition($GLOBALS['db'], 'VIEW', $GLOBALS['table']);
+    $create_view = PMA_DBI_get_definition(
+        $GLOBALS['db'], 'VIEW', $GLOBALS['table']
+    );
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
     $html_output = $common_functions->linkOrButton(
         'tbl_sql.php' . PMA_generate_common_url(
@@ -1841,6 +1851,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * @param boolean $primary          primary or not
  * @param string  $syntax           syntax for add action
  * @param string  $message          message to be shown
+ * @param boolean $isPrimary        is primary action
  *
  * @return string $html_output
  */
@@ -1885,7 +1896,6 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
  * @param type $url_query        url query
  * @param type $row              current row
  * @param type $hidden_titles    hidden titles array
- * @param type $unique_enabled   is unique enabled
  * @param type $unique_enabled   is unique enabled
  * @param type $index_enabled    is index enabled
  * @param type $fulltext_enabled is fulltext enabled
@@ -1965,7 +1975,8 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
 
 /**
  * Get HTML snippet for action row in structure table,
- * This function returns common HTML <td> for Primary, Unique, Index, Spatial actions
+ * This function returns common HTML <td> for Primary, Unique, Index,
+ * Spatial actions
  *
  * @param array   $type               column type
  * @param array   $tbl_storage_engine table storage engine
