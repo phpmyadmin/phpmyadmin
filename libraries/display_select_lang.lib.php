@@ -18,10 +18,10 @@ if (! defined('PHPMYADMIN')) {
  * @return the sorted array
  * @access  private
  */
-function PMA_language_cmp(&$a, &$b)
+function PMA_Language_cmp(&$a, &$b)
 {
     return (strcmp($a[1], $b[1]));
-} // end of the 'PMA_language_cmp()' function
+} // end of the 'PMA_Language_cmp()' function
 
 /**
  * Displays for for language selection
@@ -64,7 +64,7 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
     <select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">
     <?php
 
-    uasort($GLOBALS['available_languages'], 'PMA_language_cmp');
+    uasort($GLOBALS['available_languages'], 'PMA_Language_cmp');
     foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
         $lang_name = PMA_langName($tmplang);
 
