@@ -29,11 +29,14 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
     public function testGenerateParams($wkt, $index, $params)
     {
         if ($index == null) {
-            $this->assertEquals($this->object->generateParams($wkt), $params);
+            $this->assertEquals(
+                $params,
+                $this->object->generateParams($wkt)
+            );
         } else {
             $this->assertEquals(
-                $this->object->generateParams($wkt, $index),
-                $params
+                $params,
+                $this->object->generateParams($wkt, $index)
             );
         }
     }
@@ -49,7 +52,10 @@ abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
      */
     public function testScaleRow($spatial, $min_max)
     {
-        $this->assertEquals($this->object->scaleRow($spatial), $min_max);
+        $this->assertEquals(
+            $min_max,
+            $this->object->scaleRow($spatial)
+        );
     }
 }
 ?>
