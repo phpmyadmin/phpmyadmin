@@ -988,6 +988,11 @@ echo '</p>';
 
 <?php
 
+/**
+ * Prints query statistincs
+ *
+ * @return void
+ */
 function printQueryStatistics()
 {
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
@@ -1095,6 +1100,11 @@ function printQueryStatistics()
         <?php
 }
 
+/**
+ * Prints server traffic information
+ *
+ * @return void
+ */
 function printServerTraffic()
 {
     global $server_status, $PMA_PHP_SELF;
@@ -1484,6 +1494,11 @@ function printServerTraffic()
     <?php
 }
 
+/**
+ * Prints table with variables information
+ *
+ * @return void
+ */
 function printVariablesTable()
 {
     global $server_status, $server_variables, $allocationMap, $links;
@@ -1750,10 +1765,15 @@ function printVariablesTable()
     <?php
 }
 
+/**
+ * Prints html with monitor
+ *
+ * @return void
+ */
 function printMonitor()
 {
     global $server_status, $server_db_isLocal;
-    
+
 ?>
     <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">
@@ -2007,9 +2027,18 @@ function PMA_getRefreshList($name,
     return $return;
 }
 
-/* Builds a <select> list for number of data points to be displayed */
-function getDataPointsNumberList($name, $defaultValue=12, $values=Array(8, 10, 12, 15, 20, 25, 30, 40))
-{
+/**
+ * Builds a <select> list for number of data points to be displayed
+ *
+ * @param string  $name         name of select
+ * @param integer $defaultValue chosen value
+ * @param array   $values       list of values
+ *
+ * @return string with html code
+ */
+function getDataPointsNumberList(
+    $name, $defaultValue = 12, $values = Array(8, 10, 12, 15, 20, 25, 30, 40)
+) {
     $html_output = '<select name="' . $name . '" id="id_' . $name . '" class="dataPointsNumber">';
             foreach ($values as $number) {
                 $selected = ($number == $defaultValue)?' selected="selected"':'';
@@ -2025,7 +2054,9 @@ function getDataPointsNumberList($name, $defaultValue=12, $values=Array(8, 10, 1
 /**
  * cleanup of some deprecated values
  *
- * @param array &$server_status
+ * @param array &$server_status status array to process
+ *
+ * @return void
  */
 function cleanDeprecated(&$server_status)
 {
