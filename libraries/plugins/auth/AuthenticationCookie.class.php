@@ -48,7 +48,7 @@ if (function_exists('mcrypt_encrypt')) {
         );
     }
 }
-        
+
 /**
  * Handles the cookie authentication method
  *
@@ -163,7 +163,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['Lang'])) {
             include_once './libraries/display_select_lang.lib.php';
             // use fieldset, don't show doc link
-            PMA_select_language(true, false);
+            PMA_Language_select(true, false);
         }
         echo '</div>
     <br />

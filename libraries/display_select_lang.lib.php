@@ -26,9 +26,14 @@ function PMA_Language_cmp(&$a, &$b)
 /**
  * Displays for for language selection
  *
+ * @param boolean $use_fieldset whether to use fieldset for selection
+ * @param boolean $show_doc     whether to show documentation links
+ *
+ * @return void
+ *
  * @access  public
  */
-function PMA_select_language($use_fieldset = false, $show_doc = true)
+function PMA_Language_select($use_fieldset = false, $show_doc = true)
 {
     if (count($GLOBALS['available_languages']) == 1) {
         // no use in switching languages, there is only one available
@@ -36,10 +41,9 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
     }
 
     global $cfg, $lang;
-    ?>
 
-<form method="post" action="index.php" target="_parent">
-    <?php
+    echo '<form method="post" action="index.php" target="_parent">';
+
     $_form_params = array(
         'db' => $GLOBALS['db'],
         'table' => $GLOBALS['table'],
@@ -55,14 +59,14 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
         $language_title .= PMA_Util::showDocu('faq7_2');
     }
     if ($use_fieldset) {
-        echo '<fieldset><legend lang="en" dir="ltr">' . $language_title . '</legend>';
+        echo '<fieldset><legend lang="en" dir="ltr">'
+            . $language_title . '</legend>';
     } else {
-        echo '<bdo lang="en" dir="ltr"><label for="sel-lang">' . $language_title . ':</label></bdo>';
+        echo '<bdo lang="en" dir="ltr"><label for="sel-lang">'
+            . $language_title . ':</label></bdo>';
     }
-    ?>
 
-    <select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">
-    <?php
+    echo '<select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">';
 
     uasort($GLOBALS['available_languages'], 'PMA_Language_cmp');
     foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
@@ -79,15 +83,14 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
         echo '<option value="' . $id . '"' . $selected . '>' . $lang_name
             . '</option>' . "\n";
     }
-    ?>
 
-    </select>
-    <?php
+    echo '</select>';
+
     if ($use_fieldset) {
         echo '</fieldset>';
     }
-    ?>
-</form>
-    <?php
-} // End of function PMA_select_language
+
+    echo '</form>';
+
+} // End of function PMA_Language_select
 ?>

@@ -149,7 +149,7 @@ echo '  <ul>';
 if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang">';
     include_once 'libraries/display_select_lang.lib.php';
-    PMA_select_language();
+    PMA_Language_select();
     echo '</li>';
 }
 
