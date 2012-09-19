@@ -825,9 +825,9 @@ PMA_addJSVar(
  */
 require 'libraries/server_common.inc.php';
 
-?>
-<div id="serverstatus">
-    <h2><?php
+echo '<div id="serverstatus">';
+echo '<h2>';
+
 /**
  * Displays the sub-page heading
  */
@@ -1001,32 +1001,29 @@ function printQueryStatistics()
 
     $total_queries = array_sum($used_queries);
 
-    ?>
-    <h3 id="serverstatusqueries">
-        <?php
-        /* l10n: Questions is the name of a MySQL Status variable */
-        echo sprintf(__('Questions since startup: %s'), PMA_Util::formatNumber($total_queries, 0)) . ' ';
-        echo PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
-        ?>
-        <br />
-        <span>
-        <?php
-        echo '&oslash; ' . __('per hour') . ': ';
-        echo PMA_Util::formatNumber($total_queries * $hour_factor, 0);
-        echo '<br />';
+    echo '<h3 id="serverstatusqueries">';
+    /* l10n: Questions is the name of a MySQL Status variable */
+    echo sprintf(__('Questions since startup: %s'), PMA_Util::formatNumber($total_queries, 0)) . ' ';
+    echo PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
 
-        echo '&oslash; ' . __('per minute') . ': ';
-        echo PMA_Util::formatNumber($total_queries * 60 / $server_status['Uptime'], 0);
-        echo '<br />';
+    echo '<br />';
+    echo '<span>';
 
-        if ($total_queries / $server_status['Uptime'] >= 1) {
-            echo '&oslash; ' . __('per second') . ': ';
-            echo PMA_Util::formatNumber($total_queries / $server_status['Uptime'], 0);
-        }
-        ?>
-        </span>
-    </h3>
-    <?php
+    echo '&oslash; ' . __('per hour') . ': ';
+    echo PMA_Util::formatNumber($total_queries * $hour_factor, 0);
+    echo '<br />';
+
+    echo '&oslash; ' . __('per minute') . ': ';
+    echo PMA_Util::formatNumber($total_queries * 60 / $server_status['Uptime'], 0);
+    echo '<br />';
+
+    if ($total_queries / $server_status['Uptime'] >= 1) {
+        echo '&oslash; ' . __('per second') . ': ';
+        echo PMA_Util::formatNumber($total_queries / $server_status['Uptime'], 0);
+    }
+
+    echo '</span>';
+    echo '</h3>';
 
     // reverse sort by value to show most used statements first
     arsort($used_queries);
@@ -1082,22 +1079,19 @@ function printQueryStatistics()
             </tr>
     <?php
     }
-    ?>
-        </tbody>
-        </table>
+    echo '</tbody>';
+    echo '</table>';
 
-        <div id="serverstatusquerieschart">
-            <span style="display:none;">
-        <?php
-        if ($other_sum > 0) {
-            $chart_json[__('Other')] = $other_sum;
-        }
+    echo '<div id="serverstatusquerieschart">';
+    echo '<span style="display:none;">';
 
-        echo json_encode($chart_json);
-        ?>
-            </span>
-        </div>
-        <?php
+    if ($other_sum > 0) {
+        $chart_json[__('Other')] = $other_sum;
+    }
+
+    echo json_encode($chart_json);
+    echo '</span>';
+    echo '</div>';
 }
 
 /**
@@ -1119,8 +1113,8 @@ function printServerTraffic()
         'SELECT UNIX_TIMESTAMP() - ' . $server_status['Uptime']
     );
 
-    ?>
-    <h3><?php
+    echo '<h3>';
+
     echo sprintf(
         __('Network traffic since startup: %s'),
         implode(
@@ -1132,20 +1126,18 @@ function printServerTraffic()
             )
         )
     );
-    ?>
-    </h3>
+    echo '</h3>';
 
-    <p>
-    <?php
-    echo sprintf(
+    echo '<p>';
+
+    printf(
         __('This MySQL server has been running for %1$s. It started up on %2$s.'),
         PMA_Util::timespanFormat($server_status['Uptime']),
         PMA_Util::localisedDate($start_time)
     ) . "\n";
-    ?>
-    </p>
 
-    <?php
+    echo '</p>';
+
     if ($server_master_status || $server_slave_status) {
         echo '<p class="notice">';
         if ($server_master_status && $server_slave_status) {
@@ -1162,11 +1154,9 @@ function printServerTraffic()
 
     /* if the server works as master or slave in replication process, display useful information */
     if ($server_master_status || $server_slave_status) {
-    ?>
-      <hr class="clearfloat" />
+        echo '<hr class="clearfloat" />';
 
-      <h3><a name="replication"></a><?php echo __('Replication status'); ?></h3>
-    <?php
+        echo '<h3><a name="replication"></a>' . __('Replication status') . '</h3>';
 
         foreach ($replication_types as $type) {
             if (${"server_{$type}_status"}) {
