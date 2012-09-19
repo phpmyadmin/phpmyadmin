@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * Output buffering wrapper
  *
  * @package PhpMyAdmin
  */
@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
+ * Output buffering wrapper class
  *
  * @package PhpMyAdmin
  */
@@ -21,6 +21,11 @@ class PMA_OutputBuffering
     private $_content;
     private $_on;
 
+    /**
+     * Initializes class
+     *
+     * @return void
+     */
     private function __construct()
     {
         $this->_mode = $this->_getMode();
@@ -77,6 +82,7 @@ class PMA_OutputBuffering
      * output buffering is turned on.  It also needs to be passed $mode from
      * the PMA_outBufferModeGet() function or it will be useless.
      *
+     * @return void
      */
     public function start()
     {
@@ -98,6 +104,7 @@ class PMA_OutputBuffering
      * buffering is turned on.  It also needs to be passed $mode from the
      * PMA_outBufferModeGet() function or it will be useless.
      *
+     * @return void
      */
     public static function stop()
     {
@@ -110,11 +117,21 @@ class PMA_OutputBuffering
         PMA_Response::response();
     }
 
+    /**
+     * Gets buffer content
+     *
+     * @return buffer content
+     */
     public function getContents()
     {
         return $this->_content;
     }
 
+    /**
+     * Flushes output buffer
+     *
+     * @return void
+     */
     public function flush()
     {
         if (ob_get_status() && $this->_mode) {

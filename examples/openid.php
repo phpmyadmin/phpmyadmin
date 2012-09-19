@@ -32,6 +32,8 @@ $AUTH_MAP = array(
 
 /**
  * Simple function to show HTML page with given content.
+ *
+ * @return void
  */
 function show_page($contents)
 {

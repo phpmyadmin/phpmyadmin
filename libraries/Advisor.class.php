@@ -10,12 +10,22 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Advisor class
+ *
+ * @package PhpMyAdmin
+ */
 class Advisor
 {
     var $variables;
     var $parseResult;
     var $runResult;
 
+    /**
+     * Parses and executes advisor rules
+     *
+     * @return array with run and parse results
+     */
     function run()
     {
         // HowTo: A simple Advisory system in 3 easy steps.
@@ -67,6 +77,11 @@ class Advisor
             . sprintf(__('PHP threw following error: %s'), $exception->getMessage());
     }
 
+    /**
+     * Executes advisor rules
+     *
+     * @return void
+     */
     function runRules()
     {
         $this->runResult = array(
@@ -333,6 +348,8 @@ class Advisor
     /**
      * Reads the rule file into an array, throwing errors messages on syntax
      * errors.
+     *
+     * @return array with parsed data
      */
     static function parseRulesFile()
     {
@@ -418,6 +435,14 @@ class Advisor
     }
 }
 
+/**
+ * Formats interval like 10 per hour
+ *
+ * @param integer $num       number to format
+ * @param intefer $precision required precision
+ *
+ * @return formatted string
+ */
 function ADVISOR_bytime($num, $precision)
 {
     $per = '';
@@ -443,11 +468,27 @@ function ADVISOR_bytime($num, $precision)
     return "$num $per";
 }
 
-function ADVISOR_timespanFormat($val)
+/**
+ * Wrapper for PMA_Util::timespanFormat
+ *
+ * @param int $seconds the timespan
+ *
+ * @return string  the formatted value
+ */
+function ADVISOR_timespanFormat($seconds)
 {
-    return PMA_Util::timespanFormat($val);
+    return PMA_Util::timespanFormat($seconds);
 }
 
+/**
+ * Wrapper around PMA_Util::formatByteDown
+ *
+ * @param double $value the value to format
+ * @param int    $limes the sensitiveness
+ * @param int    $comma the number of decimals to retain
+ *
+ * @return array    the formatted value and its unit
+ */
 function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
     return PMA_Util::formatByteDown($value, $limes, $comma);

@@ -228,6 +228,8 @@ function PMA_persist_option($path, $value, $default_value)
  * @param string $file_name
  * @param array  $params
  * @param string $hash
+ *
+ * @return void
  */
 function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name,
     $params = null, $hash = null

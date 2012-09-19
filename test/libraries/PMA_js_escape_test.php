@@ -16,6 +16,8 @@ class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider variables
+     *
+     * @return void
      */
     public function testFormat($key, $value, $expected)
     {

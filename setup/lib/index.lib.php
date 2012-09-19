@@ -261,6 +261,8 @@ function version_to_int($version)
  * @param bool &$is_readable
  * @param bool &$is_writable
  * @param bool &$file_exists
+ *
+ * @return void
  */
 function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
 {
@@ -283,6 +285,8 @@ function check_config_rw(&$is_readable, &$is_writable, &$file_exists)
  *
  * Outputs results to message list, must be called between messages_begin()
  * and messages_end()
+ *
+ * @return void
  */
 function perform_config_checks()
 {

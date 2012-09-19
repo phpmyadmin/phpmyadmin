@@ -26,6 +26,11 @@ class PMA_PDF extends TCPDF
     var $footerset;
     var $Alias = array();
 
+    /**
+     * Constructs PDF and configures standard parameters.
+     *
+     * @return void
+     */
     public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
         $unicode = true, $encoding = 'UTF-8', $diskcache = false
     ) {
@@ -40,6 +45,8 @@ class PMA_PDF extends TCPDF
 
     /**
      * This function must be named "Footer" to work with the TCPDF library
+     *
+     * @return void
      */
     function Footer()
     {

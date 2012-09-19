@@ -13,6 +13,11 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Logs user information to webserver logs.
+ *
+ * @param string $user   user name
+ * @param string $status status message
+ *
+ * @return void
  */
 function PMA_log_user($user, $status = 'ok')
 {

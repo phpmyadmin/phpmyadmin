@@ -10,11 +10,13 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Cleanu column related relation stuff
+ * Cleanup column related relation stuff
  *
- * @param string $db
- * @param string $table
- * @param string $column
+ * @param string $db     database name
+ * @param string $table  table name
+ * @param string $column column name
+ *
+ * @return void
  */
 function PMA_relationsCleanupColumn($db, $table, $column)
 {
@@ -54,8 +56,10 @@ function PMA_relationsCleanupColumn($db, $table, $column)
 /**
  * Cleanup table related relation stuff
  *
- * @param string $db
- * @param string $table
+ * @param string $db    database name
+ * @param string $table table name
+ *
+ * @return void
  */
 function PMA_relationsCleanupTable($db, $table)
 {
@@ -105,7 +109,9 @@ function PMA_relationsCleanupTable($db, $table)
 /**
  * Cleanup database related relation stuff
  *
- * @param string $db
+ * @param string $db database name
+ *
+ * @return void
  */
 function PMA_relationsCleanupDatabase($db)
 {

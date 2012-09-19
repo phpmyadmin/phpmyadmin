@@ -511,6 +511,11 @@ class PMA_Config
 
     /**
      * Checks if given URL is 200 or 404, optionally returns data
+     *
+     * @param mixed   $link     curl link
+     * @param boolean $get_body whether to retrieve body of document
+     *
+     * @return test result or data
      */
     function checkHTTP($link, $get_body = false)
     {

@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Replication helpers
  *
  * @package PhpMyAdmin
  */
@@ -136,8 +137,9 @@ foreach ($replication_types as $type) {
     }
 }
 
-
 /**
+ * Extracts database or table name from string
+ *
  * @param string $string contains "dbname.tablename"
  * @param string $what   what to extract (db|table)
  *
@@ -152,7 +154,10 @@ function PMA_extract_db_or_table($string, $what = 'db')
         return $list[1];
     }
 }
+
 /**
+ * Configures replication slave
+ *
  * @param string $action  possible values: START or STOP
  * @param string $control default: null, possible values: SQL_THREAD or IO_THREAD or null.
  *                        If it is set to null, it controls both SQL_THREAD and IO_THREAD
@@ -174,7 +179,10 @@ function PMA_replication_slave_control($action, $control = null, $link = null)
 
     return PMA_DBI_try_query($action . " SLAVE " . $control . ";", $link);
 }
+
 /**
+ * Changes master for replication slave
+ *
  * @param string $user     replication user on master
  * @param string $password password for the user
  * @param string $host     master's hostname or IP
@@ -234,6 +242,8 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
     return PMA_DBI_connect($user, $password, false, $server, true);
 }
 /**
+ * Fetches position and file of current binary log on master
+ *
  * @param mixed $link mysql link
  *
  * @return array an array containing File and Position in MySQL replication
@@ -304,6 +314,8 @@ function PMA_replication_master_replicated_dbs($link = null)
  * @param mixed  $trg_link link of target server,
  *                         note: if the server is current PMA server, use null
  * @param bool   $data     if true, then data will be copied as well
+ *
+ * @return void
  *
  * @todo improve code sharing between the function and synchronization
  */
