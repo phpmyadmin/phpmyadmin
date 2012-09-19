@@ -767,7 +767,7 @@ if ($last_version > 0) {
     echo '</tbody>';
     echo '</table>';
 
-    if ($tracking_active == true) {
+    if ($tracking_active) {
         echo '<div id="div_deactivate_tracking">';
         echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
         echo '<fieldset>';
@@ -783,9 +783,7 @@ if ($last_version > 0) {
         echo '</fieldset>';
         echo '</form>';
         echo '</div>';
-    }
-
-    if ($tracking_active == false) {
+    } else {
         echo '<div id="div_activate_tracking">';
         echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
         echo '<fieldset>';
