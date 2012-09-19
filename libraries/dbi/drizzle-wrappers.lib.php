@@ -215,28 +215,28 @@ class PMA_DrizzleResult
      * Instamce of DrizzleResult class
      * @var DrizzleResult
      */
-    private $dresult;
+    private $_dresult;
     /**
      * Fetch mode
      * @var int
      */
-    private $fetchMode;
+    private $_fetchMode;
     /**
      * Buffering mode
      * @var int
      */
-    private $bufferMode;
+    private $_bufferMode;
 
     /**
      * Cached column data
      * @var DrizzleColumn[]
      */
-    private $columns = null;
+    private $_columns = null;
     /**
      * Cached column names
      * @var string[]
      */
-    private $columnNames = null;
+    private $_columnNames = null;
 
     /**
      * Constructor
@@ -247,12 +247,12 @@ class PMA_DrizzleResult
      */
     public function __construct(DrizzleResult $dresult, $bufferMode, $fetchMode)
     {
-        $this->dresult = $dresult;
-        $this->bufferMode = $bufferMode;
-        $this->fetchMode = $fetchMode;
+        $this->_dresult = $dresult;
+        $this->_bufferMode = $bufferMode;
+        $this->_fetchMode = $fetchMode;
 
-        if ($this->bufferMode == PMA_Drizzle::BUFFER_RESULT) {
-            $this->dresult->buffer();
+        if ($this->_bufferMode == PMA_Drizzle::BUFFER_RESULT) {
+            $this->_dresult->buffer();
         }
     }
 
@@ -265,28 +265,28 @@ class PMA_DrizzleResult
      */
     public function setFetchMode($fetchMode)
     {
-        $this->fetchMode = $fetchMode;
+        $this->_fetchMode = $fetchMode;
     }
 
     /**
      * Reads information about columns contained in current result
-     * set into {@see $columns} and {@see $columnNames} arrays
+     * set into {@see $_columns} and {@see $_columnNames} arrays
      *
      * @return void
      */
     private function _readColumns()
     {
-        $this->columns = array();
-        $this->columnNames = array();
-        if ($this->bufferMode == PMA_Drizzle::BUFFER_RESULT) {
-            while (($column = $this->dresult->columnNext()) !== null) {
-                $this->columns[] = $column;
-                $this->columnNames[] = $column->name();
+        $this->_columns = array();
+        $this->_columnNames = array();
+        if ($this->_bufferMode == PMA_Drizzle::BUFFER_RESULT) {
+            while (($column = $this->_dresult->columnNext()) !== null) {
+                $this->_columns[] = $column;
+                $this->_columnNames[] = $column->name();
             }
         } else {
-            while (($column = $this->dresult->columnRead()) !== null) {
-                $this->columns[] = $column;
-                $this->columnNames[] = $column->name();
+            while (($column = $this->_dresult->columnRead()) !== null) {
+                $this->_columns[] = $column;
+                $this->_columnNames[] = $column->name();
             }
         }
     }
@@ -298,10 +298,10 @@ class PMA_DrizzleResult
      */
     public function getColumns()
     {
-        if (!$this->columns) {
+        if (!$this->_columns) {
             $this->_readColumns();
         }
-        return $this->columns;
+        return $this->_columns;
     }
 
     /**
@@ -311,7 +311,7 @@ class PMA_DrizzleResult
      */
     public function numColumns()
     {
-        return $this->dresult->columnCount();
+        return $this->_dresult->columnCount();
     }
 
     /**
@@ -330,12 +330,12 @@ class PMA_DrizzleResult
 
         switch ($fetchMode) {
         case PMA_Drizzle::FETCH_ASSOC:
-            $row = array_combine($this->columnNames, $row);
+            $row = array_combine($this->_columnNames, $row);
             break;
         case PMA_Drizzle::FETCH_BOTH:
             $length = count($row);
             for ($i = 0; $i < $length; $i++) {
-                $row[$this->columnNames[$i]] = $row[$i];
+                $row[$this->_columnNames[$i]] = $row[$i];
             }
             break;
         default:
@@ -354,19 +354,19 @@ class PMA_DrizzleResult
     {
         // read column names on first fetch, only buffered results
         // allow for reading it later
-        if (!$this->columns) {
+        if (!$this->_columns) {
             $this->_readColumns();
         }
         if ($fetchMode === null) {
-            $fetchMode = $this->fetchMode;
+            $fetchMode = $this->_fetchMode;
         }
         $row = null;
-        switch ($this->bufferMode) {
+        switch ($this->_bufferMode) {
         case PMA_Drizzle::BUFFER_RESULT:
-            $row = $this->dresult->rowNext();
+            $row = $this->_dresult->rowNext();
             break;
         case PMA_Drizzle::BUFFER_ROW:
-            $row = $this->dresult->rowBuffer();
+            $row = $this->_dresult->rowBuffer();
             break;
         }
         $this->_transformResultRow($row, $fetchMode);
@@ -382,15 +382,15 @@ class PMA_DrizzleResult
      */
     public function seek($row_index)
     {
-        if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
+        if ($this->_bufferMode != PMA_Drizzle::BUFFER_RESULT) {
             trigger_error(
                 __("Can't seek in an unbuffered result set"), E_USER_WARNING
             );
             return false;
         }
         // rowSeek always returns NULL (drizzle extension v.0.5, API v.7)
-        if ($row_index >= 0 && $row_index < $this->dresult->rowCount()) {
-            $this->dresult->rowSeek($row_index);
+        if ($row_index >= 0 && $row_index < $this->_dresult->rowCount()) {
+            $this->_dresult->rowSeek($row_index);
             return true;
         }
         return false;
@@ -403,13 +403,13 @@ class PMA_DrizzleResult
      */
     public function numRows()
     {
-        if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
+        if ($this->_bufferMode != PMA_Drizzle::BUFFER_RESULT) {
             trigger_error(
                 __("Can't count rows in an unbuffered result set"), E_USER_WARNING
             );
             return false;
         }
-        return $this->dresult->rowCount();
+        return $this->_dresult->rowCount();
     }
 
     /**
@@ -419,7 +419,7 @@ class PMA_DrizzleResult
      */
     public function affectedRows()
     {
-        return $this->dresult->affectedRows();
+        return $this->_dresult->affectedRows();
     }
 
     /**
@@ -429,9 +429,9 @@ class PMA_DrizzleResult
      */
     public function free()
     {
-        unset($this->columns);
-        unset($this->columnNames);
-        drizzle_result_free($this->dresult);
-        unset($this->dresult);
+        unset($this->_columns);
+        unset($this->_columnNames);
+        drizzle_result_free($this->_dresult);
+        unset($this->_dresult);
     }
 }
