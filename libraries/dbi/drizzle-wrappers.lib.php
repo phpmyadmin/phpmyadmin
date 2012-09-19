@@ -132,7 +132,7 @@ class PMA_DrizzleCon
     /**
      * Constructor
      *
-     * @param DrizzleCon $_dcon connection handle
+     * @param DrizzleCon $dcon connection handle
      *
      * @return void
      */
@@ -144,10 +144,10 @@ class PMA_DrizzleCon
     /**
      * Executes given query. Opens database connection if not already done.
      *
-     * @param string $query       query to execute
-     * @param int    $bufferMode  PMA_Drizzle::BUFFER_RESULT,PMA_Drizzle::BUFFER_ROW
-     * @param int    $fetchMode   PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM
-     *                            or PMA_Drizzle::FETCH_BOTH
+     * @param string $query      query to execute
+     * @param int    $bufferMode PMA_Drizzle::BUFFER_RESULT,PMA_Drizzle::BUFFER_ROW
+     * @param int    $fetchMode  PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM
+     *                           or PMA_Drizzle::FETCH_BOTH
      *
      * @return PMA_DrizzleResult
      */
@@ -179,8 +179,8 @@ class PMA_DrizzleCon
     /**
      * Pass calls of undefined methods to DrizzleCon object
      *
-     * @param $method
-     * @param $args
+     * @param string $method method name
+     * @param mixed  $args   method parameters
      *
      * @return mixed
      */
