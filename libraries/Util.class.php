@@ -36,7 +36,6 @@ class PMA_Util
         }
     }
 
-
     /**
      * Exponential expression / raise number into power
      *
@@ -83,7 +82,6 @@ class PMA_Util
         return $pow;
     }
 
-
     /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
@@ -120,7 +118,6 @@ class PMA_Util
 
         return $button;
     }
-
 
     /**
      * Returns an HTML IMG tag for a particular image from a theme,
@@ -205,7 +202,6 @@ class PMA_Util
         return $retval;
     }
 
-
     /**
      * Returns the formatted maximum size for an upload
      *
@@ -223,7 +219,6 @@ class PMA_Util
         return '(' . sprintf(__('Max: %s%s'), $max_size, $max_unit) . ')';
     }
 
-
     /**
      * Generates a hidden field which should indicate to the browser
      * the maximum size for upload
@@ -239,7 +234,6 @@ class PMA_Util
         return '<input type="hidden" name="MAX_FILE_SIZE" value="'
             . $max_size . '" />';
     }
-
 
     /**
      * Add slashes before "'" and "\" characters so a value containing them can
@@ -260,7 +254,6 @@ class PMA_Util
     public static function sqlAddSlashes(
         $a_string = '', $is_like = false, $crlf = false, $php_code = false
     ) {
-
         if ($is_like) {
             $a_string = str_replace('\\', '\\\\\\\\', $a_string);
         } else {
@@ -283,7 +276,6 @@ class PMA_Util
         return $a_string;
     } // end of the 'sqlAddSlashes()' function
 
-
     /**
      * Add slashes before "_" and "%" characters for using them in MySQL
      * database, table and field names.
@@ -300,7 +292,6 @@ class PMA_Util
         return strtr($name, array('_' => '\\_', '%' => '\\%'));
     } // end of the 'escapeMysqlWildcards()' function
 
-
     /**
      * removes slashes before "_" and "%" characters
      * Note: This function does not unescape backslashes!
@@ -315,7 +306,6 @@ class PMA_Util
     {
         return strtr($name, array('\\_' => '_', '\\%' => '%'));
     } // end of the 'unescapeMysqlWildcards()' function
-
 
     /**
      * removes quotes (',",`) from a quoted string
@@ -356,7 +346,6 @@ class PMA_Util
 
         return $quoted_string;
     }
-
 
     /**
      * format sql strings
@@ -421,7 +410,6 @@ class PMA_Util
         return $formatted_sql;
     } // end of the "formatSql()" function
 
-
     /**
      * Displays a link to the documentation as an icon
      *
@@ -439,7 +427,6 @@ class PMA_Util
             . '</a>';
     } // end of the 'showDocLink()' function
 
-
     /**
      * Displays a link to the official MySQL documentation
      *
@@ -456,7 +443,6 @@ class PMA_Util
     public static function showMySQLDocu(
         $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
-
         global $cfg;
 
         if (($cfg['MySQLManualType'] == 'none') || empty($cfg['MySQLManualBase'])) {
@@ -527,9 +513,7 @@ class PMA_Util
         } else {
             return self::showDocLink(PMA_linkURL($url), 'mysql_doc');
         }
-
     } // end of the 'showMySQLDocu()' function
-
 
     /**
      * Displays a link to the phpMyAdmin documentation
@@ -544,7 +528,6 @@ class PMA_Util
     {
         return self::showDocLink('Documentation.html#' . $anchor);
     } // end of the 'showDocu()' function
-
 
     /**
      * Displays a link to the PHP documentation
@@ -562,7 +545,6 @@ class PMA_Util
         return self::showDocLink($url);
     } // end of the 'showPHPDocu()' function
 
-
     /**
      * Returns HTML code for a tooltip
      *
@@ -579,7 +561,6 @@ class PMA_Util
             . '<span class="hide">' . $message . '</span>'
             . '</span>';
     }
-
 
     /**
      * Displays a MySQL error message in the right frame.
@@ -601,7 +582,6 @@ class PMA_Util
         $error_message = '', $the_query = '',
         $is_modify_link = true, $back_url = '', $exit = true
     ) {
-
         global $table, $db;
 
         $error_msg = '';
@@ -742,14 +722,12 @@ class PMA_Util
                     . '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]'
                     . '</fieldset>' . "\n\n";
             }
-
             echo $error_msg;
             exit;
         } else {
             echo $error_msg;
         }
     } // end of the 'mysqlDie()' function
-
 
     /**
      * returns array with tables of given db with extended information and grouped
@@ -817,7 +795,6 @@ class PMA_Util
             if ($GLOBALS['cfg']['LeftFrameDBTree']
                 && $sep && strstr($table_name, $sep)
             ) {
-
                 $parts = explode($sep, $table_name);
 
                 $group =& $table_groups;
@@ -828,12 +805,10 @@ class PMA_Util
                 while (($i < $parts_cnt)
                     && ($i < $GLOBALS['cfg']['LeftFrameTableLevel'])
                 ) {
-
                     $group_name = $parts[$i] . $sep;
                     $group_name_full .= $group_name;
 
                     if (! isset($group[$group_name])) {
-
                         $group[$group_name] = array();
                         $group[$group_name]['is' . $sep . 'group'] = true;
                         $group[$group_name]['tab' . $sep . 'count'] = 1;
@@ -841,7 +816,6 @@ class PMA_Util
                             = $group_name_full;
 
                     } elseif (! isset($group[$group_name]['is' . $sep . 'group'])) {
-
                         $table = $group[$group_name];
                         $group[$group_name] = array();
                         $group[$group_name][$group_name] = $table;
@@ -866,7 +840,6 @@ class PMA_Util
                 $group =& $table_groups;
             }
 
-
             if ($GLOBALS['cfg']['ShowTooltipAliasTB']
                 && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
                 && $table['Comment'] // do not switch if the comment is empty
@@ -885,9 +858,7 @@ class PMA_Util
         return $table_groups;
     }
 
-
     /* ----------------------- Set of misc functions ----------------------- */
-
 
     /**
      * Adds backquotes on both sides of a database, table or field name.
@@ -910,7 +881,6 @@ class PMA_Util
      */
     public static function backquote($a_name, $do_it = true)
     {
-
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
                 $data = self::backquote($data, $do_it);
@@ -920,7 +890,6 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-
             if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
@@ -932,7 +901,6 @@ class PMA_Util
         } else {
             return $a_name;
         }
-
     } // end of the 'backquote()' function
 
     /**
@@ -959,7 +927,6 @@ class PMA_Util
     public static function backquoteCompat(
         $a_name, $compatibility = 'MSSQL', $do_it = true
     ) {
-
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
                 $data = self::backquoteCompat($data, $compatibility, $do_it);
@@ -969,7 +936,6 @@ class PMA_Util
 
         if (! $do_it) {
             global $PMA_SQPdata_forbidden_word;
-
             if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
                 return $a_name;
             }
@@ -991,7 +957,6 @@ class PMA_Util
         } else {
             return $a_name;
         }
-
     } // end of the 'backquoteCompat()' function
 
     /**
@@ -1014,7 +979,6 @@ class PMA_Util
 
         return $the_crlf;
     } // end of the 'whichCrlf()' function
-
 
     /**
      * Reloads navigation if needed.
@@ -1056,12 +1020,10 @@ class PMA_Util
             if (! $jsonly) {
                 $retval .= '</script>' . PHP_EOL;
             }
-
             unset($GLOBALS['reload']);
         }
         return $retval;
     }
-
 
     /**
      * Prepare the message and the query
@@ -1079,7 +1041,6 @@ class PMA_Util
     public static function getMessage(
         $message, $sql_query = null, $type = 'notice', $is_view = false
     ) {
-
         global $cfg;
         $retval = '';
 
@@ -1444,9 +1405,7 @@ class PMA_Util
         }
 
         return $retval;
-
     } // end of the 'getMessage()' function
-
 
     /**
      * Verifies if current MySQL server supports profiling
@@ -1473,7 +1432,6 @@ class PMA_Util
 
         return self::cacheGet('profiling_supported', true);
     }
-
 
     /**
      * Returns HTML for the form with the Profiling checkbox
@@ -1506,7 +1464,6 @@ class PMA_Util
         }
         return $retval;
     }
-
 
     /**
      * Formats $value to byte view
@@ -1568,7 +1525,6 @@ class PMA_Util
         return array(trim($return_value), $unit);
     } // end of the 'formatByteDown' function
 
-
     /**
      * Changes thousands and decimal separators to locale specific values.
      *
@@ -1589,7 +1545,6 @@ class PMA_Util
             $value
         );
     }
-
 
     /**
      * Formats $value to the given length and appends SI prefixes
@@ -1621,7 +1576,6 @@ class PMA_Util
         $value, $digits_left = 3, $digits_right = 0,
         $only_down = false, $noTrailingZero = true
     ) {
-
         if ($value == 0) {
             return '0';
         }
@@ -1633,7 +1587,6 @@ class PMA_Util
             if (($originalValue != 0) && (floatval($value) == 0)) {
                 $value = ' <' . (1 / self::pow(10, $digits_right));
             }
-
             return self::localizeNumber($value);
         }
 
@@ -1707,7 +1660,6 @@ class PMA_Util
         return $sign . $value . ' ' . $unit;
     } // end of the 'formatNumber' function
 
-
     /**
      * Returns the number of bytes when a formatted size is given
      *
@@ -1728,7 +1680,6 @@ class PMA_Util
         }
         return $return_value;
     }// end of the 'extractValueFromFormattedSize' function
-
 
     /**
      * Writes localised date
@@ -1806,7 +1757,6 @@ class PMA_Util
         return strftime($date, $timestamp);
     } // end of the 'localisedDate()' function
 
-
     /**
      * returns a tab for tabbed navigation.
      * If the variables $link and $args ar left empty, an inactive tab is created
@@ -1877,8 +1827,7 @@ class PMA_Util
         }
 
         // display icon
-        if (isset($tab['icon'])
-        ) {
+        if (isset($tab['icon'])) {
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
@@ -1912,7 +1861,6 @@ class PMA_Util
         return $out;
     } // end of the 'getHtmlTab()' function
 
-
     /**
      * returns html-code for a tab navigation
      *
@@ -1940,7 +1888,6 @@ class PMA_Util
         return $tab_navigation;
     }
 
-
     /**
      * Displays a link, or a button if the link's URL is too large, to
      * accommodate some browsers' limitations
@@ -1960,14 +1907,12 @@ class PMA_Util
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = ''
     ) {
-
         $url_length = strlen($url);
         // with this we should be able to catch case of image upload
         // into a (MEDIUM) BLOB; not worth generating even a form for these
         if ($url_length > $GLOBALS['cfg']['LinkLengthLimit'] * 100) {
             return '';
         }
-
 
         if (! is_array($tag_params)) {
             $tmp = $tag_params;
@@ -2022,14 +1967,11 @@ class PMA_Util
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
         ) {
-
             // no whitespace within an <a> else Safari will make it part of the link
             $ret = "\n" . '<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
                 . $message . $displayed_message . '</a>' . "\n";
-
         } else {
-
             // no spaces (linebreaks) at all
             // or after the hidden fields
             // IE will display them all
@@ -2082,7 +2024,6 @@ class PMA_Util
         return $ret;
     } // end of the 'linkOrButton()' function
 
-
     /**
      * Splits a URL string by parameter
      *
@@ -2108,7 +2049,6 @@ class PMA_Util
 
         return explode($separator, $url_parts['query']);
     }
-
 
     /**
      * Returns a given timespan value in a readable format.
@@ -2139,7 +2079,6 @@ class PMA_Util
             (string)$days, (string)$hours, (string)$minutes, (string)$seconds
         );
     }
-
 
     /**
      * Takes a string and outputs each character on a line for itself. Used
@@ -2187,7 +2126,6 @@ class PMA_Util
 
         return $format_string;
     }
-
 
     /**
      * Function added to avoid path disclosures.
@@ -2239,7 +2177,6 @@ class PMA_Util
         }
     } // end function
 
-
     /**
      * Function to generate unique condition for specified row.
      *
@@ -2256,7 +2193,6 @@ class PMA_Util
     public static function getUniqueCondition(
         $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
     ) {
-
         $primary_key          = '';
         $unique_key           = '';
         $nonprimary_condition = '';
@@ -2331,22 +2267,18 @@ class PMA_Util
             if (! isset($row[$i]) || is_null($row[$i])) {
                 $con_val = 'IS NULL';
             } else {
-
                 // timestamp is numeric on some MySQL 4.1
                 // for real we use CONCAT above and it should compare to string
                 if ($meta->numeric
                     && ($meta->type != 'timestamp')
                     && ($meta->type != 'real')
                 ) {
-
                     $con_val = '= ' . $row[$i];
-
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
                         && stristr($field_flags, 'BINARY')
                         && ! empty($row[$i])
                 ) {
-
                     // do not waste memory building a too big condition
                     if (strlen($row[$i]) < 1000) {
                         // use a CAST if possible, to avoid problems
@@ -2358,23 +2290,18 @@ class PMA_Util
                             ? ' = '.  strlen($row[$i])
                             : null;
                     }
-
                 } elseif (in_array($meta->type, self::getGISDatatypes())
                     && ! empty($row[$i])
                 ) {
-
                     // do not build a too big condition
                     if (strlen($row[$i]) < 5000) {
                         $condition .= '=0x' . bin2hex($row[$i]) . ' AND';
                     } else {
                         $condition = '';
                     }
-
                 } elseif ($meta->type == 'bit') {
-
                     $con_val = "= b'"
                         . self::printableBitValue($row[$i], $meta->length) . "'";
-
                 } else {
                     $con_val = '= \''
                         . self::sqlAddSlashes($row[$i], false, true) . '\'';
@@ -2421,7 +2348,6 @@ class PMA_Util
         return(array($where_clause, $clause_is_unique, $condition_array));
     } // end function
 
-
     /**
      * Generate a button or image tag
      *
@@ -2439,7 +2365,6 @@ class PMA_Util
     public static function getButtonOrImage(
         $button_name, $button_class, $image_name, $text, $image, $value = ''
     ) {
-
         if ($value == '') {
             $value = $text;
         }
@@ -2469,7 +2394,6 @@ class PMA_Util
         }
     } // end function
 
-
     /**
      * Generate a pagination selector for browsing resultsets
      *
@@ -2495,7 +2419,6 @@ class PMA_Util
         $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
-
         $increment = floor($nbTotalPage / $percent);
         $pageNowMinusRange = ($pageNow - $range);
         $pageNowPlusRange = ($pageNow + $range);
@@ -2508,9 +2431,7 @@ class PMA_Util
         $gotopage .= ' name="pos" >' . "\n";
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
-
         } else {
-
             $pages = array();
 
             // Always show first X pages
@@ -2569,7 +2490,6 @@ class PMA_Util
             The following code adds page numbers +/- 2,4,8,16,32,64,128,256 etc.
             around the current page.
             */
-
             $i = $pageNow;
             $dist = 1;
             while ($i < $x) {
@@ -2611,7 +2531,6 @@ class PMA_Util
         return $gotopage;
     } // end function
 
-
     /**
      * Prepare navigation for a list
      *
@@ -2631,7 +2550,6 @@ class PMA_Util
     public static function getListNavigator(
         $count, $pos, $_url_params, $script, $frame, $max_count
     ) {
-
         $list_navigator_html = '';
 
         if ($max_count < $count) {
@@ -2646,7 +2564,6 @@ class PMA_Util
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
-
                 // patch #474210 - part 1
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                     $caption1 = '&lt;&lt;';
@@ -2684,7 +2601,6 @@ class PMA_Util
             $list_navigator_html .= '</form>';
 
             if ($pos + $max_count < $count) {
-
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                     $caption3 = ' &gt; ';
                     $caption4 = '&gt;&gt;';
@@ -2719,9 +2635,7 @@ class PMA_Util
         }
 
         return $list_navigator_html;
-
     }
-
 
     /**
      * replaces %u in given path with current user name
@@ -2745,7 +2659,6 @@ class PMA_Util
 
         return str_replace('%u', $GLOBALS['cfg']['Server']['user'], $dir);
     }
-
 
     /**
      * returns html code for db link to default db page
@@ -2774,7 +2687,6 @@ class PMA_Util
             . '">' . htmlspecialchars($database) . '</a>';
     }
 
-
     /**
      * Prepare a lightbulb hint explaining a known external bug
      * that affects a functionality
@@ -2802,7 +2714,6 @@ class PMA_Util
         return $ext_but_html;
     }
 
-
     /**
      * Returns a HTML checkbox
      *
@@ -2821,7 +2732,6 @@ class PMA_Util
             . $html_field_name . '">' . $label . '</label>';
     }
 
-
     /**
      * Generates a set of radio HTML fields
      *
@@ -2838,7 +2748,6 @@ class PMA_Util
         $html_field_name, $choices, $checked_choice = '',
         $line_break = true, $escape_label = true, $class = ''
     ) {
-
         $radio_html = '';
 
         foreach ($choices as $choice_value => $choice_label) {
@@ -2874,9 +2783,7 @@ class PMA_Util
         }
 
         return $radio_html;
-
     }
-
 
     /**
      * Generates and returns an HTML dropdown
@@ -2910,7 +2817,6 @@ class PMA_Util
         return $result;
     }
 
-
     /**
      * Generates a slider effect (jQjuery)
      * Takes care of generating the initial <div> and the link
@@ -2942,9 +2848,7 @@ class PMA_Util
                 ? ' style="display: none; overflow:auto;"'
                 : '')
             . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
-
     }
-
 
     /**
      * Creates an AJAX sliding toggle button
@@ -3011,7 +2915,6 @@ class PMA_Util
 
     } // end toggleButton()
 
-
     /**
      * Clears cache content which needs to be refreshed on user change.
      *
@@ -3021,7 +2924,6 @@ class PMA_Util
     {
         self::cacheUnset('is_superuser', true);
     }
-
 
     /**
      * Verifies if something is cached in the session
@@ -3038,7 +2940,6 @@ class PMA_Util
         }
         return isset($_SESSION['cache']['server_' . $server][$var]);
     }
-
 
     /**
      * Gets cached information from the session
@@ -3060,7 +2961,6 @@ class PMA_Util
         }
     }
 
-
     /**
      * Caches information in the session
      *
@@ -3078,7 +2978,6 @@ class PMA_Util
         $_SESSION['cache']['server_' . $server][$var] = $val;
     }
 
-
     /**
      * Removes cached information from the session
      *
@@ -3094,7 +2993,6 @@ class PMA_Util
         }
         unset($_SESSION['cache']['server_' . $server][$var]);
     }
-
 
     /**
      * Converts a bit value to printable format;
@@ -3116,7 +3014,6 @@ class PMA_Util
         return $printable;
     }
 
-
     /**
      * Verifies whether the value contains a non-printable character
      *
@@ -3128,7 +3025,6 @@ class PMA_Util
     {
         return preg_match('@[^[:print:]]@', $value);
     }
-
 
     /**
      * Converts a BIT type default value
@@ -3142,7 +3038,6 @@ class PMA_Util
     {
         return strtr($bit_default_value, array("b" => "", "'" => ""));
     }
-
 
     /**
      * Extracts the various parts from a column spec
@@ -3171,7 +3066,6 @@ class PMA_Util
         }
 
         if ('enum' == $type || 'set' == $type) {
-
             // Define our working vars
             $enum_set_values = array();
             $working = "";
@@ -3186,7 +3080,6 @@ class PMA_Util
 
                 // If it is a single quote, needs to be handled specially
                 if ($char == "'") {
-
                     // If we are not currently in a string, begin one
                     if (! $in_string) {
                         $in_string = true;
@@ -3204,7 +3097,6 @@ class PMA_Util
                         if (! $has_next || $next != "'") {
                             $enum_set_values[] = $working;
                             $in_string = false;
-
                         } elseif ($next == "'") {
                             // Otherwise, this is a 'double quote',
                             // and can be added to the working string
@@ -3235,9 +3127,7 @@ class PMA_Util
             $binary = false;
             $unsigned = false;
             $zerofill = false;
-
         } else {
-
             $enum_set_values = array();
 
             /* Create printable type name */
@@ -3265,7 +3155,6 @@ class PMA_Util
             );
             $unsigned = ($unsigned_cnt > 0);
             $printtype = trim($printtype);
-
         }
 
         $attribute     = ' ';
@@ -3310,7 +3199,6 @@ class PMA_Util
         );
     }
 
-
     /**
      * Verifies if this table's engine supports foreign keys
      *
@@ -3328,7 +3216,6 @@ class PMA_Util
         }
     }
 
-
     /**
      * Replaces some characters by a displayable equivalent
      *
@@ -3345,7 +3232,6 @@ class PMA_Util
         $result = str_replace("\x1a", '\Z', $result);
         return $result;
     }
-
 
     /**
      * Converts GIS data to Well Known Text format
@@ -3377,7 +3263,6 @@ class PMA_Util
         return $wktval;
     }
 
-
     /**
      * If the string starts with a \r\n pair (0x0d0a) add an extra \n
      *
@@ -3393,7 +3278,6 @@ class PMA_Util
         }
         return $string;
     }
-
 
     /**
      * Get the action word corresponding to a script name
@@ -3422,7 +3306,6 @@ class PMA_Util
         );
         return $mapping[$target];
     }
-
 
     /**
      * Formats user string, expanding @VARIABLES@, accepting strftime format
@@ -3515,14 +3398,12 @@ class PMA_Util
                     $column_names[] = $column['Field'];
                 }
             }
-
             $replace['@COLUMNS@'] = implode(',', $column_names);
         }
 
         /* Do the replacement */
         return strtr(strftime($string), $replace);
     }
-
 
     /**
      * Prepare the form used to browse anywhere on the local server for a file to
@@ -3534,7 +3415,6 @@ class PMA_Util
      */
     public static function getBrowseUploadFileBlock($max_upload_size)
     {
-
         $block_html = '';
 
         if ($GLOBALS['is_upload'] && ! empty($GLOBALS['cfg']['UploadDir'])) {
@@ -3554,7 +3434,6 @@ class PMA_Util
         return $block_html;
     }
 
-
     /**
      * Prepare the form used to select a file to import from the server upload
      * directory
@@ -3566,9 +3445,7 @@ class PMA_Util
      */
     public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
-
         $block_html = '';
-
         $block_html .= '<label for="radio_local_import_file">'
             . sprintf(
                 __("Select from the web server upload directory <b>%s</b>:"),
@@ -3618,7 +3495,6 @@ class PMA_Util
 
     }
 
-
     /**
      * Build titles and icons for action links
      *
@@ -3649,7 +3525,6 @@ class PMA_Util
         return $titles;
     }
 
-
     /**
      * This function processes the datatypes supported by the DB,
      * as specified in PMA_Types->getColumns() and either returns an array
@@ -3670,12 +3545,9 @@ class PMA_Util
             $retval = '';
 
             foreach ($GLOBALS['PMA_Types']->getColumns() as $key => $value) {
-
                 if (is_array($value)) {
-
                     $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                     foreach ($value as $subvalue) {
-
                         if ($subvalue == $selected) {
                             $retval .= sprintf(
                                 '<option selected="selected" title="%s">%s</option>',
@@ -3695,9 +3567,7 @@ class PMA_Util
                         }
                     }
                     $retval .= '</optgroup>';
-
                 } else {
-
                     if ($selected == $value) {
                         $retval .= sprintf(
                             '<option selected="selected" title="%s">%s</option>',
@@ -3711,14 +3581,11 @@ class PMA_Util
                             $value
                         );
                     }
-
                 }
             }
-
         } else {
             $retval = array();
             foreach ($GLOBALS['PMA_Types']->getColumns() as $value) {
-
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
                         if ($subvalue !== '-') {
@@ -3730,13 +3597,11 @@ class PMA_Util
                         $retval[] = $value;
                     }
                 }
-
             }
         }
 
         return $retval;
     } // end getSupportedDatatypes()
-
 
     /**
      * Returns a list of datatypes that are not (yet) handled by PMA.
@@ -3749,7 +3614,6 @@ class PMA_Util
         $no_support_types = array();
         return $no_support_types;
     }
-
 
     /**
      * Return GIS data types
@@ -3778,7 +3642,6 @@ class PMA_Util
         return $gis_data_types;
     }
 
-
     /**
      * Generates GIS data based on the string passed.
      *
@@ -3799,7 +3662,6 @@ class PMA_Util
             return $gis_string;
         }
     }
-
 
     /**
      * Returns the names and details of the functions
@@ -3913,7 +3775,6 @@ class PMA_Util
         return $funcs;
     }
 
-
     /**
      * Returns default function for a particular column.
      *
@@ -3984,7 +3845,6 @@ class PMA_Util
         return $default_function;
     }
 
-
     /**
      * Creates a dropdown box with MySQL functions for a particular column.
      *
@@ -4038,7 +3898,6 @@ class PMA_Util
 
         return $retval;
     } // end getFunctionsForField()
-
 
     /**
      * Checks if the current user has a specific privilege and returns true if the
@@ -4139,7 +3998,6 @@ class PMA_Util
         return false;
     }
 
-
     /**
      * Returns server type for current connection
      *
@@ -4160,7 +4018,6 @@ class PMA_Util
         return $server_type;
     }
 
-
     /**
      * Analyzes the limit clause and return the start and length attributes of it.
      *
@@ -4177,7 +4034,6 @@ class PMA_Util
         );
     }
 
-
     /**
      * Prepare HTML code for display button.
      *
@@ -4190,7 +4046,6 @@ class PMA_Util
             . __('Print') . '" />'
             . '</p>';
     }
-
 
     /**
      * Parses ENUM/SET values
@@ -4242,7 +4097,5 @@ class PMA_Util
 
         return $values;
     }
-
 }
-
 ?>
