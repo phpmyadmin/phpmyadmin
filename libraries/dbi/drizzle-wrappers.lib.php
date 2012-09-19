@@ -241,9 +241,9 @@ class PMA_DrizzleResult
     /**
      * Constructor
      *
-     * @param DrizzleResult $dresult
-     * @param int           $bufferMode
-     * @param int           $fetchMode
+     * @param DrizzleResult $dresult    result handler
+     * @param int           $bufferMode buffering mode
+     * @param int           $fetchMode  fetching mode
      */
     public function __construct(DrizzleResult $dresult, $bufferMode, $fetchMode)
     {
@@ -259,7 +259,7 @@ class PMA_DrizzleResult
     /**
      * Sets fetch mode
      *
-     * @param int $fetchMode
+     * @param int $fetchMode fetch mode
      *
      * @return void
      */
@@ -317,8 +317,8 @@ class PMA_DrizzleResult
     /**
      * Transforms result row to conform to current fetch mode
      *
-     * @param mixed &$row
-     * @param int   $fetchMode
+     * @param mixed &$row      row to process
+     * @param int   $fetchMode fetch mode
      *
      * @return void
      */
@@ -376,7 +376,7 @@ class PMA_DrizzleResult
     /**
      * Adjusts the result pointer to an arbitrary row in buffered result
      *
-     * @param $row_index
+     * @param integer $row_index where to seek
      *
      * @return bool
      */
