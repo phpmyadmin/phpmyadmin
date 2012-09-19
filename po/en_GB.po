@@ -6,15 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-11 10:37+0200\n"
-"PO-Revision-Date: 2012-07-02 11:22+0200\n"
+"PO-Revision-Date: 2012-09-19 14:18+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
-"Language-Team: english-gb <en_GB@li.org>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -610,7 +611,6 @@ msgid "Output"
 msgstr "Output"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -618,11 +618,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Chose \"GeomFromText\" from the \"Function\" column and paste the below "
-"string into the \"Value\" field"
+"Choose \"GeomFromText\" from the \"Function\" column and paste the string below "
+"into the \"Value\" field"
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -630,8 +630,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -6062,11 +6062,11 @@ msgstr "Details..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Can't seek in an unbuffered result set"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Can't count rows in an unbuffered result set"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
@@ -7656,10 +7656,9 @@ msgstr ""
 "table names formed with special characters or keywords)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Object creation options"
+msgstr "Data creation options"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1659
@@ -10534,10 +10533,9 @@ msgid "Advisor"
 msgstr "Advisor"
 
 #: server_status.php:857 server_status.php:883
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Number of rows:"
+msgstr "Number of data points: "
 
 #: server_status.php:861 server_status.php:887
 msgid "Refresh rate: "
