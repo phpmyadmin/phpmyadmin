@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getDbLink_test from CommonFunctions.class.php
+ * Test for PMA_getDbLink_test from Util.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -11,7 +11,7 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -30,7 +30,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
     function testGetDbLinkEmpty()
     {
         $GLOBALS['db'] = null;
-        $this->assertEmpty(PMA_CommonFunctions::getInstance()->getDbLink());
+        $this->assertEmpty(PMA_Util::getDbLink());
     }
 
     function testGetDbLinkNull()
@@ -43,7 +43,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink()
+            PMA_Util::getDbLink()
         );
     }
 
@@ -56,7 +56,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink($database)
+            PMA_Util::getDbLink($database)
         );
     }
 
@@ -70,7 +70,7 @@ class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
-            PMA_CommonFunctions::getInstance()->getDbLink($database)
+            PMA_Util::getDbLink($database)
         );
     }
 }

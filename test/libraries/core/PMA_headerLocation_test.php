@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/js_escape.lib.php';
@@ -296,7 +296,7 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
                     '</script>' . PHP_EOL;
 
         $this->expectOutputString($write);
-        echo PMA_CommonFunctions::getInstance()->getReloadNavigationScript();
+        echo PMA_Util::getReloadNavigationScript();
 
         $this->assertFalse(isset($GLOBALS['reload']));
         unset($GLOBALS['db']);

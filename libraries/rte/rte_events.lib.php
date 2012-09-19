@@ -60,7 +60,7 @@ function PMA_EVN_main()
      * Display a list of available events
      */
     $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-    $where   = "EVENT_SCHEMA='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "'";
+    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
              . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
     $items   = PMA_DBI_fetch_result($query);
@@ -80,8 +80,6 @@ function PMA_EVN_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
     ) {
@@ -98,7 +96,7 @@ function PMA_EVN_handleEditor()
                     'EVENT',
                     $_REQUEST['item_original_name']
                 );
-                $drop_item = "DROP EVENT " . $common_functions->backquote($_REQUEST['item_original_name']) . ";\n";
+                $drop_item = "DROP EVENT " . PMA_Util::backquote($_REQUEST['item_original_name']) . ";\n";
                 $result = PMA_DBI_try_query($drop_item);
                 if (! $result) {
                     $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_item) . '<br />'
@@ -121,7 +119,7 @@ function PMA_EVN_handleEditor()
                         }
                     } else {
                         $message = PMA_Message::success(__('Event %1$s has been modified.'));
-                        $message->addParam($common_functions->backquote($_REQUEST['item_name']));
+                        $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
                         $sql_query = $drop_item . $item_query;
                     }
                 }
@@ -133,7 +131,7 @@ function PMA_EVN_handleEditor()
                                       . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $message = PMA_Message::success(__('Event %1$s has been created.'));
-                    $message->addParam($common_functions->backquote($_REQUEST['item_name']));
+                    $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
                     $sql_query = $item_query;
                 }
             }
@@ -148,13 +146,13 @@ function PMA_EVN_handleEditor()
             $message->addString('</ul>');
         }
 
-        $output = $common_functions->getMessage($message, $sql_query);
+        $output = PMA_Util::getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
-                $where   = "EVENT_SCHEMA='" . $common_functions->sqlAddSlashes($db) . "' "
-                         . "AND EVENT_NAME='" . $common_functions->sqlAddSlashes($_REQUEST['item_name']) . "'";
+                $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+                         . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
                 $event   = PMA_DBI_fetch_single_row($query);
                 $response->addJSON('name', htmlspecialchars(strtoupper($_REQUEST['item_name'])));
@@ -215,8 +213,8 @@ function PMA_EVN_handleEditor()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars($common_functions->backquote($_REQUEST['item_name'])),
-                htmlspecialchars($common_functions->backquote($db))
+                htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PMA_Util::backquote($db))
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
@@ -275,14 +273,12 @@ function PMA_EVN_getDataFromName($name)
 {
     global $db;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $retval = array();
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
-    $where   = "EVENT_SCHEMA='" . $common_functions->sqlAddSlashes($db) . "' "
-             . "AND EVENT_NAME='" . $common_functions->sqlAddSlashes($name) . "'";
+    $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
+             . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
     $item    = PMA_DBI_fetch_single_row($query);
     if (! $item) {
@@ -516,21 +512,19 @@ function PMA_EVN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
     
-    $common_functions = PMA_CommonFunctions::getInstance();
-
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . $common_functions->backquote($arr[0]);
-            $query .= '@' . $common_functions->backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
+            $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
     }
     $query .= 'EVENT ';
     if (! empty($_REQUEST['item_name'])) {
-        $query .= $common_functions->backquote($_REQUEST['item_name']) . ' ';
+        $query .= PMA_Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
         $errors[] = __('You must provide an event name');
     }
@@ -547,14 +541,14 @@ function PMA_EVN_getQueryFromRequest()
                 $errors[] = __('You must provide a valid interval value for the event.');
             }
             if (! empty($_REQUEST['item_starts'])) {
-                $query .= "STARTS '" . $common_functions->sqlAddSlashes($_REQUEST['item_starts']) . "' ";
+                $query .= "STARTS '" . PMA_Util::sqlAddSlashes($_REQUEST['item_starts']) . "' ";
             }
             if (! empty($_REQUEST['item_ends'])) {
-                $query .= "ENDS '" . $common_functions->sqlAddSlashes($_REQUEST['item_ends']) . "' ";
+                $query .= "ENDS '" . PMA_Util::sqlAddSlashes($_REQUEST['item_ends']) . "' ";
             }
         } else {
             if (! empty($_REQUEST['item_execute_at'])) {
-                $query .= "AT '" . $common_functions->sqlAddSlashes($_REQUEST['item_execute_at']) . "' ";
+                $query .= "AT '" . PMA_Util::sqlAddSlashes($_REQUEST['item_execute_at']) . "' ";
             } else {
                 $errors[] = __('You must provide a valid execution time for the event.');
             }
@@ -576,7 +570,7 @@ function PMA_EVN_getQueryFromRequest()
         }
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . $common_functions->sqlAddslashes(
+        $query .= "COMMENT '" . PMA_Util::sqlAddslashes(
             $_REQUEST['item_comment']
         ) . "' ";
     }

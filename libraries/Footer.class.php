@@ -196,7 +196,7 @@ class PMA_Footer
         $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= PMA_CommonFunctions::getInstance()->getImage(
+            $retval .= PMA_Util::getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')
             );

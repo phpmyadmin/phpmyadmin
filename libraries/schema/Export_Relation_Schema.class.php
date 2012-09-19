@@ -192,13 +192,11 @@ class PMA_Export_Relation_Schema
     {
         global $cfgRelation;
         
-        $common_functions = PMA_CommonFunctions::getInstance();
-        
-         // Get All tables
+        // Get All tables
         $tab_sql = 'SELECT table_name FROM '
-            . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $common_functions->backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['table_coords'])
+            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
             . ' AND pdf_page_number = ' . $pageNumber;
 
         $tab_rs = PMA_queryAsControlUser($tab_sql, null, PMA_DBI_QUERY_STORE);
@@ -206,7 +204,7 @@ class PMA_Export_Relation_Schema
             $this->dieSchema('', __('This page does not contain any tables!'));
         }
         while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
-            $alltables[] = $common_functions->sqlAddSlashes($curr_table['table_name']);
+            $alltables[] = PMA_Util::sqlAddSlashes($curr_table['table_name']);
         }
         return $alltables;
     }

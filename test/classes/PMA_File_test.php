@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/File.class.php';
 
 class PMA_File_test extends PHPUnit_Framework_TestCase

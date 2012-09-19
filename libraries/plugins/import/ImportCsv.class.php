@@ -124,7 +124,7 @@ class ImportCsv extends ImportPlugin
             $leaf->setName("columns");
             $leaf->setText(
                 __('Column names: ')
-                . PMA_CommonFunctions::getInstance()->showHint($hint)
+                . PMA_Util::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
@@ -160,7 +160,6 @@ class ImportCsv extends ImportPlugin
         global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
         global $error, $timeout_passed, $finished;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
         $replacements = array(
             '\\n'   => "\n",
             '\\t'   => "\t",
@@ -213,7 +212,7 @@ class ImportCsv extends ImportPlugin
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            $common_functions->mysqlDie($message->getMessage(), '', '', $err_url);
+            PMA_Util::mysqlDie($message->getMessage(), '', '', $err_url);
         }
 
         $buffer = '';
@@ -228,7 +227,7 @@ class ImportCsv extends ImportPlugin
                     $sql_template .= ' IGNORE';
                 }
             }
-            $sql_template .= ' INTO ' . $common_functions->backquote($table);
+            $sql_template .= ' INTO ' . PMA_Util::backquote($table);
 
             $tmp_fields = PMA_DBI_get_columns($db, $table);
 
@@ -264,7 +263,7 @@ class ImportCsv extends ImportPlugin
                         break;
                     }
                     $fields[] = $field;
-                    $sql_template .= $common_functions->backquote($val);
+                    $sql_template .= PMA_Util::backquote($val);
                 }
                 $sql_template .= ') ';
             }
@@ -496,7 +495,7 @@ class ImportCsv extends ImportPlugin
                                 $sql .= 'NULL';
                             } else {
                                 $sql .= '\''
-                                    . $common_functions->sqlAddSlashes($val)
+                                    . PMA_Util::sqlAddSlashes($val)
                                     . '\'';
                             }
 

@@ -10,16 +10,15 @@
 require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
-$common_functions = PMA_CommonFunctions::getInstance();
 
-$titles = $common_functions->buildActionTitles();
+$titles = PMA_Util::buildActionTitles();
 
 // Check parameters
-$common_functions->checkParameters(array('db'));
+PMA_Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) == 0) {
-    $common_functions->mysqlDie(
+    PMA_Util::mysqlDie(
         __('The database name is empty!'), '', '', 'main.php'
     );
 }
@@ -29,7 +28,7 @@ if (strlen($db) == 0) {
  */
 if (PMA_DBI_get_columns($db, $table)) {
     // table exists already
-    $common_functions->mysqlDie(
+    PMA_Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         '',
@@ -53,7 +52,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
  * Selects the database to work with
  */
 if (!PMA_DBI_select_db($db)) {
-    $common_functions->mysqlDie(
+    PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         '',
@@ -130,7 +129,7 @@ if (isset($_REQUEST['do_save_data'])) {
         if (isset($_REQUEST['field_name'][$j])
             && strlen($_REQUEST['field_name'][$j])
         ) {
-            $primary .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+            $primary .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($primary_cnt);
@@ -148,7 +147,7 @@ if (isset($_REQUEST['do_save_data'])) {
         if (isset($_REQUEST['field_name'][$j])
             && strlen($_REQUEST['field_name'][$j])
         ) {
-            $index .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+            $index .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($index_cnt);
@@ -166,7 +165,7 @@ if (isset($_REQUEST['do_save_data'])) {
         if (isset($_REQUEST['field_name'][$j])
             && strlen($_REQUEST['field_name'][$j])
         ) {
-            $unique .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+            $unique .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
@@ -184,7 +183,7 @@ if (isset($_REQUEST['do_save_data'])) {
         if (isset($_REQUEST['field_name'][$j])
             && strlen($_REQUEST['field_name'][$j])
         ) {
-            $fulltext .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+            $fulltext .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
 
@@ -195,8 +194,8 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($fulltext);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . $common_functions->backquote($db) . '.'
-        . $common_functions->backquote($table) . ' (' . $sql_query . ')';
+    $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table) . ' (' . $sql_query . ')';
 
     // Adds table type, character set, comments and partition definition
     if (!empty($_REQUEST['tbl_storage_engine'])
@@ -209,10 +208,10 @@ if (isset($_REQUEST['do_save_data'])) {
     }
     if (!empty($_REQUEST['comment'])) {
         $sql_query .= ' COMMENT = \''
-            . $common_functions->sqlAddSlashes($_REQUEST['comment']) . '\'';
+            . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . $common_functions->sqlAddSlashes(
+        $sql_query .= ' ' . PMA_Util::sqlAddSlashes(
             $_REQUEST['partition_definition']
         );
     }
@@ -246,7 +245,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
         $message = PMA_Message::success(__('Table %1$s has been created.'));
         $message->addParam(
-            $common_functions->backquote($db) . '.' . $common_functions->backquote($table)
+            PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
         );
 
         if ($GLOBALS['is_ajax_request'] == true) {
@@ -264,8 +263,8 @@ if (isset($_REQUEST['do_save_data'])) {
             $is_show_stats = $cfg['ShowStats'];
 
             $tbl_stats_result = PMA_DBI_query(
-                'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db)
-                . ' LIKE \'' . $common_functions->sqlAddSlashes($table, true) . '\';'
+                'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
+                . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';'
             );
             $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
             PMA_DBI_free_result($tbl_stats_result);
@@ -279,13 +278,13 @@ if (isset($_REQUEST['do_save_data'])) {
                 $tblsize = doubleval($tbl_stats['Data_length'])
                     + doubleval($tbl_stats['Index_length']);
                 $sum_size += $tblsize;
-                list($formatted_size, $unit) = $common_functions->formatByteDown(
+                list($formatted_size, $unit) = PMA_Util::formatByteDown(
                     $tblsize,
                     3,
                     ($tblsize > 0) ? 1 : 0
                 );
                 if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
-                    list($formatted_overhead, $overhead_unit) = $common_functions->formatByteDown(
+                    list($formatted_overhead, $overhead_unit) = PMA_Util::formatByteDown(
                         $tbl_stats['Data_free'],
                         3,
                         ($tbl_stats['Data_free'] > 0) ? 1 : 0
@@ -318,13 +317,13 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (PMA_Tracker::isTracked($db, $truename)) {
                     $new_table_string .= '<a href="tbl_tracking.php'
                         . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= $common_functions->getImage(
+                    $new_table_string .= PMA_Util::getImage(
                         'eye.png', __('Tracking is active.')
                     );
                 } elseif (PMA_Tracker::getVersion($db, $truename) > 0) {
                     $new_table_string .= '<a href="tbl_tracking.php'
                        . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= $common_functions->getImage(
+                    $new_table_string .= PMA_Util::getImage(
                         'eye_grey.png', __('Tracking is not active.')
                     );
                 }
@@ -355,7 +354,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $new_table_string .= '<td>'
                 . '<a class="drop_table_anchor" href="sql.php'
                 . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query='
-                . urlencode('DROP TABLE ' . $common_functions->backquote($table)) . '">'
+                . urlencode('DROP TABLE ' . PMA_Util::backquote($table)) . '">'
                 . $titles['Drop']
                 . '</a>'
                 . '</td>' . "\n";
@@ -417,7 +416,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $response->isSuccess(false);
             $response->addJSON('message', PMA_DBI_getError());
         } else {
-            $common_functions->mysqlDie('', '', '', $err_url, false);
+            PMA_Util::mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.
             // To prevent total loss of that data, we embed the form once again.
             // The variable $regenerate will be used to restore data in

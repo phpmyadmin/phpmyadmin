@@ -420,16 +420,16 @@ function PMA_pluginGetOneOption(
         $doc = $propertyGroup->getDoc();
         if ($doc != null) {
             if (count($doc) == 3) {
-                $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                $ret .= PMA_Util::showMySQLDocu(
                     $doc[0],
                     $doc[1],
                     false,
                     $doc[2]
                 );
             } elseif (count($doc) == 1) {
-                $ret .= PMA_CommonFunctions::getInstance()->showDocu($doc[0]);
+                $ret .= PMA_Util::showDocu($doc[0]);
             } else {
-                $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                $ret .= PMA_Util::showMySQLDocu(
                     $doc[0],
                     $doc[1]
                 );

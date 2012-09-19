@@ -17,7 +17,6 @@ require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 $response = PMA_Response::getInstance();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Runs common work
@@ -139,7 +138,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . $common_functions->backquote($GLOBALS['table']);
+            . PMA_Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= PMA_DBI_query($sql_query) ? true : false;
@@ -193,7 +192,7 @@ if (isset($result) && empty($message_to_show)) {
             $response->isSuccess($_message->isSuccess());
             $response->addJSON('message', $_message);
             $response->addJSON(
-                'sql_query', $common_functions->getMessage(null, $sql_query)
+                'sql_query', PMA_Util::getMessage(null, $sql_query)
             );
             exit;
         }
@@ -212,7 +211,7 @@ if (isset($result) && empty($message_to_show)) {
     }
 
     $response->addHTML(
-        $common_functions->getMessage($_message, $sql_query, $_type)
+        PMA_Util::getMessage($_message, $sql_query, $_type)
     );
     unset($_message, $_type);
 }
@@ -299,7 +298,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         && ! (isset($db_is_information_schema) && $db_is_information_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . $common_functions->backquote($GLOBALS['table']);
+            . PMA_Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
@@ -315,7 +314,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     }
     if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . $common_functions->backquote($GLOBALS['table']);
+            . PMA_Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(

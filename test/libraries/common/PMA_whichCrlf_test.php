@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test PMA_CommonFunctions::whichCrlf function
+ * Test PMA_Util::whichCrlf function
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 {
@@ -31,11 +31,11 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 
             if (PMA_USR_OS == 'Win') {
                 $this->assertEquals(
-                    "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\r\n", PMA_Util::whichCrlf()
                 );
             } else {
                 $this->assertEquals(
-                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\n", PMA_Util::whichCrlf()
                 );
             }
 
@@ -46,7 +46,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
             if ($runkit) {
                 define('PMA_USR_OS', 'Linux');
                 $this->assertEquals(
-                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                    "\n", PMA_Util::whichCrlf()
                 );
             }
 
@@ -56,7 +56,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
                 define('PMA_USR_OS', 'Win');
             }
             $this->assertEquals(
-                "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                "\r\n", PMA_Util::whichCrlf()
             );
 
         }

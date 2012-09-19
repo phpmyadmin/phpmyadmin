@@ -163,7 +163,6 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
  */
 function PMA_getMIME($db, $table, $strict = false)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -175,10 +174,10 @@ function PMA_getMIME($db, $table, $strict = false)
                 `mimetype`,
                 `transformation`,
                 `transformation_options`
-         FROM ' . $common_functions->backquote($cfgRelation['db']) . '.'
-        . $common_functions->backquote($cfgRelation['column_info']) . '
-         WHERE `db_name`    = \'' . $common_functions->sqlAddSlashes($db) . '\'
-           AND `table_name` = \'' . $common_functions->sqlAddSlashes($table) . '\'
+         FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['column_info']) . '
+         WHERE `db_name`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+           AND `table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\'
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'' : '') . ')';
@@ -249,8 +248,6 @@ function PMA_getMIME($db, $table, $strict = false)
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $transformation_options, $forcedelete = false
 ) {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
     if (! $cfgRelation['commwork']) {
@@ -274,11 +271,11 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $test_qry = '
          SELECT `mimetype`,
                 `comment`
-           FROM ' . $common_functions->backquote($cfgRelation['db']) . '.'
-        . $common_functions->backquote($cfgRelation['column_info']) . '
-          WHERE `db_name`     = \'' . $common_functions->sqlAddSlashes($db) . '\'
-            AND `table_name`  = \'' . $common_functions->sqlAddSlashes($table) . '\'
-            AND `column_name` = \'' . $common_functions->sqlAddSlashes($key) . '\'';
+           FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['column_info']) . '
+          WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+            AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
+            AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
     
     $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
 
@@ -291,30 +288,30 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             || strlen($transformation_options) || strlen($row['comment']))
         ) {
             $upd_query = '
-                UPDATE ' . $common_functions->backquote($cfgRelation['db']) . '.'
-                . $common_functions->backquote($cfgRelation['column_info']) . '
-                   SET `mimetype`               = \'' . $common_functions->sqlAddSlashes($mimetype) . '\',
-                       `transformation`         = \'' . $common_functions->sqlAddSlashes($transformation) . '\',
-                       `transformation_options` = \'' . $common_functions->sqlAddSlashes($transformation_options) . '\'';
+                UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['column_info']) . '
+                   SET `mimetype`               = \'' . PMA_Util::sqlAddSlashes($mimetype) . '\',
+                       `transformation`         = \'' . PMA_Util::sqlAddSlashes($transformation) . '\',
+                       `transformation_options` = \'' . PMA_Util::sqlAddSlashes($transformation_options) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info']);
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info']);
         }
         $upd_query .= '
-            WHERE `db_name`     = \'' . $common_functions->sqlAddSlashes($db) . '\'
-              AND `table_name`  = \'' . $common_functions->sqlAddSlashes($table) . '\'
-              AND `column_name` = \'' . $common_functions->sqlAddSlashes($key) . '\'';
+            WHERE `db_name`     = \'' . PMA_Util::sqlAddSlashes($db) . '\'
+              AND `table_name`  = \'' . PMA_Util::sqlAddSlashes($table) . '\'
+              AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
     } elseif (strlen($mimetype) || strlen($transformation)
      || strlen($transformation_options)) {
 
-        $upd_query = 'INSERT INTO ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info'])
+        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
                    . ' VALUES('
-                   . '\'' . $common_functions->sqlAddSlashes($db) . '\','
-                   . '\'' . $common_functions->sqlAddSlashes($table) . '\','
-                   . '\'' . $common_functions->sqlAddSlashes($key) . '\','
-                   . '\'' . $common_functions->sqlAddSlashes($mimetype) . '\','
-                   . '\'' . $common_functions->sqlAddSlashes($transformation) . '\','
-                   . '\'' . $common_functions->sqlAddSlashes($transformation_options) . '\')';
+                   . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
+                   . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
+                   . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
+                   . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
+                   . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
+                   . '\'' . PMA_Util::sqlAddSlashes($transformation_options) . '\')';
     }
 
     if (isset($upd_query)) {
@@ -379,13 +376,11 @@ function PMA_transformation_global_html_replace($buffer, $options = array())
  */
 function PMA_clearTransformations($db, $table = '', $column = '')
 {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     
     $delete_sql = 'DELETE FROM '
-        . $common_functions->backquote($cfgRelation['db']) . '.'
-        . $common_functions->backquote($cfgRelation['column_info'])
+        . PMA_Util::backquote($cfgRelation['db']) . '.'
+        . PMA_Util::backquote($cfgRelation['column_info'])
         . ' WHERE ';
     
     if (($column != '') && ($table != '')) {

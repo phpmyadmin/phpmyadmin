@@ -343,7 +343,7 @@ function PMA_replication_gui_master_addslaveuser()
         . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
-        . PMA_CommonFunctions::getInstance()->showHint(
+        . PMA_Util::showHint(
             __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
         )
         . '</div>'

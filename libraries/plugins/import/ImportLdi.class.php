@@ -115,8 +115,6 @@ class ImportLdi extends ImportPlugin
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
             $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         if ($import_file == 'none'
             || $compression != 'none'
             || $charset_conversion
@@ -133,29 +131,29 @@ class ImportLdi extends ImportPlugin
         if (isset($ldi_local_option)) {
             $sql .= ' LOCAL';
         }
-        $sql .= ' INFILE \'' . $common_functions->sqlAddSlashes($import_file) . '\'';
+        $sql .= ' INFILE \'' . PMA_Util::sqlAddSlashes($import_file) . '\'';
         if (isset($ldi_replace)) {
             $sql .= ' REPLACE';
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
-        $sql .= ' INTO TABLE ' . $common_functions->backquote($table);
+        $sql .= ' INTO TABLE ' . PMA_Util::backquote($table);
 
         if (strlen($ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
         if (strlen($ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
-                . $common_functions->sqlAddSlashes($ldi_enclosed) . '\'';
+                . PMA_Util::sqlAddSlashes($ldi_enclosed) . '\'';
         }
         if (strlen($ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
-                . $common_functions->sqlAddSlashes($ldi_escaped) . '\'';
+                . PMA_Util::sqlAddSlashes($ldi_escaped) . '\'';
         }
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
-                    = (PMA_CommonFunctions::getInstance()->whichCrlf() == "\n")
+                    = (PMA_Util::whichCrlf() == "\n")
                         ? '\n'
                         : '\r\n';
             }
@@ -174,7 +172,7 @@ class ImportLdi extends ImportPlugin
                     $sql .= ', ';
                 }
                 /* Trim also `, if user already included backquoted fields */
-                $sql .= $common_functions->backquote(
+                $sql .= PMA_Util::backquote(
                     trim($tmp[$i], " \t\r\n\0\x0B`")
                 );
             } // end for

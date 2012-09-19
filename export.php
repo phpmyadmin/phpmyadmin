@@ -13,8 +13,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 
-$common_functions = PMA_CommonFunctions::getInstance();
-
 /**
  * Sets globals from all $_POST (in export.php only)
  * Would it not be tiresome to list all export-plugin options here?
@@ -23,7 +21,7 @@ foreach ($_POST as $one_post_param => $one_post_value) {
     $GLOBALS[$one_post_param] = $one_post_value;
 }
 
-$common_functions->checkParameters(array('what', 'export_type'));
+PMA_Util::checkParameters(array('what', 'export_type'));
 
 // export class instance, not array of properties, as before
 $export_plugin = PMA_getPlugin(
@@ -250,7 +248,7 @@ function PMA_exportOutputHandler($line)
 if ($what == 'sql') {
     $crlf = "\n";
 } else {
-    $crlf = $common_functions->whichCrlf();
+    $crlf = PMA_Util::whichCrlf();
 }
 
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
@@ -320,7 +318,7 @@ if ($asfile) {
             );
         }
     }
-    $filename = $common_functions->expandUserString($filename_template);
+    $filename = PMA_Util::expandUserString($filename_template);
     $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
@@ -352,7 +350,7 @@ if ($asfile) {
 
 // Open file on server if needed
 if ($save_on_server) {
-    $save_filename = $common_functions->userDir($cfg['SaveDir'])
+    $save_filename = PMA_Util::userDir($cfg['SaveDir'])
         . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
     if (file_exists($save_filename)
@@ -537,8 +535,8 @@ do {
                         || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
                         && ! ($is_view || PMA_Table::isMerge($current_db, $table))
                     ) {
-                        $local_query  = 'SELECT * FROM ' . $common_functions->backquote($current_db)
-                            . '.' . $common_functions->backquote($table);
+                        $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($current_db)
+                            . '.' . PMA_Util::backquote($table);
                         if (! $export_plugin->exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                             break 3;
                         }
@@ -616,8 +614,8 @@ do {
                 || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
                 && ! ($is_view || PMA_Table::isMerge($db, $table))
             ) {
-                $local_query  = 'SELECT * FROM ' . $common_functions->backquote($db)
-                    . '.' . $common_functions->backquote($table);
+                $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
+                    . '.' . PMA_Util::backquote($table);
                 if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
@@ -696,8 +694,8 @@ do {
                 $local_query = $sql_query . $add_query;
                 PMA_DBI_select_db($db);
             } else {
-                $local_query  = 'SELECT * FROM ' . $common_functions->backquote($db)
-                    . '.' . $common_functions->backquote($table) . $add_query;
+                $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
+                    . '.' . PMA_Util::backquote($table) . $add_query;
             }
             if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break;

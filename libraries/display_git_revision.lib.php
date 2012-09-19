@@ -16,9 +16,6 @@ if (! defined('PHPMYADMIN')) {
 */
 function PMA_printGitRevision()
 {
-    
-    $common_functions = PMA_CommonFunctions::getInstance();
-    
     if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
@@ -68,7 +65,7 @@ function PMA_printGitRevision()
         . $branch . ',<br /> '
         . sprintf(
             __('committed on %1$s by %2$s'),
-            $common_functions->localisedDate(strtotime($committer['date'])),
+            PMA_Util::localisedDate(strtotime($committer['date'])),
             '<a href="' . PMA_linkURL('mailto:' . $committer['email']) . '">'
             . htmlspecialchars($committer['name']) . '</a>'
         )
@@ -76,7 +73,7 @@ function PMA_printGitRevision()
             ? ', <br />'
             . sprintf(
                 __('authored on %1$s by %2$s'),
-                $common_functions->localisedDate(strtotime($author['date'])),
+                PMA_Util::localisedDate(strtotime($author['date'])),
                 '<a href="' . PMA_linkURL('mailto:' . $author['email']) . '">'
                 . htmlspecialchars($author['name']) . '</a>'
             )

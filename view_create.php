@@ -47,7 +47,7 @@ if (isset($_REQUEST['createview'])) {
         $sql_query .= $sep . ' ALGORITHM = ' . $_REQUEST['view']['algorithm'];
     }
 
-    $sql_query .= $sep . ' VIEW ' . PMA_CommonFunctions::getInstance()->backquote($_REQUEST['view']['name']);
+    $sql_query .= $sep . ' VIEW ' . PMA_Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -98,7 +98,7 @@ if (isset($_REQUEST['createview'])) {
             $response = PMA_Response::getInstance();
             $response->addJSON(
                 'message',
-                PMA_CommonFunctions::getInstance()->getMessage(
+                PMA_Util::getMessage(
                     PMA_Message::success(), $sql_query
                 )
             );
@@ -149,7 +149,7 @@ $url_params['reload'] = 1;
 <form method="post" action="view_create.php">
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
-    <legend><?php echo __('Create view') . PMA_CommonFunctions::getInstance()->showMySQLDocu('SQL-Syntax', 'CREATE_VIEW'); ?></legend>
+    <legend><?php echo __('Create view') . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_VIEW'); ?></legend>
     <table class="rte_table">
     <tr><td><label for="or_replace">OR REPLACE</label></td>
         <td><input type="checkbox" name="view[or_replace]" id="or_replace"

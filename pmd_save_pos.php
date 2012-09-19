@@ -12,7 +12,6 @@ require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
 $cfgRelation = PMA_getRelationsParam();
-$common_functions = PMA_CommonFunctions::getInstance();
 
 if (! $cfgRelation['designerwork']) {
     PMD_err_sav();
@@ -42,24 +41,24 @@ foreach ($t_x as $key => $value) {
     $KEY = empty($IS_AJAX) ? urldecode($key) : $key;
     list($DB,$TAB) = explode(".", $KEY);
     PMA_queryAsControlUser(
-        'DELETE FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords'])
-        . ' WHERE `db_name` = \'' . $common_functions->sqlAddSlashes($DB) . '\''
-        . ' AND `table_name` = \'' . $common_functions->sqlAddSlashes($TAB) . '\'',
+        'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
+        . ' WHERE `db_name` = \'' . PMA_Util::sqlAddSlashes($DB) . '\''
+        . ' AND `table_name` = \'' . PMA_Util::sqlAddSlashes($TAB) . '\'',
         true, PMA_DBI_QUERY_STORE
     );
 
     PMA_queryAsControlUser(
-        'INSERT INTO ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords'])
+        'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords'])
         . ' (db_name, table_name, x, y, v, h)'
         . ' VALUES ('
-        . '\'' . $common_functions->sqlAddSlashes($DB) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($TAB) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($t_x[$key]) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($t_y[$key]) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($t_v[$key]) . '\', '
-        . '\'' . $common_functions->sqlAddSlashes($t_h[$key]) . '\')',
+        . '\'' . PMA_Util::sqlAddSlashes($DB) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($TAB) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($t_x[$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($t_y[$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($t_v[$key]) . '\', '
+        . '\'' . PMA_Util::sqlAddSlashes($t_h[$key]) . '\')',
         true, PMA_DBI_QUERY_STORE
     );
 }

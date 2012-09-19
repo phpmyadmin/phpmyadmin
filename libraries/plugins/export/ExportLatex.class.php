@@ -220,7 +220,7 @@ class ExportLatex extends ExportPlugin
         }
         $head .= $crlf
             . '% ' . __('Generation Time') . ': '
-            . PMA_CommonFunctions::getInstance()->localisedDate() . $crlf
+            . PMA_Util::localisedDate() . $crlf
             . '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
             . '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
@@ -289,7 +289,6 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
@@ -309,7 +308,7 @@ class ExportLatex extends ExportPlugin
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
                     array(
                         'texEscape',
@@ -319,7 +318,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -345,7 +344,7 @@ class ExportLatex extends ExportPlugin
             if (isset($GLOBALS['latex_caption'])) {
                 if (! PMA_exportOutputHandler(
                     '\\caption{'
-                    . $common_functions->expandUserString(
+                    . PMA_Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
                         array(
                             'texEscape',
@@ -442,8 +441,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-        $common_functions = PMA_CommonFunctions::getInstance();
-
+        
         /**
          * Get the unique keys in the table
          */
@@ -520,7 +518,7 @@ class ExportLatex extends ExportPlugin
         // Table caption for first page and label
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     array(
                         'texEscape',
@@ -530,7 +528,7 @@ class ExportLatex extends ExportPlugin
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -542,7 +540,7 @@ class ExportLatex extends ExportPlugin
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . $common_functions->expandUserString(
+                . PMA_Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     array(
                         'texEscape',
@@ -562,7 +560,7 @@ class ExportLatex extends ExportPlugin
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
-                = PMA_CommonFunctions::getInstance()->extractColumnSpec(
+                = PMA_Util::extractColumnSpec(
                     $row['Type']
                 );
             $type = $extracted_columnspec['print_type'];

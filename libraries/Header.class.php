@@ -169,7 +169,7 @@ class PMA_Header
         );
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addCode(
-            PMA_CommonFunctions::getInstance()->getReloadNavigationScript(true)
+            PMA_Util::getReloadNavigationScript(true)
         );
     }
 
@@ -452,7 +452,7 @@ class PMA_Header
                     $temp_title = $GLOBALS['cfg']['TitleDefault'];
                 }
                 $this->_title = htmlspecialchars(
-                    PMA_CommonFunctions::getInstance()->expandUserString($temp_title)
+                    PMA_Util::expandUserString($temp_title)
                 );
             } else {
                 $this->_title = 'phpMyAdmin';

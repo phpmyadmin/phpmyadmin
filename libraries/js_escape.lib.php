@@ -33,7 +33,7 @@ function PMA_jsFormat($a_string = '', $add_backquotes = true)
         $a_string = str_replace('#', '\\#', $a_string);
     }
 
-    return (($add_backquotes) ? PMA_CommonFunctions::getInstance()->backquote($a_string) : $a_string);
+    return (($add_backquotes) ? PMA_Util::backquote($a_string) : $a_string);
 } // end of the 'PMA_jsFormat()' function
 
 /**

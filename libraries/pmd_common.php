@@ -91,7 +91,7 @@ function get_script_contr()
     PMA_DBI_select_db($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
-    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['db']), null, PMA_DBI_QUERY_STORE);
+    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']), null, PMA_DBI_QUERY_STORE);
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
@@ -192,7 +192,7 @@ function get_script_tabs()
         . 'var h_tabs = new Array();' . "\n" ;
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
-            . PMA_CommonFunctions::getInstance()->isForeignKeySupported(
+            . PMA_Util::isForeignKeySupported(
                 $GLOBALS['PMD']['TABLE_TYPE'][$i]
             )
                 ? '1' : '0'
@@ -219,7 +219,7 @@ function get_tab_pos()
                 `y` AS `Y`,
                 `v` AS `V`,
                 `h` AS `H`
-           FROM " . PMA_CommonFunctions::getInstance()->backquote($cfgRelation['db']) . "." . PMA_CommonFunctions::getInstance()->backquote($cfgRelation['designer_coords']);
+           FROM " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
     $tab_pos = PMA_DBI_fetch_result($query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE);
     return count($tab_pos) ? $tab_pos : null;
 }

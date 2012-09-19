@@ -26,20 +26,6 @@ class PMA_User_Schema
     public $pageNumber;
     public $c_table_rows;
     public $action;
-    private $_common_functions;
-
-    /**
-     * Get CommmonFunctions
-     *
-     * @return CommonFunctions object
-     */
-    public function getCommonFunctions()
-    {
-        if (is_null($this->_common_functions)) {
-            $this->_common_functions = PMA_CommonFunctions::getInstance();
-        }
-        return $this->_common_functions;
-    }
 
     /**
      * Sets action to be performed with schema.
@@ -191,9 +177,9 @@ class PMA_User_Schema
     {
         global $db,$table,$cfgRelation;
         $page_query = 'SELECT * FROM '
-            . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
-            . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\'';
+            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
         $page_rs    = PMA_queryAsControlUser(
             $page_query, false, PMA_DBI_QUERY_STORE
         );
@@ -229,7 +215,7 @@ class PMA_User_Schema
                  '0' => __('Edit'),
                  '1' => __('Delete')
             );
-            echo $this->getCommonFunctions()->getRadioFields(
+            echo PMA_Util::getRadioFields(
                 'action_choose', $choices, '0', false
             );
             unset($choices);
@@ -259,7 +245,7 @@ class PMA_User_Schema
          */
         $selectboxall = array('--');
         $alltab_rs    = PMA_DBI_query(
-            'SHOW TABLES FROM ' . $this->getCommonFunctions()->backquote($db) . ';',
+            'SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';',
             null,
             PMA_DBI_QUERY_STORE
         );
@@ -279,10 +265,10 @@ class PMA_User_Schema
             <h2><?php echo __('Select Tables'); ?></h2>
             <?php
             $page_query = 'SELECT * FROM '
-                . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db'])
-                . '.' . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
-                . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-                . ' AND pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_coords'])
+                . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND pdf_page_number = \'' . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_queryAsControlUser($page_query, false);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
@@ -412,7 +398,7 @@ class PMA_User_Schema
             <?php
             echo PMA_generate_common_hidden_inputs($db);
             if ($cfg['PropertiesIconic']) {
-                echo $this->getCommonFunctions()->getImage('b_views.png');
+                echo PMA_Util::getImage('b_views.png');
             }
             echo __('Display relational schema');
             ?>:
@@ -622,11 +608,11 @@ class PMA_User_Schema
     {
         foreach ($delrow as $current_row) {
             $del_query = 'DELETE FROM '
-                . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . $this->getCommonFunctions()->backquote($cfgRelation['table_coords']) . ' ' . "\n"
-                .   ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\'' . "\n"
-                .   ' AND table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($current_row) . '\'' . "\n"
-                .   ' AND pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($chpage) . '\'';
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['table_coords']) . ' ' . "\n"
+                .   ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\'' . "\n"
+                .   ' AND table_name = \'' . PMA_Util::sqlAddSlashes($current_row) . '\'' . "\n"
+                .   ' AND pdf_page_number = \'' . PMA_Util::sqlAddSlashes($chpage) . '\'';
                 echo $del_query;
             PMA_queryAsControlUser($del_query, false);
         }
@@ -672,10 +658,10 @@ class PMA_User_Schema
      */
     public function deleteCoordinates($db, $cfgRelation, $choosePage)
     {
-        $query = 'DELETE FROM ' . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
-            . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-            . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($choosePage) . '\'';
+        $query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['table_coords'])
+            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND   pdf_page_number = \'' . PMA_Util::sqlAddSlashes($choosePage) . '\'';
         PMA_queryAsControlUser($query, false);
     }
 
@@ -691,10 +677,10 @@ class PMA_User_Schema
      */
     public function deletePages($db, $cfgRelation, $choosePage)
     {
-        $query = 'DELETE FROM ' . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
-            . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-            . ' AND   page_nr = \'' . $this->getCommonFunctions()->sqlAddSlashes($choosePage) . '\'';
+        $query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_Util::backquote($cfgRelation['pdf_pages'])
+            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+            . ' AND   page_nr = \'' . PMA_Util::sqlAddSlashes($choosePage) . '\'';
         PMA_queryAsControlUser($query, false);
     }
 
@@ -731,7 +717,7 @@ class PMA_User_Schema
             $tables = PMA_DBI_get_tables_full($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
-                if ($this->getCommonFunctions()->isForeignKeySupported($table_properties['ENGINE'])) {
+                if (PMA_Util::isForeignKeySupported($table_properties['ENGINE'])) {
                     $foreignkey_tables[] = $table_name;
                 }
             }
@@ -751,9 +737,9 @@ class PMA_User_Schema
              * you setup the PMA tables correctly
              */
             $master_tables = 'SELECT COUNT(master_table), master_table'
-                . ' FROM ' . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . $this->getCommonFunctions()->backquote($cfgRelation['relation'])
-                . ' WHERE master_db = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
+                . ' FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['relation'])
+                . ' WHERE master_db = \'' . PMA_Util::sqlAddSlashes($db) . '\''
                 . ' GROUP BY master_table'
                 . ' ORDER BY COUNT(master_table) DESC';
             $master_tables_rs = PMA_queryAsControlUser(
@@ -832,11 +818,11 @@ class PMA_User_Schema
             * save current table's coordinates
             */
             $insert_query = 'INSERT INTO '
-                . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . $this->getCommonFunctions()->backquote($cfgRelation['table_coords']) . ' '
+                . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . PMA_Util::backquote($cfgRelation['table_coords']) . ' '
                 . '(db_name, table_name, pdf_page_number, x, y) '
-                . 'VALUES (\'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\', \''
-                . $this->getCommonFunctions()->sqlAddSlashes($current_table) . '\',' . $pageNumber
+                . 'VALUES (\'' . PMA_Util::sqlAddSlashes($db) . '\', \''
+                . PMA_Util::sqlAddSlashes($current_table) . '\',' . $pageNumber
                 . ',' . $pos_x . ',' . $pos_y . ')';
             PMA_queryAsControlUser($insert_query, false);
 
@@ -890,36 +876,36 @@ class PMA_User_Schema
             }
             if (isset($arrvalue['name']) && $arrvalue['name'] != '--') {
                 $test_query = 'SELECT * FROM '
-                    . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
-                    . ' WHERE db_name = \'' .  $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-                    . ' AND   table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($arrvalue['name']) . '\''
-                    . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
+                    . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                    . PMA_Util::backquote($cfgRelation['table_coords'])
+                    . ' WHERE db_name = \'' .  PMA_Util::sqlAddSlashes($db) . '\''
+                    . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($arrvalue['name']) . '\''
+                    . ' AND   pdf_page_number = \'' . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
                 $test_rs = PMA_queryAsControlUser($test_query, false, PMA_DBI_QUERY_STORE);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                         $ch_query = 'DELETE FROM '
-                            . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
-                            . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
-                            . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-                            . ' AND   table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($arrvalue['name']) . '\''
-                            . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
+                            . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                            . PMA_Util::backquote($cfgRelation['table_coords'])
+                            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                            . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($arrvalue['name']) . '\''
+                            . ' AND   pdf_page_number = \'' . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
                     } else {
-                        $ch_query = 'UPDATE ' . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db'])
-                            . '.' . $this->getCommonFunctions()->backquote($cfgRelation['table_coords']) . ' '
+                        $ch_query = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                            . '.' . PMA_Util::backquote($cfgRelation['table_coords']) . ' '
                             . 'SET x = ' . $arrvalue['x'] . ', y= ' . $arrvalue['y']
-                            . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
-                            . ' AND   table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($arrvalue['name']) . '\''
-                            . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
+                            . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                            . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($arrvalue['name']) . '\''
+                            . ' AND   pdf_page_number = \'' . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
                     }
                 } else {
-                    $ch_query = 'INSERT INTO ' . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db'])
-                        . '.' . $this->getCommonFunctions()->backquote($cfgRelation['table_coords']) . ' '
+                    $ch_query = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.' . PMA_Util::backquote($cfgRelation['table_coords']) . ' '
                         . '(db_name, table_name, pdf_page_number, x, y) '
-                        . 'VALUES (\'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\', \''
-                        . $this->getCommonFunctions()->sqlAddSlashes($arrvalue['name']) . '\', \''
-                        . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\','
+                        . 'VALUES (\'' . PMA_Util::sqlAddSlashes($db) . '\', \''
+                        . PMA_Util::sqlAddSlashes($arrvalue['name']) . '\', \''
+                        . PMA_Util::sqlAddSlashes($this->chosenPage) . '\','
                         . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;

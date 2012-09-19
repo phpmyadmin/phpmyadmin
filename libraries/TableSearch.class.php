@@ -81,21 +81,6 @@ class PMA_TableSearch
      */
     private $_foreigners;
 
-    private $_common_functions;
-
-    /**
-     * Get CommmonFunctions
-     *
-     * @return CommonFunctions object
-     */
-    public function getCommonFunctions()
-    {
-        if (is_null($this->_common_functions)) {
-            $this->_common_functions = PMA_CommonFunctions::getInstance();
-        }
-        return $this->_common_functions;
-    }
-
 
     /**
      * Public Constructor
@@ -140,7 +125,7 @@ class PMA_TableSearch
         // Gets the list and number of columns
         $columns = PMA_DBI_get_columns($this->_db, $this->_table, null, true);
         // Get details about the geometry fucntions
-        $geom_types = $this->getCommonFunctions()->getGISDatatypes();
+        $geom_types = PMA_Util::getGISDatatypes();
 
         foreach ($columns as $key => $row) {
             // set column name
@@ -244,9 +229,9 @@ class PMA_TableSearch
 
         if ($in_fbs) {
             $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
-            $edit_str = $this->getCommonFunctions()->getIcon('b_edit.png', __('Edit/Insert'));
+            $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
             $html_output .= '<span class="open_search_gis_editor">';
-            $html_output .= $this->getCommonFunctions()->linkOrButton(
+            $html_output .= PMA_Util::linkOrButton(
                 $edit_url, $edit_str, array(), false, false, '_blank'
             );
             $html_output .= '</span>';
@@ -398,7 +383,7 @@ EOT;
                 $foreignMaxLimit, $criteriaValues, $column_id
             );
 
-        } elseif (in_array($column_type, $this->getCommonFunctions()->getGISDatatypes())) {
+        } elseif (in_array($column_type, PMA_Util::getGISDatatypes())) {
             $str .= $this->_getGeometricalInputBox($column_index, $in_fbs);
 
         } elseif (strncasecmp($column_type, 'enum', 4) == 0
@@ -445,7 +430,6 @@ EOT;
      */
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         if (! is_array($criteriaValues)) {
             $criteriaValues = explode(',', $criteriaValues);
         }
@@ -465,10 +449,10 @@ EOT;
             $parens_close = '';
         }
         $enum_where = '\''
-            . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
+            . PMA_Util::sqlAddSlashes($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {
             $enum_where .= ', \''
-                . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
+                . PMA_Util::sqlAddSlashes($criteriaValues[$e]) . '\'';
         }
 
         return ' ' . $func_type . ' ' . $parens_open
@@ -497,18 +481,18 @@ EOT;
         $where = '';
 
         // Get details about the geometry fucntions
-        $geom_funcs = $this->getCommonFunctions()->getGISFunctions($types, true, false);
+        $geom_funcs = PMA_Util::getGISFunctions($types, true, false);
         // New output type is the output type of the function being applied
         $types = $geom_funcs[$geom_func]['type'];
 
         // If the function takes a single parameter
         if ($geom_funcs[$geom_func]['params'] == 1) {
-            $backquoted_name = $geom_func . '(' . $this->getCommonFunctions()->backquote($names) . ')';
+            $backquoted_name = $geom_func . '(' . PMA_Util::backquote($names) . ')';
         } else {
             // If the function takes two parameters
             // create gis data from the criteria input
-            $gis_data = $this->getCommonFunctions()->createGISData($criteriaValues);
-            $where = $geom_func . '(' . $this->getCommonFunctions()->backquote($names) . ',' . $gis_data . ')';
+            $gis_data = PMA_Util::createGISData($criteriaValues);
+            $where = $geom_func . '(' . PMA_Util::backquote($names) . ',' . $gis_data . ')';
             return $where;
         }
 
@@ -518,11 +502,11 @@ EOT;
         ) {
             $where = $backquoted_name;
 
-        } elseif (in_array($types, $this->getCommonFunctions()->getGISDatatypes())
+        } elseif (in_array($types, PMA_Util::getGISDatatypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = $this->getCommonFunctions()->createGISData($criteriaValues);
+            $gis_data = PMA_Util::createGISData($criteriaValues);
             $where = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
         }
         return $where;
@@ -544,9 +528,6 @@ EOT;
     private function _getWhereClause($criteriaValues, $names, $types, $collations,
         $func_type, $unaryFlag, $geom_func = null
     ) {
-
-        $common_functions = PMA_CommonFunctions::getInstance();
-
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(
@@ -554,7 +535,7 @@ EOT;
             );
         }
 
-        $backquoted_name = $this->getCommonFunctions()->backquote($names);
+        $backquoted_name = PMA_Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
             $criteriaValues = '';
@@ -597,7 +578,7 @@ EOT;
                 // quote values one by one
                 $values = explode(',', $criteriaValues);
                 foreach ($values as &$value) {
-                    $value = $quot . $common_functions->sqlAddSlashes(trim($value))
+                    $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
@@ -611,7 +592,7 @@ EOT;
                 }
             } else {
                 $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                    . $common_functions->sqlAddSlashes($criteriaValues) . $quot;
+                    . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
             }
         } // end if
 
@@ -641,19 +622,19 @@ EOT;
         } else {
             $sql_query .= implode(
                 ', ',
-                $this->getCommonFunctions()->backquote($_POST['columnsToDisplay'])
+                PMA_Util::backquote($_POST['columnsToDisplay'])
             );
         } // end if
 
         $sql_query .= ' FROM '
-            . $this->getCommonFunctions()->backquote($_POST['table']);
+            . PMA_Util::backquote($_POST['table']);
         $whereClause = $this->_generateWhereClause();
         $sql_query .= $whereClause;
 
         // if the search results are to be ordered
         if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
             $sql_query .= ' ORDER BY '
-                . $this->getCommonFunctions()->backquote($_POST['orderByColumn'])
+                . PMA_Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
         } // end if
         return $sql_query;
@@ -732,14 +713,13 @@ EOT;
          * Displays 'Function' column if it is present
          */
         $html_output .= '<td>';
-        $geom_types = $this->getCommonFunctions()->getGISDatatypes();
+        $geom_types = PMA_Util::getGISDatatypes();
         // if a geometry column is present
         if (in_array($this->_columnTypes[$column_index], $geom_types)) {
             $html_output .= '<select class="geom_func" name="geom_func['
                 . $column_index . ']">';
             // get the relevant list of GIS functions
-            $funcs = $this->getCommonFunctions()
-                ->getGISFunctions($this->_columnTypes[$column_index], true, true);
+            $funcs = PMA_Util::getGISFunctions($this->_columnTypes[$column_index], true, true);
             /**
              * For each function in the list of functions,
              * add an option to select list
@@ -765,7 +745,7 @@ EOT;
     private function _getOptions()
     {
         $html_output = '';
-        $html_output .= $this->getCommonFunctions()->getDivForSliderEffect(
+        $html_output .= PMA_Util::getDivForSliderEffect(
             'searchoptions', __('Options')
         );
 
@@ -794,7 +774,7 @@ EOT;
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
             . __('Add search conditions (body of the "where" clause):') . '</legend>';
-        $html_output .= $this->getCommonFunctions()->showMySQLDocu(
+        $html_output .= PMA_Util::showMySQLDocu(
             'SQL-Syntax', 'Functions'
         );
         $html_output .= '<input type="text" name="customWhereClause"'
@@ -827,7 +807,7 @@ EOT;
             'ASC' => __('Ascending'),
             'DESC' => __('Descending')
         );
-        $html_output .= $this->getCommonFunctions()->getRadioFields(
+        $html_output .= PMA_Util::getRadioFields(
             'order', $choices, 'ASC', false, true, "formelement"
         );
         unset($choices);
@@ -900,7 +880,7 @@ EOT;
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
-        $titles['Browse'] = $this->getCommonFunctions()->getIcon('b_browse.png', __('Browse foreign values'));
+        $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
@@ -1116,7 +1096,7 @@ EOT;
 
         $html_output = '<ul id="topmenu2">';
         foreach ($this->_getSubTabs() as $tab) {
-            $html_output .= PMA_CommonFunctions::getInstance()->getHtmlTab($tab, $url_params);
+            $html_output .= PMA_Util::getHtmlTab($tab, $url_params);
         }
         $html_output .= '</ul>';
         $html_output .= '<div class="clearfloat"></div>';
@@ -1172,7 +1152,7 @@ EOT;
     public function getZoomResultsForm($goto, $data)
     {
         $html_output = '';
-        $titles['Browse'] = $this->getCommonFunctions()->getIcon('b_browse.png', __('Browse foreign values'));
+        $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
