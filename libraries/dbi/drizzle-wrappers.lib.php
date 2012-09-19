@@ -70,12 +70,12 @@ class PMA_Drizzle extends Drizzle
     /**
      * Creates a new database conection using TCP
      *
-     * @param $host
-     * @param $port
-     * @param $user
-     * @param $password
-     * @param $db
-     * @param $options
+     * @param string  $host     Drizzle host
+     * @param integer $port     Drizzle port
+     * @param string  $user     username
+     * @param string  $password password
+     * @param string  $db       database name
+     * @param integer $options  connection options
      *
      * @return PMA_DrizzleCon
      */
@@ -90,11 +90,11 @@ class PMA_Drizzle extends Drizzle
     /**
      * Creates a new connection using unix domain socket
      *
-     * @param $uds
-     * @param $user
-     * @param $password
-     * @param $db
-     * @param $options
+     * @param string  $uds      socket
+     * @param string  $user     username
+     * @param string  $password password
+     * @param string  $db       database name
+     * @param integer $options  connection options
      *
      * @return PMA_DrizzleCon
      */
@@ -132,7 +132,7 @@ class PMA_DrizzleCon
     /**
      * Constructor
      *
-     * @param DrizzleCon $dcon
+     * @param DrizzleCon $dcon connection handle
      *
      * @return void
      */
@@ -144,7 +144,7 @@ class PMA_DrizzleCon
     /**
      * Executes given query. Opens database connection if not already done.
      *
-     * @param string $query
+     * @param string $query       query to execute
      * @param int    $bufferMode  PMA_Drizzle::BUFFER_RESULT,PMA_Drizzle::BUFFER_ROW
      * @param int    $fetchMode   PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM
      *                            or PMA_Drizzle::FETCH_BOTH
