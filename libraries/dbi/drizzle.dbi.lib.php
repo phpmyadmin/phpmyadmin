@@ -31,14 +31,14 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
 /**
  * Helper function for connecting to the database server
  *
- * @param PMA_Drizzle $drizzle
- * @param string      $host
- * @param int         $port
- * @param string      $uds
- * @param string      $user
- * @param string      $password
- * @param string      $db
- * @param int         $options
+ * @param PMA_Drizzle $drizzle  connection handle
+ * @param string      $host     Drizzle host
+ * @param integer     $port     Drizzle port
+ * @param string      $uds      server socket
+ * @param string      $user     username
+ * @param string      $password password
+ * @param string      $db       database name
+ * @param integer     $options  connection options
  *
  * @return PMA_DrizzleCon
  */
@@ -235,7 +235,7 @@ function PMA_DBI_fetch_row($result)
  * Adjusts the result pointer to an arbitrary row in the result
  *
  * @param PMA_DrizzleResult $result Drizzle result object
- * @param int               $offset
+ * @param int               $offset offset to seek
  *
  * @return boolean true on success, false on failure
  */
