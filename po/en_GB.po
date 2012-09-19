@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-08-27 11:46+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/3-5/en_GB/>\n"
+"PO-Revision-Date: 2012-09-19 14:17+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9637,10 +9637,9 @@ msgid "Advisor"
 msgstr "Advisor"
 
 #: server_status.php:807 server_status.php:833
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Number of rows:"
+msgstr "Number of data points: "
 
 #: server_status.php:811 server_status.php:837
 msgid "Refresh rate: "
