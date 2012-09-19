@@ -121,24 +121,24 @@ class PMA_DrizzleCon
      * Instance of DrizzleCon class
      * @var DrizzleCon
      */
-    private $dcon;
+    private $_dcon;
 
     /**
      * Result of the most recent query
      * @var PMA_DrizzleResult
      */
-    private $lastResult;
+    private $_lastResult;
 
     /**
      * Constructor
      *
-     * @param DrizzleCon $dcon connection handle
+     * @param DrizzleCon $_dcon connection handle
      *
      * @return void
      */
     public function __construct(DrizzleCon $dcon)
     {
-        $this->dcon = $dcon;
+        $this->_dcon = $dcon;
     }
 
     /**
@@ -154,12 +154,12 @@ class PMA_DrizzleCon
     public function query($query, $bufferMode = PMA_Drizzle::BUFFER_RESULT,
         $fetchMode = PMA_Drizzle::FETCH_ASSOC
     ) {
-        $result = $this->dcon->query($query);
+        $result = $this->_dcon->query($query);
         if ($result instanceof DrizzleResult) {
-            $this->lastResult = new PMA_DrizzleResult(
+            $this->_lastResult = new PMA_DrizzleResult(
                 $result, $bufferMode, $fetchMode
             );
-            return $this->lastResult;
+            return $this->_lastResult;
         }
         return $result;
     }
@@ -171,8 +171,8 @@ class PMA_DrizzleCon
      */
     public function affectedRows()
     {
-        return $this->lastResult
-            ? $this->lastResult->affectedRows()
+        return $this->_lastResult
+            ? $this->_lastResult->affectedRows()
             : false;
     }
 
@@ -186,7 +186,7 @@ class PMA_DrizzleCon
      */
     public function __call($method, $args)
     {
-        return call_user_func_array(array($this->dcon, $method), $args);
+        return call_user_func_array(array($this->_dcon, $method), $args);
     }
 
     /**
@@ -196,7 +196,7 @@ class PMA_DrizzleCon
      */
     public function getConnectionObject()
     {
-        return $this->dcon;
+        return $this->_dcon;
     }
 }
 
