@@ -157,8 +157,8 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
 
         return array(
             array(
-                "'POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30))',124",
+                "'POLYGON((35 10,10 20,15 40,45 45,35 10),"
+                    . "(20 30,35 32,30 20,20 30))',124",
                 null,
                 array(
                     'srid' => '124',
