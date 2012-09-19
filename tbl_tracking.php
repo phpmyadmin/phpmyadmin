@@ -126,7 +126,9 @@ if (isset($_REQUEST['report_export'])) {
 }
 
 // Export as file download
-if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfile') {
+if (isset($_REQUEST['report_export'])
+    && $_REQUEST['export_type'] == 'sqldumpfile'
+) {
     @ini_set('url_rewriter.tags', '');
 
     $dump = "# " . sprintf(
@@ -250,17 +252,21 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution'
 
 // Export as SQL dump
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') {
-    $new_query =    "# " . __('You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.') . "\n" .
-                    "# " . __('Comment out these two lines if you do not need them.') . "\n" .
-                    "\n" .
-                    "CREATE database IF NOT EXISTS pma_temp_db; \n" .
-                    "USE pma_temp_db; \n" .
-                    "\n";
+    $new_query = "# "
+        . __('You can execute the dump by creating and using a temporary database. Please ensure that you have the privileges to do so.')
+        . "\n"
+        . "# " . __('Comment out these two lines if you do not need them.') . "\n"
+        . "\n"
+        . "CREATE database IF NOT EXISTS pma_temp_db; \n"
+        . "USE pma_temp_db; \n"
+        . "\n";
 
     foreach ($entries as $entry) {
         $new_query .= $entry['statement'];
     }
-    $msg = PMA_Message::success(__('SQL statements exported. Please copy the dump or execute it.'));
+    $msg = PMA_Message::success(
+        __('SQL statements exported. Please copy the dump or execute it.')
+    );
     $msg->display();
 
     $db_temp = $db;
@@ -438,7 +444,9 @@ if (isset($_REQUEST['report'])
                 $_REQUEST['version'], 'DDL', $data['ddlog']
             );
             if ($successfullyDeleted) {
-                $msg = PMA_Message::success(__('Tracking data definition successfully deleted'));
+                $msg = PMA_Message::success(
+                    __('Tracking data definition successfully deleted')
+                );
             } else {
                 $msg = PMA_Message::rawError(__('Query error'));
             }
@@ -460,7 +468,9 @@ if (isset($_REQUEST['report'])
                 $_REQUEST['version'], 'DML', $data['dmlog']
             );
             if ($successfullyDeleted) {
-                $msg = PMA_Message::success(__('Tracking data manipulation successfully deleted'));
+                $msg = PMA_Message::success(
+                    __('Tracking data manipulation successfully deleted')
+                );
             } else {
                 $msg = PMA_Message::rawError(__('Query error'));
             }
@@ -474,7 +484,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         . '  [<a href="tbl_tracking.php?' . $url_query . '">' . __('Close')
         . '</a>]</h3>';
 
-    echo '<small>' . __('Tracking statements') . ' ' . htmlspecialchars($data['tracking']) . '</small><br/>';
+    echo '<small>' . __('Tracking statements') . ' '
+        . htmlspecialchars($data['tracking']) . '</small><br/>';
     echo '<br/>';
 
     echo '<form method="post" action="tbl_tracking.php'
@@ -483,24 +494,40 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         )
         . '">';
 
-    $str1 = '<select name="logtype">' .
-            '<option value="schema"' . ($selection_schema ? ' selected="selected"' : '') . '>' . __('Structure only') . '</option>' .
-            '<option value="data"' . ($selection_data ? ' selected="selected"' : ''). '>' . __('Data only') . '</option>' .
-            '<option value="schema_and_data"' . ($selection_both ? ' selected="selected"' : '') . '>' . __('Structure and data') . '</option>' .
-            '</select>';
-    $str2 = '<input type="text" name="date_from" value="' . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
-    $str3 = '<input type="text" name="date_to" value="' . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
-    $str4 = '<input type="text" name="users" value="' . htmlspecialchars($_REQUEST['users']) . '" />';
+    $str1 = '<select name="logtype">'
+        . '<option value="schema"'
+        . ($selection_schema ? ' selected="selected"' : '') . '>'
+        . __('Structure only') . '</option>'
+        . '<option value="data"'
+        . ($selection_data ? ' selected="selected"' : ''). '>'
+        . __('Data only') . '</option>'
+        . '<option value="schema_and_data"'
+        . ($selection_both ? ' selected="selected"' : '') . '>'
+        . __('Structure and data') . '</option>'
+        '</select>';
+    $str2 = '<input type="text" name="date_from" value="'
+        . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
+    $str3 = '<input type="text" name="date_to" value="'
+        . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
+    $str4 = '<input type="text" name="users" value="'
+        . htmlspecialchars($_REQUEST['users']) . '" />';
     $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
 
-    printf(__('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'), $str1, $str2, $str3, $str4, $str5);
+    printf(
+        __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
+        $str1, $str2, $str3, $str4, $str5
+    );
 
     // Prepare delete link content here
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= PMA_Util::getImage('b_drop.png', __('Delete tracking data row from report'));
+        $drop_image_or_text .= PMA_Util::getImage(
+            'b_drop.png', __('Delete tracking data row from report')
+        );
     }
-    if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
+    if ('both' === $GLOBALS['cfg']['PropertiesIconic']
+        || false === $GLOBALS['cfg']['PropertiesIconic']
+    ) {
         $drop_image_or_text .= __('Delete');
     }
 
@@ -529,7 +556,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         $style = 'odd';
         foreach ($data['ddlog'] as $entry) {
             if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+                $statement = substr(
+                    $entry['statement'],
+                    0,
+                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+                ) . '[...]';
             } else {
                 $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']));
             }
@@ -587,7 +618,11 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         $style = 'odd';
         foreach ($data['dmlog'] as $entry) {
             if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+                $statement = substr(
+                    $entry['statement'],
+                    0,
+                    $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+                ) . '[...]';
             } else {
                 $statement  = PMA_Util::formatSql(PMA_SQP_parse($entry['statement']));
             }
@@ -626,13 +661,17 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
-    printf(__('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'), $str1, $str2, $str3, $str4, $str5);
+    printf(
+        __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
+        $str1, $str2, $str3, $str4, $str5
+    );
 
-    $str_export1 =  '<select name="export_type">' .
-                    '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>' .
-                    '<option value="sqldump">' . __('SQL dump') . '</option>' .
-                    '<option value="execution" onclick="alert(\'' . PMA_escapeJsString(__('This option will replace your table and contained data.')) .'\')">' . __('SQL execution') . '</option>' .
-                    '</select>';
+    $str_export1 =  '<select name="export_type">'
+        . '<option value="sqldumpfile">' . __('SQL dump (file download)') . '</option>'
+        . '<option value="sqldump">' . __('SQL dump') . '</option>'
+        . '<option value="execution" onclick="alert(\''
+        . PMA_escapeJsString(__('This option will replace your table and contained data.'))
+        .'\')">' . __('SQL execution') . '</option>' . '</select>';
 
     $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
     echo '</form>';
@@ -695,11 +734,11 @@ echo '<br />';
  */
 
 $sql_query = " SELECT * FROM " .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' ".
-             " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) ."' ".
-             " ORDER BY version DESC ";
+     PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
+     PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
+     " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' ".
+     " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) ."' ".
+     " ORDER BY version DESC ";
 
 $sql_result = PMA_queryAsControlUser($sql_query);
 
