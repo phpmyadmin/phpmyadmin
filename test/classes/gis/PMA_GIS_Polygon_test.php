@@ -350,26 +350,33 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsPng()
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $image
-     * @param type $output
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      label for the GIS POLYGON object
+     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $image      image object
+     * @param string $output     expected output
      *
-     *@dataProvider providerForPrepareRowAsPng
+     * @return void
+     * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image, $output
+        $spatial, $label, $fill_color, $scale_data, $image, $output
     ) {
         $return = $this->object->prepareRowAsPng(
-            $spatial, $label, $line_color, $scale_data, $image
+            $spatial, $label, $fill_color, $scale_data, $image
         );
         /* TODO: this never fails */
         $this->assertTrue(true);
     }
 
+    /**
+     * data provider for testPrepareRowAsPng() test case
+     *
+     * @return array test data for testPrepareRowAsPng() test case
+     */
     public function providerForPrepareRowAsPng()
     {
         return array(
@@ -390,24 +397,31 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsPdf() method
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $pdf
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      label for the GIS POLYGON object
+     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $scale_data array containing data related to scaling
+     * @param object $pdf        TCPDF instance
      *
-     *@dataProvider providerForPrepareRowAsPdf
+     * @return void
+     * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial, $label, $line_color, $scale_data, $pdf
+        $spatial, $label, $fill_color, $scale_data, $pdf
     ) {
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $line_color, $scale_data, $pdf
+            $spatial, $label, $fill_color, $scale_data, $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
 
+    /**
+     * data provider for testPrepareRowAsPdf() test case
+     *
+     * @return array test data for testPrepareRowAsPdf() test case
+     */
     public function providerForPrepareRowAsPdf()
     {
         return array(
@@ -427,24 +441,31 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsSvg() method
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      label for the GIS POLYGON object
+     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $scale_data array containing data related to scaling
+     * @param string $output     expected output
      *
-     *@dataProvider providerForPrepareRowAsSvg
+     * @return void
+     * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial, $label, $line_color, $scale_data, $output
+        $spatial, $label, $fill_color, $scale_data, $output
     ) {
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $line_color, $scale_data
+            $spatial, $label, $fill_color, $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
 
+    /**
+     * data provider for testPrepareRowAsSvg() test case
+     *
+     * @return array test data for testPrepareRowAsSvg() test case
+     */
     public function providerForPrepareRowAsSvg()
     {
         return array(
@@ -464,27 +485,34 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for prepareRowAsOl() method
      *
-     * @param type $spatial
-     * @param type $srid
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial    GIS POLYGON object
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS POLYGON object
+     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $scale_data array containing data related to scaling
+     * @param string $output     expected output
      *
-     *@dataProvider providerForPrepareRowAsOl
+     * @return void
+     * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial, $srid, $label, $line_color, $scale_data, $output
+        $spatial, $srid, $label, $fill_color, $scale_data, $output
     ) {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $line_color, $scale_data
+                $spatial, $srid, $label, $fill_color, $scale_data
             )
         );
     }
 
+    /**
+     * data provider for testPrepareRowAsOl() test case
+     *
+     * @return array test data for testPrepareRowAsOl() test case
+     */
     public function providerForPrepareRowAsOl()
     {
         return array(
@@ -505,17 +533,24 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     }
 
     /**
+     * test case for isOuterRing() method
      *
-     * @param type $ring
-     * @param type $output
+     * @param array  $ring   coordinates of the points in a ring
+     * @param string $output expected output
      *
-     *@dataProvider providerForIsOuterRing
+     * @return void
+     * @dataProvider providerForIsOuterRing
      */
     public function testIsOuterRing($ring)
     {
         $this->assertTrue($this->object->isOuterRing($ring));
     }
 
+    /**
+     * data provider for testIsOuterRing() test case
+     *
+     * @return array test data for testIsOuterRing() test case
+     */
     public function providerForIsOuterRing()
     {
         return array(
