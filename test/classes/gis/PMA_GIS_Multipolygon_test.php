@@ -48,6 +48,11 @@ class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
         unset($this->object);
     }
 
+    /**
+     * Provide some common data to data providers
+     *
+     * @return array common data for data providers
+     */
     private function _getData()
     {
         return array(
