@@ -1222,7 +1222,9 @@ $(function() {
 	    });
 
         $(document.body).mouseup(function() {
-            selectionBox.remove();
+            if($('#selection_box').length) {
+                selectionBox.remove();
+            }
 	    });
 
         // Edit, Print icon only in edit mode
