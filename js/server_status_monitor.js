@@ -1213,6 +1213,11 @@ $(function() {
                 return;
 
 		    selectionTimeDiff.push(datapos.xaxis);
+
+            if(selectionTimeDiff[1] < selectionTimeDiff[0]) {
+                selectionTimeDiff = [];
+                return;
+            }
             //get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
