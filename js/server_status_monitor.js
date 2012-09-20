@@ -1187,8 +1187,10 @@ $(function() {
         // time span selection
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
-            $('#selection_box').remove();
-            selectionBox = $('<div style="z-index:1000;height:250px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
+            if($('#selection_box').length) {
+                $('#selection_box').remove();
+            }
+            selectionBox = $('<div id="selection_box" style="z-index:1000;height:250px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
             $(document.body).append(selectionBox);
             selectionStartX = ev.pageX;
             selectionStartY = ev.pageY;
@@ -1203,7 +1205,6 @@ $(function() {
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
 		    selectionTimeDiff.push(datapos.xaxis);
-            $('#selection_box').attr({ id: '' });
             //get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
