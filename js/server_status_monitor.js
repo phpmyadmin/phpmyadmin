@@ -94,6 +94,9 @@ $(function() {
     var selectionTimeDiff = new Array();
     var selectionStartX, selectionStartY, selectionEndX, selectionEndY;
     var drawTimeSpan = false;
+
+    // chart tooltip
+    var tooltipBox;
     
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
@@ -1219,6 +1222,24 @@ $(function() {
 	    });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
+
+            if(neighbor != null) {
+                if ($('#tooltip_box').length) {
+                    $('#tooltip_box')
+                        .css({
+                            left: ev.pageX + 15,
+                            top: ev.pageY + 15,
+                            padding:'5px'
+                        })
+                        .fadeIn();
+                }
+                var xVal = new Date(Math.ceil(neighbor.data[0]));
+                xVal = xVal.getHours() + ":" + xVal.getMinutes() + ":" + xVal.getSeconds();
+                var s = '<b>' + xVal + '<br/>' + neighbor.data[1] + '</b>';
+
+                $('#tooltip_box').html(s);
+            }
+
             if(! drawTimeSpan)
                 return;
 
@@ -1231,7 +1252,26 @@ $(function() {
             }
 	    });
 
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseEnter', function(ev, gridpos, datapos, neighbor, plot) {
+            if($('#tooltip_box').length) {
+                tooltipBox.remove();
+            }
+            tooltipBox = $('<div style="z-index:1000;height:40px;position:absolute;background-color:#FFFFFD;opacity:0.8;filter:alpha(opacity=80);">');
+            $(document.body).append(tooltipBox);
+            tooltipBox
+                .attr({id: 'tooltip_box'})
+                .css({
+                    top: ev.pageY + 15,
+                    left: ev.pageX + 15
+                })
+                .fadeIn();
+	    });
+
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
+            if($('#tooltip_box').length) {
+                tooltipBox.remove();
+            }
             drawTimeSpan = false;
 	    });
 
