@@ -93,6 +93,7 @@ $(function() {
     // time span selection
     var selectionTimeDiff = new Array();
     var selectionStartX, selectionStartY, selectionEndX, selectionEndY;
+    var drawTimeSpan = false;
     
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
@@ -1186,6 +1187,7 @@ $(function() {
 
         // time span selection
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
+            drawTimeSpan = true;
 		    selectionTimeDiff.push(datapos.xaxis);
             if($('#selection_box').length) {
                 $('#selection_box').remove();
@@ -1204,15 +1206,22 @@ $(function() {
 	    });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
+            if(! drawTimeSpan)
+                return;
+
 		    selectionTimeDiff.push(datapos.xaxis);
             //get date from timestamp
             var min = new Date(Math.ceil(selectionTimeDiff[0]));
             var max = new Date(Math.ceil(selectionTimeDiff[1]));
             PMA_getLogAnalyseDialog(min, max);
             selectionTimeDiff = [];
+            drawTimeSpan = false;
 	    });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
+            if(! drawTimeSpan)
+                return;
+
             if (selectionStartX != undefined) {
                 $('#selection_box')
                     .css({
@@ -1220,6 +1229,10 @@ $(function() {
                     })
                     .fadeIn();
             }
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
+            drawTimeSpan = false;
 	    });
 
         $(document.body).mouseup(function() {
