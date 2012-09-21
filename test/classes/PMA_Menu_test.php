@@ -39,10 +39,6 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', 55000);
-        }
-
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
