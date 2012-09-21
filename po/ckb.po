@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-19 14:28+0200\n"
-"PO-Revision-Date: 2012-09-05 10:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2012-09-21 19:39+0200\n"
+"Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -477,9 +477,8 @@ msgid "Tracking report"
 msgstr "ڕاپۆرتە شوێنکەتووەکان"
 
 #: db_tracking.php:142 tbl_tracking.php:288 tbl_tracking.php:795
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "وێنەی هەنووکەیی پێکهاتە"
+msgstr "وێنەی پێکهاتە"
 
 #: db_tracking.php:195
 msgid "Untracked tables"
@@ -502,9 +501,8 @@ msgid "Selected export type has to be saved in file!"
 msgstr "دەستنیشانکردنی جۆری هەناردن بۆ پاشەکەوتکردنی لە پەڕگە!"
 
 #: export.php:122
-#, fuzzy
 msgid "Bad parameters!"
-msgstr "ڕاگه‌یێنە هەڵەکان!"
+msgstr "ڕادە هەڵەکان!"
 
 #: export.php:193 export.php:224 export.php:784
 #, php-format
@@ -614,7 +612,6 @@ msgid "Output"
 msgstr "دەرچە"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -622,11 +619,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"هەڵبژاردەی \"GeomFromText\" لە ستوونی \"Function\" هەڵبژێرن وە ڕیزبەنی "
-"خوارەوە لە خانەی \"نرخ(value)\" داخڵ بکەن."
+"\"GeomFromText\" لە ستوونی \"فرمان\" هەڵبژێرە و ڕیزبەندی خوارەوە لە خانەی \"نرخ\" "
+"داخڵ بکە"
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -634,8 +631,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"لەوانەیە ئێوە هەوڵتان دابێت فایلێک بە قەبارەیەکی زۆر بار بکەن.تکایە بۆ ڕیگە "
-"چارەیەک بۆ ئەم سنوردار کردنە سەردانی %sبەڵگەسازی%s بکەن."
+"لەوانەیە تۆ هەوڵت دابێت فایلێک بە قەبارەیەکی زۆر بار بکەی. تکایە سەردانی %"
+"sبەڵگەسازی%s بکە بۆ چارەکردنی ئەم سنوردار کردنە."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -708,7 +705,7 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "سیكوێڵ کیوریەکەت بەسەرکەوتوویی ئەنجامدرا"
 
 #: import_status.php:101 libraries/Util.class.php:742
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
@@ -721,16 +718,16 @@ msgstr ""
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:329
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "دەستەواژەکانی \"سڕینەوەی بنکەی زانیاری\" ناچالاککراوە."
 
 #: js/messages.php:30
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "ئایا تۆ دڵنیایت لە جێبەجێکردنی \"%s\"؟"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:308 sql.php:432
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "تۆ خەریکی سڕینەوەی تەواوی بنکە زانیاریەکەیت!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
@@ -754,11 +751,11 @@ msgstr ""
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "بیرچوونی نرخێک لە فۆڕمەکە!"
 
 #: js/messages.php:41
 msgid "This is not a number!"
-msgstr ""
+msgstr "ئەوە ژمارە نیە!"
 
 #: js/messages.php:42
 msgid "Add Index"
@@ -771,7 +768,7 @@ msgstr "چاکردنی نیشاندەر"
 #: js/messages.php:44 tbl_indexes.php:337
 #, php-format
 msgid "Add %d column(s) to index"
-msgstr ""
+msgstr "ئەستوون(ەکان)ی %d زیادبکە بۆ نیشاندەر"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -793,9 +790,8 @@ msgstr "وشەی نهێنی بەتاڵە!"
 
 #: js/messages.php:54 libraries/server_privileges.lib.php:1317
 #: user_password.php:112
-#, fuzzy
 msgid "The passwords aren't the same!"
-msgstr "وشە نهێنیەکان وەک خۆیان نین"
+msgstr "تێپەڕە وشەکان وەک یەک نین!"
 
 #: js/messages.php:55 libraries/server_privileges.lib.php:1448
 #: libraries/server_privileges.lib.php:1640
@@ -806,11 +802,11 @@ msgstr "زیادکردنی بەکارهێنەر"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr ""
+msgstr "هێنانەوەی تایبەتمەندیەکان"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "سڕینەوەی بەکارهێنەرە دەست نیشانکراوەکان"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:289
 #: tbl_tracking.php:484
@@ -853,7 +849,7 @@ msgstr "سەرجەم"
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:667 server_status.php:1089
 msgid "Other"
-msgstr ""
+msgstr "هیتر"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1585
@@ -875,29 +871,29 @@ msgstr ""
 
 #: js/messages.php:78
 msgid "Server traffic (in KiB)"
-msgstr ""
+msgstr "هاتووچوی سێرڤەر (بە کیلۆ بایت)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "بەستنەکان لەدوای کۆتایین تازەکردنەوە"
 
 #: js/messages.php:80 js/messages.php:118 server_status.php:1382
 msgid "Processes"
-msgstr ""
+msgstr "پڕۆسەکان"
 
 #: js/messages.php:81
 msgid "Connections / Processes"
-msgstr ""
+msgstr "بەستنەکان / پڕۆسەکان"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "پرسیارەکان لەدوای کۆتایین تازەکردنەوە"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "پرسیارەکان (دەستەواژە جێبەجێکراوەکان لەلایەن سێرڤەرەکەوە)"
 
 #: js/messages.php:87 server_status.php:842
 msgid "Query statistics"
