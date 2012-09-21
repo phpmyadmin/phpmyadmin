@@ -1139,7 +1139,16 @@ $(function() {
                         .fadeIn();
                 }
                 var xVal = new Date(Math.ceil(neighbor.data[0]));
-                xVal = xVal.getHours() + ":" + xVal.getMinutes() + ":" + xVal.getSeconds();
+                var xValHours = xVal.getHours();
+                (xValHours < 10) ? (xValHours = "0" + xValHours) : "";
+
+                var xValMinutes = xVal.getMinutes();
+                (xValMinutes < 10) ? (xValMinutes = "0" + xValMinutes) : "";
+
+                var xValSeconds = xVal.getSeconds();
+                (xValSeconds < 10) ? (xValSeconds = "0" + xValSeconds) : "";
+
+                xVal = xValHours + ":" + xValMinutes + ":" + xValSeconds;
                 var s = '<b>' + xVal + '<br/>' + neighbor.data[1] + '</b>';
 
                 $('#tooltip_box').html(s);
