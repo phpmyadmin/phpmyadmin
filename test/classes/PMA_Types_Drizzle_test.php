@@ -322,11 +322,6 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      */
     public function testGetColumns()
     {
-
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', 20120130);
-        }
-
         $this->assertEquals(
             array(
                 0 => 'INT',
@@ -358,8 +353,6 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
                     'BLOB',
                     '-',
                     'ENUM',
-                    '-',
-                    'IPV6'
                 ),
             ),
             $this->object->getColumns()

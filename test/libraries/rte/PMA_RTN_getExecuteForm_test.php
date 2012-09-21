@@ -23,11 +23,6 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         global $cfg;
-
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', 55000);
-        }
-
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;

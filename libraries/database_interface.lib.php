@@ -445,7 +445,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
         // added BINARY in the WHERE clause to force a case sensitive
         // comparison (if we are looking for the db Aa we don't want
         // to find the db aa)
-        $this_databases = array_map('sqlAddSlashes', $databases);
+        $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
 
         if (PMA_DRIZZLE) {
             $engine_info = PMA_Util::cacheGet('drizzle_engines', true);

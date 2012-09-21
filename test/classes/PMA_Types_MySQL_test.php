@@ -285,11 +285,6 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetFunctionsClass($class, $output)
     {
-
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', 60000);
-        }
-
         $this->assertEquals(
             $output,
             $this->object->getFunctionsClass($class)

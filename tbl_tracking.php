@@ -504,7 +504,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         . '<option value="schema_and_data"'
         . ($selection_both ? ' selected="selected"' : '') . '>'
         . __('Structure and data') . '</option>'
-        '</select>';
+        . '</select>';
     $str2 = '<input type="text" name="date_from" value="'
         . htmlspecialchars($_REQUEST['date_from']) . '" size="19" />';
     $str3 = '<input type="text" name="date_to" value="'
