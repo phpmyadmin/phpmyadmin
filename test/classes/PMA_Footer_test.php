@@ -157,34 +157,18 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         );
     }
 
-//    /**
-//     * Test for disable
-//     *
-//     * @return void
-//     */
-//    public function testDisable()
-//    {
-//
-//        $GLOBALS['lang'] = 'en';
-//        $GLOBALS['collation_connection'] = 'utf8_general_ci';
-//        $GLOBALS['server'] = '1';
-//        $_SESSION[' PMA_token '] = 'token';
-//        $GLOBALS['reload'] = '1';
-//        $GLOBALS['focus_querywindow'] = 'main_pane_left';
-//
-//        $footer = new PMA_Footer();
-//
-//        $class         = get_class( $footer );
-//        $reflection = new ReflectionClass( $class );
-//        $priv_attr  = $reflection->getProperties( ReflectionProperty::IS_PRIVATE );
-//        $privates   = array();
-//        $parseable = unserialize(str_replace("\0$class\0", "\0*\0", serialize($footer)));
-//        foreach($priv_attr as $attribute)
-//        {
-//            $aname = $attribute->name;
-//            $privates[$aname] = $parseable->$aname;
-//        }
-//
-//        $this->assertFalse($priv_attr[3]->_isEnable);
-//    }
+    /**
+     * Test for disable
+     *
+     * @return void
+     */
+    public function testDisable()
+    {
+        $footer = new PMA_Footer();
+        $footer->disable();
+        $this->assertEquals(
+            '',
+            $footer->getDisplay()
+        );
+    }
 }
