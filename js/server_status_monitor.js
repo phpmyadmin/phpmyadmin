@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();
@@ -88,6 +89,14 @@ $(function() {
             maxYLabel: []
         }
     };
+
+    // time span selection
+    var selectionTimeDiff = new Array();
+    var selectionStartX, selectionStartY, selectionEndX, selectionEndY;
+    var drawTimeSpan = false;
+
+    // chart tooltip
+    var tooltipBox;
     
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
@@ -284,14 +293,6 @@ $(function() {
             }]
         }
     };
-
-    Highcharts.setOptions({
-        lang: {
-            settings:    PMA_messages['strSettings'],
-            removeChart: PMA_messages['strRemoveChart'],
-            editChart:   PMA_messages['strEditChart']
-        }
-    });
 
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function() {
         editMode = !editMode;
@@ -1027,98 +1028,6 @@ $(function() {
 
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
-/*        series = [];
-        for (var j = 0; j<chartObj.nodes.length; j++)
-            series.push(chartObj.nodes[j]);
-
-        settings = {
-            chart: {
-                renderTo: 'gridchart' + runtime.chartAI,
-                width: chartSize().width,
-                height: chartSize().height,
-                marginRight: 5,
-                zoomType: 'x',
-                events: {
-                    selection: function(event) {
-                        if (editMode || $('#logAnalyseDialog').length == 0) {
-                            return false;
-                        }
-
-                        var extremesObject = event.xAxis[0],
-                            min = extremesObject.min,
-                            max = extremesObject.max;
-
-                        $('#logAnalyseDialog input[name="dateStart"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
-                        $('#logAnalyseDialog input[name="dateEnd"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
-
-                        var dlgBtns = { };
-
-                        dlgBtns[PMA_messages['strFromSlowLog']] = function() {
-                            loadLog('slow');
-                            $(this).dialog("close");
-                        };
-                        
-                        dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
-                            loadLog('general');
-                            $(this).dialog("close");
-                        };
-                        
-                        function loadLog(type) {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
-
-                            loadLogStatistics({
-                                src: type,
-                                start: dateStart,
-                                end: dateEnd,
-                                removeVariables: $('input#removeVariables').prop('checked'),
-                                limitTypes: $('input#limitTypes').prop('checked')
-                            });
-                        }
-                        
-                        $('#logAnalyseDialog').dialog({
-                            width: 'auto',
-                            height: 'auto',
-                            buttons: dlgBtns
-                        });
-
-                        return false;
-                    }
-                }
-            },
-            xAxis: {
-                min: runtime.xmin,
-                max: runtime.xmax
-            },
-
-            yAxis: {
-                title: {
-                    text: ''
-                }
-            },
-            tooltip: {
-                formatter: function() {
-                        var s = '<b>' + Highcharts.dateFormat('%H:%M:%S', this.x) + '</b>';
-
-                        $.each(this.points, function(i, point) {
-                            s += '<br/><span style="color:' + point.series.color + '">' + point.series.name + ':</span> ' +
-                                ((parseInt(point.y) == point.y) ? point.y : Highcharts.numberFormat(this.y, 2)) + ' ' + (point.series.options.unit || '');
-                        });
-
-                        return s;
-                },
-                shared: true
-            },
-            legend: {
-                enabled: false
-            },
-            series: series,
-            buttons: gridbuttons,
-            title: { text: chartObj.title }
-        };
-*/
 
         var settings = {
             title: chartObj.title,
@@ -1179,6 +1088,113 @@ $(function() {
             buildRequiredDataList();
         }
 
+        // time span selection
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
+            drawTimeSpan = true;
+		    selectionTimeDiff.push(datapos.xaxis);
+            if($('#selection_box').length) {
+                $('#selection_box').remove();
+            }
+            selectionBox = $('<div id="selection_box" style="z-index:1000;height:250px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
+            $(document.body).append(selectionBox);
+            selectionStartX = ev.pageX;
+            selectionStartY = ev.pageY;
+            selectionBox
+                .attr({id: 'selection_box'})
+                .css({
+                    top: selectionStartY-gridpos.y,
+                    left: selectionStartX
+                })
+                .fadeIn();
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
+            if(! drawTimeSpan)
+                return;
+
+		    selectionTimeDiff.push(datapos.xaxis);
+
+            if(selectionTimeDiff[1] < selectionTimeDiff[0]) {
+                selectionTimeDiff = [];
+                return;
+            }
+            //get date from timestamp
+            var min = new Date(Math.ceil(selectionTimeDiff[0]));
+            var max = new Date(Math.ceil(selectionTimeDiff[1]));
+            PMA_getLogAnalyseDialog(min, max);
+            selectionTimeDiff = [];
+            drawTimeSpan = false;
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
+
+            if(neighbor != null) {
+                if ($('#tooltip_box').length) {
+                    $('#tooltip_box')
+                        .css({
+                            left: ev.pageX + 15,
+                            top: ev.pageY + 15,
+                            padding:'5px'
+                        })
+                        .fadeIn();
+                }
+                var xVal = new Date(Math.ceil(neighbor.data[0]));
+                var xValHours = xVal.getHours();
+                (xValHours < 10) ? (xValHours = "0" + xValHours) : "";
+
+                var xValMinutes = xVal.getMinutes();
+                (xValMinutes < 10) ? (xValMinutes = "0" + xValMinutes) : "";
+
+                var xValSeconds = xVal.getSeconds();
+                (xValSeconds < 10) ? (xValSeconds = "0" + xValSeconds) : "";
+
+                xVal = xValHours + ":" + xValMinutes + ":" + xValSeconds;
+                var s = '<b>' + xVal + '<br/>' + neighbor.data[1] + '</b>';
+
+                $('#tooltip_box').html(s);
+            }
+
+            if(! drawTimeSpan)
+                return;
+
+            if (selectionStartX != undefined) {
+                $('#selection_box')
+                    .css({
+                        width: Math.ceil(ev.pageX - selectionStartX)
+                    })
+                    .fadeIn();
+            }
+	    });
+
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseEnter', function(ev, gridpos, datapos, neighbor, plot) {
+            if($('#tooltip_box').length) {
+                tooltipBox.remove();
+            }
+            tooltipBox = $('<div style="z-index:1000;height:40px;position:absolute;background-color:#FFFFFD;opacity:0.8;filter:alpha(opacity=80);">');
+            $(document.body).append(tooltipBox);
+            tooltipBox
+                .attr({id: 'tooltip_box'})
+                .css({
+                    top: ev.pageY + 15,
+                    left: ev.pageX + 15
+                })
+                .fadeIn();
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
+            if($('#tooltip_box').length) {
+                tooltipBox.remove();
+            }
+            drawTimeSpan = false;
+	    });
+
+        $(document.body).mouseup(function() {
+            if($('#selection_box').length) {
+                selectionBox.remove();
+            }
+	    });
+
         // Edit, Print icon only in edit mode
         $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode)
 
@@ -1238,6 +1254,45 @@ $(function() {
             buttons: dlgBtns
         });
     }
+
+    function PMA_getLogAnalyseDialog(min, max) {
+        $('#logAnalyseDialog input[name="dateStart"]')
+            .attr('value', formatDate(min, 'yyyy-MM-dd HH:mm:ss'));
+        $('#logAnalyseDialog input[name="dateEnd"]')
+            .attr('value', formatDate(max, 'yyyy-MM-dd HH:mm:ss'));
+
+        var dlgBtns = { };
+
+        dlgBtns[PMA_messages['strFromSlowLog']] = function() {
+            loadLog('slow', min, max);
+            $(this).dialog("close");
+        };
+                        
+        dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
+            loadLog('general', min, max);
+            $(this).dialog("close");
+        };
+
+        $('#logAnalyseDialog').dialog({
+            width: 'auto',
+            height: 'auto',
+            buttons: dlgBtns
+        });
+    }
+
+    function loadLog(type, min, max) {
+        var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
+        var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
+
+        loadLogStatistics({
+            src: type,
+            start: dateStart,
+            end: dateEnd,
+            removeVariables: $('input#removeVariables').prop('checked'),
+            limitTypes: $('input#limitTypes').prop('checked')
+        });
+    }
+                        
     
     /* Removes a chart from the grid */
     function removeChart(chartObj) {
@@ -1930,17 +1985,10 @@ $(function() {
                     return false;
                 });
 
-                profilingChart = PMA_createProfilingChart(chartData, {
-                    chart: {
-                        renderTo: 'queryProfiling'
-                    },
-                    plotOptions: {
-                        pie: {
-                            size: '50%'
-                        }
-                    }
-                });
-
+                profilingChart = PMA_createProfilingChartJqplot(
+                        'queryProfiling', 
+                        chartData
+                );
 
                 $('div#queryProfiling').resizable();
             }
