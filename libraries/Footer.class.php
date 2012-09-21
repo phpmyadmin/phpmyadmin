@@ -61,6 +61,7 @@ class PMA_Footer
         $this->_scripts   = new PMA_Scripts();
         $this->_isMinimal = false;
         $this->_addDefaultScripts();
+        unset($POST);
     }
 
     /**
