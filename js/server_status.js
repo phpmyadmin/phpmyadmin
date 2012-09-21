@@ -7,7 +7,7 @@
  * @requires    jQueryUI
  * @requires    jQueryCookie
  * @requires    jQueryTablesorter
- * @requires    Highcharts
+ * @requires    jqPlot 
  * @requires    canvg
  * @requires    js/functions.js
  *
@@ -124,13 +124,6 @@ $(function() {
 
     /*** Table sort tooltip ***/
     PMA_createqTip($('table.sortable thead th'), PMA_messages['strSortHint']);
-
-    // Tell highcarts not to use UTC dates (global setting)
-    Highcharts.setOptions({
-        global: {
-            useUTC: false
-        }
-    });
 
     $.ajaxSetup({
         cache: false

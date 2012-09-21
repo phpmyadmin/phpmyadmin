@@ -294,14 +294,6 @@ $(function() {
         }
     };
 
-    Highcharts.setOptions({
-        lang: {
-            settings:    PMA_messages['strSettings'],
-            removeChart: PMA_messages['strRemoveChart'],
-            editChart:   PMA_messages['strEditChart']
-        }
-    });
-
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function() {
         editMode = !editMode;
         if ($(this).attr('href') == '#endChartEditMode') {
@@ -1036,98 +1028,6 @@ $(function() {
 
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
-/*        series = [];
-        for (var j = 0; j<chartObj.nodes.length; j++)
-            series.push(chartObj.nodes[j]);
-
-        settings = {
-            chart: {
-                renderTo: 'gridchart' + runtime.chartAI,
-                width: chartSize().width,
-                height: chartSize().height,
-                marginRight: 5,
-                zoomType: 'x',
-                events: {
-                    selection: function(event) {
-                        if (editMode || $('#logAnalyseDialog').length == 0) {
-                            return false;
-                        }
-
-                        var extremesObject = event.xAxis[0],
-                            min = extremesObject.min,
-                            max = extremesObject.max;
-
-                        $('#logAnalyseDialog input[name="dateStart"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(min)));
-                        $('#logAnalyseDialog input[name="dateEnd"]')
-                            .attr('value', Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', new Date(max)));
-
-                        var dlgBtns = { };
-
-                        dlgBtns[PMA_messages['strFromSlowLog']] = function() {
-                            loadLog('slow');
-                            $(this).dialog("close");
-                        };
-                        
-                        dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
-                            loadLog('general');
-                            $(this).dialog("close");
-                        };
-                        
-                        function loadLog(type) {
-                            var dateStart = Date.parse($('#logAnalyseDialog input[name="dateStart"]').prop('value')) || min;
-                            var dateEnd = Date.parse($('#logAnalyseDialog input[name="dateEnd"]').prop('value')) || max;
-
-                            loadLogStatistics({
-                                src: type,
-                                start: dateStart,
-                                end: dateEnd,
-                                removeVariables: $('input#removeVariables').prop('checked'),
-                                limitTypes: $('input#limitTypes').prop('checked')
-                            });
-                        }
-                        
-                        $('#logAnalyseDialog').dialog({
-                            width: 'auto',
-                            height: 'auto',
-                            buttons: dlgBtns
-                        });
-
-                        return false;
-                    }
-                }
-            },
-            xAxis: {
-                min: runtime.xmin,
-                max: runtime.xmax
-            },
-
-            yAxis: {
-                title: {
-                    text: ''
-                }
-            },
-            tooltip: {
-                formatter: function() {
-                        var s = '<b>' + Highcharts.dateFormat('%H:%M:%S', this.x) + '</b>';
-
-                        $.each(this.points, function(i, point) {
-                            s += '<br/><span style="color:' + point.series.color + '">' + point.series.name + ':</span> ' +
-                                ((parseInt(point.y) == point.y) ? point.y : Highcharts.numberFormat(this.y, 2)) + ' ' + (point.series.options.unit || '');
-                        });
-
-                        return s;
-                },
-                shared: true
-            },
-            legend: {
-                enabled: false
-            },
-            series: series,
-            buttons: gridbuttons,
-            title: { text: chartObj.title }
-        };
-*/
 
         var settings = {
             title: chartObj.title,
