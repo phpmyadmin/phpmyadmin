@@ -16,6 +16,8 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/vendor_config.php';
 
 /**
  * Tests for Footer class
@@ -46,6 +48,8 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
+        $GLOBALS['cfg']['Error_Handler']['gather'] = false;
+        $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $GLOBALS['server'] = '1';
         $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
@@ -53,6 +57,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_Footer();
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
+        $GLOBALS['error_handler'] = new PMA_Error_Handler();
     }
 
     /**
@@ -168,6 +173,20 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $footer->disable();
         $this->assertEquals(
             '',
+            $footer->getDisplay()
+        );
+    }
+
+    /**
+     * Test for displaying footer
+     *
+     * @return void
+     */
+    public function testDisplay()
+    {
+        $footer = new PMA_Footer();
+        $this->assertContains(
+            'Open new phpMyAdmin window',
             $footer->getDisplay()
         );
     }
