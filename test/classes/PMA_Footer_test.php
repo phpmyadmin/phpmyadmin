@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaing results
+ * Tests for Footer class
  *
  * @package PhpMyAdmin-test
  */
@@ -17,7 +17,12 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
-class PMA_Footer_test extends PHPUnit_Framework_TestCase
+/**
+ * Tests for Footer class
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Footer_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -81,6 +86,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getDebugMessage
      *
+     * @return void
+     *
      * @group medium
      */
     public function testGetDebugMessage()
@@ -110,6 +117,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSelfLink
+     *
+     * @return void
      */
     public function testGetSelfLink()
     {
@@ -128,6 +137,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSelfLink
+     *
+     * @return void
      */
     public function testGetSelfLinkWithImage()
     {
@@ -148,6 +159,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
 
 //    /**
 //     * Test for disable
+//     *
+//     * @return void
 //     */
 //    public function testDisable()
 //    {
