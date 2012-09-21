@@ -19,6 +19,18 @@ if (! defined('PHPMYADMIN')) {
 $GLOBALS['dummy_queries'] = array(
     array('query' => 'SELECT 1', 'result' => array(array('1'))),
     array(
+        'query' => 'SELECT CURRENT_USER();',
+        'result' => array(array('pma_test@localhost')),
+    ),
+    array(
+        'query' => 'SELECT COUNT(*) FROM mysql.user',
+        'result' => false,
+    ),
+    array(
+        'query' => 'SHOW MASTER LOGS',
+        'result' => false,
+    ),
+    array(
         'query' => 'SHOW STORAGE ENGINES',
         'result' => array(
             array('Engine' => 'dummy', 'Support' => 'YES', 'Comment' => 'dummy comment'),
@@ -160,8 +172,49 @@ $GLOBALS['dummy_queries'] = array(
             array('o', 'text/plain', 'sql'),
         )
     ),
-);
+    array(
+        'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t WHERE BINARY `TABLE_SCHEMA` IN (\'pma_test\') AND t.`TABLE_NAME` = \'table1\' ORDER BY Name ASC',
+        'columns' => array('TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'TABLE_TYPE', 'ENGINE', 'VERSION', 'ROW_FORMAT', 'TABLE_ROWS', 'AVG_ROW_LENGTH', 'DATA_LENGTH', 'MAX_DATA_LENGTH', 'INDEX_LENGTH', 'DATA_FREE', 'AUTO_INCREMENT', 'CREATE_TIME', 'UPDATE_TIME', 'CHECK_TIME', 'TABLE_COLLATION', 'CHECKSUM', 'CREATE_OPTIONS', 'TABLE_COMMENT', 'Db', 'Name', 'TABLE_TYPE', 'Engine', 'Type', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment'),
+        'result' => array(
+            array('def', 'smash', 'issues_issue', 'BASE TABLE', 'InnoDB', '10', 'Compact', '9136', '862', '7880704', '0', '1032192', '420478976', '155862', '2012-08-29 13:28:28', 'NULL', 'NULL', 'utf8_general_ci', 'NULL', '', '', 'smash', 'issues_issue', 'BASE TABLE', 'InnoDB', 'InnoDB', '10', 'Compact', '9136', '862', '7880704', '0', '1032192', '420478976', '155862', '2012-08-29 13:28:28', 'NULL', 'NULL', 'utf8_general_ci', 'NULL'),
+        ),
+    ),
+    array(
+        'query' => 'SELECT COUNT(*) FROM `pma_test`.`table1`',
+        'result' => array(array(0)),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\'',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\' AND TABLE_SCHEMA=\'pma\\\\_test\'',
 
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\'',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\'',
+
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
+        'result' => array(),
+    ),
+
+);
 /**
  * Current database.
  */
