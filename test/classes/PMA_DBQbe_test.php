@@ -285,7 +285,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getLeftJoinColumnCandidates
      */
-    public function test_getLeftJoinColumnCandidates()
+    public function testGetLeftJoinColumnCandidates()
     {
         $this->assertEquals(
             array(
@@ -305,7 +305,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getMasterTable
      */
-    public function test_getMasterTable()
+    public function testGetMasterTable()
     {
         $this->assertEquals(
             0,
@@ -324,7 +324,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getWhereClauseTablesAndColumns
      */
-    public function test_getWhereClauseTablesAndColumns()
+    public function testGetWhereClauseTablesAndColumns()
     {
         $_POST['criteriaColumn'] = array(
             'table1.id',
@@ -361,7 +361,7 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSQLQuery
      */
-    public function test_getSQLQuery()
+    public function testGetSQLQuery()
     {
         $this->assertEquals(
             'FROM table1
