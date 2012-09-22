@@ -58,6 +58,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
         $GLOBALS['error_handler'] = new PMA_Error_Handler();
+        unset($_POST);
     }
 
     /**
