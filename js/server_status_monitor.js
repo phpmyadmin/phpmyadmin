@@ -1101,7 +1101,7 @@ $(function() {
         // time span selection
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
             drawTimeSpan = true;
-		    selectionTimeDiff.push(datapos.xaxis);
+            selectionTimeDiff.push(datapos.xaxis);
             if($('#selection_box').length) {
                 $('#selection_box').remove();
             }
@@ -1116,13 +1116,13 @@ $(function() {
                     left: selectionStartX
                 })
                 .fadeIn();
-	    });
+        });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
             if(! drawTimeSpan)
                 return;
 
-		    selectionTimeDiff.push(datapos.xaxis);
+            selectionTimeDiff.push(datapos.xaxis);
 
             if(selectionTimeDiff[1] < selectionTimeDiff[0]) {
                 selectionTimeDiff = [];
@@ -1134,7 +1134,7 @@ $(function() {
             PMA_getLogAnalyseDialog(min, max);
             selectionTimeDiff = [];
             drawTimeSpan = false;
-	    });
+        });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
 
@@ -1174,7 +1174,7 @@ $(function() {
                     })
                     .fadeIn();
             }
-	    });
+        });
 
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseEnter', function(ev, gridpos, datapos, neighbor, plot) {
@@ -1190,20 +1190,20 @@ $(function() {
                     left: ev.pageX + 15
                 })
                 .fadeIn();
-	    });
+        });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
             if($('#tooltip_box').length) {
                 tooltipBox.remove();
             }
             drawTimeSpan = false;
-	    });
+        });
 
         $(document.body).mouseup(function() {
             if($('#selection_box').length) {
                 selectionBox.remove();
             }
-	    });
+        });
 
         // Edit, Print icon only in edit mode
         $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
@@ -1566,13 +1566,13 @@ $(function() {
                     if (logData.numRows > 12) {
                         $('div#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
-                            '	<legend>' + PMA_messages['strFiltersForLogTable'] + '</legend>' +
-                            '	<div class="formelement">' +
-                            '		<label for="filterQueryText">' + PMA_messages['strFilterByWordRegexp'] + '</label>' +
-                            '		<input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
-                            '	</div>' +
+                            '    <legend>' + PMA_messages['strFiltersForLogTable'] + '</legend>' +
+                            '    <div class="formelement">' +
+                            '        <label for="filterQueryText">' + PMA_messages['strFilterByWordRegexp'] + '</label>' +
+                            '        <input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
+                            '    </div>' +
                             ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages['strFilter'] + '</button></div>' : '') +
-                            '	<div class="formelement">' +
+                            '    <div class="formelement">' +
                             '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1" /> ' +
                             '       <label for="noWHEREData"> ' + PMA_messages['strIgnoreWhereAndGroup'] + '</label>' +
                             '   </div' +
