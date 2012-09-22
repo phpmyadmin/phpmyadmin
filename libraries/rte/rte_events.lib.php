@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Sets required globals
+ *
+ * @return void
  */
 function PMA_EVN_setGlobals()
 {
@@ -45,6 +47,8 @@ function PMA_EVN_setGlobals()
 
 /**
  * Main function for the events functionality
+ *
+ * @return void
  */
 function PMA_EVN_main()
 {
@@ -75,11 +79,13 @@ function PMA_EVN_main()
 
 /**
  * Handles editor requests for adding or editing an item
+ *
+ * @return void
  */
 function PMA_EVN_handleEditor()
 {
     global $_REQUEST, $_POST, $errors, $db;
-    
+
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
     ) {
@@ -265,14 +271,14 @@ function PMA_EVN_getDataFromRequest()
  * This function will generate the values that are required to complete
  * the "Edit event" form given the name of a event.
  *
- * @param string   $name   The name of the event.
+ * @param string $name The name of the event.
  *
- * @return array    Data necessary to create the editor.
+ * @return array Data necessary to create the editor.
  */
 function PMA_EVN_getDataFromName($name)
 {
     global $db;
-    
+
     $retval = array();
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
@@ -311,12 +317,12 @@ function PMA_EVN_getDataFromName($name)
 /**
  * Displays a form used to add/edit an event
  *
- * @param string   $mode      If the editor will be used edit an event
+ * @param string $mode      If the editor will be used edit an event
  *                              or add a new one: 'edit' or 'add'.
- * @param string   $operation If the editor was previously invoked with
+ * @param string $operation If the editor was previously invoked with
  *                              JS turned off, this will hold the name of
  *                              the current operation
- * @param array    $item      Data for the event returned by
+ * @param array  $item      Data for the event returned by
  *                              PMA_EVN_getDataFromRequest() or
  *                              PMA_EVN_getDataFromName()
  *
@@ -511,7 +517,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
 function PMA_EVN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
-    
+
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
