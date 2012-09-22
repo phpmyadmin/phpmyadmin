@@ -1102,7 +1102,7 @@ $(function() {
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
             drawTimeSpan = true;
             selectionTimeDiff.push(datapos.xaxis);
-            if($('#selection_box').length) {
+            if ($('#selection_box').length) {
                 $('#selection_box').remove();
             }
             selectionBox = $('<div id="selection_box" style="z-index:1000;height:250px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
@@ -1119,13 +1119,13 @@ $(function() {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
-            if(! drawTimeSpan) {
+            if (! drawTimeSpan) {
                 return;
             }
 
             selectionTimeDiff.push(datapos.xaxis);
 
-            if(selectionTimeDiff[1] < selectionTimeDiff[0]) {
+            if (selectionTimeDiff[1] < selectionTimeDiff[0]) {
                 selectionTimeDiff = [];
                 return;
             }
@@ -1139,7 +1139,7 @@ $(function() {
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
 
-            if(neighbor != null) {
+            if (neighbor != null) {
                 if ($('#tooltip_box').length) {
                     $('#tooltip_box')
                         .css({
@@ -1165,7 +1165,7 @@ $(function() {
                 $('#tooltip_box').html(s);
             }
 
-            if(! drawTimeSpan) {
+            if (! drawTimeSpan) {
                 return;
             }
 
@@ -1180,7 +1180,7 @@ $(function() {
 
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseEnter', function(ev, gridpos, datapos, neighbor, plot) {
-            if($('#tooltip_box').length) {
+            if ($('#tooltip_box').length) {
                 tooltipBox.remove();
             }
             tooltipBox = $('<div style="z-index:1000;height:40px;position:absolute;background-color:#FFFFFD;opacity:0.8;filter:alpha(opacity=80);">');
@@ -1195,14 +1195,14 @@ $(function() {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
-            if($('#tooltip_box').length) {
+            if ($('#tooltip_box').length) {
                 tooltipBox.remove();
             }
             drawTimeSpan = false;
         });
 
         $(document.body).mouseup(function() {
-            if($('#selection_box').length) {
+            if ($('#selection_box').length) {
                 selectionBox.remove();
             }
         });
@@ -1407,17 +1407,17 @@ $(function() {
                         maxVal = (maxVal > value) ? maxVal : value;
                     }
                 }
-                if(elem.maxYLabel.length == 0) {
+                if (elem.maxYLabel.length == 0) {
                     elem.maxYLabel.push([runtime.xmax, 1]);
                 }
 
-                if(maxVal > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
+                if (maxVal > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
                     elem.maxYLabel.push([chartData.x, (Math.ceil(maxVal*1.2))]);
-                } else if(maxVal > elem.maxYLabel[0][1]) {
+                } else if (maxVal > elem.maxYLabel[0][1]) {
                     elem.maxYLabel.splice(1,0,[chartData.x, (Math.ceil(maxVal*1.2))]);
                 }
 
-                if(elem.maxYLabel.length > 1
+                if (elem.maxYLabel.length > 1
                     && elem.maxYLabel[elem.maxYLabel.length - 1][0] < runtime.xmin
                 ) {
                     elem.maxYLabel.pop();
