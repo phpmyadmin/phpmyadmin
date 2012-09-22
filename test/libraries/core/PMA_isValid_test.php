@@ -31,10 +31,12 @@ class PMA_isValid_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider providerNoVarTypeProvider
+     *
      * @param mixed $var
      * @param mixed $type
      * @param mixed $compare
+     *
+     * @dataProvider providerNoVarTypeProvider
      */
     public function testNoVarType($var, $type, $compare)
     {
@@ -193,9 +195,11 @@ class PMA_isValid_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider providerSimilarType
+     *
      * @param mixed $var
      * @param mixed $compare
+     *
+     * @dataProvider providerSimilarType
      */
     public function testSimilarType($var, $compare)
     {
