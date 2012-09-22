@@ -25,7 +25,7 @@ class PMA_RecentTable
      * @access  private
      * @var string
      */
-    private $pma_table;
+    private $_pma_table;
 
     /**
      * Reference to session variable containing recently used tables.
@@ -47,13 +47,13 @@ class PMA_RecentTable
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
             && strlen($GLOBALS['cfg']['Server']['recent'])
         ) {
-            $this->pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
+            $this->_pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
         }
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
             $_SESSION['tmp_user_values']['recent_tables'][$server_id]
-                = isset($this->pma_table) ? $this->getFromDb() : array();
+                = isset($this->_pma_table) ? $this->getFromDb() : array();
         }
         $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
     }
@@ -80,7 +80,7 @@ class PMA_RecentTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
-            = " SELECT `tables` FROM " . $this->pma_table .
+            = " SELECT `tables` FROM " . $this->_pma_table .
             " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
 
         $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
@@ -100,7 +100,7 @@ class PMA_RecentTable
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query
-            = " REPLACE INTO " . $this->pma_table . " (`username`, `tables`)" .
+            = " REPLACE INTO " . $this->_pma_table . " (`username`, `tables`)" .
                 " VALUES ('" . $username . "', '"
                 . PMA_Util::sqlAddSlashes(
                     json_encode($this->tables)
@@ -140,7 +140,7 @@ class PMA_RecentTable
     public function getHtmlSelectOption()
     {
         // trim and save, in case where the configuration is changed
-        if ($this->trim() && isset($this->pma_table)) {
+        if ($this->trim() && isset($this->_pma_table)) {
             $this->saveToDb();
         }
 
@@ -191,7 +191,7 @@ class PMA_RecentTable
             array_unshift($this->tables, $table_arr);
             $this->tables = array_merge(array_unique($this->tables, SORT_REGULAR));
             $this->trim();
-            if (isset($this->pma_table)) {
+            if (isset($this->_pma_table)) {
                 return $this->saveToDb();
             }
         }
