@@ -8,9 +8,9 @@ if (! defined('PHPMYADMIN')) {
  * This function is used to retreive some language strings that are used
  * in functionalities that are common to routines, triggers and events.
  *
- * @param string  $index   The index of the string to get
+ * @param string $index The index of the string to get
  *
- * @return string  The requested string or an empty string, if not available
+ * @return string The requested string or an empty string, if not available
  */
 function PMA_RTE_getWord($index)
 {

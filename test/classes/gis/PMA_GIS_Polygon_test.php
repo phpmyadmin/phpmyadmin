@@ -543,7 +543,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     /**
      * test case for isOuterRing() method
      *
-     * @param array  $ring   coordinates of the points in a ring
+     * @param array $ring coordinates of the points in a ring
      *
      * @return void
      * @dataProvider providerForIsOuterRing

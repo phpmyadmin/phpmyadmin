@@ -12,16 +12,16 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Creates a fieldset for adding a new item, if the user has the privileges.
  *
- * @param string   $docu   String used to create a link to the MySQL docs
- * @param string   $priv   Privilege to check for adding a new item
- * @param string   $name   MySQL name of the item
+ * @param string $docu String used to create a link to the MySQL docs
+ * @param string $priv Privilege to check for adding a new item
+ * @param string $name MySQL name of the item
  *
- * @return string   An HTML snippet with the link to add a new item
+ * @return string An HTML snippet with the link to add a new item
  */
 function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
-    
+
     $icon = 'b_' . strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
