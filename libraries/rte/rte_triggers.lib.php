@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Sets required globals
+ *
+ * @return void
  */
 function PMA_TRI_setGlobals()
 {
@@ -26,6 +28,8 @@ function PMA_TRI_setGlobals()
 
 /**
  * Main function for the triggers functionality
+ *
+ * @return void
  */
 function PMA_TRI_main()
 {
@@ -51,6 +55,8 @@ function PMA_TRI_main()
 
 /**
  * Handles editor requests for adding or editing an item
+ *
+ * @return void
  */
 function PMA_TRI_handleEditor()
 {
@@ -72,27 +78,43 @@ function PMA_TRI_handleEditor()
                 $drop_item = $trigger['drop'] . ';';
                 $result = PMA_DBI_try_query($drop_item);
                 if (! $result) {
-                    $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_item) . '<br />'
-                                      . __('MySQL said: ') . PMA_DBI_getError(null);
+                    $errors[] = sprintf(
+                        __('The following query has failed: "%s"'),
+                        $drop_item
+                    )
+                    . '<br />'
+                    . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $result = PMA_DBI_try_query($item_query);
                     if (! $result) {
-                        $errors[] = sprintf(__('The following query has failed: "%s"'), $item_query) . '<br />'
-                                          . __('MySQL said: ') . PMA_DBI_getError(null);
-                        // We dropped the old item, but were unable to create the new one
+                        $errors[] = sprintf(
+                            __('The following query has failed: "%s"'),
+                            $item_query
+                        )
+                        . '<br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null);
+                        // We dropped the old item,
+                        // but were unable to create the new one
                         // Try to restore the backup query
                         $result = PMA_DBI_try_query($create_item);
                         if (! $result) {
-                            // OMG, this is really bad! We dropped the query, failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle this just in case.
-                            $errors[] = __('Sorry, we failed to restore the dropped trigger.') . '<br />'
-                                              . __('The backed up query was:') . "\"$create_item\"" . '<br />'
-                                              . __('MySQL said: ') . PMA_DBI_getError(null);
+                            // OMG, this is really bad! We dropped the query,
+                            // failed to create a new one and now even the backup
+                            // query does not execute! This should not happen,
+                            // but we better handle this just in case.
+                            $errors[] = __('Sorry, we failed to restore the dropped trigger.')
+                                . '<br />'
+                                . __('The backed up query was:') . "\"$create_item\""
+                                . '<br />'
+                                . __('MySQL said: ') . PMA_DBI_getError(null);
                         }
                     } else {
-                        $message = PMA_Message::success(__('Trigger %1$s has been modified.'));
-                        $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
+                        $message = PMA_Message::success(
+                            __('Trigger %1$s has been modified.')
+                        );
+                        $message->addParam(
+                            PMA_Util::backquote($_REQUEST['item_name'])
+                        );
                         $sql_query = $drop_item . $item_query;
                     }
                 }
@@ -107,8 +129,12 @@ function PMA_TRI_handleEditor()
                     . '<br /><br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
-                    $message = PMA_Message::success(__('Trigger %1$s has been created.'));
-                    $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
+                    $message = PMA_Message::success(
+                        __('Trigger %1$s has been created.')
+                    );
+                    $message->addParam(
+                        PMA_Util::backquote($_REQUEST['item_name'])
+                    );
                     $sql_query = $item_query;
                 }
             }
@@ -135,7 +161,9 @@ function PMA_TRI_handleEditor()
                     }
                 }
                 $insert = false;
-                if (empty($table) || ($trigger !== false && $table == $trigger['table'])) {
+                if (empty($table)
+                    || ($trigger !== false && $table == $trigger['table'])
+                ) {
                     $insert = true;
                     $response->addJSON('new_row', PMA_TRI_getRowForList($trigger));
                     $response->addJSON(
@@ -158,8 +186,11 @@ function PMA_TRI_handleEditor()
     /**
      * Display a form used to add/edit a trigger, if necessary
      */
-    if (count($errors) || ( empty($_REQUEST['editor_process_add']) && empty($_REQUEST['editor_process_edit'])
-        && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
+    if (count($errors)
+        || (empty($_REQUEST['editor_process_add'])
+        && empty($_REQUEST['editor_process_edit'])
+        && (! empty($_REQUEST['add_item'])
+        || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
     ) {
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
@@ -417,18 +448,24 @@ function PMA_TRI_getQueryFromRequest()
     } else {
         $errors[] = __('You must provide a trigger name');
     }
-    if (! empty($_REQUEST['item_timing']) && in_array($_REQUEST['item_timing'], $action_timings)) {
+    if (! empty($_REQUEST['item_timing'])
+        && in_array($_REQUEST['item_timing'], $action_timings)
+    ) {
         $query .= $_REQUEST['item_timing'] . ' ';
     } else {
         $errors[] = __('You must provide a valid timing for the trigger');
     }
-    if (! empty($_REQUEST['item_event']) && in_array($_REQUEST['item_event'], $event_manipulations)) {
+    if (! empty($_REQUEST['item_event'])
+        && in_array($_REQUEST['item_event'], $event_manipulations)
+    ) {
         $query .= $_REQUEST['item_event'] . ' ';
     } else {
         $errors[] = __('You must provide a valid event for the trigger');
     }
     $query .= 'ON ';
-    if (! empty($_REQUEST['item_table']) && in_array($_REQUEST['item_table'], PMA_DBI_get_tables($db))) {
+    if (! empty($_REQUEST['item_table'])
+        && in_array($_REQUEST['item_table'], PMA_DBI_get_tables($db))
+    ) {
         $query .= PMA_Util::backquote($_REQUEST['item_table']);
     } else {
         $errors[] = __('You must provide a valid table name');
