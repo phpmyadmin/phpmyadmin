@@ -9,19 +9,19 @@
 
 class PmaSeleniumTestCase
 {
-    private $txtUsername;
-    private $txtPassword;
-    private $btnLogin;
-    private $selenium;
-    private $config;
+    private $_txtUsername;
+    private $_txtPassword;
+    private $_btnLogin;
+    private $_selenium;
+    private $_config;
 
     public function __construct($selenium)
     {
-        $this->txtUsername = 'input_username';
-        $this->txtPassword = 'input_password';
-        $this->btnLogin = 'input_go';
-        $this->config = new TestConfig();
-        $this->selenium = $selenium;
+        $this->_txtUsername = 'input_username';
+        $this->_txtPassword = 'input_password';
+        $this->_btnLogin = 'input_go';
+        $this->_config = new TestConfig();
+        $this->_selenium = $selenium;
     }
 
     /**
@@ -34,11 +34,11 @@ class PmaSeleniumTestCase
      */
     public function login($username, $password)
     {
-        $this->selenium->open($this->config->getLoginURL());
-        $this->selenium->type($this->txtUsername, $username);
-        $this->selenium->type($this->txtPassword, $password);
-        $this->selenium->click($this->btnLogin);
-        $this->selenium->waitForPageToLoad($this->config->getTimeoutValue());
+        $this->_selenium->open($this->_config->getLoginURL());
+        $this->_selenium->type($this->_txtUsername, $username);
+        $this->_selenium->type($this->_txtPassword, $password);
+        $this->_selenium->click($this->_btnLogin);
+        $this->_selenium->waitForPageToLoad($this->_config->getTimeoutValue());
     }
 
     /**
@@ -47,7 +47,7 @@ class PmaSeleniumTestCase
      */
     public function isSuccessLogin()
     {
-        if ($this->selenium->isElementPresent("//*[@id=\"serverinfo\"]")) {
+        if ($this->_selenium->isElementPresent("//*[@id=\"serverinfo\"]")) {
             return true;
         } else {
             return false;
@@ -60,8 +60,8 @@ class PmaSeleniumTestCase
     */
     public function isUnsuccessLogin()
     {
-        $val = $this->selenium->getValue('input_go');
-        if ($this->selenium->isElementPresent("//html/body/div/div[@class='error']")) {
+        $val = $this->_selenium->getValue('input_go');
+        if ($this->_selenium->isElementPresent("//html/body/div/div[@class='error']")) {
             return true;
         } else {
             return false;

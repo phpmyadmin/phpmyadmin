@@ -798,7 +798,7 @@ class Relation_Stats
  */
 class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 {
-    private $tables = array();
+    private $_tables = array();
     private $_relations = array();
 
     /**
@@ -838,15 +838,15 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db, $this->pageNumber);
 
         foreach ($alltables AS $table) {
-            if (! isset($this->tables[$table])) {
-                $this->tables[$table] = new Table_Stats(
+            if (! isset($this->_tables[$table])) {
+                $this->_tables[$table] = new Table_Stats(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension
                 );
             }
 
             if ($this->sameWide) {
-                $this->tables[$table]->width = $this->_tablewidth;
+                $this->_tables[$table]->width = $this->_tablewidth;
             }
         }
 
@@ -901,21 +901,21 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         $masterTable, $font, $fontSize, $masterField,
         $foreignTable, $foreignField, $showInfo
     ) {
-        if (! isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats(
+        if (! isset($this->_tables[$masterTable])) {
+            $this->_tables[$masterTable] = new Table_Stats(
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
         }
-        if (! isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats(
+        if (! isset($this->_tables[$foreignTable])) {
+            $this->_tables[$foreignTable] = new Table_Stats(
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
         }
         $this->_relations[] = new Relation_Stats(
-            $this->tables[$masterTable], $masterField,
-            $this->tables[$foreignTable], $foreignField
+            $this->_tables[$masterTable], $masterField,
+            $this->_tables[$foreignTable], $foreignField
         );
     }
 
@@ -949,7 +949,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _drawTables($changeColor)
     {
-        foreach ($this->tables as $table) {
+        foreach ($this->_tables as $table) {
             $table->tableDraw($changeColor);
         }
     }

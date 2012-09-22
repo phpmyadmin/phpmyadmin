@@ -13,7 +13,7 @@ require_once 'libraries/sqlparser.data.php';
 
 class PMA_SQL_parser_data_test extends PHPUnit_Framework_TestCase
 {
-    private function assertSorted($array)
+    private function _assertSorted($array)
     {
         $copy = $array;
         sort($copy);
@@ -21,34 +21,34 @@ class PMA_SQL_parser_data_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($difference, array());
     }
 
-    private function assertParserData($name)
+    private function _assertParserData($name)
     {
-        $this->assertSorted($GLOBALS[$name]);
+        $this->_assertSorted($GLOBALS[$name]);
     }
 
     public function testPMA_SQPdata_function_name()
     {
-        $this->assertParserData('PMA_SQPdata_function_name');
+        $this->_assertParserData('PMA_SQPdata_function_name');
     }
 
     public function testPMA_SQPdata_column_attrib()
     {
-        $this->assertParserData('PMA_SQPdata_column_attrib');
+        $this->_assertParserData('PMA_SQPdata_column_attrib');
     }
 
     public function testPMA_SQPdata_reserved_word()
     {
-        $this->assertParserData('PMA_SQPdata_reserved_word');
+        $this->_assertParserData('PMA_SQPdata_reserved_word');
     }
 
     public function testPMA_SQPdata_forbidden_word()
     {
-        $this->assertParserData('PMA_SQPdata_forbidden_word');
+        $this->_assertParserData('PMA_SQPdata_forbidden_word');
     }
 
     public function testPMA_SQPdata_column_type()
     {
-        $this->assertParserData('PMA_SQPdata_column_type');
+        $this->_assertParserData('PMA_SQPdata_column_type');
     }
 
 }

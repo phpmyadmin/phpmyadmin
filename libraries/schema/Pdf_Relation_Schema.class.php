@@ -824,13 +824,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_ff = PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
-    private $scale;
+    private $_scale;
     private $_xMin = 100000;
     private $_yMin = 100000;
-    private $topMargin = 10;
-    private $bottomMargin = 10;
-    private $leftMargin = 10;
-    private $rightMargin = 10;
+    private $_topMargin = 10;
+    private $_bottomMargin = 10;
+    private $_leftMargin = 10;
+    private $_rightMargin = 10;
     private $_tablewidth;
 
     /**
@@ -885,8 +885,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetLink($pdf->PMA_links['RT']['-'], -1);
             $pdf->Bookmark(__('Relational schema'));
             $pdf->SetAlias('{00}', $pdf->PageNo());
-            $this->topMargin = 28;
-            $this->bottomMargin = 28;
+            $this->_topMargin = 28;
+            $this->_bottomMargin = 28;
         }
 
         /* snip */
@@ -907,19 +907,19 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         }
 
         // Defines the scale factor
-        $this->scale = ceil(
+        $this->_scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin) / ($pdf->getPageWidth() - $this->rightMargin - $this->leftMargin),
-                ($this->_yMax - $this->_yMin) / ($pdf->getPageHeight() - $this->topMargin - $this->bottomMargin)
+                ($this->_xMax - $this->_xMin) / ($pdf->getPageWidth() - $this->_rightMargin - $this->_leftMargin),
+                ($this->_yMax - $this->_yMin) / ($pdf->getPageHeight() - $this->_topMargin - $this->_bottomMargin)
             ) * 100
         ) / 100;
 
         $pdf->setScale(
-            $this->scale,
+            $this->_scale,
             $this->_xMin,
             $this->_yMin,
-            $this->leftMargin,
-            $this->topMargin
+            $this->_leftMargin,
+            $this->_topMargin
         );
         // Builds and save the PDF document
         $pdf->setLineWidthScale(0.1);
@@ -1059,7 +1059,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf(
                     '%.0f',
-                    ($l * $gridSize + $topSpace - $this->topMargin) * $this->scale + $this->_yMin
+                    ($l * $gridSize + $topSpace - $this->_topMargin) * $this->_scale + $this->_yMin
                 );
                 $pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
@@ -1075,7 +1075,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetXY($j * $gridSize, $topSpace);
             $label = (string) sprintf(
                 '%.0f',
-                ($j * $gridSize - $this->leftMargin) * $this->scale + $this->_xMin
+                ($j * $gridSize - $this->_leftMargin) * $this->_scale + $this->_xMin
             );
             $pdf->Cell($labelWidth, $labelHeight, $label);
         }

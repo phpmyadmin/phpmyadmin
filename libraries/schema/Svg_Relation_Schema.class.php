@@ -769,17 +769,12 @@ class Relation_Stats
 class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
 {
 
-    private $tables = array();
+    private $_tables = array();
     private $_relations = array();
     private $_xMax = 0;
     private $_yMax = 0;
-    private $scale;
     private $_xMin = 100000;
     private $_yMin = 100000;
-    private $t_marg = 10;
-    private $b_marg = 10;
-    private $l_marg = 10;
-    private $r_marg = 10;
     private $_tablewidth;
 
     /**
@@ -817,17 +812,17 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db, $this->pageNumber);
 
         foreach ($alltables AS $table) {
-            if (! isset($this->tables[$table])) {
-                $this->tables[$table] = new Table_Stats(
+            if (! isset($this->_tables[$table])) {
+                $this->_tables[$table] = new Table_Stats(
                     $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
                     $this->_tablewidth, $this->showKeys, $this->tableDimension
                 );
             }
 
             if ($this->sameWide) {
-                $this->tables[$table]->width = $this->_tablewidth;
+                $this->_tables[$table]->width = $this->_tablewidth;
             }
-            $this->_setMinMax($this->tables[$table]);
+            $this->_setMinMax($this->_tables[$table]);
         }
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
@@ -896,23 +891,23 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $masterTable,$font,$fontSize, $masterField,
         $foreignTable, $foreignField, $showInfo
     ) {
-        if (! isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats(
+        if (! isset($this->_tables[$masterTable])) {
+            $this->_tables[$masterTable] = new Table_Stats(
                 $masterTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
-            $this->_setMinMax($this->tables[$masterTable]);
+            $this->_setMinMax($this->_tables[$masterTable]);
         }
-        if (! isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats(
+        if (! isset($this->_tables[$foreignTable])) {
+            $this->_tables[$foreignTable] = new Table_Stats(
                 $foreignTable, $font, $fontSize, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
-            $this->_setMinMax($this->tables[$foreignTable]);
+            $this->_setMinMax($this->_tables[$foreignTable]);
         }
         $this->_relations[] = new Relation_Stats(
-            $this->tables[$masterTable], $masterField,
-            $this->tables[$foreignTable], $foreignField
+            $this->_tables[$masterTable], $masterField,
+            $this->_tables[$foreignTable], $foreignField
         );
     }
 
@@ -947,7 +942,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _drawTables($changeColor)
     {
-        foreach ($this->tables as $table) {
+        foreach ($this->_tables as $table) {
             $table->tableDraw($changeColor);
         }
     }

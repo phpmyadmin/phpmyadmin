@@ -9,8 +9,8 @@
 
 class TestConfig
 {
-    private $loginURL;
-    private $timeoutValue;
+    private $_loginURL;
+    private $_timeoutValue;
 
     public function __construct()
     {
@@ -27,22 +27,22 @@ class TestConfig
 
     public function setLoginURL($value)
     {
-        $this->loginURL = $value;
+        $this->_loginURL = $value;
     }
 
     public function getLoginURL()
     {
-        return $this->loginURL;
+        return $this->_loginURL;
     }
 
     public function setTimeoutValue($value)
     {
-        $this->timeoutValue = $value;
+        $this->_timeoutValue = $value;
     }
 
     public function getTimeoutValue()
     {
-        return $this->timeoutValue;
+        return $this->_timeoutValue;
     }
 
     public function setCurrentBrowser($value)
