@@ -70,7 +70,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
     {
         if (function_exists('bcpow')) {
             $this->assertEquals(
-                0.25,
+                false,
                 PMA_Util::pow(2, -2, 'bcpow')
             );
         } else {
@@ -82,7 +82,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
     {
         if (function_exists('gmp_pow')) {
             $this->assertEquals(
-                0.25,
+                false,
                 PMA_Util::pow(2, -2, 'gmp_pow')
             );
         } else {
