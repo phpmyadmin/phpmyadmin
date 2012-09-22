@@ -13,8 +13,10 @@ if (! defined('PHPMYADMIN')) {
  * This function is called from one of the other functions in this file
  * and it completes the handling of the export functionality.
  *
- * @param string  $item_name    The name of the item that we are exporting
- * @param string  $export_data  The SQL query to create the requested item
+ * @param string $item_name   The name of the item that we are exporting
+ * @param string $export_data The SQL query to create the requested item
+ *
+ * @return void
  */
 function PMA_RTE_handleExport($item_name, $export_data)
 {
@@ -55,6 +57,8 @@ function PMA_RTE_handleExport($item_name, $export_data)
 /**
  * If necessary, prepares event information and passes
  * it to PMA_RTE_handleExport() for the actual export.
+ *
+ * @return void
  */
 function PMA_EVN_handleExport()
 {
@@ -70,6 +74,8 @@ function PMA_EVN_handleExport()
 /**
  * If necessary, prepares routine information and passes
  * it to PMA_RTE_handleExport() for the actual export.
+ *
+ * @return void
  */
 function PMA_RTN_handleExport()
 {
@@ -93,6 +99,8 @@ function PMA_RTN_handleExport()
 /**
  * If necessary, prepares trigger information and passes
  * it to PMA_RTE_handleExport() for the actual export.
+ *
+ * @return void
  */
 function PMA_TRI_handleExport()
 {
