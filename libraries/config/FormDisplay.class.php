@@ -188,6 +188,7 @@ class FormDisplay
      * @param bool $tabbed_form
      * @param bool $show_restore_default whether show "restore default" button
      *                                   besides the input field
+     *
      * @return void
      */
     public function display($tabbed_form = false, $show_restore_default = false)

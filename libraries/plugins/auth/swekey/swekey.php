@@ -80,6 +80,7 @@ if (! isset($gSwekeyTokenCacheEnabled)) {
  *  If $server is empty the default value 'http://auth-check.musbe.net' will be used
  *
  * @param server              The protocol and hostname to use
+ *
  * @access public
  */
 function Swekey_SetCheckServer($server)
@@ -97,6 +98,7 @@ function Swekey_SetCheckServer($server)
  *  If $server is empty the default value 'http://auth-rnd-gen.musbe.net' will be used
  *
  * @param server              The protocol and hostname to use
+ *
  * @access public
  */
 function Swekey_SetRndTokenServer($server)
@@ -114,6 +116,7 @@ function Swekey_SetRndTokenServer($server)
  *  If $server is empty the default value 'http://auth-status.musbe.net' will be used
  *
  * @param server              The protocol and hostname to use
+ *
  * @access public
  */
 function Swekey_SetStatusServer($server)
@@ -130,6 +133,7 @@ function Swekey_SetStatusServer($server)
  *  Change the certificat file in case of the the severs use https instead of http
  *
  * @param cafile              The path of the crt file to use
+ *
  * @access public
  */
 function Swekey_SetCAFile($cafile)
@@ -144,6 +148,7 @@ function Swekey_SetCAFile($cafile)
  *  So disable it if you are running in a non secure enviromnement
  *
  * @param $enable
+ *
  * @access public
  */
 function Swekey_EnableTokenCache($enable)
