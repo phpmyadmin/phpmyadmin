@@ -1119,8 +1119,9 @@ $(function() {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
-            if(! drawTimeSpan)
+            if(! drawTimeSpan) {
                 return;
+            }
 
             selectionTimeDiff.push(datapos.xaxis);
 
@@ -1164,8 +1165,9 @@ $(function() {
                 $('#tooltip_box').html(s);
             }
 
-            if(! drawTimeSpan)
+            if(! drawTimeSpan) {
                 return;
+            }
 
             if (selectionStartX != undefined) {
                 $('#selection_box')
