@@ -467,17 +467,15 @@ $scripts->addFile('server_status.js');
 
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('jquery/jquery.cookie.js'); // For tab persistence
-// Charting
-$scripts->addFile('highcharts/highcharts.js');
-/* Files required for chart exporting */
-$scripts->addFile('highcharts/exporting.js');
+$scripts->addFile('server_status.js');
+$scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('canvg/flashcanvas.js');
 }
 
 $scripts->addFile('canvg/canvg.js');
-// for profiling chart
+// for charting
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
