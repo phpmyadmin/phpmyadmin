@@ -66,6 +66,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSortSelectCell
+     *
+     * @return void
      */
     public function testGetSortSelectCell()
     {
@@ -80,6 +82,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSortRow
+     *
+     * @return void
      */
     public function testGetSortRow()
     {
@@ -94,6 +98,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getShowRow
+     *
+     * @return void
      */
     public function testGetShowRow()
     {
@@ -108,6 +114,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getCriteriaInputboxRow
+     *
+     * @return void
      */
     public function testGetCriteriaInputboxRow()
     {
@@ -122,6 +130,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getFootersOptions
+     *
+     * @return void
      */
     public function testGetFootersOptions()
     {
@@ -136,6 +146,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getTableFooters
+     *
+     * @return void
      */
     public function testGetTableFooters()
     {
@@ -150,6 +162,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getAndOrColCell
+     *
+     * @return void
      */
     public function testGetAndOrColCell()
     {
@@ -164,6 +178,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getModifyColumnsRow
+     *
+     * @return void
      */
     public function testGetModifyColumnsRow()
     {
@@ -178,6 +194,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getInsDelAndOrCell
+     *
+     * @return void
      */
     public function testGetInsDelAndOrCell()
     {
@@ -193,6 +211,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getInputboxRow
+     *
+     * @return void
      */
     public function testGetInputboxRow()
     {
@@ -207,6 +227,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getInsDelAndOrCriteriaRows
+     *
+     * @return void
      */
     public function testGetInsDelAndOrCriteriaRows()
     {
@@ -221,6 +243,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSelectClause
+     *
+     * @return void
      */
     public function testGetSelectClause()
     {
@@ -235,6 +259,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getWhereClause
+     *
+     * @return void
      */
     public function testGetWhereClause()
     {
@@ -249,6 +275,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOrderByClause
+     *
+     * @return void
      */
     public function testGetOrderByClause()
     {
@@ -263,6 +291,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getIndexes
+     *
+     * @return void
      */
     public function testGetIndexes()
     {
@@ -284,6 +314,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getLeftJoinColumnCandidates
+     *
+     * @return void
      */
     public function testGetLeftJoinColumnCandidates()
     {
@@ -304,6 +336,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getMasterTable
+     *
+     * @return void
      */
     public function testGetMasterTable()
     {
@@ -323,6 +357,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getWhereClauseTablesAndColumns
+     *
+     * @return void
      */
     public function testGetWhereClauseTablesAndColumns()
     {
@@ -346,6 +382,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getFromClause
+     *
+     * @return void
      */
     public function testGetFromClause()
     {
@@ -360,6 +398,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSQLQuery
+     *
+     * @return void
      */
     public function testGetSQLQuery()
     {
