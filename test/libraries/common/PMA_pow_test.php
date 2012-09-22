@@ -46,7 +46,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function _testNegativeExp()
+    public function testNegativeExp()
     {
         $this->assertEquals(
             0.25,
@@ -54,7 +54,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function _testNegativeExpPow()
+    public function testNegativeExpPow()
     {
         if (function_exists('pow')) {
             $this->assertEquals(
@@ -66,7 +66,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function _testNegativeExpBcpow()
+    public function testNegativeExpBcpow()
     {
         if (function_exists('bcpow')) {
             $this->assertEquals(
@@ -78,7 +78,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function _testNegativeExpGmppow()
+    public function testNegativeExpGmppow()
     {
         if (function_exists('gmp_pow')) {
             $this->assertEquals(
