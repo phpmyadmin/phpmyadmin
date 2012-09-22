@@ -571,8 +571,8 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  *
  * @return string $html_output
  */
-function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
-    , $table, $columns,$row
+function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db,
+    $table, $columns, $row
 ) {
     $res = PMA_DBI_query(
         'SELECT `Column_name`, `Column_priv`'
@@ -1322,7 +1322,7 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
 
     // here $nopass could be == 1
     if (empty($message)) {
-        
+
         $hashing_function
             = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
                 ? 'OLD_'
