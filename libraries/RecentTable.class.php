@@ -13,7 +13,8 @@ require_once './libraries/Message.class.php';
 /**
  * Handles the recently used tables.
  *
- * @TODO Change the release version in table pma_recent (#recent in Documentation.html)
+ * @TODO Change the release version in table pma_recent
+ * (#recent in Documentation.html)
  *
  * @package PhpMyAdmin
  */
@@ -47,7 +48,8 @@ class PMA_RecentTable
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
             && strlen($GLOBALS['cfg']['Server']['recent'])
         ) {
-            $this->_pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
+            $this->_pma_table
+                = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
         }
         $server_id = $GLOBALS['server'];
@@ -111,7 +113,9 @@ class PMA_RecentTable
         if (! $success) {
             $message = PMA_Message::error(__('Could not save recent table'));
             $message->addMessage('<br /><br />');
-            $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+            $message->addMessage(
+                PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+            );
             return $message;
         }
         return true;
@@ -147,11 +151,17 @@ class PMA_RecentTable
         $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
-                $html .= '<option value="' . htmlspecialchars(json_encode($table)) . '">'
-                    . htmlspecialchars('`' . $table['db'] . '`.`' . $table['table'] . '`') . '</option>';
+                $html .= '<option value="'
+                    . htmlspecialchars(json_encode($table)) . '">'
+                    . htmlspecialchars(
+                        '`' . $table['db'] . '`.`' . $table['table'] . '`'
+                    )
+                    . '</option>';
             }
         } else {
-            $html .= '<option value="">' . __('There are no recent tables') . '</option>';
+            $html .= '<option value="">'
+                . __('There are no recent tables')
+                . '</option>';
         }
         return $html;
     }
