@@ -8,6 +8,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . dirname(realpath("../inde
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
+define('PMA_VERSION', 'TEST_VERSION');
 
 session_start();
 
