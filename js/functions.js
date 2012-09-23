@@ -209,6 +209,10 @@ function PMA_addDatepicker($this_element, options)
             setTimeout(function() {
                 $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'));
             }, 0);
+        },
+        onClose: function(dateText, dp_inst) {
+            // The value is no more from the date picker
+            $this_element.data('comes_from', '');
         }
     };
 
