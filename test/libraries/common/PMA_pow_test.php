@@ -46,7 +46,7 @@ class PMA_pow_test extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function _testNegativeExp()
+    public function testNegativeExp()
     {
         $this->assertEquals(
             0.25,

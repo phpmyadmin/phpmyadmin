@@ -54,7 +54,11 @@ class PMA_Util
         }
 
         if (! $use_function) {
-            $use_function = $pow_function;
+            if ($exp < 0) {
+                $use_function = 'pow';
+            } else {
+                $use_function = $pow_function;
+            }
         }
 
         if (($exp < 0) && ($use_function != 'pow')) {
