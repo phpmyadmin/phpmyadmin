@@ -325,12 +325,15 @@ if ($response->isAjax()) {
             $extra_data = array();
         }
         foreach ($mime_map as $transformation) {
-            $include_file = PMA_securePath($transformation['transformation']);
-            $column_name = $transformation['column_name'];
-            $extra_data = PMA_getTransformationFunctionAndTransformationOptions(
-                $db, $table, $transformation, $edited_values, $include_file, 
-                $column_name, $extra_data
-            );
+            $file = PMA_securePath($transformation['transformation']);
+            // if only an underscore in the file name, nothing to transform
+            if ($file != '_') {
+                $column_name = $transformation['column_name'];
+                $extra_data = PMA_transformEditedValues(
+                    $db, $table, $transformation, $edited_values, $file, 
+                    $column_name, $extra_data
+                );
+            }
         }   // end of loop for each $mime_map
     }
 

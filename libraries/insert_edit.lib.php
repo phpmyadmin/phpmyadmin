@@ -2073,20 +2073,20 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
 }
 
 /**
- * Get transformation function and transformation options
+ * Transform edited values 
  *
  * @param string $db             db name
  * @param string $table          table name
  * @param array  $transformation mimetypes for all columns of a table
  *                               [field_name][field_key]
- * @param array  $edited_values  transform fields list
+ * @param array  $edited_values  transform columns list and new values
  * @param array  $extra_data     extra data array
- * @param string $include_file   file containing the transformation plugin
+ * @param string $file           file containing the transformation plugin
  *
  * @return array $extra_data
  */
-function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
-    $transformation, $edited_values, $include_file, $column_name, $extra_data
+function PMA_transformEditedValues($db, $table,
+    $transformation, $edited_values, $file, $column_name, $extra_data
 ) {
     foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
         if (isset($curr_cell_edited_values[$column_name])) {
@@ -2096,28 +2096,32 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
                 'db'            => $db,
                 'table'         => $table,
                 'where_clause'  => $_REQUEST['where_clause'],
-                'transform_key' => $column_name,
+                'transform_key' => $column_name
             );
 
-            if (file_exists('libraries/transformations/' . $include_file)) {
-                $transformfunction_name
-                    = str_replace('.inc.php', '', $transformation['transformation']);
+            $include_file = 'libraries/plugins/transformations/' . $file;
+            if (file_exists($include_file)) {
+                include_once $include_file;
 
-                include_once 'libraries/transformations/' . $include_file;
-
-                if (function_exists('PMA_transformation_' . $transformfunction_name)) {
-                    $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                    $transform_options  = PMA_transformation_getOptions(
-                        isset($transformation['transformation_options'])
-                        ? $transformation['transformation_options']
-                        : ''
+                $transform_options  = PMA_transformation_getOptions(
+                    isset($transformation['transformation_options'])
+                    ? $transformation['transformation_options']
+                    : ''
                     );
-                    $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
-                }
+                $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
+                $class_name = str_replace('.class.php', '', $file);
+                $plugin_manager = null;
+                $transformation_plugin = new $class_name(
+                    $plugin_manager
+                );
             }
 
             $extra_data['transformations'][$cell_index]
-                = $transform_function($column_data, $transform_options);
+                = $transformation_plugin->applyTransformation(
+                    $column_data,
+                    $transform_options,
+                    $meta = ''
+                );
         }
     }   // end of loop for each transformation cell
     return $extra_data;
