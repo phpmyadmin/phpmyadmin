@@ -2086,7 +2086,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
  * @return array $extra_data
  */
 function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
-    $transformation, $edited_values, $extra_data, $include_file
+    $transformation, $edited_values, $include_file, $column_name, $extra_data
 ) {
     foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
         if (isset($curr_cell_edited_values[$column_name])) {

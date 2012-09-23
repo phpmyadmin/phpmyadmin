@@ -329,7 +329,7 @@ if ($response->isAjax()) {
             $column_name = $transformation['column_name'];
             $extra_data = PMA_getTransformationFunctionAndTransformationOptions(
                 $db, $table, $transformation, $edited_values, $include_file, 
-                $column_name, $extra_data, $include_file
+                $column_name, $extra_data
             );
         }   // end of loop for each $mime_map
     }
