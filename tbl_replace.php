@@ -321,6 +321,9 @@ if ($response->isAjax()) {
         $edited_values = array();
         parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
+        if (! isset($extra_data)) {
+            $extra_data = array();
+        }
         foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
