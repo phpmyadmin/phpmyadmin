@@ -167,7 +167,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     if ($this_input.data('comes_from') == 'datepicker') {
         // Yes, so do not validate because the final value is not yet in
         // the field and hopefully the datepicker returns a valid date+time
-        $this_input.data('comes_from', '');
+        $this_input.removeClass("invalid_value");
         return true;
     }
 
