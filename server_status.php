@@ -1055,25 +1055,21 @@ function printQueryStatistics()
     $count_displayed_rows = 0;
     $perc_factor    = 100 / $total_queries; //(- $server_status['Connections']);
 
-    ?>
+    echo '<table id="serverstatusqueriesdetails" class="data sortable noclick">';
+    echo '<col class="namecol" />';
+    echo '<col class="valuecol" span="3" />';
+    echo '<thead>';
+    echo '<tr><th>' . __('Statements') . '</th>';
+    echo '<th>';
+    /* l10n: # = Amount of queries */
+    echo __('#');
+    echo '</th>';
+    echo '<th>&oslash; ' . __('per hour') . '</th>';
+    echo '<th>%</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
 
-        <table id="serverstatusqueriesdetails" class="data sortable noclick">
-        <col class="namecol" />
-        <col class="valuecol" span="3" />
-        <thead>
-            <tr><th><?php echo __('Statements'); ?></th>
-                <th><?php
-                    /* l10n: # = Amount of queries */
-                    echo __('#');
-                    ?>
-                </th>
-                <th>&oslash; <?php echo __('per hour'); ?></th>
-                <th>%</th>
-            </tr>
-        </thead>
-        <tbody>
-
-    <?php
     $chart_json = array();
     $query_sum = array_sum($used_queries);
     $other_sum = 0;
@@ -1092,16 +1088,23 @@ function printQueryStatistics()
         } else {
             $chart_json[$name] = $value;
         }
-    ?>
-            <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-                <th class="name"><?php echo htmlspecialchars($name); ?></th>
-                <td class="value"><?php echo htmlspecialchars(PMA_Util::formatNumber($value, 5, 0, true)); ?></td>
-                <td class="value"><?php echo
-                    htmlspecialchars(PMA_Util::formatNumber($value * $hour_factor, 4, 1, true)); ?></td>
-                <td class="value"><?php echo
-                    htmlspecialchars(PMA_Util::formatNumber($value * $perc_factor, 0, 2)); ?>%</td>
-            </tr>
-    <?php
+
+        echo '<tr class="';
+        echo $odd_row ? 'odd' : 'even';
+        echo '">';
+        echo '<th class="name">' . htmlspecialchars($name) . '</th>';
+        echo '<td class="value">';
+        echo htmlspecialchars(PMA_Util::formatNumber($value, 5, 0, true))
+        echo '</td>';
+        echo '<td class="value">';
+        echo htmlspecialchars(
+            PMA_Util::formatNumber($value * $hour_factor, 4, 1, true)
+        );
+        echo '</td>';
+        echo '<td class="value">';
+        echo htmlspecialchars(PMA_Util::formatNumber($value * $perc_factor, 0, 2));
+        echo '</td>';
+        echo '</tr>';
     }
     echo '</tbody>';
     echo '</table>';
