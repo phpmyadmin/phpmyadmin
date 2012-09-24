@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.5.4.0 (not yet released)
+
 3.5.3.0 (not yet released)
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
 - bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
