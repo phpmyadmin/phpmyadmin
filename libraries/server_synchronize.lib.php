@@ -159,7 +159,8 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
             if (isset($source_result_set[$j]) && ($all_keys_match)) {
 
                 // Query the target server to see which rows already exist
-                $trg_select_query = "SELECT * FROM " . PMA_Util::backquote($trg_db) . "."
+                $trg_select_query = "SELECT * FROM "
+                    . PMA_Util::backquote($trg_db) . "."
                     . PMA_Util::backquote($matching_table[$matching_table_index])
                     . " WHERE ";
 
@@ -187,7 +188,9 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                     // Fetch the row from the source server to do a comparison
                     $src_select_query = "SELECT * FROM "
                         . PMA_Util::backquote($src_db) . "."
-                        . PMA_Util::backquote($matching_table[$matching_table_index])
+                        . PMA_Util::backquote(
+                            $matching_table[$matching_table_index]
+                        )
                         . " WHERE ";
 
                     if (count($is_key) == 1) {
@@ -350,13 +353,20 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  * @return void
  */
 function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
-    $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link, $src_db, $src_link
+    $matching_table_index, $trg_keys, $src_keys,
+    $trg_db, $trg_link, $src_db, $src_link
 ) {
     if (isset($trg_keys[$matching_table_index])) {
-        $target_key_values = PMA_getColumnValues($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
+        $target_key_values = PMA_getColumnValues(
+            $trg_db, $matching_table[$matching_table_index],
+            $trg_keys[$matching_table_index], $trg_link
+        );
     }
     if (isset($src_keys[$matching_table_index])) {
-        $source_key_values = PMA_getColumnValues($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);
+        $source_key_values = PMA_getColumnValues(
+            $src_db, $matching_table[$matching_table_index],
+            $src_keys[$matching_table_index], $src_link
+        );
     }
     $all_keys_match = 1;
     for ($a = 0; $a < count($trg_keys[$matching_table_index]); $a++) {
@@ -377,7 +387,8 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
             if (isset($target_key_values)) {
                 for ($i = 0; $i < count($target_key_values); $i++) {
                     if (! (in_array($target_key_values[$i], $source_key_values))) {
-                        $delete_array[$matching_table_index][$row] = $target_key_values[$i];
+                        $delete_array[$matching_table_index][$row]
+                            = $target_key_values[$i];
                         $row++;
                     }
                 }
@@ -423,8 +434,9 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
  *
  * @return void
  */
-function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_link, $index, &$row_count)
-{
+function PMA_dataDiffInUncommonTables(
+    $source_tables_uncommon, $src_db, $src_link, $index, &$row_count
+) {
     $query = "SELECT COUNT(*) FROM " . PMA_Util::backquote($src_db) . "."
         . PMA_Util::backquote($source_tables_uncommon[$index]);
     $rows  = PMA_DBI_fetch_result($query, null, null, $src_link);
@@ -461,7 +473,9 @@ function PMA_updateTargetTables(
                 if (isset($update_array[$matching_table_index][$update_row])) {
                     $update_fields_num = count($update_array[$matching_table_index][$update_row])-count($matching_table_keys[$matching_table_index]);
                     if ($update_fields_num > 0) {
-                        $query = "UPDATE " . PMA_Util::backquote($trg_db) . "." .PMA_Util::backquote($table[$matching_table_index]) . " SET ";
+                        $query = "UPDATE " . PMA_Util::backquote($trg_db) . "."
+                            . PMA_Util::backquote($table[$matching_table_index])
+                            . " SET ";
 
                         for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
                             if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
@@ -1351,12 +1365,17 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link,
     &$alter_indexes_array, &$remove_indexes_array, $table_counter
 ) {
     //Gets indexes information for source and target table
-    $source_indexes[$table_counter] = PMA_DBI_get_table_indexes($src_db, $matching_tables[$table_counter], $src_link);
-    $target_indexes[$table_counter] = PMA_DBI_get_table_indexes($trg_db, $matching_tables[$table_counter], $trg_link);
+    $source_indexes[$table_counter] = PMA_DBI_get_table_indexes(
+        $src_db, $matching_tables[$table_counter], $src_link
+    );
+    $target_indexes[$table_counter] = PMA_DBI_get_table_indexes(
+        $trg_db, $matching_tables[$table_counter], $trg_link
+    );
     for ($a = 0; $a < count($source_indexes[$table_counter]); $a++) {
         $found = false;
         $z = 0;
-        //Compares key name and non_unique characteristic of source indexes with target indexes
+        //Compares key name and non_unique characteristic of source indexes with
+        // target indexes
         /*
          * @todo compare the length of each sub part
          */
@@ -1498,7 +1517,9 @@ function PMA_applyIndexesDiff($trg_db, $trg_link, $matching_tables, $source_inde
 function PMA_displayQuery($query)
 {
     if (strlen($query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-        $query = substr($query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
+        $query = substr(
+            $query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+        ) . '[...]';
     }
     echo '<p>' . htmlspecialchars($query) . '</p>';
 }
@@ -1604,7 +1625,8 @@ function PMA_getColumnValues($database, $table, $column, $link = null)
             $query.= ', ';
         }
     }
-    $query.= ' FROM ' . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table);
+    $query.= ' FROM ' . PMA_Util::backquote($database) . '.'
+        . PMA_Util::backquote($table);
     $field_values = PMA_DBI_fetch_result($query, null, null, $link);
 
     if (! is_array($field_values) || count($field_values) < 1) {
