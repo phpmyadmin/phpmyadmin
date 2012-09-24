@@ -473,39 +473,43 @@ function PMA_updateTargetTables(
 
     for ($update_row = 0; $update_row < count($update_array[$matching_table_index]); $update_row++) {
 
-        if (isset($update_array[$matching_table_index][$update_row])) {
-            $update_fields_num = count($update_array[$matching_table_index][$update_row]) - count($matching_table_keys[$matching_table_index]);
-            if ($update_fields_num > 0) {
-                $query = "UPDATE " . PMA_Util::backquote($trg_db) . "."
-                    . PMA_Util::backquote($table[$matching_table_index])
-                    . " SET ";
+        if (! isset($update_array[$matching_table_index][$update_row])) {
+            continue;
+        }
 
-                for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
-                    if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
-                        $query .= PMA_Util::backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
-                    }
-                    if ($update_field < ($update_fields_num - 2)) {
-                        $query .= ", ";
-                    }
-                }
-                $query .= " WHERE ";
-                if (isset($matching_table_keys[$matching_table_index])) {
-                    for ($key = 0; $key < count($matching_table_keys[$matching_table_index]); $key++) {
-                        if (isset($matching_table_keys[$matching_table_index][$key])) {
-                            $query .= PMA_Util::backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
-                        }
-                        if ($key < (count($matching_table_keys[$matching_table_index]) - 1)) {
-                            $query .= " AND ";
-                        }
-                    }
-                }
-                $query .= ';';
-                if ($display == true) {
-                    echo "<p>" . $query . "</p>";
-                }
-                PMA_DBI_try_query($query, $trg_link, 0);
+        $update_fields_num = count($update_array[$matching_table_index][$update_row]) - count($matching_table_keys[$matching_table_index]);
+        if ($update_fields_num == 0) {
+            continue;
+        }
+
+        $query = "UPDATE " . PMA_Util::backquote($trg_db) . "."
+            . PMA_Util::backquote($table[$matching_table_index])
+            . " SET ";
+
+        for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
+            if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
+                $query .= PMA_Util::backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
+            }
+            if ($update_field < ($update_fields_num - 2)) {
+                $query .= ", ";
             }
         }
+        $query .= " WHERE ";
+        if (isset($matching_table_keys[$matching_table_index])) {
+            for ($key = 0; $key < count($matching_table_keys[$matching_table_index]); $key++) {
+                if (isset($matching_table_keys[$matching_table_index][$key])) {
+                    $query .= PMA_Util::backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
+                }
+                if ($key < (count($matching_table_keys[$matching_table_index]) - 1)) {
+                    $query .= " AND ";
+                }
+            }
+        }
+        $query .= ';';
+        if ($display == true) {
+            echo "<p>" . $query . "</p>";
+        }
+        PMA_DBI_try_query($query, $trg_link, 0);
     }
 }
 
