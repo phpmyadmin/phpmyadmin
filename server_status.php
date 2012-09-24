@@ -1453,7 +1453,7 @@ function printServerTraffic()
         echo '</a>';
 
         if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) {
-            echo '<a href="' . $full_text_link . '" title="' .
+            echo '<a href="' . $full_text_link . '" title="';
             if ($show_full_sql) {
                 echo __('Truncate Shown Queries');
             } else {
