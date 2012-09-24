@@ -567,151 +567,154 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
     &$alter_str_array, &$source_indexes, &$target_indexes, &$add_indexes_array,
     &$alter_indexes_array, &$delete_array, &$update_array, $display
 ) {
-    if (isset($array_insert[$matching_table_index])) {
-        if (count($array_insert[$matching_table_index])) {
-            for ($insert_row = 0; $insert_row< count($array_insert[$matching_table_index]); $insert_row++) {
-                if (isset($array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][0]])) {
+    if (! isset($array_insert[$matching_table_index])
+        || count($array_insert[$matching_table_index]) == 0
+    ) {
+        return;
+    }
 
-                    $select_query = "SELECT * FROM " . PMA_Util::backquote($src_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) . " WHERE ";
-                    for ($i = 0; $i < count($matching_tables_keys[$matching_table_index]); $i++) {
-                        $select_query .= $matching_tables_keys[$matching_table_index][$i] . "='";
-                        $select_query .= $array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][$i]] . "'" ;
+    for ($insert_row = 0; $insert_row< count($array_insert[$matching_table_index]); $insert_row++) {
+        if (!isset($array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][0]])) {
+            continue;
+        }
 
-                        if ($i < (count($matching_tables_keys[$matching_table_index]) - 1)) {
-                            $select_query.= " AND ";
-                        }
+        $select_query = "SELECT * FROM " . PMA_Util::backquote($src_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) . " WHERE ";
+        for ($i = 0; $i < count($matching_tables_keys[$matching_table_index]); $i++) {
+            $select_query .= $matching_tables_keys[$matching_table_index][$i] . "='";
+            $select_query .= $array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][$i]] . "'" ;
+
+            if ($i < (count($matching_tables_keys[$matching_table_index]) - 1)) {
+                $select_query.= " AND ";
+            }
+        }
+        $select_query .= "; ";
+        $result = PMA_DBI_fetch_result($select_query, null, null, $src_link);
+        $insert_query = "INSERT INTO " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) ." (";
+
+        for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
+            $insert_query .=  PMA_Util::backquote($table_fields[$matching_table_index][$field_index]);
+
+            $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db ."'
+                             AND TABLE_NAME = '" . $matching_table[$matching_table_index]. "'AND COLUMN_NAME = '" .
+                             $table_fields[$matching_table_index][$field_index] . "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;" ;
+
+            $is_fk_result = PMA_DBI_fetch_result($is_fk_query, null, null, $trg_link);
+            if (count($is_fk_result) > 0) {
+                for ($j = 0; $j < count($is_fk_result); $j++) {
+                    $table_index = array_keys($matching_table, $is_fk_result[$j]['REFERENCED_TABLE_NAME']);
+
+                    if (isset($alter_str_array[$table_index[0]])) {
+                        PMA_alterTargetTableStructure(
+                            $trg_db, $trg_link, $matching_tables,
+                            $source_columns, $alter_str_array,
+                            $matching_tables_fields,
+                            $criteria, $matching_tables_keys,
+                            $target_tables_keys, $table_index[0],
+                            $display
+                        );
+                        unset($alter_str_array[$table_index[0]]);
                     }
-                    $select_query .= "; ";
-                    $result = PMA_DBI_fetch_result($select_query, null, null, $src_link);
-                    $insert_query = "INSERT INTO " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) ." (";
-
-                    for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
-                        $insert_query .=  PMA_Util::backquote($table_fields[$matching_table_index][$field_index]);
-
-                        $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db ."'
-                                         AND TABLE_NAME = '" . $matching_table[$matching_table_index]. "'AND COLUMN_NAME = '" .
-                                         $table_fields[$matching_table_index][$field_index] . "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;" ;
-
-                        $is_fk_result = PMA_DBI_fetch_result($is_fk_query, null, null, $trg_link);
-                        if (count($is_fk_result) > 0) {
-                            for ($j = 0; $j < count($is_fk_result); $j++) {
-                                $table_index = array_keys($matching_table, $is_fk_result[$j]['REFERENCED_TABLE_NAME']);
-
-                                if (isset($alter_str_array[$table_index[0]])) {
-                                    PMA_alterTargetTableStructure(
-                                        $trg_db, $trg_link, $matching_tables,
-                                        $source_columns, $alter_str_array,
-                                        $matching_tables_fields,
-                                        $criteria, $matching_tables_keys,
-                                        $target_tables_keys, $table_index[0],
-                                        $display
-                                    );
-                                    unset($alter_str_array[$table_index[0]]);
-                                }
-                                if (isset($uncommon_columns[$table_index[0]])) {
-                                    PMA_removeColumnsFromTargetTable(
-                                        $trg_db, $trg_link, $matching_tables,
-                                        $uncommon_columns, $table_index[0], $display
-                                    );
-                                    unset($uncommon_columns[$table_index[0]]);
-                                }
-                                if (isset($add_column_array[$table_index[0]])) {
-                                    PMA_findDeleteRowsFromTargetTables(
-                                        $delete_array, $matching_tables,
-                                        $table_index[0], $target_tables_keys,
-                                        $matching_tables_keys, $trg_db,
-                                        $trg_link, $src_db, $src_link
-                                    );
-
-                                    if (isset($delete_array[$table_index[0]])) {
-                                        PMA_deleteFromTargetTable(
-                                            $trg_db, $trg_link, $matching_tables,
-                                            $table_index[0], $target_tables_keys,
-                                            $delete_array, $display
-                                        );
-                                        unset($delete_array[$table_index[0]]);
-                                    }
-                                    PMA_addColumnsInTargetTable(
-                                        $src_db, $trg_db, $src_link, $trg_link,
-                                        $matching_tables, $source_columns,
-                                        $add_column_array, $matching_tables_fields,
-                                        $criteria, $matching_tables_keys,
-                                        $target_tables_keys, $uncommon_tables,
-                                        $uncommon_tables_fields, $table_index[0],
-                                        $uncommon_cols, $display
-                                    );
-                                    unset($add_column_array[$table_index[0]]);
-                                }
-                                if (isset($add_indexes_array[$table_index[0]])
-                                    || isset($remove_indexes_array[$table_index[0]])
-                                    || isset($alter_indexes_array[$table_index[0]])
-                                ) {
-                                    PMA_applyIndexesDiff(
-                                        $trg_db, $trg_link, $matching_tables,
-                                        $source_indexes, $target_indexes,
-                                        $add_indexes_array, $alter_indexes_array,
-                                        $remove_indexes_array, $table_index[0],
-                                        $display
-                                    );
-
-                                    unset($add_indexes_array[$table_index[0]]);
-                                    unset($alter_indexes_array[$table_index[0]]);
-                                    unset($remove_indexes_array[$table_index[0]]);
-                                }
-                                if (isset($update_array[$table_index[0]])) {
-                                    PMA_updateTargetTables(
-                                        $matching_tables, $update_array,
-                                        $src_db, $trg_db, $trg_link,
-                                        $table_index[0], $matching_table_keys,
-                                        $display
-                                    );
-                                    unset($update_array[$table_index[0]]);
-                                }
-                                if (isset($array_insert[$table_index[0]])) {
-                                     PMA_insertIntoTargetTable(
-                                         $matching_table, $src_db, $trg_db,
-                                         $src_link, $trg_link, $table_fields,
-                                         $array_insert, $table_index[0],
-                                         $matching_tables_keys, $source_columns,
-                                         $add_column_array, $criteria,
-                                         $target_tables_keys, $uncommon_tables,
-                                         $uncommon_tables_fields, $uncommon_cols,
-                                         $alter_str_array, $source_indexes,
-                                         $target_indexes, $add_indexes_array,
-                                         $alter_indexes_array, $delete_array,
-                                         $update_array, $display
-                                     );
-                                     unset($array_insert[$table_index[0]]);
-                                }
-                            }
-                        }
-                        if ($field_index < count($table_fields[$matching_table_index])-1) {
-                            $insert_query .= ", ";
-                        }
+                    if (isset($uncommon_columns[$table_index[0]])) {
+                        PMA_removeColumnsFromTargetTable(
+                            $trg_db, $trg_link, $matching_tables,
+                            $uncommon_columns, $table_index[0], $display
+                        );
+                        unset($uncommon_columns[$table_index[0]]);
                     }
-                    $insert_query .= ") VALUES(";
-                    if (count($table_fields[$matching_table_index]) == 1) {
-                         $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0]) . "'";
-                    } else {
-                        for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
-                            if (isset($result[0][$table_fields[$matching_table_index][$field_index]])) {
-                                $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
-                            } else {
-                                $insert_query .= "'NULL'";
-                            }
-                            if ($field_index < (count($table_fields[$matching_table_index])) - 1) {
-                                    $insert_query .= " ," ;
-                            }
+                    if (isset($add_column_array[$table_index[0]])) {
+                        PMA_findDeleteRowsFromTargetTables(
+                            $delete_array, $matching_tables,
+                            $table_index[0], $target_tables_keys,
+                            $matching_tables_keys, $trg_db,
+                            $trg_link, $src_db, $src_link
+                        );
+
+                        if (isset($delete_array[$table_index[0]])) {
+                            PMA_deleteFromTargetTable(
+                                $trg_db, $trg_link, $matching_tables,
+                                $table_index[0], $target_tables_keys,
+                                $delete_array, $display
+                            );
+                            unset($delete_array[$table_index[0]]);
                         }
+                        PMA_addColumnsInTargetTable(
+                            $src_db, $trg_db, $src_link, $trg_link,
+                            $matching_tables, $source_columns,
+                            $add_column_array, $matching_tables_fields,
+                            $criteria, $matching_tables_keys,
+                            $target_tables_keys, $uncommon_tables,
+                            $uncommon_tables_fields, $table_index[0],
+                            $uncommon_cols, $display
+                        );
+                        unset($add_column_array[$table_index[0]]);
                     }
-                    $insert_query .= ");";
-                    if ($display == true) {
-                        PMA_displayQuery($insert_query);
+                    if (isset($add_indexes_array[$table_index[0]])
+                        || isset($remove_indexes_array[$table_index[0]])
+                        || isset($alter_indexes_array[$table_index[0]])
+                    ) {
+                        PMA_applyIndexesDiff(
+                            $trg_db, $trg_link, $matching_tables,
+                            $source_indexes, $target_indexes,
+                            $add_indexes_array, $alter_indexes_array,
+                            $remove_indexes_array, $table_index[0],
+                            $display
+                        );
+
+                        unset($add_indexes_array[$table_index[0]]);
+                        unset($alter_indexes_array[$table_index[0]]);
+                        unset($remove_indexes_array[$table_index[0]]);
                     }
-                    PMA_DBI_try_query($insert_query, $trg_link, 0);
+                    if (isset($update_array[$table_index[0]])) {
+                        PMA_updateTargetTables(
+                            $matching_tables, $update_array,
+                            $src_db, $trg_db, $trg_link,
+                            $table_index[0], $matching_table_keys,
+                            $display
+                        );
+                        unset($update_array[$table_index[0]]);
+                    }
+                    if (isset($array_insert[$table_index[0]])) {
+                         PMA_insertIntoTargetTable(
+                             $matching_table, $src_db, $trg_db,
+                             $src_link, $trg_link, $table_fields,
+                             $array_insert, $table_index[0],
+                             $matching_tables_keys, $source_columns,
+                             $add_column_array, $criteria,
+                             $target_tables_keys, $uncommon_tables,
+                             $uncommon_tables_fields, $uncommon_cols,
+                             $alter_str_array, $source_indexes,
+                             $target_indexes, $add_indexes_array,
+                             $alter_indexes_array, $delete_array,
+                             $update_array, $display
+                         );
+                         unset($array_insert[$table_index[0]]);
+                    }
+                }
+            }
+            if ($field_index < count($table_fields[$matching_table_index])-1) {
+                $insert_query .= ", ";
+            }
+        }
+        $insert_query .= ") VALUES(";
+        if (count($table_fields[$matching_table_index]) == 1) {
+             $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0]) . "'";
+        } else {
+            for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
+                if (isset($result[0][$table_fields[$matching_table_index][$field_index]])) {
+                    $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
+                } else {
+                    $insert_query .= "'NULL'";
+                }
+                if ($field_index < (count($table_fields[$matching_table_index])) - 1) {
+                        $insert_query .= " ," ;
                 }
             }
         }
+        $insert_query .= ");";
+        if ($display == true) {
+            PMA_displayQuery($insert_query);
+        }
+        PMA_DBI_try_query($insert_query, $trg_link, 0);
     }
 }
 
