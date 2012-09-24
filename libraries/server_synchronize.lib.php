@@ -809,7 +809,8 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
         // Replace the src table name with a `dbname`.`tablename`
         $Create_Table_Query = preg_replace(
             '/' . preg_quote(PMA_Util::backquote($uncommon_tables[$table_index]), '/') . '/',
-            PMA_Util::backquote($trg_db) . '.' . PMA_Util::backquote($uncommon_tables[$table_index]),
+            PMA_Util::backquote($trg_db) . '.'
+            . PMA_Util::backquote($uncommon_tables[$table_index]),
             $Create_Query,
             $limit = 1
         );
@@ -822,7 +823,11 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
             for ($j = 0; $j < count($is_fk_result); $j++) {
                 if (in_array($is_fk_result[$j]['REFERENCED_TABLE_NAME'], $uncommon_tables)) {
                     $table_index = array_keys($uncommon_tables, $is_fk_result[$j]['REFERENCED_TABLE_NAME']);
-                    PMA_createTargetTables($src_db, $trg_db, $trg_link, $src_link, $uncommon_tables, $table_index[0], $uncommon_tables_fields, $display);
+                    PMA_createTargetTables(
+                        $src_db, $trg_db, $trg_link, $src_link,
+                        $uncommon_tables, $table_index[0],
+                        $uncommon_tables_fields, $display
+                    );
                     unset($uncommon_tables[$table_index[0]]);
                 }
             }
@@ -904,7 +909,8 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
 ) {
     for ($i = 0; $i < count($delete_array[$table_index]); $i++) {
         if (isset($target_tables_keys[$table_index])) {
-            $delete_query = 'DELETE FROM ' . PMA_Util::backquote($trg_db) . '.' .PMA_Util::backquote($matching_tables[$table_index]) . ' WHERE ';
+            $delete_query = 'DELETE FROM ' . PMA_Util::backquote($trg_db) . '.'
+                . PMA_Util::backquote($matching_tables[$table_index]) . ' WHERE ';
             for ($y = 0; $y < count($target_tables_keys[$table_index]); $y++) {
                 $delete_query .= PMA_Util::backquote($target_tables_keys[$table_index][$y]) . " = '";
 
@@ -920,7 +926,9 @@ function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
                             AND REFERENCED_TABLE_NAME = '" . $matching_tables[$table_index]."' AND REFERENCED_COLUMN_NAME = '"
                            . $target_tables_keys[$table_index][$y] . "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;";
 
-                $pk_query_result = PMA_DBI_fetch_result($pk_query, null, null, $trg_link);
+                $pk_query_result = PMA_DBI_fetch_result(
+                    $pk_query, null, null, $trg_link
+                );
                 $result_size = count($pk_query_result);
 
                 if ($result_size > 0) {
@@ -1005,7 +1013,9 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
         null,
         $trg_link
     );
-    foreach ($source_columns[$matching_table_index] as $column_name => $each_column) {
+    foreach (
+        $source_columns[$matching_table_index] as $column_name => $each_column
+    ) {
         if (isset($target_columns[$matching_table_index][$column_name]['Field'])) {
             //If column exists in target table then matches criteria like type,
             // null, collation, key, default, comment of the column
