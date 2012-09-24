@@ -1461,7 +1461,7 @@ function printServerTraffic()
             }
             echo '">';
             echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_'
-                . 's_' . ($show_full_sql ? 'partial' : 'full') . 'text.png" ';
+                . 's_' . ($show_full_sql ? 'partial' : 'full') . 'text.png" '
                 . 'alt="';
             if ($show_full_sql) {
                 echo __('Truncate Shown Queries');
