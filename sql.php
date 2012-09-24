@@ -450,7 +450,7 @@ if ($do_confirm) {
     echo '<input type="hidden" name="sql_query" value="'
         . htmlspecialchars($sql_query) . '" />';
     echo '<input type="hidden" name="message_to_show" value="'
-        . (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : ''(
+        . (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : '')
         . '" />';
     echo '<input type="hidden" name="goto" value="' . $goto . '" />';
     echo '<input type="hidden" name="back" value="'
