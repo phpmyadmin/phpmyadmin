@@ -1434,7 +1434,8 @@ function printServerTraffic()
         echo '<th>';
         echo '<a href="server_status.php' . PMA_generate_common_url($column) . '" ';
         if ($is_sorted) {
-            echo 'onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"';
+            echo 'onmouseout="$('.soimg').toggle()" '
+                . 'onmouseover="$('.soimg').toggle()"';
         }
         echo '>';
 
@@ -1732,71 +1733,72 @@ function printVariablesTable()
 
     $odd_row = false;
     foreach ($server_status as $name => $value) {
-            $odd_row = !$odd_row;
-?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; echo isset($allocationMap[$name])?' s_' . $allocationMap[$name]:''; ?>">
-            <th class="name"><?php
-            echo htmlspecialchars(str_replace('_', ' ', $name));
-            /* Fields containing % are calculated, they can not be described in MySQL documentation */
-            if (strpos($name, '%') === false) {
-                 echo PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
-            }
-            ?>
-            </th>
-            <td class="value"><span class="formatted"><?php
-            if (isset($alerts[$name])) {
-                if ($value > $alerts[$name]) {
-                    echo '<span class="attention">';
-                } else {
-                    echo '<span class="allfine">';
-                }
-            }
-            if ('%' === substr($name, -1, 1)) {
-                echo htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
-            } elseif (strpos($name, 'Uptime') !== false) {
-                echo htmlspecialchars(
-                    PMA_Util::timespanFormat($value)
-                );
-            } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
-                echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
-            } elseif (is_numeric($value) && $value == (int) $value) {
-                echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 0));
-            } elseif (is_numeric($value)) {
-                echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
-            } else {
-                echo htmlspecialchars($value);
-            }
-            if (isset($alerts[$name])) {
-                echo '</span>';
-            }
-            ?></span><span style="display:none;" class="original"><?php echo $value; ?></span>
-            </td>
-            <td class="descr">
-            <?php
-            if (isset($strShowStatus[$name ])) {
-                echo $strShowStatus[$name];
-            }
+        $odd_row = !$odd_row;
+        echo '<tr class="' . ($odd_row ? 'odd' : 'even')
+            . (isset($allocationMap[$name])?' s_' . $allocationMap[$name] : '')
+            . '">';
 
-            if (isset($links[$name])) {
-                foreach ($links[$name] as $link_name => $link_url) {
-                    if ('doc' == $link_name) {
-                        echo PMA_Util::showMySQLDocu($link_url, $link_url);
-                    } else {
-                        echo ' <a href="' . $link_url . '">' . $link_name . '</a>' .
-                        "\n";
-                    }
-                }
-                unset($link_url, $link_name);
+        echo '<th class="name">';
+        echo htmlspecialchars(str_replace('_', ' ', $name));
+        /* Fields containing % are calculated, they can not be described in MySQL documentation */
+        if (strpos($name, '%') === false) {
+             echo PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
+        }
+        echo '</th>';
+
+        echo '<td class="value"><span class="formatted">'
+        if (isset($alerts[$name])) {
+            if ($value > $alerts[$name]) {
+                echo '<span class="attention">';
+            } else {
+                echo '<span class="allfine">';
             }
-            ?>
-            </td>
-        </tr>
-    <?php
+        }
+        if ('%' === substr($name, -1, 1)) {
+            echo htmlspecialchars(PMA_Util::formatNumber($value, 0, 2)) . ' %';
+        } elseif (strpos($name, 'Uptime') !== false) {
+            echo htmlspecialchars(
+                PMA_Util::timespanFormat($value)
+            );
+        } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
+            echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
+        } elseif (is_numeric($value) && $value == (int) $value) {
+            echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 0));
+        } elseif (is_numeric($value)) {
+            echo htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
+        } else {
+            echo htmlspecialchars($value);
+        }
+        if (isset($alerts[$name])) {
+            echo '</span>';
+        }
+        echo '</span>';
+        echo '<span style="display:none;" class="original">';
+        echo $value;
+        echo '</span>';
+        echo '</td>';
+        echo '<td class="descr">';
+
+        if (isset($strShowStatus[$name ])) {
+            echo $strShowStatus[$name];
+        }
+
+        if (isset($links[$name])) {
+            foreach ($links[$name] as $link_name => $link_url) {
+                if ('doc' == $link_name) {
+                    echo PMA_Util::showMySQLDocu($link_url, $link_url);
+                } else {
+                    echo ' <a href="' . $link_url . '">' . $link_name . '</a>' .
+                    "\n";
+                }
+            }
+            unset($link_url, $link_name);
+        }
+        echo '</td>';
+        echo '</tr>';
     }
-    ?>
-    </tbody>
-    </table>
-    <?php
+    echo '</tbody>';
+    echo '</table>';
 }
 
 /**
