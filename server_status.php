@@ -49,7 +49,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             } else {
                 $queries = PMA_DBI_fetch_result(
                     "SHOW GLOBAL STATUS
-                    WHERE (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
+                    WHERE
+                        (Variable_name LIKE 'Com_%' OR Variable_name = 'Questions')
                         AND Value > 0", 0, 1
                 );
             }
@@ -274,8 +275,11 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         }
 
         if ($_REQUEST['type'] == 'general') {
-            $limitTypes = (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes'])
-                ? 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ' : '';
+            $limitTypes = '';
+            if (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) {
+                $limitTypes
+                    = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
+            }
 
             $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
             $q .= 'server_id, argument, count(argument) as \'#\' ';
@@ -378,7 +382,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             }
 
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
-                PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value);
+                PMA_DBI_query(
+                    'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                );
             }
 
         }
