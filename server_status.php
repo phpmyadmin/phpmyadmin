@@ -1094,7 +1094,7 @@ function printQueryStatistics()
         echo '">';
         echo '<th class="name">' . htmlspecialchars($name) . '</th>';
         echo '<td class="value">';
-        echo htmlspecialchars(PMA_Util::formatNumber($value, 5, 0, true))
+        echo htmlspecialchars(PMA_Util::formatNumber($value, 5, 0, true));
         echo '</td>';
         echo '<td class="value">';
         echo htmlspecialchars(
