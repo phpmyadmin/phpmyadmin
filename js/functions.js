@@ -846,14 +846,6 @@ function addDateTimePicker() {
 }
 
 /**
-  * listbox redirection
-  */
-function goToUrl(selObj, goToLocation)
-{
-    eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
-}
-
-/**
   * Refresh the WYSIWYG scratchboard after changes have been made
   */
 function refreshDragOption(e)
