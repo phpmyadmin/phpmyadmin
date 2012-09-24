@@ -90,6 +90,7 @@ $func_no_param = array(
     'UTC_TIME',
     'UTC_TIMESTAMP',
     'UUID',
+    'UUID_SHORT',
     'VERSION',
 );
 $func_optional_param = array(

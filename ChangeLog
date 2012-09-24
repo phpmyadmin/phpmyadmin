@@ -46,6 +46,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [interface] Autoselect username input on cookie login page
 
 3.5.4.0 (not yet released)
+- bug #3570212 [edit] uuid_short() is a no-arguments function
+- bug #3569577 [edit] Add routine parameter headers not valid for "function" 
 
 3.5.3.0 (not yet released)
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
