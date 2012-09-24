@@ -1434,8 +1434,8 @@ function printServerTraffic()
         echo '<th>';
         echo '<a href="server_status.php' . PMA_generate_common_url($column) . '" ';
         if ($is_sorted) {
-            echo 'onmouseout="$('.soimg').toggle()" '
-                . 'onmouseover="$('.soimg').toggle()"';
+            echo 'onmouseout="$(\'.soimg\').toggle()" '
+                . 'onmouseover="$(\'.soimg\').toggle()"';
         }
         echo '>';
 
