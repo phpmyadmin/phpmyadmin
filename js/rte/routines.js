@@ -295,7 +295,7 @@ $(document).ready(function () {
      * fields are shown in the editor when changing the routine type
      */
     $('select[name=item_type]').live('change', function () {
-        $('tr.routine_return_row, td.routine_direction_cell').toggle();
+        $('tr.routine_return_row, td.routine_direction_cell, th.routine_direction_cell').toggle();
     }); // end $.live()
 
     /**
