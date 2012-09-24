@@ -2047,7 +2047,8 @@ function PMA_getRefreshList($name,
     $defaultRate = 5,
     $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
 ) {
-    $return = '<select name="' . $name . '" id="id_' . $name . '" class="refreshRate">';
+    $return = '<select name="' . $name . '" id="id_' . $name
+        . '" class="refreshRate">';
     foreach ($refreshRates as $rate) {
         $selected = ($rate == $defaultRate)?' selected="selected"':'';
         $return .= '<option value="' . $rate . '"' . $selected . '>';
@@ -2075,13 +2076,14 @@ function PMA_getRefreshList($name,
 function getDataPointsNumberList(
     $name, $defaultValue = 12, $values = Array(8, 10, 12, 15, 20, 25, 30, 40)
 ) {
-    $html_output = '<select name="' . $name . '" id="id_' . $name . '" class="dataPointsNumber">';
-            foreach ($values as $number) {
-                $selected = ($number == $defaultValue)?' selected="selected"':'';
-                $html_output .= '<option value="' . $number . '"' . $selected . '>'
-                    . sprintf(_ngettext('%d second', '%d points', $number), $number)
-                    . '</option>';
-            }
+    $html_output = '<select name="' . $name . '" id="id_' . $name
+        . '" class="dataPointsNumber">';
+    foreach ($values as $number) {
+        $selected = ($number == $defaultValue)?' selected="selected"':'';
+        $html_output .= '<option value="' . $number . '"' . $selected . '>'
+            . sprintf(_ngettext('%d second', '%d points', $number), $number)
+            . '</option>';
+    }
 
     $html_output .= '</select>';
     return $html_output;
