@@ -55,26 +55,29 @@ if ($no_js) {
     $tabs = false;
 } else {
     $tabs = array();
-    $tabs['sql']['icon']   = 'b_sql.png';
-    $tabs['sql']['text']   = __('SQL');
-    $tabs['sql']['fragment']   = '#';
-    $tabs['sql']['attr']   = 'onclick="PMA_querywindowCommit(\'sql\');return false;"';
+    $tabs['sql']['icon'] = 'b_sql.png';
+    $tabs['sql']['text'] = __('SQL');
+    $tabs['sql']['fragment'] = '#';
+    $tabs['sql']['attr'] = 'onclick="PMA_querywindowCommit(\'sql\');return false;"';
     $tabs['sql']['active'] = (bool) ($querydisplay_tab == 'sql');
-    $tabs['import']['icon']   = 'b_import.png';
-    $tabs['import']['text']   = __('Import files');
-    $tabs['import']['fragment']   = '#';
-    $tabs['import']['attr']   = 'onclick="PMA_querywindowCommit(\'files\');return false;"';
+    $tabs['import']['icon'] = 'b_import.png';
+    $tabs['import']['text'] = __('Import files');
+    $tabs['import']['fragment'] = '#';
+    $tabs['import']['attr']
+        = 'onclick="PMA_querywindowCommit(\'files\');return false;"';
     $tabs['import']['active'] = (bool) ($querydisplay_tab == 'files');
-    $tabs['history']['icon']   = 'b_bookmark.png';
-    $tabs['history']['text']   = __('SQL history');
-    $tabs['history']['fragment']   = '#';
-    $tabs['history']['attr']   = 'onclick="PMA_querywindowCommit(\'history\');return false;"';
+    $tabs['history']['icon'] = 'b_bookmark.png';
+    $tabs['history']['text'] = __('SQL history');
+    $tabs['history']['fragment'] = '#';
+    $tabs['history']['attr']
+        = 'onclick="PMA_querywindowCommit(\'history\');return false;"';
     $tabs['history']['active'] = (bool) ($querydisplay_tab == 'history');
 
     if ($GLOBALS['cfg']['QueryWindowDefTab'] == 'full') {
-        $tabs['all']['text']   = __('All');
-        $tabs['all']['fragment']   = '#';
-        $tabs['all']['attr']   = 'onclick="PMA_querywindowCommit(\'full\');return false;"';
+        $tabs['all']['text'] = __('All');
+        $tabs['all']['fragment'] = '#';
+        $tabs['all']['attr']
+            = 'onclick="PMA_querywindowCommit(\'full\');return false;"';
         $tabs['all']['active'] = (bool) ($querydisplay_tab == 'full');
     }
 }
@@ -114,7 +117,7 @@ $sql_query = '';
  */
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
-$header   = $response->getHeader();
+$header = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('bodyquerywindow');
 $scripts = $header->getScripts();
@@ -190,13 +193,15 @@ if (! empty($_sql_history)
     unset($tab, $_sql_history, $query);
     echo '</ul>' . "\n";
 }
-?>
-<form action="querywindow.php" method="post" name="hiddenqueryform"
-    id="hiddenqueryform">
-    <?php echo PMA_generate_common_hidden_inputs('', ''); ?>
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
-    <input type="hidden" name="sql_query" value="" />
-    <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
-</form>
-</div>
+
+echo '<form action="querywindow.php" method="post" name="hiddenqueryform"';
+echo ' id="hiddenqueryform">';
+echo PMA_generate_common_hidden_inputs('', '');
+echo '<input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />';
+echo '<input type="hidden" name="table" value="'
+    . htmlspecialchars($table) . '" />';
+echo '<input type="hidden" name="sql_query" value="" />';
+echo '<input type="hidden" name="querydisplay_tab" value="'
+    . $querydisplay_tab . '" />';
+echo '</form>';
+echo '</div>';
