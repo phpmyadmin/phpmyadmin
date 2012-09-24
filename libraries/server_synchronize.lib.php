@@ -504,7 +504,7 @@ function PMA_updateTargetTables(
  * @param mixed  $src_link                connection established with source server
  * @param mixed  $trg_link                connection established with target server
  * @param array  $table_fields            field names of a table
- * @param array  &$array_insert
+ * @param array  &$array_insert           list of rows to insert
  * @param int    $matching_table_index    index of matching table in
  *                                        matching_table_array
  * @param array  $matching_tables_keys    field names that are keys in the matching
@@ -987,7 +987,9 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  * @param array  $source_columns          columns information of the source tables
  * @param array  &$add_column_array       the names of the column(field) that are
  *                                        to be added in the target
- * @param array  $matching_tables_fields
+ * @param array  $matching_tables_fields  A two dimensional array passed by
+ *                                        reference to contain names of fields for
+ *                                        each matching table
  * @param array  $criteria                criteria
  * @param array  $matching_tables_keys    field names which is key in the source
  *                                        table
@@ -997,7 +999,8 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  *                                        db and not in target db
  * @param array  &$uncommon_tables_fields names of the fields of the uncommon tables
  * @param int    $table_counter           number of the matching table
- * @param array  $uncommon_cols
+ * @param array  $uncommon_cols           column names that are present in target
+ *                                        table and not in source table
  * @param bool   $display                 whether to display query
  *
  * @return void
@@ -1547,7 +1550,7 @@ function PMA_syncDisplayHeaderCompare($src_db, $trg_db)
  *           (without img_obj and table_name):
  *           i, update_size, insert_size, remove_size, insert_index, remove_index
  *
- * @param array $rows
+ * @param array $rows What rows to compare
  *
  * @return void
  */
