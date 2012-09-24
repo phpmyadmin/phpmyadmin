@@ -1179,7 +1179,10 @@ function printServerTraffic()
         echo '</p>';
     }
 
-    /* if the server works as master or slave in replication process, display useful information */
+    /*
+     * if the server works as master or slave in replication process,
+     * display useful information
+     */
     if ($server_master_status || $server_slave_status) {
         echo '<hr class="clearfloat" />';
 
@@ -1402,65 +1405,79 @@ function printServerTraffic()
     /**
      * Displays the page
      */
-    ?>
-    <table id="tableprocesslist" class="data clearfloat noclick sortable">
-    <thead>
-        <tr>
-            <th><?php echo __('Processes'); ?></th>
-            <?php foreach ($sortable_columns as $column) { ?>
+    echo '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>' . __('Processes') . '</th>';
 
-                <?php
-                    $is_sorted = !empty($_REQUEST['order_by_field'])
-                        && !empty($_REQUEST['sort_order'])
-                        && ($_REQUEST['order_by_field'] == $column['order_by_field']);
+    foreach ($sortable_columns as $column) {
 
-                    $column['sort_order'] = ($is_sorted
-                        && ($_REQUEST['sort_order'] == 'ASC'))
-                        ? 'DESC'
-                        : 'ASC';
+        $is_sorted = !empty($_REQUEST['order_by_field'])
+            && !empty($_REQUEST['sort_order'])
+            && ($_REQUEST['order_by_field'] == $column['order_by_field']);
 
-                    if ($is_sorted) {
-                        if ($_REQUEST['sort_order'] == 'ASC') {
-                           $asc_display_style = 'inline';
-                           $desc_display_style = 'none';
-                        } elseif ($_REQUEST['sort_order'] == 'DESC') {
-                            $desc_display_style = 'inline';
-                            $asc_display_style = 'none';
-                        }
-                    }
-                ?>
+        $column['sort_order'] = ($is_sorted
+            && ($_REQUEST['sort_order'] == 'ASC'))
+            ? 'DESC'
+            : 'ASC';
 
-                <th>
-                    <a href="server_status.php<?php echo PMA_generate_common_url($column) ?>"
-                        <?php if ($is_sorted) { ?>
-                            onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"
-                        <?php } ?>
-                    >
+        if ($is_sorted) {
+            if ($_REQUEST['sort_order'] == 'ASC') {
+               $asc_display_style = 'inline';
+               $desc_display_style = 'none';
+            } elseif ($_REQUEST['sort_order'] == 'DESC') {
+                $desc_display_style = 'inline';
+                $asc_display_style = 'none';
+            }
+        }
 
-                        <?php echo $column['column_name']; ?>
+        echo '<th>';
+        echo '<a href="server_status.php' . PMA_generate_common_url($column) . '" ';
+        if ($is_sorted) {
+            echo 'onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"';
+        }
+        echo '>';
 
-                        <?php if ($is_sorted) { ?>
-                            <img class="icon ic_s_desc soimg" alt="Descending" title="" src="themes/dot.gif" style="display: <?php echo $desc_display_style; ?>;" />
-                            <img class="icon ic_s_asc soimg hide" alt="Ascending" title="" src="themes/dot.gif" style="display: <?php echo $asc_display_style; ?>;" />
-                        <?php } ?>
+        echo $column['column_name'];
 
-                    </a>
+        if ($is_sorted) {
+            echo '<img class="icon ic_s_desc soimg" alt="'
+                . __('Descending') . '" title="" src="themes/dot.gif" '
+                . 'style="display: ' . $desc_display_style . '" />';
+            echo '<img class="icon ic_s_asc soimg hide" alt="'
+                . __('Ascending') . '" title="" src="themes/dot.gif" '
+                . 'style="display: ' . $asc_display_style . '" />';
+        }
 
-                    <?php if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) { ?>
-                        <a href="<?php echo $full_text_link; ?>"
-                            title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
-                            <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
-                            alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
-                        </a>
-                    <?php } ?>
+        echo '</a>';
 
-                </th>
+        if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) {
+            echo '<a href="' . $full_text_link . '" title="' .
+            if ($show_full_sql) {
+                echo __('Truncate Shown Queries');
+            } else {
+                echo __('Show Full Queries');
+            }
+            echo '">';
+            echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_'
+                . 's_' . ($show_full_sql ? 'partial' : 'full') . 'text.png" ';
+                . 'alt="';
+            if ($show_full_sql) {
+                echo __('Truncate Shown Queries');
+            } else {
+                echo __('Show Full Queries');
+            }
+            echo '">';
+            echo '</a>';
+        }
 
-            <?php } ?>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
+        echo '</th>';
+    }
+
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+
     $odd_row = true;
     while ($process = PMA_DBI_fetch_assoc($result)) {
 
