@@ -223,38 +223,17 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                 * be updated in each row of the update array.
                 */
                 for ($m = 0; ($m < $fields_num[$matching_table_index]) && ($starting_index == 0) ; $m++) {
-                    if (isset($src_result_set[0][$fld[$m]])) {
-                        if (isset($target_result_set[0][$fld[$m]])) {
-                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
-                                if (count($is_key) == 1) {
-                                    if ($source_result_set[$j]) {
-                                        $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
-                                    }
-                                } elseif (count($is_key) > 1) {
-                                    for ($n=0; $n < count($is_key); $n++) {
-                                        if (isset($src_result_set[0][$is_key[$n]])) {
-                                            $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
-                                        }
-                                    }
-                                }
-
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-
-                                $update_field++;
-                                if (isset($src_result_set[0][$fld[$m]])) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                    $update_field++;
-                                }
-                                $starting_index = $m;
-                                $update_row++;
-                            }
-                        } else {
+                    if (! isset($src_result_set[0][$fld[$m]])) {
+                        continue;
+                    }
+                    if (isset($target_result_set[0][$fld[$m]])) {
+                        if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
                             if (count($is_key) == 1) {
                                 if ($source_result_set[$j]) {
                                     $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
                                 }
                             } elseif (count($is_key) > 1) {
-                                for ($n = 0; $n < count($is_key); $n++) {
+                                for ($n=0; $n < count($is_key); $n++) {
                                     if (isset($src_result_set[0][$is_key[$n]])) {
                                         $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
                                     }
@@ -271,22 +250,37 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                             $starting_index = $m;
                             $update_row++;
                         }
+                    } else {
+                        if (count($is_key) == 1) {
+                            if ($source_result_set[$j]) {
+                                $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
+                            }
+                        } elseif (count($is_key) > 1) {
+                            for ($n = 0; $n < count($is_key); $n++) {
+                                if (isset($src_result_set[0][$is_key[$n]])) {
+                                    $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
+                                }
+                            }
+                        }
+
+                        $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+
+                        $update_field++;
+                        if (isset($src_result_set[0][$fld[$m]])) {
+                            $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                            $update_field++;
+                        }
+                        $starting_index = $m;
+                        $update_row++;
                     }
                 }
                 for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++) {
-                    if (isset($src_result_set[0][$fld[$m]])) {
-                        if (isset($target_result_set[0][$fld[$m]])) {
-                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
-                                $update_row--;
-                                $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-                                $update_field++;
-                                if ($src_result_set[0][$fld[$m]]) {
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                    $update_field++;
-                                }
-                                $update_row++;
-                            }
-                        } else {
+                    if (! isset($src_result_set[0][$fld[$m]])) {
+                        continue;
+                    }
+
+                    if (isset($target_result_set[0][$fld[$m]])) {
+                        if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
                             $update_row--;
                             $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
                             $update_field++;
@@ -296,6 +290,15 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                             }
                             $update_row++;
                         }
+                    } else {
+                        $update_row--;
+                        $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+                        $update_field++;
+                        if ($src_result_set[0][$fld[$m]]) {
+                            $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                            $update_field++;
+                        }
+                        $update_row++;
                     }
                 }
             } else {
@@ -372,10 +375,11 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
     }
     $all_keys_match = 1;
     for ($a = 0; $a < count($trg_keys[$matching_table_index]); $a++) {
-        if (isset($trg_keys[$matching_table_index][$a])) {
-            if (! (in_array($trg_keys[$matching_table_index][$a], $src_keys[$matching_table_index]))) {
-                $all_keys_match = 0;
-            }
+        if (! isset($trg_keys[$matching_table_index][$a])) {
+            continue;
+        }
+        if (! (in_array($trg_keys[$matching_table_index][$a], $src_keys[$matching_table_index]))) {
+            $all_keys_match = 0;
         }
     }
     if (! ($all_keys_match)) {
@@ -473,13 +477,19 @@ function PMA_updateTargetTables(
         return;
     }
 
-    for ($update_row = 0; $update_row < count($update_array[$matching_table_index]); $update_row++) {
+    for (
+        $update_row = 0;
+        $update_row < count($update_array[$matching_table_index]);
+        $update_row++
+    ) {
 
         if (! isset($update_array[$matching_table_index][$update_row])) {
             continue;
         }
 
-        $update_fields_num = count($update_array[$matching_table_index][$update_row]) - count($matching_table_keys[$matching_table_index]);
+        $update_fields_num
+            = count($update_array[$matching_table_index][$update_row])
+            - count($matching_table_keys[$matching_table_index]);
         if ($update_fields_num == 0) {
             continue;
         }
@@ -488,7 +498,11 @@ function PMA_updateTargetTables(
             . PMA_Util::backquote($table[$matching_table_index])
             . " SET ";
 
-        for ($update_field = 0; $update_field < $update_fields_num; $update_field = $update_field+2) {
+        for (
+            $update_field = 0;
+            $update_field < $update_fields_num;
+            $update_field = $update_field + 2
+        ) {
             if (isset($update_array[$matching_table_index][$update_row][$update_field]) && isset($update_array[$matching_table_index][$update_row][$update_field+1])) {
                 $query .= PMA_Util::backquote($update_array[$matching_table_index][$update_row][$update_field]) . "='" . $update_array[$matching_table_index][$update_row][$update_field+1] . "'";
             }
@@ -498,7 +512,11 @@ function PMA_updateTargetTables(
         }
         $query .= " WHERE ";
         if (isset($matching_table_keys[$matching_table_index])) {
-            for ($key = 0; $key < count($matching_table_keys[$matching_table_index]); $key++) {
+            for (
+                $key = 0;
+                $key < count($matching_table_keys[$matching_table_index]);
+                $key++
+            ) {
                 if (isset($matching_table_keys[$matching_table_index][$key])) {
                     $query .= PMA_Util::backquote($matching_table_keys[$matching_table_index][$key]) . "='" . $update_array[$matching_table_index][$update_row][$matching_table_keys[$matching_table_index][$key]] . "'";
                 }
@@ -575,13 +593,21 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
         return;
     }
 
-    for ($insert_row = 0; $insert_row< count($array_insert[$matching_table_index]); $insert_row++) {
+    for (
+        $insert_row = 0;
+        $insert_row< count($array_insert[$matching_table_index]);
+        $insert_row++
+    ) {
         if (!isset($array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][0]])) {
             continue;
         }
 
         $select_query = "SELECT * FROM " . PMA_Util::backquote($src_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) . " WHERE ";
-        for ($i = 0; $i < count($matching_tables_keys[$matching_table_index]); $i++) {
+        for (
+            $i = 0;
+            $i < count($matching_tables_keys[$matching_table_index]);
+            $i++
+        ) {
             $select_query .= $matching_tables_keys[$matching_table_index][$i] . "='";
             $select_query .= $array_insert[$matching_table_index][$insert_row][$matching_tables_keys[$matching_table_index][$i]] . "'" ;
 
@@ -593,17 +619,29 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
         $result = PMA_DBI_fetch_result($select_query, null, null, $src_link);
         $insert_query = "INSERT INTO " . PMA_Util::backquote($trg_db) . "." . PMA_Util::backquote($matching_table[$matching_table_index]) ." (";
 
-        for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
-            $insert_query .=  PMA_Util::backquote($table_fields[$matching_table_index][$field_index]);
+        for (
+            $field_index = 0;
+            $field_index < count($table_fields[$matching_table_index]);
+            $field_index++
+        ) {
+            $insert_query .= PMA_Util::backquote(
+                $table_fields[$matching_table_index][$field_index]
+            );
 
             $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db ."'
                              AND TABLE_NAME = '" . $matching_table[$matching_table_index]. "'AND COLUMN_NAME = '" .
                              $table_fields[$matching_table_index][$field_index] . "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;" ;
 
-            $is_fk_result = PMA_DBI_fetch_result($is_fk_query, null, null, $trg_link);
+            $is_fk_result = PMA_DBI_fetch_result(
+                $is_fk_query, null, null, $trg_link
+            );
+
             if (count($is_fk_result) > 0) {
                 for ($j = 0; $j < count($is_fk_result); $j++) {
-                    $table_index = array_keys($matching_table, $is_fk_result[$j]['REFERENCED_TABLE_NAME']);
+                    $table_index = array_keys(
+                        $matching_table,
+                        $is_fk_result[$j]['REFERENCED_TABLE_NAME']
+                    );
 
                     if (isset($alter_str_array[$table_index[0]])) {
                         PMA_alterTargetTableStructure(
@@ -701,9 +739,15 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
         if (count($table_fields[$matching_table_index]) == 1) {
              $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0]) . "'";
         } else {
-            for ($field_index = 0; $field_index < count($table_fields[$matching_table_index]); $field_index++) {
+            for (
+                $field_index = 0;
+                $field_index < count($table_fields[$matching_table_index]);
+                $field_index++
+            ) {
                 if (isset($result[0][$table_fields[$matching_table_index][$field_index]])) {
-                    $insert_query .= "'" . PMA_Util::sqlAddSlashes($result[0][$table_fields[$matching_table_index][$field_index]]) . "'";
+                    $insert_query .= "'" . PMA_Util::sqlAddSlashes(
+                        $result[0][$table_fields[$matching_table_index][$field_index]]
+                    ) . "'";
                 } else {
                     $insert_query .= "'NULL'";
                 }
