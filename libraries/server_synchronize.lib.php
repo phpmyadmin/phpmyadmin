@@ -109,149 +109,129 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
     &$matching_table, &$matching_tables_fields, &$update_array, &$insert_array,
     &$delete_array, &$fields_num, $matching_table_index, &$matching_tables_keys
 ) {
-    if (isset($matching_table[$matching_table_index])) {
-        $fld = array();
-        $fld_results = PMA_DBI_get_columns(
-            $src_db, $matching_table[$matching_table_index], null, true, $src_link
-        );
-        $is_key = array();
-        if (isset($fld_results)) {
-            foreach ($fld_results as $each_field) {
-                $field_name = $each_field['Field'];
-                if ($each_field['Key'] == 'PRI') {
-                    $is_key[] = $field_name;
+    if (!isset($matching_table[$matching_table_index])) {
+        return;
+    }
+
+    $fld = array();
+    $fld_results = PMA_DBI_get_columns(
+        $src_db, $matching_table[$matching_table_index], null, true, $src_link
+    );
+    $is_key = array();
+    if (isset($fld_results)) {
+        foreach ($fld_results as $each_field) {
+            $field_name = $each_field['Field'];
+            if ($each_field['Key'] == 'PRI') {
+                $is_key[] = $field_name;
+            }
+            $fld[] = $field_name;
+        }
+    }
+    $matching_tables_fields[$matching_table_index] = $fld;
+    $fields_num[$matching_table_index] = count($fld);
+    $matching_tables_keys[$matching_table_index] = $is_key;
+
+    $source_result_set = PMA_getColumnValues(
+        $src_db, $matching_table[$matching_table_index], $is_key, $src_link
+    );
+    $source_size = count($source_result_set);
+
+    $trg_fld_results = PMA_DBI_get_columns(
+        $trg_db, $matching_table[$matching_table_index], null, true, $trg_link
+    );
+    $all_keys_match = true;
+    $trg_keys = array();
+
+    if (isset($trg_fld_results)) {
+        foreach ($trg_fld_results as $each_field) {
+            if ($each_field['Key'] == 'PRI') {
+                $trg_keys[] = $each_field['Field'];
+                if (! (in_array($each_field['Field'], $is_key))) {
+                    $all_keys_match = false;
                 }
-                $fld[] = $field_name;
             }
         }
-        $matching_tables_fields[$matching_table_index] = $fld;
-        $fields_num[$matching_table_index] = count($fld);
-        $matching_tables_keys[$matching_table_index] = $is_key;
+    }
+    $update_row = 0;
+    $insert_row = 0;
 
-        $source_result_set = PMA_getColumnValues(
-            $src_db, $matching_table[$matching_table_index], $is_key, $src_link
-        );
-        $source_size = count($source_result_set);
+    for ($j = 0; $j < $source_size; $j++) {
+        $starting_index = 0;
+        $update_field = 0;
 
-        $trg_fld_results = PMA_DBI_get_columns(
-            $trg_db, $matching_table[$matching_table_index], null, true, $trg_link
-        );
-        $all_keys_match = true;
-        $trg_keys = array();
+        if (isset($source_result_set[$j]) && ($all_keys_match)) {
 
-        if (isset($trg_fld_results)) {
-            foreach ($trg_fld_results as $each_field) {
-                if ($each_field['Key'] == 'PRI') {
-                    $trg_keys[] = $each_field['Field'];
-                    if (! (in_array($each_field['Field'], $is_key))) {
-                        $all_keys_match = false;
+            // Query the target server to see which rows already exist
+            $trg_select_query = "SELECT * FROM "
+                . PMA_Util::backquote($trg_db) . "."
+                . PMA_Util::backquote($matching_table[$matching_table_index])
+                . " WHERE ";
+
+            if (count($is_key) == 1) {
+                $trg_select_query .= PMA_Util::backquote($is_key[0])
+                    . "='" . $source_result_set[$j] . "'";
+            } elseif (count($is_key) > 1) {
+                for ($k=0; $k < count($is_key); $k++) {
+                    $trg_select_query .= PMA_Util::backquote($is_key[$k])
+                        . "='" . $source_result_set[$j][$is_key[$k]] . "'";
+                    if ($k < (count($is_key)-1)) {
+                        $trg_select_query .= " AND ";
                     }
                 }
             }
-        }
-        $update_row = 0;
-        $insert_row = 0;
 
-        for ($j = 0; $j < $source_size; $j++) {
-            $starting_index = 0;
-            $update_field = 0;
+            $target_result_set = PMA_DBI_fetch_result(
+                $trg_select_query,
+                null,
+                null,
+                $trg_link
+            );
+            if ($target_result_set) {
 
-            if (isset($source_result_set[$j]) && ($all_keys_match)) {
-
-                // Query the target server to see which rows already exist
-                $trg_select_query = "SELECT * FROM "
-                    . PMA_Util::backquote($trg_db) . "."
-                    . PMA_Util::backquote($matching_table[$matching_table_index])
+                // Fetch the row from the source server to do a comparison
+                $src_select_query = "SELECT * FROM "
+                    . PMA_Util::backquote($src_db) . "."
+                    . PMA_Util::backquote(
+                        $matching_table[$matching_table_index]
+                    )
                     . " WHERE ";
 
                 if (count($is_key) == 1) {
-                    $trg_select_query .= PMA_Util::backquote($is_key[0])
+                    $src_select_query .= PMA_Util::backquote($is_key[0])
                         . "='" . $source_result_set[$j] . "'";
                 } elseif (count($is_key) > 1) {
-                    for ($k=0; $k < count($is_key); $k++) {
-                        $trg_select_query .= PMA_Util::backquote($is_key[$k])
+                    for ($k=0; $k< count($is_key); $k++) {
+                        $src_select_query .= PMA_Util::backquote($is_key[$k])
                             . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                        if ($k < (count($is_key)-1)) {
-                            $trg_select_query .= " AND ";
+                        if ($k < (count($is_key) - 1)) {
+                            $src_select_query .= " AND ";
                         }
                     }
                 }
 
-                $target_result_set = PMA_DBI_fetch_result(
-                    $trg_select_query,
+                $src_result_set = PMA_DBI_fetch_result(
+                    $src_select_query,
                     null,
                     null,
-                    $trg_link
+                    $src_link
                 );
-                if ($target_result_set) {
 
-                    // Fetch the row from the source server to do a comparison
-                    $src_select_query = "SELECT * FROM "
-                        . PMA_Util::backquote($src_db) . "."
-                        . PMA_Util::backquote(
-                            $matching_table[$matching_table_index]
-                        )
-                        . " WHERE ";
-
-                    if (count($is_key) == 1) {
-                        $src_select_query .= PMA_Util::backquote($is_key[0])
-                            . "='" . $source_result_set[$j] . "'";
-                    } elseif (count($is_key) > 1) {
-                        for ($k=0; $k< count($is_key); $k++) {
-                            $src_select_query .= PMA_Util::backquote($is_key[$k])
-                                . "='" . $source_result_set[$j][$is_key[$k]] . "'";
-                            if ($k < (count($is_key) - 1)) {
-                                $src_select_query .= " AND ";
-                            }
-                        }
-                    }
-
-                    $src_result_set = PMA_DBI_fetch_result(
-                        $src_select_query,
-                        null,
-                        null,
-                        $src_link
-                    );
-
-                    /**
-                    * Comparing each corresponding field of the source and target
-                    * matching rows. Placing the primary key, value of primary
-                    * key, field to be updated, and the new value of field to
-                    * be updated in each row of the update array.
-                    */
-                    for ($m = 0; ($m < $fields_num[$matching_table_index]) && ($starting_index == 0) ; $m++) {
-                        if (isset($src_result_set[0][$fld[$m]])) {
-                            if (isset($target_result_set[0][$fld[$m]])) {
-                                if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
-                                    if (count($is_key) == 1) {
-                                        if ($source_result_set[$j]) {
-                                            $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
-                                        }
-                                    } elseif (count($is_key) > 1) {
-                                        for ($n=0; $n < count($is_key); $n++) {
-                                            if (isset($src_result_set[0][$is_key[$n]])) {
-                                                $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
-                                            }
-                                        }
-                                    }
-
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-
-                                    $update_field++;
-                                    if (isset($src_result_set[0][$fld[$m]])) {
-                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                        $update_field++;
-                                    }
-                                    $starting_index = $m;
-                                    $update_row++;
-                                }
-                            } else {
+                /**
+                * Comparing each corresponding field of the source and target
+                * matching rows. Placing the primary key, value of primary
+                * key, field to be updated, and the new value of field to
+                * be updated in each row of the update array.
+                */
+                for ($m = 0; ($m < $fields_num[$matching_table_index]) && ($starting_index == 0) ; $m++) {
+                    if (isset($src_result_set[0][$fld[$m]])) {
+                        if (isset($target_result_set[0][$fld[$m]])) {
+                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (! (in_array($fld[$m], $is_key)))) {
                                 if (count($is_key) == 1) {
                                     if ($source_result_set[$j]) {
                                         $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
                                     }
                                 } elseif (count($is_key) > 1) {
-                                    for ($n = 0; $n < count($is_key); $n++) {
+                                    for ($n=0; $n < count($is_key); $n++) {
                                         if (isset($src_result_set[0][$is_key[$n]])) {
                                             $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
                                         }
@@ -268,22 +248,35 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                                 $starting_index = $m;
                                 $update_row++;
                             }
+                        } else {
+                            if (count($is_key) == 1) {
+                                if ($source_result_set[$j]) {
+                                    $update_array[$matching_table_index][$update_row][$is_key[0]] = $source_result_set[$j];
+                                }
+                            } elseif (count($is_key) > 1) {
+                                for ($n = 0; $n < count($is_key); $n++) {
+                                    if (isset($src_result_set[0][$is_key[$n]])) {
+                                        $update_array[$matching_table_index][$update_row][$is_key[$n]] = $src_result_set[0][$is_key[$n]];
+                                    }
+                                }
+                            }
+
+                            $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+
+                            $update_field++;
+                            if (isset($src_result_set[0][$fld[$m]])) {
+                                $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                $update_field++;
+                            }
+                            $starting_index = $m;
+                            $update_row++;
                         }
                     }
-                    for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++) {
-                        if (isset($src_result_set[0][$fld[$m]])) {
-                            if (isset($target_result_set[0][$fld[$m]])) {
-                                if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
-                                    $update_row--;
-                                    $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
-                                    $update_field++;
-                                    if ($src_result_set[0][$fld[$m]]) {
-                                        $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
-                                        $update_field++;
-                                    }
-                                    $update_row++;
-                                }
-                            } else {
+                }
+                for ($m = $starting_index + 1; $m < $fields_num[$matching_table_index] ; $m++) {
+                    if (isset($src_result_set[0][$fld[$m]])) {
+                        if (isset($target_result_set[0][$fld[$m]])) {
+                            if (($src_result_set[0][$fld[$m]] != $target_result_set[0][$fld[$m]]) && (!(in_array($fld[$m], $is_key)))) {
                                 $update_row--;
                                 $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
                                 $update_field++;
@@ -293,32 +286,22 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                                 }
                                 $update_row++;
                             }
-                        }
-                    }
-                } else {
-                    /**
-                     * Placing the primary key, and the value of primary key of the
-                     * row that is to be inserted in the target table
-                     */
-                    if (count($is_key) == 1) {
-                        if (isset($source_result_set[$j])) {
-                            $insert_array[$matching_table_index][$insert_row][$is_key[0]] = $source_result_set[$j];
-                        }
-                    } elseif (count($is_key) > 1) {
-                        for ($l = 0; $l < count($is_key); $l++) {
-                            if (isset($source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]])) {
-                                $insert_array[$matching_table_index][$insert_row][$is_key[$l]] = $source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]];
+                        } else {
+                            $update_row--;
+                            $update_array[$matching_table_index][$update_row][$update_field] = $fld[$m];
+                            $update_field++;
+                            if ($src_result_set[0][$fld[$m]]) {
+                                $update_array[$matching_table_index][$update_row][$update_field] = $src_result_set[0][$fld[$m]];
+                                $update_field++;
                             }
+                            $update_row++;
                         }
                     }
-                    $insert_row++;
                 }
             } else {
                 /**
                  * Placing the primary key, and the value of primary key of the
-                 * row that is to be inserted in the target table. This
-                 * condition is met when there is an additional column in the
-                 * source table
+                 * row that is to be inserted in the target table
                  */
                 if (count($is_key) == 1) {
                     if (isset($source_result_set[$j])) {
@@ -333,8 +316,27 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
                 }
                 $insert_row++;
             }
-        } // for loop ends
-    }
+        } else {
+            /**
+             * Placing the primary key, and the value of primary key of the
+             * row that is to be inserted in the target table. This
+             * condition is met when there is an additional column in the
+             * source table
+             */
+            if (count($is_key) == 1) {
+                if (isset($source_result_set[$j])) {
+                    $insert_array[$matching_table_index][$insert_row][$is_key[0]] = $source_result_set[$j];
+                }
+            } elseif (count($is_key) > 1) {
+                for ($l = 0; $l < count($is_key); $l++) {
+                    if (isset($source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]])) {
+                        $insert_array[$matching_table_index][$insert_row][$is_key[$l]] = $source_result_set[$j][$matching_tables_fields[$matching_table_index][$l]];
+                    }
+                }
+            }
+            $insert_row++;
+        }
+    } // for loop ends
 }
 
 /**
