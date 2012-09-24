@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * SQL executor
+ *
  * @todo    we must handle the case if sql.php is called directly with a query
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
@@ -87,7 +89,11 @@ if (! empty($goto)) {
         $is_gotofile = ($is_gotofile == $goto);
     }
 } else {
-    $goto = (! strlen($table)) ? $cfg['DefaultTabDatabase'] : $cfg['DefaultTabTable'];
+    if (empty($table)) {
+        $goto = $cfg['DefaultTabDatabase'];
+    } else {
+        $goto = $cfg['DefaultTabTable'];
+    }
     $is_gotofile  = true;
 } // end if
 
@@ -150,7 +156,8 @@ if (isset($_REQUEST['get_relational_values'])
         $dropdown = '<span class="curr_value">'
             . htmlspecialchars($_REQUEST['curr_value'])
             . '</span>'
-            . '<a href="browse_foreigners.php' . PMA_generate_common_url($_url_params) . '"'
+            . '<a href="browse_foreigners.php'
+            . PMA_generate_common_url($_url_params) . '"'
             . ' target="_blank" class="browse_foreign" ' .'>'
             . __('Browse foreign values')
             . '</a>';
@@ -326,7 +333,12 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    PMA_Util::mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
+    PMA_Util::mysqlDie(
+        __('"DROP DATABASE" statements are disabled.'),
+        '',
+        '',
+        $err_url
+    );
 } // end if
 
 // Include PMA_Index class for use in PMA_DisplayResults class
@@ -434,25 +446,42 @@ if ($do_confirm) {
     }
     echo '<form action="sql.php" method="post">' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table);
-    ?>
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
-    <input type="hidden" name="message_to_show" value="<?php echo isset($message_to_show) ? PMA_sanitize($message_to_show, true) : ''; ?>" />
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="back" value="<?php echo isset($back) ? PMA_sanitize($back, true) : ''; ?>" />
-    <input type="hidden" name="reload" value="<?php echo isset($reload) ? PMA_sanitize($reload, true) : 0; ?>" />
-    <input type="hidden" name="purge" value="<?php echo isset($purge) ? PMA_sanitize($purge, true) : ''; ?>" />
-    <input type="hidden" name="dropped_column" value="<?php echo isset($dropped_column) ? PMA_sanitize($dropped_column, true) : ''; ?>" />
-    <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? PMA_sanitize($show_query, true) : ''; ?>" />
-    <?php
+
+    echo '<input type="hidden" name="sql_query" value="'
+        . htmlspecialchars($sql_query) . '" />';
+    echo '<input type="hidden" name="message_to_show" value="'
+        . (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : ''(
+        . '" />';
+    echo '<input type="hidden" name="goto" value="' . $goto . '" />';
+    echo '<input type="hidden" name="back" value="'
+        . (isset($back) ? PMA_sanitize($back, true) : '')
+        . '" />';
+    echo '<input type="hidden" name="reload" value="'
+        . (isset($reload) ? PMA_sanitize($reload, true) : 0)
+        . '" />';
+    echo '<input type="hidden" name="purge" value="'
+        . (isset($purge) ? PMA_sanitize($purge, true) : '')
+        . '" />';
+    echo '<input type="hidden" name="dropped_column" value="'
+        . (isset($dropped_column) ? PMA_sanitize($dropped_column, true) : '')
+        . '" />';
+    echo '<input type="hidden" name="show_query" value="'
+        . (isset($show_query) ? PMA_sanitize($show_query, true) : '')
+        . '" />';
+
     echo '<fieldset class="confirmation">' . "\n"
-        .'    <legend>' . __('Do you really want to execute the following query?') . '</legend>'
-        .'    <code>' . htmlspecialchars($stripped_sql_query) . '</code>' . "\n"
+        .'<legend>'
+        . __('Do you really want to execute the following query?')
+        . '</legend>'
+        .'<code>' . htmlspecialchars($stripped_sql_query) . '</code>' . "\n"
         .'</fieldset>' . "\n"
         .'<fieldset class="tblFooters">' . "\n";
-    ?>
-    <input type="submit" name="btnDrop" value="<?php echo __('Yes'); ?>" id="buttonYes" />
-    <input type="submit" name="btnDrop" value="<?php echo __('No'); ?>" id="buttonNo" />
-    <?php
+
+    echo '<input type="submit" name="btnDrop" value="'
+        . __('Yes') . '" id="buttonYes" />';
+    echo '<input type="submit" name="btnDrop" value="'
+        . __('No') . '" id="buttonNo" />';
+
     echo '</fieldset>' . "\n"
        . '</form>' . "\n";
 
@@ -531,7 +560,9 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
         if (! empty($analyzed_sql[0]['section_after_limit'])
             && trim($analyzed_sql[0]['section_after_limit']) != ';'
         ) {
-            $analyzed_display_query = PMA_SQP_analyze(PMA_SQP_parse($display_query));
+            $analyzed_display_query = PMA_SQP_analyze(
+                PMA_SQP_parse($display_query)
+            );
             $display_query  = $analyzed_display_query[0]['section_before_limit']
                 . "\n" . $sql_limit_to_append
                 . $analyzed_display_query[0]['section_after_limit'];
@@ -601,9 +632,11 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
              */
             include '' . PMA_securePath($goto);
         } else {
-            $full_err_url = preg_match('@^(db|tbl)_@', $err_url)
-                ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
-                : $err_url;
+            $full_err_url = $err_url;
+            if (preg_match('@^(db|tbl)_@', $err_url)) {
+                $full_err_url .=  '&amp;show_query=1&amp;sql_query='
+                    . urlencode($sql_query);
+            }
             PMA_Util::mysqlDie($error, $full_sql_query, '', $full_err_url);
         }
         exit;
@@ -867,7 +900,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     } elseif (! empty($GLOBALS['validatequery'])) {
         $message = PMA_Message::notice(__('Validated SQL'));
     } else {
-        $message = PMA_Message::success(__('MySQL returned an empty result set (i.e. zero rows).'));
+        $message = PMA_Message::success(
+            __('MySQL returned an empty result set (i.e. zero rows).')
+        );
     }
 
     if (isset($GLOBALS['querytime'])) {
@@ -924,7 +959,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $goto = str_replace('sql.php', 'tbl_structure.php', $goto);
         }
         PMA_sendHeaderLocation(
-            $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message)
+            $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto)
+            . '&message=' . urlencode($message)
         );
     } // end else
     exit();
@@ -997,7 +1033,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 $printview, $url_query
             );
 
-            echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
+            echo $displayResultsObject->getTable(
+                $result, $disp_mode, $analyzed_sql
+            );
             exit();
         }
 
@@ -1031,10 +1069,13 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo "<h1>" . __('SQL result') . "</h1>";
         echo "<p>";
         echo "<strong>" . __('Host') . ":</strong> $hostname<br />";
-        echo "<strong>" . __('Database') . ":</strong> " . htmlspecialchars($db) . "<br />";
-        echo "<strong>" . __('Generation Time') . ":</strong> " . PMA_Util::localisedDate() . "<br />";
+        echo "<strong>" . __('Database') . ":</strong> "
+            . htmlspecialchars($db) . "<br />";
+        echo "<strong>" . __('Generation Time') . ":</strong> "
+            . PMA_Util::localisedDate() . "<br />";
         echo "<strong>" . __('Generated by') . ":</strong> $versions<br />";
-        echo "<strong>" . __('SQL query') . ":</strong> " . htmlspecialchars($full_sql_query) . ";";
+        echo "<strong>" . __('SQL query') . ":</strong> "
+            . htmlspecialchars($full_sql_query) . ";";
         if (isset($num_rows)) {
             echo "<br />";
             echo "<strong>" . __('Rows') . ":</strong> $num_rows";
@@ -1105,7 +1146,11 @@ $(makeProfilingChart);
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
         echo ' <tr>' .  "\n";
-        echo '  <th>' . __('Status') . PMA_Util::showMySQLDocu('general-thread-states', 'general-thread-states') .  '</th>' . "\n";
+        echo '  <th>' . __('Status')
+            . PMA_Util::showMySQLDocu(
+                'general-thread-states', 'general-thread-states'
+            )
+            .  '</th>' . "\n";
         echo '  <th>' . __('Time') . '</th>' . "\n";
         echo ' </tr>' .  "\n";
 
@@ -1113,7 +1158,9 @@ $(makeProfilingChart);
         foreach ($profiling_results as $one_result) {
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
-            echo '<td class="right">' . (PMA_Util::formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
+            echo '<td class="right">'
+                . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
+                . 's</td>' .  "\n";
             if (isset($chart_json[ucwords($one_result['Status'])])) {
                 $chart_json[ucwords($one_result['Status'])] += $one_result['Duration'];
             } else {
@@ -1369,7 +1416,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  * @param string             $goto                 URL to go back in case of errors
  * @param string             $pmaThemeImage        path for theme images directory
  * @param string             $text_dir             text direction
- * @param string             $printview
+ * @param string             $printview            whether printview is enabled
  * @param string             $url_query            URL query
  * @param array              $disp_mode            the display mode
  *
