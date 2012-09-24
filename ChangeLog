@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 3.5.4.0 (not yet released)
+- bug #3570212 [edit] uuid_short() is a no-arguments function
 
 3.5.3.0 (not yet released)
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
