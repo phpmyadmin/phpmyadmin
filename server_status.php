@@ -839,142 +839,154 @@ echo PMA_Util::getImage('s_status.png');
 
 echo __('Runtime Information');
 
-?></h2>
-    <div id="serverStatusTabs">
-        <ul>
-            <li><a href="#statustabs_traffic"><?php echo __('Server'); ?></a></li>
-            <li><a href="#statustabs_queries"><?php echo __('Query statistics'); ?></a></li>
-            <li><a href="#statustabs_allvars"><?php echo __('All status variables'); ?></a></li>
-            <li class="jsfeature"><a href="#statustabs_charting"><?php echo __('Monitor'); ?></a></li>
-            <li class="jsfeature"><a href="#statustabs_advisor"><?php echo __('Advisor'); ?></a></li>
-        </ul>
+echo '</h2>';
+echo '<div id="serverStatusTabs">';
+echo '<ul>';
+echo '<li><a href="#statustabs_traffic">' . __('Server') . '</a></li>';
+echo '<li><a href="#statustabs_queries">' . __('Query statistics') . '</a></li>';
+echo '<li><a href="#statustabs_allvars">'
+    . __('All status variables') . '</a></li>';
+echo '<li class="jsfeature"><a href="#statustabs_charting">'
+    . __('Monitor') . '</a></li>';
+echo '<li class="jsfeature"><a href="#statustabs_advisor">'
+    . __('Advisor') . '</a></li>';
+echo '</ul>';
 
-        <div id="statustabs_traffic" class="clearfloat">
-            <div class="buttonlinks jsfeature">
-                <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=server_traffic&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
-                    <?php echo __('Refresh'); ?>
-                </a>
-                <span class="refreshList" style="display:none;">
-                    <label for="id_trafficChartDataPointsList"><?php echo __('Number of data points: '); ?></label>
-                       <?php echo getDataPointsNumberList('trafficChartDataPoints'); ?>
-                </span>
-                <span class="refreshList" style="display:none;">
-                    <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                    <?php echo PMA_getRefreshList('trafficChartRefresh'); ?>
-                </span>
+echo '<div id="statustabs_traffic" class="clearfloat">';
+echo '<div class="buttonlinks jsfeature">';
+echo '<a class="tabRefresh" href="' . $PMA_PHP_SELF . '?show=server_traffic&amp;'
+    . PMA_generate_common_url() . '" >';
+echo '<img src="' . $GLOBALS['pmaThemeImage']
+    . 'ajax_clock_small.gif" width="16" height="16" '
+    . 'alt="ajax clock" style="display: none;" />';
+echo __('Refresh');
+echo '</a>';
+echo '<span class="refreshList" style="display:none;">';
+echo '<label for="id_trafficChartDataPointsList">'
+    . __('Number of data points: ') . '</label>';
+echo getDataPointsNumberList('trafficChartDataPoints');
+echo '</span>';
+echo '<span class="refreshList" style="display:none;">';
+echo '<label for="id_trafficChartRefresh">' . __('Refresh rate: ') . '</label>';
+echo PMA_getRefreshList('trafficChartRefresh');
+echo '</span>';
 
-                <a class="tabChart livetrafficLink" href="#">
-                    <?php echo __('Live traffic chart'); ?>
-                </a>
-                <a class="tabChart liveconnectionsLink" href="#">
-                    <?php echo __('Live conn./process chart'); ?>
-                </a>
-            </div>
-            <div class="tabInnerContent">
-                <?php printServerTraffic(); ?>
-            </div>
-        </div>
-        <div id="statustabs_queries" class="clearfloat">
-            <div class="buttonlinks jsfeature">
-                <a class="tabRefresh"  href="<?php echo $PMA_PHP_SELF . '?show=query_statistics&amp;' . PMA_generate_common_url(); ?>" >
-                    <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
-                    <?php echo __('Refresh'); ?>
-                </a>
-                <span class="refreshList" style="display:none;">
-                    <label for="id_queryChartDataPointsList"><?php echo __('Number of data points: '); ?></label>
-                       <?php echo getDataPointsNumberList('queryChartDataPoints'); ?>
-                </span>
-                <span class="refreshList" style="display:none;">
-                    <label for="id_queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                       <?php echo PMA_getRefreshList('queryChartRefresh'); ?>
-                </span>
-                <a class="tabChart livequeriesLink" href="#">
-                    <?php echo __('Live query chart'); ?>
-                </a>
-            </div>
-            <div class="tabInnerContent">
-                <?php printQueryStatistics(); ?>
-            </div>
-        </div>
-        <div id="statustabs_allvars" class="clearfloat">
-            <fieldset id="tableFilter" class="jsfeature">
-                <legend><?php echo __('Filters'); ?></legend>
-                <div class="buttonlinks">
-                    <a class="tabRefresh" href="<?php echo $PMA_PHP_SELF . '?show=variables_table&amp;' . PMA_generate_common_url(); ?>" >
-                        <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" style="display: none;" />
-                        <?php echo __('Refresh'); ?>
-                    </a>
-                </div>
-                <div class="formelement">
-                    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
-                    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-                </div>
-                <div class="formelement">
-                    <input type="checkbox" name="filterAlert" id="filterAlert" />
-                    <label for="filterAlert"><?php echo __('Show only alert values'); ?></label>
-                </div>
-                <div class="formelement">
-                    <select id="filterCategory" name="filterCategory">
-                        <option value=''><?php echo __('Filter by category...'); ?></option>
-<?php
+echo '<a class="tabChart livetrafficLink" href="#">';
+echo __('Live traffic chart');
+echo '</a>';
+echo '<a class="tabChart liveconnectionsLink" href="#">';
+echo __('Live conn./process chart');
+echo '</a>';
+echo '</div>';
+echo '<div class="tabInnerContent">';
+printServerTraffic();
+echo '</div>';
+echo '</div>';
+echo '<div id="statustabs_queries" class="clearfloat">';
+echo '<div class="buttonlinks jsfeature">';
+echo '<a class="tabRefresh"  href="' . $PMA_PHP_SELF . '?show=query_statistics&amp;'
+    . PMA_generate_common_url() . '" >';
+echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" '
+    . 'height="16" alt="ajax clock" style="display: none;" />';
+echo __('Refresh');
+echo '</a>';
+echo '<span class="refreshList" style="display:none;">';
+echo '<label for="id_queryChartDataPointsList">'
+    . __('Number of data points: ') . '</label>';
+echo getDataPointsNumberList('queryChartDataPoints');
+echo '</span>';
+echo '<span class="refreshList" style="display:none;">';
+echo '<label for="id_queryChartRefresh">' . __('Refresh rate: ') . '</label>';
+echo PMA_getRefreshList('queryChartRefresh');
+echo '</span>';
+echo '<a class="tabChart livequeriesLink" href="#">';
+echo __('Live query chart');
+echo '</a>';
+echo '</div>';
+echo '<div class="tabInnerContent">';
+printQueryStatistics();
+echo '</div>';
+echo '</div>';
+echo '<div id="statustabs_allvars" class="clearfloat">';
+echo '<fieldset id="tableFilter" class="jsfeature">';
+echo '<legend>' . __('Filters') . '</legend>';
+echo '<div class="buttonlinks">';
+echo '<a class="tabRefresh" href="' . $PMA_PHP_SELF
+    . '?show=variables_table&amp;' . PMA_generate_common_url() . '" >';
+echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" width="16" '
+    . 'height="16" alt="ajax clock" style="display: none;" />';
+echo __('Refresh');
+echo '</a>';
+echo '</div>';
+echo '<div class="formelement">';
+echo '<label for="filterText">' . __('Containing the word:') . '</label>';
+echo '<input name="filterText" type="text" id="filterText" '
+    . 'style="vertical-align: baseline;" />';
+echo '</div>';
+echo '<div class="formelement">';
+echo '<input type="checkbox" name="filterAlert" id="filterAlert" />';
+echo '<label for="filterAlert">' . __('Show only alert values') . '</label>';
+echo '</div>';
+echo '<div class="formelement">';
+echo '<select id="filterCategory" name="filterCategory">';
+echo '<option value=''>' . __('Filter by category...') . '</option>';
+
 foreach ($sections as $section_id => $section_name) {
     if (isset($categoryUsed[$section_id])) {
         echo '<option value="' . $section_id. '">'
             . $section_name. '</option>'. "\n";
     }
 }
-?>
-                    </select>
-                </div>
-                <div class="formelement">
-                    <input type="checkbox" name="dontFormat" id="dontFormat" />
-                    <label for="dontFormat"><?php echo __('Show unformatted values'); ?></label>
-                </div>
-            </fieldset>
-            <div id="linkSuggestions" class="defaultLinks" style="display:none">
-                <p class="notice"><?php echo __('Related links:'); ?>
+echo '</select>';
+echo '</div>';
+echo '<div class="formelement">';
+echo '<input type="checkbox" name="dontFormat" id="dontFormat" />';
+echo '<label for="dontFormat">' . __('Show unformatted values') . '</label>';
+echo '</div>';
+echo '</fieldset>';
+echo '<div id="linkSuggestions" class="defaultLinks" style="display:none">';
+echo '<p class="notice">' . __('Related links:');
 
-                    <?php
-                    foreach ($links as $section_name => $section_links) {
-                        echo '<span class="status_' . $section_name . '"> ';
-                        $i=0;
-                        foreach ($section_links as $link_name => $link_url) {
-                            if ($i > 0) {
-                                echo ', ';
-                            }
-                            if ('doc' == $link_name) {
-                                echo PMA_Util::showMySQLDocu($link_url, $link_url);
-                            } else {
-                                echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-                            }
-                            $i++;
-                        }
-                        echo '</span>';
-                    }
-                    unset($link_url, $link_name, $i);
-                    ?>
+foreach ($links as $section_name => $section_links) {
+    echo '<span class="status_' . $section_name . '"> ';
+    $i=0;
+    foreach ($section_links as $link_name => $link_url) {
+        if ($i > 0) {
+            echo ', ';
+        }
+        if ('doc' == $link_name) {
+            echo PMA_Util::showMySQLDocu($link_url, $link_url);
+        } else {
+            echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+        }
+        $i++;
+    }
+    echo '</span>';
+}
+unset($link_url, $link_name, $i);
 
-                </p>
-            </div>
-            <div class="tabInnerContent">
-                <?php printVariablesTable(); ?>
-            </div>
-        </div>
+echo '</p>';
+echo '</div>';
+echo '<div class="tabInnerContent">';
+printVariablesTable();
+echo '</div>';
+echo '</div>';
 
-        <div id="statustabs_charting" class="jsfeature">
-            <?php printMonitor(); ?>
-        </div>
+echo '<div id="statustabs_charting" class="jsfeature">';
+printMonitor();
+echo '</div>';
 
-        <div id="statustabs_advisor" class="jsfeature">
-            <div class="tabLinks">
-                <?php echo PMA_Util::getImage('play.png'); ?> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
-                <?php echo PMA_Util::getImage('b_help.png'); ?> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
-            </div>
-            <div class="tabInnerContent clearfloat">
-            </div>
-            <div id="advisorInstructionsDialog" style="display:none;">
-<?php
+echo '<div id="statustabs_advisor" class="jsfeature">';
+echo '<div class="tabLinks">';
+echo PMA_Util::getImage('play.png');
+echo '<a href="#startAnalyzer">' . __('Run analyzer') . '</a>';
+echo PMA_Util::getImage('b_help.png');
+echo '<a href="#openAdvisorInstructions">' . __('Instructions') . '</a>';
+echo '</div>';
+echo '<div class="tabInnerContent clearfloat">';
+echo '</div>';
+echo '<div id="advisorInstructionsDialog" style="display:none;">';
+
 echo '<p>';
 echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
 echo '</p> <p>';
@@ -984,13 +996,11 @@ echo __('Prior to changing any of the configuration, be sure to know what you ar
 echo '</p> <p>';
 echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
 echo '</p>';
-?>
-            </div>
-        </div>
-    </div>
-</div>
 
-<?php
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
 
 /**
  * Prints query statistincs
@@ -1007,8 +1017,17 @@ function printQueryStatistics()
 
     echo '<h3 id="serverstatusqueries">';
     /* l10n: Questions is the name of a MySQL Status variable */
-    echo sprintf(__('Questions since startup: %s'), PMA_Util::formatNumber($total_queries, 0)) . ' ';
-    echo PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+    printf(
+        __('Questions since startup: %s'),
+        PMA_Util::formatNumber($total_queries, 0)
+    );
+    echo ' ';
+    echo PMA_Util::showMySQLDocu(
+        'server-status-variables',
+        'server-status-variables',
+        false,
+        'statvar_Questions'
+    );
 
     echo '<br />';
     echo '<span>';
@@ -1066,7 +1085,8 @@ function printQueryStatistics()
         // but is included in Questions. Then the total of the percentages is 100.
         $name = str_replace(array('Com_', '_'), array('', ' '), $name);
 
-        // Group together values that make out less than 2% into "Other", but only if we have more than 6 fractions already
+        // Group together values that make out less than 2% into "Other", but only
+        // if we have more than 6 fractions already
         if ($value < $query_sum * 0.02 && count($chart_json)>6) {
             $other_sum += $value;
         } else {
