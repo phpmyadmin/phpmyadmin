@@ -929,7 +929,7 @@ echo '<label for="filterAlert">' . __('Show only alert values') . '</label>';
 echo '</div>';
 echo '<div class="formelement">';
 echo '<select id="filterCategory" name="filterCategory">';
-echo '<option value=''>' . __('Filter by category...') . '</option>';
+echo '<option value="">' . __('Filter by category...') . '</option>';
 
 foreach ($sections as $section_id => $section_name) {
     if (isset($categoryUsed[$section_id])) {
