@@ -748,7 +748,6 @@ function insertQuery(queryType)
         return;
     }
 
-    var myQuery = document.sqlform.sql_query;
     var query = "";
     var myListBox = document.sqlform.dummy;
     var table = document.sqlform.table.value;
@@ -3078,7 +3077,6 @@ $(function() {
         var row_num = PMA_getRowNumber($this_td.attr('class'));
 
         // XXX: FF fires two click events for <label> (label and checkbox), so we need to handle this differently
-        var $tr = $(this);
         var $checkbox = $('.vmarker').filter('.row_' + row_num + ':first').find(':checkbox');
         if ($checkbox.length) {
             // checkbox in a row, add or remove class depending on checkbox state
