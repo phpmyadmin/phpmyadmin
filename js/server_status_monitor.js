@@ -1086,8 +1086,9 @@ $(function() {
         }
 
         var series = [];
-        for(i in chartObj.series){
-            series.push([[,]]);
+        var emptyArr = new Array(2);
+        for (i in chartObj.series){
+            series.push([emptyArr]);
         }
 
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
