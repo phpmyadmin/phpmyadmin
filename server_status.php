@@ -1746,7 +1746,7 @@ function printVariablesTable()
         }
         echo '</th>';
 
-        echo '<td class="value"><span class="formatted">'
+        echo '<td class="value"><span class="formatted">';
         if (isset($alerts[$name])) {
             if ($value > $alerts[$name]) {
                 echo '<span class="attention">';
