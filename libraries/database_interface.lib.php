@@ -123,7 +123,7 @@ function PMA_DBI_query($query, $link = null, $options = 0,
  *
  * @return void
  */
-function PMA_DBI_DBG_query($query, $result, $time)
+function PMA_DBI_DBG_query($query, $link, $result, $time)
 {
     $hash = md5($query);
 
@@ -190,7 +190,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
-        PMA_DBI_DBG_query($query, $result, $time);
+        PMA_DBI_DBG_query($query, $link, $result, $time);
 
     }
     if ($result != false && PMA_Tracker::isActive() == true ) {

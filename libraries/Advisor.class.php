@@ -353,7 +353,7 @@ class Advisor
      */
     static function parseRulesFile()
     {
-        $file = file('libraries/advisory_rules.txt');
+        $file = file('libraries/advisory_rules.txt', FILE_IGNORE_NEW_LINES);
         $errors = array();
         $rules = array();
         $lines = array();
@@ -367,7 +367,7 @@ class Advisor
 
         for ($i = 0; $i < $numLines; $i++) {
             $line = $file[$i];
-            if ($line[0] == '#' || $line[0] == "\n") {
+            if ($line == "" || $line[0] == '#') {
                 continue;
             }
 
