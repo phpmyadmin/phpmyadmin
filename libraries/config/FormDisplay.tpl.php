@@ -328,7 +328,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
         echo '<td class="userprefs-allow" title="' .
             __('Allow users to customize this value') . '">';
-        echo '<input type="checkbox" name="' . $path . '>-userprefs-allow" ';
+        echo '<input type="checkbox" name="' . $path . '-userprefs-allow" ';
         if ($opts['userprefs_allow']) {
             echo 'checked="checked"';
         };
