@@ -152,10 +152,11 @@ if (! isset($where_clause)) {
     $where_clause = null;
 }
 //Retrieve values for data edit view
-list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
+list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)
     = PMA_getStuffForEditMode($where_clause, $table, $db);
 
-// Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
+// Copying a row - fetched data will be inserted as a new row,
+// therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
     unset($where_clause, $where_clauses);
 }
@@ -202,7 +203,9 @@ $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause);
+$url_params = PMA_urlParamsInEditMode(
+    $url_params, $where_clause_array, $where_clause
+);
 
 //Insert/Edit form
 $html_output .= '<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" ';
@@ -241,15 +244,19 @@ foreach ($rows as $row_id => $current_row) {
         ? $result[$row_id]
         : $result);
     if ($insert_mode && $row_id > 0) {
-        $html_output .= '<input type="checkbox" checked="checked" name="insert_ignore_'. $row_id
-            . '" id="insert_ignore_' . $row_id . '" />'
-            .'<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
+        $html_output .= '<input type="checkbox" checked="checked"'
+            . ' name="insert_ignore_' . $row_id . '"'
+            . ' id="insert_ignore_' . $row_id . '" />'
+            .'<label for="insert_ignore_' . $row_id . '">'
+            . __('Ignore')
+            . '</label><br />' . "\n";
     }
-    
+
     $html_output .= PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<tbody>';
 
-    // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
+    // Sets a multiplier used for input-field counts
+    // (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
     //store the default value for CharEditing
     $default_char_editing  = $cfg['CharEditing'];
@@ -258,25 +265,30 @@ foreach ($rows as $row_id => $current_row) {
     for ($i = 0; $i < $columns_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
             $column = $table_fields[$i];
-            $column = PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen);
+            $column = PMA_analyzeTableColumnsArray(
+                $column, $comments_map, $timestamp_seen
+            );
         }
-        
+
         $extracted_columnspec
             = PMA_Util::extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
             $column['len'] = PMA_DBI_field_len($current_result, $i);
-            // length is unknown for geometry fields, make enough space to edit very simple WKTs
+            // length is unknown for geometry fields,
+            // make enough space to edit very simple WKTs
             if (-1 === $column['len']) {
                 $column['len'] = 30;
             }
         }
         //Call validation when the form submited...
-        $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('"
+        $unnullify_trigger = $chg_evt_handler
+            . "=\"return verificationsAfterFieldChange('"
             . PMA_escapeJsString($column['Field_md5']) . "', '"
             . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
 
-        // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
+        // Use an MD5 as an array index to avoid having special characters
+        // in the name atttibute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
         if ($column['Type'] == 'datetime'
@@ -288,7 +300,7 @@ foreach ($rows as $row_id => $current_row) {
             // UPDATE case with an NULL value
             $current_row[$column['Field']] = date('Y-m-d H:i:s', time());
         }
-        
+
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
             . '<td ' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
             . $column['Field_title']
@@ -359,7 +371,7 @@ foreach ($rows as $row_id => $current_row) {
         // for the "Continue insertion" feature
         $html_output .= '<span class="default_value hide">'
             . $special_chars . '</span>';
-        
+
         $html_output .= PMA_getValueColumn(
             $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
@@ -368,7 +380,7 @@ foreach ($rows as $row_id => $current_row) {
             $biggest_max_file_size, $default_char_editing,
             $no_support_types, $gis_data_types, $extracted_columnspec
         );
-        
+
         $html_output .= '</td>'
         . '</tr>';
 
@@ -399,12 +411,14 @@ if ($biggest_max_file_size > 0) {
             $biggest_max_file_size
         ) . "\n";
 }
-$html_output .= '</form>'; 
+$html_output .= '</form>';
 // end Insert/Edit form
 
 if ($insert_mode) {
     //Continue insertion form
-    $html_output .= PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url);
+    $html_output .= PMA_getContinueInsertionForm(
+        $table, $db, $where_clause_array, $err_url
+    );
 }
 $response->addHTML($html_output);
 
