@@ -78,10 +78,11 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getSearchSqls
+     *
+     * @return void
      */
     public function testGetSearchSqls()
     {
-
         $GLOBALS['db'] = 'pma';
 
         $this->assertEquals(
@@ -99,6 +100,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getSearchResults
+     *
+     * @return void
      */
     public function testGetSearchResults()
     {
@@ -115,6 +118,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
      * @param array  $newsearchsqls Contains SQL queries
      * @param bool   $odd_row       For displaying contrasting table rows
      * @param string $output        Expected HTML output
+     *
+     * @return void
      *
      * @dataProvider providerForTestGetResultsRow
      */
@@ -133,6 +138,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Data provider for testGetResultRow
+     *
      * @return array provider for testGetResultsRow
      */
     public function providerForTestGetResultsRow()
@@ -155,6 +162,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getSelectionForm
+     *
+     * @return void
      */
     public function testGetSelectionForm()
     {
@@ -178,6 +187,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getResultDivs
+     *
+     * @return void
      */
     public function testGetResultDivs()
     {

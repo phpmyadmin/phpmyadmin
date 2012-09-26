@@ -46,6 +46,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setBacktrace
+     *
+     * @return void
      */
     public function testSetBacktrace()
     {
@@ -55,6 +57,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setLine
+     *
+     * @return void
      */
     public function testSetLine()
     {
@@ -64,6 +68,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setFile
+     *
+     * @return void
      */
     public function testSetFile()
     {
@@ -73,6 +79,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getHash
+     *
+     * @return void
      */
     public function testGetHash()
     {
@@ -84,6 +92,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getBacktraceDisplay
+     *
+     * @return void
      */
     public function testGetBacktraceDisplay()
     {
@@ -95,6 +105,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDisplay
+     *
+     * @return void
      */
     public function testGetDisplay()
     {
@@ -106,6 +118,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getHtmlTitle
+     *
+     * @return void
      */
     public function testGetHtmlTitle()
     {
@@ -114,6 +128,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getTitle
+     *
+     * @return void
      */
     public function testGetTitle()
     {

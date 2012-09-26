@@ -29,6 +29,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -39,6 +41,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
     protected function tearDown()
     {
@@ -77,6 +81,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @param string $os      Expected parsed OS (or null if none)
      * @param string $browser Expected parsed browser (or null if none)
      * @param string $version Expected browser version (or null if none)
+     *
+     * @return void
      *
      * @dataProvider userAgentProvider
      */
@@ -232,6 +238,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @param string  $server Server indentification
      * @param boolean $iis    Whether server should be detected as IIS
      *
+     * @return void
+     *
      * @dataProvider serverNames
      */
     public function testCheckWebServer($server, $iis)
@@ -323,6 +331,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Tests loading of default values
      *
+     * @return void
+     *
      * @group large
      */
     public function testLoadDefaults()
@@ -383,10 +393,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Test getting and setting config values
      *
+     * @return void
+     *
      * @covers PMA_Config::get
      * @covers PMA_Config::set
-     *
-     * @return void
      */
     public function testGetAndSet()
     {
@@ -399,6 +409,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Tests setting configuration source
+     *
+     * @return void
      *
      * @covers PMA_Config::getSource
      * @covers PMA_Config::setSource
@@ -436,6 +448,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      *
      * @param string $real     Real URI received
      * @param string $expected Expected corrected URI
+     *
+     * @return void
      *
      * @depends testCheckPmaAbsoluteUriEmpty
      * @dataProvider absoluteUris
@@ -475,6 +489,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for absolute URI composition
+     *
+     * @return void
      *
      * @depends testCheckPmaAbsoluteUri
      */
@@ -543,6 +559,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Test for checking cookie path
      *
+     * @return void
+     *
      * @depends testDetectHttps
      */
     public function testCheckCookiePath()
@@ -554,6 +572,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for backward compatibility globals
+     *
+     * @return void
      *
      * @depends testCheckSystem
      * @depends testCheckWebServer
@@ -588,6 +608,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Should check for https detection
      *
+     * @return void
+     *
      * @todo Implement testCheckIsHttps().
      */
     public function testCheckIsHttps()
@@ -603,6 +625,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      *
      * @param string $absolute The absolute URL used for phpMyAdmin
      * @param string $expected Expected cookie path
+     *
+     * @return void
      *
      * @dataProvider cookieUris
      */
@@ -631,6 +655,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      *
      * @param string  $source File name of config to load
      * @param boolean $result Expected result of loading
+     *
+     * @return void
      *
      * @dataProvider configPaths
      */
@@ -664,6 +690,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Test for loading user preferences
      *
+     * @return void
      * @todo Test actualy preferences loading
      */
     public function testLoadUserPreferences()
@@ -673,6 +700,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setting user config value
+     *
+     * @return void
      */
     public function testSetUserValue()
     {
@@ -686,6 +715,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getting user config value
+     *
+     * @return void
      */
     public function testGetUserValue()
     {
@@ -695,6 +726,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Should test getting unique value for theme
      *
+     * @return void
      * @todo Implement testGetThemeUniqueValue().
      */
     public function testGetThemeUniqueValue()
@@ -708,6 +740,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      * Should test checking of config permissions
      *
+     * @return void
      * @todo Implement testCheckPermissions().
      */
     public function testCheckPermissions()
@@ -721,6 +754,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setting cookies
+     *
+     * @return void
      */
     public function testSetCookie()
     {
@@ -765,6 +800,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      *
      * @param string $original Original URL
      * @param string $expected Expected URL rewritten to SSL
+     *
+     * @return void
      *
      * @dataProvider sslUris
      */

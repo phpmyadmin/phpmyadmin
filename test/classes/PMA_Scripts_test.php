@@ -61,11 +61,13 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _includeFile
      *
-     * @param tring $url            Location of javascript, relative to js/ folder.
-     * @param int    $timestamp     The date when the file was last modified
+     * @param tring  $url            Location of javascript, relative to js/ folder.
+     * @param int    $timestamp      The date when the file was last modified
      * @param string $ie_conditional true - wrap with IE conditional comment
      *                               'lt 9' etc. - wrap for specific IE version
-     * @param $output output from the _includeFile method
+     * @param string $output         output from the _includeFile method
+     *
+     * @return void
      *
      * @dataProvider providerForTestIncludeFile
      */
@@ -107,6 +109,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDisplay
+     *
+     * @return void
      */
     public function testGetDisplay()
     {
@@ -127,6 +131,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
 
     /**
      * test for addCode
+     *
+     * @return void
      */
     public function testAddCode()
     {

@@ -27,6 +27,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      * This method is called before a test is executed.
      *
      * @access protected
+     * @return void
      */
     protected function setUp()
     {
@@ -38,6 +39,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      * This method is called after a test is executed.
      *
      * @access protected
+     * @return void
      */
     protected function tearDown()
     {
@@ -45,6 +47,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * to String casting test
+     *
+     * @return void
      */
     public function testToString()
     {
@@ -54,6 +58,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test success method
+     *
+     * @return void
      */
     public function testSuccess()
     {
@@ -67,6 +73,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test error method
+     *
+     * @return void
      */
     public function testError()
     {
@@ -77,6 +85,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test notice method
+     *
+     * @return void
      */
     public function testNotice()
     {
@@ -86,6 +96,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test rawError method
+     *
+     * @return void
      */
     public function testRawError()
     {
@@ -97,6 +109,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test rawNotice method
+     *
+     * @return void
      */
     public function testRawNotice()
     {
@@ -108,6 +122,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * test rawSuccess method
+     *
+     * @return void
      */
     public function testRawSuccess()
     {
@@ -119,6 +135,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing isSuccess method
+     *
+     * @return void
      */
     public function testIsSuccess()
     {
@@ -128,6 +146,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing isNotice method
+     *
+     * @return void
      */
     public function testIsNotice()
     {
@@ -139,6 +159,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing isError method
+     *
+     * @return void
      */
     public function testIsError()
     {
@@ -148,6 +170,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testign setter of message
+     *
+     * @return void
      */
     public function testSetMessage()
     {
@@ -159,6 +183,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing setter of string
+     *
+     * @return void
      */
     public function testSetString()
     {
@@ -170,6 +196,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing add param method
+     *
+     * @return void
      */
     public function testAddParam()
     {
@@ -192,6 +220,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing add string method
+     *
+     * @return void
      */
     public function testAddString()
     {
@@ -214,6 +244,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing add message method
+     *
+     * @return void
      */
     public function testAddMessage()
     {
@@ -235,6 +267,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing add messages method
+     *
+     * @return void
      */
     public function testAddMessages()
     {
@@ -256,6 +290,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing setter of params
+     *
+     * @return void
      */
     public function testSetParams()
     {
@@ -267,6 +303,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing sanitize method
+     *
+     * @return void
      */
     public function testSanitize()
     {
@@ -321,6 +359,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      * @param string $actual   BB code string
      * @param string $expected Expected decoded string
      *
+     * @return void
+     *
      * @dataProvider decodeBBDataProvider
      */
 
@@ -335,6 +375,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing format method
+     *
+     * @return void
      */
     public function testFormat()
     {
@@ -359,6 +401,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing getHash method
+     *
+     * @return void
      */
     public function testGetHash()
     {
@@ -373,6 +417,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * getMessage test - with empty message and with non-empty string -
      * not key in globals additional params are defined
+     *
+     * @return void
      */
     public function testGetMessageWithoutMessageWithStringWithParams()
     {
@@ -388,6 +434,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * getMessage test - with empty message and with empty string
+     *
+     * @return void
      */
     public function testGetMessageWithoutMessageWithEmptyString()
     {
@@ -399,6 +447,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * getMessage test - with empty message and with string, which is key to GLOBALS
      * additional messages are defined
+     *
+     * @return void
      */
     public function testGetMessageWithoutMessageWithGlobalStringWithAddMessages()
     {
@@ -417,6 +467,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * getMessage test - message is defined
      * message with BBCode defined
+     *
+     * @return void
      */
     public function testGetMessageWithMessageWithBBCode()
     {
@@ -429,6 +481,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * getLevel test
+     *
+     * @return void
      */
     public function testGetLevel()
     {
@@ -441,6 +495,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing display method (output string and _is_displayed varible)
+     *
+     * @return void
      */
     public function testDisplay()
     {
@@ -455,6 +511,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * getDisplay test
+     *
+     * @return void
      */
     public function testGetDisplay()
     {
@@ -467,6 +525,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * isDisplayed test
+     *
+     * @return void
      */
     public function testIsDisplayed()
     {
@@ -489,6 +549,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
+     *
+     * @return void
      *
      * @dataProvider providerAffectedRows
      */
@@ -516,6 +578,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      * @param int    $rows   Number of rows
      * @param string $output Expected string
      *
+     * @return void
+     *
      * @dataProvider providerInsertedRows
      */
     public function testInsertedRows($rows, $output)
@@ -541,6 +605,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
+     *
+     * @return void
      *
      * @dataProvider providerDeletedRows
      */

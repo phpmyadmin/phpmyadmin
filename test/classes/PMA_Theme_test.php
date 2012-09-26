@@ -25,6 +25,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -43,6 +45,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
     protected function tearDown()
     {
@@ -101,6 +105,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     * @return void
+     *
      * @expectedException PHPUnit_Framework_Error
      */
     public function testCheckImgPathBad()
@@ -126,6 +132,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     * @return void
+     *
      * @expectedException PHPUnit_Framework_Error
      */
     public function testCheckImgPathGlobalsWrongPath()
@@ -140,6 +148,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
+     * @return void
      *
      * @covers PMA_Theme::setPath
      * @covers PMA_Theme::getPath
@@ -158,6 +168,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
+     * @return void
      *
      * @depends testLoadInfo
      */
@@ -178,6 +190,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     * @return void
+     *
      * @covers PMA_Theme::getName
      * @covers PMA_Theme::setName
      */
@@ -191,6 +205,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     * @return void
+     *
      * @covers PMA_Theme::getId
      * @covers PMA_Theme::setId
      */
@@ -203,6 +219,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
+     * @return void
      *
      * @covers PMA_Theme::getImgPath
      * @covers PMA_Theme::setImgPath
@@ -219,8 +237,9 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
      * Test for getPrintPreview().
+     *
+     * @return void
      */
     public function testPrintPreview()
     {
@@ -232,6 +251,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getCssIEClearFilter
+     *
+     * @return void
      */
     public function testGetCssIEClearFilter()
     {
@@ -243,6 +264,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getFontSize
+     *
+     * @return void
      */
     public function testGetFontSize()
     {
@@ -267,6 +290,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getCssGradient
+     *
+     * @return void
      */
     public function testgetCssGradient()
     {
@@ -284,6 +309,8 @@ background: -o-linear-gradient(top, #12345, #54321);'
 
     /**
      * Test for getCssCodeMirror
+     *
+     * @return void
      */
     public function testGetCssCodeMirror()
     {
@@ -333,8 +360,11 @@ span.cm-number {
 
     /**
      * Test for getImgPath
-     * @param string $file file name for image
-     * @param $output
+     *
+     * @param string $file   file name for image
+     * @param string $output expected output
+     *
+     * @return void
      *
      * @dataProvider providerForGetImgPath
      */
@@ -371,6 +401,8 @@ span.cm-number {
 
     /**
      * Test for buildSQPCssRule
+     *
+     * @return void
      */
     public function testBuildSQPCssRule()
     {
@@ -383,6 +415,8 @@ span.cm-number {
 
     /**
      * Test for buildSQPCssData
+     *
+     * @return void
      */
     public function testBuildSQPCssData()
     {

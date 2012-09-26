@@ -75,6 +75,8 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for checkHideDatabase
+     *
+     * @return void
      */
     public function testCheckHideDatabase()
     {
@@ -90,6 +92,8 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDefault
+     *
+     * @return void
      */
     public function testGetDefault()
     {
@@ -108,6 +112,8 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getGroupedDetails
+     *
+     * @return void
      */
     public function testGetGroupedDetails()
     {
@@ -125,6 +131,8 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getHtmlListGrouped
+     *
+     * @return void
      */
     public function testGetHtmlListGrouped()
     {

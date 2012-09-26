@@ -32,6 +32,8 @@ class Advisor_test extends PHPUnit_Framework_TestCase
      * @param string $text     Text to escape
      * @param string $expected Expected output
      *
+     * @return void
+     *
      * @dataProvider escapeStrings
      */
     public function testEscape($text, $expected)
@@ -62,6 +64,8 @@ class Advisor_test extends PHPUnit_Framework_TestCase
      * @param array  $rule     Rule to test
      * @param array  $expected Expected rendered rulle in fired/errors list
      * @param string $error    Expected error string (null if none error expected)
+     *
+     * @return void
      *
      * @depends testParse
      * @dataProvider rulesProvider

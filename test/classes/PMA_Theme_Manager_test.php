@@ -56,6 +56,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setThemeCookie
+     *
+     * @return void
      */
     public function testSetThemeCookie()
     {
@@ -67,6 +69,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for checkConfig
+     *
+     * @return void
      */
     public function testCheckConfig()
     {
@@ -78,6 +82,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for makeBc
+     *
+     * @return void
      */
     public function testMakeBc()
     {
@@ -93,6 +99,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPrintPreviews
+     *
+     * @return void
      */
     public function testGetPrintPreviews()
     {
@@ -105,6 +113,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getFallBackTheme
+     *
+     * @return void
      */
     public function testGetFallBackTheme()
     {
@@ -114,6 +124,5 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
             $tm->getFallBackTheme()
         );
     }
-
 }
 ?>

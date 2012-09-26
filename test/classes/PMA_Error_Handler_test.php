@@ -61,11 +61,15 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for handleError method
+     *
      * @param integer $errno   error number
      * @param string  $errstr  error string
      * @param string  $errfile error file
      * @param integer $errline error line
-     * @param $output output from the handleError method
+     * @param string  $output  output from the handleError method
+     *
+     * @return void
      *
      * @dataProvider providerForTestHandleError
      */
@@ -80,6 +84,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Data provider for testHandleError
+     *
      * @return array data for testHandleError
      */
     public function providerForTestHandleError()
@@ -113,6 +119,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDispUserErrors
+     *
+     * @return void
      */
     public function testGetDispUserErrors()
     {
@@ -125,6 +133,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDispErrors
+     *
+     * @return void
      */
     public function testGetDispErrorsForDisplayFalse()
     {
@@ -138,6 +148,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getDispErrors
+     *
+     * @return void
      */
     public function testGetDispErrorsForDisplayTrue()
     {
@@ -153,6 +165,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for checkSavedErrors
+     *
+     * @return void
      */
     public function testCheckSavedErrors()
     {
@@ -168,6 +182,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for countErrors
+     *
+     * @return void
      */
     public function testCountErrors()
     {
@@ -187,6 +203,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for countUserErrors
+     *
+     * @return void
      */
     public function testCountUserErrors()
     {
@@ -206,6 +224,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for hasUserErrors
+     *
+     * @return void
      */
     public function testHasUserErrors()
     {
@@ -214,6 +234,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for hasErrors
+     *
+     * @return void
      */
     public function testHasErrors()
     {
@@ -222,6 +244,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for countDisplayErrors
+     *
+     * @return void
      */
     public function testCountDisplayErrorsForDisplayTrue()
     {
@@ -234,6 +258,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for countDisplayErrors
+     *
+     * @return void
      */
     public function testCountDisplayErrorsForDisplayFalse()
     {
@@ -246,10 +272,11 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for hasDisplayErrors
+     *
+     * @return void
      */
     public function testHasDisplayErrors()
     {
         $this->assertFalse($this->object->hasDisplayErrors());
     }
-
 }
