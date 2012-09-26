@@ -1225,42 +1225,47 @@ $(makeProfilingChart);
         && ! empty($sql_query)
     ) {
         echo "\n";
-
         $goto = 'sql.php?'
               . PMA_generate_common_url($db, $table)
               . '&amp;sql_query=' . urlencode($sql_query)
               . '&amp;id_bookmark=1';
 
-        ?>
-<form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
-<?php echo PMA_generate_common_hidden_inputs(); ?>
-<input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-<input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
-<input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
-<input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
-<fieldset>
-    <legend><?php
-    echo PMA_Util::getIcon('b_bookmark.png', __('Bookmark this SQL query'), true);
-?>
-    </legend>
-
-    <div class="formelement">
-        <label for="fields_label_"><?php echo __('Label'); ?>:</label>
-        <input type="text" id="fields_label_" name="fields[label]" value="" />
-    </div>
-
-    <div class="formelement">
-        <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" />
-        <label for="bkm_all_users"><?php echo __('Let every user access this bookmark'); ?></label>
-    </div>
-
-    <div class="clearfloat"></div>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="store_bkm" value="<?php echo __('Bookmark this SQL query'); ?>" />
-</fieldset>
-</form>
-        <?php
+        echo '<form action="sql.php" method="post"'
+            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');">';
+        echo PMA_generate_common_hidden_inputs();
+        echo '<input type="hidden" name="goto" value="' . $goto . '" />';
+        echo '<input type="hidden" name="fields[dbase]"'
+            . ' value="' . htmlspecialchars($db) . '" />';
+        echo '<input type="hidden" name="fields[user]"'
+            . ' value="' . $cfg['Bookmark']['user'] . '" />';
+        echo '<input type="hidden" name="fields[query]"' . ' value="'
+            . urlencode(isset($complete_query) ? $complete_query : $sql_query)
+            . '" />';
+        echo '<fieldset>';
+        echo '<legend>';
+        echo PMA_Util::getIcon(
+            'b_bookmark.png', __('Bookmark this SQL query'), true
+        );
+        echo '</legend>';
+        echo '<div class="formelement">';
+        echo '<label for="fields_label_">' . __('Label') . ':</label>';
+        echo '<input type="text" id="fields_label_"'
+            . ' name="fields[label]" value="" />';
+        echo '</div>';
+        echo '<div class="formelement">';
+        echo '<input type="checkbox" name="bkm_all_users"'
+            . ' id="bkm_all_users" value="true" />';
+        echo '<label for="bkm_all_users">'
+            . __('Let every user access this bookmark')
+            . '</label>';
+        echo '</div>';
+        echo '<div class="clearfloat"></div>';
+        echo '</fieldset>';
+        echo '<fieldset class="tblFooters">';
+        echo '<input type="submit" name="store_bkm"'
+            . ' value="' . __('Bookmark this SQL query') . '" />';
+        echo '</fieldset>';
+        echo '</form>';
     } // end bookmark support
 
     // Do print the page if required
