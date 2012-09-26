@@ -1394,6 +1394,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  * @param string             $printview            whether printview is enabled
  * @param string             $url_query            URL query
  * @param array              $disp_mode            the display mode
+ * @param string             $sql_limit_to_append  limit clause
  *
  * @return string   $table_html   html content
  */
