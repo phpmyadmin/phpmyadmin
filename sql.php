@@ -140,7 +140,7 @@ if (isset($_REQUEST['get_relational_values'])
         && isset($_REQUEST['relation_key_or_display_column'])
         && $_REQUEST['relation_key_or_display_column']
     ) {
-            $curr_value = $_REQUEST['relation_key_or_display_column'];
+        $curr_value = $_REQUEST['relation_key_or_display_column'];
     } else {
         $curr_value = $_REQUEST['curr_value'];
     }
@@ -528,9 +528,7 @@ if ($GLOBALS['cfg']['RememberSorting']
     && isset($analyzed_sql[0]['queryflags']['select_from'])
     && count($analyzed_sql[0]['table_ref']) == 1
 ) {
-
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
-
 }
 
 $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
@@ -568,7 +566,6 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
                 . $analyzed_display_query[0]['section_after_limit'];
         }
     }
-
 }
 
 if (strlen($db)) {
@@ -725,7 +722,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
         // However, do not count again if we did it previously
         // due to $find_real_end == true
-
         if (! $is_group
             && ! isset($analyzed_sql[0]['queryflags']['union'])
             && ! isset($analyzed_sql[0]['queryflags']['distinct'])
@@ -733,7 +729,6 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             && (empty($analyzed_sql[0]['where_clause']) || $analyzed_sql[0]['where_clause'] == '1 ')
             && ! isset($find_real_end)
         ) {
-
             // "j u s t   b r o w s i n g"
             $unlim_num_rows = PMA_Table::countRecords($db, $table);
 
@@ -830,18 +825,14 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
-
     // Delete related tranformation information
     if (!empty($analyzed_sql[0]['querytype'])
         && (($analyzed_sql[0]['querytype'] == 'ALTER')
         || ($analyzed_sql[0]['querytype'] == 'DROP'))
     ) {
-
         include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
-
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
-
                 $drop_column = PMA_getColumnNameInColumnDropSql(
                     $analyzed_sql[0]['unsorted_query']
                 );
@@ -849,13 +840,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 if ($drop_column != '') {
                     PMA_clearTransformations($db, $table, $drop_column);
                 }
-
             }
 
         } else if (($analyzed_sql[0]['querytype'] == 'DROP') && ($table != '')) {
             PMA_clearTransformations($db, $table);
         }
-
     }
 
     if ($is_delete) {
@@ -1015,17 +1004,13 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
 
             $_SESSION['is_multi_query'] = true;
-
             echo getTableHtmlForMultipleQueries(
                 $displayResultsObject, $db, $sql_data, $goto,
                 $pmaThemeImage, $text_dir, $printview, $url_query,
                 $disp_mode, $sql_limit_to_append
             );
-
         } else {
-
             $_SESSION['is_multi_query'] = false;
-
             $displayResultsObject->setProperties(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
@@ -1038,7 +1023,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             );
             exit();
         }
-
     }
 
     // Displays the headers
@@ -1082,7 +1066,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         }
         echo "</p>";
     } else {
-
         $response = PMA_Response::getInstance();
         $header = $response->getHeader();
         $scripts = $header->getScripts();
@@ -1203,17 +1186,13 @@ $(makeProfilingChart);
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
 
         $_SESSION['is_multi_query'] = true;
-
         echo getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query,
             $disp_mode, $sql_limit_to_append
         );
-
     } else {
-
         $_SESSION['is_multi_query'] = false;
-
         $displayResultsObject->setProperties(
             $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
             $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
@@ -1318,7 +1297,6 @@ if (! isset($_REQUEST['table_maintenance'])) {
  */
 function PMA_getDisplayPropertyParams($sql_query, $is_select)
 {
-
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
 
     if ($is_select) {
@@ -1350,7 +1328,6 @@ function PMA_getDisplayPropertyParams($sql_query, $is_select)
         $is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
         $is_delete, $is_affected, $is_insert, $is_replace,$is_show, $is_maint
     );
-
 }
 
 /**
@@ -1386,7 +1363,6 @@ function PMA_getNewDatabase($sql, $databases)
  */
 function PMA_getTableNameBySQL($sql, $tables)
 {
-
     $table = '';
 
     // loop through all the tables in the database
@@ -1402,7 +1378,6 @@ function PMA_getTableNameBySQL($sql, $tables)
     }
 
     return trim($table);
-
 }
 
 
@@ -1426,7 +1401,6 @@ function getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
     $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
 ) {
-
     $table_html = '';
 
     $tables_array = PMA_DBI_get_tables($db);
@@ -1443,7 +1417,6 @@ function getTableHtmlForMultipleQueries(
     $sql_no = 0;
 
     do {
-
         $analyzed_sql = array();
         $is_affected = false;
 
@@ -1455,7 +1428,6 @@ function getTableHtmlForMultipleQueries(
 
         // Initialize needed params related to each query in multiquery statement
         if (isset($sql_data['valid_sql'][$sql_no])) {
-
             // 'Use' query can change the database
             if (stripos($sql_data['valid_sql'][$sql_no], "use ")) {
                 $db = PMA_getNewDatabase(
@@ -1518,7 +1490,6 @@ function getTableHtmlForMultipleQueries(
             $displayResultsObject->__set('_db', $db);
             $displayResultsObject->__set('_table', $table);
             $displayResultsObject->__set('_goto', $goto);
-
         }
 
         if (! $is_affected) {
@@ -1539,7 +1510,6 @@ function getTableHtmlForMultipleQueries(
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
                 $printview, $url_query
             );
-
         }
 
         if ($num_rows == 0) {
@@ -1563,7 +1533,6 @@ function getTableHtmlForMultipleQueries(
     } while (PMA_DBI_more_results() && PMA_DBI_next_result());
 
     return $table_html;
-
 }
 
 /**
@@ -1578,7 +1547,6 @@ function getTableHtmlForMultipleQueries(
  */
 function PMA_handleSortOrder($db, $table, &$analyzed_sql, &$full_sql_query)
 {
-
     $pmatable = new PMA_Table($table, $db);
     if (empty($analyzed_sql[0]['order_by_clause'])) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
@@ -1600,7 +1568,6 @@ function PMA_handleSortOrder($db, $table, &$analyzed_sql, &$full_sql_query)
             $analyzed_sql[0]['order_by_clause']
         );
     }
-
 }
 
 /**
@@ -1629,7 +1596,6 @@ function PMA_getSqlWithLimitClause($full_sql_query, $analyzed_sql,
  */
 function PMA_getColumnNameInColumnDropSql($sql)
 {
-
     $tmpArray1 = explode('DROP', $sql);
     $str_to_check = trim($tmpArray1[1]);
 
@@ -1645,7 +1611,6 @@ function PMA_getColumnNameInColumnDropSql($sql)
     $drop_column = str_replace('`', '', $drop_column);
 
     return $drop_column;
-
 }
 
 ?>
