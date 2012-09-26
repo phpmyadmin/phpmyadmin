@@ -1118,13 +1118,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     if (isset($profiling_results)) {
         // pma_token/url_query needed for chart export
-?>
-<script type="text/javascript">
-pma_token = '<?php echo $_SESSION[' PMA_token ']; ?>';
-url_query = '<?php echo isset($url_query)?$url_query:PMA_generate_common_url($db);?>';
-$(makeProfilingChart);
-</script>
-<?php
+        echo '<script type="text/javascript">';
+        echo 'pma_token = \'' . $_SESSION[' PMA_token '] . '\';';
+        echo 'url_query = \'' . (isset($url_query) ? $url_query : PMA_generate_common_url($db)) . '\';';
+        echo '$(makeProfilingChart);';
+        echo '</script>';
+
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
