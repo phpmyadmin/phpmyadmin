@@ -113,6 +113,28 @@ body#body_leftFrame {
     padding: 0;
 }
 
+#body_leftFrame ul#databaseList > li.dbgroup > span ~ ul {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    box-shadow: 3px 3px 10px #DDDDDD;
+    border-bottom: 1px solid #BBBBBB;
+}
+
+#body_leftFrame ul#databaseList > li.dbgroup > span {
+    background-color:#BBBBBB;
+    box-shadow: 1px 1px 15px #999999 inset;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: .5em;
+    color: #FFFFFF;
+    display: block;
+	font-size: 1.5em;
+    font-weight: normal;
+	font-style:normal;
+    text-shadow: 0 1px 0 #777777;
+}
+
 #body_leftFrame ul#databaseList a:hover {
     background-color: #e4e4e4;
 }
