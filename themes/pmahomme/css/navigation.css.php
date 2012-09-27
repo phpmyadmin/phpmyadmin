@@ -129,7 +129,7 @@ body#body_leftFrame {
     margin-top: .5em;
     color: #FFFFFF;
     display: block;
-	font-size: 1.4em;
+	font-size: 1.5em;
     font-weight: normal;
 	font-style:normal;
     text-shadow: 0 1px 0 #777777;
