@@ -378,6 +378,7 @@ span.cm-number {
 
     /**
      * Provider for testGetImgPath
+     *
      * @return array
      */
     public function providerForGetImgPath()
