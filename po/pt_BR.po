@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:32+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/3-5/pt_BR/>\n"
+"PO-Revision-Date: 2012-10-01 13:26+0200\n"
+"Last-Translator: Sergio Martins <inove@live.com.pt>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6647,7 +6647,7 @@ msgid ""
 "checked"
 msgstr ""
 "Inclua um timestamp de quando os bancos de dados foram criados, última "
-"atualização e última vez."
+"atualização e última verificação feita"
 
 #: libraries/export/sql.php:100
 msgid ""
@@ -8149,7 +8149,7 @@ msgstr "FIM RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Automaticamente adicionado contra-apóstrofo ao fim da consulta"
+msgstr "Automaticamente adicionado contra-apóstrofo ao fim da consulta!"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
@@ -8850,7 +8850,7 @@ msgstr "Não foi possível importar configuração de: \"%1$s\""
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
-msgstr "Configuração contém dados incorretos para alguns campos"
+msgstr "Configuração contém dados incorretos para alguns campos."
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
@@ -8870,7 +8870,7 @@ msgstr "Importar do armazenamento do navegador"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
-msgstr "Configurações serão importadas do armazenamento local do seu navegador"
+msgstr "Configurações serão importadas do armazenamento local do seu navegador."
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
@@ -8899,7 +8899,7 @@ msgstr "Salvar para o armazenamento do navegador"
 
 #: prefs_manage.php:304
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Configurações serão salvas no armazenamento local do seu navegador"
+msgstr "Configurações serão salvas no armazenamento local do seu navegador."
 
 #: prefs_manage.php:306
 msgid "Existing settings will be overwritten!"
@@ -9237,7 +9237,6 @@ msgid "No privileges."
 msgstr "Sem privilégios."
 
 #: server_privileges.php:405 server_privileges.php:406
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -9499,7 +9498,7 @@ msgstr "Servidor mestre alterado com sucesso para %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr "Esse servidor é configurado como mestre em um processo de replicação"
+msgstr "Este servidor é configurado como mestre em um processo de replicação."
 
 #: server_replication.php:182 server_status.php:631
 msgid "Show master status"
@@ -9568,11 +9567,11 @@ msgstr ""
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr "Processo SQL escravo não está em execução"
+msgstr "Processo SQL escravo não está em execução!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr "Processo IO escravo não está em execução"
+msgstr "Processo IO escravo não está em execução!"
 
 #: server_replication.php:303
 msgid ""
@@ -9729,7 +9728,7 @@ msgstr "Todas as variáveis de status"
 
 #: server_status.php:796
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitorizar"
 
 #: server_status.php:797
 msgid "Advisor"
@@ -10626,7 +10625,6 @@ msgstr ""
 "navegadores. Você pode exportá-la, se você tiver uma configuração complicada."
 
 #: server_status.php:1623
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
 msgstr "Restaurar valor padrão"
@@ -10674,8 +10672,8 @@ msgid ""
 msgstr ""
 "Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
 "Você pode adicionar gráficos e alterar a taxe de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone de roda "
-"dentada em cada gráfico"
+"\"Configurações\", ou remover qualquer gráfico usando o ícone de roda dentada "
+"em cada gráfico."
 
 #: server_status.php:1650
 msgid ""
@@ -10712,7 +10710,7 @@ msgstr ""
 # depends of the context.
 #: server_status.php:1671
 msgid "Preset chart"
-msgstr "Gráfico predefinido."
+msgstr "Gráfico predefinido"
 
 #: server_status.php:1675
 msgid "Status variable(s)"
@@ -11694,7 +11692,6 @@ msgid "Add FULLTEXT index"
 msgstr "Adicionar índice FULLTEXT"
 
 #: tbl_structure.php:369 tbl_tracking.php:295
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -11953,7 +11950,6 @@ msgid "Available transformations"
 msgstr "Transformações disponíveis"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -12077,10 +12073,9 @@ msgid "Slow query logging"
 msgstr "Gravação de Logs de consulta lento"
 
 #: po/advisory_rules.php:31
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "\"slow_query_log\" está ativado."
+msgstr "O registro de consulta lenta está desativado."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12112,10 +12107,9 @@ msgid "Current version: %s"
 msgstr "Versão atual: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "Version"
 msgid "Minor Version"
-msgstr "Versão"
+msgstr "Versão Menor"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12133,7 +12127,7 @@ msgstr ""
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "Você deveria atualizar para uma versão estável do MySQL 5.5."
+msgstr "Você deveria atualizar para uma versão estável do MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
@@ -12354,10 +12348,9 @@ msgid "Current query cache size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Operações resultantes das consultas"
+msgstr "Tamanho minimo do resultado da Cache de Consultas"
 
 #: po/advisory_rules.php:106
 msgid ""
@@ -12381,16 +12374,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Permitir criar tabelas temporárias."
+msgstr "Percentagem de tipos que causam as tabelas temporárias"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permitir criar tabelas temporárias."
+msgstr "Demasiadas ordenações estão a causar tabelas temporárias."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
@@ -12418,9 +12409,8 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 msgid "Sort rows"
-msgstr "Status"
+msgstr "Ordenar linhas"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
@@ -12440,16 +12430,14 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: po/advisory_rules.php:125
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Não existem rotinas para mostrar."
+msgstr "Taxa de uniões sem índices"
 
 #: po/advisory_rules.php:126
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Não existem rotinas para mostrar."
+msgstr "Existe demasiadas uniões sem índices."
 
 #: po/advisory_rules.php:127
 msgid ""
@@ -12577,11 +12565,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s tabela"
+msgstr "Taxa de disco Temporário"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -12602,10 +12589,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "MyISAM chave tamanho da memória intermédia"
 
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
