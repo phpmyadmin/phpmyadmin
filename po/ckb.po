@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-24 09:25+0200\n"
-"PO-Revision-Date: 2012-09-21 23:45+0200\n"
-"Last-Translator: Haval Abdulkarim <haval.abdulkarim@gmail.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2012-10-02 12:55+0200\n"
+"Last-Translator: kaewan shamsaddin <kaewan2010@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -539,7 +539,7 @@ msgstr "نرخی ستوون \"%s\""
 #: gis_data_editor.php:140 tbl_gis_visualization.php:175
 #, fuzzy
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "بەکارهێنانی OpenStreetMaps وەک چینی بنچینەیی."
+msgstr "Use OpenStreetMaps as Base Layer"
 
 #: gis_data_editor.php:161
 msgid "SRID"
