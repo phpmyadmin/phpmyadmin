@@ -108,7 +108,7 @@ function PMA_EVN_handleEditor()
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
-                        $drop_item
+                        htmlspecialchars($drop_item)
                     )
                     . '<br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null);
@@ -117,24 +117,27 @@ function PMA_EVN_handleEditor()
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
-                            $item_query
+                            htmlspecialchars($item_query)
                         )
                         . '<br />'
                         . __('MySQL said: ') . PMA_DBI_getError(null);
-                        // We dropped the old item,
-                        // but were unable to create the new one
+                        // We dropped the old item, but were unable to create the new one
                         // Try to restore the backup query
                         $result = PMA_DBI_try_query($create_item);
                         if (! $result) {
                             // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one and now even the backup
-                            // query does not execute! This should not happen,
-                            // but we better handle this just in case.
-                            $errors[] = __('Sorry, we failed to restore the dropped event.')
-                                . '<br />'
-                                . __('The backed up query was:') . "\"$create_item\""
-                                . '<br />'
-                                . __('MySQL said: ') . PMA_DBI_getError(null);
+                            // failed to create a new one
+                            // and now even the backup query does not execute!
+                            // This should not happen, but we better handle
+                            // this just in case.
+                            $errors[] = __(
+                                'Sorry, we failed to restore the dropped event.'
+                            )
+                            . '<br />'
+                            . __('The backed up query was:')
+                            . "\"" . htmlspecialchars($create_item) . "\""
+                            . '<br />'
+                            . __('MySQL said: ') . PMA_DBI_getError(null);
                         }
                     } else {
                         $message = PMA_Message::success(
@@ -152,7 +155,7 @@ function PMA_EVN_handleEditor()
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
-                        $item_query
+                        htmlspecialchars($item_query)
                     )
                     . '<br /><br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null);

@@ -284,27 +284,46 @@ function PMA_RTN_handleEditor()
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} " . PMA_Util::backquote($_REQUEST['item_original_name']) . ";\n";
                     $result = PMA_DBI_try_query($drop_routine);
                     if (! $result) {
-                        $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_routine) . '<br />'
-                                          . __('MySQL said: ') . PMA_DBI_getError(null);
+                        $errors[] = sprintf(
+                            __('The following query has failed: "%s"'),
+                            htmlspecialchars($drop_routine)
+                        )
+                        . '<br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null);
                     } else {
                         $result = PMA_DBI_try_query($routine_query);
                         if (! $result) {
-                            $errors[] = sprintf(__('The following query has failed: "%s"'), $routine_query) . '<br />'
-                                              . __('MySQL said: ') . PMA_DBI_getError(null);
+                            $errors[] = sprintf(
+                                __('The following query has failed: "%s"'),
+                                htmlspecialchars($routine_query)
+                            )
+                            . '<br />'
+                            . __('MySQL said: ') . PMA_DBI_getError(null);
                             // We dropped the old routine, but were unable to create the new one
                             // Try to restore the backup query
                             $result = PMA_DBI_try_query($create_routine);
                             if (! $result) {
-                                // OMG, this is really bad! We dropped the query, failed to create a new one
+                                // OMG, this is really bad! We dropped the query,
+                                // failed to create a new one
                                 // and now even the backup query does not execute!
-                                // This should not happen, but we better handle this just in case.
-                                $errors[] = __('Sorry, we failed to restore the dropped routine.') . '<br />'
-                                                  . __('The backed up query was:') . "\"$create_routine\"" . '<br />'
-                                                  . __('MySQL said: ') . PMA_DBI_getError(null);
+                                // This should not happen, but we better handle
+                                // this just in case.
+                                $errors[] = __(
+                                    'Sorry, we failed to restore the dropped routine.'
+                                )
+                                . '<br />'
+                                . __('The backed up query was:')
+                                . "\"" . htmlspecialchars($create_routine) . "\""
+                                . '<br />'
+                                . __('MySQL said: ') . PMA_DBI_getError(null);
                             }
                         } else {
-                            $message = PMA_Message::success(__('Routine %1$s has been modified.'));
-                            $message->addParam(PMA_Util::backquote($_REQUEST['item_name']));
+                            $message = PMA_Message::success(
+                                __('Routine %1$s has been modified.')
+                            );
+                            $message->addParam(
+                                PMA_Util::backquote($_REQUEST['item_name'])
+                            );
                             $sql_query = $drop_routine . $routine_query;
                         }
                     }
@@ -315,9 +334,10 @@ function PMA_RTN_handleEditor()
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
-                        $routine_query
-                    ) . '<br /><br />'
-                        . __('MySQL said: ') . PMA_DBI_getError(null);
+                        htmlspecialchars($routine_query)
+                    )
+                    . '<br /><br />'
+                    . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $message = PMA_Message::success(
                         __('Routine %1$s has been created.')
@@ -1348,7 +1368,7 @@ function PMA_RTN_handleExecute()
                 $message = PMA_message::error(
                     sprintf(
                         __('The following query has failed: "%s"'),
-                        $query
+                        htmlspecialchars($query)
                     )
                     . '<br /><br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null)
