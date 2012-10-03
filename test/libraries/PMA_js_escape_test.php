@@ -27,7 +27,7 @@ class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
         $this->assertEquals("foo = [\"1\",\"2\",\"3\",];\n", PMA_getJsValue('foo', $array));
     }
 
-    public function testPMA_jsFormat()
+    public function testJsFormat()
     {
         $this->assertEquals("`foo`", PMA_jsFormat('foo'));
     }
@@ -43,7 +43,7 @@ class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
             array('foo', 'text', "foo = \"text\";\n"),
             array('foo', 'quote"', "foo = \"quote\\\"\";\n"),
             array('foo', 'apostroph\'', "foo = \"apostroph\\'\";\n"),
-            );
+        );
     }
 }
 ?>

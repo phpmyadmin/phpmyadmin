@@ -15,6 +15,11 @@ require_once 'libraries/core.lib.php';
 
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Setup various pre conditions
+     *
+     * @return void
+     */
     function setUp()
     {
         $_SESSION[' PMA_token '] = 'token';
@@ -22,6 +27,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests for proper escaping of XSS.
+     *
+     * @return void
      */
     public function testXssInHref()
     {
@@ -33,6 +40,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests correct generating of link redirector.
+     *
+     * @return void
      */
     public function testLink()
     {
@@ -47,6 +56,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests links to documentation.
+     *
+     * @return void
      */
     public function testDoc()
     {
@@ -58,6 +69,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests links to documentation.
+     *
+     * @return void
      */
     public function testLinkDoc()
     {
@@ -69,6 +82,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests link target validation.
+     *
+     * @return void
      */
     public function testInvalidTarget()
     {
@@ -80,6 +95,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests XSS escaping after valid link.
+     *
+     * @return void
      */
     public function testLinkDocXss()
     {
@@ -91,6 +108,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests proper handling of multi link code.
+     *
+     * @return void
      */
     public function testLinkAndXssInHref()
     {
@@ -102,6 +121,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test escaping of HTML tags
+     *
+     * @return void
      */
     public function testHtmlTags()
     {
@@ -113,6 +134,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests basic BB code.
+     *
+     * @return void
      */
     public function testBBCode()
     {
@@ -124,6 +147,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Tests output escaping.
+     *
+     * @return void
      */
     public function testEscape()
     {
@@ -135,6 +160,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_sanitizeFilename
+     *
+     * @return void
      */
     public function testSanitizeFilename()
     {

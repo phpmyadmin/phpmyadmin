@@ -25,6 +25,8 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -50,10 +52,11 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_getColumnOrder
+     *
+     * @return void
      */
-    public function testPMA_getColumnOrder()
+    public function testGetColumnOrder()
     {
-
         $this->assertEquals(
             array(
                 'DEFAULT_COLLATION_NAME' => array(
@@ -107,13 +110,14 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
      * @param array   $column_order
      * @param array   $replication_types
      * @param array   $replication_info
-     * @param $output
+     * @param string  $output
      *
-     * @dataProvider providerForTestPMA_buildHtmlForDb
+     * @return void
+     * @dataProvider providerForTestBuildHtmlForDb
      *
      * @group medium
      */
-    public function testPMA_buildHtmlForDb($current, $is_superuser, $checkall,
+    public function testBuildHtmlForDb($current, $is_superuser, $checkall,
         $url_query, $column_order, $replication_types, $replication_info, $output
     ) {
         $this->assertEquals(
@@ -125,7 +129,12 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function providerForTestPMA_buildHtmlForDb()
+    /**
+     * Data for testBuildHtmlForDb
+     *
+     * @return array data for testBuildHtmlForDb test case
+     */
+    public function providerForTestBuildHtmlForDb()
     {
         return array(
             array(

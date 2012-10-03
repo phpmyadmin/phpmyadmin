@@ -15,6 +15,11 @@ class PMA_escapeJsString_test extends PHPUnit_Framework_TestCase
 {
     /**
      * PMA_escapeJsString tests
+     *
+     * @param string $target expected output
+     * @param string $source string to be escaped
+     *
+     * @return void
      * @dataProvider escapeDataProvider
      */
     public function testEscape($target, $source)
@@ -22,6 +27,11 @@ class PMA_escapeJsString_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($target, PMA_escapeJsString($source));
     }
 
+    /**
+     * Data provider for testEscape
+     *
+     * @return array data for testEscape test case
+     */
     public function escapeDataProvider()
     {
         return array(
