@@ -72,13 +72,21 @@ function PMA_TRI_handleEditor()
                 $drop_item = $trigger['drop'] . ';';
                 $result = PMA_DBI_try_query($drop_item);
                 if (! $result) {
-                    $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_item) . '<br />'
-                                      . __('MySQL said: ') . PMA_DBI_getError(null);
+                    $errors[] = sprintf(
+                        __('The following query has failed: "%s"'),
+                        htmlspecialchars($drop_item)
+                    )
+                    . '<br />'
+                    . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $result = PMA_DBI_try_query($item_query);
                     if (! $result) {
-                        $errors[] = sprintf(__('The following query has failed: "%s"'), $item_query) . '<br />'
-                                          . __('MySQL said: ') . PMA_DBI_getError(null);
+                        $errors[] = sprintf(
+                            __('The following query has failed: "%s"'),
+                            htmlspecialchars($item_query)
+                        )
+                        . '<br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null);
                         // We dropped the old item, but were unable to create the new one
                         // Try to restore the backup query
                         $result = PMA_DBI_try_query($create_item);
@@ -86,9 +94,14 @@ function PMA_TRI_handleEditor()
                             // OMG, this is really bad! We dropped the query, failed to create a new one
                             // and now even the backup query does not execute!
                             // This should not happen, but we better handle this just in case.
-                            $errors[] = __('Sorry, we failed to restore the dropped trigger.') . '<br />'
-                                              . __('The backed up query was:') . "\"$create_item\"" . '<br />'
-                                              . __('MySQL said: ') . PMA_DBI_getError(null);
+                            $errors[] = __(
+                                'Sorry, we failed to restore the dropped trigger.'
+                            )
+                            . '<br />'
+                            . __('The backed up query was:')
+                            . "\"" . htmlspecialchars($create_item) . "\""
+                            . '<br />'
+                            . __('MySQL said: ') . PMA_DBI_getError(null);
                         }
                     } else {
                         $message = PMA_Message::success(__('Trigger %1$s has been modified.'));
