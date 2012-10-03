@@ -3397,7 +3397,7 @@ class PMA_Util
             $column_names = array();
             foreach ($columns_list as $column) {
                 if (! is_null($escape)) {
-                    $column_names[] = $escape($column['Field']);
+                    $column_names[] = self::$escape($column['Field']);
                 } else {
                     $column_names[] = $column['Field'];
                 }
