@@ -139,7 +139,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
-    $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
+    $retval .= "                <span class='drop_sql hide'>" . htmlspecialchars($sql_drop) . "</span>\n";
     $retval .= "                <strong>\n";
     $retval .= "                    " . htmlspecialchars($routine['SPECIFIC_NAME']) . "\n";
     $retval .= "                </strong>\n";
@@ -241,7 +241,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
-    $retval .= "                <span class='drop_sql hide'>{$trigger['drop']}</span>\n";
+    $retval .= "                <span class='drop_sql hide'>" . htmlspecialchars($trigger['drop']) . "</span>\n";
     $retval .= "                <strong>\n";
     $retval .= "                    " . htmlspecialchars($trigger['name']) . "\n";
     $retval .= "                </strong>\n";
@@ -315,7 +315,7 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
 
     $retval  = "        <tr class='noclick $rowclass'>\n";
     $retval .= "            <td>\n";
-    $retval .= "                <span class='drop_sql hide'>$sql_drop</span>\n";
+    $retval .= "                <span class='drop_sql hide'>" . htmlspecialchars($sql_drop) . "</span>\n";
     $retval .= "                <strong>\n";
     $retval .= "                    " . htmlspecialchars($event['EVENT_NAME']) . "\n";
     $retval .= "                </strong>\n";
