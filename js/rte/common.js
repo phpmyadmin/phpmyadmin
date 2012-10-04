@@ -318,7 +318,7 @@ $(document).ready(function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $('<div/>').text($curr_row.children('td').children('.drop_sql').html());
+        var question = $('<div/>').text($curr_row.children('td').children('.drop_sql').text());
         // We ask for confirmation first here, before submitting the ajax request
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             /**
