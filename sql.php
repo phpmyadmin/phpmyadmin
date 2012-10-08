@@ -1007,7 +1007,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             echo getTableHtmlForMultipleQueries(
                 $displayResultsObject, $db, $sql_data, $goto,
                 $pmaThemeImage, $text_dir, $printview, $url_query,
-                $disp_mode, $sql_limit_to_append
+                $disp_mode, $sql_limit_to_append, false
             );
         } else {
             $_SESSION['is_multi_query'] = false;
@@ -1015,7 +1015,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query
+                $printview, $url_query, false
             );
 
             echo $displayResultsObject->getTable(
@@ -1166,8 +1166,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'urdr111101';
     }
 
-    // hide edit and delete links for information_schema
-    if (PMA_is_system_schema($db)) {
+    $resultSetContainsUniqueKey = PMA_resultSetContainsUniqueKey($db, $table, $fields_meta);
+
+    // hide edit and delete links:
+    // - for information_schema
+    // - if the result set does not contain all the columns of a unique key
+    if (PMA_is_system_schema($db) || ! $resultSetContainsUniqueKey) {
         $disp_mode = 'nnnn110111';
     }
 
@@ -1188,7 +1192,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query,
-            $disp_mode, $sql_limit_to_append
+            $disp_mode, $sql_limit_to_append, $resultSetContainsUniqueKey
         );
     } else {
         $_SESSION['is_multi_query'] = false;
@@ -1196,7 +1200,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
             $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
             $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-            $printview, $url_query
+            $printview, $url_query, $resultSetContainsUniqueKey
         );
 
         echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
@@ -1404,7 +1408,8 @@ function PMA_getTableNameBySQL($sql, $tables)
  */
 function getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
-    $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
+    $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append,
+    $resultSetContainsUniqueKey
 ) {
     $table_html = '';
 
@@ -1513,7 +1518,7 @@ function getTableHtmlForMultipleQueries(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
                 $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage,
                 $text_dir, $is_maint, $is_explain, $is_show, $showtable,
-                $printview, $url_query
+                $printview, $url_query, $resultSetContainsUniqueKey
             );
         }
 
@@ -1616,6 +1621,38 @@ function PMA_getColumnNameInColumnDropSql($sql)
     $drop_column = str_replace('`', '', $drop_column);
 
     return $drop_column;
+}
+
+/**
+ * Verify if the result set contains all the columne of at least one unique key 
+ *
+ * @param string $db
+ * @param string $table
+ * @param string $fields_meta
+ *
+ * @return boolean whether the result set contains a unique key 
+ */
+function PMA_resultSetContainsUniqueKey($db, $table, $fields_meta)
+{
+    $resultSetColumnNames = array();
+    foreach($fields_meta as $oneMeta) {
+        $resultSetColumnNames[] = $oneMeta->name;
+    }
+    foreach (PMA_Index::getFromTable($table, $db) as $index) {
+        if ($index->isUnique()) {
+            $indexColumns = $index->getColumns();
+            $numberFound = 0;
+            foreach ($indexColumns as $indexColumnName => $dummy) {
+                if (in_array($indexColumnName, $resultSetColumnNames)) {
+                    $numberFound++;
+                }
+            }
+            if ($numberFound == count($indexColumns)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 ?>

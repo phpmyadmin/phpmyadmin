@@ -149,7 +149,10 @@ class PMA_DisplayResults
         '_vertical_display' => null,
 
         /** array mime types information of fields */
-        '_mime_map' => null
+        '_mime_map' => null,
+
+        /** boolean */
+        '_resultSetContainsUniqueKey' => null
     );
 
     /**
@@ -246,6 +249,7 @@ class PMA_DisplayResults
      * @param type $showtable      array   table definitions
      * @param type $printview      string
      * @param type $url_query      string  URL query
+     * @param type $resultSetContainsUniqueKey  boolean 
      *
      * @return  void
      *
@@ -254,7 +258,8 @@ class PMA_DisplayResults
     public function setProperties(
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
-        $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+        $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query,
+        $resultSetContainsUniqueKey
     ) {
 
         $this->__set('_unlim_num_rows', $unlim_num_rows);
@@ -274,6 +279,7 @@ class PMA_DisplayResults
         $this->__set('_showtable', $showtable);
         $this->__set('_printview', $printview);
         $this->__set('_url_query', $url_query);
+        $this->__set('_resultSetContainsUniqueKey', $resultSetContainsUniqueKey);
 
     } // end of the 'setProperties()' function
 
@@ -2467,8 +2473,14 @@ class PMA_DisplayResults
         $vertical_display['row_delete'] = array();
         $this->__set('_vertical_display', $vertical_display);
 
-        // name of the class added to all grid editable elements
-        $grid_edit_class = $is_limited_display ? '' : 'grid_edit';
+        // name of the class added to all grid editable elements;
+        // if we don't have all the columns of a unique key in the result set,
+        //  do not permit grid editing
+        if ($is_limited_display || ! $this->__get('_resultSetContainsUniqueKey')) {
+            $grid_edit_class = '';
+        } else {
+            $grid_edit_class = 'grid_edit';
+        }
 
         // prepare to get the column order, if available
         list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);

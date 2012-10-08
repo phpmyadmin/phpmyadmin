@@ -44,6 +44,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3535015 [navi] DbFilter, TableFilter clear button hidden on Chrome
 + rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 + [interface] Autoselect username input on cookie login page
+- bug #3563799 [interface] Grid editing destroying huge amount of data
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
