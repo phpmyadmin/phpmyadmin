@@ -501,11 +501,10 @@ if (empty($reload)
     $reload = 1;
 }
 
-// SK -- Patch: $is_group added for use in calculation of total number of
-//              rows.
-//              $is_count is changed for more correct "LIMIT" clause
-//              appending in queries like
-//                "SELECT COUNT(...) FROM ... GROUP BY ..."
+// $is_group added for use in calculation of total number of rows.
+// $is_count is changed for more correct "LIMIT" clause
+//  appending in queries like
+//  "SELECT COUNT(...) FROM ... GROUP BY ..."
 
 /**
  * @todo detect all this with the parser, to avoid problems finding
@@ -574,7 +573,7 @@ if (strlen($db)) {
 
 //  E x e c u t e    t h e    q u e r y
 
-// Only if we didn't ask to see the php code (mikebeck)
+// Only if we didn't ask to see the php code
 if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     unset($result);
     $num_rows = 0;
