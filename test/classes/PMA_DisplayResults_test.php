@@ -1508,7 +1508,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @param string  $db     the database name
      * @param string  $table  the table name
-     * @param array   $data   predifined data of columns need to sytax highlighted
+     * @param array   $data   predefined data of columns need to syntax highlighted
      * @param string  $field  the field name
      * @param boolean $output output of _isNeedToSyntaxHighlight
      *
@@ -1520,7 +1520,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
-        $this->object->__set('sytax_highlighting_column_info', $data);
+        $this->object->__set('syntax_highlighting_column_info', $data);
 
         $this->assertEquals(
             $output,

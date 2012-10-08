@@ -161,7 +161,7 @@ class PMA_DisplayResults
      * One element of this array represent all relavant columns in all tables in
      * one specific database
      */
-    public $sytax_highlighting_column_info;
+    public $syntax_highlighting_column_info;
 
 
     /**
@@ -207,7 +207,7 @@ class PMA_DisplayResults
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
-        $this->sytax_highlighting_column_info = array(
+        $this->syntax_highlighting_column_info = array(
             'information_schema' => array(
                 'processlist' => array(
                     'info' => array(
@@ -2798,8 +2798,8 @@ class PMA_DisplayResults
                 $row[$i] = PMA_Util::formatSql(
                     $parsed_sql, $row[$i]
                 );
-                include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
-                $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
+                include_once $this->syntax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
+                $transformation_plugin = new $this->syntax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
 
                 $transform_options  = PMA_transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
@@ -2809,7 +2809,7 @@ class PMA_DisplayResults
 
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
+                    $this->syntax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
                 );
 
             }
@@ -3039,7 +3039,7 @@ class PMA_DisplayResults
      */
     private function _isNeedToSyntaxHighlight($field)
     {
-        if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
+        if (! empty($this->syntax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
             return true;
         }
         return false;
