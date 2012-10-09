@@ -109,6 +109,7 @@ class PMA_Types
            '<=',
            '!=',
            'LIKE',
+           'LIKE %...%',
            'NOT LIKE',
            'IN (...)',
            'NOT IN (...)',
