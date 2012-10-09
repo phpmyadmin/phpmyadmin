@@ -41,7 +41,7 @@ function checkAddUser(the_form)
  */
 function appendNewUser(new_user_string, new_user_initial, new_user_initial_string)
 {
-    //Append the newly retrived user to the table now
+    //Append the newly retrieved user to the table now
 
     //Calculate the index for the new row
     var $curr_last_row = $("#usersForm").find('tbody').find('tr:last');
@@ -75,6 +75,9 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
 
     $("#initials_table").find('td:contains('+new_user_initial+')')
     .html(new_user_initial_string);
+
+    //update the checkall checkbox
+    $(checkboxes_sel).trigger("change");
 };
 
 /**#@+
@@ -288,6 +291,9 @@ $(function() {
                     .end()
                     .find('tr:even')
                     .removeClass('odd').addClass('even');
+
+                    //update the checkall checkbox
+                    $(checkboxes_sel).trigger("change");
                 });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
