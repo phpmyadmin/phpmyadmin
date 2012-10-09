@@ -24,10 +24,10 @@ class PMA_Types
     public function getUnaryOperators()
     {
         return array(
-           'IS NULL',
-           'IS NOT NULL',
-           "= ''",
-           "!= ''",
+            'IS NULL',
+            'IS NOT NULL',
+            "= ''",
+            "!= ''",
         );
     }
 
@@ -51,8 +51,8 @@ class PMA_Types
     public function getNullOperators()
     {
         return array(
-           'IS NULL',
-           'IS NOT NULL',
+            'IS NULL',
+            'IS NOT NULL',
         );
     }
 
@@ -64,8 +64,8 @@ class PMA_Types
     public function getEnumOperators()
     {
         return array(
-           '=',
-           '!=',
+            '=',
+            '!=',
         );
     }
 
@@ -77,20 +77,20 @@ class PMA_Types
     public function getTextOperators()
     {
         return array(
-           'LIKE',
-           'LIKE %...%',
-           'NOT LIKE',
-           '=',
-           '!=',
-           'REGEXP',
-           'REGEXP ^...$',
-           'NOT REGEXP',
-           "= ''",
-           "!= ''",
-           'IN (...)',
-           'NOT IN (...)',
-           'BETWEEN',
-           'NOT BETWEEN',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            '=',
+            '!=',
+            'REGEXP',
+            'REGEXP ^...$',
+            'NOT REGEXP',
+            "= ''",
+            "!= ''",
+            'IN (...)',
+            'NOT IN (...)',
+            'BETWEEN',
+            'NOT BETWEEN',
         );
     }
 
@@ -102,19 +102,19 @@ class PMA_Types
     public function getNumberOperators()
     {
         return array(
-           '=',
-           '>',
-           '>=',
-           '<',
-           '<=',
-           '!=',
-           'LIKE',
-           'LIKE %...%',
-           'NOT LIKE',
-           'IN (...)',
-           'NOT IN (...)',
-           'BETWEEN',
-           'NOT BETWEEN',
+            '=',
+            '>',
+            '>=',
+            '<',
+            '<=',
+            '!=',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'IN (...)',
+            'NOT IN (...)',
+            'BETWEEN',
+            'NOT BETWEEN',
         );
     }
 
@@ -600,11 +600,11 @@ class PMA_Types_MySQL extends PMA_Types
     public function getAttributes()
     {
         return array(
-           '',
-           'BINARY',
-           'UNSIGNED',
-           'UNSIGNED ZEROFILL',
-           'on update CURRENT_TIMESTAMP',
+            '',
+            'BINARY',
+            'UNSIGNED',
+            'UNSIGNED ZEROFILL',
+            'on update CURRENT_TIMESTAMP',
         );
     }
 
@@ -925,8 +925,8 @@ class PMA_Types_Drizzle extends PMA_Types
     public function getAttributes()
     {
         return array(
-           '',
-           'on update CURRENT_TIMESTAMP',
+            '',
+            'on update CURRENT_TIMESTAMP',
         );
     }
 
