@@ -1362,7 +1362,7 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         . '<fieldset>'
         . '<legend>' . __('Check referential integrity:') . '</legend>';
 
-    $html_output .= '<ul>' . '"\n"';
+    $html_output .= '<ul>';
 
     foreach ($foreign AS $master => $arr) {
         $join_query  = 'SELECT '
