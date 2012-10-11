@@ -656,8 +656,9 @@ EOT;
             return $fullWhereClause;
         }
 
-        // If there are no search criteria set, return
-        if (! array_filter($_POST['criteriaValues'])) {
+        // If there are no search criteria set or no unary criteria operators, return
+        if (! array_filter($_POST['criteriaValues']) 
+            && ! array_intersect($_POST['criteriaColumnOperators'], $GLOBALS['PMA_Types']->getUnaryOperators())) {
             return $fullWhereClause;
         }
 
