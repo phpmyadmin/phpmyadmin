@@ -150,10 +150,10 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
                 $local_query
             )
         );
-    /**
-     * @todo not sure what should be done at this point, but we must not
-     * exit if we want the message to be displayed
-     */
+        /**
+         * @todo not sure what should be done at this point, but we must not
+         * exit if we want the message to be displayed
+         */
     } else {// end if (no row returned)
         $meta = PMA_DBI_get_fields_meta($result[$key_id]);
 
@@ -676,7 +676,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= "\n";
         if (strlen($special_chars) > 32000) {
             $html_output .= "</td>\n";
-            $html_output .= '<td>' . __('Because of its length,<br /> this column might not be editable');
+            $html_output .= '<td>' . __(
+                'Because of its length,<br /> this column might not be editable'
+            );
         }
 
     } elseif ($column['pma_type'] == 'enum') {
@@ -754,7 +756,8 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
         . 'value="' . htmlspecialchars($data) . '" />';
 
     $html_output .= '<a class="hide foreign_values_anchor" target="_blank" '
-        . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" '
+        . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,'
+        . 'scrollbars=yes,resizable=yes\'); return false;" '
         . 'href="browse_foreigners.php?'
         . PMA_generate_common_url($db, $table) . '&amp;field='
         . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
@@ -1563,7 +1566,10 @@ function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
 {
     return '<td>'
     . PMA_Util::showHint(
-        __('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')
+        __(
+            'Use TAB key to move from value to value,'
+            . ' or CTRL+arrows to move anywhere'
+        )
     )
     . '</td>'
     . '<td colspan="3" class="right vmiddle">'
@@ -1730,7 +1736,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $backup_field = '';
     $special_chars_encoded = PMA_Util::duplicateFirstNewline($special_chars);
     // this will select the UNHEX function while inserting
-    if (($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
+    if (($column['is_binary']
+        || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
         && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
         && $_SESSION['tmp_user_values']['display_binary_as_hex'])
         && $GLOBALS['cfg']['ShowFunctionFields']
@@ -2058,7 +2065,8 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison
     );
-    $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
+    $output = '<a href="sql.php'
+        . PMA_generate_common_url($_url_params) . '"' . $title . '>';
 
     if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational display field" in the
@@ -2080,8 +2088,9 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
  * @param array  $transformation mimetypes for all columns of a table
  *                               [field_name][field_key]
  * @param array  $edited_values  transform columns list and new values
- * @param array  $extra_data     extra data array
  * @param string $file           file containing the transformation plugin
+ * @param string $column_name    column name
+ * @param array  $extra_data     extra data array
  *
  * @return array $extra_data
  */
@@ -2107,8 +2116,9 @@ function PMA_transformEditedValues($db, $table,
                     isset($transformation['transformation_options'])
                     ? $transformation['transformation_options']
                     : ''
-                    );
-                $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
+                );
+                $transform_options['wrapper_link']
+                    = PMA_generate_common_url($_url_params);
                 $class_name = str_replace('.class.php', '', $file);
                 $plugin_manager = null;
                 $transformation_plugin = new $class_name(
@@ -2270,7 +2280,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
         $protected_row = PMA_DBI_fetch_single_row(
-            'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';'
+            'SELECT * FROM ' . PMA_Util::backquote($table)
+            . ' WHERE ' . $where_clause . ';'
         );
     }
 
@@ -2296,7 +2307,9 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             }
         } elseif ($type == 'set') {
             if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
-                $current_value = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
+                $current_value = implode(
+                    ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
+                );
                 $current_value = "'" . PMA_Util::sqlAddSlashes($current_value) . "'";
             } else {
                  $current_value = "''";
@@ -2311,7 +2324,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             // mode, insert empty field because no values were submitted.
             // If protected blobs where set, insert original fields content.
             if (! empty($protected_row[$multi_edit_columns_name[$key]])) {
-                $current_value = '0x' . bin2hex($protected_row[$multi_edit_columns_name[$key]]);
+                $current_value = '0x'
+                    . bin2hex($protected_row[$multi_edit_columns_name[$key]]);
             } else {
                 $current_value = '';
             }
