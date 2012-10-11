@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-24 09:25+0200\n"
+"POT-Creation-Date: 2012-10-11 17:45+0200\n"
 "PO-Revision-Date: 2012-05-17 15:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
-#: libraries/DisplayResults.class.php:802
+#: libraries/DisplayResults.class.php:808
 #: libraries/server_privileges.lib.php:2617
 msgid "Show all"
 msgstr "అన్నీ చూపించు"
@@ -48,7 +48,7 @@ msgid "Search"
 msgstr "శోధించు"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
-#: libraries/DbSearch.class.php:468 libraries/DisplayResults.class.php:1652
+#: libraries/DbSearch.class.php:468 libraries/DisplayResults.class.php:1658
 #: libraries/TableSearch.class.php:1137 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
@@ -61,10 +61,10 @@ msgstr "శోధించు"
 #: libraries/operations.lib.php:1342
 #: libraries/plugins/auth/AuthenticationCookie.class.php:229
 #: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
-#: libraries/rte/rte_events.lib.php:538
-#: libraries/rte/rte_routines.lib.php:1022
-#: libraries/rte/rte_routines.lib.php:1555
-#: libraries/rte/rte_triggers.lib.php:417
+#: libraries/rte/rte_events.lib.php:541
+#: libraries/rte/rte_routines.lib.php:1042
+#: libraries/rte/rte_routines.lib.php:1575
+#: libraries/rte/rte_triggers.lib.php:420
 #: libraries/schema/User_Schema.class.php:163
 #: libraries/schema/User_Schema.class.php:225
 #: libraries/schema/User_Schema.class.php:474
@@ -154,9 +154,9 @@ msgstr "వరుస"
 #: libraries/plugins/export/ExportTexytext.class.php:269
 #: libraries/plugins/export/ExportTexytext.class.php:369
 #: libraries/rte/rte_list.lib.php:54 libraries/rte/rte_list.lib.php:80
-#: libraries/rte/rte_routines.lib.php:888
-#: libraries/rte/rte_routines.lib.php:913
-#: libraries/rte/rte_routines.lib.php:1473
+#: libraries/rte/rte_routines.lib.php:908
+#: libraries/rte/rte_routines.lib.php:933
+#: libraries/rte/rte_routines.lib.php:1493
 #: libraries/schema/Pdf_Relation_Schema.class.php:1350
 #: libraries/schema/Pdf_Relation_Schema.class.php:1371
 #: libraries/server_privileges.lib.php:1584 libraries/structure.lib.php:784
@@ -234,8 +234,8 @@ msgstr "వ్యాఖ్యలు"
 #: libraries/server_privileges.lib.php:2159
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2493 libraries/structure.lib.php:1277
-#: libraries/user_preferences.lib.php:307 prefs_manage.php:131 sql.php:387
-#: sql.php:454 tbl_printview.php:186 tbl_tracking.php:339 tbl_tracking.php:393
+#: libraries/user_preferences.lib.php:307 prefs_manage.php:131 sql.php:399
+#: sql.php:483 tbl_printview.php:186 tbl_tracking.php:339 tbl_tracking.php:393
 #: tbl_tracking.php:398
 msgid "No"
 msgstr "కాదు"
@@ -262,7 +262,7 @@ msgstr "కాదు"
 #: libraries/server_privileges.lib.php:2476
 #: libraries/server_privileges.lib.php:2493 libraries/structure.lib.php:1277
 #: libraries/user_preferences.lib.php:305 prefs_manage.php:130
-#: server_databases.php:103 server_databases.php:110 sql.php:453
+#: server_databases.php:103 server_databases.php:110 sql.php:481
 #: tbl_printview.php:187 tbl_structure.php:50 tbl_tracking.php:339
 #: tbl_tracking.php:391 tbl_tracking.php:396
 msgid "Yes"
@@ -314,7 +314,7 @@ msgstr ""
 #: libraries/Menu.class.php:186 libraries/config/messages.inc.php:514
 #: libraries/plugins/export/ExportXml.class.php:455
 #: libraries/plugins/export/PMA_ExportPdf.class.php:96
-#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:352
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:293
 #: libraries/server_privileges.lib.php:1995
 #: libraries/server_privileges.lib.php:2226
@@ -328,7 +328,7 @@ msgstr "పట్టిక"
 #: libraries/import.lib.php:181 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1748 libraries/structure.lib.php:1928
 #: libraries/structure.lib.php:2069 navigation.php:628 navigation.php:667
-#: sql.php:1040 tbl_printview.php:365
+#: sql.php:1064 tbl_printview.php:365
 msgid "Rows"
 msgstr ""
 
@@ -413,7 +413,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2226
 #: libraries/server_privileges.lib.php:2866 server_databases.php:199
 #: server_status.php:1352 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1034 tbl_tracking.php:753
+#: server_synchronize.php:1455 sql.php:1055 tbl_tracking.php:753
 msgid "Database"
 msgstr "డేటాబేస్"
 
@@ -430,8 +430,8 @@ msgid "Updated"
 msgstr ""
 
 #: db_tracking.php:85 js/messages.php:185 libraries/Menu.class.php:454
-#: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_list.lib.php:78
-#: server_status.php:1364 sql.php:1108 tbl_tracking.php:758
+#: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
+#: server_status.php:1364 sql.php:1130 tbl_tracking.php:758
 msgid "Status"
 msgstr "స్థితి"
 
@@ -446,7 +446,7 @@ msgstr "చర్య"
 
 # మొదటి అనువాదము
 #: db_tracking.php:87 libraries/DBQbe.class.php:466
-#: libraries/DisplayResults.class.php:896 tbl_change.php:220
+#: libraries/DisplayResults.class.php:902 tbl_change.php:223
 #: tbl_tracking.php:759
 msgid "Show"
 msgstr "చూపించు"
@@ -547,7 +547,7 @@ msgid "SRID"
 msgstr ""
 
 #: gis_data_editor.php:184 js/messages.php:326
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1642
 msgid "Geometry"
 msgstr ""
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:500 sql.php:1146
+#: import.php:500 sql.php:1178
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -692,8 +692,8 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import.php:563 libraries/DisplayResults.class.php:4533
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1324
+#: import.php:563 libraries/DisplayResults.class.php:4545
+#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
@@ -708,7 +708,7 @@ msgstr "వెనుకకి"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:329
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:337
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 
@@ -717,7 +717,7 @@ msgstr ""
 msgid "Do you really want to execute \"%s\"?"
 msgstr ""
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:308 sql.php:432
+#: js/messages.php:31 libraries/mult_submits.inc.php:308 sql.php:444
 msgid "You are about to DESTROY a complete database!"
 msgstr ""
 
@@ -819,7 +819,7 @@ msgid "Close"
 msgstr "మూసివేయి"
 
 #: js/messages.php:61 js/messages.php:284
-#: libraries/DisplayResults.class.php:3299 libraries/Index.class.php:589
+#: libraries/DisplayResults.class.php:3311 libraries/Index.class.php:589
 #: libraries/Util.class.php:660 libraries/Util.class.php:1277
 #: libraries/Util.class.php:3522 libraries/Util.class.php:3523
 #: libraries/config/messages.inc.php:490
@@ -1080,7 +1080,7 @@ msgstr ""
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:139 libraries/DisplayResults.class.php:1281
+#: js/messages.php:139 libraries/DisplayResults.class.php:1287
 #: libraries/TableSearch.class.php:836 libraries/TableSearch.class.php:980
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
@@ -1280,7 +1280,7 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:483
 #: libraries/plugins/export/ExportOdt.class.php:561
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/rte/rte_list.lib.php:68 server_status.php:1360 sql.php:1109
+#: libraries/rte/rte_list.lib.php:68 server_status.php:1360 sql.php:1135
 msgid "Time"
 msgstr "సమయం"
 
@@ -1582,7 +1582,7 @@ msgstr "తొలగించు"
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:272 libraries/rte/rte_routines.lib.php:740
+#: js/messages.php:272 libraries/rte/rte_routines.lib.php:760
 msgid "ENUM/SET editor"
 msgstr ""
 
@@ -1624,9 +1624,9 @@ msgid "No rows selected"
 msgstr ""
 
 # మొదటి అనువాదము
-#: js/messages.php:286 libraries/DisplayResults.class.php:5053
+#: js/messages.php:286 libraries/DisplayResults.class.php:5065
 #: libraries/structure.lib.php:1382 libraries/structure.lib.php:2226
-#: querywindow.php:82
+#: querywindow.php:85
 msgid "Change"
 msgstr "మార్చుము"
 
@@ -1634,8 +1634,8 @@ msgstr "మార్చుము"
 msgid "Query execution time"
 msgstr ""
 
-#: js/messages.php:288 libraries/DisplayResults.class.php:714
-#: libraries/DisplayResults.class.php:722
+#: js/messages.php:288 libraries/DisplayResults.class.php:720
+#: libraries/DisplayResults.class.php:728
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -1710,12 +1710,12 @@ msgstr "గణాంకాలను చూపించు"
 msgid "Data point content"
 msgstr "విషయ సూచిక"
 
-#: js/messages.php:318 tbl_change.php:246 tbl_indexes.php:259
+#: js/messages.php:318 tbl_change.php:251 tbl_indexes.php:259
 #: tbl_indexes.php:297
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:3302
+#: js/messages.php:319 libraries/DisplayResults.class.php:3314
 msgid "Copy"
 msgstr ""
 
@@ -2188,18 +2188,18 @@ msgstr ""
 msgid "Font size"
 msgstr ""
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1265
-#: libraries/DisplayResults.class.php:2006
-#: libraries/DisplayResults.class.php:2014 libraries/TableSearch.class.php:807
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
+#: libraries/DisplayResults.class.php:2012
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:868
 #: libraries/structure.lib.php:885 server_databases.php:200
 #: server_databases.php:217 server_status.php:1449
 msgid "Ascending"
 msgstr "ఆరోహణ"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1277
-#: libraries/DisplayResults.class.php:2001
-#: libraries/DisplayResults.class.php:2019 libraries/TableSearch.class.php:808
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
+#: libraries/DisplayResults.class.php:2007
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:808
 #: libraries/operations.lib.php:634 libraries/structure.lib.php:873
 #: libraries/structure.lib.php:890 server_databases.php:200
 #: server_databases.php:217 server_status.php:1446
@@ -2207,7 +2207,7 @@ msgid "Descending"
 msgstr "అవరోహణ"
 
 # మొదటి అనువాదము
-#: libraries/DBQbe.class.php:404 libraries/DisplayResults.class.php:2074
+#: libraries/DBQbe.class.php:404 libraries/DisplayResults.class.php:2080
 #: libraries/structure.lib.php:859
 msgid "Sort"
 msgstr "క్రమంలో పేర్చు"
@@ -2310,8 +2310,8 @@ msgstr ""
 msgid "Delete the matches for the %s table?"
 msgstr ""
 
-#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3370
-#: libraries/DisplayResults.class.php:5029
+#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3382
+#: libraries/DisplayResults.class.php:5041
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
@@ -2349,18 +2349,18 @@ msgstr "పట్టికల్ని వాడు"
 msgid "Inside column:"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:691
+#: libraries/DisplayResults.class.php:697
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:697
+#: libraries/DisplayResults.class.php:703
 #, fuzzy
 #| msgid "Table comments"
 msgid "Restore column order"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:768 libraries/Util.class.php:2575
+#: libraries/DisplayResults.class.php:774 libraries/Util.class.php:2575
 #: libraries/Util.class.php:2579
 #, fuzzy
 #| msgid "Begin"
@@ -2369,7 +2369,7 @@ msgid "Begin"
 msgstr "మొదలు"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:771 libraries/Util.class.php:2577
+#: libraries/DisplayResults.class.php:777 libraries/Util.class.php:2577
 #: libraries/Util.class.php:2580 server_binlog.php:141 server_binlog.php:143
 #, fuzzy
 #| msgid "Previous"
@@ -2378,7 +2378,7 @@ msgid "Previous"
 msgstr "క్రితము"
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:828 libraries/Util.class.php:2611
+#: libraries/DisplayResults.class.php:834 libraries/Util.class.php:2611
 #: libraries/Util.class.php:2614 server_binlog.php:174 server_binlog.php:176
 #, fuzzy
 #| msgid "Next"
@@ -2386,7 +2386,7 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "తదుపరి"
 
-#: libraries/DisplayResults.class.php:856 libraries/Util.class.php:2612
+#: libraries/DisplayResults.class.php:862 libraries/Util.class.php:2612
 #: libraries/Util.class.php:2615
 #, fuzzy
 #| msgid "End"
@@ -2394,44 +2394,44 @@ msgctxt "Last page"
 msgid "End"
 msgstr "ముగింపు"
 
-#: libraries/DisplayResults.class.php:897
+#: libraries/DisplayResults.class.php:903
 #, fuzzy
 #| msgid "Start"
 msgid "Start row"
 msgstr "మొదలుపెట్టు"
 
-#: libraries/DisplayResults.class.php:901
+#: libraries/DisplayResults.class.php:907
 msgid "Number of rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:910
+#: libraries/DisplayResults.class.php:916
 #, fuzzy
 #| msgid "More"
 msgid "Mode"
 msgstr "మరిన్ని"
 
-#: libraries/DisplayResults.class.php:912
+#: libraries/DisplayResults.class.php:918
 msgid "horizontal"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:913
+#: libraries/DisplayResults.class.php:919
 msgid "horizontal (rotated headers)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:914
+#: libraries/DisplayResults.class.php:920
 msgid "vertical"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:926
+#: libraries/DisplayResults.class.php:932
 #, php-format
 msgid "Headers every %s rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1223
+#: libraries/DisplayResults.class.php:1229
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1573 libraries/TableSearch.class.php:749
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:749
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:89
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2456,95 +2456,95 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:55
 #: libraries/plugins/import/ImportSql.class.php:49
 #: libraries/plugins/import/ImportXml.class.php:56
-#: libraries/rte/rte_routines.lib.php:915 libraries/structure.lib.php:1733
+#: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1733
 msgid "Options"
 msgstr "ఎంపికలు"
 
-#: libraries/DisplayResults.class.php:1579
-#: libraries/DisplayResults.class.php:1685
+#: libraries/DisplayResults.class.php:1585
+#: libraries/DisplayResults.class.php:1691
 msgid "Partial texts"
 msgstr "పాక్షిక పాఠ్యాలు"
 
-#: libraries/DisplayResults.class.php:1580
-#: libraries/DisplayResults.class.php:1689
+#: libraries/DisplayResults.class.php:1586
+#: libraries/DisplayResults.class.php:1695
 msgid "Full texts"
 msgstr "పూర్తి పాఠ్యాలు"
 
-#: libraries/DisplayResults.class.php:1594
+#: libraries/DisplayResults.class.php:1600
 msgid "Relational key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1595
+#: libraries/DisplayResults.class.php:1601
 msgid "Relational display column"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1607
+#: libraries/DisplayResults.class.php:1613
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1612
+#: libraries/DisplayResults.class.php:1618
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1617
+#: libraries/DisplayResults.class.php:1623
 #: libraries/config/messages.inc.php:61
 msgid "Show binary contents as HEX"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1628
+#: libraries/DisplayResults.class.php:1634
 #, fuzzy
 #| msgid "Version information"
 msgid "Hide browser transformation"
 msgstr "సంచిక సమాచారం"
 
-#: libraries/DisplayResults.class.php:1637
+#: libraries/DisplayResults.class.php:1643
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1638
+#: libraries/DisplayResults.class.php:1644
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3343
-#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:3355
+#: libraries/DisplayResults.class.php:3371
 msgid "The row has been deleted"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3397
-#: libraries/DisplayResults.class.php:5029 server_status.php:1501
+#: libraries/DisplayResults.class.php:3409
+#: libraries/DisplayResults.class.php:5041 server_status.php:1501
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4479 libraries/structure.lib.php:779
+#: libraries/DisplayResults.class.php:4491 libraries/structure.lib.php:779
 msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4875
+#: libraries/DisplayResults.class.php:4887
 msgid "in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4912 libraries/structure.lib.php:661
+#: libraries/DisplayResults.class.php:4924 libraries/structure.lib.php:661
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4925
+#: libraries/DisplayResults.class.php:4937
 msgid "Showing rows"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4941
+#: libraries/DisplayResults.class.php:4953
 msgid "total"
 msgstr "మొత్తం"
 
-#: libraries/DisplayResults.class.php:4952 sql.php:874
+#: libraries/DisplayResults.class.php:4964 sql.php:897
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5043
-#: libraries/DisplayResults.class.php:5049 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5055
+#: libraries/DisplayResults.class.php:5061 libraries/mult_submits.inc.php:40
 #: libraries/server_privileges.lib.php:2415
 #: libraries/server_privileges.lib.php:2418 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
@@ -2553,8 +2553,8 @@ msgstr ""
 msgid "With selected:"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5047
-#: libraries/DisplayResults.class.php:5048
+#: libraries/DisplayResults.class.php:5059
+#: libraries/DisplayResults.class.php:5060
 #: libraries/server_privileges.lib.php:789
 #: libraries/server_privileges.lib.php:2416
 #: libraries/server_privileges.lib.php:2417 libraries/structure.lib.php:284
@@ -2564,8 +2564,8 @@ msgstr ""
 msgid "Check All"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5066
-#: libraries/DisplayResults.class.php:5264 libraries/Menu.class.php:275
+#: libraries/DisplayResults.class.php:5078
+#: libraries/DisplayResults.class.php:5276 libraries/Menu.class.php:275
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:464
 #: libraries/Util.class.php:3524 libraries/Util.class.php:3525
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:94
@@ -2575,38 +2575,38 @@ msgstr ""
 msgid "Export"
 msgstr "ఎగుమతి"
 
-#: libraries/DisplayResults.class.php:5164
+#: libraries/DisplayResults.class.php:5176
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5188 libraries/Header.class.php:261
+#: libraries/DisplayResults.class.php:5200 libraries/Header.class.php:261
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1489
 msgid "Print view"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5206
+#: libraries/DisplayResults.class.php:5218
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5277 tbl_chart.php:84
+#: libraries/DisplayResults.class.php:5289 tbl_chart.php:84
 #, fuzzy
 #| msgid "Table comments"
 msgid "Display chart"
 msgstr "పట్టిక వ్యాఖ్యలు"
 
-#: libraries/DisplayResults.class.php:5302
+#: libraries/DisplayResults.class.php:5314
 msgid "Visualize GIS data"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/DisplayResults.class.php:5335 view_create.php:152
+#: libraries/DisplayResults.class.php:5347 view_create.php:152
 #, fuzzy
 #| msgid "Create"
 msgid "Create view"
 msgstr "సృష్టించు"
 
-#: libraries/DisplayResults.class.php:5528
+#: libraries/DisplayResults.class.php:5540
 msgid "Link not found"
 msgstr ""
 
@@ -2709,8 +2709,8 @@ msgstr ""
 msgid "Collation"
 msgstr ""
 
-#: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:525
-#: libraries/rte/rte_routines.lib.php:1009 tbl_tracking.php:324
+#: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:528
+#: libraries/rte/rte_routines.lib.php:1029 tbl_tracking.php:324
 #: tbl_tracking.php:384
 msgid "Comment"
 msgstr "వ్యాఖ్య"
@@ -2999,7 +2999,7 @@ msgid ""
 msgstr ""
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:236
-#: libraries/insert_edit.lib.php:242 libraries/rte/rte_routines.lib.php:1475
+#: libraries/insert_edit.lib.php:242 libraries/rte/rte_routines.lib.php:1495
 msgid "Function"
 msgstr ""
 
@@ -3011,7 +3011,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1187
 #: libraries/insert_edit.lib.php:1599 libraries/replication_gui.lib.php:123
-#: libraries/rte/rte_routines.lib.php:1477 pmd_general.php:517
+#: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:517
 #: pmd_general.php:576 pmd_general.php:699 pmd_general.php:816
 #: server_status.php:1727
 msgid "Value"
@@ -3053,7 +3053,7 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: libraries/TableSearch.class.php:883 libraries/TableSearch.class.php:1155
-#: sql.php:155 tbl_change.php:215
+#: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr ""
 
@@ -3114,293 +3114,293 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: libraries/Types.class.php:295
+#: libraries/Types.class.php:296
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 
-#: libraries/Types.class.php:297
+#: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
 
-#: libraries/Types.class.php:299
+#: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
 
-#: libraries/Types.class.php:301
+#: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
 
-#: libraries/Types.class.php:303
+#: libraries/Types.class.php:304
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
 
-#: libraries/Types.class.php:305 libraries/Types.class.php:711
+#: libraries/Types.class.php:306 libraries/Types.class.php:712
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
 
-#: libraries/Types.class.php:307
+#: libraries/Types.class.php:308
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
-#: libraries/Types.class.php:309
+#: libraries/Types.class.php:310
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
-#: libraries/Types.class.php:311
+#: libraries/Types.class.php:312
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
 
-#: libraries/Types.class.php:313
+#: libraries/Types.class.php:314
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
 
-#: libraries/Types.class.php:315
+#: libraries/Types.class.php:316
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
 
-#: libraries/Types.class.php:317
+#: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: libraries/Types.class.php:319 libraries/Types.class.php:721
+#: libraries/Types.class.php:320 libraries/Types.class.php:722
 #, fuzzy, php-format
 #| msgid "More settings"
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "మరిన్ని అమరికలు"
 
-#: libraries/Types.class.php:321 libraries/Types.class.php:723
+#: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 
-#: libraries/Types.class.php:323
+#: libraries/Types.class.php:324
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: libraries/Types.class.php:325 libraries/Types.class.php:727
+#: libraries/Types.class.php:326 libraries/Types.class.php:728
 #, fuzzy, php-format
 #| msgid "More settings"
 msgid "A time, range is %1$s to %2$s"
 msgstr "మరిన్ని అమరికలు"
 
-#: libraries/Types.class.php:327
+#: libraries/Types.class.php:328
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
 
-#: libraries/Types.class.php:329
+#: libraries/Types.class.php:330
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
 
-#: libraries/Types.class.php:331 libraries/Types.class.php:729
+#: libraries/Types.class.php:332 libraries/Types.class.php:730
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
 
-#: libraries/Types.class.php:333
+#: libraries/Types.class.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: libraries/Types.class.php:335 libraries/Types.class.php:731
+#: libraries/Types.class.php:336 libraries/Types.class.php:732
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: libraries/Types.class.php:337
+#: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: libraries/Types.class.php:339
+#: libraries/Types.class.php:340
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
 
-#: libraries/Types.class.php:341
+#: libraries/Types.class.php:342
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: libraries/Types.class.php:343
+#: libraries/Types.class.php:344
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: libraries/Types.class.php:345
+#: libraries/Types.class.php:346
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
 
-#: libraries/Types.class.php:347
+#: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 
-#: libraries/Types.class.php:349
+#: libraries/Types.class.php:350
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 
-#: libraries/Types.class.php:351
+#: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: libraries/Types.class.php:353
+#: libraries/Types.class.php:354
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
 
-#: libraries/Types.class.php:355
+#: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 
-#: libraries/Types.class.php:357
+#: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
 msgstr ""
 
-#: libraries/Types.class.php:359
+#: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
 msgstr ""
 
-#: libraries/Types.class.php:361
+#: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/Types.class.php:363
+#: libraries/Types.class.php:364
 #, fuzzy
 #| msgid "Add into comments"
 msgid "A polygon"
 msgstr "స్పందనలకు చేర్చు"
 
-#: libraries/Types.class.php:365
+#: libraries/Types.class.php:366
 msgid "A collection of points"
 msgstr ""
 
-#: libraries/Types.class.php:367
+#: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
 msgstr ""
 
-#: libraries/Types.class.php:369
+#: libraries/Types.class.php:370
 msgid "A collection of polygons"
 msgstr ""
 
-#: libraries/Types.class.php:371
+#: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
 msgstr ""
 
-#: libraries/Types.class.php:623 libraries/Types.class.php:973
+#: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: libraries/Types.class.php:642 libraries/Types.class.php:976
+#: libraries/Types.class.php:643 libraries/Types.class.php:977
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "పుటని సృష్టించు"
 
-#: libraries/Types.class.php:651 libraries/Types.class.php:979
+#: libraries/Types.class.php:652 libraries/Types.class.php:980
 msgctxt "string types"
 msgid "String"
 msgstr ""
 
-#: libraries/Types.class.php:672
+#: libraries/Types.class.php:673
 #, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "మొత్తం"
 
-#: libraries/Types.class.php:707
+#: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr ""
 
-#: libraries/Types.class.php:709
+#: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
 
-#: libraries/Types.class.php:713
+#: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
 msgstr ""
 
-#: libraries/Types.class.php:715
+#: libraries/Types.class.php:716
 msgid "True or false"
 msgstr ""
 
-#: libraries/Types.class.php:717
+#: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: libraries/Types.class.php:719
+#: libraries/Types.class.php:720
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr ""
 
-#: libraries/Types.class.php:725
+#: libraries/Types.class.php:726
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
 
-#: libraries/Types.class.php:733
+#: libraries/Types.class.php:734
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
 
-#: libraries/Types.class.php:735
+#: libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: libraries/Types.class.php:737
+#: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
 msgstr ""
 
@@ -3417,20 +3417,20 @@ msgid "Documentation"
 msgstr "పత్రావళి"
 
 #: libraries/Util.class.php:635 server_status.php:654 server_status.php:1368
-#: sql.php:1037
+#: sql.php:1060
 msgid "SQL query"
 msgstr ""
 
 #: libraries/Util.class.php:679 libraries/rte/rte_events.lib.php:114
-#: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:137
-#: libraries/rte/rte_events.lib.php:158 libraries/rte/rte_routines.lib.php:288
-#: libraries/rte/rte_routines.lib.php:293
-#: libraries/rte/rte_routines.lib.php:303
-#: libraries/rte/rte_routines.lib.php:320
-#: libraries/rte/rte_routines.lib.php:1354
+#: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
+#: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:292
+#: libraries/rte/rte_routines.lib.php:301
+#: libraries/rte/rte_routines.lib.php:318
+#: libraries/rte/rte_routines.lib.php:340
+#: libraries/rte/rte_routines.lib.php:1374
 #: libraries/rte/rte_triggers.lib.php:86 libraries/rte/rte_triggers.lib.php:95
-#: libraries/rte/rte_triggers.lib.php:109
-#: libraries/rte/rte_triggers.lib.php:130
+#: libraries/rte/rte_triggers.lib.php:112
+#: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
 msgstr ""
 
@@ -3476,7 +3476,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/Util.class.php:1464 sql.php:1104
+#: libraries/Util.class.php:1464 sql.php:1126
 msgid "Profiling"
 msgstr ""
 
@@ -6045,8 +6045,8 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:558
 #: libraries/plugins/export/ExportTexytext.class.php:433
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
-#: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:912
-#: libraries/rte/rte_routines.lib.php:1472 libraries/structure.lib.php:1187
+#: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:932
+#: libraries/rte/rte_routines.lib.php:1492 libraries/structure.lib.php:1187
 #: libraries/tbl_properties.inc.php:85 setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "పేరు"
@@ -6309,8 +6309,8 @@ msgstr ""
 #: libraries/display_import.lib.php:287
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"to the PHP timeout limit. <i>(This might be a good way to import large "
+"files, however it can break transactions.)</i>"
 msgstr ""
 
 #: libraries/display_import.lib.php:294
@@ -6638,7 +6638,7 @@ msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:149
-#: libraries/rte/rte_routines.lib.php:1342 sql.php:870 tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1362 sql.php:892 tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -6755,11 +6755,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1933 sql.php:866
+#: libraries/insert_edit.lib.php:1933 sql.php:887
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1958 sql.php:846
+#: libraries/insert_edit.lib.php:1958 sql.php:867
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -6807,11 +6807,11 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:310 sql.php:448
+#: libraries/mult_submits.inc.php:310 sql.php:474
 msgid "Do you really want to execute the following query?"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:544 tbl_replace.php:244
+#: libraries/mult_submits.inc.php:544 tbl_replace.php:245
 msgid "No change"
 msgstr ""
 
@@ -7371,15 +7371,15 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:384
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
 msgid "Event"
 msgstr ""
 
 #: libraries/plugins/export/ExportHtmlword.class.php:485
 #: libraries/plugins/export/ExportOdt.class.php:567
 #: libraries/plugins/export/ExportTexytext.class.php:436
-#: libraries/rte/rte_events.lib.php:510 libraries/rte/rte_routines.lib.php:975
-#: libraries/rte/rte_triggers.lib.php:398
+#: libraries/rte/rte_events.lib.php:513 libraries/rte/rte_routines.lib.php:995
+#: libraries/rte/rte_triggers.lib.php:401
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -7457,13 +7457,13 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1190
 #: libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2392 server_status.php:1348
-#: sql.php:1033
+#: sql.php:1054
 msgid "Host"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:222
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:194 sql.php:1035
+#: libraries/plugins/export/ExportXml.class.php:194 sql.php:1057
 msgid "Generation Time"
 msgstr ""
 
@@ -7918,7 +7918,7 @@ msgstr ""
 msgid "Bookmarked SQL query"
 msgstr ""
 
-#: libraries/relation.lib.php:192 querywindow.php:69 querywindow.php:151
+#: libraries/relation.lib.php:192 querywindow.php:70 querywindow.php:154
 msgid "SQL history"
 msgstr "SQL చరిత్ర"
 
@@ -8068,134 +8068,135 @@ msgid "Generate Password"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
-#: libraries/rte/rte_events.lib.php:154 libraries/rte/rte_routines.lib.php:287
-#: libraries/rte/rte_routines.lib.php:292
-#: libraries/rte/rte_routines.lib.php:317
-#: libraries/rte/rte_routines.lib.php:1350
+#: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:288
+#: libraries/rte/rte_routines.lib.php:297
+#: libraries/rte/rte_routines.lib.php:336
+#: libraries/rte/rte_routines.lib.php:1370
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:126
+#: libraries/rte/rte_triggers.lib.php:129
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:133
+#: libraries/rte/rte_events.lib.php:134
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:135 libraries/rte/rte_routines.lib.php:302
-#: libraries/rte/rte_triggers.lib.php:107
+#: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:315
+#: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:141
+#: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
 # మొదటి అనువాదము
-#: libraries/rte/rte_events.lib.php:161
+#: libraries/rte/rte_events.lib.php:164
 #, fuzzy, php-format
 #| msgid "Page has been created"
 msgid "Event %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: libraries/rte/rte_events.lib.php:172 libraries/rte/rte_routines.lib.php:335
-#: libraries/rte/rte_triggers.lib.php:144
+#: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:355
+#: libraries/rte/rte_triggers.lib.php:147
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:225
+#: libraries/rte/rte_events.lib.php:228
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Edit event"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
-#: libraries/rte/rte_events.lib.php:252 libraries/rte/rte_routines.lib.php:415
-#: libraries/rte/rte_routines.lib.php:1376
-#: libraries/rte/rte_routines.lib.php:1414
-#: libraries/rte/rte_triggers.lib.php:227
+#: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_routines.lib.php:435
+#: libraries/rte/rte_routines.lib.php:1396
+#: libraries/rte/rte_routines.lib.php:1434
+#: libraries/rte/rte_triggers.lib.php:230
 msgid "Error in processing request"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:414 libraries/rte/rte_routines.lib.php:880
-#: libraries/rte/rte_triggers.lib.php:344
+#: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
+#: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
 #| msgid "Details..."
 msgid "Details"
 msgstr "వివరాలు..."
 
-#: libraries/rte/rte_events.lib.php:417
+#: libraries/rte/rte_events.lib.php:420
 #, fuzzy
 #| msgid "New name"
 msgid "Event name"
 msgstr "కొత్త పేరు"
 
-#: libraries/rte/rte_events.lib.php:438 server_binlog.php:186
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
 msgid "Event type"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/rte/rte_events.lib.php:460 libraries/rte/rte_routines.lib.php:901
+#: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:921
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
 msgstr "మార్చుము"
 
-#: libraries/rte/rte_events.lib.php:466
+#: libraries/rte/rte_events.lib.php:469
 msgid "Execute at"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:474
+#: libraries/rte/rte_events.lib.php:477
 msgid "Execute every"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:493
+#: libraries/rte/rte_events.lib.php:496
 #, fuzzy
 #| msgid "Start"
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "మొదలుపెట్టు"
 
-#: libraries/rte/rte_events.lib.php:502
+#: libraries/rte/rte_events.lib.php:505
 #, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "ముగింపు"
 
-#: libraries/rte/rte_events.lib.php:516
+#: libraries/rte/rte_events.lib.php:519
 msgid "On completion preserve"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:520 libraries/rte/rte_routines.lib.php:985
-#: libraries/rte/rte_triggers.lib.php:404
+#: libraries/rte/rte_events.lib.php:523
+#: libraries/rte/rte_routines.lib.php:1005
+#: libraries/rte/rte_triggers.lib.php:407
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:563
-#: libraries/rte/rte_routines.lib.php:1050
-#: libraries/rte/rte_triggers.lib.php:442
+#: libraries/rte/rte_events.lib.php:566
+#: libraries/rte/rte_routines.lib.php:1070
+#: libraries/rte/rte_triggers.lib.php:445
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:570
+#: libraries/rte/rte_events.lib.php:573
 msgid "You must provide an event name"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:584
+#: libraries/rte/rte_events.lib.php:587
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:599
+#: libraries/rte/rte_events.lib.php:602
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:603
+#: libraries/rte/rte_events.lib.php:606
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:627
+#: libraries/rte/rte_events.lib.php:630
 msgid "You must provide an event definition."
 msgstr ""
 
@@ -8231,196 +8232,196 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:280
-#: libraries/rte/rte_routines.lib.php:1059
+#: libraries/rte/rte_routines.lib.php:1079
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:301
+#: libraries/rte/rte_routines.lib.php:312
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:306
+#: libraries/rte/rte_routines.lib.php:322
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
 # మొదటి అనువాదము
-#: libraries/rte/rte_routines.lib.php:323
+#: libraries/rte/rte_routines.lib.php:343
 #, fuzzy, php-format
 #| msgid "Page has been created"
 msgid "Routine %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: libraries/rte/rte_routines.lib.php:389
+#: libraries/rte/rte_routines.lib.php:409
 msgid "Edit routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:883
+#: libraries/rte/rte_routines.lib.php:903
 #, fuzzy
 #| msgid "Comments"
 msgid "Routine name"
 msgstr "వ్యాఖ్యలు"
 
-#: libraries/rte/rte_routines.lib.php:906
+#: libraries/rte/rte_routines.lib.php:926
 msgid "Parameters"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:911
+#: libraries/rte/rte_routines.lib.php:931
 #, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
 msgstr "నేరు లంకెలు"
 
-#: libraries/rte/rte_routines.lib.php:914 libraries/tbl_properties.inc.php:88
+#: libraries/rte/rte_routines.lib.php:934 libraries/tbl_properties.inc.php:88
 msgid "Length/Values"
 msgstr "పొడవు/విలువలు"
 
-#: libraries/rte/rte_routines.lib.php:929
+#: libraries/rte/rte_routines.lib.php:949
 msgid "Add parameter"
 msgstr ""
 
 # మొదటి అనువాదము
-#: libraries/rte/rte_routines.lib.php:933
+#: libraries/rte/rte_routines.lib.php:953
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "డేటాబేస్ తొలగించండి"
 
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:958
 msgid "Return type"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:944
+#: libraries/rte/rte_routines.lib.php:964
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "పొడవు/విలువలు"
 
-#: libraries/rte/rte_routines.lib.php:950
+#: libraries/rte/rte_routines.lib.php:970
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "పట్టిక ఎంపికలు"
 
-#: libraries/rte/rte_routines.lib.php:981
+#: libraries/rte/rte_routines.lib.php:1001
 msgid "Is deterministic"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:990
+#: libraries/rte/rte_routines.lib.php:1010
 #, fuzzy
 #| msgid "Security"
 msgid "Security type"
 msgstr "భద్రత"
 
-#: libraries/rte/rte_routines.lib.php:997
+#: libraries/rte/rte_routines.lib.php:1017
 msgid "SQL data access"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1086
 msgid "You must provide a routine name"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1092
+#: libraries/rte/rte_routines.lib.php:1112
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1106
-#: libraries/rte/rte_routines.lib.php:1148
+#: libraries/rte/rte_routines.lib.php:1126
+#: libraries/rte/rte_routines.lib.php:1168
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1124
+#: libraries/rte/rte_routines.lib.php:1144
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1136
+#: libraries/rte/rte_routines.lib.php:1156
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1182
+#: libraries/rte/rte_routines.lib.php:1202
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1268
+#: libraries/rte/rte_routines.lib.php:1288
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1332
+#: libraries/rte/rte_routines.lib.php:1352
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/rte/rte_routines.lib.php:1401
-#: libraries/rte/rte_routines.lib.php:1409
+#: libraries/rte/rte_routines.lib.php:1421
+#: libraries/rte/rte_routines.lib.php:1429
 msgid "Execute routine"
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1465
-#: libraries/rte/rte_routines.lib.php:1468
+#: libraries/rte/rte_routines.lib.php:1485
+#: libraries/rte/rte_routines.lib.php:1488
 msgid "Routine parameters"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:105
+#: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:113
+#: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
 #| msgid "Database %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
 # మొదటి అనువాదము
-#: libraries/rte/rte_triggers.lib.php:133
+#: libraries/rte/rte_triggers.lib.php:136
 #, fuzzy, php-format
 #| msgid "Page has been created"
 msgid "Trigger %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: libraries/rte/rte_triggers.lib.php:201
+#: libraries/rte/rte_triggers.lib.php:204
 #, fuzzy
 #| msgid "Add a new User"
 msgid "Edit trigger"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
-#: libraries/rte/rte_triggers.lib.php:347
+#: libraries/rte/rte_triggers.lib.php:350
 #, fuzzy
 #| msgid "User name"
 msgid "Trigger name"
 msgstr "వాడుకరి పేరు"
 
-#: libraries/rte/rte_triggers.lib.php:370
+#: libraries/rte/rte_triggers.lib.php:373
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "సమయం"
 
-#: libraries/rte/rte_triggers.lib.php:449
+#: libraries/rte/rte_triggers.lib.php:452
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:456
+#: libraries/rte/rte_triggers.lib.php:459
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:463
+#: libraries/rte/rte_triggers.lib.php:466
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:471
+#: libraries/rte/rte_triggers.lib.php:474
 msgid "You must provide a valid table name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:477
+#: libraries/rte/rte_triggers.lib.php:480
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -9107,30 +9108,30 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "మీరు క్రొత్త వాడుకరిని చేర్చారు."
 
-#: libraries/server_synchronize.lib.php:1595 server_synchronize.php:1353
+#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
 msgid "Source database"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1598
 #: libraries/server_synchronize.lib.php:1608
+#: libraries/server_synchronize.lib.php:1618
 msgid "Current server"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1600
 #: libraries/server_synchronize.lib.php:1610
+#: libraries/server_synchronize.lib.php:1620
 msgid "Remote server"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1604
+#: libraries/server_synchronize.lib.php:1614
 msgid "Difference"
 msgstr "తేడా"
 
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1355
+#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
 msgid "Target database"
 msgstr ""
 
-#: libraries/server_synchronize.lib.php:1645
-#: libraries/server_synchronize.lib.php:1654
+#: libraries/server_synchronize.lib.php:1655
+#: libraries/server_synchronize.lib.php:1664
 msgid "Click to select"
 msgstr ""
 
@@ -9155,11 +9156,11 @@ msgstr ""
 msgid "Columns"
 msgstr "వ్యాఖ్యలు"
 
-#: libraries/sql_query_form.lib.php:322 sql.php:1217 sql.php:1234
+#: libraries/sql_query_form.lib.php:322 sql.php:1249 sql.php:1268
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:328 sql.php:1228
+#: libraries/sql_query_form.lib.php:328 sql.php:1261
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -10007,7 +10008,7 @@ msgid "Import files"
 msgstr ""
 
 # మొదటి అనువాదము
-#: querywindow.php:75
+#: querywindow.php:77
 msgid "All"
 msgstr "అన్నీ"
 
@@ -11730,33 +11731,33 @@ msgstr ""
 msgid "Wrong data"
 msgstr "భోగట్టా"
 
-#: sql.php:292
+#: sql.php:299
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:863
+#: sql.php:884
 msgid "Showing as PHP code"
 msgstr ""
 
-#: sql.php:868
+#: sql.php:889
 msgid "Validated SQL"
 msgstr ""
 
-#: sql.php:1031
+#: sql.php:1052
 msgid "SQL result"
 msgstr ""
 
-#: sql.php:1036
+#: sql.php:1059
 msgid "Generated by"
 msgstr ""
 
-#: sql.php:1190
+#: sql.php:1218
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1222
+#: sql.php:1253
 msgid "Label"
 msgstr ""
 
