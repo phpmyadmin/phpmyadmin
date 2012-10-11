@@ -86,8 +86,21 @@ $header_cells[] = __('Name');
 $header_cells[] = __('Type')
     . PMA_Util::showMySQLDocu('SQL-Syntax', 'data-types');
 $header_cells[] = __('Length/Values')
-    . PMA_Util::showHint(__('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'));
-$header_cells[] = __('Default') . PMA_Util::showHint(__('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'));
+    . PMA_Util::showHint(
+        __(
+            'If column type is "enum" or "set", please enter the values using'
+            . ' this format: \'a\',\'b\',\'c\'...<br />If you ever need to put'
+            . ' a backslash ("\") or a single quote ("\'") amongst those values,'
+            . ' precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'
+        )
+    );
+$header_cells[] = __('Default')
+    . PMA_Util::showHint(
+        __(
+            'For default values, please enter just a single value,'
+            . ' without backslash escaping or quotes, using this format: a'
+        )
+    );
 $header_cells[] = __('Collation');
 $header_cells[] = __('Attributes');
 $header_cells[] = __('Null');
@@ -659,7 +672,9 @@ for ($i = 0; $i < $num_fields; $i++) {
                 $checked = isset($row['Field'])
                     && isset($mime_map[$row['Field']]['transformation'])
                     && preg_match(
-                        '@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i',
+                        '@' . preg_quote(
+                            $available_mime['transformation_file'][$mimekey]
+                        ) . '3?@i',
                         $mime_map[$row['Field']]['transformation']
                     )
                     ? 'selected '
