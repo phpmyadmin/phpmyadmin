@@ -43,6 +43,13 @@ $(document).ready(function() {
      * @uses    PMA_ajaxShowMessage()
      */
     $("#tbl_search_form.ajax").live('submit', function(event) {
+
+        var unaryFunctions = [
+            'IS NULL', 
+            'IS NOT NULL',
+            "= ''",
+            "!= ''"];
+
         // jQuery object to reuse
         $search_form = $(this);
         event.preventDefault();
@@ -65,8 +72,13 @@ $(document).ready(function() {
             }
         });
         var columnCount = $('select[name="param[]"] option').length;
-        // Submit values only for the columns that have a search criteria
+        // Submit values only for the columns that have unary column operator or a search criteria
         for (var a = 0; a < columnCount; a++) {
+
+            if ($.inArray(values['func[' + a + ']'], unaryFunctions) >= 0) {
+                continue;
+            }
+
             if (values['fields[' + a + ']'] == '') {
                 delete values['fields[' + a + ']'];
                 delete values['func[' + a + ']'];
