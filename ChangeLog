@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #3570212 [edit] uuid_short() is a no-arguments function
 - bug #3569577 [edit] Add routine parameter headers not valid for "function" 
 - bug #3575799 [search] Various search operators not working as expected
+- bug #3576322 [search] Invalid select query generated for tables with ENUM fields
 
 3.5.3.0 (2012-10-08)
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
