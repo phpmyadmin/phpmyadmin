@@ -76,7 +76,7 @@ $(function() {
                 continue;
             }
             
-            if (values['criteriaValues[' + a + ']'] == '') {
+            if (values['criteriaValues[' + a + ']'] == '' || values['criteriaValues[' + a + ']'] == null) {
                 delete values['criteriaValues[' + a + ']'];
                 delete values['criteriaColumnOperators[' + a + ']'];
                 delete values['criteriaColumnNames[' + a + ']'];

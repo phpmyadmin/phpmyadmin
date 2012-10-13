@@ -325,9 +325,9 @@ EOT;
             || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
         ) {
             $html_output .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="' . $column_id . $column_index .'">';
+                . ']" id="' . $column_id . $column_index .'">';
         } else {
-            $html_output .= '<select name="criteriaValues[' . $column_index . '][]"'
+            $html_output .= '<select name="criteriaValues[' . $column_index . ']"'
                 . ' id="' . $column_id . $column_index . '" multiple="multiple"'
                 . ' size="' . min(3, $cnt_value) . '">';
         }
