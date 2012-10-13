@@ -78,8 +78,7 @@ $(document).ready(function() {
             if ($.inArray(values['func[' + a + ']'], unaryFunctions) >= 0) {
                 continue;
             }
-
-            if (values['fields[' + a + ']'] == '') {
+            if (values['fields[' + a + ']'] == '' || values['fields[' + a + ']'] == null) {
                 delete values['fields[' + a + ']'];
                 delete values['func[' + a + ']'];
                 delete values['names[' + a + ']'];

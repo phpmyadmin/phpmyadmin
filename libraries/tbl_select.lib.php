@@ -195,9 +195,9 @@ EOT;
         if ((strncasecmp($tbl_fields_type[$i], 'enum', 4) && ! $in_zoom_search_edit)
             || (strncasecmp($tbl_fields_type[$i], 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">' . "\n";
+            $str .= '<select name="fields[' . ($i) . ']" id="fieldID_' . $i .'">' . "\n";
         } else {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
+            $str .= '<select name="fields[' . ($i) . ']" id="fieldID_' . $i .'"'
                 . ' multiple="multiple" size="' . min(3, $cnt_value) . '">' . "\n";
         }
 
