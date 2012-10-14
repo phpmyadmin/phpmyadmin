@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:49+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/"
-">\n"
+"PO-Revision-Date: 2012-10-14 21:06+0200\n"
+"Last-Translator: Myroslav Kosinskyi <km@ub.ua>\n"
+"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
@@ -1537,7 +1536,7 @@ msgstr "Розділено по %s:"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Модуль"
 
 #: js/messages.php:174
 #, fuzzy
@@ -1894,7 +1893,7 @@ msgstr "Час виконання запиту"
 #: js/messages.php:288 libraries/display_tbl.lib.php:423
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d неправильний номер рядка."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -1926,8 +1925,9 @@ msgid "Hovering over a point will show its label."
 msgstr "При наведенні на точку буде показано її лейбл."
 
 #: js/messages.php:304
+#, fuzzy
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Для маштабування, виділіть ділянку з допомогою мишки"
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -4471,15 +4471,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
-msgstr ""
+msgstr "Порядок сортування за замовчуванням"
 
 #: libraries/config/messages.inc.php:331
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Використовуйте постійне з’єднання з MySQL"
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
-msgstr ""
+msgstr "Постійне з’єднання"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
@@ -4490,7 +4490,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Відсутня таблиця для збереження конфігурації phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -4498,11 +4498,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr ""
+msgstr "Колонки BLOB та BINARY недоступні для редагування"
 
 #: libraries/config/messages.inc.php:338
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Бінарні колонки захищені"
 
 #: libraries/config/messages.inc.php:339
 msgid ""
@@ -4513,15 +4513,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
-msgstr ""
+msgstr "Постійна історія запитів"
 
 #: libraries/config/messages.inc.php:342
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Скільки запитів зберігати в історії"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query history length"
-msgstr ""
+msgstr "Довжина історії запитів"
 
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
