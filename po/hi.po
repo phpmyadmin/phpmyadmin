@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-11 17:45+0200\n"
+"POT-Creation-Date: 2012-10-15 12:42-0400\n"
 "PO-Revision-Date: 2012-09-05 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
-"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -47,11 +47,11 @@ msgstr "ढूंढें"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:468 libraries/DisplayResults.class.php:1658
-#: libraries/TableSearch.class.php:1137 libraries/core.lib.php:534
+#: libraries/TableSearch.class.php:1138 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:333
-#: libraries/insert_edit.lib.php:1570 libraries/insert_edit.lib.php:1605
+#: libraries/insert_edit.lib.php:1576 libraries/insert_edit.lib.php:1611
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:256
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:690
@@ -74,7 +74,7 @@ msgstr "ढूंढें"
 #: libraries/server_privileges.lib.php:3080
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:498 libraries/structure.lib.php:1591
-#: libraries/structure.lib.php:1618 libraries/tbl_properties.inc.php:737
+#: libraries/structure.lib.php:1618 libraries/tbl_properties.inc.php:744
 #: pmd_pdf.php:153 prefs_manage.php:274 prefs_manage.php:324
 #: server_binlog.php:115 server_replication.php:291 server_replication.php:374
 #: server_replication.php:405 server_synchronize.php:1483 tbl_indexes.php:332
@@ -119,13 +119,13 @@ msgstr "डाटाबेस टिप्पणि: "
 
 #: db_datadict.php:156 libraries/operations.lib.php:783
 #: libraries/schema/Pdf_Relation_Schema.class.php:1323
-#: libraries/tbl_properties.inc.php:831 tbl_printview.php:120
+#: libraries/tbl_properties.inc.php:826 tbl_printview.php:120
 msgid "Table comments"
 msgstr "टेबल टिप्पणि:"
 
 #: db_datadict.php:165 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1589
+#: libraries/TableSearch.class.php:1186 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:275
 #: libraries/plugins/export/ExportHtmlword.class.php:390
 #: libraries/plugins/export/ExportLatex.class.php:502
@@ -136,7 +136,7 @@ msgstr "टेबल टिप्पणि:"
 #: libraries/plugins/export/ExportTexytext.class.php:431
 #: libraries/schema/Pdf_Relation_Schema.class.php:1349
 #: libraries/schema/Pdf_Relation_Schema.class.php:1370
-#: libraries/tbl_properties.inc.php:326 tbl_indexes.php:243
+#: libraries/tbl_properties.inc.php:339 tbl_indexes.php:243
 #: tbl_printview.php:130 tbl_relation.php:419 tbl_tracking.php:318
 #: tbl_tracking.php:380
 msgid "Column"
@@ -165,7 +165,7 @@ msgid "Type"
 msgstr "प्रकार/किस्म"
 
 #: db_datadict.php:168 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1186 libraries/insert_edit.lib.php:1598
+#: libraries/TableSearch.class.php:1187 libraries/insert_edit.lib.php:1604
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
 #: libraries/plugins/export/ExportLatex.class.php:504
@@ -175,7 +175,7 @@ msgstr "प्रकार/किस्म"
 #: libraries/plugins/export/ExportTexytext.class.php:370
 #: libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1373
-#: libraries/structure.lib.php:1191 libraries/tbl_properties.inc.php:93
+#: libraries/structure.lib.php:1191 libraries/tbl_properties.inc.php:106
 #: tbl_printview.php:132 tbl_tracking.php:321 tbl_tracking.php:383
 msgid "Null"
 msgstr "शून्य"
@@ -190,7 +190,7 @@ msgstr "शून्य"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
 #: libraries/schema/Pdf_Relation_Schema.class.php:1374
 #: libraries/structure.lib.php:213 libraries/structure.lib.php:1192
-#: libraries/tbl_properties.inc.php:90 tbl_printview.php:133
+#: libraries/tbl_properties.inc.php:97 tbl_printview.php:133
 #: tbl_tracking.php:322
 msgid "Default"
 msgstr "तयशुदा"
@@ -213,7 +213,7 @@ msgstr "के लिए लिंक"
 #: libraries/plugins/export/ExportTexytext.class.php:376
 #: libraries/schema/Pdf_Relation_Schema.class.php:1366
 #: libraries/schema/Pdf_Relation_Schema.class.php:1377
-#: libraries/tbl_properties.inc.php:113 tbl_printview.php:137
+#: libraries/tbl_properties.inc.php:126 tbl_printview.php:137
 msgid "Comments"
 msgstr "टिप्पणी"
 
@@ -306,8 +306,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए "
-"%sयहाँ%s पर क्लिक करें."
+"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए %"
+"sयहाँ%s पर क्लिक करें."
 
 #: db_printview.php:99 db_tracking.php:81 db_tracking.php:200
 #: libraries/Menu.class.php:186 libraries/config/messages.inc.php:514
@@ -624,11 +624,11 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके %s "
 "दोकुमेंताशन%s पढ़ें."
@@ -1102,11 +1102,11 @@ msgid "Please add at least one variable to the series"
 msgstr ""
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1287
-#: libraries/TableSearch.class.php:836 libraries/TableSearch.class.php:980
+#: libraries/TableSearch.class.php:837 libraries/TableSearch.class.php:981
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2128
-#: libraries/tbl_properties.inc.php:655 pmd_general.php:551
+#: libraries/tbl_properties.inc.php:668 pmd_general.php:551
 #: server_status.php:1505 server_status.php:1969
 msgid "None"
 msgstr "कोई नहीं"
@@ -1666,9 +1666,9 @@ msgid "%d is not valid row number."
 msgstr "%d वैध रो संख्या नहीं है"
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:394
-#: libraries/insert_edit.lib.php:1486
+#: libraries/insert_edit.lib.php:1489
 #: libraries/schema/User_Schema.class.php:373
-#: libraries/tbl_properties.inc.php:899 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:888 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:246 tbl_gis_visualization.php:197
 #: tbl_indexes.php:324 tbl_relation.php:587
 msgid "Save"
@@ -2218,7 +2218,7 @@ msgstr "फ़ॉन्ट का आकार"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
 #: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:807
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:808
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:868
 #: libraries/structure.lib.php:885 server_databases.php:200
 #: server_databases.php:217 server_status.php:1449
@@ -2227,7 +2227,7 @@ msgstr "आरोही"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:808
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:809
 #: libraries/operations.lib.php:634 libraries/structure.lib.php:873
 #: libraries/structure.lib.php:890 server_databases.php:200
 #: server_databases.php:217 server_status.php:1446
@@ -2260,7 +2260,7 @@ msgid "Use Tables"
 msgstr "टेबल का उपयोग करो"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:775 libraries/insert_edit.lib.php:1210
+#: libraries/TableSearch.class.php:776 libraries/insert_edit.lib.php:1213
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "अथवा"
@@ -2457,7 +2457,7 @@ msgstr ""
 msgid "Sort by key"
 msgstr "कुंजी सॉर्ट"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:749
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:750
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:89
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2475,7 +2475,6 @@ msgstr "कुंजी सॉर्ट"
 #: libraries/plugins/export/ExportXml.class.php:79
 #: libraries/plugins/export/ExportYaml.class.php:49
 #: libraries/plugins/import/ImportCsv.class.php:63
-#: libraries/plugins/import/ImportDocsql.class.php:70
 #: libraries/plugins/import/ImportLdi.class.php:69
 #: libraries/plugins/import/ImportMediawiki.class.php:59
 #: libraries/plugins/import/ImportOds.class.php:57
@@ -2552,8 +2551,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4924 libraries/structure.lib.php:661
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
 #: libraries/DisplayResults.class.php:4937
@@ -2714,7 +2713,7 @@ msgstr "सूचकांक"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1395
 #: libraries/structure.lib.php:2236 libraries/structure.lib.php:2246
-#: libraries/tbl_properties.inc.php:541 tbl_tracking.php:378
+#: libraries/tbl_properties.inc.php:554 tbl_tracking.php:378
 msgid "Unique"
 msgstr "अद्वितीय"
 
@@ -2730,8 +2729,8 @@ msgstr "प्रमुखता"
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
 #: libraries/operations.lib.php:242 libraries/operations.lib.php:805
 #: libraries/structure.lib.php:788 libraries/structure.lib.php:1189
-#: libraries/structure.lib.php:1741 libraries/tbl_properties.inc.php:91
-#: libraries/tbl_properties.inc.php:837 server_collations.php:38
+#: libraries/structure.lib.php:1741 libraries/tbl_properties.inc.php:104
+#: libraries/tbl_properties.inc.php:832 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:320 tbl_tracking.php:382
 msgid "Collation"
 msgstr "क्रम में करें"
@@ -2786,7 +2785,7 @@ msgstr "दृश्य"
 #: libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportLatex.class.php:479
 #: libraries/server_privileges.lib.php:757
-#: libraries/tbl_properties.inc.php:759 pmd_general.php:179
+#: libraries/tbl_properties.inc.php:761 pmd_general.php:179
 #: server_replication.php:371 tbl_tracking.php:314
 msgid "Structure"
 msgstr "संरचना"
@@ -2898,7 +2897,7 @@ msgstr "इंजन"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
 #: libraries/core.lib.php:218 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1206 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1209 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
 msgstr "त्रुटि"
@@ -3040,8 +3039,8 @@ msgstr ""
 msgid "Operator"
 msgstr "ऑपरेटर"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1187
-#: libraries/insert_edit.lib.php:1599 libraries/replication_gui.lib.php:123
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1188
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:517
 #: pmd_general.php:576 pmd_general.php:699 pmd_general.php:816
 #: server_status.php:1727
@@ -3054,68 +3053,68 @@ msgstr "मूल्य"
 msgid "Table Search"
 msgstr "ढूंढें"
 
-#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1376
+#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1379
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "इनसर्ट"
 
-#: libraries/TableSearch.class.php:756
+#: libraries/TableSearch.class.php:757
 msgid "Select columns (at least one):"
 msgstr "काँलम चुनें (कम से कम एक)"
 
-#: libraries/TableSearch.class.php:776
+#: libraries/TableSearch.class.php:777
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "खोज शर्तें जोडें (\"where\" खंड के शरीर में)"
 
-#: libraries/TableSearch.class.php:788
+#: libraries/TableSearch.class.php:789
 msgid "Number of rows per page"
 msgstr "प्रति पृष्ट कितने रौ"
 
-#: libraries/TableSearch.class.php:798
+#: libraries/TableSearch.class.php:799
 msgid "Display order:"
 msgstr "क्रम से दिखाओ:"
 
-#: libraries/TableSearch.class.php:834
+#: libraries/TableSearch.class.php:835
 msgid "Use this column to label each point"
 msgstr ""
 
-#: libraries/TableSearch.class.php:855
+#: libraries/TableSearch.class.php:856
 #, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "प्रदर्शित रो की अधिकतम संख्या"
 
-#: libraries/TableSearch.class.php:883 libraries/TableSearch.class.php:1155
+#: libraries/TableSearch.class.php:884 libraries/TableSearch.class.php:1156
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr "विदेशी मूल्य ब्राउस करें "
 
-#: libraries/TableSearch.class.php:972
+#: libraries/TableSearch.class.php:973
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
 msgstr "खोज मापदंड छिपाना"
 
-#: libraries/TableSearch.class.php:1110
+#: libraries/TableSearch.class.php:1111
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 
-#: libraries/TableSearch.class.php:1120
+#: libraries/TableSearch.class.php:1121
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr ""
 
-#: libraries/TableSearch.class.php:1164
+#: libraries/TableSearch.class.php:1165
 msgid "Browse/Edit the points"
 msgstr ""
 
-#: libraries/TableSearch.class.php:1171
+#: libraries/TableSearch.class.php:1172
 #, fuzzy
 #| msgid "Control user"
 msgid "How to use"
 msgstr "नियंत्रण यूसर"
 
-#: libraries/TableSearch.class.php:1176
+#: libraries/TableSearch.class.php:1177
 #, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
@@ -3190,14 +3189,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3569,7 +3568,7 @@ msgstr "अपने कंप्यूटर ब्राउज़ करें
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "अपने वेब सर्वर डिरेक्टरी से अपलोड चुने <b>%s</b>; "
 
-#: libraries/Util.class.php:3484 libraries/insert_edit.lib.php:1207
+#: libraries/Util.class.php:3484 libraries/insert_edit.lib.php:1210
 #: libraries/sql_query_form.lib.php:477
 msgid "The directory you set for upload work cannot be reached"
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
@@ -3879,7 +3878,7 @@ msgstr "मूलभूत मान को बहाल"
 msgid "Allow users to customize this value"
 msgstr "कर्ता को इस मूल्य को अनुकूलित करने की अनुमति दें "
 
-#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1572
+#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1578
 #: libraries/schema/User_Schema.class.php:537 prefs_manage.php:328
 #: prefs_manage.php:333
 msgid "Reset"
@@ -4271,7 +4270,7 @@ msgstr "लेबल कुंजी"
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138
 #: libraries/plugins/export/ExportOdt.class.php:479
-#: libraries/tbl_properties.inc.php:142
+#: libraries/tbl_properties.inc.php:155
 msgid "MIME type"
 msgstr "MIME प्रकार"
 
@@ -6257,8 +6256,8 @@ msgstr ", @टेबल@ टेबल का नाम बन जायेगा
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:328
@@ -6736,8 +6735,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -6823,65 +6822,65 @@ msgstr "छिपाना"
 msgid "Binary"
 msgstr "बइनरी"
 
-#: libraries/insert_edit.lib.php:679
+#: libraries/insert_edit.lib.php:680
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1113
+#: libraries/insert_edit.lib.php:1116
 msgid "Binary - do not edit"
 msgstr "बइनरी - एडिट मत करिये"
 
-#: libraries/insert_edit.lib.php:1211 libraries/sql_query_form.lib.php:480
+#: libraries/insert_edit.lib.php:1214 libraries/sql_query_form.lib.php:480
 msgid "web server upload directory"
 msgstr "वेब सर्वर अपलोड निर्देशिका"
 
-#: libraries/insert_edit.lib.php:1426
+#: libraries/insert_edit.lib.php:1429
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1456
+#: libraries/insert_edit.lib.php:1459
 msgid "and then"
 msgstr "और फिर"
 
-#: libraries/insert_edit.lib.php:1489
+#: libraries/insert_edit.lib.php:1492
 msgid "Insert as new row"
 msgstr "इसको नया रौ में जोडे "
 
-#: libraries/insert_edit.lib.php:1492
+#: libraries/insert_edit.lib.php:1495
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1495
+#: libraries/insert_edit.lib.php:1498
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1515
+#: libraries/insert_edit.lib.php:1518
 msgid "Go back to previous page"
 msgstr "पिछले पृष्ट पर वापस जाएँ"
 
-#: libraries/insert_edit.lib.php:1518
+#: libraries/insert_edit.lib.php:1521
 msgid "Insert another new row"
 msgstr "एक और नई रो इनसर्ट करें"
 
-#: libraries/insert_edit.lib.php:1523
+#: libraries/insert_edit.lib.php:1526
 msgid "Go back to this page"
 msgstr "इस पृष्ठ पर वापस जाएँ"
 
-#: libraries/insert_edit.lib.php:1545
+#: libraries/insert_edit.lib.php:1548
 msgid "Edit next row"
 msgstr "अगली रो को संपादित करें"
 
-#: libraries/insert_edit.lib.php:1566
+#: libraries/insert_edit.lib.php:1570
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1933 sql.php:887
+#: libraries/insert_edit.lib.php:1940 sql.php:887
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: libraries/insert_edit.lib.php:1958 sql.php:867
+#: libraries/insert_edit.lib.php:1965 sql.php:867
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -7220,7 +7219,7 @@ msgstr "टेबल विकल्प"
 msgid "Rename table to"
 msgstr "टेबल का नाम बदलें"
 
-#: libraries/operations.lib.php:792 libraries/tbl_properties.inc.php:833
+#: libraries/operations.lib.php:792 libraries/tbl_properties.inc.php:828
 #: server_engines.php:41
 msgid "Storage Engine"
 msgstr ""
@@ -7316,7 +7315,7 @@ msgstr "विभाजन हटायें"
 msgid "Check referential integrity:"
 msgstr "Referential अखंडता की जाँच करें"
 
-#: libraries/plugin_interface.lib.php:502
+#: libraries/plugin_interface.lib.php:503
 msgid "This format has no options"
 msgstr "इस प्रारूप के कोई विकल्प नहीं है"
 
@@ -7334,11 +7333,11 @@ msgstr "%s मे स्वागत है"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script"
-"%2$s का उपयोग करें."
+"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script%2"
+"$s का उपयोग करें."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -7835,12 +7834,6 @@ msgstr "CSV प्रारूप का अवैध इनपुट लाइ�
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV इनपुट में अवैध काँलम गिनती लाइन %d."
 
-#: libraries/plugins/import/ImportDocsql.class.php:84
-#: libraries/tbl_properties.inc.php:718 server_synchronize.php:527
-#: server_synchronize.php:1047
-msgid "Table name"
-msgstr "टेबल का नाम"
-
 #: libraries/plugins/import/ImportLdi.class.php:124
 msgid "This plugin does not support compressed imports!"
 msgstr "यह प्लगइन संकुचित आयात का समर्थन नहीं करता"
@@ -8041,7 +8034,7 @@ msgstr "PDFs का निर्माण"
 msgid "Displaying Column Comments"
 msgstr "काँलम सामग्री प्रदर्शित"
 
-#: libraries/relation.lib.php:165 libraries/tbl_properties.inc.php:143
+#: libraries/relation.lib.php:165 libraries/tbl_properties.inc.php:156
 #: transformation_overview.php:38
 msgid "Browser transformation"
 msgstr "सामग्री दिखाने"
@@ -8729,7 +8722,7 @@ msgstr "लेख - सूची"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1351
 #: libraries/schema/Pdf_Relation_Schema.class.php:1372
-#: libraries/structure.lib.php:1190 libraries/tbl_properties.inc.php:92
+#: libraries/structure.lib.php:1190 libraries/tbl_properties.inc.php:105
 msgid "Attributes"
 msgstr "विशेषता"
 
@@ -9273,8 +9266,8 @@ msgstr "यूसर सिंहावलोकन"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3027
@@ -9465,13 +9458,13 @@ msgid "Column %s has been dropped"
 msgstr "टेबल %s को रद्द किया गया है."
 
 #: libraries/structure.lib.php:1391 libraries/structure.lib.php:2232
-#: libraries/structure.lib.php:2242 libraries/tbl_properties.inc.php:534
+#: libraries/structure.lib.php:2242 libraries/tbl_properties.inc.php:547
 msgid "Primary"
 msgstr "प्राथमिक"
 
 #: libraries/structure.lib.php:1399 libraries/structure.lib.php:2234
 #: libraries/structure.lib.php:2244 libraries/structure.lib.php:2352
-#: libraries/tbl_properties.inc.php:100 libraries/tbl_properties.inc.php:548
+#: libraries/tbl_properties.inc.php:113 libraries/tbl_properties.inc.php:561
 #: tbl_printview.php:306
 msgid "Index"
 msgstr "सूची"
@@ -9482,7 +9475,7 @@ msgid "Spatial"
 msgstr ""
 
 #: libraries/structure.lib.php:1416 libraries/structure.lib.php:2240
-#: libraries/structure.lib.php:2250 libraries/tbl_properties.inc.php:556
+#: libraries/structure.lib.php:2250 libraries/tbl_properties.inc.php:569
 msgid "Fulltext"
 msgstr "प्राथमिक"
 
@@ -9510,7 +9503,7 @@ msgstr "संबंध दृश्य"
 msgid "Propose table structure"
 msgstr "टेबल संरचना का प्रस्ताव"
 
-#: libraries/structure.lib.php:1550 libraries/tbl_properties.inc.php:740
+#: libraries/structure.lib.php:1550 libraries/tbl_properties.inc.php:748
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
@@ -9520,7 +9513,7 @@ msgstr "आपको कम से कम एक स्तंभ प्रदर
 msgid "Add column"
 msgstr "नया काँलम जोडें"
 
-#: libraries/structure.lib.php:1566 libraries/tbl_properties.inc.php:732
+#: libraries/structure.lib.php:1566 libraries/tbl_properties.inc.php:738
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
@@ -9636,7 +9629,7 @@ msgstr "वास्तविक"
 msgid "Tracking of %s is activated."
 msgstr "ट्रैकिंग सक्रिय है"
 
-#: libraries/tbl_properties.inc.php:89
+#: libraries/tbl_properties.inc.php:91
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -9644,30 +9637,30 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:90
+#: libraries/tbl_properties.inc.php:100
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:122
+#: libraries/tbl_properties.inc.php:135
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
 msgstr "काँलम हटाना"
 
-#: libraries/tbl_properties.inc.php:132
+#: libraries/tbl_properties.inc.php:145
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:144
+#: libraries/tbl_properties.inc.php:157
 msgid "Transformation options"
 msgstr "परिवर्तन के विकल्प"
 
-#: libraries/tbl_properties.inc.php:147
+#: libraries/tbl_properties.inc.php:160
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -9675,36 +9668,41 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:385
+#: libraries/tbl_properties.inc.php:398
 msgid "ENUM or SET data too long?"
 msgstr "ENUM या SET डेटा बहुत लंबा है"
 
-#: libraries/tbl_properties.inc.php:387
+#: libraries/tbl_properties.inc.php:400
 msgid "Get more editing space"
 msgstr "अधिक संपादन स्थान की जरूरत"
 
-#: libraries/tbl_properties.inc.php:403
+#: libraries/tbl_properties.inc.php:416
 #, fuzzy
 #| msgid "No"
 msgctxt "for default"
 msgid "None"
 msgstr "डिफ़ॉल्ट के लिए"
 
-#: libraries/tbl_properties.inc.php:404
+#: libraries/tbl_properties.inc.php:417
 msgid "As defined:"
 msgstr "जैसे परिभाषित:"
 
-#: libraries/tbl_properties.inc.php:606
+#: libraries/tbl_properties.inc.php:619
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_properties.inc.php:616
+#: libraries/tbl_properties.inc.php:629
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "%s के बाद"
 
-#: libraries/tbl_properties.inc.php:874
+#: libraries/tbl_properties.inc.php:727 server_synchronize.php:527
+#: server_synchronize.php:1047
+msgid "Table name"
+msgstr "टेबल का नाम"
+
+#: libraries/tbl_properties.inc.php:866
 msgid "PARTITION definition"
 msgstr ""
 
@@ -12734,8 +12732,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12868,8 +12866,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
