@@ -205,8 +205,9 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
+        $properties = $plugin->getProperties();
         if ( ! strcmp($section, 'Import')
-            || $plugin->getProperties()->getForceFile() != null
+            || ($properties != null && $properties->getForceFile() != null)
         ) {
             $ret .= 'true';
         } else {
