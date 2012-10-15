@@ -45,6 +45,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 + [interface] Autoselect username input on cookie login page
 - bug #3563799 [interface] Grid editing destroying huge amount of data
++ [import] Remove support for the unactive docSQL import format
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
