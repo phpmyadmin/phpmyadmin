@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-10-07 05:01+0200\n"
+"PO-Revision-Date: 2012-10-16 15:43+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2056,22 +2056,26 @@ msgstr "Falha ao formatar linha pela regra '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Declaração de regra inválida na linha %1$s, esperada linha %2$s da regra "
+"anterior"
 
 #: libraries/Advisor.class.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid rule declaration on line %s"
-msgstr "Índice de servidor inválido: \"%s\""
+msgstr "Regra de declaração inválida na linha %s"
 
 #: libraries/Advisor.class.php:403
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Caracteres inesperados na linha %s"
 
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
+"Caractere inesperado na linha %1$s. Esperada tabulação, mas encontrado \"%"
+"2$s\""
 
 #: libraries/Advisor.class.php:450 server_status.php:1044
 msgid "per second"
@@ -4202,10 +4206,9 @@ msgid "Add AUTO_INCREMENT value"
 msgstr "Adicionar valor AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:124
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "Usar apóstrofes com os nomes das tabelas e campos"
+msgstr "Encapsular nomes de tabela e coluna com acentos grave"
 
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
 #: libraries/display_export.lib.php:436
@@ -4222,14 +4225,13 @@ msgid "Creation/Update/Check dates"
 msgstr "Datas de Criação/Actualização/verificação"
 
 #: libraries/config/messages.inc.php:128
-#, fuzzy
 msgid "Use delayed inserts"
-msgstr "Instrucções de inserção múltiplas"
+msgstr "Usar inserções demoradas"
 
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportSql.class.php:141
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Desativar verificação de chaves estrangeiras"
 
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:131
 #: libraries/config/messages.inc.php:133 libraries/config/messages.inc.php:139
@@ -4244,16 +4246,16 @@ msgstr "Usar hexadecimal para BLOB"
 
 #: libraries/config/messages.inc.php:134
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Usar inserções ignoradas"
 
 #: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintaxe a utilizar ao inserir dados"
 
 #: libraries/config/messages.inc.php:137
 #: libraries/plugins/export/ExportSql.class.php:382
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Tamanho máximo da consulta gerada"
 
 #: libraries/config/messages.inc.php:142
 msgid "Export type"
@@ -4262,7 +4264,7 @@ msgstr "Tipo de Exportação"
 #: libraries/config/messages.inc.php:143
 #: libraries/plugins/export/ExportSql.class.php:128
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Encapsular exportação numa transação"
 
 #: libraries/config/messages.inc.php:144
 msgid "Export time in UTC"
@@ -4270,11 +4272,11 @@ msgstr "Hora de Exportação em UTC"
 
 #: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Forçar conexão segura ao utilizar o phpMyAdmin"
 
 #: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Forçar conexão SSL"
 
 #: libraries/config/messages.inc.php:154
 msgid ""
@@ -4284,23 +4286,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Ordem da caixa de seleção de chave estrangeira"
 
 #: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
 
 #: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limite de chave estrangeira"
 
 #: libraries/config/messages.inc.php:158
 msgid "Browse mode"
-msgstr ""
+msgstr "Modo de navegação"
 
 #: libraries/config/messages.inc.php:159
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Personalizar modo de navegação"
 
 #: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:163
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:191
@@ -4318,19 +4320,19 @@ msgstr "Dados CSV"
 
 #: libraries/config/messages.inc.php:164
 msgid "Developer"
-msgstr ""
+msgstr "Programador"
 
 #: libraries/config/messages.inc.php:165
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Configurações para programadores phpMyAdmin"
 
 #: libraries/config/messages.inc.php:166
 msgid "Edit mode"
-msgstr ""
+msgstr "Modo de edição"
 
 #: libraries/config/messages.inc.php:167
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personalizar modo de edição"
 
 #: libraries/config/messages.inc.php:169
 msgid "Export defaults"
@@ -4343,7 +4345,7 @@ msgstr "Personalizar as opções de exportação padrão"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
 #: setup/frames/menu.inc.php:17
 msgid "Features"
-msgstr ""
+msgstr "Funcionalidades"
 
 #: libraries/config/messages.inc.php:172
 msgid "General"
@@ -4351,7 +4353,7 @@ msgstr "Geral"
 
 #: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Define algumas opções comumente utilizadas"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import defaults"
@@ -4359,15 +4361,15 @@ msgstr "Importar predefinições"
 
 #: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Personalizar opções de importação padrão comuns"
 
 #: libraries/config/messages.inc.php:177
 msgid "Import / export"
-msgstr ""
+msgstr "Importar / exportar"
 
 #: libraries/config/messages.inc.php:178
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Define diretórios de importação e exportação e opções de compressão"
 
 #: libraries/config/messages.inc.php:179
 msgid "LaTeX"
@@ -4379,11 +4381,11 @@ msgstr "Exibir as opções das Bases de dados"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Navigation frame"
-msgstr ""
+msgstr "Quadro de navegação"
 
 #: libraries/config/messages.inc.php:184
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Personaliza aparência do quadro de navegação"
 
 #: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:40
 #: setup/frames/index.inc.php:117
@@ -4395,17 +4397,16 @@ msgid "Servers display options"
 msgstr "Exibir as opções dos Servidores"
 
 #: libraries/config/messages.inc.php:188
-#, fuzzy
 msgid "Tables display options"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Opções de exibição de tabelas"
 
 #: libraries/config/messages.inc.php:189 setup/frames/menu.inc.php:20
 msgid "Main frame"
-msgstr ""
+msgstr "Quadro principal"
 
 #: libraries/config/messages.inc.php:190
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:192
 msgid "Open Document"
@@ -4413,15 +4414,15 @@ msgstr "Abrir Documento"
 
 #: libraries/config/messages.inc.php:194
 msgid "Other core settings"
-msgstr ""
+msgstr "Outras configurações do núcleo"
 
 #: libraries/config/messages.inc.php:195
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:196
 msgid "Page titles"
-msgstr "Página de Títulos"
+msgstr "Títulos das páginas"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
@@ -4433,26 +4434,27 @@ msgstr ""
 #: libraries/navigation_header.inc.php:71
 #: libraries/navigation_header.inc.php:73
 msgid "Query window"
-msgstr "Janela de Query"
+msgstr "Janela de consulta"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 msgid "Customize query window options"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Opções de personalização da janela de consulta"
 
 #: libraries/config/messages.inc.php:200
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 #: libraries/config/messages.inc.php:201
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Por favor note que o phpMyAdmin é uma interface de utilizador e as suas "
+"funcionalidades não limitam o MySQL"
 
 #: libraries/config/messages.inc.php:202
 msgid "Basic settings"
-msgstr ""
+msgstr "Configurações básicas"
 
 #: libraries/config/messages.inc.php:203
 msgid "Authentication"
@@ -4464,21 +4466,23 @@ msgstr "Configurações de autenticação"
 
 #: libraries/config/messages.inc.php:205
 msgid "Server configuration"
-msgstr ""
+msgstr "Configuração do servidor"
 
 #: libraries/config/messages.inc.php:206
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Configurações avançadas do servidor, não altere estas opções a menos que "
+"saiba para que são"
 
 #: libraries/config/messages.inc.php:207
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Digite os parâmetros de configuração do servidor"
 
 #: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
-msgstr ""
+msgstr "Armazenamento de configuração"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
@@ -4489,13 +4493,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
-msgstr ""
+msgstr "Rastreamento de alterações"
 
 #: libraries/config/messages.inc.php:211
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Rastreamento das mudanças feitas na base de dados. Requerem o armazenamento "
+"da configuração do phpMyAdmin."
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize export options"
@@ -4507,11 +4513,11 @@ msgstr "Personalizar os padrões de importação"
 
 #: libraries/config/messages.inc.php:215
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Personalizar quadro de navegação"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize main frame"
-msgstr ""
+msgstr "Personalizar quadro principal"
 
 #: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
 #: setup/frames/menu.inc.php:18
@@ -4524,7 +4530,7 @@ msgstr "SQL caixa de Consulta"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Personaliza links mostrados nas caixas de consulta SQL"
 
 #: libraries/config/messages.inc.php:223
 msgid "SQL queries settings"
@@ -4541,6 +4547,12 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Se pretender usar o serviço de validação SQL (SQL Validator), deve estar "
+"ciente de que [strong]todas as instruções SQL são armazenadas de forma "
+"anónima para fins "
+"estatísticos[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Todos os direitos "
+"reservados.[/em]"
 
 #: libraries/config/messages.inc.php:226
 msgid "Startup"
@@ -4548,7 +4560,7 @@ msgstr "Iniciar"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personalizar página inicial"
 
 #: libraries/config/messages.inc.php:228
 #, fuzzy
@@ -4576,7 +4588,7 @@ msgstr "Abas"
 
 #: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Escolha como quer que as abas funcionem"
 
 #: libraries/config/messages.inc.php:234
 msgid "Text fields"
@@ -4589,39 +4601,43 @@ msgstr "Opções de exportação da Base de Dados"
 
 #: libraries/config/messages.inc.php:236
 msgid "Texy! text"
-msgstr ""
+msgstr "Texto Texy!"
 
 #: libraries/config/messages.inc.php:238
 msgid "Warnings"
-msgstr ""
+msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Desative alguns dos avisos mostrados pelo phpMyAdmin"
 
 #: libraries/config/messages.inc.php:240
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
+"Activar [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compressão nas "
+"operações de importação e exportação"
 
 #: libraries/config/messages.inc.php:241
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Parâmetros extra para o iconv"
 
 #: libraries/config/messages.inc.php:243
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Se ativado, phpMyAdmin continua a processar consultas com múltiplas "
+"instruções mesmo se uma das consultas falhar"
 
 #: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignora erro de declarações múltiplas"
 
 #: libraries/config/messages.inc.php:245
 msgid ""
@@ -4629,14 +4645,17 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Permitir interromper a importação caso se detectar que o script está perto "
+"do tempo limite. Esta pode ser uma boa maneira para importar arquivos "
+"grandes, contudo pode interromper as transações."
 
 #: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Importação parcial: permite Interrupção"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Não abortar perante erro INSERT"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/plugins/import/ImportCsv.class.php:77
@@ -4649,34 +4668,35 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Formato padrão; esteja ciente que esta lista depende da localização (base de "
+"dados, tabela) e somente o SQL está sempre disponível"
 
 #: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
-msgstr ""
+msgstr "Formato do arquivo importado"
 
 #: libraries/config/messages.inc.php:259
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Usar palavra-chave LOCAL"
 
 #: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
 #: libraries/config/messages.inc.php:271
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
-msgstr "Coloca os nomes dos compos na primeira linha"
+msgstr "Nome das colunas na primeira linha"
 
 #: libraries/config/messages.inc.php:263
 #: libraries/plugins/import/ImportOds.class.php:81
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Não importe linhas vazias"
 
 #: libraries/config/messages.inc.php:264
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importa divisas ($5.00 para 5.00)"
 
 #: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importa percentagens como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of queries to skip from start"
