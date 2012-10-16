@@ -102,7 +102,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object->setProperties(
             null, $fields_meta, true, null, null,
             null, null, null, null, null, null,
-            true, null, null, null, null, null
+            true, null, null, null, null, null, false
         );
 
         $this->assertEquals(
@@ -182,7 +182,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object->setProperties(
             1, $fields_meta, false, null, null,
             false, null, null, null, null, null,
-            false, false, true, null, null, null
+            false, false, true, null, null, null, false
         );
 
         $this->object->__set('_sql_query', 'SELECT * FROM `pma_bookmark` WHERE 1');
@@ -264,7 +264,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object->setProperties(
             1, $fields_meta, false, null, null,
             false, null, null, null, null, null,
-            false, false, null, null, '1', null
+            false, false, null, null, '1', null, false
         );
 
         $this->assertEquals(
