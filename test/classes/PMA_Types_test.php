@@ -196,6 +196,7 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
                     '<=',
                     '!=',
                     'LIKE',
+                    'LIKE %...%',
                     'NOT LIKE',
                     'IN (...)',
                     'NOT IN (...)',
