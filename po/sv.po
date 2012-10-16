@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-06 11:49+0200\n"
+"POT-Creation-Date: 2012-10-16 14:37+0200\n"
 "PO-Revision-Date: 2012-09-05 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/3-5/sv/>\n"
@@ -57,9 +57,9 @@ msgstr "Sök"
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1449
-#: libraries/rte/rte_triggers.lib.php:379
+#: libraries/rte/rte_events.lib.php:510 libraries/rte/rte_routines.lib.php:987
+#: libraries/rte/rte_routines.lib.php:1472
+#: libraries/rte/rte_triggers.lib.php:392
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
@@ -89,7 +89,7 @@ msgstr "Nyckelnamn"
 
 #: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
-#: server_plugins.php:147 server_status.php:1494
+#: server_plugins.php:147 server_status.php:1490
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -151,9 +151,9 @@ msgstr "Kolumn"
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:395 libraries/export/odt.php:303
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
-#: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:853
+#: libraries/rte/rte_routines.lib.php:878
+#: libraries/rte/rte_routines.lib.php:1390
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
@@ -356,7 +356,7 @@ msgstr "Editera eller exportera relationsschema"
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:314
+#: libraries/rte/rte_triggers.lib.php:327
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1841
 #: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
@@ -628,7 +628,7 @@ msgstr "Vy"
 
 #: db_structure.php:531 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:606
+#: server_replication.php:162 server_status.php:602
 msgid "Replication"
 msgstr "Replikering"
 
@@ -670,7 +670,7 @@ msgstr "Kontrollera tabeller med overhead"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1623
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1619
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportera"
@@ -735,7 +735,7 @@ msgstr "Spårade tabeller"
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
 #: server_privileges.php:1836 server_privileges.php:1899
-#: server_privileges.php:2162 server_status.php:1256
+#: server_privileges.php:2162 server_status.php:1252
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -753,9 +753,9 @@ msgstr "Skapad"
 msgid "Updated"
 msgstr "Uppdaterad"
 
-#: db_tracking.php:90 js/messages.php:189 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:189 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1259 sql.php:896 tbl_tracking.php:653
+#: server_status.php:1255 sql.php:896 tbl_tracking.php:653
 msgid "Status"
 msgstr "Status"
 
@@ -804,7 +804,7 @@ msgid "Database Log"
 msgstr "Databas logg"
 
 #: enum_editor.php:23 js/messages.php:272
-#: libraries/rte/rte_routines.lib.php:690
+#: libraries/rte/rte_routines.lib.php:707
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET editor"
 
@@ -1037,7 +1037,7 @@ msgstr ""
 "tidsbegränsningar."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
+#: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1222
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1161,15 +1161,15 @@ msgstr "Stäng"
 msgid "Edit"
 msgstr "Redigera"
 
-#: js/messages.php:66 server_status.php:816
+#: js/messages.php:66 server_status.php:812
 msgid "Live traffic chart"
 msgstr "Live trafik diagram"
 
-#: js/messages.php:67 server_status.php:819
+#: js/messages.php:67 server_status.php:815
 msgid "Live conn./process chart"
 msgstr "Live anslutning/process diagram"
 
-#: js/messages.php:68 server_status.php:841
+#: js/messages.php:68 server_status.php:837
 msgid "Live query chart"
 msgstr "Live sökfrågediagram"
 
@@ -1180,13 +1180,13 @@ msgstr "Statisk data"
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
-#: server_status.php:1143 server_status.php:1204 tbl_printview.php:306
+#: server_status.php:1139 server_status.php:1200 tbl_printview.php:306
 #: tbl_structure.php:814
 msgid "Total"
 msgstr "Totalt"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:74 server_status.php:612 server_status.php:1039
+#: js/messages.php:74 server_status.php:608 server_status.php:1035
 msgid "Other"
 msgstr "Annan"
 
@@ -1216,7 +1216,7 @@ msgstr "Server trafik (i Kb)"
 msgid "Connections since last refresh"
 msgstr "Anslutningar sedan senaste uppdatering"
 
-#: js/messages.php:84 js/messages.php:122 server_status.php:1252
+#: js/messages.php:84 js/messages.php:122 server_status.php:1248
 msgid "Processes"
 msgstr "Processer"
 
@@ -1234,7 +1234,7 @@ msgstr "Frågor sedan senaste uppdatering"
 msgid "Questions (executed statements by the server)"
 msgstr "Frågor (utförda kommandon från servern)"
 
-#: js/messages.php:91 server_status.php:794
+#: js/messages.php:91 server_status.php:790
 msgid "Query statistics"
 msgstr "Visa statistik"
 
@@ -1280,13 +1280,13 @@ msgstr "System swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1398
-#: server_status.php:1703
+#: server_status.php:1699
 msgid "MiB"
 msgstr "Mb"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1396
-#: server_status.php:1703
+#: server_status.php:1699
 msgid "KiB"
 msgstr "kB"
 
@@ -1338,7 +1338,7 @@ msgstr "Antal bitar som skickats"
 msgid "Bytes received"
 msgstr "Antal mottagna bital"
 
-#: js/messages.php:121 server_status.php:1162
+#: js/messages.php:121 server_status.php:1158
 msgid "Connections"
 msgstr "Anslutningar"
 
@@ -1377,12 +1377,12 @@ msgstr "%d tabell(er)"
 msgid "Questions"
 msgstr "Frågor"
 
-#: js/messages.php:136 server_status.php:1117
+#: js/messages.php:136 server_status.php:1113
 msgid "Traffic"
 msgstr "Trafik"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1578
+#: server_status.php:1574
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -1405,7 +1405,7 @@ msgstr "Lägg till minst en variabel till serien"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2052 server_status.php:1285 server_status.php:1720
+#: server_privileges.php:2052 server_status.php:1281 server_status.php:1716
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:285
 msgid "None"
 msgstr "Inget"
@@ -1506,7 +1506,7 @@ msgstr "Ändra inställningar"
 msgid "Current settings"
 msgstr "Nuvarande inställningar"
 
-#: js/messages.php:168 server_status.php:1668
+#: js/messages.php:168 server_status.php:1664
 msgid "Chart Title"
 msgstr "Diagramtitel"
 
@@ -1588,7 +1588,7 @@ msgid "Explain output"
 msgstr "Förklara utdata"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1258 sql.php:897
+#: server_status.php:1254 sql.php:897
 msgid "Time"
 msgstr "Tid"
 
@@ -1685,7 +1685,7 @@ msgstr ""
 #: js/messages.php:216 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1623 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1619 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importera"
 
@@ -2311,16 +2311,16 @@ msgstr ""
 "Misslyckades med formateringen av strängen för regeln '%s'. PHP gavföljande "
 "fel:%s"
 
-#: libraries/Advisor.class.php:326 server_status.php:969
+#: libraries/Advisor.class.php:326 server_status.php:965
 msgid "per second"
 msgstr "per sekund"
 
-#: libraries/Advisor.class.php:329 server_status.php:964
+#: libraries/Advisor.class.php:329 server_status.php:960
 msgid "per minute"
 msgstr "per minut"
 
-#: libraries/Advisor.class.php:332 server_status.php:960 server_status.php:996
-#: server_status.php:1118 server_status.php:1163
+#: libraries/Advisor.class.php:332 server_status.php:956 server_status.php:992
+#: server_status.php:1114 server_status.php:1159
 msgid "per hour"
 msgstr "per timme"
 
@@ -2430,8 +2430,8 @@ msgstr "Packad"
 msgid "Cardinality"
 msgstr "Kardinalitet"
 
-#: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
+#: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:497
+#: libraries/rte/rte_routines.lib.php:974 tbl_tracking.php:263
 #: tbl_tracking.php:327
 msgid "Comment"
 msgstr "Kommentar"
@@ -2765,7 +2765,7 @@ msgstr "delad"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
-#: server_status.php:608
+#: server_status.php:604
 msgid "Tables"
 msgstr "Tabeller"
 
@@ -2852,7 +2852,7 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
 #: libraries/common.inc.php:683 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:793
+#: libraries/header.inc.php:134 main.php:171 server_status.php:789
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Server"
@@ -2884,20 +2884,20 @@ msgid "Documentation"
 msgstr "Dokumentation"
 
 #: libraries/common.lib.php:622 libraries/header_printview.inc.php:63
-#: server_status.php:595 server_status.php:1261
+#: server_status.php:591 server_status.php:1257
 msgid "SQL query"
 msgstr "SQL-fråga"
 
-#: libraries/common.lib.php:663 libraries/rte/rte_events.lib.php:103
-#: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
-#: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:253
-#: libraries/rte/rte_routines.lib.php:258
-#: libraries/rte/rte_routines.lib.php:268
-#: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1255
-#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
-#: libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:108
+#: libraries/common.lib.php:663 libraries/rte/rte_events.lib.php:107
+#: libraries/rte/rte_events.lib.php:116 libraries/rte/rte_events.lib.php:131
+#: libraries/rte/rte_events.lib.php:148 libraries/rte/rte_routines.lib.php:257
+#: libraries/rte/rte_routines.lib.php:266
+#: libraries/rte/rte_routines.lib.php:281
+#: libraries/rte/rte_routines.lib.php:299
+#: libraries/rte/rte_routines.lib.php:1277
+#: libraries/rte/rte_triggers.lib.php:80 libraries/rte/rte_triggers.lib.php:89
+#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:121
 msgid "MySQL said: "
 msgstr "MySQL sa: "
 
@@ -2922,7 +2922,7 @@ msgid "Create PHP Code"
 msgstr "Skapa PHP-kod"
 
 #: libraries/common.lib.php:1229 libraries/config/messages.inc.php:486
-#: server_status.php:804 server_status.php:830 server_status.php:853
+#: server_status.php:800 server_status.php:826 server_status.php:849
 msgid "Refresh"
 msgstr "Uppdatera"
 
@@ -4054,7 +4054,7 @@ msgstr "Ignorera fel i fleruttrycksfrågor"
 #: libraries/config/messages.inc.php:239
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
+"This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 "Tillåt avbrott av import ifall skriptet upptäcker att det är nära "
@@ -5593,8 +5593,8 @@ msgstr "Skapa tabell"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
-#: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1366 libraries/tbl_properties.inc.php:92
+#: libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_routines.lib.php:1389 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:202
 msgid "Name"
 msgstr "Namn"
@@ -5823,8 +5823,8 @@ msgstr ""
 #: libraries/display_import.lib.php:221
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"to the PHP timeout limit. <i>(This might be a good way to import large "
+"files, however it can break transactions.)</i>"
 msgstr ""
 "Tillåt avbrytande av importl skriptet ifall det upptäcker att det är nära "
 "till PHP timeout. <i>(Detta kan vara bra sätt att importera stora filer, men "
@@ -5896,7 +5896,7 @@ msgstr "Sortera efter nyckel"
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:880
 #: tbl_select.php:177 tbl_structure.php:862
 msgid "Options"
 msgstr "Alternativ"
@@ -5942,7 +5942,7 @@ msgid "The row has been deleted"
 msgstr "Raden har raderats"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
-#: server_status.php:1281
+#: server_status.php:1277
 msgid "Kill"
 msgstr "Döda"
 
@@ -5971,7 +5971,7 @@ msgstr "Operationer för frågeresultat"
 msgid "Print view (with full texts)"
 msgstr "Utskriftsvänlig version (med fullständiga texter)"
 
-#: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
 msgid "Display chart"
 msgstr "Visa diagram"
 
@@ -6031,7 +6031,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Buffertutrymme"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:656
+#: libraries/engines/innodb.lib.php:131 server_status.php:652
 msgid "InnoDB Status"
 msgstr "InnoDB-status"
 
@@ -6528,7 +6528,7 @@ msgstr "Visa MIME-typer"
 #: libraries/replication_gui.lib.php:335 server_privileges.php:814
 #: server_privileges.php:817 server_privileges.php:873
 #: server_privileges.php:1703 server_privileges.php:2257
-#: server_status.php:1255
+#: server_status.php:1251
 msgid "Host"
 msgstr "Värd"
 
@@ -6757,7 +6757,7 @@ msgstr "SQL-resultat"
 msgid "Generated by"
 msgstr "Genererad av"
 
-#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
+#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1266
 #: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
@@ -6955,7 +6955,7 @@ msgstr "Lägg till tabellprefix"
 msgid "Add prefix"
 msgstr "Lägg till prefix"
 
-#: libraries/mult_submits.inc.php:483 tbl_replace.php:358
+#: libraries/mult_submits.inc.php:483 tbl_replace.php:359
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -7290,14 +7290,14 @@ msgid "Slave status"
 msgstr "Slav-status"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
-#: server_status.php:1492 server_variables.php:123
+#: server_status.php:1488 server_variables.php:123
 msgid "Variable"
 msgstr "Variabel"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1394 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1493 tbl_change.php:334
+#: pmd_general.php:769 server_status.php:1489 tbl_change.php:334
 #: tbl_zoom_select.php:443
 msgid "Value"
 msgstr "Värde"
@@ -7357,125 +7357,126 @@ msgstr ""
 msgid "Generate Password"
 msgstr "Generera lösenord"
 
-#: libraries/rte/rte_events.lib.php:102 libraries/rte/rte_events.lib.php:107
-#: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
-#: libraries/rte/rte_routines.lib.php:257
-#: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1254
-#: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
-#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_events.lib.php:103 libraries/rte/rte_events.lib.php:112
+#: libraries/rte/rte_events.lib.php:144 libraries/rte/rte_routines.lib.php:253
+#: libraries/rte/rte_routines.lib.php:262
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:1273
+#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:85
+#: libraries/rte/rte_triggers.lib.php:117
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Följande fråga har fallerat:  \"%s\""
 
-#: libraries/rte/rte_events.lib.php:116
+#: libraries/rte/rte_events.lib.php:125
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Tyvärr kunde vi inte återställa tappade händelsen."
 
-#: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
-#: libraries/rte/rte_triggers.lib.php:90
+#: libraries/rte/rte_events.lib.php:128 libraries/rte/rte_routines.lib.php:278
+#: libraries/rte/rte_triggers.lib.php:101
 msgid "The backed up query was:"
 msgstr "Den säkerhetskopierade frågan var:"
 
-#: libraries/rte/rte_events.lib.php:121
+#: libraries/rte/rte_events.lib.php:134
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Händelsen %1$s har ändrats."
 
-#: libraries/rte/rte_events.lib.php:133
+#: libraries/rte/rte_events.lib.php:150
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Händelsen %1$s har skapats."
 
-#: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
-#: libraries/rte/rte_triggers.lib.php:118
+#: libraries/rte/rte_events.lib.php:158 libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_triggers.lib.php:131
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 "<b> Ett eller flera fel har inträffat under hanteringen av din begäran: </b>"
 
-#: libraries/rte/rte_events.lib.php:185
+#: libraries/rte/rte_events.lib.php:202
 msgid "Edit event"
 msgstr "Editera händelse"
 
-#: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1276
-#: libraries/rte/rte_routines.lib.php:1312
-#: libraries/rte/rte_triggers.lib.php:191
+#: libraries/rte/rte_events.lib.php:229 libraries/rte/rte_routines.lib.php:387
+#: libraries/rte/rte_routines.lib.php:1299
+#: libraries/rte/rte_routines.lib.php:1335
+#: libraries/rte/rte_triggers.lib.php:204
 msgid "Error in processing request"
 msgstr "Fel i utförandebegäran"
 
-#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_events.lib.php:388 libraries/rte/rte_routines.lib.php:845
+#: libraries/rte/rte_triggers.lib.php:319
 msgid "Details"
 msgstr "Detaljer"
 
-#: libraries/rte/rte_events.lib.php:374
+#: libraries/rte/rte_events.lib.php:391
 msgid "Event name"
 msgstr "Händelsenamn"
 
-#: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
+#: libraries/rte/rte_events.lib.php:412 server_binlog.php:182
 msgid "Event type"
 msgstr "Händelsetyp"
 
-#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
+#: libraries/rte/rte_events.lib.php:433 libraries/rte/rte_routines.lib.php:866
 #, php-format
 msgid "Change to %s"
 msgstr "Ändra till %s"
 
-#: libraries/rte/rte_events.lib.php:422
+#: libraries/rte/rte_events.lib.php:439
 msgid "Execute at"
 msgstr "Utför vid"
 
-#: libraries/rte/rte_events.lib.php:430
+#: libraries/rte/rte_events.lib.php:447
 msgid "Execute every"
 msgstr "Utför varje"
 
-#: libraries/rte/rte_events.lib.php:449
+#: libraries/rte/rte_events.lib.php:466
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Start"
 
-#: libraries/rte/rte_events.lib.php:457
+#: libraries/rte/rte_events.lib.php:474
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Slut"
 
-#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
-#: libraries/rte/rte_triggers.lib.php:360
+#: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:940
+#: libraries/rte/rte_triggers.lib.php:373
 msgid "Definition"
 msgstr "Definition"
 
-#: libraries/rte/rte_events.lib.php:471
+#: libraries/rte/rte_events.lib.php:488
 msgid "On completion preserve"
 msgstr "Vid avslut, bevara"
 
-#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
-#: libraries/rte/rte_triggers.lib.php:366
+#: libraries/rte/rte_events.lib.php:492 libraries/rte/rte_routines.lib.php:950
+#: libraries/rte/rte_triggers.lib.php:379
 msgid "Definer"
 msgstr "Definierare"
 
-#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
-#: libraries/rte/rte_triggers.lib.php:404
+#: libraries/rte/rte_events.lib.php:535
+#: libraries/rte/rte_routines.lib.php:1014
+#: libraries/rte/rte_triggers.lib.php:417
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr "Defineraren måste vara i formatet: \"användarnamn@hostname\""
 
-#: libraries/rte/rte_events.lib.php:525
+#: libraries/rte/rte_events.lib.php:542
 msgid "You must provide an event name"
 msgstr "Du måste ange ett händelsenamn"
 
-#: libraries/rte/rte_events.lib.php:537
+#: libraries/rte/rte_events.lib.php:554
 msgid "You must provide a valid interval value for the event."
 msgstr "Du måste ange ett giltigt intervall värde för händelsen."
 
-#: libraries/rte/rte_events.lib.php:549
+#: libraries/rte/rte_events.lib.php:566
 msgid "You must provide a valid execution time for the event."
 msgstr "Du måste ange en giltig exekveringstid för händelsen."
 
-#: libraries/rte/rte_events.lib.php:553
+#: libraries/rte/rte_events.lib.php:570
 msgid "You must provide a valid type for the event."
 msgstr "Du måste ange en giltig typ för händelsen."
 
-#: libraries/rte/rte_events.lib.php:577
+#: libraries/rte/rte_events.lib.php:594
 msgid "You must provide an event definition."
 msgstr "Du måste ange en händelsedefinition."
 
@@ -7499,7 +7500,7 @@ msgstr "Status för händelsehanteraren"
 msgid "Returns"
 msgstr "Returnerar"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:346
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:359
 msgid "Event"
 msgstr "Händelse"
 
@@ -7515,88 +7516,88 @@ msgstr ""
 "undvika eventuella problem."
 
 #: libraries/rte/rte_routines.lib.php:245
-#: libraries/rte/rte_routines.lib.php:1005
+#: libraries/rte/rte_routines.lib.php:1022
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Ogiltig rutintyp: \"%s\""
 
-#: libraries/rte/rte_routines.lib.php:266
+#: libraries/rte/rte_routines.lib.php:275
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Tyvärr, vi lyckades inte återställa den slängda rutinen."
 
-#: libraries/rte/rte_routines.lib.php:271
+#: libraries/rte/rte_routines.lib.php:284
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutinen %1$s har modifierats."
 
-#: libraries/rte/rte_routines.lib.php:284
+#: libraries/rte/rte_routines.lib.php:301
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutinen %1$s har skapats."
 
-#: libraries/rte/rte_routines.lib.php:344
+#: libraries/rte/rte_routines.lib.php:361
 msgid "Edit routine"
 msgstr "Redigera rutin"
 
-#: libraries/rte/rte_routines.lib.php:831
+#: libraries/rte/rte_routines.lib.php:848
 msgid "Routine name"
 msgstr "Rutinnamn"
 
-#: libraries/rte/rte_routines.lib.php:854
+#: libraries/rte/rte_routines.lib.php:871
 msgid "Parameters"
 msgstr "Parametrar"
 
-#: libraries/rte/rte_routines.lib.php:859
+#: libraries/rte/rte_routines.lib.php:876
 msgid "Direction"
 msgstr "Riktning"
 
-#: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
+#: libraries/rte/rte_routines.lib.php:879 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
 msgstr "Längd/Värden"
 
-#: libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_routines.lib.php:894
 msgid "Add parameter"
 msgstr "Lägg till parameter"
 
-#: libraries/rte/rte_routines.lib.php:881
+#: libraries/rte/rte_routines.lib.php:898
 msgid "Remove last parameter"
 msgstr "Ta bort senaste parametern"
 
-#: libraries/rte/rte_routines.lib.php:886
+#: libraries/rte/rte_routines.lib.php:903
 msgid "Return type"
 msgstr "Returtyp"
 
-#: libraries/rte/rte_routines.lib.php:892
+#: libraries/rte/rte_routines.lib.php:909
 msgid "Return length/values"
 msgstr "Returnera längd/värden"
 
-#: libraries/rte/rte_routines.lib.php:898
+#: libraries/rte/rte_routines.lib.php:915
 msgid "Return options"
 msgstr "Return alternativ"
 
-#: libraries/rte/rte_routines.lib.php:929
+#: libraries/rte/rte_routines.lib.php:946
 msgid "Is deterministic"
 msgstr "Är deterministisk"
 
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:955
 msgid "Security type"
 msgstr "Säkerhetstyp"
 
-#: libraries/rte/rte_routines.lib.php:945
+#: libraries/rte/rte_routines.lib.php:962
 msgid "SQL data access"
 msgstr "SQL dataaccess"
 
-#: libraries/rte/rte_routines.lib.php:1010
+#: libraries/rte/rte_routines.lib.php:1027
 msgid "You must provide a routine name"
 msgstr "Du måste ange ett rutinnamn"
 
-#: libraries/rte/rte_routines.lib.php:1036
+#: libraries/rte/rte_routines.lib.php:1053
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Ogiltig riktning \"%s\" angiven för parameter."
 
-#: libraries/rte/rte_routines.lib.php:1048
-#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1065
+#: libraries/rte/rte_routines.lib.php:1103
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -7604,89 +7605,89 @@ msgstr ""
 "Du måste ange Längd / värden rutin parametrar av typen ENUM, SET, VARCHAR "
 "och VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1083
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Du måste ange ett namn och en typ för varje rutinparameter."
 
-#: libraries/rte/rte_routines.lib.php:1076
+#: libraries/rte/rte_routines.lib.php:1093
 msgid "You must provide a valid return type for the routine."
 msgstr "Du måste ange en giltig returtyp för händelsen."
 
-#: libraries/rte/rte_routines.lib.php:1120
+#: libraries/rte/rte_routines.lib.php:1137
 msgid "You must provide a routine definition."
 msgstr "Du måste ange en rutindefinition."
 
-#: libraries/rte/rte_routines.lib.php:1210
+#: libraries/rte/rte_routines.lib.php:1227
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren"
 msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren"
 
-#: libraries/rte/rte_routines.lib.php:1226
+#: libraries/rte/rte_routines.lib.php:1243
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
-#: libraries/rte/rte_routines.lib.php:1300
-#: libraries/rte/rte_routines.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1323
+#: libraries/rte/rte_routines.lib.php:1329
 msgid "Execute routine"
 msgstr "Utför rutin"
 
-#: libraries/rte/rte_routines.lib.php:1359
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_routines.lib.php:1382
+#: libraries/rte/rte_routines.lib.php:1385
 msgid "Routine parameters"
 msgstr "Rutinparametrar"
 
-#: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1392 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/rte/rte_triggers.lib.php:89
+#: libraries/rte/rte_triggers.lib.php:98
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Tyvärr lyckades vi inte återställa den släppta triggern."
 
-#: libraries/rte/rte_triggers.lib.php:94
+#: libraries/rte/rte_triggers.lib.php:107
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Triggern %1$s har modifierats."
 
-#: libraries/rte/rte_triggers.lib.php:110
+#: libraries/rte/rte_triggers.lib.php:123
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Triggern %1$s har skapats."
 
-#: libraries/rte/rte_triggers.lib.php:165
+#: libraries/rte/rte_triggers.lib.php:178
 msgid "Edit trigger"
 msgstr "Editera trigger"
 
-#: libraries/rte/rte_triggers.lib.php:309
+#: libraries/rte/rte_triggers.lib.php:322
 msgid "Trigger name"
 msgstr "Trigger namn"
 
-#: libraries/rte/rte_triggers.lib.php:332
+#: libraries/rte/rte_triggers.lib.php:345
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Tidpunkt"
 
-#: libraries/rte/rte_triggers.lib.php:411
+#: libraries/rte/rte_triggers.lib.php:424
 msgid "You must provide a trigger name"
 msgstr "Du måste ange ett triggernamn"
 
-#: libraries/rte/rte_triggers.lib.php:416
+#: libraries/rte/rte_triggers.lib.php:429
 msgid "You must provide a valid timing for the trigger"
 msgstr "Du måste ange en giltig tidsgräns för triggern"
 
-#: libraries/rte/rte_triggers.lib.php:421
+#: libraries/rte/rte_triggers.lib.php:434
 msgid "You must provide a valid event for the trigger"
 msgstr "Du måste ange en giltig händelse för triggern"
 
-#: libraries/rte/rte_triggers.lib.php:427
+#: libraries/rte/rte_triggers.lib.php:440
 msgid "You must provide a valid table name"
 msgstr "Du måste ange ett giltigt tabellnamn"
 
-#: libraries/rte/rte_triggers.lib.php:433
+#: libraries/rte/rte_triggers.lib.php:446
 msgid "You must provide a trigger definition."
 msgstr "Du måste ange en trigger definition."
 
@@ -7936,12 +7937,12 @@ msgid "Synchronize"
 msgstr "Synkronisera"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
-#: server_status.php:601
+#: server_status.php:597
 msgid "Binary log"
 msgstr "Binär logg"
 
 #: libraries/server_links.inc.php:95 server_engines.php:121
-#: server_engines.php:125 server_status.php:654
+#: server_engines.php:125 server_status.php:650
 msgid "Variables"
 msgstr "Variabler"
 
@@ -8440,7 +8441,7 @@ msgstr "Protokollversion"
 
 #: main.php:179 server_privileges.php:1547 server_privileges.php:1702
 #: server_privileges.php:1826 server_privileges.php:2256
-#: server_status.php:1254
+#: server_status.php:1250
 msgid "User"
 msgstr "Användare"
 
@@ -8860,17 +8861,17 @@ msgstr "Filen finns inte"
 msgid "Select binary log to view"
 msgstr "Välj binär logg att visa"
 
-#: server_binlog.php:103 server_status.php:610
+#: server_binlog.php:103 server_status.php:606
 msgid "Files"
 msgstr "Filer"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1265
-#: server_status.php:1267
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1261
+#: server_status.php:1263
 msgid "Truncate Shown Queries"
 msgstr "Korta av visade frågor"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1265
-#: server_status.php:1267
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1261
+#: server_status.php:1263
 msgid "Show Full Queries"
 msgstr "Visa fullständiga frågor"
 
@@ -9428,7 +9429,7 @@ msgstr "Huvudservern har ändrats till %s"
 msgid "This server is configured as master in a replication process."
 msgstr "Denna server är konfigurerad som master i en replikerings process."
 
-#: server_replication.php:182 server_status.php:631
+#: server_replication.php:182 server_status.php:627
 msgid "Show master status"
 msgstr "Visa master-status"
 
@@ -9575,131 +9576,131 @@ msgstr ""
 "Denna server är inte konfigurerad som slav i en replikering process. Vill du "
 "<a href=\"%s\">konfigurera</a> den?"
 
-#: server_status.php:464
+#: server_status.php:460
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Tråden %s dödades med framgång."
 
-#: server_status.php:466
+#: server_status.php:462
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats."
 
-#: server_status.php:598
+#: server_status.php:594
 msgid "Handler"
 msgstr "Hanterare"
 
-#: server_status.php:599
+#: server_status.php:595
 msgid "Query cache"
 msgstr "Frågecache"
 
-#: server_status.php:600
+#: server_status.php:596
 msgid "Threads"
 msgstr "Trådar"
 
-#: server_status.php:602
+#: server_status.php:598
 msgid "Temporary data"
 msgstr "Temporära data"
 
-#: server_status.php:603
+#: server_status.php:599
 msgid "Delayed inserts"
 msgstr "Fördröjda infogningar"
 
-#: server_status.php:604
+#: server_status.php:600
 msgid "Key cache"
 msgstr "Nyckelcache"
 
-#: server_status.php:605
+#: server_status.php:601
 msgid "Joins"
 msgstr "Kopplingar"
 
-#: server_status.php:607
+#: server_status.php:603
 msgid "Sorting"
 msgstr "Sortering"
 
-#: server_status.php:609
+#: server_status.php:605
 msgid "Transaction coordinator"
 msgstr "Transaktionssamordnare"
 
-#: server_status.php:621
+#: server_status.php:617
 msgid "Flush (close) all tables"
 msgstr "Flush (stäng) alla tabeller"
 
-#: server_status.php:623
+#: server_status.php:619
 msgid "Show open tables"
 msgstr "Visa öppna tabeller"
 
-#: server_status.php:628
+#: server_status.php:624
 msgid "Show slave hosts"
 msgstr "Visa slav-värdar"
 
-#: server_status.php:634
+#: server_status.php:630
 msgid "Show slave status"
 msgstr "Visa slav-status"
 
-#: server_status.php:639
+#: server_status.php:635
 msgid "Flush query cache"
 msgstr "Rensa frågecache"
 
-#: server_status.php:788
+#: server_status.php:784
 msgid "Runtime Information"
 msgstr "Körningsinformation"
 
-#: server_status.php:795
+#: server_status.php:791
 msgid "All status variables"
 msgstr "Alla statusvariabler"
 
-#: server_status.php:796
+#: server_status.php:792
 msgid "Monitor"
 msgstr "Övervaka"
 
-#: server_status.php:797
+#: server_status.php:793
 msgid "Advisor"
 msgstr "Handledare"
 
-#: server_status.php:807 server_status.php:833
+#: server_status.php:803 server_status.php:829
 msgid "Number of data points: "
 msgstr "Antalet datapunkter: "
 
-#: server_status.php:811 server_status.php:837
+#: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
 msgstr "Uppdateringsfrekvens: "
 
-#: server_status.php:856 server_variables.php:115
+#: server_status.php:852 server_variables.php:115
 msgid "Filters"
 msgstr "Filter"
 
-#: server_status.php:858 server_variables.php:117
+#: server_status.php:854 server_variables.php:117
 msgid "Containing the word:"
 msgstr "Innehåller ordet:"
 
-#: server_status.php:863
+#: server_status.php:859
 msgid "Show only alert values"
 msgstr "Visa endast varnings värden"
 
-#: server_status.php:867
+#: server_status.php:863
 msgid "Filter by category..."
 msgstr "Filtrera efter kategori ..."
 
-#: server_status.php:881
+#: server_status.php:877
 msgid "Show unformatted values"
 msgstr "Visa oformaterade värden"
 
-#: server_status.php:885
+#: server_status.php:881
 msgid "Related links:"
 msgstr "Liknande länkar:"
 
-#: server_status.php:918
+#: server_status.php:914
 msgid "Run analyzer"
 msgstr "Kör analysator"
 
-#: server_status.php:919
+#: server_status.php:915
 msgid "Instructions"
 msgstr "Instruktioner"
 
-#: server_status.php:926
+#: server_status.php:922
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
@@ -9707,7 +9708,7 @@ msgstr ""
 "Advisor systemet kan ge rekommendationer på server variabler genom att "
 "analysera server status variablerna."
 
-#: server_status.php:928
+#: server_status.php:924
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -9716,7 +9717,7 @@ msgstr ""
 "Observera att detta system ger rekommendationer baserat på enkla beräkningar "
 "och genom tumregler som inte nödvändigtvis gäller för ditt system."
 
-#: server_status.php:930
+#: server_status.php:926
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -9726,7 +9727,7 @@ msgstr ""
 "ändra (genom att läsa dokumentation) och hur du kan ångra ändringen. Fel "
 "inställning kan ha en mycket negativ inverkan på prestandan."
 
-#: server_status.php:932
+#: server_status.php:928
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9737,31 +9738,31 @@ msgstr ""
 "inte fanns någon tydligt mätbar förbättring."
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:954
+#: server_status.php:950
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Frågor sedan start: %s"
 
-#: server_status.php:990
+#: server_status.php:986
 msgid "Statements"
 msgstr "Uppgifterna"
 
 #. l10n: # = Amount of queries
-#: server_status.php:993
+#: server_status.php:989
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1066
+#: server_status.php:1062
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Nätverkstrafik sedan start:%s"
 
-#: server_status.php:1075
+#: server_status.php:1071
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Denna MySQL-servern har varit igång i %1$s. Den startade den %2$s."
 
-#: server_status.php:1086
+#: server_status.php:1082
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9769,17 +9770,17 @@ msgstr ""
 "Denna MySQL-server fungerar som<b>master</b> och<b>slave</b> i "
 "<b>replicerings</b> process."
 
-#: server_status.php:1088
+#: server_status.php:1084
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Denna MySQL server arbetar som <b>master</b> in <b>replication</b> process."
 
-#: server_status.php:1090
+#: server_status.php:1086
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Denna MySQL server arbetar som <b>slave</b> in <b>replication</b> process."
 
-#: server_status.php:1093
+#: server_status.php:1089
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9787,11 +9788,11 @@ msgstr ""
 "För ytterligare information om replikeringsstatus på servern, gå till <a "
 "href=\"#replication\">replikeringssektionen</a>."
 
-#: server_status.php:1102
+#: server_status.php:1098
 msgid "Replication status"
 msgstr "Replikeringsstatus"
 
-#: server_status.php:1117
+#: server_status.php:1113
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9799,35 +9800,35 @@ msgstr ""
 "På en upptagen server kan byte-räknare spåra ur,  så statistiken som "
 "rapporteras av MySQL-servern kan vara fel."
 
-#: server_status.php:1123
+#: server_status.php:1119
 msgid "Received"
 msgstr "Mottagna"
 
-#: server_status.php:1133
+#: server_status.php:1129
 msgid "Sent"
 msgstr "Skickade"
 
-#: server_status.php:1169
+#: server_status.php:1165
 msgid "max. concurrent connections"
 msgstr "Max. samtidiga förbindelser"
 
-#: server_status.php:1176
+#: server_status.php:1172
 msgid "Failed attempts"
 msgstr "Misslyckade försök"
 
-#: server_status.php:1190
+#: server_status.php:1186
 msgid "Aborted"
 msgstr "Avbrutna"
 
-#: server_status.php:1253
+#: server_status.php:1249
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1257
+#: server_status.php:1253
 msgid "Command"
 msgstr "Kommando"
 
-#: server_status.php:1319
+#: server_status.php:1315
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -9835,11 +9836,11 @@ msgstr ""
 "Antalet anslutningar som avbröts eftersom klienten dog utan att stänga "
 "anslutningen ordentligt."
 
-#: server_status.php:1320
+#: server_status.php:1316
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Antalet misslyckade försök att ansluta till MySQL-servern."
 
-#: server_status.php:1321
+#: server_status.php:1317
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9849,16 +9850,16 @@ msgstr ""
 "överskred värdet binlog_cache_size och använde en temporär fil för att lagra "
 "satser från transaktionen."
 
-#: server_status.php:1322
+#: server_status.php:1318
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Antalet transaktioner som använde den temporära binära loggcachen."
 
-#: server_status.php:1323
+#: server_status.php:1319
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Antalet anslutningsförsök (lyckade eller inte) till MySQL-servern."
 
-#: server_status.php:1324
+#: server_status.php:1320
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9870,11 +9871,11 @@ msgstr ""
 "kanske öka värdet tmp_table_size för att åstadkomma att temporära tabeller "
 "lagras i minne istället för på disk."
 
-#: server_status.php:1325
+#: server_status.php:1321
 msgid "How many temporary files mysqld has created."
 msgstr "Antalet temporära filer som mysqld har skapat."
 
-#: server_status.php:1326
+#: server_status.php:1322
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9882,7 +9883,7 @@ msgstr ""
 "Antalet temporära tabeller i minne skapade automatiskt av servern under "
 "utförande av satser."
 
-#: server_status.php:1327
+#: server_status.php:1323
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9890,7 +9891,7 @@ msgstr ""
 "Antalet rader skrivna med INSERT DELAYED för vilka något fel uppstod "
 "(förmodligen dubblerad nyckel)."
 
-#: server_status.php:1328
+#: server_status.php:1324
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9898,23 +9899,23 @@ msgstr ""
 "Antalet INSERT DELAYED-hanteringstrådar i bruk. Varje tabell på vilken man "
 "använder INSERT DELAYED får sin egen tråd."
 
-#: server_status.php:1329
+#: server_status.php:1325
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Antalet skrivna rader med INSERT DELAYED."
 
-#: server_status.php:1330
+#: server_status.php:1326
 msgid "The number of executed FLUSH statements."
 msgstr "Antalet utförda FLUSH-satser."
 
-#: server_status.php:1331
+#: server_status.php:1327
 msgid "The number of internal COMMIT statements."
 msgstr "Antalet interna COMMIT-satser."
 
-#: server_status.php:1332
+#: server_status.php:1328
 msgid "The number of times a row was deleted from a table."
 msgstr "Antalet gånger en rad togs bort från en tabell."
 
-#: server_status.php:1333
+#: server_status.php:1329
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -9924,7 +9925,7 @@ msgstr ""
 "tabell med ett givet namn. Detta kallas upptäckt. Handler_discover indikerar "
 "antalet gånger tabeller har upptäckts."
 
-#: server_status.php:1334
+#: server_status.php:1330
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9934,7 +9935,7 @@ msgstr ""
 "tyder det på att servern gör många helindex-avsökningar; t.ex. SELECT col1 "
 "FROM foo, under förutsättning att col1 är indexerad."
 
-#: server_status.php:1335
+#: server_status.php:1331
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9943,7 +9944,7 @@ msgstr ""
 "är högt är det en bra indikation på att dina frågor och tabeller är riktigt "
 "indexerade."
 
-#: server_status.php:1336
+#: server_status.php:1332
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9953,7 +9954,7 @@ msgstr ""
 "värde ökas om du frågar en indexkolumn med en urvalsbegränsning eller om du "
 "gör en indexavsökning."
 
-#: server_status.php:1337
+#: server_status.php:1333
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9961,7 +9962,7 @@ msgstr ""
 "Antalet efterfrågningar att läsa den föregående raden i nyckelordning. Denna "
 "läsmetod används huvudsakligen för att optimera ORDER BY ... DESC."
 
-#: server_status.php:1338
+#: server_status.php:1334
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9973,7 +9974,7 @@ msgstr ""
 "Du har förmodligen många frågor som kräver att MySQL avsöker hela tabeller "
 "eller du har föreningar som inte använder nycklar på rätt sätt."
 
-#: server_status.php:1339
+#: server_status.php:1335
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9985,35 +9986,35 @@ msgstr ""
 "dina tabeller inte är riktigt indexerade eller att dina frågor inte är "
 "skrivna för att dra nytta av de index du har."
 
-#: server_status.php:1340
+#: server_status.php:1336
 msgid "The number of internal ROLLBACK statements."
 msgstr "Antalet interna ROLLBACK-satser."
 
-#: server_status.php:1341
+#: server_status.php:1337
 msgid "The number of requests to update a row in a table."
 msgstr "Antalet efterfrågningar att uppdatera en rad i en tabell."
 
-#: server_status.php:1342
+#: server_status.php:1338
 msgid "The number of requests to insert a row in a table."
 msgstr "Antalet efterfrågningar att lägga till en rad i en tabell."
 
-#: server_status.php:1343
+#: server_status.php:1339
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Antalet sidor innehållande data (orena eller rena)."
 
-#: server_status.php:1344
+#: server_status.php:1340
 msgid "The number of pages currently dirty."
 msgstr "Antalet sidor för närvarande orena."
 
-#: server_status.php:1345
+#: server_status.php:1341
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Antalet buffert-sidor som har efterfrågats om att bli rensade."
 
-#: server_status.php:1346
+#: server_status.php:1342
 msgid "The number of free pages."
 msgstr "Antalet tomma sidor."
 
-#: server_status.php:1347
+#: server_status.php:1343
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -10023,7 +10024,7 @@ msgstr ""
 "läses eller skrivs eller som inte kan rensas eller tas bort av någon annan "
 "anledning."
 
-#: server_status.php:1348
+#: server_status.php:1344
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -10035,11 +10036,11 @@ msgstr ""
 "också beräknas som Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1349
+#: server_status.php:1345
 msgid "Total size of buffer pool, in pages."
 msgstr "Total storlek på buffert, i antal sidor."
 
-#: server_status.php:1350
+#: server_status.php:1346
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10047,7 +10048,7 @@ msgstr ""
 "Antalet \"slumpmässiga\" läsningar i förväg som InnoDB initierat. Detta sker "
 "när en fråga ska avsöka en stor del av en tabell men i slumpmässig ordning."
 
-#: server_status.php:1351
+#: server_status.php:1347
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10055,11 +10056,11 @@ msgstr ""
 "Antalet sekventiella läsningar i förväg som InnoDB initierat. Detta sker när "
 "InnoDB gör en sekventiell avsökning av en hel tabell."
 
-#: server_status.php:1352
+#: server_status.php:1348
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Antalet logiska läsefterfrågningar som InnoDB har gjort."
 
-#: server_status.php:1353
+#: server_status.php:1349
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10067,7 +10068,7 @@ msgstr ""
 "Antalet logiska läsningar som InnoDB inte kunde uppfylla från buffert och "
 "fick göra en enkelsidig läsning."
 
-#: server_status.php:1354
+#: server_status.php:1350
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10081,51 +10082,51 @@ msgstr ""
 "fall med dessa väntanden. Om buffertstorleken var riktigt satt ska detta "
 "värde vara litet."
 
-#: server_status.php:1355
+#: server_status.php:1351
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Antalet skrivningar gjorda till InnoDB-bufferten."
 
-#: server_status.php:1356
+#: server_status.php:1352
 msgid "The number of fsync() operations so far."
 msgstr "Antalet fsync()-operationer hittills."
 
-#: server_status.php:1357
+#: server_status.php:1353
 msgid "The current number of pending fsync() operations."
 msgstr "Nuvarande antal väntande fsync()-operationer."
 
-#: server_status.php:1358
+#: server_status.php:1354
 msgid "The current number of pending reads."
 msgstr "Nuvarande antal väntande läsningar."
 
-#: server_status.php:1359
+#: server_status.php:1355
 msgid "The current number of pending writes."
 msgstr "Nuvarande antal väntande skrivningar."
 
-#: server_status.php:1360
+#: server_status.php:1356
 msgid "The amount of data read so far, in bytes."
 msgstr "Mängden data läst hittills, i bytes."
 
-#: server_status.php:1361
+#: server_status.php:1357
 msgid "The total number of data reads."
 msgstr "Totalt antal läsningar av data."
 
-#: server_status.php:1362
+#: server_status.php:1358
 msgid "The total number of data writes."
 msgstr "Totalt antal skrivningar av data."
 
-#: server_status.php:1363
+#: server_status.php:1359
 msgid "The amount of data written so far, in bytes."
 msgstr "Mängden data skriven hittills, i bytes."
 
-#: server_status.php:1364
+#: server_status.php:1360
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Antalet sidor som har skrivits för doublewrite transaktioner."
 
-#: server_status.php:1365
+#: server_status.php:1361
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Antalet doublewrite transaktioner som har utförts.."
 
-#: server_status.php:1366
+#: server_status.php:1362
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10133,35 +10134,35 @@ msgstr ""
 "Antalet väntanden pga loggbufferten var för liten och vi behövde vänta på "
 "att den skulle rensas innan kunde fortsätta."
 
-#: server_status.php:1367
+#: server_status.php:1363
 msgid "The number of log write requests."
 msgstr "Antalet skriv-begäran att skriva till logg."
 
-#: server_status.php:1368
+#: server_status.php:1364
 msgid "The number of physical writes to the log file."
 msgstr "Antalet fysiska skrivningar till loggfilen."
 
-#: server_status.php:1369
+#: server_status.php:1365
 msgid "The number of fsync() writes done to the log file."
 msgstr "Antalet fsync()-skrivningar gjorda till loggfilen."
 
-#: server_status.php:1370
+#: server_status.php:1366
 msgid "The number of pending log file fsyncs."
 msgstr "Antalet väntande fsync() av loggfil."
 
-#: server_status.php:1371
+#: server_status.php:1367
 msgid "Pending log file writes."
 msgstr "Väntande skrivningar till loggfil."
 
-#: server_status.php:1372
+#: server_status.php:1368
 msgid "The number of bytes written to the log file."
 msgstr "Antalet bytes skrivna till loggfilen."
 
-#: server_status.php:1373
+#: server_status.php:1369
 msgid "The number of pages created."
 msgstr "Antalet skapade sidor."
 
-#: server_status.php:1374
+#: server_status.php:1370
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10169,51 +10170,51 @@ msgstr ""
 "Den inkompilerade InnoDB-sidstorleken (standard 16kB). Många värden räknas i "
 "sidor; sidstorleken tillåter dem att enkelt omvandlas till bytes."
 
-#: server_status.php:1375
+#: server_status.php:1371
 msgid "The number of pages read."
 msgstr "Antalet lästa sidor."
 
-#: server_status.php:1376
+#: server_status.php:1372
 msgid "The number of pages written."
 msgstr "Antalet skrivna sidor."
 
-#: server_status.php:1377
+#: server_status.php:1373
 msgid "The number of row locks currently being waited for."
 msgstr "Antalet radlås som för närvarande väntas på."
 
-#: server_status.php:1378
+#: server_status.php:1374
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Genomsnittlig tid för att skaffa ett radlås, i millisekunder."
 
-#: server_status.php:1379
+#: server_status.php:1375
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Total tid spenderad på att skaffa radlås, i millisekunder."
 
-#: server_status.php:1380
+#: server_status.php:1376
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maximal tid för att skaffa ett radlås, i millisekunder."
 
-#: server_status.php:1381
+#: server_status.php:1377
 msgid "The number of times a row lock had to be waited for."
 msgstr "Antalet gånger ett radlås behövde väntas på."
 
-#: server_status.php:1382
+#: server_status.php:1378
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Antalet rader borttagna från InnoDB-tabeller."
 
-#: server_status.php:1383
+#: server_status.php:1379
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Antalet rader tillagda i InnoDB-tabeller."
 
-#: server_status.php:1384
+#: server_status.php:1380
 msgid "The number of rows read from InnoDB tables."
 msgstr "Antalet rader lästa från InnoDB-tabeller."
 
-#: server_status.php:1385
+#: server_status.php:1381
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Antalet rader uppdaterade i InnoDB-tabeller."
 
-#: server_status.php:1386
+#: server_status.php:1382
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10221,7 +10222,7 @@ msgstr ""
 "Antalet nyckelblock i nyckelcachen som har ändrats men inte ännu överförts "
 "till disk. Det brukade vara känt som Not_flushed_key_blocks."
 
-#: server_status.php:1387
+#: server_status.php:1383
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10229,7 +10230,7 @@ msgstr ""
 "Antalet oanvända block i nyckelcachen. Du kan använda detta värde för att "
 "avgöra hur stor del av nyckelcachen som används."
 
-#: server_status.php:1388
+#: server_status.php:1384
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10238,11 +10239,11 @@ msgstr ""
 "Antalet använda block i nyckelcachen. Detta värde är ett högvattenmärke som "
 "indikerar maximala antalet block som någonsin använts vid ett tillfälle."
 
-#: server_status.php:1389
+#: server_status.php:1385
 msgid "The number of requests to read a key block from the cache."
 msgstr "Antalet efterfrågningar att läsa ett nyckelblock från cachen."
 
-#: server_status.php:1390
+#: server_status.php:1386
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10252,15 +10253,15 @@ msgstr ""
 "är stort, då är förmodligen ditt värde key_buffer_size för litet. Cachens "
 "missfrekvens kan beräknas som Key_reads/Key_read_requests."
 
-#: server_status.php:1391
+#: server_status.php:1387
 msgid "The number of requests to write a key block to the cache."
 msgstr "Antalet efterfrågningar att skriva ett nyckelblock till cachen."
 
-#: server_status.php:1392
+#: server_status.php:1388
 msgid "The number of physical writes of a key block to disk."
 msgstr "Antalet fysiska skrivningar av ett nyckelblock till disk."
 
-#: server_status.php:1393
+#: server_status.php:1389
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10271,7 +10272,7 @@ msgstr ""
 "av samma fråga. Standardvärdet 0 innebär att ingen fråga har kompilerats "
 "ännu."
 
-#: server_status.php:1394
+#: server_status.php:1390
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -10279,11 +10280,11 @@ msgstr ""
 "Det maximala antalet anslutningar som har använts samtidigt sedan servern "
 "startade."
 
-#: server_status.php:1395
+#: server_status.php:1391
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Antalet rader som väntar på att skrivas i INSERT DELAYED-köer."
 
-#: server_status.php:1396
+#: server_status.php:1392
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10291,19 +10292,19 @@ msgstr ""
 "Antalet tabeller som har öppnats. Om antalet öppnade tabeller är stort är "
 "förmodligen ditt tabellcache-värde för litet."
 
-#: server_status.php:1397
+#: server_status.php:1393
 msgid "The number of files that are open."
 msgstr "Antalet filer som är öppna."
 
-#: server_status.php:1398
+#: server_status.php:1394
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Antalet strömmar som är öppna (används huvudsakligen för loggning)."
 
-#: server_status.php:1399
+#: server_status.php:1395
 msgid "The number of tables that are open."
 msgstr "Antalet tabeller som är öppna."
 
-#: server_status.php:1400
+#: server_status.php:1396
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -10312,19 +10313,19 @@ msgstr ""
 "Antalet fria minnesblock i frågecache. Högt antal kan tyda på fragmentering, "
 "vilket kan lösas genom att köra ett FLUSH QUERY CACHEN kommando."
 
-#: server_status.php:1401
+#: server_status.php:1397
 msgid "The amount of free memory for query cache."
 msgstr "Mängden fritt minne för frågecache."
 
-#: server_status.php:1402
+#: server_status.php:1398
 msgid "The number of cache hits."
 msgstr "Antalet cache-träffar."
 
-#: server_status.php:1403
+#: server_status.php:1399
 msgid "The number of queries added to the cache."
 msgstr "Antalet förfrågningar tillagda i cachen."
 
-#: server_status.php:1404
+#: server_status.php:1400
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10336,7 +10337,7 @@ msgstr ""
 "storleken på frågecachen. Frågecachen använder strategin minst nyligen "
 "använd (LRU) för att bestämma vilka frågor som ska tas bort från cachen."
 
-#: server_status.php:1405
+#: server_status.php:1401
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10344,19 +10345,19 @@ msgstr ""
 "Antalet icke-cachade frågor (inte möjliga att cacha eller inte cachade pga "
 "inställningen query_cache_type)."
 
-#: server_status.php:1406
+#: server_status.php:1402
 msgid "The number of queries registered in the cache."
 msgstr "Antalet frågor registrerade i cachen."
 
-#: server_status.php:1407
+#: server_status.php:1403
 msgid "The total number of blocks in the query cache."
 msgstr "Totala antalet block i frågecachen."
 
-#: server_status.php:1408
+#: server_status.php:1404
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Status för felsäker replikering (ännu inte implementerat)."
 
-#: server_status.php:1409
+#: server_status.php:1405
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10364,11 +10365,11 @@ msgstr ""
 "Antalet kopplingar som inte använder index. Om detta värde inte är 0, bör du "
 "noggrant kontrollera index för dina tabeller."
 
-#: server_status.php:1410
+#: server_status.php:1406
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Antalet kopplingar som använde en urvalssökning på en referenstabell."
 
-#: server_status.php:1411
+#: server_status.php:1407
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10377,7 +10378,7 @@ msgstr ""
 "varje rad. (Om detta värde inte är 0, bör du noggrant kontrollera index för "
 "dina tabeller.)"
 
-#: server_status.php:1412
+#: server_status.php:1408
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10385,17 +10386,17 @@ msgstr ""
 "Antalet kopplingar som använde urval på den första tabellen. (Det är normalt "
 "inte kritiskt även om detta är stort.)"
 
-#: server_status.php:1413
+#: server_status.php:1409
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Antalet kopplingar som gjorde en fullständig genomsökning av den första "
 "tabellen."
 
-#: server_status.php:1414
+#: server_status.php:1410
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Antalet temporära tabeller för närvarande öppna av slavens SQL-tråd."
 
-#: server_status.php:1415
+#: server_status.php:1411
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10403,25 +10404,25 @@ msgstr ""
 "Totalt (sedan start) antal gånger som replikeringsslavens SQL-tråd har "
 "omprövat transaktioner."
 
-#: server_status.php:1416
+#: server_status.php:1412
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Denna är ON ifall denna server är en slav som är förbunden till en "
 "huvudserver."
 
-#: server_status.php:1417
+#: server_status.php:1413
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Antalet frågor som har tagit mer än slow_launch_time sekunder att skapa."
 
-#: server_status.php:1418
+#: server_status.php:1414
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Antalet frågor som har tagit mer än long_query_time sekunder."
 
-#: server_status.php:1419
+#: server_status.php:1415
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10431,23 +10432,23 @@ msgstr ""
 "detta värde är stort bör du överväga att öka värdet i systemvariabeln "
 "sort_buffer_size."
 
-#: server_status.php:1420
+#: server_status.php:1416
 msgid "The number of sorts that were done with ranges."
 msgstr "Antalet sorteringar som gjordes med intervall."
 
-#: server_status.php:1421
+#: server_status.php:1417
 msgid "The number of sorted rows."
 msgstr "Antalet sorterade rader."
 
-#: server_status.php:1422
+#: server_status.php:1418
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Antalet sorteringar som har gjorts genom avsökning av tabellen."
 
-#: server_status.php:1423
+#: server_status.php:1419
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Antalet gånger som ett tabellås förvärvades omedelbart."
 
-#: server_status.php:1424
+#: server_status.php:1420
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10459,7 +10460,7 @@ msgstr ""
 "du först optimera dina frågor och antingen dela upp din tabell eller "
 "tabeller eller använda replikering."
 
-#: server_status.php:1425
+#: server_status.php:1421
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10469,11 +10470,11 @@ msgstr ""
 "Threads_created/Connections. Om detta värde är rött bör du öka värdet "
 "thread_cache_size."
 
-#: server_status.php:1426
+#: server_status.php:1422
 msgid "The number of currently open connections."
 msgstr "Antalet öppna förbindelser."
 
-#: server_status.php:1427
+#: server_status.php:1423
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10485,43 +10486,43 @@ msgstr ""
 "(Normalt ger detta inte någon märkbar prestandaförbättring om du har en bra "
 "trådimplementering.)"
 
-#: server_status.php:1428
+#: server_status.php:1424
 msgid "The number of threads that are not sleeping."
 msgstr "Antalet trådar som inte är vilande."
 
-#: server_status.php:1574
+#: server_status.php:1570
 msgid "Start Monitor"
 msgstr "Starta Monitor"
 
-#: server_status.php:1583
+#: server_status.php:1579
 msgid "Instructions/Setup"
 msgstr "Instruktioner/Setup"
 
-#: server_status.php:1588
+#: server_status.php:1584
 msgid "Done rearranging/editing charts"
 msgstr "Klar ändra/editera diagram"
 
-#: server_status.php:1595 server_status.php:1666
+#: server_status.php:1591 server_status.php:1662
 msgid "Add chart"
 msgstr "Lägg till diagram"
 
-#: server_status.php:1597
+#: server_status.php:1593
 msgid "Rearrange/edit charts"
 msgstr "Ordna/editera diagram"
 
-#: server_status.php:1601
+#: server_status.php:1597
 msgid "Refresh rate"
 msgstr "Uppdateringsfrekvens"
 
-#: server_status.php:1606
+#: server_status.php:1602
 msgid "Chart columns"
 msgstr "Visa kolumner"
 
-#: server_status.php:1622
+#: server_status.php:1618
 msgid "Chart arrangement"
 msgstr "Diagram arrangemang"
 
-#: server_status.php:1622
+#: server_status.php:1618
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -10529,15 +10530,15 @@ msgstr ""
 "Arrangemanget av diagrammen lagras lokalt i webbläsarens. Du kanske vill "
 "exportera den om du har en komplicerad inställning."
 
-#: server_status.php:1623
+#: server_status.php:1619
 msgid "Reset to default"
 msgstr "Återställ till standardinställningen"
 
-#: server_status.php:1627
+#: server_status.php:1623
 msgid "Monitor Instructions"
 msgstr "Övervaka instruktioner"
 
-#: server_status.php:1628
+#: server_status.php:1624
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10551,7 +10552,7 @@ msgstr ""
 "Observera att general_log producerar mycket data och ökar lasten på servern "
 "med upp till 15%"
 
-#: server_status.php:1633
+#: server_status.php:1629
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10563,11 +10564,11 @@ msgstr ""
 "stöds av MySQL 5.1.6 och senare. Du kan fortfarande använda "
 "serverfunktionernas diagramfunktioner."
 
-#: server_status.php:1646
+#: server_status.php:1642
 msgid "Using the monitor:"
 msgstr "Använda monitorn:"
 
-#: server_status.php:1648
+#: server_status.php:1644
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10578,7 +10579,7 @@ msgstr ""
 "\"Inställningar\", eller ta bort diagram med cog-ikonen vid respektive "
 "diagram."
 
-#: server_status.php:1650
+#: server_status.php:1646
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10590,11 +10591,11 @@ msgstr ""
 "bekräftat kommer detta ladda en tabell över grupperade frågor, Där kan du "
 "klicka på de förekommande SELECT-satser för att ytterligare analysera dessa."
 
-#: server_status.php:1657
+#: server_status.php:1653
 msgid "Please note:"
 msgstr "Vänligen notera:"
 
-#: server_status.php:1659
+#: server_status.php:1655
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10607,86 +10608,86 @@ msgstr ""
 "samt att inaktivera \"general_log\" och tömma tabellen när övervakningen "
 "inte behövs längre."
 
-#: server_status.php:1671
+#: server_status.php:1667
 msgid "Preset chart"
 msgstr "Förinställt diagram"
 
-#: server_status.php:1675
+#: server_status.php:1671
 msgid "Status variable(s)"
 msgstr "Statusvariabler"
 
-#: server_status.php:1677
+#: server_status.php:1673
 msgid "Select series:"
 msgstr "Välj serie:"
 
-#: server_status.php:1679
+#: server_status.php:1675
 msgid "Commonly monitored"
 msgstr "Vanligtvis övervakade"
 
-#: server_status.php:1694
+#: server_status.php:1690
 msgid "or type variable name:"
 msgstr "eller skriv variabelnamn:"
 
-#: server_status.php:1698
+#: server_status.php:1694
 msgid "Display as differential value"
 msgstr "Visa som skillnadsvärde"
 
-#: server_status.php:1700
+#: server_status.php:1696
 msgid "Apply a divisor"
 msgstr "Tillämpa en dividend"
 
-#: server_status.php:1707
+#: server_status.php:1703
 msgid "Append unit to data values"
 msgstr "Lägg till enhet till datavärdena"
 
-#: server_status.php:1713
+#: server_status.php:1709
 msgid "Add this series"
 msgstr "Lägg till denna serie"
 
-#: server_status.php:1715
+#: server_status.php:1711
 msgid "Clear series"
 msgstr "Rensa serie"
 
-#: server_status.php:1718
+#: server_status.php:1714
 msgid "Series in Chart:"
 msgstr "Serie i diagram:"
 
-#: server_status.php:1731
+#: server_status.php:1727
 msgid "Log statistics"
 msgstr "Logga statistik"
 
-#: server_status.php:1732
+#: server_status.php:1728
 msgid "Selected time range:"
 msgstr "Välj tidsintervall:"
 
-#: server_status.php:1737
+#: server_status.php:1733
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Hämta endast SELECT, INSERT, UPDATE och DELETE kommandon"
 
-#: server_status.php:1742
+#: server_status.php:1738
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Ta bort variabeldata i INSERT kommandon för bättre gruppering"
 
-#: server_status.php:1747
+#: server_status.php:1743
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Välj från vilken logg du vill att statistiken ska genereras från."
 
-#: server_status.php:1749
+#: server_status.php:1745
 msgid "Results are grouped by query text."
 msgstr "Resultaten grupperas efter frågetext."
 
-#: server_status.php:1754
+#: server_status.php:1750
 msgid "Query analyzer"
 msgstr "Frågeanalyserare"
 
-#: server_status.php:1794 server_status.php:1811
+#: server_status.php:1790 server_status.php:1807
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekund"
 msgstr[1] "%d sekunder"
 
-#: server_status.php:1796
+#: server_status.php:1792
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11162,7 +11163,7 @@ msgstr "Bläddra bland främmande värden"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: sql.php:702 tbl_replace.php:414
+#: sql.php:702 tbl_replace.php:415
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad id: %1$d"
@@ -11171,7 +11172,7 @@ msgstr "Infogade rad id: %1$d"
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: sql.php:722 tbl_replace.php:388
+#: sql.php:722 tbl_replace.php:389
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
@@ -11253,64 +11254,64 @@ msgstr ""
 msgid "Continue insertion with %s rows"
 msgstr "Fortsätt inmatning med %s rader"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:95
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Blockera"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:97
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolumn"
 
-#: tbl_chart.php:93
+#: tbl_chart.php:99
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Rad"
 
-#: tbl_chart.php:95
+#: tbl_chart.php:101
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
-#: tbl_chart.php:97
+#: tbl_chart.php:103
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Cirkeldiagram"
 
-#: tbl_chart.php:100
+#: tbl_chart.php:106
 msgid "Stacked"
 msgstr "Staplade"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:109
 msgid "Chart title"
 msgstr "Diagramtitel"
 
-#: tbl_chart.php:109
+#: tbl_chart.php:115
 msgid "X-Axis:"
 msgstr "X-axel:"
 
-#: tbl_chart.php:124
+#: tbl_chart.php:130
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:126
+#: tbl_chart.php:132
 msgid "The remaining columns"
 msgstr "Återstående kolumner"
 
-#: tbl_chart.php:139
+#: tbl_chart.php:145
 msgid "X-Axis label:"
 msgstr "X-axel etikett:"
 
-#: tbl_chart.php:141
+#: tbl_chart.php:147
 msgid "X Values"
 msgstr "X värde"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:148
 msgid "Y-Axis label:"
 msgstr "Y-axel etikett:"
 
-#: tbl_chart.php:143
+#: tbl_chart.php:149
 msgid "Y Values"
 msgstr "Y värden"
 

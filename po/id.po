@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-06 11:49+0200\n"
+"POT-Creation-Date: 2012-10-16 14:37+0200\n"
 "PO-Revision-Date: 2012-09-05 10:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/3-5/id/"
@@ -59,9 +59,9 @@ msgstr "Cari"
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
 #: libraries/display_tbl.lib.php:575 libraries/display_tbl.lib.php:705
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
-#: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
-#: libraries/rte/rte_routines.lib.php:1449
-#: libraries/rte/rte_triggers.lib.php:379
+#: libraries/rte/rte_events.lib.php:510 libraries/rte/rte_routines.lib.php:987
+#: libraries/rte/rte_routines.lib.php:1472
+#: libraries/rte/rte_triggers.lib.php:392
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
@@ -91,7 +91,7 @@ msgstr "Nama kunci"
 
 #: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
-#: server_plugins.php:147 server_status.php:1494
+#: server_plugins.php:147 server_status.php:1490
 msgid "Description"
 msgstr "Deskripsi"
 
@@ -153,9 +153,9 @@ msgstr "Kolom"
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
 #: libraries/export/latex.php:395 libraries/export/odt.php:303
 #: libraries/export/texytext.php:229 libraries/rte/rte_list.lib.php:53
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:836
-#: libraries/rte/rte_routines.lib.php:861
-#: libraries/rte/rte_routines.lib.php:1367
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_routines.lib.php:853
+#: libraries/rte/rte_routines.lib.php:878
+#: libraries/rte/rte_routines.lib.php:1390
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
@@ -360,7 +360,7 @@ msgstr "Edit atau ekspor skema relasional"
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:314
+#: libraries/rte/rte_triggers.lib.php:327
 #: libraries/schema/User_Schema.class.php:272 server_privileges.php:1841
 #: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
@@ -631,7 +631,7 @@ msgstr "Gambarkan"
 
 #: db_structure.php:531 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:606
+#: server_replication.php:162 server_status.php:602
 msgid "Replication"
 msgstr "Replikasi"
 
@@ -673,7 +673,7 @@ msgstr "Pilih tabel berbeban tambahan"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1623
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1619
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Ekspor"
@@ -739,7 +739,7 @@ msgstr "Tabel yang dilacak"
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
 #: server_privileges.php:1836 server_privileges.php:1899
-#: server_privileges.php:2162 server_status.php:1256
+#: server_privileges.php:2162 server_status.php:1252
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -757,9 +757,9 @@ msgstr "Dibuat"
 msgid "Updated"
 msgstr "Diperbarui"
 
-#: db_tracking.php:90 js/messages.php:189 libraries/rte/rte_events.lib.php:380
+#: db_tracking.php:90 js/messages.php:189 libraries/rte/rte_events.lib.php:397
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1259 sql.php:896 tbl_tracking.php:653
+#: server_status.php:1255 sql.php:896 tbl_tracking.php:653
 msgid "Status"
 msgstr "Status"
 
@@ -808,7 +808,7 @@ msgid "Database Log"
 msgstr "Log Basis Data"
 
 #: enum_editor.php:23 js/messages.php:272
-#: libraries/rte/rte_routines.lib.php:690
+#: libraries/rte/rte_routines.lib.php:707
 msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
@@ -1041,7 +1041,7 @@ msgstr ""
 "waktu eksekusi php."
 
 #: import.php:472 libraries/Message.class.php:175
-#: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
+#: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1222
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
@@ -1169,15 +1169,15 @@ msgstr "Tutup"
 msgid "Edit"
 msgstr "Edit"
 
-#: js/messages.php:66 server_status.php:816
+#: js/messages.php:66 server_status.php:812
 msgid "Live traffic chart"
 msgstr "Bagan lalu lintas langsung"
 
-#: js/messages.php:67 server_status.php:819
+#: js/messages.php:67 server_status.php:815
 msgid "Live conn./process chart"
 msgstr "Bagan koneksi/proses langsung"
 
-#: js/messages.php:68 server_status.php:841
+#: js/messages.php:68 server_status.php:837
 msgid "Live query chart"
 msgstr "Bagan kueri langsung"
 
@@ -1188,13 +1188,13 @@ msgstr "Data statis"
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
-#: server_status.php:1143 server_status.php:1204 tbl_printview.php:306
+#: server_status.php:1139 server_status.php:1200 tbl_printview.php:306
 #: tbl_structure.php:814
 msgid "Total"
 msgstr "Jumlah"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:74 server_status.php:612 server_status.php:1039
+#: js/messages.php:74 server_status.php:608 server_status.php:1035
 msgid "Other"
 msgstr "Lainnya"
 
@@ -1224,7 +1224,7 @@ msgstr "Lalu lintas server (dalam KB)"
 msgid "Connections since last refresh"
 msgstr "Koneksi sejak dibuka terakhir"
 
-#: js/messages.php:84 js/messages.php:122 server_status.php:1252
+#: js/messages.php:84 js/messages.php:122 server_status.php:1248
 msgid "Processes"
 msgstr "Proses Aktif"
 
@@ -1242,7 +1242,7 @@ msgstr "Perintah sejak penyegaran terakhir"
 msgid "Questions (executed statements by the server)"
 msgstr "Pertanyaan (statement yang dieksekusi server)"
 
-#: js/messages.php:91 server_status.php:794
+#: js/messages.php:91 server_status.php:790
 msgid "Query statistics"
 msgstr "Statistik kueri"
 
@@ -1288,13 +1288,13 @@ msgstr "Swap sistem"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1398
-#: server_status.php:1703
+#: server_status.php:1699
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1396
-#: server_status.php:1703
+#: server_status.php:1699
 msgid "KiB"
 msgstr "KB"
 
@@ -1346,7 +1346,7 @@ msgstr "Bita dikirim"
 msgid "Bytes received"
 msgstr "Bita diterima"
 
-#: js/messages.php:121 server_status.php:1162
+#: js/messages.php:121 server_status.php:1158
 msgid "Connections"
 msgstr "Koneksi"
 
@@ -1385,12 +1385,12 @@ msgstr "%d tabel"
 msgid "Questions"
 msgstr "Perintah"
 
-#: js/messages.php:136 server_status.php:1117
+#: js/messages.php:136 server_status.php:1113
 msgid "Traffic"
 msgstr "Lalu Lintas"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1578
+#: server_status.php:1574
 msgid "Settings"
 msgstr "Pengaturan"
 
@@ -1413,7 +1413,7 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2052 server_status.php:1285 server_status.php:1720
+#: server_privileges.php:2052 server_status.php:1281 server_status.php:1716
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:285
 msgid "None"
 msgstr "Tidak ada"
@@ -1514,7 +1514,7 @@ msgstr "Ubah pengaturan"
 msgid "Current settings"
 msgstr "Pengaturan saat ini"
 
-#: js/messages.php:168 server_status.php:1668
+#: js/messages.php:168 server_status.php:1664
 msgid "Chart Title"
 msgstr "Judul Bagan"
 
@@ -1601,7 +1601,7 @@ msgid "Explain output"
 msgstr "Jelaskan hasil"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1258 sql.php:897
+#: server_status.php:1254 sql.php:897
 msgid "Time"
 msgstr "Waktu"
 
@@ -1701,7 +1701,7 @@ msgstr ""
 #: js/messages.php:216 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1623 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1619 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Impor"
 
@@ -2330,16 +2330,16 @@ msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 "Gagal format string untuk aturan '%s'. PHP melemparkan kesalahan berikut:% s"
 
-#: libraries/Advisor.class.php:326 server_status.php:969
+#: libraries/Advisor.class.php:326 server_status.php:965
 msgid "per second"
 msgstr "per detik"
 
-#: libraries/Advisor.class.php:329 server_status.php:964
+#: libraries/Advisor.class.php:329 server_status.php:960
 msgid "per minute"
 msgstr "per menit"
 
-#: libraries/Advisor.class.php:332 server_status.php:960 server_status.php:996
-#: server_status.php:1118 server_status.php:1163
+#: libraries/Advisor.class.php:332 server_status.php:956 server_status.php:992
+#: server_status.php:1114 server_status.php:1159
 msgid "per hour"
 msgstr "dalam sejam"
 
@@ -2448,8 +2448,8 @@ msgstr "Dipadatkan"
 msgid "Cardinality"
 msgstr "Kardinalitas"
 
-#: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:480
-#: libraries/rte/rte_routines.lib.php:957 tbl_tracking.php:263
+#: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:497
+#: libraries/rte/rte_routines.lib.php:974 tbl_tracking.php:263
 #: tbl_tracking.php:327
 msgid "Comment"
 msgstr "Komentar"
@@ -2786,7 +2786,7 @@ msgstr "dibagi"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
-#: server_status.php:608
+#: server_status.php:604
 msgid "Tables"
 msgstr "Tabel"
 
@@ -2874,7 +2874,7 @@ msgstr ""
 "Hostname tidak sah untuk server %1$s. Harap lihat kembali konfigurasi Anda."
 
 #: libraries/common.inc.php:683 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:793
+#: libraries/header.inc.php:134 main.php:171 server_status.php:789
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Server"
@@ -2906,20 +2906,20 @@ msgid "Documentation"
 msgstr "Dokumentasi"
 
 #: libraries/common.lib.php:622 libraries/header_printview.inc.php:63
-#: server_status.php:595 server_status.php:1261
+#: server_status.php:591 server_status.php:1257
 msgid "SQL query"
 msgstr "Pencarian SQL"
 
-#: libraries/common.lib.php:663 libraries/rte/rte_events.lib.php:103
-#: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
-#: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:253
-#: libraries/rte/rte_routines.lib.php:258
-#: libraries/rte/rte_routines.lib.php:268
-#: libraries/rte/rte_routines.lib.php:282
-#: libraries/rte/rte_routines.lib.php:1255
-#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
-#: libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:108
+#: libraries/common.lib.php:663 libraries/rte/rte_events.lib.php:107
+#: libraries/rte/rte_events.lib.php:116 libraries/rte/rte_events.lib.php:131
+#: libraries/rte/rte_events.lib.php:148 libraries/rte/rte_routines.lib.php:257
+#: libraries/rte/rte_routines.lib.php:266
+#: libraries/rte/rte_routines.lib.php:281
+#: libraries/rte/rte_routines.lib.php:299
+#: libraries/rte/rte_routines.lib.php:1277
+#: libraries/rte/rte_triggers.lib.php:80 libraries/rte/rte_triggers.lib.php:89
+#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:121
 msgid "MySQL said: "
 msgstr "MySQL menyatakan: "
 
@@ -2944,7 +2944,7 @@ msgid "Create PHP Code"
 msgstr "Buat kode PHP"
 
 #: libraries/common.lib.php:1229 libraries/config/messages.inc.php:486
-#: server_status.php:804 server_status.php:830 server_status.php:853
+#: server_status.php:800 server_status.php:826 server_status.php:849
 msgid "Refresh"
 msgstr "Segarkan"
 
@@ -4049,7 +4049,7 @@ msgstr "Abaikan galat perintah jamak"
 #: libraries/config/messages.inc.php:239
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
-"This might be good way to import large files, however it can break "
+"This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
@@ -5484,8 +5484,8 @@ msgstr "Buat tabel"
 
 #: libraries/display_create_table.lib.php:51 libraries/rte/rte_list.lib.php:51
 #: libraries/rte/rte_list.lib.php:57 libraries/rte/rte_list.lib.php:66
-#: libraries/rte/rte_routines.lib.php:860
-#: libraries/rte/rte_routines.lib.php:1366 libraries/tbl_properties.inc.php:92
+#: libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_routines.lib.php:1389 libraries/tbl_properties.inc.php:92
 #: setup/frames/index.inc.php:127 tbl_structure.php:202
 msgid "Name"
 msgstr "Nama"
@@ -5702,8 +5702,8 @@ msgstr ""
 #: libraries/display_import.lib.php:221
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be good way to import large files, "
-"however it can break transactions.)</i>"
+"to the PHP timeout limit. <i>(This might be a good way to import large "
+"files, however it can break transactions.)</i>"
 msgstr ""
 "Izinkan interupsi proses impor jika skrip hampir mencapai batas waktu habis "
 "PHP. <i>(Ini mungkin cara terbaik untuk mengimpor berkas besar, meskipun "
@@ -5775,7 +5775,7 @@ msgstr "Urut berdasarkan kunci"
 #: libraries/import/csv.php:33 libraries/import/docsql.php:35
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
-#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
+#: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:880
 #: tbl_select.php:177 tbl_structure.php:862
 msgid "Options"
 msgstr "Opsi"
@@ -5823,7 +5823,7 @@ msgid "The row has been deleted"
 msgstr "Baris telah dihapus"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
-#: server_status.php:1281
+#: server_status.php:1277
 msgid "Kill"
 msgstr "Tutup"
 
@@ -5852,7 +5852,7 @@ msgstr "Operasi hasil kueri"
 msgid "Print view (with full texts)"
 msgstr "Tampilan cetak (teks lengkap)"
 
-#: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
+#: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
 msgid "Display chart"
 msgstr "Tampilkan bagan"
 
@@ -5912,7 +5912,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Penampungan Penyangga"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:656
+#: libraries/engines/innodb.lib.php:131 server_status.php:652
 msgid "InnoDB Status"
 msgstr "Status InnoDB"
 
@@ -6370,7 +6370,7 @@ msgstr "Tampilkan jenis MIME"
 #: libraries/replication_gui.lib.php:335 server_privileges.php:814
 #: server_privileges.php:817 server_privileges.php:873
 #: server_privileges.php:1703 server_privileges.php:2257
-#: server_status.php:1255
+#: server_status.php:1251
 msgid "Host"
 msgstr "Inang"
 
@@ -6577,7 +6577,7 @@ msgstr "Hasil SQL"
 msgid "Generated by"
 msgstr "Diciptakan oleh"
 
-#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
+#: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1266
 #: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
@@ -6766,7 +6766,7 @@ msgstr "Tambahkan prefiks tabel"
 msgid "Add prefix"
 msgstr "Tambahkan prefiks"
 
-#: libraries/mult_submits.inc.php:483 tbl_replace.php:358
+#: libraries/mult_submits.inc.php:483 tbl_replace.php:359
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -7094,14 +7094,14 @@ msgid "Slave status"
 msgstr "Status slave"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
-#: server_status.php:1492 server_variables.php:123
+#: server_status.php:1488 server_variables.php:123
 msgid "Variable"
 msgstr "Variabel"
 
 #: libraries/replication_gui.lib.php:119
-#: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
+#: libraries/rte/rte_routines.lib.php:1394 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1493 tbl_change.php:334
+#: pmd_general.php:769 server_status.php:1489 tbl_change.php:334
 #: tbl_zoom_select.php:443
 msgid "Value"
 msgstr "Nilai"
@@ -7157,124 +7157,125 @@ msgstr ""
 msgid "Generate Password"
 msgstr "Menghasilkan kata sandi"
 
-#: libraries/rte/rte_events.lib.php:102 libraries/rte/rte_events.lib.php:107
-#: libraries/rte/rte_events.lib.php:130 libraries/rte/rte_routines.lib.php:252
-#: libraries/rte/rte_routines.lib.php:257
-#: libraries/rte/rte_routines.lib.php:281
-#: libraries/rte/rte_routines.lib.php:1254
-#: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
-#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_events.lib.php:103 libraries/rte/rte_events.lib.php:112
+#: libraries/rte/rte_events.lib.php:144 libraries/rte/rte_routines.lib.php:253
+#: libraries/rte/rte_routines.lib.php:262
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:1273
+#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:85
+#: libraries/rte/rte_triggers.lib.php:117
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:116
+#: libraries/rte/rte_events.lib.php:125
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Maaf, kami gagal memulihkan event yang dihapus."
 
-#: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
-#: libraries/rte/rte_triggers.lib.php:90
+#: libraries/rte/rte_events.lib.php:128 libraries/rte/rte_routines.lib.php:278
+#: libraries/rte/rte_triggers.lib.php:101
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:121
+#: libraries/rte/rte_events.lib.php:134
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Event %1$s telah diubah."
 
-#: libraries/rte/rte_events.lib.php:133
+#: libraries/rte/rte_events.lib.php:150
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Event %1$s telah dibuat."
 
-#: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
-#: libraries/rte/rte_triggers.lib.php:118
+#: libraries/rte/rte_events.lib.php:158 libraries/rte/rte_routines.lib.php:309
+#: libraries/rte/rte_triggers.lib.php:131
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:185
+#: libraries/rte/rte_events.lib.php:202
 msgid "Edit event"
 msgstr "Edit event"
 
-#: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
-#: libraries/rte/rte_routines.lib.php:1276
-#: libraries/rte/rte_routines.lib.php:1312
-#: libraries/rte/rte_triggers.lib.php:191
+#: libraries/rte/rte_events.lib.php:229 libraries/rte/rte_routines.lib.php:387
+#: libraries/rte/rte_routines.lib.php:1299
+#: libraries/rte/rte_routines.lib.php:1335
+#: libraries/rte/rte_triggers.lib.php:204
 msgid "Error in processing request"
 msgstr "Galat sewaktu memproses permintaan."
 
-#: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
-#: libraries/rte/rte_triggers.lib.php:306
+#: libraries/rte/rte_events.lib.php:388 libraries/rte/rte_routines.lib.php:845
+#: libraries/rte/rte_triggers.lib.php:319
 msgid "Details"
 msgstr "Detail"
 
-#: libraries/rte/rte_events.lib.php:374
+#: libraries/rte/rte_events.lib.php:391
 msgid "Event name"
 msgstr "Nama event"
 
-#: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
+#: libraries/rte/rte_events.lib.php:412 server_binlog.php:182
 msgid "Event type"
 msgstr "Jenis event"
 
-#: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
+#: libraries/rte/rte_events.lib.php:433 libraries/rte/rte_routines.lib.php:866
 #, php-format
 msgid "Change to %s"
 msgstr "Ubah menjadi %s"
 
-#: libraries/rte/rte_events.lib.php:422
+#: libraries/rte/rte_events.lib.php:439
 msgid "Execute at"
 msgstr "Dieksekusi pada"
 
-#: libraries/rte/rte_events.lib.php:430
+#: libraries/rte/rte_events.lib.php:447
 msgid "Execute every"
 msgstr "Dieksekusi setiap"
 
-#: libraries/rte/rte_events.lib.php:449
+#: libraries/rte/rte_events.lib.php:466
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Mulai"
 
-#: libraries/rte/rte_events.lib.php:457
+#: libraries/rte/rte_events.lib.php:474
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Selesai"
 
-#: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
-#: libraries/rte/rte_triggers.lib.php:360
+#: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:940
+#: libraries/rte/rte_triggers.lib.php:373
 msgid "Definition"
 msgstr "Definisi"
 
-#: libraries/rte/rte_events.lib.php:471
+#: libraries/rte/rte_events.lib.php:488
 msgid "On completion preserve"
 msgstr "Sewaktu selesai pertahankan"
 
-#: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
-#: libraries/rte/rte_triggers.lib.php:366
+#: libraries/rte/rte_events.lib.php:492 libraries/rte/rte_routines.lib.php:950
+#: libraries/rte/rte_triggers.lib.php:379
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
-#: libraries/rte/rte_triggers.lib.php:404
+#: libraries/rte/rte_events.lib.php:535
+#: libraries/rte/rte_routines.lib.php:1014
+#: libraries/rte/rte_triggers.lib.php:417
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:525
+#: libraries/rte/rte_events.lib.php:542
 msgid "You must provide an event name"
 msgstr "Anda harus memasukkan nama event"
 
-#: libraries/rte/rte_events.lib.php:537
+#: libraries/rte/rte_events.lib.php:554
 msgid "You must provide a valid interval value for the event."
 msgstr "Anda harus memasukkan nilai interval yang valid untuk event."
 
-#: libraries/rte/rte_events.lib.php:549
+#: libraries/rte/rte_events.lib.php:566
 msgid "You must provide a valid execution time for the event."
 msgstr "Anda harus memasukkan waktu eksekusi yang valid untuk event."
 
-#: libraries/rte/rte_events.lib.php:553
+#: libraries/rte/rte_events.lib.php:570
 msgid "You must provide a valid type for the event."
 msgstr "Anda harus memasukkan jenis yang valid untuk event."
 
-#: libraries/rte/rte_events.lib.php:577
+#: libraries/rte/rte_events.lib.php:594
 msgid "You must provide an event definition."
 msgstr "Anda harus memasukkan definisi event."
 
@@ -7298,7 +7299,7 @@ msgstr "Status penjadwal event"
 msgid "Returns"
 msgstr "Hasil"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:346
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:359
 msgid "Event"
 msgstr "Event"
 
@@ -7310,88 +7311,88 @@ msgid ""
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:245
-#: libraries/rte/rte_routines.lib.php:1005
+#: libraries/rte/rte_routines.lib.php:1022
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Jenis routine invalid: \"%s\""
 
-#: libraries/rte/rte_routines.lib.php:266
+#: libraries/rte/rte_routines.lib.php:275
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Maaf, kami gagal memulihkan routine yang dihapus."
 
-#: libraries/rte/rte_routines.lib.php:271
+#: libraries/rte/rte_routines.lib.php:284
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Routine %1$s telah diubah."
 
-#: libraries/rte/rte_routines.lib.php:284
+#: libraries/rte/rte_routines.lib.php:301
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Routine %1$s telah dibuat."
 
-#: libraries/rte/rte_routines.lib.php:344
+#: libraries/rte/rte_routines.lib.php:361
 msgid "Edit routine"
 msgstr "Edit routine"
 
-#: libraries/rte/rte_routines.lib.php:831
+#: libraries/rte/rte_routines.lib.php:848
 msgid "Routine name"
 msgstr "Nama routine"
 
-#: libraries/rte/rte_routines.lib.php:854
+#: libraries/rte/rte_routines.lib.php:871
 msgid "Parameters"
 msgstr "Parameter"
 
-#: libraries/rte/rte_routines.lib.php:859
+#: libraries/rte/rte_routines.lib.php:876
 msgid "Direction"
 msgstr "Arah"
 
-#: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
+#: libraries/rte/rte_routines.lib.php:879 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
 msgstr "Panjang/Nilai"
 
-#: libraries/rte/rte_routines.lib.php:877
+#: libraries/rte/rte_routines.lib.php:894
 msgid "Add parameter"
 msgstr "Tambahkan parameter"
 
-#: libraries/rte/rte_routines.lib.php:881
+#: libraries/rte/rte_routines.lib.php:898
 msgid "Remove last parameter"
 msgstr "Hapus parameter terakhir"
 
-#: libraries/rte/rte_routines.lib.php:886
+#: libraries/rte/rte_routines.lib.php:903
 msgid "Return type"
 msgstr "Jenis hasil"
 
-#: libraries/rte/rte_routines.lib.php:892
+#: libraries/rte/rte_routines.lib.php:909
 msgid "Return length/values"
 msgstr "Panjang/nilai hasil"
 
-#: libraries/rte/rte_routines.lib.php:898
+#: libraries/rte/rte_routines.lib.php:915
 msgid "Return options"
 msgstr "Opsi hasil"
 
-#: libraries/rte/rte_routines.lib.php:929
+#: libraries/rte/rte_routines.lib.php:946
 msgid "Is deterministic"
 msgstr "Deterministik"
 
-#: libraries/rte/rte_routines.lib.php:938
+#: libraries/rte/rte_routines.lib.php:955
 msgid "Security type"
 msgstr "Jenis keamanan"
 
-#: libraries/rte/rte_routines.lib.php:945
+#: libraries/rte/rte_routines.lib.php:962
 msgid "SQL data access"
 msgstr "Akses data SQL"
 
-#: libraries/rte/rte_routines.lib.php:1010
+#: libraries/rte/rte_routines.lib.php:1027
 msgid "You must provide a routine name"
 msgstr "Anda harus memasukkan nama routine"
 
-#: libraries/rte/rte_routines.lib.php:1036
+#: libraries/rte/rte_routines.lib.php:1053
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/rte/rte_routines.lib.php:1048
-#: libraries/rte/rte_routines.lib.php:1086
+#: libraries/rte/rte_routines.lib.php:1065
+#: libraries/rte/rte_routines.lib.php:1103
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -7399,90 +7400,90 @@ msgstr ""
 "Anda harus memasukkan panjang/nilai untuk parameter routine bagi jenis ENUM, "
 "SET, VARCHAR, dan VARBINARY."
 
-#: libraries/rte/rte_routines.lib.php:1066
+#: libraries/rte/rte_routines.lib.php:1083
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Anda harus memasukkan nama dan jenis setiap parameter routine."
 
-#: libraries/rte/rte_routines.lib.php:1076
+#: libraries/rte/rte_routines.lib.php:1093
 msgid "You must provide a valid return type for the routine."
 msgstr "Anda harus memasukkan jenis hasil yang valid untuk routine."
 
-#: libraries/rte/rte_routines.lib.php:1120
+#: libraries/rte/rte_routines.lib.php:1137
 msgid "You must provide a routine definition."
 msgstr "Anda harus memasukkan definisi routine."
 
-#: libraries/rte/rte_routines.lib.php:1210
+#: libraries/rte/rte_routines.lib.php:1227
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] ""
 
-#: libraries/rte/rte_routines.lib.php:1226
+#: libraries/rte/rte_routines.lib.php:1243
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Hasil eksekusi routine %s"
 
-#: libraries/rte/rte_routines.lib.php:1300
-#: libraries/rte/rte_routines.lib.php:1306
+#: libraries/rte/rte_routines.lib.php:1323
+#: libraries/rte/rte_routines.lib.php:1329
 msgid "Execute routine"
 msgstr "Jalankan routine"
 
-#: libraries/rte/rte_routines.lib.php:1359
-#: libraries/rte/rte_routines.lib.php:1362
+#: libraries/rte/rte_routines.lib.php:1382
+#: libraries/rte/rte_routines.lib.php:1385
 msgid "Routine parameters"
 msgstr "Parameter routine"
 
-#: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
+#: libraries/rte/rte_routines.lib.php:1392 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
 msgid "Function"
 msgstr "Fungsi"
 
-#: libraries/rte/rte_triggers.lib.php:89
+#: libraries/rte/rte_triggers.lib.php:98
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Maaf, kami gagal memulihkan trigger yang dihapus."
 
-#: libraries/rte/rte_triggers.lib.php:94
+#: libraries/rte/rte_triggers.lib.php:107
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Trigger %1$s telah diubah."
 
-#: libraries/rte/rte_triggers.lib.php:110
+#: libraries/rte/rte_triggers.lib.php:123
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Tabel %1$s telah dibuat."
 
-#: libraries/rte/rte_triggers.lib.php:165
+#: libraries/rte/rte_triggers.lib.php:178
 msgid "Edit trigger"
 msgstr "Edit trigger"
 
-#: libraries/rte/rte_triggers.lib.php:309
+#: libraries/rte/rte_triggers.lib.php:322
 msgid "Trigger name"
 msgstr "Nama trigger"
 
-#: libraries/rte/rte_triggers.lib.php:332
+#: libraries/rte/rte_triggers.lib.php:345
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Waktu"
 
-#: libraries/rte/rte_triggers.lib.php:411
+#: libraries/rte/rte_triggers.lib.php:424
 msgid "You must provide a trigger name"
 msgstr "Anda harus memasukkan nama trigger"
 
-#: libraries/rte/rte_triggers.lib.php:416
+#: libraries/rte/rte_triggers.lib.php:429
 msgid "You must provide a valid timing for the trigger"
 msgstr "Anda harus memasukkan waktu yang valid untuk trigger."
 
-#: libraries/rte/rte_triggers.lib.php:421
+#: libraries/rte/rte_triggers.lib.php:434
 msgid "You must provide a valid event for the trigger"
 msgstr "Anda harus memasukkan event yang valid untuk trigger."
 
-#: libraries/rte/rte_triggers.lib.php:427
+#: libraries/rte/rte_triggers.lib.php:440
 msgid "You must provide a valid table name"
 msgstr "Anda harus memberikan nama tabel yang valid"
 
-#: libraries/rte/rte_triggers.lib.php:433
+#: libraries/rte/rte_triggers.lib.php:446
 msgid "You must provide a trigger definition."
 msgstr "Anda harus memasukkan definisi trigger."
 
@@ -7732,12 +7733,12 @@ msgid "Synchronize"
 msgstr "Sinkronisasi"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
-#: server_status.php:601
+#: server_status.php:597
 msgid "Binary log"
 msgstr "Log biner"
 
 #: libraries/server_links.inc.php:95 server_engines.php:121
-#: server_engines.php:125 server_status.php:654
+#: server_engines.php:125 server_status.php:650
 msgid "Variables"
 msgstr "Variabel"
 
@@ -8220,7 +8221,7 @@ msgstr "Versi protokol"
 
 #: main.php:179 server_privileges.php:1547 server_privileges.php:1702
 #: server_privileges.php:1826 server_privileges.php:2256
-#: server_status.php:1254
+#: server_status.php:1250
 msgid "User"
 msgstr "Pengguna"
 
@@ -8634,17 +8635,17 @@ msgstr "Berkas tidak ditemukan"
 msgid "Select binary log to view"
 msgstr "Pilih log biner untuk ditampilkan"
 
-#: server_binlog.php:103 server_status.php:610
+#: server_binlog.php:103 server_status.php:606
 msgid "Files"
 msgstr "Berkas"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1265
-#: server_status.php:1267
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1261
+#: server_status.php:1263
 msgid "Truncate Shown Queries"
 msgstr "Potongkan pencarian yang ditampilkan"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1265
-#: server_status.php:1267
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1261
+#: server_status.php:1263
 msgid "Show Full Queries"
 msgstr "Tampilkan pencarian yang lengkap"
 
@@ -9209,7 +9210,7 @@ msgstr "Server master berhasil diubah menjadi %s"
 msgid "This server is configured as master in a replication process."
 msgstr "Server ini dikonfigurasikan sebagai master dalam proses replikasi."
 
-#: server_replication.php:182 server_status.php:631
+#: server_replication.php:182 server_status.php:627
 msgid "Show master status"
 msgstr "Tampilkan status master"
 
@@ -9349,12 +9350,12 @@ msgstr ""
 "Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. "
 "Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
 
-#: server_status.php:464
+#: server_status.php:460
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Sukses hentikan Thread %s."
 
-#: server_status.php:466
+#: server_status.php:462
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -9362,143 +9363,143 @@ msgstr ""
 "phpMyAdmin gagal menutup Thread %s. Kemungkinan Thread tersebut sudah "
 "ditutup terlebih dahulu"
 
-#: server_status.php:598
+#: server_status.php:594
 msgid "Handler"
 msgstr "Handler"
 
-#: server_status.php:599
+#: server_status.php:595
 msgid "Query cache"
 msgstr "Singgahan kueri"
 
-#: server_status.php:600
+#: server_status.php:596
 msgid "Threads"
 msgstr "Thread"
 
-#: server_status.php:602
+#: server_status.php:598
 msgid "Temporary data"
 msgstr "Data temporer"
 
-#: server_status.php:603
+#: server_status.php:599
 msgid "Delayed inserts"
 msgstr "Penambahan tunda"
 
-#: server_status.php:604
+#: server_status.php:600
 msgid "Key cache"
 msgstr "Singgahan kunci"
 
-#: server_status.php:605
+#: server_status.php:601
 msgid "Joins"
 msgstr "Join"
 
-#: server_status.php:607
+#: server_status.php:603
 msgid "Sorting"
 msgstr "Pengurutan"
 
-#: server_status.php:609
+#: server_status.php:605
 msgid "Transaction coordinator"
 msgstr "Koordinator transaksi"
 
-#: server_status.php:621
+#: server_status.php:617
 msgid "Flush (close) all tables"
 msgstr "Bersihkan (tutup) semua tabel"
 
-#: server_status.php:623
+#: server_status.php:619
 msgid "Show open tables"
 msgstr "Tampilkan tabel terbuka"
 
-#: server_status.php:628
+#: server_status.php:624
 msgid "Show slave hosts"
 msgstr "Tampilkan inang slave"
 
-#: server_status.php:634
+#: server_status.php:630
 msgid "Show slave status"
 msgstr "Tampilka status slave"
 
-#: server_status.php:639
+#: server_status.php:635
 msgid "Flush query cache"
 msgstr "Bersihkan singgahan kueri"
 
-#: server_status.php:788
+#: server_status.php:784
 msgid "Runtime Information"
 msgstr "Informasi Waktu Eksekusi"
 
-#: server_status.php:795
+#: server_status.php:791
 msgid "All status variables"
 msgstr "Semua variabel status"
 
-#: server_status.php:796
+#: server_status.php:792
 msgid "Monitor"
 msgstr "Pemantauan"
 
-#: server_status.php:797
+#: server_status.php:793
 msgid "Advisor"
 msgstr "Penasihat"
 
-#: server_status.php:807 server_status.php:833
+#: server_status.php:803 server_status.php:829
 #, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
 msgstr "Jumlah baris:"
 
-#: server_status.php:811 server_status.php:837
+#: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
 msgstr "Laju penyegaran: "
 
-#: server_status.php:856 server_variables.php:115
+#: server_status.php:852 server_variables.php:115
 #, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "Filter"
 
-#: server_status.php:858 server_variables.php:117
+#: server_status.php:854 server_variables.php:117
 msgid "Containing the word:"
 msgstr "Mengandung kata:"
 
-#: server_status.php:863
+#: server_status.php:859
 msgid "Show only alert values"
 msgstr "Tampilkan hanya nilai peringatan"
 
-#: server_status.php:867
+#: server_status.php:863
 msgid "Filter by category..."
 msgstr "Filter menurut kategori..."
 
-#: server_status.php:881
+#: server_status.php:877
 msgid "Show unformatted values"
 msgstr "Tampilkan nilai tanpa format"
 
-#: server_status.php:885
+#: server_status.php:881
 msgid "Related links:"
 msgstr "Tautan terkait:"
 
-#: server_status.php:918
+#: server_status.php:914
 msgid "Run analyzer"
 msgstr "Jalankan penganalisis"
 
-#: server_status.php:919
+#: server_status.php:915
 msgid "Instructions"
 msgstr "Instruksi"
 
-#: server_status.php:926
+#: server_status.php:922
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
 
-#: server_status.php:928
+#: server_status.php:924
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
 
-#: server_status.php:930
+#: server_status.php:926
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
 
-#: server_status.php:932
+#: server_status.php:928
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9506,32 +9507,32 @@ msgid ""
 msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:954
+#: server_status.php:950
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Perintah sejak awal: %s"
 
-#: server_status.php:990
+#: server_status.php:986
 msgid "Statements"
 msgstr "Keterangan"
 
 #. l10n: # = Amount of queries
-#: server_status.php:993
+#: server_status.php:989
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1066
+#: server_status.php:1062
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Lalu lintas jaringan sejak awal: %sw"
 
-#: server_status.php:1075
+#: server_status.php:1071
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr ""
 "Server MySQL ini telah berjalan selama %1$s. Server ini dijalankan pada %2$s."
 
-#: server_status.php:1086
+#: server_status.php:1082
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -9539,63 +9540,63 @@ msgstr ""
 "Server MySQL ini berfungsi sebagai <b>master</b> dan <b>slave</b> dalam "
 "proses <b>replication</b>."
 
-#: server_status.php:1088
+#: server_status.php:1084
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Server MySQL ini berfungsi sebagai <b>master</b> dalam proses "
 "<b>replication</b>."
 
-#: server_status.php:1090
+#: server_status.php:1086
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Server MySQL ini berfungsi sebagai <b>slave</b> dalam proses <b>replication</"
 "b>."
 
-#: server_status.php:1093
+#: server_status.php:1089
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 
-#: server_status.php:1102
+#: server_status.php:1098
 msgid "Replication status"
 msgstr "Status replikasi"
 
-#: server_status.php:1117
+#: server_status.php:1113
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: server_status.php:1123
+#: server_status.php:1119
 msgid "Received"
 msgstr "Penerimaan"
 
-#: server_status.php:1133
+#: server_status.php:1129
 msgid "Sent"
 msgstr "Pengiriman"
 
-#: server_status.php:1169
+#: server_status.php:1165
 msgid "max. concurrent connections"
 msgstr "Koneksi konkuren maks."
 
-#: server_status.php:1176
+#: server_status.php:1172
 msgid "Failed attempts"
 msgstr "Gagal"
 
-#: server_status.php:1190
+#: server_status.php:1186
 msgid "Aborted"
 msgstr "Pengguguran"
 
-#: server_status.php:1253
+#: server_status.php:1249
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1257
+#: server_status.php:1253
 msgid "Command"
 msgstr "Perintah"
 
-#: server_status.php:1319
+#: server_status.php:1315
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -9603,11 +9604,11 @@ msgstr ""
 "Jumlah koneksi yang digugurkan karena klien terputus tanpa menutup koneksi "
 "dengan baik."
 
-#: server_status.php:1320
+#: server_status.php:1316
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Jumlah upaya koneksi ke server MySQL yang gagal."
 
-#: server_status.php:1321
+#: server_status.php:1317
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9617,16 +9618,16 @@ msgstr ""
 "melebihi nilai binlog_cache_size dan menggunakan berkas temporer untuk "
 "menyimpan perintah dari transaksi."
 
-#: server_status.php:1322
+#: server_status.php:1318
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Jumlah transaksi yang menggunakan singgahan log biner temporer."
 
-#: server_status.php:1323
+#: server_status.php:1319
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Jumlah upaya koneksi ke server MySQL (baik berhasil maupun tidak)."
 
-#: server_status.php:1324
+#: server_status.php:1320
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -9638,11 +9639,11 @@ msgstr ""
 "mungkin perlu meningkatkan nilai tmp_table_size agar tabel temporer disimpan "
 "di yang berbasis memori daripada yang berbasis diska."
 
-#: server_status.php:1325
+#: server_status.php:1321
 msgid "How many temporary files mysqld has created."
 msgstr "Jumlah berkas temporer yang telah dibuat mysqld."
 
-#: server_status.php:1326
+#: server_status.php:1322
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -9650,7 +9651,7 @@ msgstr ""
 "Jumlah tabel temporer dalam-memori yang dibuat otomatis oleh server sewaktu "
 "mengeksekusi perintah."
 
-#: server_status.php:1327
+#: server_status.php:1323
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -9658,7 +9659,7 @@ msgstr ""
 "Jumlah baris yang ditulis oleh INSERT DELAYED yang menyebabkan beberapa "
 "galat (kemungkinan karena kunci duplikat)."
 
-#: server_status.php:1328
+#: server_status.php:1324
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -9666,30 +9667,30 @@ msgstr ""
 "Jumlah thread handler INSERT DELAYED yang dipakai. Setiap tabel berbeda yang "
 "menggunakan INSERT DELAYED mendapat satu thread sendiri."
 
-#: server_status.php:1329
+#: server_status.php:1325
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Jumlah baris INSERT DELAYED yang ditulis."
 
-#: server_status.php:1330
+#: server_status.php:1326
 msgid "The number of executed FLUSH statements."
 msgstr "Jumlah perintah FLUSH yang dieksekusi."
 
-#: server_status.php:1331
+#: server_status.php:1327
 msgid "The number of internal COMMIT statements."
 msgstr "Jumlah perintah COMMIT internal."
 
-#: server_status.php:1332
+#: server_status.php:1328
 msgid "The number of times a row was deleted from a table."
 msgstr "Berapa kali suatu baris dihapus dari suatu tabel."
 
-#: server_status.php:1333
+#: server_status.php:1329
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 
-#: server_status.php:1334
+#: server_status.php:1330
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -9699,7 +9700,7 @@ msgstr ""
 "bahwa server melakukan banyak pemindaian indeks lengkap; sebagai contoh, "
 "SELECT col1 FROM foo, dengan asumsi bahwa col1 diindeks."
 
-#: server_status.php:1335
+#: server_status.php:1331
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -9708,7 +9709,7 @@ msgstr ""
 "tinggi merupakan indikasi bagus bahwa kueri dan tabel Anda diindeks dengan "
 "baik."
 
-#: server_status.php:1336
+#: server_status.php:1332
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -9718,7 +9719,7 @@ msgstr ""
 "bertambah jika Anda melakukan kueri terhadap kolom indeks dengan suatu "
 "rentang batasan atau jika Anda melakukan pemindaian indeks."
 
-#: server_status.php:1337
+#: server_status.php:1333
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -9726,7 +9727,7 @@ msgstr ""
 "Jumlah permintaan membaca baris sebelumnya dalam urutan kunci. Metode baca "
 "ini terutama digunakan untuk mengoptimalkan ORDER BY ... DESC."
 
-#: server_status.php:1338
+#: server_status.php:1334
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -9738,7 +9739,7 @@ msgstr ""
 "Anda mungkin memiliki banyak kueri yang mengharuskan MySQL memindai seluruh "
 "tabel atau Anda memiliki join yang tidak menggunakan kunci dengan baik."
 
-#: server_status.php:1339
+#: server_status.php:1335
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -9750,42 +9751,42 @@ msgstr ""
 "bahwa tabel Anda tidak diindeks dengan baik atau bahwa kueri Anda tidak "
 "ditulis dengan memanfaatkan indeks yang Anda miliki."
 
-#: server_status.php:1340
+#: server_status.php:1336
 msgid "The number of internal ROLLBACK statements."
 msgstr "Jumlah perintah ROLLBACK internal."
 
-#: server_status.php:1341
+#: server_status.php:1337
 msgid "The number of requests to update a row in a table."
 msgstr "Jumlah permintaan untuk memperbarui baris dalam tabel."
 
-#: server_status.php:1342
+#: server_status.php:1338
 msgid "The number of requests to insert a row in a table."
 msgstr "Jumlah permintaan untuk menambah baris dalam tabel."
 
-#: server_status.php:1343
+#: server_status.php:1339
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Jumlah halaman yang mengandung data (kotor atau bersih)."
 
-#: server_status.php:1344
+#: server_status.php:1340
 msgid "The number of pages currently dirty."
 msgstr "Jumlah halaman kotor saat ini."
 
-#: server_status.php:1345
+#: server_status.php:1341
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
-#: server_status.php:1346
+#: server_status.php:1342
 msgid "The number of free pages."
 msgstr "Jumlah halaman bebas."
 
-#: server_status.php:1347
+#: server_status.php:1343
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
 
-#: server_status.php:1348
+#: server_status.php:1344
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -9793,33 +9794,33 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 
-#: server_status.php:1349
+#: server_status.php:1345
 msgid "Total size of buffer pool, in pages."
 msgstr ""
 
-#: server_status.php:1350
+#: server_status.php:1346
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
 
-#: server_status.php:1351
+#: server_status.php:1347
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 
-#: server_status.php:1352
+#: server_status.php:1348
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 
-#: server_status.php:1353
+#: server_status.php:1349
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 
-#: server_status.php:1354
+#: server_status.php:1350
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -9828,227 +9829,227 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 
-#: server_status.php:1355
+#: server_status.php:1351
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr ""
 
-#: server_status.php:1356
+#: server_status.php:1352
 msgid "The number of fsync() operations so far."
 msgstr ""
 
-#: server_status.php:1357
+#: server_status.php:1353
 msgid "The current number of pending fsync() operations."
 msgstr "Jumlah operasi fsync() tunda saat ini."
 
-#: server_status.php:1358
+#: server_status.php:1354
 msgid "The current number of pending reads."
 msgstr "Jumlah baca tunda saat ini."
 
-#: server_status.php:1359
+#: server_status.php:1355
 msgid "The current number of pending writes."
 msgstr "Jumlah tulis tunda saat ini."
 
-#: server_status.php:1360
+#: server_status.php:1356
 msgid "The amount of data read so far, in bytes."
 msgstr "Jumlah data yang dibaca sampai saat ini, dalam bita."
 
-#: server_status.php:1361
+#: server_status.php:1357
 msgid "The total number of data reads."
 msgstr "Jumlah total baca data."
 
-#: server_status.php:1362
+#: server_status.php:1358
 msgid "The total number of data writes."
 msgstr "Jumlah total tulis data."
 
-#: server_status.php:1363
+#: server_status.php:1359
 msgid "The amount of data written so far, in bytes."
 msgstr ""
 
-#: server_status.php:1364
+#: server_status.php:1360
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 
-#: server_status.php:1365
+#: server_status.php:1361
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 
-#: server_status.php:1366
+#: server_status.php:1362
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 
-#: server_status.php:1367
+#: server_status.php:1363
 msgid "The number of log write requests."
 msgstr ""
 
-#: server_status.php:1368
+#: server_status.php:1364
 msgid "The number of physical writes to the log file."
 msgstr ""
 
-#: server_status.php:1369
+#: server_status.php:1365
 msgid "The number of fsync() writes done to the log file."
 msgstr ""
 
-#: server_status.php:1370
+#: server_status.php:1366
 msgid "The number of pending log file fsyncs."
 msgstr ""
 
-#: server_status.php:1371
+#: server_status.php:1367
 msgid "Pending log file writes."
 msgstr ""
 
-#: server_status.php:1372
+#: server_status.php:1368
 msgid "The number of bytes written to the log file."
 msgstr ""
 
-#: server_status.php:1373
+#: server_status.php:1369
 msgid "The number of pages created."
 msgstr ""
 
-#: server_status.php:1374
+#: server_status.php:1370
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
-#: server_status.php:1375
+#: server_status.php:1371
 msgid "The number of pages read."
 msgstr "Jumlah halaman yang dibaca."
 
-#: server_status.php:1376
+#: server_status.php:1372
 msgid "The number of pages written."
 msgstr "Jumlah halaman yang ditulis."
 
-#: server_status.php:1377
+#: server_status.php:1373
 msgid "The number of row locks currently being waited for."
 msgstr ""
 
-#: server_status.php:1378
+#: server_status.php:1374
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: server_status.php:1379
+#: server_status.php:1375
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 
-#: server_status.php:1380
+#: server_status.php:1376
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: server_status.php:1381
+#: server_status.php:1377
 msgid "The number of times a row lock had to be waited for."
 msgstr ""
 
-#: server_status.php:1382
+#: server_status.php:1378
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Jumlah baris yang dihapus dari tabel InnoDB."
 
-#: server_status.php:1383
+#: server_status.php:1379
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Jumlah baris yang ditambahkan pada tabel InnoDB."
 
-#: server_status.php:1384
+#: server_status.php:1380
 msgid "The number of rows read from InnoDB tables."
 msgstr "Jumlah baris yang dibaca dari tabel InnoDB."
 
-#: server_status.php:1385
+#: server_status.php:1381
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Jumlah baris yang diperbarui pada tabel InnoDB."
 
-#: server_status.php:1386
+#: server_status.php:1382
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 
-#: server_status.php:1387
+#: server_status.php:1383
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
 
-#: server_status.php:1388
+#: server_status.php:1384
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
 
-#: server_status.php:1389
+#: server_status.php:1385
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 
-#: server_status.php:1390
+#: server_status.php:1386
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 
-#: server_status.php:1391
+#: server_status.php:1387
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 
-#: server_status.php:1392
+#: server_status.php:1388
 msgid "The number of physical writes of a key block to disk."
 msgstr ""
 
-#: server_status.php:1393
+#: server_status.php:1389
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
 
-#: server_status.php:1394
+#: server_status.php:1390
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:1395
+#: server_status.php:1391
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 
-#: server_status.php:1396
+#: server_status.php:1392
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
 
-#: server_status.php:1397
+#: server_status.php:1393
 msgid "The number of files that are open."
 msgstr ""
 
-#: server_status.php:1398
+#: server_status.php:1394
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
-#: server_status.php:1399
+#: server_status.php:1395
 msgid "The number of tables that are open."
 msgstr ""
 
-#: server_status.php:1400
+#: server_status.php:1396
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:1401
+#: server_status.php:1397
 msgid "The amount of free memory for query cache."
 msgstr ""
 
-#: server_status.php:1402
+#: server_status.php:1398
 msgid "The number of cache hits."
 msgstr ""
 
-#: server_status.php:1403
+#: server_status.php:1399
 msgid "The number of queries added to the cache."
 msgstr ""
 
-#: server_status.php:1404
+#: server_status.php:1400
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10056,99 +10057,99 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 
-#: server_status.php:1405
+#: server_status.php:1401
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
 
-#: server_status.php:1406
+#: server_status.php:1402
 msgid "The number of queries registered in the cache."
 msgstr ""
 
-#: server_status.php:1407
+#: server_status.php:1403
 msgid "The total number of blocks in the query cache."
 msgstr ""
 
-#: server_status.php:1408
+#: server_status.php:1404
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: server_status.php:1409
+#: server_status.php:1405
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
 
-#: server_status.php:1410
+#: server_status.php:1406
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 
-#: server_status.php:1411
+#: server_status.php:1407
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 
-#: server_status.php:1412
+#: server_status.php:1408
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
 
-#: server_status.php:1413
+#: server_status.php:1409
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 
-#: server_status.php:1414
+#: server_status.php:1410
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 
-#: server_status.php:1415
+#: server_status.php:1411
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
 
-#: server_status.php:1416
+#: server_status.php:1412
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 
-#: server_status.php:1417
+#: server_status.php:1413
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 
-#: server_status.php:1418
+#: server_status.php:1414
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 
-#: server_status.php:1419
+#: server_status.php:1415
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: server_status.php:1420
+#: server_status.php:1416
 msgid "The number of sorts that were done with ranges."
 msgstr ""
 
-#: server_status.php:1421
+#: server_status.php:1417
 msgid "The number of sorted rows."
 msgstr ""
 
-#: server_status.php:1422
+#: server_status.php:1418
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 
-#: server_status.php:1423
+#: server_status.php:1419
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
 
-#: server_status.php:1424
+#: server_status.php:1420
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10156,18 +10157,18 @@ msgid ""
 "tables or use replication."
 msgstr ""
 
-#: server_status.php:1425
+#: server_status.php:1421
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
 
-#: server_status.php:1426
+#: server_status.php:1422
 msgid "The number of currently open connections."
 msgstr ""
 
-#: server_status.php:1427
+#: server_status.php:1423
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10175,57 +10176,57 @@ msgid ""
 "implementation.)"
 msgstr ""
 
-#: server_status.php:1428
+#: server_status.php:1424
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
-#: server_status.php:1574
+#: server_status.php:1570
 msgid "Start Monitor"
 msgstr "Jalankan Pemantauan"
 
-#: server_status.php:1583
+#: server_status.php:1579
 msgid "Instructions/Setup"
 msgstr "Petunjuk/Penyiapan"
 
-#: server_status.php:1588
+#: server_status.php:1584
 msgid "Done rearranging/editing charts"
 msgstr "Selesai mengatur ulang/mengedit bagan"
 
-#: server_status.php:1595 server_status.php:1666
+#: server_status.php:1591 server_status.php:1662
 msgid "Add chart"
 msgstr "Tambahkan bagan"
 
-#: server_status.php:1597
+#: server_status.php:1593
 msgid "Rearrange/edit charts"
 msgstr "Atur ulang/edit bagan"
 
-#: server_status.php:1601
+#: server_status.php:1597
 msgid "Refresh rate"
 msgstr "Laju penyegaran"
 
-#: server_status.php:1606
+#: server_status.php:1602
 msgid "Chart columns"
 msgstr "Kolom bagan"
 
-#: server_status.php:1622
+#: server_status.php:1618
 msgid "Chart arrangement"
 msgstr "Pengaturan bagan"
 
-#: server_status.php:1622
+#: server_status.php:1618
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1623
+#: server_status.php:1619
 msgid "Reset to default"
 msgstr "Kembalikan nilai bawaan"
 
-#: server_status.php:1627
+#: server_status.php:1623
 msgid "Monitor Instructions"
 msgstr "Instruksi Pemantauan"
 
-#: server_status.php:1628
+#: server_status.php:1624
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10234,7 +10235,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1633
+#: server_status.php:1629
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10242,18 +10243,18 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1646
+#: server_status.php:1642
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status.php:1648
+#: server_status.php:1644
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1650
+#: server_status.php:1646
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10261,11 +10262,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1657
+#: server_status.php:1653
 msgid "Please note:"
 msgstr "Harap catat:"
 
-#: server_status.php:1659
+#: server_status.php:1655
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10273,85 +10274,85 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1671
+#: server_status.php:1667
 msgid "Preset chart"
 msgstr "Bagan bawaan"
 
-#: server_status.php:1675
+#: server_status.php:1671
 msgid "Status variable(s)"
 msgstr "Variabel status"
 
-#: server_status.php:1677
+#: server_status.php:1673
 msgid "Select series:"
 msgstr "Pilih seri:"
 
-#: server_status.php:1679
+#: server_status.php:1675
 msgid "Commonly monitored"
 msgstr "Biasa dipantau"
 
-#: server_status.php:1694
+#: server_status.php:1690
 msgid "or type variable name:"
 msgstr "atau masukkan nama variabel:"
 
-#: server_status.php:1698
+#: server_status.php:1694
 msgid "Display as differential value"
 msgstr "Tampilkan sebagai nilai diferensial"
 
-#: server_status.php:1700
+#: server_status.php:1696
 msgid "Apply a divisor"
 msgstr "Terapkan pemisah"
 
-#: server_status.php:1707
+#: server_status.php:1703
 msgid "Append unit to data values"
 msgstr "Sertakan satuan kepada nilai data"
 
-#: server_status.php:1713
+#: server_status.php:1709
 msgid "Add this series"
 msgstr "Tambahkan seri ini"
 
-#: server_status.php:1715
+#: server_status.php:1711
 msgid "Clear series"
 msgstr "Bersihkan seri"
 
-#: server_status.php:1718
+#: server_status.php:1714
 msgid "Series in Chart:"
 msgstr "Seri pada Bagan:"
 
-#: server_status.php:1731
+#: server_status.php:1727
 msgid "Log statistics"
 msgstr "Statistik log"
 
-#: server_status.php:1732
+#: server_status.php:1728
 msgid "Selected time range:"
 msgstr "Rentang waktu pilihan:"
 
-#: server_status.php:1737
+#: server_status.php:1733
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Hanya sertakan perintah SELECT, INSERT, UPDATE, dan DELETE"
 
-#: server_status.php:1742
+#: server_status.php:1738
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1747
+#: server_status.php:1743
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1749
+#: server_status.php:1745
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1754
+#: server_status.php:1750
 msgid "Query analyzer"
 msgstr "Penganalisis kueri"
 
-#: server_status.php:1794 server_status.php:1811
+#: server_status.php:1790 server_status.php:1807
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d detik"
 
-#: server_status.php:1796
+#: server_status.php:1792
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -10777,7 +10778,7 @@ msgstr "Menjelajahi nilai luar"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
-#: sql.php:702 tbl_replace.php:414
+#: sql.php:702 tbl_replace.php:415
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -10786,7 +10787,7 @@ msgstr "Nomor baris baru: %1$d"
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: sql.php:722 tbl_replace.php:388
+#: sql.php:722 tbl_replace.php:389
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
@@ -10868,74 +10869,74 @@ msgstr ""
 msgid "Continue insertion with %s rows"
 msgstr "Lanjutkan penambahan untuk %s baris"
 
-#: tbl_chart.php:89
+#: tbl_chart.php:95
 #, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Batang"
 
-#: tbl_chart.php:91
+#: tbl_chart.php:97
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolom"
 
-#: tbl_chart.php:93
+#: tbl_chart.php:99
 #, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Garis"
 
-#: tbl_chart.php:95
+#: tbl_chart.php:101
 #, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
-#: tbl_chart.php:97
+#: tbl_chart.php:103
 #, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Pai"
 
-#: tbl_chart.php:100
+#: tbl_chart.php:106
 msgid "Stacked"
 msgstr "Bertumpuk"
 
-#: tbl_chart.php:103
+#: tbl_chart.php:109
 msgid "Chart title"
 msgstr "Judul bagan"
 
-#: tbl_chart.php:109
+#: tbl_chart.php:115
 msgid "X-Axis:"
 msgstr "Sumbu-X"
 
-#: tbl_chart.php:124
+#: tbl_chart.php:130
 msgid "Series:"
 msgstr "Seri:"
 
-#: tbl_chart.php:126
+#: tbl_chart.php:132
 msgid "The remaining columns"
 msgstr "Kolom sisa"
 
-#: tbl_chart.php:139
+#: tbl_chart.php:145
 msgid "X-Axis label:"
 msgstr "Label Sumbu-X"
 
-#: tbl_chart.php:141
+#: tbl_chart.php:147
 msgid "X Values"
 msgstr "Nilai X"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:148
 msgid "Y-Axis label:"
 msgstr "Label Sumbu-Y"
 
-#: tbl_chart.php:143
+#: tbl_chart.php:149
 msgid "Y Values"
 msgstr "Nilai Y"
 
