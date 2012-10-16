@@ -218,7 +218,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
         <div class="formelementrow">
             <input type="checkbox" name="allow_interrupt" value="yes"
                    id="checkbox_allow_interrupt" <?php echo PMA_pluginCheckboxCheck('Import', 'allow_interrupt'); ?>/>
-            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be good way to import large files, however it can break transactions.)</i>'); ?></label><br />
+            <label for="checkbox_allow_interrupt"><?php echo __('Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <i>(This might be a good way to import large files, however it can break transactions.)</i>'); ?></label><br />
         </div>
 
         <?php
