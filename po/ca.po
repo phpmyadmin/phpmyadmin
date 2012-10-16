@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-09-05 10:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
-">\n"
+"PO-Revision-Date: 2012-10-16 17:17+0200\n"
+"Last-Translator: Salvador Torrens Raich <salvadortorrensraich@gmail.com>\n"
+"Language-Team: Catalan "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,16 +291,16 @@ msgid "The database name is empty!"
 msgstr "El nom de la base de dades és buit!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Base de dades %s reanomenada a %s"
+msgstr "S'ha renombrat la base de dades %1$s a %2$s"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "La base de dades %s s'ha copiat a %s"
+msgstr "S'ha copiat la base de dades %1$s a %2$s"
 
 #: db_operations.php:259
 #, php-format
