@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the PropertyItem class */
-require_once "libraries/properties/PropertyItem.class.php";
+require_once 'libraries/properties/PropertyItem.class.php';
 
 /**
  * Superclass for

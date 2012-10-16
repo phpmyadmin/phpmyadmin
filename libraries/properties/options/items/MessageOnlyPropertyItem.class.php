@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the OptionsPropertyOneItem class */
-require_once "libraries/properties/options/OptionsPropertyOneItem.class.php";
+require_once 'libraries/properties/options/OptionsPropertyOneItem.class.php';
 
 /**
  * Single property item class of type messageOnly

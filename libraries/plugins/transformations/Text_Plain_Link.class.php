@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the link transformations interface */
-require_once "abstract/TextLinkTransformationsPlugin.class.php";
+require_once 'abstract/TextLinkTransformationsPlugin.class.php';
 
 /**
  * Handles the link transformation for text plain

@@ -20,7 +20,7 @@ if (!function_exists('libxml_disable_entity_loader')) {
 }
 
 /* Get the import interface */
-require_once "libraries/plugins/ImportPlugin.class.php";
+require_once 'libraries/plugins/ImportPlugin.class.php';
 
 /**
  * Handles the import for the XML format

@@ -19,7 +19,7 @@ $cfgRelation = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Index.class.php';
-require_once "libraries/schema/Export_Relation_Schema.class.php";
+require_once 'libraries/schema/Export_Relation_Schema.class.php';
 
 /**
  * get all the export options and verify
@@ -62,5 +62,5 @@ if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {
         __('File doesn\'t exist')
     );
 }
-require "libraries/schema/".$path."_Relation_Schema.class.php";
+require "libraries/schema/".$path.'_Relation_Schema.class.php';
 $obj_schema = eval("new PMA_".$path."_Relation_Schema();");

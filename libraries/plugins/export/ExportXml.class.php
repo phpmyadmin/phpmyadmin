@@ -14,7 +14,7 @@ if (! strlen($GLOBALS['db'])) { /* Can't do server export */
 }
 
 /* Get the export interface */
-require_once "libraries/plugins/ExportPlugin.class.php";
+require_once 'libraries/plugins/ExportPlugin.class.php';
 
 /**
  * Handles the export for the XML class

@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the hex transformations interface */
-require_once "abstract/HexTransformationsPlugin.class.php";
+require_once 'abstract/HexTransformationsPlugin.class.php';
 
 /**
  * Handles the hex transformation for application octetstream

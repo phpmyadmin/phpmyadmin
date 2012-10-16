@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the sql transformations interface */
-require_once "abstract/SQLTransformationsPlugin.class.php";
+require_once 'abstract/SQLTransformationsPlugin.class.php';
 
 /**
  * Handles the sql transformation for text plain

@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 /* Get the download transformations interface */
-require_once "abstract/DownloadTransformationsPlugin.class.php";
+require_once 'abstract/DownloadTransformationsPlugin.class.php';
 
 /**
  * Handles the download transformation for application octetstream

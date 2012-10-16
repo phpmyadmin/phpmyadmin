@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the transformations interface */
-require_once "libraries/plugins/TransformationsPlugin.class.php";
+require_once 'libraries/plugins/TransformationsPlugin.class.php';
 /* For PMA_transformation_global_html_replace */
 require_once 'libraries/transformations.lib.php';
 

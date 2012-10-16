@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the transformations interface */
-require_once "libraries/plugins/TransformationsPlugin.class.php";
+require_once 'libraries/plugins/TransformationsPlugin.class.php';
 
 /**
  * Provides common methods for all of the long to IPv4 transformations plugins.

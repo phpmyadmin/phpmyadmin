@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the formatted transformations interface */
-require_once "abstract/FormattedTransformationsPlugin.class.php";
+require_once 'abstract/FormattedTransformationsPlugin.class.php';
 
 /**
  * Handles the formatted transformation for text plain

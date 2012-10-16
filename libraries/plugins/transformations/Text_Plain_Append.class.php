@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the append transformations interface */
-require_once "abstract/AppendTransformationsPlugin.class.php";
+require_once 'abstract/AppendTransformationsPlugin.class.php';
 
 /**
  * Handles the append transformation for text plain.

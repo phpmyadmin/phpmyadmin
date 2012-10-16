@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the inline transformations interface */
-require_once "abstract/InlineTransformationsPlugin.class.php";
+require_once 'abstract/InlineTransformationsPlugin.class.php';
 
 /**
  * Handles the inline transformation for image png

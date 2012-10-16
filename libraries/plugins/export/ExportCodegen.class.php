@@ -11,9 +11,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the export interface */
-require_once "libraries/plugins/ExportPlugin.class.php";
+require_once 'libraries/plugins/ExportPlugin.class.php';
 /* Get the table property class */
-require_once "libraries/plugins/export/TableProperty.class.php";
+require_once 'libraries/plugins/export/TableProperty.class.php';
 
 /**
  * Handles the export for the CodeGen class

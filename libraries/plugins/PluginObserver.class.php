@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Each PluginObserver instance contains a PluginManager instance */
-require_once "PluginManager.class.php";
+require_once 'PluginManager.class.php';
 
 /**
  * This class implements the SplObserver interface

@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the authentication interface */
-require_once "libraries/plugins/AuthenticationPlugin.class.php";
+require_once 'libraries/plugins/AuthenticationPlugin.class.php';
 
 /**
  * Handles the HTTP authentication methods

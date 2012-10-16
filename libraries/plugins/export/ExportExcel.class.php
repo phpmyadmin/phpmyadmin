@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Extend the export CSV class */
-require_once "libraries/plugins/export/ExportCsv.class.php";
+require_once 'libraries/plugins/export/ExportCsv.class.php';
 
 /**
  * Handles the export for the CSV-Excel format

@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the external transformations interface */
-require_once "abstract/ExternalTransformationsPlugin.class.php";
+require_once 'abstract/ExternalTransformationsPlugin.class.php';
 
 /**
  * Handles the external transformation for text plain

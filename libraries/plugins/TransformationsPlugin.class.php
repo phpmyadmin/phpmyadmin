@@ -10,9 +10,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* It extends the PluginObserver abstract class */
-require_once "PluginObserver.class.php";
+require_once 'PluginObserver.class.php';
 /* It also implements the transformations interface */
-require_once "TransformationsInterface.int.php";
+require_once 'TransformationsInterface.int.php';
 
 /**
  * Extends PluginObserver and provides a common interface that will have to

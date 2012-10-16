@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the PluginObserver class */
-require_once "PluginObserver.class.php";
+require_once 'PluginObserver.class.php';
 
 /**
  * Provides a common interface that will have to be implemented by all of the

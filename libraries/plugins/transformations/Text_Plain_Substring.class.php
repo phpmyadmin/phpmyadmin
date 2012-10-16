@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the substring transformations interface */
-require_once "abstract/SubstringTransformationsPlugin.class.php";
+require_once 'abstract/SubstringTransformationsPlugin.class.php';
 
 /**
  * Handles the substring transformation for text plain

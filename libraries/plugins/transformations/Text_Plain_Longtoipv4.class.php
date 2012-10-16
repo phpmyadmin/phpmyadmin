@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the long to ipv4 transformations interface */
-require_once "abstract/LongToIPv4TransformationsPlugin.class.php";
+require_once 'abstract/LongToIPv4TransformationsPlugin.class.php';
 
 /**
  * Handles the long to ipv4 transformation for text plain

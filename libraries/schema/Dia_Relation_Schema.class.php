@@ -8,7 +8,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once "Export_Relation_Schema.class.php";
+require_once 'Export_Relation_Schema.class.php';
 
 /**
  * This Class inherits the XMLwriter class and

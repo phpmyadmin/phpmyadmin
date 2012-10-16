@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once "libraries/plugins/ImportPlugin.class.php";
+require_once 'libraries/plugins/ImportPlugin.class.php';
 
 /**
  * Handles the import for the CSV format

@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the OptionsPropertyItem class */
-require_once "OptionsPropertyItem.class.php";
+require_once 'OptionsPropertyItem.class.php';
 
 /**
  * Parents group property items and provides methods to manage groups of

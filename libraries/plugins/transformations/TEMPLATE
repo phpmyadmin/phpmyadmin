@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the [TransformationName] transformations interface */
-require_once "abstract/[TransformationName]TransformationsPlugin.class.php";
+require_once 'abstract/[TransformationName]TransformationsPlugin.class.php';
 
 /**
  * Handles the [TransformationName] transformation for [MIMEType] - [MIMESubtype]

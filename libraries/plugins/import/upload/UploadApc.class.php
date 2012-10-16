@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the transformations interface */
-require_once "libraries/plugins/UploadInterface.int.php";
+require_once 'libraries/plugins/UploadInterface.int.php';
 
 /**
  * Implementation for the APC extension

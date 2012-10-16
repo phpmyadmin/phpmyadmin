@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the link transformations interface */
-require_once "abstract/ImageLinkTransformationsPlugin.class.php";
+require_once 'abstract/ImageLinkTransformationsPlugin.class.php';
 
 /**
  * Handles the link transformation for image jpeg

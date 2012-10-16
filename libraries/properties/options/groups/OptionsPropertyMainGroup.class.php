@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the OptionsPropertyGroup class */
-require_once "libraries/properties/options/OptionsPropertyGroup.class.php";
+require_once 'libraries/properties/options/OptionsPropertyGroup.class.php';
 
 /**
  * Group property item class of type main

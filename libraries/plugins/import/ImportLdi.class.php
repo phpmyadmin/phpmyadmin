@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once "libraries/plugins/ImportPlugin.class.php";
+require_once 'libraries/plugins/ImportPlugin.class.php';
 
 // We need relations enabled and we work only on database
 if ($GLOBALS['plugin_param'] !== 'table') {

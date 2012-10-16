@@ -16,11 +16,11 @@ if (PMA_DRIZZLE) {
 }
 
 /* Get the import interface*/
-require_once "libraries/plugins/ImportPlugin.class.php";
+require_once 'libraries/plugins/ImportPlugin.class.php';
 /* Get the ShapeFile class */
-require_once "libraries/bfShapeFiles/ShapeFile.lib.php";
-require_once "libraries/plugins/import/ShapeFile.class.php";
-require_once "libraries/plugins/import/ShapeRecord.class.php";
+require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
+require_once 'libraries/plugins/import/ShapeFile.class.php';
+require_once 'libraries/plugins/import/ShapeRecord.class.php';
 
 /**
  * Handles the import for ESRI Shape files

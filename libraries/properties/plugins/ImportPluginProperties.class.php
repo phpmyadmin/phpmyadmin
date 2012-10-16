@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the PluginPropertyItem class */
-require_once "PluginPropertyItem.class.php";
+require_once 'PluginPropertyItem.class.php';
 
 /**
  * Defines possible options and getters and setters for them.

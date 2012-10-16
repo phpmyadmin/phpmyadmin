@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the date format transformations interface */
-require_once "abstract/DateFormatTransformationsPlugin.class.php";
+require_once 'abstract/DateFormatTransformationsPlugin.class.php';
 
 /**
  * Handles the date format transformation for text plain

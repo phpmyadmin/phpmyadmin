@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the export interface */
-require_once "libraries/plugins/ExportPlugin.class.php";
+require_once 'libraries/plugins/ExportPlugin.class.php';
 
 /**
  * Handles the export for the JSON format

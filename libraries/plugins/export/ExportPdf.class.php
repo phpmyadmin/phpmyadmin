@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the export interface */
-require_once "libraries/plugins/ExportPlugin.class.php";
+require_once 'libraries/plugins/ExportPlugin.class.php';
 /* Get the PMA_ExportPdf class */
 require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
 
