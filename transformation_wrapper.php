@@ -101,7 +101,7 @@ if (! isset($resize)) {
     ImageCopyResampled($destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
 
     if ($resize == 'jpeg') {
-        ImageJPEG($destImage, '', 75);
+        ImageJPEG($destImage, NULL, 75);
     }
     if ($resize == 'png') {
         ImagePNG($destImage);
