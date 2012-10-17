@@ -731,8 +731,10 @@ function setQuery(query)
 {
     if (codemirror_editor) {
         codemirror_editor.setValue(query);
+        codemirror_editor.focus();
     } else {
         document.sqlform.sql_query.value = query;
+        document.sqlform.sql_query.focus();
     }
 }
 
