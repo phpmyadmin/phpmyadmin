@@ -25,7 +25,7 @@ $multi_values .= ' onclick="setSelectOptions(\'dump\', \'db_select[]\', true); r
 $multi_values .= __('Select All');
 $multi_values .= '</a>';
 $multi_values .= ' / ';
-$multi_values .= '<a href="#"'
+$multi_values .= '<a href="#"';
 $multi_values .= ' onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">';
 $multi_values .= __('Unselect All') . '</a><br />';
 

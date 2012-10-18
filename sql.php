@@ -370,7 +370,7 @@ if (isset($store_bkm)) {
     $result = PMA_Bookmark_save(
         $fields,
         (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false)
-    )
+    );
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
         if ($result) {
@@ -1247,7 +1247,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . '&amp;id_bookmark=1';
 
         echo '<form action="sql.php" method="post"'
-            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');"';
+            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');"'
             . ' id="bookmarkQueryForm">';
         echo PMA_generate_common_hidden_inputs();
         echo '<input type="hidden" name="goto" value="' . $goto . '" />';
@@ -1280,7 +1280,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '</fieldset>';
         echo '<fieldset class="tblFooters">';
         echo '<input type="hidden" name="store_bkm" value="1" />';
-        echo '<input type="submit"';
+        echo '<input type="submit"'
             . ' value="' . __('Bookmark this SQL query') . '" />';
         echo '</fieldset>';
         echo '</form>';
