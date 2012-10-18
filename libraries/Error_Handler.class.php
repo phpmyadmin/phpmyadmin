@@ -50,7 +50,7 @@ class PMA_Error_Handler
      */
     public function __destruct()
     {
-        if (isset($_SESSION)) {
+        if (!defined('TESTSUITE') && isset($_SESSION)) {
             if (! isset($_SESSION['errors'])) {
                 $_SESSION['errors'] = array();
             }
