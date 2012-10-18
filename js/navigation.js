@@ -350,6 +350,7 @@ function PMA_navigationTreePagination($this)
  * @var ScrollHandler Custom object that manages the scrolling of the navigation
  */
 var ScrollHandler = {
+    busy: false,
     /**
      * Limits the percentage of scrolling within sane values
      *
@@ -433,6 +434,9 @@ var ScrollHandler = {
         this.displayScrollbar();
         $(window).bind('resize', this.displayScrollbar);
         this.elms.$handle.live('drag', function (event, drag) {
+            if (ScrollHandler.busy) {
+                return;
+            }
             var elms = ScrollHandler.elms;
             var scrollbarOffset = elms.$scrollbar.offset().top;
             var pos = drag.offsetY - scrollbarOffset;
@@ -440,6 +444,10 @@ var ScrollHandler = {
             value = ScrollHandler.sanitize(pos / height);
             ScrollHandler.setScrollbar(value);
             ScrollHandler.setContent(value);
+            ScrollHandler.busy = true;
+            setTimeout(function () {
+                ScrollHandler.busy = false;
+            }, 4);
         });
         this.elms.$scrollbar.live('click', function (event) {
             if($(event.target).attr('id') === $(this).attr('id')) {
@@ -560,13 +568,14 @@ var ResizeHandler = function () {
      */
     this.getPos = function (event) {
         var pos = event.pageX;
+        var windowWidth = $(window).width();
         if (this.left != 'left') {
-            pos = $(window).width() - event.pageX;
+            pos = windowWidth - event.pageX;
         }
         if (pos < 0) {
             pos = 0;
-        } else if (pos + 100 >= $(window).width()) {
-            pos = $(window).width() - 100;
+        } else if (pos + 100 >= windowWidth) {
+            pos = windowWidth - 100;
         } else {
             this.goto = 0;
         }
