@@ -792,7 +792,8 @@ function PMA_setDbComment($db, $comment = '')
  */
 function PMA_setHistory($db, $table, $username, $sqlquery)
 {
-    if (strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+    // Prevent to run this automatically on Footer class destroying in testsuite
+    if (defined('TESTSUITE') || strlen($sqlquery) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
         return;
     }
 
@@ -1150,7 +1151,7 @@ function PMA_getRelatives($all_tables, $master)
 {
     $fromclause = '';
     $emerg = '';
-    
+
     // The list of tables that we still couldn't connect
     $remaining_tables = $all_tables;
     unset($remaining_tables[$master]);
