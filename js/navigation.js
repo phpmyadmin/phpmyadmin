@@ -480,9 +480,19 @@ var ScrollHandler = {
  */
 var ResizeHandler = function () {
     /**
-     * Whether we are busy
+     * Whether the user has initiated a resize operation
      */
     this.active = false;
+    /**
+     * Whether we are busy rendering
+     */
+    this.busy = false;
+    /**
+     * A position to which we were supposed to resize,
+     * but we couldn't because we were busy handling
+     * another resize operation
+     */
+    this.saved = undefined;
     /**
      * @var int goto Used by the collapser to know where to go
      *               back to when uncollapsing the panel
@@ -500,13 +510,15 @@ var ResizeHandler = function () {
      * @return void
      */
     this.setWidth = function (pos) {
-        var resizer_width = $('#pma_navigation_resizer').width();
+        this.busy = true;
+        var $resizer = $('#pma_navigation_resizer');
+        var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $("#floating_menubar")
             .css('margin-' + this.left, (pos + resizer_width) + 'px');
-        $('#pma_navigation_resizer').css(this.left, pos + 'px');
+        $resizer.css(this.left, pos + 'px');
         if (pos === 0) {
             $collapser
                 .css(this.left, pos + resizer_width)
@@ -520,13 +532,23 @@ var ResizeHandler = function () {
                 .prop('title', PMA_messages['strHidePanel']);
             $('#serverinfo').css('padding-' + this.left, '0.9em');
         }
-
         $('#pma_navigation_scrollbar').css(
             this.left,
             (pos - $('#pma_navigation_scrollbar').width()) + 'px'
         );
 
-        menuResize();
+        // Remove busy flag asynchronously, this way the event queue
+        // can clear up meanwhile. This speeds up rendering
+        var self = this;
+        setTimeout(function () {
+            if (typeof self.saved == 'undefined') {
+                self.busy = false;
+            } else {
+                var target = self.saved;
+                self.saved = undefined;
+                self.setWidth(target);
+            }
+        }, 40);
     };
     /**
      * Returns the horizontal position of the mouse,
@@ -596,6 +618,7 @@ var ResizeHandler = function () {
             event.data.this.active = false;
             $('body').css('cursor', '');
             $.cookie('pma_navi_width', event.data.this.getPos(event));
+            menuResize();
         }
     };
     /**
@@ -609,8 +632,11 @@ var ResizeHandler = function () {
         if (event.data.this.active) {
             event.preventDefault();
             var pos = event.data.this.getPos(event);
-            event.data.this.setWidth(pos);
-            menuResize();
+            if (! event.data.this.busy) {
+                event.data.this.setWidth(pos);
+            } else {
+                event.data.this.saved = pos;
+            }
         }
     };
     /**
