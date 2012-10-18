@@ -1,0 +1,10 @@
+language: php
+php:
+  - "5.4"
+  - "5.3"
+before_script: ./scripts/generate-mo --quiet
+script: phpunit --configuration phpunit.xml.nocoverage
+notifications:
+  email:
+    recipients:
+      phpmyadmin-devel@lists.sourceforge.net
