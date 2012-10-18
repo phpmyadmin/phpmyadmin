@@ -110,7 +110,7 @@ class Advisor
      *
      * @return string
      */
-    function escapePercent($str)
+    static function escapePercent($str)
     {
         return preg_replace('/%( |,|\.|$|\(|\)|<|>)/', '%%\1', $str);
     }
