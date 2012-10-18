@@ -755,7 +755,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
         . 'id="field_' . ($idindex) . '_3" '
         . 'value="' . htmlspecialchars($data) . '" />';
 
-    $html_output .= '<a class="hide foreign_values_anchor" target="_blank" '
+    $html_output .= '<a class="foreign_values_anchor" target="_blank" '
         . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,'
         . 'scrollbars=yes,resizable=yes\'); return false;" '
         . 'href="browse_foreigners.php?'
@@ -1833,7 +1833,7 @@ function PMA_setSessionForEditNext($one_where_clause)
 /**
  * set $goto_include variable for different cases and retrieve like,
  * if $GLOBALS['goto'] empty, if $goto_include previously not defined
- * and new_insert, same_insert, edit_next 
+ * and new_insert, same_insert, edit_next
  *
  * @param string $goto_include store some script for include, otherwise it is
  *                             boolean false
@@ -2081,7 +2081,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
 }
 
 /**
- * Transform edited values 
+ * Transform edited values
  *
  * @param string $db             db name
  * @param string $table          table name
