@@ -50,12 +50,12 @@ class PMA_Error_Handler
      */
     public function __destruct()
     {
-        if (!defined('TESTSUITE') && isset($_SESSION)) {
+        if (isset($_SESSION)) {
             if (! isset($_SESSION['errors'])) {
                 $_SESSION['errors'] = array();
             }
 
-            if ($GLOBALS['cfg']['Error_Handler']['gather']) {
+            if (isset($GLOBALS['cfg']['Error_Handler']) && $GLOBALS['cfg']['Error_Handler']['gather']) {
                 // remember all errors
                 $_SESSION['errors'] = array_merge(
                     $_SESSION['errors'],
