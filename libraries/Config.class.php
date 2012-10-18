@@ -1344,6 +1344,12 @@ class PMA_Config
      */
     function removeCookie($cookie)
     {
+        if (defined('TESTSUITE')) {
+            if (isset($_COOKIE[$cookie])) {
+                unset($_COOKIE[$cookie]);
+            }
+            return true;
+        }
         return setcookie(
             $cookie,
             '',
@@ -1368,9 +1374,6 @@ class PMA_Config
      */
     function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
     {
-        if (defined('TESTSUITE')) {
-            return true;
-        }
         if ($validity == null) {
             $validity = 2592000;
         }
@@ -1395,6 +1398,10 @@ class PMA_Config
                 $v = 0;
             } else {
                 $v = time() + $validity;
+            }
+            if (defined('TESTSUITE')) {
+                $_COOKIE[$cookie] = $value;
+                return true;
             }
             return setcookie(
                 $cookie,
