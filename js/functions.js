@@ -145,6 +145,7 @@ function PMA_current_version(data)
  */
 function PMA_display_git_revision()
 {
+    $('#is_git_revision').remove();
     $.get("index.php?token="
         + $("input[type=hidden][name=token]").val()
         + "&git_revision=1&ajax_request=true", function (data) {
