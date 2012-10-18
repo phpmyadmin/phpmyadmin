@@ -1368,6 +1368,9 @@ class PMA_Config
      */
     function setCookie($cookie, $value, $default = null, $validity = null, $httponly = true)
     {
+        if (!defined('TESTSUITE')) {
+            return true;
+        }
         if ($validity == null) {
             $validity = 2592000;
         }
