@@ -540,4 +540,13 @@ function PMA_DBI_field_flags($result, $i)
     return mysql_field_flags($result, $i);
 }
 
+/**
+ * Store the result returned from multi query
+ *
+ * @return false
+ */
+function PMA_DBI_store_result()
+{
+    return false;
+}
 ?>

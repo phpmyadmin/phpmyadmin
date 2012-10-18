@@ -654,4 +654,14 @@ function PMA_DBI_field_flags($result, $i)
     return trim($flags);
 }
 
+/**
+ * Store the result returned from multi query
+ *
+ * @return false
+ */
+function PMA_DBI_store_result()
+{
+    return false;
+}
+
 ?>
