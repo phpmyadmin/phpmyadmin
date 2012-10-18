@@ -29,7 +29,7 @@ class Node_Table extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = $this->_commonFunctions->getImage('b_browse.png');
+        $this->icon  = PMA_Util::getImage('b_browse.png');
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
@@ -58,38 +58,38 @@ class Node_Table extends Node
         switch ($type) {
         case 'columns':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db'";
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $table  = $this->_commonFunctions->backquote($table);
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
                 $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
         case 'indexes':
-            $db     = $this->_commonFunctions->backquote($db);
-            $table  = $this->_commonFunctions->backquote($table);
+            $db     = PMA_Util::backquote($db);
+            $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
             $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
             break;
         case 'triggers':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
                 $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
@@ -120,8 +120,8 @@ class Node_Table extends Node
         switch ($type) {
         case 'columns':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT `COLUMN_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
@@ -130,8 +130,8 @@ class Node_Table extends Node
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $table  = $this->_commonFunctions->backquote($table);
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
@@ -147,8 +147,8 @@ class Node_Table extends Node
             }
             break;
         case 'indexes':
-            $db     = $this->_commonFunctions->backquote($db);
-            $table  = $this->_commonFunctions->backquote($table);
+            $db     = PMA_Util::backquote($db);
+            $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
             $handle = PMA_DBI_try_query($query);
             if ($handle !== false) {
@@ -166,8 +166,8 @@ class Node_Table extends Node
             break;
         case 'triggers':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::sqlAddSlashes($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SELECT `TRIGGER_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
@@ -176,8 +176,8 @@ class Node_Table extends Node
                 $query .= "LIMIT $pos, $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $table  = $this->_commonFunctions->sqlAddSlashes($table);
+                $db     = PMA_Util::backquote($db);
+                $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
@@ -207,16 +207,16 @@ class Node_Table extends Node
     public function getComment()
     {
         $db    = $this->realParent()->real_name;
-        $table = $this->_commonFunctions->sqlAddSlashes($this->real_name);
+        $table = PMA_Util::sqlAddSlashes($this->real_name);
         if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $db     = $this->_commonFunctions->sqlAddSlashes($db);
+            $db     = PMA_Util::sqlAddSlashes($db);
             $query  = "SELECT `TABLE_COMMENT` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
             $query .= "AND `TABLE_NAME`='$table' ";
             $retval = PMA_DBI_fetch_value($query);
         } else {
-            $db     = $this->_commonFunctions->backquote($db);
+            $db     = PMA_Util::backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";
             $query .= "WHERE Name = '$table'";
             $arr = PMA_DBI_fetch_assoc(PMA_DBI_try_query($query));

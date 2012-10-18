@@ -113,11 +113,6 @@ class Node
     public $pos3 = 0;
 
     /**
-     * @var object A reference to the common functions object
-     */
-    protected $_commonFunctions;
-
-    /**
      * Initialises the class by setting the mandatory variables
      *
      * @param string $name     An identifier for the new node
@@ -129,7 +124,6 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        $this->_commonFunctions = PMA_commonFunctions::getInstance();
         if (! empty($name)) {
             $this->name      = $name;
             $this->real_name = $name;
@@ -369,7 +363,7 @@ class Node
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
         if (! empty($searchClause)) {
             $query .= "WHERE `SCHEMA_NAME` LIKE '%";
-            $query .= $this->_commonFunctions->sqlAddSlashes(
+            $query .= PMA_Util::sqlAddSlashes(
                 $searchClause, true
             );
             $query .= "%' ";
@@ -407,7 +401,7 @@ class Node
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
             if (! empty($searchClause)) {
                 $query .= "WHERE `SCHEMA_NAME` LIKE '%";
-                $query .= $this->_commonFunctions->sqlAddSlashes(
+                $query .= PMA_Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%' ";
@@ -417,7 +411,7 @@ class Node
             $query = "SHOW DATABASES ";
             if (! empty($searchClause)) {
                 $query .= "LIKE '%";
-                $query .= $this->_commonFunctions->sqlAddSlashes(
+                $query .= PMA_Util::sqlAddSlashes(
                     $searchClause, true
                 );
                 $query .= "%' ";

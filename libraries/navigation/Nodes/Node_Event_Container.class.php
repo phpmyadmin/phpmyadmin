@@ -24,7 +24,7 @@ class Node_Event_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
-        $this->icon  = $this->_commonFunctions->getImage('b_events.png', '');
+        $this->icon  = PMA_Util::getImage('b_events.png', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
@@ -35,7 +35,7 @@ class Node_Event_Container extends Node
 
         $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
-        $new->icon  = $this->_commonFunctions->getImage('b_event_add.png', '');
+        $new->icon  = PMA_Util::getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']

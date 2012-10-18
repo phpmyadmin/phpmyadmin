@@ -29,7 +29,7 @@ class Node_Function extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = $this->_commonFunctions->getImage('b_routines.png');
+        $this->icon  = PMA_Util::getImage('b_routines.png');
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
@@ -49,10 +49,10 @@ class Node_Function extends Node
      */
     public function getComment()
     {
-        $db      = $this->_commonFunctions->sqlAddSlashes(
+        $db      = PMA_Util::sqlAddSlashes(
             $this->realParent()->real_name
         );
-        $routine = $this->_commonFunctions->sqlAddSlashes(
+        $routine = PMA_Util::sqlAddSlashes(
             $this->real_name
         );
         $query  = "SELECT `ROUTINE_COMMENT` ";

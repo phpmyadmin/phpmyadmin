@@ -17,7 +17,6 @@ if (! defined('PHPMYADMIN')) {
  */
 class PMA_NavigationHeader
 {
-    private $_commonFunctions;
     /**
      * Renders the navigation
      *
@@ -25,8 +24,6 @@ class PMA_NavigationHeader
      */
     public function getDisplay()
     {
-        $this->_commonFunctions = PMA_CommonFunctions::getInstance();
-
         if (empty($GLOBALS['url_query'])) {
             $GLOBALS['url_query'] = PMA_generate_common_url();
         }
@@ -56,7 +53,7 @@ class PMA_NavigationHeader
         $buffer .= $this->_links();
         $buffer .= $this->_serverChoice();
         $buffer .= $this->_recent();
-        $buffer .= $this->_commonFunctions->getImage(
+        $buffer .= PMA_Util::getImage(
             'ajax_clock_small.gif',
             __('Loading'),
             array('style' => 'visibility: hidden;', 'class' => 'throbber')
@@ -150,7 +147,7 @@ class PMA_NavigationHeader
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
-            $retval .= $this->_commonFunctions->getImage(
+            $retval .= PMA_Util::getImage(
                 $icon,
                 $text
             );
@@ -226,7 +223,7 @@ class PMA_NavigationHeader
             'documentation'
         );
         if ($showIcon) {
-            $retval .= $this->_commonFunctions->showMySQLDocu('', '', true);
+            $retval .= PMA_Util::showMySQLDocu('', '', true);
         }
         if ($showText) {
             // PMA_showMySQLDocu always spits out an icon,
@@ -234,7 +231,7 @@ class PMA_NavigationHeader
             $link = preg_replace(
                 '/<img[^>]+>/i',
                 __('Documentation'),
-                $this->_commonFunctions->showMySQLDocu('', '', true)
+                PMA_Util::showMySQLDocu('', '', true)
             );
             $retval .= $link;
             $retval .= '<br />';

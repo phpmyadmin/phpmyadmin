@@ -82,19 +82,12 @@ class PMA_NavigationTree
     private $_searchClause2 = '';
 
     /**
-     * @var object A reference to the common functions object
-     */
-    private $_commonFunctions;
-
-    /**
      * Initialises the class
      *
      * @return void
      */
     public function __construct()
     {
-        $this->_commonFunctions = PMA_commonFunctions::getInstance();
-
         // Save the position at which we are in the database list
         if (isset($_REQUEST['pos'])) {
             $this->_pos = (int) $_REQUEST['pos'];
@@ -172,7 +165,7 @@ class PMA_NavigationTree
                     $query,
                     (int)$GLOBALS['cfg']['MaxNavigationItems'],
                     (int)$GLOBALS['cfg']['MaxNavigationItems'],
-                    PMA_CommonFunctions::getInstance()->sqlAddSlashes($GLOBALS['db'])
+                    PMA_Util::sqlAddSlashes($GLOBALS['db'])
                 )
             );
         }
@@ -584,7 +577,7 @@ class PMA_NavigationTree
                     $groups[$key]->separator_depth = $node->separator_depth - 1;
                     $groups[$key]->icon = '';
                     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                        $groups[$key]->icon = $this->_commonFunctions->getImage(
+                        $groups[$key]->icon = PMA_Util::getImage(
                             'b_group.png'
                         );
                     }
@@ -815,7 +808,7 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-                $icon  = $this->_commonFunctions->getImage('b_plus.png');
+                $icon  = PMA_Util::getImage('b_plus.png');
                 $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
@@ -828,7 +821,7 @@ class PMA_NavigationTree
                     if ($match) {
                         $loaded = ' loaded';
                         if (! $node->is_group) {
-                            $icon = $this->_commonFunctions->getImage(
+                            $icon = PMA_Util::getImage(
                                 'b_minus.png'
                             );
                         }
@@ -846,7 +839,7 @@ class PMA_NavigationTree
                     }
                     if ($match) {
                         $loaded = ' loaded';
-                        $icon  = $this->_commonFunctions->getImage('b_minus.png');
+                        $icon  = PMA_Util::getImage('b_minus.png');
                         break;
                     }
                 }
@@ -1075,7 +1068,7 @@ class PMA_NavigationTree
     {
         $retval = '';
         if ($node === $this->_tree) {
-             $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
+             $retval .= PMA_Util::getListNavigator(
                 $this->_tree->getPresence('databases', $this->_searchClause),
                 $this->_pos,
                 array('server' => $GLOBALS['server']),
@@ -1107,7 +1100,7 @@ class PMA_NavigationTree
                 $node->real_name,
                 $this->_searchClause2
             );
-            $retval .= $this->_commonFunctions->getListNavigator(
+            $retval .= PMA_Util::getListNavigator(
                 $num,
                 $pos,
                 $_url_params,

@@ -24,7 +24,7 @@ class Node_Index_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Indexes'), Node::CONTAINER);
-        $this->icon  = $this->_commonFunctions->getImage('b_index.png', '');
+        $this->icon  = PMA_Util::getImage('b_index.png', '');
         $this->links = array(
             'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
@@ -37,7 +37,7 @@ class Node_Index_Container extends Node
 
         $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
-        $new->icon  = $this->_commonFunctions->getImage('b_index_add.png', '');
+        $new->icon  = PMA_Util::getImage('b_index_add.png', '');
         $new->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                     . '&amp;create_index=1&amp;added_fields=2'

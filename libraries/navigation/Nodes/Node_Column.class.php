@@ -29,7 +29,7 @@ class Node_Column extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = $this->_commonFunctions->getImage('pause.png', '');
+        $this->icon  = PMA_Util::getImage('pause.png', '');
         $this->links = array(
             'text' => 'tbl_alter.php?server=' . $GLOBALS['server']
                     . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
@@ -48,13 +48,13 @@ class Node_Column extends Node
      */
     public function getComment()
     {
-        $db     = $this->_commonFunctions->sqlAddSlashes(
+        $db     = PMA_Util::sqlAddSlashes(
             $this->realParent()->realParent()->real_name
         );
-        $table  = $this->_commonFunctions->sqlAddSlashes(
+        $table  = PMA_Util::sqlAddSlashes(
             $this->realParent()->real_name
         );
-        $column = $this->_commonFunctions->sqlAddSlashes(
+        $column = PMA_Util::sqlAddSlashes(
             $this->real_name
         );
         $query  = "SELECT `COLUMN_COMMENT` ";

@@ -101,10 +101,6 @@ class PMA_Header
      * @var bool
      */
     private $_headerIsSent;
-    /**
-     * @var object A reference to the common functions object
-     */
-    private $_commonFunctions;
 
     /**
      * Creates a new class instance
@@ -113,7 +109,6 @@ class PMA_Header
      */
     public function __construct()
     {
-        $this->_commonFunctions = PMA_commonFunctions::getInstance();
         $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
@@ -207,10 +202,10 @@ class PMA_Header
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
-            'pma_text_default_tab' => $this->_commonFunctions->getTitleForTarget(
+            'pma_text_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabTable']
             ),
-            'pma_text_left_default_tab' => $this->_commonFunctions->getTitleForTarget(
+            'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             )
         );

@@ -24,7 +24,7 @@ class Node_View_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Views'), Node::CONTAINER);
-        $this->icon  = $this->_commonFunctions->getImage('b_views.png', '');
+        $this->icon  = PMA_Util::getImage('b_views.png', '');
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
@@ -35,7 +35,7 @@ class Node_View_Container extends Node
 
         $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
-        $new->icon  = $this->_commonFunctions->getImage('b_view_add.png', '');
+        $new->icon  = PMA_Util::getImage('b_view_add.png', '');
         $new->links = array(
             'text' => 'view_create.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token'],
