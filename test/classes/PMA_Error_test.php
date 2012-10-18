@@ -98,7 +98,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     public function testGetBacktraceDisplay()
     {
         $this->assertContains(
-            'PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />',
+            'PHPUnit_Framework_TestResult->run(object)<br />',
             $this->object->getBacktraceDisplay()
         );
     }
