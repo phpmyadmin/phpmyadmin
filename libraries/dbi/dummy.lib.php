@@ -214,11 +214,11 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(),
     ),
     array(
-        'query' => 'RENAME TABLE `table1`.`pma_test` TO `table1`.`table3`;',
+        'query' => 'RENAME TABLE `pma_test`.`table1` TO `pma_test`.`table3`;',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= \'table1\' AND EVENT_OBJECT_TABLE = \'pma_test\';',
+        'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= \'pma_test\' AND EVENT_OBJECT_TABLE = \'table1\';',
         'result' => array(),
     ),
 

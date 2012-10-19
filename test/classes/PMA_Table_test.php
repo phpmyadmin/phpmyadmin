@@ -54,7 +54,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testCreate()
     {
-        $table = new PMA_Table('pma_test', 'table1');
+        $table = new PMA_Table('table1', 'pma_test');
         $this->assertInstanceOf('PMA_Table', $table);
     }
 
@@ -65,9 +65,23 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      */
     public function testRename()
     {
-        $table = new PMA_Table('pma_test', 'table1');
+        $table = new PMA_Table('table1', 'pma_test');
         $table->rename('table3');
         $this->assertEquals('table3', $table->getName());
+    }
+
+    /**
+     * Test getting columns
+     *
+     * @return void
+     */
+    public function testColumns()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $this->assertEquals(
+            array('`pma_test`.`table1`.`i`', '`pma_test`.`table1`.`o`'),
+            $table->getColumns()
+        );
     }
 }
 
