@@ -1129,7 +1129,7 @@ class PMA_Table
      *
      * @return boolean whether the string is valid or not
      */
-    function isValidName($table_name)
+    static function isValidName($table_name)
     {
         if ($table_name !== trim($table_name)) {
             // trailing spaces
