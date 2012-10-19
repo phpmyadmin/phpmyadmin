@@ -97,5 +97,38 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $table->getUniqueColumns()
         );
     }
+
+    /**
+     * Test name validation
+     *
+     * @param string  $name   name to test
+     * @param boolena $result expected result
+     *
+     * @return void
+     *
+     * @dataProvider dataValidateName
+     */
+    public function testValidateName($name, $result)
+    {
+        $this->assertEquals(
+            $result,
+            PMA_Table::isValidName($name)
+        );
+    }
+
+    /**
+     * Data provider for name validation
+     *
+     * @return array with test data
+     */
+    public function dataValidateName()
+    {
+        return array(
+            array('test', True),
+            array('te/st', False),
+            array('te.st', False),
+            array('te\\st', False),
+        );
+    }
 }
 
