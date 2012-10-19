@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-10-01 13:26+0200\n"
-"Last-Translator: Sergio Martins <inove@live.com.pt>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2012-10-19 02:21+0200\n"
+"Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"A janela alvo do navegador não pode ser atualizada. Talvez você tenha "
+"A janela alvo do navegador não pôde ser atualizada. Talvez você tenha "
 "fechado a janela principal ou as opções de segurança do seu navegador estão "
 "configuradas para bloquear a comunicação entre janelas."
 
@@ -609,7 +609,6 @@ msgid "Output"
 msgstr "Saída"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -617,11 +616,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Selecione \"GeomFromText\" no campo \"Function\" e cole a string abaixo no "
+"Selecione \"GeomFromText\" da coluna \"Function\" e cole a string abaixo no "
 "campo \"Value\""
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -630,7 +629,7 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
-"na %sdocumentation%s para burlar esses limites."
+"na %sdocumentation%s para resolver esse problema."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -1616,7 +1615,7 @@ msgstr "Para ampliar, selecione um trecho do gráfico com o mouse."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr "Clique no botão resetar zoom para voltar ao estado original"
+msgstr "Clique no botão resetar zoom para voltar ao estado original."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1745,8 +1744,8 @@ msgstr "Copiar nome coluna"
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
-"Clique com o botão direito do mouse para copiar\n"
-"Right-click the column name to copy it to your clipboard."
+"Clique com o botão direito do mouse no nome da coluna para copiá-la para a "
+"área de transferência."
 
 #: js/messages.php:360
 msgid "Show data row(s)"
@@ -2044,7 +2043,7 @@ msgstr "Segundo"
 #: libraries/Advisor.class.php:77
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr "PHP apresentou o seguinte erro: %s"
+msgstr "PHP achou o erros a seguir: %s"
 
 #: libraries/Advisor.class.php:104
 #, php-format
@@ -2062,12 +2061,11 @@ msgid "Failed running test for rule '%s'"
 msgstr ""
 
 #: libraries/Advisor.class.php:222
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Falha ao formatar linha pela regra, '%s'. O PHP retornou o seguinte erro: %s"
+msgstr "Falha ao formatar linha para a regra '%s'."
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2076,10 +2074,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Formato inválido na linha %d da entrada CSV."
+msgstr "Formato inválido na linha %s;"
 
 #: libraries/Advisor.class.php:403
 #, php-format
@@ -2226,13 +2224,13 @@ msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
 msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: libraries/DbSearch.class.php:338
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s resultado dentro da tabela <i>%2$s</i>"
-msgstr[1] "%1$s resultados dentro da tabela <i>%2$s</i>"
+msgstr[0] "%1$s resultado em <i>%2$s</i>"
+msgstr[1] "%1$s resultados em <i>%2$s</i>"
 
 #: libraries/DbSearch.class.php:353 libraries/Menu.class.php:246
 #: libraries/Util.class.php:3303 libraries/Util.class.php:3511
@@ -2858,15 +2856,15 @@ msgid "unknown table status: "
 msgstr "Status da tabela desconhecido: "
 
 #: libraries/Table.class.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Procurar no Banco de Dados"
+msgstr "O banco de dados fonte `%s` não foi encontrado!"
 
 #: libraries/Table.class.php:737
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s não encontrado!"
+msgstr "O banco de dados alvo `%s` não foi encontrado!"
 
 #: libraries/Table.class.php:1165
 msgid "Invalid database"
@@ -3095,10 +3093,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Uma data, o limite suportado é de %1$s até %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
@@ -3112,10 +3110,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Erro ao renomear tabela %1$s para %2$s"
+msgstr "Uma hora, o limite suportado é de %1$s até %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -3220,10 +3218,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Adicionar polígono"
+msgstr "Um polígono"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
@@ -3247,21 +3244,18 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Criar um novo índice"
+msgstr "Conjuntos de data e hora"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linha"
+msgstr "Strings"
 
 #: libraries/Types.class.php:673
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3962,10 +3956,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Propor estrutura da tabela"
+msgstr "Esconder as ações de estrutura da tabela"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4552,10 +4545,9 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Estrutura do Banco Dados"
+msgstr "Estrutura da tabela"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -4724,10 +4716,10 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr ""
+"Número mínimo de tabelas para mostrar na caixa de filtro de bancos de dados"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6294,10 +6286,10 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Alteração efetuada em %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, fuzzy, php-format
@@ -6321,10 +6313,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Formato do arquivo importado"
+msgstr "Fazendo upload do arquivo importado..."
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -6399,7 +6390,6 @@ msgstr ""
 "continuar na posição %d."
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6409,9 +6399,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Permitir interromper a importação caso se detecte que o script demorará "
-"perto do tempo limite PHP.<i (Isso pode ser um bom caminho para importar "
-"arquivos grandes, entretanto isso pode interromper as transações.)</i>"
+"Permitir a interrupção da importação caso o script detecte que está perto do "
+"tempo limite do PHP.<i (Isso pode ser um bom caminho para importar arquivos "
+"grandes, entretanto isso pode interromper as transações.)</i>"
 
 #: libraries/display_import.lib.php:294
 msgid "Number of rows to skip, starting from the first row:"
@@ -6950,10 +6940,9 @@ msgid "Add prefix"
 msgstr "Adicionar índice"
 
 #: libraries/mult_submits.inc.php:310 sql.php:474
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
-msgstr "Você realmente deseja executar a Query SQL a seguir?"
+msgstr "Você realmente deseja executar a query SQL a seguir?"
 
 #: libraries/mult_submits.inc.php:544 tbl_replace.php:245
 msgid "No change"
@@ -7614,15 +7603,13 @@ msgid "PHP Version"
 msgstr "Versão do PHP"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:83
-#, fuzzy
 msgid "Export table names"
-msgstr "Tipo de exportação"
+msgstr "Exportar nomes das tabelas"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:89
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontal (cabeçalhos rotacionados)"
+msgstr "Exportar cabeçalhos das tabelas"
 
 #: libraries/plugins/export/ExportPdf.class.php:96
 msgid "(Generates a report containing the data of a single table)"
@@ -7679,10 +7666,9 @@ msgstr ""
 "tabelas formados com caracteres especiais ou palavras chaves)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opções de criação de objetos"
+msgstr "Opções de criação de dados"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
@@ -7865,10 +7851,10 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Formato inválido na linha %d da entrada CSV."
+msgstr "Formato inválido da entrada mediawiki na linha: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8086,7 +8072,6 @@ msgid "not OK"
 msgstr "não está OK"
 
 #: libraries/relation.lib.php:92
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -8429,7 +8414,6 @@ msgid "Returns"
 msgstr "Retornos"
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8440,10 +8424,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Você está usando  extensão 'mysql' obsoleta do PHP, que não é capaz de lidar "
-"com multi consultas. <b.>A execução de algumas rotinas de armazenamento "
-"podem falhar!</b> Por favor, use a extensão melhorada 'mysqli' para evitar "
-"quaisquer problemas."
+"Você está usando a extensão 'mysql' que está obsoleta no PHP e ela não é "
+"capaz de lidar com multi consultas. <b.>A execução de algumas rotinas de "
+"armazenamento podem falhar!</b> Por favor, use a extensão melhorada 'mysqli' "
+"para evitar quaisquer problemas."
 
 #: libraries/rte/rte_routines.lib.php:280
 #: libraries/rte/rte_routines.lib.php:1079
@@ -9267,10 +9251,10 @@ msgid "You have updated the privileges for %s."
 msgstr "Você mudou os priviléios para %s."
 
 #: libraries/server_privileges.lib.php:2798
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilégios"
+msgstr "Privilégios para %s"
 
 #: libraries/server_privileges.lib.php:2908
 msgid "Users overview"
@@ -9511,10 +9495,9 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/structure.lib.php:1431 libraries/structure.lib.php:1527
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Remover coluna(s)"
+msgstr "Mover coluna(s)"
 
 #: libraries/structure.lib.php:1434
 msgid "Move the columns by dragging them up and down."
@@ -9609,7 +9592,6 @@ msgid "An index has been added on %s"
 msgstr "Um índice foi adicionado a %s"
 
 #: libraries/structure.lib.php:2181 libraries/structure.lib.php:2252
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Procurar valores distintos"
@@ -9648,10 +9630,10 @@ msgid "Effective"
 msgstr "Efetivo"
 
 #: libraries/tbl_common.inc.php:53
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "Rastreamento está ativo."
+msgstr "Rastreamento de %s está ativo."
 
 #: libraries/tbl_properties.inc.php:91
 msgid ""
@@ -9674,10 +9656,9 @@ msgstr ""
 "use este formato: a"
 
 #: libraries/tbl_properties.inc.php:135
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Remover coluna(s)"
+msgstr "Mover coluna(s)"
 
 #: libraries/tbl_properties.inc.php:145
 #, php-format
@@ -9726,7 +9707,7 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "Depois %s"
@@ -9949,10 +9930,9 @@ msgid "No databases"
 msgstr "Sem bases"
 
 #: navigation.php:171
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name"
-msgstr "Alterar tabela ordenada por"
+msgstr "Filtar bancos de dados por nome"
 
 #: navigation.php:243
 msgid "Filter tables by name"
@@ -10255,12 +10235,12 @@ msgid "Character Sets and Collations"
 msgstr "Conjuntos de caracteres e Collations"
 
 #: server_databases.php:117
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Banco de Dados %s foi eliminado com sucesso!"
-msgstr[1] "Banco de Dados %s foi eliminado com sucesso!"
+msgstr[0] "Banco de Dados %1$d foi eliminado com sucesso."
+msgstr[1] "Os Bancos de Dados %1$d foram eliminados com sucesso."
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -11961,6 +11941,8 @@ msgstr "Mostrar formulário"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
+"Tanto o URL Wrapper quando CURL não estão disponíveis. Não é possível checar "
+"a versão."
 
 #: setup/lib/index.lib.php:144
 msgid ""
@@ -11972,11 +11954,11 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Servidor retornou uma versão inválida de string"
 
 #: setup/lib/index.lib.php:176
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Versão de string não analisável"
 
 #: setup/lib/index.lib.php:196
 #, php-format
@@ -11999,6 +11981,12 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"É aconselhável que esta %soption%s seja desabilitada pois ela permite que um "
+"atacante logue-se em qualquer servidor MySQL utilizando força bruta. Se "
+"você acha que ela é necessária, utilize %strusted proxies list%s. "
+"Entretanto, proteções baseadas no protocolo IP podem não ser confiáveis se "
+"seu endereço IP pertence a um ISP onde centenas de usuários, incluindo você, "
+"estão conectados."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -12006,6 +11994,10 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"Você não tinha blowfish secret configurado e possui habilitada a "
+"autenticação de cookies, então uma chave foi automaticamente gerada para "
+"você. Ela é utilizada para encriptar cookies; você não precisa se lembrar "
+"dela."
 
 #: setup/lib/index.lib.php:301
 #, php-format
@@ -12013,6 +12005,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"A compactação e descompactação %sBzip2 requerem funções (%s) que não estão "
+"disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:303
 msgid ""
