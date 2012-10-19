@@ -12005,7 +12005,7 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A compactação e descompactação %sBzip2 requerem funções (%s) que não estão "
+"%sA compactação e descompactação %sBzip2 requerem funções (%s) que não estão "
 "disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:303
