@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-10-19 15:26+0200\n"
-"Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
+"PO-Revision-Date: 2012-10-19 23:53+0200\n"
+"Last-Translator: Guilherme Schmidt <skymidt@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -271,12 +271,12 @@ msgstr "Sim"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Ver o esquema do Banco de Dados"
+msgstr "Ver o despejo(Banco) da Base de dados"
 
 #: db_export.php:33 db_printview.php:92 db_tracking.php:51 export.php:413
 #: libraries/DBQbe.class.php:268 navigation.php:280
 msgid "No tables found in database."
-msgstr "Nenhuma tabela encontrada no banco de dados."
+msgstr "Nenhuma tabela encontrada na base de dados."
 
 #: db_export.php:42 libraries/DbSearch.class.php:448 server_export.php:26
 msgid "Select All"
@@ -288,7 +288,7 @@ msgstr "Desmarcar Todos"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "O nome do Banco de Dados está em branco!"
+msgstr "O nome da Base de Dados está em branco!"
 
 #: db_operations.php:129
 #, php-format
@@ -306,8 +306,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Os recursos adicionais para trabalhar com tabelas linkadas foram "
-"desativadas. Para descobrir o motivo clique %saqui%s."
+"A configuração de armazenamento do phpMyAdmin foi desativado. Para descobrir "
+"o motivo clique %saqui%s."
 
 #: db_printview.php:99 db_tracking.php:81 db_tracking.php:200
 #: libraries/Menu.class.php:186 libraries/config/messages.inc.php:514
@@ -329,7 +329,7 @@ msgstr "Tabela"
 #: libraries/structure.lib.php:2069 navigation.php:628 navigation.php:667
 #: sql.php:1064 tbl_printview.php:365
 msgid "Rows"
-msgstr "Registros"
+msgstr "Linhas"
 
 #: db_printview.php:104 libraries/structure.lib.php:795 tbl_indexes.php:244
 msgid "Size"
@@ -476,7 +476,7 @@ msgstr "Relatório de monitoramento"
 
 #: db_tracking.php:142 tbl_tracking.php:288 tbl_tracking.php:795
 msgid "Structure snapshot"
-msgstr "Preview da estrutura"
+msgstr "Vizualização da estrutura"
 
 #: db_tracking.php:195
 msgid "Untracked tables"
@@ -532,11 +532,11 @@ msgstr "Formato inválido para exportação"
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Valores do campo \"%s\""
+msgstr "Valores da coluna \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:175
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Use OpenStreetMaps como base"
+msgstr "Use OpenStreetMaps como camada base"
 
 #: gis_data_editor.php:161
 msgid "SRID"
@@ -2048,7 +2048,7 @@ msgstr "PHP achou o erros a seguir: %s"
 #: libraries/Advisor.class.php:104
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Falha avaliando a precondição da regra '%s'"
 
 #: libraries/Advisor.class.php:121
 #, php-format
@@ -2058,7 +2058,7 @@ msgstr "O Cálculo para a regra '%s' falhou"
 #: libraries/Advisor.class.php:140
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Falha ao testar a regra '%s'"
 
 #: libraries/Advisor.class.php:222
 #, php-format
@@ -2072,6 +2072,7 @@ msgstr "Falha ao formatar linha para a regra '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Declaração de regra inválida %1$s, é esperado a linha %2$s da regra anterior"
 
 #: libraries/Advisor.class.php:395
 #, php-format
@@ -2082,12 +2083,13 @@ msgstr "Formato inválido na linha %s;"
 #: libraries/Advisor.class.php:403
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Caracteres inesperados na linha %s"
 
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
+"Caractere inesperado na linha %1$s. Esperado Tab, mas foi encontrado \"%2$s\""
 
 #: libraries/Advisor.class.php:450 server_status.php:1044
 msgid "per second"
@@ -3026,18 +3028,24 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Um inteiro de 1 byte, o alcance sinalizado é -128 a 127, o alcance não "
+"sinalizado é 0 a 255."
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Um inteiro de 2 byte, o alcance assinado é -32,768 até 32,767, o alcance não "
+"assinado é de 0 até 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Um inteiro de 3 bytes, o alcance assinado é de -8,388,608 até 8,388,607, o "
+"alcance não assinado é de 0 até 16,777,215"
 
 #: libraries/Types.class.php:302
 msgid ""
