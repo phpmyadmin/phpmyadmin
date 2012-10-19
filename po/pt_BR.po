@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-10-19 02:21+0200\n"
+"PO-Revision-Date: 2012-10-19 15:26+0200\n"
 "Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -2953,11 +2953,11 @@ msgstr "Ordenado por:"
 
 #: libraries/TableSearch.class.php:835
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use esta coluna para rotular cada ponto"
 
 #: libraries/TableSearch.class.php:856
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Número máximo de linhas para traçar"
 
 #: libraries/TableSearch.class.php:884 libraries/TableSearch.class.php:1156
 #: sql.php:162 tbl_change.php:218
@@ -2980,7 +2980,7 @@ msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
 #: libraries/TableSearch.class.php:1165
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Visualzar/Editar pontos"
 
 #: libraries/TableSearch.class.php:1172
 msgid "How to use"
@@ -9572,7 +9572,7 @@ msgstr "Tamanho do registro"
 
 #: libraries/structure.lib.php:1779 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr ""
+msgstr "Próximo autoíndice"
 
 #: libraries/structure.lib.php:1883
 msgid "Show more actions"
@@ -12005,7 +12005,7 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sA compactação e descompactação %sBzip2 requerem funções (%s) que não estão "
+"A compactação e descompactação%s %sBzip2 requerem funções (%s) que não estão "
 "disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:303
@@ -12014,12 +12014,14 @@ msgid ""
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
 "Este valor deve ser verificado com atenção para garantir que este diretório "
-"não seja acessado ou escrito por outros usuários no seu servidor."
+"não seja acessado ou alterado por outros usuários no seu servidor."
 
 #: setup/lib/index.lib.php:304
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Esta %sopção%s deveria estar habilitada se seu navegador tem suporter."
+msgstr ""
+"É aconselhável que esta %sopção%s esteja habilitada se seu servidor web tem "
+"suporte a ela."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -12027,6 +12029,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"A compactação e descompactação%s %sGZip requerem funções (%s) que não estão "
+"disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:308
 #, php-format
@@ -12035,6 +12039,10 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"O Cookie de validação%s do %sLogin configurado com mais de 1440 segundos "
+"pode causar invalidação de sessão aleatoriamente caso %"
+"ssession.gc_maxlifetime%s seja menor que seu valor atual (Configuração atual "
+"%d)."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -12042,6 +12050,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"É aconselhável que o cookie de validação%s do %sLogin seja configurado com, "
+"no máximo, 1800 segundos (30 minutos). Valores maiores que 1800 podem causar "
+"um risco de segurança como o roubo de identidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12049,6 +12060,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Se estiver usando autenticação por cookies e o %sLogin cookie store%s não é "
+"igual a 0, %sLogin cookie validity%s precisa ser configurado para um valor "
+"menor ou igual a 0."
 
 #: setup/lib/index.lib.php:314
 #, php-format
@@ -12058,6 +12072,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"Se você acha que ela é necessária, utilize configurações adicionais de "
+"segurança - configurações de %shost authentication%s e %strusted proxies "
+"list%s. Entretanto, proteções baseadas no protocolo IP podem não ser "
+"confiáveis se seu endereço IP pertence a um ISP onde centenas de usuários, "
+"incluindo você, estão conectados."
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -12068,6 +12087,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu usuário e senha "
+"para auto-login, o que não é uma opção desejável para live hosts. Qualquer "
+"um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso direto ao "
+"painel de controle. Configure o %stipo de autenticaçãoe%s para "
+"[kbd]cookie[/kbd] ou [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12430,7 +12454,7 @@ msgstr "Instrução de definição de dados"
 
 #: tbl_tracking.php:612
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Instrução de manipulação de dados"
 
 #: tbl_tracking.php:670
 msgid "SQL dump (file download)"
@@ -12530,22 +12554,25 @@ msgstr "Renomear a visão para"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime menor que um dia"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Uptime é menor que um dia, ajustes de performance podem não estar precisos."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pra ter médias mais precisas é recomendado deixar o servidor rodando por "
+"mais de um dia antes de utilizar esta ferramenta"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "O uptime é somente %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -12556,12 +12583,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Menos de 1.000 consultas foram feitas a esse servidor. As recomendações "
+"podem não estar precisas."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Deixe o servidor rodar por um período maior até que tenha executado um "
+"número maior de consultas."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -12576,17 +12607,22 @@ msgstr "Porcentagem de consultas lentas"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Existem várias consultas (queries) lentas comparadas às consultas globais."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Você pode querer aumentar o parâmetro {long_query_time} ou otimizar as "
+"consultas (queries) listadas no log de consultas lentas"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"É aconselhável que a taxa de consultas (queries) lentas esteja abaixo de 5%%"
+", a sua taxa é de %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12596,6 +12632,8 @@ msgstr "Taxa de consulta lenta"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"A porcentagem de consultas(queries) lentas está alta comparada com o uptime "
+"do servidor."
 
 #: libraries/advisory_rules.txt:75
 #, fuzzy, php-format
@@ -12967,10 +13005,9 @@ msgstr ""
 "%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%%"
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permitir criar tabelas temporárias."
+msgstr "Proporção de buscas que geram tabelas temporárias"
 
 #: libraries/advisory_rules.txt:216
 #, fuzzy, php-format
@@ -13077,7 +13114,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
@@ -13085,8 +13122,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"A taxa de conexões abortadas é %s, este valor deve ser menor do que 1 por "
-"hora."
+"A taxa média de leituras de posições fixas é de: %s, este valor deve ser "
+"menor do que 1 por hora."
 
 #: libraries/advisory_rules.txt:247
 #, fuzzy
@@ -13107,22 +13144,22 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"A taxa de leitura da próxima linha na tabel é de: %s, este valor deve ser "
+"menor do que 1 por hora."
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:258
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size e max_heap_table_size não são os mesmos."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
@@ -13219,16 +13256,16 @@ msgid "key_buffer_size is 0"
 msgstr "Tamanho do buffer de ordenação"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "%% Número máximo de buffers chave MyISAM"
 
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Tamanho do buffer de ordenação"
+msgstr "O buffer de chaves MyISAM (cache de índices) %% usadas é baixo."
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
@@ -13238,17 +13275,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"%% número máximo de buffers chave MyISAM: %s%%, é aconselhável que este "
+"valor esteja acima de 95%%"
 
 #: libraries/advisory_rules.txt:304
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "Porcentagem usada de key buffers MyISAM"
 
 #: libraries/advisory_rules.txt:309
 #, fuzzy, php-format
@@ -13278,16 +13316,14 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Tamanho do buffer de ordenação"
 
 #: libraries/advisory_rules.txt:320
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Criar tabela"
+msgstr "Taxa de tabelas abertas"
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "O número atual de escritas pendentes."
+msgstr "A proporção de tabelas abertas está alta."
 
 #: libraries/advisory_rules.txt:324
 msgid ""
@@ -13305,10 +13341,9 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:327
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formato do arquivo importado"
+msgstr "Porcentagem do limite de arquivos abertos"
 
 #: libraries/advisory_rules.txt:330
 msgid ""
@@ -13334,16 +13369,14 @@ msgstr ""
 "ser abaixo de 80%%"
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formato do arquivo importado"
+msgstr "Proporção de arquivos abertos"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "O número de arquivos de log fsyncs pendentes."
+msgstr "A proporção de arquivos abertos está alta."
 
 #: libraries/advisory_rules.txt:339
 #, fuzzy, php-format
@@ -13355,17 +13388,15 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Criar nova tabela no Banco de Dados %s"
+msgstr "Tabelas bloqueadas %%"
 
 #: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
-#, fuzzy
 #| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr ""
-"O número de vezes que uma tabela trancada foi recuperada imediatamente."
+msgstr "Muitos bloqueios de tabela não foram concedidos imediatamente."
 
 #: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -13391,10 +13422,9 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:355
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Chave do cache"
+msgstr "Cache de threads"
 
 #: libraries/advisory_rules.txt:358
 msgid ""
@@ -13413,16 +13443,15 @@ msgid "The thread cache is set to 0"
 msgstr "Rastreamento não está ativo."
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Rastreamento não está ativo."
+msgstr "Taxa de acessos a threads %%"
 
 #: libraries/advisory_rules.txt:365
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Rastreamento não está ativo."
+msgstr "Cache de threads não é eficiente."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
@@ -13441,10 +13470,9 @@ msgid "Threads that are slow to launch"
 msgstr "O número de processos que não estão dormindo."
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "O número de processos que não estão dormindo."
+msgstr "Existem muitas threads que estão lentas demais para iniciar."
 
 #: libraries/advisory_rules.txt:373
 msgid ""
@@ -13637,7 +13665,6 @@ msgstr ""
 "ele não deve ser menor do que 20%%"
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 msgid "Max InnoDB log size"
 msgstr "Tamanho máximo do log InnoDB"
 
@@ -13665,10 +13692,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "O tamanho absoluto do log do InnoDB é %s MiB"
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamanho do Buffer Pool"
+msgstr "Tamanho do buffer pool InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
@@ -13714,7 +13740,6 @@ msgstr ""
 "tabelas InnoDB ou outros serviços executando na mesma máquina."
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "Inserções concorrentes no MyISAM"
