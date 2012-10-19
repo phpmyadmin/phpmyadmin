@@ -112,6 +112,10 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SHOW INDEXES FROM `pma_test`.`table1` WHERE (Non_unique = 0)',
+        'result' => array(),
+    ),
+    array(
         'query' => 'SHOW COLUMNS FROM `pma_test`.`table2`',
         'columns' => array(
             'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'

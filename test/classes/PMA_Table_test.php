@@ -83,5 +83,19 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $table->getColumns()
         );
     }
+
+    /**
+     * Test getting unique columns
+     *
+     * @return void
+     */
+    public function testUniqueColumns()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $this->assertEquals(
+            array(),
+            $table->getUniqueColumns()
+        );
+    }
 }
 
