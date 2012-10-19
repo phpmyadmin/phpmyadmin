@@ -124,10 +124,10 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function dataValidateName()
     {
         return array(
-            array('test', True),
-            array('te/st', False),
-            array('te.st', False),
-            array('te\\st', False),
+            array('test', true),
+            array('te/st', false),
+            array('te.st', false),
+            array('te\\st', false),
         );
     }
 }
