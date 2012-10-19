@@ -10,6 +10,14 @@
  */
 
 require_once 'libraries/Table.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/relation.lib.php';
+
 
 /**
  * Tests behaviour of PMA_Table class
@@ -18,6 +26,27 @@ require_once 'libraries/Table.class.php';
  */
 class PMA_Table_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Configures environment
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['lang'] = 'en';
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['cfg']['MySQLManualType'] = 'viewable';
+        $GLOBALS['cfg']['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
+        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
+        $GLOBALS['is_ajax_request'] = false;
+        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+    }
+
     /**
      * Test object creating
      *
@@ -29,5 +58,16 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('PMA_Table', $table);
     }
 
+    /**
+     * Test renaming
+     *
+     * @return void
+     */
+    public function testRename()
+    {
+        $table = new PMA_Table('pma_test', 'table1');
+        $table->rename('table3');
+        $this->assertEquals('table3', $table->getName());
+    }
 }
 

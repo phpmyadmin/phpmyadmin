@@ -213,6 +213,14 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
         'result' => array(),
     ),
+    array(
+        'query' => 'RENAME TABLE `table1`.`pma_test` TO `table1`.`table3`;',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= \'table1\' AND EVENT_OBJECT_TABLE = \'pma_test\';',
+        'result' => array(),
+    ),
 
 );
 /**
