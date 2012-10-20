@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-20 07:27-0400\n"
-"PO-Revision-Date: 2012-10-16 15:43+0200\n"
+"PO-Revision-Date: 2012-10-20 15:23+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -2211,13 +2211,13 @@ msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
 msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: libraries/DbSearch.class.php:338
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s resultado na tabela <i>%2$s</i>"
-msgstr[1] "%1$s resultados na tabela <i>%2$s</i>"
+msgstr[0] "%1$s resultado em <i>%2$s</i>"
+msgstr[1] "%1$s resultados em <i>%2$s</i>"
 
 #: libraries/DbSearch.class.php:353 libraries/Menu.class.php:246
 #: libraries/Util.class.php:3303 libraries/Util.class.php:3511
@@ -2268,13 +2268,12 @@ msgstr "Dentro da coluna:"
 
 #: libraries/DisplayResults.class.php:697
 msgid "Save edited data"
-msgstr ""
+msgstr "Guardar dados editados"
 
 #: libraries/DisplayResults.class.php:703
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Adicionar/Remover Campos"
+msgstr "Restaurar ordem da coluna"
 
 #: libraries/DisplayResults.class.php:774 libraries/Util.class.php:2575
 #: libraries/Util.class.php:2579
@@ -2301,21 +2300,18 @@ msgid "End"
 msgstr "Fim"
 
 #: libraries/DisplayResults.class.php:903
-#, fuzzy
 msgid "Start row"
-msgstr "Estado"
+msgstr "Linha inicial"
 
 #: libraries/DisplayResults.class.php:907
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows"
-msgstr "Número de registos por página"
+msgstr "Número de linhas"
 
 #: libraries/DisplayResults.class.php:916
-#, fuzzy
 #| msgid "Mon"
 msgid "Mode"
-msgstr "Seg"
+msgstr "Modo"
 
 #: libraries/DisplayResults.class.php:918
 msgid "horizontal"
@@ -2332,7 +2328,7 @@ msgstr "vertical"
 #: libraries/DisplayResults.class.php:932
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Cabeçalho a cada %s linhas"
 
 #: libraries/DisplayResults.class.php:1229
 msgid "Sort by key"
@@ -2363,42 +2359,37 @@ msgstr "Ordenar por chave"
 #: libraries/plugins/import/ImportSql.class.php:49
 #: libraries/plugins/import/ImportXml.class.php:56
 #: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1733
-#, fuzzy
 msgid "Options"
-msgstr "Operações"
+msgstr "Opções"
 
 #: libraries/DisplayResults.class.php:1585
 #: libraries/DisplayResults.class.php:1691
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Texto parcial"
+msgstr "Textos parciais"
 
 #: libraries/DisplayResults.class.php:1586
 #: libraries/DisplayResults.class.php:1695
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Texto inteiro"
+msgstr "Textos completos"
 
 #: libraries/DisplayResults.class.php:1600
-#, fuzzy
 msgid "Relational key"
-msgstr "Esquema relacional"
+msgstr "Chave de relação"
 
 #: libraries/DisplayResults.class.php:1601
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Esquema relacional"
+msgstr "Coluna de visualização relacional"
 
 #: libraries/DisplayResults.class.php:1613
 msgid "Show binary contents"
-msgstr ""
+msgstr "Mostrar conteúdo binário"
 
 #: libraries/DisplayResults.class.php:1618
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Exibir conteúdos BLOB"
 
 #: libraries/DisplayResults.class.php:1623
 #: libraries/config/messages.inc.php:61
@@ -2406,18 +2397,17 @@ msgid "Show binary contents as HEX"
 msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/DisplayResults.class.php:1634
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformação do navegador"
+msgstr "Ocultar transformações do navegador"
 
 #: libraries/DisplayResults.class.php:1643
 msgid "Well Known Text"
-msgstr ""
+msgstr "Texto bem conhecido"
 
 #: libraries/DisplayResults.class.php:1644
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binario bem conhecido"
 
 #: libraries/DisplayResults.class.php:3367
 #: libraries/DisplayResults.class.php:3383
@@ -2431,7 +2421,7 @@ msgstr "Termina"
 
 #: libraries/DisplayResults.class.php:4503 libraries/structure.lib.php:779
 msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr ""
+msgstr "Pode ser aproximado. Veja o [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4899
 msgid "in query"
@@ -2493,7 +2483,7 @@ msgstr "Exportar"
 
 #: libraries/DisplayResults.class.php:5188
 msgid "Query results operations"
-msgstr ""
+msgstr "Operações resultantes das consultas"
 
 #: libraries/DisplayResults.class.php:5212 libraries/Header.class.php:261
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
@@ -2506,19 +2496,17 @@ msgid "Print view (with full texts)"
 msgstr "Vista de impressão (com texto inteiro)"
 
 #: libraries/DisplayResults.class.php:5301 tbl_chart.php:84
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Mostrar o esquema de PDF"
+msgstr "Mostrar gráfico"
 
 #: libraries/DisplayResults.class.php:5326
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisar dados GIS"
 
 #: libraries/DisplayResults.class.php:5359 view_create.php:152
-#, fuzzy
 msgid "Create view"
-msgstr "Versão do servidor"
+msgstr "Criar visualização"
 
 #: libraries/DisplayResults.class.php:5552
 msgid "Link not found"
@@ -2581,7 +2569,7 @@ msgstr "Não pode ler (movido) arquivo carregado."
 #: libraries/Footer.class.php:197 libraries/Footer.class.php:201
 #: libraries/Footer.class.php:204
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Abrir nova janela do phpMyAdmin"
 
 #: libraries/Header.class.php:494
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
