@@ -450,11 +450,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetResettedClassForInlineEdit
+     * Data provider for testGetClassesForColumn
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetResettedClassForInlineEdit()
+    public function dataProviderForTestGetClassesForColumn()
     {
         return array(
             array(
@@ -470,7 +470,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for _getResettedClassForInlineEdit
+     * Test for _getClassesForColumn
      *
      * @param string  $grid_edit_class  the class for all editable columns
      * @param string  $not_null_class   the class for not null columns
@@ -482,9 +482,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider dataProviderForTestGetResettedClassForInlineEdit
+     * @dataProvider dataProviderForTestGetClassesForColumn
      */
-    public function testGetResettedClassForInlineEdit(
+    public function testGetClassesForColumn(
         $grid_edit_class, $not_null_class, $relation_class,
         $hide_class, $field_type_class, $row_no, $output
     ) {
@@ -496,7 +496,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
-                '_getResettedClassForInlineEdit',
+                '_getClassesForColumn',
                 array(
                     $grid_edit_class, $not_null_class, $relation_class,
                     $hide_class, $field_type_class, $row_no
