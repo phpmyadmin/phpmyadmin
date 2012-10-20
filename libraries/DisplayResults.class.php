@@ -2479,7 +2479,19 @@ class PMA_DisplayResults
         if ($is_limited_display || ! $this->__get('_resultSetContainsUniqueKey')) {
             $grid_edit_class = '';
         } else {
-            $grid_edit_class = 'grid_edit';
+            switch ($GLOBALS['cfg']['GridEditing']) {
+            case 'double-click':
+                // trying to reduce generated HTML by using shorter
+                // classes like click1 and click2
+                $grid_edit_class = 'grid_edit click2';
+                break;
+            case 'click':
+                $grid_edit_class = 'grid_edit click1';
+                break;
+            case 'disabled':
+                $grid_edit_class = '';
+                break;
+            }
         }
 
         // prepare to get the column order, if available

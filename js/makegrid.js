@@ -1618,7 +1618,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.saveCellsAtOnce = $('#save_cells_at_once').val();
 
             // register events
-            $(t).find('td.data')
+            $(t).find('td.data.click1')
                 .click(function(e) {
                     if (g.isCellEditActive) {
                         g.saveOrPostEditedCell();
@@ -1632,6 +1632,23 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.preventDefault();
                     }
                 });
+
+            $(t).find('td.data.click2')
+                .dblclick(function(e) {
+                    // todo: avoid duplicating the previous section's code
+                    if (g.isCellEditActive) {
+                        g.saveOrPostEditedCell();
+                        e.stopPropagation();
+                    } else {
+                        g.showEditCell(this);
+                        e.stopPropagation();
+                    }
+                    // prevent default action when clicking on "link" in a table
+                    if ($(e.target).is('.grid_edit a')) {
+                        e.preventDefault();
+                    }
+                });
+
             $(g.cEdit).find('.edit_box').focus(function(e) {
                 g.showEditArea();
             });
