@@ -58,7 +58,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Call private functions by making the visibitlity to public.
+     * Call private functions by setting visibility to public.
      *
      * @param string $name   method name
      * @param array  $params parameters for the invocation

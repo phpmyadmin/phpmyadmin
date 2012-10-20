@@ -45,7 +45,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Call protected functions by making the visibitlity to public.
+     * Call protected functions by setting visibility to public.
      *
      * @param string $name   method name
      * @param array  $params parameters for the invocation
