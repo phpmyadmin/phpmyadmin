@@ -1038,7 +1038,7 @@ class PMA_DisplayResults
         // 1. Set $colspan or $rowspan and generate html with full/partial
         // text button or link
         list($colspan, $rowspan, $button_html)
-            = $this->_getFeildVisibilityParams(
+            = $this->_getFieldVisibilityParams(
                 $directionCondition, $is_display, $full_or_partial_text_link
             );
 
@@ -1309,7 +1309,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function _getFeildVisibilityParams(
+    private function _getFieldVisibilityParams(
         $directionCondition, &$is_display, $full_or_partial_text_link
     ) {
 
@@ -1420,7 +1420,7 @@ class PMA_DisplayResults
 
         return array($colspan, $rowspan, $button_html);
 
-    } // end of the '_getFeildVisibilityParams()' function
+    } // end of the '_getFieldVisibilityParams()' function
 
 
     /**
