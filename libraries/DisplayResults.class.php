@@ -2663,7 +2663,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare rows
+     * Get the values for one data row 
      *
      * @param integer &$dt_result         the link id associated to the query
      *                                    which results have to be displayed
@@ -2703,15 +2703,17 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        for ($j = 0; $j < $this->__get('_fields_cnt'); ++$j) {
+        for ($currentColumn = 0; 
+                $currentColumn < $this->__get('_fields_cnt'); 
+                ++$currentColumn) {
 
             // assign $i with appropriate column order
-            $i = $col_order ? $col_order[$j] : $j;
+            $i = $col_order ? $col_order[$currentColumn] : $currentColumn;
 
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-            $hide_class = ($col_visib && !$col_visib[$j]
+            $hide_class = ($col_visib && ! $col_visib[$currentColumn]
                 // hide per <td> only if the display dir is not vertical
                 && ($_SESSION['tmp_user_values']['disp_direction']
                     != self::DISP_DIR_VERTICAL))
