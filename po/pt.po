@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-16 15:43+0200\n"
+"PO-Revision-Date: 2012-10-20 15:31+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
@@ -5445,12 +5445,12 @@ msgstr ""
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "A Base de Dados aparenta estar vazia!"
 
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Rastreando"
 
 #: libraries/db_links.inc.php:70
 msgid "Query"
@@ -5458,7 +5458,7 @@ msgstr "Pesquisa por formulário"
 
 #: libraries/db_links.inc.php:75 libraries/relation.lib.php:132
 msgid "Designer"
-msgstr ""
+msgstr "Desenhador"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:121
 #: server_privileges.php:1900 server_privileges.php:2259
@@ -5467,19 +5467,18 @@ msgstr "Privilégios"
 
 #: libraries/db_links.inc.php:96 libraries/rte/rte_words.lib.php:25
 msgid "Routines"
-msgstr ""
+msgstr "Rotinas"
 
 #: libraries/db_links.inc.php:100 libraries/export/sql.php:641
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 msgid "Events"
-msgstr "Enviado"
+msgstr "Eventos"
 
 #: libraries/db_links.inc.php:104 libraries/export/sql.php:1032
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
-msgstr ""
+msgstr "Acionadores"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2228
 msgid ""
@@ -5815,30 +5814,26 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:406
 msgid "Save edited data"
-msgstr ""
+msgstr "Guardar dados editados"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Adicionar/Remover Campos"
+msgstr "Restaurar ordem da coluna"
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 msgid "Start row"
-msgstr "Estado"
+msgstr "Linha inicial"
 
 #: libraries/display_tbl.lib.php:430
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows"
-msgstr "Número de registos por página"
+msgstr "Número de linhas"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "Mon"
 msgid "Mode"
-msgstr "Seg"
+msgstr "Modo"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -5855,7 +5850,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Cabeçalho a cada %s linhas"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -5875,54 +5870,48 @@ msgstr "Ordenar por chave"
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:880
 #: tbl_select.php:177 tbl_structure.php:862
-#, fuzzy
 msgid "Options"
-msgstr "Operações"
+msgstr "Opções"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Texto parcial"
+msgstr "Textos parciais"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Texto inteiro"
+msgstr "Textos completos"
 
 #: libraries/display_tbl.lib.php:667
-#, fuzzy
 msgid "Relational key"
-msgstr "Esquema relacional"
+msgstr "Chave de relação"
 
 #: libraries/display_tbl.lib.php:668
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Esquema relacional"
+msgstr "Coluna de visualização relacional"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
-msgstr ""
+msgstr "Mostrar conteúdo binário"
 
 #: libraries/display_tbl.lib.php:677
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Exibir conteúdos BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformação do navegador"
+msgstr "Ocultar transformações do navegador"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Texto bem conhecido"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binario bem conhecido"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -5952,26 +5941,24 @@ msgstr "O Query demorou %01.4f sec"
 
 #: libraries/display_tbl.lib.php:2585
 msgid "Query results operations"
-msgstr ""
+msgstr "Operações resultantes das consultas"
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
 msgstr "Vista de impressão (com texto inteiro)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Mostrar o esquema de PDF"
+msgstr "Mostrar gráfico"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualisar dados GIS"
 
 #: libraries/display_tbl.lib.php:2701
-#, fuzzy
 msgid "Create view"
-msgstr "Versão do servidor"
+msgstr "Criar visualização"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
@@ -6686,7 +6673,7 @@ msgstr "Tipo de Exportação"
 #: libraries/footer.inc.php:163 libraries/footer.inc.php:165
 #: libraries/footer.inc.php:168
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "Abrir nova janela do phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
 msgid "No data found for GIS visualization."
@@ -7948,11 +7935,11 @@ msgstr "Mapas de Caracteres"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
-msgstr ""
+msgstr "Motores"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 #, fuzzy
@@ -8110,7 +8097,7 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Tabela aparenta estar vazia!"
 
 #: libraries/tbl_links.inc.php:126
 #, php-format
@@ -8226,19 +8213,17 @@ msgstr ""
 #: pmd_general.php:753
 #, fuzzy
 msgid "Operator"
-msgstr "Operações"
+msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Pesquisar"
+msgstr "Pesquisa de tabela"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insere"
+msgstr "Inserir/Editar"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -11007,7 +10992,7 @@ msgstr "Sem bases de dados"
 
 #: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Visualizar valores estrangeiros"
 
 #: sql.php:214
 #, php-format
@@ -11473,10 +11458,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
 #: tbl_select.php:180
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Seleccione os campos (no mínimo 1)"
+msgstr "Seleccione colunas (no mínimo um):"
 
 #: tbl_select.php:198
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -11745,18 +11729,17 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Esconder critérios de buca"
+msgstr "Critérios de pesquisa adicionais"
 
 #: tbl_zoom_select.php:283
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use esta coluna para rotular cada ponto"
 
 #: tbl_zoom_select.php:303
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Número máximo de linhas para traçar"
 
 #: tbl_zoom_select.php:417
 msgid "Browse/Edit the points"
