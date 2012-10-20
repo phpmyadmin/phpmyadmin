@@ -2724,9 +2724,8 @@ class PMA_DisplayResults
 
             $pointer = $i;
             $is_field_truncated = false;
-            //If the previous column had blob data, we need to reset the class
-            // to $inline_edit_class
-            $class = $this->_getResettedClassForInlineEdit(
+            // combine all the classes applicable to this column's value
+            $class = $this->_getClassesForColumn(
                 $grid_edit_class, $not_null_class, $relation_class,
                 $hide_class, $field_type_class, $row_no
             );
@@ -3474,7 +3473,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get resetted class for inline edit columns
+     * Get the combined classes for a column 
      *
      * @param string  $grid_edit_class  the class for all editable columns
      * @param string  $not_null_class   the class for not null columns
@@ -3483,13 +3482,13 @@ class PMA_DisplayResults
      * @param string  $field_type_class the class related to type of the field
      * @param integer $row_no           the row index
      *
-     * @return string $class the resetted class
+     * @return string $class the combined classes
      *
      * @access  private
      *
      * @see     _getTableBody()
      */
-    private function _getResettedClassForInlineEdit(
+    private function _getClassesForColumn(
         $grid_edit_class, $not_null_class, $relation_class,
         $hide_class, $field_type_class, $row_no
     ) {
@@ -3515,7 +3514,7 @@ class PMA_DisplayResults
 
         return $class;
 
-    } // end of the '_getResettedClassForInlineEdit()' function
+    } // end of the '_getClassesForColumn()' function
 
 
     /**
