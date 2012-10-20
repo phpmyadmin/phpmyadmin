@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-20 07:27-0400\n"
-"PO-Revision-Date: 2012-10-20 15:23+0200\n"
+"PO-Revision-Date: 2012-10-20 15:31+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -2578,10 +2578,9 @@ msgstr "O mecanismo de \"Cookies\" tem de estar ligado a partir deste ponto."
 
 #: libraries/Header.class.php:499
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "O mecanismo de \"Cookies\" tem de estar ligado a partir deste ponto."
+msgstr "O Javascript tem de estar activo a partir deste ponto"
 
 #: libraries/Index.class.php:531 tbl_relation.php:550
 msgid "No index defined!"
@@ -2695,7 +2694,7 @@ msgstr "Operações"
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:409
 #: libraries/relation.lib.php:236
 msgid "Tracking"
-msgstr ""
+msgstr "Rastreando"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:403
 #: libraries/plugins/export/ExportHtmlword.class.php:562
@@ -2705,16 +2704,16 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:119
 #: libraries/rte/rte_words.lib.php:41
 msgid "Triggers"
-msgstr ""
+msgstr "Acionadores"
 
 #: libraries/Menu.class.php:315 libraries/Menu.class.php:316
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Tabela aparenta estar vazia!"
 
 #: libraries/Menu.class.php:352 libraries/Menu.class.php:359
 #: libraries/Menu.class.php:366
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "A Base de Dados aparenta estar vazia!"
 
 #: libraries/Menu.class.php:355
 msgid "Query"
@@ -2728,18 +2727,17 @@ msgstr "Privilégios"
 
 #: libraries/Menu.class.php:388 libraries/rte/rte_words.lib.php:29
 msgid "Routines"
-msgstr ""
+msgstr "Rotinas"
 
 #: libraries/Menu.class.php:396
 #: libraries/plugins/export/ExportSql.class.php:810
 #: libraries/rte/rte_words.lib.php:53
-#, fuzzy
 msgid "Events"
-msgstr "Enviado"
+msgstr "Eventos"
 
 #: libraries/Menu.class.php:415 libraries/relation.lib.php:203
 msgid "Designer"
-msgstr ""
+msgstr "Desenhador"
 
 #: libraries/Menu.class.php:459
 msgid "Users"
@@ -2771,11 +2769,11 @@ msgstr "Mapas de Caracteres"
 
 #: libraries/Menu.class.php:505 server_plugins.php:33 server_plugins.php:66
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: libraries/Menu.class.php:509
 msgid "Engines"
-msgstr ""
+msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
 #: libraries/core.lib.php:218 libraries/import.lib.php:171
@@ -2853,15 +2851,15 @@ msgid "unknown table status: "
 msgstr "Estado da tabela desconhecido: "
 
 #: libraries/Table.class.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Pesquisar na Base de Dados"
+msgstr "A base de dados fonte `%s` não foi encontrada!"
 
 #: libraries/Table.class.php:737
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s não encontrado!"
+msgstr "A base de dados de destino `%s` não foi encontrada!"
 
 #: libraries/Table.class.php:1165
 msgid "Invalid database"
@@ -2877,7 +2875,7 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Erro ao mudar o nome da tabela %1$s para %2$s"
 
 #: libraries/Table.class.php:1230
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %s renomeada para %s"
@@ -2916,7 +2914,7 @@ msgstr "Funções"
 #: pmd_general.php:800
 #, fuzzy
 msgid "Operator"
-msgstr "Operações"
+msgstr "Operador"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1188
 #: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
@@ -2927,22 +2925,19 @@ msgid "Value"
 msgstr "Valor"
 
 #: libraries/TableSearch.class.php:203
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Pesquisar"
+msgstr "Pesquisa de tabela"
 
 #: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1379
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Insere"
+msgstr "Inserir/Editar"
 
 #: libraries/TableSearch.class.php:757
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Seleccione os campos (no mínimo 1)"
+msgstr "Seleccione colunas (no mínimo um):"
 
 #: libraries/TableSearch.class.php:777
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -2958,22 +2953,21 @@ msgstr "Ordem de visualização:"
 
 #: libraries/TableSearch.class.php:835
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use esta coluna para rotular cada ponto"
 
 #: libraries/TableSearch.class.php:856
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Número máximo de linhas para traçar"
 
 #: libraries/TableSearch.class.php:884 libraries/TableSearch.class.php:1156
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Visualizar valores estrangeiros"
 
 #: libraries/TableSearch.class.php:973
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Esconder critérios de buca"
+msgstr "Critérios de pesquisa adicionais"
 
 #: libraries/TableSearch.class.php:1111
 #, fuzzy
