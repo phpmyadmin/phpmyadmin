@@ -58,14 +58,17 @@ if (! isset($is_db) || ! $is_db) {
 /**
  * Changes database charset if requested by the user
  */
-if (isset($submitcollation) && !empty($db_collation)) {
-    list($db_charset) = explode('_', $db_collation);
+if (isset($_REQUEST['submitcollation'])
+    && isset($_REQUEST['db_collation'])
+    && ! empty($_REQUEST['db_collation'])
+) {
+    list($db_charset) = explode('_', $_REQUEST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
         . PMA_Util::backquote($db)
-        . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
+        . ' DEFAULT' . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
     $result           = PMA_DBI_query($sql_query);
     $message          = PMA_Message::success();
-    unset($db_charset, $db_collation);
+    unset($db_charset);
 
     /**
      * If we are in an Ajax request, let us stop the execution here. Necessary for

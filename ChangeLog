@@ -46,6 +46,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [interface] Autoselect username input on cookie login page
 - bug #3563799 [interface] Grid editing destroying huge amount of data
 + [import] Remove support for the unactive docSQL import format
+- bug #3577443 [edit] "Browse foreign values" does not show on ajax edit
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

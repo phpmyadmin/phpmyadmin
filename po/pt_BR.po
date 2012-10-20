@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:33+0200\n"
-"PO-Revision-Date: 2012-10-01 13:26+0200\n"
-"Last-Translator: Sergio Martins <inove@live.com.pt>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2012-10-19 23:53+0200\n"
+"Last-Translator: Guilherme Schmidt <skymidt@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"A janela alvo do navegador não pode ser atualizada. Talvez você tenha "
+"A janela alvo do navegador não pôde ser atualizada. Talvez você tenha "
 "fechado a janela principal ou as opções de segurança do seu navegador estão "
 "configuradas para bloquear a comunicação entre janelas."
 
@@ -271,12 +271,12 @@ msgstr "Sim"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Ver o esquema do Banco de Dados"
+msgstr "Ver o despejo(Banco) da Base de dados"
 
 #: db_export.php:33 db_printview.php:92 db_tracking.php:51 export.php:413
 #: libraries/DBQbe.class.php:268 navigation.php:280
 msgid "No tables found in database."
-msgstr "Nenhuma tabela encontrada no banco de dados."
+msgstr "Nenhuma tabela encontrada na base de dados."
 
 #: db_export.php:42 libraries/DbSearch.class.php:448 server_export.php:26
 msgid "Select All"
@@ -288,7 +288,7 @@ msgstr "Desmarcar Todos"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "O nome do Banco de Dados está em branco!"
+msgstr "O nome da Base de Dados está em branco!"
 
 #: db_operations.php:129
 #, php-format
@@ -306,8 +306,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Os recursos adicionais para trabalhar com tabelas linkadas foram "
-"desativadas. Para descobrir o motivo clique %saqui%s."
+"A configuração de armazenamento do phpMyAdmin foi desativado. Para descobrir "
+"o motivo clique %saqui%s."
 
 #: db_printview.php:99 db_tracking.php:81 db_tracking.php:200
 #: libraries/Menu.class.php:186 libraries/config/messages.inc.php:514
@@ -329,7 +329,7 @@ msgstr "Tabela"
 #: libraries/structure.lib.php:2069 navigation.php:628 navigation.php:667
 #: sql.php:1064 tbl_printview.php:365
 msgid "Rows"
-msgstr "Registros"
+msgstr "Linhas"
 
 #: db_printview.php:104 libraries/structure.lib.php:795 tbl_indexes.php:244
 msgid "Size"
@@ -476,7 +476,7 @@ msgstr "Relatório de monitoramento"
 
 #: db_tracking.php:142 tbl_tracking.php:288 tbl_tracking.php:795
 msgid "Structure snapshot"
-msgstr "Preview da estrutura"
+msgstr "Vizualização da estrutura"
 
 #: db_tracking.php:195
 msgid "Untracked tables"
@@ -532,11 +532,11 @@ msgstr "Formato inválido para exportação"
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Valores do campo \"%s\""
+msgstr "Valores da coluna \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:175
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Use OpenStreetMaps como base"
+msgstr "Use OpenStreetMaps como camada base"
 
 #: gis_data_editor.php:161
 msgid "SRID"
@@ -609,7 +609,6 @@ msgid "Output"
 msgstr "Saída"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -617,11 +616,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Selecione \"GeomFromText\" no campo \"Function\" e cole a string abaixo no "
+"Selecione \"GeomFromText\" da coluna \"Function\" e cole a string abaixo no "
 "campo \"Value\""
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -630,7 +629,7 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
-"na %sdocumentation%s para burlar esses limites."
+"na %sdocumentation%s para resolver esse problema."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -1616,7 +1615,7 @@ msgstr "Para ampliar, selecione um trecho do gráfico com o mouse."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr "Clique no botão resetar zoom para voltar ao estado original"
+msgstr "Clique no botão resetar zoom para voltar ao estado original."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1745,8 +1744,8 @@ msgstr "Copiar nome coluna"
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
-"Clique com o botão direito do mouse para copiar\n"
-"Right-click the column name to copy it to your clipboard."
+"Clique com o botão direito do mouse no nome da coluna para copiá-la para a "
+"área de transferência."
 
 #: js/messages.php:360
 msgid "Show data row(s)"
@@ -2044,12 +2043,12 @@ msgstr "Segundo"
 #: libraries/Advisor.class.php:77
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr "PHP apresentou o seguinte erro: %s"
+msgstr "PHP achou o erros a seguir: %s"
 
 #: libraries/Advisor.class.php:104
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Falha avaliando a precondição da regra '%s'"
 
 #: libraries/Advisor.class.php:121
 #, php-format
@@ -2059,37 +2058,38 @@ msgstr "O Cálculo para a regra '%s' falhou"
 #: libraries/Advisor.class.php:140
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Falha ao testar a regra '%s'"
 
 #: libraries/Advisor.class.php:222
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Falha ao formatar linha pela regra, '%s'. O PHP retornou o seguinte erro: %s"
+msgstr "Falha ao formatar linha para a regra '%s'."
 
 #: libraries/Advisor.class.php:378
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Declaração de regra inválida %1$s, é esperado a linha %2$s da regra anterior"
 
 #: libraries/Advisor.class.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Formato inválido na linha %d da entrada CSV."
+msgstr "Formato inválido na linha %s;"
 
 #: libraries/Advisor.class.php:403
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Caracteres inesperados na linha %s"
 
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
+"Caractere inesperado na linha %1$s. Esperado Tab, mas foi encontrado \"%2$s\""
 
 #: libraries/Advisor.class.php:450 server_status.php:1044
 msgid "per second"
@@ -2226,13 +2226,13 @@ msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
 msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
 
 #: libraries/DbSearch.class.php:338
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s resultado dentro da tabela <i>%2$s</i>"
-msgstr[1] "%1$s resultados dentro da tabela <i>%2$s</i>"
+msgstr[0] "%1$s resultado em <i>%2$s</i>"
+msgstr[1] "%1$s resultados em <i>%2$s</i>"
 
 #: libraries/DbSearch.class.php:353 libraries/Menu.class.php:246
 #: libraries/Util.class.php:3303 libraries/Util.class.php:3511
@@ -2858,15 +2858,15 @@ msgid "unknown table status: "
 msgstr "Status da tabela desconhecido: "
 
 #: libraries/Table.class.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Procurar no Banco de Dados"
+msgstr "O banco de dados fonte `%s` não foi encontrado!"
 
 #: libraries/Table.class.php:737
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s não encontrado!"
+msgstr "O banco de dados alvo `%s` não foi encontrado!"
 
 #: libraries/Table.class.php:1165
 msgid "Invalid database"
@@ -2955,11 +2955,11 @@ msgstr "Ordenado por:"
 
 #: libraries/TableSearch.class.php:835
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Use esta coluna para rotular cada ponto"
 
 #: libraries/TableSearch.class.php:856
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Número máximo de linhas para traçar"
 
 #: libraries/TableSearch.class.php:884 libraries/TableSearch.class.php:1156
 #: sql.php:162 tbl_change.php:218
@@ -2982,7 +2982,7 @@ msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
 #: libraries/TableSearch.class.php:1165
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Visualzar/Editar pontos"
 
 #: libraries/TableSearch.class.php:1172
 msgid "How to use"
@@ -3028,18 +3028,24 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Um inteiro de 1 byte, o alcance sinalizado é -128 a 127, o alcance não "
+"sinalizado é 0 a 255."
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Um inteiro de 2 byte, o alcance assinado é -32,768 até 32,767, o alcance não "
+"assinado é de 0 até 65,535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Um inteiro de 3 bytes, o alcance assinado é de -8,388,608 até 8,388,607, o "
+"alcance não assinado é de 0 até 16,777,215"
 
 #: libraries/Types.class.php:302
 msgid ""
@@ -3095,10 +3101,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Uma data, o limite suportado é de %1$s até %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
@@ -3112,10 +3118,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Erro ao renomear tabela %1$s para %2$s"
+msgstr "Uma hora, o limite suportado é de %1$s até %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -3220,10 +3226,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Adicionar polígono"
+msgstr "Um polígono"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
@@ -3247,21 +3252,18 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Criar um novo índice"
+msgstr "Conjuntos de data e hora"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linha"
+msgstr "Strings"
 
 #: libraries/Types.class.php:673
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3962,10 +3964,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Propor estrutura da tabela"
+msgstr "Esconder as ações de estrutura da tabela"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4552,10 +4553,9 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database structure"
 msgid "Table structure"
-msgstr "Estrutura do Banco Dados"
+msgstr "Estrutura da tabela"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -4724,10 +4724,10 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr ""
+"Número mínimo de tabelas para mostrar na caixa de filtro de bancos de dados"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6294,10 +6294,10 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Alteração efetuada em %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, fuzzy, php-format
@@ -6321,10 +6321,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Formato do arquivo importado"
+msgstr "Fazendo upload do arquivo importado..."
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -6399,7 +6398,6 @@ msgstr ""
 "continuar na posição %d."
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6409,9 +6407,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Permitir interromper a importação caso se detecte que o script demorará "
-"perto do tempo limite PHP.<i (Isso pode ser um bom caminho para importar "
-"arquivos grandes, entretanto isso pode interromper as transações.)</i>"
+"Permitir a interrupção da importação caso o script detecte que está perto do "
+"tempo limite do PHP.<i (Isso pode ser um bom caminho para importar arquivos "
+"grandes, entretanto isso pode interromper as transações.)</i>"
 
 #: libraries/display_import.lib.php:294
 msgid "Number of rows to skip, starting from the first row:"
@@ -6950,10 +6948,9 @@ msgid "Add prefix"
 msgstr "Adicionar índice"
 
 #: libraries/mult_submits.inc.php:310 sql.php:474
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
-msgstr "Você realmente deseja executar a Query SQL a seguir?"
+msgstr "Você realmente deseja executar a query SQL a seguir?"
 
 #: libraries/mult_submits.inc.php:544 tbl_replace.php:245
 msgid "No change"
@@ -7614,15 +7611,13 @@ msgid "PHP Version"
 msgstr "Versão do PHP"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:83
-#, fuzzy
 msgid "Export table names"
-msgstr "Tipo de exportação"
+msgstr "Exportar nomes das tabelas"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:89
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontal (cabeçalhos rotacionados)"
+msgstr "Exportar cabeçalhos das tabelas"
 
 #: libraries/plugins/export/ExportPdf.class.php:96
 msgid "(Generates a report containing the data of a single table)"
@@ -7679,10 +7674,9 @@ msgstr ""
 "tabelas formados com caracteres especiais ou palavras chaves)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opções de criação de objetos"
+msgstr "Opções de criação de dados"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
@@ -7865,10 +7859,10 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:302
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Formato inválido na linha %d da entrada CSV."
+msgstr "Formato inválido da entrada mediawiki na linha: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8086,7 +8080,6 @@ msgid "not OK"
 msgstr "não está OK"
 
 #: libraries/relation.lib.php:92
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -8429,7 +8422,6 @@ msgid "Returns"
 msgstr "Retornos"
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8440,10 +8432,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Você está usando  extensão 'mysql' obsoleta do PHP, que não é capaz de lidar "
-"com multi consultas. <b.>A execução de algumas rotinas de armazenamento "
-"podem falhar!</b> Por favor, use a extensão melhorada 'mysqli' para evitar "
-"quaisquer problemas."
+"Você está usando a extensão 'mysql' que está obsoleta no PHP e ela não é "
+"capaz de lidar com multi consultas. <b.>A execução de algumas rotinas de "
+"armazenamento podem falhar!</b> Por favor, use a extensão melhorada 'mysqli' "
+"para evitar quaisquer problemas."
 
 #: libraries/rte/rte_routines.lib.php:280
 #: libraries/rte/rte_routines.lib.php:1079
@@ -9267,10 +9259,10 @@ msgid "You have updated the privileges for %s."
 msgstr "Você mudou os priviléios para %s."
 
 #: libraries/server_privileges.lib.php:2798
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilégios"
+msgstr "Privilégios para %s"
 
 #: libraries/server_privileges.lib.php:2908
 msgid "Users overview"
@@ -9511,10 +9503,9 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/structure.lib.php:1431 libraries/structure.lib.php:1527
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Remover coluna(s)"
+msgstr "Mover coluna(s)"
 
 #: libraries/structure.lib.php:1434
 msgid "Move the columns by dragging them up and down."
@@ -9589,7 +9580,7 @@ msgstr "Tamanho do registro"
 
 #: libraries/structure.lib.php:1779 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr ""
+msgstr "Próximo autoíndice"
 
 #: libraries/structure.lib.php:1883
 msgid "Show more actions"
@@ -9609,7 +9600,6 @@ msgid "An index has been added on %s"
 msgstr "Um índice foi adicionado a %s"
 
 #: libraries/structure.lib.php:2181 libraries/structure.lib.php:2252
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Procurar valores distintos"
@@ -9648,10 +9638,10 @@ msgid "Effective"
 msgstr "Efetivo"
 
 #: libraries/tbl_common.inc.php:53
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "Rastreamento está ativo."
+msgstr "Rastreamento de %s está ativo."
 
 #: libraries/tbl_properties.inc.php:91
 msgid ""
@@ -9674,10 +9664,9 @@ msgstr ""
 "use este formato: a"
 
 #: libraries/tbl_properties.inc.php:135
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Remover coluna(s)"
+msgstr "Mover coluna(s)"
 
 #: libraries/tbl_properties.inc.php:145
 #, php-format
@@ -9726,7 +9715,7 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:629
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "Depois %s"
@@ -9949,10 +9938,9 @@ msgid "No databases"
 msgstr "Sem bases"
 
 #: navigation.php:171
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name"
-msgstr "Alterar tabela ordenada por"
+msgstr "Filtar bancos de dados por nome"
 
 #: navigation.php:243
 msgid "Filter tables by name"
@@ -10255,12 +10243,12 @@ msgid "Character Sets and Collations"
 msgstr "Conjuntos de caracteres e Collations"
 
 #: server_databases.php:117
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Banco de Dados %s foi eliminado com sucesso!"
-msgstr[1] "Banco de Dados %s foi eliminado com sucesso!"
+msgstr[0] "Banco de Dados %1$d foi eliminado com sucesso."
+msgstr[1] "Os Bancos de Dados %1$d foram eliminados com sucesso."
 
 #: server_databases.php:138
 msgid "Databases statistics"
@@ -11961,6 +11949,8 @@ msgstr "Mostrar formulário"
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
+"Tanto o URL Wrapper quando CURL não estão disponíveis. Não é possível checar "
+"a versão."
 
 #: setup/lib/index.lib.php:144
 msgid ""
@@ -11972,11 +11962,11 @@ msgstr ""
 
 #: setup/lib/index.lib.php:165
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Servidor retornou uma versão inválida de string"
 
 #: setup/lib/index.lib.php:176
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Versão de string não analisável"
 
 #: setup/lib/index.lib.php:196
 #, php-format
@@ -11999,6 +11989,12 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"É aconselhável que esta %soption%s seja desabilitada pois ela permite que um "
+"atacante logue-se em qualquer servidor MySQL utilizando força bruta. Se "
+"você acha que ela é necessária, utilize %strusted proxies list%s. "
+"Entretanto, proteções baseadas no protocolo IP podem não ser confiáveis se "
+"seu endereço IP pertence a um ISP onde centenas de usuários, incluindo você, "
+"estão conectados."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -12006,6 +12002,10 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"Você não tinha blowfish secret configurado e possui habilitada a "
+"autenticação de cookies, então uma chave foi automaticamente gerada para "
+"você. Ela é utilizada para encriptar cookies; você não precisa se lembrar "
+"dela."
 
 #: setup/lib/index.lib.php:301
 #, php-format
@@ -12013,6 +12013,8 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"A compactação e descompactação%s %sBzip2 requerem funções (%s) que não estão "
+"disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:303
 msgid ""
@@ -12020,12 +12022,14 @@ msgid ""
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
 "Este valor deve ser verificado com atenção para garantir que este diretório "
-"não seja acessado ou escrito por outros usuários no seu servidor."
+"não seja acessado ou alterado por outros usuários no seu servidor."
 
 #: setup/lib/index.lib.php:304
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "Esta %sopção%s deveria estar habilitada se seu navegador tem suporter."
+msgstr ""
+"É aconselhável que esta %sopção%s esteja habilitada se seu servidor web tem "
+"suporte a ela."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -12033,6 +12037,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"A compactação e descompactação%s %sGZip requerem funções (%s) que não estão "
+"disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:308
 #, php-format
@@ -12041,6 +12047,10 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
+"O Cookie de validação%s do %sLogin configurado com mais de 1440 segundos "
+"pode causar invalidação de sessão aleatoriamente caso %"
+"ssession.gc_maxlifetime%s seja menor que seu valor atual (Configuração atual "
+"%d)."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -12048,6 +12058,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"É aconselhável que o cookie de validação%s do %sLogin seja configurado com, "
+"no máximo, 1800 segundos (30 minutos). Valores maiores que 1800 podem causar "
+"um risco de segurança como o roubo de identidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12055,6 +12068,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"Se estiver usando autenticação por cookies e o %sLogin cookie store%s não é "
+"igual a 0, %sLogin cookie validity%s precisa ser configurado para um valor "
+"menor ou igual a 0."
 
 #: setup/lib/index.lib.php:314
 #, php-format
@@ -12064,6 +12080,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"Se você acha que ela é necessária, utilize configurações adicionais de "
+"segurança - configurações de %shost authentication%s e %strusted proxies "
+"list%s. Entretanto, proteções baseadas no protocolo IP podem não ser "
+"confiáveis se seu endereço IP pertence a um ISP onde centenas de usuários, "
+"incluindo você, estão conectados."
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -12074,6 +12095,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu usuário e senha "
+"para auto-login, o que não é uma opção desejável para live hosts. Qualquer "
+"um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso direto ao "
+"painel de controle. Configure o %stipo de autenticaçãoe%s para "
+"[kbd]cookie[/kbd] ou [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12436,7 +12462,7 @@ msgstr "Instrução de definição de dados"
 
 #: tbl_tracking.php:612
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Instrução de manipulação de dados"
 
 #: tbl_tracking.php:670
 msgid "SQL dump (file download)"
@@ -12536,22 +12562,25 @@ msgstr "Renomear a visão para"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime menor que um dia"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Uptime é menor que um dia, ajustes de performance podem não estar precisos."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pra ter médias mais precisas é recomendado deixar o servidor rodando por "
+"mais de um dia antes de utilizar esta ferramenta"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "O uptime é somente %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -12562,12 +12591,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Menos de 1.000 consultas foram feitas a esse servidor. As recomendações "
+"podem não estar precisas."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Deixe o servidor rodar por um período maior até que tenha executado um "
+"número maior de consultas."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -12582,17 +12615,22 @@ msgstr "Porcentagem de consultas lentas"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Existem várias consultas (queries) lentas comparadas às consultas globais."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Você pode querer aumentar o parâmetro {long_query_time} ou otimizar as "
+"consultas (queries) listadas no log de consultas lentas"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"É aconselhável que a taxa de consultas (queries) lentas esteja abaixo de 5%%"
+", a sua taxa é de %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12602,6 +12640,8 @@ msgstr "Taxa de consulta lenta"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"A porcentagem de consultas(queries) lentas está alta comparada com o uptime "
+"do servidor."
 
 #: libraries/advisory_rules.txt:75
 #, fuzzy, php-format
@@ -12973,10 +13013,9 @@ msgstr ""
 "%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%%"
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permitir criar tabelas temporárias."
+msgstr "Proporção de buscas que geram tabelas temporárias"
 
 #: libraries/advisory_rules.txt:216
 #, fuzzy, php-format
@@ -13083,7 +13122,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
@@ -13091,8 +13130,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"A taxa de conexões abortadas é %s, este valor deve ser menor do que 1 por "
-"hora."
+"A taxa média de leituras de posições fixas é de: %s, este valor deve ser "
+"menor do que 1 por hora."
 
 #: libraries/advisory_rules.txt:247
 #, fuzzy
@@ -13113,22 +13152,22 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"A taxa de leitura da próxima linha na tabel é de: %s, este valor deve ser "
+"menor do que 1 por hora."
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:258
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size e max_heap_table_size não são os mesmos."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
@@ -13225,16 +13264,16 @@ msgid "key_buffer_size is 0"
 msgstr "Tamanho do buffer de ordenação"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "%% Número máximo de buffers chave MyISAM"
 
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Tamanho do buffer de ordenação"
+msgstr "O buffer de chaves MyISAM (cache de índices) %% usadas é baixo."
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
@@ -13244,17 +13283,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"%% número máximo de buffers chave MyISAM: %s%%, é aconselhável que este "
+"valor esteja acima de 95%%"
 
 #: libraries/advisory_rules.txt:304
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "Porcentagem usada de key buffers MyISAM"
 
 #: libraries/advisory_rules.txt:309
 #, fuzzy, php-format
@@ -13284,16 +13324,14 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Tamanho do buffer de ordenação"
 
 #: libraries/advisory_rules.txt:320
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Criar tabela"
+msgstr "Taxa de tabelas abertas"
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "O número atual de escritas pendentes."
+msgstr "A proporção de tabelas abertas está alta."
 
 #: libraries/advisory_rules.txt:324
 msgid ""
@@ -13311,10 +13349,9 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:327
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formato do arquivo importado"
+msgstr "Porcentagem do limite de arquivos abertos"
 
 #: libraries/advisory_rules.txt:330
 msgid ""
@@ -13340,16 +13377,14 @@ msgstr ""
 "ser abaixo de 80%%"
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Formato do arquivo importado"
+msgstr "Proporção de arquivos abertos"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "O número de arquivos de log fsyncs pendentes."
+msgstr "A proporção de arquivos abertos está alta."
 
 #: libraries/advisory_rules.txt:339
 #, fuzzy, php-format
@@ -13361,17 +13396,15 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Criar nova tabela no Banco de Dados %s"
+msgstr "Tabelas bloqueadas %%"
 
 #: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
-#, fuzzy
 #| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr ""
-"O número de vezes que uma tabela trancada foi recuperada imediatamente."
+msgstr "Muitos bloqueios de tabela não foram concedidos imediatamente."
 
 #: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -13397,10 +13430,9 @@ msgstr ""
 "hora."
 
 #: libraries/advisory_rules.txt:355
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Chave do cache"
+msgstr "Cache de threads"
 
 #: libraries/advisory_rules.txt:358
 msgid ""
@@ -13419,16 +13451,15 @@ msgid "The thread cache is set to 0"
 msgstr "Rastreamento não está ativo."
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Rastreamento não está ativo."
+msgstr "Taxa de acessos a threads %%"
 
 #: libraries/advisory_rules.txt:365
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Rastreamento não está ativo."
+msgstr "Cache de threads não é eficiente."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
@@ -13447,10 +13478,9 @@ msgid "Threads that are slow to launch"
 msgstr "O número de processos que não estão dormindo."
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "O número de processos que não estão dormindo."
+msgstr "Existem muitas threads que estão lentas demais para iniciar."
 
 #: libraries/advisory_rules.txt:373
 msgid ""
@@ -13643,7 +13673,6 @@ msgstr ""
 "ele não deve ser menor do que 20%%"
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 msgid "Max InnoDB log size"
 msgstr "Tamanho máximo do log InnoDB"
 
@@ -13671,10 +13700,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "O tamanho absoluto do log do InnoDB é %s MiB"
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamanho do Buffer Pool"
+msgstr "Tamanho do buffer pool InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
@@ -13720,7 +13748,6 @@ msgstr ""
 "tabelas InnoDB ou outros serviços executando na mesma máquina."
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "Inserções concorrentes no MyISAM"

@@ -112,6 +112,10 @@ $GLOBALS['dummy_queries'] = array(
         )
     ),
     array(
+        'query' => 'SHOW INDEXES FROM `pma_test`.`table1` WHERE (Non_unique = 0)',
+        'result' => array(),
+    ),
+    array(
         'query' => 'SHOW COLUMNS FROM `pma_test`.`table2`',
         'columns' => array(
             'Field', 'Type', 'Null', 'Key', 'Default', 'Extra'
@@ -211,6 +215,14 @@ $GLOBALS['dummy_queries'] = array(
     ),
     array(
         'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'RENAME TABLE `pma_test`.`table1` TO `pma_test`.`table3`;',
+        'result' => array(),
+    ),
+    array(
+        'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= \'pma_test\' AND EVENT_OBJECT_TABLE = \'table1\';',
         'result' => array(),
     ),
 
