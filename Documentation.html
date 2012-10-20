@@ -1687,6 +1687,19 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether the &quot;Show binary contents as HEX&quot; browse
     option is ticked by default.</dd>
 
+    <dt id="cfg_GridEditing">$cfg['GridEditing'] string</dt>
+    <dd>
+    Defines which action (<code>double-click</code> or <code>click</code>)
+    triggers grid editing. Can be deactived with the <code>disabled</code>
+    value. 
+    </dd>
+
+    <dt id="cfg_SaveCellsAtOnce">$cfg['SaveCellsAtOnce'] boolean</dt>
+    <dd>
+        Defines whether or not to save all edited cells at once for grid
+        editing.
+    </dd>
+
     <dt id="cfg_ProtectBinary">$cfg['ProtectBinary'] boolean or string</dt>
     <dd>Defines whether <code>BLOB</code> or <code>BINARY</code> columns are protected
         from editing when browsing a table's content. Valid values are:
@@ -2174,11 +2187,6 @@ setfacl -d -m "g:www-data:rwx" tmp
         In this array are defined default parameters for import, names of
         items are similar to texts seen on import page, so you can easily
         identify what they mean.
-    </dd>
-
-    <dt id="cfg_SaveCellsAtOnce">$cfg['SaveCellsAtOnce'] boolean</dt>
-    <dd>
-        Defines whether or not to save all edited cells at once in browse-mode.
     </dd>
 
     <dt id="cfg_ShowDisplayDirection">$cfg['ShowDisplayDirection'] boolean</dt>
