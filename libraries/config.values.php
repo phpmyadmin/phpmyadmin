@@ -67,6 +67,11 @@ $cfg_db['PropertiesIconic'] = array(
     false  => __('No'),
     'both' => __('Both')
 );
+$cfg_db['GridEditing'] = array(
+    'click',
+    'double-click',
+    'disabled'
+);
 $cfg_db['DefaultTabServer'] = array(
     'main.php',                // the welcome page (recommended for multiuser setups)
     'server_databases.php',    // list of databases

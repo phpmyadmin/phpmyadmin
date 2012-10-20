@@ -1042,6 +1042,26 @@ $cfg['Order'] = 'SMART';
  */
 $cfg['DisplayBinaryAsHex'] = true;
 
+/**
+ * grid editing: save edited cell(s) in browse-mode at once
+ *
+ * @global boolean $cfg['SaveCellsAtOnce']
+ */
+
+$cfg['SaveCellsAtOnce'] = false;
+
+/**
+ * grid editing: which action triggers it, or completely disable the feature
+ *
+ * Possible values:
+ * 'click'
+ * 'double-click'
+ * 'disabled'
+ *
+ * @global string $cfg['GridEditing']
+ */
+$cfg['GridEditing'] ='double-click';
+
 
 /*******************************************************************************
  * In edit mode...
@@ -2415,11 +2435,6 @@ $cfg['ShowBrowseComments'] = true;
  * @global boolean $cfg['ShowPropertyComments']
  */
 $cfg['ShowPropertyComments']= true;
-
-/**
- * save edited cell(s) in browse-mode at once.
- */
-$cfg['SaveCellsAtOnce'] = false;
 
 /**
  * shows table display direction.

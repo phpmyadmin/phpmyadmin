@@ -115,6 +115,7 @@ $forms['Main_frame']['Browse'] = array(
     'DisplayBinaryAsHex',
     'BrowsePointerEnable',
     'BrowseMarkerEnable',
+    'GridEditing',
     'SaveCellsAtOnce',
     'ShowDisplayDirection',
     'RepeatCells',
