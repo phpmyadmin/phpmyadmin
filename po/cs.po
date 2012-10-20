@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-20 07:27-0400\n"
-"PO-Revision-Date: 2012-10-14 20:44+0200\n"
+"PO-Revision-Date: 2012-10-20 16:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -375,7 +375,7 @@ msgstr[2] "%s tabulek"
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
-msgstr "Musíte zvolit alespoň jedno pole, které chcete zobrazit"
+msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit"
 
 #: db_qbe.php:60
 #, php-format
@@ -646,7 +646,7 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "Pokusili jste se importovat soubor s nepodporovanou kompresí (%s). Buďto "
-"podpora není implementována nebo je vypnuta ve vaší konfiguraci."
+"podpora není implementována nebo je vypnuta ve vašem nastavení."
 
 #: import.php:409
 msgid ""
@@ -742,7 +742,7 @@ msgstr "Odstraňuji (primární) klíč"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Tato operace může trvat velmi dlouho. Chcete je přesto provést?"
+msgstr "Tato operace může trvat velmi dlouho. Přejete si ji přesto provést?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -1357,7 +1357,7 @@ msgstr "Nahrát nastavení monitoru"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr "Zvolte, prosím, soubor, který chcete nahrát"
+msgstr "Zvolte, prosím, soubor, který si přejete nahrát"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1668,7 +1668,7 @@ msgstr "Klávesou Esc ukončíte editaci"
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr "Na stránce jsou neuložené změny. Chcete ji opravdu opustit?"
+msgstr "Na stránce jsou neuložené změny. Opravdu si ji přejete opustit?"
 
 #: js/messages.php:349
 msgid "Drag to reorder"
@@ -2231,7 +2231,7 @@ msgstr "Vyhledávání v databázi"
 
 #: libraries/DbSearch.class.php:393
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Slova nebo hodnoty, které chcete vyhledat (zástupný znak: „%“):"
+msgstr "Slova nebo hodnoty, které si přejete vyhledat (zástupný znak: „%“):"
 
 #: libraries/DbSearch.class.php:402
 msgid "Find:"
@@ -3528,7 +3528,7 @@ msgstr ""
 #: libraries/common.inc.php:583
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Nepodařilo se nahrát výchozí konfiguraci ze souboru: %1$s"
+msgstr "Nepodařilo se nahrát výchozí nastavení ze souboru: %1$s"
 
 #: libraries/common.inc.php:590
 msgid ""
@@ -3550,7 +3550,7 @@ msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení.
 
 #: libraries/common.inc.php:851
 msgid "Invalid authentication method set in configuration:"
-msgstr "V konfiguraci máte špatnou přihlašovací metodu:"
+msgstr "V nastavení máte špatnou přihlašovací metodu:"
 
 #: libraries/common.inc.php:973
 #, php-format
@@ -4522,10 +4522,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Pokud chcete použít službu kontrolování SQL, je potřeba si uvědomit, že "
-"[strong]všechny SQL dotazy jsou anonymně ukládány pro statistické účely[/"
-"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Copyright 2002 Upright Database Technology. Všechna práva vyhrazena.[/em]"
+"Pokud si přejete používat službu kontrolování SQL, je potřeba si uvědomit, "
+"že [strong]všechny SQL dotazy jsou anonymně ukládány pro statistické "
+"účely[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Všechna práva "
+"vyhrazena.[/em]"
 
 #: libraries/config/messages.inc.php:226
 msgid "Startup"
@@ -4740,7 +4741,7 @@ msgstr "Stromový pohled na databáze"
 
 #: libraries/config/messages.inc.php:286
 msgid "Disable this if you want to see all databases at once"
-msgstr "Tuto volbu zakažte, pokud chcete vidět všechny databáze najednou"
+msgstr "Tuto volbu zakažte, pokud si přejete vidět všechny databáze najednou"
 
 #: libraries/config/messages.inc.php:287
 msgid "Use light version"
@@ -5013,9 +5014,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Povolte pokud chcete histori dotazů založenou na databázi (vyžaduje úložiště "
-"nastavení phpMyAdmina). Pokud toto zakážete, využijí se k zobrazení historie "
-"Java Scriptové rutiny (se zavřením okna ztratíte předchozí historii)."
+"Povolte pokud si přejete historii dotazů ukládat do databáze (vyžaduje "
+"úložiště nastavení phpMyAdmina). Pokud toto zakážete, využijí se k zobrazení "
+"historie Java Scriptové rutiny (se zavřením okna ztratíte předchozí "
+"historii)."
 
 #: libraries/config/messages.inc.php:344
 msgid "Permanent query history"
@@ -5316,7 +5318,7 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"Můžete použít žolíky MySQL (% a _), escapujte je, pokud je chcete použít "
+"Můžete použít žolíky MySQL (% a _), escapujte je, pokud si je přejete použít "
 "jako znaky, např. použijte [kbd]'moje\\_db'[/kbd] a ne [kbd]'moje_db'[/kbd]. "
 "Použitím této volby můžete také změnit pořadí databází, stačí na konci "
 "seznamu uvést [kbd]*[/kbd] pro zobrazení ostatních v abecedním pořadí."
@@ -5705,8 +5707,8 @@ msgid ""
 "If tooltips are enabled and a database comment is set, this will flip the "
 "comment and the real name"
 msgstr ""
-"Pokud jsou povoleny tooltipy a je nastaven komentář databáze, tato volba "
-"prohodí komentář a skutečné jméno"
+"Pokud je zapnuto zobrazování vysvětlivek a databáze má nastavený databáze, "
+"tato volba prohodí komentář a skutečné jméno"
 
 #: libraries/config/messages.inc.php:485
 msgid "Display database comment instead of its name"
@@ -5729,7 +5731,7 @@ msgstr "Zobrazit komentář tabulky místo jména"
 
 #: libraries/config/messages.inc.php:488
 msgid "Display table comments in tooltips"
-msgstr "Zobrazit komentáře tabulky v tooltipu"
+msgstr "Zobrazit komentáře tabulky jako vysvětlivku"
 
 #: libraries/config/messages.inc.php:489
 msgid ""
@@ -7360,7 +7362,7 @@ msgstr "Server"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "Přihlášení bez hesla je zakázáno v konfiguraci (viz AllowNoPassword)"
+msgstr "Přihlášení bez hesla je zakázáno v nastavení (viz AllowNoPassword)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:581
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
@@ -7895,10 +7897,10 @@ msgstr ""
 "Zobrazí formátovaně datum nebo čas z pole TIME, TIMESTAMP, DATETIME nebo "
 "unixový timestamp v numerickém poli. První parametr je posun (v hodinách), "
 "který bude přidán k času (výchozí je 0). Druhý parametr je formátovací "
-"řetězec. Třetí určuje jestli chcete zobrazit datum podle místního nastavení "
-"nebo UTC čas (použijte text „local“ nebo „utc“). Podle tohoto nastavení, "
-"formát má buďto syntaxi funkce strftime() pokud použijete „local“ nebo pro "
-"gmtime() pokud použijete „utc“."
+"řetězec. Třetí určuje jestli si přejete zobrazit datum podle místního "
+"nastavení nebo UTC čas (použijte text „local“ nebo „utc“). Podle tohoto "
+"nastavení, formát má buďto syntaxi funkce strftime() pokud použijete „local“ "
+"nebo pro gmtime() pokud použijete „utc“."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8359,8 +8361,8 @@ msgid ""
 "problems."
 msgstr ""
 "Používáte zastaralé rozšíření „mysql“, které neumí pracovat se složenými "
-"dotazy. [strong]Spouštění některých rutin může selhat![/strong] Pokud se "
-"chcete těmto problémům vyhnout, začněte, prosím, používat nové rozšíření "
+"dotazy. [strong]Spouštění některých rutin může selhat![/strong] Pokud si "
+"přejete se těmto problémům vyhnout, začněte, prosím, používat nové rozšíření "
 "„mysqli“."
 
 #: libraries/rte/rte_routines.lib.php:280
@@ -8690,7 +8692,7 @@ msgstr "cizích klíčů"
 
 #: libraries/schema/User_Schema.class.php:192
 msgid "Please choose a page to edit"
-msgstr "Zvolte stránku, kterou chcete změnit"
+msgstr "Zvolte stránku, kterou si přejete změnit"
 
 #: libraries/schema/User_Schema.class.php:197
 msgid "Select page"
@@ -8757,7 +8759,7 @@ msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
-"Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete "
+"Aktuální stránka se odkazuje na tabulky, které již neexistují. Přejete si "
 "odstranit tyto odkazy?"
 
 #: libraries/schema/User_Schema.class.php:536
@@ -9145,8 +9147,8 @@ msgstr "Přidat oprávnění pro databázi"
 #: libraries/server_privileges.lib.php:2304
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Zástupné znaky _ a % by měly být escapovány pomocí \\ pokud je chcete použít "
-"jako znak"
+"Zástupné znaky _ a % by měly být escapovány pomocí \\ pokud si je přejete "
+"použít jako znak"
 
 #: libraries/server_privileges.lib.php:2322
 msgid "Add privileges on the following table"
@@ -9168,7 +9170,7 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 
 #: libraries/server_privileges.lib.php:2682
 msgid "No users selected for deleting!"
-msgstr "Musíte vybrat uživatele, které chcete odstranit!"
+msgstr "Musíte vybrat uživatele, které si přejete odstranit!"
 
 #: libraries/server_privileges.lib.php:2685
 msgid "Reloading the privileges"
@@ -10302,9 +10304,10 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 "Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
-"vybrat zda replikovat všechny databáze a přeskočit vybrané (vhodné pokud "
-"chcete replikovat většinu databází) nebo můžete zvolit opačný přístup - jen "
-"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný režim:"
+"vybrat zda replikovat všechny databáze a přeskočit vybrané (vhodné pokud si "
+"přejete replikovat většinu databází) nebo můžete zvolit opačný přístup - jen "
+"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný "
+"režim:"
 
 #: server_replication.php:277
 msgid "Replicate all databases; Ignore:"
@@ -10568,7 +10571,7 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Než změníte některá z nastavení, ujistěte se, že víte, co chcete změnit "
+"Než změníte některá z nastavení, ujistěte se, že víte, co si přejete změnit "
 "(čtením dokumentace) a jak případně vrátit změny zpět. Špatné nastavení může "
 "mít velmi negativní vliv na výkon serveru."
 
@@ -11519,7 +11522,7 @@ msgstr "Před sloučením odstranit proměnná data v příkazech INSERT"
 
 #: server_status.php:1998
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr "Zvolte ze kterého záznamu chcete vygenerovat statistiku."
+msgstr "Zvolte ze kterého záznamu si přejete vygenerovat statistiku."
 
 #: server_status.php:2000
 msgid "Results are grouped by query text."
@@ -11609,7 +11612,7 @@ msgstr "Vložit řádky"
 
 #: server_synchronize.php:547 server_synchronize.php:1068
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Chcete odstranit všechny stávající řídky z cílových tabulek?"
+msgstr "Přejete si odstranit všechny stávající řádky z cílových tabulek?"
 
 #: server_synchronize.php:552 server_synchronize.php:1073
 msgid "Apply Selected Changes"
@@ -13061,8 +13064,8 @@ msgid ""
 "other value as well."
 msgstr ""
 "Pokud jste změnili jednu z těchto hodnot: Server používá určí maximální "
-"velikost tabulek v paměti podle nižší hodnoty z těchto proměnných. Pokud "
-"chcete tuto velikost zvýšit, musíte zvýšit obě dvě."
+"velikost tabulek v paměti podle nižší hodnoty z těchto proměnných. Pokud si "
+"přejete tuto velikost zvýšit, musíte zvýšit obě dvě."
 
 #: libraries/advisory_rules.txt:260
 #, php-format
