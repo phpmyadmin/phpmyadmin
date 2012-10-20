@@ -2724,7 +2724,6 @@ class PMA_DisplayResults
             $field_type_class
                 = $this->_getClassForDateTimeRelatedFields($meta->type);
 
-            $pointer = $i;
             $is_field_truncated = false;
             // combine all the classes applicable to this column's value
             $class = $this->_getClassesForColumn(
@@ -2854,11 +2853,6 @@ class PMA_DisplayResults
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
-
-                // if two fields have the same name (this is possible
-                //       with self-join queries, for example), using $meta->name
-                //       will show both fields NULL even if only one is NULL,
-                //       so use the $pointer
 
                 $vertical_display['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
