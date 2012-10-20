@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-20 07:27-0400\n"
-"PO-Revision-Date: 2012-09-06 21:11+0200\n"
-"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2012-10-20 16:33+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -5146,13 +5145,12 @@ msgstr "Répéter les en-têtes"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: action to trigger it (or disable )"
-msgstr ""
+msgstr "Édition de grille : action de déclenchement (ou pour désactiver)"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Sauvegarder en une étape tous les éléments modifiés"
+msgstr "Édition de grille : sauvegarder en une étape tous les éléments modifiés"
 
 #: libraries/config/messages.inc.php:363
 msgid "Directory where exports can be saved on server"
@@ -6456,7 +6454,6 @@ msgstr ""
 "traitement reprendra à la position %d."
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6468,8 +6465,8 @@ msgid ""
 msgstr ""
 "Permettre l'interruption de l'importation si la limite de temps configurée "
 "dans PHP est sur le point d'être atteinte. <i>(Ceci pourrait aider à "
-"importer des fichiers volumineux, au détriment du respect des transactions.)"
-"</i>"
+"importer des fichiers volumineux, au détriment du respect des "
+"transactions.)</i>"
 
 #: libraries/display_import.lib.php:294
 msgid "Number of rows to skip, starting from the first row:"
