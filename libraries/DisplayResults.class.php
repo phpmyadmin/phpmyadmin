@@ -1038,7 +1038,7 @@ class PMA_DisplayResults
         // 1. Set $colspan or $rowspan and generate html with full/partial
         // text button or link
         list($colspan, $rowspan, $button_html)
-            = $this->_getFeildVisibilityParams(
+            = $this->_getFieldVisibilityParams(
                 $directionCondition, $is_display, $full_or_partial_text_link
             );
 
@@ -1309,7 +1309,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function _getFeildVisibilityParams(
+    private function _getFieldVisibilityParams(
         $directionCondition, &$is_display, $full_or_partial_text_link
     ) {
 
@@ -1420,7 +1420,7 @@ class PMA_DisplayResults
 
         return array($colspan, $rowspan, $button_html);
 
-    } // end of the '_getFeildVisibilityParams()' function
+    } // end of the '_getFieldVisibilityParams()' function
 
 
     /**
@@ -2663,7 +2663,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Prepare rows
+     * Get the values for one data row 
      *
      * @param integer &$dt_result         the link id associated to the query
      *                                    which results have to be displayed
@@ -2703,15 +2703,17 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        for ($j = 0; $j < $this->__get('_fields_cnt'); ++$j) {
+        for ($currentColumn = 0; 
+                $currentColumn < $this->__get('_fields_cnt'); 
+                ++$currentColumn) {
 
             // assign $i with appropriate column order
-            $i = $col_order ? $col_order[$j] : $j;
+            $i = $col_order ? $col_order[$currentColumn] : $currentColumn;
 
             $meta    = $fields_meta[$i];
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-            $hide_class = ($col_visib && !$col_visib[$j]
+            $hide_class = ($col_visib && ! $col_visib[$currentColumn]
                 // hide per <td> only if the display dir is not vertical
                 && ($_SESSION['tmp_user_values']['disp_direction']
                     != self::DISP_DIR_VERTICAL))
@@ -2722,7 +2724,6 @@ class PMA_DisplayResults
             $field_type_class
                 = $this->_getClassForDateTimeRelatedFields($meta->type);
 
-            $pointer = $i;
             $is_field_truncated = false;
             // combine all the classes applicable to this column's value
             $class = $this->_getClassesForColumn(
@@ -2852,11 +2853,6 @@ class PMA_DisplayResults
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
-
-                // if two fields have the same name (this is possible
-                //       with self-join queries, for example), using $meta->name
-                //       will show both fields NULL even if only one is NULL,
-                //       so use the $pointer
 
                 $vertical_display['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
