@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-20 07:27-0400\n"
-"PO-Revision-Date: 2012-10-20 16:15+0200\n"
+"PO-Revision-Date: 2012-10-20 16:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -911,15 +911,15 @@ msgstr ""
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
-msgstr "Úspěšnost vyrovnávací paměti dotazů"
+msgstr "Úspěšnost mezipaměti dotazů"
 
 #: js/messages.php:94
 msgid "Query cache usage"
-msgstr "Využití vyrovnávací paměti dotazů"
+msgstr "Využití mezipaměti dotazů"
 
 #: js/messages.php:95
 msgid "Query cache used"
-msgstr "Využito vyrovnávací paměti dotazů"
+msgstr "Využito mezipaměti dotazů"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
@@ -955,7 +955,7 @@ msgstr "Celková paměť"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr "Paměť cache"
+msgstr "Mezipaměť"
 
 #: js/messages.php:106
 msgid "Buffered memory"
@@ -5081,13 +5081,12 @@ msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: action to trigger it (or disable )"
-msgstr ""
+msgstr "Editační mřížka: činnost pro spuštění"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Uložit všechny upravené buňky najednou"
+msgstr "Editační mřížka: Uložit všechny upravené buňky najednou"
 
 #: libraries/config/messages.inc.php:363
 msgid "Directory where exports can be saved on server"
@@ -6430,8 +6429,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Velikost vyrovnávací paměti, kterou InnoDB používá pro vyrovnávací paměť dat "
-"a klíčů tabulek."
+"Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a klíčů "
+"tabulek."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
@@ -6549,7 +6548,7 @@ msgid ""
 "method."
 msgstr ""
 "Pokud by byl soubor pro vytváření MyISAM klíče byl větší než zde uvedená "
-"hodnota, použije se pomalejší metoda vyrovnávací paměti klíčů."
+"hodnota, použije se pomalejší metoda mezipaměti klíčů."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
@@ -6577,20 +6576,19 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr "Velikost vyrovnávací paměti klíčů"
+msgstr "Velikost mezipaměti klíčů"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Toto je množství paměti alokované pro vyrovnávací paměť klíčů. Výchozí "
-"velikost je 32MB. Zde alokovaná paměť se používá pouze pro vyrovnávací paměť "
-"stránek klíčů."
+"Toto je množství paměti alokované pro mezipaměť klíčů. Výchozí velikost je "
+"32MB. Zde alokovaná paměť se používá pouze pro mezipaměť stránek klíčů."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
-msgstr "Velikost vyrovnávací paměti záznamu"
+msgstr "Velikost mezipaměti záznamu"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -6598,21 +6596,21 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"Toto je velikost vyrovnávací paměti pro záznamy používané k dočasnému "
-"ukládání dat tabulky. Výchozí velikost je 32MB. Tato pamět se používá k "
-"ukládání změn souborů zpracovávaných dat (.xtd) a ukazatelů řádků (.xtr)."
+"Toto je velikost mezipaměti pro záznamy používané k dočasnému ukládání dat "
+"tabulky. Výchozí velikost je 32MB. Tato paměť se používá k ukládání změn "
+"souborů zpracovávaných dat (.xtd) a ukazatelů řádků (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr "Velikost vyrovnávací paměti logů"
+msgstr "Velikost mezipaměti logů"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Množství paměti alokované pro vyrovnávací pamět transakčního logu, která se "
-"využívá pro dočasné ukládání dat transakčního logu. Výchozí velikost je 16MB."
+"Množství paměti alokované pro mezipamět transakčního logu, která se využívá "
+"pro dočasné ukládání dat transakčního logu. Výchozí velikost je 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
@@ -7216,7 +7214,7 @@ msgstr "Zkontrolovat tabulku"
 
 #: libraries/operations.lib.php:1129
 msgid "Defragment table"
-msgstr "Defragmentovat tabulku"
+msgstr "Opravit rozdrobení tabulky"
 
 #: libraries/operations.lib.php:1143 libraries/structure.lib.php:320
 msgid "Analyze table"
@@ -10441,7 +10439,7 @@ msgstr "Obslužné rutiny"
 
 #: server_status.php:658
 msgid "Query cache"
-msgstr "Vyrovnávací paměť dotazů"
+msgstr "Mezipaměť dotazů"
 
 #: server_status.php:659
 msgid "Threads"
@@ -10457,7 +10455,7 @@ msgstr "Odložené inserty"
 
 #: server_status.php:663
 msgid "Key cache"
-msgstr "Vyrovnávací paměť klíčů"
+msgstr "Mezipaměť klíčů"
 
 #: server_status.php:664
 msgid "Joins"
@@ -10489,7 +10487,7 @@ msgstr "Zobrazit stav podřízených serverů"
 
 #: server_status.php:698
 msgid "Flush query cache"
-msgstr "Vyprázdnit vyrovnávací paměť dotazů"
+msgstr "Vyprázdnit mezipaměť dotazů"
 
 #: server_status.php:840
 msgid "Runtime Information"
@@ -10698,7 +10696,7 @@ msgstr ""
 
 #: server_status.php:1548
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "Počet transakcí, které využily dočasný binární log."
+msgstr "Počet transakcí, které využily dočasnou mezipaměť binárního záznamu."
 
 #: server_status.php:1549
 msgid ""
@@ -11061,16 +11059,16 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"Počet bloků ve vyrovnávací paměti klíčů, které byly změněny, ale nebyly "
-"zapsány na disk. Dříve se tato hodnota jmenovala Not_flushed_key_blocks."
+"Počet bloků ve mezipaměti klíčů, které byly změněny, ale nebyly zapsány na "
+"disk. Dříve se tato hodnota jmenovala Not_flushed_key_blocks."
 
 #: server_status.php:1613
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"Počet nepoužitých bloků ve vyrovnávací paměti klíčů. Pomocí této hodnoty "
-"poznáte jak moc je vyrovnávací paměť využitá."
+"Počet nepoužitých bloků ve mezipaměti klíčů. Pomocí této hodnoty poznáte jak "
+"moc je mezipaměť využitá."
 
 #: server_status.php:1614
 msgid ""
@@ -11078,16 +11076,16 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"Počet použitých bloků ve vyrovnávací paměti klíčů. Tato hodnota určuje "
-"maximum bloků, které kdy byly obsazeny najednou."
+"Počet použitých bloků v mezipaměti klíčů. Tato hodnota určuje maximum bloků, "
+"které kdy byly obsazeny najednou."
 
 #: server_status.php:1615
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Procento využití vyrovnávací paměti klíčů (vypočítaná hodnota)"
+msgstr "Procento využití mezipaměti klíčů (vypočítaná hodnota)"
 
 #: server_status.php:1616
 msgid "The number of requests to read a key block from the cache."
-msgstr "Počet požadavků na přečtení klíče z vyrovnávací paměti."
+msgstr "Počet požadavků na přečtení klíče z mezipaměti."
 
 #: server_status.php:1617
 msgid ""
@@ -11096,20 +11094,20 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Počet skutečných čtení bloku zklíče z disku. Pokud je hodnota příliš velká, "
-"pravděpodobně máte malou vyrovnávací paměť (key_buffer_size). Úspěšnost "
-"vyrovnávací paměti můžete spočítat jako Key_reads/Key_read_requests."
+"pravděpodobně máte malou mezipaměť (key_buffer_size). Úspěšnost mezipaměti "
+"můžete spočítat jako Key_reads/Key_read_requests."
 
 #: server_status.php:1618
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
-"Úspěšnost vyrovnávací paměti klíčů spočítaná jako poměr skutečných a "
-"požadovaných čtení (vypočítaná hodnota)"
+"Úspěšnost mezipaměti klíčů spočítaná jako poměr skutečných a požadovaných "
+"čtení (vypočítaná hodnota)"
 
 #: server_status.php:1619
 msgid "The number of requests to write a key block to the cache."
-msgstr "Počet požadavků na zápis bloku klíče na disk."
+msgstr "Počet požadavků na zápis bloku klíče do mezipaměti."
 
 #: server_status.php:1620
 msgid "The number of physical writes of a key block to disk."
@@ -11148,7 +11146,7 @@ msgid ""
 "table cache value is probably too small."
 msgstr ""
 "Celkem otevřených tabulek. Pokud je tato hodnota příliš vysoká, "
-"pravděpodobně máte malou vyrovnávací paměť pro tabulky."
+"pravděpodobně máte malou mezipaměť pro tabulky."
 
 #: server_status.php:1626
 msgid "The number of files that are open."
@@ -11168,21 +11166,21 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"Počet volných bloků paměti ve vyrovnávací paměti dotazů. Velké číslo ukazuje "
-"na problému s fragmentací, která může být vyřešena spuštěním příkazu FLUSH "
+"Počet volných bloků paměti v mezipaměti dotazů. Velké číslo ukazuje na "
+"problém s jejím rozdrobením, která může být vyřešena spuštěním příkazu FLUSH "
 "QUERY CACHE."
 
 #: server_status.php:1630
 msgid "The amount of free memory for query cache."
-msgstr "Velikost volné paměti ve vyrovnávací paměti dotazů."
+msgstr "Volná paměť v mezipaměti dotazů."
 
 #: server_status.php:1631
 msgid "The number of cache hits."
-msgstr "Počet zásahů vyrovnávací paměti dotazů."
+msgstr "Počet zásahů mezipaměti dotazů."
 
 #: server_status.php:1632
 msgid "The number of queries added to the cache."
-msgstr "Počet dotazů přidaných do vyrovnávací paměti dotazů."
+msgstr "Počet dotazů přidaných do mezipaměti dotazů."
 
 #: server_status.php:1633
 msgid ""
@@ -11191,10 +11189,9 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"Počet dotazů odstraněných z vyrovnávací paměti dotazů aby uvolnily místo pro "
-"nové. Tato hodnota může pomoci v nastavení velikosti vyrovnávací paměti. "
-"Vyrovnávací paměť používá strategii LRU (nejdéle nepoužité) pro vyřazování "
-"dotazů z vyrovnávací paměti."
+"Počet dotazů odstraněných z mezipaměti dotazů aby uvolnily místo pro nové. "
+"Tato hodnota může pomoci v nastavení velikosti mezipaměti. Mezipaměť používá "
+"strategii LRU (nejdéle nepoužité) pro vyřazování dotazů."
 
 #: server_status.php:1634
 msgid ""
@@ -11206,11 +11203,11 @@ msgstr ""
 
 #: server_status.php:1635
 msgid "The number of queries registered in the cache."
-msgstr "Počet dotazů ve vyrovnávací paměti dotazů."
+msgstr "Počet dotazů v mezipaměti dotazů."
 
 #: server_status.php:1636
 msgid "The total number of blocks in the query cache."
-msgstr "Celkový počet bloků ve vyrovnávací paměti dotazů."
+msgstr "Celkový počet bloků v mezipaměti dotazů."
 
 #: server_status.php:1637
 msgid "The status of failsafe replication (not yet implemented)."
@@ -11318,9 +11315,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"Počet vláken ve vyrovnávací paměti. Úspěšnost vyrovnávací paměti může být "
-"spočítána jako Threads_created/Connections. Pokud je tato hodnota červená, "
-"měli byste zvýšit thread_cache_size."
+"Počet vláken v mezipaměti. Úspěšnost mezipaměti může být spočítána jako "
+"Threads_created/Connections. Pokud je tato hodnota červená, měli byste "
+"zvýšit thread_cache_size."
 
 #: server_status.php:1655
 msgid "The number of currently open connections."
@@ -11339,7 +11336,7 @@ msgstr ""
 
 #: server_status.php:1657
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Úspěšnost vyrovnávací paměti vláken (vypočítaná hodnota)"
+msgstr "Úspěšnost mezipaměti vláken (vypočítaná hodnota)"
 
 #: server_status.php:1658
 msgid "The number of threads that are not sleeping."
@@ -12661,11 +12658,11 @@ msgstr "Dostupná paměť na tomto počítači: %s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
-msgstr "Vyrovnávací paměť dotazů je vypnutá"
+msgstr "Mezipaměť dotazů je vypnutá"
 
 #: libraries/advisory_rules.txt:149
 msgid "The query cache is not enabled."
-msgstr "Vyrovnávací paměť není povolena."
+msgstr "Mezipaměť není povolena."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -12674,9 +12671,9 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"O vyrovnávací paměť dotazů je známo, že při správném nastavení výrazně "
-"zvyšuje výkon. Zapněte ji nastavením {query_cache_size} na dvoucifernou "
-"hodnotu v MiB a nastavením {query_cache_type} na 'ON'. <b>Poznámka:</b> Toto "
+"O mezipaměti dotazů je známo, že při správném nastavení výrazně zvyšuje "
+"výkon. Zapněte ji nastavením {query_cache_size} na dvoucifernou hodnotu v "
+"MiB a nastavením {query_cache_type} na 'ON'. <b>Poznámka:</b> Toto "
 "doporučení můžete ignorovat pokud používáte memcached."
 
 #: libraries/advisory_rules.txt:151
@@ -12700,8 +12697,8 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"Používáte vyrovnávací paměť dotazů MySQL na poměrně zatížené databázi. Mohlo "
-"by být výhodnější použít <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"Používáte mezipaměť dotazů MySQL na poměrně zatížené databázi. Mohlo by být "
+"výhodnější použít <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
 "memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených serverů."
 
 #: libraries/advisory_rules.txt:158
@@ -12710,17 +12707,17 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"Je zapnuta vyrovnávací paměť dotazů a server přijal %d dotazů za sekundu. "
-"Toto pravidlo je aktivní při více než 100 dotazech za sekundu."
+"Je zapnuta mezipaměť dotazů a server přijal %d dotazů za sekundu. Toto "
+"pravidlo je aktivní při více než 100 dotazech za sekundu."
 
 #: libraries/advisory_rules.txt:160
 #, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "Úspěšnost vyrovnávací paměti dotazů (%%)"
+msgstr "Úspěšnost mezipaměti dotazů (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr "Vyrovnávací paměť dotazů není efektivní, má velmi malou úspěšnost."
+msgstr "Mezipaměť dotazů není efektivní, má velmi malou úspěšnost."
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
@@ -12729,16 +12726,16 @@ msgstr "Zvažte zvýšení {query_cache_limit}."
 #: libraries/advisory_rules.txt:165
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Současná úpěšnost vyrovnávací paměti %s%% je pod 20%%"
+msgstr "Současná úspěšnost mezipaměti %s%% je pod 20%%"
 
 #: libraries/advisory_rules.txt:167
 msgid "Query Cache usage"
-msgstr "Využití vyrovnávací paměť dotazů"
+msgstr "Využití mezipaměti dotazů"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Je využíváno méně než 80%% vyrovnávací paměti."
+msgstr "Je využíváno méně než 80%% mezipaměti."
 
 #: libraries/advisory_rules.txt:171
 msgid ""
@@ -12746,7 +12743,7 @@ msgid ""
 "query cache might help as well."
 msgstr ""
 "Toto může být způsobeno příliš nízkou hodnotou {query_cache_limit}. Taktéž "
-"může pomoci vyprázdnění vyrovnávací paměti."
+"může pomoci vyprázdnění mezipaměti."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
@@ -12754,16 +12751,16 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s%"
 "%. It should be above 80%%"
 msgstr ""
-"V současné době je volno %s%% vyrovnávací paměti. Tato hodnota by se měla "
-"držet nad 80%%"
+"V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
+"80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
-msgstr "Rozdrobení vyrovnávací paměti dotazů"
+msgstr "Rozdrobení mezipaměti dotazů"
 
 #: libraries/advisory_rules.txt:177
 msgid "The query cache is considerably fragmented."
-msgstr "Vyrovnávací paměť dotazů je značně rozdrobena."
+msgstr "Mezipaměť dotazů je značně rozdrobena."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
@@ -12777,13 +12774,13 @@ msgid ""
 "qcache_queries_in_cache"
 msgstr ""
 "Velké rozdrobení paměti pravděpodobně (ještě) zvýší Qcache_lowmem_prunes. "
-"Toto může být způsobeno příliš častým vyprazdňováním paměti kvůli její malé "
-"velikosti ({query_cache_size}). Rychlým, ale dočasným řešením tohoto "
-"problému může být vyprázdnění vyrovnávací paměti (to ale může způsobit její "
-"dočasné znepřístupnění). Pečlivým nastavením {query_cache_min_res_unit} na "
-"nižší hodnotu může také pomoci. Například jejím nastavením na průměrnou "
-"velikost vašich dotazů pomocí tohoto vzorce: (query_cache_size - "
-"qcache_free_memory) / qcache_queries_in_cache"
+"Toto může být způsobeno příliš častým vyprazdňováním mezipaměti kvůli její "
+"malé velikosti ({query_cache_size}). Rychlým, ale dočasným řešením tohoto "
+"problému může být vyprázdnění mezipaměti (to ale může způsobit její dočasné "
+"znepřístupnění). Pečlivým nastavením {query_cache_min_res_unit} na nižší "
+"hodnotu může také pomoci. Například jejím nastavením na průměrnou velikost "
+"vašich dotazů pomocí tohoto vzorce: (query_cache_size - qcache_free_memory) "
+"/ qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -12792,21 +12789,18 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"Vyrovnávací paměť je rozdrobena ze %s%%, kde 100%% znamená, že ve "
-"vyrovnávací paměti se střídají obsazené a prázdné bloky. Tato hodnota by se "
-"měla držet pod 20%%."
+"Mezipaměť je rozdrobena ze %s%%, kde 100%% znamená, že v mezipaměti se "
+"střídají obsazené a prázdné bloky. Tato hodnota by se měla držet pod 20%%."
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache low memory prunes"
-msgstr "Ořezávání vyrovnávací paměti dotazů"
+msgstr "Ořezávání mezipaměti dotazů"
 
 #: libraries/advisory_rules.txt:184
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr ""
-"Z vyrovnávací paměti dotazů jsou odstraňovány dotazy kvůli její malé "
-"velikosti."
+msgstr "Z mezipaměti dotazů jsou odstraňovány dotazy kvůli její malé velikosti."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12815,8 +12809,8 @@ msgid ""
 "this in small increments and monitor the results."
 msgstr ""
 "Bylo by vhodné zvětšit {query_cache_size}. Mějte ale na paměti, že s větší "
-"vyrovnávací pamětí roste i její režie, a proto je lepší zvětšovat ji "
-"postupně a sledovat chování serveru."
+"mezipamětí roste i její režie, a proto je lepší zvětšovat ji postupně a "
+"sledovat chování serveru."
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -12829,15 +12823,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
-msgstr "Maximální velikost vyrovnávací paměti dotazů"
+msgstr "Maximální velikost mezipaměti dotazů"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"Vyrovnávací paměť dotazů je nastavena na více než 128 MiB. Příliš velká "
-"vyrovnávací paměť může zvýšit náročnost její údržby."
+"Mezipaměť dotazů je nastavena na více než 128 MiB. Příliš velká mezipaměť "
+"může zvýšit náročnost její údržby."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12848,18 +12842,16 @@ msgstr "Zmenšení vyrovnávací paměti může přinést zvýšení výkonu."
 #: libraries/advisory_rules.txt:193
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "Velikost vyrovnávací paměti dotazů: %s"
+msgstr "Velikost mezipaměti dotazů: %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
-msgstr "Minimální velikost výsledku dotazu pro uložení do vyrovnávací paměti"
+msgstr "Minimální velikost výsledku dotazu pro uložení do mezipaměti"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
-"Maximální velikost výsledku uloženého do vyrovnávací paměti je výchozích 1 "
-"MiB."
+msgstr "Maximální velikost výsledku uloženého do mezipaměti je výchozích 1 MiB."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -12873,13 +12865,12 @@ msgid ""
 "might reduce efficiency."
 msgstr ""
 "Změněním {query_cache_limit} (obvykle zvýšením) můžete zvýšit efektivitu. "
-"Tato proměnná určuje maximální velikost výsledku dotazu, který bude uložen "
-"ve vyrovnávací paměti. Pokud máte mnoho výsledků dotazů nad 1 MiB, které "
-"jsou vhodné ke cachování (jsou často čteny a minimálně zapisovány), tak "
-"zvýšením {query_cache_limit} zvýšíte úspěšnost vyrovnávací paměti. Na druhou "
-"stranu, pokud dotazy nad 1 MiB nejsou vhodné ke cachování (například se daná "
-"tabulka příliš často mění), zvýšením {query_cache_limit} pravděpodobně "
-"úspěšnost snížíte."
+"Tato proměnná určuje maximální velikost výsledku dotazu, který bude uložen v "
+"mezipaměti. Pokud máte mnoho výsledků dotazů nad 1 MiB, které jsou vhodné "
+"ke uložení do mezipaměti (jsou často čteny a minimálně zapisovány), tak "
+"zvýšením {query_cache_limit} zvýšíte její úspěšnost. Na druhou stranu, pokud "
+"dotazy nad 1 MiB nejsou vhodné k ukládání (například se daná tabulka příliš "
+"často mění), zvýšením {query_cache_limit} pravděpodobně úspěšnost snížíte."
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
@@ -13169,7 +13160,7 @@ msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké %%."
+msgstr "Využití mezipaměti klíčů MyISAM je příliš nízké %%."
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
@@ -13316,32 +13307,32 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:355
 msgid "Thread cache"
-msgstr "Vyrovnávací paměť vláken"
+msgstr "Mezipaměť vláken"
 
 #: libraries/advisory_rules.txt:358
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
-"Vyrovnávací paměť vláken je vypnutá, což způsobuje větší zátěž při nových "
+"Mezipaměť vláken je vypnutá, což způsobuje větší zátěž při nových "
 "připojeních k MySQL."
 
 #: libraries/advisory_rules.txt:359
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "Povolte vyrovnávací paměť vláken nastavením {thread_cache_size} > 0."
+msgstr "Povolte mezipaměť vláken nastavením {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:360
 msgid "The thread cache is set to 0"
-msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0"
+msgstr "Velikost mezipaměti vláken je nastavena na 0"
 
 #: libraries/advisory_rules.txt:362
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "Úspěšnost vyrovnávací paměti vláken %%"
+msgstr "Úspěšnost mezipaměti vláken %%"
 
 #: libraries/advisory_rules.txt:365
 msgid "Thread cache is not efficient."
-msgstr "Vyrovnávací paměť vláken není efektivní."
+msgstr "Mezipaměť vláken není efektivní."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
@@ -13350,8 +13341,7 @@ msgstr "Zvyšte {thread_cache_size}."
 #: libraries/advisory_rules.txt:367
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
-"Úspěšnost vyrovnávací paměti vláken: %s%%, tato hodnota by měla být nad 80%%"
+msgstr "Úspěšnost mezipaměti vláken: %s%%, tato hodnota by měla být nad 80%%"
 
 #: libraries/advisory_rules.txt:369
 msgid "Threads that are slow to launch"
