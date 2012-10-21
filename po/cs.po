@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-20 07:27-0400\n"
+"POT-Creation-Date: 2012-10-21 14:25+0200\n"
 "PO-Revision-Date: 2012-10-20 16:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -619,8 +619,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -695,7 +695,7 @@ msgstr ""
 "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
 "časové limity v PHP."
 
-#: import.php:563 libraries/DisplayResults.class.php:4557
+#: import.php:563 libraries/DisplayResults.class.php:4552
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
@@ -809,7 +809,7 @@ msgid "Close"
 msgstr "Ukončit"
 
 #: js/messages.php:61 js/messages.php:284
-#: libraries/DisplayResults.class.php:3323 libraries/Index.class.php:589
+#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:589
 #: libraries/Util.class.php:660 libraries/Util.class.php:1277
 #: libraries/Util.class.php:3522 libraries/Util.class.php:3523
 #: libraries/config/messages.inc.php:491
@@ -1542,7 +1542,7 @@ msgstr "Zobrazit pole pro dotaz"
 msgid "No rows selected"
 msgstr "Nebyl vybrán žádný řádek"
 
-#: js/messages.php:286 libraries/DisplayResults.class.php:5077
+#: js/messages.php:286 libraries/DisplayResults.class.php:5072
 #: libraries/structure.lib.php:1382 libraries/structure.lib.php:2226
 #: querywindow.php:85
 msgid "Change"
@@ -1624,7 +1624,7 @@ msgstr "Obsah datového bodu"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:3326
+#: js/messages.php:319 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -2213,8 +2213,8 @@ msgstr "Projít"
 msgid "Delete the matches for the %s table?"
 msgstr "Odstranit nalezené záznamy z tabulky %s?"
 
-#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3394
-#: libraries/DisplayResults.class.php:5053
+#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3389
+#: libraries/DisplayResults.class.php:5048
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
@@ -2385,47 +2385,47 @@ msgstr "Text (WKT)"
 msgid "Well Known Binary"
 msgstr "Binární (WKB)"
 
-#: libraries/DisplayResults.class.php:3367
-#: libraries/DisplayResults.class.php:3383
+#: libraries/DisplayResults.class.php:3362
+#: libraries/DisplayResults.class.php:3378
 msgid "The row has been deleted"
 msgstr "Řádek byl smazán"
 
-#: libraries/DisplayResults.class.php:3421
-#: libraries/DisplayResults.class.php:5053 server_status.php:1501
+#: libraries/DisplayResults.class.php:3416
+#: libraries/DisplayResults.class.php:5048 server_status.php:1501
 msgid "Kill"
 msgstr "Ukončit"
 
-#: libraries/DisplayResults.class.php:4503 libraries/structure.lib.php:779
+#: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:779
 msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr "Počet nemusí být přesný, viz [doc@faq3_11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4899
+#: libraries/DisplayResults.class.php:4894
 msgid "in query"
 msgstr "v dotazu"
 
-#: libraries/DisplayResults.class.php:4936 libraries/structure.lib.php:661
+#: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:661
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
-#: libraries/DisplayResults.class.php:4949
+#: libraries/DisplayResults.class.php:4944
 msgid "Showing rows"
 msgstr "Zobrazeny záznamy"
 
-#: libraries/DisplayResults.class.php:4965
+#: libraries/DisplayResults.class.php:4960
 msgid "total"
 msgstr "celkem"
 
-#: libraries/DisplayResults.class.php:4976 sql.php:897
+#: libraries/DisplayResults.class.php:4971 sql.php:897
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Dotaz trval %01.4f sekund"
 
-#: libraries/DisplayResults.class.php:5067
-#: libraries/DisplayResults.class.php:5073 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5062
+#: libraries/DisplayResults.class.php:5068 libraries/mult_submits.inc.php:40
 #: libraries/server_privileges.lib.php:2415
 #: libraries/server_privileges.lib.php:2418 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
@@ -2434,8 +2434,8 @@ msgstr "Dotaz trval %01.4f sekund"
 msgid "With selected:"
 msgstr "Zaškrtnuté:"
 
-#: libraries/DisplayResults.class.php:5071
-#: libraries/DisplayResults.class.php:5072
+#: libraries/DisplayResults.class.php:5066
+#: libraries/DisplayResults.class.php:5067
 #: libraries/server_privileges.lib.php:789
 #: libraries/server_privileges.lib.php:2416
 #: libraries/server_privileges.lib.php:2417 libraries/structure.lib.php:284
@@ -2445,8 +2445,8 @@ msgstr "Zaškrtnuté:"
 msgid "Check All"
 msgstr "Zaškrtnout vše"
 
-#: libraries/DisplayResults.class.php:5090
-#: libraries/DisplayResults.class.php:5288 libraries/Menu.class.php:275
+#: libraries/DisplayResults.class.php:5085
+#: libraries/DisplayResults.class.php:5283 libraries/Menu.class.php:275
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:464
 #: libraries/Util.class.php:3524 libraries/Util.class.php:3525
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:94
@@ -2456,33 +2456,33 @@ msgstr "Zaškrtnout vše"
 msgid "Export"
 msgstr "Export"
 
-#: libraries/DisplayResults.class.php:5188
+#: libraries/DisplayResults.class.php:5183
 msgid "Query results operations"
 msgstr "Operace s výsledky dotazu"
 
-#: libraries/DisplayResults.class.php:5212 libraries/Header.class.php:261
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:261
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1489
 msgid "Print view"
 msgstr "Náhled pro tisk"
 
-#: libraries/DisplayResults.class.php:5230
+#: libraries/DisplayResults.class.php:5225
 msgid "Print view (with full texts)"
 msgstr "Náhled pro tisk (s kompletními texty)"
 
-#: libraries/DisplayResults.class.php:5301 tbl_chart.php:84
+#: libraries/DisplayResults.class.php:5296 tbl_chart.php:84
 msgid "Display chart"
 msgstr "Zobrazit graf"
 
-#: libraries/DisplayResults.class.php:5326
+#: libraries/DisplayResults.class.php:5321
 msgid "Visualize GIS data"
 msgstr "Zobrazit data GIS"
 
-#: libraries/DisplayResults.class.php:5359 view_create.php:152
+#: libraries/DisplayResults.class.php:5354 view_create.php:152
 msgid "Create view"
 msgstr "Vytvořit pohled"
 
-#: libraries/DisplayResults.class.php:5552
+#: libraries/DisplayResults.class.php:5547
 msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
@@ -3037,20 +3037,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -3.402823466E"
 "+38 od -1.175494351E-38, 0, a od 1.175494351E-38 do 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -"
-"1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
+"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od "
+"-1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
 "2.2250738585072014E-308 do 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3586,6 +3586,20 @@ msgstr "Nalevo"
 msgid "Right"
 msgstr "Napravo"
 
+#: libraries/config.values.php:71
+msgid "Click"
+msgstr ""
+
+#: libraries/config.values.php:72
+msgid "Double click"
+msgstr ""
+
+#: libraries/config.values.php:73 libraries/config.values.php:105
+#: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
+#: libraries/relation.lib.php:103 pmd_relation_new.php:82
+msgid "Disabled"
+msgstr "Vypnuto"
+
 #: libraries/config.values.php:103
 msgid "Open"
 msgstr "Otevřené"
@@ -3593,12 +3607,6 @@ msgstr "Otevřené"
 #: libraries/config.values.php:104
 msgid "Closed"
 msgstr "Uzavřené"
-
-#: libraries/config.values.php:105 libraries/config/FormDisplay.tpl.php:225
-#: libraries/relation.lib.php:96 libraries/relation.lib.php:103
-#: pmd_relation_new.php:82
-msgid "Disabled"
-msgstr "Vypnuto"
 
 #: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:68
@@ -4523,10 +4531,9 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 "Pokud si přejete používat službu kontrolování SQL, je potřeba si uvědomit, "
-"že [strong]všechny SQL dotazy jsou anonymně ukládány pro statistické "
-"účely[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
-"Validator[/a], Copyright 2002 Upright Database Technology. Všechna práva "
-"vyhrazena.[/em]"
+"že [strong]všechny SQL dotazy jsou anonymně ukládány pro statistické účely[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. Všechna práva vyhrazena.[/em]"
 
 #: libraries/config/messages.inc.php:226
 msgid "Startup"
@@ -5080,11 +5087,12 @@ msgid "Repeat headers"
 msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:361
-msgid "Grid editing: action to trigger it (or disable )"
+#, fuzzy
+#| msgid "Grid editing: action to trigger it (or disable )"
+msgid "Grid editing: trigger action"
 msgstr "Editační mřížka: činnost pro spuštění"
 
 #: libraries/config/messages.inc.php:362
-#| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
 msgstr "Editační mřížka: Uložit všechny upravené buňky najednou"
 
@@ -6199,8 +6207,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6429,8 +6437,7 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a klíčů "
-"tabulek."
+"Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a klíčů tabulek."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
@@ -6724,8 +6731,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7305,8 +7312,8 @@ msgstr "Vítejte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -9197,8 +9204,8 @@ msgstr "Přehled uživatelů"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9593,8 +9600,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:157
 msgid "Transformation options"
@@ -10084,8 +10091,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:310
 msgid "Save to browser's storage"
@@ -10304,8 +10311,7 @@ msgstr ""
 "Tento server není nastaven jako nadřízený v replikačním procesu. Můžete si "
 "vybrat zda replikovat všechny databáze a přeskočit vybrané (vhodné pokud si "
 "přejete replikovat většinu databází) nebo můžete zvolit opačný přístup - jen "
-"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný "
-"režim:"
+"vybrat databáze, které chcete synchronizovat. Prosím zvolte požadovaný režim:"
 
 #: server_replication.php:277
 msgid "Replicate all databases; Ignore:"
@@ -11933,8 +11939,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:314
@@ -11945,8 +11951,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -12494,8 +12500,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12748,8 +12754,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
 "80%%"
@@ -12779,8 +12785,8 @@ msgstr ""
 "problému může být vyprázdnění mezipaměti (to ale může způsobit její dočasné "
 "znepřístupnění). Pečlivým nastavením {query_cache_min_res_unit} na nižší "
 "hodnotu může také pomoci. Například jejím nastavením na průměrnou velikost "
-"vašich dotazů pomocí tohoto vzorce: (query_cache_size - qcache_free_memory) "
-"/ qcache_queries_in_cache"
+"vašich dotazů pomocí tohoto vzorce: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -12800,7 +12806,8 @@ msgstr "Ořezávání mezipaměti dotazů"
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Z mezipaměti dotazů jsou odstraňovány dotazy kvůli její malé velikosti."
+msgstr ""
+"Z mezipaměti dotazů jsou odstraňovány dotazy kvůli její malé velikosti."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12851,7 +12858,8 @@ msgstr "Minimální velikost výsledku dotazu pro uložení do mezipaměti"
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr "Maximální velikost výsledku uloženého do mezipaměti je výchozích 1 MiB."
+msgstr ""
+"Maximální velikost výsledku uloženého do mezipaměti je výchozích 1 MiB."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -12866,8 +12874,8 @@ msgid ""
 msgstr ""
 "Změněním {query_cache_limit} (obvykle zvýšením) můžete zvýšit efektivitu. "
 "Tato proměnná určuje maximální velikost výsledku dotazu, který bude uložen v "
-"mezipaměti. Pokud máte mnoho výsledků dotazů nad 1 MiB, které jsou vhodné "
-"ke uložení do mezipaměti (jsou často čteny a minimálně zapisovány), tak "
+"mezipaměti. Pokud máte mnoho výsledků dotazů nad 1 MiB, které jsou vhodné ke "
+"uložení do mezipaměti (jsou často čteny a minimálně zapisovány), tak "
 "zvýšením {query_cache_limit} zvýšíte její úspěšnost. Na druhou stranu, pokud "
 "dotazy nad 1 MiB nejsou vhodné k ukládání (například se daná tabulka příliš "
 "často mění), zvýšením {query_cache_limit} pravděpodobně úspěšnost snížíte."
@@ -12895,11 +12903,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
-"%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
+"10%%."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"

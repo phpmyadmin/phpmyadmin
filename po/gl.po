@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-20 07:27-0400\n"
+"POT-Creation-Date: 2012-10-21 14:25+0200\n"
 "PO-Revision-Date: 2012-09-05 15:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/master/gl/"
 ">\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -623,14 +623,14 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a %"
-"sdocumentación%s para averiguar como evitar este límite."
+"Posibelmente tentou enviar un ficheiro demasiado grande. Consulte a "
+"%sdocumentación%s para averiguar como evitar este límite."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -703,7 +703,7 @@ msgstr ""
 "significa que o phpMyAdmin non poderá rematar esta importación a non ser que "
 "se lle incrementen os límites de tempo de php."
 
-#: import.php:563 libraries/DisplayResults.class.php:4557
+#: import.php:563 libraries/DisplayResults.class.php:4552
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
@@ -819,7 +819,7 @@ msgid "Close"
 msgstr "Fechar"
 
 #: js/messages.php:61 js/messages.php:284
-#: libraries/DisplayResults.class.php:3323 libraries/Index.class.php:589
+#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:589
 #: libraries/Util.class.php:660 libraries/Util.class.php:1277
 #: libraries/Util.class.php:3522 libraries/Util.class.php:3523
 #: libraries/config/messages.inc.php:491
@@ -1554,7 +1554,7 @@ msgstr "Mostrar a caixa de consultas"
 msgid "No rows selected"
 msgstr "Non hai ningunha fileira seleccionada"
 
-#: js/messages.php:286 libraries/DisplayResults.class.php:5077
+#: js/messages.php:286 libraries/DisplayResults.class.php:5072
 #: libraries/structure.lib.php:1382 libraries/structure.lib.php:2226
 #: querywindow.php:85
 msgid "Change"
@@ -1637,7 +1637,7 @@ msgstr "Contido do punto de datos"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:3326
+#: js/messages.php:319 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr "Copiar"
 
@@ -2232,8 +2232,8 @@ msgstr "Visualizar"
 msgid "Delete the matches for the %s table?"
 msgstr "Eliminar as coincidencias para a táboa %s?"
 
-#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3394
-#: libraries/DisplayResults.class.php:5053
+#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3389
+#: libraries/DisplayResults.class.php:5048
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
@@ -2404,49 +2404,49 @@ msgstr "Texto moi coñecido"
 msgid "Well Known Binary"
 msgstr "Binario moi coñecido"
 
-#: libraries/DisplayResults.class.php:3367
-#: libraries/DisplayResults.class.php:3383
+#: libraries/DisplayResults.class.php:3362
+#: libraries/DisplayResults.class.php:3378
 msgid "The row has been deleted"
 msgstr "Eliminouse a fileira"
 
-#: libraries/DisplayResults.class.php:3421
-#: libraries/DisplayResults.class.php:5053 server_status.php:1501
+#: libraries/DisplayResults.class.php:3416
+#: libraries/DisplayResults.class.php:5048 server_status.php:1501
 msgid "Kill"
 msgstr "Matar (kill)"
 
-#: libraries/DisplayResults.class.php:4503 libraries/structure.lib.php:779
+#: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:779
 msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
 "Pode non ser exacto. Consulte a [doc@faq3_11]pregunta frecuente 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4899
+#: libraries/DisplayResults.class.php:4894
 msgid "in query"
 msgstr "na consulta"
 
-#: libraries/DisplayResults.class.php:4936 libraries/structure.lib.php:661
+#: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:661
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation%"
-"s."
+"Esta vista ten, cando menos, este número de fileiras. Vexa a %sdocumentation"
+"%s."
 
-#: libraries/DisplayResults.class.php:4949
+#: libraries/DisplayResults.class.php:4944
 msgid "Showing rows"
 msgstr "A mostrar as fileiras"
 
-#: libraries/DisplayResults.class.php:4965
+#: libraries/DisplayResults.class.php:4960
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4976 sql.php:897
+#: libraries/DisplayResults.class.php:4971 sql.php:897
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a consulta levou %01.4f segundos"
 
-#: libraries/DisplayResults.class.php:5067
-#: libraries/DisplayResults.class.php:5073 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5062
+#: libraries/DisplayResults.class.php:5068 libraries/mult_submits.inc.php:40
 #: libraries/server_privileges.lib.php:2415
 #: libraries/server_privileges.lib.php:2418 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
@@ -2455,8 +2455,8 @@ msgstr "a consulta levou %01.4f segundos"
 msgid "With selected:"
 msgstr "Cos marcados:"
 
-#: libraries/DisplayResults.class.php:5071
-#: libraries/DisplayResults.class.php:5072
+#: libraries/DisplayResults.class.php:5066
+#: libraries/DisplayResults.class.php:5067
 #: libraries/server_privileges.lib.php:789
 #: libraries/server_privileges.lib.php:2416
 #: libraries/server_privileges.lib.php:2417 libraries/structure.lib.php:284
@@ -2466,8 +2466,8 @@ msgstr "Cos marcados:"
 msgid "Check All"
 msgstr "Marcalos todos"
 
-#: libraries/DisplayResults.class.php:5090
-#: libraries/DisplayResults.class.php:5288 libraries/Menu.class.php:275
+#: libraries/DisplayResults.class.php:5085
+#: libraries/DisplayResults.class.php:5283 libraries/Menu.class.php:275
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:464
 #: libraries/Util.class.php:3524 libraries/Util.class.php:3525
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:94
@@ -2477,33 +2477,33 @@ msgstr "Marcalos todos"
 msgid "Export"
 msgstr "Exportar"
 
-#: libraries/DisplayResults.class.php:5188
+#: libraries/DisplayResults.class.php:5183
 msgid "Query results operations"
 msgstr "Operacións cos resultados da consulta"
 
-#: libraries/DisplayResults.class.php:5212 libraries/Header.class.php:261
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:261
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1489
 msgid "Print view"
 msgstr "Visualización previa da impresión"
 
-#: libraries/DisplayResults.class.php:5230
+#: libraries/DisplayResults.class.php:5225
 msgid "Print view (with full texts)"
 msgstr "Vista previa da impresión (con textos completos)"
 
-#: libraries/DisplayResults.class.php:5301 tbl_chart.php:84
+#: libraries/DisplayResults.class.php:5296 tbl_chart.php:84
 msgid "Display chart"
 msgstr "Mostrar a gráfica"
 
-#: libraries/DisplayResults.class.php:5326
+#: libraries/DisplayResults.class.php:5321
 msgid "Visualize GIS data"
 msgstr "Ver os datos GIS"
 
-#: libraries/DisplayResults.class.php:5359 view_create.php:152
+#: libraries/DisplayResults.class.php:5354 view_create.php:152
 msgid "Create view"
 msgstr "Crear unha vista"
 
-#: libraries/DisplayResults.class.php:5552
+#: libraries/DisplayResults.class.php:5547
 msgid "Link not found"
 msgstr "Non se atopou a ligazón"
 
@@ -3052,14 +3052,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3574,6 +3574,20 @@ msgstr "Esquerda"
 msgid "Right"
 msgstr "Dereita"
 
+#: libraries/config.values.php:71
+msgid "Click"
+msgstr ""
+
+#: libraries/config.values.php:72
+msgid "Double click"
+msgstr ""
+
+#: libraries/config.values.php:73 libraries/config.values.php:105
+#: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
+#: libraries/relation.lib.php:103 pmd_relation_new.php:82
+msgid "Disabled"
+msgstr "Desactivado"
+
 #: libraries/config.values.php:103
 msgid "Open"
 msgstr "Abrir"
@@ -3581,12 +3595,6 @@ msgstr "Abrir"
 #: libraries/config.values.php:104
 msgid "Closed"
 msgstr "Fechado"
-
-#: libraries/config.values.php:105 libraries/config/FormDisplay.tpl.php:225
-#: libraries/relation.lib.php:96 libraries/relation.lib.php:103
-#: pmd_relation_new.php:82
-msgid "Disabled"
-msgstr "Desactivado"
 
 #: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:68
@@ -5100,7 +5108,7 @@ msgid "Repeat headers"
 msgstr "Repetir os cabezallos"
 
 #: libraries/config/messages.inc.php:361
-msgid "Grid editing: action to trigger it (or disable )"
+msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/config/messages.inc.php:362
@@ -6247,8 +6255,8 @@ msgstr ", @TABLE@ será o nome da táboa"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor interprétase utilizando %1$sstrftime%2$s, de maneira que pode "
 "empregar cadeas de formato de tempo. Produciranse transformacións en "
@@ -6791,8 +6799,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Pódese atopar documentación e información adicional sobre PBXT na %sPáxina "
 "de PrimeBase XT %s."
@@ -7373,8 +7381,8 @@ msgstr "Reciba a benvida a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Isto débese, posibelmente, a que non se creou un ficheiro de configuración. "
 "Tal vez queira utilizar %1$ssetup script%2$s para crear un."
@@ -9295,8 +9303,8 @@ msgstr "Vista xeral dos usuarios"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das táboas "
 "de privilexios do MySQL. O contido destas táboas pode diferir dos "
@@ -9955,8 +9963,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na %"
-"sdocumentation%s."
+"O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na "
+"%sdocumentation%s."
 
 #: navigation.php:136 server_databases.php:344 server_synchronize.php:1468
 msgid "No databases"
@@ -10198,8 +10206,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o %"
-"sScript de configuración%s."
+"Pode configurar máis opcións modificando config.inc.php, p.ex. usando o "
+"%sScript de configuración%s."
 
 #: prefs_manage.php:310
 msgid "Save to browser's storage"
@@ -11012,9 +11020,9 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Número de pre-lecturas «aleatorias» iniciadas por InnoDB. Isto acontece cando "
-"unha consulta vai examinar unha porción grande dunha táboa mais en orde "
-"aleatoria."
+"Número de pre-lecturas «aleatorias» iniciadas por InnoDB. Isto acontece "
+"cando unha consulta vai examinar unha porción grande dunha táboa mais en "
+"orde aleatoria."
 
 #: server_status.php:1577
 msgid ""
@@ -12106,8 +12114,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se pensa que é preciso, empregue opcións de protección adicionais - %"
-"sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
+"Se pensa que é preciso, empregue opcións de protección adicionais - "
+"%sautenticación do servidor%s e %slista de proxies de confianza%s. Porén, a "
 "protección baseada no IP pode non ser de fiar se o IP pertence a un ISP ao "
 "que estean ligados miles de usuarios, incluído vostede."
 
@@ -12652,8 +12660,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s%"
-"%."
+"A taxa de consultas lentas deberían estar por debaixo do 5%% e o valor é %s"
+"%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12858,8 +12866,8 @@ msgid ""
 msgstr ""
 "Sábese que a caché de consultas mellora moito o desempeño se se configura "
 "axeitadamente. Actívea configurando {query_cache_size} a un valor de MiB de "
-"dous díxitos e configurando {query_cache_type) como «ON». <b>Nota:</b> Se vai "
-"empregar memcached, ignore esta recomendación."
+"dous díxitos e configurando {query_cache_type) como «ON». <b>Nota:</b> Se "
+"vai empregar memcached, ignore esta recomendación."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12937,8 +12945,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "A relación actual da memoria da caché de consultas e o tamaño total da caché "
 "de consultas é de %s%%. Debería superar o 80%%"
@@ -13093,8 +13101,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de todos os ordenamentos causan táboas temporais; este valor debería "
 "estar por debaixo do 10%%."

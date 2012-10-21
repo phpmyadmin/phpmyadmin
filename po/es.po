@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-20 07:27-0400\n"
+"POT-Creation-Date: 2012-10-21 14:25+0200\n"
 "PO-Revision-Date: 2012-09-05 15:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
 ">\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -617,14 +617,14 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
-"debajo en el campo \"Valor\""
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
+"ubicada debajo en el campo \"Valor\""
 
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Probablemente intentó cargar un archivo demasiado grande. Revise %sla "
 "documentation%s para hallar modos de superar esta limitación."
@@ -702,7 +702,7 @@ msgstr ""
 "usualmente significa que phpMyAdmin no será capaz de completar esta "
 "importación a menos que usted incremente el tiempo de ejecución de php."
 
-#: import.php:563 libraries/DisplayResults.class.php:4557
+#: import.php:563 libraries/DisplayResults.class.php:4552
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
@@ -816,7 +816,7 @@ msgid "Close"
 msgstr "Cerrar"
 
 #: js/messages.php:61 js/messages.php:284
-#: libraries/DisplayResults.class.php:3323 libraries/Index.class.php:589
+#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:589
 #: libraries/Util.class.php:660 libraries/Util.class.php:1277
 #: libraries/Util.class.php:3522 libraries/Util.class.php:3523
 #: libraries/config/messages.inc.php:491
@@ -1557,7 +1557,7 @@ msgstr "Mostrar ventana de consultas SQL"
 msgid "No rows selected"
 msgstr "No se seleccionaron filas"
 
-#: js/messages.php:286 libraries/DisplayResults.class.php:5077
+#: js/messages.php:286 libraries/DisplayResults.class.php:5072
 #: libraries/structure.lib.php:1382 libraries/structure.lib.php:2226
 #: querywindow.php:85
 msgid "Change"
@@ -1641,7 +1641,7 @@ msgstr "Contenido del punto de datos"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:3326
+#: js/messages.php:319 libraries/DisplayResults.class.php:3321
 msgid "Copy"
 msgstr "Copiar"
 
@@ -2238,8 +2238,8 @@ msgstr "Examinar"
 msgid "Delete the matches for the %s table?"
 msgstr "¿Eliminar las coincidencias para la tabla %s?"
 
-#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3394
-#: libraries/DisplayResults.class.php:5053
+#: libraries/DbSearch.class.php:364 libraries/DisplayResults.class.php:3389
+#: libraries/DisplayResults.class.php:5048
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
@@ -2412,48 +2412,48 @@ msgstr "Texto muy conocido"
 msgid "Well Known Binary"
 msgstr "Binario muy conocido"
 
-#: libraries/DisplayResults.class.php:3367
-#: libraries/DisplayResults.class.php:3383
+#: libraries/DisplayResults.class.php:3362
+#: libraries/DisplayResults.class.php:3378
 msgid "The row has been deleted"
 msgstr "La fila se ha borrado"
 
-#: libraries/DisplayResults.class.php:3421
-#: libraries/DisplayResults.class.php:5053 server_status.php:1501
+#: libraries/DisplayResults.class.php:3416
+#: libraries/DisplayResults.class.php:5048 server_status.php:1501
 msgid "Kill"
 msgstr "Matar el proceso"
 
-#: libraries/DisplayResults.class.php:4503 libraries/structure.lib.php:779
+#: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:779
 msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr "Podría ser aproximado. Ver [doc@faq3_11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4899
+#: libraries/DisplayResults.class.php:4894
 msgid "in query"
 msgstr "en la consulta"
 
-#: libraries/DisplayResults.class.php:4936 libraries/structure.lib.php:661
+#: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:661
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Refiérase a la %"
-"sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Refiérase a la "
+"%sdocumentation%s."
 
-#: libraries/DisplayResults.class.php:4949
+#: libraries/DisplayResults.class.php:4944
 msgid "Showing rows"
 msgstr "Mostrando registros"
 
-#: libraries/DisplayResults.class.php:4965
+#: libraries/DisplayResults.class.php:4960
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4976 sql.php:897
+#: libraries/DisplayResults.class.php:4971 sql.php:897
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "La consulta tardó %01.4f seg"
 
-#: libraries/DisplayResults.class.php:5067
-#: libraries/DisplayResults.class.php:5073 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5062
+#: libraries/DisplayResults.class.php:5068 libraries/mult_submits.inc.php:40
 #: libraries/server_privileges.lib.php:2415
 #: libraries/server_privileges.lib.php:2418 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
@@ -2462,8 +2462,8 @@ msgstr "La consulta tardó %01.4f seg"
 msgid "With selected:"
 msgstr "Para los elementos que están marcados:"
 
-#: libraries/DisplayResults.class.php:5071
-#: libraries/DisplayResults.class.php:5072
+#: libraries/DisplayResults.class.php:5066
+#: libraries/DisplayResults.class.php:5067
 #: libraries/server_privileges.lib.php:789
 #: libraries/server_privileges.lib.php:2416
 #: libraries/server_privileges.lib.php:2417 libraries/structure.lib.php:284
@@ -2473,8 +2473,8 @@ msgstr "Para los elementos que están marcados:"
 msgid "Check All"
 msgstr "Marcar todos"
 
-#: libraries/DisplayResults.class.php:5090
-#: libraries/DisplayResults.class.php:5288 libraries/Menu.class.php:275
+#: libraries/DisplayResults.class.php:5085
+#: libraries/DisplayResults.class.php:5283 libraries/Menu.class.php:275
 #: libraries/Menu.class.php:362 libraries/Menu.class.php:464
 #: libraries/Util.class.php:3524 libraries/Util.class.php:3525
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:94
@@ -2484,33 +2484,33 @@ msgstr "Marcar todos"
 msgid "Export"
 msgstr "Exportar"
 
-#: libraries/DisplayResults.class.php:5188
+#: libraries/DisplayResults.class.php:5183
 msgid "Query results operations"
 msgstr "Operaciones sobre los resultados de la consulta"
 
-#: libraries/DisplayResults.class.php:5212 libraries/Header.class.php:261
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:261
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1489
 msgid "Print view"
 msgstr "Vista de impresión"
 
-#: libraries/DisplayResults.class.php:5230
+#: libraries/DisplayResults.class.php:5225
 msgid "Print view (with full texts)"
 msgstr "Previsualización para imprimir (documento completo)"
 
-#: libraries/DisplayResults.class.php:5301 tbl_chart.php:84
+#: libraries/DisplayResults.class.php:5296 tbl_chart.php:84
 msgid "Display chart"
 msgstr "Mostrar gráfico"
 
-#: libraries/DisplayResults.class.php:5326
+#: libraries/DisplayResults.class.php:5321
 msgid "Visualize GIS data"
 msgstr "Visualizar datos GIS"
 
-#: libraries/DisplayResults.class.php:5359 view_create.php:152
+#: libraries/DisplayResults.class.php:5354 view_create.php:152
 msgid "Create view"
 msgstr "Crear vista"
 
-#: libraries/DisplayResults.class.php:5552
+#: libraries/DisplayResults.class.php:5547
 msgid "Link not found"
 msgstr "No se encontró el enlace"
 
@@ -3073,16 +3073,16 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Un número de coma flotante pequeño; los valores posibles son de -3.402823466E"
 "+38 a -1.175494351E-38, 0 y de 1.175494351E-38 a 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un número de coma flotante de precisión doble; los valores permitidos son de "
@@ -3126,8 +3126,8 @@ msgstr "Una fecha, el rango válido es de «%1$s» a «%2$s»"
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
-"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a «%2"
-"$s»"
+"Una combinación de fecha y marca temporal, el rango válido es de «%1$s» a "
+"«%2$s»"
 
 #: libraries/Types.class.php:324
 msgid ""
@@ -3227,8 +3227,8 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 - "
-"1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
+"Una columna de bloque de texto («BLOB») con una longitud máxima de 255 (2^8 "
+"- 1) bytes. Cada valor TINYBLOB es almacenado con un prefijo de 1 byte que "
 "indica la cantidad de bytes en el valor"
 
 #: libraries/Types.class.php:348
@@ -3254,9 +3254,9 @@ msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Una columna de bloque de texto («BLOB») con una longitud máxima de 4294967295 "
-"(2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que indica la "
-"longitud del valor"
+"Una columna de bloque de texto («BLOB») con una longitud máxima de "
+"4294967295 (2^32 - 1) bytes (4GB), almacenado con un prefijo de 4 bytes que "
+"indica la longitud del valor"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3652,6 +3652,20 @@ msgstr "Izquierda"
 msgid "Right"
 msgstr "Derecha"
 
+#: libraries/config.values.php:71
+msgid "Click"
+msgstr ""
+
+#: libraries/config.values.php:72
+msgid "Double click"
+msgstr ""
+
+#: libraries/config.values.php:73 libraries/config.values.php:105
+#: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
+#: libraries/relation.lib.php:103 pmd_relation_new.php:82
+msgid "Disabled"
+msgstr "Deshabilitado"
+
 # Used for
 # http://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
 #: libraries/config.values.php:103
@@ -3662,12 +3676,6 @@ msgstr "Desplegados"
 #: libraries/config.values.php:104
 msgid "Closed"
 msgstr "Ocultos"
-
-#: libraries/config.values.php:105 libraries/config/FormDisplay.tpl.php:225
-#: libraries/relation.lib.php:96 libraries/relation.lib.php:103
-#: pmd_relation_new.php:82
-msgid "Disabled"
-msgstr "Deshabilitado"
 
 #: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:68
@@ -5182,7 +5190,7 @@ msgid "Repeat headers"
 msgstr "Repetir cabeceras"
 
 #: libraries/config/messages.inc.php:361
-msgid "Grid editing: action to trigger it (or disable )"
+msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/config/messages.inc.php:362
@@ -6337,8 +6345,8 @@ msgstr ", @TABLE@ se convertirá en el nombre de la tabla"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Este valor es interpretado usando %1$sstrftime%2$s por lo que se pueden usar "
 "cadenas para formatear el tiempo. Además sucederán las siguientes "
@@ -6886,8 +6894,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Se puede encontrar documentación y más información sobre PBXT en la %spágina "
 "inicial de PrimeBase XT%s."
@@ -7471,8 +7479,8 @@ msgstr "Bienvenido a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La razón más probable es que usted no haya creado un archivo de "
 "configuración. Utilice el %1$sscript de configuración%2$s para crear uno."
@@ -9404,8 +9412,8 @@ msgstr "Vista global de usuarios"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Nota: phpMyAdmin obtiene los privilegios de los usuarios 'directamente de "
 "las tablas de privilegios MySQL'. El contenido de estas tablas puede diferir "
@@ -10046,8 +10054,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "El almacenamiento de configuración phpMyAdmin no está completamente "
-"configurado, algunas funcionalidades extendidas fueron deshabilitadas. %"
-"sPulsa aquí para averiguar por qué%s."
+"configurado, algunas funcionalidades extendidas fueron deshabilitadas. "
+"%sPulsa aquí para averiguar por qué%s."
 
 #: main.php:466
 #, php-format
@@ -11686,8 +11694,9 @@ msgstr ""
 "El Monitorizador de phpMyAdmin puede asistir en la optimización de la "
 "configuración del servidor y rastrear consultas que toman mucho tiempo. Para "
 "esto último necesitará que «log_output» esté definido como 'TABLE' y tener "
-"activado «slow_query_log» o «general_log». Note, sin embargo, que «general_log» "
-"produce mucha información y aumenta la carga en el servidor hasta en un 15%"
+"activado «slow_query_log» o «general_log». Note, sin embargo, que "
+"«general_log» produce mucha información y aumenta la carga en el servidor "
+"hasta en un 15%"
 
 #: server_status.php:1880
 msgid ""
@@ -12774,8 +12783,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen en "
-"el registro de consultas lentas"
+"Podría aumentar «{long_query_time}» u optimizar las consultas que aparecen "
+"en el registro de consultas lentas"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
@@ -12842,8 +12851,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Active el registro de consultas lenta configurando «log_slow_queries» a 'ON'. "
-"Esto ayudará a analizar consultas con mala performance."
+"Active el registro de consultas lenta configurando «log_slow_queries» a "
+"'ON'. Esto ayudará a analizar consultas con mala performance."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12988,8 +12997,8 @@ msgid ""
 msgstr ""
 "Se sabe que el caché de consultas puede mejorar la performance enormemente "
 "si está correctamente configurado. Actívelo definiendo «query_cache_size» a "
-"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. <b>Notar "
-"que: </b> si está utilizando memcached ignore esta recomendación."
+"un valor en MiB de 2 dígitos y definiendo «query_cache_type» a 'ON'. "
+"<b>Notar que: </b> si está utilizando memcached ignore esta recomendación."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -13066,8 +13075,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "La tasa actual de memoria libre del caché de consultas respecto del tamaño "
 "total es %s%%. Debería ser mayor al 80%%"
@@ -13225,8 +13234,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de todas las ordenaciones causan tablas temporales, este valor debería "
 "de ser menor a 10%%."
@@ -13289,8 +13298,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor a "
-"1 por hora"
+"Promedio de uniones («JOIN») de tablas: %s, este promedio debería ser menor "
+"a 1 por hora"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
@@ -13398,7 +13407,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
+msgstr ""
+"Los valores actuales son «tmp_table_size»: %s, «max_heap_table_size»: %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -13422,13 +13432,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
-"algunas tablas temporales son siempre escritas a disco independientemente "
-"del valor de estas variables. Para eliminarlas deberá re-escribir las "
-"consultas para evitar estas condiciones (en una tabla temporal: la presencia "
-"de una columna «BLOB» o «TEXT», o la presencia de una columna mayor a 512 "
-"bytes) como se menciona al comienzo del <a href=\"http://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\">artículo de Pythian Group</a>"
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre escritas a disco "
+"independientemente del valor de estas variables. Para eliminarlas deberá re-"
+"escribir las consultas para evitar estas condiciones (en una tabla temporal: "
+"la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
+"mayor a 512 bytes) como se menciona al comienzo del <a href=\"http://www."
+"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
+"Pythian Group</a>"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -13453,8 +13464,8 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin embargo, "
-"algunas tablas temporales son siempre a disco permanentemente "
+"Aumentar «max_heap_table_size» y «tmp_table_size» podría ayudar. Sin "
+"embargo, algunas tablas temporales son siempre a disco permanentemente "
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT» o la presencia de una columna "
@@ -13485,8 +13496,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M es "
-"un buen comienzo."
+"Defina «key_buffer_size» dependiendo del tamaño de los índices MyISAM. 64M "
+"es un buen comienzo."
 
 #: libraries/advisory_rules.txt:294
 msgid "key_buffer_size is 0"
@@ -13663,7 +13674,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:359
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
-"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a 0."
+"Active el caché de hilos configurado «thread_cache_size» a un valor mayor a "
+"0."
 
 #: libraries/advisory_rules.txt:360
 msgid "The thread cache is set to 0"
@@ -13750,10 +13762,10 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
-"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones que "
-"no liberan los manejadores de base de datos apropiadamente sean eliminadas "
-"más rápido. Asegúrese que su código cierre los manejadores de base de datos "
-"apropiadamente."
+"Aumente «max_connections» o reduzca «wait_timeout» para que las conexiones "
+"que no liberan los manejadores de base de datos apropiadamente sean "
+"eliminadas más rápido. Asegúrese que su código cierre los manejadores de "
+"base de datos apropiadamente."
 
 #: libraries/advisory_rules.txt:390
 #, php-format
@@ -13824,8 +13836,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos los clientes son abandonados. Este valor debería ser menor a 2%"
-"%"
+"%s%% de todos los clientes son abandonados. Este valor debería ser menor a "
+"2%%"
 
 #: libraries/advisory_rules.txt:413
 msgid "Rate of aborted clients"
@@ -14092,7 +14104,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\"
 #~ "\""
 #~ msgstr ""
-#~ "Una combinación de fecha y marca temporal, el rango válido es de «%s» a «%s»"
+#~ "Una combinación de fecha y marca temporal, el rango válido es de «%s» a "
+#~ "«%s»"
 
 #~ msgid "Show help button instead of Documentation text"
 #~ msgstr "Mostrar botón de ayuda en lugar de texto de documentación"
@@ -14175,10 +14188,11 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "HH:MM:SS' format, but allows assignment of values to DATETIME columns "
 #~ "using either strings or numbers."
 #~ msgstr ""
-#~ "Una combinación de fecha y marca temporal. El rango soportado es desde «01-"
-#~ "Ene-1000 00:00:00» hasta «31-Dec-9999 23:59:59». MySQL muestra los valores "
-#~ "DATETIME en el formato YYY-MM-DD HH:MM:SS, pero permite la asignación de "
-#~ "valores a columnas DATETIME utilizando tanto cadenas como números."
+#~ "Una combinación de fecha y marca temporal. El rango soportado es desde "
+#~ "«01-Ene-1000 00:00:00» hasta «31-Dec-9999 23:59:59». MySQL muestra los "
+#~ "valores DATETIME en el formato YYY-MM-DD HH:MM:SS, pero permite la "
+#~ "asignación de valores a columnas DATETIME utilizando tanto cadenas como "
+#~ "números."
 
 #~ msgid ""
 #~ "A time. The range is '-838:59:59' to '838:59:59'. MySQL displays TIME "
@@ -14270,8 +14284,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "any argument is not a WKB LineString, the return value is NULL."
 #~ msgstr ""
 #~ "Construye un valor de cadenas de líneas múltiples WKB («MultiLineString») "
-#~ "de «LineString» WKB provistos. Si cualquier parámetro no es un «LineString» "
-#~ "WKB, el valor devuelto es NULL."
+#~ "de «LineString» WKB provistos. Si cualquier parámetro no es un "
+#~ "«LineString» WKB, el valor devuelto es NULL."
 
 #~ msgid ""
 #~ "Constructs a WKB MultiPolygon value from a set of WKB Polygon arguments. "
@@ -14494,8 +14508,8 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ "Documentation and further information about PBMS can be found on %sThe "
 #~ "PrimeBase Media Streaming home page%s."
 #~ msgstr ""
-#~ "La documentación y más información sobre PBMS puede encontrarse la %"
-#~ "spaǵina inicial de The PrimeBase Media Streaming%s."
+#~ "La documentación y más información sobre PBMS puede encontrarse la "
+#~ "%spaǵina inicial de The PrimeBase Media Streaming%s."
 
 #~ msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
 #~ msgstr "Blog de The PrimeBase Media Streaming por Barry Leslie"
