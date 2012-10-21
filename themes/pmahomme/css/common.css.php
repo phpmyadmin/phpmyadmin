@@ -2658,21 +2658,6 @@ fieldset .disabled-field td {
     padding: 1px 3px !important;
 }
 
-.cHide {
-    background: #EEE url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_hide.png');?>);
-    color: #CCC;
-    cursor: pointer;
-    height: 16px;
-    margin-left: -10px;
-    margin-top: .3em;
-    position: absolute;
-    width: 16px;
-}
-
-.cHide:hover {
-    background-color: #AAA;
-}
-
 .cDrop {
     left: 0;
     position: absolute;
