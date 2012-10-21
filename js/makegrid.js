@@ -1599,6 +1599,16 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Initialize grid editing feature.
          */
         initGridEdit: function() {
+
+            function startGridEditing(e, cell) {
+                if (g.isCellEditActive) {
+                    g.saveOrPostEditedCell();                    
+                } else {
+                    g.showEditCell(cell);
+                }
+                e.stopPropagation();
+            }
+
             // create cell edit wrapper element
             g.cEdit = document.createElement('div');
 
@@ -1620,13 +1630,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // register events
             $(t).find('td.data.click1')
                 .click(function(e) {
-                    if (g.isCellEditActive) {
-                        g.saveOrPostEditedCell();
-                        e.stopPropagation();
-                    } else {
-                        g.showEditCell(this);
-                        e.stopPropagation();
-                    }
+                    startGridEditing(e, this);
                     // prevent default action when clicking on "link" in a table
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
@@ -1658,14 +1662,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             // and make the click count 0
                             clearTimeout($cell.data('timer'));
                             $cell.data('clicks', 0);
-                            // perform the grid-editing
-                            if (g.isCellEditActive) {
-                                g.saveOrPostEditedCell();
-                                e.stopPropagation();
-                            } else {
-                                g.showEditCell(this);
-                                e.stopPropagation();
-                            }
+                            // start grid-editing
+                            startGridEditing(e, this);
                         }
                     }
                 })
@@ -1673,13 +1671,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     } else {
-                        if (g.isCellEditActive) {
-                           g.saveOrPostEditedCell();
-                           e.stopPropagation();
-                        } else {
-                           g.showEditCell(this);
-                           e.stopPropagation();
-                        }
+                        startGridEditing(e, this);
                     }
                 });
 
