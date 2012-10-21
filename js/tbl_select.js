@@ -117,7 +117,7 @@ $(document).ready(function() {
             } else {
                 // error message (zero rows)
                 if (response.message != undefined) {
-                    $("#sqlqueryresults").html(response['message']);
+                    $("#sqlqueryresults").html(response['sql_query']);
                 }
                 // other error (syntax error?)
                 if (response.error != undefined) {
