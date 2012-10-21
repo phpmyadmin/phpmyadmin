@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-21 16:05+0200\n"
+"PO-Revision-Date: 2012-10-21 16:48+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -4148,7 +4148,7 @@ msgstr "Rótulo da chave"
 #: libraries/plugins/export/ExportOdt.class.php:479
 #: libraries/tbl_properties.inc.php:155
 msgid "MIME type"
-msgstr "MIME-type"
+msgstr "Tipo MIME"
 
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
 #: libraries/config/messages.inc.php:140 tbl_relation.php:416
@@ -4254,6 +4254,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Ordem de classificação para itens numa caixa de seleção de chave "
+"estrangeira; [kbd]conteúdo[/kbd] é o dado referenciado, [kbd]id[/kbd] é o "
+"valor da chave"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
@@ -4566,9 +4569,8 @@ msgid "Text fields"
 msgstr "Campos de Texto"
 
 #: libraries/config/messages.inc.php:235
-#, fuzzy
 msgid "Customize text input fields"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Personalizar campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:236
 msgid "Texy! text"
@@ -4670,53 +4672,52 @@ msgstr "Importa percentagens como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of queries to skip from start"
-msgstr ""
+msgstr "Número de consultas para ignorar do início"
 
 #: libraries/config/messages.inc.php:267
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Importação parcial: ignorar consultas"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Adicionar valor AUTO_INCREMENT"
+msgstr "Não usar AUTO_INCREMENT para valores zero"
 
 #: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Estado inicial das barras de deslocação"
 
 #: libraries/config/messages.inc.php:273
 msgid "How many rows can be inserted at one time"
-msgstr ""
+msgstr "Quantas linhas podem ser inseridas de uma vez"
 
 #: libraries/config/messages.inc.php:274
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Número de linhas inseridas"
 
 #: libraries/config/messages.inc.php:275
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Alvo para ícone de acesso rápido"
 
 #: libraries/config/messages.inc.php:276
 msgid "Show logo in left frame"
-msgstr ""
+msgstr "Mostrar logotipo no quadro da esquerda"
 
 #: libraries/config/messages.inc.php:277
 msgid "Display logo"
-msgstr ""
+msgstr "Mostrar logotipo"
 
 #: libraries/config/messages.inc.php:278
 msgid "Display server choice at the top of the left frame"
-msgstr ""
+msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
 
 #: libraries/config/messages.inc.php:279
 msgid "Display servers selection"
-msgstr ""
+msgstr "Mostrar seleção de servidores"
 
 #: libraries/config/messages.inc.php:280
 msgid "Minimum number of tables to display the table filter box"
-msgstr ""
+msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
 
 #: libraries/config/messages.inc.php:281
 msgid "Minimum number of databases to display the database filter box"
@@ -4725,49 +4726,52 @@ msgstr ""
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
 msgstr ""
+"Cadeia de caracteres que separa bases de dados em diferentes níveis de "
+"árvore"
 
 #: libraries/config/messages.inc.php:283
-#, fuzzy
 msgid "Database tree separator"
-msgstr "Nome do ficheiro modelo"
+msgstr "Divisor de árvore da base de dados"
 
 #: libraries/config/messages.inc.php:284
 msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
+"Somente versão light; exibe base de dados em árvore (determinado pelo "
+"divisor definido abaixo)"
 
 #: libraries/config/messages.inc.php:285
 msgid "Display databases in a tree"
-msgstr ""
+msgstr "Mostra bases de dados em árvore"
 
 #: libraries/config/messages.inc.php:286
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
+msgstr "Desactive isto se pretender ver todas as bases de dados em simultâneo"
 
 #: libraries/config/messages.inc.php:287
 msgid "Use light version"
-msgstr ""
+msgstr "Usar versão light"
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Profundidade máxima da árvore da tabela"
 
 #: libraries/config/messages.inc.php:289
 msgid "String that separates tables into different tree levels"
-msgstr ""
+msgstr "Cadeia de caracteres que separa tabelas em níveis diferentes de árvores"
 
 #: libraries/config/messages.inc.php:290
 msgid "Table tree separator"
-msgstr ""
+msgstr "Separador de árvore da tabela"
 
 #: libraries/config/messages.inc.php:291
 msgid "URL where logo in the navigation frame will point to"
-msgstr ""
+msgstr "URL para onde irá apontar o logótipo do quadro de navegação"
 
 #: libraries/config/messages.inc.php:292
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL do link do logotipo"
 
 #: libraries/config/messages.inc.php:293
 msgid ""
@@ -13452,7 +13456,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "O seu Buffer Pool InnoDB é muito pequeno."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13468,6 +13472,18 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"O Buffer Pool do InnoDB possui um profundo impacto na performance de tabelas "
+"InnoDB. Atribua toda a sua memória restante a este buffer. Para servidores "
+"de bases de dados que usam somente o InnoDB como motor de armazenamento e "
+"não possui nenhum outro serviço a executar(por exemplo, servidor Web), deve "
+"atribuir até 80%% da memória disponível. Se este não for o caso, deve "
+"avaliar cuidadosamente o consumo de memória dos outros serviços e tabelas "
+"não-InnoDB e atribuir o valor desta variável de acordo com este consumo. "
+"Tenha cuidado, pois ao atribuir valores muito altos, o seu sistema começará "
+"a escrever em memória virtual, o que diminuirá o desempenho "
+"significativamente. Veja também <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -13477,12 +13493,15 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Está a usar atualmente %s%% da memória do seu Buffer Pool InnoDB. Este aviso "
+"é exibido quando tiver atribuido menos de 60%%, entretanto isso pode ser "
+"perfeitamente adequado para o seu sistema se não possui tantas tabelas "
+"InnoDB ou outros serviços a executar na mesma máquina."
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "concurrent_insert is set to 0"
 msgid "MyISAM concurrent inserts"
-msgstr "concurrent_insert está definida com o valor 0"
+msgstr "Inserções concorrentes no MyISAM"
 
 #: libraries/advisory_rules.txt:455
 msgid "Enable concurrent_insert by setting it to 1"
