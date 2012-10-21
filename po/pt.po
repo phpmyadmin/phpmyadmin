@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-20 15:31+0200\n"
+"PO-Revision-Date: 2012-10-21 16:05+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4141,7 +4141,7 @@ msgstr "Continuação da legenda da tabela"
 #: libraries/plugins/export/ExportLatex.class.php:130
 #: libraries/plugins/export/ExportLatex.class.php:175
 msgid "Label key"
-msgstr ""
+msgstr "Rótulo da chave"
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138
