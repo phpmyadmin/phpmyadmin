@@ -1634,18 +1634,52 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 });
 
             $(t).find('td.data.click2')
-                .dblclick(function(e) {
-                    // todo: avoid duplicating the previous section's code
-                    if (g.isCellEditActive) {
-                        g.saveOrPostEditedCell();
-                        e.stopPropagation();
-                    } else {
-                        g.showEditCell(this);
-                        e.stopPropagation();
+                .click(function(e) {
+                    $cell = $(this);
+                    e.preventDefault();
+                    // In the case of relational link, We want single click on the link 
+                    // to goto the link and double click to start grid-editing.
+                    if ($(e.target).is('.grid_edit a')) {
+                        // get the click count and increase
+                        var clicks = $cell.data('clicks');
+                        clicks = (clicks == null) ? 1 : clicks + 1;
+
+                        if (clicks == 1) {
+                            // if there are no previous clicks, 
+                            // start the single click timer
+                            timer = setTimeout(function() {
+                                window.location.href = $(e.target).attr("href");
+                                $cell.data('clicks', 0);
+                            }, 700);
+                            $cell.data('clicks', clicks);
+                            $cell.data('timer', timer);
+                        } else {
+                            // this is a double click, cancel the single click timer
+                            // and make the click count 0
+                            clearTimeout($cell.data('timer'));
+                            $cell.data('clicks', 0);
+                            // perform the grid-editing
+                            if (g.isCellEditActive) {
+                                g.saveOrPostEditedCell();
+                                e.stopPropagation();
+                            } else {
+                                g.showEditCell(this);
+                                e.stopPropagation();
+                            }
+                        }
                     }
-                    // prevent default action when clicking on "link" in a table
+                })
+                .dblclick(function(e) {
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
+                    } else {
+                        if (g.isCellEditActive) {
+                           g.saveOrPostEditedCell();
+                           e.stopPropagation();
+                        } else {
+                           g.showEditCell(this);
+                           e.stopPropagation();
+                        }
                     }
                 });
 
