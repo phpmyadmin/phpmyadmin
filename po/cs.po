@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-20 16:41+0200\n"
+"PO-Revision-Date: 2012-10-21 14:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -3588,11 +3588,11 @@ msgstr "Napravo"
 
 #: libraries/config.values.php:71
 msgid "Click"
-msgstr ""
+msgstr "Kliknutí"
 
 #: libraries/config.values.php:72
 msgid "Double click"
-msgstr ""
+msgstr "Dvojklik"
 
 #: libraries/config.values.php:73 libraries/config.values.php:105
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -5087,7 +5087,6 @@ msgid "Repeat headers"
 msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:361
-#, fuzzy
 #| msgid "Grid editing: action to trigger it (or disable )"
 msgid "Grid editing: trigger action"
 msgstr "Editační mřížka: činnost pro spuštění"
