@@ -68,9 +68,9 @@ $cfg_db['PropertiesIconic'] = array(
     'both' => __('Both')
 );
 $cfg_db['GridEditing'] = array(
-    'click',
-    'double-click',
-    'disabled'
+    'click' => __('Click'),
+    'double-click' => __('Double click'),
+    'disabled' => __('Disabled'),
 );
 $cfg_db['DefaultTabServer'] = array(
     'main.php',                // the welcome page (recommended for multiuser setups)
