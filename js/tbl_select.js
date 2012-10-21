@@ -97,9 +97,12 @@ $(function() {
         $.post($search_form.attr('action'), values, function(data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success == true) {
-                // found results
-                $("#sqlqueryresults").html(data.message);
-                $("#sqlqueryresults").trigger('makegrid');
+                if (data.sql_query != null) { // zero rows
+                    $("#sqlqueryresults").html(data.sql_query);
+                } else { // results found
+                    $("#sqlqueryresults").html(data.message);
+                    $("#sqlqueryresults").trigger('makegrid');
+                }
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
                  .slideToggle()
