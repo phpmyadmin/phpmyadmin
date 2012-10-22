@@ -114,6 +114,7 @@ $forms['Features']['Page_titles'] = array(
     'TitleDatabase',
     'TitleServer');
 $forms['Features']['Warnings'] = array(
+    'ServerLibraryDifference_DisableWarning',
     'PmaNoRelation_DisableWarning',
     'SuhosinDisableWarning',
     'McryptDisableWarning');
