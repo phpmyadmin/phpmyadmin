@@ -2059,6 +2059,7 @@ $(function() {
                         if ($("#create_table_dialog").length > 0) {
                             $("#create_table_dialog").dialog("close").remove();
                         }
+                        $('#tableslistcontainer').before(data.formatted_sql);
 
                         /**
                          * @var tables_table    Object referring to the <tbody> element that holds the list of tables

@@ -386,11 +386,15 @@ if (isset($_REQUEST['do_save_data'])) {
                     . $overhead
                     . '</td>' . "\n" ;
             }
-
             $new_table_string .= '</tr>' . "\n";
+
+            $formatted_sql = PMA_Util::getMessage(
+                $message, $sql_query, 'success'
+            );
 
             $response = PMA_Response::getInstance();
             $response->addJSON('message', $message);
+            $response->addJSON('formatted_sql', $formatted_sql);
             $response->addJSON('new_table_string', $new_table_string);
         } else {
 
