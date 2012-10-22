@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-21 13:40+0200\n"
+"PO-Revision-Date: 2012-10-22 07:26+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -3633,11 +3633,11 @@ msgstr "Δεξιά"
 
 #: libraries/config.values.php:71
 msgid "Click"
-msgstr ""
+msgstr "Πάτημα"
 
 #: libraries/config.values.php:72
 msgid "Double click"
-msgstr ""
+msgstr "Διπλό πάτημα"
 
 #: libraries/config.values.php:73 libraries/config.values.php:105
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -5160,11 +5160,9 @@ msgid "Repeat headers"
 msgstr "Επανάληψη κεφαλίδων"
 
 #: libraries/config/messages.inc.php:361
-#, fuzzy
 #| msgid "Grid editing: action to trigger it (or disable )"
 msgid "Grid editing: trigger action"
-msgstr ""
-"Επεξεργασία καννάβου: δράση για να το προκαλέσετε (ή να απενεργοποιήσετε)"
+msgstr "Επεξεργασία καννάβου: πρόκληση δράσης"
 
 #: libraries/config/messages.inc.php:362
 msgid "Grid editing: save all edited cells at once"
