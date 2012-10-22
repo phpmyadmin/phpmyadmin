@@ -62,6 +62,14 @@ $cfg['SuhosinDisableWarning'] = false;
 $cfg['McryptDisableWarning'] = false;
 
 /**
+ * Disable the default warning that is displayed if a diffrence between 
+ * the MySQL library and server is detected.
+ *
+ * @global boolean $cfg['['ServerLibraryDifference_DisableWarning']']
+ */
+$cfg['ServerLibraryDifference_DisableWarning'] = false;
+
+/**
  * Show warning about incomplete translations on certain threshold.
  *
  * @global boolean $cfg['TranslationWarningThreshold']
