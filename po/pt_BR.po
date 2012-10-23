@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-22 13:40+0200\n"
+"PO-Revision-Date: 2012-10-23 13:32+0200\n"
 "Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -13115,6 +13115,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Isto indica que muitas consultas (queries) estão fazendo buscas em tabelas "
+"inteiras. Adicione índices onde forem aplicáveis."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -13122,7 +13124,7 @@ msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
 "A taxa de leitura da próxima linha na tabel é de: %s, este valor deve ser "
-"menor do que 1 por hora."
+"menor do que 1 por hora"
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
