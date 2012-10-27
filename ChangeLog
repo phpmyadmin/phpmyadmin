@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #3576322 [search] Invalid select query generated for tables with ENUM fields
 - bug #3577468 [display] Incorrect imagejpeg Syntax Breaks Image Transformation
 - bug #3578776 [search] Editing SQL not possible when no records found
+- bug #3571970 [interface] Display chart and number of rows to plot
 
 3.5.3.0 (2012-10-08)
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
