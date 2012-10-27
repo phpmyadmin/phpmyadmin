@@ -4,10 +4,13 @@ var chart_xaxis_idx = -1;
 var chart_series;
 var chart_series_index = -1;
 var temp_chart_title;
+var currentChart = null;
+var chart_data = null;
+var nonJqplotSettings = null;
+var currentSettings = null;
+
 
 $(document).ready(function() {
-    var currentChart = null;
-    var chart_data = jQuery.parseJSON($('#querychart').html());
     chart_series = 'columns';
     chart_xaxis_idx = $('select[name="chartXAxis"]').attr('value');
 
@@ -24,15 +27,15 @@ $(document).ready(function() {
         currentChart.replot( {resetAxes: true})
     });
 
-    var nonJqplotSettings = {
+    nonJqplotSettings = {
         chart: {
             type: 'line',
             width: $('#resizer').width() - 20,
             height: $('#resizer').height() - 20
         }
-    }
+    };
 
-    var currentSettings = {
+    currentSettings = {
         grid: {
             drawBorder: false,
             shadow: false,
@@ -57,7 +60,7 @@ $(document).ready(function() {
             placement: 'outsideGrid',
             location: 'se'
         }
-    }
+    };
 
     $('#querychart').html('');
 
@@ -118,20 +121,62 @@ $(document).ready(function() {
         drawChart();
     });
 
-    function drawChart() {
-        nonJqplotSettings.chart.width = $('#resizer').width() - 20;
-        nonJqplotSettings.chart.height = $('#resizer').height() - 20;
+});
 
-        // todo: a better way using .replot() ?
-        if (currentChart != null) {
-            currentChart.destroy();
-        }
-        currentChart = PMA_queryChart(chart_data, currentSettings, nonJqplotSettings);
+/**
+ * Ajax Event handler for 'Go' button click
+ *
+ */
+$("#tblchartform").live('submit', function(event) {
+
+    if(!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
+        || !checkFormElementInRange(this, 'pos', PMA_messages['strNotValidRowNumber'], 0-1)) {
+        return false;
     }
 
-    drawChart();
-    $('#querychart').show();
-});
+    var $form = $(this);
+    if (! checkSqlQuery($form[0])) {
+        return false;
+    }
+
+    // remove any div containing a previous error message
+    $('.error').remove();
+
+    var $msgbox = PMA_ajaxShowMessage();
+
+    PMA_prepareForAjaxRequest($form);
+
+    $.post($form.attr('action'), $form.serialize() , function(data) {
+        if (data.success == true) {
+            $('.success').fadeOut();
+
+            if (typeof data.chartData != 'undefined') {
+                chart_data = jQuery.parseJSON(data.chartData);
+                drawChart();
+                $('#querychart').show();
+            }
+        } else {
+            PMA_ajaxRemoveMessage($msgbox);
+            PMA_ajaxShowMessage(data.error, false);
+            chart_data = null;
+            drawChart();
+        }
+        PMA_ajaxRemoveMessage($msgbox);
+    }, "json"); // end $.post()
+
+    return false;
+}); // end
+
+function drawChart() {
+    nonJqplotSettings.chart.width = $('#resizer').width() - 20;
+    nonJqplotSettings.chart.height = $('#resizer').height() - 20;
+
+    // todo: a better way using .replot() ?
+    if (currentChart != null) {
+        currentChart.destroy();
+    }
+    currentChart = PMA_queryChart(chart_data, currentSettings, nonJqplotSettings);
+}
 
 function in_array(element,array)
 {
