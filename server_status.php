@@ -1460,7 +1460,7 @@ function printServerTraffic()
                 echo __('Show Full Queries');
             }
             echo '">';
-            echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_'
+            echo '<img src="' . $GLOBALS['pmaThemeImage']
                 . 's_' . ($show_full_sql ? 'partial' : 'full') . 'text.png" '
                 . 'alt="';
             if ($show_full_sql) {
