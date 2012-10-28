@@ -18,7 +18,7 @@ require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/FormDisplay.class.php';
 require 'libraries/config/user_preferences.forms.php';
 
-PMA_userprefs_pageinit();
+PMA_userprefsPageInit();
 
 // handle form processing
 
@@ -52,13 +52,13 @@ if (isset($_POST['revert'])) {
 $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
-    $old_settings = PMA_load_userprefs();
-    $result = PMA_save_userprefs(ConfigFile::getInstance()->getConfigArray());
+    $old_settings = PMA_loadUserprefs();
+    $result = PMA_saveUserprefs(ConfigFile::getInstance()->getConfigArray());
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
         $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
-        PMA_userprefs_redirect(
+        PMA_userprefsRedirect(
             $forms, $old_settings, 'prefs_forms.php',
             array('form' => $form_param), $hash
         );

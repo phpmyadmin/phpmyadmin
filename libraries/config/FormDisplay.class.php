@@ -736,7 +736,7 @@ class FormDisplay
     private function _loadUserprefsInfo()
     {
         if ($this->_userprefs_keys === null) {
-            $this->_userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
+            $this->_userprefs_keys = array_flip(PMA_readUserprefsFieldNames());
             // read real config for user preferences display
             $userprefs_disallow = defined('PMA_SETUP')
                 ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
