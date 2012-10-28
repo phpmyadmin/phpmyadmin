@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * TableProperty class
+ * Holds the TableProperty class
  *
  * @package    PhpMyAdmin-Export
  * @subpackage CodeGen
@@ -11,9 +11,10 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Holds the TableProperty class
+ * TableProperty class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage CodeGen
  */
 class TableProperty
 {
@@ -30,31 +31,31 @@ class TableProperty
      * @var string
      */
     public $type;
-    
+
     /**
      * Wheter the key is nullable or not
      *
      * @var bool
      */
     public $nullable;
-    
+
     /**
      * The key
-     * 
-     * @var int 
+     *
+     * @var int
      */
     public $key;
-    
+
     /**
      * Default value
-     * 
+     *
      * @var mixed
      */
     public $defaultValue;
-    
+
     /**
      * Extension
-     * 
+     *
      * @var string
      */
     public $ext;
@@ -62,8 +63,8 @@ class TableProperty
     /**
      * Constructor
      *
-     * @param array $row table row 
-     * 
+     * @param array $row table row
+     *
      * @return void
      */
     function __construct($row)
@@ -78,7 +79,7 @@ class TableProperty
 
     /**
      * Gets the pure type
-     * 
+     *
      * @return string type
      */
     function getPureType()
@@ -90,9 +91,9 @@ class TableProperty
         return $this->type;
     }
 
-    /** 
+    /**
      * Tells whether the key is null or not
-     * 
+     *
      * @return bool true if the key is not null, false otherwise
      */
     function isNotNull()
@@ -100,9 +101,9 @@ class TableProperty
         return $this->nullable == "NO" ? "true" : "false";
     }
 
-    /** 
+    /**
      * Tells whether the key is unique or not
-     * 
+     *
      * @return bool true if the key is unique, false otherwise
      */
     function isUnique()
@@ -112,7 +113,7 @@ class TableProperty
 
      /**
      * Gets the .NET primitive type
-     * 
+     *
      * @return string type
      */
     function getDotNetPrimitiveType()
@@ -146,7 +147,7 @@ class TableProperty
 
     /**
      * Gets the .NET object type
-     * 
+     *
      * @return string type
      */
     function getDotNetObjectType()
@@ -195,7 +196,7 @@ class TableProperty
 
     /**
      * Tells whether the key is primary or not
-     * 
+     *
      * @return bool true if the key is primary, false otherwise
      */
     function isPK()
@@ -205,7 +206,7 @@ class TableProperty
 
     /**
      * Formats a string for C#
-     * 
+     *
      * @param string $text string to be formatted
      *
      * @return string formatted text
@@ -222,7 +223,7 @@ class TableProperty
 
     /**
      * Formats a string for XML
-     * 
+     *
      * @param string $text string to be formatted
      *
      * @return string formatted text
@@ -244,7 +245,7 @@ class TableProperty
 
     /**
      * Formats a string
-     * 
+     *
      * @param string $text string to be formatted
      *
      * @return string formatted text
