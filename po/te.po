@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-05-17 15:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Telugu <te@li.org>\n"
+"PO-Revision-Date: 2012-10-28 10:30+0200\n"
+"Last-Translator: Praveen_Illa <mail2ipn@gmail.com>\n"
+"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/3-5/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -122,7 +122,7 @@ msgstr ""
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s డేటాబేసు సృష్టించబడింది"
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
@@ -172,7 +172,7 @@ msgstr "రకం"
 #: tbl_printview.php:138 tbl_structure.php:206 tbl_tracking.php:260
 #: tbl_tracking.php:326 tbl_zoom_select.php:442
 msgid "Null"
-msgstr ""
+msgstr "శూన్యం"
 
 #: db_datadict.php:166 db_structure.php:548 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
