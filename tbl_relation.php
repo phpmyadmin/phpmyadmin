@@ -413,13 +413,12 @@ if (count($columns) > 0) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
-    ?>
-    <fieldset>
-    <legend><?php echo __('Relations'); ?></legend>
 
-    <table>
-    <tr><th><?php echo __('Column'); ?></th>
-    <?php
+    echo '<fieldset>';
+    echo '<legend>' . __('Relations'). '</legend>';
+
+    echo '<table>';
+    echo '<tr><th>' . __('Column') . '</th>';
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
@@ -429,29 +428,30 @@ if (count($columns) > 0) {
     }
     if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_storage_engine . ')';
+        echo '<th colspan="2">' . __('Foreign key constraint')
+            . ' (' . $tbl_storage_engine . ')';
         echo '</th>';
     }
-    ?>
-    </tr>
-    <?php
+    echo '</tr>';
+
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
         $myfield = $save_row[$i]['Field'];
-        // Use an md5 as array index to avoid having special characters in the name atttibure (see bug #1746964 )
+        // Use an md5 as array index to avoid having special characters
+        // in the name atttibure (see bug #1746964 )
         $myfield_md5 = md5($myfield);
         $myfield_html = htmlspecialchars($myfield);
-        ?>
-    <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <td class="center">
-            <strong><?php echo $myfield_html; ?></strong>
-            <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]" value="<?php echo $myfield_html; ?>"/>
-        </td>
-        <?php
+
+        echo '<tr class="' . $odd_row ? 'odd' : 'even' . '">';
+        $odd_row = ! $odd_row;
+        echo '<td class="center">';
+        echo '<strong>' . $myfield_html . '</strong>';
+        echo '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
+            . ' value="' . $myfield_html . '"/>';
+        echo '</td>';
+
         if ($cfgRelation['relwork']) {
-            ?>
-        <td><select name="destination[<?php echo $myfield_md5; ?>]">
-            <?php
+            echo '<td><select name="destination[' . $myfield_md5 . ']">';
             // PMA internal relations
             if (isset($existrel[$myfield])) {
                 $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
@@ -462,8 +462,7 @@ if (count($columns) > 0) {
             }
             $seen_key = false;
             foreach ($selectboxall as $value) {
-                echo '                '
-                     . '<option value="' . htmlspecialchars($value) . '"';
+                echo '<option value="' . htmlspecialchars($value) . '"';
                 if ($foreign_field && $value == $foreign_field) {
                     echo ' selected="selected"';
                     $seen_key = true;
@@ -475,38 +474,32 @@ if (count($columns) > 0) {
             // that is not a key in the foreign table, we show the link
             // (will not be shown with an arrow)
             if ($foreign_field && !$seen_key) {
-                echo '                '
-                    .'<option value="' . htmlspecialchars($foreign_field) . '"'
-                    .' selected="selected"'
-                    .'>' . $foreign_field . '</option>'. "\n";
+                echo '<option value="' . htmlspecialchars($foreign_field) . '"'
+                    . ' selected="selected">' . $foreign_field . '</option>'. "\n";
             }
-            ?>
-            </select>
-        </td>
-            <?php
+            echo '</select>';
+            echo '</td>';
         } // end if (internal relations)
 
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
             echo '<td>';
             if (!empty($save_row[$i]['Key'])) {
-                ?>
-            <span class="formelement">
-            <select name="destination_foreign[<?php echo $myfield_md5; ?>]" class="referenced_column_dropdown">
-                <?php
+                echo '<span class="formelement">';
+                echo '<select name="destination_foreign[' . $myfield_md5 . ']"'
+                    . ' class="referenced_column_dropdown">';
                 if (isset($existrel_foreign[$myfield])) {
                     // need to PMA_Util::backquote to support a dot character inside
                     // an element
-                    $foreign_field    = PMA_Util::backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
-                             . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
-                             . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_field']);
+                    $foreign_field = PMA_Util::backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
+                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
+                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_field']);
                 } else {
                     $foreign_field    = false;
                 }
 
                 $found_foreign_field = false;
                 foreach ($selectboxall_foreign as $value) {
-                    echo '                '
-                         . '<option value="' . htmlspecialchars($value) . '"';
+                    echo '<option value="' . htmlspecialchars($value) . '"';
                     if ($foreign_field && $value == $foreign_field) {
                         echo ' selected="selected"';
                         $found_foreign_field = true;
@@ -517,79 +510,73 @@ if (count($columns) > 0) {
                 // we did not find the foreign field in the tables of current db,
                 // must be defined in another db so show it to avoid erasing it
                 if (!$found_foreign_field && $foreign_field) {
-                    echo '                '
-                         . '<option value="' . htmlspecialchars($foreign_field) . '"';
+                    echo '<option value="' . htmlspecialchars($foreign_field) . '"';
                     echo ' selected="selected"';
                     echo '>' . $foreign_field . '</option>' . "\n";
                 }
+                echo '</select>';
+                echo '</span>';
 
-                ?>
-            </select>
-            </span>
-            <span class="formelement">
-                <?php
+                echo '<span class="formelement">';
                 // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                 // won't display the clause if it's set as RESTRICT.
+                $on_delete = isset($existrel_foreign[$myfield]['on_delete'])
+                    ? $existrel_foreign[$myfield]['on_delete'] : 'RESTRICT';
                 PMA_generate_dropdown(
                     'ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: 'RESTRICT'
+                    $on_delete
                 );
+                echo '</span>' . "\n";
 
-                echo '</span>' . "\n"
-                    .'<span class="formelement">' . "\n";
-
+                echo '<span class="formelement">' . "\n";
+                $on_update = isset($existrel_foreign[$myfield]['on_update'])
+                    ? $existrel_foreign[$myfield]['on_update'] : 'RESTRICT';
                 PMA_generate_dropdown(
                     'ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT'
+                    $on_update
                 );
                 echo '</span>' . "\n";
             } else {
                 echo __('No index defined!');
             } // end if (a key exists)
-            echo '        </td>';
+            echo '</td>';
         } // end if (InnoDB)
-        ?>
-    </tr>
-        <?php
+        echo '</tr>';
     } // end for
 
     unset( $myfield, $myfield_md5, $myfield_html);
-
-    echo '    </table>' . "\n";
+    echo '</table>' . "\n";
     echo '</fieldset>' . "\n";
 
     if ($cfgRelation['displaywork']) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
-        ?>
-    <fieldset>
-        <label><?php echo __('Choose column to display') . ': '; ?></label>
-        <select name="display_field">
-            <option value="">---</option>
-        <?php
+        echo '<fieldset>';
+        echo '<label>' . __('Choose column to display') . ': </label>';
+        echo '<select name="display_field">';
+        echo '<option value="">---</option>';
+
         foreach ($save_row AS $row) {
-            echo '            <option value="' . htmlspecialchars($row['Field']) . '"';
+            echo '<option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';
             }
             echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
         } // end while
-        ?>
-        </select>
-    </fieldset>
-        <?php
+
+        echo '</select>';
+        echo '</fieldset>';
     } // end if (displayworks)
-    ?>
-    <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Save'); ?>" />
-    </fieldset>
-</form>
-    <?php
+
+    echo '<fieldset class="tblFooters">';
+    echo '<input type="submit" value="' . __('Save') . '" />';
+    echo '</fieldset>';
+    echo '</form>';
 } // end if (we have columns in this table)
 
 ?>
