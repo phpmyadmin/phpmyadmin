@@ -69,8 +69,9 @@ $options_array = array(
  *
  * @access  public
  */
-function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $selected_value)
-{
+function PMA_generate_dropdown(
+    $dropdown_question, $select_name, $choices, $selected_value
+) {
     echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
 
     echo '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
@@ -155,29 +156,32 @@ if (isset($destination) && $cfgRelation['relwork']) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (! isset($existrel[$master_field])) {
-                $upd_query  = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation'])
-                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                            . ' values('
-                            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($table) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
+                $upd_query  = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                    . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
+                    . ' values('
+                    . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($table) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
             } elseif ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
-                $upd_query  = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
-                            . ' foreign_table    = \'' . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
-                            . ' foreign_field    = \'' . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
-                            . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
+                $upd_query  = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
+                    . ' foreign_db       = \'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                    . ' foreign_table    = \'' . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
+                    . ' foreign_field    = \'' . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
+                    . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                    . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+                    . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
             } // end if... else....
         } elseif (isset($existrel[$master_field])) {
-            $upd_query      = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation'])
-                            . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+                . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
         } // end if... else....
         if ($upd_query) {
             PMA_queryAsControlUser($upd_query);
@@ -211,18 +215,17 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // (for example: `base2`.`table1`)
 
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                            . ' ADD FOREIGN KEY ('
-                            . PMA_Util::backquote($master_field) . ')'
-                            . ' REFERENCES '
-                            . $foreign_db . '.'
-                            . $foreign_table . '('
-                            . $foreign_field . ')';
+                    . ' ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                    . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
+                    . '(' . $foreign_field . ')';
 
                 if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
-                    $sql_query .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
+                    $sql_query .= ' ON DELETE '
+                        . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
                 }
                 if (! empty($_REQUEST['on_update'][$master_field_md5])) {
-                    $sql_query .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field_md5]];
+                    $sql_query .= ' ON UPDATE '
+                        . $options_array[$_REQUEST['on_update'][$master_field_md5]];
                 }
                 $sql_query .= ';';
                 $display_query .= $sql_query . "\n";
@@ -231,23 +234,20 @@ if (isset($_REQUEST['destination_foreign'])) {
             } elseif (PMA_Util::backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
                 || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
                 || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
-                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
-                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
-                   ) {
+                || ($_REQUEST['on_delete'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
+            ) {
                 // another foreign key is already defined for this field
                 // or
                 // an option has been changed for ON DELETE or ON UPDATE
 
                 // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                            . ' DROP FOREIGN KEY '
-                            . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', '
-                            . 'ADD FOREIGN KEY ('
-                            . PMA_Util::backquote($master_field) . ')'
-                            . ' REFERENCES '
-                            . $foreign_db . '.'
-                            . $foreign_table . '('
-                            . $foreign_field . ')';
+                    . ' DROP FOREIGN KEY '
+                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                    . 'ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                    . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
+                    . '(' . $foreign_field . ')';
 
                 if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
                     $sql_query   .= ' ON DELETE '
@@ -263,8 +263,8 @@ if (isset($_REQUEST['destination_foreign'])) {
             } // end if... else....
         } elseif (isset($existrel_foreign[$master_field])) {
             $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                    . ' DROP FOREIGN KEY '
-                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
+                . ' DROP FOREIGN KEY '
+                . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
             $sql_query .= ';';
             $display_query .= $sql_query . "\n";
         } // end if... else....
@@ -307,22 +307,24 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
     $upd_query = false;
     if ($disp) {
         if ($display_field != '') {
-            $upd_query = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                       . ' SET display_field = \'' . PMA_Util::sqlAddSlashes($display_field) . '\''
-                       . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+            $upd_query = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' SET display_field = \'' . PMA_Util::sqlAddSlashes($display_field) . '\''
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                       . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         }
     } elseif ($display_field != '') {
-        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                   . '(db_name, table_name, display_field) '
-                   . ' VALUES('
-                   . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
+        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+            . '(db_name, table_name, display_field) VALUES('
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
     }
 
     if ($upd_query) {
@@ -411,13 +413,12 @@ if (count($columns) > 0) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
-    ?>
-    <fieldset>
-    <legend><?php echo __('Relations'); ?></legend>
 
-    <table>
-    <tr><th><?php echo __('Column'); ?></th>
-    <?php
+    echo '<fieldset>';
+    echo '<legend>' . __('Relations'). '</legend>';
+
+    echo '<table>';
+    echo '<tr><th>' . __('Column') . '</th>';
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
@@ -427,29 +428,30 @@ if (count($columns) > 0) {
     }
     if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_storage_engine . ')';
+        echo '<th colspan="2">' . __('Foreign key constraint')
+            . ' (' . $tbl_storage_engine . ')';
         echo '</th>';
     }
-    ?>
-    </tr>
-    <?php
+    echo '</tr>';
+
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
         $myfield = $save_row[$i]['Field'];
-        // Use an md5 as array index to avoid having special characters in the name atttibure (see bug #1746964 )
+        // Use an md5 as array index to avoid having special characters
+        // in the name atttibure (see bug #1746964 )
         $myfield_md5 = md5($myfield);
         $myfield_html = htmlspecialchars($myfield);
-        ?>
-    <tr class="<?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <td class="center">
-            <strong><?php echo $myfield_html; ?></strong>
-            <input type="hidden" name="fields_name[<?php echo $myfield_md5; ?>]" value="<?php echo $myfield_html; ?>"/>
-        </td>
-        <?php
+
+        echo '<tr class="' . $odd_row ? 'odd' : 'even' . '">';
+        $odd_row = ! $odd_row;
+        echo '<td class="center">';
+        echo '<strong>' . $myfield_html . '</strong>';
+        echo '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
+            . ' value="' . $myfield_html . '"/>';
+        echo '</td>';
+
         if ($cfgRelation['relwork']) {
-            ?>
-        <td><select name="destination[<?php echo $myfield_md5; ?>]">
-            <?php
+            echo '<td><select name="destination[' . $myfield_md5 . ']">';
             // PMA internal relations
             if (isset($existrel[$myfield])) {
                 $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
@@ -460,8 +462,7 @@ if (count($columns) > 0) {
             }
             $seen_key = false;
             foreach ($selectboxall as $value) {
-                echo '                '
-                     . '<option value="' . htmlspecialchars($value) . '"';
+                echo '<option value="' . htmlspecialchars($value) . '"';
                 if ($foreign_field && $value == $foreign_field) {
                     echo ' selected="selected"';
                     $seen_key = true;
@@ -473,38 +474,32 @@ if (count($columns) > 0) {
             // that is not a key in the foreign table, we show the link
             // (will not be shown with an arrow)
             if ($foreign_field && !$seen_key) {
-                echo '                '
-                    .'<option value="' . htmlspecialchars($foreign_field) . '"'
-                    .' selected="selected"'
-                    .'>' . $foreign_field . '</option>'. "\n";
+                echo '<option value="' . htmlspecialchars($foreign_field) . '"'
+                    . ' selected="selected">' . $foreign_field . '</option>'. "\n";
             }
-            ?>
-            </select>
-        </td>
-            <?php
+            echo '</select>';
+            echo '</td>';
         } // end if (internal relations)
 
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
             echo '<td>';
             if (!empty($save_row[$i]['Key'])) {
-                ?>
-            <span class="formelement">
-            <select name="destination_foreign[<?php echo $myfield_md5; ?>]" class="referenced_column_dropdown">
-                <?php
+                echo '<span class="formelement">';
+                echo '<select name="destination_foreign[' . $myfield_md5 . ']"'
+                    . ' class="referenced_column_dropdown">';
                 if (isset($existrel_foreign[$myfield])) {
                     // need to PMA_Util::backquote to support a dot character inside
                     // an element
-                    $foreign_field    = PMA_Util::backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
-                             . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
-                             . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_field']);
+                    $foreign_field = PMA_Util::backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
+                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
+                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_field']);
                 } else {
                     $foreign_field    = false;
                 }
 
                 $found_foreign_field = false;
                 foreach ($selectboxall_foreign as $value) {
-                    echo '                '
-                         . '<option value="' . htmlspecialchars($value) . '"';
+                    echo '<option value="' . htmlspecialchars($value) . '"';
                     if ($foreign_field && $value == $foreign_field) {
                         echo ' selected="selected"';
                         $found_foreign_field = true;
@@ -515,79 +510,73 @@ if (count($columns) > 0) {
                 // we did not find the foreign field in the tables of current db,
                 // must be defined in another db so show it to avoid erasing it
                 if (!$found_foreign_field && $foreign_field) {
-                    echo '                '
-                         . '<option value="' . htmlspecialchars($foreign_field) . '"';
+                    echo '<option value="' . htmlspecialchars($foreign_field) . '"';
                     echo ' selected="selected"';
                     echo '>' . $foreign_field . '</option>' . "\n";
                 }
+                echo '</select>';
+                echo '</span>';
 
-                ?>
-            </select>
-            </span>
-            <span class="formelement">
-                <?php
+                echo '<span class="formelement">';
                 // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                 // won't display the clause if it's set as RESTRICT.
+                $on_delete = isset($existrel_foreign[$myfield]['on_delete'])
+                    ? $existrel_foreign[$myfield]['on_delete'] : 'RESTRICT';
                 PMA_generate_dropdown(
                     'ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_delete']) ? $existrel_foreign[$myfield]['on_delete']: 'RESTRICT'
+                    $on_delete
                 );
+                echo '</span>' . "\n";
 
-                echo '</span>' . "\n"
-                    .'<span class="formelement">' . "\n";
-
+                echo '<span class="formelement">' . "\n";
+                $on_update = isset($existrel_foreign[$myfield]['on_update'])
+                    ? $existrel_foreign[$myfield]['on_update'] : 'RESTRICT';
                 PMA_generate_dropdown(
                     'ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,
-                    isset($existrel_foreign[$myfield]['on_update']) ? $existrel_foreign[$myfield]['on_update']: 'RESTRICT'
+                    $on_update
                 );
                 echo '</span>' . "\n";
             } else {
                 echo __('No index defined!');
             } // end if (a key exists)
-            echo '        </td>';
+            echo '</td>';
         } // end if (InnoDB)
-        ?>
-    </tr>
-        <?php
+        echo '</tr>';
     } // end for
 
     unset( $myfield, $myfield_md5, $myfield_html);
-
-    echo '    </table>' . "\n";
+    echo '</table>' . "\n";
     echo '</fieldset>' . "\n";
 
     if ($cfgRelation['displaywork']) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
-        ?>
-    <fieldset>
-        <label><?php echo __('Choose column to display') . ': '; ?></label>
-        <select name="display_field">
-            <option value="">---</option>
-        <?php
+        echo '<fieldset>';
+        echo '<label>' . __('Choose column to display') . ': </label>';
+        echo '<select name="display_field">';
+        echo '<option value="">---</option>';
+
         foreach ($save_row AS $row) {
-            echo '            <option value="' . htmlspecialchars($row['Field']) . '"';
+            echo '<option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';
             }
             echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
         } // end while
-        ?>
-        </select>
-    </fieldset>
-        <?php
+
+        echo '</select>';
+        echo '</fieldset>';
     } // end if (displayworks)
-    ?>
-    <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Save'); ?>" />
-    </fieldset>
-</form>
-    <?php
+
+    echo '<fieldset class="tblFooters">';
+    echo '<input type="submit" value="' . __('Save') . '" />';
+    echo '</fieldset>';
+    echo '</form>';
 } // end if (we have columns in this table)
 
 ?>

@@ -143,8 +143,8 @@ foreach ($the_tables as $key => $table) {
     echo '<tbody>';
     foreach ($columns as $row) {
         $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
-        $type             = $extracted_columnspec['print_type'];
-        $attribute     = $extracted_columnspec['attribute'];
+        $type = $extracted_columnspec['print_type'];
+        $attribute = $extracted_columnspec['attribute'];
 
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
@@ -164,7 +164,7 @@ foreach ($the_tables as $key => $table) {
          * but based on SHOW CREATE TABLE because information_schema
          * cannot be trusted in this case (MySQL bug)
          */
-        if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
+        if (! empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
             && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
             && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
         ) {
