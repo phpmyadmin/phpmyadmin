@@ -24,6 +24,16 @@ class PMA_ExportPdf extends PMA_PDF
     var $tablewidths;
     var $headerset;
 
+    /**
+     * Add page if needed.
+     *
+     * @param float   $h       cell height. Default value: 0
+     * @param mixed   $y       starting y position, leave empty for current position
+     * @param boolean $addpage if true add a page, otherwise only return
+     *                         the true/false state
+     *
+     * @return boolean true in case of page break, false otherwise.
+     */
     function checkPageBreak($h = 0, $y = '', $addpage = true)
     {
         if ($this->empty_string($y)) {
@@ -68,6 +78,11 @@ class PMA_ExportPdf extends PMA_PDF
         return false;
     }
 
+    /**
+     * This method is used to render the page header.
+     *
+     * @return void
+     */
     function Header()
     {
         global $maxY;
@@ -139,7 +154,7 @@ class PMA_ExportPdf extends PMA_PDF
         $this->dataY = $maxY;
     }
 
-    function morepagestable($lineheight=8)
+    function morepagestable($lineheight = 8)
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -217,6 +232,13 @@ class PMA_ExportPdf extends PMA_PDF
         $this->page = $maxpage;
     }
 
+    /**
+     * Sets a set of attributes.
+     *
+     * @param array $attr array containing the attributes
+     *
+     * @return void
+     */
     function setAttributes($attr = array())
     {
         foreach ($attr as $key => $val) {
@@ -224,6 +246,14 @@ class PMA_ExportPdf extends PMA_PDF
         }
     }
 
+    /**
+     * Defines the top margin.
+     * The method can be called before creating the first page.
+     *
+     * @param float $topMargin the margin
+     *
+     * @return void
+     */
     function setTopMargin($topMargin)
     {
         $this->tMargin = $topMargin;

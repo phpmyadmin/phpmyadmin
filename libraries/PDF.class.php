@@ -27,9 +27,18 @@ class PMA_PDF extends TCPDF
     var $Alias = array();
 
     /**
-     * Constructs PDF and configures standard parameters.
+    * Constructs PDF and configures standard parameters.
+     *
+     * @param string  $orientation page orientation
+     * @param string  $unit        unit
+     * @param mixed   $format      the format used for pages
+     * @param boolean $unicode     true means that the input text is unicode
+     * @param string  $encoding    charset encoding; default is UTF-8.
+     * @param boolean $diskcache   if true reduce the RAM memory usage by caching
+     *                             temporary data on filesystem (slower).
      *
      * @return void
+     * @access public
      */
     public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
         $unicode = true, $encoding = 'UTF-8', $diskcache = false
@@ -65,6 +74,11 @@ class PMA_PDF extends TCPDF
 
     /**
      * Function to set alias which will be expanded on page rendering.
+     *
+     * @param string $name  name of the alias
+     * @param string $value value of the alias
+     *
+     * @return void
      */
     function SetAlias($name, $value)
     {
@@ -73,6 +87,8 @@ class PMA_PDF extends TCPDF
 
     /**
      * Improved with alias expading.
+     *
+     * @return void
      */
     function _putpages()
     {
@@ -89,15 +105,23 @@ class PMA_PDF extends TCPDF
      * Displays an error message
      *
      * @param string $error_message the error mesage
+     *
+     * @return void
      */
     function Error($error_message = '')
     {
-        PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
+        PMA_Message::error(
+            __('Error while creating PDF:') . ' ' . $error_message
+        )->display();
         exit;
     }
 
     /**
      * Sends file as a download to user.
+     *
+     * @param string $filename file name
+     *
+     * @return void
      */
     function Download($filename)
     {
