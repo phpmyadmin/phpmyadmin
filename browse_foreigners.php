@@ -111,8 +111,8 @@ function formupdate(fieldmd5, key) {
         \$inline.removeClass('browse_foreign_clicked')
             // for grid editing,
             // puts new value in the previous element which is
-            // a span with class curr_value
-            .prev('.curr_value').text(key);
+            // a span with class curr_value, and trigger .change()
+            .prev('.curr_value').text(key).change();
         // for zoom-search editing, puts new value in the previous
         // element which is an input field
         \$inline.prev('input[type=text]').val(key);
