@@ -81,7 +81,7 @@ class PMA_File
      *
      * @access public
      */
-    function __construct($name = false)
+    public function __construct($name = false)
     {
         if ($name) {
             $this->setName($name);
@@ -94,7 +94,7 @@ class PMA_File
      * @see     PMA_File::cleanUp()
      * @access  public
      */
-    function __destruct()
+    public function __destruct()
     {
         $this->cleanUp();
     }
@@ -105,7 +105,7 @@ class PMA_File
      * @access  public
      * @return boolean success
      */
-    function cleanUp()
+    public function cleanUp()
     {
         if ($this->isTemp()) {
             return $this->delete();
@@ -120,7 +120,7 @@ class PMA_File
      * @access  public
      * @return boolean success
      */
-    function delete()
+    public function delete()
     {
         return unlink($this->getName());
     }
@@ -134,7 +134,7 @@ class PMA_File
      * @return boolean PMA_File::$_is_temp
      * @access  public
      */
-    function isTemp($is_temp = null)
+    public function isTemp($is_temp = null)
     {
         if (null !== $is_temp) {
             $this->_is_temp = (bool) $is_temp;
@@ -151,7 +151,7 @@ class PMA_File
      * @return void
      * @access  public
      */
-    function setName($name)
+    public function setName($name)
     {
         $this->_name = trim($name);
     }
@@ -168,7 +168,7 @@ class PMA_File
      *
      * @access  public
      */
-    function getContent($as_binary = true, $offset = 0, $length = null)
+    public function getContent($as_binary = true, $offset = 0, $length = null)
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -206,7 +206,7 @@ class PMA_File
      *
      * @return bool
      */
-    function isUploaded()
+    public function isUploaded()
     {
         return is_uploaded_file($this->getName());
     }
@@ -217,7 +217,7 @@ class PMA_File
      * @access  public
      * @return string  PMA_File::$_name
      */
-    function getName()
+    public function getName()
     {
         return $this->_name;
     }
@@ -230,7 +230,7 @@ class PMA_File
      * @return boolean success
      * @access  public
      */
-    function setUploadedFile($name)
+    public function setUploadedFile($name)
     {
         $this->setName($name);
 
@@ -252,7 +252,7 @@ class PMA_File
      * @return boolean success
      * @access  public
      */
-    function setUploadedFromTblChangeRequest($key, $rownumber)
+    public function setUploadedFromTblChangeRequest($key, $rownumber)
     {
         if (! isset($_FILES['fields_upload'])
             || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])
@@ -327,7 +327,7 @@ class PMA_File
      * @access  public
      * @static
      */
-    function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
+    public function fetchUploadedFromTblChangeRequestMultiple($file, $rownumber, $key)
     {
         $new_file = array(
             'name' => $file['name']['multi_edit'][$rownumber][$key],
@@ -349,7 +349,7 @@ class PMA_File
      * @return boolean success
      * @access  public
      */
-    function setSelectedFromTblChangeRequest($key, $rownumber = null)
+    public function setSelectedFromTblChangeRequest($key, $rownumber = null)
     {
         if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
             && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
@@ -369,7 +369,7 @@ class PMA_File
      * @access  public
      * @return string  error message
      */
-    function getError()
+    public function getError()
     {
         return $this->_error_message;
     }
@@ -380,7 +380,7 @@ class PMA_File
      * @access  public
      * @return boolean whether an error occured or not
      */
-    function isError()
+    public function isError()
     {
         return ! empty($this->_error_message);
     }
@@ -395,7 +395,7 @@ class PMA_File
      * @return boolean success
      * @access  public
      */
-    function checkTblChangeForm($key, $rownumber)
+    public function checkTblChangeForm($key, $rownumber)
     {
         if ($this->setUploadedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
@@ -419,7 +419,7 @@ class PMA_File
      * @return boolean success
      * @access  public
      */
-    function setLocalSelectedFile($name)
+    public function setLocalSelectedFile($name)
     {
         if (empty($GLOBALS['cfg']['UploadDir'])) {
             return false;
@@ -443,7 +443,7 @@ class PMA_File
      * @access  public
      * @return boolean whether the file is readable or not
      */
-    function isReadable()
+    public function isReadable()
     {
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
@@ -462,7 +462,7 @@ class PMA_File
      * @access  public
      * @return boolean whether uploaded fiel is fine or not
      */
-    function checkUploadedFile()
+    public function checkUploadedFile()
     {
         if ($this->isReadable()) {
             return true;
@@ -513,7 +513,7 @@ class PMA_File
      * @access  protected
      * @return string MIME type of compression, none for none
      */
-    function _detectCompression()
+    protected function detectCompression()
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
@@ -562,7 +562,7 @@ class PMA_File
      *
      * @return void
      */
-    function setDecompressContent($decompress)
+    public function setDecompressContent($decompress)
     {
         $this->_decompress = (bool) $decompress;
     }
@@ -572,7 +572,7 @@ class PMA_File
      *
      * @return object file handle
      */
-    function getHandle()
+    public function getHandle()
     {
         if (null === $this->_handle) {
             $this->open();
@@ -587,7 +587,7 @@ class PMA_File
      *
      * @return void
      */
-    function setHandle($handle)
+    public function setHandle($handle)
     {
         $this->_handle = $handle;
     }
@@ -598,7 +598,7 @@ class PMA_File
      *
      * @return void
      */
-    function errorUnsupported()
+    public function errorUnsupported()
     {
         $this->_error_message = sprintf(
             __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'),
@@ -611,7 +611,7 @@ class PMA_File
      *
      * @return bool
      */
-    function open()
+    public function open()
     {
         if (! $this->_decompress) {
             $this->_handle = @fopen($this->getName(), 'r');
@@ -669,7 +669,7 @@ class PMA_File
      *
      * @return string character set of the file
      */
-    function getCharset()
+    public function getCharset()
     {
         return $this->_charset;
     }
@@ -681,7 +681,7 @@ class PMA_File
      *
      * @return void
      */
-    function setCharset($charset)
+    public function setCharset($charset)
     {
         $this->_charset = $charset;
     }
@@ -692,10 +692,10 @@ class PMA_File
      * @return string MIME type of compression, none for none
      * @access  public
      */
-    function getCompression()
+    public function getCompression()
     {
         if (null === $this->_compression) {
-            return $this->_detectCompression();
+            return $this->detectCompression();
         }
 
         return $this->_compression;
@@ -709,7 +709,7 @@ class PMA_File
      * @return boolean
      * @todo this function is unused
      */
-    function advanceFilePointer($length)
+    public function advanceFilePointer($length)
     {
         while ($length > 0) {
             $this->getNextChunk($length);
@@ -726,7 +726,7 @@ class PMA_File
      * @return bool|string
      * @todo this function is unused
      */
-    function getNextChunk($max_size = null)
+    public function getNextChunk($max_size = null)
     {
         if (null !== $max_size) {
             $size = min($max_size, $this->getChunkSize());
@@ -808,7 +808,7 @@ class PMA_File
      *
      * @return integer the offset
      */
-    function getOffset()
+    public function getOffset()
     {
         return $this->_offset;
     }
@@ -818,7 +818,7 @@ class PMA_File
      *
      * @return integer the chunk size
      */
-    function getChunkSize()
+    public function getChunkSize()
     {
         return $this->_chunk_size;
     }
@@ -830,7 +830,7 @@ class PMA_File
      *
      * @return void
      */
-    function setChunkSize($chunk_size)
+    public function setChunkSize($chunk_size)
     {
         $this->_chunk_size = (int) $chunk_size;
     }
@@ -840,7 +840,7 @@ class PMA_File
      *
      * @return integer the length of the file content
      */
-    function getContentLength()
+    public function getContentLength()
     {
         return strlen($this->_content);
     }
@@ -850,7 +850,7 @@ class PMA_File
      *
      * @return boolean whether the end of the file has been reached
      */
-    function eof()
+    public function eof()
     {
         if ($this->getHandle()) {
             return feof($this->getHandle());

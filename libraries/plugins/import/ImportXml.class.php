@@ -25,7 +25,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 /**
  * Handles the import for the XML format
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage XML
  */
 class ImportXml extends ImportPlugin
 {

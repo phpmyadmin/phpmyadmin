@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 /**
  * Handles the import for the SQL format
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage SQL
  */
 class ImportSql extends ImportPlugin
 {

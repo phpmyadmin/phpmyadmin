@@ -16,7 +16,8 @@ require_once 'abstract/LongToIPv4TransformationsPlugin.class.php';
 /**
  * Handles the long to ipv4 transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage LongToIPv4
  */
 class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
 {

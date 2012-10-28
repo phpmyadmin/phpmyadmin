@@ -16,7 +16,8 @@ require_once 'abstract/InlineTransformationsPlugin.class.php';
 /**
  * Handles the inline transformation for image png
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Inline
  */
 class Image_PNG_Inline extends InlineTransformationsPlugin
 {

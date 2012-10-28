@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 /**
  * Handles the import for the MediaWiki format
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage MediaWiki
  */
 class ImportMediawiki extends ImportPlugin
 {

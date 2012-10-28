@@ -16,8 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the SQL class
  *
- * @todo add descriptions for all vars/methods
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage SQL
  */
 class ExportSql extends ExportPlugin
 {

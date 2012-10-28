@@ -15,7 +15,8 @@ require_once 'abstract/DownloadTransformationsPlugin.class.php';
 /**
  * Handles the download transformation for application octetstream
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Download
  */
 class Application_Octetstream_Download extends DownloadTransformationsPlugin
 {

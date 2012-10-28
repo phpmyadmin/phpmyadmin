@@ -14,9 +14,9 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return void
  */
-function PMA_userprefs_pageinit()
+function PMA_userprefsPageInit()
 {
-    $forms_all_keys = PMA_read_userprefs_fieldnames($GLOBALS['forms']);
+    $forms_all_keys = PMA_readUserprefsFieldNames($GLOBALS['forms']);
     $cf = ConfigFile::getInstance();
     $cf->resetConfigData(); // start with a clean instance
     $cf->setAllowedKeys($forms_all_keys);
@@ -39,7 +39,7 @@ function PMA_userprefs_pageinit()
  *
  * @return array
  */
-function PMA_load_userprefs()
+function PMA_loadUserprefs()
 {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['userconfigwork']) {
@@ -76,7 +76,7 @@ function PMA_load_userprefs()
  *
  * @return true|PMA_Message
  */
-function PMA_save_userprefs(array $config_array)
+function PMA_saveUserprefs(array $config_array)
 {
     $cfgRelation = PMA_getRelationsParam();
     $server = isset($GLOBALS['server'])
@@ -137,7 +137,7 @@ function PMA_save_userprefs(array $config_array)
  *
  * @return array
  */
-function PMA_apply_userprefs(array $config_data)
+function PMA_applyUserprefs(array $config_data)
 {
     $cfg = array();
     $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
@@ -147,7 +147,7 @@ function PMA_apply_userprefs(array $config_data)
         $blacklist['Error_Handler/gather'] = true;
         $blacklist['DBG/sql'] = true;
     }
-    $whitelist = array_flip(PMA_read_userprefs_fieldnames());
+    $whitelist = array_flip(PMA_readUserprefsFieldNames());
     // whitelist some additional fields which are custom handled
     $whitelist['ThemeDefault'] = true;
     $whitelist['fontsize'] = true;
@@ -171,7 +171,7 @@ function PMA_apply_userprefs(array $config_data)
  *
  * @return array
  */
-function PMA_read_userprefs_fieldnames(array $forms = null)
+function PMA_readUserprefsFieldNames(array $forms = null)
 {
     static $names;
 
@@ -205,9 +205,9 @@ function PMA_read_userprefs_fieldnames(array $forms = null)
  *
  * @return void
  */
-function PMA_persist_option($path, $value, $default_value)
+function PMA_persistOption($path, $value, $default_value)
 {
-    $prefs = PMA_load_userprefs();
+    $prefs = PMA_loadUserprefs();
     if ($value === $default_value) {
         if (isset($prefs['config_data'][$path])) {
             unset($prefs['config_data'][$path]);
@@ -217,7 +217,7 @@ function PMA_persist_option($path, $value, $default_value)
     } else {
         $prefs['config_data'][$path] = $value;
     }
-    PMA_save_userprefs($prefs['config_data']);
+    PMA_saveUserprefs($prefs['config_data']);
 }
 
 /**
@@ -231,7 +231,7 @@ function PMA_persist_option($path, $value, $default_value)
  *
  * @return void
  */
-function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name,
+function PMA_userprefsRedirect(array $forms, array $old_settings, $file_name,
     $params = null, $hash = null
 ) {
     $reload_left_frame = isset($params['reload_left_frame']) && $params['reload_left_frame'];

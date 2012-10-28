@@ -16,7 +16,8 @@ require_once 'libraries/plugins/export/ExportCsv.class.php';
 /**
  * Handles the export for the CSV-Excel format
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage CSV-Excel
  */
 class ExportExcel extends ExportCsv
 {

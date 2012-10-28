@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the JSON format
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage JSON
  */
 class ExportJson extends ExportPlugin
 {

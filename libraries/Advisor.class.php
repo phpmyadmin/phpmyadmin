@@ -448,14 +448,14 @@ function ADVISOR_bytime($num, $precision)
     $per = '';
     if ($num >= 1) { // per second
         $per = __('per second');
-    } elseif ($num*60 >= 1) { // per minute
-        $num = $num*60;
+    } elseif ($num * 60 >= 1) { // per minute
+        $num = $num * 60;
         $per = __('per minute');
-    } elseif ($num*60*60 >=1 ) { // per hour
-        $num = $num*60*60;
+    } elseif ($num * 60 * 60 >= 1 ) { // per hour
+        $num = $num * 60 * 60;
         $per = __('per hour');
     } else {
-        $num = $num*60*60*24;
+        $num = $num * 60 * 60 * 24;
         $per = __('per day');
     }
 

@@ -16,7 +16,8 @@ require_once 'abstract/InlineTransformationsPlugin.class.php';
 /**
  * Handles the inline transformation for image jpeg
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Inline
  */
 class Image_JPEG_Inline extends InlineTransformationsPlugin
 {

@@ -18,7 +18,8 @@ require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
 /**
  * Handles the export for the PDF class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage PDF
  */
 class ExportPdf extends ExportPlugin
 {

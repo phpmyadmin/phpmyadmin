@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-08-01 05:43+0200\n"
+"PO-Revision-Date: 2012-10-28 11:47+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: sinhala <si@li.org>\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:808
@@ -606,7 +607,6 @@ msgid "Output"
 msgstr "ප්‍රතිදානය"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -614,10 +614,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"\"ශ්‍රිතය\" තීරුවෙන් \"GeomFromText\" තෝරා පහත ඇති දේ \"අගය\" ක්ෂේත්‍රයට පිටපත් කරන්න"
+"\"ශ්‍රිතය\" තීරුවෙන් \"GeomFromText\" තෝරා පහත ඇති දේ \"අගය\" ක්ෂේත්‍රයට පිටපත් "
+"කරන්න"
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -625,8 +626,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර %sලියකියවිලි"
-"%s බලන්න."
+"ඔබ උඩුගත කිරීමට උත්සාහ කල ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ "
+"ක්‍රම සඳහා කරුණාකර %sලියකියවිලි%s බලන්න."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -3558,11 +3559,11 @@ msgstr "දකුණ"
 
 #: libraries/config.values.php:71
 msgid "Click"
-msgstr ""
+msgstr "ක්ලික් කිරීමෙන්"
 
 #: libraries/config.values.php:72
 msgid "Double click"
-msgstr ""
+msgstr "ද්විත්ව ක්ලික් කිරීමෙන්"
 
 #: libraries/config.values.php:73 libraries/config.values.php:105
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -5029,13 +5030,12 @@ msgstr "ශීර්ෂක පුනරාවර්තනය"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "ජාලය තුල සංස්කරණය: සංස්කරණය ඇරඹිය යුත්තේ"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "සංස්කරණය කල කොටු සියල්ල එකවර සුරකින්න"
+msgstr "ජාලය තුල සංස්කරණය: සංස්කරණය කල කොටු සියල්ල එකවර සුරකින්න"
 
 #: libraries/config/messages.inc.php:363
 msgid "Directory where exports can be saved on server"
@@ -5083,6 +5083,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"[a@http://swekey.com]SweKey දෘඩාංග සත්‍යාපනය[/a] සඳහා අවශ්‍ය වින්‍යාස ගොනුව "
+"අඩංගු ස්ථානය.(ඔබගේ ලියකියවිලි මූලයේ අඩංගු නැත. යෝජිත: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:374
 msgid "SweKey config file"
@@ -6275,7 +6277,6 @@ msgstr ""
 "ඇරඹෙනු ඇත."
 
 #: libraries/display_import.lib.php:287
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6285,8 +6286,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. <i>(විශාල ගොනු "
-"ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය හැක.)</i>"
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. "
+"<i>(විශාල ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම "
+"සිදුවිය හැක.)</i>"
 
 #: libraries/display_import.lib.php:294
 msgid "Number of rows to skip, starting from the first row:"
@@ -6417,7 +6419,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "ස්වයංක්‍රීය ප්‍රතිසාධන ප්‍රකාරය"
 
 #: libraries/engines/myisam.lib.php:34
 msgid ""

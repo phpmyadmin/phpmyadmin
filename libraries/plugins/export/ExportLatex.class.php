@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the Latex format
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage Latex
  */
 class ExportLatex extends ExportPlugin
 {
@@ -441,7 +442,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-        
+
         /**
          * Get the unique keys in the table
          */

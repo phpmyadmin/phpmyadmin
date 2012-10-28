@@ -16,7 +16,8 @@ require_once 'abstract/TextImageLinkTransformationsPlugin.class.php';
 /**
  * Handles the image link transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage ImageLink
  */
 class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {

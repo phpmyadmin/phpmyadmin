@@ -69,7 +69,7 @@ $options_array = array(
  *
  * @access  public
  */
-function PMA_generate_dropdown(
+function PMA_generateDropdown(
     $dropdown_question, $select_name, $choices, $selected_value
 ) {
     echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
@@ -95,7 +95,7 @@ function PMA_generate_dropdown(
  *
  * @access  public
  */
-function PMA_backquote_split($text)
+function PMA_backquoteSplit($text)
 {
     $elements = array();
     $final_pos = strlen($text) - 1;
@@ -204,7 +204,7 @@ if (isset($_REQUEST['destination_foreign'])) {
         $master_field = $multi_edit_columns_name[$master_field_md5];
 
         if (! empty($foreign_string)) {
-            list($foreign_db, $foreign_table, $foreign_field) = PMA_backquote_split($foreign_string);
+            list($foreign_db, $foreign_table, $foreign_field) = PMA_backquoteSplit($foreign_string);
             if (! isset($existrel_foreign[$master_field])) {
                 // no key defined for this field
 
@@ -523,7 +523,7 @@ if (count($columns) > 0) {
                 // won't display the clause if it's set as RESTRICT.
                 $on_delete = isset($existrel_foreign[$myfield]['on_delete'])
                     ? $existrel_foreign[$myfield]['on_delete'] : 'RESTRICT';
-                PMA_generate_dropdown(
+                PMA_generateDropdown(
                     'ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
@@ -534,7 +534,7 @@ if (count($columns) > 0) {
                 echo '<span class="formelement">' . "\n";
                 $on_update = isset($existrel_foreign[$myfield]['on_update'])
                     ? $existrel_foreign[$myfield]['on_update'] : 'RESTRICT';
-                PMA_generate_dropdown(
+                PMA_generateDropdown(
                     'ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,

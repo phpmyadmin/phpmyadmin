@@ -4,7 +4,7 @@
  * Set of functions used to build OpenDocument Text dumps of tables
  *
  * @package    PhpMyAdmin-Export
- * @subpackage ODS
+ * @subpackage ODT
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -19,7 +19,8 @@ require_once 'libraries/opendocument.lib.php';
 /**
  * Handles the export for the ODT class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage ODT
  */
 class ExportOdt extends ExportPlugin
 {
