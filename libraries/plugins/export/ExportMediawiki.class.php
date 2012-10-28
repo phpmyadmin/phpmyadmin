@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the MediaWiki class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage MediaWiki
  */
 class ExportMediawiki extends ExportPlugin
 {

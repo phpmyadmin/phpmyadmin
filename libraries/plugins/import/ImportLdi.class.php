@@ -22,7 +22,8 @@ if ($GLOBALS['plugin_param'] !== 'table') {
 /**
  * Handles the import for the CSV format using load data
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage LDI
  */
 class ImportLdi extends ImportPlugin
 {

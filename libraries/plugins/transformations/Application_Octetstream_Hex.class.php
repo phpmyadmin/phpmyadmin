@@ -16,7 +16,8 @@ require_once 'abstract/HexTransformationsPlugin.class.php';
 /**
  * Handles the hex transformation for application octetstream
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Hex
  */
 class Application_Octetstream_Hex extends HexTransformationsPlugin
 {

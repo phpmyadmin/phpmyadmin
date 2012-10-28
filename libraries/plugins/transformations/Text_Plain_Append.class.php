@@ -17,7 +17,8 @@ require_once 'abstract/AppendTransformationsPlugin.class.php';
  * Handles the append transformation for text plain.
  * Has one option: the text to be appended (default '')
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Append
  */
 class Text_Plain_Append extends AppendTransformationsPlugin
 {

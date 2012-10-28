@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the YAML format
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage YAML
  */
 class ExportYaml extends ExportPlugin
 {

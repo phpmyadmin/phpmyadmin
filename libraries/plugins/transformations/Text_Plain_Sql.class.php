@@ -16,7 +16,8 @@ require_once 'abstract/SQLTransformationsPlugin.class.php';
 /**
  * Handles the sql transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage SQL
  */
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {

@@ -18,7 +18,8 @@ require_once 'libraries/plugins/export/TableProperty.class.php';
 /**
  * Handles the export for the CodeGen class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage CodeGen
  */
 class ExportCodegen extends ExportPlugin
 {
@@ -242,7 +243,7 @@ class ExportCodegen extends ExportPlugin
     private function _handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines = array();
-        
+
         $result = PMA_DBI_query(
             sprintf(
                 'DESC %s.%s', PMA_Util::backquote($db),

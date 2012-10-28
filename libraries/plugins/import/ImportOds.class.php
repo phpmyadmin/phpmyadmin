@@ -25,7 +25,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 /**
  * Handles the import for the ODS format
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage ODS
  */
 class ImportOds extends ImportPlugin
 {

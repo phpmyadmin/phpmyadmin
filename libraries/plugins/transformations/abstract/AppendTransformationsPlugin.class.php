@@ -16,7 +16,8 @@ require_once 'libraries/plugins/TransformationsPlugin.class.php';
 /**
  * Provides common methods for all of the append transformations plugins.
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Append
  */
 abstract class AppendTransformationsPlugin extends TransformationsPlugin
 {

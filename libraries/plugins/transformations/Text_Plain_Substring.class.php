@@ -16,7 +16,8 @@ require_once 'abstract/SubstringTransformationsPlugin.class.php';
 /**
  * Handles the substring transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Substring
  */
 class Text_Plain_Substring extends SubstringTransformationsPlugin
 {

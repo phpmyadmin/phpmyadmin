@@ -17,7 +17,8 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 /**
  * Handles the import for the CSV format
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage CSV
  */
 class ImportCsv extends ImportPlugin
 {

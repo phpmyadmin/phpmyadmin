@@ -16,7 +16,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the HTML-Word format
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage HTML-Word
  */
 class ExportHtmlword extends ExportPlugin
 {

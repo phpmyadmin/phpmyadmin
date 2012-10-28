@@ -16,7 +16,8 @@ require_once 'abstract/FormattedTransformationsPlugin.class.php';
 /**
  * Handles the formatted transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Formatted
  */
 class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {

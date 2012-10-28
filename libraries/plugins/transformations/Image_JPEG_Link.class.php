@@ -16,7 +16,8 @@ require_once 'abstract/ImageLinkTransformationsPlugin.class.php';
 /**
  * Handles the link transformation for image jpeg
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage Link
  */
 class Image_JPEG_Link extends ImageLinkTransformationsPlugin
 {

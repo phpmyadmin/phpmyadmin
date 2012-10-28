@@ -19,7 +19,8 @@ require_once 'libraries/plugins/ExportPlugin.class.php';
 /**
  * Handles the export for the XML class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage XML
  */
 class ExportXml extends ExportPlugin
 {

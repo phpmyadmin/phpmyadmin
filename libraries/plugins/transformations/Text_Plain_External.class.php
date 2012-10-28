@@ -16,7 +16,8 @@ require_once 'abstract/ExternalTransformationsPlugin.class.php';
 /**
  * Handles the external transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage External
  */
 class Text_Plain_External extends ExternalTransformationsPlugin
 {

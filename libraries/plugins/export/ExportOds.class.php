@@ -19,7 +19,8 @@ require_once 'libraries/opendocument.lib.php';
 /**
  * Handles the export for the ODS class
  *
- * @package PhpMyAdmin-Export
+ * @package    PhpMyAdmin-Export
+ * @subpackage ODS
  */
 class ExportOds extends ExportPlugin
 {

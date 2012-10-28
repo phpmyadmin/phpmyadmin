@@ -16,7 +16,8 @@ require_once 'abstract/DateFormatTransformationsPlugin.class.php';
 /**
  * Handles the date format transformation for text plain
  *
- * @package PhpMyAdmin
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage DateFormat
  */
 class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {

@@ -25,7 +25,8 @@ require_once 'libraries/plugins/import/ShapeRecord.class.php';
 /**
  * Handles the import for ESRI Shape files
  *
- * @package PhpMyAdmin-Import
+ * @package    PhpMyAdmin-Import
+ * @subpackage ESRI_Shape
  */
 class ImportShp extends ImportPlugin
 {
