@@ -513,7 +513,7 @@ class PMA_File
      * @access  protected
      * @return string MIME type of compression, none for none
      */
-    protected function _detectCompression()
+    protected function detectCompression()
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
@@ -695,7 +695,7 @@ class PMA_File
     public function getCompression()
     {
         if (null === $this->_compression) {
-            return $this->_detectCompression();
+            return $this->detectCompression();
         }
 
         return $this->_compression;
