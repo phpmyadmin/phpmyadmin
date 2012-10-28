@@ -27,7 +27,7 @@ class PMA_PDF extends TCPDF
     var $Alias = array();
 
     /**
-    * Constructs PDF and configures standard parameters.
+     * Constructs PDF and configures standard parameters.
      *
      * @param string  $orientation page orientation
      * @param string  $unit        unit
