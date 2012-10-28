@@ -138,7 +138,7 @@ if (! isset($resize)) {
     );
 
     if ($resize == 'jpeg') {
-        ImageJPEG($destImage, NULL, 75);
+        ImageJPEG($destImage, null, 75);
     }
     if ($resize == 'png') {
         ImagePNG($destImage);
