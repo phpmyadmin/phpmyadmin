@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-05-17 15:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Telugu <te@li.org>\n"
+"PO-Revision-Date: 2012-10-28 10:31+0200\n"
+"Last-Translator: Praveen_Illa <mail2ipn@gmail.com>\n"
+"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:808
@@ -111,7 +111,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s డేటాబేసు సృష్టించబడింది"
 
 #: db_datadict.php:49 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -179,7 +179,7 @@ msgstr "రకం"
 #: libraries/structure.lib.php:1191 libraries/tbl_properties.inc.php:106
 #: tbl_printview.php:132 tbl_tracking.php:321 tbl_tracking.php:383
 msgid "Null"
-msgstr ""
+msgstr "శూన్యం"
 
 #: db_datadict.php:169 libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
@@ -292,10 +292,10 @@ msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నద
 
 # మొదటి అనువాదము
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Page has been created"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "పుటను సృష్టించడమైనది"
+msgstr "%1$s డేటాబేసును %2$s గా పేరుమార్చడమైంది"
 
 #: db_operations.php:133
 #, fuzzy, php-format
