@@ -69,8 +69,9 @@ $options_array = array(
  *
  * @access  public
  */
-function PMA_generate_dropdown($dropdown_question, $select_name, $choices, $selected_value)
-{
+function PMA_generate_dropdown(
+    $dropdown_question, $select_name, $choices, $selected_value
+) {
     echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
 
     echo '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
@@ -155,29 +156,32 @@ if (isset($destination) && $cfgRelation['relwork']) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (! isset($existrel[$master_field])) {
-                $upd_query  = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation'])
-                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                            . ' values('
-                            . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($table) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
-                            . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
+                $upd_query  = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                    . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
+                    . ' values('
+                    . '\'' . PMA_Util::sqlAddSlashes($db) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($table) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($master_field) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_table) . '\','
+                    . '\'' . PMA_Util::sqlAddSlashes($foreign_field) . '\')';
             } elseif ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
-                $upd_query  = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
-                            . ' foreign_table    = \'' . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
-                            . ' foreign_field    = \'' . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
-                            . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
+                $upd_query  = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . PMA_Util::backquote($cfgRelation['relation']) . ' SET'
+                    . ' foreign_db       = \'' . PMA_Util::sqlAddSlashes($foreign_db) . '\', '
+                    . ' foreign_table    = \'' . PMA_Util::sqlAddSlashes($foreign_table) . '\', '
+                    . ' foreign_field    = \'' . PMA_Util::sqlAddSlashes($foreign_field) . '\' '
+                    . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                    . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+                    . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
             } // end if... else....
         } elseif (isset($existrel[$master_field])) {
-            $upd_query      = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['relation'])
-                            . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['relation'])
+                . ' WHERE master_db  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+                . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field) . '\'';
         } // end if... else....
         if ($upd_query) {
             PMA_queryAsControlUser($upd_query);
@@ -211,18 +215,17 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // (for example: `base2`.`table1`)
 
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                            . ' ADD FOREIGN KEY ('
-                            . PMA_Util::backquote($master_field) . ')'
-                            . ' REFERENCES '
-                            . $foreign_db . '.'
-                            . $foreign_table . '('
-                            . $foreign_field . ')';
+                    . ' ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                    . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
+                    . '(' . $foreign_field . ')';
 
                 if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
-                    $sql_query .= ' ON DELETE ' . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
+                    $sql_query .= ' ON DELETE '
+                        . $options_array[$_REQUEST['on_delete'][$master_field_md5]];
                 }
                 if (! empty($_REQUEST['on_update'][$master_field_md5])) {
-                    $sql_query .= ' ON UPDATE ' . $options_array[$_REQUEST['on_update'][$master_field_md5]];
+                    $sql_query .= ' ON UPDATE '
+                        . $options_array[$_REQUEST['on_update'][$master_field_md5]];
                 }
                 $sql_query .= ';';
                 $display_query .= $sql_query . "\n";
@@ -231,23 +234,20 @@ if (isset($_REQUEST['destination_foreign'])) {
             } elseif (PMA_Util::backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
                 || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
                 || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
-                || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
-                || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
-                   ) {
+                || ($_REQUEST['on_delete'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
+                || ($_REQUEST['on_update'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
+            ) {
                 // another foreign key is already defined for this field
                 // or
                 // an option has been changed for ON DELETE or ON UPDATE
 
                 // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                            . ' DROP FOREIGN KEY '
-                            . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', '
-                            . 'ADD FOREIGN KEY ('
-                            . PMA_Util::backquote($master_field) . ')'
-                            . ' REFERENCES '
-                            . $foreign_db . '.'
-                            . $foreign_table . '('
-                            . $foreign_field . ')';
+                    . ' DROP FOREIGN KEY '
+                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                    . 'ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                    . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
+                    . '(' . $foreign_field . ')';
 
                 if (! empty($_REQUEST['on_delete'][$master_field_md5])) {
                     $sql_query   .= ' ON DELETE '
@@ -263,8 +263,8 @@ if (isset($_REQUEST['destination_foreign'])) {
             } // end if... else....
         } elseif (isset($existrel_foreign[$master_field])) {
             $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                    . ' DROP FOREIGN KEY '
-                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
+                . ' DROP FOREIGN KEY '
+                . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
             $sql_query .= ';';
             $display_query .= $sql_query . "\n";
         } // end if... else....
@@ -307,22 +307,24 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
     $upd_query = false;
     if ($disp) {
         if ($display_field != '') {
-            $upd_query = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                       . ' SET display_field = \'' . PMA_Util::sqlAddSlashes($display_field) . '\''
-                       . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+            $upd_query = 'UPDATE ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' SET display_field = \'' . PMA_Util::sqlAddSlashes($display_field) . '\''
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                       . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
+            $upd_query = 'DELETE FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \'' . PMA_Util::sqlAddSlashes($db) . '\''
+                . ' AND table_name = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
         }
     } elseif ($display_field != '') {
-        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($cfgRelation['table_info'])
-                   . '(db_name, table_name, display_field) '
-                   . ' VALUES('
-                   . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
-                   . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
+        $upd_query = 'INSERT INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . PMA_Util::backquote($cfgRelation['table_info'])
+            . '(db_name, table_name, display_field) VALUES('
+            . '\'' . PMA_Util::sqlAddSlashes($db) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($table) . '\','
+            . '\'' . PMA_Util::sqlAddSlashes($display_field) . '\')';
     }
 
     if ($upd_query) {
