@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-15 16:23+0200\n"
+"PO-Revision-Date: 2012-10-28 20:58+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"Language-Team: Russian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -3635,11 +3635,11 @@ msgstr "Направо"
 
 #: libraries/config.values.php:71
 msgid "Click"
-msgstr ""
+msgstr "Клик"
 
 #: libraries/config.values.php:72
 msgid "Double click"
-msgstr ""
+msgstr "Двойной клик"
 
 #: libraries/config.values.php:73 libraries/config.values.php:105
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -5159,13 +5159,12 @@ msgstr "Повтор заголовков"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Редактирование сетки: действие триггера"
 
 #: libraries/config/messages.inc.php:362
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Сохранить все отредактированные ячейки сразу"
+msgstr "Редактирование сетки: сохранить все отредактированные ячейки сразу"
 
 #: libraries/config/messages.inc.php:363
 msgid "Directory where exports can be saved on server"
