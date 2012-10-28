@@ -18,7 +18,7 @@ require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/FormDisplay.class.php';
 require 'libraries/config/user_preferences.forms.php';
 
-PMA_userprefs_pageinit();
+PMA_userprefsPageInit();
 
 $error = '';
 if (isset($_POST['submit_export'])
@@ -28,11 +28,11 @@ if (isset($_POST['submit_export'])
     PMA_Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
-    $settings = PMA_load_userprefs();
+    $settings = PMA_loadUserprefs();
     echo json_encode($settings['config_data']);
     exit;
 } else if (isset($_POST['submit_get_json'])) {
-    $settings = PMA_load_userprefs();
+    $settings = PMA_loadUserprefs();
     $response = PMA_Response::getInstance();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
@@ -164,8 +164,8 @@ if (isset($_POST['submit_export'])
         }
 
         // save settings
-        $old_settings = PMA_load_userprefs();
-        $result = PMA_save_userprefs($cf->getConfigArray());
+        $old_settings = PMA_loadUserprefs();
+        $result = PMA_saveUserprefs($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
                 $query = explode('&', parse_url($return_url, PHP_URL_QUERY));
@@ -183,15 +183,15 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            PMA_userprefs_redirect($forms, $old_settings, $return_url, $params);
+            PMA_userprefsRedirect($forms, $old_settings, $return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
 } else if (isset($_POST['submit_clear'])) {
-    $old_settings = PMA_load_userprefs();
-    $result = PMA_save_userprefs(array());
+    $old_settings = PMA_loadUserprefs();
+    $result = PMA_saveUserprefs(array());
     if ($result === true) {
         $params = array();
         if ($_SESSION['PMA_Theme_Manager']->theme->getId() != 'original') {
@@ -208,7 +208,7 @@ if (isset($_POST['submit_export'])
         }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        PMA_userprefs_redirect($forms, $old_settings, 'prefs_manage.php', $params);
+        PMA_userprefsRedirect($forms, $old_settings, 'prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;

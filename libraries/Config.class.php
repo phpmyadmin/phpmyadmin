@@ -692,9 +692,9 @@ class PMA_Config
             ) {
                 // load required libraries
                 include_once './libraries/user_preferences.lib.php';
-                $prefs = PMA_load_userprefs();
+                $prefs = PMA_loadUserprefs();
                 $_SESSION['cache'][$cache_key]['userprefs']
-                    = PMA_apply_userprefs($prefs['config_data']);
+                    = PMA_applyUserprefs($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
@@ -834,7 +834,7 @@ class PMA_Config
             if ($default_value === null) {
                 $default_value = PMA_arrayRead($cfg_path, $this->default);
             }
-            PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
+            PMA_persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
