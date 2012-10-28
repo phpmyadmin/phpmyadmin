@@ -49,7 +49,6 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3577443 [edit] "Browse foreign values" does not show on ajax edit
 + rfe #3522109 [browse] Grid editing: action to trigger it (or disable)
 - bug #3526598 [interface] SQL query not shown when creating table
-- bug #3571970 [interface] Display chart and number of rows to plot
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
