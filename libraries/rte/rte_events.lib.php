@@ -121,8 +121,8 @@ function PMA_EVN_handleEditor()
                         )
                         . '<br />'
                         . __('MySQL said: ') . PMA_DBI_getError(null);
-                        // We dropped the old item, but were unable to create the new one
-                        // Try to restore the backup query
+                        // We dropped the old item, but were unable to create
+                        // the new one. Try to restore the backup query
                         $result = PMA_DBI_try_query($create_item);
                         if (! $result) {
                             // OMG, this is really bad! We dropped the query,
@@ -517,7 +517,8 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('On completion preserve') . "</td>\n";
-    $retval .= "    <td><input type='checkbox' name='item_preserve'{$item['item_preserve']} /></td>\n";
+    $retval .= "    <td><input type='checkbox'\n";
+    $retval .= "             name='item_preserve'{$item['item_preserve']} /></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr>\n";
     $retval .= "    <td>" . __('Definer') . "</td>\n";
