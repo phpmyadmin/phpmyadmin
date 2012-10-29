@@ -1,7 +1,7 @@
 {
     "name": "phpmyadmin/phpmyadmin",
     "type": "application",
-    "description": "MySQL web administration tool"
+    "description": "MySQL web administration tool",
     "keywords": ["phpmyadmin","mysql","web"],
     "homepage": "http://www.phpmyadmin.net/",
     "license": "GPL-2.0+",
