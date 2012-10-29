@@ -835,12 +835,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+
+                        // for 'Browse foreign values' options,
+                        // hide the value next to 'Browse foreign values' link
+                        $editArea.find('span.curr_value').hide();
+                        // handle update for new values selected from new window
+                        $editArea.find('span.curr_value').change(function() {
+                            $(g.cEdit).find('.edit_box').val($(this).text());
+                        });
                     }); // end $.post()
 
                     $editArea.show();
                     $editArea.find('select').live('change', function(e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
+                    g.isEditCellTextEditable = true;
                 }
                 else if($td.is('.enum')) {
                     //handle enum fields
@@ -1321,17 +1330,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         return $(this).val();
                     }).get().join(",");
                 } else if ($this_field.is('.relation, .enum')) {
-                    // results from a drop-down
-                    $test_element = $(g.cEdit).find('select');
-                    if ($test_element.length != 0) {
-                        this_field_params[field_name] = $test_element.val();
-                    }
-
-                    // results from Browse foreign value
-                    $test_element = $(g.cEdit).find('span.curr_value');
-                    if ($test_element.length != 0) {
-                        this_field_params[field_name] = $test_element.text();
-                    }
+                    // for relation and enumeration, take the results from edit box value,
+                    // because selected value from drop-down, new window or multiple
+                    // selection list will always be updated to the edit box
+                    this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 } else {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 }
