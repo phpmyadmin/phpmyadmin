@@ -100,6 +100,15 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
                     array(
                         'common.js',
                         null,
+                        7,
+                        '<!--[if IE 7]>
+    <script src="common.js" type="text/javascript"></script>
+<![endif]-->
+'
+                    ),
+                    array(
+                        'common.js',
+                        null,
                         false,
                         '<script src="common.js" type="text/javascript"></script>
 '
