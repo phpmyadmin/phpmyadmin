@@ -12,7 +12,18 @@
  * Actions ajaxified here:
  * Table Search
  */
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_select.js', function() {
+    $('#togglesearchformlink').unbind('click');
+    $("#tbl_search_form.ajax").die('submit');
+    $('select.geom_func').unbind('change');
+    $('span.open_search_gis_editor').die('click');
+});
+
+AJAX.registerOnload('tbl_select.js', function() {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks
@@ -212,4 +223,4 @@ $(function() {
         }
     });
 
-}, 'top.frame_content'); // end $()
+});

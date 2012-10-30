@@ -219,7 +219,6 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 
 $rownum    = 0;
 $columns_list = array();
-$checked   = (!empty($checkall) ? ' checked="checked"' : '');
 $save_row  = array();
 $odd_row   = true;
 foreach ($fields as $row) {
@@ -313,7 +312,7 @@ foreach ($fields as $row) {
 
     $response->addHTML(
         PMA_getHtmlTableStructureRow(
-            $row, $rownum, $checked, $displayed_field_name,
+            $row, $rownum, $displayed_field_name,
             $type_nowrap, $extracted_columnspec, $type_mime,
             $field_charset, $attribute, $tbl_is_view,
             $db_is_information_schema, $url_query, $field_encoded, $titles, $table

@@ -255,12 +255,12 @@ class PMA_List_Database extends PMA_List
             $db_tooltips = PMA_getDbComments();
         }
 
-        if (!$GLOBALS['cfg']['LeftFrameDBTree']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $separators = array();
-        } elseif (is_array($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
-            $separators = $GLOBALS['cfg']['LeftFrameDBSeparator'];
-        } elseif (!empty($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
-            $separators = array($GLOBALS['cfg']['LeftFrameDBSeparator']);
+        } elseif (is_array($GLOBALS['cfg']['NavigationTreeDbSeparator'])) {
+            $separators = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        } elseif (!empty($GLOBALS['cfg']['NavigationTreeDbSeparator'])) {
+            $separators = array($GLOBALS['cfg']['NavigationTreeDbSeparator']);
         } else {
             $separators = array();
         }
@@ -296,11 +296,6 @@ class PMA_List_Database extends PMA_List
             }
 
             $disp_name  = $db;
-            if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
-                $disp_name      = $db_tooltip;
-                $disp_name_cut  = $db_tooltip;
-                $db_tooltip     = $db;
-            }
 
             $dbgroups[$group][$db] = array(
                 'name'          => $db,
@@ -360,8 +355,9 @@ class PMA_List_Database extends PMA_List
                 if (! empty($db['comment'])) {
                     $return .= ' title="' . htmlspecialchars($db['comment']) . '"';
                 }
-                $return .= ' href="index.php?' . PMA_generate_common_url($db['name'])
-                    . '" target="_parent">';
+                $return .= ' href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                    . '?' . PMA_generate_common_url($db['name'])
+                    . '">';
                 if ($cut) {
                     $return .= htmlspecialchars($db['disp_name_cut']);
                 } else {
@@ -398,7 +394,7 @@ class PMA_List_Database extends PMA_List
         }
 
         $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
-            . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
+            . ' onchange="if (this.value != \'\') PMA_commonActions.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . htmlspecialchars($GLOBALS['text_dir']) . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {

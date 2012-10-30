@@ -24,10 +24,10 @@ foreach ($tables_full as $key => $table) {
             . PMA_Util::formatNumber($table['Rows'], 0)
             . ' ' . __('Rows') . ')"' . ' id="quick_'
             . htmlspecialchars($table_db . '.' . $table['Name']) . '"'
-            . ' href="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '?'
+            . ' href="' . $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] . '?'
             . $common_url_query
             . '&amp;table=' . urlencode($table['Name'])
-            . '&amp;goto=' . $GLOBALS['cfg']['LeftDefaultTabTable']
+            . '&amp;goto=' . $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
             . '" >';
         $attr = array(
             'id' => 'icon_' . htmlspecialchars($table_db . '.' . $table['Name'])

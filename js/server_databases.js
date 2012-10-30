@@ -9,13 +9,21 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_databases.js', function() {
+    $("button[name=drop_selected_dbs].ajax").die('click');
+    $('#create_database_form.ajax').die('submit');
+});
+
+/**
  * AJAX scripts for server_databases.php
  *
  * Actions ajaxified here:
  * Drop Databases
  *
  */
-$(function() {
+AJAX.registerOnload('server_databases.js', function() {
     /**
      * Attach Event Handler for 'Drop Databases'
      *
@@ -65,9 +73,7 @@ $(function() {
 
                         $rowsToRemove.remove();
                         $form.find('tbody').PMA_sort_table('.name');
-                        if (window.parent && window.parent.frame_navigation) {
-                            window.parent.frame_navigation.location.reload();
-                        }
+                        PMA_reloadNavigation();
                     } else {
                         $form.find('tr.removeMe').removeClass('removeMe');
                         PMA_ajaxShowMessage(data.error, false);
@@ -109,10 +115,7 @@ $(function() {
                 var $databases_count_object = $('#databases_count');
                 var databases_count = parseInt($databases_count_object.text()) + 1;
                 $databases_count_object.text(databases_count);
-                //Refresh navigation frame as a new database has been added
-                if (window.parent && window.parent.frame_navigation) {
-                    window.parent.frame_navigation.location.reload();
-                }
+                PMA_reloadNavigation();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }

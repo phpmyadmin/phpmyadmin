@@ -18,10 +18,8 @@ $scripts->addFile('db_structure.js');
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
-if ($GLOBALS['is_ajax_request'] != true) {
-    include 'libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
-}
+include 'libraries/db_common.inc.php';
+$url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
 // Get the database structure
 $sub_part = '_structure';
@@ -136,7 +134,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
             <td><?php echo $version_data['date_created'];?></td>
             <td><?php echo $version_data['date_updated'];?></td>
             <td><?php echo $version_status;?></td>
-            <td><a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'class="drop_tracking_anchor"' : ''); ?> href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
+            <td><a class="drop_tracking_anchor<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : ''); ?>" href="<?php echo $delete_link;?>" ><?php echo $drop_image_or_text; ?></a></td>
             <td> <a href="<?php echo $tmp_link; ?>"><?php echo __('Versions');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;report=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Tracking report');?></a>
                | <a href="<?php echo $tmp_link; ?>&amp;snapshot=true&amp;version=<?php echo $version_data['version'];?>"><?php echo __('Structure snapshot');?></a></td>
@@ -156,7 +154,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 <?php
 }
 
-$sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+$sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
 // Get list of tables
 $table_list = PMA_Util::getTableList($GLOBALS['db']);

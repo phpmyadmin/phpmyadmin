@@ -1,28 +1,35 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_variables.js', function() {
+    $('table.data tbody tr td:nth-child(2).editable').unbind('hover');
+    $('#filterText').unbind('keyup');
+});
+
+AJAX.registerOnload('server_variables.js', function() {
     var textFilter = null, odd_row = false;
     var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';
     var $tmpDiv, charWidth;
 
     // Global vars
-    editLink = '<a href="#" class="editLink" onclick="return editVariable(this);">' + PMA_getImage('b_edit.png') + ' ' + PMA_messages['strEdit'] + '</a>';
-    saveLink = '<a href="#" class="saveLink">' + PMA_getImage('b_save.png') + ' ' + PMA_messages['strSave'] + '</a> ';
-    cancelLink = '<a href="#" class="cancelLink">' + PMA_getImage('b_close.png') + ' ' + PMA_messages['strCancel'] + '</a> ';
+    $editLink = $('a.editLink');
+    $saveLink = $('a.saveLink');
+    $cancelLink = $('a.cancelLink');
 
     /* Variable editing */
-    if (is_superuser) {
-        $('table.data tbody tr td:nth-child(2)').hover(
-            function() {
-                // Only add edit element if it is the global value, not session value and not when the element is being edited
-                if ($(this).parent().children('th').length > 0 && ! $(this).hasClass('edit')) {
-                    $(this).prepend(editLink);
-                }
-            },
-            function() {
-                $(this).find('a.editLink').remove();
+    $('table.data tbody tr td:nth-child(2).editable').hover(
+        function() {
+            // Only add edit element if it is the global value, not session value and not when the element is being edited
+            if ($(this).parent().children('th').length > 0 && ! $(this).hasClass('edit')) {
+                $(this).prepend($editLink.clone().show());
             }
-        );
-    }
+        },
+        function() {
+            $(this).find('a.editLink').remove();
+        }
+    );
 
     // Filter options are invisible for disabled js users
     $('fieldset#tableFilter').css('display','');
@@ -49,7 +56,7 @@ $(function() {
     charWidth = $tmpDiv.width() / testString.length;
     $tmpDiv.remove();
 
-    $(window).resize(limitTableWidth);
+    $(window).resize(limitTableWidth); // FIXME: this doesn't work that well and binding anything to the window resize event is a bad idea
     limitTableWidth();
 
     /* This function chops of long variable values to keep the table from overflowing horizontally
@@ -129,8 +136,8 @@ $(function() {
 function editVariable(link)
 {
     var varName = $(link).parent().parent().find('th:first').first().text().replace(/ /g,'_');
-    var mySaveLink = $(saveLink);
-    var myCancelLink = $(cancelLink);
+    var $mySaveLink = $saveLink.clone().show();
+    var $myCancelLink = $cancelLink.clone().show();
     var $cell = $(link).parent();
     var $msgbox = PMA_ajaxShowMessage();
 
@@ -138,9 +145,9 @@ function editVariable(link)
     // remove edit link
     $cell.find('a.editLink').remove();
 
-    mySaveLink.click(function() {
+    $mySaveLink.click(function() {
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        $.get('server_variables.php?' + url_query, {
+        $.get($(this).attr('href'), {
                 ajax_request: true,
                 type: 'setval',
                 varName: varName,
@@ -159,39 +166,44 @@ function editVariable(link)
         return false;
     });
 
-    myCancelLink.click(function() {
+    $myCancelLink.click(function() {
         $cell.html($cell.find('span.oldContent').html());
         $cell.removeClass('edit');
         return false;
     });
 
-    $.get('server_variables.php?' + url_query, {
+    $.get($mySaveLink.attr('href'), {
             ajax_request: true,
             type: 'getval',
             varName: varName
         }, function(data) {
-            // hide original content
-            $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
-            // put edit field and save/cancel link
-            $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
-                          '<input type="text" id="variableEditArea" value="' + data.message + '" /></td></tr></table>');
-            $cell.find('table td:first').append(mySaveLink);
-            $cell.find('table td:first').append(' ');
-            $cell.find('table td:first').append(myCancelLink);
+            if (data.success == true) {
+                // hide original content
+                $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
+                // put edit field and save/cancel link
+                $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
+                              '<input type="text" id="variableEditArea" value="' + data.message + '" /></td></tr></table>');
+                $cell.find('table td:first').append($mySaveLink);
+                $cell.find('table td:first').append(' ');
+                $cell.find('table td:first').append($myCancelLink);
 
-            // Keyboard shortcuts to the rescue
-            $('input#variableEditArea').focus();
-            $('input#variableEditArea').keydown(function(event) {
-                // Enter key
-                if (event.keyCode == 13) {
-                    mySaveLink.trigger('click');
-                }
-                // Escape key
-                if (event.keyCode == 27) {
-                    myCancelLink.trigger('click');
-                }
-            });
-            PMA_ajaxRemoveMessage($msgbox);
+                // Keyboard shortcuts to the rescue
+                $('input#variableEditArea').focus();
+                $('input#variableEditArea').keydown(function(event) {
+                    // Enter key
+                    if (event.keyCode == 13) {
+                        $mySaveLink.trigger('click');
+                    }
+                    // Escape key
+                    if (event.keyCode == 27) {
+                        $myCancelLink.trigger('click');
+                    }
+                });
+                PMA_ajaxRemoveMessage($msgbox);
+            } else {
+                $cell.removeClass('edit');
+                PMA_ajaxShowMessage(data.error);
+            }
         });
 
     return false;

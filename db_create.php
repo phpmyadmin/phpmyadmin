@@ -34,7 +34,7 @@ PMA_Util::checkParameters(array('new_db'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'main.php?' . PMA_generate_common_url();
+$err_url = 'index.php?' . PMA_generate_common_url();
 
 /**
  * Builds and executes the db creation sql query
@@ -68,7 +68,7 @@ if (! $result) {
         $response->isSuccess(false);
         $response->addJSON('message', $message);
     } else {
-        include_once 'main.php';
+        include_once 'index.php';
     }
 } else {
     $message = PMA_Message::success(__('Database %1$s has been created.'));
@@ -125,8 +125,8 @@ if (! $result) {
         }
 
         list($column_order, $generated_html) = PMA_buildHtmlForDb(
-            $current, $is_superuser, (isset($checkall) ? $checkall : ''),
-            $url_query, $column_order, $replication_types, $replication_info
+            $current, $is_superuser, $url_query,
+            $column_order, $replication_types, $replication_info
         );
         $new_db_string .= $generated_html;
 

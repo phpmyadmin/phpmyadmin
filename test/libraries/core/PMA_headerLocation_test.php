@@ -274,32 +274,5 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
         PMA_sendHeaderLocation($testUri);
     }
-
-    /**
-     * other output tests
-     */
-
-    public function testWriteReloadNavigation()
-    {
-        $GLOBALS['reload'] = true;
-        $GLOBALS['db'] = 'test_db';
-
-        $url = './navigation.php?'.PMA_generate_common_url($GLOBALS['db'], '', '&');
-        $write = '<script type="text/javascript">' . PHP_EOL .
-                    '//<![CDATA[' . PHP_EOL .
-                    'if (typeof(window.parent) != "undefined"' . PHP_EOL .
-                    '    && typeof(window.parent.frame_navigation) != "undefined"' . PHP_EOL .
-                    '    && window.parent.goTo) {' . PHP_EOL .
-                    '    window.parent.goTo("' . $url . '");' . PHP_EOL .
-                    '}' . PHP_EOL .
-                    '//]]>' . PHP_EOL .
-                    '</script>' . PHP_EOL;
-
-        $this->expectOutputString($write);
-        echo PMA_Util::getReloadNavigationScript();
-
-        $this->assertFalse(isset($GLOBALS['reload']));
-        unset($GLOBALS['db']);
-    }
 }
 ?>

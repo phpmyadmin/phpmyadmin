@@ -16,7 +16,6 @@ require_once 'libraries/common.inc.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.cookie.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('server_plugins.js');
 

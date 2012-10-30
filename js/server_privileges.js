@@ -80,10 +80,6 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     $(checkboxes_sel).trigger("change");
 };
 
-/**#@+
- * @namespace   jQuery
- */
-
 /**
  * AJAX scripts for server_privileges page.
  *
@@ -99,7 +95,24 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * @name        document.ready
  */
 
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_privileges.js', function() {
+    $("#fieldset_add_user a.ajax").die("click");
+    $('form[name=usersForm]').unbind('submit');
+    $("#reload_privileges_anchor.ajax").die("click");
+    $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
+    $("a.edit_user_anchor.ajax").die('click');
+    $("#edit_user_dialog").find("form.ajax").die('submit');
+    $("button.mult_submit[value=export]").die('click');
+    $("a.export_user_anchor.ajax").die('click');
+    $("#initials_table").find("a.ajax").die('click');
+    $('#checkbox_drop_users_db').unbind('click');
+});
+
+AJAX.registerOnload('server_privileges.js', function() {
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -136,17 +149,14 @@ $(function() {
                 if (data.success == true) {
                     // Refresh navigation, if we created a database with the name
                     // that is the same as the username of the new user
-                    if ($('#add_user_dialog #createdb_1:checked').length && window.parent) {
-                        window.parent.refreshNavigation(true);
+                    if ($('#add_user_dialog #createdb_1:checked').length) {
+                        PMA_reloadNavigation();
                     }
 
                     $("#add_user_dialog").dialog("close");
                     PMA_ajaxShowMessage(data.message);
-                    $("#floating_menubar")
-                     .next('div')
-                     .remove()
-                     .end()
-                     .after(data.sql_query);
+                    $("#result_query").remove();
+                    $('#floating_menubar').after(data.sql_query);
 
                     //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
                     var $notice_class = $("#floating_menubar").next("div").find('.notice');
@@ -271,8 +281,8 @@ $(function() {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
                 // that is the same as the username of the deleted user
-                if ($('#checkbox_drop_users_db:checked').length && window.parent) {
-                    window.parent.refreshNavigation(true);
+                if ($('#checkbox_drop_users_db:checked').length) {
+                    PMA_reloadNavigation();
                 }
                 //Remove the revoked user from the users list
                 $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
@@ -360,7 +370,7 @@ $(function() {
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
-    $("#edit_user_dialog").find("form:not(#db_or_table_specific_priv)").live('submit', function(event) {
+    $("#edit_user_dialog").find("form.ajax").live('submit', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -393,12 +403,9 @@ $(function() {
                 $("#edit_user_dialog").dialog("close");
 
                 if(data.sql_query) {
-                    $("#floating_menubar")
-                    .next('div')
-                    .remove()
-                    .end()
-                    .after(data.sql_query);
-                    var $notice_class = $("#floating_menubar").next("div").find('.notice');
+                    $("#result_query").remove();
+                    $('#floating_menubar').after(data.sql_query);
+                    var $notice_class = $("#result_query").find('.notice');
                     if($notice_class.text() == '') {
                         $notice_class.remove();
                     }
@@ -547,7 +554,7 @@ $(function() {
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table.ajax").find("a").live('click', function(event) {
+    $("#initials_table").find("a.ajax").live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();
@@ -581,6 +588,4 @@ $(function() {
     });
 
     displayPasswordGenerateButton();
-}, 'top.frame_content'); //end $()
-
-/**#@- */
+});

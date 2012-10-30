@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * displays and handles the form where the user can change his password
- * linked from main.php
+ * linked from index.php
  *
  * @package PhpMyAdmin
  */

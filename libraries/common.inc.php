@@ -378,7 +378,7 @@ $goto_whitelist = array(
     //'index.php',
     //'navigation.php',
     //'license.php',
-    'main.php',
+    'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
     //'phpinfo.php',
@@ -721,14 +721,6 @@ $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
  */
 if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
     include $_SESSION['PMA_Theme']->getLayoutFile();
-    /**
-     * @todo remove if all themes are update use Navi instead of Left as frame name
-     */
-    if (! isset($GLOBALS['cfg']['NaviWidth'])
-        && isset($GLOBALS['cfg']['LeftWidth'])
-    ) {
-        $GLOBALS['cfg']['NaviWidth'] = $GLOBALS['cfg']['LeftWidth'];
-    }
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {

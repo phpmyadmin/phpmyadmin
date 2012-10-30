@@ -323,7 +323,6 @@ function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
         . '<i>' . __('Or') . '</i>' . "\n"
         . '<label for="checkbox_' . $name_for_select
         . '_none"><input type="checkbox"'
-        . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
         . ' name="' . $name_for_select . '_none" id="checkbox_'
         . $name_for_select . '_none" title="'
         . _pgettext('None privileges', 'None') . '" />'
@@ -688,7 +687,6 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 
         $html_output .= '<div class="item">' . "\n"
            . '<input type="checkbox"'
-           . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
            . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
            . '" value="Y" '
            . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
@@ -782,13 +780,11 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
             : ($table == '*'
                 ? __('Database-specific privileges')
                 : __('Table-specific privileges'))) . "\n"
-        . '(<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&amp;checkall=1" '
+        . '(<a href="#" '
         . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); '
         . 'return false;">'
         . __('Check All') . '</a> /' . "\n"
-        . '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '" '
+        . '<a href="#" '
         . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); '
         . 'return false;">'
         . __('Uncheck All') . '</a>)' . "\n"
@@ -998,7 +994,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
                 . ' name="' . $priv[0] . '_priv" '
                 . 'id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
-                . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y')
+                . (($row[$priv[0] . '_priv'] == 'Y')
                     ?  ' checked="checked"'
                     : ''
                 )
@@ -1617,7 +1613,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
         $message = PMA_Message::success(__('User has been added.'));
         $response = PMA_Response::getInstance();
         $response->addJSON('message', $message);
@@ -1829,6 +1825,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         }
     }
 
+    $extra_data = array();
     if (strlen($sql_query)) {
         $extra_data['sql_query']
             = PMA_Util::getMessage(null, $sql_query);
@@ -1939,8 +1936,9 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
         '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
 
+    $class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
     $html_output = '<form action="server_privileges.php" '
-        . 'method="post" class="copyUserForm">' . "\n"
+        . 'method="post" class="copyUserForm' . $class .'">' . "\n"
         . PMA_generate_common_hidden_inputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
@@ -2460,7 +2458,6 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . $index_checkbox . '" value="'
                 . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                 . '"'
-                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
                 . ' /></td>' . "\n";
 
             $html_output .= '<td><label '
@@ -2596,19 +2593,21 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
 
     uksort($array_initials, "strnatcasecmp");
 
-    $html_output = '<table id="initials_table" '
-        . 'class="' . $conditional_class . '" <cellspacing="5">'
+    $html_output = '<table id="initials_table" <cellspacing="5">'
         . '<tr>';
     foreach ($array_initials as $tmp_initial => $initial_was_found) {
-        if ($initial_was_found) {
-            $html_output .= '<td>'
-                . '<a href="server_privileges.php?'
-                . $GLOBALS['url_query'] . '&amp;'
-                . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
-                . '</a>'
-                . '</td>' . "\n";
-        } else {
-            $html_output .= '<td>' . $tmp_initial . '</td>';
+        if (! empty($tmp_initial)) {
+            if ($initial_was_found) {
+                $html_output .= '<td>'
+                    . '<a class="' . $conditional_class . '"'
+                    . ' href="server_privileges.php?'
+                    . $GLOBALS['url_query'] . '&amp;'
+                    . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
+                    . '</a>'
+                    . '</td>' . "\n";
+            } else {
+                $html_output .= '<td>' . $tmp_initial . '</td>';
+            }
         }
     }
     $html_output .= '<td>'
@@ -2950,10 +2949,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 
         /**
          * Displays the initials
-         * In an Ajax request, we don't need to show this.
          * Also not necassary if there is less than 20 privileges
          */
-        if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
+        if (PMA_DBI_num_rows($res) > 20 ) {
             $html_output .= PMA_getHtmlForDisplayTheInitials(
                 $array_initials, $conditional_class
             );
@@ -2975,20 +2973,21 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);
         } // end if (display overview)
 
-        $flushnote = new PMA_Message(
-            __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
-            PMA_Message::NOTICE
-        );
-        $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-            . '&amp;' . 'flush_privileges=1" id="reload_privileges_anchor" '
-            . 'class="' . $conditional_class . '">';
-        $flushnote->addParam(
-            $flushLink,
-            false
-        );
-        $flushnote->addParam('</a>', false);
-        $html_output .= $flushnote->getDisplay();
-
+        if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {
+            $flushnote = new PMA_Message(
+                __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
+                PMA_Message::NOTICE
+            );
+            $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
+                . 'flush_privileges=1" id="reload_privileges_anchor" '
+                . 'class="' . $conditional_class . '">';
+            $flushnote->addParam(
+                $flushLink,
+                false
+            );
+            $flushnote->addParam('</a>', false);
+            $html_output .= $flushnote->getDisplay();
+        }
         return $html_output;
     }
 }
@@ -3030,7 +3029,9 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
             //exit;
     }
 
-    $html_output .= '<form name="usersForm" id="addUsersForm_' . $random_n . '"'
+    $class = $GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '';
+    $html_output .= '<form' . $class . ' name="usersForm"'
+        . ' id="addUsersForm_' . $random_n . '"'
         . ' action="server_privileges.php" method="post">' . "\n";
 
     $_params = array(
@@ -3249,14 +3250,10 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
         }
 
         /**
-         * If we are not in an Ajax request, we can't reload navigation now
+         * Reload the navigation
          */
-        if ($GLOBALS['is_ajax_request'] != true) {
-            // this is needed in case tracking is on:
-            $GLOBALS['db'] = $username;
-            $GLOBALS['reload'] = true;
-            echo PMA_Util::getReloadNavigationScript();
-        }
+        $GLOBALS['reload'] = true;
+        $GLOBALS['db'] = $username;
 
         $q = 'GRANT ALL PRIVILEGES ON '
             . PMA_Util::backquote(

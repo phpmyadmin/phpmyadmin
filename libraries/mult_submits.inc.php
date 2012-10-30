@@ -268,11 +268,9 @@ if (!empty($submit_mult) && !empty($what)) {
             $_url_params['original_url_query'] = $original_url_query;
         }
     }
-    ?>
-    <form action="<?php echo $action; ?>" method="post">
-    <?php
-    echo PMA_generate_common_hidden_inputs($_url_params);
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') { ?>
+        <form action="<?php echo $action; ?>" method="post">
+        <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
         <fieldset class = "input">
                 <legend><?php echo ($what == 'replace_prefix_tbl' ? __('Replace table prefix') : __('Copy table with prefix')) ?>:</legend>
                 <table>
@@ -285,10 +283,14 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
+                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
+                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
         </fieldset>
+        </form>
     <?php
     } elseif ($what == 'add_prefix_tbl') { ?>
+        <form action="<?php echo $action; ?>" method="post">
+        <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
         <fieldset class = "input">
                 <legend><?php echo __('Add table prefix') ?>:</legend>
                 <table>
@@ -298,8 +300,10 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
+                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
+                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
         </fieldset>
+        </form>
     <?php
     } else { ?>
         <fieldset class="confirmation">
@@ -311,7 +315,10 @@ if (!empty($submit_mult) && !empty($what)) {
             ?>:</legend>
             <code><?php echo $full_query; ?></code>
         </fieldset>
-        <fieldset class="tblFooters"><?php
+        <fieldset class="tblFooters">
+            <form action="<?php echo $action; ?>" method="post">
+            <?php
+            echo PMA_generate_common_hidden_inputs($_url_params);
             // Display option to disable foreign key checks while dropping tables
             if ($what == 'drop_tbl') { ?>
                 <div id="foreignkeychk">
@@ -322,12 +329,18 @@ if (!empty($submit_mult) && !empty($what)) {
                 <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
                 </div><?php
             } ?>
-            <input type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes" />
-            <input type="submit" name="mult_btn" value="<?php echo __('No'); ?>" id="buttonNo" />
+            <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
+            <input type="submit" value="<?php echo __('Yes'); ?>" id="buttonYes" />
+            </form>
+
+            <form action="<?php echo $action; ?>" method="post">
+                <?php echo PMA_generate_common_hidden_inputs($_url_params); ?>
+                <input type="hidden" name="mult_btn" value="<?php echo __('No'); ?>" />
+                <input type="submit" value="<?php echo __('No'); ?>" id="buttonNo" />
+            </form>
         </fieldset>
     <?php
     }
-    echo '</form>';
     exit;
 
 } elseif ($mult_btn == __('Yes')) {

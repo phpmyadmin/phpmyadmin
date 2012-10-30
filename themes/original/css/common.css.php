@@ -31,9 +31,18 @@ body {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 <?php } ?>
     padding:            0;
-    margin:             0 0.5em 0 0;
+    margin: 0;
+    margin-<?php echo $left; ?>: 240px;
     color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+}
+
+body#loginform {
+    margin: 0;
+}
+
+#page_content {
+    margin: 0 .5em;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -444,6 +453,10 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
+#pma_errors {
+    padding: 0 0.5em;
+}
+
 .success h1,
 .notice h1,
 div.error h1 {
@@ -1381,7 +1394,8 @@ li#li_user_preferences {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    width: 100%;
+    width: 98%;
+    margin-left: 1%;
     border-top: .1em solid silver;
     text-align: <?php echo $right; ?>;
 }

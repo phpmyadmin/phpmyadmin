@@ -249,7 +249,7 @@ class PMA_DisplayResults
      * @param type $showtable      array   table definitions
      * @param type $printview      string
      * @param type $url_query      string  URL query
-     * @param type $resultSetContainsUniqueKey  boolean 
+     * @param type $resultSetContainsUniqueKey  boolean
      *
      * @return  void
      *
@@ -3395,7 +3395,7 @@ class PMA_DisplayResults
                     'db'        => $this->__get('_db'),
                     'table'     => $this->__get('_table'),
                     'sql_query' => $url_sql_query,
-                    'goto'      => 'main.php',
+                    'goto'      => 'index.php',
                 );
 
             $lnk_goto = 'sql.php'
@@ -5206,7 +5206,7 @@ class PMA_DisplayResults
                         PMA_Util::getIcon(
                             'b_print.png', __('Print view'), true
                         ),
-                        '',
+                        array('target' => 'print_view'),
                         true,
                         true,
                         'print_view'
@@ -5224,7 +5224,7 @@ class PMA_DisplayResults
                                 'b_print.png',
                                 __('Print view (with full texts)'), true
                             ),
-                            '',
+                            array('target' => 'print_view'),
                             true,
                             true,
                             'print_view'
@@ -5346,14 +5346,13 @@ class PMA_DisplayResults
 
             $ajax_class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
 
-            $results_operations_html .= '<span class="create_view'
-                . $ajax_class . '">'
+            $results_operations_html .= '<span>'
                 . PMA_Util::linkOrButton(
                     'view_create.php' . $url_query,
                     PMA_Util::getIcon(
                         'b_views.png', __('Create view'), true
                     ),
-                    '', true, true, ''
+                    array('class' => 'create_view' . $ajax_class), true, true, ''
                 )
                 . '</span>' . "\n";
         }
@@ -5702,9 +5701,6 @@ class PMA_DisplayResults
                 . '" name="rows_to_delete[' . $row_no . ']"'
                 . ' class="multi_checkbox checkall"'
                 . ' value="' . $where_clause_html . '" '
-                . (isset($GLOBALS['checkall'])
-                    ? 'checked="checked"'
-                    : '')
                 . ' />'
                 . '<input type="hidden" class="condition_array" value="'
                 . htmlspecialchars(json_encode($condition_array)) . '" />'
@@ -5830,11 +5826,12 @@ class PMA_DisplayResults
             if (! empty($class)) {
                 $ret .= $class . ' ';
             }
-
+            $ajax = $GLOBALS['is_ajax_request'] ? ' ajax' : '';
             $ret .= 'center" ' . ' >'
                . PMA_Util::linkOrButton(
-                   $del_url, $del_str, $js_conf, false
+                   $del_url, $del_str, array('class' => 'delete_row' . $ajax), false
                )
+               . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';
         }
 

@@ -100,7 +100,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $this_url_params = array(
         'sql_query' => $this_sql_query,
         'back' => 'db_operations.php',
-        'goto' => 'main.php',
+        'goto' => 'index.php',
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
@@ -614,8 +614,7 @@ function PMA_getHtmlForOrderTheTable($columns)
 {
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" id="alterTableOrderby" '
-        . 'action="tbl_operations.php" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+        . 'action="tbl_operations.php">';
     $html_output .= PMA_generate_common_hidden_inputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
@@ -635,7 +634,8 @@ function PMA_getHtmlForOrderTheTable($columns)
         . '</select>'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submitorderby" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="submitorderby" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
@@ -652,7 +652,8 @@ function PMA_getHtmlForMoveTable()
 {
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" action="tbl_operations.php"'
-        . 'onsubmit="return emptyFormElements(this, \'new_name\')">'
+        . ' id="moveTableForm" class="ajax"'
+        . ' onsubmit="return emptyFormElements(this, \'new_name\')">'
         . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
 
     $html_output .= '<input type="hidden" name="reload" value="1" />'
@@ -720,7 +721,8 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
-    $html_output .= '<form method="post" action="tbl_operations.php">';
+    $html_output .= '<form method="post" action="tbl_operations.php"';
+    $html_output .= ' id="tableOptionsForm" class="ajax">';
     $html_output .= PMA_generate_common_hidden_inputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
@@ -734,7 +736,8 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     );
 
     $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submitoptions" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="submitoptions" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
@@ -1075,8 +1078,7 @@ function PMA_getHtmlForTableMaintenance(
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
-    $html_output .= '<ul id="tbl_maintenance" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') .'>';
+    $html_output .= '<ul id="tbl_maintenance">';
 
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
     $html_output .= PMA_getListofMaintainActionLink(
@@ -1210,8 +1212,9 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 function PMA_getMaintainActionlink($action, $params, $url_params, $link,
     $chapter = 'MySQL_Database_Administration'
 ) {
+    $isAjax = ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     return '<li>'
-        . '<a class="maintain_action" '
+        . '<a class="maintain_action' . $isAjax . '" '
         . 'href="tbl_operations.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action
@@ -1271,12 +1274,10 @@ function PMA_getHtmlForDeleteDataOrTable(
  */
 function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
 {
+    $isAjax = $GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '';
     return  '<li><a '
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
-        . ($GLOBALS['cfg']['AjaxEnable']
-            ? ' id="' . $id . '" class="ajax"'
-            : ''
-        ) . '>'
+        . ' id="' . $id . '"' . $isAjax . '>'
         . $link . '</a>'
         . PMA_Util::showMySQLDocu(
             'SQL-Syntax', $syntax

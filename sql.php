@@ -367,14 +367,28 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    PMA_Bookmark_save(
+    $result = PMA_Bookmark_save(
         $fields,
         (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false)
     );
-    // go back to sql.php to redisplay query; do not use &amp; in this case:
-    PMA_sendHeaderLocation(
-        $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $fields['label']
-    );
+    $response = PMA_Response::getInstance();
+    if ($response->isAjax()) {
+        if ($result) {
+            $msg = PMA_message::success(__('Bookmark %s created'));
+            $msg->addParam($fields['label']);
+            $response->addJSON('message', $msg);
+        } else {
+            $msg = PMA_message::error(__('Bookmark not created'));
+            $response->isSuccess(false);
+            $response->addJSON('message', $msg);
+        }
+        exit;
+    } else {
+        // go back to sql.php to redisplay query; do not use &amp; in this case:
+        PMA_sendHeaderLocation(
+            $cfg['PmaAbsoluteUri'] . $goto . '&label=' . $fields['label']
+        );
+    }
 } // end if
 
 /**
@@ -911,7 +925,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         }
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
-        $response->addJSON('message', $message);
+        // No need to manually send the message
+        // The Response class will handle that automatically
+        // $response->addJSON('message', $message);
         $response->addJSON(isset($extra_data) ? $extra_data : array());
         exit;
     }
@@ -936,7 +952,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             if (strlen($db)) {
                 $db = '';
             }
-            $goto = 'main.php';
+            $goto = 'index.php';
         }
         // Loads to target script
         $active_page = $goto;
@@ -1101,14 +1117,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $fields_cnt  = count($fields_meta);
     }
 
-    if (! $GLOBALS['is_ajax_request']) {
-        //begin the sqlqueryresults div here. container div
-        echo '<div id="sqlqueryresults"';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            echo ' class="ajax"';
-        }
-        echo '>';
+    //begin the sqlqueryresults div here. container div
+    echo '<div id="sqlqueryresults"';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        echo ' class="ajax"';
     }
+    echo '>';
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
@@ -1175,9 +1189,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     if (isset($label)) {
-        $message = PMA_message::success(__('Bookmark %s created'));
-        $message->addParam($label);
-        $message->display();
+        $msg = PMA_message::success(__('Bookmark %s created'));
+        $msg->addParam($label);
+        $msg->display();
     }
 
     // Should be initialized these parameters before parsing
@@ -1233,7 +1247,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . '&amp;id_bookmark=1';
 
         echo '<form action="sql.php" method="post"'
-            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');">';
+            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');"'
+            . ' id="bookmarkQueryForm">';
         echo PMA_generate_common_hidden_inputs();
         echo '<input type="hidden" name="goto" value="' . $goto . '" />';
         echo '<input type="hidden" name="fields[dbase]"'
@@ -1264,7 +1279,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '<div class="clearfloat"></div>';
         echo '</fieldset>';
         echo '<fieldset class="tblFooters">';
-        echo '<input type="submit" name="store_bkm"'
+        echo '<input type="hidden" name="store_bkm" value="1" />';
+        echo '<input type="submit"'
             . ' value="' . __('Bookmark this SQL query') . '" />';
         echo '</fieldset>';
         echo '</form>';
@@ -1274,10 +1290,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($printview) && $printview == '1') {
         echo PMA_Util::getButton();
     } // end print case
-
-    if ($GLOBALS['is_ajax_request'] != true) {
-        echo '</div>'; // end sqlqueryresults div
-    }
+    echo '</div>'; // end sqlqueryresults div
 } // end rows returned
 
 $_SESSION['is_multi_query'] = false;
@@ -1623,13 +1636,13 @@ function PMA_getColumnNameInColumnDropSql($sql)
 }
 
 /**
- * Verify if the result set contains all the columne of at least one unique key 
+ * Verify if the result set contains all the columne of at least one unique key
  *
  * @param string $db
  * @param string $table
  * @param string $fields_meta
  *
- * @return boolean whether the result set contains a unique key 
+ * @return boolean whether the result set contains a unique key
  */
 function PMA_resultSetContainsUniqueKey($db, $table, $fields_meta)
 {

@@ -235,6 +235,8 @@ $js_messages['strCancel'] = __('Cancel');
 $js_messages['strLoading'] = __('Loading');
 $js_messages['strProcessingRequest'] = __('Processing Request');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
+$js_messages['strErrorCode'] = __('Error code: %s');
+$js_messages['strErrorText'] = __('Error text: %s');
 $js_messages['strNoDatabasesSelected'] = __('No databases selected.');
 $js_messages['strDroppingColumn'] = __('Dropping Column');
 $js_messages['strAddingPrimaryKey'] = __('Adding Primary Key');
@@ -366,6 +368,13 @@ $js_messages['strChangePassword'] = __('Change Password');
 
 /* navigation tabs */
 $js_messages['strMore'] = __('More');
+
+/* navigation panel */
+$js_messages['strShowPanel'] = __('Show Panel');
+$js_messages['strHidePanel'] = __('Hide Panel');
+
+/* microhistory */
+$js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
 
 /* update */
 $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.');

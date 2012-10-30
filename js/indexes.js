@@ -76,9 +76,12 @@ function checkIndexType()
     }
 }
 
-/**#@+
- * @namespace   jQuery
+/**
+ * Unbind all event handlers before tearing down a page
  */
+AJAX.registerTeardown('indexes.js', function() {
+    $('#select_index_type').die('change');
+});
 
 /**
  * @description <p>Ajax scripts for table index page</p>
@@ -87,11 +90,8 @@ function checkIndexType()
  * <ul>
  * <li>Showing/hiding inputs depending on the index type chosen</li>
  * </ul>
- *
- * @name        document.ready
- * @memberOf    jQuery
  */
-$(function() {
+AJAX.registerOnload('indexes.js', function() {
     checkIndexType();
     checkIndexName("index_frm");
     $('#select_index_type').live('change', function(event){
@@ -100,5 +100,3 @@ $(function() {
         checkIndexName("index_frm");
     });
 });
-
-/**#@- */

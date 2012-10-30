@@ -746,7 +746,7 @@ class PMA_Util
     public static function getTableList(
         $db, $tables = null, $limit_offset = 0, $limit_count = false
     ) {
-        $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
             $tables = PMA_DBI_get_tables_full(
@@ -796,7 +796,7 @@ class PMA_Util
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
-            if ($GLOBALS['cfg']['LeftFrameDBTree']
+            if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
                 && $sep && strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);
@@ -807,7 +807,7 @@ class PMA_Util
                 $parts_cnt = count($parts) - 1;
 
                 while (($i < $parts_cnt)
-                    && ($i < $GLOBALS['cfg']['LeftFrameTableLevel'])
+                    && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])
                 ) {
                     $group_name = $parts[$i] . $sep;
                     $group_name_full .= $group_name;
@@ -844,18 +844,7 @@ class PMA_Util
                 $group =& $table_groups;
             }
 
-            if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-                && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
-                && $table['Comment'] // do not switch if the comment is empty
-                && $table['Comment'] != 'VIEW' // happens in MySQL 5.1
-            ) {
-                // switch tooltip and name
-                $table['disp_name'] = $table['Comment'];
-                $table['Comment'] = $table['Name'];
-            } else {
-                $table['disp_name'] = $table['Name'];
-            }
-
+            $table['disp_name'] = $table['Name'];
             $group[$table_name] = array_merge($default, $table);
         }
 
@@ -985,51 +974,6 @@ class PMA_Util
     } // end of the 'whichCrlf()' function
 
     /**
-     * Reloads navigation if needed.
-     *
-     * @param bool $jsonly prints out pure JavaScript
-     *
-     * @return void
-     *
-     * @access  public
-     */
-    public static function getReloadNavigationScript($jsonly = false)
-    {
-        $retval = '';
-        // Reloads the navigation frame via JavaScript if required
-        if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
-            // one of the reasons for a reload is when a table is dropped
-            // in this case, get rid of the table limit offset, otherwise
-            // we have a problem when dropping a table on the last page
-            // and the offset becomes greater than the total number of tables
-            unset($_SESSION['tmp_user_values']['table_limit_offset']);
-            $reload_url = './navigation.php?' . PMA_generate_common_url(
-                $GLOBALS['db'],
-                '',
-                '&'
-            );
-
-            if (! $jsonly) {
-                $retval .= '<script type="text/javascript">' . PHP_EOL;
-            }
-            $retval .= '//<![CDATA[' . PHP_EOL;
-            $retval .= 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
-            $retval .= '    && typeof(window.parent.frame_navigation) != "undefined"'
-                 . PHP_EOL;
-            $retval .= '    && window.parent.goTo) {' . PHP_EOL;
-            $retval .= '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
-            $retval .= '}' . PHP_EOL;
-            $retval .= '//]]>' . PHP_EOL;
-
-            if (! $jsonly) {
-                $retval .= '</script>' . PHP_EOL;
-            }
-            unset($GLOBALS['reload']);
-        }
-        return $retval;
-    }
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
@@ -1066,22 +1010,6 @@ class PMA_Util
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
         }
-
-        // Corrects the tooltip text via JS if required
-        // @todo this is REALLY the wrong place to do this - very unexpected here
-        if (! $is_view && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
-            $tooltip = PMA_Table::sGetToolTip($GLOBALS['db'], $GLOBALS['table']);
-            $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
-            $retval .= "\n";
-            $retval .= '<script type="text/javascript">' . "\n";
-            $retval .= '//<![CDATA[' . "\n";
-            $retval .= 'if (window.parent.updateTableTitle) {' . "\n";
-            $retval .= "    window.parent.updateTableTitle('"
-                . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
-            $retval .= '}' . "\n";
-            $retval .= '//]]>' . "\n";
-            $retval .= '</script>' . "\n";
-        } // end if ... elseif
 
         // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
         // check for it's presence before using it
@@ -1265,7 +1193,7 @@ class PMA_Util
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
                 if ($cfg['EditInWindow'] == true) {
-                    $onclick = 'window.parent.focus_querywindow(\''
+                    $onclick = 'PMA_querywindow.focus(\''
                         . PMA_jsFormat($sql_query, false) . '\'); return false;';
                 } else {
                     $onclick = '';
@@ -2401,6 +2329,7 @@ class PMA_Util
     /**
      * Generate a pagination selector for browsing resultsets
      *
+     * @param string $name        The name for the request parameter
      * @param int    $rows        Number of rows in the pagination set
      * @param int    $pageNow     current page number
      * @param int    $nbTotalPage number of total pages
@@ -2420,19 +2349,19 @@ class PMA_Util
      * @access  public
      */
     public static function pageselector(
-        $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
+        $name, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
         $increment = floor($nbTotalPage / $percent);
         $pageNowMinusRange = ($pageNow - $range);
         $pageNowPlusRange = ($pageNow + $range);
 
-        $gotopage = $prompt . ' <select id="pageselector" ';
+        $gotopage = $prompt . ' <select class="pageselector ';
         if ($GLOBALS['cfg']['AjaxEnable']) {
-            $gotopage .= ' class="ajax"';
+            $gotopage .= ' ajax';
         }
 
-        $gotopage .= ' name="pos" >' . "\n";
+        $gotopage .= '" name="' . $name . '" >';
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {
@@ -2544,6 +2473,8 @@ class PMA_Util
      * @param string $script      script name for form target
      * @param string $frame       target frame
      * @param int    $max_count   maximum number of elements to display from the list
+     * @param string $name        the name for the request parameter
+     * @param array  $classes     additional classes for the container
      *
      * @return string $list_navigator_html the  html content
      *
@@ -2552,19 +2483,21 @@ class PMA_Util
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count, $pos, $_url_params, $script, $frame, $max_count
+        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos', $classes = array()
     ) {
+
+        $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
+
         $list_navigator_html = '';
 
         if ($max_count < $count) {
 
-            $list_navigator_html .= ($frame == 'frame_navigation')
-                ? '<div id="navidbpageselector">' . "\n"
-                : '';
+            $classes[] = 'pageselector';
+            $list_navigator_html .= '<div class="' . implode(' ', $classes) . '">';
 
-            $list_navigator_html .= __('Page number:');
-
-            $list_navigator_html .= ($frame == 'frame_navigation') ? '<br />' : ' ';
+            if ($frame != 'frame_navigation') {
+                $list_navigator_html .= __('Page number:');
+            }
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
@@ -2582,22 +2515,21 @@ class PMA_Util
                     $title2   = '';
                 } // end if... else...
 
-                $_url_params['pos'] = 0;
-                $list_navigator_html .= '<a' . $title1 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption1 . '</a>';
+                $_url_params[$name] = 0;
+                $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '">' . $caption1 . '</a>';
 
-                $_url_params['pos'] = $pos - $max_count;
-                $list_navigator_html .= '<a' . $title2 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption2 . '</a>';
+                $_url_params[$name] = $pos - $max_count;
+                $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '">' . $caption2 . '</a>';
             }
 
-            $list_navigator_html .= "\n" . '<form action="' . basename($script).
-                '" method="post" target="' . $frame . '">' . "\n";
+            $list_navigator_html .= '<form action="' . basename($script).
+                '" method="post">';
 
             $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
             $list_navigator_html .= self::pageselector(
+                $name,
                 $max_count,
                 floor(($pos + 1) / $max_count) + 1,
                 ceil($count / $max_count)
@@ -2617,25 +2549,19 @@ class PMA_Util
                     $title4   = '';
                 } // end if... else...
 
-                $_url_params['pos'] = $pos + $max_count;
-                $list_navigator_html .= '<a' . $title3 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption3 . '</a>';
+                $_url_params[$name] = $pos + $max_count;
+                $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption3 . '</a>';
 
-                $_url_params['pos'] = floor($count / $max_count) * $max_count;
-                if ($_url_params['pos'] == $count) {
-                    $_url_params['pos'] = $count - $max_count;
+                $_url_params[$name] = floor($count / $max_count) * $max_count;
+                if ($_url_params[$name] == $count) {
+                    $_url_params[$name] = $count - $max_count;
                 }
 
-                $list_navigator_html .= '<a' . $title4 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption4 . '</a>';
+                $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption4 . '</a>';
             }
-
-            $list_navigator_html .= "\n";
-            if ('frame_navigation' == $frame) {
-                $list_navigator_html .= '</div>' . "\n";
-            }
+            $list_navigator_html .= '</div>' . "\n";
         }
 
         return $list_navigator_html;
@@ -3287,7 +3213,7 @@ class PMA_Util
      * Get the action word corresponding to a script name
      * in order to display it as a title in navigation panel
      *
-     * @param string $target a valid value for $cfg['LeftDefaultTabTable'],
+     * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
      * @return array

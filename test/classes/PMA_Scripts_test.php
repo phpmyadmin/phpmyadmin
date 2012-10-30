@@ -131,7 +131,7 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->assertRegExp(
             '@<script src="js/common.js\\?ts=[0-9]*" type="text/javascript"></script>
 <script type="text/javascript">// <!\\[CDATA\\[
-\\$\\(window.parent\\).bind\\(\'onClick\', doSomething\\);
+\\$\\(window\\).bind\\(\'onClick\', doSomething\\);
 // ]]></script>@',
             $this->object->getDisplay()
         );

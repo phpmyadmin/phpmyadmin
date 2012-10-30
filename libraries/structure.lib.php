@@ -56,11 +56,11 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         . $truename . '</a>';
 
     if (!$db_is_information_schema) {
-        $empty_table = '<a ';
+        $empty_table = '<a class="truncate_table_anchor';
         if ($GLOBALS['cfg']['AjaxEnable']) {
-            $empty_table .= 'class="truncate_table_anchor"';
+            $empty_table .= ' ajax';
         }
-        $empty_table .= ' href="sql.php?' . $tbl_url_query
+        $empty_table .= '" href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
             'TRUNCATE ' . PMA_Util::backquote($current_table['TABLE_NAME'])
@@ -359,7 +359,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
 function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
-        . '<a href="db_printview.php?' . $url_query . '">'
+        . '<a href="db_printview.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
@@ -421,7 +421,6 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $odd_row                  whether row is odd or not
  * @param boolean $table_is_view            whether table is view or not
  * @param array   $current_table            current table
- * @param string  $checked                  checked attribute
  * @param string  $browse_table_label       browse table label action link
  * @param string  $tracking_icon            tracking icon
  * @param boolean $server_slave_status      server slave state
@@ -449,7 +448,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  */
 function PMA_getHtmlForStructureTableRow(
     $curr, $odd_row, $table_is_view, $current_table,
-    $checked, $browse_table_label, $tracking_icon,$server_slave_status,
+    $browse_table_label, $tracking_icon,$server_slave_status,
     $browse_table, $tbl_url_query, $search_table,
     $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
     $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
@@ -463,7 +462,7 @@ function PMA_getHtmlForStructureTableRow(
     $html_output .= '<td class="center">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
         . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
-        . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
+        . 'id="checkbox_tbl_' . $curr .'" /></td>';
 
     $html_output .= '<th>'
         . $browse_table_label
@@ -547,7 +546,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $html_output .= '<td class="center">';
     $html_output .= '<a ';
     if ($GLOBALS['cfg']['AjaxEnable']) {
-        $html_output .= 'class="drop_table_anchor';
+        $html_output .= 'class="ajax drop_table_anchor';
         if ($table_is_view || $current_table['ENGINE'] == null) {
             // this class is used in db_structure.js to display the
             // correct confirmation message
@@ -1218,7 +1217,6 @@ function PMA_getHtmlForTableStructureHeader(
  *
  * @param array   $row                      current row
  * @param string  $rownum                   row number
- * @param string  $checked                  checked
  * @param string  $displayed_field_name     displayed field name
  * @param string  $type_nowrap              type nowrap
  * @param array   $extracted_columnspec     associative array containing type,
@@ -1238,7 +1236,7 @@ function PMA_getHtmlForTableStructureHeader(
  *
  * @return array ($html_output, $odd_row)
  */
-function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
+function PMA_getHtmlTableStructureRow($row, $rownum,
     $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
     $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
     $url_query, $field_encoded, $titles, $table
@@ -1246,7 +1244,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     $html_output = '<td class="center">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
-        . 'id="checkbox_row_' . $rownum . '"' . $checked . '/>'
+        . 'id="checkbox_row_' . $rownum . '"/>'
         . '</td>';
 
     $html_output .= '<td class="right">'
@@ -1324,9 +1322,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
             . $field_encoded . '">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
-            . '<a '
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '')
-            . ' href="sql.php?' . $url_query . '&amp;sql_query='
+            . '<a class="drop_column_anchor'
+            . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
+            . '" href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($table)
                 . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'
@@ -1485,7 +1483,7 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
+    $html_output = '<a href="tbl_printview.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
@@ -1542,7 +1540,6 @@ function PMA_getHtmlForAddColumn($columns_list)
 {
     $html_output = '<form method="post" action="tbl_addfield.php" '
         . 'id="addColumns" name="addColumns" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
         . 'onsubmit="return checkFormElementInRange('
             . 'this, \'num_fields\', \'' . str_replace(
                 '\'',
@@ -1814,7 +1811,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
 /**
  * Get HTML divs for Structure Action drop down
  *
- * @param string  $class            div class
+ * @param string  $class            link class
  * @param boolean $isActionEnabled  whether action is enabled or not
  * @param string  $url_query        url query
  * @param array   $row              current row
@@ -1831,9 +1828,9 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
     $message, $isPrimary
 ) {
-    $html_output = '<div  class="' . $class . '">';
+    $html_output = '<div class="replace_in_more">';
     if ($isActionEnabled) {
-        $html_output .= '<a href="sql.php?' .  $url_query
+        $html_output .= '<a class="' . $class . '" href="sql.php?' .  $url_query
             . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
@@ -1884,8 +1881,7 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
     ) . __('More');
     $html_output .= '<div class="structure_actions_dropdown" id="row_' . $rownum . '">';
 
-    $class = ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : '')
-        . 'replace_in_more';
+    $class = 'action_primary' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
         $class, $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
         $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',

@@ -127,18 +127,10 @@ class PMA_DbSearch
             || ! is_array($_REQUEST['criteriaTables'])
         ) {
             unset($_REQUEST['submit_search']);
-        } elseif (! isset($_REQUEST['selectall'])
-            && ! isset($_REQUEST['unselectall'])
-        ) {
+        } else {
             $this->_criteriaTables = array_intersect(
                 $_REQUEST['criteriaTables'], $this->_tables_names_only
             );
-        }
-
-        if (isset($_REQUEST['selectall'])) {
-            $this->_criteriaTables = $this->_tables_names_only;
-        } elseif (isset($_REQUEST['unselectall'])) {
-            $this->_criteriaTables = array();
         }
 
         if (empty($_REQUEST['criteriaColumnName'])
@@ -440,17 +432,11 @@ class PMA_DbSearch
         $html_output .= '</select>';
         $html_output .= '</td></tr>';
         // Displays 'select all' and 'unselect all' links
-        $alter_select = '<a href="db_search.php'
-            . PMA_generate_common_url(
-                array_merge($url_params, array('selectall' => 1))
-            )
-            . '#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">'
+        $alter_select = '<a href="#" '
+            . 'onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">'
             . __('Select All') . '</a> &nbsp;/&nbsp;';
-        $alter_select .= '<a href="db_search.php'
-            . PMA_generate_common_url(
-                array_merge($url_params, array('unselectall' => 1))
-            )
-            . '#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">'
+        $alter_select .= '<a href="#" '
+            . 'onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">'
             . __('Unselect All') . '</a>';
         $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
         // Inputbox for column name entry

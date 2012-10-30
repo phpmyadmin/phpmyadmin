@@ -142,29 +142,24 @@ if (isset($_POST['submit_export'])
         ) {
             $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
             $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['fontsize'])
             && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
         ) {
             $params['set_fontsize'] = $config['fontsize'];
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['lang'])
             && $config['lang'] != $GLOBALS['lang']
         ) {
             $params['lang'] = $config['lang'];
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['collation_connection'])
             && $config['collation_connection'] != $GLOBALS['collation_connection']
         ) {
             $params['collation_connection'] = $config['collation_connection'];
-            $params['reload_left_frame'] = true;
         }
 
         // save settings
-        $old_settings = PMA_loadUserprefs();
         $result = PMA_saveUserprefs($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
@@ -183,14 +178,13 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            PMA_userprefsRedirect($forms, $old_settings, $return_url, $params);
+            PMA_userprefsRedirect($return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
 } else if (isset($_POST['submit_clear'])) {
-    $old_settings = PMA_loadUserprefs();
     $result = PMA_saveUserprefs(array());
     if ($result === true) {
         $params = array();
@@ -200,15 +194,13 @@ if (isset($_POST['submit_export'])
             );
             unset($_SESSION['PMA_Theme_Manager']);
             unset($_SESSION['PMA_Theme']);
-            $params['reload_left_frame'] = true;
         }
         if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
             $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-            $params['reload_left_frame'] = true;
         }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        PMA_userprefsRedirect($forms, $old_settings, 'prefs_manage.php', $params);
+        PMA_userprefsRedirect('prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;
@@ -238,7 +230,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
     <div id="main_pane_left">
         <div class="group">
             <h2><?php echo __('Import') ?></h2>
-            <form class="group-cnt prefs-form" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
                 <?php
                 echo PMA_Util::generateHiddenMaxFileSize($max_upload_size) . "\n";
                 echo PMA_generate_common_hidden_inputs() . "\n";
@@ -283,7 +275,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
                 <?php
-                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php">', '</a>');
+                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php" target="_blank">', '</a>');
                 echo PMA_Util::showDocu('setup_script');
                 ?>
             </div>
@@ -300,7 +292,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                 PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
                 ?>
             </div>
-            <form class="group-cnt prefs-form" name="prefs_export" action="prefs_manage.php" method="post">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_export" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type" value="text_file" checked="checked" />
@@ -326,7 +318,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
         </div>
         <div class="group">
             <h2><?php echo __('Reset') ?></h2>
-            <form class="group-cnt prefs-form" name="prefs_reset" action="prefs_manage.php" method="post">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_reset" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <?php echo __('You can reset all your settings and restore them to default values.') ?>
                 <br /><br />

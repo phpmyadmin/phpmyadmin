@@ -242,7 +242,7 @@ function ApplySelectedChanges(token)
     }
 
     //Appending the token and list of table ids in the URL
-    location.href += '?' + $.param(params);
+    location.href = $('#synchronize_form').attr('action') + '?' + $.param(params);
 }
 
 
@@ -318,7 +318,17 @@ function hideOrDisplayServerFields($server_selector, selected_option)
     }
 }
 
-$(function() {
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_synchonize.js', function() {
+    $('select.server_selector').unbind('change');
+    $('img.struct_img').unbind('hover');
+    $('img.data_img').unbind('hover');
+    $('#buttonGo').unbind('click');
+});
+
+AJAX.registerOnload('server_synchronize.js', function() {
     $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();
         hideOrDisplayServerFields($(evt.target), selected_option);

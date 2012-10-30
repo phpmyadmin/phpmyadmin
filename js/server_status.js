@@ -13,8 +13,44 @@
  *
  */
 
+var pma_token,
+    url_query,
+    server_time_diff,
+    server_os,
+    is_superuser,
+    server_db_isLocal;
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_status.js', function() {
+    $('a.popupLink').unbind('click');
+    $(document).unbind('click'); // Am I sure about this? I guess not...
+    $('div.buttonlinks select').unbind('click');
+    $('div.buttonlinks a.tabRefresh').unbind('click');
+    $('div.buttonlinks a.livetrafficLink').unbind('click');
+    $('div.buttonlinks a.liveconnectionsLink').unbind('click');
+    $('div.buttonlinks a.livequeriesLink').unbind('click');
+
+    $('#filterAlert').unbind('change');
+    $('#filterText').unbind('keyup');
+    $('#filterCategory').unbind('change');
+    $('input#dontFormat').unbind('change');
+    $('a[href="#openAdvisorInstructions"]').unbind('click');
+    $('a[href="#startAnalyzer"]').unbind('click');
+});
+
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
-$(function() {
+AJAX.registerOnload('server_status.js', function() {
+
+    var $js_data_form = $('#js_data');
+    pma_token =         $js_data_form.find("input[name=pma_token]").val();
+    url_query =         $js_data_form.find("input[name=url_query]").val();
+    server_time_diff  = eval($js_data_form.find("input[name=server_time_diff]").val());
+    server_os =         $js_data_form.find("input[name=server_os]").val();
+    is_superuser =      $js_data_form.find("input[name=is_superuser]").val();
+    server_db_isLocal = $js_data_form.find("input[name=server_db_isLocal]").val();
+
     // Show all javascript related parts of the page
     $('#serverstatus .jsfeature').show();
 
@@ -104,7 +140,7 @@ $(function() {
     });
 });
 
-$(function() {
+AJAX.registerOnload('server_status.js', function() {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = false;
@@ -157,11 +193,12 @@ $(function() {
                 // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
                 setTimeout(function() {
                     var scripts = [
-                        'js/jquery/timepicker.js',
-                        'js/jquery/jquery.json-2.2.js',
-                        'js/jquery/jquery.sortableTable.js'];
-                    scripts.push('js/server_status_monitor.js');
-                    loadJavascript(scripts);
+                        {name:'jquery/timepicker.js',fire:0},
+                        {name:'jquery/jquery.json-2.2.js',fire:0},
+                        {name:'jquery/jquery.sortableTable.js',fire:0},
+                        {name:'server_status_monitor.js',fire:1}
+                    ];
+                    AJAX.scriptHandler.load(scripts);
                 }, 50);
 
                 monitorLoaded = true;

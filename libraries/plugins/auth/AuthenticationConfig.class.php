@@ -138,7 +138,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             include_once './libraries/select_server.lib.php';
             echo '<tr>' . "\n";
             echo ' <td>' . "\n";
-            PMA_selectServer(true, true);
+            echo PMA_selectServer(true, true);
             echo ' </td>' . "\n";
             echo '</tr>' . "\n";
         }

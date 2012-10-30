@@ -130,6 +130,7 @@ $forms['Features']['Other_core_settings'] = array(
     'InitialSlidersState',
     'MaxDbList',
     'MaxTableList',
+    'NumRecentTables',
     'ShowHint',
     'OBGzip',
     'PersistentConnections',
@@ -137,8 +138,7 @@ $forms['Features']['Other_core_settings'] = array(
     'MemoryLimit',
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
-    'UseDbSearch',
-    'AllowThirdPartyFraming');
+    'UseDbSearch');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
@@ -163,27 +163,23 @@ $forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
     'username',
     'password'));
 $forms['Left_frame']['Left_frame'] = array(
-    'LeftFrameLight',
-    'LeftDisplayLogo',
-    'LeftLogoLink',
-    'LeftLogoLinkWindow',
-    'LeftPointerEnable',
-    'LeftRecentTable');
+    'NavigationDisplayLogo',
+    'NavigationLogoLink',
+    'NavigationLogoLinkWindow',
+    'NavigationTreePointerEnable',
+    'MaxNavigationItems',
+    'NavigationTreeEnableGrouping',
+    'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_servers'] = array(
-    'LeftDisplayServers',
+    'NavigationDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
-    'DisplayDatabasesList',
-    'LeftFrameDBTree',
-    'LeftFrameDBSeparator',
-    'ShowTooltipAliasDB');
+    'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
-    'LeftDisplayTableFilterMinimum',
-    'LeftDefaultTabTable',
-    'LeftFrameTableSeparator',
-    'LeftFrameTableLevel',
-    'ShowTooltip',
-    'ShowTooltipAliasTB');
+    'NavigationTreeDefaultTabTable',
+    'NavigationTreeTableSeparator',
+    'NavigationTreeTableLevel',
+    'ShowTooltip');
 $forms['Main_frame']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

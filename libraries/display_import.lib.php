@@ -138,7 +138,6 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                             <?php
                             // reload the left sidebar when the import is finished
                             $GLOBALS['reload'] = true;
-                            echo PMA_Util::getReloadNavigationScript(true);
                             ?>
 
                         } // if finished
@@ -165,10 +164,15 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
         name="import"<?php
 if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     echo ' target="import_upload_iframe"';
-} ?>>
+}
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    echo ' class="ajax"';
+}
+?>>
     <input type="hidden" name="<?php
         echo $_SESSION[$SESSION_KEY]["handler"]::getIdKey();
     ?>" value="<?php echo $upload_id ; ?>" />
+
     <?php
 if ($import_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);

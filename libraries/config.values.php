@@ -35,18 +35,16 @@ $cfg_db['Servers'] = array(
 $cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'none');
 $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
-$cfg_db['ShowTooltipAliasTB'] = array('nested', true, false);
-$cfg_db['DisplayDatabasesList'] = array('auto', true, false);
-$cfg_db['LeftLogoLinkWindow'] = array('main', 'new');
-$cfg_db['LeftDefaultTabTable'] = array(
+$cfg_db['NavigationLogoLinkWindow'] = array('main', 'new');
+$cfg_db['NavigationTreeDefaultTabTable'] = array(
     'tbl_structure.php', // fields list
     'tbl_sql.php',       // SQL form
     'tbl_select.php',    // search page
     'tbl_change.php',    // insert row page
     'sql.php'            // browse page
 );
-$cfg_db['LeftFrameDBSeparator'] = 'short_string';
-$cfg_db['LeftFrameTableSeparator'] = 'short_string';
+$cfg_db['NavigationTreeDbSeparator'] = 'short_string';
+$cfg_db['NavigationTreeTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(
     true   => __('Yes'),
     false  => __('No'),
@@ -73,7 +71,7 @@ $cfg_db['GridEditing'] = array(
     'disabled' => __('Disabled'),
 );
 $cfg_db['DefaultTabServer'] = array(
-    'main.php',                // the welcome page (recommended for multiuser setups)
+    'index.php',               // the welcome page (recommended for multiuser setups)
     'server_databases.php',    // list of databases
     'server_status.php',       // runtime information
     'server_variables.php',    // MySQL server variables
@@ -208,16 +206,17 @@ $cfg_db['_validators'] = array(
     'Import/ldi_terminated' => array(array('validate_by_regex', '/^.$/')),
     'Import/skip_queries' => 'validate_non_negative_number',
     'InsertRows' => 'validate_positive_number',
-    'LeftFrameTableLevel' => 'validate_positive_number',
-    'LeftRecentTable' => 'validate_non_negative_number',
+    'NumRecentTables' => 'validate_non_negative_number',
     'LimitChars' => 'validate_positive_number',
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
     'MaxDbList' => 'validate_positive_number',
+    'MaxNavigationItems' => 'validate_positive_number',
     'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
     'MaxTableList' => 'validate_positive_number',
     'MemoryLimit' => array(array('validate_by_regex', '/^\d+(?:[kmg])?$/i')),
+    'NavigationTreeTableLevel' => 'validate_positive_number',
     'QueryHistoryMax' => 'validate_positive_number',
     'QueryWindowWidth' => 'validate_positive_number',
     'QueryWindowHeight' => 'validate_positive_number',

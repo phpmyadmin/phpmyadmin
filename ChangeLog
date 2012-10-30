@@ -40,8 +40,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3517835 [structure] Move columns easily
 + Ajaxified "Create View" functionality
 + [import] New plugin: import mediawiki
-+ Add Ajax support to Fast filter in order to search the term in all database tables
-- bug #3535015 [navi] DbFilter, TableFilter clear button hidden on Chrome
++ New navigation system
++ Discontinued the use of a frame-based layout
 + rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 + [interface] Autoselect username input on cookie login page
 - bug #3563799 [interface] Grid editing destroying huge amount of data
@@ -49,10 +49,29 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3577443 [edit] "Browse foreign values" does not show on ajax edit
 + rfe #3522109 [browse] Grid editing: action to trigger it (or disable)
 - bug #3526598 [interface] SQL query not shown when creating table
++ Dropped configuration directive: AllowThirdPartyFraming
++ Dropped configuration directive: LeftFrameLight
++ Dropped configuration directive: DisplayDatabasesList
++ Dropped configuration directives: ShowTooltipAliasDB and ShowTooltipAliasTB
++ Dropped configuration directive: NaviDatabaseNameColor
++ Added configuration directive: MaxNavigationItems
++ Renamed configuration directive: LeftFrameDBTree => NavigationTreeEnableGrouping
++ Renamed configuration directive: LeftFrameDBSeparator => NavigationTreeDbSeparator
++ Renamed configuration directive: LeftFrameTableSeparator => NavigationTreeTableSeparator
++ Renamed configuration directive: LeftFrameTableLevel => NavigationTreeTableLevel
++ Renamed configuration directive: LeftPointerEnable => NavigationTreePointerEnable
++ Renamed configuration directive: LeftDefaultTabTable => NavigationTreeDefaultTabTable
++ Renamed configuration directive: LeftDisplayTableFilterMinimum => NavigationTreeDisplayTableFilterMinimum
++ Renamed configuration directive: LeftDisplayLogo => NavigationDisplayLogo
++ Renamed configuration directive: LeftLogoLink => NavigationLogoLink
++ Renamed configuration directive: LeftLogoLinkWindow => NavigationLogoLinkWindow
++ Renamed configuration directive: LeftDisplayServers => NavigationDisplayServers
++ Renamed configuration directive: LeftRecentTable => NumRecentTables
++ Renamed configuration directive: LeftDisplayDatabaseFilterMinimum => NavigationTreeDisplayDbFilterMinimum
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
-- bug #3569577 [edit] Add routine parameter headers not valid for "function" 
+- bug #3569577 [edit] Add routine parameter headers not valid for "function"
 - bug #3575799 [search] Various search operators not working as expected
 - bug #3576322 [search] Invalid select query generated for tables with ENUM fields
 - bug #3577468 [display] Incorrect imagejpeg Syntax Breaks Image Transformation
@@ -79,7 +98,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3559955 [edit] current_date from function drop down fails on update
 - bug #3562472 add support for Solaris and FreeBSD system load and memory display in server status
 - bug #3553068 [import] Table import from XML file fails
-- replace Highcharts with jqplot for Display chart 
+- replace Highcharts with jqplot for Display chart
 - bug #3567684 [edit] Pasting value doesn't clear null checkbox
 - bug #3570786 [edit] Datepicker for date and datetime fields is broken
 

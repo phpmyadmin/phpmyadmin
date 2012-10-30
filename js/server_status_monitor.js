@@ -1,5 +1,30 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_status_monitor.js', function() {
+    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').unbind('click');
+    $('div#statustabs_charting div.popupContent select[name="chartColumns"]').unbind('change');
+    $('div#statustabs_charting div.popupContent select[name="gridChartRefresh"]').unbind('change');
+    $('a[href="#addNewChart"]').unbind('click');
+    $('a[href="#exportMonitorConfig"]').unbind('click');
+    $('a[href="#importMonitorConfig"]').unbind('click');
+    $('a[href="#clearMonitorConfig"]').unbind('click');
+    $('a[href="#pauseCharts"]').unbind('click');
+    $('a[href="#monitorInstructionsDialog"]').unbind('click');
+    $('input[name="chartType"]').unbind('click');
+    $('input[name="useDivisor"]').unbind('click');
+    $('input[name="useUnit"]').unbind('click');
+    $('select[name="varChartList"]').unbind('click');
+    $('a[href="#kibDivisor"]').unbind('click');
+    $('a[href="#mibDivisor"]').unbind('click');
+    $('a[href="#submitClearSeries"]').unbind('click');
+    $('a[href="#submitAddSeries"]').unbind('click');
+    // $("input#variableInput").destroy();
+});
+
+AJAX.registerOnload('server_status_monitor.js', function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();
     $('div#statustabs_charting img#loadingMonitorIcon').remove();
@@ -803,6 +828,7 @@ $(function() {
     $('input[name="useDivisor"]').change(function() {
         $('span.divisorInput').toggle(this.checked);
     });
+
     $('input[name="useUnit"]').change(function() {
         $('span.unitInput').toggle(this.checked);
     });
@@ -1943,7 +1969,7 @@ $(function() {
             $('div#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-            var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + explain_docu;
+            var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (var i = 0; i < data.explain.length; i++) {
@@ -1998,7 +2024,7 @@ $(function() {
                 numberTable += '</tbody></table>';
 
                 $('div#queryAnalyzerDialog div.placeHolder td.chart').append(
-                    '<b>' + PMA_messages['strProfilingResults'] + ' ' + profiling_docu + '</b> ' +
+                    '<b>' + PMA_messages['strProfilingResults'] + ' ' + $('#profiling_docu').html() + '</b> ' +
                     '(<a href="#showNums">' + PMA_messages['strTable'] + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
@@ -2046,6 +2072,6 @@ $(function() {
 });
 
 // Run the monitor once loaded
-$(function() {
+AJAX.registerOnload('server_status_monitor.js', function() {
     $('a[href="#pauseCharts"]').trigger('click');
 });

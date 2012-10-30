@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
+require_once 'libraries/navigation/Navigation.class.php';
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -142,19 +143,24 @@ class PMA_Header
     private function _addDefaultScripts()
     {
         $this->_scripts->addFile('jquery/jquery-1.6.2.js');
+        $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
+        $this->_scripts->addFile('jquery/jquery.cookie.js');
+        $this->_scripts->addFile('jquery/jquery.mousewheel.js');
+        $this->_scripts->addFile('jquery/jquery.event.drag-2.0.js');
+        $this->_scripts->addFile('jquery/timepicker.js');
         $this->_scripts->addFile('update-location.js');
+        $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
 
         $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $this->_scripts->addFile('codemirror/lib/codemirror.js');
             $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
         }
-        // Cross-framing protection
-        if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
-            $this->_scripts->addFile('cross_framing_protection.js');
-        }
+
+        $this->_scripts->addFile('rte.js');
+
         // Localised strings
         $params = array('lang' => $GLOBALS['lang']);
         if (isset($GLOBALS['db'])) {
@@ -168,9 +174,56 @@ class PMA_Header
             . urlencode($_SESSION['PMA_Theme']->getId())
         );
         $this->_scripts->addFile('functions.js');
-        $this->_scripts->addCode(
-            PMA_Util::getReloadNavigationScript(true)
+        $this->_scripts->addFile('navigation.js');
+        $this->_scripts->addFile('indexes.js');
+        $this->_scripts->addFile('common.js');
+        $this->_scripts->addCode($this->getJsParamsCode());
+    }
+
+    /**
+     * Returns, as an array, a list of parameters
+     * used on the client side
+     *
+     * @return array
+     */
+    public function getJsParams()
+    {
+        return array(
+            'common_query' => PMA_generate_common_url('', '', '&'),
+            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false',
+            'querywindow_height' => $GLOBALS['cfg']['QueryWindowHeight'],
+            'querywindow_width' => $GLOBALS['cfg']['QueryWindowWidth'],
+            'collation_connection' => $GLOBALS['collation_connection'],
+            'lang' => $GLOBALS['lang'],
+            'server' => $GLOBALS['server'],
+            'table' => $GLOBALS['table'],
+            'db'    => $GLOBALS['db'],
+            'token' => $_SESSION[' PMA_token '],
+            'text_dir' => $GLOBALS['text_dir'],
+            'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
+            'pma_text_default_tab' => PMA_Util::getTitleForTarget(
+                $GLOBALS['cfg']['DefaultTabTable']
+            ),
+            'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
+            )
         );
+    }
+
+    /**
+     * Returns, as a string, a list of parameters
+     * used on the client side
+     *
+     * @return string
+     */
+    public function getJsParamsCode()
+    {
+        $params = $this->getJsParams();
+        foreach ($params as $key => $value) {
+            $params[$key] = $key . ':"' . PMA_escapeJsString($value) . '"';
+        }
+        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**
@@ -204,6 +257,16 @@ class PMA_Header
     public function getScripts()
     {
         return $this->_scripts;
+    }
+
+    /**
+     * Returns the PMA_Menu object
+     *
+     * @return PMA_Menu object
+     */
+    public function getMenu()
+    {
+        return $this->_menu;
     }
 
     /**
@@ -276,25 +339,16 @@ class PMA_Header
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
-                $retval .= $this->_getTitleTag();
-                $title = PMA_sanitize(
-                    PMA_escapeJsString($this->_getPageTitle()),
-                    false,
-                    true
-                );
-                $this->_scripts->addCode(
-                    "if (typeof(parent.document) != 'undefined'"
-                    . " && typeof(parent.document) != 'unknown'"
-                    . " && typeof(parent.document.title) == 'string')"
-                    . "{"
-                    . "parent.document.title = '$title'"
-                    . "}"
-                );
+                $retval .= $this->getTitleTag();
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
                 $retval .= $this->_scripts->getDisplay();
                 $retval .= $this->_getBodyStart();
+                if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
+                    $nav = new PMA_Navigation();
+                    $retval .= $nav->getDisplay();
+                }
                 // Include possible custom headers
                 if (file_exists(CUSTOM_HEADER_FILE)) {
                     ob_start();
@@ -316,10 +370,36 @@ class PMA_Header
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
                 }
-                $retval .= $this->_addRecentTable(
-                    $GLOBALS['db'],
-                    $GLOBALS['table']
-                );
+                $retval .= '<div id="page_content">';
+                $retval .= $this->getMessage();
+            }
+            $retval .= $this->_addRecentTable(
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the message to be displayed at the top of
+     * the page, including the executed SQL query, if any.
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        $retval = '';
+        if (! empty($GLOBALS['message'])) {
+            if (isset($GLOBALS['buffer_message'])) {
+                $buffer_message = $GLOBALS['buffer_message'];
+            }
+            $retval .= PMA_Util::getMessage(
+                $GLOBALS['message']
+            );
+            unset($GLOBALS['message']);
+            if (isset($buffer_message)) {
+                $GLOBALS['buffer_message'] = $buffer_message;
             }
         }
         return $retval;
@@ -336,15 +416,11 @@ class PMA_Header
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-        /* Prevent against ClickJacking by allowing frames only from same origin */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming'] && ! defined('TESTSUITE')) {
-            header(
-                'X-Frame-Options: SAMEORIGIN'
-            );
+        if (! defined('TESTSUITE')) {
             header(
                 "X-Content-Security-Policy: allow 'self' http://www.phpmyadmin.net; "
                 . "options inline-script eval-script; "
-                . "frame-ancestors 'self'; img-src 'self' data:; "
+                . "img-src 'self' data:; "
             );
             header(
                 "X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; "
@@ -384,6 +460,7 @@ class PMA_Header
     {
         $retval  = '<meta charset="utf-8" />';
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
+        $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
         return $retval;
     }
 
@@ -411,7 +488,7 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php'
                 . $common_url . '&amp;nocache='
-                . $theme_id . '" />';
+                . $theme_id . $GLOBALS['text_dir'] . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.8.16.custom.css" />';
         }
@@ -424,7 +501,7 @@ class PMA_Header
      *
      * @return string the TITLE tag
      */
-    private function _getTitleTag()
+    public function getTitleTag()
     {
         $retval  = "<title>";
         $retval .= $this->_getPageTitle();
@@ -514,10 +591,13 @@ class PMA_Header
     private function _addRecentTable($db, $table)
     {
         $retval = '';
-        if (strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
+        if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['NumRecentTables'] > 0) {
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
-                $retval = '<span class="hide" id="update_recent_tables"></span>';
+                $params  = array('ajax_request' => true, 'recent_table' => true);
+                $url     = 'index.php' . PMA_generate_common_url($params);
+                $retval  = '<a class="hide" id="update_recent_tables"';
+                $retval .= ' href="' . $url . '"></a>';
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

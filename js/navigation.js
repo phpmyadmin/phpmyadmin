@@ -1,344 +1,975 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used in or for navigation frame
- */
-
-/**
- * init
- */
-var today = new Date();
-var expires = new Date(today.getTime() + (56 * 86400000));
-var pma_navi_width;
-var pma_saveframesize_timeout = null;
-
-/**
- * opens/closes (hides/shows) tree elements
+ * function used in or for navigation panel
  *
- * @param string  id          id of the element in the DOM
- * @param boolean only_open   do not close/hide element
+ * @package phpMyAdmin-Navigation
  */
-function toggle(id, only_open)
-{
-    var el = document.getElementById('subel' + id);
-    if (! el) {
-        return false;
-    }
-
-    var img = document.getElementById('el' + id + 'Img');
-
-    if (el.style.display == 'none' || only_open) {
-        el.style.display = '';
-        if (img) {
-            var newimg = PMA_getImage('b_minus.png');
-            img.className = newimg.attr('class');
-            img.src = newimg.attr('src');
-            img.alt = '-';
-        }
-        // if only one sub-list, open as well
-        var $submenus = $(el).find("> li > ul");
-        var $sublinks = $(el).find("> li > a.item, > li > a.tableicon");
-        if ($submenus.length == 1 && $sublinks.length == 0) {
-            toggle($submenus.prop("id").split("subel").join(""), true);
-        }
-    } else {
-        el.style.display = 'none';
-        if (img) {
-            var newimg = PMA_getImage('b_plus.png');
-            img.className = newimg.attr('class');
-            img.src = newimg.attr('src');
-            img.alt = '+';
-        }
-    }
-    return true;
-}
-
-function PMA_callFunctionDelayed(myfunction, delay)
-{
-    if (typeof pma_saveframesize_timeout == "number") {
-         window.clearTimeout(pma_saveframesize_timeout);
-        pma_saveframesize_timeout = null;
-    }
-}
 
 /**
- * saves current navigation frame width in a cookie
- * usally called on resize of the navigation frame
+ * Executed on page load
  */
-function PMA_saveFrameSizeReal()
-{
-    if (parent.text_dir == 'ltr') {
-        pma_navi_width = parseInt(parent.document.getElementById('mainFrameset').cols);
-    } else {
-        pma_navi_width = parent.document.getElementById('mainFrameset').cols.match(/\d+$/);
-    }
-    if ((pma_navi_width > 0) && (pma_navi_width != PMA_getCookie('pma_navi_width'))) {
-        PMA_setCookie('pma_navi_width', pma_navi_width, expires);
-    }
-}
-
-/**
- * calls PMA_saveFrameSizeReal with delay
- */
-function PMA_saveFrameSize()
-{
-    //alert(typeof(pma_saveframesize_timeout) + ' : ' + pma_saveframesize_timeout);
-
-    if (typeof pma_saveframesize_timeout == "number") {
-        window.clearTimeout(pma_saveframesize_timeout);
-        pma_saveframesize_timeout = null;
+$(function() {
+    if (! $('#pma_navigation').length) {
+        // Don't bother running any code if the navigation is not even on the page
+        return;
     }
 
-    pma_saveframesize_timeout = window.setTimeout(PMA_saveFrameSizeReal, 2000);
-}
+    // Fire up the resize and scroll handlers
+    new ResizeHandler();
+    ScrollHandler.init();
 
-/**
- * sets navigation frame width to the value stored in the cookie
- * usally called on document load
- */
-function PMA_setFrameSize()
-{
-    pma_navi_width = PMA_getCookie('pma_navi_width');
-    //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
-    if (pma_navi_width != null && parent.document != document) {
-        if (parent.text_dir == 'ltr') {
-            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+    /**
+     * opens/closes (hides/shows) tree elements
+     * loads data via ajax
+     */
+    $('#pma_navigation_tree a.expander').live('click', function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var $this = $(this);
+        var $children = $this.closest('li').children('div.list_container');
+        var $icon = $this.find('img');
+        if ($this.hasClass('loaded')) {
+            if ($icon.is('.ic_b_plus')) {
+                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                $children.show('fast', function () {
+                    ScrollHandler.displayScrollbar();
+                });
+            } else {
+                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+                $children.hide('fast', function () {
+                    ScrollHandler.displayScrollbar();
+                });
+            }
         } else {
-            parent.document.getElementById('mainFrameset').cols = '*,' + pma_navi_width;
-        }
-        //alert('framesize set');
-    }
-}
+            var $destination = $this.closest('li');
+            var $throbber = $('#pma_navigation .throbber')
+                .first()
+                .clone()
+                .css('visibility', 'visible');
+            $icon.hide();
+            $throbber.insertBefore($icon);
 
-/**
- * retrieves a named value from cookie
- *
- * @param string  name    name of the value to retrieve
- * @return string  value   value for the given name from cookie
- */
-function PMA_getCookie(name)
-{
-    var start = document.cookie.indexOf(name + "=");
-    var len = start + name.length + 1;
-    if ((!start) && (name != document.cookie.substring(0, name.length))) {
-        return null;
-    }
-    if (start == -1) {
-        return null;
-    }
-    var end = document.cookie.indexOf(";", len);
-    if (end == -1) {
-        end = document.cookie.length;
-    }
-    return unescape(document.cookie.substring(len,end));
-}
+            var searchClause = PMA_fastFilter.getSearchClause();
+            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
 
-/**
- * stores a named value into cookie
- *
- * @param string  name    name of value
- * @param string  value   value to be stored
- * @param Date    expires expire time
- * @param string  path
- * @param string  domain
- * @param boolean secure
- */
-function PMA_setCookie(name, value, expires, path, domain, secure)
-{
-    document.cookie = name + "=" + escape(value) +
-        ( (expires) ? ";expires=" + expires.toGMTString() : "") +
-        ( (path)    ? ";path=" + path : "") +
-        ( (domain)  ? ";domain=" + domain : "") +
-        ( (secure)  ? ";secure" : "");
-}
-
-/**
- * hide all LI elements with second A tag which doesn`t contain requested value
- *
- * @param string  value    requested value
- *
- */
-function fast_filter(value)
-{
-    var lowercase_value = value.toLowerCase();
-    var matches = 0;
-    var db = $('#lightm_db').val();
-    $('li.ajax_table').hide();
-    $("#subel0 a[class!='tableicon']").each(function(idx, elem) {
-        var $elem = $(elem);
-        // .indexOf is case sensitive so convert to lowercase to compare
-        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
-            $elem.parent().hide();
-        } else {
-            $elem.parents('li').show();
-            matches = matches + 1;
-        }
-    });
-   
-    if (matches === 0) {  //If no local matches search in all tables
-        if (fast_filter.ajax_semaphore) { //If is true another request is running
-            return;
-        }
-        fast_filter.ajax_semaphore = true;
-        $.get('db_tables_search.php?db=' + db +'&table=' + lowercase_value, function(data) {
-            if (data.tables) {
-                var tables = data.tables;
-                var l = tables.length;        
-                for(var i = 0; i < l; i++) {          
-                    $('#subel0').append(tables[i].line);
+            var params = {
+                aPath: $(this).find('span.aPath').text(),
+                vPath: $(this).find('span.vPath').text(),
+                pos: $(this).find('span.pos').text(),
+                pos2_name: $(this).find('span.pos2_name').text(),
+                pos2_value: $(this).find('span.pos2_value').text(),
+                searchClause: searchClause,
+                searchClause2: searchClause2
+            };
+            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+            $.get(url, params, function (data) {
+                if (data.success === true) {
+                    $this.addClass('loaded');
+                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+                    $destination.append(data.message);
+                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                    $destination
+                        .children('div.list_container')
+                        .show(
+                            'fast',
+                            function () {
+                                ScrollHandler.displayScrollbar();
+                            }
+                        );
+                    if ($destination.find('ul > li').length == 1) {
+                        $destination.find('ul > li')
+                            .find('a.expander.container')
+                            .click();
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
                 }
-                fast_filter.ajax_semaphore = false;
+                $icon.show();
+                $throbber.remove();
+            });
+        }
+        $(this).blur();
+    });
+
+    /**
+     * Register event handler for click on the reload
+     * navigation icon at the top of the panel
+     */
+    $('#pma_navigation_reload').live('click', function (event) {
+        event.preventDefault();
+        PMA_reloadNavigation();
+    });
+
+    /**
+     * Bind all "fast filter" events
+     */
+    $('#pma_navigation_tree li.fast_filter span')
+        .live('click', PMA_fastFilter.events.clear);
+    $('#pma_navigation_tree li.fast_filter input.searchClause')
+        .live('focus', PMA_fastFilter.events.focus)
+        .live('blur', PMA_fastFilter.events.blur)
+        .live('keyup', PMA_fastFilter.events.keyup);
+
+    /**
+     * Ajax handler for pagination
+     */
+    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+        event.preventDefault();
+        PMA_navigationTreePagination($(this));
+    });
+
+    /**
+     * Node highlighting
+     */
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseover',
+        function () {
+            if ($('li:visible', this).length == 0) {
+                $(this).addClass('activePointer');
             }
-        });
-    }
-}
-
-fast_filter.ajax_semaphore = false; //If is true an Ajax request is running
-
-/**
- * Clears fast filter.
- */
-function clear_fast_filter()
-{
-    var $elm = $('#fast_filter');
-    $elm.val('');
-    fast_filter('');
-}
-
-/**
- * hide all LI elements with second A tag which doesn`t contain requested value
- *
- * @param string  value    requested value
- *
- */
-function fast_db_filter(value)
-{
-    var lowercase_value = value.toLowerCase();
- 
-    $('#databaseList li a').each(function(idx, elem) {
-        var $elem = $(elem);
-        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
-            $elem.parent().hide();
-        } else {
-            $elem.parents('li').show();
         }
-    });
-
-}
-
-/**
- * Clears fast database filter.
- */
-function clear_fast_db_filter()
-{
-    var $elm = $('#fast_db_filter');
-    $elm.val('');
-    fast_db_filter('');
-}
-
-/**
- * Reloads the recent tables list.
- */
-function PMA_reloadRecentTable()
-{
-    $.get('navigation.php', {
-            'token': window.parent.token,
-            'server': window.parent.server,
-            'ajax_request': true,
-            'recent_table': true},
-        function (data) {
-            if (data.success == true) {
-                $('#recentTable').html(data.options);
-            }
-        });
-}
-
-/* Performed on load */
-$(function(){
-    /* Display filter */
-    $('#NavFilter').css('display', 'inline');
-    var txt = $('#fast_filter').val();
-
-    $('#fast_filter.gray').live('focus', function() {
-        $(this).removeClass('gray');
-        clear_fast_filter();
-    });
-
-    $('#fast_filter:not(.gray)').live('focusout', function() {
-        var $input = $(this);
-        if ($input.val() == '') {
-            $input
-                .addClass('gray')
-                .val(txt);
+    );
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseout',
+        function () {
+            $(this).removeClass('activePointer');
         }
-    });
+    );
 
-    $('#clear_fast_filter').click(function() {
-        clear_fast_filter();
-        $('#fast_filter').focus();
-    });
-
-    $('#fast_filter').keyup(function(evt) {        
-        fast_filter($(this).val());
-        if ($(this).val() == '') { //Hides added tables by search
-          $('li.ajax_table').hide();
-        }
-    });
-
-    /* Fast database filter */
-    var txtDb = $('#fast_db_filter').val();
-
-    $('#fast_db_filter.gray').live('focus', function() {
-        $(this).removeClass('gray');
-        clear_fast_db_filter();
-    });
-
-    $('#fast_db_filter:not(.gray)').live('focusout', function() {
-        var $input = $(this);
-        if ($input.val() == '') {
-            $input
-                .addClass('gray')
-                .val(txtDb);
-        }
-    });
-
-    $('#clear_fast_db_filter').click(function() {
-        clear_fast_db_filter();
-        $('#fast_db_filter').focus();
-    });
-
-    $('#fast_db_filter').keyup(function(evt) {        
-        fast_db_filter($(this).val());
-    });
-
-    /* Jump to recent table */
-    $('#recentTable').change(function() {
+    /**
+     * Jump to recent table
+     */
+    $('#recentTable').live('change', function() {
         if (this.value != '') {
             var arr = jQuery.parseJSON(this.value);
-            window.parent.setDb(arr['db']);
-            window.parent.setTable(arr['table']);
-            window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
+            var $form = $(this).closest('form');
+            $form.find('input[name=db]').val(arr['db']);
+            $form.find('input[name=table]').val(arr['table']);
+            $form.submit();
         }
     });
 
-    /* Create table */
-    $('#newtable a.ajax').click(function(event){
+    /** Create a Routine, Trigger or Event */
+    $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();
-        /*Getting the url */
-        var url = $('#newtable a').attr("href");
-        if (url.substring(0, 15) == "tbl_create.php?") {
-             url = url.substring(15);
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(1, $(this))
+    });
+    $('li.new_trigger a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('trigger');
+        dialog.editorDialog(1, $(this))
+    });
+    $('li.new_event a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('event');
+        dialog.editorDialog(1, $(this))
+    });
+
+    /** Edit Routines, Triggers and Events */
+    $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(0, $(this))
+    });
+    $('li.trigger > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('trigger');
+        dialog.editorDialog(0, $(this))
+    });
+    $('li.event > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('event');
+        dialog.editorDialog(0, $(this))
+    });
+
+    /** Export Routines, Triggers and Events */
+    $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object();
+        dialog.exportDialog($(this).parent())
+    });
+
+    /** New index */
+    $('li.new_index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages['strAddIndex'];
+        indexEditorDialog(url, title);
+    });
+
+    /** Edit index */
+    $('li.index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages['strEditIndex'];
+        indexEditorDialog(url, title);
+    });
+
+    /** New view */
+    $('li.new_view a.ajax').live('click', function (event) {
+        event.preventDefault();
+        PMA_createViewDialog($(this));
+    });
+});
+
+/**
+ * Reloads the whole navigation tree while preserving its state
+ *
+ * @return void
+ */
+function PMA_reloadNavigation() {
+    var $throbber = $('#pma_navigation .throbber')
+        .first()
+        .css('visibility', 'visible');
+    var params = {
+        reload: true,
+        pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
+    };
+    // Trasverse the navigation tree backwards to generate all the actual
+    // and virtual paths, as well as the positions in the pagination at
+    // various levels, if necessary.
+    var count = 0;
+    $('#pma_navigation_tree').find('a.expander:visible').each(function () {
+        if ($(this).find('img').is('.ic_b_minus')
+            && $(this).closest('li').find('div.list_container .ic_b_minus').length == 0
+        ) {
+            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
+            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
+
+            var pos2_name = $(this).find('span.pos2_name').text();
+            if (! pos2_name) {
+                pos2_name = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_name:last')
+                    .text();
+            }
+            var pos2_value = $(this).find('span.pos2_value').text();
+            if (! pos2_value) {
+                pos2_value = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_value:last')
+                    .text();
+            }
+
+            params['n' + count + '_pos2_name'] = pos2_name;
+            params['n' + count + '_pos2_value'] = pos2_value;
+
+            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
+            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
+            count++;
         }
-        url = url +"&num_fields=&ajax_request=true";
-        /*Creating a div on the frame_content frame */
-        var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
-        var target = "tbl_create.php";
+    });
+    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+    $.post(url, params, function (data) {
+        $throbber.css('visibility', 'hidden');
+        if (data.success) {
+            $('#pma_navigation_tree').html(data.message).children('div').show();
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    });
+};
 
-        /*
-         * Calling to the createTableDialog function
-         * (needs to be done in the context of frame_content in order
-         *  for the qtip tooltips to work)
-         * */
-        parent.frame_content.PMA_createTableDialog(div , url , target);
-    });//end of create new table
-});//end of document get ready
+/**
+ * Handles any requests to change the page in a branch of a tree
+ *
+ * This can be called from link click or select change event handlers
+ *
+ * @param object $this A jQuery object that points to the element that
+ * initiated the action of changing the page
+ *
+ * @return void
+ */
+function PMA_navigationTreePagination($this)
+{
+    var $msgbox = PMA_ajaxShowMessage();
+    var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    if ($this[0].tagName == 'A') {
+        var url = $this.attr('href');
+        var params = 'ajax_request=true';
+    } else { // tagName == 'SELECT'
+        var url = 'navigation.php';
+        var params = $this.closest("form").serialize() + '&ajax_request=true';
+    }
+    var searchClause = PMA_fastFilter.getSearchClause();
+    if (searchClause) {
+        params += '&searchClause=' + encodeURIComponent(searchClause);
+    }
+    if (isDbSelector) {
+        params += '&full=true';
+    } else {
+        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
+        if (searchClause2) {
+            params += '&searchClause2=' + encodeURIComponent(searchClause2);
+        }
+    }
+    $.post(url, params, function (data) {
+        PMA_ajaxRemoveMessage($msgbox);
+        if (data.success) {
+            if (isDbSelector) {
+                var val = PMA_fastFilter.getSearchClause();
+                $('#pma_navigation_tree')
+                    .html(data.message)
+                    .children('div')
+                    .show();
+                if (val) {
+                    $('#pma_navigation_tree')
+                        .find('li.fast_filter input.searchClause')
+                        .val(val);
+                }
+            } else {
+                var $parent = $this.closest('div.list_container').parent();
+                var val = PMA_fastFilter.getSearchClause2($this);
+                $this.closest('div.list_container').html(
+                    $(data.message).children().show()
+                );
+                if (val) {
+                    $parent.find('li.fast_filter input.searchClause').val(val);
+                }
+                $parent.find('span.pos2_value:first').text(
+                    $parent.find('span.pos2_value:last').text()
+                );
+                $parent.find('span.pos3_value:first').text(
+                    $parent.find('span.pos3_value:last').text()
+                );
+            }
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    });
+};
 
+/**
+ * @var ScrollHandler Custom object that manages the scrolling of the navigation
+ */
+var ScrollHandler = {
+    busy: false,
+    /**
+     * Limits the percentage of scrolling within sane values
+     *
+     * @param double The value to be sanitised
+     *
+     * @return double
+     */
+    sanitize: function (value) {
+        if (value < 0) {
+            value = 0;
+        } else if (value > 1) {
+            value = 1;
+        }
+        return value;
+    },
+    /**
+     * Positions the scrollbar at the requested height
+     *
+     * @param double The value to set the positions of the scrollbar to
+     *
+     * @return void
+     */
+    setScrollbar: function (value) {
+        value = ScrollHandler.sanitize(value);
+        var elms = ScrollHandler.elms;
+        var height = elms.$scrollbar.height() - elms.$handle.height() - elms.$scrollbar.offset().top;
+        var offset = Math.floor(
+            value * height
+        );
+        elms.$handle.css('top', offset);
+    },
+    /**
+     * Positions the navigation at the requested height
+     *
+     * @param double The value to set the positions of the navigation to
+     *
+     * @return void
+     */
+    setContent: function (value) {
+        value = ScrollHandler.sanitize(value);
+        var elms = ScrollHandler.elms;
+        var diff = elms.$content.height() - $(window).height();
+        var offset = Math.floor(
+            value * diff
+        );
+        elms.$content.css('top', -offset);
+    },
+    /**
+     * Shows/hides the scrollbar as necessary
+     *
+     * @return void
+     */
+    displayScrollbar: function () {
+        var elms = ScrollHandler.elms;
+        if (elms.$content.height() > $(window).height()) {
+            elms.$scrollbar.show().data('active', 1);
+            var visibleRatio = (
+                $(window).height() - elms.$scrollbar.offset().top
+            ) / elms.$content.height();
+            elms.$handle.height(
+                Math.floor(
+                    visibleRatio * $(window).height()
+                )
+            );
+        } else {
+            elms.$scrollbar.hide().data('active', 0);
+            elms.$content.css('top', 0);
+        }
+    },
+    /**
+     * Initialises the scrollHandler
+     *
+     * @return void
+     */
+    init: function () {
+        this.elms = {
+            $content: $('#pma_navigation_content'),
+            $scrollbar: $('#pma_navigation_scrollbar'),
+            $handle: $('#pma_navigation_scrollbar_handle')
+        };
+        this.displayScrollbar();
+        $(window).bind('resize', this.displayScrollbar);
+        this.elms.$handle.live('drag', function (event, drag) {
+            if (ScrollHandler.busy) {
+                return;
+            }
+            var elms = ScrollHandler.elms;
+            var scrollbarOffset = elms.$scrollbar.offset().top;
+            var pos = drag.offsetY - scrollbarOffset;
+            var height = $(window).height() - scrollbarOffset - elms.$handle.height();
+            value = ScrollHandler.sanitize(pos / height);
+            ScrollHandler.setScrollbar(value);
+            ScrollHandler.setContent(value);
+            ScrollHandler.busy = true;
+            setTimeout(function () {
+                ScrollHandler.busy = false;
+            }, 4);
+        });
+        this.elms.$scrollbar.live('click', function (event) {
+            if($(event.target).attr('id') === $(this).attr('id')) {
+                var $scrollbar = ScrollHandler.elms.$scrollbar;
+                var $handle = ScrollHandler.elms.$handle;
+                var pos = event.pageY - $scrollbar.offset().top - ($handle.height() / 2);
+                var height = $scrollbar.height() - $scrollbar.offset().top - $handle.height();
+                var target = pos / height;
+                ScrollHandler.setScrollbar(target);
+                ScrollHandler.setContent(target);
+            }
+        });
+        $('#pma_navigation').live(
+            'mousewheel',
+            function(event, delta, deltaX, deltaY) {
+                event.preventDefault();
+                var elms = ScrollHandler.elms;
+                if (elms.$scrollbar.data('active')) {
+                    var elms = ScrollHandler.elms;
+                    var pixelValue = 1 / (elms.$content.height() - $(window).height());
+                    var offset = -deltaY * 20 * pixelValue;
+                    var pos = Math.abs(elms.$content.offset().top);
+                    var diff = elms.$content.height() - $(window).height();
+                    var target = ScrollHandler.sanitize((pos / diff) + offset);
+                    ScrollHandler.setScrollbar(target);
+                    ScrollHandler.setContent(target);
+                }
+            }
+        );
+    }
+};
+
+/**
+ * @var ResizeHandler Custom object that manages the resizing of the navigation
+ *
+ * XXX: Must only be ever instanciated once
+ * XXX: Inside event handlers the 'this' object is accessed as 'event.data.this'
+ */
+var ResizeHandler = function () {
+    /**
+     * Whether the user has initiated a resize operation
+     */
+    this.active = false;
+    /**
+     * Whether we are busy rendering
+     */
+    this.busy = false;
+    /**
+     * A position to which we were supposed to resize,
+     * but we couldn't because we were busy handling
+     * another resize operation
+     */
+    this.saved = undefined;
+    /**
+     * @var int goto Used by the collapser to know where to go
+     *               back to when uncollapsing the panel
+     */
+    this.goto = 0;
+    /**
+     * @var string left Used to provide support for RTL languages
+     */
+    this.left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
+    /**
+     * Adjusts the width of the navigation panel to the specified value
+     *
+     * @param int pos Navigation width in pixels
+     *
+     * @return void
+     */
+    this.setWidth = function (pos) {
+        this.busy = true;
+        var $resizer = $('#pma_navigation_resizer');
+        var resizer_width = $resizer.width();
+        var $collapser = $('#pma_navigation_collapser');
+        $('#pma_navigation').width(pos);
+        $('body').css('margin-' + this.left, pos + 'px');
+        $("#floating_menubar")
+            .css('margin-' + this.left, (pos + resizer_width) + 'px');
+        $resizer.css(this.left, pos + 'px');
+        if (pos === 0) {
+            $collapser
+                .css(this.left, pos + resizer_width)
+                .html(this.getSymbol(pos))
+                .prop('title', PMA_messages['strShowPanel']);
+            $('#serverinfo').css('padding-' + this.left, '2.2em');
+        } else {
+            $collapser
+                .css(this.left, pos - $collapser.width())
+                .html(this.getSymbol(pos))
+                .prop('title', PMA_messages['strHidePanel']);
+            $('#serverinfo').css('padding-' + this.left, '0.9em');
+        }
+        $('#pma_navigation_scrollbar').css(
+            this.left,
+            (pos - $('#pma_navigation_scrollbar').width()) + 'px'
+        );
+
+        // Remove busy flag asynchronously, this way the event queue
+        // can clear up meanwhile. This speeds up rendering
+        var self = this;
+        setTimeout(function () {
+            if (typeof self.saved == 'undefined') {
+                self.busy = false;
+            } else {
+                var target = self.saved;
+                self.saved = undefined;
+                self.setWidth(target);
+            }
+        }, 40);
+    };
+    /**
+     * Returns the horizontal position of the mouse,
+     * relative to the outer side of the navigation panel
+     *
+     * @param int pos Navigation width in pixels
+     *
+     * @return void
+     */
+    this.getPos = function (event) {
+        var pos = event.pageX;
+        var windowWidth = $(window).width();
+        if (this.left != 'left') {
+            pos = windowWidth - event.pageX;
+        }
+        if (pos < 0) {
+            pos = 0;
+        } else if (pos + 100 >= windowWidth) {
+            pos = windowWidth - 100;
+        } else {
+            this.goto = 0;
+        }
+        return pos;
+    };
+    /**
+     * Returns the HTML code for the arrow symbol used in the collapser
+     *
+     * @param int width The width of the panel
+     *
+     * @return string
+     */
+    this.getSymbol = function (width) {
+        if (this.left == 'left') {
+            if (width == 0) {
+                return '&rarr;';
+            } else {
+                return '&larr;';
+            }
+        } else {
+            if (width == 0) {
+                return '&larr;';
+            } else {
+                return '&rarr;';
+            }
+        }
+    };
+    /**
+     * Event handler for initiating a resize of the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mousedown = function (event) {
+        event.preventDefault();
+        event.data.this.active = true;
+        $('body').css('cursor', 'col-resize');
+    };
+    /**
+     * Event handler for terminating a resize of the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mouseup = function (event) {
+        if (event.data.this.active) {
+            event.data.this.active = false;
+            $('body').css('cursor', '');
+            $.cookie('pma_navi_width', event.data.this.getPos(event));
+            menuResize();
+        }
+    };
+    /**
+     * Event handler for updating the panel during a resize operation
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mousemove = function (event) {
+        if (event.data.this.active) {
+            event.preventDefault();
+            var pos = event.data.this.getPos(event);
+            if (! event.data.this.busy) {
+                event.data.this.setWidth(pos);
+            } else {
+                event.data.this.saved = pos;
+            }
+        }
+    };
+    /**
+     * Event handler for collapsing the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.collapse = function (event) {
+        event.preventDefault();
+        event.data.active = false;
+        var goto = event.data.this.goto;
+        var width = $('#pma_navigation').width();
+        if (width === 0 && goto === 0) {
+            goto = 240;
+        }
+        event.data.this.setWidth(goto);
+        event.data.this.goto = width;
+    };
+    /* Initialisation section begins here */
+    if ($.cookie('pma_navi_width')) {
+        // If we have a cookie, set the width of the panel to its value
+        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10));
+        this.setWidth(pos);
+        menuResize();
+    }
+    // Register the events for the resizer and the collapser
+    $('#pma_navigation_resizer')
+        .live('mousedown', {'this':this}, this.mousedown);
+    $(document)
+        .bind('mouseup', {'this':this}, this.mouseup)
+        .bind('mousemove', {'this':this}, this.mousemove);
+    var $collapser = $('#pma_navigation_collapser');
+    $collapser.live('click', {'this':this}, this.collapse);
+    // Add the correct arrow symbol to the collapser
+    $collapser.html(this.getSymbol($('#pma_navigation').width()));
+}; // End of ResizeHandler
+
+/**
+ * @var object PMA_fastFilter Handles the functionality that allows filtering
+ *                            of the items in a branch of the navigation tree
+ */
+var PMA_fastFilter = {
+    /**
+     * Construct for the asynchronous fast filter functionality
+     *
+     * @param object $this        A jQuery object pointing to the list container
+     *                            which is the nearest parent of the fast filter
+     * @param string searchClause The query string for the filter
+     *
+     * @return new PMA_fastFilter.filter object
+     */
+    filter: function ($this, searchClause) {
+        /**
+         * @var object $this A jQuery object pointing to the list container
+         *                   which is the nearest parent of the fast filter
+         */
+        this.$this = $this;
+        /**
+         * @var bool searchClause The query string for the filter
+         */
+        this.searchClause = searchClause;
+        /**
+         * @var object $clone A clone of the original contents
+         *                    of the navigation branch before
+         *                    the fast filter was applied
+         */
+        this.$clone = $this.clone();
+        /**
+         * @var bool swapped Whether the user clicked on the "N other results" link
+         */
+        this.swapped = false;
+        /**
+         * @var object xhr A reference to the ajax request that is currently running
+         */
+        this.xhr = null;
+        /**
+         * @var int timeout Used to delay the request for asynchronous search
+         */
+        this.timeout = null;
+
+        var $filterInput = $this.find('li.fast_filter input.searchClause');
+        if (   $filterInput.length != 0
+            && $filterInput.val() != ''
+            && $filterInput.val() != $filterInput[0].defaultValue
+        ) {
+            this.request();
+        }
+    },
+    /**
+     * Gets the query string from the database fast filter form
+     *
+     * @return string
+     */
+    getSearchClause: function () {
+        var retval = '';
+        var $input = $('#pma_navigation_tree')
+            .find('li.fast_filter.db_fast_filter input.searchClause');
+        if ($input.length && $input.val() != $input[0].defaultValue) {
+            retval = $input.val();
+        }
+        return retval;
+    },
+    /**
+     * Gets the query string from a second level item's fast filter form
+     * The retrieval is done by trasversing the navigation tree backwards
+     *
+     * @return string
+     */
+    getSearchClause2: function ($this) {
+        var $filterContainer = $this.closest('div.list_container');
+        var $filterInput = $([]);
+        while (1) {
+            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length != 0) {
+                $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
+                break;
+            } else if (! $filterContainer.is('div.list_container')) {
+                break;
+            }
+            $filterContainer = $filterContainer
+                .parent()
+                .closest('div.list_container');
+        }
+        var searchClause2 = '';
+        if ($filterInput.length != 0
+            && $filterInput.first().val() != $filterInput[0].defaultValue
+        ) {
+            searchClause2 = $filterInput.val();
+        }
+        return searchClause2;
+    },
+    /**
+     * @var hash events A list of functions that are bound to DOM events
+     *                  at the top of this file
+     */
+    events: {
+        focus: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            if (! $obj.data('fastFilter')) {
+                $obj.data(
+                    'fastFilter',
+                    new PMA_fastFilter.filter($obj, $(this).val())
+                );
+            }
+            if ($(this).val() == this.defaultValue) {
+                $(this).val('');
+            } else {
+                $(this).select();
+            }
+        },
+        blur: function (event) {
+            if ($(this).val() == '') {
+                $(this).val(this.defaultValue);
+            }
+            var $obj = $(this).closest('div.list_container');
+            if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore();
+            }
+        },
+        keyup: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            var str = '';
+            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+                $obj.find('div.pageselector').hide();
+                str = $(this).val().toLowerCase();
+            }
+            $obj.find('li > a').not('.container').each(function () {
+                if ($(this).text().toLowerCase().indexOf(str) != -1) {
+                    $(this).parent().show().removeClass('hidden');
+                } else {
+                    $(this).parent().hide().addClass('hidden');
+                }
+            });
+            var container_filter = function ($curr, str) {
+                $curr.children('li').children('a.container').each(function () {
+                    var $group = $(this).parent().children('ul');
+                    if ($group.children('li').children('a.container').length > 0) {
+                        container_filter($group); // recursive
+                    }
+                    $group.parent().show().removeClass('hidden');
+                    if ($group.children().not('.hidden').length == 0) {
+                        $group.parent().hide().addClass('hidden');
+                    }
+                });
+            };
+            container_filter($obj, str);
+            ScrollHandler.displayScrollbar();
+            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+                if (! $obj.data('fastFilter')) {
+                    $obj.data(
+                        'fastFilter',
+                        new PMA_fastFilter.filter($obj, $(this).val())
+                    );
+                } else {
+                    $obj.data('fastFilter').update($(this).val());
+                }
+            } else if ($obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore(true);
+            }
+        },
+        clear: function (event) {
+            event.stopPropagation();
+            // Clear the input and apply the fast filter with empty input
+            var filter = $(this).closest('div.list_container').data('fastFilter');
+            if (filter) {
+                filter.restore();
+            }
+            var value = $(this).prev()[0].defaultValue;
+            $(this).prev().val(value).trigger('keyup');
+        },
+    }
+};
+/**
+ * Handles a change in the search clause
+ *
+ * @param string searchClause The query string for the filter
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.update = function (searchClause)
+{
+    if (this.searchClause != searchClause) {
+        this.searchClause = searchClause;
+        this.$this.find('.moreResults').remove();
+        this.request();
+    }
+};
+/**
+ * After a delay of 250mS, initiates a request to retrieve search results
+ * Multiple calls to this function will always abort the previous request
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.request = function ()
+{
+    var that = this;
+    clearTimeout(this.timeout);
+    if (that.$this.find('li.fast_filter').find('img.throbber').length == 0) {
+        that.$this.find('li.fast_filter').append(
+            $('<div class="throbber"></div>').append(
+                $('#pma_navigation_content')
+                    .find('img.throbber')
+                    .clone()
+                    .css('visibility', 'visible')
+            )
+        );
+    }
+    this.timeout = setTimeout(function () {
+        if (that.xhr) {
+            that.xhr.abort();
+        }
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        var results = that.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
+        var params = that.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
+        if (that.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length == 0) {
+            var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
+            if ($input.length && $input.val() != $input[0].defaultValue) {
+                params += '&searchClause=' + encodeURIComponent($input.val());
+            }
+        }
+        that.xhr = $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: params,
+            complete: function (jqXHR) {
+                var data = $.parseJSON(jqXHR.responseText);
+                that.$this.find('li.fast_filter').find('div.throbber').remove();
+                if (data && data.results) {
+                    var $listItem = $('<li />', {'class':'moreResults'})
+                        .appendTo(that.$this.find('li.fast_filter'));
+                    var $link = $('<a />', {href:'#'})
+                        .text(data.results)
+                        .appendTo($listItem)
+                        .click(function (event) {
+                            event.preventDefault();
+                            that.swap.apply(that, [data.message]);
+                        });
+                }
+            }
+        });
+    }, 250);
+};
+/**
+ * Replaces the contents of the navigation branch with the search results
+ *
+ * @param string list The search results
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.swap = function (list)
+{
+    this.swapped = true;
+    this.$this
+        .html($(list).html())
+        .children()
+        .show()
+        .end()
+        .find('li.fast_filter input.searchClause')
+        .val(this.searchClause);
+    this.$this.data('fastFilter', this);
+    ScrollHandler.displayScrollbar();
+};
+/**
+ * Restores the navigation to the original state after the fast filter is cleared
+ *
+ * @param bool focus Whether to also focus the input box of the fast filter
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.restore = function (focus)
+{
+    if (this.swapped) {
+        this.swapped = false;
+        this.$this.html(this.$clone.html()).children().show();
+        this.$this.data('fastFilter', this);
+        if (focus) {
+            this.$this.find('li.fast_filter input.searchClause').focus();
+        }
+    }
+    this.searchClause = '';
+    this.$this.find('.moreResults').remove();
+    this.$this.find('div.pageselector').show();
+    this.$this.find('div.throbber').remove();
+    ScrollHandler.displayScrollbar();
+};

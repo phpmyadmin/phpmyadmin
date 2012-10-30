@@ -169,7 +169,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     <br />
     <!-- Login form -->
     <form method="post" action="index.php" name="login_form"' . $autocomplete .
-            ' target="_top" class="login hide js-show">
+            ' class="disableAjax login hide js-show">
         <fieldset>
         <legend>';
         echo __('Log in');
@@ -216,7 +216,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '>';
 
             include_once './libraries/select_server.lib.php';
-            PMA_selectServer(false, false);
+            echo PMA_selectServer(false, false);
 
             echo '</select></div>';
         } else {

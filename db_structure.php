@@ -140,7 +140,6 @@ $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
 $check_time_all = '';
-$checked        = (!empty($checkall) ? ' checked="checked"' : '');
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
     : 0;
@@ -272,7 +271,7 @@ foreach ($tables as $keyname => $current_table) {
     );
 
     list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
-        $i, $odd_row, $table_is_view, $current_table, $checked,
+        $i, $odd_row, $table_is_view, $current_table,
         $browse_table_label, $tracking_icon, $server_slave_status,
         $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
         $titles, $empty_table, $drop_query, $drop_message, $collation,

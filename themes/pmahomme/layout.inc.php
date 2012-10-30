@@ -12,20 +12,19 @@
  * navi frame
  */
 // navi frame width
-$GLOBALS['cfg']['NaviWidth']                = 200;
+$GLOBALS['cfg']['NaviWidth']                = 240;
 
 // foreground (text) color for the navi frame
 $GLOBALS['cfg']['NaviColor']                = '#000';
 
 // background for the navi frame
-$GLOBALS['cfg']['NaviBackground']           = '#D0DCE0';
+$GLOBALS['cfg']['NaviBackground']           = '#f3f3f3';
 
 // foreground (text) color of the pointer in navi frame
 $GLOBALS['cfg']['NaviPointerColor']         = '#000';
+
 // background of the pointer in navi frame
-$GLOBALS['cfg']['NaviPointerBackground']    = '#99c';
-// text color of the selected database name (when showing the table list)
-$GLOBALS['cfg']['NaviDatabaseNameColor']    = '#00f';
+$GLOBALS['cfg']['NaviPointerBackground']    = '#ddd';
 
 /**
  * main frame

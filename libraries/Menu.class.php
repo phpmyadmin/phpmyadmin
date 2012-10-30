@@ -73,17 +73,21 @@ class PMA_Menu
     {
         $retval  = $this->_getBreadcrumbs();
         $retval .= $this->_getMenu();
-        if (! empty($GLOBALS['message'])) {
-            if (isset($GLOBALS['buffer_message'])) {
-                $buffer_message = $GLOBALS['buffer_message'];
-            }
-            $retval .= PMA_Util::getMessage($GLOBALS['message']);
-            unset($GLOBALS['message']);
-            if (isset($buffer_message)) {
-                $GLOBALS['buffer_message'] = $buffer_message;
-            }
-        }
         return $retval;
+    }
+
+    /**
+     * Returns hash for the menu and the breadcrumbs
+     *
+     * @return string
+     */
+    public function getHash()
+    {
+        return substr(
+            md5($this->_getMenu() . $this->_getBreadcrumbs()),
+            0,
+            8
+        );
     }
 
     /**
@@ -93,7 +97,7 @@ class PMA_Menu
      */
     private function _getMenu()
     {
-        $tabs = '';
+        $tabs = array();
         $url_params = array('db' => $this->_db);
         if (strlen($this->_table)) {
             $tabs = $this->_getTableTabs();

@@ -144,9 +144,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         ?>
         <script type="text/javascript">
         //<![CDATA[
-            if (window.opener) {
-                window.opener.parent.insertQuery();
-            }
+            PMA_querywindow.showQuery();
         //]]>
         </script>
         <?php

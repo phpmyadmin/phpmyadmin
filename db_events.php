@@ -13,16 +13,6 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/Util.class.php';
 
 /**
- * Include JavaScript libraries
- */
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('jquery/timepicker.js');
-$scripts->addFile('rte/common.js');
-$scripts->addFile('rte/events.js');
-
-/**
  * Include all other files
  */
 require_once 'libraries/rte/rte_events.lib.php';

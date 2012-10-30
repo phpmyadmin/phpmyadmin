@@ -216,6 +216,18 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  }
  /* End of datetime validation*/
 
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_change.js', function() {
+    $('span.open_gis_editor').die('click');
+    $("input[name='gis_data[save]']").die('click');
+    $('input.checkbox_null').unbind('click');
+    $('select[name="submit_type"]').unbind('change');
+    $("#insert_rows").die('change');
+});
+
 /**
  * Ajax handlers for Change Table page
  *
@@ -223,7 +235,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-$(function() {
+AJAX.registerOnload('tbl_change.js', function() {
 
     $('span.open_gis_editor').live('click', function(event) {
         event.preventDefault();
@@ -549,4 +561,4 @@ $(function() {
             }
         }
     })
-}, 'top.frame_content'); //end $()
+});

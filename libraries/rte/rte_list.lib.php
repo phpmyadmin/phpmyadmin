@@ -92,7 +92,7 @@ function PMA_RTE_getList($type, $items)
     $ct = 0;
     foreach ($items as $item) {
         $rowclass = ($ct % 2 == 0) ? 'odd' : 'even';
-        if ($GLOBALS['is_ajax_request']) {
+        if ($GLOBALS['is_ajax_request'] && empty($_REQUEST['ajax_page_request'])) {
             $rowclass .= ' ajaxInsert hide';
         }
         // Get each row from the correct function

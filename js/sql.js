@@ -56,10 +56,29 @@ function getFieldName($this_field)
     return field_name;
 }
 
-
-/**#@+
- * @namespace   jQuery
+/**
+ * Unbind all event handlers before tearing down a page
  */
+AJAX.registerTeardown('sql.js', function() {
+    $('a.delete_row.ajax').unbind('click');
+    $('#bookmarkQueryForm').die('submit');
+    $('input#bkm_label').unbind('keyup');
+    $("#sqlqueryresults").die('makegrid');
+    $("#togglequerybox").unbind('click');
+    $("#button_submit_query").die('click');
+    $("input[name=bookmark_variable]").unbind("keypress");
+    $("#sqlqueryform.ajax").die('submit');
+    $("input[name=navig].ajax").die('click');
+    $("#pageselector").die('change');
+    $("#table_results.ajax").find("a[title=Sort]").die('click');
+    $("#displayOptionsForm.ajax").die('submit');
+    $("#resultsForm.ajax .mult_submit[value=edit]").die('click');
+    $("#insertForm .insertRowTable.ajax input[type=submit]").die('click');
+    $("#buttonYes.ajax").die('click');
+    $('a.browse_foreign').die('click');
+    $('th.column_heading.pointer').die('hover');
+    $('th.column_heading.marker').die('click');
+});
 
 /**
  * @description <p>Ajax scripts for sql and browse pages</p>
@@ -71,12 +90,44 @@ function getFieldName($this_field)
  * <li>Sort the results table</li>
  * <li>Change table according to display options</li>
  * <li>Grid editing of data</li>
+ * <li>Saving a bookmark</li>
  * </ul>
  *
  * @name        document.ready
  * @memberOf    jQuery
  */
-$(function() {
+AJAX.registerOnload('sql.js', function() {
+    // Delete row from SQL results
+    $('a.delete_row.ajax').click(function (e) {
+        e.preventDefault();
+        var question = $.sprintf(PMA_messages['strDoYouReally'], $(this).closest('td').find('div').text());
+        var $link = $(this);
+        $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            $msgbox = PMA_ajaxShowMessage();
+            $.get(url, {'ajax_request':true, 'is_js_confirmed': true}, function (data) {
+                if (data.success) {
+                    PMA_ajaxShowMessage(data.message);
+                    $link.closest('tr').remove();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            })
+        });
+    });
+
+    // Ajaxification for 'Bookmark this SQL query'
+    $('#bookmarkQueryForm').live('submit', function (e) {
+        e.preventDefault();
+        PMA_ajaxShowMessage();
+        $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
+            if (data.success) {
+                PMA_ajaxShowMessage(data.message);
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        });
+    });
+
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
@@ -258,52 +309,6 @@ $(function() {
     }); // end SQL Query submit
 
     /**
-     * Ajax Event handlers for Paginating the results table
-     */
-
-    /**
-     * Paginate when we click any of the navigation buttons
-     * (only if the element has the ajax class, see $cfg['AjaxEnable'])
-     * @memberOf    jQuery
-     * @name        paginate_nav_button_click
-     * @see         $cfg['AjaxEnable']
-     */
-    $("input[name=navig].ajax").live('click', function(event) {
-        /** @lends jQuery */
-        event.preventDefault();
-
-        /**
-         * @var $form    Object referring to the form element that paginates the results table
-         */
-        var $form = $(this).parent("form");
-
-        if (($form[0].elements['session_max_rows'] != undefined
-            ? checkFormElementInRange(
-                $form[0],
-                'session_max_rows',
-                PMA_messages['strNotValidRowNumber'], 1)
-            : true
-            )
-            &&
-            checkFormElementInRange(
-                $form[0],
-                'pos',
-                PMA_messages['strNotValidRowNumber'], 0)) {
-
-            var $msgbox = PMA_ajaxShowMessage();
-            PMA_prepareForAjaxRequest($form);
-
-            $.post($form.attr('action'), $form.serialize(), function(data) {
-                $("#sqlqueryresults")
-                 .html(data.message)
-                 .trigger('makegrid');
-                PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.post()
-        }
-    }); // end Paginate results table
-
-    /**
      * Paginate results with Page Selector dropdown
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
@@ -311,45 +316,8 @@ $(function() {
      */
     $("#pageselector").live('change', function(event) {
         var $form = $(this).parent("form");
-
-        if ($(this).hasClass('ajax')) {
-            event.preventDefault();
-
-            var $msgbox = PMA_ajaxShowMessage();
-
-            $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
-                $("#sqlqueryresults")
-                 .html(data.message)
-                 .trigger('makegrid');
-                PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.post()
-        } else {
-            $form.submit();
-        }
-
+        $form.submit();
     }); // end Paginate results with Page Selector
-
-    /**
-     * Ajax Event handler for sorting the results table
-     * @memberOf    jQuery
-     * @name        table_results_sort_click
-     * @see         $cfg['AjaxEnable']
-     */
-    $("#table_results.ajax").find("a[title=Sort]").live('click', function(event) {
-        event.preventDefault();
-
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $anchor = $(this);
-
-        $.get($anchor.attr('href'), $anchor.serialize() + '&ajax_request=true', function(data) {
-            $("#sqlqueryresults")
-             .html(data.message)
-             .trigger('makegrid');
-            PMA_ajaxRemoveMessage($msgbox);
-        }); // end $.get()
-    }); //end Sort results table
 
     /**
      * Ajax Event handler for the display options
@@ -481,6 +449,7 @@ $(function() {
 /**$("#buttonYes.ajax").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
  */
+
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
         /**
@@ -531,7 +500,7 @@ $(function() {
         }); // end $.post()
     });
 
-}, 'top.frame_content'); // end $()
+}); // end $()
 
 
 /**
@@ -555,7 +524,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-$(function() {
+AJAX.registerOnload('sql.js', function() {
 
     $('a.browse_foreign').live('click', function(e) {
         e.preventDefault();
@@ -603,6 +572,3 @@ function makeProfilingChart()
 
     PMA_createProfilingChartJqplot('profilingchart', data);
 }
-
-
-/**#@- */

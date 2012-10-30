@@ -77,14 +77,6 @@ $cfg['ServerLibraryDifference_DisableWarning'] = false;
 $cfg['TranslationWarningThreshold'] = 80;
 
 /**
- * Allows phpMyAdmin to be included from a document located on
- * another domain; setting this to true is a potential security hole
- *
- * @global boolean $cfg['AllowThirdPartyFraming']
- */
-$cfg['AllowThirdPartyFraming'] = false;
-
-/**
  * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
  * at least one server configuration uses 'cookie' auth_type, enter here a
  * pass phrase that will be used by blowfish. The maximum length seems to be 46
@@ -574,11 +566,18 @@ $cfg['AjaxEnable'] = true;
 $cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
 
 /**
- * maximum number of db's displayed in left frame and database list
+ * maximum number of db's displayed in database list
  *
  * @global integer $cfg['MaxDbList']
  */
 $cfg['MaxDbList'] = 100;
+
+/**
+ * maximum number of items displayed in navigation panel
+ *
+ * @global integer $cfg['MaxDbList']
+ */
+$cfg['MaxNavigationItems'] = 25;
 
 /**
  * maximum number of tables displayed in table list
@@ -792,41 +791,34 @@ $cfg['Error_Handler']['gather'] = false;
  */
 
 /**
- * use a select-based menu and display only the current tables in the left frame.
- *
- * @global boolean $cfg['LeftFrameLight']
- */
-$cfg['LeftFrameLight'] = true;
-
-/**
  * turn the select-based light menu into a tree
  *
- * @global boolean $cfg['LeftFrameDBTree']
+ * @global boolean $cfg['NavigationTreeEnableGrouping']
  */
-$cfg['LeftFrameDBTree'] = true;
+$cfg['NavigationTreeEnableGrouping'] = true;
 
 /**
  * the separator to sub-tree the select-based light menu tree
  *
- * @global string $cfg['LeftFrameDBSeparator']
+ * @global string $cfg['NavigationTreeDbSeparator']
  */
-$cfg['LeftFrameDBSeparator'] = '_';
+$cfg['NavigationTreeDbSeparator'] = '_';
 
 /**
  * Which string will be used to generate table prefixes
  * to split/nest tables into multiple categories
  *
- * @global string $cfg['LeftFrameTableSeparator']
+ * @global string $cfg['NavigationTreeTableSeparator']
  */
-$cfg['LeftFrameTableSeparator']= '__';
+$cfg['NavigationTreeTableSeparator'] = '__';
 
 /**
  * How many sublevels should be displayed when splitting up tables
  * by the above Separator
  *
- * @global integer $cfg['LeftFrameTableLevel']
+ * @global integer $cfg['NavigationTreeTableLevel']
  */
-$cfg['LeftFrameTableLevel'] = 1;
+$cfg['NavigationTreeTableLevel'] = 1;
 
 /**
  * display table comment as tooltip in left frame
@@ -836,64 +828,48 @@ $cfg['LeftFrameTableLevel'] = 1;
 $cfg['ShowTooltip'] = true;
 
 /**
- * if ShowToolTip is enabled, this defines that table/db comments
- *
- * @global boolean $cfg['ShowTooltipAliasDB']
- */
-$cfg['ShowTooltipAliasDB'] = false;
-
-/**
- * are shown (in the left menu and db_structure) instead of table/db names.
- * Setting ShowTooltipAliasTB to 'nested' will only use the Aliases for nested
- * descriptors, not the table itself.
- *
- * @global boolean $cfg['ShowTooltipAliasTB']
- */
-$cfg['ShowTooltipAliasTB'] = false;
-
-/**
  * display logo at top of left frame
  *
- * @global boolean $cfg['LeftDisplayLogo']
+ * @global boolean $cfg['NavigationDisplayLogo']
  */
-$cfg['LeftDisplayLogo'] = true;
+$cfg['NavigationDisplayLogo'] = true;
 
 /**
  * where should logo link point to (can also contain an external URL)
  *
- * @global string $cfg['LeftLogoLink']
+ * @global string $cfg['NavigationLogoLink']
  */
-$cfg['LeftLogoLink'] = 'main.php';
+$cfg['NavigationLogoLink'] = 'index.php';
 
 /**
  * whether to open the linked page in the main window ('main') or
  * in a new window ('new')
  *
- * @global string $cfg['LeftLogoLinkWindow']
+ * @global string $cfg['NavigationLogoLinkWindow']
  */
-$cfg['LeftLogoLinkWindow'] = 'main';
+$cfg['NavigationLogoLinkWindow'] = 'main';
 
 /**
  * number of recently used tables displayed in the navigation frame
  *
- * @global integer $cfg['LeftRecentTable']
+ * @global integer $cfg['NumRecentTables']
  */
-$cfg['LeftRecentTable'] = 10;
+$cfg['NumRecentTables'] = 10;
 
 /**
  * display a JavaScript table filter in the left frame
  * when more then x tables are present
  *
- * @global boolean $cfg['LeftDisplayTableFilterMinimum']
+ * @global boolean $cfg['NavigationTreeDisplayItemFilterMinimum']
  */
-$cfg['LeftDisplayTableFilterMinimum'] = 30;
+$cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 
 /**
  * display server choice at top of left frame
  *
- * @global boolean $cfg['LeftDisplayServers']
+ * @global boolean $cfg['NavigationDisplayServers']
  */
-$cfg['LeftDisplayServers'] = false;
+$cfg['NavigationDisplayServers'] = false;
 
 /**
  * server choice as links
@@ -903,19 +879,12 @@ $cfg['LeftDisplayServers'] = false;
 $cfg['DisplayServersList'] = false;
 
 /**
- * database choice in light as links
- *
- * @global boolean $cfg['DisplayDatabasesList']
- */
-$cfg['DisplayDatabasesList'] = 'auto';
-
-/**
  * display a JavaScript database filter in the left frame
  * when more then x databases are present
  *
- * @global boolean $cfg['LeftDisplayDatabaseFilterMinimum']
+ * @global boolean $cfg['NavigationTreeDisplayDbFilterMinimum']
  */
-$cfg['LeftDisplayDatabaseFilterMinimum'] = 30;
+$cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
 
 /**
  * target of the navigation panel quick access icon
@@ -927,9 +896,9 @@ $cfg['LeftDisplayDatabaseFilterMinimum'] = 30;
  * 'tbl_change.php' = insert row page
  * 'sql.php' = browse page
  *
- * @global string $cfg['LeftDefaultTabTable']
+ * @global string $cfg['NavigationTreeDefaultTabTable']
  */
-$cfg['LeftDefaultTabTable'] = 'tbl_structure.php';
+$cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
 
 /*******************************************************************************
@@ -1202,7 +1171,7 @@ $cfg['PropertiesNumColumns'] = 1;
 
 /**
  * Possible values:
- * 'main.php' = the welcome page
+ * 'index.php' = the welcome page
  * (recommended for multiuser setups)
  * 'server_databases.php' = list of databases
  * 'server_status.php' = runtime information
@@ -1212,7 +1181,7 @@ $cfg['PropertiesNumColumns'] = 1;
  *
  * @global string $cfg['DefaultTabServer']
  */
-$cfg['DefaultTabServer'] = 'main.php';
+$cfg['DefaultTabServer'] = 'index.php';
 
 /**
  * Possible values:
@@ -2321,13 +2290,12 @@ $cfg['AvailableCharsets'] = array(
 
 /**
  * enable the left panel pointer
- * (used when LeftFrameLight is false)
  * see also LeftPointerColor
  * in layout.inc.php
  *
- * @global boolean $cfg['LeftPointerEnable']
+ * @global boolean $cfg['NavigationTreePointerEnable']
  */
-$cfg['LeftPointerEnable'] = true;
+$cfg['NavigationTreePointerEnable'] = true;
 
 /**
  * enable the browse pointer

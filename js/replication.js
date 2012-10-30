@@ -25,7 +25,22 @@ function update_config()
     }
 }
 
-$(function() {
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('replication.js', function() {
+    $('#db_type').unbind('change');
+    $('#db_select').unbind('change');
+    $('#master_status_href').unbind('click');
+    $('#master_slaves_href').unbind('click');
+    $('#slave_status_href').unbind('click');
+    $('#slave_control_href').unbind('click');
+    $('#slave_errormanagement_href').unbind('click');
+    $('#slave_synchronization_href').unbind('click');
+    $('#db_reset_href').unbind('click');
+});
+
+AJAX.registerOnload('replication.js', function() {
     $('#rep').text(conf_prefix);
     $('#db_type').change(update_config);
     $('#db_select').change(update_config);

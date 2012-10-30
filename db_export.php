@@ -34,14 +34,16 @@ if ($num_tables < 1) {
     exit;
 } // end if
 
-$checkall_url = 'db_export.php?'
-              . PMA_generate_common_url($db)
-              . '&amp;goto=db_export.php';
-
-$multi_values = '<div>';
-$multi_values .= '<a href="' . $checkall_url . '" onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>
-        /
-        <a href="' . $checkall_url . '&amp;unselectall=1" onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">' . __('Unselect All') . '</a><br />';
+$multi_values  = '<div>';
+$multi_values .= '<a href="#"';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">';
+$multi_values .= __('Select All');
+$multi_values .= '</a>';
+$multi_values .= ' / ';
+$multi_values .= '<a href="#';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">';
+$multi_values .= __('Unselect All');
+$multi_values .= '</a><br />';
 
 $multi_values .= '<select name="table_select[]" id="table_select" size="10" multiple="multiple">';
 $multi_values .= "\n";

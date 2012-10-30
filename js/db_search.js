@@ -16,6 +16,17 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('db_search.js', function() {
+    $('#buttonGo').unbind('click');
+    $('#togglesearchresultlink').unbind('click');
+    $("#togglequerybox").unbind('click');
+    $('#togglesearchformlink').unbind('click');
+    $("#db_search_form.ajax").die('submit');
+});
+
+/**
  * Loads the database search results
  *
  * @param result_path Url of the page to load
@@ -42,9 +53,6 @@ function loadResult(result_path, table_name, link, ajaxEnable)
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-                // because under db_search, window.parent.table is not defined yet,
-                // we assign it manually from #table-link
-                window.parent.table = $('#table-link').text().trim();
                 PMA_makegrid($('#table_results')[0], true, true, true, true);
             }).show();
         } else {
@@ -98,7 +106,7 @@ function deleteResult(result_path, msg, ajaxEnable)
     });
 }
 
-$(function() {
+AJAX.registerOnload('db_search.js', function() {
     /** Hide the table link in the initial search result */
     var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
     $("#table-info").prepend(icon).hide();
@@ -229,4 +237,4 @@ $(function() {
             PMA_ajaxRemoveMessage($msgbox);
         })
     })
-}, 'top.frame_content'); // end $()
+}); // end $()

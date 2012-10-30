@@ -16,214 +16,239 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /******************************************************************************/
 /* Navigation */
 
-body#body_leftFrame {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    margin:             0;
-    padding:            0.2em;
+#pma_navigation {
+    background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    <?php echo $left; ?>: 0;
+    height: 100%;
+    border-<?php echo $right; ?>: 1px solid gray;
 }
 
-#body_leftFrame ul {
+#pma_navigation_content {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    <?php echo $left; ?>: 0;
+    z-index: 0;
+    padding-bottom: 1em;
+}
+
+#pma_navigation ul {
     margin: 0;
 }
 
-#body_leftFrame form {
+#pma_navigation form {
     margin: 0;
     padding: 0;
     display: inline;
 }
 
-#body_leftFrame select#select_server,
-#body_leftFrame select#lightm_db {
+#pma_navigation select#select_server,
+#pma_navigation select#lightm_db {
     width: 100%;
 }
 
 /******************************************************************************/
-/* classes */
-
-/******************************************************************************/
 /* specific elements */
 
-#body_leftFrame div#pmalogo {
+#pma_navigation div.pageselector {
+    text-align: center;
+    margin: 0 0 0 0.75em;
+    border-left: 1px solid #666;
+}
+
+#pma_navigation div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     padding:.3em;
 }
 
-#body_leftFrame div#recentTableList {
+#pma_navigation div#recentTableList {
     text-align: center;
     margin-bottom: 0.5em;
 }
 
-#body_leftFrame div#recentTableList select {
-    width: 100%;
-}
-
-#body_leftFrame div#pmalogo,
-#body_leftFrame div#leftframelinks,
-#body_leftFrame div#databaseList {
+#pma_navigation #pmalogo,
+#pma_navigation #serverChoice,
+#pma_navigation #leftframelinks,
+#pma_navigation #recentTableList,
+#pma_navigation #databaseList,
+#pma_navigation div.pageselector.dbselector {
     text-align:         center;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
-}
-
-#body_leftFrame ul#databaseList {
-    margin-bottom:      0.5em;
-    padding-bottom:     0.5em;
-    padding-<?php echo $left; ?>:     1.5em;
-    font-style: italic;
-}
-
-#body_leftFrame ul#databaseList a {
-    display: block;
-    font-style: normal;
-}
-
-#body_leftFrame div#navidbpageselector a,
-#body_leftFrame ul#databaseList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-}
-
-#body_leftFrame ul#databaseList ul {
-    padding-left: 1em;
-    padding-right: 0;
-}
-
-#body_leftFrame ul#databaseList a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-#body_leftFrame ul#databaseList li.selected a {
-    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-
-#body_leftFrame div#leftframelinks .icon {
-    padding:            0;
-    margin:             0;
-}
-
-#body_leftFrame div#leftframelinks a img.icon {
-    margin:             2px;
-    border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    padding:            0;
-}
-
-#body_leftFrame div#leftframelinks a:hover img {
-    background-color:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-/* serverlist */
-#body_leftFrame #list_server {
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
-    list-style-position: inside;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#body_leftFrame #list_server li {
-    margin: 0;
-    padding: 0;
-    font-size:          80%;
-}
-
-#body_leftFrame div#left_tableList ul {
-    list-style-type:    none;
-    list-style-position: outside;
-    margin:             0;
-    padding:            0;
-    font-size:          80%;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-}
-
-#body_leftFrame div#left_tableList ul ul {
-    font-size:          100%;
-}
-
-#body_leftFrame div#left_tableList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    text-decoration:    none;
-}
-
-#body_leftFrame div#left_tableList a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    text-decoration:    underline;
-}
-
-#body_leftFrame div#left_tableList li {
-    margin:             0;
-    padding:            0;
-    white-space:        nowrap;
-}
-
-<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
-/* marked items */
-#body_leftFrame div#left_tableList > ul li.marked > a,
-#body_leftFrame div#left_tableList > ul li.marked {
-    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-<?php } ?>
-
-<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
-#body_leftFrame div#left_tableList > ul li:hover > a,
-#body_leftFrame div#left_tableList > ul li:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-<?php } ?>
-
-#body_leftFrame div#left_tableList img {
-    padding: 0;
-    vertical-align: middle;
-}
-
-#body_leftFrame div#left_tableList ul ul {
-    margin-<?php echo $left; ?>: 0;
-    padding-<?php echo $left; ?>: .1em;
-    border-<?php echo $left; ?>: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    padding-bottom: .1em;
-    border-bottom: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-}
-
-/* for the servers list in navi panel */
-#body_leftFrame #serverinfo .item {
-    white-space:        nowrap;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-}
-#body_leftFrame #serverinfo a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-#body_leftFrame #NavFilter {
-    display: none;
-}
-
-#body_leftFrame #clear_fast_filter,
-#body_leftFrame #clear_fast_db_filter {
-    color: black;
-    cursor: pointer;
-    padding: 0;
-    margin: 3px 5px 0 -23px;
-    float: right;
-}
-
-#body_leftFrame #fast_filter,
-#body_leftFrame #fast_db_filter {
-    width: 90%;
-    padding: 2px 0;
-    margin: 0;
     border: 0;
 }
 
-#body_leftFrame #fast_filter.gray,
-#body_leftFrame #fast_db_fiter.gray {
-    color: gray;
+#pma_navigation #recentTableList select,
+#pma_navigation #serverChoice select
+ {
+    width: 80%;
+}
+
+/* Navigation tree*/
+#pma_navigation_tree {
+    margin: 0.5em 0 0 1em;
+    color: #444;
+}
+#pma_navigation_tree a {
+    color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+}
+#pma_navigation_tree a:hover {
+    text-decoration: underline;
+}
+#pma_navigation_tree li.activePointer {
+    color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+}
+#pma_navigation_tree ul {
+    clear: both;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+#pma_navigation_tree ul ul {
+    position: relative;
+}
+#pma_navigation_tree li {
+    white-space: nowrap;
+    clear: both;
+    min-height: 16px;
+}
+#pma_navigation_tree img {
+    margin: 0;
+}
+#pma_navigation_tree div.block {
+    position: relative;
+    width:1.5em;
+    height:1.5em;
+    min-width: 16px;
+    min-height: 16px;
+    float: <?php echo $left; ?>;
+}
+#pma_navigation_tree div.block i,
+#pma_navigation_tree div.block b {
+    width: 1.5em;
+    height: 1.5em;
+    min-width: 16px;
+    min-height: 8px;
+    position: absolute;
+    bottom: 0.7em;
+    <?php echo $left; ?>: 0.75em;
+    z-index: 0;
+}
+#pma_navigation_tree div.block i {
+    border-<?php echo $left; ?>: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+#pma_navigation_tree div.block i.first { /* Removes top segment */
+    border-<?php echo $left; ?>: 0;
+}
+#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
+    display: block;
+    height: 0.75em;
+    bottom: 0;
+    left: 0.75em;
+    border-<?php echo $left; ?>: 1px solid #666;
+}
+#pma_navigation_tree div.block a,
+#pma_navigation_tree div.block u {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+}
+#pma_navigation_tree div.block img {
+    position: relative;
+    top: -7px;
+    left: -7px;
+}
+#pma_navigation_tree li.last > ul {
+    background: none;
+}
+#pma_navigation_tree li > a, #pma_navigation_tree li > i {
+    line-height: 1.5em;
+    height: 1.5em;
+    padding-<?php echo $left; ?>: 0.3em;
+}
+#pma_navigation_tree .list_container {
+    border-<?php echo $left; ?>: 1px solid #666;
+    margin-<?php echo $left; ?>: 0.75em;
+    padding-<?php echo $left; ?>: 0.75em;
+}
+#pma_navigation_tree .last > .list_container {
+    border-<?php echo $left; ?>: 0 solid #666;
+}
+
+/* Fast filter */
+li.fast_filter {
+    padding-<?php echo $left; ?>: 0.75em;
+    margin-<?php echo $left; ?>: 0.75em;
+    padding-<?php echo $right; ?>: 35px;
+    border-<?php echo $left; ?>: 1px solid #666;
+}
+li.fast_filter input {
+    width: 100%;
+}
+li.fast_filter span {
+    position: relative;
+    <?php echo $right; ?>: 1.5em;
+    padding: 0.2em;
+    cursor: pointer;
+    font-weight: bold;
+    color: #800;
+}
+li.fast_filter.db_fast_filter {
+    border: 0;
+}
+
+/* Resize handler */
+#pma_navigation_resizer {
+    width: 3px;
+    height: 100%;
+    background-color: #aaa;
+    cursor: col-resize;
+    position: fixed;
+    top: 0;
+    <?php echo $left; ?>: 240px;
+    z-index: 801;
+}
+#pma_navigation_collapser {
+    width: 20px;
+    height: 23px;
+    line-height: 23px;
+    background: #eee;
+    color: #555;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 20; ?>px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 800;
+    text-shadow: 0px 1px 0px #fff;
+    filter: dropshadow(color=#fff, offx=0, offy=1);
+    border: 1px solid #888;
+}
+
+
+/* Scroll handler */
+#pma_navigation_scrollbar {
+    display: none;
+    position: fixed;
+    top: 25px;
+    <?php echo $left; ?>: 220px;
+    width: 20px;
+    background: #ddd;
+    height: 100%;
+    z-index: 1;
+}
+#pma_navigation_scrollbar_handle {
+    position: absolute;
+    width: 20px;
+    background: #888;
 }

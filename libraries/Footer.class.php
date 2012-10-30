@@ -60,93 +60,6 @@ class PMA_Footer
         $this->_isEnabled = true;
         $this->_scripts   = new PMA_Scripts();
         $this->_isMinimal = false;
-        $this->_addDefaultScripts();
-    }
-
-    /**
-     * Loads common scripts
-     *
-     * @return void
-     */
-    private function _addDefaultScripts()
-    {
-        if (empty($GLOBALS['error_message'])) {
-            $this->_scripts->addCode(
-                "$(function() {
-                // updates current settings
-                if (window.parent.setAll) {
-                    window.parent.setAll(
-                        '" . PMA_escapeJsString($GLOBALS['lang']) . "',
-                        '" . PMA_escapeJsString($GLOBALS['collation_connection']) . "',
-                        '" . PMA_escapeJsString($GLOBALS['server']) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "',
-                        '" . PMA_escapeJsString($_SESSION[' PMA_token ']) . "'
-                    );
-                }
-                });"
-            );
-            if (! empty($GLOBALS['reload'])) {
-                $this->_scripts->addCode(
-                    "// refresh navigation frame content
-                    if (window.parent.refreshNavigation) {
-                        window.parent.refreshNavigation();
-                    }"
-                );
-            } else if (isset($_GET['reload_left_frame'])
-                && $_GET['reload_left_frame'] == '1'
-            ) {
-                // reload left frame (used by user preferences)
-                $this->_scripts->addCode(
-                    "if (window.parent && window.parent.frame_navigation) {
-                        window.parent.frame_navigation.location.reload();
-                    }"
-                );
-            }
-
-            // set current db, table and sql query in the querywindow
-            $query = '';
-            if (isset($GLOBALS['sql_query']) && strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $query = PMA_escapeJsString($GLOBALS['sql_query']);
-            }
-            $this->_scripts->addCode(
-                "if (window.parent.reload_querywindow) {
-                    window.parent.reload_querywindow(
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "',
-                        '" . $query . "'
-                    );
-                }"
-            );
-
-            if (! empty($GLOBALS['focus_querywindow'])) {
-                // set focus to the querywindow
-                $this->_scripts->addCode(
-                    "if (parent.querywindow && !parent.querywindow.closed
-                        && parent.querywindow.location
-                    ) {
-                        self.focus();
-                    }"
-                );
-            }
-            $this->_scripts->addCode(
-                "if (window.parent.frame_content) {
-                    // reset content frame name, as querywindow needs
-                    // to set a unique name before submitting form data,
-                    // and navigation frame needs the original name
-                    if (typeof(window.parent.frame_content.name) != 'undefined'
-                     && window.parent.frame_content.name != 'frame_content') {
-                        window.parent.frame_content.name = 'frame_content';
-                    }
-                    if (typeof(window.parent.frame_content.id) != 'undefined'
-                     && window.parent.frame_content.id != 'frame_content') {
-                        window.parent.frame_content.id = 'frame_content';
-                    }
-                    //window.parent.frame_content.setAttribute('name', 'frame_content');
-                    //window.parent.frame_content.setAttribute('id', 'frame_content');
-                }"
-            );
-        }
     }
 
     /**
@@ -183,17 +96,36 @@ class PMA_Footer
     }
 
     /**
-     * Renders the link to open a new page
+     * Returns the url of the current page
      *
-     * @param string $url_params URL paramater string
+     * @param mixed $encoding See PMA_generate_common_url()
      *
      * @return string
      */
-    private function _getSelfLink($url_params)
+    public function getSelfUrl($encoding = null)
+    {
+        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+            array(
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+                'server' => $GLOBALS['server']
+            ),
+            $encoding
+        );
+    }
+
+    /**
+     * Renders the link to open a new page
+     *
+     * @param string $url The url of the page
+     *
+     * @return string
+     */
+    private function _getSelfLink($url)
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
-        $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
+        $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= PMA_Util::getImage(
@@ -213,11 +145,11 @@ class PMA_Footer
      *
      * @return string
      */
-    private function _getErrorMessages()
+    public function getErrorMessages()
     {
         $retval = '';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= '<div class="clearfloat">';
+            $retval .= '<div class="clearfloat" id="pma_errors">';
             $retval .= $GLOBALS['error_handler']->getDispErrors();
             $retval .= '</div>';
         }
@@ -297,27 +229,36 @@ class PMA_Footer
         $retval = '';
         $this->_setHistory();
         if ($this->_isEnabled) {
+            if (! $this->_isAjax) {
+                $retval .= "</div>";
+            }
             if (! $this->_isAjax && ! $this->_isMinimal) {
-                // Link to itself to replicate windows including frameset
-                if (! isset($GLOBALS['checked_special'])) {
-                    $GLOBALS['checked_special'] = false;
-                }
                 if (PMA_getenv('SCRIPT_NAME')
                     && empty($_POST)
-                    && ! $GLOBALS['checked_special']
+                    && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
                 ) {
-                    $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
-                    $url = PMA_generate_common_url($url_params, 'text', '');
-                    $this->_scripts->addCode(
-                        "// Store current location in hash part
-                        // of URL to allow direct bookmarking
-                        setURLHash('$url');"
+                    $url = $this->getSelfUrl('unencoded');
+                    $header = PMA_Response::getInstance()->getHeader();
+                    $scripts = $header->getScripts()->getFiles();
+                    $menuHash = $header->getMenu()->getHash();
+                    $this->_scripts->addCode( // prime the client-side cache
+                        sprintf(
+                            'AJAX.cache.primer = {'
+                            . ' url: "%s",'
+                            . ' scripts: %s,'
+                            . ' menuHash: "%s"'
+                            . '};',
+                            PMA_escapeJsString($url),
+                            json_encode($scripts),
+                            PMA_escapeJsString($menuHash)
+                        )
                     );
-                    $retval .= $this->_getSelfLink($url_params);
+                    $url = $this->getSelfUrl();
+                    $retval .= $this->_getSelfLink($url);
                 }
                 $retval .= $this->_getDebugMessage();
-                $retval .= $this->_getErrorMessages();
+                $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {

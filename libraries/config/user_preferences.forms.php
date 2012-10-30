@@ -33,6 +33,7 @@ $forms['Features']['General'] = array(
     'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList',
+    'NumRecentTables',
     'ShowHint');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
@@ -78,25 +79,21 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Validate',
     'SQLQuery/Refresh');
 $forms['Left_frame']['Left_frame'] = array(
-    'LeftFrameLight',
-    'LeftDisplayLogo',
-    'LeftLogoLink',
-    'LeftLogoLinkWindow',
-    'LeftPointerEnable',
-    'LeftRecentTable');
+    'NavigationDisplayLogo',
+    'NavigationLogoLink',
+    'NavigationLogoLinkWindow',
+    'NavigationTreePointerEnable',
+    'MaxNavigationItems',
+    'NavigationTreeEnableGrouping',
+    'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_databases'] = array(
-    'LeftDisplayDatabaseFilterMinimum',
-    'DisplayDatabasesList',
-    'LeftFrameDBTree',
-    'LeftFrameDBSeparator',
-    'ShowTooltipAliasDB');
+    'NavigationTreeDisplayDbFilterMinimum',
+    'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
-    'LeftDisplayTableFilterMinimum',
-    'LeftDefaultTabTable',
-    'LeftFrameTableSeparator',
-    'LeftFrameTableLevel',
-    'ShowTooltip',
-    'ShowTooltipAliasTB');
+    'NavigationTreeDefaultTabTable',
+    'NavigationTreeTableSeparator',
+    'NavigationTreeTableLevel',
+    'ShowTooltip');
 $forms['Main_frame']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

@@ -12,15 +12,6 @@
 require_once 'libraries/common.inc.php';
 
 /**
- * Include JavaScript libraries
- */
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('rte/common.js');
-$scripts->addFile('rte/triggers.js');
-
-/**
  * Include all other files
  */
 require_once 'libraries/rte/rte_triggers.lib.php';

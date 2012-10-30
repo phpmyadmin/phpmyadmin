@@ -1479,8 +1479,9 @@ if (! isset($_REQUEST['submit_connect'])
 
     echo '
     </fieldset>
+        <input type="hidden" name="submit_connect" value="1" />
     <fieldset class="tblFooters">
-        <input type="submit" name="submit_connect" value="' . __('Go') .'" id="buttonGo" />
+        <input type="submit" value="' . __('Go') .'" id="buttonGo" />
     </fieldset>
     </form>
     </div>

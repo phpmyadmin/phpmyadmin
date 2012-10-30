@@ -47,17 +47,21 @@ if ($GLOBALS['is_ajax_request'] != true) {
  * Generate the conditional classes that will
  * be used to attach jQuery events to links
  */
-$ajax_class = array('add'    => '',
-                    'edit'   => '',
-                    'exec'   => '',
-                    'drop'   => '',
-                    'export' => '');
+$ajax_class = array(
+    'add'    => '',
+    'edit'   => '',
+    'exec'   => '',
+    'drop'   => '',
+    'export' => ''
+);
 if ($GLOBALS['cfg']['AjaxEnable']) {
-    $ajax_class = array('add'    => 'class="ajax_add_anchor"',
-                        'edit'   => 'class="ajax_edit_anchor"',
-                        'exec'   => 'class="ajax_exec_anchor"',
-                        'drop'   => 'class="ajax_drop_anchor"',
-                        'export' => 'class="ajax_export_anchor"');
+    $ajax_class = array(
+        'add'    => 'class="ajax add_anchor"',
+        'edit'   => 'class="ajax edit_anchor"',
+        'exec'   => 'class="ajax exec_anchor"',
+        'drop'   => 'class="ajax drop_anchor"',
+        'export' => 'class="ajax export_anchor"'
+    );
 }
 
 /**

@@ -584,11 +584,14 @@ class PMA_Index
                 if ($GLOBALS['cfg']['AjaxEnable']) {
                     $r .= ' ajax';
                 }
-                $r .= '" ' . $row_span . '>' . '    <a href="tbl_indexes.php'
-                    . PMA_generate_common_url($this_params) . '">'
-                    . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
+                $r .= '" ' . $row_span . '>'
+                   . '    <a class="';
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $r .= 'ajax';
+                }
+                $r .= '" href="tbl_indexes.php' . PMA_generate_common_url($this_params)
+                   . '">' . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
-
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
                     $this_params['sql_query'] = 'ALTER TABLE '
@@ -617,11 +620,11 @@ class PMA_Index
                 $r .= '<td ' . $row_span . '>';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
-                $r .= '    <a ';
+                $r .= '    <a class="drop_primary_key_index_anchor';
                 if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= 'class="drop_primary_key_index_anchor" ';
+                    $r .= ' ajax';
                 }
-                $r .= ' href="sql.php' . PMA_generate_common_url($this_params)
+                $r .= '" href="sql.php' . PMA_generate_common_url($this_params)
                    . '" >'
                    . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";

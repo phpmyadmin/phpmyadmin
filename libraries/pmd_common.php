@@ -20,7 +20,7 @@ $cfgRelation = PMA_getRelationsParam();
  */
 function get_tables_info()
 {
-    $GLOBALS['script_display_field'] = 'var display_field = new Array();' . "\n";
+    $retval = array();
 
     $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
     $GLOBALS['PMD']['OWNER'] = array();
@@ -47,15 +47,13 @@ function get_tables_info()
 
         $DF = PMA_getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
         if ($DF != '') {
-            $GLOBALS['script_display_field'] .= "  display_field['"
-                . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "'] = '"
-                . urlencode($DF) . "';\n";
+            $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = urlencode($DF);
         }
 
         $i++;
     }
 
-    return $GLOBALS['script_display_field'];
+    return $retval;
 }
 
 /**
@@ -122,26 +120,22 @@ function get_script_contr()
     }
 
     $ti = 0;
-    $script_contr = 'var contr = new Array();' . "\n";
+    $retval = array();
     for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
-        $js_var = ' contr[' . $ti . ']';
-        $script_contr .= $js_var . " = new Array();\n";
-        $js_var .= "['" . $con['C_NAME'][$i] . "']";
-        $script_contr .= $js_var . " = new Array();\n";
+        $retval[$ti] = array();
+        $retval[$ti][$con['C_NAME'][$i]] = array();
         if (in_array($con['DTN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
             && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
         ) {
-            $js_var .= "['" . $con['DTN'][$i] . "']";
-            $script_contr .= $js_var . " = new Array();\n";
-            $m_col = array();//}
-            $js_var .= "['" . $con['DCN'][$i] . "']";
-            $script_contr .= $js_var . " = new Array();\n";//}
-            $script_contr .= $js_var . "[0] = '" . $con['STN'][$i] . "';\n"; //
-            $script_contr .= $js_var . "[1] = '" . $con['SCN'][$i] . "';\n"; //
+            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]] = array();
+            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]][$con['DCN'][$i]] = array(
+                0 => $con['STN'][$i],
+                1 => $con['SCN'][$i]
+            );
         }
         $ti++;
     }
-    return $script_contr;
+    return $retval;
 }
 
 /**
@@ -190,16 +184,24 @@ function get_script_tabs()
 {
     $script_tabs = 'var j_tabs = new Array();' . "\n"
         . 'var h_tabs = new Array();' . "\n" ;
+
+    $retval = array(
+        'j_tabs' => array(),
+        'h_tabs' => array()
+    );
+
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
-        $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
-            . PMA_Util::isForeignKeySupported(
+        $j = 0;
+        if (PMA_Util::isForeignKeySupported(
                 $GLOBALS['PMD']['TABLE_TYPE'][$i]
             )
-                ? '1' : '0'
-            . "';\n"
-            . "h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;" . "\n";
+        ) {
+            $j = 1;
+        }
+        $retval['j_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = $j;
+        $retval['h_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = 1;
     }
-    return $script_tabs;
+    return $retval;
 }
 
 /**

@@ -17,19 +17,33 @@
  * Drop Primary Key/Index
  *
  */
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_structure.js', function() {
+    $("a.drop_column_anchor.ajax").die('click');
+    $("a.action_primary.ajax").die('click');
+    $('a.drop_primary_key_index_anchor.ajax').die('click');
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
+    $('#index_frm input[type=submit]').die('click');
+    $("#move_columns_anchor").die('click');
+    $("#addColumns.ajax input[type=submit]").die('click');
+});
+
+AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Drop Column'
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("a.drop_column_anchor").live('click', function(event) {
+    $("a.drop_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**
          * @var curr_table_name String containing the name of the current table
          */
-        var curr_table_name = window.parent.table;
+        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
          */
@@ -64,6 +78,7 @@ $(function() {
                     $curr_row.hide("medium").remove();
                     // refresh the list of indexes (comes from sql.php)
                     $('#indexes').html(data.indexes_list);
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -76,13 +91,13 @@ $(function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("div.action_primary a").live('click', function(event) {
+    $("a.action_primary.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**
          * @var curr_table_name String containing the name of the current table
          */
-        var curr_table_name = window.parent.table;
+        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */
@@ -101,8 +116,9 @@ $(function() {
                     PMA_ajaxShowMessage(data.message);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
-                        window.parent.frame_content.location.reload();
+                        PMA_commonActions.refreshMain();
                     }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -115,7 +131,7 @@ $(function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $('a.drop_primary_key_index_anchor').live('click', function(event) {
+    $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         $anchor = $(this);
@@ -156,47 +172,13 @@ $(function() {
                             $(this).remove();
                         });
                     }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end Drop Primary Key/Index
-
-    /**
-     *Ajax event handler for multi column change
-    **/
-    $("#fieldsForm.ajax .mult_submit[value=change]").live('click', function(event){
-        event.preventDefault();
-
-        /*Check whether atleast one row is selected for change*/
-        if ($("#tablestructure tbody tr").hasClass("marked")) {
-            /*Define the action and $url variabls for the post method*/
-            var $form = $("#fieldsForm");
-            var action = $form.attr('action');
-            var url = $form.serialize()+"&ajax_request=true&submit_mult=change";
-            /*Calling for the changeColumns fucntion*/
-            changeColumns(action,url);
-        } else {
-            PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
-        }
-    });
-
-    /**
-     *Ajax event handler for single column change
-    **/
-    $("#fieldsForm.ajax #tablestructure tbody tr td.edit a").live('click', function(event){
-        event.preventDefault();
-        /*Define the action and $url variabls for the post method*/
-        var action = "tbl_alter.php";
-        var url = $(this).attr('href');
-        if (url.substring(0, 13) == "tbl_alter.php") {
-            url = url.substring(14, url.length);
-        }
-        url = url + "&ajax_request=true";
-        /*Calling for the changeColumns fucntion*/
-        changeColumns(action,url);
-     });
 
     /**
      *Ajax event handler for index edit
@@ -224,136 +206,7 @@ $(function() {
             var title = PMA_messages['strEditIndex'];
         }
         url += "&ajax_request=true";
-
-        /*Remove the hidden dialogs if there are*/
-        if ($('#edit_index_dialog').length != 0) {
-            $('#edit_index_dialog').remove();
-        }
-        var $div = $('<div id="edit_index_dialog"></div>');
-
-        /**
-         * @var button_options Object that stores the options
-         *                     passed to jQueryUI dialog
-         */
-        var button_options = {};
-        button_options[PMA_messages['strGo']] = function() {
-            /**
-             * @var    the_form    object referring to the export form
-             */
-            var $form = $("#index_frm");
-            PMA_prepareForAjaxRequest($form);
-            //User wants to submit the form
-            $.post($form.attr('action'), $form.serialize()+"&do_save_data=1", function(data) {
-                if ($("#sqlqueryresults").length != 0) {
-                    $("#sqlqueryresults").remove();
-                }
-                if (data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                    $("#sqlqueryresults").html(data.sql_query);
-                    $("#result_query .notice").remove();
-                    $("#result_query").prepend(data.message);
-
-                    /*Reload the field form*/
-                    $("#table_index").remove();
-                    var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                    $temp_div.find("#table_index").insertAfter("#index_header");
-                    if ($("#edit_index_dialog").length > 0) {
-                        $("#edit_index_dialog").dialog("close");
-                    }
-                    $('div.no_indexes_defined').hide();
-                } else {
-                    var $temp_div = $("<div id='temp_div'><div>").append(data.error);
-                    if ($temp_div.find(".error code").length != 0) {
-                        var $error = $temp_div.find(".error code").addClass("error");
-                    } else {
-                        var $error = $temp_div;
-                    }
-                    PMA_ajaxShowMessage($error, false);
-                }
-            }); // end $.post()
-        };
-        button_options[PMA_messages['strCancel']] = function() {
-            $(this).dialog('close');
-        };
-        var $msgbox = PMA_ajaxShowMessage();
-        $.get("tbl_indexes.php", url, function(data) {
-            if (data.success == false) {
-                //in the case of an error, show the error message returned.
-                PMA_ajaxShowMessage(data.error, false);
-            } else {
-                PMA_ajaxRemoveMessage($msgbox);
-                // Show dialog if the request was successful
-                $div
-                .append(data.message)
-                .dialog({
-                    title: title,
-                    width: 450,
-                    open: PMA_verifyColumnsProperties,
-                    modal: true,
-                    buttons: button_options,
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
-                checkIndexType();
-                checkIndexName("index_frm");
-                PMA_showHints($div);
-                // Add a slider for selecting how many columns to add to the index
-                $div.find('.slider').slider({
-                    animate: true,
-                    value: 1,
-                    min: 1,
-                    max: 16,
-                    slide: function( event, ui ) {
-                        $(this).closest('fieldset').find('input[type=submit]').val(
-                            PMA_messages['strAddToIndex'].replace(/%d/, ui.value)
-                        );
-                    }
-                });
-                // focus index size input on column picked
-                $div.find('table#index_columns select').change(function() {
-                    if ($(this).find("option:selected").val() == '') {
-                        return true;
-                    }
-                    $(this).closest("tr").find("input").focus();
-                });
-                // Focus the slider, otherwise it looks nearly transparent
-                $('a.ui-slider-handle').addClass('ui-state-focus');
-                // set focus on index name input, if empty
-                var input = $div.find('input#input_index_name');
-                input.val() || input.focus();
-            }
-        }); // end $.get()
-    });
-
-    /**
-     * Handler for adding more columns to an index in the editor
-     */
-    $('#index_frm input[type=submit]').live('click', function(event) {
-        event.preventDefault();
-        var rows_to_add = $(this)
-            .closest('fieldset')
-            .find('.slider')
-            .slider('value');
-        while (rows_to_add--) {
-            var $newrow = $('#index_columns')
-                .find('tbody > tr:first')
-                .clone()
-                .appendTo(
-                    $('#index_columns').find('tbody')
-                );
-            $newrow.find(':input').each(function() {
-                $(this).val('');
-            });
-            // focus index size input on column picked
-            $newrow.find('select').change(function() {
-                if ($(this).find("option:selected").val() == '') {
-                    return true;
-                }
-                $(this).closest("tr").find("input").focus();
-            });
-        }
+        indexEditorDialog(url, title);
     });
 
     /**
@@ -473,216 +326,7 @@ $(function() {
             }
         });
     });
-
-    /**
-     *Ajax event handler for Add column(s)
-    **/
-    $("#addColumns.ajax input[type=submit]").live('click', function(event){
-        event.preventDefault();
-
-        /*Remove the hidden dialogs if there are*/
-        if ($('#add_columns').length != 0) {
-            $('#add_columns').remove();
-        }
-        var $div = $('<div id="add_columns"></div>');
-
-        var $form = $("#addColumns");
-
-        /**
-         * @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
-         */
-        var button_options = {};
-        // in the following function we need to use $(this)
-        button_options[PMA_messages['strCancel']] = function() {
-            $(this).dialog('close');
-        };
-
-        var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {
-            $(this).dialog('close');
-        };
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $.get($form.attr('action') , $form.serialize() + "&ajax_request=true" ,  function(data) {
-            //in the case of an error, show the error message returned.
-            if (data.success != undefined && data.success == false) {
-                $div
-                .append(data.error)
-                .dialog({
-                    title: PMA_messages['strAddColumns'],
-                    height: 230,
-                    width: 900,
-                    open: PMA_verifyColumnsProperties,
-                    close: function() {
-                        $(this).remove();
-                    },
-                    modal: true,
-                    buttons : button_options_error
-                }); // end dialog options
-            } else {
-                $div
-                .append(data.message)
-                .dialog({
-                    title: PMA_messages['strAddColumns'],
-                    height: 600,
-                    width: 900,
-                    open: PMA_verifyColumnsProperties,
-                    close: function() {
-                        $(this).remove();
-                    },
-                    modal: true,
-                    buttons : button_options
-                }); // end dialog options
-
-                $div = $("#add_columns");
-                /*changed the z-index of the enum editor to allow the edit*/
-                $("#enum_editor").css("z-index", "1100");
-                PMA_showHints($div);
-                // set focus on first column name input
-                $div.find("input.textfield").eq(0).focus();
-            }
-            PMA_ajaxRemoveMessage($msgbox);
-        }); // end $.get()
-    });
-}); // end $()
-
-/**
- * Loads the append_fields_form to the Change dialog allowing users
- * to change the columns
- * @param string    action  Variable which parses the name of the
- *                             destination file
- * @param string    $url    Variable which parses the data for the
- *                             post action
- */
-function changeColumns(action,url)
-{
-    /*Remove the hidden dialogs if there are*/
-    if ($('#change_column_dialog').length != 0) {
-        $('#change_column_dialog').remove();
-    }
-    if ($('#result_query').length != 0) {
-        $('#result_query').remove();
-    }
-    var $div = $('<div id="change_column_dialog"></div>');
-
-    /**
-     * @var    button_options  Object that stores the options passed to jQueryUI
-     *                          dialog
-     */
-    var button_options = {};
-    // in the following function we need to use $(this)
-    button_options[PMA_messages['strCancel']] = function() {
-        $(this).dialog('close');
-    };
-
-    var button_options_error = {};
-    button_options_error[PMA_messages['strOK']] = function() {
-        $(this).dialog('close');
-    };
-    var $msgbox = PMA_ajaxShowMessage();
-
-    $.get( action , url ,  function(data) {
-        //in the case of an error, show the error message returned.
-        if (data.success != undefined && data.success == false) {
-            $div
-            .append(data.error)
-            .dialog({
-                title: PMA_messages['strChangeTbl'],
-                height: 230,
-                width: 900,
-                modal: true,
-                open: PMA_verifyColumnsProperties,
-                close: function() {
-                    $(this).remove();
-                },
-                buttons : button_options_error
-            }); // end dialog options
-        } else {
-            $div
-            .append(data.message)
-            .dialog({
-                title: PMA_messages['strChangeTbl'],
-                height: 600,
-                width: 900,
-                modal: true,
-                open: PMA_verifyColumnsProperties,
-                close: function() {
-                    $(this).remove();
-                }, 
-                buttons : button_options
-            }); // end dialog options
-            $("#append_fields_form input[name=do_save_data]").addClass("ajax");
-            /*changed the z-index of the enum editor to allow the edit*/
-            $("#enum_editor").css("z-index", "1100");
-            $div = $("#change_column_dialog");
-            PMA_showHints($div);
-        }
-        PMA_ajaxRemoveMessage($msgbox);
-    }); // end $.get()
-}
-
-/**
- * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
- * Attach Ajax Event handlers for Change Table
- */
-$(function() {
-    /**
-     *Ajax action for submitting the "Column Change" and "Add Column" form
-    **/
-    $("#append_fields_form input[name=do_save_data]").live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var    the_form    object referring to the export form
-         */
-        var $form = $("#append_fields_form");
-
-        /*
-         * First validate the form; if there is a problem, avoid submitting it
-         *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
-         * this is why we pass $form[0] as a parameter (the jQuery object
-         * is actually an array of DOM elements)
-         */
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            // OK, form passed validation step
-            if ($form.hasClass('ajax')) {
-                PMA_prepareForAjaxRequest($form);
-                //User wants to submit the form
-                PMA_ajaxShowMessage();
-                $.post($form.attr('action'), $form.serialize()+"&do_save_data=Save", function(data) {
-                    if ($("#sqlqueryresults").length != 0) {
-                        $("#sqlqueryresults").remove();
-                    } else if ($(".error").length != 0) {
-                        $(".error").remove();
-                    }
-                    if (data.success == true) {
-                        $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                        $("#sqlqueryresults").html(data.sql_query);
-                        $("#result_query .notice").remove();
-                        $("#result_query").prepend(data.message);
-                        if ($("#change_column_dialog").length > 0) {
-                            $("#change_column_dialog").dialog("close").remove();
-                        } else if ($("#add_columns").length > 0) {
-                            $("#add_columns").dialog("close").remove();
-                        }
-                        /*Reload the field form*/
-                        reloadFieldForm(data.message);
-                    } else {
-                        var $temp_div = $("<div id='temp_div'><div>").append(data.error);
-                        var $error = $temp_div.find(".error code").addClass("error");
-                        PMA_ajaxShowMessage($error, false);
-                    }
-                }); // end $.post()
-            } else {
-                // non-Ajax submit
-                $form.append('<input type="hidden" name="do_save_data" value="Save" />');
-                $form.submit();
-            }
-        }
-    }); // end change table button "do_save_data"
-
-}, 'top.frame_content'); //end $(document).ready for 'Change Table'
+});
 
 /**
  * Reload fields table
@@ -709,11 +353,8 @@ function reloadFieldForm(message) {
  * with the word "More". They are displayed in a dropdown
  * menu when the user hovers over the word "More."
  */
-
-var $table_clone = false;
-
 function moreOptsMenuResize() {
-    var $table = $("table#tablestructure");
+    var $table = $("#tablestructure");
 
     // don't use More menu if we're only showing icons and no text
     if ($table.length == 0 || $table.hasClass("PropertiesIconic")) {
@@ -743,7 +384,9 @@ function moreOptsMenuResize() {
     };
 
     // get window width
-    var window_width = $(window).width();
+    var window_width = $(window).width()
+        - $('#pma_navigation').width()
+        - $('#pma_navigation_resizer').width();
 
     // find out maximum action links width
     var max_width = window_width;
@@ -838,8 +481,8 @@ function moreOptsMenuResize() {
             }
         });
 }
-$(window).resize(moreOptsMenuResize);
-$(function () {
+AJAX.registerOnload('tbl_structure.js', function () {
+    $(window).resize(moreOptsMenuResize); // FIXME: shouldn't register that can't be unbound easily
     $("div.replace_in_more").hide();
     moreOptsMenuResize();
 });

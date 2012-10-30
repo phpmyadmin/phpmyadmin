@@ -19,6 +19,21 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('db_structure.js', function() {
+    $("td.insert_table a.ajax").die('click');
+    $("#insertForm .insertRowTable.ajax input[type=submit]").die('click');
+    $("#buttonYes.ajax").die('click');
+    $("span.fkc_switch").unbind('click');
+    $('#fkc_checkbox').unbind('change');
+    $("a.truncate_table_anchor.ajax").die('click');
+    $("a.drop_table_anchor.ajax").die('click');
+    $('a.drop_tracking_anchor.ajax').die('click');
+    $('#real_end_input').die('click');
+});
+
+/**
  * Adjust number of rows and total size in the summary
  * when truncating, creating, dropping or inserting into a table
  */
@@ -117,7 +132,32 @@ function PMA_adjustTotals() {
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
 
-$(function() {
+AJAX.registerOnload('db_structure.js', function() {
+    /**
+     * Handler for the print view multisubmit.
+     * All other multi submits can be handled via ajax, but this one needs
+     * special treatment as the results need to open in another browser window
+     */
+    $('#tablesForm').submit(function (event) {
+        var $form = $(this);
+        if ($form.find('select[name=submit_mult]').val() === 'print') {
+            event.preventDefault();
+            event.stopPropagation();
+            $('form#clone').remove();
+            var $clone = $form
+                .clone()
+                .hide()
+                .appendTo('body');
+            $clone
+                .find('select[name=submit_mult]')
+                .val('print');
+            $clone
+                .attr('target', 'printview')
+                .attr('id', 'clone')
+                .submit();
+        }
+    });
+
     /**
      * Ajax Event handler for 'Insert Table'
      *
@@ -289,7 +329,7 @@ $(function() {
      *
      * @see     $cfg['AjaxEnable']
      */
-    $("a.truncate_table_anchor").live('click', function(event) {
+    $("a.truncate_table_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**
@@ -341,7 +381,7 @@ $(function() {
      *
      * @see     $cfg['AjaxEnable']
      */
-    $("a.drop_table_anchor").live('click', function(event) {
+    $("a.drop_table_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -382,10 +422,7 @@ $(function() {
                     toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
-
-                    if (window.parent && window.parent.frame_navigation) {
-                        window.parent.frame_navigation.location.reload();
-                    }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -398,7 +435,7 @@ $(function() {
      *
      * @see     $cfg['AjaxEnable']
      */
-    $('a.drop_tracking_anchor').live('click', function(event) {
+    $('a.drop_tracking_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         var $anchor = $(this);
@@ -498,4 +535,4 @@ $(function() {
         return false;
     }); //end Calculate Real End for InnoDB
 
-}, 'top.frame_content'); // end $()
+}); // end $()

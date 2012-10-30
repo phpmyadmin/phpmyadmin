@@ -633,11 +633,6 @@ since this link provides funding for phpMyAdmin.
     <dt id="cfg_TranslationWarningThreshold">$cfg['TranslationWarningThreshold'] integer</dt>
     <dd>Show warning about incomplete translations on certain threshold.</dd>
 
-    <dt id="cfg_AllowThirdPartyFraming">$cfg['AllowThirdPartyFraming'] boolean</dt>
-    <dd>Setting this to <code>true</code> allows a page located on a different
-    domain to call phpMyAdmin inside a frame, and is a potential security
-    hole allowing cross-frame scripting attacks.</dd>
-
     <dt id="cfg_blowfish_secret">$cfg['blowfish_secret'] string</dt>
     <dd>The &quot;cookie&quot; auth_type uses blowfish
         algorithm to encrypt the password.<br />
@@ -848,12 +843,13 @@ since this link provides funding for phpMyAdmin.
         <br /><br />
 
         As of phpMyAdmin 2.5.5 the order inside the array is used for sorting the
-        databases in the left frame, so that you can individually arrange your databases.<br />
-        If you want to have certain databases at the top, but don't care about the others, you do not
-        need to specify all other databases. Use:
+        databases in the navigation panel, so that you can individually arrange
+        your databases.<br />
+        If you want to have certain databases at the top, but don't care about the
+        others, you do not need to specify all other databases. Use:
         <code>$cfg['Servers'][$i]['only_db'] = array('db3', 'db4', '*');</code>
-        instead to tell phpMyAdmin that it should display db3 and db4 on top, and the rest in alphabetic
-        order.</dd>
+        instead to tell phpMyAdmin that it should display db3 and db4 on top,
+        and the rest in alphabetic order.</dd>
 
     <dt><span id="cfg_Servers_hide_db">$cfg['Servers'][$i]['hide_db']</span> string
     </dt>
@@ -862,7 +858,8 @@ since this link provides funding for phpMyAdmin.
         from listing, but a user is still able to access them (using, for example,
         the SQL query area). To limit access, use the MySQL privilege system.
         <br /><br />
-        For example, to hide all databases starting with the letter &#34;a&#34;, use<br />
+        For example, to hide all databases starting with the letter &#34;a&#34;,
+        use<br />
         <pre>$cfg['Servers'][$i]['hide_db'] = '^a';</pre>
         and to hide both &#34;db1&#34; and &#34;db2&#34; use <br />
         <pre>$cfg['Servers'][$i]['hide_db'] = '^(db1|db2)$';</pre>
@@ -1073,13 +1070,13 @@ ALTER TABLE `pma_column_comments`
         <span id="cfg_Servers_recent">$cfg['Servers'][$i]['recent']</span> string
     </dt>
     <dd>
-        Since release 3.5.0 you can show recently used tables in the left navigation frame.
+        Since release 3.5.0 you can show recently used tables in the navigation panel.
         It helps you to jump across table directly, without the need to select the database,
         and then select the table. Using
-        <a href="#cfg_LeftRecentTable" class="configrule">$cfg['LeftRecentTable']</a>
+        <a href="#cfg_NumRecentTables" class="configrule">$cfg['NumRecentTables']</a>
         you can configure the maximum number of recent tables shown. When you select a table
         from the list, it will jump to the page specified in
-        <a href="#cfg_LeftDefaultTabTable" class="configrule">$cfg['LeftDefaultTabTable']</a>.<br/><br/>
+        <a href="#cfg_NavigationTreeDefaultTabTable" class="configrule">$cfg['NavigationTreeDefaultTabTable']</a>.<br/><br/>
 
         Without configuring the storage, you can still access the recently used tables,
         but it will disappear after you logout.<br/><br/>
@@ -1329,7 +1326,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <code>libraries/config.default.php</code> for examples).
     </dd>
     <dt><span id="cfg_Servers_CountTables">$cfg['Servers'][$i]['CountTables']</span> boolean</dt>
-    <dd>Whether to count the number of tables for each database when preparing the list of databases for the navigation frame.
+    <dd>Whether to count the number of tables for each database when preparing the
+    list of databases for the navigation panel.
     </dd>
     <dt><span id="cfg_Servers_SignonScript">$cfg['Servers'][$i]['SignonScript']</span> string</dt>
     <dd>Name of PHP script to be sourced and executed to obtain
@@ -1385,7 +1383,11 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
     <dt id="cfg_MaxDbList">$cfg['MaxDbList'] integer</dt>
     <dd>The maximum number of database names to be displayed in the
-        navigation frame and the database list.</dd>
+        database list.</dd>
+
+    <dt id="cfg_MaxNavigationItems">$cfg['MaxNavigationItems'] integer</dt>
+    <dd>The number of items that can be displayed on each page
+        of the navigation tree.</dd>
 
     <dt id="cfg_MaxTableList">$cfg['MaxTableList'] integer</dt>
     <dd>The maximum number of table names to be displayed in the
@@ -1526,26 +1528,19 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id ="cfg_Error_Handler_gather">$cfg['Error_Handler']['gather'] boolean</dt>
     <dd>Whether to gather errors from PHP or not.</dd>
 
-    <dt id="cfg_LeftFrameLight">$cfg['LeftFrameLight'] boolean</dt>
-    <dd>Defines whether to use a select-based menu and display only the current
-        tables in the left frame (smaller page). Only in Non-Lightmode you can
-        use the feature to display nested folders using
-        <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
+    <dt id="cfg_NavigationTreeEnableGrouping">$cfg['NavigationTreeEnableGrouping'] boolean</dt>
+    <dd>Defines whether to group the databases based on a common prefix prefix in their name
+        <a href="#cfg_NavigationTreeDbSeparator" class="configrule">$cfg['NavigationTreeDbSeparator']</a>.
     </dd>
 
-    <dt id="cfg_LeftFrameDBTree">$cfg['LeftFrameDBTree'] boolean</dt>
-    <dd>Defines whether to display the names of databases (in the
-        selector) using a tree, see also
-        <a href="#cfg_LeftFrameDBSeparator" class="configrule">$cfg['LeftFrameDBSeparator']</a>.
-    </dd>
-
-    <dt id="cfg_LeftFrameDBSeparator">$cfg['LeftFrameDBSeparator']
+    <dt id="cfg_NavigationTreeDbSeparator">$cfg['NavigationTreeDbSeparator']
     string or array</dt>
     <dd>The string used to separate the parts of the database name when showing
         them in a tree. Alternatively you can specify more strings in an array
         and all of them will be used as a separator.</dd>
 
-    <dt id="cfg_LeftFrameTableSeparator">$cfg['LeftFrameTableSeparator'] string</dt>
+    <dt id="cfg_NavigationTreeTableSeparator">$cfg['NavigationTreeTableSeparator']
+    string or array</dt>
     <dd>Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
         shown as a three-level hierarchy like: first &gt; second &gt; third.
@@ -1554,66 +1549,54 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         table name or multiple times after another without any other
         characters in between.</dd>
 
-    <dt id="cfg_LeftFrameTableLevel">$cfg['LeftFrameTableLevel'] string</dt>
+    <dt id="cfg_NavigationTreeTableLevel">$cfg['NavigationTreeTableLevel'] integer</dt>
     <dd>Defines how many sublevels should be displayed when splitting
         up tables by the above separator.</dd>
 
-    <dt id="cfg_LeftRecentTable">$cfg['LeftRecentTable'] integer</dt>
-    <dd>The maximum number of recently used tables shown in the left navigation
-        frame. Set this to 0 (zero) to disable the listing of recent tables.</dd>
+    <dt id="cfg_NumRecentTables">$cfg['NumRecentTables'] integer</dt>
+    <dd>The maximum number of recently used tables shown in the navigation
+        panel. Set this to 0 (zero) to disable the listing of recent tables.</dd>
 
     <dt id="cfg_ShowTooltip">$cfg['ShowTooltip'] boolean</dt>
-    <dd>Defines whether to display table comment as tool-tip in left frame or
+    <dd>Defines whether to display item comments as tooltips in navigation panel or
         not.</dd>
 
-    <dt id="cfg_ShowTooltipAliasDB">$cfg['ShowTooltipAliasDB'] boolean</dt>
-    <dd>If tool-tips are enabled and a DB comment is set, this will flip the
-        comment and the real name. That means that if you have a database called
-        'user0001' and add the comment 'MyName' on it, you will see the name
-        'MyName' used consequently in the left frame and the tool-tip shows
-        the real name of the DB.</dd>
-
-    <dt id="cfg_ShowTooltipAliasTB">$cfg['ShowTooltipAliasTB'] boolean/string</dt>
-    <dd>Same as <a href="#cfg_ShowTooltipAliasDB" class="configrule">$cfg['ShowTooltipAliasDB']</a>, except this works for table names.
-
-        When setting this to 'nested', the Alias of the Tablename is only used
-        to split/nest the tables according to the
-        <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
-        directive. So only the folder is called like the Alias, the tablename itself
-        stays the real tablename.</dd>
-
-    <dt id="cfg_LeftDisplayLogo">$cfg['LeftDisplayLogo'] boolean</dt>
-    <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
-        Defaults to <code>TRUE</code>.</dd>
-    <dt id="cfg_LeftLogoLink">$cfg['LeftLogoLink'] string</dt>
-    <dd>Enter <abbr title="Uniform Resource Locator">URL</abbr> where logo in the navigation frame will point to.
+    <dt id="cfg_NavigationDisplayLogo">$cfg['NavigationDisplayLogo'] boolean</dt>
+    <dd>Defines whether or not to display the phpMyAdmin logo at the top of the
+        navigation panel. Defaults to <code>TRUE</code>.</dd>
+    <dt id="cfg_NavigationLogoLink">$cfg['NavigationLogoLink'] string</dt>
+    <dd>Enter <abbr title="Uniform Resource Locator">URL</abbr> where logo in
+    the navigation panel will point to.
     For use especially with self made theme which changes this.
     The default value for this is <code>main.php</code>.</dd>
 
-    <dt id="cfg_LeftLogoLinkWindow">$cfg['LeftLogoLinkWindow'] string</dt>
+    <dt id="cfg_NavigationLogoLinkWindow">$cfg['NavigationLogoLinkWindow'] string</dt>
     <dd>Whether to open the linked page in the main window (<code>main</code>)
     or in a new one (<code>new</code>). Note: use <code>new</code> if you are
     linking to <code>phpmyadmin.net</code>.</dd>
 
-    <dt id="cfg_LeftDisplayTableFilterMinimum">$cfg['LeftDisplayTableFilterMinimum']
+    <dt id="cfg_NavigationTreeDisplayItemFilterMinimum">$cfg['NavigationTreeDisplayItemFilterMinimum']
     integer</dt>
-    <dd>Defines the minimum number of tables to display a JavaScript filter box above the
-    list of tables in the left frame.
+    <dd>Defines the minimum number of items (tables, views, routines and events)
+    to display a JavaScript filter box above the list of items in the navigation tree.
     Defaults to <code>30</code>. To disable the filter completely some high number
     can be used (e.g. 9999)</dd>
 
-    <dt id="cfg_LeftDisplayServers">$cfg['LeftDisplayServers'] boolean</dt>
-    <dd>Defines whether or not to display a server choice at the top of the left frame.
-        Defaults to FALSE.</dd>
+    <dt id="cfg_NavigationTreeDisplayDatabaseFilterMinimum">
+    $cfg['NavigationTreeDisplayDatabaseFilterMinimum'] integer</dt>
+    <dd>Defines the minimum number of databases to display a JavaScript filter
+    box above the list of databases in the navigation tree.
+    Defaults to <code>30</code>. To disable the filter completely some high number
+    can be used (e.g. 9999)</dd>
+
+    <dt id="cfg_NavigationDisplayServers">$cfg['NavigationDisplayServers'] boolean</dt>
+    <dd>Defines whether or not to display a server choice at the top of the
+        navigation panel. Defaults to FALSE.</dd>
     <dt id="cfg_DisplayServersList">$cfg['DisplayServersList'] boolean</dt>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
-    <dt id="cfg_DisplayDatabasesList">$cfg['DisplayDatabasesList'] boolean or text</dt>
-    <dd>Defines whether to display database choice in light navigation frame as links
-        instead of in a drop-down. Defaults to 'auto' - on main page list is
-        shown, when database is selected, only drop down is displayed.</dd>
 
-    <dt id="cfg_LeftDefaultTabTable">$cfg['LeftDefaultTabTable'] string</dt>
+    <dt id="cfg_NavigationTreeDefaultTabTable">$cfg['NavigationTreeDefaultTabTable'] string</dt>
     <dd>Defines the tab displayed by default when clicking the small
         icon next to each table name in the navigation panel. Possible
         values: &quot;tbl_structure.php&quot;,
@@ -1839,7 +1822,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         user-defined.<br />
         See the <a href="http://dev.mysql.com/doc/mysql/en/charset-charsets.html">MySQL
         documentation</a> for list of possible values. This setting is ignored when
-		connected to Drizzle server.</dd>
+        connected to Drizzle server.</dd>
 
     <dt id="cfg_Lang">$cfg['Lang'] string</dt>
     <dd>Force language to use.<br />
@@ -1936,7 +1919,7 @@ $cfg['TrustedProxies'] =
     </dd>
 
     <dt id="cfg_NaviWidth">$cfg['NaviWidth'] integer</dt>
-    <dd>Navi frame width in pixels. See <code>themes/themename/layout.inc.php</code>.
+    <dd>Navigation panel width in pixels. See <code>themes/themename/layout.inc.php</code>.
     </dd>
 
     <dt><span id="cfg_NaviBackground">$cfg['NaviBackground']</span> string [CSS color for background]<br />
@@ -1950,9 +1933,8 @@ $cfg['TrustedProxies'] =
     <dd>The style used for the pointer in the navi frame.
         See <code>themes/themename/layout.inc.php</code>.</dd>
 
-    <dt id="cfg_LeftPointerEnable">$cfg['LeftPointerEnable'] boolean</dt>
-    <dd>A value of <code>TRUE</code> activates the navi pointer (when LeftFrameLight
-        is <code>FALSE</code>).</dd>
+    <dt id="cfg_NavigationTreePointerEnable">$cfg['NavigationTreePointerEnable'] boolean</dt>
+    <dd>A value of <code>TRUE</code> activates the navi pointer.</dd>
 
     <dt id="cfg_Border">$cfg['Border'] integer</dt>
     <dd>The size of a table's border. See <code>themes/themename/layout.inc.php</code>.
@@ -2214,11 +2196,13 @@ setfacl -d -m "g:www-data:rwx" tmp
         <span id="cfg_QueryHistoryMax">$cfg['QueryHistoryMax'] </span>integer
     </dt>
     <dd>
-        All those variables affect the query window feature. A <code><abbr title="structured query language">SQL</abbr></code> link
-        or icon is always displayed on the left panel. If JavaScript is enabled in
-        your browser, a click on this opens a distinct query window, which is
-        a direct interface to enter <abbr title="structured query language">SQL</abbr> queries. Otherwise, the right panel
-        changes to display a query box.<br /><br />
+        All those variables affect the query window feature. A <code>
+        <abbr title="structured query language">SQL</abbr></code> link
+        or icon is always displayed in the navigation panel. If JavaScript is
+        enabled in your browser, a click on this opens a distinct query window,
+        which is a direct interface to enter
+        <abbr title="structured query language">SQL</abbr> queries.
+        Otherwise, the right panel changes to display a query box.<br /><br />
 
         The size of this query window can be customized with
         <code>$cfg['QueryWindowWidth']</code> and <code>$cfg['QueryWindowHeight']</code>
@@ -2284,7 +2268,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
     <dt id="cfg_NaturalOrder">$cfg['NaturalOrder'] boolean</dt>
     <dd>Sorts database and table names according to natural order (for example,
-        t1, t2, t10). Currently implemented in the left panel (Light mode)
+        t1, t2, t10). Currently implemented in the navigation panel
         and in Database view, for the table list.</dd>
 
     <dt id="cfg_InitialSlidersState">$cfg['InitialSlidersState'] string</dt>
@@ -2518,7 +2502,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> The file name convention is
     <code>[Mimetype]_[Subtype]_[Transformation Name].class.php</code>,<br />
-    while the abtract class that it extends has the name 
+    while the abtract class that it extends has the name
     <code>[Transformation Name]TransformationsPlugin</code>.<br /><br />
     All of the methods that have to be implemented by a transformations plug-in are: <Br />
     <ol>
@@ -2526,14 +2510,14 @@ setfacl -d -m "g:www-data:rwx" tmp
         <li>getName(), getInfo() and applyTransformation() in the abstract class it extends.</li>
     </ol>
     </p>
-    
+
 <p>The getMIMEType(), getMIMESubtype() and getName() methods return the name of the
     MIME type, MIME Subtype and transformation accordingly. getInfo() returns the
     transformation's description and possible options it may receive and
     applyTransformation() is the method that does the actual work of the
-    transformation plug-in.</p>   
+    transformation plug-in.</p>
 
-<p> Please see the libraries/plugins/transformations/TEMPLATE and 
+<p> Please see the libraries/plugins/transformations/TEMPLATE and
     libraries/plugins/transformations/TEMPLATE_ABSTRACT
     files for adding your own transformation plug-in. You can also generate a
     new transformation plug-in (with or without the abstract transformation class),
@@ -3371,8 +3355,8 @@ RewriteRule .* - [F]
 
 <h4 id="faq3_5">
     <a href="#faq3_5">3.5 When using nested folders there are some multiple hierarchies
-    displayed in a wrong manner?!</a> (<a href="#cfg_LeftFrameTableSeparator"
-    class="configrule">$cfg['LeftFrameTableSeparator']</a>)</h4>
+    displayed in a wrong manner?!</a> (<a href="#cfg_NavigationTreeTableSeparator"
+    class="configrule">$cfg['NavigationTreeTableSeparator']</a>)</h4>
 
 <p> Please note that you should not use the separating string multiple times
     without any characters between them, or at the beginning/end of your table
@@ -3847,9 +3831,10 @@ to see if the problem goes away.</p>
 <h4 id="faq6_4">
     <a href="#faq6_4">6.4 How can I backup my database or table?</a></h4>
 
-<p> Click on a database or table name in the left frame, the properties will be
+<p> Click on a database or table name in the navigation panel, the properties will be
     displayed.  Then on the menu, click &quot;Export&quot;, you can dump
-    the structure, the data, or both. This will generate standard <abbr title="structured query language">SQL</abbr>
+    the structure, the data, or both. This will generate standard
+    <abbr title="structured query language">SQL</abbr>
     statements that can be used to recreate your database/table.
     <br /><br />
     You will need to choose &quot;Save as file&quot;, so that phpMyAdmin can
@@ -3866,7 +3851,7 @@ to see if the problem goes away.</p>
     How can I run a &quot;.sql&quot; file?
 </a></h4>
 
-<p> Click on a database name in the left frame, the properties will be
+<p> Click on a database name in the navigation panel, the properties will be
     displayed. Select &quot;Import&quot; from the list
     of tabs in the right&#8211;hand frame (or &quot;<abbr title="structured query language">SQL</abbr>&quot; if your phpMyAdmin
     version is previous to 2.7.0). In the &quot;Location of the text file&quot; section, type in
@@ -3929,7 +3914,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 
 <p> Then test like this:</p>
 
-<ul><li>Click on your db name in the left frame</li>
+<ul><li>Click on your db name in the navigation panel</li>
     <li>Choose &quot;Query&quot;</li>
     <li>Use tables: persons, towns, countries</li>
     <li>Click &quot;Update query&quot;</li>
@@ -3963,7 +3948,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
     which pages?
 </p>
 <ul>
-    <li>Select your database in the left frame.</li>
+    <li>Select your database in the navigation panel.</li>
     <li>Choose &quot;Operations&quot; in the navigation bar at the top.</li>
     <li>Choose &quot;Edit <abbr title="Portable Document Format">PDF</abbr>
         Pages&quot; near the bottom of the page.</li>

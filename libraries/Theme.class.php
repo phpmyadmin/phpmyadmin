@@ -445,7 +445,7 @@ class PMA_Theme
         $retval .= ' (' . htmlspecialchars($this->getVersion()) . ') ';
         $retval .= '</h2>';
         $retval .= '<p>';
-        $retval .= '<a target="_top" class="take_theme" ';
+        $retval .= '<a class="take_theme" ';
         $retval .= 'name="' . htmlspecialchars($this->getId()) . '" ';
         $retval .=  'href="' . $url . '">';
         if (@file_exists($this->getPath() . '/screen.png')) {

@@ -14,7 +14,10 @@
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
- $(function(){
+/*
+FIXME: we can't register the beforeonload event because it will persist between pageloads
+
+AJAX.registerOnload('pmd/move.js', function(){
     $(window).bind('beforeunload', function() {        // onbeforeunload for the frame window.
         if (_change == 1 && _staying == 0) {
             return PMA_messages['strLeavingDesigner'];
@@ -32,7 +35,7 @@
             return PMA_messages['strLeavingDesigner'];
         }
     };
-});
+});*/
 
 function make_zero() {   // Function called if the user stays after seeing the confirmation prompt.
     _staying = 0;
@@ -107,7 +110,7 @@ function MouseDown(e)
 
         alert(" dx = " + dx + " dy = " +dy);
         */
-        cur_click.style.zIndex = 2;
+        cur_click.style.zIndex = 902;
     }
     if (layer_menu_cur_click) {
         offsetx = e.pageX;
@@ -160,7 +163,7 @@ function MouseUp(e)
     if (cur_click != null) {
         document.getElementById("canvas").style.display = 'inline-block';
         Re_load();
-        cur_click.style.zIndex = 1;
+        cur_click.style.zIndex = 901;
         cur_click = null;
     }
     layer_menu_cur_click = 0;
@@ -607,12 +610,14 @@ function New_relation()
 
 function Start_table_new()
 {
-    window.location.href = 'tbl_create.php?server=' + server + '&db=' + db + '&token=' + token;
+    PMA_commonParams.set('table', '');
+    PMA_commonActions.refreshMain('tbl_create.php');
 }
 
 function Start_tab_upd(table)
 {
-    window.location.href = 'tbl_structure.php?server=' + server + '&db=' + db + '&token=' + token + '&table=' + table;
+    PMA_commonParams.set('table', table);
+    PMA_commonActions.refreshMain('tbl_structure.php');
 }
 //--------------------------- hide tables --------------------------------------
 

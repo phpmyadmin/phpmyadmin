@@ -170,7 +170,30 @@ function initGISVisualization() {
  * Panning on clicking the arrow buttons.
  * Displaying tooltips for GIS objects.
  */
-$(function() {
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_gis_visualization.js', function() {
+    $('#choice').die('click');
+    $('#placeholder').die('mousewheel');
+    $('svg').die('dragstart');
+    $('svg').die('mouseup');
+    $('svg').die('drag');
+    $('#placeholder').die('dblclick');
+    $('#zoom_in').die('click');
+    $('#zoom_world').die('click');
+    $('#zoom_out').die('click');
+    $('#left_arrow').die('click');
+    $('#right_arrow').die('click');
+    $('#up_arrow').die('click');
+    $('#down_arrow').die('click');
+    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
+            + '.geometrycollection')
+        .die('mousemove').die('mouseout');
+});
+
+AJAX.registerOnload('tbl_gis_visualization.js', function() {
 
     // If we are in GIS visualization, initialize it
     if ($('table.gis_table').length > 0) {

@@ -13,8 +13,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('openlayers/OpenLayers.js');
 $scripts->addFile('jquery/jquery.svg.js');
-$scripts->addFile('jquery/jquery.mousewheel.js');
-$scripts->addFile('jquery/jquery.event.drag-2.0.js');
 $scripts->addFile('tbl_gis_visualization.js');
 $scripts->addFile('OpenStreetMap.js');
 

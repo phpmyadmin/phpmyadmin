@@ -96,18 +96,43 @@ class PMA_Scripts
      */
     public function addFile($filename, $conditional_ie = false)
     {
-        $filename = 'js/' . $filename;
         $hash = md5($filename);
         if (empty($this->_files[$hash])) {
-            $timestamp = null;
+            $has_onload = $this->_eventBlacklist($filename);
+            $timestamp  = null;
             if (strpos($filename, '?') === false) {
-                $timestamp = filemtime($filename);
+                $timestamp = filemtime('js/' . $filename);
             }
             $this->_files[$hash] = array(
+                'has_onload' => $has_onload,
                 'filename' => $filename,
                 'timestamp' => $timestamp,
                 'conditional_ie' => $conditional_ie
             );
+        }
+    }
+
+    /**
+     * Determines whether to fire up an onload event for a file
+     *
+     * @param string $filename The name of the file to be checked
+     *                         against the blacklist
+     *
+     * @return int 1 to fire up the event, 0 not to
+     */
+    private function _eventBlacklist($filename)
+    {
+        if (   strpos($filename, 'jquery') !== false
+            || strpos($filename, 'codemirror') !== false
+            || strpos($filename, 'messages.php') !== false
+            || strpos($filename, 'ajax.js') !== false
+            || strpos($filename, 'navigation.js') !== false
+            || strpos($filename, 'get_image.js.php') !== false
+            || strpos($filename, 'update-location.js') !== false
+        ) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 
@@ -142,6 +167,26 @@ class PMA_Scripts
     }
 
     /**
+     * Returns a list with filenames and a flag to indicate
+     * whether to register onload events for this file
+     *
+     * @return array
+     */
+    public function getFiles()
+    {
+        $retval = array();
+        foreach ($this->_files as $file) {
+            if (! $file['conditional_ie'] || PMA_USR_BROWSER_AGENT == 'IE') {
+                $retval[] = array(
+                    'name' => $file['filename'],
+                    'fire' => $file['has_onload']
+                );
+            }
+        }
+        return $retval;
+    }
+
+    /**
      * Renders all the JavaScript file inclusions, code and events
      *
      * @return string
@@ -152,17 +197,39 @@ class PMA_Scripts
 
         foreach ($this->_files as $file) {
             $retval .= $this->_includeFile(
-                $file['filename'],
+                'js/' . $file['filename'],
                 $file['timestamp'],
                 $file['conditional_ie']
             );
         }
+        $code = 'AJAX.scriptHandler';
+        foreach ($this->_files as $file) {
+            $code .= sprintf(
+                '.add("%s",%d)',
+                PMA_escapeJsString($file['filename']),
+                $file['has_onload'] ? 1 : 0
+            );
+        }
+        $code .= ';';
+        $this->addCode($code);
+
+        $code = '$(function() {';
+        foreach ($this->_files as $file) {
+            if ($file['has_onload']) {
+                $code .= 'AJAX.fireOnload("';
+                $code .= PMA_escapeJsString($file['filename']);
+                $code .= '");';
+            }
+        }
+        $code .= '});';
+        $this->addCode($code);
+
         $retval .= '<script type="text/javascript">';
         $retval .= "// <![CDATA[\n";
         $retval .= $this->_code;
         foreach ($this->_events as $js_event) {
             $retval .= sprintf(
-                "$(window.parent).bind('%s', %s);\n",
+                "$(window).bind('%s', %s);\n",
                 $js_event['event'],
                 $js_event['function']
             );

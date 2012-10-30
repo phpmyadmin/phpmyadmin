@@ -63,7 +63,6 @@ function PMA_getColumnOrder()
  *
  * @param array   $current
  * @param boolean $is_superuser
- * @param string  $checkall
  * @param string  $url_query
  * @param array   $column_order
  * @param array   $replication_types
@@ -72,7 +71,7 @@ function PMA_getColumnOrder()
  * @return array $column_order, $out
  */
 function PMA_buildHtmlForDb(
-    $current, $is_superuser, $checkall, $url_query,
+    $current, $is_superuser, $url_query,
     $column_order, $replication_types, $replication_info
 ) {
     $out = '';
@@ -80,26 +79,22 @@ function PMA_buildHtmlForDb(
         $out .= '<td class="tool">';
         $out .= '<input type="checkbox" name="selected_dbs[]" class="checkall" '
             . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
-            . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
+            . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '"';
 
-        if (!PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
-            $out .= (empty($checkall) ? '' : 'checked="checked" ') . '/>';
-        } else {
-            $out .= ' disabled="disabled" />';
+        if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
+            $out .= ' disabled="disabled"';
         }
-        $out .= '</td>';
+        $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '        <a onclick="'
-           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\''
-           . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
-           . '" href="index.php?' . $url_query . '&amp;db='
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+           . '?' . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf(
                __('Jump to database'),
                htmlspecialchars($current['SCHEMA_NAME'])
            )
-           . '" target="_parent">'
+           . '">'
            . ' ' . htmlspecialchars($current['SCHEMA_NAME'])
            . '</a>'
            . '</td>';
@@ -166,7 +161,7 @@ function PMA_buildHtmlForDb(
     if ($is_superuser && !PMA_DRIZZLE) {
         $out .= '<td class="tool">'
                . '<a onclick="'
-               . 'if (window.parent.setDb) window.parent.setDb(\''
+               . 'PMA_commonActions.setDb(\''
                . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
                . '" href="server_privileges.php?' . $url_query
                . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])

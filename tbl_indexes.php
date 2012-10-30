@@ -319,7 +319,7 @@ for ($i = 0; $i < $add_fields; $i++) {
 </fieldset>
 <fieldset class="tblFooters">
 <?php
-if ($GLOBALS['is_ajax_request'] != true) {
+if ($GLOBALS['is_ajax_request'] != true || ! empty($_REQUEST['ajax_page_request'])) {
     ?>
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
     <span id="addMoreColumns">

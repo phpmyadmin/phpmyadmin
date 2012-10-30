@@ -325,12 +325,6 @@ if (isset($_REQUEST['delete'])
             $queries[] = 'DROP DATABASE IF EXISTS '
                 . PMA_Util::backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
-
-            if ($GLOBALS['is_ajax_request'] != true) {
-                $response->addHTML(
-                    PMA_Util::getReloadNavigationScript()
-                );
-            }
         }
     }
     if (empty($_REQUEST['change_copy'])) {
@@ -378,6 +372,7 @@ list($link_edit, $link_revoke, $link_export)
  * Flush Privileges, show $message and exit.
  */
 if ($GLOBALS['is_ajax_request']
+    && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
     && (! isset($_REQUEST['adduser']) || $_add_user_error)
@@ -392,7 +387,7 @@ if ($GLOBALS['is_ajax_request']
         $link_edit, $hostname, $username
     );
 
-    if ($message instanceof PMA_Message) {
+    if (! empty($message) && $message instanceof PMA_Message) {
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);

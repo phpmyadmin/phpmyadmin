@@ -5,7 +5,7 @@
 
 var pma_theme_image; // filled in server_plugins.php
 
-$(function() {
+AJAX.registerOnload('server_plugins.js', function() {
     // Add tabs
     $('#pluginsTabs').tabs({
         // Tab persistence

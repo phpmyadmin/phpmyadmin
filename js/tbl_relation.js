@@ -15,7 +15,14 @@ function show_hide_clauses($thisDropdown)
     }
 }
 
-$(function() {
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_relation.js', function() {
+    $('select.referenced_column_dropdown').unbind('change');
+});
+
+AJAX.registerOnload('tbl_relation.js', function() {
     // initial display
     $('select.referenced_column_dropdown').each(function(index, one_dropdown) {
         show_hide_clauses($(one_dropdown));

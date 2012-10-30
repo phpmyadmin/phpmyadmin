@@ -25,7 +25,7 @@ $url_query = PMA_generate_common_url($db);
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url = 'main.php' . $url_query;
+$err_url = 'index.php' . $url_query;
 
 /**
  * @global boolean Checks for superuser privileges
