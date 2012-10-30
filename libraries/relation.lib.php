@@ -1085,7 +1085,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table);
+        $the_total   = PMA_Table::countRecords($foreign_db, $foreign_table, true);
 
         if ($override_total == true || $the_total < $GLOBALS['cfg']['ForeignKeyMaxLimit']) {
             // foreign_display can be false if no display field defined:
