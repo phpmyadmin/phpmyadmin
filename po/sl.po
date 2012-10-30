@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-21 14:25+0200\n"
-"PO-Revision-Date: 2012-10-27 11:05+0200\n"
+"PO-Revision-Date: 2012-10-30 22:05+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -8950,7 +8950,7 @@ msgstr "Omogoča ustvarjanje začasnih tabel."
 #: libraries/server_privileges.lib.php:231
 #: libraries/server_privileges.lib.php:955 server_privileges.php:80
 msgid "Allows locking tables for the current thread."
-msgstr "Omogoča zaklepanje tabel za trenutno temo."
+msgstr "Omogoča zaklepanje tabel za trenutno nit."
 
 #: libraries/server_privileges.lib.php:235
 #: libraries/server_privileges.lib.php:968 server_privileges.php:89
