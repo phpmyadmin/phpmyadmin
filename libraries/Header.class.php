@@ -394,7 +394,7 @@ class PMA_Header
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= PMA_Util::getInstance()->getMessage(
+            $retval .= PMA_Util::getMessage(
                 $GLOBALS['message']
             );
             unset($GLOBALS['message']);
