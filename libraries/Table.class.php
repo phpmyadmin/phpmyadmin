@@ -484,9 +484,6 @@ class PMA_Table
     /**
      * Counts and returns (or displays) the number of records in a table
      *
-     * Revision 13 July 2001: Patch for limiting dump size from
-     * vinay@sanisoft.com & girish@sanisoft.com
-     *
      * @param string $db          the current database name
      * @param string $table       the current table name
      * @param bool   $force_exact whether to force an exact count
