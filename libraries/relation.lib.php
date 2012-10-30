@@ -1079,7 +1079,8 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
         $foreign_field   = $foreigner['foreign_field'];
 
         // Count number of rows in the foreign table. Currently we do
-        // not use a drop-down if more than 200 rows in the foreign table,
+        // not use a drop-down if more than ForeignKeyMaxLimit rows in the 
+        // foreign table,
         // for speed reasons and because we need a better interface for this.
         //
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
