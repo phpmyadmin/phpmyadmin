@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 09:54+0100\n"
-"PO-Revision-Date: 2012-10-21 14:33+0200\n"
+"PO-Revision-Date: 2012-10-31 10:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1610,12 +1610,12 @@ msgstr "Chyba při zpracování požadavku"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Číslo chyby: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Popis chyby: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -1942,16 +1942,14 @@ msgid "More"
 msgstr "Více"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Zobrazit vše"
+msgstr "Zobrazit panel"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Skrýt klíče"
+msgstr "Skrýt panel"
 
 #: js/messages.php:377
 #, fuzzy
@@ -4966,25 +4964,24 @@ msgid "Users cannot set a higher value"
 msgstr "Uživatelé nemohou nastavit větší hodnotu"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek"
+msgstr "Nejvyšší počet databází zobrazených v seznamu databází"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Nejvyšší počet databází"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Počet spojení, které prováděly kompletní procházení první tabulky."
+msgstr ""
+"Počet položek, které se mají zobrazit na každé stránce navigačního stromu"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Nejvyšší počet položek ve větvi"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -7290,7 +7287,7 @@ msgstr "neznámý"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Došlo k chybě při nahrávání navigačního stromu"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7312,15 +7309,14 @@ msgstr "Znovu nahrát navigační rám"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "nalezen %s další výsledek"
+msgstr[1] "nalezeny %s další výsledky"
+msgstr[2] "nalezeno %s dalších výsledků"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Filtrovat databáze podle jména"
+msgstr "filtrovat databáze podle jména"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
@@ -7352,11 +7348,10 @@ msgid "Columns"
 msgstr "Pole"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Nová"
+msgstr "Nové"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
 #, fuzzy
@@ -7372,18 +7367,16 @@ msgid "Functions"
 msgstr "Funkce"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nová"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "Nová"
+msgstr "Nový"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
@@ -7393,14 +7386,12 @@ msgstr "Procedury"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nová"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
