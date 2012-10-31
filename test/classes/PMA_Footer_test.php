@@ -50,6 +50,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Error_Handler']['gather'] = false;
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
+        $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['server'] = '1';
         $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
