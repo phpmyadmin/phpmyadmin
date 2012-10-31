@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-10-31 13:44+0200\n"
+"PO-Revision-Date: 2012-10-31 14:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1433,7 +1433,7 @@ msgstr ""
 
 #: js/messages.php:183
 msgid "Analyzing…"
-msgstr "Analyzuji..."
+msgstr "Analyzuji…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1535,7 +1535,7 @@ msgid ""
 "config…"
 msgstr ""
 "Selhalo vytvoření grafu z importovaného nastavení. Používám výchozí "
-"nastavení..."
+"nastavení…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -7668,7 +7668,7 @@ msgstr "Nebyl připojen přihlašovací klíč"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "Authentizuji..."
+msgstr "Authentizuji…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82
