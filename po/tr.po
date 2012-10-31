@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-31 11:55+0200\n"
+"PO-Revision-Date: 2012-10-31 11:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -5106,12 +5106,13 @@ msgid "Target for quick access icon"
 msgstr "Hızlı erişim simgesi için hedef"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
+msgstr ""
+"Süzgeç kutusunu görüntülemek için en az öğe (tablolar, görünümler, yordamlar "
+"ve olaylar) sayısını tanımlar."
 
 #: libraries/config/messages.inc.php:309
 #, fuzzy
