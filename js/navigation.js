@@ -856,7 +856,7 @@ var PMA_fastFilter = {
             }
             var value = $(this).prev()[0].defaultValue;
             $(this).prev().val(value).trigger('keyup');
-        },
+        }
     }
 };
 /**
