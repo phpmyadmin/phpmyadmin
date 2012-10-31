@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-10-31 15:37+0200\n"
+"PO-Revision-Date: 2012-10-31 15:38+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -1451,7 +1451,7 @@ msgstr ""
 
 #: js/messages.php:183
 msgid "Analyzing…"
-msgstr "Analizando..."
+msgstr "Analizando…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1554,7 +1554,7 @@ msgid ""
 "config…"
 msgstr ""
 "No se pudo crear la grilla de gráficos con la configuración importada. "
-"Reiniciando a configuración predeterminada..."
+"Reiniciando a configuración predeterminada…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -7861,7 +7861,7 @@ msgstr "No se ha conectado una clave de autenticación válida"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "Autenticando..."
+msgstr "Autenticando…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82
