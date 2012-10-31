@@ -104,10 +104,12 @@ class PMA_Footer
      */
     public function getSelfUrl($encoding = null)
     {
+        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
             array(
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
+                'db' => $db,
+                'table' => $table,
                 'server' => $GLOBALS['server']
             ),
             $encoding
