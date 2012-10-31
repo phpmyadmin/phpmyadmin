@@ -113,10 +113,12 @@ class PMA_Header
         $this->_isAjax = false;
         $this->_bodyId = '';
         $this->_title  = '';
+        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu   = new PMA_Menu(
             $GLOBALS['server'],
-            $GLOBALS['db'],
-            $GLOBALS['table']
+            $db,
+            $table
         );
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
