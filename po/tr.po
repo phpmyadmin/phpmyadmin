@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-31 11:57+0200\n"
+"PO-Revision-Date: 2012-10-31 11:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -5115,10 +5115,9 @@ msgstr ""
 "ve olaylar) sayısını tanımlar."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
+msgstr "Süzgeç kutusunu görüntülemek için en az öğe sayısıdır"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
