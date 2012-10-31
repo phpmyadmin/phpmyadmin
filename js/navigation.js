@@ -484,7 +484,7 @@ var ScrollHandler = {
  * @var ResizeHandler Custom object that manages the resizing of the navigation
  *
  * XXX: Must only be ever instanciated once
- * XXX: Inside event handlers the 'this' object is accessed as 'event.data.this'
+ * XXX: Inside event handlers the 'this' object is accessed as 'event.data.resize_handler'
  */
 var ResizeHandler = function () {
     /**
@@ -502,10 +502,10 @@ var ResizeHandler = function () {
      */
     this.saved = undefined;
     /**
-     * @var int goto Used by the collapser to know where to go
-     *               back to when uncollapsing the panel
+     * @var int panel_width Used by the collapser to know where to go
+     *                      back to when uncollapsing the panel
      */
-    this.goto = 0;
+    this.panel_width = 0;
     /**
      * @var string left Used to provide support for RTL languages
      */
@@ -577,7 +577,7 @@ var ResizeHandler = function () {
         } else if (pos + 100 >= windowWidth) {
             pos = windowWidth - 100;
         } else {
-            this.goto = 0;
+            this.panel_width = 0;
         }
         return pos;
     };
@@ -612,7 +612,7 @@ var ResizeHandler = function () {
      */
     this.mousedown = function (event) {
         event.preventDefault();
-        event.data.this.active = true;
+        event.data.resize_handler.active = true;
         $('body').css('cursor', 'col-resize');
     };
     /**
@@ -623,10 +623,10 @@ var ResizeHandler = function () {
      * @return void
      */
     this.mouseup = function (event) {
-        if (event.data.this.active) {
-            event.data.this.active = false;
+        if (event.data.resize_handler.active) {
+            event.data.resize_handler.active = false;
             $('body').css('cursor', '');
-            $.cookie('pma_navi_width', event.data.this.getPos(event));
+            $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
             menuResize();
         }
     };
@@ -638,13 +638,13 @@ var ResizeHandler = function () {
      * @return void
      */
     this.mousemove = function (event) {
-        if (event.data.this.active) {
+        if (event.data.resize_handler.active) {
             event.preventDefault();
-            var pos = event.data.this.getPos(event);
-            if (! event.data.this.busy) {
-                event.data.this.setWidth(pos);
+            var pos = event.data.resize_handler.getPos(event);
+            if (! event.data.resize_handler.busy) {
+                event.data.resize_handler.setWidth(pos);
             } else {
-                event.data.this.saved = pos;
+                event.data.resize_handler.saved = pos;
             }
         }
     };
@@ -658,13 +658,13 @@ var ResizeHandler = function () {
     this.collapse = function (event) {
         event.preventDefault();
         event.data.active = false;
-        var goto = event.data.this.goto;
+        var panel_width = event.data.resize_handler.panel_width;
         var width = $('#pma_navigation').width();
-        if (width === 0 && goto === 0) {
-            goto = 240;
+        if (width === 0 && panel_width === 0) {
+            panel_width = 240;
         }
-        event.data.this.setWidth(goto);
-        event.data.this.goto = width;
+        event.data.resize_handler.setWidth(panel_width);
+        event.data.resize_handler.panel_width = width;
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
@@ -675,12 +675,12 @@ var ResizeHandler = function () {
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')
-        .live('mousedown', {'this':this}, this.mousedown);
+        .live('mousedown', {'resize_handler':this}, this.mousedown);
     $(document)
-        .bind('mouseup', {'this':this}, this.mouseup)
-        .bind('mousemove', {'this':this}, this.mousemove);
+        .bind('mouseup', {'resize_handler':this}, this.mouseup)
+        .bind('mousemove', {'resize_handler':this}, this.mousemove);
     var $collapser = $('#pma_navigation_collapser');
-    $collapser.live('click', {'this':this}, this.collapse);
+    $collapser.live('click', {'resize_handler':this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
@@ -856,7 +856,7 @@ var PMA_fastFilter = {
             }
             var value = $(this).prev()[0].defaultValue;
             $(this).prev().val(value).trigger('keyup');
-        },
+        }
     }
 };
 /**
