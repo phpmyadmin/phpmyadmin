@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-21 16:56+0200\n"
+"PO-Revision-Date: 2012-10-31 11:45+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1614,12 +1614,12 @@ msgstr "İstek İşlemede Hata"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Hata kodu: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Hata metni: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -1957,10 +1957,9 @@ msgid "More"
 msgstr "Daha Fazla"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Tümünü göster"
+msgstr "Bölmeyi göster"
 
 #: js/messages.php:374
 #, fuzzy
@@ -1969,10 +1968,9 @@ msgid "Hide Panel"
 msgstr "İndeksleri gizle"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Seçili kullanıcı yetki tablosunda bulunamadı."
+msgstr "İstenen sayfa geçmişte bulunamadı, süresi dolmuş olabilir."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -5002,10 +5000,9 @@ msgid "Users cannot set a higher value"
 msgstr "Kullanıcılar yüksek değer ayarlayamazlar"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr "Veritabanı listesinde görüntülenen en fazla veritabanı sayısıdır"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
