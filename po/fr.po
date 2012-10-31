@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-31 13:27+0200\n"
+"PO-Revision-Date: 2012-10-31 13:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -1619,12 +1619,12 @@ msgstr "Erreur dans le traitement de la requête"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Code d'erreur : %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Texte de l'erreur : %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -3849,11 +3849,11 @@ msgstr "À droite"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Clic"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Double-clic"
 
 #: libraries/config.values.php:71 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -5043,7 +5043,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Nombre maximum d'éléments dans la branche"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5163,7 +5163,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Regrouper les éléments dans l'arborescence"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5280,7 +5280,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Avertissement d'écart Serveur/bibliothèque"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -7392,6 +7392,7 @@ msgstr "inconnu"
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
 msgstr ""
+"Une erreur s'est produite lors du chargement de l'arborescence de navigation"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7413,8 +7414,8 @@ msgstr "Actualiser"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s autre résultat trouvé"
+msgstr[1] "%s autres résultats trouvés"
 
 #: libraries/navigation/NavigationTree.class.php:1025
 #| msgid "Filter databases by name"
@@ -7436,12 +7437,12 @@ msgstr "filtrer les éléments par nom"
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nom de classe \"%1$s\" invalide, \"Node\" sera utilisé"
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "La classe \"%1$s\" n'a pu être incluse, fichier \"%2$s\" inexistant"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -9485,11 +9486,10 @@ msgid "User has been added."
 msgstr "La vue %s a été supprimée."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "Nouveau"
+msgstr "Nouvel utilisateur"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -12293,10 +12293,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Le signet «%s» a été utilisé comme requête par défaut."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Signet %s créé"
+msgstr "Signet non créé"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12333,10 +12332,9 @@ msgid "The columns have been moved successfully."
 msgstr "Les colonnes ont été déplacées avec succès."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Aucune donnée"
+msgstr "Rien à afficher"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
