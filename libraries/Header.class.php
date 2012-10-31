@@ -190,6 +190,8 @@ class PMA_Header
      */
     public function getJsParams()
     {
+        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         return array(
             'common_query' => PMA_generate_common_url('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -199,8 +201,8 @@ class PMA_Header
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $GLOBALS['table'],
-            'db'    => $GLOBALS['db'],
+            'table' => $table,
+            'db'    => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
