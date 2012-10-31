@@ -155,7 +155,7 @@ var AJAX = {
         }
         // Add a list of menu hashes that we have in the cache to the request
         params += AJAX.cache.menus.getRequestParam();
-        
+
         this._debug && console.log("Loading: " + url); // no need to translate
 
         if (isLink) {
@@ -251,7 +251,7 @@ var AJAX = {
                     .insertAfter('#selflink')
                     .append(data._errors);
             }
-            
+
             if (typeof AJAX._callback === 'function') {
                 AJAX._callback.call();
             }
@@ -446,7 +446,7 @@ AJAX.cache = {
      *
      * @return void
      */
-    goto: function (index) {
+    navigate: function (index) {
         if (typeof this.pages[index] === 'undefined') {
             PMA_ajaxShowMessage(
                 '<div class="error">' + PMA_messages['strInvalidPage'] + '</div>',
@@ -616,7 +616,7 @@ $(function () {
             var index = window.location.hash.substring(
                 8, window.location.hash.indexOf(':')
             );
-            AJAX.cache.goto(index);
+            AJAX.cache.navigate(index);
         }
     });
 });

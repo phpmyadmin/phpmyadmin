@@ -380,7 +380,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
             //Post SQL query to sql.php
             $.post('sql.php', {
-                    'token' : PMA_commonParams('token')
+                    'token' : PMA_commonParams('token'),
                     'db' : PMA_commonParams('db'),
                     'ajax_request' : true,
                     'sql_query' : sql_query,
