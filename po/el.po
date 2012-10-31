@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 09:54+0100\n"
-"PO-Revision-Date: 2012-10-31 10:16+0200\n"
+"PO-Revision-Date: 2012-10-31 10:21+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -1623,12 +1623,12 @@ msgstr "Σφάλμα στην Προώθηση του Αιτημάτος"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Κωδικός σφάλματος: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Κείμενο σφάλματος: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -5045,7 +5045,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Μέγιστος αριθμός αντικειμένων στον κλάδο"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5165,7 +5165,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Ομαδοποίηση αντικειμένων στο δέντρο"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5287,7 +5287,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library diffrence warning"
-msgstr ""
+msgstr "Προειδοποίηση διαφοράς διακομιστή/βιβλιοθήκης"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -7410,7 +7410,7 @@ msgstr "άγνωστο"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση του δέντρου πλοήγησης"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7432,8 +7432,8 @@ msgstr "Επαναφόρτωση πλαισίου πλοήγησης"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
+msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
 
 #: libraries/navigation/NavigationTree.class.php:1025
 #| msgid "Filter databases by name"
@@ -7455,12 +7455,12 @@ msgstr "φιλτράρισμα αντικειμένων κατά όνομα"
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Μη έγκυρο όνομα κλάσης «%1$s», χρήση της προεπιλογής του «Node»"
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Αδύνατη η εισαγωγή της κλάσης «%1$s», το αρχείο «%2$s» δεν βρέθηκε"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -10114,7 +10114,7 @@ msgstr "Σφάλμα στο συμπιεσμένο αρχείο ZIP:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να προσπελαστεί μέσω ajax"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12393,10 +12393,9 @@ msgid "The columns have been moved successfully."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Δεν βρέθηκαν δεδομένα"
+msgstr "Κανένα δεδομένο για προβολή"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
