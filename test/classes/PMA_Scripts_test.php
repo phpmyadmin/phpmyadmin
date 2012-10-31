@@ -166,11 +166,11 @@ $(function() {});
     public function testGetFiles()
     {
 
-        $this->object->addFile('jquery.js'); // jquery's onload event is blacklisted
+        $this->object->addFile('codemirror/lib/codemirror.js'); // codemirror's onload event is blacklisted
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(
-                array('name' => 'jquery.js', 'has_onload' => 0),
+                array('name' => 'codemirror/lib/codemirror.js', 'has_onload' => 0),
                 array('name' => 'common.js', 'has_onload' => 1)
             ),
             $this->object->getFiles()
