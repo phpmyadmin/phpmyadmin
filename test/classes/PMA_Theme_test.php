@@ -245,7 +245,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getPrintPreview(),
-            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a target="_top" class="take_theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en&amp;token=token">No preview available.[ <strong>take it</strong> ]</a></p></div>'
+            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en&amp;token=token">No preview available.[ <strong>take it</strong> ]</a></p></div>'
         );
     }
 
