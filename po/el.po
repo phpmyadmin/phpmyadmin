@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-31 10:21+0200\n"
+"PO-Revision-Date: 2012-10-31 11:09+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -5265,7 +5265,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a diffrence between the "
 #| "MySQL library and server is detected"
@@ -5277,7 +5276,6 @@ msgstr ""
 "ανιχνευτεί διαφορά μεταξύ της βιβλιοθήκης και του διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:337
-#, fuzzy
 #| msgid "Server/library diffrence warning"
 msgid "Server/library difference warning"
 msgstr "Προειδοποίηση διαφοράς διακομιστή/βιβλιοθήκης"
