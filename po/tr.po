@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-10-31 19:16+0200\n"
+"PO-Revision-Date: 2012-10-31 21:22+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -626,11 +626,11 @@ msgstr ""
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
-msgstr "Gösterilen işaret"
+msgstr "Yer imi gösteriliyor"
 
 #: import.php:247 import.php:493
 msgid "The bookmark has been deleted."
-msgstr "İşaretleme silindi."
+msgstr "Yer imi silindi."
 
 #: import.php:342 import.php:403 libraries/File.class.php:432
 #: libraries/File.class.php:525
@@ -671,7 +671,7 @@ msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edi
 #: import.php:500 sql.php:377 sql.php:1192
 #, php-format
 msgid "Bookmark %s created"
-msgstr "İşaretleme %s oluşturuldu"
+msgstr "Yer imi %s oluşturuldu"
 
 #: import.php:509 import.php:517
 #, php-format
@@ -1958,13 +1958,12 @@ msgstr "Daha Fazla"
 
 #: js/messages.php:373
 msgid "Show Panel"
-msgstr "Bölmeyi göster"
+msgstr "Paneli Göster"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "İndeksleri gizle"
+msgstr "Paneli Gizle"
 
 #: js/messages.php:377
 msgid "The requested page was not found in the history, it may have expired."
@@ -4146,7 +4145,7 @@ msgid ""
 "when you're about to lose data"
 msgstr ""
 "Veri kaybı yaşamamanız için bir uyarı (&quot;... yapmak istediğiniz için "
-"emin misiniz?&quot;) görüntülenip görüntülenmeyeceğidir"
+"emin misiniz?&quot;) görüntülenip görüntülenmemesidir"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -5006,11 +5005,10 @@ msgid "Maximum databases"
 msgstr "En fazla veritabanı"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "İlk tablonun tam taramasının yapıldığı birleştirme sayısıdır."
+msgstr "Rehber ağacının her sayfasında görüntülenebilen öğe sayısıdır"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5120,7 +5118,6 @@ msgstr ""
 "Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısıdır"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5128,12 +5125,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Sadece sade sürümde; veritabanları ağaç içinde görüntülenir (aşağıda "
-"tanımlanan ayıraçlar tarafından belirlenir)"
+"Rehber ağacındaki öğeleri grupla (aşağıda tanımlanan ayıraç tarafından "
+"belirlenir)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Ağaçtaki öğeleri grupla"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5240,7 +5237,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Eksik phpMyAdmin yapılandırma depolama tabloları"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5248,12 +5244,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Eğer tanımlama bilgisi kimlik doğrulaması için mcrypt eksikse, gösterilen "
+"Eğer MySQL kütüphanesi ve sunucu arasında fark saptanırsa, görüntülenen "
 "varsayılan uyarıyı etkisizleştir"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Sunucu/kütüphane farkı uyarısı"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5416,8 +5412,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği istenmiyorsa "
-"boş bırakın, varsayılan: [kbd]pma_bookmark[/kbd]"
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği olmaması için "
+"boş bırakın, önerilen: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
@@ -5838,7 +5834,7 @@ msgstr "Bu sunucunun ayrıntılı adı"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Kullanıcının &quot;tümünü (satırları) göster&quot; düğmesini görüntüleyip "
-"görüntüleyemeyeceğidir"
+"görüntülememesidir"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -6037,7 +6033,7 @@ msgstr "Kullanıcı Adı"
 
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr "Eğer Suhosin algılanırsa, ana sayfada uyarı gösterilir"
+msgstr "Eğer Suhosin algılanırsa, ana sayfada bir uyarı görüntülenir"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
@@ -7356,7 +7352,7 @@ msgstr "bilinmeyen"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Rehber ağacı yüklenirken bir hata meydana geldi"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7378,37 +7374,34 @@ msgstr "Rehber çerçeveyi yeniden yükle"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
+msgstr[0] "%s diğer sonuç bulundu"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Veritabanlarını adına göre süz"
+msgstr "veritabanlarını adına göre süz"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Diziyi temizle"
+msgstr "Hızlı Süzgeci Temizle"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Tabloları adına göre süz"
+msgstr "öğeleri adına göre süz"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Geçersiz sınıf adı \"%1$s\", \"Node\" varsayılanı kullanıyor"
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "\"%1$s\" sınıfı dahil edilemedi, dosya \"%2$s\" bulunamadı"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7416,14 +7409,12 @@ msgid "Columns"
 msgstr "Sütun"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7436,14 +7427,12 @@ msgid "Functions"
 msgstr "İşlevler"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7457,21 +7446,18 @@ msgstr "Yordamlar"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Yeni"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7483,7 +7469,6 @@ msgid "Views"
 msgstr "Görünümler"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
@@ -9433,7 +9418,6 @@ msgid "User has been added."
 msgstr "Kullanıcı eklendi."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -9623,11 +9607,11 @@ msgstr "Bu SQL sorgusunu işaretle"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1276
 msgid "Let every user access this bookmark"
-msgstr "Bütün kullanıcıların bu işaretlemeye erişimlerine izin ver"
+msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
-msgstr "Mevcut aynı ismin işaretlemesini değiştir"
+msgstr "Aynı ismin mevcut yer imini değiştir"
 
 #: libraries/sql_query_form.lib.php:348
 msgid "Do not overwrite this query from outside the window"
@@ -10046,7 +10030,7 @@ msgstr "ZIP arşivinde hata:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Önemli hata: Rehbere sadece ajax aracılığıyla erişilebilir"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12218,10 +12202,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Varsayılan gözatma sorgusu olarak \"%s\" yer imi kullanılıyor."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "İşaretleme %s oluşturuldu"
+msgstr "Yer imi oluşturulmadı"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12258,10 +12241,9 @@ msgid "The columns have been moved successfully."
 msgstr "Sütunlar başarılı olarak taşındı."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Bulunan veri yok"
+msgstr "Görüntülemek için veri yok"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
