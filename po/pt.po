@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-21 18:04+0200\n"
-"Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
+"PO-Revision-Date: 2012-10-31 11:31+0200\n"
+"Last-Translator: Rui Simoes <ruisimoes.ouca@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
@@ -4262,7 +4262,6 @@ msgstr ""
 "Número máximo de tabelas utilizadas recentemente, definir 0 para desativar"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
 msgstr "Tabelas utilizadas recentemente"
@@ -4622,11 +4621,11 @@ msgstr "Permitir login como root"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "Nome do Domínio a apresentar quando é feita autenticação HTTP"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Domínio HTTP"
 
 #: libraries/config/messages.inc.php:370
 msgid ""
@@ -4634,10 +4633,13 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"O caminho para o ficheiro de configuração [a@http://swekey.com] autenticação "
+"da maquina SweKey [/a] (não foi localizado na raiz do seu documento: "
+"sugestão: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
-msgstr ""
+msgstr "Ficheiro de configuração Swekey"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
@@ -4698,6 +4700,9 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
+"Um usuário especial MySQL será configurado com permissões limitadas, mais "
+"informações disponíveis em "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
