@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 09:54+0100\n"
-"PO-Revision-Date: 2012-10-31 10:44+0200\n"
+"PO-Revision-Date: 2012-10-31 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1952,10 +1952,11 @@ msgid "Hide Panel"
 msgstr "Skrýt panel"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Zvolený uživatel nebyl nalezen v tabulce oprávnění."
+msgstr ""
+"Požadovaná stránka nebyla nalezena v historii, možná jí již vypršela "
+"platnost."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -5069,25 +5070,24 @@ msgid "Target for quick access icon"
 msgstr "Cíl pro ikonu rychlého přístupu"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
+msgstr ""
+"Definuje minimální počet položek (tabulky, pohledy, procedury a události) "
+"pro zobrazení filtrovacího pole."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Minimální počet tabulek pro zobrazení filtru tabulek"
+msgstr "Minimální počet položek pro zobrazení filtrovacího pole"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimální počet tabulek pro zobrazení filtru databází"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5095,12 +5095,11 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Pouze pro odlehčenou verzi; zobrazí databáze jako strom (určeno oddělovačem "
-"nastaveným níže)"
+"Seskupovat položky v navigačním stromu (určeno oddělovačem nastaveným níže)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Seskupovat položky ve stromu"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5205,7 +5204,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5213,12 +5211,12 @@ msgid ""
 "Disable the default warning that is displayed if a diffrence between the "
 "MySQL library and server is detected"
 msgstr ""
-"Vypne varování o chybějícím rozšíření mcrypt při použití přihlašování přes "
-"cookies"
+"Vypne varování, která se zobrazí, pokud je zjištěna rozdílná verze knihovny "
+"MySQL a serveru"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library diffrence warning"
-msgstr ""
+msgstr "Varování o rozdílných verzích"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -7320,27 +7318,25 @@ msgstr "filtrovat databáze podle jména"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Odstranit série"
+msgstr "Vymazat filtr"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtrovat tabulky podle jména"
+msgstr "filtrovat položky podle jména"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Neplatný název třídy \"%1$s\", používám výchozí \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Nelze načíst třídu \"%1$s\", soubor \"%2$s\" nebyl nenalezen"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7354,7 +7350,6 @@ msgid "New"
 msgstr "Nové"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7398,7 +7393,6 @@ msgid "New"
 msgstr "Nová"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Crate new trigger"
 msgid "New"
@@ -7410,11 +7404,10 @@ msgid "Views"
 msgstr "Pohledy"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nová"
+msgstr "Nový"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -9347,11 +9340,10 @@ msgid "User has been added."
 msgstr "Uživatel byl přidán."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "Nová"
+msgstr "Nový"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -9959,7 +9951,7 @@ msgstr "Chyba v ZIP archívu:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Chyba: Navigace je přístupná jen přes ajax"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12109,10 +12101,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Vytvořen oblíbený dotaz %s"
+msgstr "Nebyl vytvořen oblíbený dotaz"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12149,7 +12140,6 @@ msgid "The columns have been moved successfully."
 msgstr "Vybraná pole byla úspěšně přesunuta."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Nebyla nalezena žádná data"
