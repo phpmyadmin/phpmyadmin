@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-16 14:47+0200\n"
+"PO-Revision-Date: 2012-10-31 11:52+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -4369,7 +4369,7 @@ msgstr "Görüntülemek için en fazla satır sayısı"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum number of tables displayed in table list"
-msgstr "Tablo listesinde görüntülenecek olan en fazla tablo sayısıdır"
+msgstr "Tablo listesinde görüntülenen en fazla tablo sayısıdır"
 
 #: libraries/config/messages.inc.php:316
 msgid "Maximum tables"
