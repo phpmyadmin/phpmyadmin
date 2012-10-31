@@ -157,4 +157,23 @@ $(function() {});
             $this->object->getDisplay()
         );
     }
+
+     /**
+     * test for getFiles
+     *
+     * @return void
+     */
+    public function testGetFiles()
+    {
+
+        $this->object->addFile('jquery.js'); // jquery's onload event is blacklisted
+        $this->object->addFile('common.js');
+        $this->assertEquals(
+            array(
+                array('name' => 'jquery.js', 'has_onload' => 0),
+                array('name' => 'common.js', 'has_onload' => 1)
+            ),
+            $this->object->getFiles()
+        );
+    }
 }
