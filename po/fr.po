@@ -7499,11 +7499,10 @@ msgid "New"
 msgstr "Nouvelle table"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Crate new trigger"
 msgid "New"
-msgstr "Nouveau"
+msgstr "Nouveau déclencheur"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:124
