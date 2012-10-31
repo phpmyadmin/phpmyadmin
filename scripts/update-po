@@ -42,3 +42,7 @@ for loc in $LOCS ; do
         ' po/$loc.po
     msgmerge --previous -U po/$loc.po po/phpmyadmin.pot
 done
+
+# Commit changes
+git add po/*.po po/phpmyadmin.pot
+git commit -m 'Update po files'
