@@ -170,8 +170,8 @@ $(function() {});
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(
-                array('name' => 'codemirror/lib/codemirror.js', 'has_onload' => 0),
-                array('name' => 'common.js', 'has_onload' => 1)
+                array('name' => 'codemirror/lib/codemirror.js', 'fire' => 0),
+                array('name' => 'common.js', 'fire' => 1)
             ),
             $this->object->getFiles()
         );
