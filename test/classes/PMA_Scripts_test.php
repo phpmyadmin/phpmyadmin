@@ -151,6 +151,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<script type="text/javascript">// <![CDATA[
 alert(\'CodeAdded\')
+AJAX.scriptHandler;
+$(function() {});
 // ]]></script>',
             $this->object->getDisplay()
         );
