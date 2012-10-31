@@ -502,10 +502,10 @@ var ResizeHandler = function () {
      */
     this.saved = undefined;
     /**
-     * @var int goto Used by the collapser to know where to go
-     *               back to when uncollapsing the panel
+     * @var int panel_width Used by the collapser to know where to go
+     *                      back to when uncollapsing the panel
      */
-    this.goto = 0;
+    this.panel_width = 0;
     /**
      * @var string left Used to provide support for RTL languages
      */
@@ -577,7 +577,7 @@ var ResizeHandler = function () {
         } else if (pos + 100 >= windowWidth) {
             pos = windowWidth - 100;
         } else {
-            this.goto = 0;
+            this.panel_width = 0;
         }
         return pos;
     };
@@ -658,13 +658,13 @@ var ResizeHandler = function () {
     this.collapse = function (event) {
         event.preventDefault();
         event.data.active = false;
-        var goto = event.data.this.goto;
+        var panel_width = event.data.this.panel_width;
         var width = $('#pma_navigation').width();
-        if (width === 0 && goto === 0) {
-            goto = 240;
+        if (width === 0 && panel_width === 0) {
+            panel_width = 240;
         }
-        event.data.this.setWidth(goto);
-        event.data.this.goto = width;
+        event.data.this.setWidth(panel_width);
+        event.data.this.panel_width = width;
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
