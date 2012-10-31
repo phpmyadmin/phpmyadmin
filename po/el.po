@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 09:54+0100\n"
-"PO-Revision-Date: 2012-10-22 07:26+0200\n"
+"PO-Revision-Date: 2012-10-31 10:16+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -1964,22 +1964,19 @@ msgid "More"
 msgstr "Περισσότερα"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Εμφάνιση όλων"
+msgstr "Εμφάνιση Πίνακα"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Απόκρυψη ευρετηρίων"
+msgstr "Απόκρυψη Πίνακα"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Ο επιλεγμένος χρήστης δεν βρέθηκε στον πίνακα δικαιωμάτων."
+msgstr "Η αιτούμενη σελίδα δεν βρέθηκε στο ιστορικό, ίσως έληξε."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -5028,21 +5025,23 @@ msgid "Users cannot set a higher value"
 msgstr "Οι χρήστες δεν μπορούν να ορίσουν μεγαλύτερη τιμή"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Μέγιστος αριθμός πινάκες που θα προβάλονται σε λίστα πινάκων"
+msgstr ""
+"Μέγιστος αριθμός βάσεων δεδομένων που θα προβάλονται στη λίστα βάσεων "
+"δεδομένων"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Μέγιστος αριθμός βάσεων δεδομένων"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Ο αριθμός των ενώσεων που έκαναν μια πλήρη σάρωση του πρώτου πίνακα."
+msgstr ""
+"Ο αριθμός των αντικειμένων που μπορούν να προβληθούν σε κάθε σελίδα στο "
+"δέντρο πλοήγησης"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5136,25 +5135,24 @@ msgid "Target for quick access icon"
 msgstr "Προορισμός για εικονίδιο γρήγορης πρόσβασης"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Ελάχιστος αριθμός πινάκων για προβολή του πλαισίου φίλτρου πίνακα"
+msgstr ""
+"Ορίζει τον ελάχιστο αριθμό αντικειμένων (πίνακες, προβολές, ρουτίνες και "
+"συμβάντα) για προβολή σε πλαίσιο φίλτρου."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Ελάχιστος αριθμός πινάκων για προβολή του πλαισίου φίλτρου πίνακα"
+msgstr "Ελάχιστος αριθμός αντικειμένων για προβολή του πλαισίου φίλτρου"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Ελάχιστος αριθμός πινάκων για προβολή στο πλαίσιο φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5162,7 +5160,7 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Μόνο απλή έκδοση; δενδροειδής προβολή βάσεων δεδομένων (προσδορίζεται από το "
+"Ομαδοποιήση αντικειμένων στο δέντρο πλοήγησης (προσδορίζεται από το "
 "διαχωριστικό που ορίζεται παρακάτω)"
 
 #: libraries/config/messages.inc.php:312
@@ -5277,7 +5275,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5285,8 +5282,8 @@ msgid ""
 "Disable the default warning that is displayed if a diffrence between the "
 "MySQL library and server is detected"
 msgstr ""
-"Απενεργοποιήση της προεπιλεγμένης προειδοποιησης που εμφανίζεται αν το "
-"mcrypt λείπει γιατην πιστοποίηση cookie"
+"Απενεργοποιήση της προεπιλεγμένης προειδοποιησης που εμφανίζεται αν "
+"ανιχνευτεί διαφορά μεταξύ της βιβλιοθήκης και του διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library diffrence warning"
@@ -7439,23 +7436,20 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Φιλτράρισμα βάσεων δεδομενων κατά όνομα"
+msgstr "φιλτράρισμα βάσεων δεδομενων κατά όνομα"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Εκκαθάριση σειράς"
+msgstr "Εκκαθάριση Γρήγορου Φίλτρου"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Φιλτράρισμα πινάκων κατά όνομα"
+msgstr "φιλτράρισμα αντικειμένων κατά όνομα"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
@@ -7474,14 +7468,12 @@ msgid "Columns"
 msgstr "Στήλες"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7494,14 +7486,12 @@ msgid "Functions"
 msgstr "Συναρτήσεις"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7515,25 +7505,22 @@ msgstr "Διαδικασίες"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Νέο"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Crate new trigger"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:124
@@ -7541,11 +7528,10 @@ msgid "Views"
 msgstr "Προβολές"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέα"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -9512,11 +9498,10 @@ msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "Νέο"
+msgstr "Νέος"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -12369,10 +12354,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Ο σελιδοδείκτης %s δημιουργήθηκε"
+msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε"
 
 #: sql.php:898
 msgid "Showing as PHP code"
