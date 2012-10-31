@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 09:54+0100\n"
+"POT-Creation-Date: 2012-10-31 10:52+0100\n"
 "PO-Revision-Date: 2012-09-05 10:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -5112,13 +5112,13 @@ msgstr "Липсват таблици от хранилището за конф�
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if a diffrence between the "
+"Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
 #: libraries/config/messages.inc.php:337
-msgid "Server/library diffrence warning"
+msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339

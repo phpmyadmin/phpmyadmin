@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 09:54+0100\n"
+"POT-Creation-Date: 2012-10-31 10:52+0100\n"
 "PO-Revision-Date: 2012-09-05 10:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -5325,12 +5325,12 @@ msgstr "phpMyAdmin विन्यास भंडारण टेबल ला�
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if a diffrence between the "
+"Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr "अगर mcrypt कुकी प्रमाणीकरण अक्षम है डिफ़ॉल्ट चेतावनी रदर्शित होता अक्षम है"
 
 #: libraries/config/messages.inc.php:337
-msgid "Server/library diffrence warning"
+msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339

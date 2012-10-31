@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 09:54+0100\n"
+"POT-Creation-Date: 2012-10-31 10:52+0100\n"
 "PO-Revision-Date: 2012-10-31 10:21+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -1964,17 +1964,14 @@ msgid "More"
 msgstr "Περισσότερα"
 
 #: js/messages.php:373
-#| msgid "Show all"
 msgid "Show Panel"
 msgstr "Εμφάνιση Πίνακα"
 
 #: js/messages.php:374
-#| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Απόκρυψη Πίνακα"
 
 #: js/messages.php:377
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Η αιτούμενη σελίδα δεν βρέθηκε στο ιστορικό, ίσως έληξε."
 
@@ -5025,7 +5022,6 @@ msgid "Users cannot set a higher value"
 msgstr "Οι χρήστες δεν μπορούν να ορίσουν μεγαλύτερη τιμή"
 
 #: libraries/config/messages.inc.php:286
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
 msgstr ""
 "Μέγιστος αριθμός βάσεων δεδομένων που θα προβάλονται στη λίστα βάσεων "
@@ -5036,7 +5032,6 @@ msgid "Maximum databases"
 msgstr "Μέγιστος αριθμός βάσεων δεδομένων"
 
 #: libraries/config/messages.inc.php:288
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
@@ -5135,7 +5130,6 @@ msgid "Target for quick access icon"
 msgstr "Προορισμός για εικονίδιο γρήγορης πρόσβασης"
 
 #: libraries/config/messages.inc.php:308
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5144,7 +5138,6 @@ msgstr ""
 "συμβάντα) για προβολή σε πλαίσιο φίλτρου."
 
 #: libraries/config/messages.inc.php:309
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "Ελάχιστος αριθμός αντικειμένων για προβολή του πλαισίου φίλτρου"
 
@@ -5153,9 +5146,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Ελάχιστος αριθμός πινάκων για προβολή στο πλαίσιο φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:311
-#| msgid ""
-#| "Only light version; display databases in a tree (determined by the "
-#| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5275,18 +5265,21 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Λείπουν πίνακες αποθήκευσης ρυθμίσεων του phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
+#, fuzzy
 #| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication"
+#| "Disable the default warning that is displayed if a diffrence between the "
+#| "MySQL library and server is detected"
 msgid ""
-"Disable the default warning that is displayed if a diffrence between the "
+"Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
 "Απενεργοποιήση της προεπιλεγμένης προειδοποιησης που εμφανίζεται αν "
 "ανιχνευτεί διαφορά μεταξύ της βιβλιοθήκης και του διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:337
-msgid "Server/library diffrence warning"
+#, fuzzy
+#| msgid "Server/library diffrence warning"
+msgid "Server/library difference warning"
 msgstr "Προειδοποίηση διαφοράς διακομιστή/βιβλιοθήκης"
 
 #: libraries/config/messages.inc.php:339
@@ -7436,18 +7429,15 @@ msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
 msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "φιλτράρισμα βάσεων δεδομενων κατά όνομα"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "Εκκαθάριση Γρήγορου Φίλτρου"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#| msgid "Filter tables by name"
 msgid "filter items by name"
 msgstr "φιλτράρισμα αντικειμένων κατά όνομα"
 
@@ -7468,13 +7458,11 @@ msgid "Columns"
 msgstr "Στήλες"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Νέο"
@@ -7486,13 +7474,11 @@ msgid "Functions"
 msgstr "Συναρτήσεις"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Νέο"
@@ -7505,19 +7491,16 @@ msgstr "Διαδικασίες"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Νέα"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Νέο"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#| msgid "New"
 msgctxt "Crate new trigger"
 msgid "New"
 msgstr "Νέα"
@@ -7528,7 +7511,6 @@ msgid "Views"
 msgstr "Προβολές"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Νέα"
@@ -9498,7 +9480,6 @@ msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
 #: libraries/server_privileges.lib.php:1625
-#| msgid "New"
 msgctxt "Create new user"
 msgid "New"
 msgstr "Νέος"
@@ -12354,7 +12335,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
 #: sql.php:381
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε"
 
@@ -12393,7 +12373,6 @@ msgid "The columns have been moved successfully."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
 #: tbl_chart.php:41
-#| msgid "No data found"
 msgid "No data to display"
 msgstr "Κανένα δεδομένο για προβολή"
 

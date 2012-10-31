@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 09:54+0100\n"
+"POT-Creation-Date: 2012-10-31 10:52+0100\n"
 "PO-Revision-Date: 2012-09-05 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -5101,12 +5101,12 @@ msgstr "丢失 phpMyAdmin 高级功能数据表"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if a diffrence between the "
+"Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr "禁止显示在使用 cookie 认证时缺少 mcrypt 的默认警告"
 
 #: libraries/config/messages.inc.php:337
-msgid "Server/library diffrence warning"
+msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339
