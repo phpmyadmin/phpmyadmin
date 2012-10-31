@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-31 11:52+0200\n"
+"PO-Revision-Date: 2012-10-31 19:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -4336,7 +4336,7 @@ msgstr "SQL sorgusu görüntülendiğinde kullanılan en fazla karakter sayısı
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
-msgstr "En fazla görüntülenecek SQL uzunluğu"
+msgstr "En fazla görüntülenen SQL uzunluğu"
 
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
@@ -4359,7 +4359,7 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
-"Sonuç grubuna göz atarken görüntülenecek satır sayısıdır. Eğer sonuç grubu "
+"Sonuç grubuna göz atarken görüntülenen satır sayısıdır. Eğer sonuç grubu "
 "daha fazla satır içeriyorsa, &quot;Önceki&quot; ve &quot;Sonraki&quot; "
 "bağlantıları gösterilecektir."
 
@@ -4380,7 +4380,7 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
-"Eğer tanımlama bilgisi kimlik doğrulaması için mcrypt eksikse, gösterilen "
+"Eğer tanımlama bilgisi kimlik doğrulaması için mcrypt eksikse, görüntülenen "
 "varsayılan uyarıyı etkisizleştir"
 
 #: libraries/config/messages.inc.php:318
@@ -4459,7 +4459,7 @@ msgid ""
 "configuration storage could not be found"
 msgstr ""
 "Eğer phpMyAdmin yapılandırma depolaması için gerekli tablolardan herhangi "
-"biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında gösterilen "
+"biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında görüntülenen "
 "varsayılan uyarıyı etkisizleştir"
 
 #: libraries/config/messages.inc.php:334
@@ -5106,8 +5106,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Düzenle/ekle kipinde alanlar doldurulsada doldurulmasada ilk olarak "
-"gösterilmesini tanımlar"
+"Düzenle/ekle kipinde yazma alanlarının ilk olarak görüntülenip "
+"görüntülenmemesini tanımlar"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
