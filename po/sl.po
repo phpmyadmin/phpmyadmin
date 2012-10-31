@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 10:52+0100\n"
+"POT-Creation-Date: 2012-10-31 08:30-0400\n"
 "PO-Revision-Date: 2012-10-31 11:14+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
-"Language: sl\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
@@ -621,11 +621,11 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
-"%sdokumentaciji%s ogledate načine, kako obiti omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
+"sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -1954,12 +1954,10 @@ msgid "More"
 msgstr "Več"
 
 #: js/messages.php:373
-#| msgid "Show all"
 msgid "Show Panel"
 msgstr "Pokaži ploščo"
 
 #: js/messages.php:374
-#| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Skrij ploščo"
 
@@ -2639,8 +2637,8 @@ msgstr "v poizvedbi"
 #: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:660
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:4944
@@ -2692,7 +2690,7 @@ msgstr "Izvozi"
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:324
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2771,17 +2769,17 @@ msgstr "Napaka pri premikanju naložene datoteke."
 msgid "Cannot read (moved) upload file."
 msgstr "Ne morem prebrati (premakniti) naložene datoteke."
 
-#: libraries/Footer.class.php:129 libraries/Footer.class.php:133
-#: libraries/Footer.class.php:136
+#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
+#: libraries/Footer.class.php:138
 msgid "Open new phpMyAdmin window"
 msgstr "Odpri novo okno phpMyAdmin"
 
-#: libraries/Header.class.php:571
+#: libraries/Header.class.php:575
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "Če želite še naprej uporabljati program, morate omogočiti piškotke."
 
-#: libraries/Header.class.php:576
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 msgid "Javascript must be enabled past this point"
 msgstr "Po tej točki mora biti JavaScript omogočen"
@@ -3272,20 +3270,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Majhno število z decimalno vejico; dovoljene so vrednosti od -3,402823466E"
 "+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od "
-"-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
+"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od -"
+"1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -5005,7 +5003,6 @@ msgid "Users cannot set a higher value"
 msgstr "Uporabniki ne morejo določiti višje vrednosti"
 
 #: libraries/config/messages.inc.php:286
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
 msgstr "Največje število zbirk podatkov, prikazanih na seznamu zbirk podatkov"
 
@@ -6439,8 +6436,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -6967,8 +6964,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -7467,7 +7464,7 @@ msgstr "Novo"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
 #, fuzzy
 #| msgid "New"
-msgctxt "Crate new trigger"
+msgctxt "Create new trigger"
 msgid "New"
 msgstr "Novo"
 
@@ -7669,8 +7666,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -9550,8 +9547,8 @@ msgstr "Pregled uporabnikov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -12966,8 +12963,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
@@ -13122,8 +13119,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
 "od 10 %%."
@@ -13877,6 +13874,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#, fuzzy
+#~| msgid "New"
+#~ msgctxt "Crate new trigger"
+#~ msgid "New"
+#~ msgstr "Novo"
 
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin je prijaznejši z brskalnikom, ki <b>podpira okvirje</b>."

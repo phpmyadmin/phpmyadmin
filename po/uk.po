@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 10:52+0100\n"
+"POT-Creation-Date: 2012-10-31 08:30-0400\n"
 "PO-Revision-Date: 2012-10-14 21:06+0200\n"
 "Last-Translator: Myroslav Kosinskyi <km@ub.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "uk/>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
@@ -630,11 +630,11 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Ви напевно намагаєтесь завантажити занадто великий файл. Будь ласка "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
@@ -1319,8 +1319,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за "
-"%d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
+"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за %"
+"d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
 "залежності від вашої системи."
 
 #: js/messages.php:150
@@ -2708,11 +2708,11 @@ msgstr "по запиту"
 #: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:660
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Вигляд має щонайменше цю кількість рядків. Будь-ласка звернітся до "
-"%sдокументації%s."
+"Вигляд має щонайменше цю кількість рядків. Будь-ласка звернітся до %"
+"sдокументації%s."
 
 #: libraries/DisplayResults.class.php:4944
 msgid "Showing rows"
@@ -2763,7 +2763,7 @@ msgstr "Експорт"
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:324
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2845,17 +2845,17 @@ msgstr "Помилка при переміщенні файлу."
 msgid "Cannot read (moved) upload file."
 msgstr "Неможливо прочитати (перемістити) завантажений файл."
 
-#: libraries/Footer.class.php:129 libraries/Footer.class.php:133
-#: libraries/Footer.class.php:136
+#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
+#: libraries/Footer.class.php:138
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/Header.class.php:571
+#: libraries/Header.class.php:575
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "З цього моменту Cookies повинні бути дозволені."
 
-#: libraries/Header.class.php:576
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -3344,14 +3344,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -6396,8 +6396,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:328
@@ -6883,8 +6883,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7386,7 +7386,7 @@ msgstr "Новий"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
 #, fuzzy
 #| msgid "New"
-msgctxt "Crate new trigger"
+msgctxt "Create new trigger"
 msgid "New"
 msgstr "Новий"
 
@@ -7594,8 +7594,8 @@ msgstr "Ласкаво просимо до %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Ви, напевно, не створили файл конфігурації. Для його створення Ви можете "
 "використати %1$ssetup script%2$s."
@@ -9476,8 +9476,8 @@ msgstr "Огляд користувачів"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав "
 "MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються "
@@ -9888,8 +9888,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть "
-"%sописи перетворень%s"
+"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть %"
+"sописи перетворень%s"
 
 #: libraries/tbl_properties.inc.php:157
 msgid "Transformation options"
@@ -12768,8 +12768,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12902,8 +12902,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
@@ -13600,6 +13600,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert встановлений у 0"
 
+#, fuzzy
+#~| msgid "New"
+#~ msgctxt "Crate new trigger"
+#~ msgid "New"
+#~ msgstr "Новий"
+
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin є більш зручним в браузері з підтримкою <b>фреймів</b>."
 
@@ -13917,8 +13923,8 @@ msgstr "concurrent_insert встановлений у 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано "
-#~ "%s запитів."
+#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано %"
+#~ "s запитів."
 
 #~ msgid "Chart generated successfully."
 #~ msgstr "Права успішно перезавантажено."

@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 10:52+0100\n"
+"POT-Creation-Date: 2012-10-31 08:30-0400\n"
 "PO-Revision-Date: 2012-10-31 11:58+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
-"Language: tr\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -618,8 +618,8 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -886,8 +886,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya"
-"%s tıklayın."
+"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya%"
+"s tıklayın."
 
 #: index.php:500
 #, php-format
@@ -1304,8 +1304,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
-"0-2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
+"2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:150
 #, php-format
@@ -1957,7 +1957,6 @@ msgid "More"
 msgstr "Daha Fazla"
 
 #: js/messages.php:373
-#| msgid "Show all"
 msgid "Show Panel"
 msgstr "Bölmeyi göster"
 
@@ -1968,7 +1967,6 @@ msgid "Hide Panel"
 msgstr "İndeksleri gizle"
 
 #: js/messages.php:377
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "İstenen sayfa geçmişte bulunamadı, süresi dolmuş olabilir."
 
@@ -1978,8 +1976,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
-"%s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
+"s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:382
@@ -2635,8 +2633,8 @@ msgstr "sorgu içerisinde"
 #: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:660
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -2689,7 +2687,7 @@ msgstr "Dışa Aktar"
 msgid "Query results operations"
 msgstr "Sorgu sonuçları işlemleri"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:324
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2768,19 +2766,19 @@ msgstr "Gönderilmiş dosya taşınırken hata oldu."
 msgid "Cannot read (moved) upload file."
 msgstr "Gönderilen dosya okunamıyor (taşınamadı)."
 
-#: libraries/Footer.class.php:129 libraries/Footer.class.php:133
-#: libraries/Footer.class.php:136
+#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
+#: libraries/Footer.class.php:138
 msgid "Open new phpMyAdmin window"
 msgstr "Yeni phpMyAdmin penceresi aç"
 
-#: libraries/Header.class.php:571
+#: libraries/Header.class.php:575
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr ""
 "Bu kısmı geçmek için tanımlama bilgileri (cookies) etkinleştirilmiş "
 "olmalıdır."
 
-#: libraries/Header.class.php:576
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 msgid "Javascript must be enabled past this point"
 msgstr "Bu kısmı geçmek için Javascript etkinleştirilmiş olmalıdır"
@@ -3260,20 +3258,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
-"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
+"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:312
@@ -5000,7 +4998,6 @@ msgid "Users cannot set a higher value"
 msgstr "Kullanıcılar yüksek değer ayarlayamazlar"
 
 #: libraries/config/messages.inc.php:286
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
 msgstr "Veritabanı listesinde görüntülenen en fazla veritabanı sayısıdır"
 
@@ -5106,7 +5103,6 @@ msgid "Target for quick access icon"
 msgstr "Hızlı erişim simgesi için hedef"
 
 #: libraries/config/messages.inc.php:308
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5115,7 +5111,6 @@ msgstr ""
 "ve olaylar) sayısını tanımlar."
 
 #: libraries/config/messages.inc.php:309
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "Süzgeç kutusunu görüntülemek için en az öğe sayısıdır"
 
@@ -6453,8 +6448,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -6982,8 +6977,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -7478,7 +7473,7 @@ msgstr "Yeni"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
 #, fuzzy
 #| msgid "New"
-msgctxt "Crate new trigger"
+msgctxt "Create new trigger"
 msgid "New"
 msgstr "Yeni"
 
@@ -7680,8 +7675,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -9565,8 +9560,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -10269,8 +10264,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
-"%sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
+"sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -12156,9 +12151,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
-"%sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
-"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- %"
+"sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%s. "
+"Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/index.lib.php:316
@@ -12173,8 +12168,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
-"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
+"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: setup/lib/index.lib.php:318
@@ -12979,8 +12974,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -13131,8 +13126,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -13886,6 +13881,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
 
+#, fuzzy
+#~| msgid "New"
+#~ msgctxt "Crate new trigger"
+#~ msgid "New"
+#~ msgstr "Yeni"
+
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr ""
 #~ "phpMyAdmin, <b>çerçeve-kabiliyeti</b> olan tarayıcı ile daha "
@@ -14167,12 +14168,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are "
-#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are -"
+#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
-#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
+#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""
