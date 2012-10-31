@@ -1447,7 +1447,7 @@ msgstr ""
 "Analizouse o rexistro mais non se atoparon datos neste intervalo de tempo."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "A analizar..."
 
 #: js/messages.php:184
@@ -1548,7 +1548,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Produciuse un fallo ao construír a grella da gráfica coa configuración "
 "importada. Restáurase a configuración predeterminada..."
@@ -7777,7 +7777,7 @@ msgid "No valid authentication key plugged"
 msgstr "Non se meteu ningunha chave de autenticación válida"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "A autenticar..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

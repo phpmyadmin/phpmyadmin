@@ -1438,7 +1438,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Logi on analüüsitud, kuid sellest ajavahemikust andmeid ei leitud."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analüüsimine..."
 
 #: js/messages.php:184
@@ -1537,7 +1537,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Imporditud seadistusega diagrammi ruudustiku loomine ebaõnnestus. "
 "Lähtestamine vaikimisi seadistusse..."
@@ -7726,7 +7726,7 @@ msgid "No valid authentication key plugged"
 msgstr "Ühtegi kehtivat autentimise võtit pole sisestatud"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autentimine..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

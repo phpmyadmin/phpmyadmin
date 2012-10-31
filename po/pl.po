@@ -1445,7 +1445,7 @@ msgstr ""
 "czasu."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analizowanie ..."
 
 #: js/messages.php:184
@@ -1546,7 +1546,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Nie udało zbudować siatki wykresu z importu konfiguracji. Przywracanie "
 "domyślnej konfiguracji..."
@@ -7812,7 +7812,7 @@ msgid "No valid authentication key plugged"
 msgstr "Prawidłowy klucz uwierzytelniający nie jest podłączony"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Trwa uwierzytelnianie..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

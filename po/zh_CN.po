@@ -1402,7 +1402,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "日志已分析，时间段内没有数据。"
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "正在分析。。。"
 
 #: js/messages.php:184
@@ -1500,7 +1500,7 @@ msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr "导入配置失败。正在重设为默认设置..."
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -7504,7 +7504,7 @@ msgid "No valid authentication key plugged"
 msgstr "没有可用的密钥插入"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "正在认证..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

@@ -1425,7 +1425,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "로그가 분석되었습니다. 하지만 해당 기간내에는 자료가 없습니다."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "분석중..."
 
 #: js/messages.php:184
@@ -1524,7 +1524,7 @@ msgstr "구성 파일을 분석할 수 없습니다. 유효한 JSON 코드가 �
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "가져온 설정과 차트 격자를 그리는데 실패했습니다. 기본 설정으로 적용중..."
 
@@ -4620,13 +4620,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:199
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Authentication"
 msgstr "인증중입니다..."
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Authentication settings"
 msgstr "인증중입니다..."
 
@@ -6009,13 +6009,13 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:41
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Config authentication"
 msgstr "인증중입니다..."
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Cookie authentication"
 msgstr "인증중입니다..."
 
@@ -6025,7 +6025,7 @@ msgstr "HTTP 인증"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Signon authentication"
 msgstr "인증중입니다..."
 
@@ -7567,7 +7567,7 @@ msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다.
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Can not find signon authentication script:"
 msgstr "인증중입니다..."
 
@@ -7586,7 +7586,7 @@ msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "인증중입니다..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

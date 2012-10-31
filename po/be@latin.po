@@ -1532,7 +1532,7 @@ msgstr ""
 #: js/messages.php:183
 #, fuzzy
 #| msgid "Analyze"
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Praanalizavać"
 
 #: js/messages.php:184
@@ -1652,7 +1652,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -1706,7 +1706,7 @@ msgstr "Padrabiaźniej..."
 
 #: js/messages.php:225
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Justification"
 msgstr "Aŭtentyfikacyja..."
 
@@ -4944,13 +4944,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:199
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Authentication"
 msgstr "Aŭtentyfikacyja..."
 
 #: libraries/config/messages.inc.php:200
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Authentication settings"
 msgstr "Aŭtentyfikacyja..."
 
@@ -6350,25 +6350,25 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:41
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Config authentication"
 msgstr "Aŭtentyfikacyja..."
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Cookie authentication"
 msgstr "Aŭtentyfikacyja..."
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "HTTP authentication"
 msgstr "Aŭtentyfikacyja..."
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Signon authentication"
 msgstr "Aŭtentyfikacyja..."
 
@@ -8028,7 +8028,7 @@ msgstr "Niapravilny łahin/parol. U dostupie admoŭlena."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
 #, fuzzy
-#| msgid "Authenticating..."
+#| msgid "Authenticating…"
 msgid "Can not find signon authentication script:"
 msgstr "Aŭtentyfikacyja..."
 
@@ -8047,7 +8047,7 @@ msgid "No valid authentication key plugged"
 msgstr "Dziejny kluč aŭtentyfikacyi nie padklučany"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Aŭtentyfikacyja..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

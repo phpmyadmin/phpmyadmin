@@ -1432,7 +1432,7 @@ msgstr ""
 "dotazy."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analyzuji..."
 
 #: js/messages.php:184
@@ -1532,7 +1532,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Selhalo vytvoření grafu z importovaného nastavení. Používám výchozí "
 "nastavení..."
@@ -7667,7 +7667,7 @@ msgid "No valid authentication key plugged"
 msgstr "Nebyl připojen přihlašovací klíč"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Authentizuji..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

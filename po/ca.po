@@ -1449,7 +1449,7 @@ msgstr ""
 "Registre analitzat, però no s'han trobat dades en aquest periode de temps."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analitzant..."
 
 #: js/messages.php:184
@@ -1550,7 +1550,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Ha fallat la creació de la graella del gràfic amb la configuració importada. "
 "Restablint la configuració per defecte..."
@@ -7780,7 +7780,7 @@ msgid "No valid authentication key plugged"
 msgstr "Cap clau d'autenticació vàlida endollada"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autenticant..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

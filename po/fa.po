@@ -1427,7 +1427,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "لاگ ها آنالیز شد، اما چیزی در این بازه زمانی یافت نشد."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "در حال آنالیز..."
 
 #: js/messages.php:184
@@ -1527,7 +1527,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "ایجاد خطا در تقسیم بندی نمودار(چارت گرید) به واسطه تنظیمات غلط.باز گرداندن "
 "به تنظیمات پیش فرض ..."
@@ -7504,7 +7504,7 @@ msgid "No valid authentication key plugged"
 msgstr "کلید ورود معتبری داده نشده است"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "در حال ورود..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

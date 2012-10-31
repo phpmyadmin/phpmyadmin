@@ -1438,7 +1438,7 @@ msgstr ""
 "Log dianalisis, tetapi tidak ada data ditemukan dalam rentang waktu ini."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Menganalisis..."
 
 #: js/messages.php:184
@@ -1541,7 +1541,7 @@ msgstr "Gagal mengurai berkas config.Ini mungkin kesalahan kode JSON."
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Gagal membangun Grafik kisi dengan mengimport config. Mengembalikan ke "
 "Setelan baku..."
@@ -7582,7 +7582,7 @@ msgid "No valid authentication key plugged"
 msgstr "Tidak ada kunci autentikasi yang terpasang"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Mengautentikasi..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

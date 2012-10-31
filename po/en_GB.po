@@ -1431,8 +1431,8 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Log analyzed, but no data found in this time span."
 
 #: js/messages.php:183
-msgid "Analyzing..."
-msgstr "Analyzing..."
+msgid "Analyzing…"
+msgstr "Analyzing…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1530,10 +1530,10 @@ msgstr "Failed parsing config file. It doesn't seem to be valid JSON code."
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -7720,8 +7720,8 @@ msgid "No valid authentication key plugged"
 msgstr "No valid authentication key plugged"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
-msgstr "Authenticating..."
+msgid "Authenticating…"
+msgstr "Authenticating…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82

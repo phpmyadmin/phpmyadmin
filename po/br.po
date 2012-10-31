@@ -1433,8 +1433,8 @@ msgstr ""
 
 #: js/messages.php:183
 #, fuzzy
-#| msgid "Authenticating..."
-msgid "Analyzing..."
+#| msgid "Authenticating…"
+msgid "Analyzing…"
 msgstr "O tilesa..."
 
 #: js/messages.php:184
@@ -1545,7 +1545,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -7550,7 +7550,7 @@ msgid "No valid authentication key plugged"
 msgstr "N'eus bet luget alc'hwez dilesa reizh ebet"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "O tilesa..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

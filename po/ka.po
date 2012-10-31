@@ -1483,7 +1483,7 @@ msgstr ""
 #: js/messages.php:183
 #, fuzzy
 #| msgid "Analyze"
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analyze"
 
 #: js/messages.php:184
@@ -1603,7 +1603,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -7983,7 +7983,7 @@ msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "ავთენტიფიკაცია..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

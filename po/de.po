@@ -1455,7 +1455,7 @@ msgstr ""
 "angegebenen Zeitraum gefunden."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analysieren..."
 
 #: js/messages.php:184
@@ -1556,7 +1556,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Aufbau der Diagramme mit der importierten Konfiguration ist fehlgeschlagen. "
 "Setze auf Standardeinstellungen zurück..."
@@ -7838,7 +7838,7 @@ msgid "No valid authentication key plugged"
 msgstr "Kein gültiger Authentisierungsschlüssel angeschlossen"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Authentifiziere..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

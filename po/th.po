@@ -1398,7 +1398,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "ประวัติถูกวิเคราะห์แล้ว แต่ไม่มีข้อมูลในช่วงนั้น"
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "กำลังวิเคราะห์..."
 
 #: js/messages.php:184
@@ -1496,7 +1496,7 @@ msgstr "การ parsing ไฟล์ตั้งค่าล้มเหลว
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "การสร้างตารางแสดงผลล้มเหลว เป็นเพราะการตั้งค่า โปรดล้างค่ากลับไปเป็นการตั้งค่าแบบเริ่มแรก"
 
@@ -7598,7 +7598,7 @@ msgid "No valid authentication key plugged"
 msgstr "ไม่มีคีย์รับรองความถูกต้อง"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "กำลังตรวจสอบ..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

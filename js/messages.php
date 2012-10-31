@@ -180,7 +180,7 @@ $js_messages['strJumpToTable'] = __('Jump to Log table');
 $js_messages['strNoDataFoundTitle'] = __('No data found');
 $js_messages['strNoDataFound'] = __('Log analysed, but no data found in this time span.');
 
-$js_messages['strAnalyzing'] = __('Analyzing...');
+$js_messages['strAnalyzing'] = __('Analyzing…');
 $js_messages['strExplainOutput'] = __('Explain output');
 $js_messages['strStatus'] = __('Status');
 $js_messages['strTime'] = __('Time');
@@ -208,7 +208,7 @@ $js_messages['strReloadPage'] = __('Reload page');
 $js_messages['strAffectedRows'] = __('Affected rows:');
 
 $js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code.');
-$js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config...');
+$js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config…');
 $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage'] = __('Please select the file you want to import');

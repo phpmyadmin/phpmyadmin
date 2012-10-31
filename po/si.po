@@ -1396,7 +1396,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "ලොගය විශ්ලේෂණය කෙරුනමුත් මෙම කාල පරාසයට අදාල දත්ත කිසිවක් හමු නොවිණි."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "විශ්ලේෂණය..."
 
 #: js/messages.php:184
@@ -1496,7 +1496,7 @@ msgstr "වින්‍යාස ගොනුව විග්‍රහ කිර
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "අනයනිත වින්‍යාස සමඟින් ප්‍රස්ථාර ජාලය ගොඩනැගීම අසමත් විය. පෙරනිමි වින්‍යාස වෙත මාරු වෙමින්..."
 
@@ -7533,7 +7533,7 @@ msgid "No valid authentication key plugged"
 msgstr "වලංගු සත්‍යාපන යතුරක් සම්බන්ද කර නැත"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "සත්‍යාපනය කෙරෙමින්..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

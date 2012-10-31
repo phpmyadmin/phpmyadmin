@@ -1428,7 +1428,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Logg analyserad, men inget data hittades under denna tidsperiod."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analyserar..."
 
 #: js/messages.php:184
@@ -1528,7 +1528,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Misslyckades skapa diagrammets rutnät med den importerade configurationen. "
 "Återställer till ursprunglig konfiguration ..."
@@ -7735,7 +7735,7 @@ msgid "No valid authentication key plugged"
 msgstr "Ogiltig autentiseringsnyckel"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autentisering pågår..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

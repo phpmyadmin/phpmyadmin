@@ -1426,7 +1426,7 @@ msgstr ""
 "Dnevnik analiziran, ali ništa nije pronađeno u ovom vremenskom razmaku."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Aniliziram..."
 
 #: js/messages.php:184
@@ -1527,7 +1527,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Neuspelo formiranje grafikona sa uvezenom konfiguracijom. Resetujem na "
 "podrazumevanu konfiguraciju..."
@@ -7550,7 +7550,7 @@ msgid "No valid authentication key plugged"
 msgstr "Ni jedan validan autentikacioni ključ nije ubačen"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autentikacija..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

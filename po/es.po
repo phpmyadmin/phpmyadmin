@@ -1450,7 +1450,7 @@ msgstr ""
 "Registros analizados, pero no se encontraron datos en este período de tiempo."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analizando..."
 
 #: js/messages.php:184
@@ -1551,7 +1551,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "No se pudo crear la grilla de gráficos con la configuración importada. "
 "Reiniciando a configuración predeterminada..."
@@ -7876,7 +7876,7 @@ msgid "No valid authentication key plugged"
 msgstr "No se ha conectado una clave de autenticación válida"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autenticando..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

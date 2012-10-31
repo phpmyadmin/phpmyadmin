@@ -1438,7 +1438,7 @@ msgstr ""
 "Dnevnik je analiziran, vendar v tem časovnem razponu nisem našel podatkov."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analiziranje ..."
 
 #: js/messages.php:184
@@ -1539,7 +1539,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Gradnja grafikona z uvoženo konfiguracijo je spodletela. Ponastavljanje na "
 "privzeto konfiguracijo ..."
@@ -7758,7 +7758,7 @@ msgid "No valid authentication key plugged"
 msgstr "Vstavljen ni noben overitveni ključ"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Potrjevanje ..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

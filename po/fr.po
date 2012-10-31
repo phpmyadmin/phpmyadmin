@@ -1442,7 +1442,7 @@ msgid "Log analysed, but no data found in this time span."
 msgstr "Journal analysé, mais aucune donnée trouvée pour ce laps de temps."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analyse en cours..."
 
 #: js/messages.php:184
@@ -1542,7 +1542,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Échec de construction du graphique avec la configuration importée. "
 "Réinitialisation à la configuration par défaut..."
@@ -7798,7 +7798,7 @@ msgid "No valid authentication key plugged"
 msgstr "La clé d'authentification n'est pas branchée"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Authentification en cours..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

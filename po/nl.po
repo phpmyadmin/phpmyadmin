@@ -1449,7 +1449,7 @@ msgstr ""
 "Log werd geanalyseerd, maar geen gegevens werden gevonden in deze tijdspanne."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Gegevens worden geanalyseerd..."
 
 #: js/messages.php:184
@@ -1552,7 +1552,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Opbouwen van het raster met grafieken aan de hand van de geïmporteerde "
 "configuratie is mislukt. Standaard configuratie wordt gebruikt in de "
@@ -7786,7 +7786,7 @@ msgid "No valid authentication key plugged"
 msgstr "Geen geldige authenticatiesleutel aanwezig"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Authenticeren..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

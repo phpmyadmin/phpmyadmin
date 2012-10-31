@@ -1452,7 +1452,7 @@ msgstr ""
 "intervallo di tempo."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Analisi in corso..."
 
 #: js/messages.php:184
@@ -1553,7 +1553,7 @@ msgstr ""
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Impossibile creare la tabella dei grafici con la configurazione importata. "
 "Ripristino alle impostazioni predefinite in corso..."
@@ -7804,7 +7804,7 @@ msgid "No valid authentication key plugged"
 msgstr "Nessuna chiave di autentificazione valida inserita"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Autenticazione..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

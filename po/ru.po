@@ -1444,7 +1444,7 @@ msgstr ""
 "Анализ журнала пройден, но данные за выбранный промежуток времени не найдены."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Анализ..."
 
 #: js/messages.php:184
@@ -1544,7 +1544,7 @@ msgstr "Ошибка при разборе конфигурационного ф
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 "Ошибка построения сетки графика из импортированной конфигурации. Сброшено на "
 "изначальную конфигурацию..."
@@ -7813,7 +7813,7 @@ msgid "No valid authentication key plugged"
 msgstr "Отсутствует действенный подключенный ключ идентификации"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Идентификация..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93

@@ -1420,7 +1420,7 @@ msgstr ""
 "Дневникът е проверен, но няма заявки изпълнени в този времеви интервал."
 
 #: js/messages.php:183
-msgid "Analyzing..."
+msgid "Analyzing…"
 msgstr "Анализиране..."
 
 #: js/messages.php:184
@@ -1521,7 +1521,7 @@ msgstr "Грешка в конфигурационен файл. Изглежд�
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
-"config..."
+"config…"
 msgstr ""
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -7493,7 +7493,7 @@ msgid "No valid authentication key plugged"
 msgstr ""
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-msgid "Authenticating..."
+msgid "Authenticating…"
 msgstr "Удостоверяване..."
 
 #: libraries/plugins/export/ExportCsv.class.php:93
