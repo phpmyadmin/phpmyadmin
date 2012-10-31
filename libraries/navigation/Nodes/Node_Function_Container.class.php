@@ -33,7 +33,7 @@ class Node_Function_Container extends Node
         );
         $this->real_name = 'functions';
 
-        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new function', 'New'));
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_routine_add.png', '');
         $new->links = array(

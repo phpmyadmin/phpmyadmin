@@ -33,7 +33,7 @@ class Node_Procedure_Container extends Node
         );
         $this->real_name = 'procedures';
 
-        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new procedure', 'New'));
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_routine_add.png', '');
         $new->links = array(

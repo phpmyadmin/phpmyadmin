@@ -26,7 +26,7 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
-    $retval .= "    <legend>" . __('New'). "</legend>\n";
+    $retval .= "    <legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
     if (PMA_Util::currentUserHasPrivilege($priv, $db)) {
         $retval .= "            <a {$ajax_class['add']} ";

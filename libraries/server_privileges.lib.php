@@ -1622,7 +1622,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
     } else {
         // Offer to create a new user for the current database
         $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
-           . '<legend>' . __('New') . '</legend>' . "\n";
+           . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
 
         $html_output .= '<a href="server_privileges.php?'
             . $GLOBALS['url_query'] . '&amp;adduser=1&amp;'
