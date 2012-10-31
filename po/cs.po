@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 10:52+0100\n"
-"PO-Revision-Date: 2012-10-31 10:51+0200\n"
+"PO-Revision-Date: 2012-10-31 11:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -5194,7 +5194,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Chybějící tabulky v úložišti nastavení phpMyAdmina"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a diffrence between the "
 #| "MySQL library and server is detected"
@@ -5206,7 +5205,6 @@ msgstr ""
 "MySQL a serveru"
 
 #: libraries/config/messages.inc.php:337
-#, fuzzy
 #| msgid "Server/library diffrence warning"
 msgid "Server/library difference warning"
 msgstr "Varování o rozdílných verzích"
