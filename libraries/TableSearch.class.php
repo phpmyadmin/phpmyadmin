@@ -647,20 +647,17 @@ EOT;
      */
     private function _generateWhereClause()
     {
-        $fullWhereClause = '';
-
         if (isset($_POST['customWhereClause'])
             && trim($_POST['customWhereClause']) != ''
         ) {
-            $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
-            return $fullWhereClause;
+            return ' WHERE ' . $_POST['customWhereClause'];
         }
 
         // If there are no search criteria set or no unary criteria operators, return
         if (! isset($_POST['criteriaValues'])
             && ! isset($_POST['criteriaColumnOperators'])
         ) {
-            return $fullWhereClause;
+            return '';
         }
 
         // else continue to form the where clause from column criteria values
@@ -690,9 +687,9 @@ EOT;
         } // end while
 
         if ($fullWhereClause) {
-            $fullWhereClause = ' WHERE ' . implode(' AND ', $fullWhereClause);
+            return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
-        return $fullWhereClause;
+        return '';
     }
 
     /**
