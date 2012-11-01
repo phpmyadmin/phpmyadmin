@@ -532,7 +532,7 @@ function checkTableEditForm(theForm, fieldsCnt)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function() {
-    $('table:not(.noclick) tr.odd:not(.noclick), table:not(.noclick) tr.even:not(.noclick)').die('click');
+    $('input:checkbox.checkall').die('click');
 });
 AJAX.registerOnload('functions.js', function() {
     /**
@@ -540,12 +540,9 @@ AJAX.registerOnload('functions.js', function() {
      * next pages reached via AJAX); a tr may have the class noclick to remove
      * this behavior.
      */
-    $('table:not(.noclick) tr.odd:not(.noclick), table:not(.noclick) tr.even:not(.noclick)').live('click', function(e) {
-        // do not trigger when clicked on anchor
-        if ($(e.target).is('a, img, a *')) {
-            return;
-        }
-        var $tr = $(this);
+
+    $('input:checkbox.checkall').live('click', function(e) {
+        var $tr = $(this).closest('tr');
 
         // make the table unselectable (to prevent default highlighting when shift+click)
         //$tr.parents('table').noSelect();
@@ -569,13 +566,13 @@ AJAX.registerOnload('functions.js', function() {
                 }
                 last_click_checked = checked;
             } else {
-                // normaln data table, just toggle class
+                // normal data table, just toggle class
                 $tr.toggleClass('marked');
                 last_click_checked = false;
             }
 
             // remember the last clicked row
-            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this) : -1;
+            last_clicked_row = last_click_checked ? $('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr) : -1;
             last_shift_clicked_row = -1;
         } else {
             // handle the shift click
@@ -600,7 +597,7 @@ AJAX.registerOnload('functions.js', function() {
             }
 
             // handle new shift click
-            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index(this);
+            var curr_row = $('tr.odd:not(.noclick), tr.even:not(.noclick)').index($tr);
             if (curr_row >= last_clicked_row) {
                 start = last_clicked_row;
                 end = curr_row;
