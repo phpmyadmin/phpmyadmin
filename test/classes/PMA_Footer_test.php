@@ -188,6 +188,21 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for footer when ajax enabled
+     *
+     * @return void
+     */
+    public function testAjax()
+    {
+        $footer = new PMA_Footer();
+        $footer->setAjax(true);
+        $this->assertEquals(
+            '',
+            $footer->getDisplay()
+        );
+    }
+
+    /**
      * Test for displaying footer
      *
      * @return void
@@ -197,6 +212,21 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $footer = new PMA_Footer();
         $this->assertContains(
             'Open new phpMyAdmin window',
+            $footer->getDisplay()
+        );
+    }
+
+    /**
+     * Test for minimal footer
+     *
+     * @return void
+     */
+    public function testMinimal()
+    {
+        $footer = new PMA_Footer();
+        $footer->setMinimal();
+        $this->assertEquals(
+            '</div></body></html>',
             $footer->getDisplay()
         );
     }
