@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-10-31 21:22+0200\n"
+"PO-Revision-Date: 2012-11-01 08:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -626,7 +626,7 @@ msgstr ""
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
-msgstr "Yer imi gösteriliyor"
+msgstr "Gösterilen yer imi"
 
 #: import.php:247 import.php:493
 msgid "The bookmark has been deleted."
@@ -1436,7 +1436,7 @@ msgstr "Günlük çözümlendi, ama bu zaman aralığı içinde bulunan veri yok
 
 #: js/messages.php:183
 msgid "Analyzing…"
-msgstr "Çözümleniyor..."
+msgstr "Çözümleniyor…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1538,8 +1538,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config…"
 msgstr ""
-"İçe aktarılan yapılandırma ile çizelge çizgilerinin oluşturulması başarısız. "
-"Varsayılan yapılandırmaya sıfırlanıyor..."
+"İçe aktarılan yapılandırma ile çizelge ızgarasının yapılması başarısız oldu. "
+"Varsayılan yapılandırmaya sıfırlanıyor…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -5424,8 +5424,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Sütun yorumları/mime türleri istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_column_info[/kbd]"
+"Sütun yorumları/mime türleri istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5490,8 +5490,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Tasarımcı desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_designer_coords[/kbd]"
+"Tasarımcı desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Designer table"
@@ -5532,8 +5532,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_history[/kbd]"
+"SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
@@ -5602,8 +5602,8 @@ msgstr "Yapılandırma kimlik den. için parola"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]pma_pdf_pages[/"
-"kbd]"
+"PDF şeması desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5651,7 +5651,7 @@ msgid ""
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
-"istenmiyorsa boş bırakın, varsayılan: [kbd]pma_relation[/kbd]"
+"istenmiyorsa boş bırakın, önerilen: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5702,8 +5702,8 @@ msgstr "SSL kullan"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_table_coords[/kbd]"
+"PDF şeması desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
@@ -7757,7 +7757,7 @@ msgstr "Geçerli kimlik doğrulama anahtarı takılı değil"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "Kimlik doğrulanıyor..."
+msgstr "Kimlik doğrulanıyor…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82
