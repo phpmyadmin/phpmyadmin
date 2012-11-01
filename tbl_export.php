@@ -38,10 +38,10 @@ if (! empty($sql_query)) {
 
         $temp_sql_array = explode("where", strtolower($sql_query));
 
-        // The fields which is going to select will remain
+        // The fields which is going to select will be remain
         // as it is regardless of the where clause(s).
         // EX :- The part "SELECT `id`, `name` FROM `customers`"
-        // will remain same when representing the resulted rows
+        // will be remain same when representing the resulted rows
         // from the following query,
         // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
         //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
