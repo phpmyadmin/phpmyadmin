@@ -3850,9 +3850,6 @@ class PMA_Util
      */
     public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
-        if (defined('TESTSUITE')) {
-            return 1;
-        }
         // Get the username for the current user in the format
         // required to use in the information schema database.
         $user = PMA_DBI_fetch_value("SELECT CURRENT_USER();");
