@@ -10,6 +10,7 @@
  */
 
 require_once 'libraries/Footer.class.php';
+require_once 'libraries/Response.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
@@ -46,6 +47,9 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $_SERVER['SCRIPT_NAME'] = 'index.php';
+        $GLOBALS['db'] = 'mysql';
+        $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Error_Handler']['gather'] = false;
@@ -134,10 +138,12 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.phpdb=db%3Dmysql%26token%3D1234&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array('db=mysql&token=1234')
+                array(
+                    $this->object->getSelfUrl()
+                )
             )
         );
     }
@@ -156,10 +162,12 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.phpdb=db%3Dmysql%26token%3D1234&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array('db=mysql&token=1234')
+                array(
+                    $this->object->getSelfUrl()
+                )
             )
         );
     }

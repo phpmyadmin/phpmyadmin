@@ -48,6 +48,8 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
 
         $_SESSION[' PMA_token '] = 'token';
+
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
     }
 
     /**
@@ -117,16 +119,24 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testBuildHtmlForDb($current, $is_superuser, $checkall,
-        $url_query, $column_order, $replication_types, $replication_info, $output
+    public function testBuildHtmlForDb($current, $is_superuser,
+        $url_query, $column_order, $replication_types,
+        $replication_info, $tags
     ) {
-        $this->assertEquals(
-            array($column_order, $output),
-            PMA_buildHtmlForDb(
-                $current, $is_superuser, $checkall, $url_query,
-                $column_order, $replication_types, $replication_info
-            )
+        $result = PMA_buildHtmlForDb(
+            $current, $is_superuser, $url_query,
+            $column_order, $replication_types, $replication_info
         );
+        $this->assertEquals(
+            $column_order,
+            $result[0]
+        );
+        foreach ($tags as $value) {
+            $this->assertTag(
+                $value,
+                $result[1]
+            );
+        }
     }
 
     /**
@@ -140,7 +150,6 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
             array(
                 array('SCHEMA_NAME' => 'pma'),
                 true,
-                '',
                 'target=main.php',
                 PMA_getColumnOrder(),
                 array(
@@ -154,7 +163,147 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
                                        ),
                     )
                 ),
-                '<td class="tool"><input type="checkbox" name="selected_dbs[]" class="checkall" title="pma" value="pma" /></td><td class="name">        <a onclick="PMA_commonActions.openDb(\'pma\'); return false;" href="index.php?target=main.php&amp;db=pma" title="Jump to database" target="_parent"> pma</a></td><td class="tool" style="text-align: center;"><span class="nowrap"><img src="theme/s_cancel.png" title="Not replicated" alt="Not replicated" /></span></td><td class="tool"><a onclick="PMA_commonActions.setDb(\'pma\');" href="server_privileges.php?target=main.php&amp;checkprivs=pma" title="Check privileges for database &quot;pma&quot;."> <span class="nowrap"><img src="theme/s_rights.png" title="Check Privileges" alt="Check Privileges" /></span></a></td>'
+                array(
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'child' => array(
+                            'tag' => 'input',
+                            'attributes' => array(
+                                'type' => 'checkbox',
+                                'name' => 'selected_dbs[]',
+                                'value' => 'pma'
+                            )
+                        )
+                    ),
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'name'
+                        ),
+                        'child' => array(
+                            'tag' => 'a',
+                            'attributes' => array(
+                                'title' => 'Jump to database'
+                            ),
+                            'content' => 'pma'
+                        )
+                    ),
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'descendant' => array(
+                            'tag' => 'img',
+                            'attributes' => array(
+                                'title' => 'Not replicated'
+                            )
+                        )
+                    ),
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'child' => array(
+                            'tag' => 'a',
+                            'child' => array(
+                                'tag' => 'span',
+                                'child' => array(
+                                    'tag' => 'img',
+                                    'attributes' => array(
+                                        'title' => 'Check Privileges'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            ),
+            array(
+                array('SCHEMA_NAME' => 'sakila'),
+                true,
+                'target=main.php',
+                PMA_getColumnOrder(),
+                array(
+                    'SCHEMA_NAME' => 'sakila',
+                ),
+                array(
+                    'sakila' => array(
+                        'status' => 'true',
+                        'Ignore_DB' => array(
+                            'pma' => 'pma'
+                        ),
+                        'Do_DB' => array(
+                            'sakila' => 'sakila'
+                        )
+                    )
+                ),
+                array(
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'child' => array(
+                            'tag' => 'input',
+                            'attributes' => array(
+                                'type' => 'checkbox',
+                                'name' => 'selected_dbs[]',
+                                'value' => 'sakila'
+                            )
+                        )
+                    ),
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'descendant' => array(
+                            'tag' => 'img',
+                            'attributes' => array(
+                                'title' => 'Replicated'
+                            )
+                        )
+                    ),
+                )
+            ),
+            array(
+                array('SCHEMA_NAME' => 'INFORMATION_SCHEMA'),
+                true,
+                'target=main.php',
+                PMA_getColumnOrder(),
+                array(
+                    'SCHEMA_NAME' => 'INFORMATION_SCHEMA',
+                ),
+                array(
+                    'INFORMATION_SCHEMA' => array(
+                        'status' => 'false',
+                        'Ignore_DB' => array(
+                            'INFORMATION_SCHEMA' => 'INFORMATION_SCHEMA'
+                        )
+                    )
+                ),
+                array(
+                    array(
+                        'tag' => 'td',
+                        'attributes' => array(
+                            'class' => 'tool'
+                        ),
+                        'child' => array(
+                            'tag' => 'input',
+                            'attributes' => array(
+                                'type' => 'checkbox',
+                                'name' => 'selected_dbs[]',
+                                'value' => 'INFORMATION_SCHEMA',
+                                'disabled' => 'disabled'
+                            )
+                        )
+                    )
+                )
             )
         );
     }
