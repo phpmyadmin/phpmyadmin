@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-11-01 12:15+0200\n"
+"PO-Revision-Date: 2012-11-01 12:48+0200\n"
 "Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -9382,11 +9382,10 @@ msgid "User has been added."
 msgstr "Usuário foi adicionado."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "Novo"
+msgstr "Novo usuário"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -11238,10 +11237,9 @@ msgstr ""
 "momento."
 
 #: server_status.php:1597
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Formato do arquivo importado"
+msgstr "Porcentagem utilizada do cache de chaves (valor calculado)"
 
 #: server_status.php:1598
 msgid "The number of requests to read a key block from the cache."
@@ -11507,10 +11505,9 @@ msgstr ""
 "implementação de processos.)"
 
 #: server_status.php:1639
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Rastreamento não está ativo."
+msgstr "Taxa de acessos a threads (valor calculado)"
 
 #: server_status.php:1640
 msgid "The number of threads that are not sleeping."
@@ -12196,10 +12193,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como padrão."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Marcador %s criado"
+msgstr "Marcador não criado"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12232,16 +12228,14 @@ msgid "Table %1$s has been altered successfully"
 msgstr "A tabela %1$s foi alterada com sucesso"
 
 #: tbl_alter.php:121
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Os usuários selecionados foram apagados com sucesso."
+msgstr "As colunas foram movidas com sucesso."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Dados não encontrados"
+msgstr "Sem dados para mostrar"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
@@ -12439,22 +12433,22 @@ msgid "Tracking report for table `%s`"
 msgstr "Relatório de rastreamento para tabela `%s`"
 
 #: tbl_tracking.php:201
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Versão %s criada, rastreamento para %s. %s ativado(a)."
+msgstr "Versão %1$s foi criada, rastreamento para %2$s está ativado(a)."
 
 #: tbl_tracking.php:218
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Rastreamento está ativo."
+msgstr "Rastreamento para %1$s foi desativado na versão %2$s."
 
 #: tbl_tracking.php:235
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Rastreamento está ativo."
+msgstr "Rastreamento para %1$s foi ativado na versão %2$s."
 
 #: tbl_tracking.php:249
 msgid "SQL statements executed."
@@ -12498,10 +12492,10 @@ msgid "Tracking statements"
 msgstr "Rastreando instruções"
 
 #: tbl_tracking.php:518 tbl_tracking.php:666
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Mostrar %s com datas desde %s até %s pelo usuário %s %s"
+msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo usuário %4$s %5$s"
 
 #: tbl_tracking.php:526
 msgid "Delete tracking data row from report"
@@ -12549,30 +12543,30 @@ msgid "Show versions"
 msgstr "Exibir versões"
 
 #: tbl_tracking.php:818
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Desativar rastreamento para %s.%s"
+msgstr "Desativar rastreamento para %s"
 
 #: tbl_tracking.php:824
 msgid "Deactivate now"
 msgstr "Desativar agora"
 
 #: tbl_tracking.php:834
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Ativar rastreamento para %s.%s"
+msgstr "Ativar rastreamento para %s"
 
 #: tbl_tracking.php:840
 msgid "Activate now"
 msgstr "Ativar agora"
 
 #: tbl_tracking.php:853
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Criar versão %1$s de %2$s"
 
 #: tbl_tracking.php:861
 msgid "Track these data definition statements:"
@@ -12703,15 +12697,15 @@ msgstr ""
 "do servidor."
 
 #: libraries/advisory_rules.txt:75
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"A taxa de consultas (queries) lentas é de %s por hora, este número deveria "
+"ser menor que 1%% por hora."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
