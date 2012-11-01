@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-10-25 15:45+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2012-11-01 12:15+0200\n"
+"Last-Translator: André Luiz Girol <andregirol@yahoo.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -1552,7 +1552,7 @@ msgid ""
 "config…"
 msgstr ""
 "Falha ao construir a grade do gráfico com a configuração importada. "
-"Restaurando a configuração padrão ..."
+"Restaurando a configuração padrão..."
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -1968,22 +1968,20 @@ msgid "More"
 msgstr "Mais"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Mostrar tudo"
+msgstr "Mostrar painel"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Ocultar índices"
+msgstr "Ocultar painel"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "O usuário selecionado não foi encontrado na tabela de privilégios."
+msgstr ""
+"A página solicitada não foi encontrada no histórico, ela pode ter expirado."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -3238,7 +3236,7 @@ msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Um inteiro de 1 byte, o alcance sinalizado é -128 a 127, o alcance não "
-"sinalizado é 0 a 255."
+"sinalizado é 0 a 255"
 
 #: libraries/Types.class.php:298
 msgid ""
@@ -4960,21 +4958,19 @@ msgid "Users cannot set a higher value"
 msgstr "Usuários não podem definir um valor maior"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Número máximo de tabelas exibidas na lista de tabelas"
+msgstr "Número máximo de bancos de dados exibidas na lista de bancos de dados"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Número máximo de bancos de dados"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "O número junções que fez uma varredura completa da primeira tabela."
+msgstr "O número de itens que podem ser mostrados em cada página de navegação"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5067,18 +5063,18 @@ msgid "Target for quick access icon"
 msgstr "Alvo para ícone de rápido acesso"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr ""
+"Define o número mínimo de itens (tabelas, visões, rotinas e eventos) para "
+"mostrar na caixa de filtro."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Número mínimo de tabelas para mostrar a caixa de filtro de tabelas"
+msgstr "O número mínimo de itens a serem mostrados na caixa de filtro"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
@@ -5086,7 +5082,6 @@ msgstr ""
 "Número mínimo de tabelas para mostrar na caixa de filtro de bancos de dados"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5094,8 +5089,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Somente versão light; exibe banco de dados em uma árvore (determinado pelo "
-"divisor definido abaixo)"
+"Agrupa itens na página de navegação (determinado pelo divisor definido "
+"abaixo)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
@@ -5205,7 +5200,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabelas de configuração do phpMyAdmin perdidas"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5213,8 +5207,8 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Desabilita o aviso padrão que é exibido se mcrypt está ausente para "
-"autenticação por cookie"
+"Desabilita o aviso padrão que é exibido se é detectada uma diferença entre "
+"as bibliotecas do MySQL e do servidor"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
@@ -5311,10 +5305,9 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/config/messages.inc.php:361
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Salvar todas a células editadas de uma vez"
+msgstr "Edição de Grids: salvar todas a células editadas de uma vez"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
@@ -6479,10 +6472,10 @@ msgid "committed on %1$s by %2$s"
 msgstr "Alteração efetuada em %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
-msgstr "Criar versão %s de %s.%s"
+msgstr "Criado em %1$s por %2$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -7340,23 +7333,20 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Filtar bancos de dados por nome"
+msgstr "filtar bancos de dados por nome"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Limpar séries"
+msgstr "Limpar Fast Filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtrar tabelas por nome"
+msgstr "filtra itens por nome"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
@@ -7375,18 +7365,16 @@ msgid "Columns"
 msgstr "Colunas"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova coluna"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
-msgstr "Novo"
+msgstr "Novo evento"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
@@ -7395,18 +7383,16 @@ msgid "Functions"
 msgstr "Funções"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova função"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "Novo"
+msgstr "Novo índice"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
@@ -7416,25 +7402,22 @@ msgstr "Procedimentos"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova procedure"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova tabela"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova trigger"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:124
@@ -7442,11 +7425,10 @@ msgid "Views"
 msgstr "Visualizações"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova visão (view)"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
