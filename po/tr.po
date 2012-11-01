@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-31 19:16+0200\n"
+"PO-Revision-Date: 2012-11-01 08:53+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -966,11 +966,11 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr "Gösterilen işaret"
+msgstr "Gösterilen yer imi"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "İşaretleme silindi."
+msgstr "Yer imi silindi."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
@@ -1012,7 +1012,7 @@ msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edi
 #: import.php:421 sql.php:933
 #, php-format
 msgid "Bookmark %s created"
-msgstr "İşaretleme %s oluşturuldu"
+msgstr "Yer imi %s oluşturuldu"
 
 #: import.php:427 import.php:433
 #, php-format
@@ -3409,7 +3409,7 @@ msgid ""
 "when you're about to lose data"
 msgstr ""
 "Veri kaybı yaşamamanız için bir uyarı (&quot;... yapmak istediğiniz için "
-"emin misiniz?&quot;) görüntülenip görüntülenmeyeceğidir"
+"emin misiniz?&quot;) görüntülenip görüntülenmemesidir"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -4181,8 +4181,8 @@ msgid ""
 "Only light version; display databases in a tree (determined by the separator "
 "defined below)"
 msgstr ""
-"Sadece sade sürümde; veritabanları ağaç içinde görüntülenir (aşağıda "
-"tanımlanan ayıraçlar tarafından belirlenir)"
+"Sadece sade sürümde; veritabanlarını bir ağaç içinde görüntüler (aşağıda "
+"tanımlanan ayıraç tarafından belirlenir)"
 
 #: libraries/config/messages.inc.php:278
 msgid "Display databases in a tree"
@@ -4346,8 +4346,8 @@ msgstr "Kullanıcılar yüksek değer ayarlayamazlar"
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
 msgstr ""
-"Sol çerçevede ve veritabanı listesinde görüntülenecek olan en fazla "
-"veritabanı sayısıdır"
+"Sol çerçevede ve veritabanı listesinde görüntülenen en fazla veritabanı "
+"sayısıdır"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
@@ -4631,8 +4631,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği istenmiyorsa "
-"boş bırakın, varsayılan: [kbd]pma_bookmark[/kbd]"
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]Yer imi[/a] desteği olmaması için "
+"boş bırakın, önerilen: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
@@ -4643,8 +4643,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
-"Sütun yorumları/mime türleri istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_column_info[/kbd]"
+"Sütun yorumları/mime türleri istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -4709,8 +4709,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Tasarımcı desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_designer_coords[/kbd]"
+"Tasarımcı desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -4751,8 +4751,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_history[/kbd]"
+"SQL sorgu geçmişi desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -4821,8 +4821,8 @@ msgstr "Yapılandırma kimlik den. için parola"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgstr ""
-"PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]pma_pdf_pages[/"
-"kbd]"
+"PDF şeması desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -4870,7 +4870,7 @@ msgid ""
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
-"istenmiyorsa boş bırakın, varsayılan: [kbd]pma_relation[/kbd]"
+"istenmiyorsa boş bırakın, önerilen: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -4921,8 +4921,8 @@ msgstr "SSL kullan"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"PDF şeması desteği istenmiyorsa boş bırakın, varsayılan: [kbd]"
-"pma_table_coords[/kbd]"
+"PDF şeması desteği istenmiyorsa boş bırakın, önerilen: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
@@ -5065,7 +5065,7 @@ msgstr "Bu sunucunun ayrıntılı adı"
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 "Kullanıcının &quot;tümünü (satırları) göster&quot; düğmesini görüntüleyip "
-"görüntüleyemeyeceğidir"
+"görüntülememesidir"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5270,7 +5270,7 @@ msgstr "Yeni veritabanı adı öner"
 
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr "Eğer Suhosin algılanırsa, ana sayfada uyarı gösterilir"
+msgstr "Eğer Suhosin algılanırsa, ana sayfada bir uyarı görüntülenir"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
@@ -8058,11 +8058,11 @@ msgstr "Bu SQL sorgusunu işaretle"
 
 #: libraries/sql_query_form.lib.php:307 sql.php:984
 msgid "Let every user access this bookmark"
-msgstr "Bütün kullanıcıların bu işaretlemeye erişimlerine izin ver"
+msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Replace existing bookmark of same name"
-msgstr "Mevcut aynı ismin işaretlemesini değiştir"
+msgstr "Aynı ismin mevcut yer imini değiştir"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Do not overwrite this query from outside the window"
