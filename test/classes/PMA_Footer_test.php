@@ -19,6 +19,10 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/vendor_config.php';
+require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/relation.lib.php';
+require_once 'libraries/Tracker.class.php';
+require_once 'libraries/Table.class.php';
 
 /**
  * Tests for Footer class
@@ -48,7 +52,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['db'] = 'mysql';
+        $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
@@ -63,6 +67,23 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
         $GLOBALS['error_handler'] = new PMA_Error_Handler();
+        $GLOBALS['cfg']['CodemirrorEnable'] = true;
+        $GLOBALS['cfg']['DefaultTabServer'] = 'main.php';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
+        $GLOBALS['cfg']['QueryWindowHeight'] = 310;
+        $GLOBALS['cfg']['QueryWindowWidth'] = 550;
+        $GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
+
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'sql.php';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['cfg']['PmaAbsoluteUri'] = '';
+        if (! defined('PMA_USR_BROWSER_AGENT')) {
+            define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
+        }
+
+        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+
         unset($_POST);
     }
 
@@ -138,7 +159,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=pma_test&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
@@ -162,7 +183,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=pma_test&amp;table=&amp;server=1&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
