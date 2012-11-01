@@ -714,7 +714,7 @@ echo '<script src="js/keyhandler.js" type="text/javascript"></script>'
     . '// ]]>'
     . '</script>';
 
-echo '<form method="post" action="' . $action  . ' class="'
+echo '<form method="post" action="' . $action  . '" class="'
     . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
     . '_form' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '') . '">';
 
