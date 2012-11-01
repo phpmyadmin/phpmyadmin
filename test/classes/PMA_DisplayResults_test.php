@@ -40,9 +40,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $SESSION[' PMA_Token '] = 'token';
+        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 0;
+        $GLOBALS['text_dir'] = 'ltr';
+        require_once 'libraries/Response.class.php';
     }
 
     /**
