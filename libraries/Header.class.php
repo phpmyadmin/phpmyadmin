@@ -170,10 +170,15 @@ class PMA_Header
         }
         $this->_scripts->addFile('messages.php' . PMA_generate_common_url($params));
         // Append the theme id to this url to invalidate
-        // the cache on a theme change
+        // the cache on a theme change. Though this might be
+        // unavailable for fatal errors.
+        if (isset($_SESSION['PMA_Theme'])) {
+            $theme_id = urlencode($_SESSION['PMA_Theme']->getId());
+        } else {
+            $theme_id = 'default';
+        }
         $this->_scripts->addFile(
-            'get_image.js.php?theme='
-            . urlencode($_SESSION['PMA_Theme']->getId())
+            'get_image.js.php?theme=' . $theme_id
         );
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
