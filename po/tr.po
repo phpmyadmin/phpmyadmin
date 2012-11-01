@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 08:30-0400\n"
-"PO-Revision-Date: 2012-11-01 08:53+0200\n"
+"POT-Creation-Date: 2012-10-16 14:37+0200\n"
+"PO-Revision-Date: 2012-10-31 19:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -5623,11 +5623,17 @@ msgstr ""
 msgid "Database name"
 msgstr "Veritabanı adı"
 
+<<<<<<< HEAD
 #: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 "MySQL sunucusunun dinlemede olduğu bağlantı noktası, varsayılan ayar için "
 "boş bırakın"
+=======
+#: libraries/config/messages.inc.php:308
+msgid "Maximum displayed SQL length"
+msgstr "En fazla görüntülenen SQL uzunluğu"
+>>>>>>> QA_3_5
 
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
@@ -5650,8 +5656,14 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+<<<<<<< HEAD
 "[a@http://wiki.phpmyadmin.net/pma/relation]İlişki bağlantıları[/a] desteği "
 "istenmiyorsa boş bırakın, önerilen: [kbd]pma_relation[/kbd]"
+=======
+"Sonuç grubuna göz atarken görüntülenen satır sayısıdır. Eğer sonuç grubu "
+"daha fazla satır içeriyorsa, &quot;Önceki&quot; ve &quot;Sonraki&quot; "
+"bağlantıları gösterilecektir."
+>>>>>>> QA_3_5
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5670,8 +5682,13 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+<<<<<<< HEAD
 "Örnek için [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]kimlik "
 "doğrulama türlerine[/a] bakın"
+=======
+"Eğer tanımlama bilgisi kimlik doğrulaması için mcrypt eksikse, görüntülenen "
+"varsayılan uyarıyı etkisizleştir"
+>>>>>>> QA_3_5
 
 #: libraries/config/messages.inc.php:425
 msgid "Signon session name"
@@ -5762,8 +5779,18 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+<<<<<<< HEAD
 "Görünüm oluşturulduğunda günlüğe ilk satır olarak DROP VIEW IF EXISTS "
 "ifadesi eklenecek."
+=======
+"Eğer phpMyAdmin yapılandırma depolaması için gerekli tablolardan herhangi "
+"biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında görüntülenen "
+"varsayılan uyarıyı etkisizleştir"
+
+#: libraries/config/messages.inc.php:334
+msgid "Missing phpMyAdmin configuration storage tables"
+msgstr "Eksik phpMyAdmin yapılandırma depolama tabloları"
+>>>>>>> QA_3_5
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -6411,9 +6438,19 @@ msgstr "Başlanacak satır:"
 msgid "Dump all rows"
 msgstr "Tüm satırları dökümle"
 
+<<<<<<< HEAD
 #: libraries/display_export.lib.php:202 libraries/display_export.lib.php:229
 msgid "Output:"
 msgstr "Çıktı:"
+=======
+#: libraries/config/messages.inc.php:462
+msgid ""
+"Defines whether or not type fields should be initially displayed in edit/"
+"insert mode"
+msgstr ""
+"Düzenle/ekle kipinde yazma alanlarının ilk olarak görüntülenip "
+"görüntülenmemesini tanımlar"
+>>>>>>> QA_3_5
 
 #: libraries/display_export.lib.php:211 libraries/display_export.lib.php:248
 #, php-format
