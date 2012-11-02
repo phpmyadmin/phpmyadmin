@@ -39,11 +39,9 @@ if (! empty($sql_query)) {
 
         $temp_sql_array = explode("where", strtolower($sql_query));
 
-        // The fields which is going to select will be remain
-        // as it is regardless of the where clause(s).
-        // EX :- The part "SELECT `id`, `name` FROM `customers`"
-        // will be remain same when representing the resulted rows
-        // from the following query,
+        // The part "SELECT `id`, `name` FROM `customers`"
+        // is not modified by the next code segment, when exporting 
+        // the result set from a query such as
         // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
         //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
         $sql_query = $temp_sql_array[0];
