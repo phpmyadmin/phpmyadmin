@@ -5623,10 +5623,6 @@ msgstr ""
 msgid "Database name"
 msgstr "Veritabanı adı"
 
-#: libraries/config/messages.inc.php:308
-msgid "Maximum displayed SQL length"
-msgstr "En fazla görüntülenen SQL uzunluğu"
-
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
 msgstr "Sunucu bağ.noktası"
@@ -5764,10 +5760,6 @@ msgstr ""
 "Eğer phpMyAdmin yapılandırma depolaması için gerekli tablolardan herhangi "
 "biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında görüntülenen "
 "varsayılan uyarıyı etkisizleştir"
-
-#: libraries/config/messages.inc.php:334
-msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Eksik phpMyAdmin yapılandırma depolama tabloları"
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -6414,14 +6406,6 @@ msgstr "Başlanacak satır:"
 #: libraries/display_export.lib.php:194
 msgid "Dump all rows"
 msgstr "Tüm satırları dökümle"
-
-#: libraries/config/messages.inc.php:462
-msgid ""
-"Defines whether or not type fields should be initially displayed in edit/"
-"insert mode"
-msgstr ""
-"Düzenle/ekle kipinde yazma alanlarının ilk olarak görüntülenip "
-"görüntülenmemesini tanımlar"
 
 #: libraries/display_export.lib.php:211 libraries/display_export.lib.php:248
 #, php-format
