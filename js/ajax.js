@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
