@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:37+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-03 17:22+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/3-5/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -921,6 +921,7 @@ msgid "Add a point"
 msgstr "Aggiungi un punto"
 
 #: gis_data_editor.php:220 js/messages.php:324
+#, fuzzy
 msgid "Linestring"
 msgstr "Linestring"
 
@@ -3857,7 +3858,7 @@ msgstr "Personalizza l'aspetto del frame di navigazione"
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:35
 #: setup/frames/index.inc.php:112
 msgid "Servers"
-msgstr "Servers"
+msgstr "Server"
 
 #: libraries/config/messages.inc.php:184
 msgid "Servers display options"
@@ -5594,7 +5595,7 @@ msgstr "Il database sembra essere vuoto!"
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr "Tracking"
+msgstr "Monitoraggio"
 
 #: libraries/db_links.inc.php:70
 msgid "Query"
@@ -5611,7 +5612,7 @@ msgstr "Privilegi"
 
 #: libraries/db_links.inc.php:96 libraries/rte/rte_words.lib.php:25
 msgid "Routines"
-msgstr "Routines"
+msgstr "Routine"
 
 #: libraries/db_links.inc.php:100 libraries/export/sql.php:641
 #: libraries/rte/rte_words.lib.php:49
@@ -5622,7 +5623,7 @@ msgstr "Eventi"
 #: libraries/export/xml.php:57 libraries/rte/rte_words.lib.php:37
 #: libraries/tbl_links.inc.php:103
 msgid "Triggers"
-msgstr "Triggers"
+msgstr "Trigger"
 
 #: libraries/db_structure.lib.php:43 libraries/display_tbl.lib.php:2228
 msgid ""
@@ -5655,6 +5656,7 @@ msgid "Re-type"
 msgstr "Reinserisci"
 
 #: libraries/display_change_password.lib.php:51
+#, fuzzy
 msgid "Password Hashing"
 msgstr "Password Hashing"
 
@@ -7094,10 +7096,12 @@ msgid "Traditional Chinese"
 msgstr "Cinese Tradizionale"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
+#, fuzzy
 msgid "case-insensitive"
 msgstr "case-insensitive"
 
 #: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:422
+#, fuzzy
 msgid "case-sensitive"
 msgstr "case-sensitive"
 
@@ -7564,6 +7568,7 @@ msgstr "Conserva dopo il completamento"
 
 #: libraries/rte/rte_events.lib.php:492 libraries/rte/rte_routines.lib.php:950
 #: libraries/rte/rte_triggers.lib.php:379
+#, fuzzy
 msgid "Definer"
 msgstr "Definer"
 
@@ -7943,6 +7948,7 @@ msgstr "Attributi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1310
 #: libraries/schema/Pdf_Relation_Schema.class.php:1331 tbl_structure.php:208
 #: tbl_tracking.php:262
+#, fuzzy
 msgid "Extra"
 msgstr "Extra"
 
@@ -9541,7 +9547,7 @@ msgstr "specifico del database"
 
 #: server_privileges.php:2365
 msgid "wildcard"
-msgstr "wildcard"
+msgstr "carattere jolly"
 
 #: server_privileges.php:2408
 msgid "User has been added."
@@ -9740,6 +9746,7 @@ msgstr ""
 "stato terminato."
 
 #: server_status.php:594
+#, fuzzy
 msgid "Handler"
 msgstr "Handler"
 
@@ -9760,10 +9767,12 @@ msgid "Delayed inserts"
 msgstr "Inserimento ritardato"
 
 #: server_status.php:600
+#, fuzzy
 msgid "Key cache"
 msgstr "Key cache"
 
 #: server_status.php:601
+#, fuzzy
 msgid "Joins"
 msgstr "Joins"
 
@@ -9808,6 +9817,7 @@ msgid "Monitor"
 msgstr "Monitoraggio"
 
 #: server_status.php:793
+#, fuzzy
 msgid "Advisor"
 msgstr "Advisor"
 
@@ -10985,6 +10995,7 @@ msgid "Configuration: %s"
 msgstr "Configurazione: %s"
 
 #: server_synchronize.php:1265
+#, fuzzy
 msgid "Socket"
 msgstr "Socket"
 
@@ -11470,6 +11481,7 @@ msgid "Line"
 msgstr "Linea"
 
 #: tbl_chart.php:101
+#, fuzzy
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
@@ -11798,8 +11810,9 @@ msgid "Display order:"
 msgstr "Ordine di visualizzazione:"
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:597
+#, fuzzy
 msgid "Spatial"
-msgstr "Spatial"
+msgstr "Spaziale"
 
 #: tbl_structure.php:162 tbl_structure.php:166
 msgid "Browse distinct values"
@@ -12767,6 +12780,7 @@ msgstr ""
 "dovrebbe essere inferiore a 1 all'ora"
 
 #: po/advisory_rules.php:145
+#, fuzzy
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
