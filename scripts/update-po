@@ -15,6 +15,7 @@ xgettext \
     --add-comments=l10n \
     --add-location \
     --debug \
+    --from-code=utf-8 \
     --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
     `find . -name '*.php' -not -path './test/*' -not -path './po/*' | sort`
