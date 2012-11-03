@@ -18,8 +18,8 @@ if (! isset($forms[$form_param])) {
 $tabs_icons = array(
     'Features'    => 'b_tblops.png',
     'Sql_queries' => 'b_sql.png',
-    'Left_frame'  => 'b_select.png',
-    'Main_frame'  => 'b_props.png',
+    'Navi_panel'  => 'b_select.png',
+    'Main_panel'  => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
 echo '<ul id="topmenu2">';
@@ -41,7 +41,7 @@ foreach (array_keys($forms) as $formset) {
 }
 echo '</ul><div class="clearfloat"></div>';
 
-// show "configuration saved" message and reload navigation frame if needed
+// show "configuration saved" message and reload navigation panel if needed
 if (!empty($_GET['saved'])) {
     PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
 }

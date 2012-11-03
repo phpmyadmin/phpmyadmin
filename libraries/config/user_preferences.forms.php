@@ -78,7 +78,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/ShowAsPHP',
     'SQLQuery/Validate',
     'SQLQuery/Refresh');
-$forms['Left_frame']['Left_frame'] = array(
+$forms['Navi_panel']['Navi_panel'] = array(
     'NavigationDisplayLogo',
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
@@ -86,25 +86,25 @@ $forms['Left_frame']['Left_frame'] = array(
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisplayItemFilterMinimum');
-$forms['Left_frame']['Left_databases'] = array(
+$forms['Navi_panel']['Navi_databases'] = array(
     'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');
-$forms['Left_frame']['Left_tables'] = array(
+$forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
     'ShowTooltip');
-$forms['Main_frame']['Startup'] = array(
+$forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',
     'ShowServerInfo');
-$forms['Main_frame']['DbStructure'] = array(
+$forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureCreation',
     'ShowDbStructureLastUpdate',
     'ShowDbStructureLastCheck');
-$forms['Main_frame']['TableStructure'] = array(
+$forms['Main_panel']['TableStructure'] = array(
     'HideStructureActions');
-$forms['Main_frame']['Browse'] = array(
+$forms['Main_panel']['Browse'] = array(
     'NavigationBarIconic',
     'PropertiesIconic',
     'ShowAll',
@@ -121,14 +121,14 @@ $forms['Main_frame']['Browse'] = array(
     'RowActionLinks',
     'DefaultDisplay',
     'RememberSorting');
-$forms['Main_frame']['Edit'] = array(
+$forms['Main_panel']['Edit'] = array(
     'ProtectBinary',
     'ShowFunctionFields',
     'ShowFieldTypesInDataEditView',
     'InsertRows',
     'ForeignKeyDropdownOrder',
     'ForeignKeyMaxLimit');
-$forms['Main_frame']['Tabs'] = array(
+$forms['Main_panel']['Tabs'] = array(
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable');
