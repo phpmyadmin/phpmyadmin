@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-27 11:05+0200\n"
+"PO-Revision-Date: 2012-10-31 11:14+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sl/>\n"
 "Language: sl\n"
@@ -4370,7 +4370,7 @@ msgstr "Največje število vrstic za prikaz"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum number of tables displayed in table list"
-msgstr "Največje število tabel prikazanih na seznamu tabel"
+msgstr "Največje število tabel, prikazanih na seznamu tabel"
 
 #: libraries/config/messages.inc.php:316
 msgid "Maximum tables"
@@ -9100,7 +9100,7 @@ msgstr "Omogoča vstavljanje in zamenjavo podatkov."
 #: server_privileges.php:52 server_privileges.php:261
 #: server_privileges.php:664
 msgid "Allows locking tables for the current thread."
-msgstr "Omogoča zaklepanje tabel za trenutno temo."
+msgstr "Omogoča zaklepanje tabel za trenutno nit."
 
 #: server_privileges.php:53 server_privileges.php:728
 #: server_privileges.php:730

@@ -35,33 +35,21 @@ if (! empty($sql_query)) {
 
     // Need to generate WHERE clause?
     if (isset($where_clause)) {
-        // Yes => rebuild query from scratch; this doesn't work with nested
-        // selects :-(
-        $sql_query = 'SELECT ';
 
-        if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
-            $sql_query .= ' DISTINCT ';
-        }
+        $temp_sql_array = explode("where", strtolower($sql_query));
 
-        $sql_query .= $analyzed_sql[0]['select_expr_clause'];
+        // The fields which is going to select will be remain
+        // as it is regardless of the where clause(s).
+        // EX :- The part "SELECT `id`, `name` FROM `customers`"
+        // will be remain same when representing the resulted rows
+        // from the following query,
+        // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
+        //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
+        $sql_query = $temp_sql_array[0];
 
-        if (!empty($analyzed_sql[0]['from_clause'])) {
-            $sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-        }
-
-        $wheres = array();
-
-        if (isset($where_clause) && is_array($where_clause)
-         && count($where_clause) > 0) {
-            $wheres[] = '(' . implode(') OR (', $where_clause) . ')';
-        }
-
-        if (!empty($analyzed_sql[0]['where_clause'])) {
-            $wheres[] = $analyzed_sql[0]['where_clause'];
-        }
-
-        if (count($wheres) > 0) {
-            $sql_query .= ' WHERE (' . implode(') AND (', $wheres) . ')';
+        // Append the where clause using the primary key of each row
+        if (is_array($where_clause) && (count($where_clause) > 0)) {
+            $sql_query .= ' WHERE (' . implode(') OR (', $where_clause) . ')';
         }
 
         if (!empty($analyzed_sql[0]['group_by_clause'])) {

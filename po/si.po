@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-08-27 10:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-10-28 11:47+0200\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/3-5/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
@@ -4516,6 +4516,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"[a@http://swekey.com]SweKey දෘඩාංග සත්‍යාපනය[/a] සඳහා අවශ්‍ය වින්‍යාස ගොනුව "
+"අඩංගු ස්ථානය.(ඔබගේ ලියකියවිලි මූලයේ අඩංගු නැත. යෝජිත: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
@@ -5988,7 +5990,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "ස්වයංක්‍රීය ප්‍රතිසාධන ප්‍රකාරය"
 
 #: libraries/engines/myisam.lib.php:28
 msgid ""
