@@ -78,7 +78,7 @@ class PMA_Footer
                 $sum_exec += $query['count'];
             }
 
-            $retval .= '<div>';
+            $retval .= '<div id="session_debug">';
             $retval .= count($_SESSION['debug']['queries']) . ' queries executed ';
             $retval .= $sum_exec . ' times in ' . $sum_time . ' seconds';
             $retval .= '<pre>';

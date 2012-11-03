@@ -223,6 +223,7 @@ var AJAX = {
                 .not('#floating_menubar')
                 .not('#page_content')
                 .not('#selflink')
+                .not('#session_debug')
                 .remove();
             // Replace #page_content with new content
             $('#page_content').replaceWith(
