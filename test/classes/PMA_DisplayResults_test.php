@@ -1051,8 +1051,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'odd row_0 vpointer vmarker',
                 '<td class="odd row_0 vpointer vmarker center"  >
-<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" onclick="return confirmLink(this, \'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-</td>'
+<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+<div class="hide">DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1</div></td>'
             )
         );
     }
@@ -1128,8 +1128,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 <input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  ><span class="nowrap">
 <a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
 <input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  >
-<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" onclick="return confirmLink(this, \'DELETE FROM `data`.`new` WHERE `new`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-</td>'
+<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td>'
             )
         );
     }
@@ -1216,8 +1216,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td class="center"  >
-<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" onclick="return confirmLink(this, \'DELETE FROM `data`.`new` WHERE `new`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-</td><td class="center"  ><span class="nowrap">
+<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td><td class="center"  ><span class="nowrap">
 <a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
 <input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="edit_row_anchor center"  ><span class="nowrap">
 <a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
