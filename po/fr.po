@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-10-31 22:46+0200\n"
+"PO-Revision-Date: 2012-11-03 14:23+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -4600,13 +4599,11 @@ msgid "Databases display options"
 msgstr "Options d'affichage des bases de données"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
 msgstr "Panneau de navigation"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
 msgstr "Personnaliser l'apparence du panneau de navigation"
@@ -4625,7 +4622,6 @@ msgid "Tables display options"
 msgstr "Options d'affichage des tables"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
 msgstr "Panneau principal"
@@ -4743,16 +4739,14 @@ msgid "Customize import defaults"
 msgstr "Personnaliser les valeurs pour importation"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Personnaliser le cadre de navigation"
+msgstr "Personnaliser le panneau de navigation"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Personnaliser le cadre principal"
+msgstr "Personnaliser le panneau principal"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -5098,7 +5092,6 @@ msgid "Memory limit"
 msgstr "Limite mémoire"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
 msgstr "Montrer le logo dans le panneau de navigation"
@@ -5108,10 +5101,9 @@ msgid "Display logo"
 msgstr "Affichage du logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "L'URL vers lequel le logo dans le panneau de navigation pointera"
+msgstr "L'URL vers lequel pointera le logo dans le panneau de navigation"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5130,7 +5122,6 @@ msgid "Logo link target"
 msgstr "Fenêtre-cible pour la page ouverte lors d'un clic sur le logo"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
 msgstr "Montrer le choix de serveurs au haut du panneau de navigation"
