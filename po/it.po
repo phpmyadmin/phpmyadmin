@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-10-21 14:41+0200\n"
+"PO-Revision-Date: 2012-11-03 17:22+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -575,6 +575,7 @@ msgid "Add a point"
 msgstr "Aggiungi un punto"
 
 #: gis_data_editor.php:262 js/messages.php:326
+#, fuzzy
 msgid "Linestring"
 msgstr "Linestring"
 
@@ -1453,7 +1454,7 @@ msgstr ""
 
 #: js/messages.php:183
 msgid "Analyzing…"
-msgstr "Analisi in corso..."
+msgstr "Analisi in corso…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1555,7 +1556,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Impossibile creare la tabella dei grafici con la configurazione importata. "
-"Ripristino alle impostazioni predefinite in corso..."
+"Ripristino alle impostazioni predefinite in corso…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -1984,22 +1985,22 @@ msgid "More"
 msgstr "Più"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Mostra tutti"
+msgstr "Mostra pannello"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Nascondi gli indici"
+msgstr "Nascondi pannello"
 
 #: js/messages.php:377
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "L'utente selezionato non è stato trovato nella tabella dei privilegi."
+msgstr ""
+"La pagina richiesta non é stata trovata nella cronologia, potrebbe essere "
+"scaduta."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -2923,7 +2924,7 @@ msgstr "Operazioni"
 #: libraries/Menu.class.php:296 libraries/Menu.class.php:413
 #: libraries/relation.lib.php:236
 msgid "Tracking"
-msgstr "Tracking"
+msgstr "Monitoraggio"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:407
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
@@ -2934,7 +2935,7 @@ msgstr "Tracking"
 #: libraries/plugins/export/ExportXml.class.php:120
 #: libraries/rte/rte_words.lib.php:41
 msgid "Triggers"
-msgstr "Triggers"
+msgstr "Trigger"
 
 #: libraries/Menu.class.php:319 libraries/Menu.class.php:320
 msgid "Table seems to be empty!"
@@ -2957,7 +2958,7 @@ msgstr "Privilegi"
 
 #: libraries/Menu.class.php:392 libraries/rte/rte_words.lib.php:29
 msgid "Routines"
-msgstr "Routines"
+msgstr "Routine"
 
 #: libraries/Menu.class.php:400
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
@@ -4558,21 +4559,19 @@ msgid "Databases display options"
 msgstr "Opzioni di visualizzazione dei database"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Frame di navigazione"
+msgstr "Pannello di navigazione"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Personalizza l'aspetto del frame di navigazione"
+msgstr "Personalizza l'aspetto del pannello di navigazione"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
 msgid "Servers"
-msgstr "Servers"
+msgstr "Server"
 
 #: libraries/config/messages.inc.php:182
 msgid "Servers display options"
@@ -4583,10 +4582,9 @@ msgid "Tables display options"
 msgstr "Opzioni di visualizzazione tabelle"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Frame principale"
+msgstr "Pannello principale"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4701,16 +4699,14 @@ msgid "Customize import defaults"
 msgstr "Personalizza le opzioni predefinite di importazione"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Personalizza frame di navigazione"
+msgstr "Personalizza pannello di navigazione"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Personalizza frame principale"
+msgstr "Personalizza pannello principale"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4758,7 +4754,7 @@ msgstr "Personalizza la pagina di avvio"
 #, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Server del Database"
+msgstr "Struttura del database"
 
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
@@ -4768,7 +4764,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
-msgstr "Server del Database"
+msgstr "Struttura della tabella"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
@@ -4999,10 +4995,9 @@ msgid "Users cannot set a higher value"
 msgstr "Gli utenti non possono impostare un valore maggiore"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Il massimo numero di tabelle da visualizzare nella lista di tabelle"
+msgstr "Il massimo numero di database da visualizzare nella lista dei database"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
@@ -5014,8 +5009,8 @@ msgstr "Massimi numero dei database"
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
-"Il numero di join che hanno effettuato una scansione completa della prima "
-"tabella."
+"Il numero di elementi da visualizzare in ogni pagina dell'albero della "
+"navigazione"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5068,20 +5063,18 @@ msgid "Memory limit"
 msgstr "Limite memoria"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Mostra logo nel frame di sinistra"
+msgstr "Mostra logo nel pannello di navigazione"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Visualizza logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "L'indirizzo per il collegamento del logo nella frame di configurazione"
+msgstr "L'indirizzo per il collegamento del logo nel pannello di navigazione"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5100,11 +5093,11 @@ msgid "Logo link target"
 msgstr "Destinazione del collegamento per il logo"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
 msgstr ""
-"Visualizza la scelta del server nella parte superiore della frame sinistra"
+"Visualizza la scelta del server nella parte superiore del pannello di "
+"navigazione"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5115,27 +5108,27 @@ msgid "Target for quick access icon"
 msgstr "Destinazione per l'icona di accesso veloce"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Numero minimo di tabelle per visualizzare il riquadro di filtraggio"
+msgstr ""
+"Numero minimo di elementi (tabelle, viste, procedure ed eventi) per "
+"visualizzare il riquadro di filtraggio."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Numero minimo di tabelle per visualizzare il riquadro di filtraggio"
+msgstr "Numero minimo di elementi per visualizzare il riquadro di filtraggio"
 
 #: libraries/config/messages.inc.php:310
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Numero minimo di tabelle per visualizzare il riquadro di filtraggio"
+msgstr ""
+"Numero minimo di database per visualizzare il riquadro di filtraggio dei "
+"database"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5143,8 +5136,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Solo per la versione light; visualizza i database in un albero (determinato "
-"dal separatore definito in basso)"
+"Raggruppa gli elementi nell'albero della navigazione (determinato dal "
+"separatore definito in basso)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
@@ -6348,6 +6341,7 @@ msgid "Re-type"
 msgstr "Reinserisci"
 
 #: libraries/display_change_password.lib.php:54
+#, fuzzy
 msgid "Password Hashing"
 msgstr "Password Hashing"
 
@@ -6582,10 +6576,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Formato del file importato"
+msgstr "Caricamento del file di importazione in corso..."
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -7232,10 +7225,12 @@ msgid "Traditional Chinese"
 msgstr "Cinese Tradizionale"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
+#, fuzzy
 msgid "case-insensitive"
 msgstr "case-insensitive"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:449
+#, fuzzy
 msgid "case-sensitive"
 msgstr "case-sensitive"
 
@@ -7430,10 +7425,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter databases by name"
-msgstr "Filtra tabelle in base al nome"
+msgstr "filtra i database in base al nome"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
@@ -7443,10 +7437,9 @@ msgid "Clear Fast Filter"
 msgstr "Cancella la serie"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtra tabelle in base al nome"
+msgstr "filtra elementi in base al nome"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
@@ -7472,7 +7465,6 @@ msgid "New"
 msgstr "Nuovo"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7485,14 +7477,12 @@ msgid "Functions"
 msgstr "Funzioni"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Nuovo"
+msgstr "Nuova"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7506,21 +7496,18 @@ msgstr "Procedure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Nuovo"
+msgstr "Nuova"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "Nuovo"
+msgstr "Nuova"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7532,11 +7519,10 @@ msgid "Views"
 msgstr "Viste"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nuovo"
+msgstr "Nuova"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -7820,7 +7806,7 @@ msgstr "Nessuna chiave di autentificazione valida inserita"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "Autenticazione..."
+msgstr "Autenticazione…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82
@@ -8743,6 +8729,7 @@ msgstr "Conserva dopo il completamento"
 #: libraries/rte/rte_events.lib.php:524
 #: libraries/rte/rte_routines.lib.php:1005
 #: libraries/rte/rte_triggers.lib.php:407
+#, fuzzy
 msgid "Definer"
 msgstr "Definer"
 
@@ -9110,6 +9097,7 @@ msgstr "Attributi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1354
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
 #: libraries/structure.lib.php:1192 tbl_tracking.php:323
+#, fuzzy
 msgid "Extra"
 msgstr "Extra"
 
@@ -9516,7 +9504,6 @@ msgid "User has been added."
 msgstr "L'utente é stato aggiunto."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -9538,7 +9525,7 @@ msgstr "specifico del database"
 
 #: libraries/server_privileges.lib.php:1704
 msgid "wildcard"
-msgstr "wildcard"
+msgstr "carattere jolly"
 
 #: libraries/server_privileges.lib.php:1751 server_privileges.php:171
 msgid "No user found."
@@ -9865,8 +9852,9 @@ msgstr "Indice"
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2234
 #: libraries/structure.lib.php:2244
+#, fuzzy
 msgid "Spatial"
-msgstr "Spatial"
+msgstr "Spaziale"
 
 #: libraries/structure.lib.php:1414 libraries/structure.lib.php:2236
 #: libraries/structure.lib.php:2246 libraries/tbl_properties.inc.php:569
@@ -9877,7 +9865,7 @@ msgstr "Testo completo"
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Rimuovi campo/i"
+msgstr "Muovi campi"
 
 #: libraries/structure.lib.php:1432
 msgid "Move the columns by dragging them up and down."
@@ -10037,7 +10025,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Rimuovi campo/i"
+msgstr "Muovi campo"
 
 #: libraries/tbl_properties.inc.php:145
 #, php-format
@@ -10716,6 +10704,7 @@ msgstr ""
 "stato terminato."
 
 #: server_status.php:657
+#, fuzzy
 msgid "Handler"
 msgstr "Handler"
 
@@ -10736,10 +10725,12 @@ msgid "Delayed inserts"
 msgstr "Inserimento ritardato"
 
 #: server_status.php:663
+#, fuzzy
 msgid "Key cache"
 msgstr "Key cache"
 
 #: server_status.php:664
+#, fuzzy
 msgid "Joins"
 msgstr "Joins"
 
@@ -10784,6 +10775,7 @@ msgid "Monitor"
 msgstr "Monitoraggio"
 
 #: server_status.php:834
+#, fuzzy
 msgid "Advisor"
 msgstr "Advisor"
 
@@ -11981,6 +11973,7 @@ msgid "Configuration: %s"
 msgstr "Configurazione: %s"
 
 #: server_synchronize.php:1439
+#, fuzzy
 msgid "Socket"
 msgstr "Socket"
 
@@ -12354,10 +12347,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usa il segnalibro \"%s\" come la query di navigazione predefinita."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Segnalibro %s creato"
+msgstr "Segnalibro non creato"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12396,10 +12388,9 @@ msgid "The columns have been moved successfully."
 msgstr "Gli utenti selezionati sono stati cancellati con successo."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Nessun dato trovato"
+msgstr "Nessun dato da visualizzare"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
@@ -12417,6 +12408,7 @@ msgid "Line"
 msgstr "Linea"
 
 #: tbl_chart.php:136
+#, fuzzy
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
@@ -13436,6 +13428,7 @@ msgstr ""
 "dovrebbe essere inferiore a 1 all'ora"
 
 #: libraries/advisory_rules.txt:255
+#, fuzzy
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
