@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-10-31 11:14+0200\n"
+"PO-Revision-Date: 2012-11-03 13:52+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
@@ -1961,10 +1961,9 @@ msgid "Hide Panel"
 msgstr "Skrij ploščo"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Izbranega uporabnika v tabelah privilegijev nisem našel."
+msgstr "Izbrane strani nisem našel v zgodovini; morda je potekla."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -4577,16 +4576,14 @@ msgid "Databases display options"
 msgstr "Možnosti prikaza zbirk podatkov"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigacijski okvir"
+msgstr "Navigacijska plošča"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Prilagodite prikaz navigacijskega okvirja"
+msgstr "Prilagodite prikaz navigacijske plošče"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4602,10 +4599,9 @@ msgid "Tables display options"
 msgstr "Možnosti prikaza tabel"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Glavni okvir"
+msgstr "Glavna plošča"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4720,16 +4716,14 @@ msgid "Customize import defaults"
 msgstr "Prilagodi privzete možnosti uvoza"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Prilagodi navigacijski okvir"
+msgstr "Prilagodi navigacijsko ploščo"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Prilagodi glavni okvir"
+msgstr "Prilagodi glavno ploščo"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -5020,15 +5014,16 @@ msgid "Maximum databases"
 msgstr "Največ zbirk podatkov"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Število stikov, ki so izvedli celotni pregled na prvi tabeli."
+msgstr ""
+"Število predmetov, ki se lahko prikažejo na posamezni strani navigacijskega "
+"drevesa"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Največ predmetov v veji"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5077,20 +5072,18 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Prikaži logotip v levem okvirju"
+msgstr "Prikaži logotip na navigacijski plošči"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Prikaži logotip"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL kamor bo kazal logotip v navigacijskem okvirju"
+msgstr "URL, kamor bo kazal logotip na navigacijski plošči"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5109,10 +5102,9 @@ msgid "Logo link target"
 msgstr "Cilj povezave logotipa"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Prikaži izbrani strežnik na vrhu levega okvirja"
+msgstr "Prikaži izbrani strežnik na vrhu navigacijske plošče"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5123,20 +5115,18 @@ msgid "Target for quick access icon"
 msgstr "Cilj ikone za hitri dostop"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
-"Najmanjše število tabel, potrebnih za prikaz polja za filtriranje tabel"
+"Najmanjše število predmetov (tabel, pogledov, rutin in dogodkov), potrebnih "
+"za prikaz filtrirnega polja."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr ""
-"Najmanjše število tabel, potrebnih za prikaz polja za filtriranje tabel"
+msgstr "Najmanjše število predmetov, potrebnih za prikaz filtrirnega polja"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
@@ -5145,7 +5135,6 @@ msgstr ""
 "zbirk podatkov"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5153,12 +5142,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Samo lahka različica; prikaže zbirke podatkov v drevesu (določeno z ločilom, "
-"navedenim spodaj)"
+"Združi predmete v navigacijskem drevesu (določeno z ločilom, navedenim "
+"spodaj)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Združi predmete v drevesu"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5264,7 +5253,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5272,12 +5260,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Onemogoči privzeto opozorilo, ki se prikaže, če mcrypt manjka za overitev "
-"piškotkov"
+"Onemogoči privzeto opozorilo, ki se prikaže, če zaznam razliko med knjižnico "
+"in strežnikom MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Opozorilo razlike med strežnikom in knjižnico"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -7359,7 +7347,7 @@ msgstr "neznano"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Med nalaganjem navigacijskega drevesa je prišlo do napake"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7381,40 +7369,37 @@ msgstr "Osveži navigacijski okvir"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "najden %s drug rezultat"
+msgstr[1] "najdena %s druga rezultata"
+msgstr[2] "najdeni %s drugi rezultati"
+msgstr[3] "najdenih %s drugih rezultatov"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Filtriraj zbirke podatkov po imenu"
+msgstr "filtriraj zbirke podatkov po imenu"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Počisti serije"
+msgstr "Počisti hitri filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtriraj tabele po imenu"
+msgstr "filtriraj predmete po imenu"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Neveljavno ime razreda \"%1$s\"; uporabljam privzeto \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Ne morem vključiti razreda \"%1$s\"; datoteke \"%2$s\" nisem našel"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7422,18 +7407,16 @@ msgid "Columns"
 msgstr "Stolpci"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
@@ -7442,18 +7425,16 @@ msgid "Functions"
 msgstr "Funkcije"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
@@ -7463,25 +7444,22 @@ msgstr "Procedure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "Novo"
+msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:124
@@ -7489,11 +7467,10 @@ msgid "Views"
 msgstr "Pogledi"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -9433,11 +9410,10 @@ msgid "User has been added."
 msgstr "Uporabnik je dodan."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "Novo"
+msgstr "Nov"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -10047,7 +10023,7 @@ msgstr "Napaka v arhivu ZIP:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Usodna napaka: Do navigacije lahko dostopate samo z ajaxom"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12221,10 +12197,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Zaznamek %s je ustvarjen"
+msgstr "Zaznamek ni ustvarjen"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12261,10 +12236,9 @@ msgid "The columns have been moved successfully."
 msgstr "Stolpce sem uspešno premaknil."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Našel nisem nobenih podatkov"
+msgstr "Ni podatkov za prikaz"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
