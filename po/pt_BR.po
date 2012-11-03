@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-16 14:37+0200\n"
+"POT-Creation-Date: 2012-11-03 07:36-0400\n"
 "PO-Revision-Date: 2012-11-01 16:53+0200\n"
 "Last-Translator: Israel Torres <israeltorres29@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
+"phpmyadmin/master/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -49,7 +49,7 @@ msgstr "Procurar"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
-#: libraries/TableSearch.class.php:1139 libraries/core.lib.php:540
+#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
@@ -127,7 +127,7 @@ msgstr "Comentários da tabela"
 
 #: db_datadict.php:163 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1187 libraries/insert_edit.lib.php:1595
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:503
@@ -167,7 +167,7 @@ msgid "Type"
 msgstr "Tipo"
 
 #: db_datadict.php:166 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1188 libraries/insert_edit.lib.php:1604
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1604
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:505
@@ -1262,7 +1262,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Por favor adicione no mínimo uma variável à série"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1287
-#: libraries/TableSearch.class.php:838 libraries/TableSearch.class.php:982
+#: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
@@ -1548,8 +1548,7 @@ msgstr ""
 
 #: js/messages.php:211
 msgid ""
-"Failed building chart grid with imported config. Resetting to default "
-"config…"
+"Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Falha ao construir a grade do gráfico com a configuração importada. "
 "Restaurando a configuração padrão..."
@@ -1968,17 +1967,14 @@ msgid "More"
 msgstr "Mais"
 
 #: js/messages.php:373
-#| msgid "Show all"
 msgid "Show Panel"
 msgstr "Mostrar painel"
 
 #: js/messages.php:374
-#| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Ocultar painel"
 
 #: js/messages.php:377
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "A página solicitada não foi encontrada no histórico, ela pode ter expirado."
@@ -2338,7 +2334,7 @@ msgstr "Tamanho da fonte"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
 #: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:809
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
 #: libraries/structure.lib.php:884 server_databases.php:200
 #: server_databases.php:217 server_status.php:1431
@@ -2347,7 +2343,7 @@ msgstr "Ascendente"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:810
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
 #: libraries/structure.lib.php:889 server_databases.php:200
 #: server_databases.php:217 server_status.php:1428
@@ -2380,7 +2376,7 @@ msgid "Use Tables"
 msgstr "Usar tabelas"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:777 libraries/insert_edit.lib.php:1213
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1213
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "Ou"
@@ -2557,7 +2553,7 @@ msgstr "Cabeçalho a cada %s linhas"
 msgid "Sort by key"
 msgstr "Ordenar pela chave"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:751
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2704,7 +2700,7 @@ msgstr "Exportar"
 msgid "Query results operations"
 msgstr "Operações resultantes das consultas"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2789,12 +2785,12 @@ msgstr "Não pode ler (mover) arquivo carregado."
 msgid "Open new phpMyAdmin window"
 msgstr "Abrir nova janela do phpMyAdmin"
 
-#: libraries/Header.class.php:575
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies devem estar ativos após este ponto."
 
-#: libraries/Header.class.php:580
+#: libraries/Header.class.php:585
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript deve estar ativo após este ponto"
@@ -2991,7 +2987,7 @@ msgid "Engines"
 msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
-#: libraries/core.lib.php:224 libraries/import.lib.php:171
+#: libraries/core.lib.php:228 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1209 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
@@ -3128,7 +3124,7 @@ msgstr "Função"
 msgid "Operator"
 msgstr "Operador"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1189
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
 #: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
@@ -3144,58 +3140,58 @@ msgstr "Pesquisa de tabela"
 msgid "Edit/Insert"
 msgstr "Inserir/Editar"
 
-#: libraries/TableSearch.class.php:758
+#: libraries/TableSearch.class.php:755
 msgid "Select columns (at least one):"
 msgstr "Selecionar colunas (no mínimo 1):"
 
-#: libraries/TableSearch.class.php:778
+#: libraries/TableSearch.class.php:775
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Condição de pesquisa (complemento da cláusula \"onde\"):"
 
-#: libraries/TableSearch.class.php:790
+#: libraries/TableSearch.class.php:787
 msgid "Number of rows per page"
 msgstr "registros por página"
 
-#: libraries/TableSearch.class.php:800
+#: libraries/TableSearch.class.php:797
 msgid "Display order:"
 msgstr "Ordenado por:"
 
-#: libraries/TableSearch.class.php:836
+#: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
 msgstr "Use esta coluna para rotular cada ponto"
 
-#: libraries/TableSearch.class.php:857
+#: libraries/TableSearch.class.php:854
 msgid "Maximum rows to plot"
 msgstr "Número máximo de linhas para traçar"
 
-#: libraries/TableSearch.class.php:885 libraries/TableSearch.class.php:1157
+#: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr "Visualizar valores estrangeiros"
 
-#: libraries/TableSearch.class.php:974
+#: libraries/TableSearch.class.php:971
 msgid "Additional search criteria"
 msgstr "Critérios de pesquisa adicionais"
 
-#: libraries/TableSearch.class.php:1112
+#: libraries/TableSearch.class.php:1109
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Execute uma \"consulta por exemplo\" (coringa: \"%\") para duas colunas "
 "diferentes"
 
-#: libraries/TableSearch.class.php:1122
+#: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
-#: libraries/TableSearch.class.php:1166
+#: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
 msgstr "Visualzar/Editar pontos"
 
-#: libraries/TableSearch.class.php:1173
+#: libraries/TableSearch.class.php:1170
 msgid "How to use"
 msgstr "Como usar"
 
-#: libraries/TableSearch.class.php:1178
+#: libraries/TableSearch.class.php:1175
 msgid "Reset zoom"
 msgstr "Restaurar zoom"
 
@@ -4533,11 +4529,15 @@ msgid "Databases display options"
 msgstr "Opções de exibição de bancos de dados"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-msgid "Navigation frame"
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel"
 msgstr "Quadro de navegação"
 
 #: libraries/config/messages.inc.php:180
-msgid "Customize appearance of the navigation frame"
+#, fuzzy
+#| msgid "Customize appearance of the navigation frame"
+msgid "Customize appearance of the navigation panel"
 msgstr "Personaliza aparência do frame de navegação"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
@@ -4554,7 +4554,9 @@ msgid "Tables display options"
 msgstr "Opções de exibição de tabelas"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-msgid "Main frame"
+#, fuzzy
+#| msgid "Main frame"
+msgid "Main panel"
 msgstr "Quadro principal"
 
 #: libraries/config/messages.inc.php:186
@@ -4670,11 +4672,15 @@ msgid "Customize import defaults"
 msgstr "Personalizar padrões de importação"
 
 #: libraries/config/messages.inc.php:211
-msgid "Customize navigation frame"
+#, fuzzy
+#| msgid "Customize navigation frame"
+msgid "Customize navigation panel"
 msgstr "Personaliza frame de navegação"
 
 #: libraries/config/messages.inc.php:212
-msgid "Customize main frame"
+#, fuzzy
+#| msgid "Customize main frame"
+msgid "Customize main panel"
 msgstr "Personaliza frame principal"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
@@ -4958,7 +4964,6 @@ msgid "Users cannot set a higher value"
 msgstr "Usuários não podem definir um valor maior"
 
 #: libraries/config/messages.inc.php:286
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
 msgstr "Número máximo de bancos de dados exibidas na lista de bancos de dados"
 
@@ -4967,7 +4972,6 @@ msgid "Maximum databases"
 msgstr "Número máximo de bancos de dados"
 
 #: libraries/config/messages.inc.php:288
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr "O número de itens que podem ser mostrados em cada página de navegação"
@@ -5023,7 +5027,9 @@ msgid "Memory limit"
 msgstr "Limite de memória"
 
 #: libraries/config/messages.inc.php:299
-msgid "Show logo in left frame"
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show logo in navigation panel"
 msgstr "Exibir logo no quadro da esquerda"
 
 #: libraries/config/messages.inc.php:300
@@ -5031,7 +5037,9 @@ msgid "Display logo"
 msgstr "Exibir logo"
 
 #: libraries/config/messages.inc.php:301
-msgid "URL where logo in the navigation frame will point to"
+#, fuzzy
+#| msgid "URL where logo in the navigation frame will point to"
+msgid "URL where logo in the navigation panel will point to"
 msgstr "URL onde o logo será colocado no frame de navegação"
 
 #: libraries/config/messages.inc.php:302
@@ -5051,7 +5059,9 @@ msgid "Logo link target"
 msgstr "Alvo do link da logo"
 
 #: libraries/config/messages.inc.php:305
-msgid "Display server choice at the top of the left frame"
+#, fuzzy
+#| msgid "Display server choice at the top of the left frame"
+msgid "Display server choice at the top of the navigation panel"
 msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
 
 #: libraries/config/messages.inc.php:306
@@ -5063,7 +5073,6 @@ msgid "Target for quick access icon"
 msgstr "Alvo para ícone de rápido acesso"
 
 #: libraries/config/messages.inc.php:308
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5072,7 +5081,6 @@ msgstr ""
 "mostrar na caixa de filtro."
 
 #: libraries/config/messages.inc.php:309
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "O número mínimo de itens a serem mostrados na caixa de filtro"
 
@@ -5082,9 +5090,6 @@ msgstr ""
 "Número mínimo de tabelas para mostrar na caixa de filtro de bancos de dados"
 
 #: libraries/config/messages.inc.php:311
-#| msgid ""
-#| "Only light version; display databases in a tree (determined by the "
-#| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5200,9 +5205,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabelas de configuração do phpMyAdmin perdidas"
 
 #: libraries/config/messages.inc.php:336
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
@@ -5305,7 +5307,6 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/config/messages.inc.php:361
-#| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edição de Grids: salvar todas a células editadas de uma vez"
 
@@ -6203,17 +6204,17 @@ msgstr "Controle de senha do usuário phpMyAdmin vazio ao usar pmadb"
 msgid "Incorrect IP address: %s"
 msgstr "Endereço de IP incorreto: %s"
 
-#: libraries/core.lib.php:285
+#: libraries/core.lib.php:286
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 "A extensão %s não está presente. Por favor, verifique a configuração do PHP"
 
-#: libraries/core.lib.php:436
+#: libraries/core.lib.php:437
 msgid "possible deep recursion attack"
 msgstr "possível ataque de recursão profunda"
 
-#: libraries/database_interface.lib.php:2015
+#: libraries/database_interface.lib.php:2020
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -6221,16 +6222,16 @@ msgstr ""
 "O servidor não está respondendo (ou o soquete do servidor local não está "
 "configurado corretamente)."
 
-#: libraries/database_interface.lib.php:2018
+#: libraries/database_interface.lib.php:2023
 msgid "The server is not responding."
 msgstr "O servidor não está respondendo."
 
-#: libraries/database_interface.lib.php:2023
+#: libraries/database_interface.lib.php:2028
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Por favor verifique os privilégios do diretório que contém o banco de dados."
 
-#: libraries/database_interface.lib.php:2032
+#: libraries/database_interface.lib.php:2037
 msgid "Details..."
 msgstr "Detalhes..."
 
@@ -6473,7 +6474,6 @@ msgstr "Alteração efetuada em %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
-#| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
 msgstr "Criado em %1$s por %2$s"
 
@@ -7333,18 +7333,15 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "filtar bancos de dados por nome"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "Limpar Fast Filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#| msgid "Filter tables by name"
 msgid "filter items by name"
 msgstr "filtra itens por nome"
 
@@ -7365,13 +7362,11 @@ msgid "Columns"
 msgstr "Colunas"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nova coluna"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Novo evento"
@@ -7383,13 +7378,11 @@ msgid "Functions"
 msgstr "Funções"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nova função"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Novo índice"
@@ -7402,19 +7395,16 @@ msgstr "Procedimentos"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nova procedure"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nova tabela"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Nova trigger"
@@ -7425,7 +7415,6 @@ msgid "Views"
 msgstr "Visualizações"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nova visão (view)"
@@ -9382,7 +9371,6 @@ msgid "User has been added."
 msgstr "Usuário foi adicionado."
 
 #: libraries/server_privileges.lib.php:1625
-#| msgid "New"
 msgctxt "Create new user"
 msgid "New"
 msgstr "Novo usuário"
@@ -11237,7 +11225,6 @@ msgstr ""
 "momento."
 
 #: server_status.php:1597
-#| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Porcentagem utilizada do cache de chaves (valor calculado)"
 
@@ -11505,7 +11492,6 @@ msgstr ""
 "implementação de processos.)"
 
 #: server_status.php:1639
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Taxa de acessos a threads (valor calculado)"
 
@@ -12193,7 +12179,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como padrão."
 
 #: sql.php:381
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Marcador não criado"
 
@@ -12228,12 +12213,10 @@ msgid "Table %1$s has been altered successfully"
 msgstr "A tabela %1$s foi alterada com sucesso"
 
 #: tbl_alter.php:121
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "As colunas foram movidas com sucesso."
 
 #: tbl_chart.php:41
-#| msgid "No data found"
 msgid "No data to display"
 msgstr "Sem dados para mostrar"
 
@@ -12434,19 +12417,16 @@ msgstr "Relatório de rastreamento para tabela `%s`"
 
 #: tbl_tracking.php:201
 #, php-format
-#| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versão %1$s foi criada, rastreamento para %2$s está ativado(a)."
 
 #: tbl_tracking.php:218
 #, php-format
-#| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Rastreamento para %1$s foi desativado na versão %2$s."
 
 #: tbl_tracking.php:235
 #, php-format
-#| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Rastreamento para %1$s foi ativado na versão %2$s."
 
@@ -12493,7 +12473,6 @@ msgstr "Rastreando instruções"
 
 #: tbl_tracking.php:518 tbl_tracking.php:666
 #, php-format
-#| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Mostrar %1$s com datas desde %2$s até %3$s pelo usuário %4$s %5$s"
 
@@ -12544,7 +12523,6 @@ msgstr "Exibir versões"
 
 #: tbl_tracking.php:818
 #, php-format
-#| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
 msgstr "Desativar rastreamento para %s"
 
@@ -12554,7 +12532,6 @@ msgstr "Desativar agora"
 
 #: tbl_tracking.php:834
 #, php-format
-#| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
 msgstr "Ativar rastreamento para %s"
 
@@ -12564,7 +12541,6 @@ msgstr "Ativar agora"
 
 #: tbl_tracking.php:853
 #, php-format
-#| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
 msgstr "Criar versão %1$s de %2$s"
 
@@ -12698,8 +12674,6 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:75
 #, php-format
-#| msgid ""
-#| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -12722,9 +12696,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
-"﻿﻿﻿﻿Sugere-se para definir {long_query_time} para um valor inferior, "
-"dependendo do seu ambiente. Normalmente, um valor de 1-5 segundos é "
-"sugerido."
+"﻿﻿﻿﻿Sugere-se para definir {long_query_time} para um valor inferior, dependendo "
+"do seu ambiente. Normalmente, um valor de 1-5 segundos é sugerido."
 
 #: libraries/advisory_rules.txt:82
 #, php-format

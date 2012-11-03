@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 08:30-0400\n"
+"POT-Creation-Date: 2012-11-03 07:36-0400\n"
 "PO-Revision-Date: 2012-09-05 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -48,7 +48,7 @@ msgstr "搜索"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
-#: libraries/TableSearch.class.php:1139 libraries/core.lib.php:540
+#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
@@ -124,7 +124,7 @@ msgstr "表注释"
 
 #: db_datadict.php:163 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1187 libraries/insert_edit.lib.php:1595
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:503
@@ -164,7 +164,7 @@ msgid "Type"
 msgstr "类型"
 
 #: db_datadict.php:166 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1188 libraries/insert_edit.lib.php:1604
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1604
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:505
@@ -1233,7 +1233,7 @@ msgid "Please add at least one variable to the series"
 msgstr "请至少添加一个数据"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1287
-#: libraries/TableSearch.class.php:838 libraries/TableSearch.class.php:982
+#: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
@@ -1499,8 +1499,7 @@ msgstr "解析配置文件失败。它看上去不像有效的 JSON 代码。"
 
 #: js/messages.php:211
 msgid ""
-"Failed building chart grid with imported config. Resetting to default "
-"config…"
+"Failed building chart grid with imported config. Resetting to default config…"
 msgstr "导入配置失败。正在重设为默认设置..."
 
 #: js/messages.php:212 libraries/Menu.class.php:288
@@ -2287,7 +2286,7 @@ msgstr "字号"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
 #: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:809
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
 #: libraries/structure.lib.php:884 server_databases.php:200
 #: server_databases.php:217 server_status.php:1431
@@ -2296,7 +2295,7 @@ msgstr "递增"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:810
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
 #: libraries/structure.lib.php:889 server_databases.php:200
 #: server_databases.php:217 server_status.php:1428
@@ -2329,7 +2328,7 @@ msgid "Use Tables"
 msgstr "使用表"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:777 libraries/insert_edit.lib.php:1213
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1213
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "或"
@@ -2507,7 +2506,7 @@ msgstr "每 %s 行重复表头"
 msgid "Sort by key"
 msgstr "主键排序"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:751
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2652,7 +2651,7 @@ msgstr "导出"
 msgid "Query results operations"
 msgstr "查询结果选项"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2733,12 +2732,12 @@ msgstr "无法读取移动后的上传文件。"
 msgid "Open new phpMyAdmin window"
 msgstr "打开新 phpMyAdmin 窗口"
 
-#: libraries/Header.class.php:575
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "必须启用 Cookies 才能登录。"
 
-#: libraries/Header.class.php:580
+#: libraries/Header.class.php:585
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -2935,7 +2934,7 @@ msgid "Engines"
 msgstr "引擎"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
-#: libraries/core.lib.php:224 libraries/import.lib.php:171
+#: libraries/core.lib.php:228 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1209 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
@@ -3067,7 +3066,7 @@ msgstr "函数"
 msgid "Operator"
 msgstr "运算符"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1189
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
 #: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
@@ -3083,56 +3082,56 @@ msgstr "普通搜索"
 msgid "Edit/Insert"
 msgstr "编辑/插入"
 
-#: libraries/TableSearch.class.php:758
+#: libraries/TableSearch.class.php:755
 msgid "Select columns (at least one):"
 msgstr "选择字段 (至少一个)："
 
-#: libraries/TableSearch.class.php:778
+#: libraries/TableSearch.class.php:775
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "添加搜索条件 (“where”语句的主体)："
 
-#: libraries/TableSearch.class.php:790
+#: libraries/TableSearch.class.php:787
 msgid "Number of rows per page"
 msgstr "每页行数"
 
-#: libraries/TableSearch.class.php:800
+#: libraries/TableSearch.class.php:797
 msgid "Display order:"
 msgstr "显示顺序："
 
-#: libraries/TableSearch.class.php:836
+#: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
 msgstr "使用该字段标记每个点"
 
-#: libraries/TableSearch.class.php:857
+#: libraries/TableSearch.class.php:854
 msgid "Maximum rows to plot"
 msgstr "显示的最多行数"
 
-#: libraries/TableSearch.class.php:885 libraries/TableSearch.class.php:1157
+#: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr "浏览不相关的值"
 
-#: libraries/TableSearch.class.php:974
+#: libraries/TableSearch.class.php:971
 msgid "Additional search criteria"
 msgstr "附加搜索条件"
 
-#: libraries/TableSearch.class.php:1112
+#: libraries/TableSearch.class.php:1109
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "在两个不同的字段中执行 “依例查询” (通配符：“%”)"
 
-#: libraries/TableSearch.class.php:1122
+#: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "执行“依例查询”(通配符：“%”)"
 
-#: libraries/TableSearch.class.php:1166
+#: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
 msgstr "浏览/编辑点"
 
-#: libraries/TableSearch.class.php:1173
+#: libraries/TableSearch.class.php:1170
 msgid "How to use"
 msgstr "如何使用"
 
-#: libraries/TableSearch.class.php:1178
+#: libraries/TableSearch.class.php:1175
 msgid "Reset zoom"
 msgstr "重置缩放"
 
@@ -4454,11 +4453,15 @@ msgid "Databases display options"
 msgstr "数据库显示选项"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-msgid "Navigation frame"
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel"
 msgstr "导航框架"
 
 #: libraries/config/messages.inc.php:180
-msgid "Customize appearance of the navigation frame"
+#, fuzzy
+#| msgid "Customize appearance of the navigation frame"
+msgid "Customize appearance of the navigation panel"
 msgstr "自定义导航框架"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
@@ -4475,7 +4478,9 @@ msgid "Tables display options"
 msgstr "数据表显示选项"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-msgid "Main frame"
+#, fuzzy
+#| msgid "Main frame"
+msgid "Main panel"
 msgstr "主框架"
 
 #: libraries/config/messages.inc.php:186
@@ -4583,11 +4588,15 @@ msgid "Customize import defaults"
 msgstr "自定义导入选项"
 
 #: libraries/config/messages.inc.php:211
-msgid "Customize navigation frame"
+#, fuzzy
+#| msgid "Customize navigation frame"
+msgid "Customize navigation panel"
 msgstr "自定义导航框架"
 
 #: libraries/config/messages.inc.php:212
-msgid "Customize main frame"
+#, fuzzy
+#| msgid "Customize main frame"
+msgid "Customize main panel"
 msgstr "自定义主框架"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
@@ -4925,7 +4934,9 @@ msgid "Memory limit"
 msgstr "内存限制"
 
 #: libraries/config/messages.inc.php:299
-msgid "Show logo in left frame"
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show logo in navigation panel"
 msgstr "在左侧框架中显示 logo"
 
 #: libraries/config/messages.inc.php:300
@@ -4933,7 +4944,9 @@ msgid "Display logo"
 msgstr "显示 logo"
 
 #: libraries/config/messages.inc.php:301
-msgid "URL where logo in the navigation frame will point to"
+#, fuzzy
+#| msgid "URL where logo in the navigation frame will point to"
+msgid "URL where logo in the navigation panel will point to"
 msgstr "导航框架中 logo 的地址"
 
 #: libraries/config/messages.inc.php:302
@@ -4951,7 +4964,9 @@ msgid "Logo link target"
 msgstr "Logo 链接目标"
 
 #: libraries/config/messages.inc.php:305
-msgid "Display server choice at the top of the left frame"
+#, fuzzy
+#| msgid "Display server choice at the top of the left frame"
+msgid "Display server choice at the top of the navigation panel"
 msgstr "在左侧框架顶部显示服务器选择"
 
 #: libraries/config/messages.inc.php:306
@@ -6036,30 +6051,30 @@ msgstr "使用 PMA 数据时控制用户的密码不能为空"
 msgid "Incorrect IP address: %s"
 msgstr "%s 是一个错误的 IP 地址"
 
-#: libraries/core.lib.php:285
+#: libraries/core.lib.php:286
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
 
-#: libraries/core.lib.php:436
+#: libraries/core.lib.php:437
 msgid "possible deep recursion attack"
 msgstr "可能的深度递归攻击"
 
-#: libraries/database_interface.lib.php:2015
+#: libraries/database_interface.lib.php:2020
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)。"
 
-#: libraries/database_interface.lib.php:2018
+#: libraries/database_interface.lib.php:2023
 msgid "The server is not responding."
 msgstr "服务器没有响应。"
 
-#: libraries/database_interface.lib.php:2023
+#: libraries/database_interface.lib.php:2028
 msgid "Please check privileges of directory containing database."
 msgstr "请检查数据库目录的权限。"
 
-#: libraries/database_interface.lib.php:2032
+#: libraries/database_interface.lib.php:2037
 msgid "Details..."
 msgstr "详细..."
 

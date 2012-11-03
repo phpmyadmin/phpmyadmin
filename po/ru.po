@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 08:30-0400\n"
+"POT-Creation-Date: 2012-11-03 07:36-0400\n"
 "PO-Revision-Date: 2012-10-28 20:58+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
@@ -50,7 +50,7 @@ msgstr "Поиск"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
-#: libraries/TableSearch.class.php:1139 libraries/core.lib.php:540
+#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
@@ -128,7 +128,7 @@ msgstr "Комментарий к таблице"
 
 #: db_datadict.php:163 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1187 libraries/insert_edit.lib.php:1595
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:503
@@ -168,7 +168,7 @@ msgid "Type"
 msgstr "Тип"
 
 #: db_datadict.php:166 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1188 libraries/insert_edit.lib.php:1604
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1604
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:505
@@ -1260,7 +1260,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Пожалуйста, добавьте в серию хотя бы одну переменную"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1287
-#: libraries/TableSearch.class.php:838 libraries/TableSearch.class.php:982
+#: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
@@ -1543,8 +1543,7 @@ msgstr "Ошибка при разборе конфигурационного ф
 
 #: js/messages.php:211
 msgid ""
-"Failed building chart grid with imported config. Resetting to default "
-"config…"
+"Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Ошибка построения сетки графика из импортированной конфигурации. Сброшено на "
 "изначальную конфигурацию..."
@@ -2338,7 +2337,7 @@ msgstr "Размер шрифта"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
 #: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:809
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
 #: libraries/structure.lib.php:884 server_databases.php:200
 #: server_databases.php:217 server_status.php:1431
@@ -2347,7 +2346,7 @@ msgstr "По возрастанию"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:810
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
 #: libraries/structure.lib.php:889 server_databases.php:200
 #: server_databases.php:217 server_status.php:1428
@@ -2380,7 +2379,7 @@ msgid "Use Tables"
 msgstr "Использовать таблицы"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:777 libraries/insert_edit.lib.php:1213
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1213
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "Или"
@@ -2559,7 +2558,7 @@ msgstr "Заголовки каждые %s строк"
 msgid "Sort by key"
 msgstr "Сортировать по индексу"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:751
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2706,7 +2705,7 @@ msgstr "Экспорт"
 msgid "Query results operations"
 msgstr "Использование результатов запроса"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2795,12 +2794,12 @@ msgstr "Невозможно прочесть (переместить) загр�
 msgid "Open new phpMyAdmin window"
 msgstr "Открыть phpMyAdmin в новом окне"
 
-#: libraries/Header.class.php:575
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "Для полноценной работы необходима поддержка cookies браузером."
 
-#: libraries/Header.class.php:580
+#: libraries/Header.class.php:585
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 msgid "Javascript must be enabled past this point"
 msgstr "Для полноценной работы необходима поддержка Javascript браузером"
@@ -2995,7 +2994,7 @@ msgid "Engines"
 msgstr "Типы таблиц"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
-#: libraries/core.lib.php:224 libraries/import.lib.php:171
+#: libraries/core.lib.php:228 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1209 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
@@ -3134,7 +3133,7 @@ msgstr "Функция"
 msgid "Operator"
 msgstr "Оператор"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1189
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
 #: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
@@ -3150,58 +3149,58 @@ msgstr "Поиск в таблице"
 msgid "Edit/Insert"
 msgstr "Редактировать/Вставить"
 
-#: libraries/TableSearch.class.php:758
+#: libraries/TableSearch.class.php:755
 msgid "Select columns (at least one):"
 msgstr "Выберите поля (не менее одного):"
 
-#: libraries/TableSearch.class.php:778
+#: libraries/TableSearch.class.php:775
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Добавить условия поиска (тело для условия \"WHERE\"):"
 
-#: libraries/TableSearch.class.php:790
+#: libraries/TableSearch.class.php:787
 msgid "Number of rows per page"
 msgstr "Количество строк на странице"
 
-#: libraries/TableSearch.class.php:800
+#: libraries/TableSearch.class.php:797
 msgid "Display order:"
 msgstr "Сортировка:"
 
-#: libraries/TableSearch.class.php:836
+#: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
 msgstr "Использовать данное поле для обозначения каждой точки"
 
-#: libraries/TableSearch.class.php:857
+#: libraries/TableSearch.class.php:854
 msgid "Maximum rows to plot"
 msgstr "Максимальное количество строк для построения"
 
-#: libraries/TableSearch.class.php:885 libraries/TableSearch.class.php:1157
+#: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr "Обзор внешних значений"
 
-#: libraries/TableSearch.class.php:974
+#: libraries/TableSearch.class.php:971
 msgid "Additional search criteria"
 msgstr "Добавочный критерий поиска"
 
-#: libraries/TableSearch.class.php:1112
+#: libraries/TableSearch.class.php:1109
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Выполнить \"запрос по образцу\" (символ шаблона: \"%\") для двух различных "
 "столбцов"
 
-#: libraries/TableSearch.class.php:1122
+#: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Выполнить \"запрос по образцу\" (групповой символ: \"%\")"
 
-#: libraries/TableSearch.class.php:1166
+#: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
 msgstr "Обзор/Редакция точек"
 
-#: libraries/TableSearch.class.php:1173
+#: libraries/TableSearch.class.php:1170
 msgid "How to use"
 msgstr "Как использовать"
 
-#: libraries/TableSearch.class.php:1178
+#: libraries/TableSearch.class.php:1175
 msgid "Reset zoom"
 msgstr "Сбросить увеличение"
 
@@ -4605,11 +4604,15 @@ msgid "Databases display options"
 msgstr "Параметры отображения списка баз данных"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-msgid "Navigation frame"
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel"
 msgstr "Фрейм навигации"
 
 #: libraries/config/messages.inc.php:180
-msgid "Customize appearance of the navigation frame"
+#, fuzzy
+#| msgid "Customize appearance of the navigation frame"
+msgid "Customize appearance of the navigation panel"
 msgstr "Настройки отображения фрейма навигации"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
@@ -4626,7 +4629,9 @@ msgid "Tables display options"
 msgstr "Параметры отображения списка таблиц"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-msgid "Main frame"
+#, fuzzy
+#| msgid "Main frame"
+msgid "Main panel"
 msgstr "Основной фрейм"
 
 #: libraries/config/messages.inc.php:186
@@ -4741,11 +4746,15 @@ msgid "Customize import defaults"
 msgstr "Модифицировать изначальлные настройки импорта"
 
 #: libraries/config/messages.inc.php:211
-msgid "Customize navigation frame"
+#, fuzzy
+#| msgid "Customize navigation frame"
+msgid "Customize navigation panel"
 msgstr "Модифицировать фрейм навигации"
 
 #: libraries/config/messages.inc.php:212
-msgid "Customize main frame"
+#, fuzzy
+#| msgid "Customize main frame"
+msgid "Customize main panel"
 msgstr "Модифицировать основной фрейм"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
@@ -5100,7 +5109,9 @@ msgid "Memory limit"
 msgstr "Лимит памяти"
 
 #: libraries/config/messages.inc.php:299
-msgid "Show logo in left frame"
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show logo in navigation panel"
 msgstr "Отображать логотип в левом фрейме"
 
 #: libraries/config/messages.inc.php:300
@@ -5108,7 +5119,9 @@ msgid "Display logo"
 msgstr "Выводить логотип"
 
 #: libraries/config/messages.inc.php:301
-msgid "URL where logo in the navigation frame will point to"
+#, fuzzy
+#| msgid "URL where logo in the navigation frame will point to"
+msgid "URL where logo in the navigation panel will point to"
 msgstr "URL на который будет ссылаться логотип из фрейма навигации"
 
 #: libraries/config/messages.inc.php:302
@@ -5128,7 +5141,9 @@ msgid "Logo link target"
 msgstr "Цель ссылки логотипа"
 
 #: libraries/config/messages.inc.php:305
-msgid "Display server choice at the top of the left frame"
+#, fuzzy
+#| msgid "Display server choice at the top of the left frame"
+msgid "Display server choice at the top of the navigation panel"
 msgstr "Отображать вверху левого фрейма список доступных серверов"
 
 #: libraries/config/messages.inc.php:306
@@ -6303,31 +6318,31 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "Некорректно введен IP адрес: %s"
 
-#: libraries/core.lib.php:285
+#: libraries/core.lib.php:286
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Расширение %s не найдено. Пожалуйста, проверьте ваши настройки PHP."
 
-#: libraries/core.lib.php:436
+#: libraries/core.lib.php:437
 msgid "possible deep recursion attack"
 msgstr "возможная атака глубокой рекурсии"
 
-#: libraries/database_interface.lib.php:2015
+#: libraries/database_interface.lib.php:2020
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
-#: libraries/database_interface.lib.php:2018
+#: libraries/database_interface.lib.php:2023
 msgid "The server is not responding."
 msgstr "Сервер не отвечает."
 
-#: libraries/database_interface.lib.php:2023
+#: libraries/database_interface.lib.php:2028
 msgid "Please check privileges of directory containing database."
 msgstr "Пожалуйста, проверьте привилегии каталога содержащего базу данных."
 
-#: libraries/database_interface.lib.php:2032
+#: libraries/database_interface.lib.php:2037
 msgid "Details..."
 msgstr "Детали..."
 

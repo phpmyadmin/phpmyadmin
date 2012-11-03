@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-10-31 08:30-0400\n"
+"POT-Creation-Date: 2012-11-03 07:36-0400\n"
 "PO-Revision-Date: 2012-05-17 23:33+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -49,7 +49,7 @@ msgstr "Otsi"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
-#: libraries/TableSearch.class.php:1139 libraries/core.lib.php:540
+#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
@@ -127,7 +127,7 @@ msgstr "Tabeli kommentaarid"
 
 #: db_datadict.php:163 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1187 libraries/insert_edit.lib.php:1595
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:503
@@ -167,7 +167,7 @@ msgid "Type"
 msgstr "Tüüp"
 
 #: db_datadict.php:166 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1188 libraries/insert_edit.lib.php:1604
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1604
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:505
@@ -1258,7 +1258,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Palun lisa seeriasse vähemalt üks muutuja"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1287
-#: libraries/TableSearch.class.php:838 libraries/TableSearch.class.php:982
+#: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
 #: libraries/display_export.lib.php:369
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
@@ -1536,8 +1536,7 @@ msgstr ""
 
 #: js/messages.php:211
 msgid ""
-"Failed building chart grid with imported config. Resetting to default "
-"config…"
+"Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Imporditud seadistusega diagrammi ruudustiku loomine ebaõnnestus. "
 "Lähtestamine vaikimisi seadistusse..."
@@ -2323,7 +2322,7 @@ msgstr "Fondi kõrgus"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
 #: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:809
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
 #: libraries/structure.lib.php:884 server_databases.php:200
 #: server_databases.php:217 server_status.php:1431
@@ -2332,7 +2331,7 @@ msgstr "Kasvav"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:810
+#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
 #: libraries/structure.lib.php:889 server_databases.php:200
 #: server_databases.php:217 server_status.php:1428
@@ -2365,7 +2364,7 @@ msgid "Use Tables"
 msgstr "Kasuta tabeleid"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:777 libraries/insert_edit.lib.php:1213
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1213
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "Või"
@@ -2545,7 +2544,7 @@ msgstr "Päised iga %s rea tagant"
 msgid "Sort by key"
 msgstr "Sorteeri võtme alusel"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:751
+#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2691,7 +2690,7 @@ msgstr "Ekspordi"
 msgid "Query results operations"
 msgstr "Päringu tulemuste tegevused"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:328
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2774,12 +2773,12 @@ msgstr "Ei saa lugeda (liigutatud) üleslaetud faili."
 msgid "Open new phpMyAdmin window"
 msgstr "Ava uus phpMyAdmini aken"
 
-#: libraries/Header.class.php:575
+#: libraries/Header.class.php:580
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
 msgid "Cookies must be enabled past this point."
 msgstr "Küpsised peavad olema lubatud."
 
-#: libraries/Header.class.php:580
+#: libraries/Header.class.php:585
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript peab olema lubatud"
@@ -2976,7 +2975,7 @@ msgid "Engines"
 msgstr "Mootorid"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:622
-#: libraries/core.lib.php:224 libraries/import.lib.php:171
+#: libraries/core.lib.php:228 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1209 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
@@ -3110,7 +3109,7 @@ msgstr "Funktsioon"
 msgid "Operator"
 msgstr "Operaator"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1189
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
 #: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
@@ -3126,57 +3125,57 @@ msgstr "Tabeli otsing"
 msgid "Edit/Insert"
 msgstr "Muuda/Lisa"
 
-#: libraries/TableSearch.class.php:758
+#: libraries/TableSearch.class.php:755
 msgid "Select columns (at least one):"
 msgstr "Vali veerud (vähemalt üks):"
 
-#: libraries/TableSearch.class.php:778
+#: libraries/TableSearch.class.php:775
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Lisa otsingu tingimusi (\"WHERE\" klausel):"
 
-#: libraries/TableSearch.class.php:790
+#: libraries/TableSearch.class.php:787
 msgid "Number of rows per page"
 msgstr "Ridade hulk lehe kohta"
 
-#: libraries/TableSearch.class.php:800
+#: libraries/TableSearch.class.php:797
 msgid "Display order:"
 msgstr "Näitamise järjekord:"
 
-#: libraries/TableSearch.class.php:836
+#: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
 msgstr "Kasuta seda veergu iga punkti nimetamiseks"
 
-#: libraries/TableSearch.class.php:857
+#: libraries/TableSearch.class.php:854
 msgid "Maximum rows to plot"
 msgstr "Suurim ridade hulk diagrammis"
 
-#: libraries/TableSearch.class.php:885 libraries/TableSearch.class.php:1157
+#: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
 #: sql.php:162 tbl_change.php:218
 msgid "Browse foreign values"
 msgstr "Sirvi võõrvõtme väärtusi"
 
-#: libraries/TableSearch.class.php:974
+#: libraries/TableSearch.class.php:971
 msgid "Additional search criteria"
 msgstr "Täiendav otsingu kriteerium"
 
-#: libraries/TableSearch.class.php:1112
+#: libraries/TableSearch.class.php:1109
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Teosta kahe erineva veergu jaoks \"päring näite alusel\" (metamärk: \"%\")"
 
-#: libraries/TableSearch.class.php:1122
+#: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Teosta \"päring näite alusel\" (metamärk: \"%\")"
 
-#: libraries/TableSearch.class.php:1166
+#: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
 msgstr "Sirvi/Muuda punkte"
 
-#: libraries/TableSearch.class.php:1173
+#: libraries/TableSearch.class.php:1170
 msgid "How to use"
 msgstr "Kuidas kasutada"
 
-#: libraries/TableSearch.class.php:1178
+#: libraries/TableSearch.class.php:1175
 #, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
@@ -4564,11 +4563,15 @@ msgid "Databases display options"
 msgstr "Andmebaaside näitamise valikud"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-msgid "Navigation frame"
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel"
 msgstr "Navigeerimise raam"
 
 #: libraries/config/messages.inc.php:180
-msgid "Customize appearance of the navigation frame"
+#, fuzzy
+#| msgid "Customize appearance of the navigation frame"
+msgid "Customize appearance of the navigation panel"
 msgstr "Muuda navigeerimise raami välimust"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
@@ -4585,7 +4588,9 @@ msgid "Tables display options"
 msgstr "Tabelite näitamise valikud"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-msgid "Main frame"
+#, fuzzy
+#| msgid "Main frame"
+msgid "Main panel"
 msgstr "Pearaam"
 
 #: libraries/config/messages.inc.php:186
@@ -4701,11 +4706,15 @@ msgid "Customize import defaults"
 msgstr "Muuda impordi vaikimisi väärtusi"
 
 #: libraries/config/messages.inc.php:211
-msgid "Customize navigation frame"
+#, fuzzy
+#| msgid "Customize navigation frame"
+msgid "Customize navigation panel"
 msgstr "Muuda navigeerimise raami"
 
 #: libraries/config/messages.inc.php:212
-msgid "Customize main frame"
+#, fuzzy
+#| msgid "Customize main frame"
+msgid "Customize main panel"
 msgstr "Muuda pearaami"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
@@ -5055,7 +5064,9 @@ msgid "Memory limit"
 msgstr "Mälu piirang"
 
 #: libraries/config/messages.inc.php:299
-msgid "Show logo in left frame"
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show logo in navigation panel"
 msgstr "Näita logo vasakus raamis"
 
 #: libraries/config/messages.inc.php:300
@@ -5063,7 +5074,9 @@ msgid "Display logo"
 msgstr "Näita logo"
 
 #: libraries/config/messages.inc.php:301
-msgid "URL where logo in the navigation frame will point to"
+#, fuzzy
+#| msgid "URL where logo in the navigation frame will point to"
+msgid "URL where logo in the navigation panel will point to"
 msgstr "URL, millele navigeerimise raami logo suunab"
 
 #: libraries/config/messages.inc.php:302
@@ -5081,7 +5094,9 @@ msgid "Logo link target"
 msgstr "Logo lingi sihtkoht"
 
 #: libraries/config/messages.inc.php:305
-msgid "Display server choice at the top of the left frame"
+#, fuzzy
+#| msgid "Display server choice at the top of the left frame"
+msgid "Display server choice at the top of the navigation panel"
 msgstr "Näita serveri valikut vasaku raami ülaosas"
 
 #: libraries/config/messages.inc.php:306
@@ -6223,31 +6238,31 @@ msgstr "Tühi phpMyAdmini kontrollkasutaja parool pmadb jaoks"
 msgid "Incorrect IP address: %s"
 msgstr "Vale IP-aadress: %s"
 
-#: libraries/core.lib.php:285
+#: libraries/core.lib.php:286
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s laiend on puudu. Palun kontrolli oma PHP seadistust."
 
-#: libraries/core.lib.php:436
+#: libraries/core.lib.php:437
 msgid "possible deep recursion attack"
 msgstr "võimalik tõsine rünnak"
 
-#: libraries/database_interface.lib.php:2015
+#: libraries/database_interface.lib.php:2020
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Server ei vasta (või kohaliku serveri sokkel ei ole õigesti seadistatud)."
 
-#: libraries/database_interface.lib.php:2018
+#: libraries/database_interface.lib.php:2023
 msgid "The server is not responding."
 msgstr "Server ei vasta."
 
-#: libraries/database_interface.lib.php:2023
+#: libraries/database_interface.lib.php:2028
 msgid "Please check privileges of directory containing database."
 msgstr "Palun kontrolli andmebaasi sisaldava kataloogi õigusi."
 
-#: libraries/database_interface.lib.php:2032
+#: libraries/database_interface.lib.php:2037
 msgid "Details..."
 msgstr "Detailid..."
 
