@@ -97,8 +97,10 @@ class PMA_Response
      */
     private function __construct()
     {
-        $buffer = PMA_OutputBuffering::getInstance();
-        $buffer->start();
+        if (! defined('TESTSUITE')) {
+            $buffer = PMA_OutputBuffering::getInstance();
+            $buffer->start();
+        }
         $this->_header = new PMA_Header();
         $this->_HTML   = '';
         $this->_JSON   = array();

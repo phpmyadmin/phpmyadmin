@@ -220,11 +220,12 @@ function PMA_fatalError(
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
-        if (function_exists('__')) {
-            $error_header = __('Error');
-        } else {
-            $error_header = 'Error';
+        /* Define fake gettext for fatal errors */
+        if (!function_exists('__')) {
+            function __($text) { return $text; }
         }
+
+        $error_header = __('Error');
 
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir = $GLOBALS['text_dir'];

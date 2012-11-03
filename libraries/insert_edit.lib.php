@@ -595,7 +595,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 }
 
 /**
- * Get the HTML elements for value column in inert form
+ * Get the HTML elements for value column in insert form
  *
  * @param array   $column                description of column in given table
  * @param string  $backup_field          hidden input field
@@ -608,7 +608,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array   $special_chars         special characters
  * @param array   $foreignData           data about the foreign keys
  * @param boolean $odd_row               whether row is odd
- * @param array   $paramTableDbArray     array containing $db and $table
+ * @param array   $paramTableDbArray     array containing $table and $db
  * @param array   $rownumber_param       &amp;rownumber=row_id
  * @param array   $titles                An HTML IMG tag for a particular icon from
  *                                       a theme, which may be an actual file or
@@ -729,7 +729,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array   $data                 data to edit
- * @param array   $paramTableDbArray    array containing $db and $table
+ * @param array   $paramTableDbArray    array containing $table and $db
  * @param array   $rownumber_param      &amp;rownumber=row_id
  * @param array   $titles               An HTML IMG tag for a particular icon from
  *                                      a theme, which may be an actual file or
@@ -741,7 +741,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
     $paramTableDbArray, $rownumber_param, $titles
 ) {
-    list($db, $table) = $paramTableDbArray;
+    list($table, $db) = $paramTableDbArray;
     $html_output = '';
     $html_output .= $backup_field . "\n";
 

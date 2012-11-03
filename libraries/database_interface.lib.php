@@ -142,8 +142,13 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
 
     $trace = array();
     foreach (debug_backtrace() as $trace_step) {
-        $trace[] = PMA_Error::relPath($trace_step['file']) . '#'
-            . $trace_step['line'] . ': '
+        $trace[] = 
+            (isset($trace_step['file'])
+                ? PMA_Error::relPath($trace_step['file'])
+                : '')
+            . (isset($trace_step['line']) 
+                ?  '#' . $trace_step['line'] . ': '
+                : '')
             . (isset($trace_step['class']) ? $trace_step['class'] : '')
             . (isset($trace_step['type']) ? $trace_step['type'] : '')
             . (isset($trace_step['function']) ? $trace_step['function'] : '')

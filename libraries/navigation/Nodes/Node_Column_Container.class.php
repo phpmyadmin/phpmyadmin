@@ -35,7 +35,7 @@ class Node_Column_Container extends Node
         );
         $this->real_name = 'columns';
 
-        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new column', 'New'));
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_column_add.png', '');
         $new->links = array(

@@ -213,7 +213,7 @@ function Swekey_auth_error()
         }
         </script>
         <?php
-        return __('Authenticating...');
+        return __('Authenticating…');
     }
 
     return $result;

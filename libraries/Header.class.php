@@ -113,10 +113,12 @@ class PMA_Header
         $this->_isAjax = false;
         $this->_bodyId = '';
         $this->_title  = '';
+        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu   = new PMA_Menu(
             $GLOBALS['server'],
-            $GLOBALS['db'],
-            $GLOBALS['table']
+            $db,
+            $table
         );
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
@@ -168,10 +170,15 @@ class PMA_Header
         }
         $this->_scripts->addFile('messages.php' . PMA_generate_common_url($params));
         // Append the theme id to this url to invalidate
-        // the cache on a theme change
+        // the cache on a theme change. Though this might be
+        // unavailable for fatal errors.
+        if (isset($_SESSION['PMA_Theme'])) {
+            $theme_id = urlencode($_SESSION['PMA_Theme']->getId());
+        } else {
+            $theme_id = 'default';
+        }
         $this->_scripts->addFile(
-            'get_image.js.php?theme='
-            . urlencode($_SESSION['PMA_Theme']->getId())
+            'get_image.js.php?theme=' . $theme_id
         );
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
@@ -188,6 +195,8 @@ class PMA_Header
      */
     public function getJsParams()
     {
+        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         return array(
             'common_query' => PMA_generate_common_url('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -197,8 +206,8 @@ class PMA_Header
             'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
-            'table' => $GLOBALS['table'],
-            'db'    => $GLOBALS['db'],
+            'table' => $table,
+            'db'    => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
@@ -372,11 +381,11 @@ class PMA_Header
                 }
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
+                $retval .= $this->_addRecentTable(
+                    $GLOBALS['db'],
+                    $GLOBALS['table']
+                );
             }
-            $retval .= $this->_addRecentTable(
-                $GLOBALS['db'],
-                $GLOBALS['table']
-            );
         }
         return $retval;
     }

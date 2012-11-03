@@ -796,10 +796,10 @@ printf($input, 'server_db_isLocal', $server_db_isLocal);
 echo '</form>';
 
 echo '<div id="profiling_docu" class="hide">';
-echo $common_functions->showMySQLDocu('general-thread-states', 'general-thread-states');
+echo PMA_Util::showMySQLDocu('general-thread-states', 'general-thread-states');
 echo '</div>';
 echo '<div id="explain_docu" class="hide">';
-echo $common_functions->showMySQLDocu('explain-output', 'explain-output');
+echo PMA_Util::showMySQLDocu('explain-output', 'explain-output');
 echo '</div>';
 
 /**

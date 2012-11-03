@@ -35,7 +35,7 @@ class Node_Index_Container extends Node
         );
         $this->real_name = 'indexes';
 
-        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new index', 'New'));
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_index_add.png', '');
         $new->links = array(

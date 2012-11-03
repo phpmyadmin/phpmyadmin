@@ -127,10 +127,11 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->object->addFile('common.js');
         $this->object->addEvent('onClick', 'doSomething');
 
-
         $this->assertRegExp(
             '@<script src="js/common.js\\?ts=[0-9]*" type="text/javascript"></script>
 <script type="text/javascript">// <!\\[CDATA\\[
+AJAX.scriptHandler.add\\("common.js",1\\);
+\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);
 \\$\\(window\\).bind\\(\'onClick\', doSomething\\);
 // ]]></script>@',
             $this->object->getDisplay()
@@ -151,8 +152,29 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<script type="text/javascript">// <![CDATA[
 alert(\'CodeAdded\')
+AJAX.scriptHandler;
+$(function() {});
 // ]]></script>',
             $this->object->getDisplay()
+        );
+    }
+
+     /**
+     * test for getFiles
+     *
+     * @return void
+     */
+    public function testGetFiles()
+    {
+
+        $this->object->addFile('codemirror/lib/codemirror.js'); // codemirror's onload event is blacklisted
+        $this->object->addFile('common.js');
+        $this->assertEquals(
+            array(
+                array('name' => 'codemirror/lib/codemirror.js', 'fire' => 0),
+                array('name' => 'common.js', 'fire' => 1)
+            ),
+            $this->object->getFiles()
         );
     }
 }

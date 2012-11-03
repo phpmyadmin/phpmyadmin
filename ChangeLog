@@ -68,6 +68,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Renamed configuration directive: LeftDisplayServers => NavigationDisplayServers
 + Renamed configuration directive: LeftRecentTable => NumRecentTables
 + Renamed configuration directive: LeftDisplayDatabaseFilterMinimum => NavigationTreeDisplayDbFilterMinimum
++ Removed the "Mark row on click" feature; must now click the checkbox to mark
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
