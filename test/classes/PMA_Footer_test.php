@@ -118,7 +118,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertRegExp(
-            '/<div>2 queries executed 2 times in 2.7 seconds<pre>/',
+            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds<pre>/',
             $this->_callPrivateFunction(
                 '_getDebugMessage',
                 array()
