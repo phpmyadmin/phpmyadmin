@@ -274,7 +274,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
     // The where clause
     if (trim($where) != '') {
         $sql_query .= ' WHERE ' . $where;
-    } else {
+    } else if (isset($func)) {
         $w = $charsets = array();
         $cnt_func = count($func);
         reset($func);
