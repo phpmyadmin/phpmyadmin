@@ -203,7 +203,7 @@ if (isset($GLOBALS['sr_take_action'])) {
     }
 
     if ($refresh) {
-        Header("Location: ". PMA_generate_common_url($GLOBALS['url_params']));
+        Header("Location: server_replication.php" . PMA_generate_common_url($GLOBALS['url_params']));
     }
     unset($refresh);
 }
@@ -246,7 +246,7 @@ if ($server_master_status) {
         $_url_params['mr_adduser'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        echo '  <li><a href="' . PMA_generate_common_url($_url_params) . '" id="master_addslaveuser_href">';
+        echo '  <li><a href="server_replication.php' . PMA_generate_common_url($_url_params) . '" id="master_addslaveuser_href">';
         echo __('Add slave replication user') . '</a></li>';
     }
 
@@ -263,7 +263,7 @@ if ($server_master_status) {
 
     echo '<fieldset>';
     echo '<legend>' . __('Master replication') . '</legend>';
-    echo sprintf(__('This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?'), PMA_generate_common_url($_url_params));
+    echo sprintf(__('This server is not configured as master in a replication process. Would you like to <a href="%s">configure</a> it?'), 'server_replication.php' . PMA_generate_common_url($_url_params));
     echo '</fieldset>';
 }
 
@@ -315,7 +315,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         }
 
         $_url_params['sr_slave_control_parm'] = 'IO_THREAD';
-        $slave_control_io_link = PMA_generate_common_url($_url_params);
+        $slave_control_io_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $_url_params['sr_slave_action'] = 'start';
@@ -324,7 +324,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         }
 
         $_url_params['sr_slave_control_parm'] = 'SQL_THREAD';
-        $slave_control_sql_link = PMA_generate_common_url($_url_params);
+        $slave_control_sql_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         if ($server_slave_replication[0]['Slave_IO_Running'] == 'No'
             || $server_slave_replication[0]['Slave_SQL_Running'] == 'No'
@@ -335,14 +335,14 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         }
 
         $_url_params['sr_slave_control_parm'] = null;
-        $slave_control_full_link = PMA_generate_common_url($_url_params);
+        $slave_control_full_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         $_url_params['sr_slave_action'] = 'reset';
-        $slave_control_reset_link = PMA_generate_common_url($_url_params);
+        $slave_control_reset_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['sr_slave_skip_error'] = true;
-        $slave_skip_error_link = PMA_generate_common_url($_url_params);
+        $slave_skip_error_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             PMA_Message::error(__('Slave SQL Thread not running!'))->display();
@@ -355,7 +355,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        $reconfiguremaster_link = PMA_generate_common_url($_url_params);
+        $reconfiguremaster_link = 'server_replication.php' . PMA_generate_common_url($_url_params);
 
         echo __('Server is configured as slave in a replication process. Would you like to:');
         echo '<br />';
@@ -417,7 +417,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         $_url_params['sl_configure'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        echo sprintf(__('This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?'), PMA_generate_common_url($_url_params));
+        echo sprintf(__('This server is not configured as slave in a replication process. Would you like to <a href="%s">configure</a> it?'), 'server_replication.php' . PMA_generate_common_url($_url_params));
     }
     echo '</fieldset>';
 }
