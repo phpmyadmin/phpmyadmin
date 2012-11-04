@@ -226,6 +226,18 @@ $GLOBALS['dummy_queries'] = array(
         'query' => 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA= \'pma_test\' AND EVENT_OBJECT_TABLE = \'table1\';',
         'result' => array(),
     ),
+    array(
+        'query' => 'SHOW TABLES FROM `pma`;',
+        'result' => array(),
+    ),
+    array(
+        'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='EVENT' AND TABLE_SCHEMA='pma'",
+        'result' => array(),
+    ),
+    array(
+        'query' => "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''pma_test''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER' AND TABLE_SCHEMA='pma'",
+        'result' => array(),
+    ),
 
 );
 /**
