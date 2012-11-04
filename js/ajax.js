@@ -123,13 +123,14 @@ var AJAX = {
         // In some cases we don't want to handle the request here and either
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
+        var href = $(this).attr('href');
         if ($(this).attr('target')) {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
             return true;
-        } else if ($(this).attr('href') && $(this).attr('href').match(/^#/)) {
+        } else if (href && href.match(/^#/)) {
             return true;
-        } else if ($(this).attr('href') && $(this).attr('href').match(/^mailto/)) {
+        } else if (href && href.match(/^mailto/)) {
             return true;
         }
 
@@ -148,8 +149,8 @@ var AJAX = {
         this.$msgbox = PMA_ajaxShowMessage();
         $('html, body').animate({scrollTop: 0}, 'fast');
 
-        var isLink = !! $(this).attr('href') || false;
-        var url = isLink ? $(this).attr('href') : $(this).attr('action');
+        var isLink = !! href || false;
+        var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
         if (! isLink) {
             params += '&' + $(this).serialize();
