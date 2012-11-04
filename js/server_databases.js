@@ -12,7 +12,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_databases.js', function() {
-    $("#dbStatsForm.ajax").die('click');
+    $("#dbStatsForm").die('submit');
     $('#create_database_form.ajax').die('submit');
 });
 
