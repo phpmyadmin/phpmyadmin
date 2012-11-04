@@ -42,7 +42,12 @@ AJAX.registerOnload('server_databases.js', function() {
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
         if (! selected_dbs.length) {
-            PMA_ajaxShowMessage(PMA_messages.strNoDatabasesSelected, 2000);
+            PMA_ajaxShowMessage(
+                $('<div class="notice" />').text(
+                    PMA_messages.strNoDatabasesSelected
+                ),
+                2000
+            );
             return;
         }
         /**
