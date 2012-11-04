@@ -12,7 +12,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_databases.js', function() {
-    $("button[name=drop_selected_dbs].ajax").die('click');
+    $("#dbStatsForm.ajax").die('click');
     $('#create_database_form.ajax').die('submit');
 });
 
@@ -26,13 +26,11 @@ AJAX.registerTeardown('server_databases.js', function() {
 AJAX.registerOnload('server_databases.js', function() {
     /**
      * Attach Event Handler for 'Drop Databases'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("button[name=drop_selected_dbs].ajax").live('click', function(event) {
+    $("#dbStatsForm").live('submit', function(event) {
         event.preventDefault();
 
-        var $form = $(this.form);
+        var $form = $(this);
 
         /**
          * @var selected_dbs Array containing the names of the checked databases
@@ -57,7 +55,7 @@ AJAX.registerOnload('server_databases.js', function() {
         $(this).PMA_confirm(
             question,
             $form.prop('action')
-                + '?' + $(this.form).serialize()
+                + '?' + $(this).serialize()
                 + '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
             function(url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);

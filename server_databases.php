@@ -184,9 +184,11 @@ if ($databases_count > 0) {
     );
 
     $_url_params['pos'] = $pos;
+    $_url_params['drop_selected_dbs'] = 1;
 
-    echo '<form action="server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">' . "\n"
-       . PMA_generate_common_hidden_inputs($_url_params);
+    echo '<form class="ajax" action="server_databases.php" ';
+    echo 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
+    echo PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
     $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
@@ -319,7 +321,7 @@ if ($databases_count > 0) {
            . '<label for="checkall">' . __('Check All') . '</label> '
            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         echo PMA_Util::getButtonOrImage(
-            'drop_selected_dbs',
+            '',
             'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''),
             'drop_selected_dbs',
             __('Drop'), 'b_deltbl.png'
