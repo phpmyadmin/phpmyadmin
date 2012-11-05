@@ -351,7 +351,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
         } else {
             $port_number = 443;
         }
-        $url = 'https://' . $parsed['host'] . ':' . $port_number . '/' . $parsed['path'];
+        $url = 'https://' . $parsed['host'] . ':' . $port_number . $parsed['path'];
     }
     // Actually redirect
     PMA_sendHeaderLocation($url . PMA_generate_common_url($_GET, 'text'));
