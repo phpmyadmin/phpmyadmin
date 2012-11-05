@@ -10,18 +10,18 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Sorts available languages by their true english names
+ * Compares the names of two languages.
+ * Used by uasort in PMA_getLanguageSelectorHtml()
  *
- * @param array &$a the array to be sorted
- * @param mixed &$b a required parameter
+ * @param array $a The first language being compared
+ * @param array $b The second language being compared
  *
  * @return the sorted array
- * @access  private
  */
-function PMA_Language_cmp(&$a, &$b)
+function PMA_languageCmp($a, $b)
 {
-    return (strcmp($a[1], $b[1]));
-} // end of the 'PMA_Language_cmp()' function
+    return strcmp($a[1], $b[1]);
+}
 
 /**
  * Returns HTML code for the language selector
@@ -68,7 +68,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
 
         $retval .= '<select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">';
 
-        uasort($GLOBALS['available_languages'], 'PMA_Language_cmp');
+        uasort($GLOBALS['available_languages'], 'PMA_languageCmp');
         foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
             $lang_name = PMA_langName($tmplang);
 
