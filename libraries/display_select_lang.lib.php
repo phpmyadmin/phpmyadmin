@@ -63,7 +63,7 @@ function PMA_Language_select($use_fieldset = false, $show_doc = true)
             . $language_title . '</legend>';
     } else {
         echo '<bdo lang="en" dir="ltr"><label for="sel-lang">'
-            . $language_title . ':</label></bdo>';
+            . $language_title . ': </label></bdo>';
     }
 
     echo '<select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">';
@@ -78,10 +78,8 @@ function PMA_Language_select($use_fieldset = false, $show_doc = true)
         } else {
             $selected = '';
         }
-
-        echo '        ';
         echo '<option value="' . $id . '"' . $selected . '>' . $lang_name
-            . '</option>' . "\n";
+            . '</option>';
     }
 
     echo '</select>';
