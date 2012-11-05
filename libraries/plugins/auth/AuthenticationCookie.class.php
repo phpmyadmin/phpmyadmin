@@ -19,6 +19,12 @@ require_once 'libraries/plugins/AuthenticationPlugin.class.php';
  */
 if (! empty($_REQUEST['target'])) {
     $GLOBALS['target'] = $_REQUEST['target'];
+} else if (PMA_getenv('SCRIPT_NAME')) {
+    $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+    // avoid "missing parameter: field" on re-entry
+    if ('tbl_alter.php' == $GLOBALS['target']) {
+        $GLOBALS['target'] = 'tbl_structure.php';
+    }
 }
 
 /**
@@ -581,14 +587,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                 __('No activity within %s seconds; please log in again'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
-            // Remember where we got timeout to return on same place
-            if (PMA_getenv('SCRIPT_NAME')) {
-                $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
-                // avoid "missing parameter: field" on re-entry
-                if ('tbl_alter.php' == $GLOBALS['target']) {
-                    $GLOBALS['target'] = 'tbl_structure.php';
-                }
-            }
         } elseif (PMA_DBI_getError()) {
             $conn_error = '#' . $GLOBALS['errno'] . ' '
                 . __('Cannot log in to the MySQL server');
