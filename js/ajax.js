@@ -119,7 +119,7 @@ var AJAX = {
      *
      * @return void
      */
-    requestHandler: function (e) {
+    requestHandler: function (event) {
         // In some cases we don't want to handle the request here and either
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
@@ -134,8 +134,8 @@ var AJAX = {
             return true;
         }
 
-        e.preventDefault();
-        e.stopImmediatePropagation();
+        event.preventDefault();
+        event.stopImmediatePropagation();
         if (AJAX.active == true) {
             // Silently bail out, there is already a request in progress.
             // TODO: save a reference to the request and cancel the old request
@@ -170,7 +170,7 @@ var AJAX = {
             var onsubmit = $(this).data('onsubmit');
             // Submit the request if there is no onsubmit handler
             // or if it returns a value that evaluates to true
-            if (typeof onsubmit !== 'function' || onsubmit.apply(this, [e])) {
+            if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 this.$msgbox = PMA_ajaxShowMessage();
                 $.post(url, params, AJAX.responseHandler);
