@@ -142,11 +142,8 @@ var AJAX = {
             // when the user requests something else. Something like this is
             // already implemented in the PMA_fastFilter object in navigation.js
             return false;
-        } else {
-            AJAX.active = true;
         }
 
-        this.$msgbox = PMA_ajaxShowMessage();
         $('html, body').animate({scrollTop: 0}, 'fast');
 
         var isLink = !! href || false;
@@ -161,9 +158,23 @@ var AJAX = {
         this._debug && console.log("Loading: " + url); // no need to translate
 
         if (isLink) {
+            AJAX.active = true;
+            this.$msgbox = PMA_ajaxShowMessage();
             $.get(url, params, AJAX.responseHandler);
         } else {
-            $.post(url, params, AJAX.responseHandler);
+            /**
+             * Manually fire the onsubmit event for the form, if any.
+             * The event was saved in the jQuery data object by an onload
+             * handler defined below. Workaround for bug #3583316
+             */
+            var onsubmit = $(this).data('onsubmit');
+            // Submit the request if there is no onsubmit handler
+            // or if it returns a value that evaluates to true
+            if (typeof onsubmit !== 'function' || onsubmit.apply(this, [e])) {
+                AJAX.active = true;
+                this.$msgbox = PMA_ajaxShowMessage();
+                $.post(url, params, AJAX.responseHandler);
+            }
         }
     },
     /**
@@ -376,6 +387,22 @@ var AJAX = {
         }
     }
 };
+
+/**
+ * Here we register a function that will remove the onsubmit event from all
+ * forms that will be handled by the generic page loader. We then save this
+ * event handler in the "jQuery data", so that we can fire it up later in
+ * AJAX.requestHandler().
+ *
+ * See bug #3583316
+ */
+AJAX.registerOnload('functions.js', function () {
+    // Registering the onload event for functions.js
+    // ensures that it will be fired for all pages
+    $('form').not('.ajax').not('.disableAjax').each(function () {
+        $(this).data('onsubmit', this.onsubmit).attr('onsubmit', '');
+    });
+});
 
 /**
  * An implementation of a client-side page cache.
