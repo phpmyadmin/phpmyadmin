@@ -75,7 +75,8 @@ function PMA_replication_gui_changemaster($submitname)
     echo ' </fieldset>';
     echo ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
     echo '    <input type="hidden" name="sr_take_action" value="true" />';
-    echo '     <input type="submit" name="' . $submitname . '" id="confslave_submit" value="' . __('Go') . '" />';
+    echo '     <input type="hidden" name="' . $submitname . '" value="1" />';
+    echo '     <input type="submit" id="confslave_submit" value="' . __('Go') . '" />';
     echo ' </fieldset>';
     echo '</form>';
 }
@@ -391,7 +392,8 @@ function PMA_replication_gui_master_addslaveuser()
         . '</div>'
         . '</fieldset>';
     echo '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
-        . '    <input type="submit" name="adduser_submit" id="adduser_submit" value="' . __('Go') . '" />'
+        . '    <input type="hidden" name="adduser_submit" value="1" />'
+        . '    <input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
         . '</fieldset>';
     echo '</form>';
     echo '</div>';
