@@ -261,15 +261,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
-        echo '
-    <script type="text/javascript">
-    //<![CDATA[
-    // show login form in top frame.
-    if (top != self || ! $(\'body#loginform\').length) {
-        window.top.location.href=location;
-    }
-    //]]>
-    </script>';
         exit;
     }
 
