@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:49+0200\n"
+"PO-Revision-Date: 2012-11-05 09:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/ro/>\n"
 "Language: ro\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -4185,9 +4185,9 @@ msgid ""
 msgstr ""
 "Dacă doriţi să utilizaţi serviciul de Validare SQL, ar trebui să fiți "
 "conştienţi de faptul că [strong] toate declaraţiile SQL sunt stocate anonim "
-"cu scopuri statistice [/strong]. [br] [em] [a@http://sqlvalidator.mimer."
-"com/] Mimer SQL Validator [/ a], Copyright 2002 Upright Database Technology. "
-"Toate drepturile rezervate.[/em]"
+"cu scopuri statistice [/strong]. [br] [em] "
+"[a@http://sqlvalidator.mimer.com/] Mimer SQL Validator [/a], Copyright 2002 "
+"Upright Database Technology. Toate drepturile rezervate.[/em]"
 
 #: libraries/config/messages.inc.php:224
 #, fuzzy
