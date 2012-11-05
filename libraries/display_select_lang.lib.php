@@ -42,7 +42,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
     // Display language selection only if there
     // is more than one language to choose from
     if (count($GLOBALS['available_languages']) > 1) {
-        $retval .= '<form method="post" action="index.php" target="_parent">';
+        $retval .= '<form method="post" action="index.php" class="disableAjax">';
 
         $_form_params = array(
             'db' => $GLOBALS['db'],
