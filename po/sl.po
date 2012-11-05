@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-11-03 13:52+0200\n"
-"Last-Translator: Domen <dbc334@gmail.com>\n"
+"PO-Revision-Date: 2012-11-05 10:06+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:808
@@ -1439,7 +1439,7 @@ msgstr ""
 
 #: js/messages.php:183
 msgid "Analyzing…"
-msgstr "Analiziranje ..."
+msgstr "Analiziranje…"
 
 #: js/messages.php:184
 msgid "Explain output"
@@ -1541,7 +1541,7 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Gradnja grafikona z uvoženo konfiguracijo je spodletela. Ponastavljanje na "
-"privzeto konfiguracijo ..."
+"privzeto konfiguracijo…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -7751,7 +7751,7 @@ msgstr "Vstavljen ni noben overitveni ključ"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
-msgstr "Potrjevanje ..."
+msgstr "Potrjevanje…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
 #: libraries/plugins/import/ImportCsv.class.php:82
