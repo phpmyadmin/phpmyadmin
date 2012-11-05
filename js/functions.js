@@ -3785,10 +3785,17 @@ AJAX.registerOnload('functions.js', function () {
     $("a._blank").prop("target", "_blank");
     /**
      * Reveal the login form to users with JS enabled
+     * and focus the appropriate input field
      */
     var $loginform = $('#loginform');
-    $loginform.find('.js-show').show();
-    $loginform.find('#input_username').select();
+    if ($loginform.length) {
+        $loginform.find('.js-show').show();
+        if ($('#input_username').val()) {
+            $('#input_password').focus();
+        } else {
+            $('#input_username').focus();
+        }
+    }
 });
 
 /**
