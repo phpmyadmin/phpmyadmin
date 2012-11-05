@@ -101,4 +101,17 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Table menu display test
+     *
+     * @return void
+     */
+    function testTableDisplay()
+    {
+        $menu = new PMA_Menu('server', 'pma_test', '');
+        $this->expectOutputString(
+            $menu->getDisplay()
+        );
+        $menu->display();
+    }
 }
