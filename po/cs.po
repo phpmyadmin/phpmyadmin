@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-10-31 14:42+0200\n"
+"PO-Revision-Date: 2012-11-05 09:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -4541,16 +4541,14 @@ msgid "Databases display options"
 msgstr "Nastavení zobrazení databází"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigační rám"
+msgstr "Navigační panel"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Přizpůsobí vzhled navigačního rámu"
+msgstr "Přizpůsobí vzhled navigačního panelu"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4566,10 +4564,9 @@ msgid "Tables display options"
 msgstr "Nastavení zobrazení tabulek"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Hlavní rám"
+msgstr "Hlavní panel"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4682,16 +4679,14 @@ msgid "Customize import defaults"
 msgstr "Přizpůsobení výchozího nastavení importu"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Přizpůsobení navigačního rámu"
+msgstr "Přizpůsobení navigačního panelu"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Přizpůsobení hlavního rámu"
+msgstr "Přizpůsobení hlavního panelu"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -5034,20 +5029,18 @@ msgid "Memory limit"
 msgstr "Omezení paměti"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Zobrazí logo v levém rámu"
+msgstr "Zobrazit logo v navigačním panelu"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Zobrazit logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL na které bude odkazovat logo v navigačním rámu"
+msgstr "URL na které bude odkazovat logo v navigačním panelu"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5066,10 +5059,9 @@ msgid "Logo link target"
 msgstr "Cíl odkazu loga"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Zobrazí volbu serveru v horní části levého rámu"
+msgstr "Zobrazí volbu serveru v horní části navigačního panelu"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
