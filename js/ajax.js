@@ -465,7 +465,7 @@ AJAX.cache = {
             selflink: $('#selflink').html(),
             menu: menu
         });
-        setURLHash(this.current, hash);
+        PMA_setUrlHash(this.current, hash);
         this.current++;
     },
     /**
@@ -606,12 +606,6 @@ AJAX.cache = {
     }
 };
 
-/**
- * @var bool A flag is used to distinguish whether we have
- *           deliberately changed the hash or if the user
- *           clicked the back/forward button in the browser
- */
-var settingHash = false;
 $(function () {
     // Add the menu from the initial page into the cache
     // The cache primer is set by the footer class
@@ -634,19 +628,6 @@ $(function () {
                 AJAX.cache.primer.scripts,
                 AJAX.cache.primer.menuHash
             );
-        }
-    });
-    $(window).hashchange(function () {
-        if (settingHash) {
-            settingHash = false;
-            return;
-        }
-        // Test if the hash part of the url seems to be in a valid format
-        if (/^#PMAURL-\d+:/.test(window.location.hash)) {
-            var index = window.location.hash.substring(
-                8, window.location.hash.indexOf(':')
-            );
-            AJAX.cache.navigate(index);
         }
     });
 });
