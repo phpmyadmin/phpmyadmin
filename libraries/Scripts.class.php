@@ -128,7 +128,6 @@ class PMA_Scripts
             || strpos($filename, 'ajax.js') !== false
             || strpos($filename, 'navigation.js') !== false
             || strpos($filename, 'get_image.js.php') !== false
-            || strpos($filename, 'update-location.js') !== false
         ) {
             return 0;
         } else {
