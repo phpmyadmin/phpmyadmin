@@ -106,11 +106,13 @@ class PMA_Footer
     {
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
             array(
                 'db' => $db,
                 'table' => $table,
-                'server' => $GLOBALS['server']
+                'server' => $GLOBALS['server'],
+                'target' => $target
             ),
             $encoding
         );
