@@ -249,8 +249,13 @@ var AJAX = {
             if (data._scripts) {
                 AJAX.scriptHandler.load(data._scripts, 1);
             }
-            if (data._selflink && data._scripts && data._menuHash) {
-                AJAX.cache.add(data._selflink, data._scripts, data._menuHash);
+            if (data._selflink && data._scripts && data._menuHash && data._params) {
+                AJAX.cache.add(
+                    data._selflink,
+                    data._scripts,
+                    data._menuHash,
+                    data._params
+                );
             }
             if (data._params) {
                 PMA_commonParams.setAll(data._params);
@@ -436,10 +441,11 @@ AJAX.cache = {
      * @param array  scripts A list of scripts that is requured for the page
      * @param string menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
+     * @oaram array  params  A list of parameters used by PMA_commonParams()
      *
      * @return void
      */
-    add: function (hash, scripts, menu) {
+    add: function (hash, scripts, menu, params) {
         if (this.pages.length > AJAX.cache.MAX) {
             // Trim the cache, to the maximum number of allowed entries
             // This way we will have a cached menu for every page
@@ -463,7 +469,8 @@ AJAX.cache = {
             content: $('#page_content').html(),
             scripts: scripts,
             selflink: $('#selflink').html(),
-            menu: menu
+            menu: menu,
+            params: params
         });
         AJAX.setUrlHash(this.current, hash);
         this.current++;
@@ -490,6 +497,7 @@ AJAX.cache = {
             $('#page_content').html(record.content);
             $('#selflink').html(record.selflink);
             this.menus.replace(this.menus.get(record.menu));
+            PMA_commonParams.setAll(record.params);
             AJAX.scriptHandler.load(record.scripts);
             this.current = ++index;
         }
