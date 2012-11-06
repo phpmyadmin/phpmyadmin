@@ -7,16 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-03 07:36-0400\n"
-"PO-Revision-Date: 2012-10-28 10:31+0200\n"
-"Last-Translator: Praveen_Illa <mail2ipn@gmail.com>\n"
-"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
-">\n"
+"PO-Revision-Date: 2012-11-06 12:16+0200\n"
+"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
+"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:808
@@ -330,7 +329,7 @@ msgstr "పట్టిక"
 #: libraries/structure.lib.php:1745 libraries/structure.lib.php:1924
 #: libraries/structure.lib.php:2065 sql.php:1080 tbl_printview.php:365
 msgid "Rows"
-msgstr ""
+msgstr "వరుసలు"
 
 #: db_printview.php:104 libraries/structure.lib.php:794 tbl_indexes.php:244
 msgid "Size"
@@ -393,7 +392,7 @@ msgstr "యాక్సెస్  నిరోధించడమైనది"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr ""
+msgstr "డేటాబేసులో పట్టికలు ఏమీ లేవు"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
