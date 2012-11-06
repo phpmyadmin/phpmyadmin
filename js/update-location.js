@@ -4,9 +4,7 @@
 
 
 /**
- * Scripts to update location to allow bookmarking of frameset
- * and restoring the bookmark once the page is loaded.
- *
+ * Scripts to update location to allow bookmarking and microhistory.
  */
 
 var hash_to_set = "";
@@ -34,24 +32,24 @@ function setURLHash(index, hash)
     }
 }
 
-/**
- * Handler for changing url according to the hash part, which is updated
- * on each page to allow bookmarks.
- */
-$(function(){
-    /* Check if hash contains parameters */
-    if (window.location.hash.substring(0, 8) == '#PMAURL-') {
-        // FIXME: don't reload if the page is the same
-        window.location = window.location.hash.substring(
-            window.location.hash.indexOf(':') + 1
-        );
-        return;
-    }
-    /* Check if we should set URL */
-    if (hash_to_set != "") {
-        window.location.hash = hash_to_set;
-        hash_to_set = "";
-    }
-    /* Indicate that we're done (and we are not going to change location */
-    hash_init_done = 1;
-});
+/* Check if hash contains parameters */
+if (window.location.hash.substring(0, 8) == '#PMAURL-') {
+    // FIXME: don't reload if the page is the same
+    window.location = window.location.hash.substring(
+        window.location.hash.indexOf(':') + 1
+    );
+} else {
+    /**
+     * Handler for changing url according to the hash part, which is updated
+     * on each page to allow bookmarks.
+     */
+    $(function(){
+        /* Check if we should set URL */
+        if (hash_to_set != "") {
+            window.location.hash = hash_to_set;
+            hash_to_set = "";
+        }
+        /* Indicate that we're done (and we are not going to change location */
+        hash_init_done = 1;
+    });
+}
