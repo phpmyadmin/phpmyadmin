@@ -882,10 +882,10 @@ PMA_fastFilter.filter.prototype.update = function (searchClause)
  */
 PMA_fastFilter.filter.prototype.request = function ()
 {
-    var that = this;
-    clearTimeout(this.timeout);
-    if (that.$this.find('li.fast_filter').find('img.throbber').length == 0) {
-        that.$this.find('li.fast_filter').append(
+    var self = this;
+    clearTimeout(self.timeout);
+    if (self.$this.find('li.fast_filter').find('img.throbber').length == 0) {
+        self.$this.find('li.fast_filter').append(
             $('<div class="throbber"></div>').append(
                 $('#pma_navigation_content')
                     .find('img.throbber')
@@ -894,36 +894,36 @@ PMA_fastFilter.filter.prototype.request = function ()
             )
         );
     }
-    this.timeout = setTimeout(function () {
-        if (that.xhr) {
-            that.xhr.abort();
+    self.timeout = setTimeout(function () {
+        if (self.xhr) {
+            self.xhr.abort();
         }
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        var results = that.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
-        var params = that.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
-        if (that.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length == 0) {
+        var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
+        var params = self.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
+        if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length == 0) {
             var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
             if ($input.length && $input.val() != $input[0].defaultValue) {
                 params += '&searchClause=' + encodeURIComponent($input.val());
             }
         }
-        that.xhr = $.ajax({
+        self.xhr = $.ajax({
             url: url,
             type: 'post',
             dataType: 'json',
             data: params,
             complete: function (jqXHR) {
                 var data = $.parseJSON(jqXHR.responseText);
-                that.$this.find('li.fast_filter').find('div.throbber').remove();
+                self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
                     var $listItem = $('<li />', {'class':'moreResults'})
-                        .appendTo(that.$this.find('li.fast_filter'));
+                        .appendTo(self.$this.find('li.fast_filter'));
                     var $link = $('<a />', {href:'#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {
                             event.preventDefault();
-                            that.swap.apply(that, [data.message]);
+                            self.swap.apply(self, [data.message]);
                         });
                 }
             }
