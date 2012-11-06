@@ -414,7 +414,7 @@ AJAX.registerOnload('db_structure.js', function() {
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if (data.success == true) {
@@ -423,6 +423,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
                     PMA_reloadNavigation();
+                    PMA_ajaxRemoveMessage($msg);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
