@@ -611,6 +611,7 @@ AJAX.cache = {
  * Allows direct bookmarking and microhistory.
  */
 AJAX.setUrlHash = (function (jQuery, window) {
+    "use strict";
     /**
      * Indictaes whether we have already completed
      * the initialisation of the hash
