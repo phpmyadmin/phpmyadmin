@@ -23,12 +23,12 @@ var AJAX = {
      */
     $msgbox: null,
     /**
-     * Given the filename of a script, returns a string to be
+     * Given the filename of a script, returns a hash to be
      * used to refer to all the events registered for the file
      *
      * @param string key The filename for which to get the event name
      *
-     * @return string
+     * @return int
      */
     hash: function (key){
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
