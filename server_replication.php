@@ -22,7 +22,6 @@ $scripts->addFile('replication.js');
 require 'libraries/server_common.inc.php';
 require 'libraries/replication.inc.php';
 require 'libraries/replication_gui.lib.php';
-require_once 'libraries/server_synchronize.lib.php';
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -48,7 +47,6 @@ $request_params = array(
     'repl_clear_scr',
     'repl_data',
     'sl_configure',
-    'sl_sync',
     'slave_changemaster',
     'sr_skip_errors_count',
     'sr_slave_action',
@@ -135,71 +133,6 @@ if (isset($GLOBALS['sr_take_action'])) {
         PMA_DBI_try_query("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
         PMA_replication_slave_control("START");
 
-    } elseif (isset($GLOBALS['sl_sync'])) {
-        // TODO username, host and port could be read from 'show slave status',
-        // when asked for a password this might work in more situations then just
-        // after changing master (where the master password is stored in session)
-        $src_link = PMA_replication_connect_to_master(
-            $_SESSION['replication']['m_username'],
-            $_SESSION['replication']['m_password'],
-            $_SESSION['replication']['m_hostname'],
-            $_SESSION['replication']['m_port']
-        );
-        $trg_link = null; // using null to indicate the current PMA server
-
-        // let's find out, which databases are replicated
-        $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $src_link);
-
-        $do_db     = array();
-        $ignore_db = array();
-        $dblist    = array();
-
-        if (! empty($data[0]['Binlog_Do_DB'])) {
-            $do_db     = explode(',', $data[0]['Binlog_Do_DB']);
-        }
-        if (! empty($data[0]['Binlog_Ignore_DB'])) {
-            $ignore_db = explode(',', $data[0]['Binlog_Ignore_DB']);
-        }
-
-        $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $src_link);
-        while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
-            if (PMA_is_system_schema($tmp_row[0])) {
-                continue;
-            }
-            if (count($do_db) == 0) {
-                if (array_search($tmp_row[0], $ignore_db) !== false) {
-                    continue;
-                }
-                $dblist[] = $tmp_row[0];
-
-                PMA_DBI_query(
-                    'CREATE DATABASE IF NOT EXISTS ' . PMA_Util::backquote($tmp_row[0]),
-                    $trg_link
-                );
-            } else {
-                if (array_search($tmp_row[0], $do_db) !== false) {
-                    $dblist[] = $tmp_row[0];
-                    PMA_DBI_query(
-                        'CREATE DATABASE IF NOT EXISTS ' . PMA_Util::backquote($tmp_row[0]),
-                        $trg_link
-                    );
-                }
-            }
-        } // end while
-
-        unset($do_db, $ignore_db, $data);
-
-        if (isset($GLOBALS['repl_data'])) {
-            $include_data = true;
-        } else {
-            $include_data = false;
-        }
-        foreach ($dblist as $db) {
-            PMA_replication_synchronize_db($db, $src_link, $trg_link, $include_data);
-        }
-        // TODO some form of user feedback error/success would be nice
-        //  What happens if $dblist is empty?
-        //  or sync failed?
     }
 
     if ($refresh) {
@@ -363,18 +296,7 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
         echo ' <li><a href="#" id="slave_status_href">' . __('See slave status table') . '</a>';
         echo PMA_replication_print_status_table('slave', true, false);
         echo ' </li>';
-        if (isset($_SESSION['replication']['m_correct']) && $_SESSION['replication']['m_correct'] == true) {
-            echo ' <li><a href="#" id="slave_synchronization_href">' . __('Synchronize databases with master') . '</a></li>';
-            echo ' <div id="slave_synchronization_gui" style="display: none">';
-            echo '  <form method="post" action="server_replication.php">';
-            echo PMA_generate_common_hidden_inputs('', '');
-            echo '   <input type="checkbox" name="repl_struc" value="1" checked="checked" disabled="disabled" /> ' . __('Structure') . '<br />'; // this is just for vizualization, it has no other purpose
-            echo '   <input type="checkbox" name="repl_data"  value="1" checked="checked" /> ' . __('Data') .' <br />';
-            echo '   <input type="hidden" name="sr_take_action" value="1" />';
-            echo '   <input type="submit" name="sl_sync" value="' . __('Go') . '" />';
-            echo '  </form>';
-            echo ' </div>';
-        }
+
         echo ' <li><a href="#" id="slave_control_href">' . __('Control slave:') . '</a>';
         echo ' <div id="slave_control_gui" style="display: none">';
         echo '  <ul>';

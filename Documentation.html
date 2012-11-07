@@ -142,10 +142,6 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     <li>create, edit, export and drop events and triggers</li>
     <li>communicate in <a href="http://www.phpmyadmin.net/home_page/translations.php">62 different languages</a>
         </li>
-    <li>synchronize two databases residing on the same as well as remote servers
-        <a href="#faq9_1">(see <abbr title="Frequently Asked Questions">FAQ</abbr> 9.1)</a>
-    </li>
-
 </ul>
 
 <h4>A word about users:</h4>
@@ -1427,8 +1423,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id="cfg_ExecTimeLimit">$cfg['ExecTimeLimit'] integer [number of seconds]</dt>
     <dd>Set the number of seconds a script is allowed to run. If seconds is set
         to zero, no time limit is imposed.<br />
-        This setting is used while importing/exporting dump files and in the
-        Synchronize feature but has no effect when PHP is running in safe mode.</dd>
+        This setting is used while importing/exporting dump files but has no 
+        effect when PHP is running in safe mode.</dd>
 
     <dt id="cfg_SessionSavePath">$cfg['SessionSavePath'] string</dt>
     <dd>Path for storing session data (<a
@@ -1514,7 +1510,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
 
     <dt id="AllowArbitraryServer">
         <span id="cfg_AllowArbitraryServer">$cfg['AllowArbitraryServer']</span> boolean</dt>
-    <dd>If enabled, allows you to log in to arbitrary servers using cookie auth and permits to specify servers of your choice in the Synchronize dialog.
+    <dd>If enabled, allows you to log in to arbitrary servers using cookie
+    auth.
         <br /><br />
 
         <strong>NOTE:</strong> Please use this carefully, as this may allow users access to
@@ -4467,70 +4464,10 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \
 
 <h3 id="faqsynchronization">Synchronization</h3>
 <h4 id="faq9_1">
-    <a href="#faq9_1">9.1 How can I synchronize two databases/tables in phpMyAdmin?</a></h4>
-
-<p> You can now synchronize databases/tables in phpMyAdmin using the Synchronize feature.
-It allows you to connect to local as well as remote servers. This requires you to enter
-server host name, username, password, port and the name of the database. Therefore you can
-now synchronize your databases placed on the same server or some remote server.
-</p>
-
-<p>
-This feature is helpful for developers who need to replicate their
-database&#8217;s structure as well as data. Moreover, this feature not only
-helps replication but also facilitates the user to keep his/her database
-in sync with another database. Other than the full database, certain
-tables of the databases can also be synchronized.
-</p>
-
-<p>
-You need to fill in the host name of the server, the username and
-password of an user account already there in MySQL. Port is by default
-populated with 3306 (MySQL default port). Then the name of the database
-should be mentioned at the end. All the information other than the port
-needs to be filled explicitly for the source as well as target servers.
-</p>
-
-<p>
-After successfully passing through the authentication phase, the source and
-target database table names will be displayed. It will be a tabular
-representation.
-</p>
-
-<p>
-On the left, are listed the source database table names. Some of the
-names have a <code>+</code> plus sign preceding them. This shows that these tables
-are only present in source database and they need to be added to the
-target database in order to synchronize the target database. The tables
-whose names are not preceded by a <code>+</code> sign are already present in the
-target database.
-</p>
-
-<p>
-On the right, are listed the target database table names. There are few
-table names that have <code>(not present)</code> appended after their names. This
-means that these tables are to be created in target database in order to
-synchronize target database with source database. Some table names
-have a <code>-</code> minus sign preceding them. This shows that these tables are
-only present in target database and they will remain unchanged in the
-target database. The column in the middle shows the difference between
-the source and target corresponding tables.
-</p>
-
-<p>
-The difference is depicted by the red and green buttons with <code>S</code> and <code>D</code>
-letters, indicating that either Structure or Data are not up to date. By
-clicking on them, they will turn grey, what means that they will be synchronized.
-</p>
+    <a href="#faq9_1">9.1 (withdrawn)</a></h4>
 
 <h4 id="faq9_2">
-    <a href="#faq9_2">9.2 Are there problems with data synchronizing large
-        tables?</a></h4>
-
-<p>
-Yes. This aspect of synchronization is currently limited to small tables, and they
-must have a primary key.
-</p>
+    <a href="#faq9_2">9.2 (withdrawn)</a></h4>
 
 <!-- DEVELOPERS -->
 <h2 id="developers">Developers Information</h2>
@@ -4804,7 +4741,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/">htt
 
 <li>Zahra Naeem (Google Summer of Code 2009)
 <ul>
-  <li>Synchronization feature</li>
+  <li>Synchronization feature (withdrawn in release 4.0)</li>
 </ul></li>
 
 <li>Tom&#225;&#353; Srnka (Google Summer of Code 2009)

@@ -479,10 +479,6 @@ class PMA_Menu
             array('prefs_forms.php', 'prefs_manage.php')
         );
 
-        $tabs['synchronize']['icon'] = 's_sync.png';
-        $tabs['synchronize']['link'] = 'server_synchronize.php';
-        $tabs['synchronize']['text'] = __('Synchronize');
-
         if (! empty($binary_logs)) {
             $tabs['binlog']['icon'] = 's_tbl.png';
             $tabs['binlog']['link'] = 'server_binlog.php';
