@@ -3266,7 +3266,12 @@ class PMA_Util
             $vars['server_verbose_or_name'] = $GLOBALS['cfg']['Server']['verbose'];
         }
 
-        $vars['database'] = $GLOBALS['db'];
+        if (is_array($GLOBALS['db'])) {
+            // this happens when clicking on Synchronize
+            $vars['database'] = '';
+        } else {
+            $vars['database'] = $GLOBALS['db'];
+        }
         $vars['table'] = $GLOBALS['table'];
         $vars['phpmyadmin_version'] = 'phpMyAdmin ' . PMA_VERSION;
 
