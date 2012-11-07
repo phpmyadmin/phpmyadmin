@@ -31,9 +31,6 @@ AJAX.registerOnload('server_variables.js', function() {
         }
     );
 
-    // Filter options are invisible for disabled js users
-    $('fieldset#tableFilter').css('display','');
-
     $('#filterText').keyup(function(e) {
         if ($(this).val().length == 0) {
             textFilter=null;

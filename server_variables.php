@@ -142,7 +142,7 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 /**
  * Displays the page
  */
-$output .= '<fieldset id="tableFilter" style="display:none;">'
+$output .= '<fieldset id="tableFilter">'
     . '<legend>' . __('Filters') . '</legend>'
     . '<div class="formelement">'
     . '<label for="filterText">' .  __('Containing the word:') . '</label>'
