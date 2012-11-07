@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-03 07:36-0400\n"
+"POT-Creation-Date: 2012-11-07 13:10-0500\n"
 "PO-Revision-Date: 2012-11-05 10:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovenian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
-"Language: sl\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
@@ -59,8 +59,8 @@ msgstr "Iskanje"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:229
-#: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
+#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
 #: libraries/rte/rte_routines.lib.php:1575
@@ -78,10 +78,9 @@ msgstr "Iskanje"
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
 #: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
-#: server_binlog.php:115 server_replication.php:291 server_replication.php:374
-#: server_replication.php:405 server_synchronize.php:1484 tbl_chart.php:198
-#: tbl_indexes.php:332 tbl_tracking.php:515 tbl_tracking.php:678
-#: view_create.php:221 view_operations.php:98
+#: server_binlog.php:115 server_replication.php:224 server_replication.php:327
+#: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
+#: tbl_tracking.php:678 view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "Izvedi"
 
@@ -319,7 +318,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
-#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:757
+#: tbl_tracking.php:757
 msgid "Table"
 msgstr "Tabela"
 
@@ -384,7 +383,7 @@ msgstr "Preklopi na %svidni graditelj%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -409,9 +408,8 @@ msgstr "Sledene tabele"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2865 server_databases.php:199
-#: server_status.php:1334 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1071 tbl_tracking.php:756
+#: libraries/server_privileges.lib.php:2865 server_databases.php:201
+#: server_status.php:1334 sql.php:1071 tbl_tracking.php:756
 msgid "Database"
 msgstr "Zbirka podatkov"
 
@@ -438,7 +436,7 @@ msgstr "Stanje"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
 #: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:234
+#: libraries/structure.lib.php:1205 server_databases.php:236
 msgid "Action"
 msgstr "Dejanje"
 
@@ -456,7 +454,7 @@ msgstr "Izbriši podatke sledenja te tabele"
 #: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
 #: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
-#: server_databases.php:325
+#: server_databases.php:327
 msgid "Drop"
 msgstr "Zavrzi"
 
@@ -738,7 +736,6 @@ msgstr "Strežnik zbirke podatkov"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:650
 #: libraries/config/messages.inc.php:508 server_status.php:827
-#: server_synchronize.php:1431
 msgid "Server"
 msgstr "Strežnik"
 
@@ -1035,7 +1032,7 @@ msgstr "Statični podatki"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
-#: server_databases.php:269 server_status.php:1225 server_status.php:1294
+#: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "Skupaj"
@@ -1940,7 +1937,7 @@ msgstr "Prikaži podatkovno vrstico(-e)"
 msgid "Generate password"
 msgstr "Ustvari geslo"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:388
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Ustvari"
 
@@ -1961,7 +1958,6 @@ msgid "Hide Panel"
 msgstr "Skrij ploščo"
 
 #: js/messages.php:377
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Izbrane strani nisem našel v zgodovini; morda je potekla."
 
@@ -2322,8 +2318,8 @@ msgstr "Velikost pisave"
 #: libraries/DisplayResults.class.php:2012
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:200
-#: server_databases.php:217 server_status.php:1431
+#: libraries/structure.lib.php:884 server_databases.php:202
+#: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "Naraščajoče"
 
@@ -2331,8 +2327,8 @@ msgstr "Naraščajoče"
 #: libraries/DisplayResults.class.php:2007
 #: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:200
-#: server_databases.php:217 server_status.php:1428
+#: libraries/structure.lib.php:889 server_databases.php:202
+#: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "Padajoče"
 
@@ -2658,7 +2654,7 @@ msgstr "Poizvedba je potrebovala %01.4f s"
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
 #: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
-#: server_databases.php:317 server_databases.php:320
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "Z označenim:"
 
@@ -2668,8 +2664,8 @@ msgstr "Z označenim:"
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
 #: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:318
-#: server_databases.php:319
+#: libraries/structure.lib.php:1367 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "Označi vse"
 
@@ -2688,7 +2684,7 @@ msgstr "Izvozi"
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:332
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2767,18 +2763,18 @@ msgstr "Napaka pri premikanju naložene datoteke."
 msgid "Cannot read (moved) upload file."
 msgstr "Ne morem prebrati (premakniti) naložene datoteke."
 
-#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
-#: libraries/Footer.class.php:138
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
+#: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
 msgstr "Odpri novo okno phpMyAdmin"
 
-#: libraries/Header.class.php:580
-#: libraries/plugins/auth/AuthenticationCookie.class.php:253
+#: libraries/Header.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:259
 msgid "Cookies must be enabled past this point."
 msgstr "Če želite še naprej uporabljati program, morate omogočiti piškotke."
 
-#: libraries/Header.class.php:585
-#: libraries/plugins/auth/AuthenticationCookie.class.php:157
+#: libraries/Header.class.php:584
+#: libraries/plugins/auth/AuthenticationCookie.class.php:163
 msgid "Javascript must be enabled past this point"
 msgstr "Po tej točki mora biti JavaScript omogočen"
 
@@ -2864,7 +2860,7 @@ msgstr "Pogled"
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_properties.inc.php:760 pmd_general.php:177
-#: server_replication.php:371 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Structure"
 msgstr "Struktura"
 
@@ -2941,35 +2937,30 @@ msgstr "Oblikovalnik"
 msgid "Users"
 msgstr "Uporabniki"
 
-#: libraries/Menu.class.php:484 server_synchronize.php:1320
-#: server_synchronize.php:1327
-msgid "Synchronize"
-msgstr "Sinhroniziraj"
-
-#: libraries/Menu.class.php:489 server_binlog.php:74 server_status.php:660
+#: libraries/Menu.class.php:485 server_binlog.php:74 server_status.php:660
 msgid "Binary log"
 msgstr "Dvojiški dnevnik"
 
-#: libraries/Menu.class.php:495 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:33
-#: server_replication.php:215 server_status.php:665
+#: libraries/Menu.class.php:491 libraries/structure.lib.php:185
+#: libraries/structure.lib.php:768 server_replication.php:32
+#: server_replication.php:148 server_status.php:665
 msgid "Replication"
 msgstr "Podvojevanje"
 
-#: libraries/Menu.class.php:500 server_engines.php:94 server_engines.php:98
+#: libraries/Menu.class.php:496 server_engines.php:94 server_engines.php:98
 #: server_status.php:713
 msgid "Variables"
 msgstr "Spremenljivke"
 
-#: libraries/Menu.class.php:504
+#: libraries/Menu.class.php:500
 msgid "Charsets"
 msgstr "Nabori znakov"
 
-#: libraries/Menu.class.php:509 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:505 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr "Vtičniki"
 
-#: libraries/Menu.class.php:513
+#: libraries/Menu.class.php:509
 msgid "Engines"
 msgstr "Pogoni"
 
@@ -3117,7 +3108,7 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3720,7 +3711,7 @@ msgstr "Tabele"
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
-#: server_replication.php:372 tbl_printview.php:299
+#: tbl_printview.php:299
 msgid "Data"
 msgstr "Podatki"
 
@@ -4576,12 +4567,10 @@ msgid "Databases display options"
 msgstr "Možnosti prikaza zbirk podatkov"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#| msgid "Navigation frame"
 msgid "Navigation panel"
 msgstr "Navigacijska plošča"
 
 #: libraries/config/messages.inc.php:180
-#| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
 msgstr "Prilagodite prikaz navigacijske plošče"
 
@@ -4599,7 +4588,6 @@ msgid "Tables display options"
 msgstr "Možnosti prikaza tabel"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#| msgid "Main frame"
 msgid "Main panel"
 msgstr "Glavna plošča"
 
@@ -4716,12 +4704,10 @@ msgid "Customize import defaults"
 msgstr "Prilagodi privzete možnosti uvoza"
 
 #: libraries/config/messages.inc.php:211
-#| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
 msgstr "Prilagodi navigacijsko ploščo"
 
 #: libraries/config/messages.inc.php:212
-#| msgid "Customize main frame"
 msgid "Customize main panel"
 msgstr "Prilagodi glavno ploščo"
 
@@ -5014,7 +5000,6 @@ msgid "Maximum databases"
 msgstr "Največ zbirk podatkov"
 
 #: libraries/config/messages.inc.php:288
-#| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
@@ -5072,7 +5057,6 @@ msgid "Memory limit"
 msgstr "Omejitev spomina"
 
 #: libraries/config/messages.inc.php:299
-#| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
 msgstr "Prikaži logotip na navigacijski plošči"
 
@@ -5081,7 +5065,6 @@ msgid "Display logo"
 msgstr "Prikaži logotip"
 
 #: libraries/config/messages.inc.php:301
-#| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
 msgstr "URL, kamor bo kazal logotip na navigacijski plošči"
 
@@ -5102,7 +5085,6 @@ msgid "Logo link target"
 msgstr "Cilj povezave logotipa"
 
 #: libraries/config/messages.inc.php:305
-#| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
 msgstr "Prikaži izbrani strežnik na vrhu navigacijske plošče"
 
@@ -5115,7 +5097,6 @@ msgid "Target for quick access icon"
 msgstr "Cilj ikone za hitri dostop"
 
 #: libraries/config/messages.inc.php:308
-#| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
@@ -5124,7 +5105,6 @@ msgstr ""
 "za prikaz filtrirnega polja."
 
 #: libraries/config/messages.inc.php:309
-#| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "Najmanjše število predmetov, potrebnih za prikaz filtrirnega polja"
 
@@ -5135,9 +5115,6 @@ msgstr ""
 "zbirk podatkov"
 
 #: libraries/config/messages.inc.php:311
-#| msgid ""
-#| "Only light version; display databases in a tree (determined by the "
-#| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5253,9 +5230,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manjkajoče tabele hrambe konfiguracije phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
@@ -5996,12 +5970,12 @@ msgstr "Potrebuje omogočen Preverjalnik SQL"
 #: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:43
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
-#: libraries/replication_gui.lib.php:360 libraries/replication_gui.lib.php:364
-#: libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
+#: libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1199
 #: libraries/server_privileges.lib.php:1223
-#: libraries/server_privileges.lib.php:2391 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:2391
 msgid "Password"
 msgstr "Geslo"
 
@@ -6292,13 +6266,13 @@ msgstr ""
 "spodletela."
 
 #: libraries/display_change_password.lib.php:37
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Brez gesla"
 
 #: libraries/display_change_password.lib.php:48
-#: libraries/replication_gui.lib.php:378 libraries/replication_gui.lib.php:381
+#: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
@@ -6323,12 +6297,11 @@ msgstr "Ustvari"
 
 #: libraries/display_create_database.lib.php:43
 #: libraries/server_privileges.lib.php:2931 server_privileges.php:152
-#: server_replication.php:35
+#: server_replication.php:34
 msgid "No Privileges"
 msgstr "Brez privilegijev"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:90
-#: server_synchronize.php:528 server_synchronize.php:1048
 msgid "Create table"
 msgstr "Ustvari tabelo"
 
@@ -7375,18 +7348,15 @@ msgstr[2] "najdeni %s drugi rezultati"
 msgstr[3] "najdenih %s drugih rezultatov"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "filtriraj zbirke podatkov po imenu"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "Počisti hitri filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#| msgid "Filter tables by name"
 msgid "filter items by name"
 msgstr "filtriraj predmete po imenu"
 
@@ -7407,13 +7377,11 @@ msgid "Columns"
 msgstr "Stolpci"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nov"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Nov"
@@ -7425,13 +7393,11 @@ msgid "Functions"
 msgstr "Funkcije"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nov"
@@ -7444,19 +7410,16 @@ msgstr "Procedure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nova"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Nov"
@@ -7467,7 +7430,6 @@ msgid "Views"
 msgstr "Pogledi"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Nov"
@@ -7649,7 +7611,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Ne morem se povezati: neveljavne nastavitve."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:145
+#: libraries/plugins/auth/AuthenticationCookie.class.php:151
 #: libraries/plugins/auth/AuthenticationHttp.class.php:71
 #, php-format
 msgid "Welcome to %s"
@@ -7675,54 +7637,54 @@ msgstr ""
 "povezavo. Preverite, ali gostitelj, uporabniško ime in geslo v datoteki "
 "config.inc.php ustrezajo podatkom administratorja strežnika MySQL."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:42
+#: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Uporaba Blowfish iz mcrypt je spodletela!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:86
+#: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
 msgstr "Vaša seja je potekla. Prosimo, prijavite se znova."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
 msgstr "Prijava"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:183
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Vnesete lahko ime gostitelja/IP-naslov in vrata ločena s presledkom."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:186
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
 msgstr "Strežnik:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
+#: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:210
 msgid "Password:"
 msgstr "Geslo:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:216
 msgid "Server Choice"
 msgstr "Izbira strežnika"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Prijava brez gesla je prepovedana s konfiguracijo (glej AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "Brez aktivnosti v zadnjih %s sekundah; prosimo, prijavite se znova"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:594
-#: libraries/plugins/auth/AuthenticationCookie.class.php:596
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:585
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Ne morem se prijaviti v strežnik MySQL"
@@ -7888,9 +7850,9 @@ msgstr "Prikaži vrste MIME"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:190
-#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:194
-#: libraries/replication_gui.lib.php:292 libraries/replication_gui.lib.php:295
-#: libraries/replication_gui.lib.php:352
+#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
+#: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
+#: libraries/replication_gui.lib.php:353
 #: libraries/server_privileges.lib.php:1085
 #: libraries/server_privileges.lib.php:1090
 #: libraries/server_privileges.lib.php:1186
@@ -8451,7 +8413,7 @@ msgstr "Počisti vse"
 msgid "Slave configuration"
 msgstr "Konfiguracija podrejencev"
 
-#: libraries/replication_gui.lib.php:56 server_replication.php:411
+#: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
 msgstr "Spremeni ali ponovno konfiguriraj glavni strežnik"
 
@@ -8465,36 +8427,36 @@ msgstr ""
 "[mysqld]:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
-#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:282
+#: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
+#: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:1070 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1070
 msgid "User name"
 msgstr "Uporabniško ime"
 
-#: libraries/replication_gui.lib.php:72 server_synchronize.php:1435
+#: libraries/replication_gui.lib.php:72
 msgid "Port"
 msgstr "Vrata"
 
-#: libraries/replication_gui.lib.php:111
+#: libraries/replication_gui.lib.php:112
 msgid "Master status"
 msgstr "Stanje glavnega strežnika"
 
-#: libraries/replication_gui.lib.php:113
+#: libraries/replication_gui.lib.php:114
 msgid "Slave status"
 msgstr "Stanje podrejenca"
 
-#: libraries/replication_gui.lib.php:122 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
 #: server_status.php:1708 server_variables.php:156
 msgid "Variable"
 msgstr "Spremenljivka"
 
-#: libraries/replication_gui.lib.php:193 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:187
 msgid "Server ID"
 msgstr "ID strežnika"
 
-#: libraries/replication_gui.lib.php:212
+#: libraries/replication_gui.lib.php:213
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -8502,17 +8464,17 @@ msgstr ""
 "Samo podrejenci, ki so bili zagnani z možnostjo --report-host=host_name, so "
 "vidni na tem seznamu."
 
-#: libraries/replication_gui.lib.php:263 server_replication.php:250
+#: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
 msgstr "Dodaj uporabnika podvojevanja podrejencev"
 
-#: libraries/replication_gui.lib.php:277
+#: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
 msgid "Any user"
 msgstr "Kateri koli uporabnik"
 
-#: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:346
-#: libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1063
 #: libraries/server_privileges.lib.php:1179
 #: libraries/server_privileges.lib.php:1218
@@ -8521,27 +8483,27 @@ msgstr "Kateri koli uporabnik"
 msgid "Use text field"
 msgstr "Uporabi besedilno polje"
 
-#: libraries/replication_gui.lib.php:325
+#: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1143
 msgid "Any host"
 msgstr "Kateri koli gostitelj"
 
-#: libraries/replication_gui.lib.php:329
+#: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
 msgstr "Lokalno"
 
-#: libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
 msgid "This Host"
 msgstr "Ta strežnik"
 
-#: libraries/replication_gui.lib.php:341
+#: libraries/replication_gui.lib.php:342
 #: libraries/server_privileges.lib.php:1170
 msgid "Use Host Table"
 msgstr "Uporabi tabelo gostiteljev"
 
-#: libraries/replication_gui.lib.php:355
+#: libraries/replication_gui.lib.php:356
 #: libraries/server_privileges.lib.php:1189
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -8550,7 +8512,7 @@ msgstr ""
 "Ko je uporabljena tabela Host, je to polje prezrto in so namesto njega "
 "uporabljene vrednosti shranjene v tabeli Host."
 
-#: libraries/replication_gui.lib.php:385
+#: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
 msgstr "Ustvari geslo"
 
@@ -9410,7 +9372,6 @@ msgid "User has been added."
 msgstr "Uporabnik je dodan."
 
 #: libraries/server_privileges.lib.php:1625
-#| msgid "New"
 msgctxt "Create new user"
 msgid "New"
 msgstr "Nov"
@@ -9553,33 +9514,6 @@ msgstr "Izbranega uporabnika v tabelah privilegijev nisem našel."
 #: libraries/server_privileges.lib.php:3238
 msgid "You have added a new user."
 msgstr "Dodali ste novega uporabnika."
-
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
-msgid "Source database"
-msgstr "Izvorna zbirka podatkov"
-
-#: libraries/server_synchronize.lib.php:1608
-#: libraries/server_synchronize.lib.php:1618
-msgid "Current server"
-msgstr "Trenutni strežnik"
-
-#: libraries/server_synchronize.lib.php:1610
-#: libraries/server_synchronize.lib.php:1620
-msgid "Remote server"
-msgstr "Oddaljeni strežnik"
-
-#: libraries/server_synchronize.lib.php:1614
-msgid "Difference"
-msgstr "Razlika"
-
-#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
-msgid "Target database"
-msgstr "Ciljna zbirka podatkov"
-
-#: libraries/server_synchronize.lib.php:1655
-#: libraries/server_synchronize.lib.php:1664
-msgid "Click to select"
-msgstr "Kliknite za označitev"
 
 #: libraries/sql_query_form.lib.php:195
 #, php-format
@@ -9974,8 +9908,7 @@ msgstr "prvi"
 msgid "after %s"
 msgstr "po %s"
 
-#: libraries/tbl_properties.inc.php:726 server_synchronize.php:527
-#: server_synchronize.php:1047
+#: libraries/tbl_properties.inc.php:726
 msgid "Table name"
 msgstr "Ime tabele"
 
@@ -10324,20 +10257,20 @@ msgstr[3] "Uspešno sem zavrgel %1$d zbirk podatkov."
 msgid "Databases statistics"
 msgstr "Statistika zbirk podatkov"
 
-#: server_databases.php:224 server_replication.php:234
-#: server_replication.php:265
+#: server_databases.php:226 server_replication.php:167
+#: server_replication.php:198
 msgid "Master replication"
 msgstr "Podvojevanje glavnega strežnika"
 
-#: server_databases.php:226 server_replication.php:303
+#: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
 msgstr "Podvojevanje podrejencev"
 
-#: server_databases.php:332 server_databases.php:333
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "Omogoči statistiko"
 
-#: server_databases.php:336
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10345,7 +10278,7 @@ msgstr ""
 "Obvestilo: Omogočitev statistike zbirke podatkov lahko povzroči močno "
 "povečan promet med spletnim in podatkovnim strežnikom."
 
-#: server_databases.php:343 server_synchronize.php:1468
+#: server_databases.php:345
 msgid "No databases"
 msgstr "Brez zbirk podatkov"
 
@@ -10407,44 +10340,44 @@ msgstr "Brišem %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Uspešno sem osvežil privilegije."
 
-#: server_replication.php:81
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr "Neznana napaka"
 
-#: server_replication.php:91
+#: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Ne morem se povezati z glavnim strežnikom %s."
 
-#: server_replication.php:100
+#: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Ne morem prebrati položaja dnevnika glavnega strežnika. Možne težave s "
 "privilegiji na glavnem strežniku."
 
-#: server_replication.php:106
+#: server_replication.php:104
 msgid "Unable to change master"
 msgstr "Ne morem spremeniti glavnega strežnika"
 
-#: server_replication.php:110
+#: server_replication.php:108
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "Glavni strežnik je uspešno spremenjen v %s"
 
-#: server_replication.php:235
+#: server_replication.php:168
 msgid "This server is configured as master in a replication process."
 msgstr "Strežnik je konfiguriran kot glavni strežnik v postopku podvojevanja."
 
-#: server_replication.php:237 server_status.php:690
+#: server_replication.php:170 server_status.php:690
 msgid "Show master status"
 msgstr "Pokaži stanje glavnega strežnika"
 
-#: server_replication.php:241
+#: server_replication.php:174
 msgid "Show connected slaves"
 msgstr "Pokaži povezane podrejence"
 
-#: server_replication.php:266
+#: server_replication.php:199
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -10453,11 +10386,11 @@ msgstr ""
 "Strežnik ni konfiguriran kot glavni strežnik v postopku podvojevanja. Ga "
 "želite <a href=\"%s\">konfigurirati</a>?"
 
-#: server_replication.php:273
+#: server_replication.php:206
 msgid "Master configuration"
 msgstr "Konfiguracija glavnega strežnika"
 
-#: server_replication.php:274
+#: server_replication.php:207
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -10471,19 +10404,19 @@ msgstr ""
 "prezrtjem vseh zbirk podatkov po privzetem in podvojitvijo samo določenih "
 "zbirk podatkov. Prosimo, izberite način:"
 
-#: server_replication.php:277
+#: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
 msgstr "Podvoji vse zbirke podatkov; prezri:"
 
-#: server_replication.php:278
+#: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
 msgstr "Prezri vse zbirke podatkov; podvoji:"
 
-#: server_replication.php:281
+#: server_replication.php:214
 msgid "Please select databases:"
 msgstr "Prosimo, izberite zbirke podatkov:"
 
-#: server_replication.php:284
+#: server_replication.php:217
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -10491,7 +10424,7 @@ msgstr ""
 "Sedaj dodajte naslednje vrstice na konec razdelka [mysqld] v vašem my.cnf in "
 "nato, prosimo, ponovno zaženite strežnik MySQL."
 
-#: server_replication.php:286
+#: server_replication.php:219
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -10501,83 +10434,79 @@ msgstr ""
 "Nato bi morali videti sporočilo, ki vam sporoča, da <b>je</b> strežnik "
 "konfiguriran kot glavni strežnik"
 
-#: server_replication.php:348
+#: server_replication.php:281
 msgid "Slave SQL Thread not running!"
 msgstr "Podrejenčeva nit SQL ni zagnana!"
 
-#: server_replication.php:351
+#: server_replication.php:284
 msgid "Slave IO Thread not running!"
 msgstr "Podrejenčeva nit IO ni zagnana!"
 
-#: server_replication.php:360
+#: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 "Strežnik je konfiguriran kot podrejenec v postopku podvojevanja. Ali želite:"
 
-#: server_replication.php:363
+#: server_replication.php:296
 msgid "See slave status table"
 msgstr "Oglej si tabelo stanj podrejencev"
 
-#: server_replication.php:367
-msgid "Synchronize databases with master"
-msgstr "Sinhroniziraj zbirke podatkov z glavnim strežnikom"
-
-#: server_replication.php:378
+#: server_replication.php:300
 msgid "Control slave:"
 msgstr "Upravljaj podrejenca:"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full start"
 msgstr "Polni začetek"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full stop"
 msgstr "Polni konec"
 
-#: server_replication.php:382
+#: server_replication.php:304
 msgid "Reset slave"
 msgstr "Ponovno zaženi podrejenca"
 
-#: server_replication.php:384
+#: server_replication.php:306
 msgid "Start SQL Thread only"
 msgstr "Zaženi samo nit SQL"
 
-#: server_replication.php:386
+#: server_replication.php:308
 msgid "Stop SQL Thread only"
 msgstr "Ustavi samo nit SQL"
 
-#: server_replication.php:389
+#: server_replication.php:311
 msgid "Start IO Thread only"
 msgstr "Zaženi samo nit IO"
 
-#: server_replication.php:391
+#: server_replication.php:313
 msgid "Stop IO Thread only"
 msgstr "Ustavi samo nit IO"
 
-#: server_replication.php:396
+#: server_replication.php:318
 msgid "Error management:"
 msgstr "Upravljanje napak:"
 
-#: server_replication.php:398
+#: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Preskakovanje napak lahko vodi v nesinhroniziran glavni strežnik in "
 "podrejenec!"
 
-#: server_replication.php:400
+#: server_replication.php:322
 msgid "Skip current error"
 msgstr "Preskoči trenutno napako"
 
-#: server_replication.php:401
+#: server_replication.php:323
 msgid "Skip next"
 msgstr "Preskoči naslednjo"
 
-#: server_replication.php:404
+#: server_replication.php:326
 msgid "errors."
 msgstr "napak."
 
-#: server_replication.php:420
+#: server_replication.php:342
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11733,118 +11662,6 @@ msgstr[1] "%d minuti"
 msgstr[2] "%d minute"
 msgstr[3] "%d minut"
 
-#: server_synchronize.php:99
-msgid "Could not connect to the source"
-msgstr "Ne morem se povezati z virom"
-
-#: server_synchronize.php:102
-msgid "Could not connect to the target"
-msgstr "Ne morem se povezati s ciljem"
-
-#: server_synchronize.php:146 server_synchronize.php:152 tbl_create.php:56
-#: tbl_get_field.php:23
-#, php-format
-msgid "'%s' database does not exist."
-msgstr "Zbirka podatkov '%s' ne obstaja."
-
-#: server_synchronize.php:360
-msgid "Structure Synchronization"
-msgstr "Sinhronizacija strukture"
-
-#: server_synchronize.php:364
-msgid "Data Synchronization"
-msgstr "Sinhronizacija podatkov"
-
-#: server_synchronize.php:487 server_synchronize.php:986
-msgid "not present"
-msgstr "ni prisotno"
-
-#: server_synchronize.php:523 server_synchronize.php:1043
-msgid "Structure Difference"
-msgstr "Razlika zgradbe"
-
-#: server_synchronize.php:524 server_synchronize.php:1044
-msgid "Data Difference"
-msgstr "Razlika podatkov"
-
-#: server_synchronize.php:529 server_synchronize.php:1049
-msgid "Add column(s)"
-msgstr "Dodaj stolpec(-ce)"
-
-#: server_synchronize.php:530 server_synchronize.php:1050
-msgid "Remove column(s)"
-msgstr "Odstrani stolpec(-ce)"
-
-#: server_synchronize.php:531 server_synchronize.php:1051
-msgid "Alter column(s)"
-msgstr "Spremeni stolpec(-ce)"
-
-#: server_synchronize.php:532 server_synchronize.php:1052
-msgid "Remove index(s)"
-msgstr "Odstrani indeks(e)"
-
-#: server_synchronize.php:533 server_synchronize.php:1053
-msgid "Apply index(s)"
-msgstr "Uveljavi indeks(e)"
-
-#: server_synchronize.php:534 server_synchronize.php:1054
-msgid "Update row(s)"
-msgstr "Posodobi vrstico(-e)"
-
-#: server_synchronize.php:535 server_synchronize.php:1055
-msgid "Insert row(s)"
-msgstr "Vstavi vrstico(-e)"
-
-#: server_synchronize.php:547 server_synchronize.php:1068
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "Ali želite izbrisati vse prejšnje vrstice iz ciljnih tabel?"
-
-#: server_synchronize.php:552 server_synchronize.php:1073
-msgid "Apply Selected Changes"
-msgstr "Uporabi izbrane spremembe"
-
-#: server_synchronize.php:556 server_synchronize.php:1076
-msgid "Synchronize Databases"
-msgstr "Sinhroniziraj zbirke podatkov"
-
-#: server_synchronize.php:570
-msgid "Selected target tables have been synchronized with source tables."
-msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
-
-#: server_synchronize.php:1123
-msgid "Target database has been synchronized with source database"
-msgstr ""
-"Ciljna zbirka podatkov je bila sinhronizirana z izvorno zbirko podatkov"
-
-#: server_synchronize.php:1191
-msgid "Executed queries"
-msgstr "Izvedene poizvedbe"
-
-#: server_synchronize.php:1375
-msgid "Enter manually"
-msgstr "Vnesite ročno"
-
-#: server_synchronize.php:1383
-msgid "Current connection"
-msgstr "Trenutna povezava"
-
-#: server_synchronize.php:1424
-#, php-format
-msgid "Configuration: %s"
-msgstr "Konfiguracija: %s"
-
-#: server_synchronize.php:1439
-msgid "Socket"
-msgstr "Vtičnica"
-
-#: server_synchronize.php:1488
-msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
-msgstr ""
-"Ciljna zbirka podatkov bo popolnoma sinhronizirana z izvorno zbirko "
-"podatkov. Izvorna zbirka podatkov bo ostala nespremenjena."
-
 #: server_variables.php:104
 msgid "Setting variable failed"
 msgstr "Nastavljanje spremenljivke je spodletelo"
@@ -12197,7 +12014,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
 #: sql.php:381
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Zaznamek ni ustvarjen"
 
@@ -12236,7 +12052,6 @@ msgid "The columns have been moved successfully."
 msgstr "Stolpce sem uspešno premaknil."
 
 #: tbl_chart.php:41
-#| msgid "No data found"
 msgid "No data to display"
 msgstr "Ni podatkov za prikaz"
 
@@ -12301,6 +12116,11 @@ msgstr "Vrednosti y"
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabela %s že obstaja!"
+
+#: tbl_create.php:56 tbl_get_field.php:23
+#, php-format
+msgid "'%s' database does not exist."
+msgstr "Zbirka podatkov '%s' ne obstaja."
 
 #: tbl_create.php:246
 #, php-format
@@ -13863,6 +13683,110 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Synchronize"
+#~ msgstr "Sinhroniziraj"
+
+#~ msgid "Source database"
+#~ msgstr "Izvorna zbirka podatkov"
+
+#~ msgid "Current server"
+#~ msgstr "Trenutni strežnik"
+
+#~ msgid "Remote server"
+#~ msgstr "Oddaljeni strežnik"
+
+#~ msgid "Difference"
+#~ msgstr "Razlika"
+
+#~ msgid "Target database"
+#~ msgstr "Ciljna zbirka podatkov"
+
+#~ msgid "Click to select"
+#~ msgstr "Kliknite za označitev"
+
+#~ msgid "Synchronize databases with master"
+#~ msgstr "Sinhroniziraj zbirke podatkov z glavnim strežnikom"
+
+#~ msgid "Could not connect to the source"
+#~ msgstr "Ne morem se povezati z virom"
+
+#~ msgid "Could not connect to the target"
+#~ msgstr "Ne morem se povezati s ciljem"
+
+#~ msgid "Structure Synchronization"
+#~ msgstr "Sinhronizacija strukture"
+
+#~ msgid "Data Synchronization"
+#~ msgstr "Sinhronizacija podatkov"
+
+#~ msgid "not present"
+#~ msgstr "ni prisotno"
+
+#~ msgid "Structure Difference"
+#~ msgstr "Razlika zgradbe"
+
+#~ msgid "Data Difference"
+#~ msgstr "Razlika podatkov"
+
+#~ msgid "Add column(s)"
+#~ msgstr "Dodaj stolpec(-ce)"
+
+#~ msgid "Remove column(s)"
+#~ msgstr "Odstrani stolpec(-ce)"
+
+#~ msgid "Alter column(s)"
+#~ msgstr "Spremeni stolpec(-ce)"
+
+#~ msgid "Remove index(s)"
+#~ msgstr "Odstrani indeks(e)"
+
+#~ msgid "Apply index(s)"
+#~ msgstr "Uveljavi indeks(e)"
+
+#~ msgid "Update row(s)"
+#~ msgstr "Posodobi vrstico(-e)"
+
+#~ msgid "Insert row(s)"
+#~ msgstr "Vstavi vrstico(-e)"
+
+#~ msgid "Would you like to delete all the previous rows from target tables?"
+#~ msgstr "Ali želite izbrisati vse prejšnje vrstice iz ciljnih tabel?"
+
+#~ msgid "Apply Selected Changes"
+#~ msgstr "Uporabi izbrane spremembe"
+
+#~ msgid "Synchronize Databases"
+#~ msgstr "Sinhroniziraj zbirke podatkov"
+
+#~ msgid "Selected target tables have been synchronized with source tables."
+#~ msgstr "Izbrane ciljne tabele so bile sinhronizirane z izvornimi tabelami."
+
+#~ msgid "Target database has been synchronized with source database"
+#~ msgstr ""
+#~ "Ciljna zbirka podatkov je bila sinhronizirana z izvorno zbirko podatkov"
+
+#~ msgid "Executed queries"
+#~ msgstr "Izvedene poizvedbe"
+
+#~ msgid "Enter manually"
+#~ msgstr "Vnesite ročno"
+
+#~ msgid "Current connection"
+#~ msgstr "Trenutna povezava"
+
+#~ msgid "Configuration: %s"
+#~ msgstr "Konfiguracija: %s"
+
+#~ msgid "Socket"
+#~ msgstr "Vtičnica"
+
+#~ msgid ""
+#~ "Target database will be completely synchronized with source database. "
+#~ "Source database will remain unchanged."
+#~ msgstr ""
+#~ "Ciljna zbirka podatkov bo popolnoma sinhronizirana z izvorno zbirko "
+#~ "podatkov. Izvorna zbirka podatkov bo ostala nespremenjena."
 
 #, fuzzy
 #~| msgid "New"

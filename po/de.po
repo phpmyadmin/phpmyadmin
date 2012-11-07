@@ -3,14 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-03 07:36-0400\n"
+"POT-Creation-Date: 2012-11-07 13:10-0500\n"
 "PO-Revision-Date: 2012-11-05 10:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
-"Language: de\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -58,8 +59,8 @@ msgstr "Suche"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:229
-#: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
+#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
 #: libraries/rte/rte_routines.lib.php:1575
@@ -77,10 +78,9 @@ msgstr "Suche"
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
 #: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
-#: server_binlog.php:115 server_replication.php:291 server_replication.php:374
-#: server_replication.php:405 server_synchronize.php:1484 tbl_chart.php:198
-#: tbl_indexes.php:332 tbl_tracking.php:515 tbl_tracking.php:678
-#: view_create.php:221 view_operations.php:98
+#: server_binlog.php:115 server_replication.php:224 server_replication.php:327
+#: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
+#: tbl_tracking.php:678 view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "OK"
 
@@ -318,7 +318,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
-#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:757
+#: tbl_tracking.php:757
 msgid "Table"
 msgstr "Tabelle"
 
@@ -381,7 +381,7 @@ msgstr "Zum %sDesigner%s wechseln"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -406,9 +406,8 @@ msgstr "Verfolgte Tabellen"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2865 server_databases.php:199
-#: server_status.php:1334 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1071 tbl_tracking.php:756
+#: libraries/server_privileges.lib.php:2865 server_databases.php:201
+#: server_status.php:1334 sql.php:1071 tbl_tracking.php:756
 msgid "Database"
 msgstr "Datenbank"
 
@@ -435,7 +434,7 @@ msgstr "Status"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
 #: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:234
+#: libraries/structure.lib.php:1205 server_databases.php:236
 msgid "Action"
 msgstr "Aktion"
 
@@ -453,7 +452,7 @@ msgstr "Lösche die Verlaufsdaten dieser Tabelle"
 #: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
 #: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
-#: server_databases.php:325
+#: server_databases.php:327
 msgid "Drop"
 msgstr "Löschen"
 
@@ -748,7 +747,6 @@ msgstr "Datenbank-Server"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:650
 #: libraries/config/messages.inc.php:508 server_status.php:827
-#: server_synchronize.php:1431
 msgid "Server"
 msgstr "Server"
 
@@ -1047,7 +1045,7 @@ msgstr "Statische Daten"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
-#: server_databases.php:269 server_status.php:1225 server_status.php:1294
+#: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "Insgesamt"
@@ -1967,7 +1965,7 @@ msgstr "Zeige Daten Zeile(n)"
 msgid "Generate password"
 msgstr "Passwort generieren"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:388
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Generieren"
 
@@ -2355,8 +2353,8 @@ msgstr "Schriftgröße"
 #: libraries/DisplayResults.class.php:2012
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:200
-#: server_databases.php:217 server_status.php:1431
+#: libraries/structure.lib.php:884 server_databases.php:202
+#: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "Aufsteigend"
 
@@ -2364,8 +2362,8 @@ msgstr "Aufsteigend"
 #: libraries/DisplayResults.class.php:2007
 #: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:200
-#: server_databases.php:217 server_status.php:1428
+#: libraries/structure.lib.php:889 server_databases.php:202
+#: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "Absteigend"
 
@@ -2693,7 +2691,7 @@ msgstr "Die Abfrage dauerte %01.4f Sekunden"
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
 #: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
-#: server_databases.php:317 server_databases.php:320
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "markierte:"
 
@@ -2703,8 +2701,8 @@ msgstr "markierte:"
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
 #: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:318
-#: server_databases.php:319
+#: libraries/structure.lib.php:1367 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "Alle auswählen"
 
@@ -2723,7 +2721,7 @@ msgstr "Exportieren"
 msgid "Query results operations"
 msgstr "Operationen für das Abfrageergebnis"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:332
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2805,18 +2803,18 @@ msgstr "Fehler beim Verschieben der hochgeladenen Datei."
 msgid "Cannot read (moved) upload file."
 msgstr "Die hochgeladene (verschobene) Datei kann nicht gelesen werden."
 
-#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
-#: libraries/Footer.class.php:138
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
+#: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
 msgstr "Neues phpMyAdmin-Fenster"
 
-#: libraries/Header.class.php:580
-#: libraries/plugins/auth/AuthenticationCookie.class.php:253
+#: libraries/Header.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:259
 msgid "Cookies must be enabled past this point."
 msgstr "Ab diesem Punkt müssen Cookies aktiviert sein."
 
-#: libraries/Header.class.php:585
-#: libraries/plugins/auth/AuthenticationCookie.class.php:157
+#: libraries/Header.class.php:584
+#: libraries/plugins/auth/AuthenticationCookie.class.php:163
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript muss ab hier aktiviert sein"
 
@@ -2902,7 +2900,7 @@ msgstr "Ansicht"
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_properties.inc.php:760 pmd_general.php:177
-#: server_replication.php:371 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Structure"
 msgstr "Struktur"
 
@@ -2979,35 +2977,30 @@ msgstr "Designer"
 msgid "Users"
 msgstr "Benutzer"
 
-#: libraries/Menu.class.php:484 server_synchronize.php:1320
-#: server_synchronize.php:1327
-msgid "Synchronize"
-msgstr "Gleiche ab"
-
-#: libraries/Menu.class.php:489 server_binlog.php:74 server_status.php:660
+#: libraries/Menu.class.php:485 server_binlog.php:74 server_status.php:660
 msgid "Binary log"
 msgstr "Binäres Protokoll"
 
-#: libraries/Menu.class.php:495 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:33
-#: server_replication.php:215 server_status.php:665
+#: libraries/Menu.class.php:491 libraries/structure.lib.php:185
+#: libraries/structure.lib.php:768 server_replication.php:32
+#: server_replication.php:148 server_status.php:665
 msgid "Replication"
 msgstr "Replikation"
 
-#: libraries/Menu.class.php:500 server_engines.php:94 server_engines.php:98
+#: libraries/Menu.class.php:496 server_engines.php:94 server_engines.php:98
 #: server_status.php:713
 msgid "Variables"
 msgstr "Variablen"
 
-#: libraries/Menu.class.php:504
+#: libraries/Menu.class.php:500
 msgid "Charsets"
 msgstr "Zeichensätze"
 
-#: libraries/Menu.class.php:509 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:505 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr "Erweiterungen"
 
-#: libraries/Menu.class.php:513
+#: libraries/Menu.class.php:509
 msgid "Engines"
 msgstr "Formate"
 
@@ -3149,7 +3142,7 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3760,7 +3753,7 @@ msgstr "Tabellen"
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
-#: server_replication.php:372 tbl_printview.php:299
+#: tbl_printview.php:299
 msgid "Data"
 msgstr "Daten"
 
@@ -6065,12 +6058,12 @@ msgstr "Erfordert das der SQL-Validator aktiviert ist"
 #: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:43
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
-#: libraries/replication_gui.lib.php:360 libraries/replication_gui.lib.php:364
-#: libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
+#: libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1199
 #: libraries/server_privileges.lib.php:1223
-#: libraries/server_privileges.lib.php:2391 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:2391
 msgid "Password"
 msgstr "Passwort"
 
@@ -6367,13 +6360,13 @@ msgstr ""
 "ist fehlgeschlagen."
 
 #: libraries/display_change_password.lib.php:37
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Kein Passwort"
 
 #: libraries/display_change_password.lib.php:48
-#: libraries/replication_gui.lib.php:378 libraries/replication_gui.lib.php:381
+#: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
@@ -6398,12 +6391,11 @@ msgstr "Anlegen"
 
 #: libraries/display_create_database.lib.php:43
 #: libraries/server_privileges.lib.php:2931 server_privileges.php:152
-#: server_replication.php:35
+#: server_replication.php:34
 msgid "No Privileges"
 msgstr "Keine Rechte"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:90
-#: server_synchronize.php:528 server_synchronize.php:1048
 msgid "Create table"
 msgstr "Erzeuge Tabelle"
 
@@ -7745,7 +7737,7 @@ msgstr ""
 "hergestellt werden."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:145
+#: libraries/plugins/auth/AuthenticationCookie.class.php:151
 #: libraries/plugins/auth/AuthenticationHttp.class.php:71
 #, php-format
 msgid "Welcome to %s"
@@ -7773,49 +7765,49 @@ msgstr ""
 "vergewissern, dass diese den Informationen, die Sie vom Administrator "
 "erhalten haben, entsprechen."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:42
+#: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Benutzung von Blowfish des mcrypt-Pakets fehlgeschlagen!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:86
+#: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
 msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
 msgstr "Anmeldung"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:183
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Sie können einen Rechnernamen oder eine IP Adresse und einen Port durch "
 "Leerzeichen getrennt eingeben."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:186
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
+#: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:210
 msgid "Password:"
 msgstr "Passwort:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:216
 msgid "Server Choice"
 msgstr "Server auswählen"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Login ohne Passwort ist verboten (siehe AllowNoPassword) in der Konfiguration"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -7823,8 +7815,8 @@ msgstr ""
 "Da Sie seit mindestens %s Sekunden inaktiv waren, wurden Sie automatisch "
 "abgemeldet. Bitte melden Sie sich erneut an"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:594
-#: libraries/plugins/auth/AuthenticationCookie.class.php:596
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:585
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Die Anmeldung am MySQL-Server ist fehlgeschlagen"
@@ -7988,9 +7980,9 @@ msgstr "MIME-Typen anzeigen"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:190
-#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:194
-#: libraries/replication_gui.lib.php:292 libraries/replication_gui.lib.php:295
-#: libraries/replication_gui.lib.php:352
+#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
+#: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
+#: libraries/replication_gui.lib.php:353
 #: libraries/server_privileges.lib.php:1085
 #: libraries/server_privileges.lib.php:1090
 #: libraries/server_privileges.lib.php:1186
@@ -8576,7 +8568,7 @@ msgstr "Auswahl entfernen"
 msgid "Slave configuration"
 msgstr "Slave-Konfiguration"
 
-#: libraries/replication_gui.lib.php:56 server_replication.php:411
+#: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
 msgstr "Master-Server wechseln oder neu konfigurieren"
 
@@ -8590,36 +8582,36 @@ msgstr ""
 "[mysqld] einfügen:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
-#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:282
+#: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
+#: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:1070 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1070
 msgid "User name"
 msgstr "Benutzername"
 
-#: libraries/replication_gui.lib.php:72 server_synchronize.php:1435
+#: libraries/replication_gui.lib.php:72
 msgid "Port"
 msgstr "Port"
 
-#: libraries/replication_gui.lib.php:111
+#: libraries/replication_gui.lib.php:112
 msgid "Master status"
 msgstr "Master-Status"
 
-#: libraries/replication_gui.lib.php:113
+#: libraries/replication_gui.lib.php:114
 msgid "Slave status"
 msgstr "Slave-Status"
 
-#: libraries/replication_gui.lib.php:122 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
 #: server_status.php:1708 server_variables.php:156
 msgid "Variable"
 msgstr "Variable"
 
-#: libraries/replication_gui.lib.php:193 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:187
 msgid "Server ID"
 msgstr "Server-ID"
 
-#: libraries/replication_gui.lib.php:212
+#: libraries/replication_gui.lib.php:213
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -8627,17 +8619,17 @@ msgstr ""
 "Nur Slaves, die mit der Option --report-host=host_name gestartet wurden, "
 "sind in dieser Liste sichtbar."
 
-#: libraries/replication_gui.lib.php:263 server_replication.php:250
+#: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
 msgstr "Benutzer für den Replication-Slave hinzufügen"
 
-#: libraries/replication_gui.lib.php:277
+#: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
 msgid "Any user"
 msgstr "Jeder Benutzer"
 
-#: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:346
-#: libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1063
 #: libraries/server_privileges.lib.php:1179
 #: libraries/server_privileges.lib.php:1218
@@ -8646,27 +8638,27 @@ msgstr "Jeder Benutzer"
 msgid "Use text field"
 msgstr "Textfeld verwenden"
 
-#: libraries/replication_gui.lib.php:325
+#: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1143
 msgid "Any host"
 msgstr "Jeder Host"
 
-#: libraries/replication_gui.lib.php:329
+#: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
 msgstr "Lokal"
 
-#: libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
 msgid "This Host"
 msgstr "Dieser Host"
 
-#: libraries/replication_gui.lib.php:341
+#: libraries/replication_gui.lib.php:342
 #: libraries/server_privileges.lib.php:1170
 msgid "Use Host Table"
 msgstr "Verwende Hosttabelle"
 
-#: libraries/replication_gui.lib.php:355
+#: libraries/replication_gui.lib.php:356
 #: libraries/server_privileges.lib.php:1189
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -8675,7 +8667,7 @@ msgstr ""
 "Wenn die Host-Tabelle aktiv ist, wird dieses Feld ignoriert und stattdessen "
 "die Werte aus der Host-Tabelle verwendet."
 
-#: libraries/replication_gui.lib.php:385
+#: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
 msgstr "Passwort generieren"
 
@@ -9695,34 +9687,6 @@ msgstr "Der gewählte Benutzer wurde in der Benutzertabelle nicht gefunden."
 msgid "You have added a new user."
 msgstr "Der Benutzer wurde hinzugefügt."
 
-# source != search / Source != Suche
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
-msgid "Source database"
-msgstr "Quell-Datenbank"
-
-#: libraries/server_synchronize.lib.php:1608
-#: libraries/server_synchronize.lib.php:1618
-msgid "Current server"
-msgstr "Aktueller Server"
-
-#: libraries/server_synchronize.lib.php:1610
-#: libraries/server_synchronize.lib.php:1620
-msgid "Remote server"
-msgstr "Entfernter Server"
-
-#: libraries/server_synchronize.lib.php:1614
-msgid "Difference"
-msgstr "Unterschied"
-
-#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
-msgid "Target database"
-msgstr "Ziel-Datenbank"
-
-#: libraries/server_synchronize.lib.php:1655
-#: libraries/server_synchronize.lib.php:1664
-msgid "Click to select"
-msgstr "Zur Auswahl anklicken"
-
 #: libraries/sql_query_form.lib.php:195
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -10120,8 +10084,7 @@ msgstr "an den Anfang"
 msgid "after %s"
 msgstr "nach %s"
 
-#: libraries/tbl_properties.inc.php:726 server_synchronize.php:527
-#: server_synchronize.php:1047
+#: libraries/tbl_properties.inc.php:726
 msgid "Table name"
 msgstr "Tabellenname"
 
@@ -10470,20 +10433,20 @@ msgstr[1] "%1$d Datenbanken wurden erfolgreich gelöscht."
 msgid "Databases statistics"
 msgstr "Statistik über alle Datenbanken"
 
-#: server_databases.php:224 server_replication.php:234
-#: server_replication.php:265
+#: server_databases.php:226 server_replication.php:167
+#: server_replication.php:198
 msgid "Master replication"
 msgstr "Master Replikation"
 
-#: server_databases.php:226 server_replication.php:303
+#: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
 msgstr "Slave Replikation"
 
-#: server_databases.php:332 server_databases.php:333
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "Datenbankstatistiken aktivieren"
 
-#: server_databases.php:336
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10491,7 +10454,7 @@ msgstr ""
 "Bitte beachten Sie: Das Aktivieren der Datenbankstatistiken kann starken "
 "Traffic zwischen dem Web- und dem MySQL-Server zur Folge haben."
 
-#: server_databases.php:343 server_synchronize.php:1468
+#: server_databases.php:345
 msgid "No databases"
 msgstr "Keine Datenbanken"
 
@@ -10553,45 +10516,45 @@ msgstr "Lösche %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Die Benutzerprofile wurden neu geladen."
 
-#: server_replication.php:81
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
 
-#: server_replication.php:91
+#: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Verbindung zu Master %s fehlgeschlagen."
 
-#: server_replication.php:100
+#: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Log-Position des Masters nicht lesbar. Mögliches Rechteproblem auf dem "
 "Master."
 
-#: server_replication.php:106
+#: server_replication.php:104
 msgid "Unable to change master"
 msgstr "Kann Master nicht wechseln"
 
-#: server_replication.php:110
+#: server_replication.php:108
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "Master-Server wurde erfolgreich auf %s geändert"
 
-#: server_replication.php:235
+#: server_replication.php:168
 msgid "This server is configured as master in a replication process."
 msgstr ""
 "Dieser Server ist als Master in einem Replikations-Prozess konfiguriert."
 
-#: server_replication.php:237 server_status.php:690
+#: server_replication.php:170 server_status.php:690
 msgid "Show master status"
 msgstr "Zeige den Master-Status"
 
-#: server_replication.php:241
+#: server_replication.php:174
 msgid "Show connected slaves"
 msgstr "Zeige verbundene Slaves"
 
-#: server_replication.php:266
+#: server_replication.php:199
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -10600,11 +10563,11 @@ msgstr ""
 "Dieser Server ist als nicht Master in einem Replikations-Prozess "
 "konfiguriert. Möchten Sie ihn <a href=\"%s\">konfigurieren</a>?"
 
-#: server_replication.php:273
+#: server_replication.php:206
 msgid "Master configuration"
 msgstr "Master-Konfiguration"
 
-#: server_replication.php:274
+#: server_replication.php:207
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -10618,19 +10581,19 @@ msgstr ""
 "repliziert werden soll)/nNur bestimmte Datenbanken replizieren/nBitte wählen "
 "Sie:"
 
-#: server_replication.php:277
+#: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
 msgstr "Repliziere alle Datenbanken bis auf:"
 
-#: server_replication.php:278
+#: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
 msgstr "Repliziere nur:"
 
-#: server_replication.php:281
+#: server_replication.php:214
 msgid "Please select databases:"
 msgstr "Bitte Datenbanken auswählen:"
 
-#: server_replication.php:284
+#: server_replication.php:217
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -10639,7 +10602,7 @@ msgstr ""
 "hinzufügen. Danach den MySQL-Server neu starten."
 
 # translation from go to "OK" as defined in po file
-#: server_replication.php:286
+#: server_replication.php:219
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -10649,84 +10612,80 @@ msgstr ""
 "Daraufhin sollten Sie eine Meldung sehen, dass dieser Server als Master "
 "konfiguriert <b>ist</b>"
 
-#: server_replication.php:348
+#: server_replication.php:281
 msgid "Slave SQL Thread not running!"
 msgstr "Slave SQL Thread läuft nicht!"
 
-#: server_replication.php:351
+#: server_replication.php:284
 msgid "Slave IO Thread not running!"
 msgstr "Slave IO Thread läuft nicht!"
 
-#: server_replication.php:360
+#: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 "Dieser Server ist als Slave in eienem Replikations Prozess konfiguriert. "
 "Möchten Sie:"
 
-#: server_replication.php:363
+#: server_replication.php:296
 msgid "See slave status table"
 msgstr "Die Slave Statustabelle sehen"
 
-#: server_replication.php:367
-msgid "Synchronize databases with master"
-msgstr "Die Datenbanken mit dem Master abgleichen"
-
-#: server_replication.php:378
+#: server_replication.php:300
 msgid "Control slave:"
 msgstr "Kontrol-Slave:"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full start"
 msgstr "Alles starten"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full stop"
 msgstr "Alles stoppen"
 
-#: server_replication.php:382
+#: server_replication.php:304
 msgid "Reset slave"
 msgstr "Slave zurücksetzen"
 
-#: server_replication.php:384
+#: server_replication.php:306
 msgid "Start SQL Thread only"
 msgstr "Nur SQL-Thread starten"
 
-#: server_replication.php:386
+#: server_replication.php:308
 msgid "Stop SQL Thread only"
 msgstr "Nur SQL-Thread stoppen"
 
-#: server_replication.php:389
+#: server_replication.php:311
 msgid "Start IO Thread only"
 msgstr "Nur Ein-/Ausgabethread starten"
 
-#: server_replication.php:391
+#: server_replication.php:313
 msgid "Stop IO Thread only"
 msgstr "Nur Ein-/Ausgabethread stoppen"
 
-#: server_replication.php:396
+#: server_replication.php:318
 msgid "Error management:"
 msgstr "Fehlerbehandlung:"
 
-#: server_replication.php:398
+#: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 "Überspringen von Fehlern kann zu Synchronisationsverlust zwischen Master und "
 "Slave führen!"
 
-#: server_replication.php:400
+#: server_replication.php:322
 msgid "Skip current error"
 msgstr "Überspringe aktuellen Fehler"
 
-#: server_replication.php:401
+#: server_replication.php:323
 msgid "Skip next"
 msgstr "Überspringe nächsten"
 
-#: server_replication.php:404
+#: server_replication.php:326
 msgid "errors."
 msgstr "Fehler."
 
-#: server_replication.php:420
+#: server_replication.php:342
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11922,118 +11881,6 @@ msgid_plural "%d minutes"
 msgstr[0] "%d Minute"
 msgstr[1] "%d Minuten"
 
-#: server_synchronize.php:99
-msgid "Could not connect to the source"
-msgstr "Es konnte keine Verbindung zu Quell-Datenbank hergestellt werden"
-
-#: server_synchronize.php:102
-msgid "Could not connect to the target"
-msgstr "Es konnte keine Verbindung zu Ziel-Datenbank hergestellt werden"
-
-#: server_synchronize.php:146 server_synchronize.php:152 tbl_create.php:56
-#: tbl_get_field.php:23
-#, php-format
-msgid "'%s' database does not exist."
-msgstr "Datenbank '%s' existiert nicht."
-
-#: server_synchronize.php:360
-msgid "Structure Synchronization"
-msgstr "Strukturabgleich"
-
-#: server_synchronize.php:364
-msgid "Data Synchronization"
-msgstr "Datenabgleich"
-
-#: server_synchronize.php:487 server_synchronize.php:986
-msgid "not present"
-msgstr "nicht vorhanden"
-
-#: server_synchronize.php:523 server_synchronize.php:1043
-msgid "Structure Difference"
-msgstr "Struktur-Unterschied"
-
-#: server_synchronize.php:524 server_synchronize.php:1044
-msgid "Data Difference"
-msgstr "Datenunterschied"
-
-#: server_synchronize.php:529 server_synchronize.php:1049
-msgid "Add column(s)"
-msgstr "Spalte(n) hinzufügen"
-
-#: server_synchronize.php:530 server_synchronize.php:1050
-msgid "Remove column(s)"
-msgstr "Spalte(n) entfernen"
-
-#: server_synchronize.php:531 server_synchronize.php:1051
-msgid "Alter column(s)"
-msgstr "Spalte(n) ändern"
-
-#: server_synchronize.php:532 server_synchronize.php:1052
-msgid "Remove index(s)"
-msgstr "Index/Indices entfernen"
-
-#: server_synchronize.php:533 server_synchronize.php:1053
-msgid "Apply index(s)"
-msgstr "Index/Indices anwenden"
-
-#: server_synchronize.php:534 server_synchronize.php:1054
-msgid "Update row(s)"
-msgstr "Zeile(n) aktualisieren"
-
-#: server_synchronize.php:535 server_synchronize.php:1055
-msgid "Insert row(s)"
-msgstr "Zeile(n) einfügen"
-
-#: server_synchronize.php:547 server_synchronize.php:1068
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
-"Möchten Sie alle vorhergehenden Datensätze aus den Ziel-Tabellen löschen?"
-
-#: server_synchronize.php:552 server_synchronize.php:1073
-msgid "Apply Selected Changes"
-msgstr "Ausgewählte Änderungen anwenden"
-
-#: server_synchronize.php:556 server_synchronize.php:1076
-msgid "Synchronize Databases"
-msgstr "Datenbanken abgleichen"
-
-#: server_synchronize.php:570
-msgid "Selected target tables have been synchronized with source tables."
-msgstr "Ausgewählte Ziel-Tabellen wurden mit Quell-Tabellen abgeglichen."
-
-#: server_synchronize.php:1123
-msgid "Target database has been synchronized with source database"
-msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
-
-#: server_synchronize.php:1191
-msgid "Executed queries"
-msgstr "Ausgeführte SQL-Anfragen"
-
-#: server_synchronize.php:1375
-msgid "Enter manually"
-msgstr "Manuell eingeben"
-
-#: server_synchronize.php:1383
-msgid "Current connection"
-msgstr "Aktuelle Verbindung"
-
-#: server_synchronize.php:1424
-#, php-format
-msgid "Configuration: %s"
-msgstr "Konfiguration: %s"
-
-#: server_synchronize.php:1439
-msgid "Socket"
-msgstr "Socket"
-
-#: server_synchronize.php:1488
-msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
-msgstr ""
-"Ziel-Datenbank wird komplett mit der Quell-Datenbank abgeglichen, wobei die "
-"Quell-Datenbank unverändert bleibt."
-
 #: server_variables.php:104
 msgid "Setting variable failed"
 msgstr "Setzen der Variable fehlgeschlagen"
@@ -12505,6 +12352,11 @@ msgstr "Y-Werte"
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Die Tabelle %s existiert bereits!"
+
+#: tbl_create.php:56 tbl_get_field.php:23
+#, php-format
+msgid "'%s' database does not exist."
+msgstr "Datenbank '%s' existiert nicht."
 
 #: tbl_create.php:246
 #, php-format
@@ -14108,6 +13960,111 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Synchronize"
+#~ msgstr "Gleiche ab"
+
+# source != search / Source != Suche
+#~ msgid "Source database"
+#~ msgstr "Quell-Datenbank"
+
+#~ msgid "Current server"
+#~ msgstr "Aktueller Server"
+
+#~ msgid "Remote server"
+#~ msgstr "Entfernter Server"
+
+#~ msgid "Difference"
+#~ msgstr "Unterschied"
+
+#~ msgid "Target database"
+#~ msgstr "Ziel-Datenbank"
+
+#~ msgid "Click to select"
+#~ msgstr "Zur Auswahl anklicken"
+
+#~ msgid "Synchronize databases with master"
+#~ msgstr "Die Datenbanken mit dem Master abgleichen"
+
+#~ msgid "Could not connect to the source"
+#~ msgstr "Es konnte keine Verbindung zu Quell-Datenbank hergestellt werden"
+
+#~ msgid "Could not connect to the target"
+#~ msgstr "Es konnte keine Verbindung zu Ziel-Datenbank hergestellt werden"
+
+#~ msgid "Structure Synchronization"
+#~ msgstr "Strukturabgleich"
+
+#~ msgid "Data Synchronization"
+#~ msgstr "Datenabgleich"
+
+#~ msgid "not present"
+#~ msgstr "nicht vorhanden"
+
+#~ msgid "Structure Difference"
+#~ msgstr "Struktur-Unterschied"
+
+#~ msgid "Data Difference"
+#~ msgstr "Datenunterschied"
+
+#~ msgid "Add column(s)"
+#~ msgstr "Spalte(n) hinzufügen"
+
+#~ msgid "Remove column(s)"
+#~ msgstr "Spalte(n) entfernen"
+
+#~ msgid "Alter column(s)"
+#~ msgstr "Spalte(n) ändern"
+
+#~ msgid "Remove index(s)"
+#~ msgstr "Index/Indices entfernen"
+
+#~ msgid "Apply index(s)"
+#~ msgstr "Index/Indices anwenden"
+
+#~ msgid "Update row(s)"
+#~ msgstr "Zeile(n) aktualisieren"
+
+#~ msgid "Insert row(s)"
+#~ msgstr "Zeile(n) einfügen"
+
+#~ msgid "Would you like to delete all the previous rows from target tables?"
+#~ msgstr ""
+#~ "Möchten Sie alle vorhergehenden Datensätze aus den Ziel-Tabellen löschen?"
+
+#~ msgid "Apply Selected Changes"
+#~ msgstr "Ausgewählte Änderungen anwenden"
+
+#~ msgid "Synchronize Databases"
+#~ msgstr "Datenbanken abgleichen"
+
+#~ msgid "Selected target tables have been synchronized with source tables."
+#~ msgstr "Ausgewählte Ziel-Tabellen wurden mit Quell-Tabellen abgeglichen."
+
+#~ msgid "Target database has been synchronized with source database"
+#~ msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
+
+#~ msgid "Executed queries"
+#~ msgstr "Ausgeführte SQL-Anfragen"
+
+#~ msgid "Enter manually"
+#~ msgstr "Manuell eingeben"
+
+#~ msgid "Current connection"
+#~ msgstr "Aktuelle Verbindung"
+
+#~ msgid "Configuration: %s"
+#~ msgstr "Konfiguration: %s"
+
+#~ msgid "Socket"
+#~ msgstr "Socket"
+
+#~ msgid ""
+#~ "Target database will be completely synchronized with source database. "
+#~ "Source database will remain unchanged."
+#~ msgstr ""
+#~ "Ziel-Datenbank wird komplett mit der Quell-Datenbank abgeglichen, wobei "
+#~ "die Quell-Datenbank unverändert bleibt."
 
 #, fuzzy
 #~| msgid "New"

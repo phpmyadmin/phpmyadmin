@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-03 07:36-0400\n"
+"POT-Creation-Date: 2012-11-07 13:10-0500\n"
 "PO-Revision-Date: 2012-09-05 10:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Macedonian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -59,8 +59,8 @@ msgstr "Пребарување"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:229
-#: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
+#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
 #: libraries/rte/rte_routines.lib.php:1575
@@ -78,10 +78,9 @@ msgstr "Пребарување"
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
 #: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
-#: server_binlog.php:115 server_replication.php:291 server_replication.php:374
-#: server_replication.php:405 server_synchronize.php:1484 tbl_chart.php:198
-#: tbl_indexes.php:332 tbl_tracking.php:515 tbl_tracking.php:678
-#: view_create.php:221 view_operations.php:98
+#: server_binlog.php:115 server_replication.php:224 server_replication.php:327
+#: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
+#: tbl_tracking.php:678 view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "OK"
 
@@ -324,7 +323,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
-#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:757
+#: tbl_tracking.php:757
 msgid "Table"
 msgstr "Табела"
 
@@ -389,7 +388,7 @@ msgstr "Премини на копираната табела"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -416,9 +415,8 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2865 server_databases.php:199
-#: server_status.php:1334 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1071 tbl_tracking.php:756
+#: libraries/server_privileges.lib.php:2865 server_databases.php:201
+#: server_status.php:1334 sql.php:1071 tbl_tracking.php:756
 msgid "Database"
 msgstr "База на податоци"
 
@@ -445,7 +443,7 @@ msgstr "Статус"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
 #: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:234
+#: libraries/structure.lib.php:1205 server_databases.php:236
 msgid "Action"
 msgstr "Акција"
 
@@ -463,7 +461,7 @@ msgstr "Избришете го податоците за тракирање о�
 #: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
 #: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
-#: server_databases.php:325
+#: server_databases.php:327
 msgid "Drop"
 msgstr "Бриши"
 
@@ -756,7 +754,6 @@ msgstr "База на податоци"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:650
 #: libraries/config/messages.inc.php:508 server_status.php:827
-#: server_synchronize.php:1431
 msgid "Server"
 msgstr "Сервер"
 
@@ -1072,7 +1069,7 @@ msgstr ""
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
-#: server_databases.php:269 server_status.php:1225 server_status.php:1294
+#: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "Вкупно"
@@ -2065,7 +2062,7 @@ msgstr "Приказ на записи од "
 msgid "Generate password"
 msgstr "Генерирање на лозинка"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:388
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Генерирај"
 
@@ -2506,8 +2503,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:2012
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:200
-#: server_databases.php:217 server_status.php:1431
+#: libraries/structure.lib.php:884 server_databases.php:202
+#: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "Растечки редослед"
 
@@ -2515,8 +2512,8 @@ msgstr "Растечки редослед"
 #: libraries/DisplayResults.class.php:2007
 #: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:200
-#: server_databases.php:217 server_status.php:1428
+#: libraries/structure.lib.php:889 server_databases.php:202
+#: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "Опаѓачки редослед"
 
@@ -2881,7 +2878,7 @@ msgstr "време на извршување на упитот %01.4f секун
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
 #: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
-#: server_databases.php:317 server_databases.php:320
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "Обележаното:"
 
@@ -2891,8 +2888,8 @@ msgstr "Обележаното:"
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
 #: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:318
-#: server_databases.php:319
+#: libraries/structure.lib.php:1367 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "обележи ги сите"
 
@@ -2911,7 +2908,7 @@ msgstr "Извоз"
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:332
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2993,18 +2990,18 @@ msgstr ""
 msgid "Cannot read (moved) upload file."
 msgstr ""
 
-#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
-#: libraries/Footer.class.php:138
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
+#: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/Header.class.php:580
-#: libraries/plugins/auth/AuthenticationCookie.class.php:253
+#: libraries/Header.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:259
 msgid "Cookies must be enabled past this point."
 msgstr "вашиот веб прелистувач треба да допушти cookies"
 
-#: libraries/Header.class.php:585
-#: libraries/plugins/auth/AuthenticationCookie.class.php:157
+#: libraries/Header.class.php:584
+#: libraries/plugins/auth/AuthenticationCookie.class.php:163
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
@@ -3091,7 +3088,7 @@ msgstr "Поглед"
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_properties.inc.php:760 pmd_general.php:177
-#: server_replication.php:371 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Structure"
 msgstr "Структура"
 
@@ -3170,36 +3167,31 @@ msgstr ""
 msgid "Users"
 msgstr "Корисник"
 
-#: libraries/Menu.class.php:484 server_synchronize.php:1320
-#: server_synchronize.php:1327
-msgid "Synchronize"
-msgstr ""
-
-#: libraries/Menu.class.php:489 server_binlog.php:74 server_status.php:660
+#: libraries/Menu.class.php:485 server_binlog.php:74 server_status.php:660
 msgid "Binary log"
 msgstr "Бинарен дневник"
 
-#: libraries/Menu.class.php:495 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:33
-#: server_replication.php:215 server_status.php:665
+#: libraries/Menu.class.php:491 libraries/structure.lib.php:185
+#: libraries/structure.lib.php:768 server_replication.php:32
+#: server_replication.php:148 server_status.php:665
 #, fuzzy
 msgid "Replication"
 msgstr "Релации"
 
-#: libraries/Menu.class.php:500 server_engines.php:94 server_engines.php:98
+#: libraries/Menu.class.php:496 server_engines.php:94 server_engines.php:98
 #: server_status.php:713
 msgid "Variables"
 msgstr "Променливи"
 
-#: libraries/Menu.class.php:504
+#: libraries/Menu.class.php:500
 msgid "Charsets"
 msgstr "Кодни страници"
 
-#: libraries/Menu.class.php:509 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:505 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:513
+#: libraries/Menu.class.php:509
 msgid "Engines"
 msgstr "Складишта"
 
@@ -3341,7 +3333,7 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3903,7 +3895,7 @@ msgstr "Табели"
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
-#: server_replication.php:372 tbl_printview.php:299
+#: tbl_printview.php:299
 msgid "Data"
 msgstr "Податоци"
 
@@ -6133,12 +6125,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:43
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
-#: libraries/replication_gui.lib.php:360 libraries/replication_gui.lib.php:364
-#: libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
+#: libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1199
 #: libraries/server_privileges.lib.php:1223
-#: libraries/server_privileges.lib.php:2391 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:2391
 msgid "Password"
 msgstr "Лозинка"
 
@@ -6419,13 +6411,13 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/display_change_password.lib.php:37
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Нема лозинка"
 
 #: libraries/display_change_password.lib.php:48
-#: libraries/replication_gui.lib.php:378 libraries/replication_gui.lib.php:381
+#: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
@@ -6454,12 +6446,11 @@ msgstr "Креирај"
 
 #: libraries/display_create_database.lib.php:43
 #: libraries/server_privileges.lib.php:2931 server_privileges.php:152
-#: server_replication.php:35
+#: server_replication.php:34
 msgid "No Privileges"
 msgstr "Нема привилегии"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:90
-#: server_synchronize.php:528 server_synchronize.php:1048
 #, fuzzy
 msgid "Create table"
 msgstr "Направи нова страница"
@@ -7797,7 +7788,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Не може да се поврзам: лоши подесувања."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:145
+#: libraries/plugins/auth/AuthenticationCookie.class.php:151
 #: libraries/plugins/auth/AuthenticationHttp.class.php:71
 #, php-format
 msgid "Welcome to %s"
@@ -7822,46 +7813,46 @@ msgstr ""
 "config.inc.php и уверите се дека одговараат на  податоците кои сте ги добили "
 "од администраторот на MySQL серверот."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:42
+#: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:86
+#: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
 msgstr "Најави се"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:183
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:186
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
 msgstr "Сервер"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
+#: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Username:"
 msgstr "Корисничко име:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:210
 msgid "Password:"
 msgstr "Лозинка:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:216
 msgid "Server Choice"
 msgstr "Избор на сервер"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
@@ -7869,8 +7860,8 @@ msgstr ""
 "Немаше никаква активност %s или повеќе секунди, ве молиме најавете се "
 "повторно"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:594
-#: libraries/plugins/auth/AuthenticationCookie.class.php:596
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:585
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Не можам да се пријавам на MySQL серверот"
@@ -8065,9 +8056,9 @@ msgstr "Достапни MIME-типови"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:190
-#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:194
-#: libraries/replication_gui.lib.php:292 libraries/replication_gui.lib.php:295
-#: libraries/replication_gui.lib.php:352
+#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
+#: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
+#: libraries/replication_gui.lib.php:353
 #: libraries/server_privileges.lib.php:1085
 #: libraries/server_privileges.lib.php:1090
 #: libraries/server_privileges.lib.php:1186
@@ -8646,7 +8637,7 @@ msgstr "ниедно"
 msgid "Slave configuration"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:56 server_replication.php:411
+#: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
 msgstr ""
 
@@ -8657,53 +8648,53 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
-#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:282
+#: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
+#: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:1070 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1070
 msgid "User name"
 msgstr "Назив на корисник"
 
-#: libraries/replication_gui.lib.php:72 server_synchronize.php:1435
+#: libraries/replication_gui.lib.php:72
 #, fuzzy
 msgid "Port"
 msgstr "Подредуваање"
 
-#: libraries/replication_gui.lib.php:111
+#: libraries/replication_gui.lib.php:112
 msgid "Master status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:113
+#: libraries/replication_gui.lib.php:114
 msgid "Slave status"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:122 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
 #: server_status.php:1708 server_variables.php:156
 msgid "Variable"
 msgstr "Променлива"
 
-#: libraries/replication_gui.lib.php:193 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:187
 msgid "Server ID"
 msgstr "ID на серверот"
 
-#: libraries/replication_gui.lib.php:212
+#: libraries/replication_gui.lib.php:213
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:263 server_replication.php:250
+#: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:277
+#: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
 msgid "Any user"
 msgstr "Било кој корисник"
 
-#: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:346
-#: libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1063
 #: libraries/server_privileges.lib.php:1179
 #: libraries/server_privileges.lib.php:1218
@@ -8712,34 +8703,34 @@ msgstr "Било кој корисник"
 msgid "Use text field"
 msgstr "Користи текст поле"
 
-#: libraries/replication_gui.lib.php:325
+#: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1143
 msgid "Any host"
 msgstr "Било кој host"
 
-#: libraries/replication_gui.lib.php:329
+#: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
 msgstr "Локален"
 
-#: libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
 msgid "This Host"
 msgstr "Овој host"
 
-#: libraries/replication_gui.lib.php:341
+#: libraries/replication_gui.lib.php:342
 #: libraries/server_privileges.lib.php:1170
 msgid "Use Host Table"
 msgstr "Користи ја табелата на host-от"
 
-#: libraries/replication_gui.lib.php:355
+#: libraries/replication_gui.lib.php:356
 #: libraries/server_privileges.lib.php:1189
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:385
+#: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
 msgstr "Генерирање на лозинка"
 
@@ -9824,35 +9815,6 @@ msgstr "Изабраниот корисник не е пронајден во т
 msgid "You have added a new user."
 msgstr "Додадовте нов корисник."
 
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
-#, fuzzy
-msgid "Source database"
-msgstr "Пребарување низ базата на податоци"
-
-#: libraries/server_synchronize.lib.php:1608
-#: libraries/server_synchronize.lib.php:1618
-msgid "Current server"
-msgstr ""
-
-#: libraries/server_synchronize.lib.php:1610
-#: libraries/server_synchronize.lib.php:1620
-msgid "Remote server"
-msgstr ""
-
-#: libraries/server_synchronize.lib.php:1614
-msgid "Difference"
-msgstr ""
-
-#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
-#, fuzzy
-msgid "Target database"
-msgstr "Пребарување низ базата на податоци"
-
-#: libraries/server_synchronize.lib.php:1655
-#: libraries/server_synchronize.lib.php:1664
-msgid "Click to select"
-msgstr ""
-
 #: libraries/sql_query_form.lib.php:195
 #, fuzzy, php-format
 msgid "Run SQL query/queries on server %s"
@@ -10277,8 +10239,7 @@ msgstr ""
 msgid "after %s"
 msgstr "после полето %s"
 
-#: libraries/tbl_properties.inc.php:726 server_synchronize.php:527
-#: server_synchronize.php:1047
+#: libraries/tbl_properties.inc.php:726
 msgid "Table name"
 msgstr ""
 
@@ -10657,20 +10618,20 @@ msgstr[1] "%s базата на податоци успешно е избриш�
 msgid "Databases statistics"
 msgstr "Статистика на базата на податоци"
 
-#: server_databases.php:224 server_replication.php:234
-#: server_replication.php:265
+#: server_databases.php:226 server_replication.php:167
+#: server_replication.php:198
 msgid "Master replication"
 msgstr ""
 
-#: server_databases.php:226 server_replication.php:303
+#: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:332 server_databases.php:333
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "Вклучи статистики"
 
-#: server_databases.php:336
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10678,7 +10639,7 @@ msgstr ""
 "Напомена: вклучувањето на статистиките може да доведе до зголемување на "
 "сообраќајот помеѓу веб серверот и MySQL серверот."
 
-#: server_databases.php:343 server_synchronize.php:1468
+#: server_databases.php:345
 msgid "No databases"
 msgstr "Базата на податоци не постои"
 
@@ -10743,54 +10704,54 @@ msgstr "Бришам %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегиите се успешно вчитани."
 
-#: server_replication.php:81
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr ""
 
-#: server_replication.php:91
+#: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: server_replication.php:100
+#: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: server_replication.php:106
+#: server_replication.php:104
 msgid "Unable to change master"
 msgstr ""
 
-#: server_replication.php:110
+#: server_replication.php:108
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
 msgstr "Привилегиите се успешно вчитани."
 
-#: server_replication.php:235
+#: server_replication.php:168
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: server_replication.php:237 server_status.php:690
+#: server_replication.php:170 server_status.php:690
 msgid "Show master status"
 msgstr ""
 
-#: server_replication.php:241
+#: server_replication.php:174
 msgid "Show connected slaves"
 msgstr ""
 
-#: server_replication.php:266
+#: server_replication.php:199
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: server_replication.php:273
+#: server_replication.php:206
 msgid "Master configuration"
 msgstr ""
 
-#: server_replication.php:274
+#: server_replication.php:207
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -10799,111 +10760,107 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 
-#: server_replication.php:277
+#: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
 msgstr ""
 
-#: server_replication.php:278
+#: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
 msgstr ""
 
-#: server_replication.php:281
+#: server_replication.php:214
 #, fuzzy
 msgid "Please select databases:"
 msgstr "Изберете база на податоци"
 
-#: server_replication.php:284
+#: server_replication.php:217
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
 
-#: server_replication.php:286
+#: server_replication.php:219
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
 
-#: server_replication.php:348
+#: server_replication.php:281
 msgid "Slave SQL Thread not running!"
 msgstr ""
 
-#: server_replication.php:351
+#: server_replication.php:284
 msgid "Slave IO Thread not running!"
 msgstr ""
 
-#: server_replication.php:360
+#: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
 
-#: server_replication.php:363
+#: server_replication.php:296
 msgid "See slave status table"
 msgstr ""
 
-#: server_replication.php:367
-msgid "Synchronize databases with master"
-msgstr ""
-
-#: server_replication.php:378
+#: server_replication.php:300
 msgid "Control slave:"
 msgstr ""
 
-#: server_replication.php:381
+#: server_replication.php:303
 #, fuzzy
 msgid "Full start"
 msgstr "Текст клуч"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full stop"
 msgstr ""
 
-#: server_replication.php:382
+#: server_replication.php:304
 msgid "Reset slave"
 msgstr ""
 
-#: server_replication.php:384
+#: server_replication.php:306
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Само структура"
 
-#: server_replication.php:386
+#: server_replication.php:308
 msgid "Stop SQL Thread only"
 msgstr ""
 
-#: server_replication.php:389
+#: server_replication.php:311
 #, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Само структура"
 
-#: server_replication.php:391
+#: server_replication.php:313
 msgid "Stop IO Thread only"
 msgstr ""
 
-#: server_replication.php:396
+#: server_replication.php:318
 msgid "Error management:"
 msgstr ""
 
-#: server_replication.php:398
+#: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
 
-#: server_replication.php:400
+#: server_replication.php:322
 msgid "Skip current error"
 msgstr ""
 
-#: server_replication.php:401
+#: server_replication.php:323
 msgid "Skip next"
 msgstr ""
 
-#: server_replication.php:404
+#: server_replication.php:326
 msgid "errors."
 msgstr ""
 
-#: server_replication.php:420
+#: server_replication.php:342
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11934,118 +11891,6 @@ msgid_plural "%d minutes"
 msgstr[0] "се користи"
 msgstr[1] "се користи"
 
-#: server_synchronize.php:99
-msgid "Could not connect to the source"
-msgstr ""
-
-#: server_synchronize.php:102
-msgid "Could not connect to the target"
-msgstr ""
-
-#: server_synchronize.php:146 server_synchronize.php:152 tbl_create.php:56
-#: tbl_get_field.php:23
-#, php-format
-msgid "'%s' database does not exist."
-msgstr ""
-
-#: server_synchronize.php:360
-msgid "Structure Synchronization"
-msgstr ""
-
-#: server_synchronize.php:364
-msgid "Data Synchronization"
-msgstr ""
-
-#: server_synchronize.php:487 server_synchronize.php:986
-msgid "not present"
-msgstr ""
-
-#: server_synchronize.php:523 server_synchronize.php:1043
-msgid "Structure Difference"
-msgstr ""
-
-#: server_synchronize.php:524 server_synchronize.php:1044
-msgid "Data Difference"
-msgstr ""
-
-#: server_synchronize.php:529 server_synchronize.php:1049
-msgid "Add column(s)"
-msgstr ""
-
-#: server_synchronize.php:530 server_synchronize.php:1050
-msgid "Remove column(s)"
-msgstr ""
-
-#: server_synchronize.php:531 server_synchronize.php:1051
-msgid "Alter column(s)"
-msgstr ""
-
-#: server_synchronize.php:532 server_synchronize.php:1052
-msgid "Remove index(s)"
-msgstr ""
-
-#: server_synchronize.php:533 server_synchronize.php:1053
-msgid "Apply index(s)"
-msgstr ""
-
-#: server_synchronize.php:534 server_synchronize.php:1054
-msgid "Update row(s)"
-msgstr ""
-
-#: server_synchronize.php:535 server_synchronize.php:1055
-msgid "Insert row(s)"
-msgstr ""
-
-#: server_synchronize.php:547 server_synchronize.php:1068
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
-
-#: server_synchronize.php:552 server_synchronize.php:1073
-msgid "Apply Selected Changes"
-msgstr ""
-
-#: server_synchronize.php:556 server_synchronize.php:1076
-msgid "Synchronize Databases"
-msgstr ""
-
-#: server_synchronize.php:570
-msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
-
-#: server_synchronize.php:1123
-msgid "Target database has been synchronized with source database"
-msgstr ""
-
-#: server_synchronize.php:1191
-#, fuzzy
-msgid "Executed queries"
-msgstr "SQL упит"
-
-#: server_synchronize.php:1375
-msgid "Enter manually"
-msgstr ""
-
-#: server_synchronize.php:1383
-#, fuzzy
-#| msgid "Connections"
-msgid "Current connection"
-msgstr "Конекции"
-
-#: server_synchronize.php:1424
-#, php-format
-msgid "Configuration: %s"
-msgstr ""
-
-#: server_synchronize.php:1439
-msgid "Socket"
-msgstr ""
-
-#: server_synchronize.php:1488
-msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
-msgstr ""
-
 #: server_variables.php:104
 msgid "Setting variable failed"
 msgstr ""
@@ -12479,6 +12324,11 @@ msgstr "Вредност"
 #, fuzzy, php-format
 msgid "Table %s already exists!"
 msgstr "Корисник %s веќе постои!"
+
+#: tbl_create.php:56 tbl_get_field.php:23
+#, php-format
+msgid "'%s' database does not exist."
+msgstr ""
 
 #: tbl_create.php:246
 #, fuzzy, php-format
@@ -13947,6 +13797,23 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Source database"
+#~ msgstr "Пребарување низ базата на податоци"
+
+#, fuzzy
+#~ msgid "Target database"
+#~ msgstr "Пребарување низ базата на податоци"
+
+#, fuzzy
+#~ msgid "Executed queries"
+#~ msgstr "SQL упит"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Current connection"
+#~ msgstr "Конекции"
 
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin преферира веб прелистувачи кои подржуваат рамки."

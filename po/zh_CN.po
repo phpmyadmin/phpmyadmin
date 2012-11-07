@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-03 07:36-0400\n"
+"POT-Creation-Date: 2012-11-07 13:10-0500\n"
 "PO-Revision-Date: 2012-11-05 10:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (China) "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
-"Language: zh_CN\n"
+"Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/"
+"master/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -58,8 +58,8 @@ msgstr "搜索"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:229
-#: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
+#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
 #: libraries/rte/rte_routines.lib.php:1575
@@ -77,10 +77,9 @@ msgstr "搜索"
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
 #: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
-#: server_binlog.php:115 server_replication.php:291 server_replication.php:374
-#: server_replication.php:405 server_synchronize.php:1484 tbl_chart.php:198
-#: tbl_indexes.php:332 tbl_tracking.php:515 tbl_tracking.php:678
-#: view_create.php:221 view_operations.php:98
+#: server_binlog.php:115 server_replication.php:224 server_replication.php:327
+#: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
+#: tbl_tracking.php:678 view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "执行"
 
@@ -315,7 +314,7 @@ msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此�
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
-#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:757
+#: tbl_tracking.php:757
 msgid "Table"
 msgstr "表"
 
@@ -377,7 +376,7 @@ msgstr "切换到 %s可视化查询生成器%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -402,9 +401,8 @@ msgstr "已追踪的表"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2865 server_databases.php:199
-#: server_status.php:1334 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1071 tbl_tracking.php:756
+#: libraries/server_privileges.lib.php:2865 server_databases.php:201
+#: server_status.php:1334 sql.php:1071 tbl_tracking.php:756
 msgid "Database"
 msgstr "数据库"
 
@@ -431,7 +429,7 @@ msgstr "状态"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
 #: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:234
+#: libraries/structure.lib.php:1205 server_databases.php:236
 msgid "Action"
 msgstr "操作"
 
@@ -449,7 +447,7 @@ msgstr "删除追踪数据"
 #: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
 #: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
-#: server_databases.php:325
+#: server_databases.php:327
 msgid "Drop"
 msgstr "删除"
 
@@ -725,7 +723,6 @@ msgstr "数据库服务器"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:650
 #: libraries/config/messages.inc.php:508 server_status.php:827
-#: server_synchronize.php:1431
 msgid "Server"
 msgstr "服务器"
 
@@ -1013,7 +1010,7 @@ msgstr "静态数据"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
-#: server_databases.php:269 server_status.php:1225 server_status.php:1294
+#: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "总计"
@@ -1904,7 +1901,7 @@ msgstr "更新行"
 msgid "Generate password"
 msgstr "生成密码"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:388
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "生成"
 
@@ -2288,8 +2285,8 @@ msgstr "字号"
 #: libraries/DisplayResults.class.php:2012
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:200
-#: server_databases.php:217 server_status.php:1431
+#: libraries/structure.lib.php:884 server_databases.php:202
+#: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "递增"
 
@@ -2297,8 +2294,8 @@ msgstr "递增"
 #: libraries/DisplayResults.class.php:2007
 #: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:200
-#: server_databases.php:217 server_status.php:1428
+#: libraries/structure.lib.php:889 server_databases.php:202
+#: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "递减"
 
@@ -2621,7 +2618,7 @@ msgstr "查询花费 %01.4f 秒"
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
 #: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
-#: server_databases.php:317 server_databases.php:320
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "选中项："
 
@@ -2631,8 +2628,8 @@ msgstr "选中项："
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
 #: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:318
-#: server_databases.php:319
+#: libraries/structure.lib.php:1367 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "全选"
 
@@ -2651,7 +2648,7 @@ msgstr "导出"
 msgid "Query results operations"
 msgstr "查询结果选项"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:332
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2727,18 +2724,18 @@ msgstr "移动上传的文件时发生错误。"
 msgid "Cannot read (moved) upload file."
 msgstr "无法读取移动后的上传文件。"
 
-#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
-#: libraries/Footer.class.php:138
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
+#: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
 msgstr "打开新 phpMyAdmin 窗口"
 
-#: libraries/Header.class.php:580
-#: libraries/plugins/auth/AuthenticationCookie.class.php:253
+#: libraries/Header.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:259
 msgid "Cookies must be enabled past this point."
 msgstr "必须启用 Cookies 才能登录。"
 
-#: libraries/Header.class.php:585
-#: libraries/plugins/auth/AuthenticationCookie.class.php:157
+#: libraries/Header.class.php:584
+#: libraries/plugins/auth/AuthenticationCookie.class.php:163
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
@@ -2824,7 +2821,7 @@ msgstr "视图"
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_properties.inc.php:760 pmd_general.php:177
-#: server_replication.php:371 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Structure"
 msgstr "结构"
 
@@ -2901,35 +2898,30 @@ msgstr "设计器"
 msgid "Users"
 msgstr "用户"
 
-#: libraries/Menu.class.php:484 server_synchronize.php:1320
-#: server_synchronize.php:1327
-msgid "Synchronize"
-msgstr "同步"
-
-#: libraries/Menu.class.php:489 server_binlog.php:74 server_status.php:660
+#: libraries/Menu.class.php:485 server_binlog.php:74 server_status.php:660
 msgid "Binary log"
 msgstr "二进制日志"
 
-#: libraries/Menu.class.php:495 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:33
-#: server_replication.php:215 server_status.php:665
+#: libraries/Menu.class.php:491 libraries/structure.lib.php:185
+#: libraries/structure.lib.php:768 server_replication.php:32
+#: server_replication.php:148 server_status.php:665
 msgid "Replication"
 msgstr "复制"
 
-#: libraries/Menu.class.php:500 server_engines.php:94 server_engines.php:98
+#: libraries/Menu.class.php:496 server_engines.php:94 server_engines.php:98
 #: server_status.php:713
 msgid "Variables"
 msgstr "变量"
 
-#: libraries/Menu.class.php:504
+#: libraries/Menu.class.php:500
 msgid "Charsets"
 msgstr "字符集"
 
-#: libraries/Menu.class.php:509 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:505 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr "插件"
 
-#: libraries/Menu.class.php:513
+#: libraries/Menu.class.php:509
 msgid "Engines"
 msgstr "引擎"
 
@@ -3067,7 +3059,7 @@ msgid "Operator"
 msgstr "运算符"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3615,7 +3607,7 @@ msgstr "数据表"
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
-#: server_replication.php:372 tbl_printview.php:299
+#: tbl_printview.php:299
 msgid "Data"
 msgstr "数据"
 
@@ -5805,12 +5797,12 @@ msgstr "需要启用 SQL 校验器"
 #: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:43
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
-#: libraries/replication_gui.lib.php:360 libraries/replication_gui.lib.php:364
-#: libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
+#: libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1199
 #: libraries/server_privileges.lib.php:1223
-#: libraries/server_privileges.lib.php:2391 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:2391
 msgid "Password"
 msgstr "密码"
 
@@ -6092,13 +6084,13 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
 #: libraries/display_change_password.lib.php:37
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "无密码"
 
 #: libraries/display_change_password.lib.php:48
-#: libraries/replication_gui.lib.php:378 libraries/replication_gui.lib.php:381
+#: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
@@ -6123,12 +6115,11 @@ msgstr "创建"
 
 #: libraries/display_create_database.lib.php:43
 #: libraries/server_privileges.lib.php:2931 server_privileges.php:152
-#: server_replication.php:35
+#: server_replication.php:34
 msgid "No Privileges"
 msgstr "无权限"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:90
-#: server_synchronize.php:528 server_synchronize.php:1048
 msgid "Create table"
 msgstr "新建数据表"
 
@@ -7421,7 +7412,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "无法连接：无效的设置。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:145
+#: libraries/plugins/auth/AuthenticationCookie.class.php:151
 #: libraries/plugins/auth/AuthenticationHttp.class.php:71
 #, php-format
 msgid "Welcome to %s"
@@ -7445,53 +7436,53 @@ msgstr ""
 "phpMyAdmin 尝试连接到 MySQL 服务器，但服务器拒绝连接。您应该检查配置文件中的"
 "主机、用户名和密码，并确认这些信息与 MySQL 服务器管理员所给出的信息一致。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:42
+#: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "使用 mcrypt 进行 Blowfish 失败！"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:86
+#: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
 msgstr "登录"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:183
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "您可以输入以空格分隔的主机名/IP地址和端口号。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:186
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
 msgstr "服务器："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
+#: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Username:"
 msgstr "用户名："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:210
 msgid "Password:"
 msgstr "密码："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:216
 msgid "Server Choice"
 msgstr "选择服务器"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "登录超时 (%s 秒未活动)，请重新登录"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:594
-#: libraries/plugins/auth/AuthenticationCookie.class.php:596
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:585
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
@@ -7655,9 +7646,9 @@ msgstr "显示 MIME 类型"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:190
-#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:194
-#: libraries/replication_gui.lib.php:292 libraries/replication_gui.lib.php:295
-#: libraries/replication_gui.lib.php:352
+#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
+#: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
+#: libraries/replication_gui.lib.php:353
 #: libraries/server_privileges.lib.php:1085
 #: libraries/server_privileges.lib.php:1090
 #: libraries/server_privileges.lib.php:1186
@@ -8199,7 +8190,7 @@ msgstr "全不选"
 msgid "Slave configuration"
 msgstr "从服务器配置"
 
-#: libraries/replication_gui.lib.php:56 server_replication.php:411
+#: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
 msgstr "修改或重新配置主服务器"
 
@@ -8212,52 +8203,52 @@ msgstr ""
 "添加此行到 [mysqld] 一节中:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
-#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:282
+#: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
+#: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:1070 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1070
 msgid "User name"
 msgstr "用户名"
 
-#: libraries/replication_gui.lib.php:72 server_synchronize.php:1435
+#: libraries/replication_gui.lib.php:72
 msgid "Port"
 msgstr "端口"
 
-#: libraries/replication_gui.lib.php:111
+#: libraries/replication_gui.lib.php:112
 msgid "Master status"
 msgstr "主服务器状态"
 
-#: libraries/replication_gui.lib.php:113
+#: libraries/replication_gui.lib.php:114
 msgid "Slave status"
 msgstr "从服务器状态"
 
-#: libraries/replication_gui.lib.php:122 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
 #: server_status.php:1708 server_variables.php:156
 msgid "Variable"
 msgstr "变量"
 
-#: libraries/replication_gui.lib.php:193 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:187
 msgid "Server ID"
 msgstr "服务器ID"
 
-#: libraries/replication_gui.lib.php:212
+#: libraries/replication_gui.lib.php:213
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr "仅通过 --report-host=主机名 参数启动的从服务器可见。"
 
-#: libraries/replication_gui.lib.php:263 server_replication.php:250
+#: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
 msgstr "添加从复制用户"
 
-#: libraries/replication_gui.lib.php:277
+#: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
 msgid "Any user"
 msgstr "任意用户"
 
-#: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:346
-#: libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1063
 #: libraries/server_privileges.lib.php:1179
 #: libraries/server_privileges.lib.php:1218
@@ -8266,34 +8257,34 @@ msgstr "任意用户"
 msgid "Use text field"
 msgstr "使用文本域"
 
-#: libraries/replication_gui.lib.php:325
+#: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1143
 msgid "Any host"
 msgstr "任意主机"
 
-#: libraries/replication_gui.lib.php:329
+#: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
 msgstr "本地"
 
-#: libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
 msgid "This Host"
 msgstr "此主机"
 
-#: libraries/replication_gui.lib.php:341
+#: libraries/replication_gui.lib.php:342
 #: libraries/server_privileges.lib.php:1170
 msgid "Use Host Table"
 msgstr "使用主机表"
 
-#: libraries/replication_gui.lib.php:355
+#: libraries/replication_gui.lib.php:356
 #: libraries/server_privileges.lib.php:1189
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr "使用主机表时，此处的数据会被主机表中的数据所替换。"
 
-#: libraries/replication_gui.lib.php:385
+#: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
 msgstr "生成密码"
 
@@ -9279,33 +9270,6 @@ msgstr "在权限表内找不到选中的用户。"
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
-msgid "Source database"
-msgstr "源数据库"
-
-#: libraries/server_synchronize.lib.php:1608
-#: libraries/server_synchronize.lib.php:1618
-msgid "Current server"
-msgstr "当前服务器"
-
-#: libraries/server_synchronize.lib.php:1610
-#: libraries/server_synchronize.lib.php:1620
-msgid "Remote server"
-msgstr "远程服务器"
-
-#: libraries/server_synchronize.lib.php:1614
-msgid "Difference"
-msgstr "差异"
-
-#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
-msgid "Target database"
-msgstr "目标数据库"
-
-#: libraries/server_synchronize.lib.php:1655
-#: libraries/server_synchronize.lib.php:1664
-msgid "Click to select"
-msgstr "点击选中"
-
 #: libraries/sql_query_form.lib.php:195
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9695,8 +9659,7 @@ msgstr ""
 msgid "after %s"
 msgstr "于 %s 之后"
 
-#: libraries/tbl_properties.inc.php:726 server_synchronize.php:527
-#: server_synchronize.php:1047
+#: libraries/tbl_properties.inc.php:726
 msgid "Table name"
 msgstr "数据表名"
 
@@ -10036,27 +9999,27 @@ msgstr[0] "已成功删除 %s 个数据库。"
 msgid "Databases statistics"
 msgstr "数据库统计"
 
-#: server_databases.php:224 server_replication.php:234
-#: server_replication.php:265
+#: server_databases.php:226 server_replication.php:167
+#: server_replication.php:198
 msgid "Master replication"
 msgstr "主复制"
 
-#: server_databases.php:226 server_replication.php:303
+#: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
 msgstr "从复制"
 
-#: server_databases.php:332 server_databases.php:333
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "启用统计"
 
-#: server_databases.php:336
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 "注意：在此启用数据库统计可能导致网站服务器和 MySQL 服务器之间的流量骤增。"
 
-#: server_databases.php:343 server_synchronize.php:1468
+#: server_databases.php:345
 msgid "No databases"
 msgstr "无数据库"
 
@@ -10118,42 +10081,42 @@ msgstr "正在删除 %s"
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
-#: server_replication.php:81
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: server_replication.php:91
+#: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "无法连接到主服务器 %s 。"
 
-#: server_replication.php:100
+#: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr "无法读取主服务器日志。主服务器的权限设置可能有问题。"
 
-#: server_replication.php:106
+#: server_replication.php:104
 msgid "Unable to change master"
 msgstr "无法修改主服务器"
 
-#: server_replication.php:110
+#: server_replication.php:108
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "已成功修改主服务器到 %s"
 
-#: server_replication.php:235
+#: server_replication.php:168
 msgid "This server is configured as master in a replication process."
 msgstr "此服务器已被配置为一个复制进程中的主服务器。"
 
-#: server_replication.php:237 server_status.php:690
+#: server_replication.php:170 server_status.php:690
 msgid "Show master status"
 msgstr "查看主服务器状态"
 
-#: server_replication.php:241
+#: server_replication.php:174
 msgid "Show connected slaves"
 msgstr "查看已连接的从服务器"
 
-#: server_replication.php:266
+#: server_replication.php:199
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -10162,11 +10125,11 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的主服务器。你想现在<a href=\"%s\">配置</a>"
 "吗？"
 
-#: server_replication.php:273
+#: server_replication.php:206
 msgid "Master configuration"
 msgstr "主服务器配置"
 
-#: server_replication.php:274
+#: server_replication.php:207
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -10177,25 +10140,25 @@ msgstr ""
 "此服务器尚未配置为一个复制进程中的主服务器。你可以选择复制所有但忽略某些数据"
 "库 (当你想复制大多数数据库时很有用) 或者仅复制某些数据库。请选择模式:"
 
-#: server_replication.php:277
+#: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
 msgstr "复制所有数据库，除了:"
 
-#: server_replication.php:278
+#: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
 msgstr "仅复制:"
 
-#: server_replication.php:281
+#: server_replication.php:214
 msgid "Please select databases:"
 msgstr "请选择数据库:"
 
-#: server_replication.php:284
+#: server_replication.php:217
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr "现在，将下列行添加到你的 my.cnf 文件最后，然后重新启动 MySQL 服务器。"
 
-#: server_replication.php:286
+#: server_replication.php:219
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -10204,80 +10167,76 @@ msgstr ""
 "当 MySQL 服务器重新启动后，请点击 执行 按钮。你应该看见一条提示信息说此服务器"
 "<b>已经</b>被配置为主服务器"
 
-#: server_replication.php:348
+#: server_replication.php:281
 msgid "Slave SQL Thread not running!"
 msgstr "从 SQL 线程未启动！"
 
-#: server_replication.php:351
+#: server_replication.php:284
 msgid "Slave IO Thread not running!"
 msgstr "从 IO 线程未启动！"
 
-#: server_replication.php:360
+#: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr "服务器已被配置为一个复制进程中的从服务器。你是否要:"
 
-#: server_replication.php:363
+#: server_replication.php:296
 msgid "See slave status table"
 msgstr "查看从服务器状态"
 
-#: server_replication.php:367
-msgid "Synchronize databases with master"
-msgstr "根据主服务器同步数据库"
-
-#: server_replication.php:378
+#: server_replication.php:300
 msgid "Control slave:"
 msgstr "控制从服务器:"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full start"
 msgstr "全部启动"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full stop"
 msgstr "全部停止"
 
-#: server_replication.php:382
+#: server_replication.php:304
 msgid "Reset slave"
 msgstr "重置从服务器"
 
-#: server_replication.php:384
+#: server_replication.php:306
 msgid "Start SQL Thread only"
 msgstr "仅启动 SQL 线程"
 
-#: server_replication.php:386
+#: server_replication.php:308
 msgid "Stop SQL Thread only"
 msgstr "仅停止 SQL 线程"
 
-#: server_replication.php:389
+#: server_replication.php:311
 msgid "Start IO Thread only"
 msgstr "仅启动 IO 线程"
 
-#: server_replication.php:391
+#: server_replication.php:313
 msgid "Stop IO Thread only"
 msgstr "仅停止 IO 线程"
 
-#: server_replication.php:396
+#: server_replication.php:318
 msgid "Error management:"
 msgstr "错误管理:"
 
-#: server_replication.php:398
+#: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "忽略错误可能导致主从服务器间不同步！"
 
-#: server_replication.php:400
+#: server_replication.php:322
 msgid "Skip current error"
 msgstr "忽略当前错误"
 
-#: server_replication.php:401
+#: server_replication.php:323
 msgid "Skip next"
 msgstr "忽略下"
 
-#: server_replication.php:404
+#: server_replication.php:326
 msgid "errors."
 msgstr "个错误。"
 
-#: server_replication.php:420
+#: server_replication.php:342
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11352,115 +11311,6 @@ msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分"
 
-#: server_synchronize.php:99
-msgid "Could not connect to the source"
-msgstr "无法连接到源数据库"
-
-#: server_synchronize.php:102
-msgid "Could not connect to the target"
-msgstr "无法连接到目标数据库"
-
-#: server_synchronize.php:146 server_synchronize.php:152 tbl_create.php:56
-#: tbl_get_field.php:23
-#, php-format
-msgid "'%s' database does not exist."
-msgstr "数据库 '%s' 不存在。"
-
-#: server_synchronize.php:360
-msgid "Structure Synchronization"
-msgstr "结构同步"
-
-#: server_synchronize.php:364
-msgid "Data Synchronization"
-msgstr "数据同步"
-
-#: server_synchronize.php:487 server_synchronize.php:986
-msgid "not present"
-msgstr "未找到"
-
-#: server_synchronize.php:523 server_synchronize.php:1043
-msgid "Structure Difference"
-msgstr "结构差异"
-
-#: server_synchronize.php:524 server_synchronize.php:1044
-msgid "Data Difference"
-msgstr "数据差异"
-
-#: server_synchronize.php:529 server_synchronize.php:1049
-msgid "Add column(s)"
-msgstr "增加字段"
-
-#: server_synchronize.php:530 server_synchronize.php:1050
-msgid "Remove column(s)"
-msgstr "删除字段"
-
-#: server_synchronize.php:531 server_synchronize.php:1051
-msgid "Alter column(s)"
-msgstr "修改字段"
-
-#: server_synchronize.php:532 server_synchronize.php:1052
-msgid "Remove index(s)"
-msgstr "删除索引"
-
-#: server_synchronize.php:533 server_synchronize.php:1053
-msgid "Apply index(s)"
-msgstr "增加索引"
-
-#: server_synchronize.php:534 server_synchronize.php:1054
-msgid "Update row(s)"
-msgstr "更新行"
-
-#: server_synchronize.php:535 server_synchronize.php:1055
-msgid "Insert row(s)"
-msgstr "增加行"
-
-#: server_synchronize.php:547 server_synchronize.php:1068
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "你希望删除当前目标表中的所有数据吗？"
-
-#: server_synchronize.php:552 server_synchronize.php:1073
-msgid "Apply Selected Changes"
-msgstr "应用选中的修改"
-
-#: server_synchronize.php:556 server_synchronize.php:1076
-msgid "Synchronize Databases"
-msgstr "同步数据库"
-
-#: server_synchronize.php:570
-msgid "Selected target tables have been synchronized with source tables."
-msgstr "选中的数据表已根据源数据表同步。"
-
-#: server_synchronize.php:1123
-msgid "Target database has been synchronized with source database"
-msgstr "已根据源数据库同步目标数据库"
-
-#: server_synchronize.php:1191
-msgid "Executed queries"
-msgstr "已执行的查询"
-
-#: server_synchronize.php:1375
-msgid "Enter manually"
-msgstr "手动输入"
-
-#: server_synchronize.php:1383
-msgid "Current connection"
-msgstr "当前连接"
-
-#: server_synchronize.php:1424
-#, php-format
-msgid "Configuration: %s"
-msgstr "配置: %s"
-
-#: server_synchronize.php:1439
-msgid "Socket"
-msgstr "套接字"
-
-#: server_synchronize.php:1488
-msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
-msgstr "目标数据库将完全根据源数据库同步。源数据库将保持不变。"
-
 #: server_variables.php:104
 msgid "Setting variable failed"
 msgstr "设置变量失败"
@@ -11895,6 +11745,11 @@ msgstr "纵值"
 #, php-format
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
+
+#: tbl_create.php:56 tbl_get_field.php:23
+#, php-format
+msgid "'%s' database does not exist."
+msgstr "数据库 '%s' 不存在。"
 
 #: tbl_create.php:246
 #, php-format
@@ -13318,6 +13173,107 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Synchronize"
+#~ msgstr "同步"
+
+#~ msgid "Source database"
+#~ msgstr "源数据库"
+
+#~ msgid "Current server"
+#~ msgstr "当前服务器"
+
+#~ msgid "Remote server"
+#~ msgstr "远程服务器"
+
+#~ msgid "Difference"
+#~ msgstr "差异"
+
+#~ msgid "Target database"
+#~ msgstr "目标数据库"
+
+#~ msgid "Click to select"
+#~ msgstr "点击选中"
+
+#~ msgid "Synchronize databases with master"
+#~ msgstr "根据主服务器同步数据库"
+
+#~ msgid "Could not connect to the source"
+#~ msgstr "无法连接到源数据库"
+
+#~ msgid "Could not connect to the target"
+#~ msgstr "无法连接到目标数据库"
+
+#~ msgid "Structure Synchronization"
+#~ msgstr "结构同步"
+
+#~ msgid "Data Synchronization"
+#~ msgstr "数据同步"
+
+#~ msgid "not present"
+#~ msgstr "未找到"
+
+#~ msgid "Structure Difference"
+#~ msgstr "结构差异"
+
+#~ msgid "Data Difference"
+#~ msgstr "数据差异"
+
+#~ msgid "Add column(s)"
+#~ msgstr "增加字段"
+
+#~ msgid "Remove column(s)"
+#~ msgstr "删除字段"
+
+#~ msgid "Alter column(s)"
+#~ msgstr "修改字段"
+
+#~ msgid "Remove index(s)"
+#~ msgstr "删除索引"
+
+#~ msgid "Apply index(s)"
+#~ msgstr "增加索引"
+
+#~ msgid "Update row(s)"
+#~ msgstr "更新行"
+
+#~ msgid "Insert row(s)"
+#~ msgstr "增加行"
+
+#~ msgid "Would you like to delete all the previous rows from target tables?"
+#~ msgstr "你希望删除当前目标表中的所有数据吗？"
+
+#~ msgid "Apply Selected Changes"
+#~ msgstr "应用选中的修改"
+
+#~ msgid "Synchronize Databases"
+#~ msgstr "同步数据库"
+
+#~ msgid "Selected target tables have been synchronized with source tables."
+#~ msgstr "选中的数据表已根据源数据表同步。"
+
+#~ msgid "Target database has been synchronized with source database"
+#~ msgstr "已根据源数据库同步目标数据库"
+
+#~ msgid "Executed queries"
+#~ msgstr "已执行的查询"
+
+#~ msgid "Enter manually"
+#~ msgstr "手动输入"
+
+#~ msgid "Current connection"
+#~ msgstr "当前连接"
+
+#~ msgid "Configuration: %s"
+#~ msgstr "配置: %s"
+
+#~ msgid "Socket"
+#~ msgstr "套接字"
+
+#~ msgid ""
+#~ "Target database will be completely synchronized with source database. "
+#~ "Source database will remain unchanged."
+#~ msgstr "目标数据库将完全根据源数据库同步。源数据库将保持不变。"
 
 #, fuzzy
 #~| msgid "New"

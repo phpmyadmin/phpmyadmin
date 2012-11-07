@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-03 07:36-0400\n"
+"POT-Creation-Date: 2012-11-07 13:10-0500\n"
 "PO-Revision-Date: 2012-11-05 10:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Sinhala "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
-"Language: si\n"
+"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -58,8 +58,8 @@ msgstr "සෙවීම"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:229
-#: libraries/replication_gui.lib.php:78 libraries/replication_gui.lib.php:394
+#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
 #: libraries/rte/rte_routines.lib.php:1575
@@ -77,10 +77,9 @@ msgstr "සෙවීම"
 #: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
 #: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
-#: server_binlog.php:115 server_replication.php:291 server_replication.php:374
-#: server_replication.php:405 server_synchronize.php:1484 tbl_chart.php:198
-#: tbl_indexes.php:332 tbl_tracking.php:515 tbl_tracking.php:678
-#: view_create.php:221 view_operations.php:98
+#: server_binlog.php:115 server_replication.php:224 server_replication.php:327
+#: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
+#: tbl_tracking.php:678 view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "යන්න"
 
@@ -316,7 +315,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
-#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:757
+#: tbl_tracking.php:757
 msgid "Table"
 msgstr "වගුව"
 
@@ -379,7 +378,7 @@ msgstr "%sදෘශ්‍ය ගොඩනංවනය%s වෙත යන්න"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:575
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -404,9 +403,8 @@ msgstr "අවධානය සක්‍රීය වගු"
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2865 server_databases.php:199
-#: server_status.php:1334 server_synchronize.php:1451
-#: server_synchronize.php:1455 sql.php:1071 tbl_tracking.php:756
+#: libraries/server_privileges.lib.php:2865 server_databases.php:201
+#: server_status.php:1334 sql.php:1071 tbl_tracking.php:756
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
@@ -433,7 +431,7 @@ msgstr "තත්වය"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
 #: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:234
+#: libraries/structure.lib.php:1205 server_databases.php:236
 msgid "Action"
 msgstr "ක්‍රියාව"
 
@@ -451,7 +449,7 @@ msgstr "මෙම වගුවේ අවධානය පිළිබඳ දත�
 #: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
 #: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
-#: server_databases.php:325
+#: server_databases.php:327
 msgid "Drop"
 msgstr "හලන්න"
 
@@ -728,7 +726,6 @@ msgstr "දත්තගබඩා සේවාදායකය"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:650
 #: libraries/config/messages.inc.php:508 server_status.php:827
-#: server_synchronize.php:1431
 msgid "Server"
 msgstr "සේවාදායකය"
 
@@ -1004,7 +1001,7 @@ msgstr "ස්ථිතික දත්ත"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
-#: server_databases.php:269 server_status.php:1225 server_status.php:1294
+#: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
 msgstr "මුළු එකතුව"
@@ -1497,8 +1494,7 @@ msgstr "වින්‍යාස ගොනුව විග්‍රහ කිර
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
-"අනයනිත වින්‍යාස සමඟින් ප්‍රස්ථාර ජාලය ගොඩනැගීම අසමත් විය. පෙරනිමි වින්‍යාස "
-"වෙත මාරු වෙමින්…"
+"අනයනිත වින්‍යාස සමඟින් ප්‍රස්ථාර ජාලය ගොඩනැගීම අසමත් විය. පෙරනිමි වින්‍යාස වෙත මාරු වෙමින්…"
 
 #: js/messages.php:212 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
@@ -1895,7 +1891,7 @@ msgstr "දත්ත පේළි(ය) පෙන්වන්න"
 msgid "Generate password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:388
+#: js/messages.php:366 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
@@ -2278,8 +2274,8 @@ msgstr "ෆොන්ටයෙහි ප්‍රමාණය"
 #: libraries/DisplayResults.class.php:2012
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
 #: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:200
-#: server_databases.php:217 server_status.php:1431
+#: libraries/structure.lib.php:884 server_databases.php:202
+#: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "ආරෝහන"
 
@@ -2287,8 +2283,8 @@ msgstr "ආරෝහන"
 #: libraries/DisplayResults.class.php:2007
 #: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
 #: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:200
-#: server_databases.php:217 server_status.php:1428
+#: libraries/structure.lib.php:889 server_databases.php:202
+#: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "අවරෝහන"
 
@@ -2611,7 +2607,7 @@ msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි"
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
 #: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
-#: server_databases.php:317 server_databases.php:320
+#: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "තෝරාගත්:"
 
@@ -2621,8 +2617,8 @@ msgstr "තෝරාගත්:"
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
 #: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:318
-#: server_databases.php:319
+#: libraries/structure.lib.php:1367 server_databases.php:320
+#: server_databases.php:321
 msgid "Check All"
 msgstr "සියල්ල කතිර කොටුගත කරන්න"
 
@@ -2641,7 +2637,7 @@ msgstr "අපනයනය"
 msgid "Query results operations"
 msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:332
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
 #: libraries/structure.lib.php:1487
 msgid "Print view"
@@ -2717,18 +2713,18 @@ msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී �
 msgid "Cannot read (moved) upload file."
 msgstr "උඩුගත කරන ලද ගොනුව කියවීමට නොහැක."
 
-#: libraries/Footer.class.php:131 libraries/Footer.class.php:135
-#: libraries/Footer.class.php:138
+#: libraries/Footer.class.php:133 libraries/Footer.class.php:137
+#: libraries/Footer.class.php:140
 msgid "Open new phpMyAdmin window"
 msgstr "නව phpMyAdmin කවුළුවක් විවෘත කරන්න"
 
-#: libraries/Header.class.php:580
-#: libraries/plugins/auth/AuthenticationCookie.class.php:253
+#: libraries/Header.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:259
 msgid "Cookies must be enabled past this point."
 msgstr "මෙම ස්ථානය පසු කිරීම සඳහා කුකීස් - Cookies සක්‍රිය කල යුතුයි."
 
-#: libraries/Header.class.php:585
-#: libraries/plugins/auth/AuthenticationCookie.class.php:157
+#: libraries/Header.class.php:584
+#: libraries/plugins/auth/AuthenticationCookie.class.php:163
 msgid "Javascript must be enabled past this point"
 msgstr "මෙම ස්ථානයයෙන් පසු JavaScript සක්‍රිය කර තිබීම අවශ්‍යය"
 
@@ -2812,7 +2808,7 @@ msgstr "දසුන"
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_properties.inc.php:760 pmd_general.php:177
-#: server_replication.php:371 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Structure"
 msgstr "සැකිල්ල"
 
@@ -2889,35 +2885,30 @@ msgstr "සැලසුම්කරණය"
 msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
-#: libraries/Menu.class.php:484 server_synchronize.php:1320
-#: server_synchronize.php:1327
-msgid "Synchronize"
-msgstr "සමමුහුර්ත කරන්න"
-
-#: libraries/Menu.class.php:489 server_binlog.php:74 server_status.php:660
+#: libraries/Menu.class.php:485 server_binlog.php:74 server_status.php:660
 msgid "Binary log"
 msgstr "ද්වීමය ලොගය"
 
-#: libraries/Menu.class.php:495 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:33
-#: server_replication.php:215 server_status.php:665
+#: libraries/Menu.class.php:491 libraries/structure.lib.php:185
+#: libraries/structure.lib.php:768 server_replication.php:32
+#: server_replication.php:148 server_status.php:665
 msgid "Replication"
 msgstr "අනුරූකරණය"
 
-#: libraries/Menu.class.php:500 server_engines.php:94 server_engines.php:98
+#: libraries/Menu.class.php:496 server_engines.php:94 server_engines.php:98
 #: server_status.php:713
 msgid "Variables"
 msgstr "විචල්‍යනයන්"
 
-#: libraries/Menu.class.php:504
+#: libraries/Menu.class.php:500
 msgid "Charsets"
 msgstr "අක්ෂර කට්ටලය"
 
-#: libraries/Menu.class.php:509 server_plugins.php:32 server_plugins.php:65
+#: libraries/Menu.class.php:505 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
 msgstr "පේණු"
 
-#: libraries/Menu.class.php:513
+#: libraries/Menu.class.php:509
 msgid "Engines"
 msgstr "යන්ත්‍රයන්"
 
@@ -3057,7 +3048,7 @@ msgid "Operator"
 msgstr "මෙහෙයවනය"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:123
+#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3644,7 +3635,7 @@ msgstr "වගු"
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
-#: server_replication.php:372 tbl_printview.php:299
+#: tbl_printview.php:299
 msgid "Data"
 msgstr "දත්ත"
 
@@ -5852,12 +5843,12 @@ msgstr "SQL වලංගු කරණය සක්‍රීය කිරීම �
 #: libraries/config/messages.inc.php:492
 #: libraries/display_change_password.lib.php:43
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
-#: libraries/replication_gui.lib.php:360 libraries/replication_gui.lib.php:364
-#: libraries/replication_gui.lib.php:374
+#: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
+#: libraries/replication_gui.lib.php:375
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1199
 #: libraries/server_privileges.lib.php:1223
-#: libraries/server_privileges.lib.php:2391 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:2391
 msgid "Password"
 msgstr "මුරපදය"
 
@@ -6137,13 +6128,13 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr "වින්‍යාසයන් හි අර්ථදක්වා ඇති පරිදි පරිපාලක භාවිතා කරන්නා ලෙස සම්බන්ධ වීම අසමත් විය."
 
 #: libraries/display_change_password.lib.php:37
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "මුරපදයක් නැත"
 
 #: libraries/display_change_password.lib.php:48
-#: libraries/replication_gui.lib.php:378 libraries/replication_gui.lib.php:381
+#: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
@@ -6168,12 +6159,11 @@ msgstr "සාදන්න"
 
 #: libraries/display_create_database.lib.php:43
 #: libraries/server_privileges.lib.php:2931 server_privileges.php:152
-#: server_replication.php:35
+#: server_replication.php:34
 msgid "No Privileges"
 msgstr "වරප්‍රසාද නොමැත"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:90
-#: server_synchronize.php:528 server_synchronize.php:1048
 msgid "Create table"
 msgstr "වගුව සාදන්න"
 
@@ -7449,7 +7439,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "සම්බන්ධ විය නොහැක : වලංගු නොවන සැකසුමකි."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:145
+#: libraries/plugins/auth/AuthenticationCookie.class.php:151
 #: libraries/plugins/auth/AuthenticationHttp.class.php:71
 #, php-format
 msgid "Welcome to %s"
@@ -7475,53 +7465,53 @@ msgstr ""
 "ප්‍රතික්ෂේප කරන ලදී. ඔබ ඔබගේ වින්‍යාස ගොනුවේ, දායකය, භාවිත නාමය සහ මුරපදය සඳහා අගයන් "
 "MySQL සේවාදායකයේ පරිපාලකයා විසින් ලබා දුන් දත්ත සමග ගැලපේ දැයි පරීක්ෂා කල යුතුය."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:42
+#: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත් විය!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:86
+#: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
 msgstr "ඔබගේ සැසිය කල් ඉකුත් වී ඇත. නැවත ඇතුළු වන්න."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:175
+#: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
 msgstr "ප්‍රවේශ වන්න"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:183
-#: libraries/plugins/auth/AuthenticationCookie.class.php:193
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "ඔබට සේවාදායකය/IP ලිපිනය සහ පොර්ට් අංකය හිස්තැනක් මගින් වෙන්කර ඇතුල් කල හැක."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:186
+#: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
 msgstr "සේවාදායකය:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:198
+#: libraries/plugins/auth/AuthenticationCookie.class.php:204
 msgid "Username:"
 msgstr "භාවිත නාමය:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:210
 msgid "Password:"
 msgstr "මුරපදය:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:216
 msgid "Server Choice"
 msgstr "සේවාදායකයේ තේරීම"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "මුර පදයක් නොමැතිව ඇතුල් වීම ඔබගේ සිටුවම් මගින් වලකා ඇත. (AllowNoPassword බලන්න)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "පසුගිය තත්පර %s තුල අක්‍රීයයි; නැවත ඇතුළු වන්න"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:594
-#: libraries/plugins/auth/AuthenticationCookie.class.php:596
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
+#: libraries/plugins/auth/AuthenticationCookie.class.php:585
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL සේවාදායකයට ලොග් විය නොහැක"
@@ -7685,9 +7675,9 @@ msgstr "MIME වර්ග පෙන්වන්න"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:190
-#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:194
-#: libraries/replication_gui.lib.php:292 libraries/replication_gui.lib.php:295
-#: libraries/replication_gui.lib.php:352
+#: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
+#: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
+#: libraries/replication_gui.lib.php:353
 #: libraries/server_privileges.lib.php:1085
 #: libraries/server_privileges.lib.php:1090
 #: libraries/server_privileges.lib.php:1186
@@ -8231,7 +8221,7 @@ msgstr "කතිර කොටුගත කිරීම ඉවත් කරන�
 msgid "Slave configuration"
 msgstr "අනුගාමි සේවාදායකය සඳහා වින්‍යාසයන්"
 
-#: libraries/replication_gui.lib.php:56 server_replication.php:411
+#: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
 msgstr "ප්‍රධාන සේවාදායකය වෙනස් කරන්න හෝ නැවත වින්‍යාස කරන්න"
 
@@ -8244,53 +8234,53 @@ msgstr ""
 "නම් පහත පේළිය [mysqld] කොටසට ඇතුලත් කරන්න:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
-#: libraries/replication_gui.lib.php:272 libraries/replication_gui.lib.php:275
-#: libraries/replication_gui.lib.php:282
+#: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
+#: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1035
 #: libraries/server_privileges.lib.php:1040
-#: libraries/server_privileges.lib.php:1070 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1070
 msgid "User name"
 msgstr "භාවිත නාමය"
 
-#: libraries/replication_gui.lib.php:72 server_synchronize.php:1435
+#: libraries/replication_gui.lib.php:72
 msgid "Port"
 msgstr "පෝර්ට්"
 
-#: libraries/replication_gui.lib.php:111
+#: libraries/replication_gui.lib.php:112
 msgid "Master status"
 msgstr "ප්‍රධාන සේවාදායකයේ තත්වය"
 
-#: libraries/replication_gui.lib.php:113
+#: libraries/replication_gui.lib.php:114
 msgid "Slave status"
 msgstr "අනුගාමි සේවාදායකයේ තත්වය"
 
-#: libraries/replication_gui.lib.php:122 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
 #: server_status.php:1708 server_variables.php:156
 msgid "Variable"
 msgstr "විචල්‍යය"
 
-#: libraries/replication_gui.lib.php:193 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:187
 msgid "Server ID"
 msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 
-#: libraries/replication_gui.lib.php:212
+#: libraries/replication_gui.lib.php:213
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
 "--report-host=host_name විකල්පය සමඟ ඇරඹි අනුගාමි සේවාදායක පමණක් මෙම ලැයිස්තුවේ පෙන්වයි."
 
-#: libraries/replication_gui.lib.php:263 server_replication.php:250
+#: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
 msgstr "අනුගාමි අනුරූකරණ භාවිතා කරන්නෙක් එක් කරන්න"
 
-#: libraries/replication_gui.lib.php:277
+#: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
 msgid "Any user"
 msgstr "ඕනෑම භාවිතා කරන්නෙක්"
 
-#: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:346
-#: libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
+#: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1063
 #: libraries/server_privileges.lib.php:1179
 #: libraries/server_privileges.lib.php:1218
@@ -8299,27 +8289,27 @@ msgstr "ඕනෑම භාවිතා කරන්නෙක්"
 msgid "Use text field"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
-#: libraries/replication_gui.lib.php:325
+#: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1143
 msgid "Any host"
 msgstr "ඕනෑම දායකයෙක්"
 
-#: libraries/replication_gui.lib.php:329
+#: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
 msgstr "ස්වදේශී"
 
-#: libraries/replication_gui.lib.php:335
+#: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
 msgid "This Host"
 msgstr "මෙම දායකයා"
 
-#: libraries/replication_gui.lib.php:341
+#: libraries/replication_gui.lib.php:342
 #: libraries/server_privileges.lib.php:1170
 msgid "Use Host Table"
 msgstr "දායක වගුව භාවිතා කරන්න"
 
-#: libraries/replication_gui.lib.php:355
+#: libraries/replication_gui.lib.php:356
 #: libraries/server_privileges.lib.php:1189
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -8327,7 +8317,7 @@ msgid ""
 msgstr ""
 "දායක වගුව භාවිතා කෙරෙයි නම් මෙම ක්ෂේත්‍රය නොසැලකෙන අතර දායක වගුවේ ඇති අගයන් භාවිතා කෙරේ."
 
-#: libraries/replication_gui.lib.php:385
+#: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
@@ -9306,33 +9296,6 @@ msgstr "තෝරාගත් භාවිත කරන්නා වරප්‍
 msgid "You have added a new user."
 msgstr "ඔබ නව භාවිතා කරන්නනෙක් එක් කරන ලදි."
 
-#: libraries/server_synchronize.lib.php:1605 server_synchronize.php:1353
-msgid "Source database"
-msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
-
-#: libraries/server_synchronize.lib.php:1608
-#: libraries/server_synchronize.lib.php:1618
-msgid "Current server"
-msgstr "වත්මන් සේවාදායකය"
-
-#: libraries/server_synchronize.lib.php:1610
-#: libraries/server_synchronize.lib.php:1620
-msgid "Remote server"
-msgstr "දුරස්ථ සේවාදායකය"
-
-#: libraries/server_synchronize.lib.php:1614
-msgid "Difference"
-msgstr "වෙනස"
-
-#: libraries/server_synchronize.lib.php:1615 server_synchronize.php:1355
-msgid "Target database"
-msgstr "ඉලක්කගත දත්තගබඩාව"
-
-#: libraries/server_synchronize.lib.php:1655
-#: libraries/server_synchronize.lib.php:1664
-msgid "Click to select"
-msgstr "තේරීමට ක්ලික් කරන්න"
-
 #: libraries/sql_query_form.lib.php:195
 #, php-format
 msgid "Run SQL query/queries on server %s"
@@ -9711,8 +9674,7 @@ msgstr ""
 msgid "after %s"
 msgstr "%s ට පසු"
 
-#: libraries/tbl_properties.inc.php:726 server_synchronize.php:527
-#: server_synchronize.php:1047
+#: libraries/tbl_properties.inc.php:726
 msgid "Table name"
 msgstr "වගුවේ නම"
 
@@ -10056,20 +10018,20 @@ msgstr[1] "දත්තගබඩා %1$d ක් සාර්ථකව හලන 
 msgid "Databases statistics"
 msgstr "දත්තගබඩා සංඛ්‍යා ලේඛන"
 
-#: server_databases.php:224 server_replication.php:234
-#: server_replication.php:265
+#: server_databases.php:226 server_replication.php:167
+#: server_replication.php:198
 msgid "Master replication"
 msgstr "ප්‍රධාන අනුරූකරණය"
 
-#: server_databases.php:226 server_replication.php:303
+#: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
 msgstr "අනුගාමි අනුරූකරණය"
 
-#: server_databases.php:332 server_databases.php:333
+#: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
 msgstr "සංඛ්‍යා ලේඛන සක්‍රිය කරන්න"
 
-#: server_databases.php:336
+#: server_databases.php:338
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10077,7 +10039,7 @@ msgstr ""
 "සටහන: සංඛ්‍යාලේඛන සක්‍රීය කිරීම මගින් වෙබ් සේවාදායකය සහ MySQL සේවාදායකය අතර විශාල දත්ත "
 "හුවමාරුවක් ඇති විය හැකිය."
 
-#: server_databases.php:343 server_synchronize.php:1468
+#: server_databases.php:345
 msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
@@ -10139,42 +10101,42 @@ msgstr "%s ඉවත් කරමින් පවතී"
 msgid "The privileges were reloaded successfully."
 msgstr "සාර්ථකව වරප්‍රසාද පූරණය කරන්න ලදි."
 
-#: server_replication.php:81
+#: server_replication.php:79
 msgid "Unknown error"
 msgstr "හඳුනා නොගත් දෝෂය"
 
-#: server_replication.php:91
+#: server_replication.php:89
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "ප්‍රධාන %s වෙත සම්බන්ධ විය නොහැක."
 
-#: server_replication.php:100
+#: server_replication.php:98
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: server_replication.php:106
+#: server_replication.php:104
 msgid "Unable to change master"
 msgstr "ප්‍රධාන සේවාදායකය වෙනස් කල නොහැක"
 
-#: server_replication.php:110
+#: server_replication.php:108
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "ප්‍රධාන සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි"
 
-#: server_replication.php:235
+#: server_replication.php:168
 msgid "This server is configured as master in a replication process."
 msgstr "මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක ප්‍රධාන සේවාදායකය ලෙස සකසා ඇත."
 
-#: server_replication.php:237 server_status.php:690
+#: server_replication.php:170 server_status.php:690
 msgid "Show master status"
 msgstr "ප්‍රධාන සේවාදායකයෙහි තත්වය පෙන්වන්න"
 
-#: server_replication.php:241
+#: server_replication.php:174
 msgid "Show connected slaves"
 msgstr "සම්බන්ධිත salves පෙන්වන්න"
 
-#: server_replication.php:266
+#: server_replication.php:199
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -10183,11 +10145,11 @@ msgstr ""
 "මෙම සේවාදායකය අනුරූකරණ ක්‍රියාවලියක ප්‍රධාන සේවාදායකය ලෙස සකසා නැත. එසේ <a href=\"%s"
 "\">සකස් කිරීමට</a> ඔබ කැමතිද?"
 
-#: server_replication.php:273
+#: server_replication.php:206
 msgid "Master configuration"
 msgstr "ප්‍රධාන සේවාදායකය සඳහා වින්‍යාස"
 
-#: server_replication.php:274
+#: server_replication.php:207
 msgid ""
 "This server is not configured as master server in a replication process. You "
 "can choose from either replicating all databases and ignoring certain "
@@ -10196,19 +10158,19 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 
-#: server_replication.php:277
+#: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
 msgstr "සියලුම දත්තගබඩා අනුරූකරන්න; අතහරින්න:"
 
-#: server_replication.php:278
+#: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
 msgstr "සියලු දත්තගබඩා නොසලකා හරින්න, අනුරූ කරන්න:"
 
-#: server_replication.php:281
+#: server_replication.php:214
 msgid "Please select databases:"
 msgstr "කරුණාකර දත්තගබඩා තෝරන්න:"
 
-#: server_replication.php:284
+#: server_replication.php:217
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -10216,7 +10178,7 @@ msgstr ""
 "දැන් පහත දැක්වෙන පේළි ඔබගේ my.cnf හි [mysqld] කොටසේ අවසානයට එක්කර අනතුරුව සේවාදායකය "
 "නැවත පණගන්වන්න."
 
-#: server_replication.php:286
+#: server_replication.php:219
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
@@ -10225,80 +10187,76 @@ msgstr ""
 "සේවාදායකය නැවත පණගැන්වීමෙන් අනතුරුව 'යන්න' බොත්තම ඔබන්න. ඉන් අනතුරුව මෙම සේවාදායකය "
 "ප්‍රධාන සේවාදායකය ලෙස සකසා <b>ඇති</b> බවට පණිවිඩයක් දර්ශනය වනු ඇත"
 
-#: server_replication.php:348
+#: server_replication.php:281
 msgid "Slave SQL Thread not running!"
 msgstr "අනුගාමි SQL ත්‍රෙඩය අක්‍රීයයි!"
 
-#: server_replication.php:351
+#: server_replication.php:284
 msgid "Slave IO Thread not running!"
 msgstr "අනුගාමි IO ත්‍රෙඩය අක්‍රීයයි!"
 
-#: server_replication.php:360
+#: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr "සේවාදායකය අනුරූ ක්‍රියාවලියක අනුගාමි සේවාදායකය ලෙස සකසා ඇත. ඔබ කැමතිද:"
 
-#: server_replication.php:363
+#: server_replication.php:296
 msgid "See slave status table"
 msgstr "අනුගාමි සේවාදායකයේ තත්ත්ව වගුව බලන්න"
 
-#: server_replication.php:367
-msgid "Synchronize databases with master"
-msgstr "දත්තගබඩාවන් ප්‍රධාන සේවාදායකය සමඟ සමමුහුර්තනය කරන්න"
-
-#: server_replication.php:378
+#: server_replication.php:300
 msgid "Control slave:"
 msgstr "පරිපාලක අනුගාමි:"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full start"
 msgstr "පූර්ණ ඇරඹුම"
 
-#: server_replication.php:381
+#: server_replication.php:303
 msgid "Full stop"
 msgstr "පූර්ණ නැවතුම"
 
-#: server_replication.php:382
+#: server_replication.php:304
 msgid "Reset slave"
 msgstr "අනුගාමි සේවාදායකය ප්‍රත්‍යාරම්භ කරන්න"
 
-#: server_replication.php:384
+#: server_replication.php:306
 msgid "Start SQL Thread only"
 msgstr "SQL ත්‍රෙඩය පමණක් අරඹන්න"
 
-#: server_replication.php:386
+#: server_replication.php:308
 msgid "Stop SQL Thread only"
 msgstr "SQL ත්‍රෙඩය පමණක් නවත්තන්න"
 
-#: server_replication.php:389
+#: server_replication.php:311
 msgid "Start IO Thread only"
 msgstr "IO ත්‍රෙඩය පමණක් අරඹන්න"
 
-#: server_replication.php:391
+#: server_replication.php:313
 msgid "Stop IO Thread only"
 msgstr "IO ත්‍රෙඩය පමණක් නවත්තන්න"
 
-#: server_replication.php:396
+#: server_replication.php:318
 msgid "Error management:"
 msgstr "දෝෂ කළමනාකරණය:"
 
-#: server_replication.php:398
+#: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr "දෝෂ අතහැර යාම සමමුහුර්ත නොවූ ප්‍රධාන හා අනුගාමි සේවාදායකයන් ඇති කරවිය හැක!"
 
-#: server_replication.php:400
+#: server_replication.php:322
 msgid "Skip current error"
 msgstr "වත්මන් දෝෂය මගහරින්න"
 
-#: server_replication.php:401
+#: server_replication.php:323
 msgid "Skip next"
 msgstr "ඊළඟ මඟහරින්න"
 
-#: server_replication.php:404
+#: server_replication.php:326
 msgid "errors."
 msgstr "දෝෂ."
 
-#: server_replication.php:420
+#: server_replication.php:342
 #, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
@@ -11333,117 +11291,6 @@ msgid_plural "%d minutes"
 msgstr[0] "මිනිත්තු %dක්"
 msgstr[1] "මිනිත්තු %dක්"
 
-#: server_synchronize.php:99
-msgid "Could not connect to the source"
-msgstr "මූලාශ්‍රය වෙත සම්බන්ද විය නොහැකි විය"
-
-#: server_synchronize.php:102
-msgid "Could not connect to the target"
-msgstr "ඉලක්කය වෙත සම්බන්ද විය නොහැකි විය"
-
-#: server_synchronize.php:146 server_synchronize.php:152 tbl_create.php:56
-#: tbl_get_field.php:23
-#, php-format
-msgid "'%s' database does not exist."
-msgstr "'%s' දත්තගබඩාව නොමැත."
-
-#: server_synchronize.php:360
-msgid "Structure Synchronization"
-msgstr "සැකිල්ල සමමුහුර්ත කරණය"
-
-#: server_synchronize.php:364
-msgid "Data Synchronization"
-msgstr "දත්ත සමමුහුර්ත කරණය"
-
-#: server_synchronize.php:487 server_synchronize.php:986
-msgid "not present"
-msgstr "නොමැති"
-
-#: server_synchronize.php:523 server_synchronize.php:1043
-msgid "Structure Difference"
-msgstr "ආකෘති වෙනස"
-
-#: server_synchronize.php:524 server_synchronize.php:1044
-msgid "Data Difference"
-msgstr "දත්ත වෙනස"
-
-#: server_synchronize.php:529 server_synchronize.php:1049
-msgid "Add column(s)"
-msgstr "පේළි(යක්) එක් කරන්න"
-
-#: server_synchronize.php:530 server_synchronize.php:1050
-msgid "Remove column(s)"
-msgstr "පේළි(යක්) ඉවත් කරන්න"
-
-#: server_synchronize.php:531 server_synchronize.php:1051
-msgid "Alter column(s)"
-msgstr "පේළි(යක්) වෙනස් කරන්න"
-
-#: server_synchronize.php:532 server_synchronize.php:1052
-msgid "Remove index(s)"
-msgstr "සුචි(ය) ඉවත් කරන්න"
-
-#: server_synchronize.php:533 server_synchronize.php:1053
-msgid "Apply index(s)"
-msgstr "සුචි(ය) යොදන්න"
-
-#: server_synchronize.php:534 server_synchronize.php:1054
-msgid "Update row(s)"
-msgstr "පේළි(ය) යාවත්කාලීන කරන්න"
-
-#: server_synchronize.php:535 server_synchronize.php:1055
-msgid "Insert row(s)"
-msgstr "පේළි(ය) ඇතුල් කරන්න"
-
-#: server_synchronize.php:547 server_synchronize.php:1068
-msgid "Would you like to delete all the previous rows from target tables?"
-msgstr "ඉලක්කගත වගුවෙන් සියලුම පෙර තීරු ඉවත් කිරීමට‍ ඔබ කැමතිද?"
-
-#: server_synchronize.php:552 server_synchronize.php:1073
-msgid "Apply Selected Changes"
-msgstr "තෝරාගත් වෙනස්කම් යොදන්න"
-
-#: server_synchronize.php:556 server_synchronize.php:1076
-msgid "Synchronize Databases"
-msgstr "දත්තගබඩා සමමුහුර්ත කරන්න"
-
-#: server_synchronize.php:570
-msgid "Selected target tables have been synchronized with source tables."
-msgstr "ඉලක්ක ලෙස තෝරාගත් වගු මූලාශ්‍ර වගු සමඟ සමමුහුර්ත කර ඇත."
-
-#: server_synchronize.php:1123
-msgid "Target database has been synchronized with source database"
-msgstr "ඉලක්ක දත්තගබඩා මූලාශ්‍ර දත්තගබඩා සමඟ සමමුහුර්ත කර ඇත"
-
-#: server_synchronize.php:1191
-msgid "Executed queries"
-msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
-
-#: server_synchronize.php:1375
-msgid "Enter manually"
-msgstr "අතින් ඇතුල් කරන්න"
-
-#: server_synchronize.php:1383
-msgid "Current connection"
-msgstr "වත්මන් සම්බන්ධතාව"
-
-#: server_synchronize.php:1424
-#, php-format
-msgid "Configuration: %s"
-msgstr "සැකසුම : %s"
-
-#: server_synchronize.php:1439
-msgid "Socket"
-msgstr "සොකට්"
-
-#: server_synchronize.php:1488
-msgid ""
-"Target database will be completely synchronized with source database. Source "
-"database will remain unchanged."
-msgstr ""
-"ඉලක්ක දත්තගබඩාව මූලාශ්‍ර දත්තගබඩාව සමඟ සම්පූර්ණයෙන් සමමුහුර්ත වෙයි. මූලාශ්‍ර දත්තගබඩාව නොවෙනස්ව "
-"පවතියි."
-
 #: server_variables.php:104
 msgid "Setting variable failed"
 msgstr "විචල්‍යය සිටුවීම අසමත් විය"
@@ -11864,6 +11711,11 @@ msgstr "Y අගයන්"
 #, php-format
 msgid "Table %s already exists!"
 msgstr "%s වගුව දැනටමත් පවතී!"
+
+#: tbl_create.php:56 tbl_get_field.php:23
+#, php-format
+msgid "'%s' database does not exist."
+msgstr "'%s' දත්තගබඩාව නොමැත."
 
 #: tbl_create.php:246
 #, php-format
@@ -13313,6 +13165,109 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "Synchronize"
+#~ msgstr "සමමුහුර්ත කරන්න"
+
+#~ msgid "Source database"
+#~ msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
+
+#~ msgid "Current server"
+#~ msgstr "වත්මන් සේවාදායකය"
+
+#~ msgid "Remote server"
+#~ msgstr "දුරස්ථ සේවාදායකය"
+
+#~ msgid "Difference"
+#~ msgstr "වෙනස"
+
+#~ msgid "Target database"
+#~ msgstr "ඉලක්කගත දත්තගබඩාව"
+
+#~ msgid "Click to select"
+#~ msgstr "තේරීමට ක්ලික් කරන්න"
+
+#~ msgid "Synchronize databases with master"
+#~ msgstr "දත්තගබඩාවන් ප්‍රධාන සේවාදායකය සමඟ සමමුහුර්තනය කරන්න"
+
+#~ msgid "Could not connect to the source"
+#~ msgstr "මූලාශ්‍රය වෙත සම්බන්ද විය නොහැකි විය"
+
+#~ msgid "Could not connect to the target"
+#~ msgstr "ඉලක්කය වෙත සම්බන්ද විය නොහැකි විය"
+
+#~ msgid "Structure Synchronization"
+#~ msgstr "සැකිල්ල සමමුහුර්ත කරණය"
+
+#~ msgid "Data Synchronization"
+#~ msgstr "දත්ත සමමුහුර්ත කරණය"
+
+#~ msgid "not present"
+#~ msgstr "නොමැති"
+
+#~ msgid "Structure Difference"
+#~ msgstr "ආකෘති වෙනස"
+
+#~ msgid "Data Difference"
+#~ msgstr "දත්ත වෙනස"
+
+#~ msgid "Add column(s)"
+#~ msgstr "පේළි(යක්) එක් කරන්න"
+
+#~ msgid "Remove column(s)"
+#~ msgstr "පේළි(යක්) ඉවත් කරන්න"
+
+#~ msgid "Alter column(s)"
+#~ msgstr "පේළි(යක්) වෙනස් කරන්න"
+
+#~ msgid "Remove index(s)"
+#~ msgstr "සුචි(ය) ඉවත් කරන්න"
+
+#~ msgid "Apply index(s)"
+#~ msgstr "සුචි(ය) යොදන්න"
+
+#~ msgid "Update row(s)"
+#~ msgstr "පේළි(ය) යාවත්කාලීන කරන්න"
+
+#~ msgid "Insert row(s)"
+#~ msgstr "පේළි(ය) ඇතුල් කරන්න"
+
+#~ msgid "Would you like to delete all the previous rows from target tables?"
+#~ msgstr "ඉලක්කගත වගුවෙන් සියලුම පෙර තීරු ඉවත් කිරීමට‍ ඔබ කැමතිද?"
+
+#~ msgid "Apply Selected Changes"
+#~ msgstr "තෝරාගත් වෙනස්කම් යොදන්න"
+
+#~ msgid "Synchronize Databases"
+#~ msgstr "දත්තගබඩා සමමුහුර්ත කරන්න"
+
+#~ msgid "Selected target tables have been synchronized with source tables."
+#~ msgstr "ඉලක්ක ලෙස තෝරාගත් වගු මූලාශ්‍ර වගු සමඟ සමමුහුර්ත කර ඇත."
+
+#~ msgid "Target database has been synchronized with source database"
+#~ msgstr "ඉලක්ක දත්තගබඩා මූලාශ්‍ර දත්තගබඩා සමඟ සමමුහුර්ත කර ඇත"
+
+#~ msgid "Executed queries"
+#~ msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
+
+#~ msgid "Enter manually"
+#~ msgstr "අතින් ඇතුල් කරන්න"
+
+#~ msgid "Current connection"
+#~ msgstr "වත්මන් සම්බන්ධතාව"
+
+#~ msgid "Configuration: %s"
+#~ msgstr "සැකසුම : %s"
+
+#~ msgid "Socket"
+#~ msgstr "සොකට්"
+
+#~ msgid ""
+#~ "Target database will be completely synchronized with source database. "
+#~ "Source database will remain unchanged."
+#~ msgstr ""
+#~ "ඉලක්ක දත්තගබඩාව මූලාශ්‍ර දත්තගබඩාව සමඟ සම්පූර්ණයෙන් සමමුහුර්ත වෙයි. මූලාශ්‍ර දත්තගබඩාව "
+#~ "නොවෙනස්ව පවතියි."
 
 #, fuzzy
 #~| msgid "New"
