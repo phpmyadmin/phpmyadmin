@@ -157,7 +157,6 @@ $output .= '<table id="serverVariables" class="data filteredData noclick">'
     . '<th class="valueHeader">'
     . __('Session value') . ' / ' . __('Global value')
     . '</th>'
-    . '<th>' . __('Documentation') . '</th>'
     . '</tr>'
     . '</thead>'
     . '<tbody>';
@@ -170,34 +169,30 @@ foreach ($serverVars as $name => $value) {
         . ($has_session_value ? 'diffSession' : '');
 
     $output .= '<tr class="' . $row_class . '">'
-        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name))
-        . '</th>'
+        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name));
+
+        // To display variable documentation link
+        if (isset($VARIABLE_DOC_LINKS[$name])) {
+            $output .= PMA_Util::showMySQLDocu(
+                $VARIABLE_DOC_LINKS[$name][1],
+                $VARIABLE_DOC_LINKS[$name][1],
+                false,
+                $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
+            );
+        }
+
+    $output .= '</th>'
         . '<td class="value' . (PMA_isSuperuser() ? ' editable' : '') . '">'
         . formatVariable($name, $value)
-        . '</td>'
-        . '<td class="value">';
-
-    // To display variable documentation link
-    if (isset($VARIABLE_DOC_LINKS[$name])) {
-        $output .= PMA_Util::showMySQLDocu(
-            $VARIABLE_DOC_LINKS[$name][1],
-            $VARIABLE_DOC_LINKS[$name][1],
-            false,
-            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
-        );
-    }
-
-    $output .= '</td>';
+        . '</td></tr>';
 
     if ($has_session_value) {
-        $output .= '</tr>'
-            . '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+        $output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td>(' . __('Session value') . ')</td>'
             . '<td class="value">' . formatVariable($name, $serverVarsSession[$name]) . '</td>'
-            . '<td class="value"></td>';
+            . '</tr>';
     }
 
-    $output .= '</tr>';
     $odd_row = ! $odd_row;
 }
 $output .= '</tbody>'
