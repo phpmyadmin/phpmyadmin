@@ -10,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 if (! strlen($GLOBALS['db'])) { /* Can't do server export */
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
