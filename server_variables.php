@@ -123,7 +123,7 @@ $output = '<h2>' . PMA_Util::getImage('s_vars.png')
 /**
  * Link templates
  */
-$url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url($db));
+$url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url());
 $output .= '<a style="display: none;" href="#" class="editLink" onclick="return editVariable(this);">';
 $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
 $output .= '<a style="display: none;" href="' . $url . '" class="ajax saveLink">';
@@ -151,52 +151,61 @@ $output .= '<fieldset id="tableFilter">'
     . '</div>'
     . '</fieldset>';
 
-$output .= '<table id="serverVariables" class="data filteredData noclick">'
-    . '<thead>'
-    . '<tr><th>' .  __('Variable') . '</th>'
-    . '<th class="valueHeader">'
+$output .= '<div id="serverVariables" class="data filteredData noclick">'
+    . '<div class="variable_header variable_row">'
+    . '<div class="variable_name">' .  __('Variable') . '</div>'
+    . '<div class="variable_value valueHeader">'
     . __('Session value') . ' / ' . __('Global value')
-    . '</th>'
-    . '</tr>'
-    . '</thead>'
-    . '<tbody>';
+    . '</div>'
+    . '<div style="clear:both"></div>'
+    . '</div>';
 
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
     $has_session_value = isset($serverVarsSession[$name])
         && $serverVarsSession[$name] != $value;
-    $row_class = ($odd_row ? 'odd' : 'even') . ' '
-        . ($has_session_value ? 'diffSession' : '');
+    $row_class = ($odd_row ? ' odd' : ' even')
+        . ($has_session_value ? ' diffSession' : '');
 
-    $output .= '<tr class="' . $row_class . '">'
-        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name));
+    $output .= '<div class="variable_row ' . $row_class . '">'
+        . '<div class="variable_name">';
 
-        // To display variable documentation link
-        if (isset($VARIABLE_DOC_LINKS[$name])) {
-            $output .= PMA_Util::showMySQLDocu(
-                $VARIABLE_DOC_LINKS[$name][1],
-                $VARIABLE_DOC_LINKS[$name][1],
-                false,
-                $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
-            );
-        }
-
-    $output .= '</th>'
-        . '<td class="value' . (PMA_isSuperuser() ? ' editable' : '') . '">'
+    // To display variable documentation link
+    if (isset($VARIABLE_DOC_LINKS[$name])) {
+        $output .= '<span title="' . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
+        $output .= PMA_Util::showMySQLDocu(
+            $VARIABLE_DOC_LINKS[$name][1],
+            $VARIABLE_DOC_LINKS[$name][1],
+            false,
+            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0],
+            true
+        );
+        $output .= htmlspecialchars(str_replace('_', ' ', $name));
+        $output .= PMA_Util::getImage('b_help.png', __('Documentation'));
+        $output .= '</a>';
+        $output .= '</span>';
+    } else {
+        $output .= htmlspecialchars(str_replace('_', ' ', $name));
+    }
+    $output .= '</div>'
+        . '<div class="variable_value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
         . formatVariable($name, $value)
-        . '</td></tr>';
+        . '</div>'
+        . '<div style="clear:both"></div>'
+        . '</div>';
 
     if ($has_session_value) {
-        $output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td>(' . __('Session value') . ')</td>'
-            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name]) . '</td>'
-            . '</tr>';
+        $output .= '<div class="variable_row ' . ($odd_row ? ' odd' : ' even') . '">'
+            . '<div class="variable_name session">(' . __('Session value') . ')</div>'
+            . '<div class="variable_value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
+            . '<div class="variable_doc value"></div>'
+            . '<div style="clear:both"></div>'
+            . '</div>';
     }
 
     $odd_row = ! $odd_row;
 }
-$output .= '</tbody>'
-    . '</table>';
+$output .= '</div>';
 
 $response->addHtml($output);
 

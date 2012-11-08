@@ -4,7 +4,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_variables.js', function() {
-    $('table.data tbody tr td:nth-child(2).editable').unbind('hover');
+    $('#serverVariables .variable_row').unbind('hover');
     $('#filterText').unbind('keyup');
 });
 
@@ -17,11 +17,12 @@ AJAX.registerOnload('server_variables.js', function() {
     $cancelLink = $('a.cancelLink');
 
     /* Variable editing */
-    $('table.data tbody tr td:nth-child(2).editable').hover(
+    $('#serverVariables .variable_row').hover(
         function() {
-            // Only add edit element if it is the global value, not session value and not when the element is being edited
-            if ($(this).parent().children('th').length > 0 && ! $(this).hasClass('edit')) {
-                $(this).prepend($editLink.clone().show());
+            var $elm = $(this).find('.variable_value');
+            // Only add edit element if the element is not being edited
+            if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
+                $elm.prepend($editLink.clone().show());
             }
         },
         function() {
@@ -49,14 +50,12 @@ AJAX.registerOnload('server_variables.js', function() {
 
     /* Filters the rows by the user given regexp */
     function filterVariables() {
-        var mark_next = false, firstCell;
-        odd_row = false;
-
-        $('table.filteredData tbody tr').each(function() {
+        var mark_next = false, firstCell, odd_row = false;
+        $('#serverVariables .variable_row').not('.variable_header').each(function() {
             firstCell = $(this).children(':first');
-
             if (mark_next || textFilter == null || textFilter.exec(firstCell.text())) {
-                // If current global value is different from session value (=has class diffSession), then display that one too
+                // If current global value is different from session value
+                // (has class diffSession), then display that one too
                 mark_next = $(this).hasClass('diffSession') && ! mark_next;
 
                 odd_row = ! odd_row;
@@ -78,7 +77,7 @@ AJAX.registerOnload('server_variables.js', function() {
 /* Called by inline js. Allows the user to edit a server variable */
 function editVariable(link)
 {
-    var varName = $(link).parent().parent().find('th:first').first().text().replace(/ /g,'_');
+    var varName = $(link).closest('.variable_row').find('.variable_name').text().replace(/ /g,'_');
     var $mySaveLink = $saveLink.clone().show();
     var $myCancelLink = $cancelLink.clone().show();
     var $cell = $(link).parent();
@@ -98,10 +97,11 @@ function editVariable(link)
             }, function(data) {
                 if (data.success) {
                     $cell.html(data.variable);
+                    $cell.data('content', data.variable);
                     PMA_ajaxRemoveMessage($msgbox);
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
-                    $cell.html($cell.find('span.oldContent').html());
+                    $cell.html($cell.data('content'));
                 }
                 $cell.removeClass('edit');
             }, 'json');
@@ -110,7 +110,7 @@ function editVariable(link)
     });
 
     $myCancelLink.click(function() {
-        $cell.html($cell.find('span.oldContent').html());
+        $cell.html($cell.data('content'));
         $cell.removeClass('edit');
         return false;
     });
@@ -121,18 +121,21 @@ function editVariable(link)
             varName: varName
         }, function(data) {
             if (data.success == true) {
-                // hide original content
-                $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
+                $cell.data('content', $cell.html()).html('');
+
                 // put edit field and save/cancel link
-                $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
-                              '<input type="text" id="variableEditArea" value="' + data.message + '" /></td></tr></table>');
-                $cell.find('table td:first').append($mySaveLink);
-                $cell.find('table td:first').append(' ');
-                $cell.find('table td:first').append($myCancelLink);
+                $cell.prepend(
+                    '<table class="serverVariableEditTable" border="0">'
+                    + '<tr><td><input type="text" value="' + data.message + '" /></td>'
+                    + '<td></td></tr>'
+                    + '</table>'
+                );
+                $cell.find('table td:last').append($mySaveLink);
+                $cell.find('table td:last').append(' ');
+                $cell.find('table td:last').append($myCancelLink);
 
                 // Keyboard shortcuts to the rescue
-                $('input#variableEditArea').focus();
-                $('input#variableEditArea').keydown(function(event) {
+                $cell.find('input').focus().keydown(function(event) {
                     // Enter key
                     if (event.keyCode == 13) {
                         $mySaveLink.trigger('click');

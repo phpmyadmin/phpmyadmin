@@ -1161,36 +1161,69 @@ div#logTable table {
 /* end serverstatus */
 
 /* server variables */
+#serverVariables {
+    min-width: 30em;
+}
+#serverVariables .variable_row > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-a.editLink {
+#serverVariables .variable_header {
+    font-weight:        bold;
+    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+}
+#serverVariables .variable_header .variable_value {
+    text-align: <?php echo $left; ?>;
+}
+#serverVariables .variable_row {
+    padding: 0.5em;
+    min-height: 18px;
+}
+#serverVariables .variable_name {
+    width: 45%;
+    float: <?php echo $left; ?>;
+    font-weight: bold;
+}
+#serverVariables .variable_name.session {
+    font-weight: normal;
+    font-style: italic;
+}
+#serverVariables .variable_value {
+    width: 50%;
+    float: <?php echo $right; ?>;
+    text-align: <?php echo $right; ?>;
+}
+
+/* server variables editor */
+#serverVariables .editLink {
+    padding-<?php echo $right; ?>: 1em;
     float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
-
-table.serverVariableEditTable {
+#serverVariables .serverVariableEditTable {
     border: 0;
     margin: 0;
     padding: 0;
     width: 100%;
 }
-table.serverVariableEditTable td {
+#serverVariables .serverVariableEditTable td {
     border: 0;
     margin: 0;
     padding: 0;
-}
-table.serverVariableEditTable td:first-child {
     white-space: nowrap;
     vertical-align: middle;
+    text-align: <?php echo $left; ?>;
 }
-
-table.serverVariableEditTable input {
-    width: 95%;
+#serverVariables .serverVariableEditTable input {
+    width: 90%;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-
-table#serverVariables td {
-    height: 18px;
-}
-
 /* end server variables */
 
 /* querywindow */
@@ -2450,12 +2483,12 @@ body .ui-widget {
 }
 
 .jqplot-yaxis-tick.jqplot-breakTick {
-	right: -20px;
-	margin-right: 0px;
-	padding:1px 5px 1px 5px;
-/*	background-color: white;*/
-	z-index: 2;
-	font-size: 1.5em;
+    right: -20px;
+    margin-right: 0px;
+    padding:1px 5px 1px 5px;
+/*  background-color: white;*/
+    z-index: 2;
+    font-size: 1.5em;
 }
 
 .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
@@ -2642,6 +2675,6 @@ div.jqplot-bubble-label.jqplot-bubble-label-highlight {
 }
 
 div.jqplot-noData-container {
-	text-align: center;
-	background-color: rgba(96%, 96%, 96%, 0.3);
+    text-align: center;
+    background-color: rgba(96%, 96%, 96%, 0.3);
 }

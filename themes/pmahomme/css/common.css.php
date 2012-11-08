@@ -1429,36 +1429,74 @@ div#queryAnalyzerDialog table.queryNums {
 /* end serverstatus */
 
 /* server variables */
+#serverVariables {
+    min-width: 30em;
+}
+#serverVariables .variable_row > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#serverVariables .variable_header {
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: #f3f3f3;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    font-weight: bold;
+}
+#serverVariables .variable_header .variable_value {
+    text-align: <?php echo $left; ?>;
+}
+#serverVariables .variable_row {
+    padding: 0.5em;
+    min-height: 18px;
+}
+#serverVariables .variable_name {
+    width: 45%;
+    float: <?php echo $left; ?>;
+    font-weight: bold;
+}
+#serverVariables .variable_name.session {
+    font-weight: normal;
+    font-style: italic;
+}
+#serverVariables .variable_value {
+    width: 50%;
+    float: <?php echo $right; ?>;
+    text-align: <?php echo $right; ?>;
+}
+#serverVariables .variable_doc {
+    overflow:visible;
+    float: <?php echo $right; ?>;
+}
 
-a.editLink {
+/* server variables editor */
+#serverVariables .editLink {
+    padding-<?php echo $right; ?>: 1em;
     float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
-
-table.serverVariableEditTable {
+#serverVariables .serverVariableEditTable {
     border: 0;
     margin: 0;
     padding: 0;
     width: 100%;
 }
-table.serverVariableEditTable td {
+#serverVariables .serverVariableEditTable td {
     border: 0;
     margin: 0;
     padding: 0;
-}
-table.serverVariableEditTable td:first-child {
     white-space: nowrap;
     vertical-align: middle;
+    text-align: <?php echo $left; ?>;
 }
-
-table.serverVariableEditTable input {
-    width: 95%;
+#serverVariables .serverVariableEditTable input {
+    width: 90%;
+    margin: 0 0.5em;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-
-table#serverVariables td {
-    height: 18px;
-}
-
 /* end server variables */
 
 
