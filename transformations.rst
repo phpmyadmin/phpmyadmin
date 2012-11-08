@@ -3,14 +3,10 @@
 Transformations
 ===============
 
-#. 
-#. 
-#. 
-
 .. _transformationsintro:
 
-1. Introduction
-+++++++++++++++
+Introduction
+++++++++++++
 
 To enable transformations, you have to setup the ``column\_info``
 table and the proper directives. Please see the  on how to do so.
@@ -38,8 +34,8 @@ official phpMyAdmin homepage.
 
 .. _transformationshowto:
 
-2. Usage
-++++++++
+Usage
++++++
 
 Go to your *tbl\_structure.php* page (i.e. reached through clicking on
 the 'Structure' link for a table). There click on "Change" (or change
@@ -82,8 +78,8 @@ They are called 'MIME-type', 'Browser transformation' and
 
 .. _transformationsfiles:
 
-3. File structure
-+++++++++++++++++
+File structure
+++++++++++++++
 
 All specific transformations for mimetypes are defined through class
 files in the directory 'libraries/plugins/transformations/'. Each of

@@ -3,16 +3,6 @@
 FAQ - Frequently Asked Questions
 ================================
 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-
 Please have a look at our `Link section
 <http://www.phpmyadmin.net/home_page/docs.php>`_ on the official
 phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and
