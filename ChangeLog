@@ -71,6 +71,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Removed the "Mark row on click" feature; must now click the checkbox to mark
 + Removed the "Synchronize" feature
 
+3.5.5.0 (not yet released)
+
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
 - bug #3569577 [edit] Add routine parameter headers not valid for "function"
