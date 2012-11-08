@@ -1732,6 +1732,23 @@ format strings. The expanded variables depend on a context (for
 example, if you haven't chosen a table, you can not get the table
 name), but the following variables can be used:
 
+``@HTTP_HOST@``
+    HTTP host that runs phpMyAdmin
+``@SERVER@``
+    MySQL server name
+``@VERBOSE@``
+    Verbose MySQL server name as defined in :ref:`cfg_Servers_verbose`
+``@VSERVER@``
+    Verbose MySQL server name if set, otherwise normal
+``@DATABASE@``
+    Currently opened database
+``@TABLE@``
+    Currently opened table
+``@COLUMNS@``
+    Columns of the currently opened table
+``@PHPMYADMIN@``
+    phpMyAdmin with version
+
 .. _wysiwyg:
 
 6.28 How can I easily edit relational schema for export?
