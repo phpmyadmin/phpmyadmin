@@ -5,7 +5,7 @@ import textwrap
 
 whitespace = re.compile('[ \r\n]+')
 
-def format_content(tag, ignore_links = False, skip = ()):
+def format_content(tag, ignore_links = False, skip = (), document_mode = False):
     '''
     Parses inline html content.
     '''
@@ -32,9 +32,8 @@ def format_content(tag, ignore_links = False, skip = ()):
         if item.name in skip:
             continue
 
-        content = format_content(item)
-
         if item.name == 'a' and 'href' in item.attrs:
+            content = format_content(item)
             if ignore_links:
                 out.append(content)
                 continue
@@ -48,27 +47,40 @@ def format_content(tag, ignore_links = False, skip = ()):
                 out.append('`%s <%s>`_' % (content, href))
             continue
         if item.name == 'code':
-            out.append('``%s``' % content)
+            out.append('``%s``' % format_content(item))
             continue
         if item.name == 'strong' or (item.name == 'span' and 'class' in item.attrs and 'important' in item.attrs['class']):
-            out.append('**%s**' % content)
+            out.append('**%s**' % format_content(item))
             continue
         if item.name == 'em':
-            out.append('*%s*' % content)
+            out.append('*%s*' % format_content(item))
             continue
         if item.name == 'abbr':
-            out.append(':abbr:`%s (%s)`' % (content, item.attrs['title']))
+            out.append(':abbr:`%s (%s)`' % (format_content(item), item.attrs['title']))
             continue
         if item.name == 'sup':
-            out.append(':sup:`%s`' % content)
+            out.append(':sup:`%s`' % format_content(item))
             continue
         if item.name == 'sub':
-            out.append(':sub:`%s`' % content)
+            out.append(':sub:`%s`' % format_content(item))
+            continue
+        if item.name == 'span':
+            out.append(format_content(item))
+            continue
+
+        if document_mode:
+            print textwrap.fill(''.join(out).strip()).encode('utf-8')
+            print
+            out = []
+            parse_block(item)
             continue
 
         print item.name
         print item.attrs
         raise Exception('Unknown tag')
+    if document_mode:
+        print textwrap.fill(''.join(out).strip()).encode('utf-8')
+        print
     ret = ''.join(out)
     return ret.strip()
 
@@ -145,13 +157,13 @@ def parse_block(tag):
                     print
                     print indent + '.. code-block:: none'
                     print
-                    for line in tag.text.splitlines():
+                    for line in item.text.splitlines():
                         print indent + '    ', line.strip().encode('utf-8')
                     print
 
                     print
                 elif item.name == 'p':
-                    text = format_content(tag)
+                    text = format_content(item)
                     print textwrap.fill(text, initial_indent = indent).encode('utf-8')
                     print
         print
@@ -166,10 +178,17 @@ def parse_block(tag):
             if isinstance(li, Comment):
                 continue
 
-            if li.name == 'dd':
-                pass
-            elif li.name == 'dt':
-                pass
+            if li.name == 'dt':
+                print_id(li)
+                for subtag in li:
+                    if not isinstance(subtag, NavigableString) and subtag.get('id') is not None:
+                        print_id(subtag)
+                text = format_content(li).encode('utf-8')
+                print text
+                print '-' * len(text)
+                print
+            elif li.name == 'dd':
+                format_content(li, document_mode = True)
             else:
                 print li.name
                 print li.attrs
