@@ -10,8 +10,6 @@ AJAX.registerTeardown('server_variables.js', function() {
 
 AJAX.registerOnload('server_variables.js', function() {
     var textFilter = null, odd_row = false;
-    var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';
-    var $tmpDiv, charWidth;
 
     // Global vars
     $editLink = $('a.editLink');
@@ -40,66 +38,14 @@ AJAX.registerOnload('server_variables.js', function() {
         filterVariables();
     });
 
+    /* FIXME: this seems broken as we now use the hash for the microhistory
     if (location.hash.substr(1).split('=')[0] == 'filter') {
         var name = location.hash.substr(1).split('=')[1];
         // Only allow variable names
         if (! name.match(/[^0-9a-zA-Z_]+/)) {
             $('#filterText').val(name).trigger('keyup');
         }
-    }
-
-    /* Table width limiting */
-    $('table.data').after($tmpDiv=$('<span>'+testString+'</span>'));
-    charWidth = $tmpDiv.width() / testString.length;
-    $tmpDiv.remove();
-
-    $(window).resize(limitTableWidth); // FIXME: this doesn't work that well and binding anything to the window resize event is a bad idea
-    limitTableWidth();
-
-    /* This function chops of long variable values to keep the table from overflowing horizontally
-     * It does so by taking a test string and calculating an average font width and removing 'excess width / average font width'
-     * chars, so it is not very accurate.
-     */
-    function limitTableWidth() {
-        var fulltext;
-        var charDiff;
-        var maxTableWidth;
-        var $tmpTable;
-
-        $('table.data').after($tmpTable = $('<table id="testTable" style="width:100%;"><tr><td>' + testString + '</td></tr></table>'));
-        maxTableWidth = $('#testTable').width();
-        $tmpTable.remove();
-        charDiff =  ($('table.data').width() - maxTableWidth) / charWidth;
-
-        if ($('body').innerWidth() < $('table.data').width() + 10 || $('body').innerWidth() > $('table.data').width() + 20) {
-            var maxChars = 0;
-
-            $('table.data tbody tr td:nth-child(2)').each(function() {
-                maxChars = Math.max($(this).text().length, maxChars);
-            });
-
-            // Do not resize smaller if there's only 50 chars displayed already
-            if (charDiff > 0 && maxChars < 50) { return; }
-
-            $('table.data tbody tr td:nth-child(2)').each(function() {
-                if ((charDiff > 0 && $(this).text().length > maxChars - charDiff) || (charDiff < 0 && $(this).find('abbr.cutoff').length > 0)) {
-                    if ($(this).find('abbr.cutoff').length > 0) {
-                        fulltext = $(this).find('abbr.cutoff').attr('title');
-                    } else {
-                        fulltext = $(this).text();
-                        // Do not cut off elements with html in it and hope they are not too long
-                        if (fulltext.length != $(this).html().length) { return 0; }
-                    }
-
-                    if (fulltext.length < maxChars - charDiff) {
-                        $(this).html(fulltext);
-                    } else {
-                        $(this).html('<abbr class="cutoff" title="' + fulltext + '">' + fulltext.substr(0, maxChars - charDiff - 3) + '...</abbr>');
-                    }
-                }
-            });
-        }
-    }
+    }*/
 
     /* Filters the rows by the user given regexp */
     function filterVariables() {
