@@ -225,297 +225,81 @@ language)` script found in
 Using authentication modes
 ++++++++++++++++++++++++++
 
-* :abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
-  modes are recommended in a **multi-user environment** where you want
-  to give users access to their own database and don't want them to play
-  around with others. Nevertheless be aware that MS Internet Explorer
-  seems to be really buggy about cookies, at least till version 6. Even
-  in a **single-user environment**, you might prefer to use :abbr:`HTTP
-  (HyperText Transfer Protocol)` or cookie mode so that your
-  user/password pair are not in clear in the configuration file.
-* :abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
-  modes are more secure: the MySQL login information does not need to be
-  set in the phpMyAdmin configuration file (except possibly for the ).
-  However, keep in mind that the password travels in plain text, unless
-  you are using the HTTPS protocol. In cookie mode, the password is
-  stored, encrypted with the blowfish algorithm, in a temporary cookie.
-* Note: this section is only applicable if your MySQL server is running
-  with ``--skip-show-database``. For ':abbr:`HTTP (HyperText Transfer
-  Protocol)`' and 'cookie' modes, phpMyAdmin needs a controluser that
-  has **only** the ``SELECT`` privilege on the *`mysql`.`user` (all
-  columns except `Password`)*, *`mysql`.`db` (all columns)*,
-  *`mysql`.`host` (all columns)* and *`mysql`.`tables\_priv` (all
-  columns except `Grantor` and `Timestamp`)* tables. You must specify
-  the details for the  in the ``config.inc.php`` file under the  and
-  settings. The following example assumes you want to use ``pma`` as the
-  controluser and ``pmapass`` as the controlpass, but **this is only an
-  example: use something else in your file!** Input these statements
-  from the phpMyAdmin :abbr:`SQL (structured query language)` Query
-  window or mysql command–line client. Of course you have to replace
-  ``localhost`` with the webserver's host if it's not the same as the
-  MySQL server's one.  If you want to use the many new relation and
-  bookmark features:  (this of course requires that your  be set up).
-  .. code-block:: none
+:abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
+modes are recommended in a **multi-user environment** where you want
+to give users access to their own database and don't want them to play
+around with others. Nevertheless be aware that MS Internet Explorer
+seems to be really buggy about cookies, at least till version 6. Even
+in a **single-user environment**, you might prefer to use :abbr:`HTTP
+(HyperText Transfer Protocol)` or cookie mode so that your
+user/password pair are not in clear in the configuration file.
 
-       HTTP and cookie
-       authentication modes are recommended in a multi-user environment
-       where you want to give users access to their own database and don't want
-       them to play around with others.
-       Nevertheless be aware that MS Internet Explorer seems to be really buggy
-       about cookies, at least till version 6.
-       Even in a single-user environment, you might prefer to use
-       HTTP or cookie mode so
-       that your user/password pair are not in clear in the configuration file.
-       
-       HTTP and cookie
-       authentication modes are more secure: the MySQL login information does
-       not need to be set in the phpMyAdmin configuration file (except possibly
-       for the controluser).
-       However, keep in mind that the password travels in plain text, unless
-       you are using the HTTPS protocol.
-       In cookie mode, the password is stored, encrypted with the blowfish
-       algorithm, in a temporary cookie.
-       Note: this section is only applicable if
-       your MySQL server is running with --skip-show-database.
-       
-       For 'HTTP' and 'cookie'
-       modes, phpMyAdmin needs a controluser that has only the
-       SELECT privilege on the `mysql`.`user` (all columns except
-       `Password`), `mysql`.`db` (all columns), `mysql`.`host`
-       (all columns) and `mysql`.`tables_priv` (all columns except
-       `Grantor` and `Timestamp`) tables. You must specify the details
-       for the controluser in the config.inc.php
-       file under the
-       
-       $cfg['Servers'][$i]['controluser'] and
-       
-       $cfg['Servers'][$i]['controlpass'] settings.
-       The following example assumes you want to use pma as the
-       controluser and pmapass as the controlpass, but this is
-       only an example: use something else in your file! Input these
-       statements from the phpMyAdmin SQL
-       Query window or mysql command–line client.
-       Of course you have to replace localhost with the webserver's host
-       if it's not the same as the MySQL server's one.
-       
-       
-       GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-       GRANT SELECT (
-       Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-       Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-       File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
-       Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
-       Execute_priv, Repl_slave_priv, Repl_client_priv
-       ) ON mysql.user TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.db TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.host TO 'pma'@'localhost';
-       GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
-       ON mysql.tables_priv TO 'pma'@'localhost';
-       
-       If you want to use the many new relation and bookmark features:
-       
-       
-       GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
-       
-       
-       (this of course requires that your phpMyAdmin
-       configuration storage be set up).
-       
-       Then each of the true users should be granted a set of privileges
-       on a set of particular databases. Normally you shouldn't give global
-       privileges to an ordinary user, unless you understand the impact of those
-       privileges (for example, you are creating a superuser).
-       For example, to grant the user real_user with all privileges on
-       the database user_base:
-       
-       GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
-       
-       
-       What the user may now do is controlled entirely by the MySQL user
-       management system.
-       With HTTP or cookie
-       authentication mode, you don't need to fill the user/password fields
-       inside the $cfg['Servers']
-       array.
+:abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
+modes are more secure: the MySQL login information does not need to be
+set in the phpMyAdmin configuration file (except possibly for the ).
+However, keep in mind that the password travels in plain text, unless
+you are using the HTTPS protocol. In cookie mode, the password is
+stored, encrypted with the blowfish algorithm, in a temporary cookie.
 
+.. note: 
+   
+    This section is only applicable if your MySQL server is running
+    with ``--skip-show-database``. 
 
-  .. code-block:: none
+For ':abbr:`HTTP (HyperText Transfer
+Protocol)`' and 'cookie' modes, phpMyAdmin needs a controluser that
+has **only** the ``SELECT`` privilege on the *`mysql`.`user` (all
+columns except `Password`)*, *`mysql`.`db` (all columns)*,
+*`mysql`.`host` (all columns)* and *`mysql`.`tables\_priv` (all
+columns except `Grantor` and `Timestamp`)* tables. You must specify
+the details for the  in the ``config.inc.php`` file under the  and
+settings. The following example assumes you want to use ``pma`` as the
+controluser and ``pmapass`` as the controlpass, but **this is only an
+example: use something else in your file!** Input these statements
+from the phpMyAdmin :abbr:`SQL (structured query language)` Query
+window or mysql command–line client. Of course you have to replace
+``localhost`` with the webserver's host if it's not the same as the
+MySQL server's one.  
 
-       HTTP and cookie
-       authentication modes are recommended in a multi-user environment
-       where you want to give users access to their own database and don't want
-       them to play around with others.
-       Nevertheless be aware that MS Internet Explorer seems to be really buggy
-       about cookies, at least till version 6.
-       Even in a single-user environment, you might prefer to use
-       HTTP or cookie mode so
-       that your user/password pair are not in clear in the configuration file.
-       
-       HTTP and cookie
-       authentication modes are more secure: the MySQL login information does
-       not need to be set in the phpMyAdmin configuration file (except possibly
-       for the controluser).
-       However, keep in mind that the password travels in plain text, unless
-       you are using the HTTPS protocol.
-       In cookie mode, the password is stored, encrypted with the blowfish
-       algorithm, in a temporary cookie.
-       Note: this section is only applicable if
-       your MySQL server is running with --skip-show-database.
-       
-       For 'HTTP' and 'cookie'
-       modes, phpMyAdmin needs a controluser that has only the
-       SELECT privilege on the `mysql`.`user` (all columns except
-       `Password`), `mysql`.`db` (all columns), `mysql`.`host`
-       (all columns) and `mysql`.`tables_priv` (all columns except
-       `Grantor` and `Timestamp`) tables. You must specify the details
-       for the controluser in the config.inc.php
-       file under the
-       
-       $cfg['Servers'][$i]['controluser'] and
-       
-       $cfg['Servers'][$i]['controlpass'] settings.
-       The following example assumes you want to use pma as the
-       controluser and pmapass as the controlpass, but this is
-       only an example: use something else in your file! Input these
-       statements from the phpMyAdmin SQL
-       Query window or mysql command–line client.
-       Of course you have to replace localhost with the webserver's host
-       if it's not the same as the MySQL server's one.
-       
-       
-       GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-       GRANT SELECT (
-       Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-       Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-       File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
-       Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
-       Execute_priv, Repl_slave_priv, Repl_client_priv
-       ) ON mysql.user TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.db TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.host TO 'pma'@'localhost';
-       GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
-       ON mysql.tables_priv TO 'pma'@'localhost';
-       
-       If you want to use the many new relation and bookmark features:
-       
-       
-       GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
-       
-       
-       (this of course requires that your phpMyAdmin
-       configuration storage be set up).
-       
-       Then each of the true users should be granted a set of privileges
-       on a set of particular databases. Normally you shouldn't give global
-       privileges to an ordinary user, unless you understand the impact of those
-       privileges (for example, you are creating a superuser).
-       For example, to grant the user real_user with all privileges on
-       the database user_base:
-       
-       GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
-       
-       
-       What the user may now do is controlled entirely by the MySQL user
-       management system.
-       With HTTP or cookie
-       authentication mode, you don't need to fill the user/password fields
-       inside the $cfg['Servers']
-       array.
-
-
-* Then each of the *true* users should be granted a set of privileges on
-  a set of particular databases. Normally you shouldn't give global
-  privileges to an ordinary user, unless you understand the impact of
-  those privileges (for example, you are creating a superuser). For
-  example, to grant the user *real\_user* with all privileges on the
-  database *user\_base*:  What the user may now do is controlled
-  entirely by the MySQL user management system. With :abbr:`HTTP
-  (HyperText Transfer Protocol)` or cookie authentication mode, you
-  don't need to fill the user/password fields inside the  array.
-  .. code-block:: none
-
-       HTTP and cookie
-       authentication modes are recommended in a multi-user environment
-       where you want to give users access to their own database and don't want
-       them to play around with others.
-       Nevertheless be aware that MS Internet Explorer seems to be really buggy
-       about cookies, at least till version 6.
-       Even in a single-user environment, you might prefer to use
-       HTTP or cookie mode so
-       that your user/password pair are not in clear in the configuration file.
-       
-       HTTP and cookie
-       authentication modes are more secure: the MySQL login information does
-       not need to be set in the phpMyAdmin configuration file (except possibly
-       for the controluser).
-       However, keep in mind that the password travels in plain text, unless
-       you are using the HTTPS protocol.
-       In cookie mode, the password is stored, encrypted with the blowfish
-       algorithm, in a temporary cookie.
-       Note: this section is only applicable if
-       your MySQL server is running with --skip-show-database.
-       
-       For 'HTTP' and 'cookie'
-       modes, phpMyAdmin needs a controluser that has only the
-       SELECT privilege on the `mysql`.`user` (all columns except
-       `Password`), `mysql`.`db` (all columns), `mysql`.`host`
-       (all columns) and `mysql`.`tables_priv` (all columns except
-       `Grantor` and `Timestamp`) tables. You must specify the details
-       for the controluser in the config.inc.php
-       file under the
-       
-       $cfg['Servers'][$i]['controluser'] and
-       
-       $cfg['Servers'][$i]['controlpass'] settings.
-       The following example assumes you want to use pma as the
-       controluser and pmapass as the controlpass, but this is
-       only an example: use something else in your file! Input these
-       statements from the phpMyAdmin SQL
-       Query window or mysql command–line client.
-       Of course you have to replace localhost with the webserver's host
-       if it's not the same as the MySQL server's one.
-       
-       
-       GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-       GRANT SELECT (
-       Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-       Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-       File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
-       Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
-       Execute_priv, Repl_slave_priv, Repl_client_priv
-       ) ON mysql.user TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.db TO 'pma'@'localhost';
-       GRANT SELECT ON mysql.host TO 'pma'@'localhost';
-       GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
-       ON mysql.tables_priv TO 'pma'@'localhost';
-       
-       If you want to use the many new relation and bookmark features:
-       
-       
-       GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
-       
-       
-       (this of course requires that your phpMyAdmin
-       configuration storage be set up).
-       
-       Then each of the true users should be granted a set of privileges
-       on a set of particular databases. Normally you shouldn't give global
-       privileges to an ordinary user, unless you understand the impact of those
-       privileges (for example, you are creating a superuser).
-       For example, to grant the user real_user with all privileges on
-       the database user_base:
-       
-       GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
-       
-       
-       What the user may now do is controlled entirely by the MySQL user
-       management system.
-       With HTTP or cookie
-       authentication mode, you don't need to fill the user/password fields
-       inside the $cfg['Servers']
-       array.
-
-
+.. code-block:: sql
+   
+   GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
+   GRANT SELECT (
+   Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
+   Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
+   File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
+   Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
+   Execute_priv, Repl_slave_priv, Repl_client_priv
+   ) ON mysql.user TO 'pma'@'localhost';
+   GRANT SELECT ON mysql.db TO 'pma'@'localhost';
+   GRANT SELECT ON mysql.host TO 'pma'@'localhost';
+   GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
+   ON mysql.tables_priv TO 'pma'@'localhost';
+   
+If you want to use the many new relation and bookmark features:
+   
+.. code-block:: sql
+   
+   GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
+   
+(this of course requires that your phpMyAdmin
+configuration storage be set up).
+   
+Then each of the *true* users should be granted a set of privileges
+on a set of particular databases. Normally you shouldn't give global
+privileges to an ordinary user, unless you understand the impact of those
+privileges (for example, you are creating a superuser).
+For example, to grant the user *real_user* with all privileges on
+the database *user_base*:
+   
+.. code-block:: sql
+   
+   GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
+   
+   
+What the user may now do is controlled entirely by the MySQL user management
+system. With HTTP or cookie authentication mode, you don't need to fill the
+user/password fields inside the :ref:`cfg_Servers`.
 
 
 ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode
