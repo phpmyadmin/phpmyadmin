@@ -226,7 +226,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
  *                               $GLOBALS['cfg'][$section] for plugin
  * @param string  $plugin_name    unique plugin name
  * @param array   &$propertyGroup options property main group instance
- * @param boolean $is_subgroup
+ * @param boolean $is_subgroup    if this group is a subgroup
  *
  * @return string  table row with option
  */
