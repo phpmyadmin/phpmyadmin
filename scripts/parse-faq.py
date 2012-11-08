@@ -142,6 +142,7 @@ def parse_block(tag):
                         print joiner.join(textwrap.wrap(text)).encode('utf-8')
                         print
                 elif item.name == 'pre':
+                    print
                     print indent + '.. code-block:: none'
                     print
                     for line in tag.text.splitlines():

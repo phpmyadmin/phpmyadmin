@@ -58,7 +58,7 @@ okay for a particular setting, there is no need to include it in
 ``config.inc.php``. You'll need a few directives to get going, a
 simple configuration may look like this:
 
-.. code-block:: none
+.. code-block:: php
 
     
     <?php
@@ -71,7 +71,7 @@ simple configuration may look like this:
 
 Or, if you prefer to not be prompted every time you log in:
 
-.. code-block:: none
+.. code-block:: php
 
     
     <?php
@@ -96,7 +96,7 @@ Script <setup/>`_. First you must manually create a folder ``config``
 in the phpMyAdmin directory. This is a security measure. On a
 Linux/Unix system you can use the following commands:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     cd phpMyAdmin
@@ -105,7 +105,7 @@ Linux/Unix system you can use the following commands:
 
 And to edit an existing configuration, copy it over first:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     cp config.inc.php config/           # copy current configuration for editing
@@ -129,7 +129,7 @@ Once the file has been saved, it must be moved out of the ``config/``
 directory and the permissions must be reset, again as a security
 measure:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     mv config/config.inc.php .         # move file to current directory
