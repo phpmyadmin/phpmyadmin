@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-07 13:10-0500\n"
-"PO-Revision-Date: 2012-11-05 10:26+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"PO-Revision-Date: 2012-11-08 22:33+0200\n"
+"Last-Translator: Myroslav Kosinskyi <km@ub.ua>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.3-dev\n"
@@ -5232,7 +5232,7 @@ msgstr "Таблиці, що були недавно використані"
 
 #: libraries/config/messages.inc.php:322
 msgid "These are Edit, Copy and Delete links"
-msgstr ""
+msgstr "Посилання для редагування, копіювання та видалення"
 
 #: libraries/config/messages.inc.php:323
 msgid "Where to show the table row links"
@@ -5350,7 +5350,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:349
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Висота вікна запиту(в пікселях)"
 
 #: libraries/config/messages.inc.php:350
 msgid "Query window height"
@@ -5468,7 +5468,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
-msgstr ""
+msgstr "Таблиця закладок"
 
 #: libraries/config/messages.inc.php:378
 msgid ""
@@ -5478,15 +5478,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
-msgstr ""
+msgstr "Таблиця інформації про колонки"
 
 #: libraries/config/messages.inc.php:380
 msgid "Compress connection to MySQL server"
-msgstr ""
+msgstr "Стискати з’єднання до MySQL сервера"
 
 #: libraries/config/messages.inc.php:381
 msgid "Compress connection"
-msgstr ""
+msgstr "Стискати з’єднання"
 
 #: libraries/config/messages.inc.php:382
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
@@ -5494,7 +5494,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383
 msgid "Connection type"
-msgstr ""
+msgstr "Тип з’єднання"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user password"
@@ -5524,11 +5524,11 @@ msgstr "Довільний хост"
 
 #: libraries/config/messages.inc.php:389
 msgid "Count tables when showing database list"
-msgstr ""
+msgstr "Кількість таблиць при показі списку бази даних"
 
 #: libraries/config/messages.inc.php:390
 msgid "Count tables"
-msgstr ""
+msgstr "Кількість таблиць"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
@@ -5548,11 +5548,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "Деактивувати використання INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:395
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
+"Які розширення PHP використовувати; слід використовувати mysqli, якщо "
+"підтримується"
 
 #: libraries/config/messages.inc.php:396
 msgid "PHP extension to use"
@@ -5564,7 +5566,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:398
 msgid "Hide databases"
-msgstr ""
+msgstr "Приховати бази даних"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
@@ -5574,19 +5576,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
-msgstr ""
+msgstr "Таблиця історії SQL запитів"
 
 #: libraries/config/messages.inc.php:401
 msgid "Hostname where MySQL server is running"
-msgstr ""
+msgstr "Ім’я сервера де запущений MySQL сервер"
 
 #: libraries/config/messages.inc.php:402
 msgid "Server hostname"
-msgstr ""
+msgstr "Назва сервера"
 
 #: libraries/config/messages.inc.php:403
 msgid "Logout URL"
-msgstr ""
+msgstr "URL для виходу"
 
 #: libraries/config/messages.inc.php:404
 msgid ""
@@ -5600,11 +5602,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
-msgstr ""
+msgstr "Спробувати з’єднатись буз паролю"
 
 #: libraries/config/messages.inc.php:407
 msgid "Connect without password"
-msgstr ""
+msgstr "З’єднатись без паролю"
 
 #: libraries/config/messages.inc.php:408
 msgid ""
@@ -5621,11 +5623,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:410 libraries/config/messages.inc.php:451
 msgid "Leave empty if not using config auth"
-msgstr ""
+msgstr "Залишити пустим, якщо не використовувати config auth"
 
 #: libraries/config/messages.inc.php:411
 msgid "Password for config auth"
-msgstr ""
+msgstr "Пароль для config auth"
 
 #: libraries/config/messages.inc.php:412
 msgid ""
@@ -5650,10 +5652,12 @@ msgstr "Ім'я бази даних"
 #: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
+"Порт на якому MySQL сервер прослуховується, залишити пустим для значення за "
+"замовчуванням"
 
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
-msgstr ""
+msgstr "Порт сервера"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -5690,6 +5694,8 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Дивись [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] для прикладу"
 
 #: libraries/config/messages.inc.php:425
 msgid "Signon session name"
@@ -5709,7 +5715,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:429
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Активувати SSL для з’єднання з MySQL сервером"
 
 #: libraries/config/messages.inc.php:430
 msgid "Use SSL"
@@ -13265,10 +13271,9 @@ msgid "Percentage of aborted connections"
 msgstr "З'єднань"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Забагато перерваних з’єднань."
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13296,16 +13301,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "Зміст"
+msgstr "Відсоток перерваних з’єднань"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Забагато перерваних з’єднань."
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
@@ -13320,29 +13323,29 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Rate of aborted clients"
-msgstr "Зміст"
+msgstr "Кількість перерваних з’єднаннь"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Кількість відмов обслуговування клієнта %s, ця величина має бути меншою ніж "
+"1 за годину"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB не активний?"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
-msgstr "Неможливо зберегти останню таблицю"
+msgstr "Не ввімкнути підтримка InnoDB."
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB зазвичай найкращий вибір типу таблиці."
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
