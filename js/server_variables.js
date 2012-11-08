@@ -4,7 +4,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_variables.js', function() {
-    $('#serverVariables .variable_row').unbind('hover');
+    $('#serverVariables .var-row').unbind('hover');
     $('#filterText').unbind('keyup');
 });
 
@@ -17,9 +17,9 @@ AJAX.registerOnload('server_variables.js', function() {
     $cancelLink = $('a.cancelLink');
 
     /* Variable editing */
-    $('#serverVariables .variable_row').hover(
+    $('#serverVariables .var-row').hover(
         function() {
-            var $elm = $(this).find('.variable_value');
+            var $elm = $(this).find('.var-value');
             // Only add edit element if the element is not being edited
             if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
                 $elm.prepend($editLink.clone().show());
@@ -51,7 +51,7 @@ AJAX.registerOnload('server_variables.js', function() {
     /* Filters the rows by the user given regexp */
     function filterVariables() {
         var mark_next = false, firstCell, odd_row = false;
-        $('#serverVariables .variable_row').not('.variable_header').each(function() {
+        $('#serverVariables .var-row').not('.var-header').each(function() {
             firstCell = $(this).children(':first');
             if (mark_next || textFilter == null || textFilter.exec(firstCell.text())) {
                 // If current global value is different from session value
@@ -77,7 +77,7 @@ AJAX.registerOnload('server_variables.js', function() {
 /* Called by inline js. Allows the user to edit a server variable */
 function editVariable(link)
 {
-    var varName = $(link).closest('.variable_row').find('.variable_name').text().replace(/ /g,'_');
+    var varName = $(link).closest('.var-row').find('.var-name').text().replace(/ /g,'_');
     var $mySaveLink = $saveLink.clone().show();
     var $myCancelLink = $cancelLink.clone().show();
     var $cell = $(link).parent();

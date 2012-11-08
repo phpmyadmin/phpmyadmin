@@ -152,9 +152,9 @@ $output .= '<fieldset id="tableFilter">'
     . '</fieldset>';
 
 $output .= '<div id="serverVariables" class="data filteredData noclick">'
-    . '<div class="variable_header variable_row">'
-    . '<div class="variable_name">' .  __('Variable') . '</div>'
-    . '<div class="variable_value valueHeader">'
+    . '<div class="var-header var-row">'
+    . '<div class="var-name">' .  __('Variable') . '</div>'
+    . '<div class="var-value valueHeader">'
     . __('Session value') . ' / ' . __('Global value')
     . '</div>'
     . '<div style="clear:both"></div>'
@@ -167,8 +167,8 @@ foreach ($serverVars as $name => $value) {
     $row_class = ($odd_row ? ' odd' : ' even')
         . ($has_session_value ? ' diffSession' : '');
 
-    $output .= '<div class="variable_row ' . $row_class . '">'
-        . '<div class="variable_name">';
+    $output .= '<div class="var-row ' . $row_class . '">'
+        . '<div class="var-name">';
 
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
@@ -188,17 +188,17 @@ foreach ($serverVars as $name => $value) {
         $output .= htmlspecialchars(str_replace('_', ' ', $name));
     }
     $output .= '</div>'
-        . '<div class="variable_value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
+        . '<div class="var-value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
         . formatVariable($name, $value)
         . '</div>'
         . '<div style="clear:both"></div>'
         . '</div>';
 
     if ($has_session_value) {
-        $output .= '<div class="variable_row ' . ($odd_row ? ' odd' : ' even') . '">'
-            . '<div class="variable_name session">(' . __('Session value') . ')</div>'
-            . '<div class="variable_value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
-            . '<div class="variable_doc value"></div>'
+        $output .= '<div class="var-row ' . ($odd_row ? ' odd' : ' even') . '">'
+            . '<div class="var-name session">(' . __('Session value') . ')</div>'
+            . '<div class="var-value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
+            . '<div class="var-doc value"></div>'
             . '<div style="clear:both"></div>'
             . '</div>';
     }

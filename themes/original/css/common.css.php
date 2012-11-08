@@ -1164,34 +1164,34 @@ div#logTable table {
 #serverVariables {
     min-width: 30em;
 }
-#serverVariables .variable_row > div {
+#serverVariables .var-row > div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-#serverVariables .variable_header {
+#serverVariables .var-header {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
-#serverVariables .variable_header .variable_value {
+#serverVariables .var-header .var-value {
     text-align: <?php echo $left; ?>;
 }
-#serverVariables .variable_row {
+#serverVariables .var-row {
     padding: 0.5em;
     min-height: 18px;
 }
-#serverVariables .variable_name {
+#serverVariables .var-name {
     width: 45%;
     float: <?php echo $left; ?>;
     font-weight: bold;
 }
-#serverVariables .variable_name.session {
+#serverVariables .var-name.session {
     font-weight: normal;
     font-style: italic;
 }
-#serverVariables .variable_value {
+#serverVariables .var-value {
     width: 50%;
     float: <?php echo $right; ?>;
     text-align: <?php echo $right; ?>;
