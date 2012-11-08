@@ -5,6 +5,12 @@ import textwrap
 
 whitespace = re.compile('[ \r\n]+')
 
+def format_text(text):
+    '''
+    Preprocess text to be rst friendly.
+    '''
+    return whitespace.sub(' ', text).strip().replace('*', '\\*')
+
 print 'Frequently asked questions'
 print '=========================='
 print
@@ -30,12 +36,12 @@ for tag in s.html.body:
     elif tag.name in ('h4', 'h5'):
         print '.. _%s:' % tag.get('id').replace('faq', 'faq_')
         print
-        text = whitespace.sub(' ', tag.text).strip()
+        text = format_text(tag.text)
         print text.encode('utf-8')
         print '-' * len(text)
         print
     elif tag.name == 'p':
-        text = whitespace.sub(' ', tag.text).strip()
+        text = format_text(tag.text)
         print textwrap.fill(text).encode('utf-8')
         print
     elif tag.name in ('ul', 'ol'):
@@ -50,7 +56,7 @@ for tag in s.html.body:
 
             if li.name != 'li':
                 raise Exception('UL contains %s' % li.name)
-            text = whitespace.sub(' ', li.text).strip()
+            text = format_text(li.text)
             if tag.name == 'ul':
                 print '*',
                 print '\n  '.join(textwrap.wrap(text)).encode('utf-8')

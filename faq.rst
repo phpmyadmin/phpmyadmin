@@ -464,7 +464,7 @@ Suhosin configuration might lead to malfunction in some cases and it
 can not be fully avoided as phpMyAdmin is kind of application which
 needs to transfer big amounts of columns in single HTTP request, what
 is something what Suhosin tries to prevent. Generally all
-suhosin.request.*, suhosin.post.* and suhosin.get.* directives can
+suhosin.request.\*, suhosin.post.\* and suhosin.get.\* directives can
 have negative effect on phpMyAdmin usability. You can always find in
 your error logs which limit did cause dropping of variable, so you can
 diagnose the problem and adjust matching configuration variable.
@@ -481,7 +481,7 @@ parameters:
 * suhosin.post.max_totalname_length should be increased (eg. 8192)
 * suhosin.get.max_value_length should be increased (eg. 1024)
 * suhosin.sql.bailout_on_error needs to be disabled (the default)
-* suhosin.log.* should not include SQL, otherwise you get big slowdown
+* suhosin.log.\* should not include SQL, otherwise you get big slowdown
 
 You can also disable the warning using the SuhosinDisableWarning
 directive.
@@ -512,7 +512,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
     ProxyPassReverseCookiePath / /mirror/foo/
 
 Note: if the backend url looks like http://host/~user/phpmyadmin, the
-tilde (~) must be url encoded as %7E in the ProxyPassReverse* lines.
+tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
 .. code-block:: none
@@ -1450,7 +1450,7 @@ Structure:
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
 * "Add into comments" includes column comments, relations, and MIME
-  types set in the pmadb in the dump as SQL comments (/* xxx */).
+  types set in the pmadb in the dump as SQL comments (/\* xxx \*/).
 
 Data:
 
@@ -1539,29 +1539,29 @@ stored a bookmark, it is related to the database you run the query on.
 You can now access a bookmark dropdown on each page, the query box
 appears on for that database. Since phpMyAdmin 2.5.0 you are also able
 to store variables for the bookmarks. Just use the string
-/*[VARIABLE]*/ anywhere in your query. Everything which is put into
+/\*[VARIABLE]\*/ anywhere in your query. Everything which is put into
 the value input box on the query box page will replace the string
-"/*[VARIABLE]*/" in your stored query. Just be aware of that you HAVE
-to create a valid query, otherwise your query won't be even able to be
-stored in the database. Also remember, that everything else inside the
-/*[VARIABLE]*/ string for your query will remain the way it is, but
-will be stripped of the /**/ chars. So you can use: /*, [VARIABLE] AS
-myname */ which will be expanded to , VARIABLE as myname in your
-query, where VARIABLE is the string you entered in the input box. If
-an empty string is provided, no replacements are made. A more complex
-example. Say you have stored this query: SELECT Name, Address FROM
-addresses WHERE 1 /* AND Name LIKE '%[VARIABLE]%' */ Say, you now
-enter "phpMyAdmin" as the variable for the stored query, the full
-query will be: SELECT Name, Address FROM addresses WHERE 1 AND Name
-LIKE '%phpMyAdmin%' You can use multiple occurrences of /*[VARIABLE]*/
-in a single query (that is, multiple occurrences of the same
-variable). NOTE THE ABSENCE OF SPACES inside the "/**/" construct. Any
-spaces inserted there will be later also inserted as spaces in your
-query and may lead to unexpected results especially when using the
-variable expansion inside of a "LIKE ''" expression. Your initial
-query which is going to be stored as a bookmark has to yield at least
-one result row so you can store the bookmark. You may have that to
-work around using well positioned "/**/" comments.
+"/\*[VARIABLE]\*/" in your stored query. Just be aware of that you
+HAVE to create a valid query, otherwise your query won't be even able
+to be stored in the database. Also remember, that everything else
+inside the /\*[VARIABLE]\*/ string for your query will remain the way
+it is, but will be stripped of the /\*\*/ chars. So you can use: /\*,
+[VARIABLE] AS myname \*/ which will be expanded to , VARIABLE as
+myname in your query, where VARIABLE is the string you entered in the
+input box. If an empty string is provided, no replacements are made. A
+more complex example. Say you have stored this query: SELECT Name,
+Address FROM addresses WHERE 1 /\* AND Name LIKE '%[VARIABLE]%' \*/
+Say, you now enter "phpMyAdmin" as the variable for the stored query,
+the full query will be: SELECT Name, Address FROM addresses WHERE 1
+AND Name LIKE '%phpMyAdmin%' You can use multiple occurrences of
+/\*[VARIABLE]\*/ in a single query (that is, multiple occurrences of
+the same variable). NOTE THE ABSENCE OF SPACES inside the "/\*\*/"
+construct. Any spaces inserted there will be later also inserted as
+spaces in your query and may lead to unexpected results especially
+when using the variable expansion inside of a "LIKE ''" expression.
+Your initial query which is going to be stored as a bookmark has to
+yield at least one result row so you can store the bookmark. You may
+have that to work around using well positioned "/\*\*/" comments.
 
 .. _faq_6_19:
 
