@@ -124,11 +124,11 @@ $output = '<h2>' . PMA_Util::getImage('s_vars.png')
  * Link templates
  */
 $url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url($db));
-$output .= '<a href="#" class="editLink hide" onclick="return editVariable(this);">';
+$output .= '<a style="display: none;" href="#" class="editLink" onclick="return editVariable(this);">';
 $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
-$output .= '<a href="' . $url . '" class="ajax saveLink hide">';
+$output .= '<a style="display: none;" href="' . $url . '" class="ajax saveLink">';
 $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
-$output .= '<a href="#" class="cancelLink hide">';
+$output .= '<a style="display: none;" href="#" class="cancelLink">';
 $output .= PMA_Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
 
 
