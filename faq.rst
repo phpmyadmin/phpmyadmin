@@ -1911,6 +1911,15 @@ If you use Apache web server, phpMyAdmin exports information about
 authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
 
+
+``userID``
+    User name of currently active user (he does not have to be logged in).
+``userStatus``
+    Status of currently active user, one of ``ok`` (user is logged in),
+    ``mysql-denied`` (MySQL denied user login), ``allow-denied`` (user denied
+    by allow/deny rules), ``root-denied`` (root is denied in configuration),
+    ``empty-denied`` (empty password is denied).
+
 ``LogFormat`` directive for Apache can look like following:
 
 .. code-block:: none
