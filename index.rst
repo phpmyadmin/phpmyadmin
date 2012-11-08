@@ -11,9 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   introduction.rst
-   installation.rst
-   faq.rst
+   introduction
+   installation
+   faq
 
 
 
