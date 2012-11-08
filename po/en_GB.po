@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-07 13:10-0500\n"
-"PO-Revision-Date: 2012-09-19 14:18+0200\n"
-"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2012-11-08 18:56+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:808
@@ -1937,22 +1937,19 @@ msgid "More"
 msgstr "More"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Show all"
+msgstr "Show Panel"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Hide indexes"
+msgstr "Hide Panel"
 
 #: js/messages.php:377
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "The selected user was not found in the privilege table."
+msgstr "The requested page was not found in the history, it may have expired."
 
 #: js/messages.php:380 setup/lib/index.lib.php:188
 #, php-format
@@ -4542,16 +4539,14 @@ msgid "Databases display options"
 msgstr "Databases display options"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigation frame"
+msgstr "Navigation panel"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Customise appearance of the navigation frame"
+msgstr "Customize appearance of the navigation panel"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4567,10 +4562,9 @@ msgid "Tables display options"
 msgstr "Tables display options"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Main frame"
+msgstr "Main panel"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4684,16 +4678,14 @@ msgid "Customize import defaults"
 msgstr "Customise import defaults"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Customise navigation frame"
+msgstr "Customise navigation panel"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Customise main frame"
+msgstr "Customise main panel"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4973,21 +4965,21 @@ msgid "Users cannot set a higher value"
 msgstr "Users cannot set a higher value"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Maximum number of tables displayed in table list"
+msgstr "Maximum number of databases displayed in database list"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Maximum databases"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "The number of joins that did a full scan of the first table."
+msgstr ""
+"The number of items that can be displayed on each page of the navigation "
+"tree"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
@@ -5040,20 +5032,18 @@ msgid "Memory limit"
 msgstr "Memory limit"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Show logo in left frame"
+msgstr "Show logo in navigation panel"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Display logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL where logo in the navigation frame will point to"
+msgstr "URL where logo in the navigation panel will point to"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5072,10 +5062,9 @@ msgid "Logo link target"
 msgstr "Logo link target"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Display server choice at the top of the left frame"
+msgstr "Display server choice at the top of the navigation panel"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
