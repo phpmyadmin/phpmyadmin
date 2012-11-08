@@ -17,7 +17,7 @@ Requirements
   * You need GD2 support in PHP to display inline thumbnails of JPEGs
     ("image/jpeg: inline") with their original aspect ratio.
 
-  * When using the "cookie" , the ```mcrypt``
+  * When using the "cookie" , the `mcrypt
     <http://www.php.net/mcrypt>`_ extension is strongly suggested for most
     users and is **required** for 64–bit machines. Not using mcrypt will
     cause phpMyAdmin to load pages significantly slower.
@@ -25,7 +25,7 @@ Requirements
   * To support upload progress bars, see :ref:`faq2_9`.
 
   * To support XML and Open Document Spreadsheet importing, you need PHP
-    5.2.17 or newer and the ```libxml`` <http://www.php.net/libxml>`_
+    5.2.17 or newer and the `libxml <http://www.php.net/libxml>`_
     extension.
 
 * **MySQL** 5.0 or newer (see :ref:`faq1_17`);
