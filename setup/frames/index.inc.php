@@ -19,7 +19,7 @@ require_once './setup/lib/index.lib.php';
 
 // prepare unfiltered language list
 $all_languages = PMA_langList();
-uasort($all_languages, 'PMA_language_cmp');
+uasort($all_languages, 'PMA_languageCmp');
 
 $cf = ConfigFile::getInstance();
 $separator = PMA_get_arg_separator('html');
