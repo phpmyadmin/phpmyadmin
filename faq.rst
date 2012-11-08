@@ -800,8 +800,8 @@ a # before it: --
 
 .. _faq_3_5:
 
-3.5 When using nested folders there are some multiple hierarchies displayed in a wrong manner?! ($cfg['LeftFrameTableSeparator'])
----------------------------------------------------------------------------------------------------------------------------------
+3.5 When using nested folders there are some multiple hierarchies displayed in a wrong manner?! ($cfg['NavigationTreeTableSeparator'])
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Please note that you should not use the separating string multiple
 times without any characters between them, or at the beginning/end of
@@ -1276,13 +1276,13 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 6.4 How can I backup my database or table?
 ------------------------------------------
 
-Click on a database or table name in the left frame, the properties
-will be displayed. Then on the menu, click "Export", you can dump the
-structure, the data, or both. This will generate standard SQL
-statements that can be used to recreate your database/table. You will
-need to choose "Save as file", so that phpMyAdmin can transmit the
-resulting dump to your station. Depending on your PHP configuration,
-you will see options to compress the dump. See also the
+Click on a database or table name in the navigation panel, the
+properties will be displayed. Then on the menu, click "Export", you
+can dump the structure, the data, or both. This will generate standard
+SQL statements that can be used to recreate your database/table. You
+will need to choose "Save as file", so that phpMyAdmin can transmit
+the resulting dump to your station. Depending on your PHP
+configuration, you will see options to compress the dump. See also the
 $cfg['ExecTimeLimit'] configuration variable. For additional help on
 this subject, look for the word "dump" in this document.
 
@@ -1291,8 +1291,8 @@ this subject, look for the word "dump" in this document.
 6.5 How can I restore (upload) my database or table using a dump? How can I run a ".sql" file?
 ----------------------------------------------------------------------------------------------
 
-Click on a database name in the left frame, the properties will be
-displayed. Select "Import" from the list of tabs in the right–hand
+Click on a database name in the navigation panel, the properties will
+be displayed. Select "Import" from the list of tabs in the right–hand
 frame (or "SQL" if your phpMyAdmin version is previous to 2.7.0). In
 the "Location of the text file" section, type in the path to your dump
 filename, or use the Browse button. Then click Go. With version 2.7.0,
@@ -1352,7 +1352,7 @@ To setup appropriate links and display information:
 
 Then test like this:
 
-* Click on your db name in the left frame
+* Click on your db name in the navigation panel
 * Choose "Query"
 * Use tables: persons, towns, countries
 * Click "Update query"
@@ -1384,7 +1384,7 @@ First the configuration variables "relation", "table_coords" and
 "pdf_pages" have to be filled in. Then you need to think about your
 schema layout. Which tables will go on which pages?
 
-* Select your database in the left frame.
+* Select your database in the navigation panel.
 * Choose "Operations" in the navigation bar at the top.
 * Choose "Edit PDF Pages" near the bottom of the page.
 * Enter a name for the first PDF page and click Go. If you like, you can
@@ -1842,59 +1842,11 @@ Synchronization
 
 .. _faq_9_1:
 
-9.1 How can I synchronize two databases/tables in phpMyAdmin?
--------------------------------------------------------------
-
-You can now synchronize databases/tables in phpMyAdmin using the
-Synchronize feature. It allows you to connect to local as well as
-remote servers. This requires you to enter server host name, username,
-password, port and the name of the database. Therefore you can now
-synchronize your databases placed on the same server or some remote
-server.
-
-This feature is helpful for developers who need to replicate their
-database’s structure as well as data. Moreover, this feature not only
-helps replication but also facilitates the user to keep his/her
-database in sync with another database. Other than the full database,
-certain tables of the databases can also be synchronized.
-
-You need to fill in the host name of the server, the username and
-password of an user account already there in MySQL. Port is by default
-populated with 3306 (MySQL default port). Then the name of the
-database should be mentioned at the end. All the information other
-than the port needs to be filled explicitly for the source as well as
-target servers.
-
-After successfully passing through the authentication phase, the
-source and target database table names will be displayed. It will be a
-tabular representation.
-
-On the left, are listed the source database table names. Some of the
-names have a + plus sign preceding them. This shows that these tables
-are only present in source database and they need to be added to the
-target database in order to synchronize the target database. The
-tables whose names are not preceded by a + sign are already present in
-the target database.
-
-On the right, are listed the target database table names. There are
-few table names that have (not present) appended after their names.
-This means that these tables are to be created in target database in
-order to synchronize target database with source database. Some table
-names have a - minus sign preceding them. This shows that these tables
-are only present in target database and they will remain unchanged in
-the target database. The column in the middle shows the difference
-between the source and target corresponding tables.
-
-The difference is depicted by the red and green buttons with S and D
-letters, indicating that either Structure or Data are not up to date.
-By clicking on them, they will turn grey, what means that they will be
-synchronized.
+9.1 (withdrawn)
+---------------
 
 .. _faq_9_2:
 
-9.2 Are there problems with data synchronizing large tables?
-------------------------------------------------------------
-
-Yes. This aspect of synchronization is currently limited to small
-tables, and they must have a primary key.
+9.2 (withdrawn)
+---------------
 

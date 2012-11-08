@@ -5,6 +5,10 @@ import textwrap
 
 whitespace = re.compile('[ \r\n]+')
 
+print 'Frequently asked questions'
+print '=========================='
+print
+
 s = BeautifulSoup(file(sys.argv[1]).read())
 
 for tag in s.html.body:
