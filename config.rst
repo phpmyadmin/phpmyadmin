@@ -65,7 +65,7 @@ Basic settings
     that will analyze why those features have been disabled.
     
     If you do not
-    want to use those features set this variable to ``TRUE`` to stop this
+    want to use those features set this variable to ``true`` to stop this
     message from appearing.
 
 .. config:option:: $cfg['SuhosinDisableWarning']
@@ -74,7 +74,7 @@ Basic settings
     :default: false
 
     A warning is displayed on the main page if Suhosin is detected. You
-    can set this parameter to ``TRUE`` to stop this message from
+    can set this parameter to ``true`` to stop this message from
     appearing.
 
 .. config:option:: $cfg['McryptDisableWarning']
@@ -83,7 +83,7 @@ Basic settings
     :default: false
 
     Disable the default warning that is displayed if mcrypt is missing for
-    cookie authentication. You can set this parameter to ``TRUE`` to stop
+    cookie authentication. You can set this parameter to ``true`` to stop
     this message from appearing.
 
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
@@ -93,7 +93,7 @@ Basic settings
 
     A warning is displayed on the main page if there is a difference
     between the MySQL library and server version. You can set this
-    parameter to ``TRUE`` to stop this message from appearing.
+    parameter to ``true`` to stop this message from appearing.
 
 .. config:option:: $cfg['TranslationWarningThreshold']
 
@@ -1144,7 +1144,7 @@ Generic settings
     :default: false
 
     Defines whether normal users (non-administrator) are allowed to delete
-    their own database or not. If set as FALSE, the link "Drop Database"
+    their own database or not. If set as false, the link "Drop Database"
     will not be shown, and even a "DROP DATABASE mydatabase" will be
     rejected. Quite practical for :abbr:`ISP (Internet service
     provider)`'s with many customers. 
@@ -1282,7 +1282,7 @@ Navigation panel setup
 
     Defines a string to be used to nest table spaces. This means if you have
     tables like 'first\_\_second\_\_third' this will be shown as a three-level
-    hierarchy like: first > second > third.  If set to FALSE or empty, the
+    hierarchy like: first > second > third.  If set to false or empty, the
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
     any other characters in between.
@@ -1483,7 +1483,7 @@ Browse mode
     :default: true
 
     Defines whether navigation bar buttons and the right panel top menu
-    contain text or symbols only. A value of TRUE displays icons, FALSE
+    contain text or symbols only. A value of true displays icons, false
     displays text and 'both' displays both icons and text.
 
 .. config:option:: $cfg['ShowAll']
@@ -1550,7 +1550,7 @@ Editing mode
     Defines whether ``BLOB`` or ``BINARY`` columns are protected from
     editing when browsing a table's content. Valid values are:
 
-    * ``FALSE`` to allow editing of all columns;
+    * ``false`` to allow editing of all columns;
     * ``'blob'`` to allow editing of all columns except ``BLOBS``;
     * ``'noblob'`` to disallow editing of all columns except ``BLOBS`` (the
       opposite of ``'blob'``);
@@ -1702,10 +1702,10 @@ Tabs display settings
     :type: string
     :default: ``'both'``
 
-    If set to ``TRUE``, will display icons instead of text for db and
+    If set to ``true``, will display icons instead of text for db and
     table properties links (like 'Browse', 'Select', 'Insert', ...). Can
     be set to ``'both'`` if you want icons AND text. When set to
-    ``FALSE``, will only show text.
+    ``false``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
@@ -1908,7 +1908,7 @@ Web server settings
     it's not world writable. However, phpMyAdmin could be installed on a
     NTFS filesystem mounted on a non-Windows server, in which case the
     permissions seems wrong but in fact cannot be detected. In this case a
-    sysadmin would set this parameter to ``FALSE``.
+    sysadmin would set this parameter to ``false``.
 
 .. config:option:: $cfg['LinkLengthLimit']
 
@@ -2057,7 +2057,7 @@ Design customization
     :type: boolean
     :default: true
 
-    A value of ``TRUE`` activates the navi pointer.
+    A value of ``true`` activates the navi pointer.
 
 .. config:option:: $cfg['BrowsePointerEnable']
 
@@ -2176,7 +2176,7 @@ Design customization
     :type: boolean
     :default: true
 
-    By setting the corresponding variable to ``TRUE`` you can enable the
+    By setting the corresponding variable to ``true`` you can enable the
     display of column comments in Browse or Property display. In browse
     mode, the comments are shown inside the header. In property mode,
     comments are displayed using a CSS-formatted dashed-line below the
@@ -2386,9 +2386,9 @@ Various display setting
     the link puts the :abbr:`SQL (structured query language)` query in the
     right panel's query box.  
 
-    If :config:option:`$cfg['QueryHistoryDB']` is set to ``TRUE``, all your
+    If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
     Queries are logged to a table, which has to be created by you (see
-    :config:option:`$cfg['Servers'][$i]['history']`). If set to FALSE, all your
+    :config:option:`$cfg['Servers'][$i]['history']`). If set to false, all your
     queries will be appended to the form, but only as long as your window is
     opened they remain saved.  
 
@@ -2404,7 +2404,7 @@ Various display setting
     the button whenever you definitely want the query window to get updated
     even though you have made alterations. 
 
-    If :config:option:`$cfg['QueryHistoryDB']` is set to ``TRUE`` you can
+    If :config:option:`$cfg['QueryHistoryDB']` is set to ``true`` you can
     specify the amount of saved history items using
     :config:option:`$cfg['QueryHistoryMax']`. 
 

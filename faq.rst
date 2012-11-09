@@ -18,7 +18,7 @@ Server
 1.1 My server is crashing each time a specific action is required or phpMyAdmin sends a blank page or a page full of cryptic characters to my browser, what can I do?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Try to set the :config:option:`$cfg['OBGzip']`  directive to ``FALSE`` in your :file:`config.inc.php` file
+Try to set the :config:option:`$cfg['OBGzip']`  directive to ``false`` in your :file:`config.inc.php` file
 and the ``zlib.output_compression`` directive to ``Off`` in your php
 configuration file.
 
@@ -681,7 +681,7 @@ server.html>`_.
 2.4 Nothing is displayed by my browser when I try to run phpMyAdmin, what can I do?
 -----------------------------------------------------------------------------------
 
-Try to set the :config:option:`$cfg['OBGzip']` directive to ``FALSE`` in the phpMyAdmin configuration
+Try to set the :config:option:`$cfg['OBGzip']` directive to ``false`` in the phpMyAdmin configuration
 file. It helps sometime. Also have a look at your PHP version number:
 if it contains "b" or "alpha" it means you're running a testing
 version of PHP. That's not a so good idea, please upgrade to a plain
