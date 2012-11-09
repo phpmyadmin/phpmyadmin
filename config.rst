@@ -1,3 +1,5 @@
+.. index:: config.inc.php
+
 .. _config:
 
 Configuration

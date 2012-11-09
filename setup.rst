@@ -88,6 +88,8 @@ Or, if you prefer to not be prompted every time you log in:
 For a full explanation of possible configuration values, see the 
 :ref:`config` of this document.
 
+.. index:: Setup script
+
 .. _setup_script:
 
 Using Setup script
@@ -165,6 +167,11 @@ options which the setup script does not provide.
    webserver or limit access by web server configuration, see
    :ref:`faq1_42`.
 
+.. index:: 
+    single: Configuration storage
+    single: phpMyAdmin configuration storage
+    single: pmadb
+
 .. _linked-tables:
 
 phpMyAdmin configuration storage
@@ -220,6 +227,8 @@ If you have upgraded your MySQL server from a version previous to
 configuration storage, you should run the :abbr:`SQL (structured query
 language)` script found in
 :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
+
+.. index:: Authentication modes
 
 .. _authentication_modes:
 
@@ -308,6 +317,7 @@ What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
 
+.. index:: pair: HTTP; Authentication mode
 
 HTTP authentication mode
 ------------------------
@@ -322,6 +332,7 @@ HTTP authentication mode
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode.
 
+.. index:: pair: Cookie; Authentication mode
 
 Cookie authentication mode
 --------------------------
@@ -337,6 +348,7 @@ Cookie authentication mode
 * As mentioned in the  section, having the ``mcrypt`` extension will
   speed up access considerably, but is not required.
 
+.. index:: pair: Signon; Authentication mode
 
 Signon authentication mode
 --------------------------
@@ -347,6 +359,7 @@ Signon authentication mode
   data.
 * More details in the  section.
 
+.. index:: pair: Config; Authentication mode
 
 Config authentication mode
 --------------------------
