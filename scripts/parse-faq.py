@@ -5,6 +5,18 @@ import textwrap
 
 whitespace = re.compile('[ \r\n]+')
 
+def get_id_from_cfg(text):
+    '''
+    Formats anchor ID from config option.
+    '''
+    if text[:6] == '$cfg[\'':
+        text = text[6:]
+    if text[-2:] == '\']':
+        text = text[:-2]
+    text = text.replace('[$i]', '')
+    parts = text.split("']['")
+    return 'cfg_%s' % '_'.join(parts)
+
 def format_content(tag, ignore_links = False, skip = (), document_mode = False):
     '''
     Parses inline html content.
@@ -169,6 +181,7 @@ def parse_block(tag):
         print
 
     elif tag.name == 'dl':
+        cfg = False
         for li in tag:
             # skip empty
             if isinstance(li, NavigableString) and li.string.strip() == '':
@@ -179,14 +192,65 @@ def parse_block(tag):
                 continue
 
             if li.name == 'dt':
-                print_id(li)
-                for subtag in li:
-                    if not isinstance(subtag, NavigableString) and subtag.get('id') is not None:
-                        print_id(subtag)
-                text = format_content(li).encode('utf-8')
-                print text
-                print '-' * len(text)
-                print
+                dt_id = li.get('id')
+                cfg = dt_id is not None and ('cfg' in dt_id or 'servers' in dt_id or 'control' in dt_id or 'bookmark' in dt_id or 'table' in dt_id or 'pmadb' in dt_id or 'relation' in dt_id or 'col_com' in dt_id or 'history' in dt_id or 'recent' in dt_id or 'tracking' in dt_id or 'designer' in dt_id or 'Arbitrary' in dt_id or 'userconfig' in dt_id)
+                if cfg:
+                    # Extract all IDs
+                    ids = [dt_id]
+                    for subtag in li:
+                        if not isinstance(subtag, NavigableString) and subtag.get('id') is not None:
+                            ids.append(subtag.get('id'))
+                else:
+                    # Print all IDs
+                    print_id(li)
+                    for subtag in li:
+                        if not isinstance(subtag, NavigableString) and subtag.get('id') is not None:
+                            print_id(subtag)
+                # Extract text
+                if cfg:
+                    options = []
+                    text = ''
+                    for subtag in li:
+                        if isinstance(subtag, NavigableString):
+                            text += subtag.string
+                        elif subtag.name == 'span':
+                            text += subtag.text
+                        elif subtag.name == 'br':
+                            options.append(text)
+                            text = ''
+                    if text != '':
+                        options.append(text)
+                    ids = set(ids)
+                    config_options = []
+                    for option in options:
+                        if option.strip() == '':
+                            continue
+                        try:
+                            optname, opttype = option.split(' ', 1)
+                        except:
+                            optname = option
+                            opttype = ''
+                        optname = optname.strip()
+                        opttype = opttype.strip()
+                        config_options.append((optname, opttype))
+                        newid = get_id_from_cfg(optname)
+                        if newid in ids:
+                            ids.remove(newid)
+
+                    for anchor in ids:
+                        print '.. _%s:' % anchor
+
+                    for optname, opttype in config_options:
+                        print '.. config:option:: %s' % optname
+                        print
+                        print '    :type: %s' % opttype
+                        print '    :default:'
+                        print
+                else:
+                    text = format_content(li).encode('utf-8')
+                    print text
+                    print '-' * len(text)
+                    print
             elif li.name == 'dd':
                 format_content(li, document_mode = True)
             else:
