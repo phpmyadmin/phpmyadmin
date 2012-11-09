@@ -63,11 +63,6 @@ phpMyAdmin does no account management on its own (other than allowing
 one to manipulate the MySQL user account information); all users must
 be valid MySQL users.
 
-:sup:`1)` phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2
-formats) dumps and :abbr:`CSV (comma separated values)` exports if you
-use PHP with Zlib support (``--with-zlib``) and/or Bzip2 support
-(``--with-bz2``). Proper support may also need changes in ``php.ini``.
-
 .. rubric:: Footnotes
 
 .. [#f1]
