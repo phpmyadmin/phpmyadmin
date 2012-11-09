@@ -18,19 +18,20 @@ Server
 1.1 My server is crashing each time a specific action is required or phpMyAdmin sends a blank page or a page full of cryptic characters to my browser, what can I do?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Try to set the :config:option:`$cfg['OBGzip']`  directive to ``false`` in your :file:`config.inc.php` file
-and the ``zlib.output_compression`` directive to ``Off`` in your php
-configuration file.
+Try to set the :config:option:`$cfg['OBGzip']`  directive to ``false`` in your
+:file:`config.inc.php` file and the ``zlib.output_compression`` directive to
+``Off`` in your php configuration file.
 
 .. _faq1_2:
 
 1.2 My Apache server crashes when using phpMyAdmin.
 ---------------------------------------------------
 
-You should first try the latest versions of Apache (and possibly
-MySQL). See also the :ref:`faq1_1` entry about PHP bugs with output
-buffering. If your server keeps crashing, please ask for help in the
-various Apache support groups.
+You should first try the latest versions of Apache (and possibly MySQL). If
+your server keeps crashing, please ask for help in the various Apache support
+groups.
+
+.. seealso:: :ref:`faq1_1`
 
 .. _faq1_3:
 
@@ -540,8 +541,9 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 ------------------------------------------------------------------------------------------------------------------------------------
 
 Be sure that you have enabled ``SSLOptions`` and ``StdEnvVars`` in
-your Apache configuration. See
-<http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>.
+your Apache configuration. 
+
+.. seealso:: <http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>
 
 .. _faq1_40:
 
@@ -930,11 +932,10 @@ can use it for the Edit and Delete links.
 3.11 The number of rows for InnoDB tables is not correct.
 ---------------------------------------------------------
 
-phpMyAdmin uses a quick method to get the row count, and this method
-only returns an approximate count in the case of InnoDB tables. See
-:config:option:`$cfg['MaxExactCount']`
-for a way to modify those results, but this could have a serious
-impact on performance.
+phpMyAdmin uses a quick method to get the row count, and this method only
+returns an approximate count in the case of InnoDB tables. See
+:config:option:`$cfg['MaxExactCount']` for a way to modify those results, but
+this could have a serious impact on performance.
 
 .. _faq3_12:
 
@@ -1346,15 +1347,15 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 6.4 How can I backup my database or table?
 ------------------------------------------
 
-Click on a database or table name in the navigation panel, the
-properties will be displayed. Then on the menu, click "Export", you
-can dump the structure, the data, or both. This will generate standard
-:abbr:`SQL (structured query language)` statements that can be used to
-recreate your database/table.  You will need to choose "Save as file",
-so that phpMyAdmin can transmit the resulting dump to your station.
-Depending on your PHP configuration, you will see options to compress
-the dump. See also the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For additional help on
-this subject, look for the word "dump" in this document.
+Click on a database or table name in the navigation panel, the properties will
+be displayed. Then on the menu, click "Export", you can dump the structure, the
+data, or both. This will generate standard :abbr:`SQL (structured query
+language)` statements that can be used to recreate your database/table.  You
+will need to choose "Save as file", so that phpMyAdmin can transmit the
+resulting dump to your station.  Depending on your PHP configuration, you will
+see options to compress the dump. See also the
+:config:option:`$cfg['ExecTimeLimit']` configuration variable. For additional
+help on this subject, look for the word "dump" in this document.
 
 .. _faq6_5:
 
@@ -1694,10 +1695,11 @@ have table exported in file :file:`table.tex`):
 -------------------------------------------------------------------------
 
 You have one of these global privileges: CREATE TEMPORARY TABLES, SHOW
-DATABASES, LOCK TABLES. Those privileges also enable users to see all
-the database names. See this `MySQL bug report #179
-<http://bugs.mysql.com/179>`_. So if your users do not need those
-privileges, you can remove them and their databases list will shorten.
+DATABASES, LOCK TABLES. Those privileges also enable users to see all the
+database names. So if your users do not need those privileges, you can remove
+them and their databases list will shorten.
+
+.. seealso:: <http://bugs.mysql.com/179>
 
 .. _faq6_21:
 
