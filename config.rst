@@ -18,10 +18,10 @@ Configuration
     Almost all configurable data is placed in :file:`config.inc.php`. If this file
     does not exist, please refer to the :ref:`setup` section to create one. This file only
     needs to contain the parameters you want to change from their corresponding
-    default value in ``libraries/config.default.php``.
+    default value in :file:`libraries/config.default.php`.
 
     The parameters which relate to design (like colors) are placed in
-    ``themes/themename/layout.inc.php``. You might also want to create
+    :file:`themes/themename/layout.inc.php`. You might also want to create
     :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add your
     site specific code to be included on start and end of each page.
 
@@ -1942,7 +1942,7 @@ Theme settings
     :default:
 
     Navigation panel width in pixels. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['NaviBackground']
 
@@ -1955,7 +1955,7 @@ Theme settings
     :default:
 
     The background styles used for both the frames. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['NaviPointerBackground']
 
@@ -1968,14 +1968,14 @@ Theme settings
     :default:
 
     The style used for the pointer in the navi frame. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['Border']
 
     :type: integer
     :default:
 
-    The size of a table's border. See ``themes/themename/layout.inc.php``.
+    The size of a table's border. See :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['ThBackground']
 
@@ -1988,7 +1988,7 @@ Theme settings
     :default:
 
     The style used for table headers. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. _cfg_BgcolorOne:
 .. config:option:: $cfg['BgOne']
@@ -1997,7 +1997,7 @@ Theme settings
     :default:
 
     The color (HTML) #1 for table rows. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. _cfg_BgcolorTwo:
 .. config:option:: $cfg['BgTwo']
@@ -2006,7 +2006,7 @@ Theme settings
     :default:
 
     The color (HTML) #2 for table rows. See
-    ``themes/themename/layout.inc.php``.
+    :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['BrowsePointerBackground']
 
@@ -2033,7 +2033,7 @@ Theme settings
     and the latter lets you visually mark/unmark rows by clicking on the
     corresponding checkbox. Highlighting / marking a column is done by
     hovering over / clicking the column's header (outside of the text).
-    See ``themes/themename/layout.inc.php``.
+    See :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['FontFamily']
 
@@ -2041,7 +2041,7 @@ Theme settings
     :default:
 
     You put here a valid CSS font family value, for example ``arial, sans-
-    serif``. See ``themes/themename/layout.inc.php``.
+    serif``. See :file:`themes/themename/layout.inc.php`.
 
 .. config:option:: $cfg['FontFamilyFixed']
 
@@ -2049,7 +2049,7 @@ Theme settings
     :default:
 
     You put here a valid CSS font family value, for example ``monospace``.
-    This one is used in textarea. See ``themes/themename/layout.inc.php``.
+    This one is used in textarea. See :file:`themes/themename/layout.inc.php`.
 
 Design customization
 --------------------

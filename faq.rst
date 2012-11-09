@@ -622,7 +622,7 @@ blank lines, no spaces, no characters...) neither before the ``<?php``
 tag at the beginning, neither after the ``?>`` tag at the end. We also
 got a report from a user under :abbr:`IIS (Internet Information
 Services)`, that used a zipped distribution kit: the file
-``libraries/Config.class.php`` contained an end-of-line character (hex
+:file:`libraries/Config.class.php` contained an end-of-line character (hex
 0A) at the end; removing this character cleared his errors.
 
 .. _faq2_2:
@@ -731,13 +731,13 @@ To create a theme:
 * copy the files and directories from "pmahomme" to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"
-* edit ``layout.inc.php`` in "your\_theme\_name"
-* edit ``info.inc.php`` in "your\_theme\_name" to contain your chosen
+* edit :file:`layout.inc.php` in "your\_theme\_name"
+* edit :file:`info.inc.php` in "your\_theme\_name" to contain your chosen
   theme name, that will be visible in user interface
 * make a new screenshot of your theme and save it under
   "your\_theme\_name/screen.png"
 
-In theme directory there is file ``info.inc.php`` which contains theme
+In theme directory there is file :file:`info.inc.php` which contains theme
 verbose name, theme generation and theme version. These versions and
 generations are enumerated from 1 and do not have any direct
 dependence on phpMyAdmin version. Themes within same generation should
