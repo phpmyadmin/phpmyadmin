@@ -29,7 +29,7 @@ Basic settings
 .. config:option:: $cfg['PmaAbsoluteUri']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Sets here the complete :abbr:`URL (Uniform Resource Locator)` (with
 full path) to your phpMyAdmin installation's directory. E.g.
@@ -97,7 +97,7 @@ Show warning about incomplete translations on certain threshold.
 .. config:option:: $cfg['blowfish_secret']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The "cookie" auth\_type uses blowfish algorithm to encrypt the
 password. If you are using the "cookie" auth\_type, enter here a
@@ -130,7 +130,7 @@ change).
 .. config:option:: $cfg['Servers'][$i]['host']
 
     :type: string
-    :default: 'localhost'
+    :default: ``'localhost'``
 
 The hostname or :abbr:`IP (Internet Protocol)` address of your $i-th
 MySQL-server. E.g. localhost.
@@ -138,7 +138,7 @@ MySQL-server. E.g. localhost.
 .. config:option:: $cfg['Servers'][$i]['port']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The port-number of your $i-th MySQL-server. Default is 3306 (leave
 blank). If you use "localhost" as the hostname, MySQL ignores this
@@ -149,7 +149,7 @@ hostname in :config:option:`$cfg['Servers'][$i]['host']`.
 .. config:option:: $cfg['Servers'][$i]['socket']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The path to the socket to use. Leave blank for default. To determine
 the correct socket, check your MySQL configuration or, using the
@@ -166,7 +166,7 @@ Whether to enable SSL for connection to MySQL server.
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string
-    :default: 'tcp'
+    :default: ``'tcp'``
 
 What type connection to use with the MySQL server. Your options are
 ``'socket'`` and ``'tcp'``. It defaults to 'tcp' as that is nearly
@@ -177,7 +177,7 @@ must be on the same machine as the Web server.
 .. config:option:: $cfg['Servers'][$i]['extension']
 
     :type: string
-    :default: 'mysqli'
+    :default: ``'mysqli'``
 
 What php MySQL extension to use for the connection. Valid options are:
 ``*mysql*`` : The classic MySQL extension. ``*mysqli*`` : The improved
@@ -197,7 +197,7 @@ or not (experimental).
 .. config:option:: $cfg['Servers'][$i]['controlhost']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Permits to use an alternate host to hold the configuration storage
 data.
@@ -206,12 +206,12 @@ data.
 .. config:option:: $cfg['Servers'][$i]['controluser']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['controlpass']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 This special account is used for 2 distinct purposes: to make possible all
 relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`) and,
@@ -233,7 +233,7 @@ will see at login.
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 
     :type: string
-    :default: 'cookie'
+    :default: ``'cookie'``
 
 Whether config or cookie or :abbr:`HTTP (HyperText Transfer Protocol)`
 or signon authentication should be used for this server.
@@ -267,7 +267,7 @@ or signon authentication should be used for this server.
 .. config:option:: $cfg['Servers'][$i]['auth_http_realm']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 When using auth\_type = ':abbr:`HTTP (HyperText Transfer Protocol)`',
 this field allows to define a custom :abbr:`HTTP (HyperText Transfer
@@ -280,7 +280,7 @@ or :config:option:`$cfg['Servers'][$i]['host']` will be used.
 .. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The name of the file containing :ref:`swekey` ids and login names for hardware
 authentication. Leave empty to deactivate this feature.
@@ -289,12 +289,12 @@ authentication. Leave empty to deactivate this feature.
 .. config:option:: $cfg['Servers'][$i]['user']
 
     :type: string
-    :default: 'root'
+    :default: ``'root'``
 
 .. config:option:: $cfg['Servers'][$i]['password']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 When using auth\_type = 'config', this is the user/password-pair which
 phpMyAdmin will use to connect to the MySQL server. This user/password
@@ -318,7 +318,7 @@ tried.
 .. config:option:: $cfg['Servers'][$i]['only_db']
 
     :type: string or array
-    :default: ''
+    :default: ``''``
 
 If set to a (an array of) database name(s), only this (these)
 database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
@@ -343,7 +343,7 @@ and db4 on top, and the rest in alphabetic order.
 .. config:option:: $cfg['Servers'][$i]['hide_db']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Regular expression for hiding some databases from unprivileged users.
 This only hides them from listing, but a user is still able to access
@@ -369,7 +369,7 @@ of the PHP reference manual.
 .. config:option:: $cfg['Servers'][$i]['verbose']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Only useful when using phpMyAdmin with multiple server entries. If
 set, this string will be displayed instead of the hostname in the
@@ -380,7 +380,7 @@ auth, all non-US-ASCII characters will be stripped.
 .. config:option:: $cfg['Servers'][$i]['pmadb']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The name of the database containing the phpMyAdmin configuration
 storage.  See the :ref:`linked-tables`  section in this document to see the benefits of
@@ -396,7 +396,7 @@ phpMyAdmin configuration storage.
 .. config:option:: $cfg['Servers'][$i]['bookmarktable']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This
 can be useful for queries you often run. To allow the usage of this
@@ -411,7 +411,7 @@ functionality:
 .. config:option:: $cfg['Servers'][$i]['relation']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.2.4 you can describe, in a special 'relation' table,
 which column is a key in another table (a foreign key). phpMyAdmin
@@ -447,7 +447,7 @@ development of the cross-db relations.
 .. config:option:: $cfg['Servers'][$i]['table_info']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.3.0 you can describe, in a special 'table\_info'
 table, which column is to be displayed as a tool-tip when moving the
@@ -468,12 +468,12 @@ Usage tip: :ref:`faqdisplay`.
 .. config:option:: $cfg['Servers'][$i]['table_coords']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.3.0 you can have phpMyAdmin create :abbr:`PDF
 (Portable Document Format)` pages showing the relations between your
@@ -495,7 +495,7 @@ Usage tips: :ref:`faqpdf`.
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 This part requires a content update!  Since release 2.3.0 you can
 store comments to describe each column for each table. These will then
@@ -530,7 +530,7 @@ To allow the usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['history']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.5.0 you can store your :abbr:`SQL (structured query
 language)` history, which means all queries you entered manually into
@@ -552,7 +552,7 @@ your browser. To allow the usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['recent']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 3.5.0 you can show recently used tables in the
 navigation panel. It helps you to jump across table directly, without
@@ -574,7 +574,7 @@ functionality persistently:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 3.5.0 phpMyAdmin can be configured to remember several
 things (sorted column :config:option:`$cfg['RememberSorting']`, column order,
@@ -593,7 +593,7 @@ persistently:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 3.3.x a tracking mechanism is available. It helps you to
 track every :abbr:`SQL (structured query language)` command which is
@@ -640,7 +640,7 @@ you automatically.
 .. config:option:: $cfg['Servers'][$i]['tracking_default_statements']
 
     :type: string
-    :default: 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
+    :default: ``'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE'``
 
 Defines the list of statements the auto-creation uses for new
 versions. 
@@ -676,7 +676,7 @@ line to the log when creating a database. Default value is true.
 .. config:option:: $cfg['Servers'][$i]['userconfig']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 3.4.x phpMyAdmin allows users to set most preferences by
 themselves and store them in the database.  If you don't allow for
@@ -694,7 +694,7 @@ usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['designer_coords']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Since release 2.10.0 a Designer interface is available; it permits to
 visually manage the relations.  To allow the usage of this
@@ -739,7 +739,7 @@ anonymous (blank) user is defined.
 .. config:option:: $cfg['Servers'][$i]['AllowDeny']['order']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 If your rule order is empty, then :abbr:`IP (Internet Protocol)`
 authorization is disabled. If your rule order is set to
@@ -811,7 +811,7 @@ to come.
 .. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
 
     :type: string
-    :default: 'SHOW DATABASES'
+    :default: ``'SHOW DATABASES'``
 
 On a server with a huge number of databases, the default ``SHOW
 DATABASES`` command used to fetch the name of available databases will
@@ -829,7 +829,7 @@ the list of databases for the navigation panel.
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Name of PHP script to be sourced and executed to obtain login
 credentials. This is alternative approach to session based single
@@ -841,7 +841,7 @@ empty). See :file:`examples/signon-script.php` for an example.
 .. config:option:: $cfg['Servers'][$i]['SignonSession']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Name of session which will be used for signon authentication method.
 You should use something different than ``phpMyAdmin``, because this
@@ -851,7 +851,7 @@ is session which phpMyAdmin uses internally. Takes effect only if
 .. config:option:: $cfg['Servers'][$i]['SignonURL']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 :abbr:`URL (Uniform Resource Locator)` where user will be redirected
 to log in for signon authentication method. Should be absolute
@@ -860,7 +860,7 @@ including protocol.
 .. config:option:: $cfg['Servers'][$i]['LogoutURL']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 :abbr:`URL (Uniform Resource Locator)` where user will be redirected
 after logout (doesn't affect config authentication method). Should be
@@ -971,7 +971,7 @@ history.
 .. config:option:: $cfg['OBGzip']
 
     :type: string/boolean
-    :default: 'auto'
+    :default: ``'auto'``
 
 Defines whether to use GZip output buffering for increased speed in
 :abbr:`HTTP (HyperText Transfer Protocol)` transfers. Set to
@@ -1017,7 +1017,7 @@ no effect when PHP is running in safe mode.
 .. config:option:: $cfg['SessionSavePath']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Path for storing session data (`session\_save\_path PHP parameter
 <http://php.net/session_save_path>`_).
@@ -1191,7 +1191,7 @@ in their name :config:option:`$cfg['NavigationTreeDbSeparator']`.
 .. config:option:: $cfg['NavigationTreeDbSeparator']
 
     :type: string or array
-    :default: '_'
+    :default: ``'_'``
 
 The string used to separate the parts of the database name when
 showing them in a tree. Alternatively you can specify more strings in
@@ -1200,7 +1200,7 @@ an array and all of them will be used as a separator.
 .. config:option:: $cfg['NavigationTreeTableSeparator']
 
     :type: string or array
-    :default: '__'
+    :default: ``'__'``
 
 Defines a string to be used to nest table spaces. Defaults to '\_\_'.
 This means if you have tables like 'first\_\_second\_\_third' this
@@ -1244,7 +1244,7 @@ the navigation panel. Defaults to ``TRUE``.
 .. config:option:: $cfg['NavigationLogoLink']
 
     :type: string
-    :default: 'index.php'
+    :default: ``'index.php'``
 
 Enter :abbr:`URL (Uniform Resource Locator)` where logo in the
 navigation panel will point to. For use especially with self made
@@ -1253,7 +1253,7 @@ theme which changes this. The default value for this is ``main.php``.
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
     :type: string
-    :default: 'main'
+    :default: ``'main'``
 
 Whether to open the linked page in the main window (``main``) or in a
 new one (``new``). Note: use ``new`` if you are linking to
@@ -1298,7 +1298,7 @@ drop-down. Defaults to FALSE (drop-down).
 .. config:option:: $cfg['NavigationTreeDefaultTabTable']
 
     :type: string
-    :default: 'tbl_structure.php'
+    :default: ``'tbl_structure.php'``
 
 Defines the tab displayed by default when clicking the small icon next
 to each table name in the navigation panel. Possible values:
@@ -1426,7 +1426,7 @@ clause is used. If the result set contains more rows, "Previous" and
 .. config:option:: $cfg['Order']
 
     :type: string
-    :default: 'SMART'
+    :default: ``'SMART'``
 
 Defines whether columns are displayed in ascending (``ASC``) order, in
 descending (``DESC``) order or in a "smart" (``SMART``) order - I.E.
@@ -1444,7 +1444,7 @@ ticked by default.
 .. config:option:: $cfg['GridEditing']
 
     :type: string
-    :default: 'double-click'
+    :default: ``'double-click'``
 
 Defines which action (``double-click`` or ``click``) triggers grid
 editing. Can be deactived with the ``disabled`` value.
@@ -1463,7 +1463,7 @@ Editing mode
 .. config:option:: $cfg['ProtectBinary']
 
     :type: boolean or string
-    :default: 'blob'
+    :default: ``'blob'``
 
 Defines whether ``BLOB`` or ``BINARY`` columns are protected from
 editing when browsing a table's content. Valid values are:
@@ -1496,7 +1496,7 @@ edit/insert mode. The user can toggle this setting from the interface.
 .. config:option:: $cfg['CharEditing']
 
     :type: string
-    :default: 'input'
+    :default: ``'input'``
 
 Defines which type of editing controls should be used for CHAR and
 VARCHAR columns. Possible values are:
@@ -1594,7 +1594,7 @@ identify what they mean.
 .. config:option:: $cfg['Export']['method']
 
     :type: string
-    :default: 'quick'
+    :default: ``'quick'``
 
 Defines how the export form is displayed when it loads. Valid values
 are:
@@ -1622,7 +1622,7 @@ Tabs display settings
 .. config:option:: $cfg['PropertiesIconic']
 
     :type: string
-    :default: 'both'
+    :default: ``'both'``
 
 If set to ``TRUE``, will display icons instead of text for db and
 table properties links (like 'Browse', 'Select', 'Insert', ...). Can
@@ -1642,7 +1642,7 @@ display space.
 .. config:option:: $cfg['DefaultTabServer']
 
     :type: string
-    :default: 'index.php'
+    :default: ``'index.php'``
 
 Defines the tab displayed by default on server view. Possible values:
 "main.php" (recommended for multi-user setups),
@@ -1653,7 +1653,7 @@ Defines the tab displayed by default on server view. Possible values:
 .. config:option:: $cfg['DefaultTabDatabase']
 
     :type: string
-    :default: 'db_structure.php'
+    :default: ``'db_structure.php'``
 
 Defines the tab displayed by default on database view. Possible
 values: "db\_structure.php", "db\_sql.php" or "db\_search.php".
@@ -1661,7 +1661,7 @@ values: "db\_structure.php", "db\_sql.php" or "db\_search.php".
 .. config:option:: $cfg['DefaultTabTable']
 
     :type: string
-    :default: 'sql.php'
+    :default: ``'sql.php'``
 
 Defines the tab displayed by default on table view. Possible values:
 "tbl\_structure.php", "tbl\_sql.php", "tbl\_select.php",
@@ -1673,7 +1673,7 @@ Documentation
 .. config:option:: $cfg['MySQLManualBase']
 
     :type: string
-    :default: 'http://dev.mysql.com/doc/refman'
+    :default: ``'http://dev.mysql.com/doc/refman'``
 
 If set to an :abbr:`URL (Uniform Resource Locator)` which points to
 the MySQL documentation (type depends on
@@ -1684,7 +1684,7 @@ information about MySQL manuals and their types.
 .. config:option:: $cfg['MySQLManualType']
 
     :type: string
-    :default: 'viewable'
+    :default: ``'viewable'``
 
 Type of MySQL documentation:
 
@@ -1700,7 +1700,7 @@ Languages
 .. config:option:: $cfg['DefaultLang']
 
     :type: string
-    :default: 'en'
+    :default: ``'en'``
 
 Defines the default language to use, if not browser-defined or user-
 defined. The corresponding language file needs to be in
@@ -1709,7 +1709,7 @@ locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
 .. config:option:: $cfg['DefaultConnectionCollation']
 
     :type: string
-    :default: 'utf8_general_ci'
+    :default: ``'utf8_general_ci'``
 
 Defines the default connection collation to use, if not user-defined.
 See the `MySQL documentation <http://dev.mysql.com/doc/mysql/en
@@ -1727,7 +1727,7 @@ locale/*code*/LC\_MESSAGES/phpmyadmin.mo.
 .. config:option:: $cfg['FilterLanguages']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Limit list of available languages to those matching the given regular
 expression. For example if you want only Czech and English, you should
@@ -1736,7 +1736,7 @@ set filter to ``'^(cs|en)'``.
 .. config:option:: $cfg['RecodingEngine']
 
     :type: string
-    :default: 'auto'
+    :default: ``'auto'``
 
 You can select here which functions will be used for character set
 conversion. Possible values are:
@@ -1757,7 +1757,7 @@ The default value in this menu comes from
 .. config:option:: $cfg['IconvExtraParams']
 
     :type: string
-    :default: '//TRANSLIT'
+    :default: ``'//TRANSLIT'``
 
 Specify some parameters for iconv used in charset conversion. See
 `iconv documentation <http://www.gnu.org/software/libiconv/documentati
@@ -1801,7 +1801,7 @@ client's IP address as usual.
 .. config:option:: $cfg['GD2Available']
 
     :type: string
-    :default: 'auto'
+    :default: ``'auto'``
 
 Specifies whether GD >= 2 is available. If yes it can be used for MIME
 transformations. Possible values are:
@@ -2038,7 +2038,7 @@ view. Can be turned off by a toggle button on the browse page.
 .. config:option:: $cfg['RowActionLinks']
 
     :type: string
-    :default: 'left'
+    :default: ``'left'``
 
 Defines the place where table row links (Edit, Copy, Delete) would be
 put when tables contents are displayed (you may have them displayed at
@@ -2048,7 +2048,7 @@ are parsed as "top" and "bottom" with vertical display mode.
 .. config:option:: $cfg['DefaultDisplay']
 
     :type: string
-    :default: 'horizonta'
+    :default: ``'horizonta'``
 
 There are 3 display modes: horizontal, horizontalflipped and vertical.
 Define which one is displayed by default. The first mode displays each
@@ -2067,7 +2067,7 @@ If enabled, remember the sorting of each table when browsing them.
 .. config:option:: $cfg['HeaderFlipType']
 
     :type: string
-    :default: 'auto'
+    :default: ``'auto'``
 
 The HeaderFlipType can be set to 'auto', 'css' or 'fake'. When using
 'css' the rotation of the header for horizontalflipped is done via
@@ -2143,7 +2143,7 @@ Web server upload/save/import directories
 .. config:option:: $cfg['UploadDir']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The name of the directory where :abbr:`SQL (structured query
 language)` files have been uploaded by other means than phpMyAdmin
@@ -2161,7 +2161,7 @@ of the phpMyAdmin scripts.  See also :ref:`faq1_16` for alternatives.
 .. config:option:: $cfg['SaveDir']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The name of the directory where dumps can be saved. If you want
 different directory for each user, %u will be replaced with username.
@@ -2173,7 +2173,7 @@ the phpMyAdmin scripts.
 .. config:option:: $cfg['TempDir']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The name of the directory where temporary files can be stored.  This
 is needed for importing ESRI Shapefiles, see :ref:`faq6_30` and to
@@ -2251,7 +2251,7 @@ Repeat the headers every X cells, or 0 to deactivate.
 .. config:option:: $cfg['QueryWindowDefTab']
 
     :type: string
-    :default: 'sql'
+    :default: ``'sql'``
 
 .. config:option:: $cfg['QueryHistoryMax']
 
@@ -2339,7 +2339,7 @@ and in Database view, for the table list.
 .. config:option:: $cfg['InitialSlidersState']
 
     :type: string
-    :default: 'closed'
+    :default: ``'closed'``
 
 If set to ``'closed'``, the visual sliders are initially in a closed
 state. A value of ``'open'`` does the reverse. To completely disable
@@ -2368,22 +2368,22 @@ Window title settings
 .. config:option:: $cfg['TitleTable']
 
     :type: string
-    :default: '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@'
+    :default: ``'@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@'``
 
 .. config:option:: $cfg['TitleDatabase']
 
     :type: string
-    :default: '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@'
+    :default: ``'@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@'``
 
 .. config:option:: $cfg['TitleServer']
 
     :type: string
-    :default: '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@'
+    :default: ``'@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@'``
 
 .. config:option:: $cfg['TitleDefault']
 
     :type: string
-    :default: '@HTTP_HOST@ | @PHPMYADMIN@'
+    :default: ``'@HTTP_HOST@ | @PHPMYADMIN@'``
 
 Allows you to specify window's title bar. You can use :ref:`faq6_27`.
 
@@ -2393,7 +2393,7 @@ Theme manager settings
 .. config:option:: $cfg['ThemePath']
 
     :type: string
-    :default: './themes'
+    :default: ``'./themes'``
 
 If theme manager is active, use this as the path of the subdirectory
 containing all the themes.
@@ -2408,7 +2408,7 @@ Enables user-selectable themes. See :ref:`faqthemes`.
 .. config:option:: $cfg['ThemeDefault']
 
     :type: string
-    :default: 'pmahomme'
+    :default: ``'pmahomme'``
 
 The default theme (a subdirectory under :config:option:`$cfg['ThemePath']`).
 
@@ -2424,12 +2424,12 @@ Default queries
 .. config:option:: $cfg['DefaultQueryTable']
 
     :type: string
-    :default: 'SELECT * FROM @TABLE@ WHERE 1'
+    :default: ``'SELECT * FROM @TABLE@ WHERE 1'``
 
 .. config:option:: $cfg['DefaultQueryDatabase']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 Default queries that will be displayed in query boxes when user didn't
 specify any. You can use standard :ref:`faq6_27`.
@@ -2440,7 +2440,7 @@ SQL parser settings
 .. config:option:: $cfg['SQP']['fmtType']
 
     :type: string [|]
-    :default: 'html'
+    :default: ``'html'``
 
 The main use of the new :abbr:`SQL (structured query language)` Parser
 is to pretty-print :abbr:`SQL (structured query language)` queries. By
@@ -2451,12 +2451,12 @@ setting this variable to ``'none'``.
 .. config:option:: $cfg['SQP']['fmtInd']
 
     :type: float
-    :default: '1'
+    :default: ``'1'``
 
 .. config:option:: $cfg['SQP']['fmtIndUnit']
 
     :type: string [|||]
-    :default: 'em'
+    :default: ``'em'``
 
 For the pretty-printing of :abbr:`SQL (structured query language)`
 queries, under some cases the part of a query inside a bracket is
@@ -2531,12 +2531,12 @@ For help in setting up your system to use the service, see the
 .. config:option:: $cfg['SQLValidator']['username']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 .. config:option:: $cfg['SQLValidator']['password']
 
     :type: string
-    :default: ''
+    :default: ``''``
 
 The SOAP service allows you to log in with ``anonymous`` and any
 password, so we use those by default. Instead, if you have an account
