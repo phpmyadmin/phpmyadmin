@@ -539,8 +539,7 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 
 Be sure that you have enabled ``SSLOptions`` and ``StdEnvVars`` in
 your Apache configuration. See
-`http://httpd.apache.org/docs/2.0/mod/mod\_ssl.html#ssloptions
-<http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>`_.
+<http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>.
 
 .. _faq1_40:
 
@@ -763,8 +762,7 @@ Here are a few points to check:
 * In :file:`config.inc.php`, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
 * Maybe you have a broken PHP installation or you need to upgrade your
-  Zend Optimizer. See `http://bugs.php.net/bug.php?id=31134
-  <http://bugs.php.net/bug.php?id=31134>`_.
+  Zend Optimizer. See <http://bugs.php.net/bug.php?id=31134>.
 * If you are using Hardened PHP with the ini directive
   ``varfilter.max_request_variables`` set to the default (200) or
   another low value, you could get this error if your table has a high
@@ -825,8 +823,7 @@ dump, you have to use another way.
 3.3 With InnoDB tables, I lose foreign key relationships when I rename a table or a column.
 -------------------------------------------------------------------------------------------
 
-This is an InnoDB bug, see `http://bugs.mysql.com/bug.php?id=21704
-<http://bugs.mysql.com/bug.php?id=21704>`_.
+This is an InnoDB bug, see <http://bugs.mysql.com/bug.php?id=21704>.
 
 .. _faq3_4:
 
@@ -907,16 +904,14 @@ official phpMyAdmin-homepage.
 ---------------------------------------------------------------------------
 
 When MySQL is running in ANSI-compatibility mode, there are some major
-differences in how :abbr:`SQL (structured query language)` is
-structured (see `http://dev.mysql.com/doc/mysql/en/ansi-mode.html
-<http://dev.mysql.com/doc/mysql/en/ansi-mode.html>`_). Most important
-of all, the quote-character (") is interpreted as an identifier quote
-character and not as a string quote character, which makes many
-internal phpMyAdmin operations into invalid :abbr:`SQL (structured
-query language)` statements. There is no workaround to this behaviour.
-News to this item will be posted in Bug report `#816858 <https://sourc
-eforge.net/tracker/index.php?func=detail&aid=816858&group_id=23067&ati
-d=377408>`_
+differences in how :abbr:`SQL (structured query language)` is structured (see
+<http://dev.mysql.com/doc/mysql/en/ansi-mode.html>). Most important of all, the
+quote-character (") is interpreted as an identifier quote character and not as
+a string quote character, which makes many internal phpMyAdmin operations into
+invalid :abbr:`SQL (structured query language)` statements. There is no
+workaround to this behaviour.  News to this item will be posted in `Bug report
+#816858
+<https://sourceforge.net/tracker/index.php?func=detail&aid=816858&group_id=23067&atid=377408>`_
 
 .. _faq3_10:
 
@@ -1608,9 +1603,10 @@ transformations on them. Otherwise you could just put a comment on the
 column. Because entering your own mimetype will cause serious syntax
 checking issues and validation, this introduces a high-risk false-
 user-input situation. Instead you have to initialize mimetypes using
-functions or empty mimetype definitions. Plus, you have a whole
-overview of available mimetypes. Who knows all those mimetypes by
-heart so he/she can enter it at will?
+functions or empty mimetype definitions. 
+
+Plus, you have a whole overview of available mimetypes. Who knows all those
+mimetypes by heart so he/she can enter it at will?
 
 .. _faqbookmark:
 
@@ -1622,32 +1618,57 @@ where the results are displayed. You will find a button labeled
 'Bookmark this query' just at the end of the page. As soon as you have
 stored a bookmark, it is related to the database you run the query on.
 You can now access a bookmark dropdown on each page, the query box
-appears on for that database. Since phpMyAdmin 2.5.0 you are also able
-to store variables for the bookmarks. Just use the string
-**/\*[VARIABLE]\*/** anywhere in your query. Everything which is put
-into the *value* input box on the query box page will replace the
-string "/\*[VARIABLE]\*/" in your stored query. Just be aware of that
-you HAVE to create a valid query, otherwise your query won't be even
-able to be stored in the database. Also remember, that everything else
+appears on for that database.
+
+Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks.
+Just use the string **/\*[VARIABLE]\*/** anywhere in your query. Everything
+which is put into the *value* input box on the query box page will replace the
+string "/\*[VARIABLE]\*/" in your stored query. Just be aware of that you HAVE
+to create a valid query, otherwise your query won't be even able to be stored
+in the database. 
+
+Also remember, that everything else
 inside the **/\*[VARIABLE]\*/** string for your query will remain the
 way it is, but will be stripped of the /\*\*/ chars. So you can use:
-``/\*, [VARIABLE] AS myname \*/`` which will be expanded to ``,
-VARIABLE as myname`` in your query, where VARIABLE is the string you
-entered in the input box. If an empty string is provided, no
-replacements are made. A more complex example. Say you have stored
-this query: ``SELECT Name, Address FROM addresses WHERE 1 /\* AND Name
-LIKE '%[VARIABLE]%' \*/``  Say, you now enter "phpMyAdmin" as the
-variable for the stored query, the full query will be: ``SELECT Name,
-Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'``  You can
-use multiple occurrences of **/\*[VARIABLE]\*/** in a single query
-(that is, multiple occurrences of the *same* variable). **NOTE THE
-ABSENCE OF SPACES** inside the "/\*\*/" construct. Any spaces inserted
-there will be later also inserted as spaces in your query and may lead
-to unexpected results especially when using the variable expansion
-inside of a "LIKE ''" expression. Your initial query which is going to
-be stored as a bookmark has to yield at least one result row so you
-can store the bookmark. You may have that to work around using well
-positioned "/\*\*/" comments.
+
+.. code-block:: sql
+
+    /\*, [VARIABLE] AS myname \*/
+    
+which will be expanded to 
+
+.. code-block:: sql
+
+    , VARIABLE as myname
+    
+in your query, where VARIABLE is the string you entered in the input box. If an
+empty string is provided, no replacements are made. 
+
+A more complex example. Say you have stored
+this query: 
+
+.. code-block:: sql
+
+    SELECT Name, Address FROM addresses WHERE 1 /\* AND Name LIKE '%[VARIABLE]%' \*/
+    
+Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
+query will be: 
+
+.. code-block:: sql
+
+    SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'
+
+You can use multiple occurrences of **/\*[VARIABLE]\*/** in a single query
+(that is, multiple occurrences of the *same* variable). 
+
+**NOTE THE ABSENCE OF SPACES** inside the "/\*\*/" construct. Any spaces
+inserted there will be later also inserted as spaces in your query and may lead
+to unexpected results especially when using the variable expansion inside of a
+"LIKE ''" expression. 
+
+Your initial query which is going to be stored as a bookmark has to yield at
+least one result row so you can store the bookmark. You may have that to work
+around using well positioned "/\*\*/" comments.
 
 .. _faq6_19:
 
@@ -1843,23 +1864,29 @@ display" icon, then click on the appropriate column name.
 6.32 How can I use the zoom search feature?
 -------------------------------------------
 
-The Zoom search feature is an alternative to table search feature. It
-allows you to explore a table by representing its data in a scatter
-plot. You can locate this feature by selecting a table and clicking
-the 'Search' tab. One of the sub-tabs in the 'Table Search' page is
-'Zoom Search'.  Consider the table REL\_persons in :ref:`faq6_6` for
+The Zoom search feature is an alternative to table search feature. It allows
+you to explore a table by representing its data in a scatter plot. You can
+locate this feature by selecting a table and clicking the :guilabel:`Search`
+tab. One of the sub-tabs in the :guilabel:`Table Search` page is
+:guilabel:`Zoom Search`.  
+
+Consider the table REL\_persons in :ref:`faq6_6` for
 an example. To use zoom search, two columns need to be selected, for
 example, id and town\_code. The id values will be represented on one
 axis and town\_code values on the other axis. Each row will be
 represented as a point in a scatter plot based on its id and
 town\_code. You can include two additional search criteria apart from
-the two fields to display. You can choose which field should be
+the two fields to display. 
+
+You can choose which field should be
 displayed as label for each point. If a display column has been set
 for the table (see :ref:`faqdisplay`), it is taken as the label unless
 you specify otherwise. You can also select the maximum number of rows
 you want to be displayed in the plot by specifing it in the 'Max rows
 to plot' field. Once you have decided over your criteria, click 'Go'
-to display the plot. After the plot is generated, you can use the
+to display the plot. 
+
+After the plot is generated, you can use the
 mousewheel to zoom in and out of the plot. In addition, panning
 feature is enabled to navigate through the plot. You can zoom-in to a
 certail level of detail and use panning to locate your area of
@@ -1892,11 +1919,9 @@ phpMyAdmin project
 7.1 I have found a bug. How do I inform developers?
 ---------------------------------------------------
 
-Our Bug Tracker is located at `http://sf.net/projects/phpmyadmin/
-<http://sf.net/projects/phpmyadmin/>`_ under the Bugs section. But
-please first discuss your bug with other users:
-`https://sourceforge.net/projects/phpmyadmin/forums
-<https://sourceforge.net/projects/phpmyadmin/forums>`_.
+Our Bug Tracker is located at <http://sf.net/projects/phpmyadmin/> under the
+Bugs section. But please first discuss your bug with other users:
+<https://sourceforge.net/projects/phpmyadmin/forums>.
 
 .. _faq7_2:
 
@@ -1929,8 +1954,7 @@ Security
 8.1 Where can I get information about the security alerts issued for phpMyAdmin?
 --------------------------------------------------------------------------------
 
-Please refer to `http://www.phpmyadmin.net/home\_page/security.php
-<http://www.phpmyadmin.net/home_page/security.php>`_
+Please refer to <http://www.phpmyadmin.net/home_page/security.php>.
 
 .. _faq8_2:
 
