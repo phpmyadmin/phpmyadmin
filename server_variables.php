@@ -199,7 +199,6 @@ foreach ($serverVars as $name => $value) {
         $output .= '<div class="var-row ' . ($odd_row ? ' odd' : ' even') . '">'
             . '<div class="var-name session">(' . __('Session value') . ')</div>'
             . '<div class="var-value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
-            . '<div class="var-doc value"></div>'
             . '<div style="clear:both"></div>'
             . '</div>';
     }
