@@ -1621,19 +1621,19 @@ You can now access a bookmark dropdown on each page, the query box
 appears on for that database.
 
 Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks.
-Just use the string **/\*[VARIABLE]\*/** anywhere in your query. Everything
+Just use the string ``/*[VARIABLE]*/`` anywhere in your query. Everything
 which is put into the *value* input box on the query box page will replace the
-string "/\*[VARIABLE]\*/" in your stored query. Just be aware of that you HAVE
-to create a valid query, otherwise your query won't be even able to be stored
-in the database. 
+string ``/*[VARIABLE]*/`` in your stored query. Just be aware of that you
+HAVE to create a valid query, otherwise your query won't be even able to be
+stored in the database. 
 
-Also remember, that everything else
-inside the **/\*[VARIABLE]\*/** string for your query will remain the
-way it is, but will be stripped of the /\*\*/ chars. So you can use:
+Also remember, that everything else inside the ``/*[VARIABLE]*/`` string for
+your query will remain the way it is, but will be stripped of the ``/**/``
+chars. So you can use:
 
 .. code-block:: mysql
 
-    /\*, [VARIABLE] AS myname \*/
+    /*, [VARIABLE] AS myname */
     
 which will be expanded to 
 
@@ -1649,7 +1649,7 @@ this query:
 
 .. code-block:: mysql
 
-    SELECT Name, Address FROM addresses WHERE 1 /\* AND Name LIKE '%[VARIABLE]%' \*/
+    SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE '%[VARIABLE]%' */
     
 Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
 query will be: 
@@ -1658,28 +1658,28 @@ query will be:
 
     SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'
 
-You can use multiple occurrences of **/\*[VARIABLE]\*/** in a single query
+You can use multiple occurrences of ``/*[VARIABLE]*/`` in a single query
 (that is, multiple occurrences of the *same* variable). 
 
-**NOTE THE ABSENCE OF SPACES** inside the "/\*\*/" construct. Any spaces
+**NOTE THE ABSENCE OF SPACES** inside the ``/**/`` construct. Any spaces
 inserted there will be later also inserted as spaces in your query and may lead
 to unexpected results especially when using the variable expansion inside of a
 "LIKE ''" expression. 
 
 Your initial query which is going to be stored as a bookmark has to yield at
 least one result row so you can store the bookmark. You may have that to work
-around using well positioned "/\*\*/" comments.
+around using well positioned ``/**/`` comments.
 
 .. _faq6_19:
 
 6.19 How can I create simple LATEX document to include exported table?
 ----------------------------------------------------------------------
 
-You can simply include table in your L:sup:`A`T:sub:`*E*`X documents,
+You can simply include table in your LATEX documents,
 minimal sample document should look like following one (assuming you
-have table exported in file ``table.tex``):
+have table exported in file :file:`table.tex`):
 
-.. code-block:: tex
+.. code-block:: latex
 
     
     \documentclass{article} % or any class you want
