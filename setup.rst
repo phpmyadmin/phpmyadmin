@@ -228,7 +228,7 @@ configuration storage, you should run the :abbr:`SQL (structured query
 language)` script found in
 :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
 
-.. index:: Authentication modes
+.. index:: Authentication mode
 
 .. _authentication_modes:
 
@@ -382,6 +382,8 @@ Config authentication mode
   incoming HTTP requests at one’s router or firewall will suffice (both
   of which are beyond the scope of this manual but easily searchable
   with Google).
+
+.. index:: pair: Swekey; Authentication mode
 
 .. _swekey:
 
