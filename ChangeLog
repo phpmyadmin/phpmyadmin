@@ -70,6 +70,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Renamed configuration directive: LeftDisplayDatabaseFilterMinimum => NavigationTreeDisplayDbFilterMinimum
 + Removed the "Mark row on click" feature; must now click the checkbox to mark
 + Removed the "Synchronize" feature
++ Improved layout of server variables page
 
 3.5.5.0 (not yet released)
 

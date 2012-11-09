@@ -123,8 +123,8 @@ $output = '<h2>' . PMA_Util::getImage('s_vars.png')
 /**
  * Link templates
  */
-$url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url($db));
-$output .= '<a style="display: none;" href="#" class="editLink" onclick="return editVariable(this);">';
+$url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url());
+$output .= '<a style="display: none;" href="#" class="editLink">';
 $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
 $output .= '<a style="display: none;" href="' . $url . '" class="ajax saveLink">';
 $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
@@ -142,66 +142,71 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 /**
  * Displays the page
  */
+$value = ! empty($_REQUEST['filter']) ? htmlspecialchars($_REQUEST['filter']) : '';
 $output .= '<fieldset id="tableFilter">'
     . '<legend>' . __('Filters') . '</legend>'
     . '<div class="formelement">'
     . '<label for="filterText">' .  __('Containing the word:') . '</label>'
     . '<input name="filterText" type="text" id="filterText"'
-    . ' style="vertical-align: baseline;" />'
+    . ' style="vertical-align: baseline;" value="' . $value . '" />'
     . '</div>'
     . '</fieldset>';
 
-$output .= '<table id="serverVariables" class="data filteredData noclick">'
-    . '<thead>'
-    . '<tr><th>' .  __('Variable') . '</th>'
-    . '<th class="valueHeader">'
+$output .= '<div id="serverVariables" class="data filteredData noclick">'
+    . '<div class="var-header var-row">'
+    . '<div class="var-name">' .  __('Variable') . '</div>'
+    . '<div class="var-value valueHeader">'
     . __('Session value') . ' / ' . __('Global value')
-    . '</th>'
-    . '<th>' . __('Documentation') . '</th>'
-    . '</tr>'
-    . '</thead>'
-    . '<tbody>';
+    . '</div>'
+    . '<div style="clear:both"></div>'
+    . '</div>';
 
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
     $has_session_value = isset($serverVarsSession[$name])
         && $serverVarsSession[$name] != $value;
-    $row_class = ($odd_row ? 'odd' : 'even') . ' '
-        . ($has_session_value ? 'diffSession' : '');
+    $row_class = ($odd_row ? ' odd' : ' even')
+        . ($has_session_value ? ' diffSession' : '');
 
-    $output .= '<tr class="' . $row_class . '">'
-        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name))
-        . '</th>'
-        . '<td class="value' . (PMA_isSuperuser() ? ' editable' : '') . '">'
-        . formatVariable($name, $value)
-        . '</td>'
-        . '<td class="value">';
+    $output .= '<div class="var-row ' . $row_class . '">'
+        . '<div class="var-name">';
 
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
+        $output .= '<span title="' . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
         $output .= PMA_Util::showMySQLDocu(
             $VARIABLE_DOC_LINKS[$name][1],
             $VARIABLE_DOC_LINKS[$name][1],
             false,
-            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
+            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0],
+            true
         );
+        $output .= htmlspecialchars(str_replace('_', ' ', $name));
+        $output .= PMA_Util::getImage('b_help.png', __('Documentation'));
+        $output .= '</a>';
+        $output .= '</span>';
+    } else {
+        $output .= htmlspecialchars(str_replace('_', ' ', $name));
     }
-
-    $output .= '</td>';
+    $output .= '</div>'
+        . '<div class="var-value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
+        . formatVariable($name, $value)
+        . '</div>'
+        . '<div style="clear:both"></div>'
+        . '</div>';
 
     if ($has_session_value) {
-        $output .= '</tr>'
-            . '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td>(' . __('Session value') . ')</td>'
-            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name]) . '</td>'
-            . '<td class="value"></td>';
+        $output .= '<div class="var-row ' . ($odd_row ? ' odd' : ' even') . '">'
+            . '<div class="var-name session">(' . __('Session value') . ')</div>'
+            . '<div class="var-value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
+            . '<div class="var-doc value"></div>'
+            . '<div style="clear:both"></div>'
+            . '</div>';
     }
 
-    $output .= '</tr>';
     $odd_row = ! $odd_row;
 }
-$output .= '</tbody>'
-    . '</table>';
+$output .= '</div>';
 
 $response->addHtml($output);
 
