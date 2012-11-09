@@ -1550,8 +1550,8 @@ display, offering both the key and value data. The contents of the
 array should be one or both of the following strings: ``content-id``,
 ``id-content``.
 
-Export features
----------------
+Export and import settings
+--------------------------
 
 .. config:option:: $cfg['ZipDump']
 
@@ -1581,6 +1581,40 @@ compressed exports. This doesn't affect smaller dumps and allows users
 to create larger dumps that won't otherwise fit in memory due to php
 memory limit. Produced files contain more GZip/BZip2 headers, but all
 normal programs handle this correctly.
+
+.. config:option:: $cfg['Export']
+
+    :type: array
+    :default: array(...)
+
+In this array are defined default parameters for export, names of
+items are similar to texts seen on export page, so you can easily
+identify what they mean.
+
+.. config:option:: $cfg['Export']['method']
+
+    :type: string
+    :default: 'quick'
+
+Defines how the export form is displayed when it loads. Valid values
+are:
+
+* ``quick`` to display the minimum number of options to configure
+* ``custom`` to display every available option to configure
+* ``custom-no-form`` same as ``custom`` but does not display the option
+  of using quick export
+
+
+
+.. config:option:: $cfg['Import']
+
+    :type: array
+    :default: array(...)
+
+In this array are defined default parameters for import, names of
+items are similar to texts seen on import page, so you can easily
+identify what they mean.
+
 
 Tabs display settings
 ---------------------
@@ -2175,42 +2209,6 @@ setup using :abbr:`ACL (Access Control List)`:
 If neither of above works for you, you can still make the directory
 ``chmod 777``, but it might impose risk of other users on system
 reading and writing data in this directory.
-
-Export and import settings
---------------------------
-
-.. config:option:: $cfg['Export']
-
-    :type: array
-    :default: array(...)
-
-In this array are defined default parameters for export, names of
-items are similar to texts seen on export page, so you can easily
-identify what they mean.
-
-.. config:option:: $cfg['Export']['method']
-
-    :type: string
-    :default: 'quick'
-
-Defines how the export form is displayed when it loads. Valid values
-are:
-
-* ``quick`` to display the minimum number of options to configure
-* ``custom`` to display every available option to configure
-* ``custom-no-form`` same as ``custom`` but does not display the option
-  of using quick export
-
-
-
-.. config:option:: $cfg['Import']
-
-    :type: array
-    :default: array(...)
-
-In this array are defined default parameters for import, names of
-items are similar to texts seen on import page, so you can easily
-identify what they mean.
 
 Various display setting
 -----------------------
