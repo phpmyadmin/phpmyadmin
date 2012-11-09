@@ -382,8 +382,7 @@ page (currently supported for cookie authentication mode only). Swekey
 Authentication is disabled by default. To enable it, add the following
 line to :file:`config.inc.php`:
 
-.. code-block:: none
-
+.. code-block:: php
     
     $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
 

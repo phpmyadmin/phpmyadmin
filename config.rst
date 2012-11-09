@@ -349,13 +349,13 @@ them (using, for example, the SQL query area). To limit access, use
 the MySQL privilege system.  For example, to hide all databases
 starting with the letter "a", use
 
-.. code-block:: none
+.. code-block:: php
 
     $cfg['Servers'][$i]['hide_db'] = '^a';
 
 and to hide both "db1" and "db2" use
 
-.. code-block:: none
+.. code-block:: php
 
     $cfg['Servers'][$i]['hide_db'] = '^(db1|db2)$';
 
@@ -517,17 +517,12 @@ To allow the usage of this functionality:
   :config:option:`$cfg['Servers'][$i]['column\_comments']` to
   :config:option:`$cfg['Servers'][$i]['column\_info']`
 
-  .. code-block:: none
+  .. code-block:: sql
 
-       
        ALTER TABLE `pma_column_comments`
        ADD `mimetype` VARCHAR( 255 ) NOT NULL,
        ADD `transformation` VARCHAR( 255 ) NOT NULL,
        ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
-
-
-
-
 
 .. _history:
 .. config:option:: $cfg['Servers'][$i]['history']
@@ -1350,7 +1345,7 @@ Defines whether to display the "PHP information" and "Change password
 directly. Please note that to block the usage of phpinfo() in scripts,
 you have to put this in your :file:`php.ini`:
 
-.. code-block:: none
+.. code-block:: ini
 
     disable_functions = phpinfo()
 
@@ -1728,11 +1723,10 @@ want to use rules for IP addresses behind proxy. The following example
 specifies that phpMyAdmin should trust a HTTP\_X\_FORWARDED\_FOR (``X
 -Forwarded-For``) header coming from the proxy 1.2.3.4:
 
-.. code-block:: none
+.. code-block:: php
 
     
-    $cfg['TrustedProxies'] =
-    array('1.2.3.4' => 'HTTP_X_FORWARDED_FOR');
+    $cfg['TrustedProxies'] = array('1.2.3.4' => 'HTTP_X_FORWARDED_FOR');
 
 The :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` directive uses the
 client's IP address as usual.
@@ -2117,7 +2111,7 @@ required to access this directory is the one who runs the webserver.
 If you have root privileges, simply make this user owner of this
 directory and make it accessible only by it:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     chown www-data:www-data tmp
@@ -2126,7 +2120,7 @@ directory and make it accessible only by it:
 If you cannot change owner of the directory, you can achieve a similar
 setup using :abbr:`ACL (Access Control List)`:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     chmod 700 tmp

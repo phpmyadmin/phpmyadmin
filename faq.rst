@@ -107,7 +107,7 @@ reasonably secure:
 As suggested by "Rob M" in the phpWizard forum, add this line to your
 *httpd.conf*:
 
-.. code-block:: none
+.. code-block:: apache
 
     SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 
@@ -271,14 +271,14 @@ this behavior by simply changing the directive to 0 (``OFF``): Just
 edit your ``my.ini`` file that should be located in your Windows
 directory and add the following line to the group [mysqld]:
 
-.. code-block:: none
+.. code-block:: ini
 
     set-variable = lower_case_table_names=0
 
 Next, save the file and restart the MySQL service. You can always
 check the value of this directive using the query
 
-.. code-block:: none
+.. code-block:: sql
 
     SHOW VARIABLES LIKE 'lower_case_table_names';
 
@@ -295,7 +295,7 @@ check the value of this directive using the query
 A tip from Jose Fandos: put a comment on the following two lines in
 httpd.conf, like this:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     # mod_gzip_item_include file \.php$
@@ -347,7 +347,7 @@ interpreting .php files.
 The problems occur when two different (and conflicting) set of
 directives are used:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     SetOutputFilter PHP
@@ -355,7 +355,7 @@ directives are used:
 
 and
 
-.. code-block:: none
+.. code-block:: apache
 
     AddType application/x-httpd-php .php
 
@@ -365,7 +365,7 @@ In the case we saw, one set of directives was in
 with ``AddType``, so just comment out the first set of lines and
 restart Apache:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     #SetOutputFilter PHP
@@ -432,7 +432,7 @@ need mod\_rewrite to be enabled. Then you just need to create
 following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
 forget to change directory name inside of it):
 
-.. code-block:: none
+.. code-block:: apache
 
     
     RewriteEngine On
@@ -450,7 +450,7 @@ forget to change directory name inside of it):
 Yes. However you need to pass authentication variable to :abbr:`CGI
 (Common Gateway Interface)` using following rewrite rule:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     RewriteEngine On
@@ -546,7 +546,7 @@ your Apache configuration. See
 To be able to use cookie auth Apache must know that it has to rewrite
 the set-cookie headers. Example from the Apache 2.2 documentation:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     ProxyPass /mirror/foo/ http://backend.example.com/
@@ -558,7 +558,7 @@ Note: if the backend url looks like http://host/~user/phpmyadmin, the
 tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
-.. code-block:: none
+.. code-block:: apache
 
     
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
@@ -587,7 +587,7 @@ You can add various rules to :term:`.htaccess` to filter access based on user ag
 field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.
 
-.. code-block:: none
+.. code-block:: apache
 
     
     RewriteEngine on
@@ -647,13 +647,13 @@ For RedHat users, Harald Legner suggests this on the mailing list:
 On my RedHat-Box the socket of MySQL is */var/lib/mysql/mysql.sock*.
 In your :file:`php.ini` you will find a line
 
-.. code-block:: none
+.. code-block:: ini
 
     mysql.default_socket = /tmp/mysql.sock
 
 change it to
 
-.. code-block:: none
+.. code-block:: ini
 
     mysql.default_socket = /var/lib/mysql/mysql.sock
 
@@ -834,7 +834,7 @@ This is an InnoDB bug, see `http://bugs.mysql.com/bug.php?id=21704
 The problem is that older versions of ``mysqldump`` created invalid
 comments like this:
 
-.. code-block:: none
+.. code-block:: sql
 
     
     -- MySQL dump 8.22
@@ -1078,17 +1078,17 @@ If you want a pre-made sample, you can try this fragment. It stops the
 'root' user from logging in from any networks other than the private
 network :abbr:`IP (Internet Protocol)` blocks.
 
-.. code-block:: none
+.. code-block:: php
 
     
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
     $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
-    'deny root from all',
-    'allow root from localhost',
-    'allow root from 10.0.0.0/8',
-    'allow root from 192.168.0.0/16',
-    'allow root from 172.16.0.0/12',
+        'deny root from all',
+        'allow root from localhost',
+        'allow root from 10.0.0.0/8',
+        'allow root from 192.168.0.0/16',
+        'allow root from 172.16.0.0/12',
     );
 
 .. _faq4_7:
@@ -1377,7 +1377,7 @@ located in the database mydb. If you don't have a ``pma_relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 
-.. code-block:: none
+.. code-block:: sql
 
     
     CREATE TABLE REL_countries (
@@ -1653,7 +1653,7 @@ You can simply include table in your L:sup:`A`T:sub:`*E*`X documents,
 minimal sample document should look like following one (assuming you
 have table exported in file ``table.tex``):
 
-.. code-block:: none
+.. code-block:: tex
 
     
     \documentclass{article} % or any class you want
@@ -1817,7 +1817,7 @@ write (for example ``'./tmp'``).
 
 To create the temporary directory on a UNIX-based system, you can do:
 
-.. code-block:: none
+.. code-block:: sh
 
     
     cd phpMyAdmin
@@ -1947,7 +1947,7 @@ logs. Currently there are two variables available:
 
 ``LogFormat`` directive for Apache can look like following:
 
-.. code-block:: none
+.. code-block:: apache
 
     
     LogFormat "%h %l %u %t \"%r\" %>s %b \
