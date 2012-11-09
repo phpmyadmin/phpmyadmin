@@ -23,10 +23,13 @@ Configuration
     *config.footer.inc.php* and *config.header.inc.php* files to add your
     site specific code to be included on start and end of each page.
 
+Basic settings
+--------------
+
 .. config:option:: $cfg['PmaAbsoluteUri']
 
     :type: string
-    :default:
+    :default: ''
 
 Sets here the complete :abbr:`URL (Uniform Resource Locator)` (with
 full path) to your phpMyAdmin installation's directory. E.g.
@@ -47,7 +50,7 @@ can improve the code.
 .. config:option:: $cfg['PmaNoRelation_DisableWarning']
 
     :type: boolean
-    :default:
+    :default: false
 
 Starting with version 2.3.0 phpMyAdmin offers a lot of features to
 work with master / foreign – tables (see ).  If you tried to set this
@@ -60,7 +63,7 @@ message from appearing.
 .. config:option:: $cfg['SuhosinDisableWarning']
 
     :type: boolean
-    :default:
+    :default: false
 
 A warning is displayed on the main page if Suhosin is detected. You
 can set this parameter to ``TRUE`` to stop this message from
@@ -69,7 +72,7 @@ appearing.
 .. config:option:: $cfg['McryptDisableWarning']
 
     :type: boolean
-    :default:
+    :default: false
 
 Disable the default warning that is displayed if mcrypt is missing for
 cookie authentication. You can set this parameter to ``TRUE`` to stop
@@ -78,7 +81,7 @@ this message from appearing.
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
     :type: boolean
-    :default:
+    :default: false
 
 A warning is displayed on the main page if there is a difference
 between the MySQL library and server version. You can set this
@@ -87,14 +90,14 @@ parameter to ``TRUE`` to stop this message from appearing.
 .. config:option:: $cfg['TranslationWarningThreshold']
 
     :type: integer
-    :default:
+    :default: 80
 
 Show warning about incomplete translations on certain threshold.
 
 .. config:option:: $cfg['blowfish_secret']
 
     :type: string
-    :default:
+    :default: ''
 
 The "cookie" auth\_type uses blowfish algorithm to encrypt the
 password. If you are using the "cookie" auth\_type, enter here a
@@ -105,10 +108,13 @@ can generate this on the fly, but it makes a bit weaker security as
 this generated secret is stored in session and furthermore it makes
 impossible to recall user name from cookie.
 
+Server connection settings
+--------------------------
+
 .. config:option:: $cfg['Servers']
 
     :type: array
-    :default:
+    :default: one server array with settings listed bellow
 
 Since version 1.4.2, phpMyAdmin supports the administration of
 multiple MySQL servers. Therefore, a -array has been added which
@@ -123,7 +129,7 @@ change).
 .. config:option:: $cfg['Servers'][$i]['host']
 
     :type: string
-    :default:
+    :default: 'localhost'
 
 The hostname or :abbr:`IP (Internet Protocol)` address of your $i-th
 MySQL-server. E.g. localhost.
@@ -131,7 +137,7 @@ MySQL-server. E.g. localhost.
 .. config:option:: $cfg['Servers'][$i]['port']
 
     :type: string
-    :default:
+    :default: ''
 
 The port-number of your $i-th MySQL-server. Default is 3306 (leave
 blank). If you use "localhost" as the hostname, MySQL ignores this
@@ -142,7 +148,7 @@ hostname in .
 .. config:option:: $cfg['Servers'][$i]['socket']
 
     :type: string
-    :default:
+    :default: ''
 
 The path to the socket to use. Leave blank for default. To determine
 the correct socket, check your MySQL configuration or, using the
@@ -152,14 +158,14 @@ resulting information displayed will be the socket used.
 .. config:option:: $cfg['Servers'][$i]['ssl']
 
     :type: boolean
-    :default:
+    :default: false
 
 Whether to enable SSL for connection to MySQL server.
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string
-    :default:
+    :default: 'tcp'
 
 What type connection to use with the MySQL server. Your options are
 ``'socket'`` and ``'tcp'``. It defaults to 'tcp' as that is nearly
@@ -170,7 +176,7 @@ must be on the same machine as the Web server.
 .. config:option:: $cfg['Servers'][$i]['extension']
 
     :type: string
-    :default:
+    :default: 'mysqli'
 
 What php MySQL extension to use for the connection. Valid options are:
 ``*mysql*`` : The classic MySQL extension. ``*mysqli*`` : The improved
@@ -181,7 +187,7 @@ newer.
 .. config:option:: $cfg['Servers'][$i]['compress']
 
     :type: boolean
-    :default:
+    :default: false
 
 Whether to use a compressed protocol for the MySQL server connection
 or not (experimental).
@@ -190,7 +196,7 @@ or not (experimental).
 .. config:option:: $cfg['Servers'][$i]['controlhost']
 
     :type: string
-    :default:
+    :default: ''
 
 Permits to use an alternate host to hold the configuration storage
 data.
@@ -199,12 +205,12 @@ data.
 .. config:option:: $cfg['Servers'][$i]['controluser']
 
     :type: string
-    :default:
+    :default: ''
 
 .. config:option:: $cfg['Servers'][$i]['controlpass']
 
     :type: string
-    :default:
+    :default: ''
 
 This special account is used for 2 distinct purposes: to make possible
 all relational features (see ) and, for a MySQL server running with
@@ -215,7 +221,7 @@ authentication modes (or 'config' authentication mode since phpMyAdmin
 2.2.1), you need to supply the details of a MySQL account that has
 ``SELECT`` privilege on the *mysql.user (all columns except
 "Password")*, *mysql.db (all columns)* and *mysql.tables\_priv (all
-columns except "Grantor" and "Timestamp")*tables. This account is used
+columns except "Grantor" and "Timestamp")* tables. This account is used
 to check what databases the user will see at login. Please see the  on
 "Using authentication modes" for more information. In phpMyAdmin
 versions before 2.2.5, those were called "stduser/stdpass".
@@ -223,7 +229,7 @@ versions before 2.2.5, those were called "stduser/stdpass".
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 
     :type: string
-    :default:
+    :default: 'cookie'
 
 Whether config or cookie or :abbr:`HTTP (HyperText Transfer Protocol)`
 or signon authentication should be used for this server.
@@ -255,7 +261,7 @@ Please see the  on "Using authentication modes" for more information.
 .. config:option:: $cfg['Servers'][$i]['auth_http_realm']
 
     :type: string
-    :default:
+    :default: ''
 
 When using auth\_type = ':abbr:`HTTP (HyperText Transfer Protocol)`',
 this field allows to define a custom :abbr:`HTTP (HyperText Transfer
@@ -267,7 +273,7 @@ not explicitly specified in your configuration, a string combined of
 .. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
 
     :type: string
-    :default:
+    :default: ''
 
 The name of the file containing  ids and login names for hardware
 authentication. Leave empty to deactivate this feature.
@@ -276,12 +282,12 @@ authentication. Leave empty to deactivate this feature.
 .. config:option:: $cfg['Servers'][$i]['user']
 
     :type: string
-    :default:
+    :default: 'root'
 
 .. config:option:: $cfg['Servers'][$i]['password']
 
     :type: string
-    :default:
+    :default: ''
 
 When using auth\_type = 'config', this is the user/password-pair which
 phpMyAdmin will use to connect to the MySQL server. This user/password
@@ -292,7 +298,7 @@ cookie authentication is used and should be empty.
 .. config:option:: $cfg['Servers'][$i]['nopassword']
 
     :type: boolean
-    :default:
+    :default: false
 
 Allow attempt to log in without password when a login with password
 fails. This can be used together with http authentication, when
@@ -305,7 +311,7 @@ tried.
 .. config:option:: $cfg['Servers'][$i]['only_db']
 
     :type: string or array
-    :default:
+    :default: ''
 
 If set to a (an array of) database name(s), only this (these)
 database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
@@ -330,7 +336,7 @@ and db4 on top, and the rest in alphabetic order.
 .. config:option:: $cfg['Servers'][$i]['hide_db']
 
     :type: string
-    :default:
+    :default: ''
 
 Regular expression for hiding some databases from unprivileged users.
 This only hides them from listing, but a user is still able to access
@@ -356,7 +362,7 @@ of the PHP reference manual.
 .. config:option:: $cfg['Servers'][$i]['verbose']
 
     :type: string
-    :default:
+    :default: ''
 
 Only useful when using phpMyAdmin with multiple server entries. If
 set, this string will be displayed instead of the hostname in the
@@ -368,7 +374,7 @@ auth, all non-US-ASCII characters will be stripped.
 .. config:option:: $cfg['Servers'][$i]['pmadb']
 
     :type: string
-    :default:
+    :default: ''
 
 The name of the database containing the phpMyAdmin configuration
 storage.  See the  section in this document to see the benefits of
@@ -384,7 +390,7 @@ phpMyAdmin configuration storage.
 .. config:option:: $cfg['Servers'][$i]['bookmarktable']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.2.0 phpMyAdmin allows users to bookmark queries. This
 can be useful for queries you often run. To allow the usage of this
@@ -399,7 +405,7 @@ functionality:
 .. config:option:: $cfg['Servers'][$i]['relation']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.2.4 you can describe, in a special 'relation' table,
 which column is a key in another table (a foreign key). phpMyAdmin
@@ -435,7 +441,7 @@ development of the cross-db relations.
 .. config:option:: $cfg['Servers'][$i]['table_info']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.3.0 you can describe, in a special 'table\_info'
 table, which column is to be displayed as a tool-tip when moving the
@@ -456,12 +462,12 @@ Usage tip: .
 .. config:option:: $cfg['Servers'][$i]['table_coords']
 
     :type: string
-    :default:
+    :default: ''
 
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.3.0 you can have phpMyAdmin create :abbr:`PDF
 (Portable Document Format)` pages showing the relations between your
@@ -483,7 +489,7 @@ Usage tips: .
 .. config:option:: $cfg['Servers'][$i]['column_info']
 
     :type: string
-    :default:
+    :default: ''
 
 This part requires a content update!  Since release 2.3.0 you can
 store comments to describe each column for each table. These will then
@@ -523,7 +529,7 @@ To allow the usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['history']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.5.0 you can store your :abbr:`SQL (structured query
 language)` history, which means all queries you entered manually into
@@ -545,7 +551,7 @@ usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['recent']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 3.5.0 you can show recently used tables in the
 navigation panel. It helps you to jump across table directly, without
@@ -566,7 +572,7 @@ usage of this functionality persistently:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 3.5.0 phpMyAdmin can be configured to remember several
 things (sorted column  , column order, and column visibility from a
@@ -584,7 +590,7 @@ you logout. To allow the usage of these functionality persistently:
 .. config:option:: $cfg['Servers'][$i]['tracking']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 3.3.x a tracking mechanism is available. It helps you to
 track every :abbr:`SQL (structured query language)` command which is
@@ -615,7 +621,7 @@ To allow the usage of this functionality:
 .. config:option:: $cfg['Servers'][$i]['tracking_version_auto_create']
 
     :type: boolean
-    :default:
+    :default: false
 
 Whether the tracking mechanism creates versions for tables and views
 automatically. Default value is false.  If this is set to true and you
@@ -631,26 +637,16 @@ you automatically.
 .. config:option:: $cfg['Servers'][$i]['tracking_default_statements']
 
     :type: string
-    :default:
+    :default: 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
 
 Defines the list of statements the auto-creation uses for new
-versions. Default value is
-
-.. code-block:: none
-
-    CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,
-    CREATE INDEX,DROP INDEX,
-    INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,
-    CREATE VIEW,ALTER VIEW,DROP VIEW,
-    CREATE DATABASE,ALTER DATABASE,DROP DATABASE
-
-
+versions. 
 
 .. _tracking4:
 .. config:option:: $cfg['Servers'][$i]['tracking_add_drop_view']
 
     :type: boolean
-    :default:
+    :default: true
 
 Whether a DROP VIEW IF EXISTS statement will be added as first line to
 the log when creating a view. Default value is true.
@@ -659,7 +655,7 @@ the log when creating a view. Default value is true.
 .. config:option:: $cfg['Servers'][$i]['tracking_add_drop_table']
 
     :type: boolean
-    :default:
+    :default: true
 
 Whether a DROP TABLE IF EXISTS statement will be added as first line
 to the log when creating a table. Default value is true.
@@ -668,7 +664,7 @@ to the log when creating a table. Default value is true.
 .. config:option:: $cfg['Servers'][$i]['tracking_add_drop_database']
 
     :type: boolean
-    :default:
+    :default: true
 
 Whether a DROP DATABASE IF EXISTS statement will be added as first
 line to the log when creating a database. Default value is true.
@@ -677,7 +673,7 @@ line to the log when creating a database. Default value is true.
 .. config:option:: $cfg['Servers'][$i]['userconfig']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 3.4.x phpMyAdmin allows users to set most preferences by
 themselves and store them in the database.  If you don't allow for
@@ -695,7 +691,7 @@ functionality:
 .. config:option:: $cfg['Servers'][$i]['designer_coords']
 
     :type: string
-    :default:
+    :default: ''
 
 Since release 2.10.0 a Designer interface is available; it permits to
 visually manage the relations.  To allow the usage of this
@@ -710,7 +706,7 @@ functionality:
 .. config:option:: $cfg['Servers'][$i]['MaxTableUiprefs']
 
     :type: integer
-    :default:
+    :default: 100
 
 Maximum number of rows saved in  table. When tables are dropped or
 renamed, table\_uiprefs may contain invalid data (referring to tables
@@ -720,7 +716,7 @@ table\_uiprefs and automatically delete older rows.
 .. config:option:: $cfg['Servers'][$i]['AllowRoot']
 
     :type: boolean
-    :default:
+    :default: true
 
 Whether to allow root access. This is just a shortcut for the
 AllowDeny rules below.
@@ -728,7 +724,7 @@ AllowDeny rules below.
 .. config:option:: $cfg['Servers'][$i]['AllowNoPassword']
 
     :type: boolean
-    :default:
+    :default: false
 
 Whether to allow logins without a password. The default value of
 ``false`` for this parameter prevents unintended access to a MySQL
@@ -739,7 +735,7 @@ anonymous (blank) user is defined.
 .. config:option:: $cfg['Servers'][$i]['AllowDeny']['order']
 
     :type: string
-    :default:
+    :default: ''
 
 If your rule order is empty, then :abbr:`IP (Internet Protocol)`
 authorization is disabled. If your rule order is set to
@@ -762,7 +758,7 @@ any order. Please also see  for detecting IP address behind proxies.
 .. config:option:: $cfg['Servers'][$i]['AllowDeny']['rules']
 
     :type: array of strings
-    :default:
+    :default: array()
 
 The general format for the rules is as such:
 
@@ -800,7 +796,7 @@ IPv6 addresses are not supported.
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
 
     :type: boolean
-    :default:
+    :default: true
 
 Disable using ``INFORMATION\_SCHEMA`` to retrieve information (use
 ``SHOW`` commands instead), because of speed issues when many
@@ -810,7 +806,7 @@ to come.
 .. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
 
     :type: string
-    :default:
+    :default: 'SHOW DATABASES'
 
 On a server with a huge number of databases, the default ``SHOW
 DATABASES`` command used to fetch the name of available databases will
@@ -820,7 +816,7 @@ probably be too slow, so it can be replaced by faster commands (see
 .. config:option:: $cfg['Servers'][$i]['CountTables']
 
     :type: boolean
-    :default:
+    :default: false
 
 Whether to count the number of tables for each database when preparing
 the list of databases for the navigation panel.
@@ -828,7 +824,7 @@ the list of databases for the navigation panel.
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
-    :default:
+    :default: ''
 
 Name of PHP script to be sourced and executed to obtain login
 credentials. This is alternative approach to session based single
@@ -840,7 +836,7 @@ empty). See ``examples/signon-script.php`` for an example.
 .. config:option:: $cfg['Servers'][$i]['SignonSession']
 
     :type: string
-    :default:
+    :default: ''
 
 Name of session which will be used for signon authentication method.
 You should use something different than ``phpMyAdmin``, because this
@@ -850,7 +846,7 @@ not configured.
 .. config:option:: $cfg['Servers'][$i]['SignonURL']
 
     :type: string
-    :default:
+    :default: ''
 
 :abbr:`URL (Uniform Resource Locator)` where user will be redirected
 to log in for signon authentication method. Should be absolute
@@ -859,7 +855,7 @@ including protocol.
 .. config:option:: $cfg['Servers'][$i]['LogoutURL']
 
     :type: string
-    :default:
+    :default: ''
 
 :abbr:`URL (Uniform Resource Locator)` where user will be redirected
 after logout (doesn't affect config authentication method). Should be
@@ -868,7 +864,7 @@ absolute including protocol.
 .. config:option:: $cfg['Servers'][$i]['StatusCacheDatabases']
 
     :type: array of strings
-    :default:
+    :default: array()
 
 Enables caching of ``TABLE STATUS`` outputs for specific databases on
 this server (in some cases ``TABLE STATUS`` can be very slow, so you
@@ -879,14 +875,17 @@ effect only if  is ``true``.
 .. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
 
     :type: integer
-    :default:
+    :default: 0
 
 Lifetime in seconds of the ``TABLE STATUS`` cache if  is used.
+
+Generic settings
+----------------
 
 .. config:option:: $cfg['ServerDefault']
 
     :type: integer
-    :default:
+    :default: 1
 
 If you have more than one server configured, you can set
 ``$cfg['ServerDefault']`` to any one of them to autoconnect to that
@@ -897,7 +896,7 @@ of servers without logging in. If you have only one server configured,
 .. config:option:: $cfg['AjaxEnable']
 
     :type: boolean
-    :default:
+    :default: true
 
 Defines whether to refresh only parts of certain pages using Ajax
 techniques. Applies only where a non-Ajax behavior is possible; for
@@ -907,15 +906,19 @@ apply to it.
 .. config:option:: $cfg['VersionCheck']
 
     :type: boolean
-    :default:
+    :default: true
 
 Enables check for latest versions using javascript on main phpMyAdmin
 page.
 
+.. note::
+
+    This setting can be adjusted by your vendor.
+
 .. config:option:: $cfg['MaxDbList']
 
     :type: integer
-    :default:
+    :default: 100
 
 The maximum number of database names to be displayed in the database
 list.
@@ -923,7 +926,7 @@ list.
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer
-    :default:
+    :default: 25
 
 The number of items that can be displayed on each page of the
 navigation tree.
@@ -931,7 +934,7 @@ navigation tree.
 .. config:option:: $cfg['MaxTableList']
 
     :type: integer
-    :default:
+    :default: 250
 
 The maximum number of table names to be displayed in the main panel's
 list (except on the Export page). This limit is also enforced in the
@@ -940,7 +943,7 @@ navigation panel when in Light mode.
 .. config:option:: $cfg['ShowHint']
 
     :type: boolean
-    :default:
+    :default: true
 
 Whether or not to show hints (for example, hints when hovering over
 table headers).
@@ -2472,11 +2475,13 @@ with them, you can put your login details here, and it will be used in
 place of the anonymous login.
 
 
+Debugging settings
+------------------
 
 .. config:option:: $cfg['DBG']
 
-    :type: 
-    :default:
+    :type: array
+    :default: see bellow
 
 **DEVELOPERS ONLY!**
 
