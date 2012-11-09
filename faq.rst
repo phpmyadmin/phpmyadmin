@@ -1590,8 +1590,8 @@ column.
 6.16 How can I simply move in page with plenty editing fields?
 --------------------------------------------------------------
 
-You can use Ctrl+arrows (Option+Arrows in Safari) for moving on most
-pages with many editing fields (table structure changes, row editing,
+You can use :kbd:`Ctrl+arrows` (:kbd:`Option+Arrows` in Safari) for moving on
+most pages with many editing fields (table structure changes, row editing,
 etc.).
 
 .. _faq6_17:
