@@ -15,7 +15,7 @@ From Wikipedia, the free encyclopedia
     Blowfish
       a keyed, symmetric block cipher, designed in 1993 by Bruce Schneier.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Blowfish_%28cipher%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Blowfish_(cipher)>
 
     Browser (Web Browser)
       a software application that enables a user to display and interact with text, images, and other information typically located on a web page at a website on the World Wide Web.	
@@ -40,12 +40,12 @@ From Wikipedia, the free encyclopedia
     Client
       a computer system that accesses a (remote) service on another computer by some kind of network.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Client_%28computing%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Client_(computing)>
 
     column
       a set of data values of a particular simple type, one for each row of the table.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Column_%28database%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Column_(database)>
 
     Cookie
       a packet of information sent by a server to a World Wide Web browser and then sent back by the browser each time it accesses that server.	
@@ -82,7 +82,7 @@ From Wikipedia, the free encyclopedia
     Field
       one part of divided data/columns.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Field_%28computer_science%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Field_(computer_science)>
 
     foreign key
       a column or group of columns in a database row that point to a key column
@@ -137,7 +137,7 @@ From Wikipedia, the free encyclopedia
     Index
       a feature that allows quick access to the rows in a table.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Index_%28database%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Index_(database)>
 
     IP (Internet Protocol)
       a data-oriented protocol used by source and destination hosts for communicating data across a packet-switched internetwork.	
@@ -259,7 +259,7 @@ From Wikipedia, the free encyclopedia
     port
       a connection through which data is sent and received.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Port_%28computing%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Port_(computing)>
 
     RFC
       Request for Comments (RFC) documents are a series of memoranda
@@ -276,12 +276,12 @@ From Wikipedia, the free encyclopedia
     Row (record, tuple)
       represents a single, implicitly structured data item in a table.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Row_%28database%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Row_(database)>
 
     Server
       a computer system that provides services to other computing systems over a network.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Server_%28computing%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Server_(computing)>
 
     Storage Engines
       handlers for different table types	
@@ -314,12 +314,12 @@ From Wikipedia, the free encyclopedia
       identified by a label or key or by it?s position in relation to other
       items.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Table_%28database%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Table_(database)>
 
     tar
       a type of archive file format: the Tape ARchive format.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/Tar_%28file_format%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/Tar_(file_format)>
 
     TCP (Transmission Control Protocol)
       one of the core protocols of the Internet protocol suite.	
@@ -358,7 +358,7 @@ From Wikipedia, the free encyclopedia
     ZIP
       a popular data compression and archival format.	
 
-      .. seealso:: <http://www.wikipedia.org/wiki/ZIP_%28file_format%29>
+      .. seealso:: <http://www.wikipedia.org/wiki/ZIP_(file_format)>
 
     zlib
       an open-source, cross- platform data compression library by Jean-loup Gailly and Mark Adler.	
