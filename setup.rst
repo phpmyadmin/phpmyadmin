@@ -309,8 +309,8 @@ system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
 
 
-':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode
-----------------------------------------------------------------
+HTTP authentication mode
+------------------------
 
 * Uses :abbr:`HTTP (HyperText Transfer Protocol)` Basic authentication
   method and allows you to log in as any valid MySQL user.
@@ -323,8 +323,8 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
   ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode.
 
 
-'cookie' authentication mode
-----------------------------
+Cookie authentication mode
+--------------------------
 
 * You can use this method as a replacement for the :abbr:`HTTP
   (HyperText Transfer Protocol)` authentication (for example, if you're
@@ -338,8 +338,8 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
   speed up access considerably, but is not required.
 
 
-'signon' authentication mode
-----------------------------
+Signon authentication mode
+--------------------------
 
 * This mode is a convenient way of using credentials from another
   application to authenticate to phpMyAdmin.
@@ -348,8 +348,8 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
 * More details in the  section.
 
 
-'config' authentication mode
-----------------------------
+Config authentication mode
+--------------------------
 
 * This mode is the less secure one because it requires you to fill the
   :config:option:`$cfg['Servers'][$i]['user']` and
@@ -372,8 +372,8 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
 
 .. _swekey:
 
-Swekey authentication
----------------------
+Swekey authentication mode
+--------------------------
 
 The Swekey is a low cost authentication USB key that can be used in
 web applications. When Swekey authentication is activated, phpMyAdmin
