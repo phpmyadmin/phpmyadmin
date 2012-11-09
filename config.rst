@@ -223,9 +223,12 @@ cookie authentication modes (or 'config' authentication mode since phpMyAdmin
 privilege on the *mysql.user (all columns except "Password")*, *mysql.db (all
 columns)* and *mysql.tables\_priv (all columns except "Grantor" and
 "Timestamp")* tables. This account is used to check what databases the user
-will see at login. Please see the :ref:`setup` on :ref:`authentication_modes`
-for more information. In phpMyAdmin versions before 2.2.5, those were called
-"stduser/stdpass".
+will see at login.
+
+.. versionchanged:: 2.2.5 
+    those were called "stduser/stdpass"
+
+.. seealso:: :ref:`setup`, :ref:`authentication_modes`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 

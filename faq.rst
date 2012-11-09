@@ -566,9 +566,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
     http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
-See `http://httpd.apache.org/docs/2.2/mod/mod\_proxy.html
-<http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>`_ for more
-details.
+.. seealso:: <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
 
 .. _faq1_41:
 
