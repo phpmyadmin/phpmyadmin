@@ -8,13 +8,15 @@ database server. It is still the system administrator's job to grant
 permissions on the MySQL databases properly. phpMyAdmin's "Privileges"
 page can be used for this.
 
-Warning for :abbr:`Mac (Apple Macintosh)` users: if you are on a
-:abbr:`Mac (Apple Macintosh)` :abbr:`OS (operating system)` version
-before :abbr:`OS (operating system)` X, StuffIt unstuffs with
-:abbr:`Mac (Apple Macintosh)` formats. So you'll have to resave as in
-BBEdit to Unix style ALL phpMyAdmin scripts before uploading them to
-your server, as PHP seems not to like :abbr:`Mac (Apple
-Macintosh)`-style end of lines character ("``\r``").
+.. warning::
+
+    :abbr:`Mac (Apple Macintosh)` users should note that if you are on a
+    :abbr:`Mac (Apple Macintosh)` :abbr:`OS (operating system)` version before
+    :abbr:`OS (operating system)` X, StuffIt unstuffs with :abbr:`Mac (Apple
+    Macintosh)` formats. So you'll have to resave as in BBEdit to Unix style
+    ALL phpMyAdmin scripts before uploading them to your server, as PHP seems
+    not to like :abbr:`Mac (Apple Macintosh)`-style end of lines character
+    ("``\r``").
 
 .. _quick_install:
 
