@@ -22,8 +22,8 @@ Currently phpMyAdmin can:
 * execute, edit and bookmark any :abbr:`SQL (structured query
   language)`-statement, even batch-queries
 * load text files into tables
-* create and read dumps of tables
-* export data to various formats: :abbr:`CSV (Comma Separated Values)`,
+* create [#f1]_ and read dumps of tables
+* export [#f1]_ data to various formats: :abbr:`CSV (Comma Separated Values)`,
   :abbr:`XML (Extensible Markup Language)`, :abbr:`PDF (Portable
   Document Format)`, :abbr:`ISO (International Standards
   Organisation)`/:abbr:`IEC (International Electrotechnical Commission)`
@@ -68,3 +68,12 @@ formats) dumps and :abbr:`CSV (comma separated values)` exports if you
 use PHP with Zlib support (``--with-zlib``) and/or Bzip2 support
 (``--with-bz2``). Proper support may also need changes in ``php.ini``.
 
+.. rubric:: Footnotes
+
+.. [#f1]
+
+    phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
+    dumps and :abbr:`CSV (comma separated values)` exports if you use
+    PHP with Zlib support (``--with-zlib``) and/or Bzip2 support
+    (``--with-bz2``). Proper support may also need changes in
+    :file:`php.ini`.
