@@ -17,18 +17,17 @@ AJAX.registerOnload('server_variables.js', function() {
     $cancelLink = $('a.cancelLink');
 
     /* Variable editing */
-    $('#serverVariables .var-row').hover(
-        function() {
+    $('#serverVariables').delegate('.var-row', 'hover', function(event) {
+        if (event.type === 'mouseenter') {
             var $elm = $(this).find('.var-value');
             // Only add edit element if the element is not being edited
             if ($elm.hasClass('editable') && ! $elm.hasClass('edit')) {
                 $elm.prepend($editLink.clone().show());
             }
-        },
-        function() {
+        } else {
             $(this).find('a.editLink').remove();
         }
-    );
+    });
 
     $('#filterText').keyup(function(e) {
         if ($(this).val().length == 0) {
