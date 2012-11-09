@@ -43,7 +43,7 @@ various Apache support groups.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 You just forgot to read the *install.txt* file from the PHP
-distribution. Have a look at the last message in this `bug report
+distribution. Have a look at the last message in this `PHP bug report #12061
 <http://bugs.php.net/bug.php?id=12061>`_ from the official PHP bug
 database.
 
@@ -1531,10 +1531,10 @@ It means "average".
   better documentation (but resulting file is bigger).
 * "Extended inserts" provides a shorter dump file by using only once the
   INSERT verb and the table name.
-* "Delayed inserts" are best explained in the `MySQL manual
+* "Delayed inserts" are best explained in the `MySQL manual - INSERT DELAYED Syntax
   <http://dev.mysql.com/doc/mysql/en/insert-delayed.html>`_.
 * "Ignore inserts" treats errors as a warning instead. Again, more info
-  is provided in the `MySQL manual
+  is provided in the `MySQL manual - INSERT Syntax
   <http://dev.mysql.com/doc/mysql/en/insert.html>`_, but basically with
   this selected, invalid values are adjusted and inserted rather than
   causing the entire statement to fail.
@@ -1695,7 +1695,7 @@ have table exported in file ``table.tex``):
 
 You have one of these global privileges: CREATE TEMPORARY TABLES, SHOW
 DATABASES, LOCK TABLES. Those privileges also enable users to see all
-the database names. See this `bug report
+the database names. See this `MySQL bug report #179
 <http://bugs.mysql.com/179>`_. So if your users do not need those
 privileges, you can remove them and their databases list will shorten.
 
