@@ -233,16 +233,56 @@ li.fast_filter.db_fast_filter {
 /* Scroll handler */
 #pma_navigation_scrollbar {
     display: none;
+    opacity: .5;
     position: fixed;
     top: 25px;
-    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 20; ?>px;
-    width: 20px;
-    background: #ddd;
+    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 28; ?>px;
+    width: 6px;
+    margin-right: 18px;
+    background-color: rgba(113, 112, 107, .1);
+    border-radius: 3px;
     height: 100%;
     z-index: 1;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    -ms-transition-duration: .5s;
+    transition-duration: .5s;
+}
+#pma_navigation:hover #pma_navigation_scrollbar {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    transition-duration: .2s;
 }
 #pma_navigation_scrollbar_handle {
     position: absolute;
-    width: 20px;
-    background: #888;
+    width: 6px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 3px;
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -o-transition-property: background-color;
+    -ms-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    -ms-transition-duration: .5s;
+    transition-duration: .5s;
+}
+#pma_navigation_scrollbar_handle:hover {
+    background-color: rgba(0, 0, 0, .3);
 }

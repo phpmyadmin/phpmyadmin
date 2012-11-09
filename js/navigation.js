@@ -542,7 +542,7 @@ var ResizeHandler = function () {
         }
         $('#pma_navigation_scrollbar').css(
             this.left,
-            (pos - $('#pma_navigation_scrollbar').width()) + 'px'
+            (pos - $('#pma_navigation_scrollbar').width() - 3) + 'px'
         );
 
         // Remove busy flag asynchronously, this way the event queue
