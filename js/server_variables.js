@@ -13,6 +13,7 @@ AJAX.registerOnload('server_variables.js', function() {
     var $editLink = $('a.editLink');
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
+    var $filterField = $('#filterText');
 
     /* Show edit link on hover */
     $('#serverVariables').delegate('.var-row', 'hover', function(event) {
@@ -28,13 +29,13 @@ AJAX.registerOnload('server_variables.js', function() {
     });
 
     /* Launches the variable editor */
-    $('a.editLink').live('click', function (event) {
+    $editLink.live('click', function (event) {
         event.preventDefault();
         editVariable(this);
     });
 
     /* Event handler for variables filter */
-    $('#filterText').keyup(function() {
+    $filterField.keyup(function() {
         var textFilter = null, val = $(this).val();
         if (val.length !== 0) {
             textFilter = new RegExp("(^| )"+val.replace(/_/g,' '),'i');
@@ -43,8 +44,8 @@ AJAX.registerOnload('server_variables.js', function() {
     });
 
     /* Trigger filtering of the list based on incoming variable name */
-    if ($('#filterText').val()) {
-        $('#filterText').trigger('keyup').select();
+    if ($filterField.val()) {
+        $filterField.trigger('keyup').select();
     }
 
     /* Filters the rows by the user given regexp */
