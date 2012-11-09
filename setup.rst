@@ -182,16 +182,16 @@ file called *create\_tables.sql*. (If you are using a Windows server,
 pay special attention to :ref:`faq1_23`).
 
 If you already had this infrastructure and upgraded to MySQL 4.1.2 or
-newer, please use *./examples/upgrade\_tables\_mysql\_4\_1\_2+.sql*
+newer, please use :file:`examples/upgrade_tables_mysql_4_1_2+.sql`
 and then create new tables by importing
-*./examples/create\_tables.sql*.
+:file:`examples/create_tables.sql`.
 
 You can use your phpMyAdmin to create the tables for you. Please be
 aware that you may need special (administrator) privileges to create
 the database and tables, and that the script may need some tuning,
 depending on the database name.
 
-After having imported the *./examples/create\_tables.sql* file, you
+After having imported the :file:`examples/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
 directives used for that can be found in the :ref:`config`. You will also need to
 have a controluser with the proper rights to those tables (see section

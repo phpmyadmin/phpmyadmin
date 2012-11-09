@@ -819,7 +819,7 @@ to come.
 On a server with a huge number of databases, the default ``SHOW
 DATABASES`` command used to fetch the name of available databases will
 probably be too slow, so it can be replaced by faster commands (see
-``libraries/config.default.php`` for examples).
+:file:`libraries/config.default.php` for examples).
 
 .. config:option:: $cfg['Servers'][$i]['CountTables']
 
@@ -839,7 +839,7 @@ credentials. This is alternative approach to session based single
 signon. The script needs to provide function
 ``get_login_credentials`` which returns list of username and
 password, accepting single parameter of existing username (can be
-empty). See ``examples/signon-script.php`` for an example.
+empty). See :file:`examples/signon-script.php` for an example.
 
 .. config:option:: $cfg['Servers'][$i]['SignonSession']
 
