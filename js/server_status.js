@@ -761,7 +761,7 @@ AJAX.registerOnload('server_status.js', function() {
         $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
 
-            data = $.parseJSON(data);
+            data = $.parseJSON(data.message);
 
             $cnt.html('');
 
