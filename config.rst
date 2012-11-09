@@ -20,7 +20,7 @@ Configuration
 
     The parameters which relate to design (like colors) are placed in
     ``themes/themename/layout.inc.php``. You might also want to create
-    *config.footer.inc.php* and *config.header.inc.php* files to add your
+    :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add your
     site specific code to be included on start and end of each page.
 
 Basic settings
