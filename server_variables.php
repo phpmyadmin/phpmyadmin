@@ -28,10 +28,11 @@ require 'libraries/server_variables_doc.php';
  */
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    // Send with correct charset
+    $response = PMA_Response::getInstance();
+
     if (isset($_REQUEST['type'])) {
-        switch($_REQUEST['type']) {
-        case 'getval':
+        if ($_REQUEST['type'] === 'getval') {
+            // Send with correct charset
             header('Content-Type: text/html; charset=UTF-8');
             $varValue = PMA_DBI_fetch_single_row(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
@@ -41,16 +42,19 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
             ) {
-                exit(
+                $response->addJSON(
+                    'message',
                     implode(
                         ' ', PMA_Util::formatByteDown($varValue[1], 3, 3)
                     )
                 );
+            } else {
+                $response->addJSON(
+                    'message',
+                    $varValue[1]
+                );
             }
-            exit($varValue[1]);
-            break;
-
-        case 'setval':
+        } else if ($_REQUEST['type'] === 'setval') {
             $value = $_REQUEST['varValue'];
 
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
@@ -81,7 +85,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $value="'" . $value . "'";
             }
 
-            $response = PMA_Response::getInstance();
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
                 && PMA_DBI_query(
                     'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
@@ -104,9 +107,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     __('Setting variable failed')
                 );
             }
-            exit;
-            break;
         }
+        exit;
     }
 }
 
