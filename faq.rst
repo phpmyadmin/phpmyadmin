@@ -1737,7 +1737,7 @@ name), but the following variables can be used:
 ``@SERVER@``
     MySQL server name
 ``@VERBOSE@``
-    Verbose MySQL server name as defined in :ref:`cfg_Servers_verbose`
+    Verbose MySQL server name as defined in :config:option:`$cfg['Servers'][$i]['verbose']`
 ``@VSERVER@``
     Verbose MySQL server name if set, otherwise normal
 ``@DATABASE@``

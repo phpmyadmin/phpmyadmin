@@ -299,7 +299,7 @@ the database *user_base*:
    
 What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
-user/password fields inside the :ref:`cfg_Servers`.
+user/password fields inside the :config:option:`$cfg['Servers']`.
 
 
 ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode
