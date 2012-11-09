@@ -1491,10 +1491,10 @@ div#queryAnalyzerDialog table.queryNums {
 #serverVariables .serverVariableEditor div {
     display: block;
     overflow: hidden;
-    padding-right: 1em;
+    padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    float: right;
+    float: <?php echo $right; ?>;
     margin: 0 0.5em;
     line-height: 2em;
 }
