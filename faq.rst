@@ -851,13 +851,15 @@ a # before it:  ``--
 
 .. _faq3_5:
 
-3.5 When using nested folders there are some multiple hierarchies displayed in a wrong manner?! ($cfg['NavigationTreeTableSeparator'])
---------------------------------------------------------------------------------------------------------------------------------------
+3.5 When using nested folders there are some multiple hierarchies displayed in a wrong manner?
+----------------------------------------------------------------------------------------------
 
 Please note that you should not use the separating string multiple
 times without any characters between them, or at the beginning/end of
 your table name. If you have to, think about using another
 TableSeparator or disabling that feature
+
+.. seealso:: :config:option:`$cfg['NavigationTreeTableSeparator']`
 
 .. _faq3_6:
 
