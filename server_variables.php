@@ -142,12 +142,13 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 /**
  * Displays the page
  */
+$value = ! empty($_REQUEST['filter']) ? htmlspecialchars($_REQUEST['filter']) : '';
 $output .= '<fieldset id="tableFilter">'
     . '<legend>' . __('Filters') . '</legend>'
     . '<div class="formelement">'
     . '<label for="filterText">' .  __('Containing the word:') . '</label>'
     . '<input name="filterText" type="text" id="filterText"'
-    . ' style="vertical-align: baseline;" />'
+    . ' style="vertical-align: baseline;" value="' . $value . '" />'
     . '</div>'
     . '</fieldset>';
 

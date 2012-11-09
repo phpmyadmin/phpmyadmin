@@ -27,6 +27,12 @@ AJAX.registerOnload('server_variables.js', function() {
         }
     });
 
+    /* Launches the variable editor */
+    $('a.editLink').live('click', function (event) {
+        event.preventDefault();
+        editVariable(this);
+    });
+
     /* Event handler for variables filter */
     $('#filterText').keyup(function() {
         var textFilter = null, val = $(this).val();
@@ -36,20 +42,10 @@ AJAX.registerOnload('server_variables.js', function() {
         filterVariables(textFilter);
     });
 
-    /* Launches the variable editor */
-    $('a.editLink').live('click', function (event) {
-        event.preventDefault();
-        editVariable(this);
-    });
-
-    /* FIXME: this seems broken as we now use the hash for the microhistory
-    if (location.hash.substr(1).split('=')[0] == 'filter') {
-        var name = location.hash.substr(1).split('=')[1];
-        // Only allow variable names
-        if (! name.match(/[^0-9a-zA-Z_]+/)) {
-            $('#filterText').val(name).trigger('keyup');
-        }
-    }*/
+    /* Trigger filtering of the list based on incoming variable name */
+    if ($('#filterText').val()) {
+        $('#filterText').trigger('keyup').select();
+    }
 
     /* Filters the rows by the user given regexp */
     function filterVariables(textFilter) {

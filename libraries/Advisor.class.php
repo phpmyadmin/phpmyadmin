@@ -239,7 +239,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php?' . PMA_generate_common_url() . '#filter=\1">\1</a>',
+                '<a href="server_variables.php?' . PMA_generate_common_url() . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
 
