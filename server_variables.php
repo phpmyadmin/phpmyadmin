@@ -130,7 +130,14 @@ $output .= '<a style="display: none;" href="' . $url . '" class="ajax saveLink">
 $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
 $output .= '<a style="display: none;" href="#" class="cancelLink">';
 $output .= PMA_Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
-
+$output .= PMA_Util::getImage(
+    'b_help.png',
+    __('Documentation'),
+    array(
+        'style' => 'display:none',
+        'id' => 'docImage'
+    )
+);
 
 /**
  * Sends the queries and buffers the results
@@ -168,7 +175,7 @@ foreach ($serverVars as $name => $value) {
     $row_class = ($odd_row ? ' odd' : ' even')
         . ($has_session_value ? ' diffSession' : '');
 
-    $output .= '<div class="var-row ' . $row_class . '">'
+    $output .= '<div class="var-row' . $row_class . '">'
         . '<div class="var-name">';
 
     // To display variable documentation link
@@ -182,7 +189,6 @@ foreach ($serverVars as $name => $value) {
             true
         );
         $output .= htmlspecialchars(str_replace('_', ' ', $name));
-        $output .= PMA_Util::getImage('b_help.png', __('Documentation'));
         $output .= '</a>';
         $output .= '</span>';
     } else {
@@ -196,7 +202,7 @@ foreach ($serverVars as $name => $value) {
         . '</div>';
 
     if ($has_session_value) {
-        $output .= '<div class="var-row ' . ($odd_row ? ' odd' : ' even') . '">'
+        $output .= '<div class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
             . '<div class="var-name session">(' . __('Session value') . ')</div>'
             . '<div class="var-value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
             . '<div style="clear:both"></div>'

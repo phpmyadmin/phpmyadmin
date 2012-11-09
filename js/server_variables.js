@@ -26,7 +26,9 @@ AJAX.registerOnload('server_variables.js', function() {
         } else {
             $(this).find('a.editLink').remove();
         }
-    });
+    }).find('.var-name').find('a').append(
+        $('#docImage').clone().show()
+    );
 
     /* Launches the variable editor */
     $editLink.live('click', function (event) {
