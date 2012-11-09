@@ -165,7 +165,7 @@ From Wikipedia, the free encyclopedia
       Request for Comments (RFC) documents are a series of memoranda encompassing new research, innovations, and methodologies applicable to Internet technologies.
 
     RFC 1952
-      GZIP file format specification version 4.3
+      GZIP file format specification version 4.3, see :rfc:`1952`
 
     Row (record, tuple)
       represents a single, implicitly structured data item in a table.
