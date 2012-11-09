@@ -54,6 +54,8 @@ class ConfigOption(ObjectDescription):
         indexentry = self.indextemplate % (name,)
         self.indexnode['entries'].append((indextype, indexentry,
                                           targetname, targetname))
+        self.indexnode['entries'].append((indextype, name,
+                                          targetname, targetname))
 
         # Server section
         if targetparts[0] == 'Servers' and len(targetparts) > 1:
