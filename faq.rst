@@ -721,8 +721,8 @@ doesn't work in this configuration with port forwarding. If you enter
 Themes are configured with :config:option:`$cfg['ThemePath']`,
 :config:option:`$cfg['ThemeManager']` and :config:option:`$cfg['ThemeDefault']`.  
 Under :config:option:`$cfg['ThemePath']`, you should not delete the
-directory "pmahomme" or its underlying structure, because this is the
-system theme used by phpMyAdmin. "pmahomme" contains all images and
+directory ``pmahomme`` or its underlying structure, because this is the
+system theme used by phpMyAdmin. ``pmahomme`` contains all images and
 styles, for backwards compatibility and for all themes that would not
 include images or css-files.  If :config:option:`$cfg['ThemeManager']`
 is enabled, you can select your favorite theme on the main page. Your selected
@@ -732,7 +732,7 @@ To create a theme:
 
 * make a new subdirectory (for example "your\_theme\_name") under :config:option:`$cfg['ThemePath']` (by
   default ``themes``)
-* copy the files and directories from "pmahomme" to "your\_theme\_name"
+* copy the files and directories from ``pmahomme`` to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
 * put your new images in "your\_theme\_name/img"
 * edit :file:`layout.inc.php` in "your\_theme\_name"
@@ -751,7 +751,7 @@ incompatible.
 
 If you do not want to use your own symbols and buttons, remove the
 directory "img" in "your\_theme\_name". phpMyAdmin will use the
-default icons and buttons (from the system-theme "pmahomme").
+default icons and buttons (from the system-theme ``pmahomme``).
 
 .. _faqmissingparameters:
 

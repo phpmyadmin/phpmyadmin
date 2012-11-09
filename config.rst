@@ -8,9 +8,9 @@ Configuration
 .. warning::
 
     :abbr:`Mac (Apple Macintosh)` users should note that PHP does not seem to
-    like :abbr:`Mac (Apple Macintosh)` end of lines character ("``\r``"). So
+    like :abbr:`Mac (Apple Macintosh)` end of lines character (``\r``). So
     ensure you choose the option that allows to use the \*nix end of line
-    character ("``\n``") in your text editor before saving a script you have
+    character (``\n``) in your text editor before saving a script you have
     modified.
 
 .. note::
@@ -62,7 +62,7 @@ Basic settings
     work with master / foreign – tables (see :config:option:`$cfg['Servers'][$i]['pmadb']`).  
     
     If you tried to set this
-    up and it does not work for you, have a look on the "Structure" page
+    up and it does not work for you, have a look on the :guilabel:`Structure` page
     of one database where you would like to use it. You will find a link
     that will analyze why those features have been disabled.
     
@@ -153,9 +153,9 @@ Server connection settings
     :default: ``''``
 
     The port-number of your $i-th MySQL-server. Default is 3306 (leave
-    blank). If you use "localhost" as the hostname, MySQL ignores this
+    blank). If you use ``localhost`` as the hostname, MySQL ignores this
     port number and connects with the socket, so if you want to connect to
-    a port different from the default port, use "127.0.0.1" or the real
+    a port different from the default port, use ``127.0.0.1`` or the real
     hostname in :config:option:`$cfg['Servers'][$i]['host']`.
 
 .. config:option:: $cfg['Servers'][$i]['socket']
@@ -240,7 +240,7 @@ Server connection settings
     will see at login.
 
     .. versionchanged:: 2.2.5 
-        those were called "stduser/stdpass"
+        those were called ``stduser`` and ``stdpass``
 
     .. seealso:: :ref:`setup`, :ref:`authentication_modes`
 
@@ -651,12 +651,12 @@ Server connection settings
     * phpMyAdmin logs all commands which change the structure and/or data of
       the table and links these commands with the version number.
 
-    Of course you can view the tracked changes. On the "Tracking" page a
-    complete report is available for every version. For the report you can
-    use filters, for example you can get a list of statements within a
-    date range. When you want to filter usernames you can enter \* for all
-    names or you enter a list of names separated by ','. In addition you
-    can export the (filtered) report to a file or to a temporary database.
+    Of course you can view the tracked changes. On the :guilabel:`Tracking`
+    page a complete report is available for every version. For the report you
+    can use filters, for example you can get a list of statements within a date
+    range. When you want to filter usernames you can enter \* for all names or
+    you enter a list of names separated by ','. In addition you can export the
+    (filtered) report to a file or to a temporary database.
 
     To allow the usage of this functionality:
 
@@ -1146,7 +1146,7 @@ Generic settings
     :default: false
 
     Defines whether normal users (non-administrator) are allowed to delete
-    their own database or not. If set as false, the link "Drop Database"
+    their own database or not. If set as false, the link :guilabel:`Drop Database`
     will not be shown, and even a "DROP DATABASE mydatabase" will be
     rejected. Quite practical for :abbr:`ISP (Internet service
     provider)`'s with many customers. 
@@ -1725,12 +1725,12 @@ Tabs display settings
 
     Defines the tab displayed by default on server view. Possible values:
 
-    * "main.php" (recommended for multi-user setups)
-    * "server\_databases.php",
-    * "server\_status.php"
-    * "server\_variables.php"
-    * "server\_privileges.php"
-    * "server\_processlist.php"
+    * ``main.php`` (recommended for multi-user setups)
+    * ``server_databases.php``,
+    * ``server_status.php``
+    * ``server_variables.php``
+    * ``server_privileges.php``
+    * ``server_processlist.php``
 
 .. config:option:: $cfg['DefaultTabDatabase']
 
@@ -1740,9 +1740,9 @@ Tabs display settings
     Defines the tab displayed by default on database view. Possible
     values: 
     
-    * "db\_structure.php"
-    * "db\_sql.php" 
-    * "db\_search.php".
+    * ``db_structure.php``
+    * ``db_sql.php`` 
+    * ``db_search.php``.
 
 .. config:option:: $cfg['DefaultTabTable']
 
@@ -1751,11 +1751,11 @@ Tabs display settings
 
     Defines the tab displayed by default on table view. Possible values:
 
-    * "tbl\_structure.php"
-    * "tbl\_sql.php"
-    * "tbl\_select.php"
-    * "tbl\_change.php" 
-    * "sql.php"
+    * ``tbl_structure.php``
+    * ``tbl_sql.php``
+    * ``tbl_select.php``
+    * ``tbl_change.php`` 
+    * ``sql.php``
 
 Documentation
 -------------
@@ -2293,7 +2293,7 @@ Web server upload/save/import directories
     temporary directory in some directory accessible by the web server.
     However for security reasons, this directory should be outside the
     tree published by webserver. If you cannot avoid having this directory
-    published by webserver, place at least an empty ``index.html`` file
+    published by webserver, place at least an empty :file:`index.html` file
     there, so that directory listing is not possible.
 
     This directory should have as strict permissions as possible as the only
@@ -2312,13 +2312,12 @@ Web server upload/save/import directories
 
     .. code-block:: sh
 
-        
         chmod 700 tmp
         setfacl -m "g:www-data:rwx" tmp
         setfacl -d -m "g:www-data:rwx" tmp
 
     If neither of above works for you, you can still make the directory
-    ``chmod 777``, but it might impose risk of other users on system
+    :command:`chmod 777`, but it might impose risk of other users on system
     reading and writing data in this directory.
 
 Various display setting
@@ -2383,10 +2382,10 @@ Various display setting
     :file:`layout.inc.php`` for the theme you are using. 
 
     If :config:option:`$cfg['EditInWindow']` is set to true, a click on [Edit]
-    from the results page (in the "Showing Rows" section) opens the query
-    window and puts the current query inside it. If set to false, clicking on
-    the link puts the :abbr:`SQL (structured query language)` query in the
-    right panel's query box.  
+    from the results page (in the :guilabel:`Showing Rows` section) opens the
+    query window and puts the current query inside it. If set to false,
+    clicking on the link puts the :abbr:`SQL (structured query language)` query
+    in the right panel's query box.  
 
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
     Queries are logged to a table, which has to be created by you (see
@@ -2396,15 +2395,15 @@ Various display setting
 
     When using the JavaScript based query window, it will always get updated
     when you click on a new table/db to browse and will focus if you click on
-    "Edit :abbr:`SQL (structured query language)`" after using a query. You can
-    suppress updating the query window by checking the box "Do not overwrite
-    this query from outside the window" below the query textarea. Then you can
-    browse tables/databases in the background without losing the contents of
-    the textarea, so this is especially useful when composing a query with
-    tables you first have to look in. The checkbox will get automatically
-    checked whenever you change the contents of the textarea. Please uncheck
-    the button whenever you definitely want the query window to get updated
-    even though you have made alterations. 
+    :guilabel:`Edit SQL` after using a query. You can suppress updating the
+    query window by checking the box :guilabel:`Do not overwrite this query
+    from outside the window` below the query textarea. Then you can browse
+    tables/databases in the background without losing the contents of the
+    textarea, so this is especially useful when composing a query with tables
+    you first have to look in. The checkbox will get automatically checked
+    whenever you change the contents of the textarea. Please uncheck the button
+    whenever you definitely want the query window to get updated even though
+    you have made alterations. 
 
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true`` you can
     specify the amount of saved history items using
@@ -2413,7 +2412,7 @@ Various display setting
     The query window also has a custom tabbed look to group the features.
     Using the variable :config:option:`$cfg['QueryWindowDefTab']` you can
     specify the default tab to be used when opening the query window. It can be
-    set to either 'sql', 'files', 'history' or 'full'.
+    set to either ``sql``, ``files``, ``history`` or ``full``.
 
 .. config:option:: $cfg['BrowseMIME']
 
