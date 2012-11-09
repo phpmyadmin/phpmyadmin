@@ -179,7 +179,11 @@ hosting provider is unwilling to change the settings:
   are aware of users having success with it.
 * If you have shell (command line) access, use MySQL to import the files
   directly. You can do this by issuing the "source" command from within
-  MySQL: ``source *filename.sql*``.
+  MySQL:
+
+  .. code-block:: sql
+
+    source filename.sql;
 
 .. _faq1_17:
 
@@ -574,7 +578,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
 --------------------------------------------------------------------------------------------------
 
 The MySQL server's privilege tables are not up to date, you need to
-run the ``mysql_upgrade`` command on the server.
+run the :command:`mysql_upgrade` command on the server.
 
 .. _faq1_42:
 
@@ -703,7 +707,7 @@ configuration file.
 When you are using a port on your localhost, which you redirect via
 port-forwarding to another host, MySQL is not resolving the localhost
 as expected. Erik Wasser explains: The solution is: if your host is
-"localhost" MySQL (the command line tool ``mysql`` as well) always
+"localhost" MySQL (the command line tool :command:`mysql` as well) always
 tries to use the socket connection for speeding up things. And that
 doesn't work in this configuration with port forwarding. If you enter
 "127.0.0.1" as hostname, everything is right and MySQL uses the

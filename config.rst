@@ -165,7 +165,7 @@ Server connection settings
 
     The path to the socket to use. Leave blank for default. To determine
     the correct socket, check your MySQL configuration or, using the
-    ``mysql`` command–line client, issue the ``status`` command. Among the
+    :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
 
 .. config:option:: $cfg['Servers'][$i]['ssl']
