@@ -7,7 +7,7 @@
  * @requires    jQueryUI
  * @requires    jQueryCookie
  * @requires    jQueryTablesorter
- * @requires    jqPlot 
+ * @requires    jqPlot
  * @requires    canvg
  * @requires    js/functions.js
  *
@@ -297,7 +297,7 @@ AJAX.registerOnload('server_status.js', function() {
         var tabstat = tabStatus[$tab.attr('id')];
 
         if (tabstat == 'static' || tabstat == 'liveconnections') {
-            
+
             setupLiveChart($tab, this, getSettings('traffic'));
             var set_previous = getCurrentDataSet($tab, 'traffic');
             tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
@@ -395,7 +395,7 @@ AJAX.registerOnload('server_status.js', function() {
         }
         else if(type == 'traffic') {
             ret.y_sent = ret.y_sent/1024;
-            ret.y_received = ret.y_received/1024;            
+            ret.y_received = ret.y_received/1024;
             line1 = [ret.x, ret.y_sent - previous_y_line1[$tab.attr('id')]];
             line2 = [ret.x, ret.y_received - previous_y_line2[$tab.attr('id')]];
             previous_y_line1[$tab.attr('id')] = ret.y_sent;
@@ -596,7 +596,7 @@ AJAX.registerOnload('server_status.js', function() {
                 });
 
                 queryPieChart = PMA_createProfilingChartJqplot(
-                    'serverstatusquerieschart', 
+                    'serverstatusquerieschart',
                     cdata
                 );
 
