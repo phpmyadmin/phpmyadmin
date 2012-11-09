@@ -121,19 +121,18 @@ function editVariable(link)
             varName: varName
         }, function(data) {
             if (data.success == true) {
-                $cell.data('content', $cell.html()).html('');
-
-                // put edit field and save/cancel link
-                $cell.prepend(
-                    '<table class="serverVariableEditTable" border="0">'
-                    + '<tr><td><input type="text" value="' + data.message + '" /></td>'
-                    + '<td></td></tr>'
-                    + '</table>'
-                );
-                $cell.find('table td:last').append($mySaveLink);
-                $cell.find('table td:last').append(' ');
-                $cell.find('table td:last').append($myCancelLink);
-
+                var $editor = $('<div />', {'class':'serverVariableEditor'})
+                    .append($myCancelLink)
+                    .append(' ')
+                    .append($mySaveLink)
+                    .append(' ')
+                    .append(
+                        $('<div/>').append(
+                            $('<input />', {type: 'text'}).val(data.message)
+                        )
+                    );
+                // Save and replace content
+                $cell.data('content', $cell.html()).html($editor);
                 // Keyboard shortcuts to the rescue
                 $cell.find('input').focus().keydown(function(event) {
                     // Enter key

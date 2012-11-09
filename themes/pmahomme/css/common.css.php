@@ -1475,27 +1475,28 @@ div#queryAnalyzerDialog table.queryNums {
     float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
-#serverVariables .serverVariableEditTable {
-    border: 0;
-    margin: 0;
-    padding: 0;
+#serverVariables .serverVariableEditor {
     width: 100%;
+    overflow: hidden;
 }
-#serverVariables .serverVariableEditTable td {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: <?php echo $left; ?>;
-}
-#serverVariables .serverVariableEditTable input {
-    width: 90%;
+#serverVariables .serverVariableEditor input {
+    width: 100%;
     margin: 0 0.5em;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    height: 2.2em;
+}
+#serverVariables .serverVariableEditor div {
+    display: block;
+    overflow: hidden;
+    padding-right: 1em;
+}
+#serverVariables .serverVariableEditor a {
+    float: right;
+    margin: 0 0.5em;
+    line-height: 2em;
 }
 /* end server variables */
 
