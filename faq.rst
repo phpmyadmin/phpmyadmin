@@ -63,8 +63,8 @@ use instead the cookie authentication mode.
 
 This seems to be a PWS bug. Filippo Simoncini found a workaround (at
 this time there is no better fix): remove or comment the ``DOCTYPE``
-declarations (2 lines) from the scripts *libraries/Header.class.php*
-and *index.php*.
+declarations (2 lines) from the scripts :file:`libraries/Header.class.php`
+and :file:`index.php`.
 
 .. _faq1_7:
 
