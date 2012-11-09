@@ -1436,6 +1436,7 @@ div#queryAnalyzerDialog table.queryNums {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 2em;
 }
 #serverVariables .var-header {
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;

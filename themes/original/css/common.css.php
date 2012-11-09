@@ -1168,6 +1168,7 @@ div#logTable table {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 2em;
 }
 
 #serverVariables .var-header {
