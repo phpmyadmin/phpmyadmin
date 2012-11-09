@@ -1429,36 +1429,75 @@ div#queryAnalyzerDialog table.queryNums {
 /* end serverstatus */
 
 /* server variables */
+#serverVariables {
+    min-width: 30em;
+}
+#serverVariables .var-row > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#serverVariables .var-header {
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: #f3f3f3;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    font-weight: bold;
+}
+#serverVariables .var-header .var-value {
+    text-align: <?php echo $left; ?>;
+}
+#serverVariables .var-row {
+    padding: 0.5em;
+    min-height: 18px;
+}
+#serverVariables .var-name {
+    width: 45%;
+    float: <?php echo $left; ?>;
+    font-weight: bold;
+}
+#serverVariables .var-name.session {
+    font-weight: normal;
+    font-style: italic;
+}
+#serverVariables .var-value {
+    width: 50%;
+    float: <?php echo $right; ?>;
+    text-align: <?php echo $right; ?>;
+}
+#serverVariables .var-doc {
+    overflow:visible;
+    float: <?php echo $right; ?>;
+}
 
-a.editLink {
+/* server variables editor */
+#serverVariables .editLink {
+    padding-<?php echo $right; ?>: 1em;
     float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
-
-table.serverVariableEditTable {
-    border: 0;
-    margin: 0;
-    padding: 0;
+#serverVariables .serverVariableEditor {
     width: 100%;
+    overflow: hidden;
 }
-table.serverVariableEditTable td {
-    border: 0;
-    margin: 0;
-    padding: 0;
+#serverVariables .serverVariableEditor input {
+    width: 100%;
+    margin: 0 0.5em;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 2.2em;
 }
-table.serverVariableEditTable td:first-child {
-    white-space: nowrap;
-    vertical-align: middle;
+#serverVariables .serverVariableEditor div {
+    display: block;
+    overflow: hidden;
+    padding-<?php echo $right; ?>: 1em;
 }
-
-table.serverVariableEditTable input {
-    width: 95%;
+#serverVariables .serverVariableEditor a {
+    float: <?php echo $right; ?>;
+    margin: 0 0.5em;
+    line-height: 2em;
 }
-
-table#serverVariables td {
-    height: 18px;
-}
-
 /* end server variables */
 
 
