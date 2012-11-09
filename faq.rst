@@ -1007,8 +1007,9 @@ Since version 2.0.3, you can setup a central copy of phpMyAdmin for
 all your users. The development of this feature was kindly sponsored
 by NetCologne GmbH. This requires a properly setup MySQL user
 management and phpMyAdmin :abbr:`HTTP (HyperText Transfer Protocol)`
-or cookie authentication. See the install section on "Using
-:abbr:`HTTP (HyperText Transfer Protocol)` authentication".
+or cookie authentication. 
+
+.. seealso:: :ref:`authentication_modes`
 
 .. _faq4_2:
 

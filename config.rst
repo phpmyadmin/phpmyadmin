@@ -258,7 +258,7 @@ or signon authentication should be used for this server.
   :config:option:`$cfg['Servers'][$i]['SignonURL']` to use this authentication 
   method.
 
-Please see the  on "Using authentication modes" for more information.
+.. seealso:: :ref:`authentication_modes`
 
 .. _servers_auth_http_realm:
 .. config:option:: $cfg['Servers'][$i]['auth_http_realm']
