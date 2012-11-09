@@ -2209,8 +2209,8 @@ Repeat the headers every X cells, or 0 to deactivate.
     :type: integer
     :default:
 
-All those variables affect the query window feature. A ``:abbr:`SQL
-(structured query language)``` link or icon is always displayed in the
+All those variables affect the query window feature. A :abbr:`SQL
+(structured query language)` link or icon is always displayed in the
 navigation panel. If JavaScript is enabled in your browser, a click on
 this opens a distinct query window, which is a direct interface to
 enter :abbr:`SQL (structured query language)` queries. Otherwise, the
