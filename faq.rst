@@ -82,7 +82,7 @@ Safe Mode or not, and so on). So, you must have Zlib/Bzip2 support
 -----------------------------------------------------------------------------------------------
 
 Your uploaded file is saved by PHP in the "upload dir", as defined in
-*php.ini* by the variable ``upload_tmp_dir`` (usually the system
+:file:`php.ini` by the variable ``upload_tmp_dir`` (usually the system
 default is */tmp*). We recommend the following setup for Apache
 servers running in safe mode, to enable uploads of files while being
 reasonably secure:
@@ -91,7 +91,7 @@ reasonably secure:
 * give ownership to the Apache server's user.group: ``chown
   apache.apache /tmp/php``
 * give proper permission: ``chmod 600 /tmp/php``
-* put ``upload_tmp_dir = /tmp/php`` in *php.ini*
+* put ``upload_tmp_dir = /tmp/php`` in :file:`php.ini`
 * restart Apache
 
 .. _faq1_9:
@@ -162,7 +162,7 @@ to the latest version to take advantage of the new import features.
 
 The first things to check (or ask your host provider to check) are the
 values of ``upload_max_filesize``, ``memory_limit`` and
-``post_max_size`` in the *php.ini* configuration file. All of these
+``post_max_size`` in the :file:`php.ini` configuration file. All of these
 three settings limit the maximum size of data that can be submitted
 and handled by PHP. One user also said that ``post_max_size`` and
 ``memory_limit`` need to be larger than ``upload_max_filesize``.
@@ -250,14 +250,14 @@ or something similar.
 1.21 I am running the :abbr:`CGI (Common Gateway Interface)` version of PHP under Unix, and I cannot log in using cookie auth.
 ------------------------------------------------------------------------------------------------------------------------------
 
-In *php.ini*, set ``mysql.max_links`` higher than 1.
+In :file:`php.ini`, set ``mysql.max_links`` higher than 1.
 
 .. _faq1_22:
 
 1.22 I don't see the "Location of text file" field, so I cannot upload.
 -----------------------------------------------------------------------
 
-This is most likely because in *php.ini*, your ``file_uploads``
+This is most likely because in :file:`php.ini`, your ``file_uploads``
 parameter is not set to "on".
 
 .. _faq1_23:
@@ -398,7 +398,7 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 :abbr:`ISAPI (Internet Server Application Programming Interface)` mode
 under :abbr:`IIS (Internet Information Services)` 5.1.
 
-#. In your ``php.ini`` file, set ``cgi.rfc2616_headers = 0``
+#. In your :file:`php.ini` file, set ``cgi.rfc2616_headers = 0``
 #. In ``Web Site Properties -> File/Directory Security -> Anonymous
    Access`` dialog box, check the ``Anonymous access`` checkbox and
    uncheck any other checkboxes (i.e. uncheck ``Basic authentication``,
@@ -645,7 +645,7 @@ support into PHP.
 For RedHat users, Harald Legner suggests this on the mailing list:
 
 On my RedHat-Box the socket of MySQL is */var/lib/mysql/mysql.sock*.
-In your *php.ini* you will find a line
+In your :file:`php.ini` you will find a line
 
 .. code-block:: none
 
@@ -768,12 +768,12 @@ Here are a few points to check:
   another low value, you could get this error if your table has a high
   number of columns. Adjust this setting accordingly. (Thanks to Klaus
   Dorninger for the hint).
-* In the ``php.ini`` directive ``arg_separator.input``, a value of ";"
+* In the :file:`php.ini` directive ``arg_separator.input``, a value of ";"
   will cause this error. Replace it with "&;".
 * If you are using `Hardened-PHP <http://www.hardened-php.net/>`_, you
   might want to increase `request limits <http://www.hardened-
   php.net/hphp/troubleshooting.html>`_.
-* The directory specified in the ``php.ini`` directive
+* The directory specified in the :file:`php.ini` directive
   ``session.save_path`` does not exist or is read-only.
 
 .. _faq2_9:
@@ -787,10 +787,10 @@ have the `APC <http://pecl.php.net/package/APC>`_ extension, the
 you must be running PHP 5.4.0 or higher. Moreover, the JSON extension
 has to be enabled in your PHP.
 
-If using APC, you must set ``apc.rfc1867`` to ``on`` in your php.ini.
+If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 
 If using PHP 5.4.0 or higher, you must set
-``session.upload_progress.enabled`` to ``1`` in your php.ini.
+``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
 
 .. _faqlimitations:
 
@@ -1033,7 +1033,7 @@ Protocol)` or cookie authentication features.  Suggestions:
 4.3 I get errors about not being able to include a file in */lang* or in */libraries*.
 --------------------------------------------------------------------------------------
 
-Check *php.ini*, or ask your sysadmin to check it. The
+Check :file:`php.ini`, or ask your sysadmin to check it. The
 ``include_path`` must contain "." somewhere in it, and
 ``open_basedir``, if used, must contain "." and "./lang" to allow
 normal operation of phpMyAdmin.

@@ -121,9 +121,9 @@ multiple MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has 
 contains the login information for the different servers. The first
 :config:option:`$cfg['Servers'][$i]['host']`
 contains the hostname of the first server, the second :config:option:`$cfg['Servers'][$i]['host']` the hostname of
-the second server, etc. In ``./libraries/config.default.php``, there
+the second server, etc. In :file:`libraries/config.default.php`, there
 is only one section for server definition, however you can put as many
-as you need in ``./config.inc.php``, copy that block or needed parts
+as you need in :file:`config.inc.php`, copy that block or needed parts
 (you don't have to define all settings, just those you need to
 change).
 
@@ -1035,7 +1035,7 @@ zero, no limit is imposed. This setting is used while
 importing/exporting dump files and at some other places in phpMyAdmin
 so you definitely don't want to put here a too low value. It has no
 effect when PHP is running in safe mode. You can also use any string
-as in php.ini, eg. '16M'. Ensure you don't omit the suffix (16 means
+as in :file:`php.ini`, eg. '16M'. Ensure you don't omit the suffix (16 means
 16 bytes!)
 
 .. config:option:: $cfg['SkipLockedTables']
@@ -1348,7 +1348,7 @@ Defines whether to display the "PHP information" and "Change password
 " links and form for creating database or not at the starting main
 (right) frame. This setting does not check MySQL commands entered
 directly. Please note that to block the usage of phpinfo() in scripts,
-you have to put this in your *php.ini*:
+you have to put this in your :file:`php.ini`:
 
 .. code-block:: none
 
