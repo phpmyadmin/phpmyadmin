@@ -999,8 +999,8 @@ Generic settings
     :type: integer
     :default: 100
 
-    The maximum number of database names to be displayed in the database
-    list.
+    The maximum number of database names to be displayed in the main panel's
+    database list.
 
 .. config:option:: $cfg['MaxNavigationItems']
 
