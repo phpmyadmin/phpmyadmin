@@ -87,10 +87,10 @@ default is */tmp*). We recommend the following setup for Apache
 servers running in safe mode, to enable uploads of files while being
 reasonably secure:
 
-* create a separate directory for uploads: ``mkdir /tmp/php``
-* give ownership to the Apache server's user.group: ``chown
-  apache.apache /tmp/php``
-* give proper permission: ``chmod 600 /tmp/php``
+* create a separate directory for uploads: :command:`mkdir /tmp/php`
+* give ownership to the Apache server's user.group: :comand:`chown
+  apache.apache /tmp/php`
+* give proper permission: :command:`chmod 600 /tmp/php`
 * put ``upload_tmp_dir = /tmp/php`` in :file:`php.ini`
 * restart Apache
 
@@ -1845,7 +1845,6 @@ To create the temporary directory on a UNIX-based system, you can do:
 
 .. code-block:: sh
 
-    
     cd phpMyAdmin
     mkdir tmp
     chmod o+rwx tmp
