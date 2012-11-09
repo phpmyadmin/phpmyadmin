@@ -9,7 +9,7 @@ Introduction
 ++++++++++++
 
 To enable transformations, you have to setup the ``column\_info``
-table and the proper directives. Please see the  on how to do so.
+table and the proper directives. Please see the :ref:`config` on how to do so.
 
 You can apply different transformations to the contents of each
 column. The transformation will take the content of each column and

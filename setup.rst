@@ -83,8 +83,8 @@ Or, if you prefer to not be prompted every time you log in:
     $cfg['Servers'][$i]['auth_type']     = 'config';
     ?>
 
-For a full explanation of possible configuration values, see the  of
-this document.
+For a full explanation of possible configuration values, see the 
+:ref:`config` of this document.
 
 .. _setup_script:
 
@@ -144,17 +144,16 @@ options which the setup script does not provide.
    protect the phpMyAdmin installation directory because using config
    does not require a user to enter a password to access the phpMyAdmin
    installation. Use of an alternate authentication method is
-   recommended, for example with HTTP–AUTH in a  file or switch to using
-   ``auth\_type`` cookie or http. See the  of this :abbr:`FAQ (Frequently
-   Asked Questions)` for additional information, especially
-   :ref:`faq4_4`.
+   recommended, for example with HTTP–AUTH in a :term:`.htaccess` file or switch to using
+   ``auth\_type`` cookie or http. See the :ref:`faqmultiuser`
+   for additional information, especially :ref:`faq4_4`.
 #. Open the `main phpMyAdmin directory <index.php>`_ in your browser.
    phpMyAdmin should now display a welcome screen and your databases, or
    a login dialog if using :abbr:`HTTP (HyperText Transfer Protocol)` or
    cookie authentication mode.
 #. You should deny access to the ``./libraries`` and ``./setup/lib``
    subfolders in your webserver configuration. For Apache you can use
-   supplied  file in that folder, for other webservers, you should
+   supplied :term:`.htaccess`  file in that folder, for other webservers, you should
    configure this yourself. Such configuration prevents from possible
    path exposure and cross side scripting vulnerabilities that might
    happen to be found in that code.
@@ -193,17 +192,17 @@ the database and tables, and that the script may need some tuning,
 depending on the database name.
 
 After having imported the *./examples/create\_tables.sql* file, you
-should specify the table names in your *./config.inc.php* file. The
-directives used for that can be found in the . You will also need to
+should specify the table names in your :file:`config.inc.php` file. The
+directives used for that can be found in the :ref:`config`. You will also need to
 have a controluser with the proper rights to those tables (see section
-below).
+:ref:`authentication_modes` below).
 
 .. _upgrading:
 
 Upgrading from an older version
 +++++++++++++++++++++++++++++++
 
-Simply copy *./config.inc.php* from your previous installation into
+Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
 require some tweaking as some options have been changed or removed.
 For compatibility with PHP 6, remove a
@@ -236,7 +235,8 @@ user/password pair are not in clear in the configuration file.
 
 :abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
 modes are more secure: the MySQL login information does not need to be
-set in the phpMyAdmin configuration file (except possibly for the ).
+set in the phpMyAdmin configuration file (except possibly for the 
+:config:option:`$cfg['Servers'][$i]['controluser']`).
 However, keep in mind that the password travels in plain text, unless
 you are using the HTTPS protocol. In cookie mode, the password is
 stored, encrypted with the blowfish algorithm, in a temporary cookie.
@@ -252,14 +252,19 @@ has **only** the ``SELECT`` privilege on the *`mysql`.`user` (all
 columns except `Password`)*, *`mysql`.`db` (all columns)*,
 *`mysql`.`host` (all columns)* and *`mysql`.`tables\_priv` (all
 columns except `Grantor` and `Timestamp`)* tables. You must specify
-the details for the  in the ``config.inc.php`` file under the  and
+the details for the controluser  in the ``config.inc.php`` file under the 
+:config:option:`$cfg['Servers'][$i]['controluser']` and
+:config:option:`$cfg['Servers'][$i]['controlpass']`
 settings. The following example assumes you want to use ``pma`` as the
 controluser and ``pmapass`` as the controlpass, but **this is only an
 example: use something else in your file!** Input these statements
 from the phpMyAdmin :abbr:`SQL (structured query language)` Query
 window or mysql command–line client. Of course you have to replace
 ``localhost`` with the webserver's host if it's not the same as the
-MySQL server's one.  
+MySQL server's one. 
+
+If you want to use the many new relation and bookmark features:  (this of
+course requires that your :ref:`linked-tables` be set up).
 
 .. code-block:: sql
    
@@ -312,7 +317,7 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
   Programming Interface)`) support using :abbr:`CGI (Common Gateway
   Interface)` PHP see :ref:`faq1_32`, for using with Apache :abbr:`CGI
   (Common Gateway Interface)` see :ref:`faq1_35`.
-* See also :ref:`faq4_4` about not using the  mechanism along with
+* See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode.
 
 
@@ -326,7 +331,7 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
   now a requirement for all authentication modes.
 * With this mode, the user can truly log out of phpMyAdmin and log in
   back with the same username.
-* If you want to log in to arbitrary server see  directive.
+* If you want to log in to arbitrary server see :config:option:`$cfg['AllowArbitraryServer']` directive.
 * As mentioned in the  section, having the ``mcrypt`` extension will
   speed up access considerably, but is not required.
 
@@ -345,17 +350,20 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
 ----------------------------
 
 * This mode is the less secure one because it requires you to fill the
-  and  fields (and as a result, anyone who can read your config.inc.php
+  :config:option:`$cfg['Servers'][$i]['user']` and
+  :config:option:`$cfg['Servers'][$i]['password']`
+  fields (and as a result, anyone who can read your config.inc.php
   can discover your username and password).  But you don't need to setup
-  a "controluser" here: using the  might be enough.
+  a "controluser" here: using the :config:option:`$cfg['Servers'][$i]['only_db']` might be enough.
 * In the :ref:`faqmultiuser` section, there is an entry explaining how
   to protect your configuration file.
 * For additional security in this mode, you may wish to consider the
-  Host authentication  and  configuration directives.
+  Host authentication :config:option:`$cfg['Servers'][$i]['AllowDeny']['order']`
+  and :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` configuration directives.
 * Unlike cookie and http, does not require a user to log in when first
   loading the phpMyAdmin site. This is by design but could allow any
   user to access your installation. Use of some restriction method is
-  suggested, perhaps a  file with the HTTP-AUTH directive or disallowing
+  suggested, perhaps a :term:`.htaccess` file with the HTTP-AUTH directive or disallowing
   incoming HTTP requests at one’s router or firewall will suffice (both
   of which are beyond the scope of this manual but easily searchable
   with Google).

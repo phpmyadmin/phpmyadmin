@@ -17,7 +17,7 @@ Requirements
   * You need GD2 support in PHP to display inline thumbnails of JPEGs
     ("image/jpeg: inline") with their original aspect ratio.
 
-  * When using the "cookie" , the `mcrypt
+  * When using the "cookie" :ref:`authentication_modes`, the `mcrypt
     <http://www.php.net/mcrypt>`_ extension is strongly suggested for most
     users and is **required** for 64–bit machines. Not using mcrypt will
     cause phpMyAdmin to load pages significantly slower.

@@ -18,7 +18,7 @@ Server
 1.1 My server is crashing each time a specific action is required or phpMyAdmin sends a blank page or a page full of cryptic characters to my browser, what can I do?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Try to set the  directive to ``FALSE`` in your *config.inc.php* file
+Try to set the :config:option:`$cfg['OBGzip']`  directive to ``FALSE`` in your :file:`config.inc.php` file
 and the ``zlib.output\_compression`` directive to ``Off`` in your php
 configuration file.
 
@@ -120,9 +120,9 @@ It seems to clear up many problems between Internet Explorer and SSL.
 
 Since version 2.2.4, phpMyAdmin supports servers with open\_basedir
 restrictions. However you need to create temporary directory and
-configure it as . The uploaded files will be moved there, and after
-execution of your :abbr:`SQL (structured query language)` commands,
-removed.
+configure it as :config:option:`$cfg['TempDir']`. The uploaded files will be
+moved there, and after execution of your :abbr:`SQL (structured query
+language)` commands, removed.
 
 .. _faq1_12:
 
@@ -169,10 +169,10 @@ and handled by PHP. One user also said that ``post\_max\_size`` and
 There exist several workarounds if your upload is too big or your
 hosting provider is unwilling to change the settings:
 
-* Look at the  feature. This allows one to upload a file to the server
+* Look at the :config:option:`$cfg['UploadDir']` feature. This allows one to upload a file to the server
   via scp, ftp, or your favorite file transfer method. PhpMyAdmin is
   then able to import the files from the temporary directory. More
-  information is available in the  of this document.
+  information is available in the :ref:`config`  of this document.
 * Using a utility (such as `BigDump
   <http://www.ozerov.de/bigdump.php>`_) to split the files before
   uploading. We cannot support this or any third party applications, but
@@ -213,7 +213,8 @@ generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
 <http://www.php.net/mysqli>`_ with the proper client library to match
-your MySQL installation. Your chosen extension is specified in . More
+your MySQL installation. Your chosen extension is specified in 
+:config:option:`$cfg['Servers'][$i]['extension']`. More
 information (and several workarounds) are located in the `MySQL
 Documentation <http://dev.mysql.com/doc/mysql/en/old-client.html>`_.
 
@@ -319,8 +320,8 @@ should work.
 --------------------------------------------------------------------------------------------------
 
 This is a `PHP bug <http://bugs.php.net/21079>`_ that occur when GZIP
-output buffering is enabled. If you turn off it (by  in
-*config.inc.php*), it should work. This bug will be fixed in PHP
+output buffering is enabled. If you turn off it (by :config:option:`$cfg['OBGzip']` in
+:file:`config.inc.php`), it should work. This bug will be fixed in PHP
 5.0.0.
 
 .. _faq1_28:
@@ -428,7 +429,7 @@ First make sure, that you have enabled some features within global
 configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
 need mod\_rewrite to be enabled. Then you just need to create
-following  file in root folder of phpMyAdmin installation (don't
+following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
 forget to change directory name inside of it):
 
 .. code-block:: none
@@ -525,7 +526,7 @@ parameters:
   include :abbr:`SQL (structured query language)`, otherwise you get big
   slowdown
 
-You can also disable the warning using the .
+You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
 
 .. _faq1_39:
 
@@ -582,7 +583,7 @@ run the ``mysql\_upgrade`` command on the server.
 1.42 How can I prevent robots from accessing phpMyAdmin?
 --------------------------------------------------------
 
-You can add various rules to  to filter access based on user agent
+You can add various rules to :term:`.htaccess` to filter access based on user agent
 field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.
 
@@ -618,7 +619,7 @@ Configuration
 2.1 The error message "Warning: Cannot add header information - headers already sent by ..." is displayed, what's the problem?
 ------------------------------------------------------------------------------------------------------------------------------
 
-Edit your *config.inc.php* file and ensure there is nothing (I.E. no
+Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
 blank lines, no spaces, no characters...) neither before the ``<?php``
 tag at the beginning, neither after the ``?>`` tag at the end. We also
 got a report from a user under :abbr:`IIS (Internet Information
@@ -668,8 +669,9 @@ Here is a fix suggested by Brad Ummer:
   example).
 * Then, you need to tell PHP to use this socket. To do this in
   phpMyAdmin, you need to complete the socket information in the
-  *config.inc.php*. For example:   Please also make sure that the
-  permissions of this file allow to be readable by your webserver (i.e.
+  :file:`config.inc.php`. For example:
+  :config:option:`$cfg['Servers'][$i]['socket']`  Please also make sure that
+  the permissions of this file allow to be readable by your webserver (i.e.
   '0755').
 
 Have also a look at the `corresponding section of the MySQL
@@ -681,7 +683,7 @@ server.html>`_.
 2.4 Nothing is displayed by my browser when I try to run phpMyAdmin, what can I do?
 -----------------------------------------------------------------------------------
 
-Try to set the  directive to ``FALSE`` in the phpMyAdmin configuration
+Try to set the :config:option:`$cfg['OBGzip']` directive to ``FALSE`` in the phpMyAdmin configuration
 file. It helps sometime. Also have a look at your PHP version number:
 if it contains "b" or "alpha" it means you're running a testing
 version of PHP. That's not a so good idea, please upgrade to a plain
@@ -692,7 +694,7 @@ revision.
 2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with :abbr:`HTTP (HyperText Transfer Protocol)` or cookie authentication, I'm asked to log in again. What's wrong?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Check the value you set for the  directive in the phpMyAdmin
+Check the value you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
 configuration file.
 
 .. _faq2_6:
@@ -714,17 +716,19 @@ doesn't work in this configuration with port forwarding. If you enter
 2.7 Using and creating themes
 -----------------------------
 
-Themes are configured with ,  and .  Under , you should not delete the
+Themes are configured with :config:option:`$cfg['ThemePath']`,
+:config:option:`$cfg['ThemeManager']` and :config:option:`$cfg['ThemeDefault']`.  
+Under :config:option:`$cfg['ThemePath']`, you should not delete the
 directory "pmahomme" or its underlying structure, because this is the
 system theme used by phpMyAdmin. "pmahomme" contains all images and
 styles, for backwards compatibility and for all themes that would not
-include images or css-files.  If  is enabled, you can select your
-favorite theme on the main page. Your selected theme will be stored in
-a cookie.
+include images or css-files.  If :config:option:`$cfg['ThemeManager']`
+is enabled, you can select your favorite theme on the main page. Your selected
+theme will be stored in a cookie.
 
 To create a theme:
 
-* make a new subdirectory (for example "your\_theme\_name") under  (by
+* make a new subdirectory (for example "your\_theme\_name") under :config:option:`$cfg['ThemePath']` (by
   default ``themes``)
 * copy the files and directories from "pmahomme" to "your\_theme\_name"
 * edit the css-files in "your\_theme\_name/css"
@@ -754,7 +758,7 @@ default icons and buttons (from the system-theme "pmahomme").
 
 Here are a few points to check:
 
-* In ``config.inc.php``, try to leave the  directive empty. See also
+* In ``config.inc.php``, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
 * Maybe you have a broken PHP installation or you need to upgrade your
   Zend Optimizer. See `http://bugs.php.net/bug.php?id=31134
@@ -810,9 +814,9 @@ again.
 
 Compressed dumps are built in memory and because of this are limited
 to php's memory limit. For GZip/BZip2 exports this can be overcome
-since 2.5.4 using  (enabled by default). Zip exports can not be
-handled this way, so if you need Zip files for larger dump, you have
-to use another way.
+since 2.5.4 using :config:option:`$cfg['CompressOnFly']` (enabled by default).
+Zip exports can not be handled this way, so if you need Zip files for larger
+dump, you have to use another way.
 
 .. _faq3_3:
 
@@ -925,6 +929,7 @@ can use it for the Edit and Delete links.
 
 phpMyAdmin uses a quick method to get the row count, and this method
 only returns an approximate count in the case of InnoDB tables. See
+:config:option:`$cfg['MaxExactCount']`
 for a way to modify those results, but this could have a serious
 impact on performance.
 
@@ -1013,11 +1018,11 @@ or cookie authentication. See the install section on "Using
 This depends on your system. If you're running a server which cannot
 be accessed by other people, it's sufficient to use the directory
 protection bundled with your webserver (with Apache you can use
-files, for example). If other people have telnet access to your
+:term:`.htaccess` files, for example). If other people have telnet access to your
 server, you should use phpMyAdmin's :abbr:`HTTP (HyperText Transfer
 Protocol)` or cookie authentication features.  Suggestions:
 
-* Your *config.inc.php* file should be ``chmod 660``.
+* Your :file:`config.inc.php` file should be ``chmod 660``.
 * All your phpMyAdmin files should be chown -R phpmy.apache, where phpmy
   is a user whose password is only known to you, and apache is the group
   under which Apache runs.
@@ -1040,10 +1045,10 @@ normal operation of phpMyAdmin.
 
 This could happen for several reasons:
 
-* and/or  are wrong.
+* :config:option:`$cfg['Servers'][$i]['controluser']` and/or :config:option:`$cfg['Servers'][$i]['controlpass']`  are wrong.
 * The username/password you specify in the login dialog are invalid.
 * You have already setup a security mechanism for the phpMyAdmin-
-  directory, eg. a  file. This would interfere with phpMyAdmin's
+  directory, eg. a :term:`.htaccess` file. This would interfere with phpMyAdmin's
   authentication, so remove it.
 
 .. _faq4_5:
@@ -1062,11 +1067,12 @@ his/her database(s).
 4.6 How can I use the Host-based authentication additions?
 ----------------------------------------------------------
 
-If you have existing rules from an old  file, you can take them and
+If you have existing rules from an old :term:`.htaccess` file, you can take them and
 add a username between the ``'deny'``/``'allow'`` and ``'from'``
 strings. Using the username wildcard of ``'%'`` would be a major
 benefit here if your installation is suited to using it. Then you can
-just add those updated lines into the  array.
+just add those updated lines into the
+:config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` array.
 
 If you want a pre-made sample, you can try this fragment. It stops the
 'root' user from logging in from any networks other than the private
@@ -1091,7 +1097,8 @@ network :abbr:`IP (Internet Protocol)` blocks.
 -----------------------------------------------------------
 
 This happens if you are using a :abbr:`URL (Uniform Resource Locator)`
-to start phpMyAdmin which is different than the one set in your . For
+to start phpMyAdmin which is different than the one set in your 
+:config:option:`$cfg['PmaAbsoluteUri']`. For
 example, a missing "www", or entering with an :abbr:`IP (Internet
 Protocol)` address while a domain name is defined in the config file.
 
@@ -1252,7 +1259,7 @@ Please upgrade to at least version 1.2.3.
 
 Please check the following points:
 
-* Maybe you have defined your ``PmaAbsoluteUri`` setting in
+* Maybe you have defined your :config:option:`$cfg['PmaAbsoluteUri']` setting in
   ``config.inc.php`` to an :abbr:`IP (Internet Protocol)` address and
   you are starting phpMyAdmin with a :abbr:`URL (Uniform Resource
   Locator)` containing a domain name, or the reverse situation.
@@ -1342,7 +1349,7 @@ can dump the structure, the data, or both. This will generate standard
 recreate your database/table.  You will need to choose "Save as file",
 so that phpMyAdmin can transmit the resulting dump to your station.
 Depending on your PHP configuration, you will see options to compress
-the dump. See also the  configuration variable. For additional help on
+the dump. See also the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For additional help on
 this subject, look for the word "dump" in this document.
 
 .. _faq6_5:
@@ -1457,7 +1464,7 @@ schema layout. Which tables will go on which pages?
   Coordinates are relative; your diagram will be automatically scaled to
   fit the page. When initially placing tables on the page, just pick any
   coordinates -- say, 50x50. After clicking Save, you can then use the
-  to position the element correctly.
+  :ref:`wysiwyg` to position the element correctly.
 * When you'd like to look at your :abbr:`PDF (Portable Document
   Format)`, first be sure to click the Save button beneath the list of
   tables and coordinates, to save any changes you made there. Then
@@ -1680,7 +1687,8 @@ second list containing the display column and the key. The reason for
 this is to be able to type the first letter of either the key or the
 display column. For 100 values or more, a distinct window will appear,
 to browse foreign key values and choose one. To change the default
-limit of 100, see .
+limit of 100, see :config:option:`$cfg['ForeignKeyMaxLimit']`.
+
 
 .. _faq6_22:
 
@@ -1800,11 +1808,11 @@ geometry data will be imported.
 To upload these set of files you can use either of the following
 methods:
 
-Configure upload directory with , upload both .shp and .dbf files with
+Configure upload directory with :config:option:`$cfg['UploadDir']`, upload both .shp and .dbf files with
 the same filename and chose the .shp file from the import page.
 
 Create a Zip archive with .shp and .dbf files and import it. For this
-to work, you need to set  to a place where the web server user can
+to work, you need to set :config:option:`$cfg['TempDir']` to a place where the web server user can
 write (for example ``'./tmp'``).
 
 To create the temporary directory on a UNIX-based system, you can do:
