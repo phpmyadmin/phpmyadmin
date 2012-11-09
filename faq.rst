@@ -411,6 +411,8 @@ under :abbr:`IIS (Internet Information Services)` 5.1.
 #. In ``Custom Errors``, select the range of ``401;1`` through ``401;5``
    and click the ``Set to Default`` button.
 
+.. seealso:: :rfc:`2616`
+
 .. _faq1_33:
 
 1.33 (withdrawn).
@@ -791,6 +793,8 @@ If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 
 If using PHP 5.4.0 or higher, you must set
 ``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
+
+.. seealso:: :rfc:`1867`
 
 .. _faqlimitations:
 
