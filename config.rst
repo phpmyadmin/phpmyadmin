@@ -2386,12 +2386,6 @@ Various display setting
     the link puts the :abbr:`SQL (structured query language)` query in the
     right panel's query box.  
 
-    The usage of the JavaScript query window is
-    recommended if you have a JavaScript enabled browser. Basic functions
-    are used to exchange quite a few variables, so most 4th generation
-    browsers should be capable to use that feature. It currently is only
-    tested with Internet Explorer 6 and Mozilla 1.x. 
-
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``TRUE``, all your
     Queries are logged to a table, which has to be created by you (see
     :config:option:`$cfg['Servers'][$i]['history']`). If set to FALSE, all your
