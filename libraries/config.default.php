@@ -62,7 +62,7 @@ $cfg['SuhosinDisableWarning'] = false;
 $cfg['McryptDisableWarning'] = false;
 
 /**
- * Disable the default warning that is displayed if a diffrence between 
+ * Disable the default warning that is displayed if a diffrence between
  * the MySQL library and server is detected.
  *
  * @global boolean $cfg['['ServerLibraryDifference_DisableWarning']']
@@ -787,7 +787,7 @@ $cfg['Error_Handler']['gather'] = false;
 
 
 /*******************************************************************************
- * Left frame setup
+ * Navigation panel setup
  */
 
 /**
@@ -902,7 +902,7 @@ $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
 
 /*******************************************************************************
- * In the main frame, at startup...
+ * In the main panel, at startup...
  */
 
 /**
