@@ -493,7 +493,7 @@ Server connection settings
       "Structure/Relation view/Choose column to display" to choose the
       column.
 
-    Usage tip: :ref:`faqdisplay`.
+    .. seealso:: :ref:`faqdisplay`
 
 .. _table_coords:
 .. config:option:: $cfg['Servers'][$i]['table_coords']
