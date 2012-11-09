@@ -558,7 +558,7 @@ Server connection settings
       :config:option:`$cfg['Servers'][$i]['column\_comments']` to
       :config:option:`$cfg['Servers'][$i]['column\_info']`
 
-      .. code-block:: sql
+      .. code-block:: mysql
 
            ALTER TABLE `pma_column_comments`
            ADD `mimetype` VARCHAR( 255 ) NOT NULL,

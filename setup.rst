@@ -277,7 +277,7 @@ MySQL server's one.
 If you want to use the many new relation and bookmark features:  (this of
 course requires that your :ref:`linked-tables` be set up).
 
-.. code-block:: sql
+.. code-block:: mysql
    
    GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
    GRANT SELECT (
@@ -294,7 +294,7 @@ course requires that your :ref:`linked-tables` be set up).
    
 If you want to use the many new relation and bookmark features:
    
-.. code-block:: sql
+.. code-block:: mysql
    
    GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
    
@@ -308,7 +308,7 @@ privileges (for example, you are creating a superuser).
 For example, to grant the user *real_user* with all privileges on
 the database *user_base*:
    
-.. code-block:: sql
+.. code-block:: mysql
    
    GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
    

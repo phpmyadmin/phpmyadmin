@@ -88,7 +88,7 @@ servers running in safe mode, to enable uploads of files while being
 reasonably secure:
 
 * create a separate directory for uploads: :command:`mkdir /tmp/php`
-* give ownership to the Apache server's user.group: :comand:`chown
+* give ownership to the Apache server's user.group: :command:`chown
   apache.apache /tmp/php`
 * give proper permission: :command:`chmod 600 /tmp/php`
 * put ``upload_tmp_dir = /tmp/php`` in :file:`php.ini`
@@ -181,7 +181,7 @@ hosting provider is unwilling to change the settings:
   directly. You can do this by issuing the "source" command from within
   MySQL:
 
-  .. code-block:: sql
+  .. code-block:: mysql
 
     source filename.sql;
 
@@ -282,7 +282,7 @@ directory and add the following line to the group [mysqld]:
 Next, save the file and restart the MySQL service. You can always
 check the value of this directive using the query
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SHOW VARIABLES LIKE 'lower_case_table_names';
 
@@ -837,7 +837,7 @@ This is an InnoDB bug, see <http://bugs.mysql.com/bug.php?id=21704>.
 The problem is that older versions of ``mysqldump`` created invalid
 comments like this:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     
     -- MySQL dump 8.22
@@ -1381,7 +1381,7 @@ located in the database mydb. If you don't have a ``pma_relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     
     CREATE TABLE REL_countries (
@@ -1635,13 +1635,13 @@ Also remember, that everything else
 inside the **/\*[VARIABLE]\*/** string for your query will remain the
 way it is, but will be stripped of the /\*\*/ chars. So you can use:
 
-.. code-block:: sql
+.. code-block:: mysql
 
     /\*, [VARIABLE] AS myname \*/
     
 which will be expanded to 
 
-.. code-block:: sql
+.. code-block:: mysql
 
     , VARIABLE as myname
     
@@ -1651,14 +1651,14 @@ empty string is provided, no replacements are made.
 A more complex example. Say you have stored
 this query: 
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT Name, Address FROM addresses WHERE 1 /\* AND Name LIKE '%[VARIABLE]%' \*/
     
 Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
 query will be: 
 
-.. code-block:: sql
+.. code-block:: mysql
 
     SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'
 
