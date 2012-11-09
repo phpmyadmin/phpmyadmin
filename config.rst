@@ -33,7 +33,7 @@ Basic settings
 
 Sets here the complete :abbr:`URL (Uniform Resource Locator)` (with
 full path) to your phpMyAdmin installation's directory. E.g.
-``http://www.your\_web.net/path\_to\_your\_phpMyAdmin\_directory/``.
+``http://www.your_web.net/path_to_your_phpMyAdmin_directory/``.
 Note also that the :abbr:`URL (Uniform Resource Locator)` on some web
 servers are case–sensitive. Don’t forget the trailing slash at the
 end. Starting with version 2.3.0, it is advisable to try leaving this
@@ -235,9 +235,9 @@ for more information. In phpMyAdmin versions before 2.2.5, those were called
 Whether config or cookie or :abbr:`HTTP (HyperText Transfer Protocol)`
 or signon authentication should be used for this server.
 
-* 'config' authentication (``$auth\_type = 'config'``) is the plain old
+* 'config' authentication (``$auth_type = 'config'``) is the plain old
   way: username and password are stored in :file:`config.inc.php`.
-* 'cookie' authentication mode (``$auth\_type = 'cookie'``) as
+* 'cookie' authentication mode (``$auth_type = 'cookie'``) as
   introduced in 2.2.3 allows you to log in as any valid MySQL user with
   the help of cookies. Username and password are stored in cookies
   during the session and password is deleted when it ends. This can also
@@ -247,7 +247,7 @@ or signon authentication should be used for this server.
   'http') (``$auth\_type = ':abbr:`HTTP (HyperText Transfer
   Protocol)`'``) as introduced in 1.3.0 allows you to log in as any
   valid MySQL user via HTTP-Auth.
-* 'signon' authentication mode (``$auth\_type = 'signon'``) as
+* 'signon' authentication mode (``$auth_type = 'signon'``) as
   introduced in 2.10.0 allows you to log in from prepared PHP session
   data or using supplied PHP script. This is useful for implementing
   single signon from another application. Sample way how to seed session
@@ -322,14 +322,14 @@ If set to a (an array of) database name(s), only this (these)
 database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
 this/these database(s) name(s) may contain MySQL wildcards characters
 ("\_" and "%"): if you want to use literal instances of these
-characters, escape them (I.E. use ``'my\\_db'`` and not ``'my\_db'``).
+characters, escape them (I.E. use ``'my\_db'`` and not ``'my_db'``).
 This setting is an efficient way to lower the server load since the
 latter does not need to send MySQL requests to build the available
 database list. But **it does not replace the privileges rules of the
 MySQL database server**. If set, it just means only these databases
 will be displayed but **not that all other databases can't be used.**
 An example of using more that one database:
-``$cfg['Servers'][$i]['only\_db'] = array('db1', 'db2');``  As of
+``$cfg['Servers'][$i]['only_db'] = array('db1', 'db2');``  As of
 phpMyAdmin 2.5.5 the order inside the array is used for sorting the
 databases in the navigation panel, so that you can individually
 arrange your databases. If you want to have certain databases at the
@@ -437,8 +437,8 @@ functionality:
   where you want to use this feature, click "Structure/Relation view/"
   and choose foreign columns.
 
-Please note that in the current version, ``master\_db`` must be the
-same as ``foreign\_db``. Those columns have been put in future
+Please note that in the current version, ``master_db`` must be the
+same as ``foreign_db``. Those columns have been put in future
 development of the cross-db relations.
 
 .. _table_info:
@@ -806,7 +806,7 @@ IPv6 addresses are not supported.
     :type: boolean
     :default: true
 
-Disable using ``INFORMATION\_SCHEMA`` to retrieve information (use
+Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
 ``SHOW`` commands instead), because of speed issues when many
 databases are present. Currently used in some parts of the code, more
 to come.
@@ -837,7 +837,7 @@ the list of databases for the navigation panel.
 Name of PHP script to be sourced and executed to obtain login
 credentials. This is alternative approach to session based single
 signon. The script needs to provide function
-``get\_login\_credentials`` which returns list of username and
+``get_login_credentials`` which returns list of username and
 password, accepting single parameter of existing username (can be
 empty). See ``examples/signon-script.php`` for an example.
 
@@ -1115,7 +1115,7 @@ configuration option `session.gc\_maxlifetime
 <http://php.net/manual/en/session.configuration.php#ini.session.gc-
 maxlifetime>`_ might limit session validity and if session is lost,
 login cookie is also invalidated. So it is a good idea to set
-``session.gc\_maxlifetime`` not lower than the value of
+``session.gc_maxlifetime`` not lower than the value of
 $cfg['LoginCookieValidity'].
 
 .. config:option:: $cfg['LoginCookieStore']
@@ -2104,9 +2104,9 @@ the phpMyAdmin scripts.
 
 The name of the directory where temporary files can be stored.  This
 is needed for importing ESRI Shapefiles, see :ref:`faq6_30` and to
-work around limitations of ``open\_basedir`` for uploaded files, see
+work around limitations of ``open_basedir`` for uploaded files, see
 :ref:`faq1_11`.  If the directory where phpMyAdmin is installed is
-subject to an ``open\_basedir`` restriction, you need to create a
+subject to an ``open_basedir`` restriction, you need to create a
 temporary directory in some directory accessible by the web server.
 However for security reasons, this directory should be outside the
 tree published by webserver. If you cannot avoid having this directory
@@ -2309,7 +2309,7 @@ all visual sliders, use ``'disabled'``.
 
 Contains names of configuration options (keys in ``$cfg`` array) that
 users can't set through user preferences. For possible values, refer
-to ``libraries/config/user\_preferences.forms.php``.
+to :file:`libraries/config/user_preferences.forms.php`.
 
 .. config:option:: $cfg['UserprefsDeveloperTab']
 
@@ -2514,6 +2514,6 @@ displayed in the bottom of main page (right frame).
 
 Functions selected by default when inserting/changing row, Functions
 are defined for meta types as (FUNC\_NUMBER, FUNC\_DATE, FUNC\_CHAR,
-FUNC\_SPATIAL, FUNC\_UUID) and for ``first\_timestamp``, which is used
+FUNC\_SPATIAL, FUNC\_UUID) and for ``first_timestamp``, which is used
 for first timestamp column in table.
 

@@ -19,7 +19,7 @@ Server
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Try to set the :config:option:`$cfg['OBGzip']`  directive to ``FALSE`` in your :file:`config.inc.php` file
-and the ``zlib.output\_compression`` directive to ``Off`` in your php
+and the ``zlib.output_compression`` directive to ``Off`` in your php
 configuration file.
 
 .. _faq1_2:
@@ -82,7 +82,7 @@ Safe Mode or not, and so on). So, you must have Zlib/Bzip2 support
 -----------------------------------------------------------------------------------------------
 
 Your uploaded file is saved by PHP in the "upload dir", as defined in
-*php.ini* by the variable ``upload\_tmp\_dir`` (usually the system
+*php.ini* by the variable ``upload_tmp_dir`` (usually the system
 default is */tmp*). We recommend the following setup for Apache
 servers running in safe mode, to enable uploads of files while being
 reasonably secure:
@@ -91,7 +91,7 @@ reasonably secure:
 * give ownership to the Apache server's user.group: ``chown
   apache.apache /tmp/php``
 * give proper permission: ``chmod 600 /tmp/php``
-* put ``upload\_tmp\_dir = /tmp/php`` in *php.ini*
+* put ``upload_tmp_dir = /tmp/php`` in *php.ini*
 * restart Apache
 
 .. _faq1_9:
@@ -161,11 +161,11 @@ these problems should not occur. If possible, upgrade your phpMyAdmin
 to the latest version to take advantage of the new import features.
 
 The first things to check (or ask your host provider to check) are the
-values of ``upload\_max\_filesize``, ``memory\_limit`` and
-``post\_max\_size`` in the *php.ini* configuration file. All of these
+values of ``upload_max_filesize``, ``memory_limit`` and
+``post_max_size`` in the *php.ini* configuration file. All of these
 three settings limit the maximum size of data that can be submitted
-and handled by PHP. One user also said that ``post\_max\_size`` and
-``memory\_limit`` need to be larger than ``upload\_max\_filesize``.
+and handled by PHP. One user also said that ``post_max_size`` and
+``memory_limit`` need to be larger than ``upload_max_filesize``.
 There exist several workarounds if your upload is too big or your
 hosting provider is unwilling to change the settings:
 
@@ -250,14 +250,14 @@ or something similar.
 1.21 I am running the :abbr:`CGI (Common Gateway Interface)` version of PHP under Unix, and I cannot log in using cookie auth.
 ------------------------------------------------------------------------------------------------------------------------------
 
-In *php.ini*, set ``mysql.max\_links`` higher than 1.
+In *php.ini*, set ``mysql.max_links`` higher than 1.
 
 .. _faq1_22:
 
 1.22 I don't see the "Location of text file" field, so I cannot upload.
 -----------------------------------------------------------------------
 
-This is most likely because in *php.ini*, your ``file\_uploads``
+This is most likely because in *php.ini*, your ``file_uploads``
 parameter is not set to "on".
 
 .. _faq1_23:
@@ -265,7 +265,7 @@ parameter is not set to "on".
 1.23 I'm running MySQL on a Win32 machine. Each time I create a new table the table and column names are changed to lowercase!
 ------------------------------------------------------------------------------------------------------------------------------
 
-This happens because the MySQL directive ``lower\_case\_table\_names``
+This happens because the MySQL directive ``lower_case_table_names``
 defaults to 1 (``ON``) in the Win32 version of MySQL. You can change
 this behavior by simply changing the directive to 0 (``OFF``): Just
 edit your ``my.ini`` file that should be located in your Windows
@@ -330,7 +330,7 @@ output buffering is enabled. If you turn off it (by :config:option:`$cfg['OBGzip
 ------------------------------------------------------------------------------------------------------------
 
 This can happen due to a MySQL bug when having database / table names
-with upper case characters although ``lower\_case\_table\_names`` is
+with upper case characters although ``lower_case_table_names`` is
 set to 1. To fix this, turn off this directive, convert all database
 and table names to lower case and turn it on again. Alternatively,
 there's a bug-fix available starting with MySQL 3.23.56 /
@@ -398,7 +398,7 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 :abbr:`ISAPI (Internet Server Application Programming Interface)` mode
 under :abbr:`IIS (Internet Information Services)` 5.1.
 
-#. In your ``php.ini`` file, set ``cgi.rfc2616\_headers = 0``
+#. In your ``php.ini`` file, set ``cgi.rfc2616_headers = 0``
 #. In ``Web Site Properties -> File/Directory Security -> Anonymous
    Access`` dialog box, check the ``Anonymous access`` checkbox and
    uncheck any other checkboxes (i.e. uncheck ``Basic authentication``,
@@ -576,7 +576,7 @@ details.
 --------------------------------------------------------------------------------------------------
 
 The MySQL server's privilege tables are not up to date, you need to
-run the ``mysql\_upgrade`` command on the server.
+run the ``mysql_upgrade`` command on the server.
 
 .. _faq1_42:
 
@@ -764,17 +764,17 @@ Here are a few points to check:
   Zend Optimizer. See `http://bugs.php.net/bug.php?id=31134
   <http://bugs.php.net/bug.php?id=31134>`_.
 * If you are using Hardened PHP with the ini directive
-  ``varfilter.max\_request\_variables`` set to the default (200) or
+  ``varfilter.max_request_variables`` set to the default (200) or
   another low value, you could get this error if your table has a high
   number of columns. Adjust this setting accordingly. (Thanks to Klaus
   Dorninger for the hint).
-* In the ``php.ini`` directive ``arg\_separator.input``, a value of ";"
+* In the ``php.ini`` directive ``arg_separator.input``, a value of ";"
   will cause this error. Replace it with "&;".
 * If you are using `Hardened-PHP <http://www.hardened-php.net/>`_, you
   might want to increase `request limits <http://www.hardened-
   php.net/hphp/troubleshooting.html>`_.
 * The directory specified in the ``php.ini`` directive
-  ``session.save\_path`` does not exist or is read-only.
+  ``session.save_path`` does not exist or is read-only.
 
 .. _faq2_9:
 
@@ -790,7 +790,7 @@ has to be enabled in your PHP.
 If using APC, you must set ``apc.rfc1867`` to ``on`` in your php.ini.
 
 If using PHP 5.4.0 or higher, you must set
-``session.upload\_progress.enabled`` to ``1`` in your php.ini.
+``session.upload_progress.enabled`` to ``1`` in your php.ini.
 
 .. _faqlimitations:
 
@@ -1034,8 +1034,8 @@ Protocol)` or cookie authentication features.  Suggestions:
 --------------------------------------------------------------------------------------
 
 Check *php.ini*, or ask your sysadmin to check it. The
-``include\_path`` must contain "." somewhere in it, and
-``open\_basedir``, if used, must contain "." and "./lang" to allow
+``include_path`` must contain "." somewhere in it, and
+``open_basedir``, if used, must contain "." and "./lang" to allow
 normal operation of phpMyAdmin.
 
 .. _faq4_4:
@@ -1107,12 +1107,12 @@ Protocol)` address while a domain name is defined in the config file.
 4.8 Which parameters can I use in the URL that starts phpMyAdmin?
 -----------------------------------------------------------------
 
-When starting phpMyAdmin, you can use the ``db``, ``pma\_username``,
-``pma\_password`` and ``server`` parameters. This last one can contain
+When starting phpMyAdmin, you can use the ``db``, ``pma_username``,
+``pma_password`` and ``server`` parameters. This last one can contain
 either the numeric host index (from ``$i`` of the configuration file)
 or one of the host names present in the configuration file. Using
-``pma\_username`` and ``pma\_password`` has been tested along with the
-usage of 'cookie' ``auth\_type``.
+``pma_username`` and ``pma_password`` has been tested along with the
+usage of 'cookie' ``auth_type``.
 
 .. _faqbrowsers:
 
@@ -1283,7 +1283,7 @@ installed in their Firefox is causing the problem.
 -----------------------------------------------------------------------------------------
 
 This happens only when both of these conditions are met: using the
-``http`` authentication mode and ``register\_globals`` being set to
+``http`` authentication mode and ``register_globals`` being set to
 ``On`` on the server. It seems to be a browser-specific problem;
 meanwhile use the ``cookie`` authentication mode.
 
@@ -1373,7 +1373,7 @@ look for the word "upload" in this document.
 ---------------------------------------------------------
 
 Here is an example with the tables persons, towns and countries, all
-located in the database mydb. If you don't have a ``pma\_relation``
+located in the database mydb. If you don't have a ``pma_relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 

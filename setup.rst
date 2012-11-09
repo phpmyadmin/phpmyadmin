@@ -28,7 +28,7 @@ Quick Install
    We'll assume you chose a kit whose name looks like ``phpMyAdmin-x.x.x
    -all-languages.tar.gz``.
 #. Untar or unzip the distribution (be sure to unzip the subdirectories):
-   ``tar -xzvf phpMyAdmin\_x.x.x-all-languages.tar.gz`` in your
+   ``tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz`` in your
    webserver's document root. If you don't have direct access to your
    document root, put the files in a directory on your local machine,
    and, after step 4, transfer the directory on your web server using,
@@ -140,12 +140,12 @@ Now the file is ready to be used. You can choose to review or edit the
 file with your favorite editor, if you prefer to set some advanced
 options which the setup script does not provide.
 
-#. If you are using the ``auth\_type`` "config", it is suggested that you
+#. If you are using the ``auth_type`` "config", it is suggested that you
    protect the phpMyAdmin installation directory because using config
    does not require a user to enter a password to access the phpMyAdmin
    installation. Use of an alternate authentication method is
    recommended, for example with HTTP–AUTH in a :term:`.htaccess` file or switch to using
-   ``auth\_type`` cookie or http. See the :ref:`faqmultiuser`
+   ``auth_type`` cookie or http. See the :ref:`faqmultiuser`
    for additional information, especially :ref:`faq4_4`.
 #. Open the `main phpMyAdmin directory <index.php>`_ in your browser.
    phpMyAdmin should now display a welcome screen and your databases, or
@@ -206,7 +206,7 @@ Simply copy :file:`config.inc.php` from your previous installation into
 the newly unpacked one. Configuration files from old versions may
 require some tweaking as some options have been changed or removed.
 For compatibility with PHP 6, remove a
-``set\_magic\_quotes\_runtime(0);`` statement that you might find near
+``set_magic_quotes_runtime(0);`` statement that you might find near
 the end of your configuration file.
 
 You should **not** copy ``libraries/config.default.php`` over
@@ -217,7 +217,7 @@ If you have upgraded your MySQL server from a version previous to
 4.1.2 to version 5.x or newer and if you use the phpMyAdmin
 configuration storage, you should run the :abbr:`SQL (structured query
 language)` script found in
-``examples/upgrade\_tables\_mysql\_4\_1\_2+.sql``.
+:file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
 
 .. _authentication_modes:
 

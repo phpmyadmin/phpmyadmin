@@ -8,7 +8,7 @@ Transformations
 Introduction
 ++++++++++++
 
-To enable transformations, you have to setup the ``column\_info``
+To enable transformations, you have to setup the ``column_info``
 table and the proper directives. Please see the :ref:`config` on how to do so.
 
 You can apply different transformations to the contents of each
@@ -117,8 +117,8 @@ libraries/plugins/transformations/TEMPLATE\_ABSTRACT files for adding
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using
-``libraries/plugins/transformations/generator\_plugin.sh`` or
-``libraries/plugins/transformations/generator\_main\_class.sh``.
+:file:`libraries/plugins/transformations/generator_plugin.sh` or
+:file:`libraries/plugins/transformations/generator_main_class.sh`.
 
 The applyTransformation() method always gets passed three variables:
 
