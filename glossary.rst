@@ -146,8 +146,8 @@ From Wikipedia, the free encyclopedia
     OS X
       look at .
 
-    PDF (Portable Document Format)
-      a file format developed by Adobe Systems for representing two dimensional documents in a device independent and resolution independent format.
+    PDF
+      Portable Document Format is a file format developed by Adobe Systems for representing two dimensional documents in a device independent and resolution independent format.
 
     PEAR
       the PHP Extension and Application Repository.
@@ -209,8 +209,8 @@ From Wikipedia, the free encyclopedia
     Webserver
       A computer (program) that is responsible for accepting HTTP requests from clients and serving them Web pages.
 
-    XML (Extensible Markup Language)
-      a W3C-recommended general- purpose markup language for creating special-purpose markup languages, capable of describing many different kinds of data.
+    XML
+      Extensible Markup Language is a W3C-recommended general- purpose markup language for creating special-purpose markup languages, capable of describing many different kinds of data.
 
     ZIP
       a popular data compression and archival format.

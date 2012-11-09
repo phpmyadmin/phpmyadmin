@@ -23,15 +23,13 @@ Currently phpMyAdmin can:
   language)`-statement, even batch-queries
 * load text files into tables
 * create [#f1]_ and read dumps of tables
-* export [#f1]_ data to various formats: :abbr:`CSV (Comma Separated Values)`,
-  :abbr:`XML (Extensible Markup Language)`, :abbr:`PDF (Portable
-  Document Format)`, :abbr:`ISO (International Standards
+* export [#f1]_ data to various formats: :term:`CSV`,
+  :term:`XML`, :term:`PDF`, :abbr:`ISO (International Standards
   Organisation)`/:abbr:`IEC (International Electrotechnical Commission)`
   26300 - OpenDocument Text and Spreadsheet, :abbr:`Word (Microsoft Word
   2000)`, and LATEX formats
-* import data and MySQL structures from OpenDocument spreadsheets, as
-  well as :abbr:`XML (Extensible Markup Language)`, :abbr:`CSV (Comma
-  Separated Values)`, and :abbr:`SQL (Server Query Language)` files
+* import data and :term:`MySQL` structures from :term:`OpenDocument` spreadsheets, as
+  well as :term:`XML`, :term:`CSV`, and :term:`SQL` files
 * administer multiple servers
 * manage MySQL users and privileges
 * check referential integrity in MyISAM tables
@@ -67,8 +65,7 @@ be valid MySQL users.
 
 .. [#f1]
 
-    phpMyAdmin can compress (Zip, GZip :term:`RFC 1952` or Bzip2 formats)
-    dumps and :abbr:`CSV (comma separated values)` exports if you use
-    PHP with Zlib support (``--with-zlib``) and/or Bzip2 support
-    (``--with-bz2``). Proper support may also need changes in
-    :file:`php.ini`.
+    phpMyAdmin can compress (:term:`Zip`, :term:`GZip` :term:`RFC 1952` or
+    :term:`Bzip2` formats) dumps and :term:`CSV` exports if you use PHP with
+    :term:`Zlib` support (``--with-zlib``) and/or :term:`Bzip2` support
+    (``--with-bz2``).  Proper support may also need changes in :file:`php.ini`.
