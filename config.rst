@@ -2554,13 +2554,18 @@ SQL parser settings
 
 .. config:option:: $cfg['SQP']['fmtType']
 
-    :type: string [|]
+    :type: string
     :default: ``'html'``
 
     The main use of the new :abbr:`SQL (structured query language)` Parser
     is to pretty-print :abbr:`SQL (structured query language)` queries. By
     default we use HTML to format the query, but you can disable this by
     setting this variable to ``'none'``.
+
+    Available options:
+
+    * ``'html'``
+    * ``'none'``
 
 .. _cfg_SQP:
 .. config:option:: $cfg['SQP']['fmtInd']
@@ -2570,7 +2575,7 @@ SQL parser settings
 
 .. config:option:: $cfg['SQP']['fmtIndUnit']
 
-    :type: string [|||]
+    :type: string
     :default: ``'em'``
 
     For the pretty-printing of :abbr:`SQL (structured query language)` queries,
@@ -2581,6 +2586,13 @@ SQL parser settings
     Related in purpose is :config:option:`$cfg['SQP']['fmtIndUnit']` which
     specifies the units of the indent amount that you specified. This is used
     via stylesheets.
+
+    You can use any HTML unit, for example:
+
+    * ``'em'``
+    * ``'ex'``
+    * ``'pt'``
+    * ``'px'``
 
 .. config:option:: $cfg['SQP']['fmtColor']
 
