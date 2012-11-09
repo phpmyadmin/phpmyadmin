@@ -13,7 +13,7 @@ Configuration
 
 .. note::
 
-    Almost all configurable data is placed in ``config.inc.php``. If this file
+    Almost all configurable data is placed in :file:`config.inc.php`. If this file
     does not exist, please refer to the :ref:`setup` section to create one. This file only
     needs to contain the parameters you want to change from their corresponding
     default value in ``libraries/config.default.php``.

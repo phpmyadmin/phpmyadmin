@@ -39,9 +39,9 @@ Quick Install
    :ref:`faq1_26` for suggestions.
 #. Now you must configure your installation. There are two methods that
    can be used. Traditionally, users have hand-edited a copy of
-   ``config.inc.php``, but now a wizard-style setup script is provided
+   :file:`config.inc.php`, but now a wizard-style setup script is provided
    for those who prefer a graphical installation. Creating a
-   ``config.inc.php`` is still a quick way to get started and needed for
+   :file:`config.inc.php` is still a quick way to get started and needed for
    some advanced features.
 
 
@@ -49,13 +49,13 @@ Manualy creating file
 ---------------------
 
 To manually create the file, simply use your text editor to create the
-file ``config.inc.php`` (you can copy ``config.sample.inc.php`` to get
+file :file:`config.inc.php` (you can copy ``config.sample.inc.php`` to get
 minimal configuration file) in the main (top-level) phpMyAdmin
 directory (the one that contains ``index.php``). phpMyAdmin first
 loads ``libraries/config.default.php`` and then overrides those values
-with anything found in ``config.inc.php``. If the default value is
+with anything found in :file:`config.inc.php`. If the default value is
 okay for a particular setting, there is no need to include it in
-``config.inc.php``. You'll need a few directives to get going, a
+:file:`config.inc.php`. You'll need a few directives to get going, a
 simple configuration may look like this:
 
 .. code-block:: php
@@ -91,7 +91,7 @@ For a full explanation of possible configuration values, see the
 Using Setup script
 ------------------
 
-Instead of manually editing ``config.inc.php``, you can use the `Setup
+Instead of manually editing :file:`config.inc.php`, you can use the `Setup
 Script <setup/>`_. First you must manually create a folder ``config``
 in the phpMyAdmin directory. This is a security measure. On a
 Linux/Unix system you can use the following commands:
@@ -118,7 +118,7 @@ this.
 Next, open `setup/ <setup/>`_ in your browser. Note that **changes are
 not saved to disk until explicitly choose ``Save``** from the
 *Configuration* area of the screen. Normally the script saves the new
-config.inc.php to the ``config/`` directory, but if the webserver does
+:file:`config.inc.php` to the ``config/`` directory, but if the webserver does
 not have the proper permissions you may see the error "Cannot load or
 save configuration." Ensure that the ``config/`` directory exists and
 has the proper permissions - or use the ``Download`` link to save the
@@ -210,7 +210,7 @@ For compatibility with PHP 6, remove a
 the end of your configuration file.
 
 You should **not** copy ``libraries/config.default.php`` over
-``config.inc.php`` because the default configuration file is version-
+:file:`config.inc.php` because the default configuration file is version-
 specific.
 
 If you have upgraded your MySQL server from a version previous to
@@ -252,7 +252,7 @@ has **only** the ``SELECT`` privilege on the *`mysql`.`user` (all
 columns except `Password`)*, *`mysql`.`db` (all columns)*,
 *`mysql`.`host` (all columns)* and *`mysql`.`tables\_priv` (all
 columns except `Grantor` and `Timestamp`)* tables. You must specify
-the details for the controluser  in the ``config.inc.php`` file under the 
+the details for the controluser  in the :file:`config.inc.php` file under the 
 :config:option:`$cfg['Servers'][$i]['controluser']` and
 :config:option:`$cfg['Servers'][$i]['controlpass']`
 settings. The following example assumes you want to use ``pma`` as the
@@ -352,7 +352,7 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
 * This mode is the less secure one because it requires you to fill the
   :config:option:`$cfg['Servers'][$i]['user']` and
   :config:option:`$cfg['Servers'][$i]['password']`
-  fields (and as a result, anyone who can read your config.inc.php
+  fields (and as a result, anyone who can read your :file:`config.inc.php`
   can discover your username and password).  But you don't need to setup
   a "controluser" here: using the :config:option:`$cfg['Servers'][$i]['only_db']` might be enough.
 * In the :ref:`faqmultiuser` section, there is an entry explaining how
@@ -378,7 +378,7 @@ web applications. When Swekey authentication is activated, phpMyAdmin
 requires the users's Swekey to be plugged before entering the login
 page (currently supported for cookie authentication mode only). Swekey
 Authentication is disabled by default. To enable it, add the following
-line to ``config.inc.php``:
+line to :file:`config.inc.php`:
 
 .. code-block:: none
 

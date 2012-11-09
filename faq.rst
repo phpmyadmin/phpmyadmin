@@ -421,7 +421,7 @@ Yes. Out of the box, you can use :abbr:`URL (Uniform Resource
 Locator)` like http://server/phpMyAdmin/index.php?server=X&db=databas
 e&table=table&target=script. For ``server`` you use the server number
 which refers to the order of the server paragraph in
-``config.inc.php``. Table and script parts are optional. If you want
+:file:`config.inc.php`. Table and script parts are optional. If you want
 http://server/phpMyAdmin/database[/table][/script] :abbr:`URL (Uniform
 Resource Locator)`, you need to do some configuration. Following
 lines apply only for `Apache <http://httpd.apache.org>`_ web server.
@@ -758,7 +758,7 @@ default icons and buttons (from the system-theme "pmahomme").
 
 Here are a few points to check:
 
-* In ``config.inc.php``, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
+* In :file:`config.inc.php`, try to leave the :config:option:`$cfg['PmaAbsoluteUri']` directive empty. See also
   :ref:`faq4_7`.
 * Maybe you have a broken PHP installation or you need to upgrade your
   Zend Optimizer. See `http://bugs.php.net/bug.php?id=31134
@@ -1260,7 +1260,7 @@ Please upgrade to at least version 1.2.3.
 Please check the following points:
 
 * Maybe you have defined your :config:option:`$cfg['PmaAbsoluteUri']` setting in
-  ``config.inc.php`` to an :abbr:`IP (Internet Protocol)` address and
+  :file:`config.inc.php` to an :abbr:`IP (Internet Protocol)` address and
   you are starting phpMyAdmin with a :abbr:`URL (Uniform Resource
   Locator)` containing a domain name, or the reverse situation.
 * Security settings in IE and/or Microsoft Security Center are too high,
