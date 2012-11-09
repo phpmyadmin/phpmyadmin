@@ -97,7 +97,7 @@ handle.
 There is a file called '*transformations.lib.php*' that provides some
 basic functions which can be included by any other transform function.
 
-The file name convention is ``[Mimetype]\_[Subtype]\_[Transformation
+The file name convention is ``[Mimetype]_[Subtype]_[Transformation
 Name].class.php``, while the abtract class that it extends has the
 name ``[Transformation Name]TransformationsPlugin``. All of the
 methods that have to be implemented by a transformations plug-in are:

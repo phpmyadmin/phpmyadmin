@@ -244,8 +244,7 @@ or signon authentication should be used for this server.
   allow you to log in in arbitrary server if :config:option:`$cfg['AllowArbitraryServer']` enabled.
 * ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication (was
   called 'advanced' in previous versions and can be written also as
-  'http') (``$auth\_type = ':abbr:`HTTP (HyperText Transfer
-  Protocol)`'``) as introduced in 1.3.0 allows you to log in as any
+  'http') (``$auth_type = 'http';'``) as introduced in 1.3.0 allows you to log in as any
   valid MySQL user via HTTP-Auth.
 * 'signon' authentication mode (``$auth_type = 'signon'``) as
   introduced in 2.10.0 allows you to log in from prepared PHP session
@@ -334,7 +333,7 @@ phpMyAdmin 2.5.5 the order inside the array is used for sorting the
 databases in the navigation panel, so that you can individually
 arrange your databases. If you want to have certain databases at the
 top, but don't care about the others, you do not need to specify all
-other databases. Use: ``$cfg['Servers'][$i]['only\_db'] = array('db3',
+other databases. Use: ``$cfg['Servers'][$i]['only_db'] = array('db3',
 'db4', '\*');`` instead to tell phpMyAdmin that it should display db3
 and db4 on top, and the rest in alphabetic order.
 
