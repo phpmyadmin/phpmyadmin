@@ -8,14 +8,14 @@ Copyright
     
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
     Copyright (C) 2001-2012 Marc Delisle <marc_at_infomarc.info>
-    Olivier Müller <om_at_omnis.ch>
-    Robin Johnson <robbat2_at_users.sourceforge.net>
-    Alexander M. Turek <me_at_derrabus.de>
-    Michal Čihař <michal_at_cihar.com>
-    Garvin Hicking <me_at_supergarv.de>
-    Michael Keck <mkkeck_at_users.sourceforge.net>
-    Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
-    [check credits for more details]
+        Olivier Müller <om_at_omnis.ch>
+        Robin Johnson <robbat2_at_users.sourceforge.net>
+        Alexander M. Turek <me_at_derrabus.de>
+        Michal Čihař <michal_at_cihar.com>
+        Garvin Hicking <me_at_supergarv.de>
+        Michael Keck <mkkeck_at_users.sourceforge.net>
+        Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
+        [check credits for more details]
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as
