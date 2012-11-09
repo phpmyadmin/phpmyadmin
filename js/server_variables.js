@@ -10,13 +10,11 @@ AJAX.registerTeardown('server_variables.js', function() {
 });
 
 AJAX.registerOnload('server_variables.js', function() {
-    var textFilter = null;
-    var odd_row = false;
     var $editLink = $('a.editLink');
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 
-    /* Variable editing */
+    /* Show edit link on hover */
     $('#serverVariables').delegate('.var-row', 'hover', function(event) {
         if (event.type === 'mouseenter') {
             var $elm = $(this).find('.var-value');
@@ -29,18 +27,19 @@ AJAX.registerOnload('server_variables.js', function() {
         }
     });
 
-    $('#filterText').keyup(function(e) {
-        if ($(this).val().length == 0) {
-            textFilter=null;
-        } else {
-            textFilter = new RegExp("(^| )"+$(this).val().replace(/_/g,' '),'i');
+    /* Event handler for variables filter */
+    $('#filterText').keyup(function() {
+        var textFilter = null, val = $(this).val();
+        if (val.length !== 0) {
+            textFilter = new RegExp("(^| )"+val.replace(/_/g,' '),'i');
         }
-        filterVariables();
+        filterVariables(textFilter);
     });
 
+    /* Launches the variable editor */
     $('a.editLink').live('click', function (event) {
         event.preventDefault();
-        editVariable.call(this);
+        editVariable(this);
     });
 
     /* FIXME: this seems broken as we now use the hash for the microhistory
@@ -53,41 +52,43 @@ AJAX.registerOnload('server_variables.js', function() {
     }*/
 
     /* Filters the rows by the user given regexp */
-    function filterVariables() {
-        var mark_next = false, firstCell, odd_row = false;
+    function filterVariables(textFilter) {
+        var mark_next = false, $row, odd_row = false;
         $('#serverVariables .var-row').not('.var-header').each(function() {
-            firstCell = $(this).children(':first');
-            if (mark_next || textFilter == null || textFilter.exec(firstCell.text())) {
+            $row = $(this);
+            if (   mark_next
+                || textFilter === null
+                || textFilter.exec($row.find('.var-name').text())
+            ) {
                 // If current global value is different from session value
                 // (has class diffSession), then display that one too
-                mark_next = $(this).hasClass('diffSession') && ! mark_next;
+                mark_next = $row.hasClass('diffSession') && ! mark_next;
 
                 odd_row = ! odd_row;
-                $(this).css('display','');
+                $row.css('display', '');
                 if (odd_row) {
-                    $(this).addClass('odd');
-                    $(this).removeClass('even');
+                    $row.addClass('odd').removeClass('even');
                 } else {
-                    $(this).addClass('even');
-                    $(this).removeClass('odd');
+                    $row.addClass('even').removeClass('odd');
                 }
             } else {
-                $(this).css('display','none');
+                $row.css('display', 'none');
             }
         });
     }
 
     /* Allows the user to edit a server variable */
-    function editVariable() {
-        var $cell = $(this).parent();
+    function editVariable(link) {
+        var $cell = $(link).parent();
         var varName = $cell.parent().find('.var-name').text().replace(/ /g,'_');
         var $mySaveLink = $saveLink.clone().show();
         var $myCancelLink = $cancelLink.clone().show();
         var $msgbox = PMA_ajaxShowMessage();
 
-        $cell.addClass('edit');
-        // remove edit link
-        $cell.find('a.editLink').remove();
+        $cell
+            .addClass('edit') // variable is being edited
+            .find('a.editLink')
+            .remove(); // remove edit link
 
         $mySaveLink.click(function() {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -98,8 +99,9 @@ AJAX.registerOnload('server_variables.js', function() {
                     varValue: $cell.find('input').val()
                 }, function(data) {
                     if (data.success) {
-                        $cell.html(data.variable);
-                        $cell.data('content', data.variable);
+                        $cell
+                            .html(data.variable)
+                            .data('content', data.variable);
                         PMA_ajaxRemoveMessage($msgbox);
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
@@ -107,13 +109,13 @@ AJAX.registerOnload('server_variables.js', function() {
                     }
                     $cell.removeClass('edit');
                 });
-
             return false;
         });
 
         $myCancelLink.click(function() {
-            $cell.html($cell.data('content'));
-            $cell.removeClass('edit');
+            $cell
+                .html($cell.data('content'))
+                .removeClass('edit');
             return false;
         });
 
@@ -122,7 +124,7 @@ AJAX.registerOnload('server_variables.js', function() {
                 type: 'getval',
                 varName: varName
             }, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     var $editor = $('<div />', {'class':'serverVariableEditor'})
                         .append($myCancelLink)
                         .append(' ')
@@ -134,15 +136,15 @@ AJAX.registerOnload('server_variables.js', function() {
                             )
                         );
                     // Save and replace content
-                    $cell.data('content', $cell.html()).html($editor);
-                    // Keyboard shortcuts to the rescue
-                    $cell.find('input').focus().keydown(function(event) {
-                        // Enter key
-                        if (event.keyCode == 13) {
+                    $cell
+                    .data('content', $cell.html())
+                    .html($editor)
+                    .find('input')
+                    .focus()
+                    .keydown(function(event) { // Keyboard shortcuts
+                        if (event.keyCode === 13) { // Enter key
                             $mySaveLink.trigger('click');
-                        }
-                        // Escape key
-                        if (event.keyCode == 27) {
+                        } else if (event.keyCode === 27) { // Escape key
                             $myCancelLink.trigger('click');
                         }
                     });
