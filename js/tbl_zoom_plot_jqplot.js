@@ -148,11 +148,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : PMA_commonParams('db'),
-            'table' : PMA_commonParams('table'),
+            'db' : PMA_commonParams.get('db'),
+            'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_0').val(),
             'it' : 0,
-            'token' : PMA_commonParams('token')
+            'token' : PMA_commonParams.get('token')
         },function(data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
@@ -172,11 +172,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : PMA_commonParams('db'),
-            'table' : PMA_commonParams('table'),
+            'db' : PMA_commonParams.get('db'),
+            'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_1').val(),
             'it' : 1,
-            'token' : PMA_commonParams('token')
+            'token' : PMA_commonParams.get('token')
         },function(data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
@@ -195,11 +195,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : PMA_commonParams('db'),
-            'table' : PMA_commonParams('table'),
+            'db' : PMA_commonParams.get('db'),
+            'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_2').val(),
             'it' : 2,
-            'token' : PMA_commonParams('token')
+            'token' : PMA_commonParams.get('token')
         },function(data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
@@ -216,11 +216,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : PMA_commonParams('db'),
-            'table' : PMA_commonParams('table'),
+            'db' : PMA_commonParams.get('db'),
+            'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_3').val(),
             'it' : 3,
-            'token' : PMA_commonParams('token')
+            'token' : PMA_commonParams.get('token')
         },function(data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
@@ -345,7 +345,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
         //Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sql_query = 'UPDATE `' + PMA_commonParams('table') + '` SET ';
+            var sql_query = 'UPDATE `' + PMA_commonParams.get('table') + '` SET ';
             for (key in newValues) {
                 sql_query += '`' + key + '`=' ;
                 var value = newValues[key];
@@ -380,8 +380,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
             //Post SQL query to sql.php
             $.post('sql.php', {
-                    'token' : PMA_commonParams('token'),
-                    'db' : PMA_commonParams('db'),
+                    'token' : PMA_commonParams.get('token'),
+                    'db' : PMA_commonParams.get('db'),
                     'ajax_request' : true,
                     'sql_query' : sql_query,
                     'inline_edit' : false
@@ -574,10 +574,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
-                    'db' : PMA_commonParams('db'),
-                    'table' : PMA_commonParams('table'),
+                    'db' : PMA_commonParams.get('db'),
+                    'table' : PMA_commonParams.get('table'),
                     'where_clause' : data[3],
-                    'token' : PMA_commonParams('token')
+                    'token' : PMA_commonParams.get('token')
                 };
 
                 $.post('tbl_zoom_select.php', post_params, function(data) {
