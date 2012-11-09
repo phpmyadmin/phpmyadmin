@@ -124,7 +124,7 @@ $output = '<h2>' . PMA_Util::getImage('s_vars.png')
  * Link templates
  */
 $url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url());
-$output .= '<a style="display: none;" href="#" class="editLink" onclick="return editVariable(this);">';
+$output .= '<a style="display: none;" href="#" class="editLink">';
 $output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
 $output .= '<a style="display: none;" href="' . $url . '" class="ajax saveLink">';
 $output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
