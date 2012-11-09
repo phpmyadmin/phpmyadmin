@@ -1558,17 +1558,13 @@ work with it, nor delete it.
 6.14 How do I set up the :abbr:`SQL (structured query language)` Validator?
 ---------------------------------------------------------------------------
 
-To use SQL Validator, you need PHP with :abbr:`XML (Extensible Markup
-Language)`, :abbr:`PCRE (Perl Compatible Regular Expressions)` and
-:abbr:`PEAR (PHP Extension and Application Repository)` support. In
-addition you need a :abbr:`SOAP (Simple Object Access     Protocol)`
-support, either as a PHP extension or as a PEAR SOAP module.
+To use SQL Validator, you need PHP with :term:`XML`, :term:`PCRE` and
+:term:`PEAR` support. In addition you need a :term:`SOAP` support, either as a
+PHP extension or as a PEAR SOAP module.
 
-To install :abbr:`PEAR (PHP Extension and Application     Repository)`
-:abbr:`SOAP (Simple Object Access     Protocol)` module, run ``"pear
-install Net\_Socket Net\_URL HTTP\_Request Mail\_Mime Net\_DIME
-SOAP"`` to get the necessary :abbr:`PEAR (PHP Extension and
-Application Repository)` modules for usage.
+To install :term:`PEAR` :term:`SOAP` module, run :command:`pear install
+Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME SOAP` to get the necessary
+:term:`PEAR` modules for usage.
 
 If you use the Validator, you should be aware that any :abbr:`SQL
 (structured query language)` statement you submit will be stored
