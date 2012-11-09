@@ -17,7 +17,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Blowfish_(cipher)>
 
-    Browser (Web Browser)
+    Browser 
       a software application that enables a user to display and interact with text, images, and other information typically located on a web page at a website on the World Wide Web.	
 
       .. seealso:: <http://en.wikipedia.org/wiki/Web_browser>
@@ -27,8 +27,10 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Bzip2>
 
-    CGI (Common Gateway Interface)
-      an important World Wide Web technology that enables a client web browser to request data from a program executed on the Web server.	
+    CGI 
+      Common Gateway Interface is an important World Wide Web technology that
+      enables a client web browser to request data from a program executed on
+      the Web server.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/CGI>
 
@@ -119,8 +121,9 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Hostname>
 
-    HTTP (HyperText Transfer Protocol)
-      the primary method used to transfer or convey information on the World Wide Web.	
+    HTTP 
+      HyperText Transfer Protocol is the primary method used to transfer or
+      convey information on the World Wide Web.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/HyperText_Transfer_Protocol>
 
@@ -129,8 +132,9 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Https:_URI_scheme>
 
-    IIS (Internet Information Services)
-      a set of Internet-based services for servers using Microsoft Windows.	
+    IIS 
+      Internet Information Services is a set of Internet-based services for
+      servers using Microsoft Windows.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/Internet_Information_Services>
 
@@ -139,8 +143,10 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Index_(database)>
 
-    IP (Internet Protocol)
-      a data-oriented protocol used by source and destination hosts for communicating data across a packet-switched internetwork.	
+    IP 
+      Internet Protocol is a data-oriented protocol used by source and
+      destination hosts for communicating data across a packet-switched
+      internetwork.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/Internet_Protocol>
 
@@ -149,13 +155,14 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/IP_Address>
 
-    ISAPI (Internet Server Application Programming Interface)
-      the API of Internet Information Services (IIS).	
+    ISAPI 
+      Internet Server Application Programming Interface is the API of Internet Information Services (IIS).	
 
       .. seealso:: <http://www.wikipedia.org/wiki/ISAPI>
 
-    ISP (Internet service provider)
-      a business or organization that offers users access to the Internet and related services.	
+    ISP 
+      Internet service provider is a business or organization that offers users
+      access to the Internet and related services.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/ISP>
 
@@ -195,7 +202,8 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://php.net/mcrypt>
 
-    MIME (Multipurpose Internet Mail Extensions)
+    MIME 
+      Multipurpose Internet Mail Extensions is
       an Internet Standard for the format of e-mail.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/MIME>
@@ -293,8 +301,9 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Socket#Computer_sockets>
 
-    SSL (Secure Sockets Layer)
-      a cryptographic protocol which provides secure communication on the Internet.	
+    SSL 
+      Secure Sockets Layer is a cryptographic protocol which provides secure
+      communication on the Internet.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/Secure_Sockets_Layer>
 
@@ -321,8 +330,9 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Tar_(file_format)>
 
-    TCP (Transmission Control Protocol)
-      one of the core protocols of the Internet protocol suite.	
+    TCP 
+      Transmission Control Protocol is one of the core protocols of the
+      Internet protocol suite.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/TCP>
 
