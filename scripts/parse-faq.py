@@ -55,6 +55,8 @@ def format_content(tag, ignore_links = False, skip = (), document_mode = False):
                     out.append('see :ref:`%s`' % href[1:])
                 elif 'FAQ' in content:
                     out.append(':ref:`%s`' % href[1:])
+                else:
+                    out.append(':ref:`%s`' % href[1:])
             else:
                 out.append('`%s <%s>`_' % (content, href))
             continue
