@@ -336,13 +336,18 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/TCP>
 
+    TCPDF
+      Rewrite of :term:`UFPDF` with various improvements.
+
+      .. seealso:: <http://www.tcpdf.org/>
+
     trigger
       a procedural code that is automatically executed in response to certain events on a particular table or view in a database	
 
       .. seealso:: <http://en.wikipedia.org/wiki/Database_trigger>
 
     UFPDF
-      Unicode/UTF-8 extension for FPDF	
+      Unicode/UTF-8 extension for :term:`FPDF`
 
       .. seealso:: <http://www.acko.net/node/56>
 

@@ -179,9 +179,9 @@ Credits, in chronological order
 * Maxime Delorme <delorme.maxime\_at\_free.fr>
 
   * :abbr:`PDF (Portable Document Format)` schema output, thanks also to
-    Olivier Plathey for the "FPDF" library (see `http://www.fpdf.org/
-    <http://www.fpdf.org/>`_) and Steven Wittens for the "UFPDF" library
-    (see `http://www.acko.net/node/56 <http://www.acko.net/node/56>`_).
+    Olivier Plathey for the "FPDF" library (see <http://www.fpdf.org/>), Steven
+    Wittens for the "UFPDF" library (see <http://www.acko.net/node/56>) and
+    Nicola Asuni for the "TCPDF" library (see <http://www.tcpdf.org/>).
 
 * Olof Edlund <olof.edlund\_at\_upright.se>
 
