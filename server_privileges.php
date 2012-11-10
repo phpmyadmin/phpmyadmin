@@ -13,6 +13,7 @@ require_once 'libraries/common.inc.php';
 /**
  * functions implementation for this script
  */
+require_once 'libraries/display_change_password.lib.php';
 require_once 'libraries/server_privileges.lib.php';
 
 /**

@@ -62,6 +62,7 @@ if (isset($msg)) {
 }
 
 require_once './libraries/display_change_password.lib.php';
+echo PMA_getHtmlForChangePassword($username, $hostname);
 exit;
 
 /**

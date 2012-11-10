@@ -3091,7 +3091,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
     if (! strlen($dbname) && ! $user_does_not_exists) {
         //change login information
-        include_once 'libraries/display_change_password.lib.php';
+        $html_output .= PMA_getHtmlForChangePassword($username, $hostname);
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);
     }
 
