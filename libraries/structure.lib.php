@@ -1545,7 +1545,7 @@ function PMA_getHtmlForAddColumn($columns_list)
                 '\'',
                 '\\\'',
                 __('You have to add at least one column.')
-            ) . ', 1)'
+            ) . '\', 1)'
         . '">';
 
     $html_output .= PMA_generate_common_hidden_inputs(
