@@ -363,7 +363,9 @@ case 'double-click':
     break;
 case 'click':
     $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
-case 'click':
+    break;
+default:
+    break;
 }
 $js_messages['strGoToLink'] = __('Go to link');
 $js_messages['strColNameCopyTitle'] = __('Copy column name');
