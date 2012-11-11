@@ -38,6 +38,8 @@ $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
 $scripts->addFile('sql.js');
+$scripts->addFile('indexes.js');
+$scripts->addFile('gis_data_editor.js');
 
 // check whether insert row moode, if so include tbl_change.php
 PMA_isInsertRow();
@@ -331,7 +333,7 @@ if ($response->isAjax()) {
             if ($file != '_') {
                 $column_name = $transformation['column_name'];
                 $extra_data = PMA_transformEditedValues(
-                    $db, $table, $transformation, $edited_values, $file, 
+                    $db, $table, $transformation, $edited_values, $file,
                     $column_name, $extra_data
                 );
             }
