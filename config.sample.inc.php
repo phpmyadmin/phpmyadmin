@@ -46,18 +46,18 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 /* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
-// $cfg['Servers'][$i]['bookmarktable'] = 'pma_bookmark';
-// $cfg['Servers'][$i]['relation'] = 'pma_relation';
-// $cfg['Servers'][$i]['table_info'] = 'pma_table_info';
-// $cfg['Servers'][$i]['table_coords'] = 'pma_table_coords';
-// $cfg['Servers'][$i]['pdf_pages'] = 'pma_pdf_pages';
-// $cfg['Servers'][$i]['column_info'] = 'pma_column_info';
-// $cfg['Servers'][$i]['history'] = 'pma_history';
-// $cfg['Servers'][$i]['table_uiprefs'] = 'pma_table_uiprefs';
-// $cfg['Servers'][$i]['tracking'] = 'pma_tracking';
-// $cfg['Servers'][$i]['designer_coords'] = 'pma_designer_coords';
-// $cfg['Servers'][$i]['userconfig'] = 'pma_userconfig';
-// $cfg['Servers'][$i]['recent'] = 'pma_recent';
+// $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+// $cfg['Servers'][$i]['relation'] = 'pma__relation';
+// $cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+// $cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+// $cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+// $cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+// $cfg['Servers'][$i]['history'] = 'pma__history';
+// $cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+// $cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+// $cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
+// $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+// $cfg['Servers'][$i]['recent'] = 'pma__recent';
 /* Contrib / Swekey authentication */
 // $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey-pma.conf';
 

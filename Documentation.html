@@ -960,7 +960,7 @@ since this link provides funding for phpMyAdmin.
         <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <code>$cfg['Servers'][$i]['table_info']</code> (e.g.
-                'pma_table_info')</li>
+                'pma__table_info')</li>
             <li>then for each table where you want to use this feature,
                 click &quot;Structure/Relation view/Choose column to display&quot;
                 to choose the column.</li>
@@ -1018,7 +1018,7 @@ since this link provides funding for phpMyAdmin.
         <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in
                 <code>$cfg['Servers'][$i]['column_info']</code> (e.g.
-                'pma_column_info')</li>
+                'pma__column_info')</li>
             <li>to update your PRE-2.5.0 Column_comments Table use this:
 
                 <pre>
@@ -1057,7 +1057,7 @@ ALTER TABLE `pma_column_comments`
 
         <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
             <li>put the table name in <code>$cfg['Servers'][$i]['history']</code>
-            (e.g. 'pma_history')
+            (e.g. 'pma__history')
                 </li>
         </ul>
     </dd>
@@ -1081,7 +1081,8 @@ ALTER TABLE `pma_column_comments`
 
         <ul>
             <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
-            <li>put the table name in <code>$cfg['Servers'][$i]['recent']</code> (e.g. 'pma_recent')</li>
+            <li>put the table name in
+            <code>$cfg['Servers'][$i]['recent']</code> (e.g. 'pma__recent')</li>
         </ul>
     </dd>
 
@@ -1100,7 +1101,8 @@ ALTER TABLE `pma_column_comments`
 
         <ul>
             <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
-            <li>put the table name in <code>$cfg['Servers'][$i]['table_uiprefs']</code> (e.g. 'pma_table_uiprefs')</li>
+            <li>put the table name in
+            <code>$cfg['Servers'][$i]['table_uiprefs']</code> (e.g. 'pma__table_uiprefs')</li>
         </ul>
     </dd>
 
@@ -1130,7 +1132,8 @@ ALTER TABLE `pma_column_comments`
 
         <ul>
             <li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
-            <li>put the table name in <code>$cfg['Servers'][$i]['tracking']</code> (e.g. 'pma_tracking')</li>
+            <li>put the table name in
+            <code>$cfg['Servers'][$i]['tracking']</code> (e.g. 'pma__tracking')</li>
         </ul>
     </dd>
 
@@ -1222,7 +1225,8 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         To allow the usage of this functionality:
 
         <ul><li>set up <a href="#pmadb">pmadb</a> and the phpMyAdmin configuration storage</li>
-            <li>put the table name in <code>$cfg['Servers'][$i]['designer_coords']</code> (e.g. 'pma_designer_coords')
+            <li>put the table name in
+            <code>$cfg['Servers'][$i]['designer_coords']</code> (e.g. 'pma__designer_coords')
                 </li>
         </ul>
     </dd>
@@ -3865,7 +3869,7 @@ to see if the problem goes away.</p>
     <a href="#faq6_6">6.6 How can I use the relation table in Query-by-example?</a></h4>
 
 <p> Here is an example with the tables persons, towns and countries, all
-    located in the database mydb. If you don't have a <code>pma_relation</code>
+    located in the database mydb. If you don't have a <code>pma__relation</code>
     table, create it as explained in the configuration section. Then create the
     example tables:</p>
 
@@ -3927,7 +3931,7 @@ INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');
 <h4 id="faqdisplay">
     <a href="#faqdisplay">6.7 How can I use the &quot;display column&quot; feature?</a></h4>
 <p>
-    Starting from the previous example, create the pma_table_info as explained
+Starting from the previous example, create the <code>pma__table_info</code> as explained
     in the configuration section, then browse your persons table,
     and move the mouse over a town code or country code.
     <br /><br />

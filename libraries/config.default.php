@@ -285,7 +285,7 @@ $cfg['Servers'][$i]['pmadb'] = '';
 /**
  * Bookmark table
  *   - leave blank for no bookmark support
- *     SUGGESTED: 'pma_bookmark'
+ *     SUGGESTED: 'pma__bookmark'
  *
  * @global string $cfg['Servers'][$i]['bookmarktable']
  */
@@ -294,7 +294,7 @@ $cfg['Servers'][$i]['bookmarktable'] = '';
 /**
  * table to describe the relation between links (see doc)
  *   - leave blank for no relation-links support
- *     SUGGESTED: 'pma_relation'
+ *     SUGGESTED: 'pma__relation'
  *
  * @global string $cfg['Servers'][$i]['relation']
  */
@@ -303,7 +303,7 @@ $cfg['Servers'][$i]['relation'] = '';
 /**
  * table to describe the display fields
  *   - leave blank for no display fields support
- *     SUGGESTED: 'pma_table_info'
+ *     SUGGESTED: 'pma__table_info'
  *
  * @global string $cfg['Servers'][$i]['table_info']
  */
@@ -312,7 +312,7 @@ $cfg['Servers'][$i]['table_info'] = '';
 /**
  * table to describe the tables position for the PDF schema
  *   - leave blank for no PDF schema support
- *     SUGGESTED: 'pma_table_coords'
+ *     SUGGESTED: 'pma__table_coords'
  *
  * @global string $cfg['Servers'][$i]['table_coords']
  */
@@ -321,7 +321,7 @@ $cfg['Servers'][$i]['table_coords'] = '';
 /**
  * table to describe pages of relationpdf
  *   - leave blank if you don't want to use this
- *     SUGGESTED: 'pma_pdf_pages'
+ *     SUGGESTED: 'pma__pdf_pages'
  *
  * @global string $cfg['Servers'][$i]['pdf_pages']
  */
@@ -330,7 +330,7 @@ $cfg['Servers'][$i]['pdf_pages'] = '';
 /**
  * table to store column information
  *   - leave blank for no column comments/mime types
- *     SUGGESTED: 'pma_column_info'
+ *     SUGGESTED: 'pma__column_info'
  *
  * @global string $cfg['Servers'][$i]['column_info']
  */
@@ -339,7 +339,7 @@ $cfg['Servers'][$i]['column_info'] = '';
 /**
  * table to store SQL history
  *   - leave blank for no SQL query history
- *     SUGGESTED: 'pma_history'
+ *     SUGGESTED: 'pma__history'
  *
  * @global string $cfg['Servers'][$i]['history']
  */
@@ -348,7 +348,7 @@ $cfg['Servers'][$i]['history'] = '';
 /**
  * table to store the coordinates for Designer
  *   - leave blank for no Designer feature
- *     SUGGESTED: 'pma_designer_coords'
+ *     SUGGESTED: 'pma__designer_coords'
  *
  * @global string $cfg['Servers'][$i]['designer_coords']
  */
@@ -357,21 +357,21 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 /**
  * table to store recently used tables
  *   - leave blank for no "persistent" recently used tables
- *     SUGGESTED: 'pma_recent'
+ *     SUGGESTED: 'pma__recent'
  */
 $cfg['Servers'][$i]['recent'] = '';
 
 /**
  * table to store UI preferences for tables
  *   - leave blank for no "persistent" UI preferences
- *     SUGGESTED: 'pma_table_uiprefs'
+ *     SUGGESTED: 'pma__table_uiprefs'
  */
 $cfg['Servers'][$i]['table_uiprefs'] = '';
 
 /**
  * table to store SQL tracking
  *   - leave blank for no SQL tracking
- *     SUGGESTED: 'pma_tracking'
+ *     SUGGESTED: 'pma__tracking'
  *
  * @global string $cfg['Servers'][$i]['tracking']
  */
@@ -380,7 +380,7 @@ $cfg['Servers'][$i]['tracking'] = '';
 /**
  * table to store user preferences
  *   - leave blank to disable server storage
- *     SUGGESTED: 'pma_userconfig'
+ *     SUGGESTED: 'pma__userconfig'
  *
  * @global string $cfg['Servers'][$i]['userconfig']
  */
