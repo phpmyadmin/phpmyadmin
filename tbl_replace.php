@@ -41,6 +41,10 @@ $goto_include = false;
 $GLOBALS['js_include'][] = 'makegrid.js';
 // Needed for generation of Inline Edit anchors
 $GLOBALS['js_include'][] = 'sql.js';
+$GLOBALS['js_include'][] = 'indexes.js';
+$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$GLOBALS['js_include'][] = 'codemirror/lib/codemirror.js';
+$GLOBALS['js_include'][] = 'codemirror/mode/mysql/mysql.js';
 
 if (isset($_REQUEST['insert_rows']) && is_numeric($_REQUEST['insert_rows']) && $_REQUEST['insert_rows'] != $cfg['InsertRows']) {
     $cfg['InsertRows'] = $_REQUEST['insert_rows'];
