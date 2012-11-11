@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-11 07:41-0500\n"
+"POT-Creation-Date: 2012-11-11 08:58-0500\n"
 "PO-Revision-Date: 2012-11-05 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/master/hr/"
@@ -1533,7 +1533,7 @@ msgstr "Analiziraj"
 msgid "Explain output"
 msgstr "Objasni SQL"
 
-#: js/messages.php:186 js/messages.php:534
+#: js/messages.php:186 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -2077,68 +2077,68 @@ msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 
-#: js/messages.php:368
+#: js/messages.php:370
 #, fuzzy
 msgid "Go to link"
 msgstr "Nema baza podataka"
 
-#: js/messages.php:369
+#: js/messages.php:371
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
 msgstr "Nazivi stupaca"
 
-#: js/messages.php:370
+#: js/messages.php:372
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:371
+#: js/messages.php:373
 #, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
 msgstr "Ažuriraj redak"
 
-#: js/messages.php:374
+#: js/messages.php:376
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generiraj lozinku"
 
-#: js/messages.php:375 libraries/replication_gui.lib.php:389
+#: js/messages.php:377 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Generiraj"
 
-#: js/messages.php:376
+#: js/messages.php:378
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Promijeni lozinku"
 
-#: js/messages.php:379 libraries/structure.lib.php:1881
+#: js/messages.php:381 libraries/structure.lib.php:1881
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pon"
 
-#: js/messages.php:382
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Prikaži sve"
 
-#: js/messages.php:383
+#: js/messages.php:385
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide Panel"
 msgstr "Indeksi"
 
-#: js/messages.php:386
+#: js/messages.php:388
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Odabrani korisnik nije pronađen u tablici privilegija."
 
-#: js/messages.php:389 setup/lib/index.lib.php:188
+#: js/messages.php:391 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2148,30 +2148,30 @@ msgstr ""
 "Najnovija verzija je %s dostupna od %s"
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:391
+#: js/messages.php:393
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Izradi relaciju"
 
-#: js/messages.php:392
+#: js/messages.php:394
 #, fuzzy
 msgid "up to date"
 msgstr "Nema baza podataka"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:411
+#: js/messages.php:413
 #, fuzzy
 msgid "Done"
 msgstr "Podaci"
 
-#: js/messages.php:415
+#: js/messages.php:417
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prethodni"
 
-#: js/messages.php:420
+#: js/messages.php:422
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2179,96 +2179,96 @@ msgid "Next"
 msgstr "Sljedeće"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:423
+#: js/messages.php:425
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ukupno"
 
-#: js/messages.php:427
+#: js/messages.php:429
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binarno"
 
-#: js/messages.php:428
+#: js/messages.php:430
 msgid "February"
 msgstr "Veljača"
 
-#: js/messages.php:429
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Ožu"
 
-#: js/messages.php:430
+#: js/messages.php:432
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Tra"
 
-#: js/messages.php:431
+#: js/messages.php:433
 msgid "May"
 msgstr "Svi"
 
-#: js/messages.php:432
+#: js/messages.php:434
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Lip"
 
-#: js/messages.php:433
+#: js/messages.php:435
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Srp"
 
-#: js/messages.php:434
+#: js/messages.php:436
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Kol"
 
-#: js/messages.php:435
+#: js/messages.php:437
 msgid "September"
 msgstr "Rujan"
 
-#: js/messages.php:436
+#: js/messages.php:438
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Lis"
 
-#: js/messages.php:437
+#: js/messages.php:439
 msgid "November"
 msgstr "Studeno"
 
-#: js/messages.php:438
+#: js/messages.php:440
 msgid "December"
 msgstr "Prosinac"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1630
+#: js/messages.php:447 libraries/Util.class.php:1630
 msgid "Jan"
 msgstr "Sij"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1632
+#: js/messages.php:449 libraries/Util.class.php:1632
 msgid "Feb"
 msgstr "Velj"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1634
+#: js/messages.php:451 libraries/Util.class.php:1634
 msgid "Mar"
 msgstr "Ožu"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1636
+#: js/messages.php:453 libraries/Util.class.php:1636
 msgid "Apr"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1638
+#: js/messages.php:455 libraries/Util.class.php:1638
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2276,78 +2276,78 @@ msgid "May"
 msgstr "Svi"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1640
+#: js/messages.php:457 libraries/Util.class.php:1640
 msgid "Jun"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1642
+#: js/messages.php:459 libraries/Util.class.php:1642
 msgid "Jul"
 msgstr "Srp"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1644
+#: js/messages.php:461 libraries/Util.class.php:1644
 msgid "Aug"
 msgstr "Kol"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1646
+#: js/messages.php:463 libraries/Util.class.php:1646
 msgid "Sep"
 msgstr "Ruj"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1648
+#: js/messages.php:465 libraries/Util.class.php:1648
 msgid "Oct"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1650
+#: js/messages.php:467 libraries/Util.class.php:1650
 msgid "Nov"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1652
+#: js/messages.php:469 libraries/Util.class.php:1652
 msgid "Dec"
 msgstr "Pro"
 
-#: js/messages.php:473
+#: js/messages.php:475
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ned"
 
-#: js/messages.php:474
+#: js/messages.php:476
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pon"
 
-#: js/messages.php:475
+#: js/messages.php:477
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Uto"
 
-#: js/messages.php:476
+#: js/messages.php:478
 msgid "Wednesday"
 msgstr "Srijeda"
 
-#: js/messages.php:477
+#: js/messages.php:479
 msgid "Thursday"
 msgstr "ČEtvrtak"
 
-#: js/messages.php:478
+#: js/messages.php:480
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pet"
 
-#: js/messages.php:479
+#: js/messages.php:481
 msgid "Saturday"
 msgstr "Subota"
 
 #. l10n: Short week day name
-#: js/messages.php:486
+#: js/messages.php:488
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2355,115 +2355,115 @@ msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1657
+#: js/messages.php:490 libraries/Util.class.php:1657
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1659
+#: js/messages.php:492 libraries/Util.class.php:1659
 msgid "Tue"
 msgstr "Uto"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1661
+#: js/messages.php:494 libraries/Util.class.php:1661
 msgid "Wed"
 msgstr "Sri"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1663
+#: js/messages.php:496 libraries/Util.class.php:1663
 msgid "Thu"
 msgstr "Čet"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1665
+#: js/messages.php:498 libraries/Util.class.php:1665
 msgid "Fri"
 msgstr "Pet"
 
 #. l10n: Short week day name
-#: js/messages.php:498 libraries/Util.class.php:1667
+#: js/messages.php:500 libraries/Util.class.php:1667
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:507
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ned"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:509
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pon"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:511
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Uto"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:513
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sri"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:515
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Čet"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:517
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pet"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:519
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:521
+#: js/messages.php:523
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
 msgstr "Wiki"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:524
+#: js/messages.php:526
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:526
+#: js/messages.php:528
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "bez kompresije"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "Hour"
 msgstr "Sat"
 
-#: js/messages.php:536
+#: js/messages.php:538
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "u upotrebi"
 
-#: js/messages.php:537
+#: js/messages.php:539
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -5679,7 +5679,7 @@ msgstr "Tip autentifikacije"
 #: libraries/config/messages.inc.php:376
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
+"support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:377
@@ -5689,7 +5689,7 @@ msgstr "Zabilježi tablicu"
 #: libraries/config/messages.inc.php:378
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:379
@@ -5750,7 +5750,7 @@ msgstr "Nema tablica"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+"Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
 
@@ -5789,7 +5789,7 @@ msgstr "Nema baza podataka"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
+"Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
 
@@ -5851,7 +5851,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:412
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:413
@@ -5883,7 +5883,7 @@ msgstr "ID poslužitelja"
 #: libraries/config/messages.inc.php:418
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
-"suggested: [kbd]pma_recent[/kbd]"
+"suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
@@ -5895,7 +5895,7 @@ msgstr "Analiziraj tablicu"
 #: libraries/config/messages.inc.php:420
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
@@ -5944,7 +5944,8 @@ msgstr "Koristi SSL"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
+"kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:432
@@ -5954,7 +5955,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:433
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
-"suggested: [kbd]pma_table_info[/kbd]"
+"suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:434
@@ -5966,7 +5967,7 @@ msgstr "Prikazivanje stupca komentara"
 #: libraries/config/messages.inc.php:435
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
-"suggested: [kbd]pma_table_uiprefs[/kbd]"
+"suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:436
@@ -6017,8 +6018,8 @@ msgstr "Izjave"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:446
@@ -6040,7 +6041,7 @@ msgstr "Rad s automatskim povratom"
 #: libraries/config/messages.inc.php:449
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_userconfig[/kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 
 #: libraries/config/messages.inc.php:450

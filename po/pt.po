@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-11 07:41-0500\n"
+"POT-Creation-Date: 2012-11-11 08:58-0500\n"
 "PO-Revision-Date: 2012-11-05 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -1445,7 +1445,7 @@ msgstr "Em análise…"
 msgid "Explain output"
 msgstr "Explicar SQL"
 
-#: js/messages.php:186 js/messages.php:534
+#: js/messages.php:186 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -1930,58 +1930,58 @@ msgid ""
 msgstr ""
 "Também pode editar algumas colunas<br/>clicando directamente no seu conteúdo."
 
-#: js/messages.php:368
+#: js/messages.php:370
 msgid "Go to link"
 msgstr "Ir para a hiperligação"
 
-#: js/messages.php:369
+#: js/messages.php:371
 msgid "Copy column name"
 msgstr "Copiar nome da coluna"
 
-#: js/messages.php:370
+#: js/messages.php:372
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Clique com o botão direito do rato para copiar para a área de transferência."
 
-#: js/messages.php:371
+#: js/messages.php:373
 msgid "Show data row(s)"
 msgstr "Mostrar registo(s)"
 
-#: js/messages.php:374
+#: js/messages.php:376
 msgid "Generate password"
 msgstr "Gerar palavra-passe"
 
-#: js/messages.php:375 libraries/replication_gui.lib.php:389
+#: js/messages.php:377 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Gerar"
 
-#: js/messages.php:376
+#: js/messages.php:378
 msgid "Change Password"
 msgstr "Alterar a palavra-passe"
 
-#: js/messages.php:379 libraries/structure.lib.php:1881
+#: js/messages.php:381 libraries/structure.lib.php:1881
 msgid "More"
 msgstr "Mais"
 
-#: js/messages.php:382
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Mostrar tudo"
 
-#: js/messages.php:383
+#: js/messages.php:385
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Esconder índices"
 
-#: js/messages.php:386
+#: js/messages.php:388
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
 
-#: js/messages.php:389 setup/lib/index.lib.php:188
+#: js/messages.php:391 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1991,266 +1991,266 @@ msgstr ""
 "actualização. A nova versão é %s, e foi lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:391
+#: js/messages.php:393
 msgid ", latest stable version:"
 msgstr ", última versão estável:"
 
-#: js/messages.php:392
+#: js/messages.php:394
 msgid "up to date"
 msgstr "até à data"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:411
+#: js/messages.php:413
 msgid "Done"
 msgstr "Concluído"
 
-#: js/messages.php:415
+#: js/messages.php:417
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Ant"
 
-#: js/messages.php:420
+#: js/messages.php:422
 msgctxt "Next month"
 msgid "Next"
 msgstr "Próx"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:423
+#: js/messages.php:425
 msgid "Today"
 msgstr "Hoje"
 
-#: js/messages.php:427
+#: js/messages.php:429
 msgid "January"
 msgstr "Janeiro"
 
-#: js/messages.php:428
+#: js/messages.php:430
 msgid "February"
 msgstr "Fevereiro"
 
-#: js/messages.php:429
+#: js/messages.php:431
 msgid "March"
 msgstr "Março"
 
-#: js/messages.php:430
+#: js/messages.php:432
 msgid "April"
 msgstr "Abril"
 
-#: js/messages.php:431
+#: js/messages.php:433
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:432
+#: js/messages.php:434
 msgid "June"
 msgstr "Junho"
 
-#: js/messages.php:433
+#: js/messages.php:435
 msgid "July"
 msgstr "Julho"
 
-#: js/messages.php:434
+#: js/messages.php:436
 msgid "August"
 msgstr "Agosto"
 
-#: js/messages.php:435
+#: js/messages.php:437
 msgid "September"
 msgstr "Setembro"
 
-#: js/messages.php:436
+#: js/messages.php:438
 msgid "October"
 msgstr "Outubro"
 
-#: js/messages.php:437
+#: js/messages.php:439
 msgid "November"
 msgstr "Novembro"
 
-#: js/messages.php:438
+#: js/messages.php:440
 msgid "December"
 msgstr "Dezembro"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1630
+#: js/messages.php:447 libraries/Util.class.php:1630
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1632
+#: js/messages.php:449 libraries/Util.class.php:1632
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1634
+#: js/messages.php:451 libraries/Util.class.php:1634
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1636
+#: js/messages.php:453 libraries/Util.class.php:1636
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1638
+#: js/messages.php:455 libraries/Util.class.php:1638
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maio"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1640
+#: js/messages.php:457 libraries/Util.class.php:1640
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1642
+#: js/messages.php:459 libraries/Util.class.php:1642
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1644
+#: js/messages.php:461 libraries/Util.class.php:1644
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1646
+#: js/messages.php:463 libraries/Util.class.php:1646
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1648
+#: js/messages.php:465 libraries/Util.class.php:1648
 msgid "Oct"
 msgstr "Out"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1650
+#: js/messages.php:467 libraries/Util.class.php:1650
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1652
+#: js/messages.php:469 libraries/Util.class.php:1652
 msgid "Dec"
 msgstr "Dez"
 
-#: js/messages.php:473
+#: js/messages.php:475
 msgid "Sunday"
 msgstr "Domingo"
 
-#: js/messages.php:474
+#: js/messages.php:476
 msgid "Monday"
 msgstr "Segunda"
 
-#: js/messages.php:475
+#: js/messages.php:477
 msgid "Tuesday"
 msgstr "Terça"
 
-#: js/messages.php:476
+#: js/messages.php:478
 msgid "Wednesday"
 msgstr "Quarta"
 
-#: js/messages.php:477
+#: js/messages.php:479
 msgid "Thursday"
 msgstr "Quinta"
 
-#: js/messages.php:478
+#: js/messages.php:480
 msgid "Friday"
 msgstr "Sexta"
 
-#: js/messages.php:479
+#: js/messages.php:481
 msgid "Saturday"
 msgstr "Sábado"
 
 #. l10n: Short week day name
-#: js/messages.php:486
+#: js/messages.php:488
 msgid "Sun"
 msgstr "Domingo"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1657
+#: js/messages.php:490 libraries/Util.class.php:1657
 msgid "Mon"
 msgstr "Seg"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1659
+#: js/messages.php:492 libraries/Util.class.php:1659
 msgid "Tue"
 msgstr "Ter"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1661
+#: js/messages.php:494 libraries/Util.class.php:1661
 msgid "Wed"
 msgstr "Qua"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1663
+#: js/messages.php:496 libraries/Util.class.php:1663
 msgid "Thu"
 msgstr "Qui"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1665
+#: js/messages.php:498 libraries/Util.class.php:1665
 msgid "Fri"
 msgstr "Sex"
 
 #. l10n: Short week day name
-#: js/messages.php:498 libraries/Util.class.php:1667
+#: js/messages.php:500 libraries/Util.class.php:1667
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:507
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:509
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:511
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:513
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:515
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:517
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:519
 msgid "Sa"
 msgstr "Sáb"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:521
+#: js/messages.php:523
 msgid "Wk"
 msgstr "Sem"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:524
+#: js/messages.php:526
 msgid "calendar-month-year"
 msgstr "Calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:526
+#: js/messages.php:528
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nenhum"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "Hour"
 msgstr "Hora"
 
-#: js/messages.php:536
+#: js/messages.php:538
 msgid "Minute"
 msgstr "Minuto"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Second"
 msgstr "Segundo"
 
@@ -5396,9 +5396,13 @@ msgid "Authentication type"
 msgstr "Tipo de autenticação"
 
 #: libraries/config/messages.inc.php:376
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
+"support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 "Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
 "bookmark[/a] suporte, sugerido: [kbd]pma_bookmark[/kbd]"
@@ -5408,9 +5412,13 @@ msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/config/messages.inc.php:378
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 "Deixe em branco quando não houver colunas de comentário/mime type, "
 "sugeridas: [kbd]pma_column_info[/kbd]"
@@ -5474,8 +5482,12 @@ msgid "Count tables"
 msgstr "Contar tabelas"
 
 #: libraries/config/messages.inc.php:391
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+#| "kbd]"
 msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+"Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
 "Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
@@ -5514,8 +5526,12 @@ msgid "Hide databases"
 msgstr "Ocultar bases de dados"
 
 #: libraries/config/messages.inc.php:399
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
+"Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
 "Deixe em branco se não há suporte a histórico de consulta SQL, sugerido: "
@@ -5579,8 +5595,11 @@ msgid "Password for config auth"
 msgstr "Palavra-passe para config-auth"
 
 #: libraries/config/messages.inc.php:412
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 "Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
 "pma_pdf_pages[/kbd]"
@@ -5610,10 +5629,16 @@ msgid "Server port"
 msgstr "Porta do servidor"
 
 #: libraries/config/messages.inc.php:418
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
-"suggested: [kbd]pma_recent[/kbd]"
+"suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
+"Deixe em branco quando não houver colunas de comentário/mime type, "
+"sugeridas: [kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 #, fuzzy
@@ -5622,10 +5647,16 @@ msgid "Recently used table"
 msgstr "Analizar tabela"
 
 #: libraries/config/messages.inc.php:420
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
+"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"bookmark[/a] suporte, sugerido: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 #, fuzzy
@@ -5672,19 +5703,30 @@ msgid "Use SSL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:431
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
+"kbd]"
 msgstr ""
+"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr ""
 
 #: libraries/config/messages.inc.php:433
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
-"suggested: [kbd]pma_table_info[/kbd]"
+"suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
+"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 #, fuzzy
@@ -5693,10 +5735,15 @@ msgid "Display columns table"
 msgstr "Mostrando comentários das Colunas"
 
 #: libraries/config/messages.inc.php:435
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
-"suggested: [kbd]pma_table_uiprefs[/kbd]"
+"suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
+"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5743,10 +5790,16 @@ msgid "Statements to track"
 msgstr "Itens"
 
 #: libraries/config/messages.inc.php:445
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
+"Deixe em branco se não há suporte a histórico de consulta SQL, sugerido: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
@@ -5764,10 +5817,16 @@ msgid "Automatically create versions"
 msgstr "Versão do servidor"
 
 #: libraries/config/messages.inc.php:449
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+#| "kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_userconfig[/kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
+"Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"

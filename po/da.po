@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-11 07:41-0500\n"
+"POT-Creation-Date: 2012-11-11 08:58-0500\n"
 "PO-Revision-Date: 2012-11-05 10:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -1434,7 +1434,7 @@ msgstr "Analyserer…"
 msgid "Explain output"
 msgstr "Forklar output"
 
-#: js/messages.php:186 js/messages.php:534
+#: js/messages.php:186 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -1925,57 +1925,57 @@ msgstr ""
 "Du kan også redigere de fleste kolonner<br />ved at klikke direkte på deres "
 "indhold."
 
-#: js/messages.php:368
+#: js/messages.php:370
 msgid "Go to link"
 msgstr "Gå til link"
 
-#: js/messages.php:369
+#: js/messages.php:371
 msgid "Copy column name"
 msgstr "Kopiér kolonnenavn"
 
-#: js/messages.php:370
+#: js/messages.php:372
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Højreklik kolonnenavnet for at kopiere det til din udklipsholder."
 
-#: js/messages.php:371
+#: js/messages.php:373
 msgid "Show data row(s)"
 msgstr "Vis datarække(r)"
 
-#: js/messages.php:374
+#: js/messages.php:376
 msgid "Generate password"
 msgstr "Generer adgangskode"
 
-#: js/messages.php:375 libraries/replication_gui.lib.php:389
+#: js/messages.php:377 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Generer"
 
-#: js/messages.php:376
+#: js/messages.php:378
 msgid "Change Password"
 msgstr "Ændre adgangskode"
 
-#: js/messages.php:379 libraries/structure.lib.php:1881
+#: js/messages.php:381 libraries/structure.lib.php:1881
 msgid "More"
 msgstr "Mere"
 
-#: js/messages.php:382
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Vis alle"
 
-#: js/messages.php:383
+#: js/messages.php:385
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Skjul indekser"
 
-#: js/messages.php:386
+#: js/messages.php:388
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Den valgte bruger blev ikke fundet i privilegietabellen."
 
-#: js/messages.php:389 setup/lib/index.lib.php:188
+#: js/messages.php:391 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1985,266 +1985,266 @@ msgstr ""
 "opgradere. Den nyeste version er %s, udgivet den %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:391
+#: js/messages.php:393
 msgid ", latest stable version:"
 msgstr ", seneste stabile version:"
 
-#: js/messages.php:392
+#: js/messages.php:394
 msgid "up to date"
 msgstr "up-to-date"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:411
+#: js/messages.php:413
 msgid "Done"
 msgstr "Færdig"
 
-#: js/messages.php:415
+#: js/messages.php:417
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Forrige"
 
-#: js/messages.php:420
+#: js/messages.php:422
 msgctxt "Next month"
 msgid "Next"
 msgstr "Næste"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:423
+#: js/messages.php:425
 msgid "Today"
 msgstr "I dag"
 
-#: js/messages.php:427
+#: js/messages.php:429
 msgid "January"
 msgstr "januar"
 
-#: js/messages.php:428
+#: js/messages.php:430
 msgid "February"
 msgstr "februar"
 
-#: js/messages.php:429
+#: js/messages.php:431
 msgid "March"
 msgstr "marts"
 
-#: js/messages.php:430
+#: js/messages.php:432
 msgid "April"
 msgstr "april"
 
-#: js/messages.php:431
+#: js/messages.php:433
 msgid "May"
 msgstr "maj"
 
-#: js/messages.php:432
+#: js/messages.php:434
 msgid "June"
 msgstr "juni"
 
-#: js/messages.php:433
+#: js/messages.php:435
 msgid "July"
 msgstr "juli"
 
-#: js/messages.php:434
+#: js/messages.php:436
 msgid "August"
 msgstr "august"
 
-#: js/messages.php:435
+#: js/messages.php:437
 msgid "September"
 msgstr "september"
 
-#: js/messages.php:436
+#: js/messages.php:438
 msgid "October"
 msgstr "oktober"
 
-#: js/messages.php:437
+#: js/messages.php:439
 msgid "November"
 msgstr "november"
 
-#: js/messages.php:438
+#: js/messages.php:440
 msgid "December"
 msgstr "december"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1630
+#: js/messages.php:447 libraries/Util.class.php:1630
 msgid "Jan"
 msgstr "jan"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1632
+#: js/messages.php:449 libraries/Util.class.php:1632
 msgid "Feb"
 msgstr "feb"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1634
+#: js/messages.php:451 libraries/Util.class.php:1634
 msgid "Mar"
 msgstr "mar"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1636
+#: js/messages.php:453 libraries/Util.class.php:1636
 msgid "Apr"
 msgstr "apr"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1638
+#: js/messages.php:455 libraries/Util.class.php:1638
 msgctxt "Short month name"
 msgid "May"
 msgstr "maj"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1640
+#: js/messages.php:457 libraries/Util.class.php:1640
 msgid "Jun"
 msgstr "jun"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1642
+#: js/messages.php:459 libraries/Util.class.php:1642
 msgid "Jul"
 msgstr "jul"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1644
+#: js/messages.php:461 libraries/Util.class.php:1644
 msgid "Aug"
 msgstr "aug"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1646
+#: js/messages.php:463 libraries/Util.class.php:1646
 msgid "Sep"
 msgstr "sep"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1648
+#: js/messages.php:465 libraries/Util.class.php:1648
 msgid "Oct"
 msgstr "okt"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1650
+#: js/messages.php:467 libraries/Util.class.php:1650
 msgid "Nov"
 msgstr "nov"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1652
+#: js/messages.php:469 libraries/Util.class.php:1652
 msgid "Dec"
 msgstr "dec"
 
-#: js/messages.php:473
+#: js/messages.php:475
 msgid "Sunday"
 msgstr "søndag"
 
-#: js/messages.php:474
+#: js/messages.php:476
 msgid "Monday"
 msgstr "mandag"
 
-#: js/messages.php:475
+#: js/messages.php:477
 msgid "Tuesday"
 msgstr "tirsdag"
 
-#: js/messages.php:476
+#: js/messages.php:478
 msgid "Wednesday"
 msgstr "onsdag"
 
-#: js/messages.php:477
+#: js/messages.php:479
 msgid "Thursday"
 msgstr "torsdag"
 
-#: js/messages.php:478
+#: js/messages.php:480
 msgid "Friday"
 msgstr "fredag"
 
-#: js/messages.php:479
+#: js/messages.php:481
 msgid "Saturday"
 msgstr "lørdag"
 
 #. l10n: Short week day name
-#: js/messages.php:486
+#: js/messages.php:488
 msgid "Sun"
 msgstr "søn"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1657
+#: js/messages.php:490 libraries/Util.class.php:1657
 msgid "Mon"
 msgstr "man"
 
 #. l10n: Short week day name
-#: js/messages.php:490 libraries/Util.class.php:1659
+#: js/messages.php:492 libraries/Util.class.php:1659
 msgid "Tue"
 msgstr "tir"
 
 #. l10n: Short week day name
-#: js/messages.php:492 libraries/Util.class.php:1661
+#: js/messages.php:494 libraries/Util.class.php:1661
 msgid "Wed"
 msgstr "ons"
 
 #. l10n: Short week day name
-#: js/messages.php:494 libraries/Util.class.php:1663
+#: js/messages.php:496 libraries/Util.class.php:1663
 msgid "Thu"
 msgstr "tor"
 
 #. l10n: Short week day name
-#: js/messages.php:496 libraries/Util.class.php:1665
+#: js/messages.php:498 libraries/Util.class.php:1665
 msgid "Fri"
 msgstr "fre"
 
 #. l10n: Short week day name
-#: js/messages.php:498 libraries/Util.class.php:1667
+#: js/messages.php:500 libraries/Util.class.php:1667
 msgid "Sat"
 msgstr "lør"
 
 #. l10n: Minimal week day name
-#: js/messages.php:505
+#: js/messages.php:507
 msgid "Su"
 msgstr "sø"
 
 #. l10n: Minimal week day name
-#: js/messages.php:507
+#: js/messages.php:509
 msgid "Mo"
 msgstr "ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:509
+#: js/messages.php:511
 msgid "Tu"
 msgstr "ti"
 
 #. l10n: Minimal week day name
-#: js/messages.php:511
+#: js/messages.php:513
 msgid "We"
 msgstr "on"
 
 #. l10n: Minimal week day name
-#: js/messages.php:513
+#: js/messages.php:515
 msgid "Th"
 msgstr "to"
 
 #. l10n: Minimal week day name
-#: js/messages.php:515
+#: js/messages.php:517
 msgid "Fr"
 msgstr "fr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:519
 msgid "Sa"
 msgstr "lø"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:521
+#: js/messages.php:523
 msgid "Wk"
 msgstr "uge"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:524
+#: js/messages.php:526
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:526
+#: js/messages.php:528
 msgctxt "Year suffix"
 msgid "none"
 msgstr "ingen"
 
-#: js/messages.php:535
+#: js/messages.php:537
 msgid "Hour"
 msgstr "Time"
 
-#: js/messages.php:536
+#: js/messages.php:538
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:537
+#: js/messages.php:539
 msgid "Second"
 msgstr "Sekund"
 
@@ -5430,9 +5430,13 @@ msgid "Authentication type"
 msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:376
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
+#| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
+"support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 "Lades blank for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] understøttelse, forslag: [kbd]pma_bookmark[/kbd]"
@@ -5442,9 +5446,13 @@ msgid "Bookmark table"
 msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:378
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
 "Lades blank ved ingen kolonnekommentarer/mime types, forslag: [kbd]"
 "pma_column_info[/kbd]"
@@ -5506,8 +5514,12 @@ msgid "Count tables"
 msgstr "Optæl tabeller"
 
 #: libraries/config/messages.inc.php:391
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+#| "kbd]"
 msgid ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
+"Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
 "Lad være blank for ingen Designer support, forslag: [kbd]pma_designer_coords"
@@ -5547,8 +5559,12 @@ msgid "Hide databases"
 msgstr "Skjul databaser"
 
 #: libraries/config/messages.inc.php:399
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
+"Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
 "Lades blank for ingen historik for SQL-forespørgsler, forslag: [kbd]"
@@ -5617,8 +5633,11 @@ msgid "Password for config auth"
 msgstr "Adgangskode for config auth"
 
 #: libraries/config/messages.inc.php:412
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
 "pma_pdf_pages[/kbd]"
@@ -5650,9 +5669,13 @@ msgid "Server port"
 msgstr "Serverport"
 
 #: libraries/config/messages.inc.php:418
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no \"persistent\" recently used tables across sessions, "
+#| "suggested: [kbd]pma_recent[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
-"suggested: [kbd]pma_recent[/kbd]"
+"suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 "Lades blank for ingen \"vedvarende\" senest benyttede tabeller på tværs af "
 "sessioner, forslag: [kbd]pma_recent[/kbd]"
@@ -5662,9 +5685,13 @@ msgid "Recently used table"
 msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:420
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+#| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
@@ -5714,8 +5741,13 @@ msgid "Use SSL"
 msgstr "Brug SSL"
 
 #: libraries/config/messages.inc.php:431
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
+#| "kbd]"
 msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
+"kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
 "pma_table_coords[/kbd]"
@@ -5725,9 +5757,13 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-skematik: tabel coordinates"
 
 #: libraries/config/messages.inc.php:433
+#, fuzzy
+#| msgid ""
+#| "Table to describe the display columns, leave blank for no support; "
+#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
-"suggested: [kbd]pma_table_info[/kbd]"
+"suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Tabel til at beskrive visningskolonnerne, lades blank for ingen "
 "understøttelset; forslag: [kbd]pma_table_info[/kbd]"
@@ -5737,9 +5773,13 @@ msgid "Display columns table"
 msgstr "Visningskolonnetabel"
 
 #: libraries/config/messages.inc.php:435
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
+#| "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
-"suggested: [kbd]pma_table_uiprefs[/kbd]"
+"suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 "Lades blank for ingen \"vedvarende\" tabel UI præferencer på tværs af "
 "sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
@@ -5794,9 +5834,13 @@ msgid "Statements to track"
 msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:445
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 "Lades blank for ingen understøttelse af SQL-forspørgselssporing, forslag: "
 "[kbd]pma_tracking[/kbd]"
@@ -5817,9 +5861,13 @@ msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:449
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_userconfig[/kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "Lades blank for ingen bruger preference storage i database, forslag: [kbd]"
 "pma_userconfig[/kbd]"
