@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-11 08:58-0500\n"
-"PO-Revision-Date: 2012-11-05 10:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2012-11-11 12:30-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -1623,12 +1623,12 @@ msgstr "Erro no processamento da requisição"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Código do erro: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Testo do erro: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -1923,14 +1923,13 @@ msgstr ""
 "salva."
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid ""
 "You can also edit most columns<br />by double-clicking directly on their "
 "content."
 msgstr ""
-"Você também pode editar algumas colunas<br/>clicando diretamente em seu "
+"Você também pode editar algumas colunas<br/>clicando duas vezes em seu "
 "conteúdo."
 
 #: js/messages.php:365
@@ -3415,19 +3414,19 @@ msgstr ""
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Um valor singular escolhido de um conjunto de 64 membros"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Um ponto em um espaço de 2 dimensões"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Uma curva com uma interpolação linear entre pontos"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
@@ -3435,24 +3434,24 @@ msgstr "Um polígono"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Uma coleção de pontos"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Uma coleção de curvas com interpolação linear entre pontos"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Uma coleção de polígonos"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Uma coleção de objetos geométricos de qualquer tipo"
 
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numérico"
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
 msgctxt "date and time types"
@@ -3471,29 +3470,31 @@ msgstr "Espacial"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Um inteiro de 4 bytes, com faixa entre -2,147,483,648 até 2,147,483,647"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Um inteiro de 8 bytes, com faixa entre -9,223,372,036,854,775,808 até "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Um número ponto flutuante com precisão dupla padrão do sistema"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "Verdadeiro ou Falso"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Um alias para BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:720
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Armazena o Indicador Único Universal (UUID)"
 
 #: libraries/Types.class.php:726
 msgid ""
@@ -3515,7 +3516,7 @@ msgstr ""
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Uma enumeração, escolhida de uma lista de valores definidos"
 
 #: libraries/Util.class.php:223
 #, php-format
@@ -3781,11 +3782,11 @@ msgstr "Direita"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Clique"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Clique duplo"
 
 #: libraries/config.values.php:71 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -4032,10 +4033,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Um editor amigável para editar consultas SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) com destaque de sintaxe e número "
+"de linhas"
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Habilitar CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4145,7 +4149,7 @@ msgstr "Aba de tabela padrão"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Se as ações de estrutura de tabelas devem estar ocultas"
 
 #: libraries/config/messages.inc.php:57
 msgid "Hide table structure actions"
@@ -4532,16 +4536,14 @@ msgid "Databases display options"
 msgstr "Opções de exibição de bancos de dados"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Quadro de navegação"
+msgstr "Painel de navegação"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Personaliza aparência do frame de navegação"
+msgstr "Personaliza aparência do painel de navegação"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4557,10 +4559,9 @@ msgid "Tables display options"
 msgstr "Opções de exibição de tabelas"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Quadro principal"
+msgstr "Painel principal"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4675,16 +4676,14 @@ msgid "Customize import defaults"
 msgstr "Personalizar padrões de importação"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Personaliza frame de navegação"
+msgstr "Personaliza painel de navegação"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Personaliza frame principal"
+msgstr "Personaliza painel principal"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -4735,6 +4734,8 @@ msgstr "Estrutura do Banco Dados"
 #: libraries/config/messages.inc.php:225
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Escolha quais detalhes devem ser mostrados na estrutura de banco de dados "
+"(lista de tabelas)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Table structure"
@@ -4742,7 +4743,7 @@ msgstr "Estrutura da tabela"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Configurações para a estrutura de tabela (lista de colunas)"
 
 #: libraries/config/messages.inc.php:228
 msgid "Tabs"
@@ -4981,7 +4982,7 @@ msgstr "O número de itens que podem ser mostrados em cada página de navegaçã
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Máximo de itens no ramo"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5030,20 +5031,18 @@ msgid "Memory limit"
 msgstr "Limite de memória"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Exibir logo no quadro da esquerda"
+msgstr "Mostrar logo no painel de navegação"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Exibir logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL onde o logo será colocado no frame de navegação"
+msgstr "URL para onde a logo no painel de navegação via direcionar"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5062,10 +5061,9 @@ msgid "Logo link target"
 msgstr "Alvo do link da logo"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Exibir servidor escolhido no topo do quadro esquerdo"
+msgstr "Exibir o servidor escolhido no topo do painel de navegação"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5102,7 +5100,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Grupo de itens na árvore"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5217,7 +5215,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Aviso de diferença servidor/biblioteca"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5307,7 +5305,7 @@ msgstr "Repetir cabeçalhos"
 
 #: libraries/config/messages.inc.php:360
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Edição de grade: acionar ação"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: save all edited cells at once"
@@ -5869,6 +5867,8 @@ msgstr "Mostrar formulário de criação de banco de dados"
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Mostrar ou ocultar uma coluna que exiba a data e hora de criação para todas "
+"tabelas"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Creation timestamp"
@@ -5878,15 +5878,19 @@ msgstr "Mostrar timestamp"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Mostrar ou ocultar uma coluna que exiba a data e hora da última atualização "
+"para todas tabelas"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Mostrar data e hora da última atualização"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Mostrar ou ocultar uma coluna que exiba a data e hora da última verificação "
+"para todas tabelas"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
@@ -6288,11 +6292,12 @@ msgstr "Detalhes..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Não é possível buscar em um conjunto de resultados fora do buffer"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
+"Não é possível contar linhas em um conjunto de resultados fora do buffer"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
@@ -6507,15 +6512,15 @@ msgstr "Codificação de conversão:"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s do ramo %2$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "nenhum ramo"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision"
-msgstr ""
+msgstr "revisão do Git"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -6540,7 +6545,7 @@ msgstr ""
 #: libraries/display_import.lib.php:77
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:86
 msgid "Uploading your import file..."
@@ -6549,15 +6554,15 @@ msgstr "Fazendo upload do arquivo importado..."
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/s."
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Cerca de %MIN min. %SEC s. restantes."
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Cerca de %SEC s restantes."
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -7357,7 +7362,7 @@ msgstr "desconhecido"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Um erro ocorreu enquanto carregava a árvore de navegação"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7379,8 +7384,8 @@ msgstr "Recarregar frame de navegação"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s outro resultado encontrado"
+msgstr[1] "%s outros resultados encontrados"
 
 #: libraries/navigation/NavigationTree.class.php:1025
 msgid "filter databases by name"
@@ -7399,12 +7404,12 @@ msgstr "filtra itens por nome"
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nome de classe inválida \"%1$s\"; usando padrão \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Não foi possível incluir classe \"%1$s\"; arquivo \"%2$s\" não encontrado"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7679,7 +7684,7 @@ msgstr "Falha ao usar Blowfish de mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Sua sessão expirou. Por favor, faça login novamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Log in"
@@ -7985,7 +7990,7 @@ msgstr "Opções de criação de dados"
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Tabela truncada antes do insert"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -8254,7 +8259,6 @@ msgstr ""
 "string vazia."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8278,16 +8282,17 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"LINUX APENAS: Rode uma aplicação externa e alimente os campos de dados pela "
+"LINUX APENAS: Roda uma aplicação externa e alimenta os campos de dados pela "
 "entrada padrão. Retorna a saída padrão da aplicação. Padrão é Limpo, para "
 "uma bonita impressão do código HTML. Por razões de segurança, você deve "
-"editar manualmente o arquivo libraries/transformations/text_plain__external."
-"inc.php e inserir as ferramentas que você permite rodar. A primeira opção é "
-"o número do programa que você quer rodar e a segunda opção são os parâmetros "
-"para o programa. A terceira opção, se setada para 1 irá converter a saída "
-"usando htmlspecialchars() (Padrão é 1). A quarta opção, se setada como 1 irá "
-"por um NOWRAP para o conteúdo da célula, de forma que a saída inteira será "
-"mostrada sem reformatação(Padrão é 1)"
+"editar manualmente o arquivo "
+"libraries/plugins/transformations/Text_Plain_External.class.php e listar as "
+"ferramentas que deseja ter disponíveis. A primeira opção é o número do "
+"programa que você quer rodar e a segunda opção é os parâmetros para o "
+"programa. A terceira opção, se definida como 1, vai converter a saída padrão "
+"usando htmlspecialchars() (Padrão é 1). A quarta opção, se definida como 1, "
+"irá evitar a quebra do conteúdo da célula, de forma que a garantir que a "
+"toda a saída padrão seja mostrada em uma só linha (Padrão é 1)"
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9951,7 +9956,7 @@ msgstr "Como definido:"
 
 #: libraries/tbl_properties.inc.php:619
 msgid "first"
-msgstr ""
+msgstr "primeiro"
 
 #: libraries/tbl_properties.inc.php:629
 #, php-format
@@ -10007,7 +10012,7 @@ msgstr "Erro no arquivo ZIP:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Erro fata: A navegação pode somente ser acessado via ajax"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12631,10 +12636,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "slow_launch_time is set to %s"
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "slow_launch_time está atribuído a %s"
+msgstr "log_slow_queries está definido como 'OFF'"
 
 #: libraries/advisory_rules.txt:93
 msgid "Release Series"
@@ -12764,10 +12768,9 @@ msgid "Query caching method"
 msgstr "Método de cache de consulta"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Consulta do cache"
+msgstr "Método de cache sub-ótimo."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12798,10 +12801,11 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"O nível de acerto do cache de consultas atual de %s%% atá abaixo de 20%%"
 
 #: libraries/advisory_rules.txt:167
 msgid "Query Cache usage"
@@ -12830,10 +12834,9 @@ msgid "Query cache fragmentation"
 msgstr "Fragmentação do cache de consulta"
 
 #: libraries/advisory_rules.txt:177
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "O servidor não está respondendo"
+msgstr "O cache de consultas está consideravelmente fragmentado."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
@@ -12856,10 +12859,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Cache de consulta utilizado"
+msgstr "Corte por falta de memória do cache de consultas"
 
 #: libraries/advisory_rules.txt:184
 msgid ""
@@ -12900,10 +12902,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Current query cache size: %s"
-msgstr "Criar versão"
+msgstr "Tamanho do cache de consultas atual: %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
@@ -12945,26 +12947,27 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than 10%"
 "%."
 msgstr ""
-"%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%%"
+"%s%% de todos tipos causam tabelas temporárias. Este valor deveria ser menor "
+"do que 10%%"
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Proporção de buscas que geram tabelas temporárias"
 
 #: libraries/advisory_rules.txt:216
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
+"Média de tabelas temporárias: %s. Este valor deveria ser menor do que 1 por "
 "hora."
 
 #: libraries/advisory_rules.txt:218
@@ -13003,25 +13006,23 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:231
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
+"Média de tabelas de join: %s. Este valor deveria ser menor do que 1 por "
 "hora."
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of reading first index entry"
-msgstr "Não existem rotinas para mostrar."
+msgstr "Taxa de leitura do primeiro registro de índice"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading the first index entry is high."
-msgstr "O número de arquivos de log fsyncs pendentes."
+msgstr "A taxa de leitura do primeiro registro de índice está alta."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -13034,25 +13035,23 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
+"Média de pesquisa no índice: %s. Este valor deveria ser menor do que 1 por "
 "hora."
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of reading fixed position"
-msgstr "Formato do arquivo importado"
+msgstr "Taxa de leitura de posição fixa"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading data from a fixed position is high."
-msgstr "O número de arquivos de log fsyncs pendentes."
+msgstr "A taxa de leitura de dados de uma posição fixa está alta."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -13071,16 +13070,14 @@ msgstr ""
 "menor do que 1 por hora"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of reading next table row"
-msgstr "Criar tabela"
+msgstr "Taxa de leitura da próxima linha de tabela"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of reading the next table row is high."
-msgstr "O número atual de escritas pendentes."
+msgstr "A taxa de leitura da linha da próxima linha de tabela está alta."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -13120,19 +13117,18 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "Percentage of aborted clients"
 msgid "Percentage of temp tables on disk"
-msgstr "Porcentagem de clientes abortados"
+msgstr "Porcentagem de tabelas temporários no disco"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
-#, fuzzy
 #| msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
-"%s%% de todos os clientes são abortados. Este valor deve ser menor do que 2%%"
+"Muitas tabelas temporárias estão sendo escritas no disco ao invés de serem "
+"mantidas na memória."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13146,13 +13142,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"%s%% de todos os clientes são abortados. Este valor deve ser menor do que 2%%"
+"%s%% de todas as tabelas temporárias estão sendo escritas no disco. Este "
+"valor deveria ser menor do que 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
@@ -13170,15 +13167,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:274
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"A taxa de tabelas temporárias sendo escritas no disco: %s. Este valor "
+"deveria ser menor do que 1 por hora."
 
 #: libraries/advisory_rules.txt:289
 msgid "MyISAM key buffer size"
@@ -13195,10 +13192,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:294
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "key_buffer_size é 0"
 
 #: libraries/advisory_rules.txt:296
 #, php-format
@@ -13230,16 +13226,17 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Porcentagem usada de key buffers MyISAM"
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"%% de buffer de chave MyISAM usada: %s%%. Este vakir deveria ser maior do "
+"que 95%%"
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 #| msgid "Show SQL queries"
 msgid "Percentage of index reads from memory"
-msgstr "Mostrar consultas SQL"
+msgstr "Porcentagem de leituras de índice da memória"
 
 #: libraries/advisory_rules.txt:314
 #, php-format
@@ -13251,10 +13248,12 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"Leituras de índice da memória: %s%%. Este valor deveria ser maior do que 95%"
+"%"
 
 #: libraries/advisory_rules.txt:320
 msgid "Rate of table open"
@@ -13271,12 +13270,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:325
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
+"Taxa de tabelas abertas: %s. Este valor deveria ser menor do que 10 por "
 "hora."
 
 #: libraries/advisory_rules.txt:327
@@ -13296,15 +13295,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:332
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Max_used_connections is at %s%% of max_connections, it should be below 80%"
 #| "%"
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
-"Max_used_connections corresponde a %s%% de max_connections, este valor deve "
-"ser abaixo de 80%%"
+"O número de arquivos abertos está em %s%% do limite. Deveria ser menor do "
+"que 85%%."
 
 #: libraries/advisory_rules.txt:334
 msgid "Rate of open files"
@@ -13315,12 +13314,12 @@ msgid "The rate of opening files is high."
 msgstr "A proporção de arquivos abertos está alta."
 
 #: libraries/advisory_rules.txt:339
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
+"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por "
 "hora."
 
 #: libraries/advisory_rules.txt:341
@@ -13337,23 +13336,24 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"Locks de tabelas imediatas: %s%%. Este valor deveria ser maior do que 95%%"
 
 #: libraries/advisory_rules.txt:348
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"Taxa de espera por lock de tabelas: %s. Este valor deveria ser menor do que "
+"1 por hora."
 
 #: libraries/advisory_rules.txt:355
 msgid "Thread cache"
@@ -13370,10 +13370,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Rastreamento não está ativo."
+msgstr "O cache de threads está definido como 0."
 
 #: libraries/advisory_rules.txt:362
 #, php-format
@@ -13389,16 +13388,17 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Tamanho do buffer de ordenação"
+msgstr ""
+"Taxa de acerto de cache de thread: %s%%. Este valor deveria ser maior do que "
+"80%%"
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "O número de processos que não estão dormindo."
+msgstr "Threads que estão lentas para iniciar"
 
 #: libraries/advisory_rules.txt:372
 msgid "There are too many threads that are slow to launch."
@@ -13420,18 +13420,18 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "slow_launch_time is set to %s"
 msgid "Slow_launch_threads is above 2s"
-msgstr "slow_launch_time está atribuído a %s"
+msgstr "Slow_launch_time está acima de 2s"
 
 #: libraries/advisory_rules.txt:380
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
-msgstr "O número de processos que não estão dormindo."
+msgstr ""
+"Defina slow_launch_time para 1s ou 2s para contar threads que estão lentas "
+"para iniciar"
 
 #: libraries/advisory_rules.txt:381
 #, php-format
@@ -13766,8 +13766,7 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgstr "Sincronizar Bando de Dados"
 
 #~ msgid "Selected target tables have been synchronized with source tables."
-#~ msgstr ""
-#~ "As tabelas do alvo selecionado foram sincronizadas às tabelas fonte."
+#~ msgstr "As tabelas do alvo selecionado foram sincronizadas às tabelas fonte."
 
 #~ msgid "Target database has been synchronized with source database"
 #~ msgstr "O banco de dados alvo foi sincronizado com o banco de dados fonte"
@@ -13794,7 +13793,6 @@ msgstr "concurrent_insert está com valor 0"
 #~ "Banco de dados alvo será completamente sincronizado com banco de dados "
 #~ "fonte. Banco de dados fonte permanecerá inalterado."
 
-#, fuzzy
 #~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
@@ -13810,15 +13808,14 @@ msgstr "concurrent_insert está com valor 0"
 #~ "strong] allowing cross-frame scripting attacks"
 #~ msgstr ""
 #~ "Ativando essa opção permite uma página localizada em um domínio diferente "
-#~ "para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] "
-#~ "falha de segurança [/strong], que permite ataques de script cross-frame"
+#~ "para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] falha "
+#~ "de segurança [/strong], que permite ataques de script cross-frame"
 
 #~ msgid "Allow third party framing"
 #~ msgstr "Permitir elaboração de terceiros"
 
 #~ msgid "Show database listing as a list instead of a drop down"
-#~ msgstr ""
-#~ "Exibir bancos de dados como uma lista ao invés de uma caixa de seleção"
+#~ msgstr "Exibir bancos de dados como uma lista ao invés de uma caixa de seleção"
 
 #~ msgid "Display databases as a list"
 #~ msgstr "Exibir bancos de dados como uma lista"
@@ -13827,8 +13824,7 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgstr "Exibe banco de dados em uma árvore"
 
 #~ msgid "Disable this if you want to see all databases at once"
-#~ msgstr ""
-#~ "Desabilite este se você quer ver todos os bancos de dados imediatamente"
+#~ msgstr "Desabilite este se você quer ver todos os bancos de dados imediatamente"
 
 #~ msgid "Use light version"
 #~ msgstr "Usar versão light"
@@ -13836,8 +13832,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgid ""
 #~ "Maximum number of databases displayed in left frame and database list"
 #~ msgstr ""
-#~ "Número máximo de bancos de dados mostrados no quadro da esquerda na lista "
-#~ "de banco de dados"
+#~ "Número máximo de bancos de dados mostrados no quadro da esquerda na lista de "
+#~ "banco de dados"
 
 #~ msgid ""
 #~ "If tooltips are enabled and a database comment is set, this will flip the "
@@ -13856,8 +13852,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Ao definir este [kbd]aninhamento[/kbd], o alias da tabela é apenas usado "
-#~ "para dividir/aninhar as tabelas de acordo com a $cfg"
-#~ "['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo "
+#~ "para dividir/aninhar as tabelas de acordo com a "
+#~ "$cfg['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo "
 #~ "alias, o nome da tabela continua inalterado"
 
 #~ msgid "Display table comment instead of its name"
@@ -13892,12 +13888,10 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"
 
-#, fuzzy
 #~| msgid "Export"
 #~ msgid "Export all"
 #~ msgstr "Exportar"
 
-#, fuzzy
 #~| msgid "Privileges"
 #~ msgid "Privileges for all users"
 #~ msgstr "Privilégios"
@@ -13912,8 +13906,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "No description is available for this transformation.<br />Please ask the "
 #~ "author what %s does."
 #~ msgstr ""
-#~ "Sem descrição disponível para essa transformação.<br />Pergunte ao autor "
-#~ "o que %s faz."
+#~ "Sem descrição disponível para essa transformação.<br />Pergunte ao autor o "
+#~ "que %s faz."
 
 #~ msgid ""
 #~ "MIME types printed in italics do not have a separate transformation "
@@ -13935,7 +13929,6 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgid "Strings are converted into integer for plotting"
 #~ msgstr "Strings serão convertidos em inteiros por planejamento"
 
-#, fuzzy
 #~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Linha"
@@ -13959,10 +13952,9 @@ msgstr "concurrent_insert está com valor 0"
 #~ "contain."
 #~ msgstr ""
 #~ "Exibir linhas afetadas de cada instrução nas consultas de multipla-"
-#~ "instrução. Veja em libraries/import.lib.php quantas consultas uma "
-#~ "instrução pode conter por padrão."
+#~ "instrução. Veja em libraries/import.lib.php quantas consultas uma instrução "
+#~ "pode conter por padrão."
 
-#, fuzzy
 #~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Dados apenas"
@@ -13971,8 +13963,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "Suggest a database name on the &quot;Create Database&quot; form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados"
-#~ "%quot; (se possível) ou manter o campo texto vazio"
+#~ "Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados%"
+#~ "quot; (se possível) ou manter o campo texto vazio"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Sugerir nome para o banco de dados"
@@ -14044,8 +14036,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Tem certeza que quer desabilitar todas as referências BLOB para o banco "
-#~ "de dados %s?"
+#~ "Tem certeza que quer desabilitar todas as referências BLOB para o banco de "
+#~ "dados %s?"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Erro desconhecido no carregamento do arquivo."
@@ -14110,8 +14102,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
 #~ msgstr ""
-#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o "
-#~ "número máximo para o qual o modelo vertical é usado"
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o número "
+#~ "máximo para o qual o modelo vertical é usado"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "Criar nova tabela no Banco de Dados %s"
@@ -14134,8 +14126,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "appropriate column name."
 #~ msgstr ""
 #~ "O campo de exibição está em rosa. Para ajustar/desajustar um campo como "
-#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", "
-#~ "então clique no nome do campo apropriado."
+#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", então "
+#~ "clique no nome do campo apropriado."
 
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espaço"
@@ -14228,13 +14220,12 @@ msgstr "concurrent_insert está com valor 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto "
-#~ "pode acontecer se o php encontrar um erro no <i>parsing</i> ou se não "
-#~ "conseguir encontrar o arquivo.<br />Chame o arquivo de configuração "
-#~ "diretamente usando o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro "
-#~ "do php. Na maior parte dos casos, trata-se de uma falta de aspas ou de um "
-#~ "ponto e vírgula errado.<br />Se receber uma página em branco, está tudo "
-#~ "certo."
+#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto pode "
+#~ "acontecer se o php encontrar um erro no <i>parsing</i> ou se não conseguir "
+#~ "encontrar o arquivo.<br />Chame o arquivo de configuração diretamente usando "
+#~ "o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro do php. Na maior "
+#~ "parte dos casos, trata-se de uma falta de aspas ou de um ponto e vírgula "
+#~ "errado.<br />Se receber uma página em branco, está tudo certo."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Remoção de eventos"
@@ -14269,8 +14260,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do "
-#~ "tráfico da rede neste servidor MySQL desde o início."
+#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico "
+#~ "da rede neste servidor MySQL desde o início."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -14297,8 +14288,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por "
-#~ "padrão, selecione este para desenhar o gráfico inteiro em uma imagem."
+#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por padrão, "
+#~ "selecione este para desenhar o gráfico inteiro em uma imagem."
 
 #~ msgid "Add a New User"
 #~ msgstr "Adicionar usuário"
