@@ -638,7 +638,14 @@ if (!empty($asfile)) {
         }
     } elseif ($compression == 'gzip') {
         // 3. as a gzipped file
-        if (@function_exists('gzencode') && !@ini_get('zlib.output_compression')) {
+        if (@function_exists('gzencode') 
+            && ! @ini_get('zlib.output_compression')
+            // Here, we detect Apache's mod_deflate so we bet that
+            // this module is active for this instance of phpMyAdmin
+            // and therefore, will gzip encode the content
+            && ! (function_exists('apache_get_modules')
+                && in_array('mod_deflate', apache_get_modules()))
+            ) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
         }

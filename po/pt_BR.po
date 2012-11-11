@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-01 16:53+0200\n"
-"Last-Translator: Israel Torres <israeltorres29@hotmail.com>\n"
+"PO-Revision-Date: 2012-11-11 12:30-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -118,8 +118,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"O arquivo %s não está disponível no sistema, por favor visite www.phpmyadmin."
-"net para mais informações."
+"O arquivo %s não está disponível no sistema, por favor visite "
+"www.phpmyadmin.net para mais informações."
 
 #: db_create.php:60
 #, php-format
@@ -622,8 +622,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Esta visão tem pelo menos esse número de linhas. Por favor, consulte a "
-"%sdocumentação%s."
+"Esta visão tem pelo menos esse número de linhas. Por favor, consulte a %"
+"sdocumentação%s."
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -1511,8 +1511,8 @@ msgid ""
 "database administrator."
 msgstr ""
 "Você não tem permissão para alterar essas variáveis. Por favor, autentique-"
-"se como usuário \"Root\" ou entre em contato com seu administrador do banco "
-"de dados."
+"se como usuário \"Root\" ou entre em contato com seu administrador do banco de "
+"dados."
 
 #: js/messages.php:165
 msgid "Change settings"
@@ -1654,8 +1654,7 @@ msgstr "Filtrar consultas por palavra/expressão regular:"
 
 #: js/messages.php:203
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
-"Consultas em grupo, ignorando os valores de variáveis da cláusula WHERE"
+msgstr "Consultas em grupo, ignorando os valores de variáveis da cláusula WHERE"
 
 #: js/messages.php:204
 msgid "Sum of grouped rows:"
@@ -1785,6 +1784,7 @@ msgstr "Adicionar chave primária"
 #: js/messages.php:244 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
+#, fuzzy
 msgid "OK"
 msgstr "OK"
 
@@ -1925,7 +1925,8 @@ msgstr "Clique no link resetar zoom para voltar ao estado original."
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Clique em um ponto de dados para ver e possivelmente editar a linha de dados."
+"Clique em um ponto de dados para ver e possivelmente editar a linha de "
+"dados."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1983,8 +1984,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Você não salvou as mudanças no layout. Eles serão perdidos se você não salva-"
-"los. Deseja continuar mesmo assim?"
+"Você não salvou as mudanças no layout. Eles serão perdidos se você não "
+"salva-los. Deseja continuar mesmo assim?"
 
 #: js/messages.php:344
 msgid "Add an option for column "
@@ -2582,8 +2583,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Falha ao limpar as preferências da tabela UI (veja $cfg['Servers'][$i]"
-"['MaxTableUiprefs'] %s)"
+"Falha ao limpar as preferências da tabela UI (veja "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1534
 #, php-format
@@ -2874,7 +2875,8 @@ msgstr "Índice de servidor inválido: \"%s\""
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nome de serivdor inválido para o servidor %1$s. Verifique suas configurações."
+"Nome de serivdor inválido para o servidor %1$s. Verifique suas "
+"configurações."
 
 #: libraries/common.inc.php:683 libraries/config/messages.inc.php:508
 #: libraries/header.inc.php:134 main.php:171 server_status.php:789
@@ -3079,8 +3081,7 @@ msgstr "Selecionar a partir do diretório de upload do servidor <b>%s</b>:"
 #: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
-msgstr ""
-"O diretório que você especificou para subir arquivos não foi encontrado"
+msgstr "O diretório que você especificou para subir arquivos não foi encontrado"
 
 #: libraries/common.lib.php:3326
 msgid "There are no files to upload"
@@ -3243,8 +3244,7 @@ msgstr "Wiki"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
-"Essa configuração está desativada, não será aplicado à sua configuração"
+msgstr "Essa configuração está desativada, não será aplicado à sua configuração"
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
@@ -3308,8 +3308,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Frase secreta utilizada para encriptar cookies na autenticação por [kbd]"
-"cookie[/kbd]"
+"Frase secreta utilizada para encriptar cookies na autenticação por "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -3350,8 +3350,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Define que tipo de controles de edição devem ser utilizados pelas colunas "
-"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, [kbd]"
-"textarea[/kbd] - permite quebra de linhas em colunas"
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, "
+"[kbd]textarea[/kbd] - permite quebra de linhas em colunas"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3745,8 +3745,7 @@ msgstr "Ordem da caixa de seleção de chave estrangeira"
 
 #: libraries/config/messages.inc.php:154
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
-"Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
+msgstr "Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
@@ -4014,9 +4013,10 @@ msgid ""
 msgstr ""
 "Se você quiser usar o serviço de validação SQL (SQL Validator), você deve "
 "estar ciente de que [strong]todas as instruções SQL são armazenadas de forma "
-"anônima para fins estatísticos[/strong].[br][em][a@http://sqlvalidator.mimer."
-"com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
-"Todos os direitos reservados.[/em]"
+"anônima para fins "
+"estatísticos[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. Todos os direitos "
+"reservados.[/em]"
 
 #: libraries/config/messages.inc.php:224
 msgid "Startup"
@@ -4209,8 +4209,7 @@ msgstr "Exibe banco de dados em uma árvore"
 
 #: libraries/config/messages.inc.php:279
 msgid "Disable this if you want to see all databases at once"
-msgstr ""
-"Desabilite este se você quer ver todos os bancos de dados imediatamente"
+msgstr "Desabilite este se você quer ver todos os bancos de dados imediatamente"
 
 #: libraries/config/messages.inc.php:280
 msgid "Use light version"
@@ -4258,8 +4257,7 @@ msgstr "Habilita destaque"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
-"Número máximo de tabelas usadas recentemente; defina 0 para desabilitar"
+msgstr "Número máximo de tabelas usadas recentemente; defina 0 para desabilitar"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
@@ -4455,7 +4453,7 @@ msgid ""
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 "[kbd]SMART[/kbd] - i.e. ordem decrescente para colunas do tipo TIME, DATE, "
-"DATETIME e TIMESTAM, caso contrário, ordem ascendente."
+"DATETIME e TIMESTAMP, caso contrário, ordem ascendente."
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
@@ -4502,9 +4500,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Ative se você quiser usar o histórico de consultas baseado em banco de dados "
-"(requer a configuração de armazenamento do phpMyAdmin). Se desativado, serão "
-"utilizadas rotinas JS para exibir o histórico de consultas (que será perdido "
-"se a janela for fechada)."
+"(requer a configuração de armazenamento do phpMyAdmin). Se desativado, "
+"serão utilizadas rotinas JS para exibir o histórico de consultas (que será "
+"perdido se a janela for fechada)."
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
@@ -4545,7 +4543,8 @@ msgstr "Largura da janela de consultas"
 #: libraries/config/messages.inc.php:350
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
-"Selecione quais funções serão usadas para conversão do conjunto de caracteres"
+"Selecione quais funções serão usadas para conversão do conjunto de "
+"caracteres"
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
@@ -4628,8 +4627,8 @@ msgid ""
 "swekey.conf)"
 msgstr ""
 "O caminho para o arquivo de configuração [a@http://swekey.com] autenticação "
-"equipamento SweKey [/a] (não localizado na raiz do seu documento: sugestão: /"
-"etc/swekey.conf)"
+"equipamento SweKey [/a] (não localizado na raiz do seu documento: sugestão: "
+"/etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
@@ -4648,8 +4647,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
-"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bookmark[/a] suporte, sugestão: [kbd]pma_bookmark[/kbd]"
+"Deixe em branco quando não há "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] suporte, sugestão: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
@@ -4693,8 +4693,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "Um usuário especial MySQL será configurado com permissões limitadas, mais "
-"informações disponíveis em [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
-"[/a]"
+"informações disponíveis em "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
@@ -4725,8 +4725,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco quando não há de Desenho, sugestão: [kbd]pma_designer_coords"
-"[/kbd]"
+"Deixe em branco quando não há de Desenho, sugestão: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -4814,10 +4814,10 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Voce pode usar coringas MySQL (% e _), use caractere de escape neles se você "
-"deseja caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não [kbd]'meu_db'[/"
-"kbd]. Usando esta opção você pode ordenar a lista de banco de dados, apenas "
-"entre seus nomes em ordem e use  [kbd]*[/kbd] no final para exibir os "
-"restantes em ordem alfabética."
+"deseja caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não "
+"[kbd]'meu_db'[/kbd]. Usando esta opção você pode ordenar a lista de banco de "
+"dados, apenas entre seus nomes em ordem e use  [kbd]*[/kbd] no final para "
+"exibir os restantes em ordem alfabética."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -4880,8 +4880,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
-"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
+"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation"
+"]relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -4931,8 +4931,8 @@ msgstr "Utilizar SSL"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
-"Deixe em branco se não houver suporte a esquema PDF, sugestão: [kbd]"
-"pma_table_coords[/kbd]"
+"Deixe em branco se não houver suporte a esquema PDF, sugestão: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
@@ -5073,8 +5073,8 @@ msgstr "Nome completo deste servidor"
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Quando precisa ser exibido a um usuário o botão &quot;exiba todas(colunas)"
-"&quot;"
+"Quando precisa ser exibido a um usuário o botão &quot;exiba "
+"todas(colunas)&quot;"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5086,9 +5086,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Favor certificar-se que habilitando isto, não haverá efeito no [kbd]config[/"
-"kbd] modo de autenticação porque a senha está bem feita no arquivo de "
-"configuração; isto não limita a habilidade de executar o comando diretamente"
+"Favor certificar-se que habilitando isto, não haverá efeito no "
+"[kbd]config[/kbd] modo de autenticação porque a senha está bem feita no "
+"arquivo de configuração; isto não limita a habilidade de executar o comando "
+"diretamente"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
@@ -5143,8 +5144,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Exibe link para saída de [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Exibe link para saída de "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
@@ -5166,7 +5167,8 @@ msgstr "Mostrar consultas SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
-"Define se a caixa de consulta deve estar sobre a tela depois de sua submissão"
+"Define se a caixa de consulta deve estar sobre a tela depois de sua "
+"submissão"
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 msgid "Retain query box"
@@ -5201,9 +5203,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Ao definir este [kbd]aninhamento[/kbd], o alias da tabela é apenas usado "
-"para dividir/aninhar as tabelas de acordo com a $cfg"
-"['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo alias, "
-"o nome da tabela continua inalterado"
+"para dividir/aninhar as tabelas de acordo com a "
+"$cfg['LeftFrameTableSeparator'] diretiva, somente a pasta é chamada pelo "
+"alias, o nome da tabela continua inalterado"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5268,8 +5270,8 @@ msgid ""
 "Suggest a database name on the &quot;Create Database&quot; form (if "
 "possible) or keep the text field empty"
 msgstr ""
-"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados"
-"%quot; (se possível) ou manter o campo texto vazio"
+"Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados%"
+"quot; (se possível) ou manter o campo texto vazio"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suggest new database name"
@@ -5278,7 +5280,8 @@ msgstr "Sugerir nome para o banco de dados"
 #: libraries/config/messages.inc.php:497
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
-"Um aviso é mostrado na página principal se uma falha de segurança é detectada"
+"Um aviso é mostrado na página principal se uma falha de segurança é "
+"detectada"
 
 #: libraries/config/messages.inc.php:498
 msgid "Suhosin warning"
@@ -5338,8 +5341,8 @@ msgid ""
 msgstr ""
 "Insira os Proxies como [kbd]IP: Cabeçalho HTTP de confiança[/kbd]. O exemplo "
 "seguinte ilustra que o phpMyAdmin deve confiar no cabeçalho "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) vindo do proxie 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) vindo do proxie "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -5348,7 +5351,8 @@ msgstr "Lista de proxies confiáveis ​​por IP permitir/negar"
 #: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
 msgstr ""
-"Diretório no servidor onde você pode fazer upload de arquivos para importação"
+"Diretório no servidor onde você pode fazer upload de arquivos para "
+"importação"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
@@ -5394,8 +5398,7 @@ msgstr "Verifique a última versão"
 
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
-"Habilitar checagem pela última versão na página principal do phpMyAdmin"
+msgstr "Habilitar checagem pela última versão na página principal do phpMyAdmin"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
@@ -5410,8 +5413,9 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"Habilitar compressão [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/"
-"a] para operações de importação e exportação"
+"Habilitar compressão "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] para operações de "
+"importação e exportação"
 
 #: libraries/config/messages.inc.php:525
 msgid "ZIP"
@@ -5853,8 +5857,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"O nome de um arquivo compactado deve terminar em <b>.[formato].[compactação]"
-"</b>. Exemplo: <b>.sql.zip</b>"
+"O nome de um arquivo compactado deve terminar em "
+"<b>.[formato].[compactação]</b>. Exemplo: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -6490,8 +6494,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentação e mais informações sobre PBXT podem ser encontradas na "
-"%sPrimeBase XT Home Page%s."
+"Documentação e mais informações sobre PBXT podem ser encontradas na %"
+"sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6525,8 +6529,7 @@ msgstr "Substituir NULL com:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
-"Remover caracteres de retorno ou alimentação de linha dentro de colunas"
+msgstr "Remover caracteres de retorno ou alimentação de linha dentro de colunas"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6701,8 +6704,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "incluir nomes de columas em cada declaração <code>INSERT</code><br /> &nbsp; "
-"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
-"(1,2,3)</code>"
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
+"VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -7265,8 +7268,7 @@ msgstr "Transformações do navegador"
 #: libraries/relation.lib.php:119
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
-"Consulte a documentação sobre como atualizar sua tabela Column_comments"
+msgstr "Consulte a documentação sobre como atualizar sua tabela Column_comments"
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:376
 msgid "Bookmarked SQL query"
@@ -7307,8 +7309,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Ativar recursos avançados no arquivo de configuração (<code>config.inc.php</"
-"code>), por exemplo iniciando em <code>config.sample.inc.php</code>."
+"Ativar recursos avançados no arquivo de configuração "
+"(<code>config.inc.php</code>), por exemplo iniciando em "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:157
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -7545,6 +7548,7 @@ msgid "You must provide an event definition."
 msgstr "Você deve informar uma definição do evento."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2413
+#, fuzzy
 msgid "New"
 msgstr "Novo"
 
@@ -8189,10 +8193,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores "
-"usando este formato: 'a','b','c'...<br />Se você mesmo precisar colocar uma "
-"barra contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, "
-"coloque uma barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
+"este formato: 'a','b','c'...<br />Se você mesmo precisar colocar uma barra "
+"contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma "
+"barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:99
 msgid ""
@@ -8229,9 +8233,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'...<br />Se por acaso precisar inserir uma contra-barra (\"\\\") "
-"ou aspas (\"'\") no meio desses valores, faça-o usando outra contra-barra "
-"(por exemplo '\\\\xyz' ou 'a\\'b')."
+"100, b,'c'...<br />Se por acaso precisar inserir uma contra-barra (\"\\\") ou "
+"aspas (\"'\") no meio desses valores, faça-o usando outra contra-barra (por "
+"exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
@@ -8352,9 +8356,9 @@ msgstr ""
 "ser adicionado ao timestamp (Padrão: 0). Use a segunda opção para "
 "especificar uma string de formatação date/time diferente. A terceira opção "
 "determina se você deseja ver data local ou UTC (use a string \"local\" ou "
-"\"utc\") para isso. De acordo com isso, o formato date terá valores "
-"diferentes - para \"local\" veja a documentação do PHP para função strftime"
-"() e para \"utc\" isso é feito usando a função gmdate()."
+"\"utc\") para isso. De acordo com isso, o formato date terá valores diferentes "
+"- para \"local\" veja a documentação do PHP para função strftime() e para "
+"\"utc\" isso é feito usando a função gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8385,8 +8389,8 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Mostra o conteúdo da coluna como é, sem manipular através de htmlspecialchars"
-"(). Isso é, a coluna assume conter somente HTML válido."
+"Mostra o conteúdo da coluna como é, sem manipular através de "
+"htmlspecialchars(). Isso é, a coluna assume conter somente HTML válido."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
 msgid ""
@@ -8405,8 +8409,8 @@ msgid ""
 "the link."
 msgstr ""
 "Mostra um link, o campo contém o nome do arquivo. A primeira opção é um "
-"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título "
-"para o link."
+"prefixo URL como \"http://www.exemplo.com/\". A segunda opção é um título para "
+"o link."
 
 #: libraries/transformations/text_plain__longToIpv4.inc.php:10
 msgid ""
@@ -8586,10 +8590,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Seu parâmetro PHP  [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é inferior a "
-"validade configurada para o cookie no phpMyAdmin, por isso, o seu login "
-"expira mais cedo do que configurado no phpMyAdmin."
+"Seu parâmetro PHP  "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é inferior a validade "
+"configurada para o cookie no phpMyAdmin, por isso, o seu login expira mais "
+"cedo do que configurado no phpMyAdmin."
 
 #: main.php:299
 msgid ""
@@ -8871,8 +8876,7 @@ msgstr "Importar do armazenamento do navegador"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
-msgstr ""
-"Configurações serão importadas do armazenamento local do seu navegador."
+msgstr "Configurações serão importadas do armazenamento local do seu navegador."
 
 #: prefs_manage.php:252
 msgid "You have no saved settings!"
@@ -9790,7 +9794,8 @@ msgid ""
 "system."
 msgstr ""
 "Saiba, porém, que este sistema fornece recomendações baseadas em cálculos "
-"simples e por princípios, o que não necessariamente se aplica ao seu sistema."
+"simples e por princípios, o que não necessariamente se aplica ao seu "
+"sistema."
 
 #: server_status.php:926
 msgid ""
@@ -10389,8 +10394,7 @@ msgstr "O número de arquivos que estão abertos."
 
 #: server_status.php:1394
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr ""
-"O número de streams que estão abertos (usados principalmente para log)."
+msgstr "O número de streams que estão abertos (usados principalmente para log)."
 
 #: server_status.php:1395
 msgid "The number of tables that are open."
@@ -10428,8 +10432,8 @@ msgstr ""
 "O número de consultas que foram removidas do cache para liberar memória para "
 "novas consultas. Essa informação pode ajudar você a ajustar o tamanho da "
 "consulta do cache. A consulta do cache usa a estratégia do \"usado menos "
-"recentemente\" (LRU - least recently used) para decidir qual consulta "
-"remover do cache."
+"recentemente\" (LRU - least recently used) para decidir qual consulta remover "
+"do cache."
 
 #: server_status.php:1401
 msgid ""
@@ -10489,7 +10493,8 @@ msgstr "O número junções que fez uma varredura completa da primeira tabela."
 #: server_status.php:1410
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
-"O número de tabelas temporárias abertas atualmente pelo processo SQL escravo."
+"O número de tabelas temporárias abertas atualmente pelo processo SQL "
+"escravo."
 
 #: server_status.php:1411
 msgid ""
@@ -10540,8 +10545,7 @@ msgstr "O número de ordenações que foram feitas scaneando a tabela."
 
 #: server_status.php:1419
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
-"O número de vezes que uma tabela trancada foi recuperada imediatamente."
+msgstr "O número de vezes que uma tabela trancada foi recuperada imediatamente."
 
 #: server_status.php:1420
 msgid ""
@@ -10623,7 +10627,8 @@ msgid ""
 "may want to export it if you have a complicated set up."
 msgstr ""
 "A organização dos gráficos é armazenada no armazenamento local dos "
-"navegadores. Você pode exportá-la, se você tiver uma configuração complicada."
+"navegadores. Você pode exportá-la, se você tiver uma configuração "
+"complicada."
 
 #: server_status.php:1619
 msgid "Reset to default"
@@ -10672,8 +10677,8 @@ msgid ""
 msgstr ""
 "Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
 "Você pode adicionar gráficos e alterar a taxe de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone de roda "
-"dentada em cada gráfico."
+"\"Configurações\", ou remover qualquer gráfico usando o ícone de roda dentada "
+"em cada gráfico."
 
 #: server_status.php:1646
 msgid ""
@@ -12139,7 +12144,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries está definido como 'OFF'"
 
 #: po/advisory_rules.php:35
 msgid "Release Series"
@@ -12268,7 +12273,7 @@ msgstr "Método de cache de consulta"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Método de cache sub-ótimo."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12302,6 +12307,7 @@ msgstr ""
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
+"O nível de acerto do cache de consultas atual de %s%% atá abaixo de 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
@@ -12331,7 +12337,7 @@ msgstr "Fragmentação do cache de consulta"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "O cache de consultas está consideravelmente fragmentado."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12355,7 +12361,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Corte por falta de memória do cache de consultas"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12398,7 +12404,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Tamanho do cache de consultas atual: %s"
 
 #: po/advisory_rules.php:105
 msgid "Query cache min result size"
@@ -12445,6 +12451,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% de todos tipos causam tabelas temporárias. Este valor deveria ser menor "
+"do que 10%%"
 
 #: po/advisory_rules.php:115
 #| msgid "Allows creating temporary tables."
@@ -12456,6 +12464,8 @@ msgstr "Proporção de buscas que geram tabelas temporárias"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Média de tabelas temporárias: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:120
 msgid "Sort rows"
@@ -12496,14 +12506,16 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Média de tabelas de join: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Taxa de leitura do primeiro registro de índice"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "A taxa de leitura do primeiro registro de índice está alta."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12519,14 +12531,16 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Média de pesquisa no índice: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Taxa de leitura de posição fixa"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "A taxa de leitura de dados de uma posição fixa está alta."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12546,11 +12560,11 @@ msgstr ""
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
-msgstr ""
+msgstr "Taxa de leitura da próxima linha de tabela"
 
 #: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
-msgstr ""
+msgstr "A taxa de leitura da linha da próxima linha de tabela está alta."
 
 #: po/advisory_rules.php:142
 msgid ""
@@ -12591,13 +12605,15 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Porcentagem de tabelas temporários no disco"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Muitas tabelas temporárias estão sendo escritas no disco ao invés de serem "
+"mantidas na memória."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12616,6 +12632,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de todas as tabelas temporárias estão sendo escritas no disco. Este "
+"valor deveria ser menor do que 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12638,6 +12656,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"A taxa de tabelas temporárias sendo escritas no disco: %s. Este valor "
+"deveria ser menor do que 1 por hora."
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12655,7 +12675,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size é 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12694,10 +12714,12 @@ msgstr "Porcentagem usada de key buffers MyISAM"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% de buffer de chave MyISAM usada: %s%%. Este vakir deveria ser maior do "
+"que 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Porcentagem de leituras de índice da memória"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -12712,6 +12734,8 @@ msgstr ""
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Leituras de índice da memória: %s%%. Este valor deveria ser maior do que 95%"
+"%"
 
 #: po/advisory_rules.php:180
 #| msgid "Create table"
@@ -12733,6 +12757,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Taxa de tabelas abertas: %s. Este valor deveria ser menor do que 10 por "
+"hora."
 
 #: po/advisory_rules.php:185
 #| msgid "Format of imported file"
@@ -12756,6 +12782,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"O número de arquivos abertos está em %s%% do limite. Deveria ser menor do "
+"que 85%%."
 
 #: po/advisory_rules.php:190
 #| msgid "Format of imported file"
@@ -12771,6 +12799,8 @@ msgstr "A proporção de arquivos abertos está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por "
+"hora."
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -12791,6 +12821,7 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Locks de tabelas imediatas: %s%%. Este valor deveria ser maior do que 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
@@ -12800,6 +12831,8 @@ msgstr ""
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taxa de espera por lock de tabelas: %s. Este valor deveria ser menor do que "
+"1 por hora."
 
 #: po/advisory_rules.php:205
 #| msgid "Key cache"
@@ -12818,7 +12851,7 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "O cache de threads está definido como 0."
 
 #: po/advisory_rules.php:210
 #, php-format
@@ -12839,10 +12872,12 @@ msgstr ""
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Taxa de acerto de cache de thread: %s%%. Este valor deveria ser maior do que "
+"80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads que estão lentas para iniciar"
 
 #: po/advisory_rules.php:216
 #| msgid "The number of threads that are not sleeping."
@@ -12866,13 +12901,15 @@ msgstr ""
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_time está acima de 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Defina slow_launch_time para 1s ou 2s para contar threads que estão lentas "
+"para iniciar"
 
 #: po/advisory_rules.php:223
 #, php-format
@@ -12934,7 +12971,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%%"
+"%s%% de todas as conexões são abortadas. Este valor deve ser menor do que 1%"
+"%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -12971,7 +13009,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% de todos os clientes são abortados. Este valor deve ser menor do que 2%%"
+"%s%% de todos os clientes são abortados. Este valor deve ser menor do que 2%"
+"%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -13126,8 +13165,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Atribuindo 1 a {concurrent_insert} reduz a contenção entre leitores e "
-"escritores em uma determinada tabela. Veja mais na <a href=\"http://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Documentação MySQL</a>"
+"escritores em uma determinada tabela. Veja mais na <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">Documentação MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
@@ -13190,8 +13230,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
 #~ msgstr ""
-#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o "
-#~ "número máximo para o qual o modelo vertical é usado"
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o número "
+#~ "máximo para o qual o modelo vertical é usado"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "Criar nova tabela no Banco de Dados %s"
@@ -13214,8 +13254,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "appropriate column name."
 #~ msgstr ""
 #~ "O campo de exibição está em rosa. Para ajustar/desajustar um campo como "
-#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", "
-#~ "então clique no nome do campo apropriado."
+#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", então "
+#~ "clique no nome do campo apropriado."
 
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espaço"
@@ -13311,13 +13351,12 @@ msgstr "concurrent_insert está com valor 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto "
-#~ "pode acontecer se o php encontrar um erro no <i>parsing</i> ou se não "
-#~ "conseguir encontrar o arquivo.<br />Chame o arquivo de configuração "
-#~ "diretamente usando o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro "
-#~ "do php. Na maior parte dos casos, trata-se de uma falta de aspas ou de um "
-#~ "ponto e vírgula errado.<br />Se receber uma página em branco, está tudo "
-#~ "certo."
+#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto pode "
+#~ "acontecer se o php encontrar um erro no <i>parsing</i> ou se não conseguir "
+#~ "encontrar o arquivo.<br />Chame o arquivo de configuração diretamente usando "
+#~ "o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro do php. Na maior "
+#~ "parte dos casos, trata-se de uma falta de aspas ou de um ponto e vírgula "
+#~ "errado.<br />Se receber uma página em branco, está tudo certo."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Remoção de eventos"
@@ -13352,8 +13391,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do "
-#~ "tráfico da rede neste servidor MySQL desde o início."
+#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico "
+#~ "da rede neste servidor MySQL desde o início."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -13380,8 +13419,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por "
-#~ "padrão, selecione este para desenhar o gráfico inteiro em uma imagem."
+#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por padrão, "
+#~ "selecione este para desenhar o gráfico inteiro em uma imagem."
 
 #~ msgid "Add a New User"
 #~ msgstr "Adicionar usuário"

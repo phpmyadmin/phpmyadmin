@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-03 17:22+0200\n"
+"PO-Revision-Date: 2012-11-08 18:46+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/3-5/it/>\n"
 "Language: it\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1715,10 +1715,9 @@ msgid "Import monitor configuration"
 msgstr "Non é stato possibile caricare la configurazione"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Seleziona la chiave primaria o una chiave univoca"
+msgstr "Seleziona il file da importare"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -12071,10 +12070,9 @@ msgid "How to use"
 msgstr "Come usare"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Riavvia"
+msgstr "Reimposta zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
