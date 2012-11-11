@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-01 16:53+0200\n"
-"Last-Translator: Israel Torres <israeltorres29@hotmail.com>\n"
+"PO-Revision-Date: 2012-11-11 12:30-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12139,7 +12139,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries está definido como 'OFF'"
 
 #: po/advisory_rules.php:35
 msgid "Release Series"
@@ -12268,7 +12268,7 @@ msgstr "Método de cache de consulta"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Método de cache sub-ótimo."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12302,6 +12302,7 @@ msgstr ""
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
+"O nível de acerto do cache de consultas atual de %s%% atá abaixo de 20%%"
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
@@ -12331,7 +12332,7 @@ msgstr "Fragmentação do cache de consulta"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "O cache de consultas está consideravelmente fragmentado."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12355,7 +12356,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr ""
+msgstr "Corte por falta de memória do cache de consultas"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12398,7 +12399,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Tamanho do cache de consultas atual: %s"
 
 #: po/advisory_rules.php:105
 msgid "Query cache min result size"
@@ -12445,6 +12446,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% de todos tipos causam tabelas temporárias. Este valor deveria ser menor "
+"do que 10%%"
 
 #: po/advisory_rules.php:115
 #| msgid "Allows creating temporary tables."
@@ -12456,6 +12459,8 @@ msgstr "Proporção de buscas que geram tabelas temporárias"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Média de tabelas temporárias: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:120
 msgid "Sort rows"
@@ -12496,14 +12501,16 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Média de tabelas de join: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Taxa de leitura do primeiro registro de índice"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "A taxa de leitura do primeiro registro de índice está alta."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12519,14 +12526,16 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Média de pesquisa no índice: %s. Este valor deveria ser menor do que 1 por "
+"hora."
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Taxa de leitura de posição fixa"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "A taxa de leitura de dados de uma posição fixa está alta."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12546,11 +12555,11 @@ msgstr ""
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
-msgstr ""
+msgstr "Taxa de leitura da próxima linha de tabela"
 
 #: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
-msgstr ""
+msgstr "A taxa de leitura da linha da próxima linha de tabela está alta."
 
 #: po/advisory_rules.php:142
 msgid ""
@@ -12591,13 +12600,15 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Porcentagem de tabelas temporários no disco"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Muitas tabelas temporárias estão sendo escritas no disco ao invés de serem "
+"mantidas na memória."
 
 #: po/advisory_rules.php:152
 msgid ""
@@ -12616,6 +12627,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de todas as tabelas temporárias estão sendo escritas no disco. Este "
+"valor deveria ser menor do que 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12638,6 +12651,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"A taxa de tabelas temporárias sendo escritas no disco: %s. Este valor "
+"deveria ser menor do que 1 por hora."
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12655,7 +12670,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size é 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12694,10 +12709,12 @@ msgstr "Porcentagem usada de key buffers MyISAM"
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
+"%% de buffer de chave MyISAM usada: %s%%. Este vakir deveria ser maior do "
+"que 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "Porcentagem de leituras de índice da memória"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -12712,6 +12729,8 @@ msgstr ""
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
+"Leituras de índice da memória: %s%%. Este valor deveria ser maior do que 95%"
+"%"
 
 #: po/advisory_rules.php:180
 #| msgid "Create table"
@@ -12733,6 +12752,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Taxa de tabelas abertas: %s. Este valor deveria ser menor do que 10 por "
+"hora."
 
 #: po/advisory_rules.php:185
 #| msgid "Format of imported file"
@@ -12756,6 +12777,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"O número de arquivos abertos está em %s%% do limite. Deveria ser menor do "
+"que 85%%."
 
 #: po/advisory_rules.php:190
 #| msgid "Format of imported file"
@@ -12771,6 +12794,8 @@ msgstr "A proporção de arquivos abertos está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por "
+"hora."
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -12791,6 +12816,7 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Locks de tabelas imediatas: %s%%. Este valor deveria ser maior do que 95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
@@ -12800,6 +12826,8 @@ msgstr ""
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Taxa de espera por lock de tabelas: %s. Este valor deveria ser menor do que "
+"1 por hora."
 
 #: po/advisory_rules.php:205
 #| msgid "Key cache"
@@ -12818,7 +12846,7 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "O cache de threads está definido como 0."
 
 #: po/advisory_rules.php:210
 #, php-format
@@ -12839,10 +12867,12 @@ msgstr ""
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Taxa de acerto de cache de thread: %s%%. Este valor deveria ser maior do que "
+"80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Threads que estão lentas para iniciar"
 
 #: po/advisory_rules.php:216
 #| msgid "The number of threads that are not sleeping."
@@ -12866,13 +12896,15 @@ msgstr ""
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
-msgstr ""
+msgstr "Slow_launch_time está acima de 2s"
 
 #: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Defina slow_launch_time para 1s ou 2s para contar threads que estão lentas "
+"para iniciar"
 
 #: po/advisory_rules.php:223
 #, php-format
@@ -13190,8 +13222,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
 #~ "maximum number for which vertical model is used"
 #~ msgstr ""
-#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o "
-#~ "número máximo para o qual o modelo vertical é usado"
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] ou um número que indica o número "
+#~ "máximo para o qual o modelo vertical é usado"
 
 #~ msgid "Create table on database %s"
 #~ msgstr "Criar nova tabela no Banco de Dados %s"
@@ -13214,8 +13246,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "appropriate column name."
 #~ msgstr ""
 #~ "O campo de exibição está em rosa. Para ajustar/desajustar um campo como "
-#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", "
-#~ "então clique no nome do campo apropriado."
+#~ "campo de exibição, clique no ícone \"Escolher campo para exibição\", então "
+#~ "clique no nome do campo apropriado."
 
 #~ msgid "memcached usage"
 #~ msgstr "Uso do espaço"
@@ -13311,13 +13343,12 @@ msgstr "concurrent_insert está com valor 0"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto "
-#~ "pode acontecer se o php encontrar um erro no <i>parsing</i> ou se não "
-#~ "conseguir encontrar o arquivo.<br />Chame o arquivo de configuração "
-#~ "diretamente usando o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro "
-#~ "do php. Na maior parte dos casos, trata-se de uma falta de aspas ou de um "
-#~ "ponto e vírgula errado.<br />Se receber uma página em branco, está tudo "
-#~ "certo."
+#~ "O phpMyAdmin não foi capaz de ler o arquivo de configuração!<br />Isto pode "
+#~ "acontecer se o php encontrar um erro no <i>parsing</i> ou se não conseguir "
+#~ "encontrar o arquivo.<br />Chame o arquivo de configuração diretamente usando "
+#~ "o <i>link</i> abaixo e leia a(s) mensagem(ns) de erro do php. Na maior "
+#~ "parte dos casos, trata-se de uma falta de aspas ou de um ponto e vírgula "
+#~ "errado.<br />Se receber uma página em branco, está tudo certo."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Remoção de eventos"
@@ -13352,8 +13383,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "<b>Server traffic</b>: These tables show the network traffic statistics "
 #~ "of this MySQL server since its startup."
 #~ msgstr ""
-#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do "
-#~ "tráfico da rede neste servidor MySQL desde o início."
+#~ "<b>Tráfico do servidor</b>: Essas tabelas mostram as estatísticas do tráfico "
+#~ "da rede neste servidor MySQL desde o início."
 
 #~ msgid ""
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
@@ -13380,8 +13411,8 @@ msgstr "concurrent_insert está com valor 0"
 #~ "For compatibility reasons the chart image is segmented by default, select "
 #~ "this to draw the whole chart in one image."
 #~ msgstr ""
-#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por "
-#~ "padrão, selecione este para desenhar o gráfico inteiro em uma imagem."
+#~ "Por questões de compatibilidade a imagem do gráfico é segmentada por padrão, "
+#~ "selecione este para desenhar o gráfico inteiro em uma imagem."
 
 #~ msgid "Add a New User"
 #~ msgstr "Adicionar usuário"
