@@ -432,15 +432,18 @@ var ScrollHandler = {
         };
         this.displayScrollbar();
         $(window).bind('resize', this.displayScrollbar);
-        this.elms.$handle.live('drag', function (event, drag) {
-            var elms = ScrollHandler.elms;
-            var scrollbarOffset = elms.$scrollbar.offset().top;
-            var pos = drag.offsetY - scrollbarOffset;
-            var height = $(window).height() - scrollbarOffset - elms.$handle.height();
-            value = ScrollHandler.sanitize(pos / height);
-            ScrollHandler.setScrollbar(value);
-            ScrollHandler.setContent(value);
-        });
+        this.elms.$handle.live(
+            'drag',
+            $.throttle(function (event, drag) {
+                var elms = ScrollHandler.elms;
+                var scrollbarOffset = elms.$scrollbar.offset().top;
+                var pos = drag.offsetY - scrollbarOffset;
+                var height = $(window).height() - scrollbarOffset - elms.$handle.height();
+                value = ScrollHandler.sanitize(pos / height);
+                ScrollHandler.setScrollbar(value);
+                ScrollHandler.setContent(value);
+            }, 4)
+        );
         this.elms.$scrollbar.live('click', function (event) {
             if($(event.target).attr('id') === $(this).attr('id')) {
                 var $scrollbar = ScrollHandler.elms.$scrollbar;
@@ -642,7 +645,7 @@ var ResizeHandler = function () {
         .live('mousedown', {'resize_handler':this}, this.mousedown);
     $(document)
         .bind('mouseup', {'resize_handler':this}, this.mouseup)
-        .bind('mousemove', {'resize_handler':this}, this.mousemove);
+        .bind('mousemove', {'resize_handler':this}, $.throttle(this.mousemove, 4));
     var $collapser = $('#pma_navigation_collapser');
     $collapser.live('click', {'resize_handler':this}, this.collapse);
     // Add the correct arrow symbol to the collapser
