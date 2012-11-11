@@ -355,7 +355,16 @@ $js_messages['strColNameCopyHint'] = __('Double-click to copy column name');
 $js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
-$js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+
+// this approach does not work when the parameter is changed via user prefs
+switch ($GLOBALS['cfg']['GridEditing']) {
+case 'double-click':
+    $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by double-clicking directly on their content.');
+    break;
+case 'click':
+    $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+case 'click':
+}
 $js_messages['strGoToLink'] = __('Go to link');
 $js_messages['strColNameCopyTitle'] = __('Copy column name');
 $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
