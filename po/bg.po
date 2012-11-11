@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-07 13:10-0500\n"
+"POT-Creation-Date: 2012-11-11 07:41-0500\n"
 "PO-Revision-Date: 2012-11-05 10:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -50,7 +50,7 @@ msgstr "Търсене"
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
-#: libraries/display_change_password.lib.php:75
+#: libraries/display_change_password.lib.php:95
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
 #: libraries/insert_edit.lib.php:1576 libraries/insert_edit.lib.php:1611
@@ -311,7 +311,7 @@ msgstr ""
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
-#: libraries/plugins/export/ExportXml.class.php:456
+#: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:111
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:293
@@ -402,7 +402,7 @@ msgstr "Следени таблици"
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/plugins/export/ExportXml.class.php:389
+#: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
@@ -500,7 +500,7 @@ msgstr "Избраният тип експорт трябва да бъде за
 msgid "Bad parameters!"
 msgstr "Грешни параметри!"
 
-#: export.php:193 export.php:224 export.php:784
+#: export.php:193 export.php:224 export.php:791
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Недостатъчно свободно пространство за запазване на файла %s."
@@ -518,7 +518,7 @@ msgstr ""
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web сървърът няма права за писане върху файла %s."
 
-#: export.php:790
+#: export.php:797
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Схемата беше запазена във файл %s."
@@ -705,7 +705,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "SQL заявката беше изпълнена успешно"
 
 #: import_status.php:101 libraries/Util.class.php:726
-#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:240
 msgid "Back"
 msgstr "Назад"
 
@@ -713,8 +713,8 @@ msgstr "Назад"
 msgid "General Settings"
 msgstr "Общи настройки"
 
-#: index.php:144 libraries/display_change_password.lib.php:32
-#: user_password.php:233
+#: index.php:144 libraries/display_change_password.lib.php:47
+#: user_password.php:234
 msgid "Change password"
 msgstr "Смяна на паролата"
 
@@ -786,7 +786,7 @@ msgstr "Весия"
 #: libraries/config/FormDisplay.tpl.php:147
 #: libraries/display_export.lib.php:280 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:233
-#: libraries/relation.lib.php:88 server_variables.php:160
+#: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "Документация"
 
@@ -957,12 +957,12 @@ msgid "The user name is empty!"
 msgstr "Потребителското име е празно!"
 
 #: js/messages.php:53 libraries/server_privileges.lib.php:1315
-#: user_password.php:109
+#: user_password.php:110
 msgid "The password is empty!"
 msgstr "Паролата е празна!"
 
 #: js/messages.php:54 libraries/server_privileges.lib.php:1313
-#: user_password.php:112
+#: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Паролата не е същата!"
 
@@ -991,7 +991,7 @@ msgstr "Затваряне"
 #: libraries/Util.class.php:660 libraries/Util.class.php:1205
 #: libraries/Util.class.php:3448 libraries/Util.class.php:3449
 #: libraries/config/messages.inc.php:486
-#: libraries/schema/User_Schema.class.php:215 server_variables.php:128
+#: libraries/schema/User_Schema.class.php:215 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "Редакция"
@@ -1424,7 +1424,7 @@ msgstr "Анализиране…"
 msgid "Explain output"
 msgstr "Обяснение на изхода"
 
-#: js/messages.php:186 js/messages.php:525
+#: js/messages.php:186 js/messages.php:534
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -1574,7 +1574,7 @@ msgstr "Тест"
 #: js/messages.php:232 pmd_general.php:427 pmd_general.php:464
 #: pmd_general.php:584 pmd_general.php:632 pmd_general.php:708
 #: pmd_general.php:762 pmd_general.php:825 pmd_general.php:856
-#: server_variables.php:132
+#: server_variables.php:134
 msgid "Cancel"
 msgstr "Отмяна"
 
@@ -1748,7 +1748,7 @@ msgstr "%d не е валиден номер на ред."
 #: js/messages.php:293 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1489
 #: libraries/schema/User_Schema.class.php:373
-#: libraries/tbl_properties.inc.php:887 server_variables.php:130
+#: libraries/tbl_properties.inc.php:887 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_gis_visualization.php:195 tbl_indexes.php:324 tbl_relation.php:577
 msgid "Save"
@@ -1891,65 +1891,76 @@ msgstr ""
 "редакция, отметката, връзките редактиране, копиране и изтриване може да не "
 "работят след запазване."
 
-#: js/messages.php:358
+#: js/messages.php:362
+#, fuzzy
+#| msgid ""
+#| "You can also edit most columns<br />by clicking directly on their content."
+msgid ""
+"You can also edit most columns<br />by double-clicking directly on their "
+"content."
+msgstr ""
+"Можете също да редактирате повечето колони<br/>като щракнете директно върху "
+"тяхното съдържание."
+
+#: js/messages.php:365
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Можете също да редактирате повечето колони<br/>като щракнете директно върху "
 "тяхното съдържание."
 
-#: js/messages.php:359
+#: js/messages.php:368
 msgid "Go to link"
 msgstr "Към връзка"
 
-#: js/messages.php:360
+#: js/messages.php:369
 msgid "Copy column name"
 msgstr "Копиране името на колоната"
 
-#: js/messages.php:361
+#: js/messages.php:370
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "С десния бутон върху името на колоната, за да го копирате в системния буфер."
 
-#: js/messages.php:362
+#: js/messages.php:371
 msgid "Show data row(s)"
 msgstr ""
 
-#: js/messages.php:365
+#: js/messages.php:374
 msgid "Generate password"
 msgstr "Генериране парола"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:389
+#: js/messages.php:375 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Генериране"
 
-#: js/messages.php:367
+#: js/messages.php:376
 msgid "Change Password"
 msgstr "Смяна парола"
 
-#: js/messages.php:370 libraries/structure.lib.php:1881
+#: js/messages.php:379 libraries/structure.lib.php:1881
 msgid "More"
 msgstr "Още"
 
-#: js/messages.php:373
+#: js/messages.php:382
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Показване на всички"
 
-#: js/messages.php:374
+#: js/messages.php:383
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Скриване на индексите"
 
-#: js/messages.php:377
+#: js/messages.php:386
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Избраният потребител не беше открит в таблицата с права."
 
-#: js/messages.php:380 setup/lib/index.lib.php:188
+#: js/messages.php:389 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1959,266 +1970,266 @@ msgstr ""
 "версия е %s, излязла на %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:382
+#: js/messages.php:391
 msgid ", latest stable version:"
 msgstr ", актуална стабилна версия:"
 
-#: js/messages.php:383
+#: js/messages.php:392
 msgid "up to date"
 msgstr "актуално"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:402
+#: js/messages.php:411
 msgid "Done"
 msgstr "Готово"
 
-#: js/messages.php:406
+#: js/messages.php:415
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Преден"
 
-#: js/messages.php:411
+#: js/messages.php:420
 msgctxt "Next month"
 msgid "Next"
 msgstr "Следващ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:414
+#: js/messages.php:423
 msgid "Today"
 msgstr "Днес"
 
-#: js/messages.php:418
+#: js/messages.php:427
 msgid "January"
 msgstr "януари"
 
-#: js/messages.php:419
+#: js/messages.php:428
 msgid "February"
 msgstr "февруари"
 
-#: js/messages.php:420
+#: js/messages.php:429
 msgid "March"
 msgstr "март"
 
-#: js/messages.php:421
+#: js/messages.php:430
 msgid "April"
 msgstr "април"
 
-#: js/messages.php:422
+#: js/messages.php:431
 msgid "May"
 msgstr "май"
 
-#: js/messages.php:423
+#: js/messages.php:432
 msgid "June"
 msgstr "юни"
 
-#: js/messages.php:424
+#: js/messages.php:433
 msgid "July"
 msgstr "юли"
 
-#: js/messages.php:425
+#: js/messages.php:434
 msgid "August"
 msgstr "август"
 
-#: js/messages.php:426
+#: js/messages.php:435
 msgid "September"
 msgstr "септември"
 
-#: js/messages.php:427
+#: js/messages.php:436
 msgid "October"
 msgstr "октомври"
 
-#: js/messages.php:428
+#: js/messages.php:437
 msgid "November"
 msgstr "ноември"
 
-#: js/messages.php:429
+#: js/messages.php:438
 msgid "December"
 msgstr "декември"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/Util.class.php:1630
+#: js/messages.php:445 libraries/Util.class.php:1630
 msgid "Jan"
 msgstr "яну"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/Util.class.php:1632
+#: js/messages.php:447 libraries/Util.class.php:1632
 msgid "Feb"
 msgstr "фев"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/Util.class.php:1634
+#: js/messages.php:449 libraries/Util.class.php:1634
 msgid "Mar"
 msgstr "март"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/Util.class.php:1636
+#: js/messages.php:451 libraries/Util.class.php:1636
 msgid "Apr"
 msgstr "апр"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/Util.class.php:1638
+#: js/messages.php:453 libraries/Util.class.php:1638
 msgctxt "Short month name"
 msgid "May"
 msgstr "май"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/Util.class.php:1640
+#: js/messages.php:455 libraries/Util.class.php:1640
 msgid "Jun"
 msgstr "юни"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/Util.class.php:1642
+#: js/messages.php:457 libraries/Util.class.php:1642
 msgid "Jul"
 msgstr "юли"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/Util.class.php:1644
+#: js/messages.php:459 libraries/Util.class.php:1644
 msgid "Aug"
 msgstr "авг"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/Util.class.php:1646
+#: js/messages.php:461 libraries/Util.class.php:1646
 msgid "Sep"
 msgstr "септ"
 
 #. l10n: Short month name
-#: js/messages.php:454 libraries/Util.class.php:1648
+#: js/messages.php:463 libraries/Util.class.php:1648
 msgid "Oct"
 msgstr "окт"
 
 #. l10n: Short month name
-#: js/messages.php:456 libraries/Util.class.php:1650
+#: js/messages.php:465 libraries/Util.class.php:1650
 msgid "Nov"
 msgstr "ное"
 
 #. l10n: Short month name
-#: js/messages.php:458 libraries/Util.class.php:1652
+#: js/messages.php:467 libraries/Util.class.php:1652
 msgid "Dec"
 msgstr "дек"
 
-#: js/messages.php:464
+#: js/messages.php:473
 msgid "Sunday"
 msgstr "неделя"
 
-#: js/messages.php:465
+#: js/messages.php:474
 msgid "Monday"
 msgstr "понеделник"
 
-#: js/messages.php:466
+#: js/messages.php:475
 msgid "Tuesday"
 msgstr "вторник"
 
-#: js/messages.php:467
+#: js/messages.php:476
 msgid "Wednesday"
 msgstr "сряда"
 
-#: js/messages.php:468
+#: js/messages.php:477
 msgid "Thursday"
 msgstr "четвъртък"
 
-#: js/messages.php:469
+#: js/messages.php:478
 msgid "Friday"
 msgstr "петък"
 
-#: js/messages.php:470
+#: js/messages.php:479
 msgid "Saturday"
 msgstr "събота"
 
 #. l10n: Short week day name
-#: js/messages.php:477
+#: js/messages.php:486
 msgid "Sun"
 msgstr "нд"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/Util.class.php:1657
+#: js/messages.php:488 libraries/Util.class.php:1657
 msgid "Mon"
 msgstr "пн"
 
 #. l10n: Short week day name
-#: js/messages.php:481 libraries/Util.class.php:1659
+#: js/messages.php:490 libraries/Util.class.php:1659
 msgid "Tue"
 msgstr "вт"
 
 #. l10n: Short week day name
-#: js/messages.php:483 libraries/Util.class.php:1661
+#: js/messages.php:492 libraries/Util.class.php:1661
 msgid "Wed"
 msgstr "ср"
 
 #. l10n: Short week day name
-#: js/messages.php:485 libraries/Util.class.php:1663
+#: js/messages.php:494 libraries/Util.class.php:1663
 msgid "Thu"
 msgstr "чт"
 
 #. l10n: Short week day name
-#: js/messages.php:487 libraries/Util.class.php:1665
+#: js/messages.php:496 libraries/Util.class.php:1665
 msgid "Fri"
 msgstr "пт"
 
 #. l10n: Short week day name
-#: js/messages.php:489 libraries/Util.class.php:1667
+#: js/messages.php:498 libraries/Util.class.php:1667
 msgid "Sat"
 msgstr "сб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:496
+#: js/messages.php:505
 msgid "Su"
 msgstr "нд"
 
 #. l10n: Minimal week day name
-#: js/messages.php:498
+#: js/messages.php:507
 msgid "Mo"
 msgstr "пн"
 
 #. l10n: Minimal week day name
-#: js/messages.php:500
+#: js/messages.php:509
 msgid "Tu"
 msgstr "вт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:502
+#: js/messages.php:511
 msgid "We"
 msgstr "ср"
 
 #. l10n: Minimal week day name
-#: js/messages.php:504
+#: js/messages.php:513
 msgid "Th"
 msgstr "чт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:506
+#: js/messages.php:515
 msgid "Fr"
 msgstr "пт"
 
 #. l10n: Minimal week day name
-#: js/messages.php:508
+#: js/messages.php:517
 msgid "Sa"
 msgstr "сб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:512
+#: js/messages.php:521
 msgid "Wk"
 msgstr "Сед"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:515
+#: js/messages.php:524
 msgid "calendar-month-year"
 msgstr "календар-месец-година"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:517
+#: js/messages.php:526
 msgctxt "Year suffix"
 msgid "none"
 msgstr "няма"
 
-#: js/messages.php:526
+#: js/messages.php:535
 msgid "Hour"
 msgstr "Час"
 
-#: js/messages.php:527
+#: js/messages.php:536
 msgid "Minute"
 msgstr "минута"
 
-#: js/messages.php:528
+#: js/messages.php:537
 msgid "Second"
 msgstr "секунда"
 
@@ -2538,7 +2549,7 @@ msgstr "Сортиране по ключ"
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:71
 #: libraries/plugins/export/ExportTexytext.class.php:51
-#: libraries/plugins/export/ExportXml.class.php:80
+#: libraries/plugins/export/ExportXml.class.php:81
 #: libraries/plugins/export/ExportYaml.class.php:50
 #: libraries/plugins/import/ImportCsv.class.php:64
 #: libraries/plugins/import/ImportLdi.class.php:70
@@ -2877,7 +2888,7 @@ msgstr "Проследяване"
 #: libraries/plugins/export/ExportOdt.class.php:655
 #: libraries/plugins/export/ExportSql.class.php:1468
 #: libraries/plugins/export/ExportTexytext.class.php:506
-#: libraries/plugins/export/ExportXml.class.php:120
+#: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:41
 msgid "Triggers"
 msgstr "Тригери"
@@ -2897,7 +2908,7 @@ msgstr "Заявка по пример"
 
 #: libraries/Menu.class.php:387 libraries/server_privileges.lib.php:1581
 #: libraries/server_privileges.lib.php:2226
-#: libraries/server_privileges.lib.php:2791 server_privileges.php:149
+#: libraries/server_privileges.lib.php:2791 server_privileges.php:150
 msgid "Privileges"
 msgstr "Права"
 
@@ -3609,7 +3620,7 @@ msgstr "споделен"
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:183
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
-#: libraries/plugins/export/ExportXml.class.php:115 server_status.php:667
+#: libraries/plugins/export/ExportXml.class.php:116 server_status.php:667
 msgid "Tables"
 msgstr "Таблици"
 
@@ -5812,7 +5823,7 @@ msgid "Requires SQL Validator to be enabled"
 msgstr "Изисква SQL валидаторът да бъде включван"
 
 #: libraries/config/messages.inc.php:492
-#: libraries/display_change_password.lib.php:43
+#: libraries/display_change_password.lib.php:62
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
 #: libraries/replication_gui.lib.php:375
@@ -6100,24 +6111,24 @@ msgstr ""
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/display_change_password.lib.php:37
+#: libraries/display_change_password.lib.php:54
 #: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Без парола"
 
-#: libraries/display_change_password.lib.php:48
+#: libraries/display_change_password.lib.php:68
 #: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
 msgstr "Отново"
 
-#: libraries/display_change_password.lib.php:54
+#: libraries/display_change_password.lib.php:75
 msgid "Password Hashing"
 msgstr "Хеширане на паролата"
 
-#: libraries/display_change_password.lib.php:68
+#: libraries/display_change_password.lib.php:88
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 съвместимо"
 
@@ -6131,7 +6142,7 @@ msgid "Create"
 msgstr "Създаване"
 
 #: libraries/display_create_database.lib.php:43
-#: libraries/server_privileges.lib.php:2931 server_privileges.php:152
+#: libraries/server_privileges.lib.php:2931 server_privileges.php:153
 #: server_replication.php:34
 msgid "No Privileges"
 msgstr "Без права"
@@ -7163,7 +7174,7 @@ msgstr "Нов"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
-#: libraries/plugins/export/ExportXml.class.php:106
+#: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Функции"
 
@@ -7183,7 +7194,7 @@ msgstr "Нов"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
-#: libraries/plugins/export/ExportXml.class.php:110
+#: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Процедури"
 
@@ -7210,7 +7221,7 @@ msgid "New"
 msgstr "Нов"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
-#: libraries/plugins/export/ExportXml.class.php:124
+#: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
 msgstr "Изглед"
 
@@ -7545,7 +7556,7 @@ msgstr "Excel версия:"
 #: libraries/plugins/export/ExportLatex.class.php:157
 #: libraries/plugins/export/ExportOdt.class.php:123
 #: libraries/plugins/export/ExportTexytext.class.php:80
-#: libraries/plugins/export/ExportXml.class.php:132
+#: libraries/plugins/export/ExportXml.class.php:133
 msgid "Data dump options"
 msgstr ""
 
@@ -7634,7 +7645,7 @@ msgstr "Показване MIME типове"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
-#: libraries/plugins/export/ExportXml.class.php:190
+#: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
 #: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
 #: libraries/replication_gui.lib.php:353
@@ -7649,19 +7660,19 @@ msgstr "Хост"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:195 sql.php:1073
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1073
 msgid "Generation Time"
 msgstr "Време на генериране"
 
 #: libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:197
+#: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
 msgstr "Версия на сървъра"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
-#: libraries/plugins/export/ExportXml.class.php:198
+#: libraries/plugins/export/ExportXml.class.php:199
 msgid "PHP Version"
 msgstr "Версия на PHP"
 
@@ -7809,11 +7820,11 @@ msgstr "РЕЛАЦИИ ЗА ТАБЛИЦА"
 msgid "Error reading data:"
 msgstr "Грешка при четене на данни:"
 
-#: libraries/plugins/export/ExportXml.class.php:101
+#: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/plugins/export/ExportXml.class.php:136
+#: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
 msgstr ""
 
@@ -8184,7 +8195,7 @@ msgid "Slave status"
 msgstr "Състояние на подчинен"
 
 #: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
-#: server_status.php:1708 server_variables.php:156
+#: server_status.php:1708 server_variables.php:166
 msgid "Variable"
 msgstr "Променлива"
 
@@ -8811,91 +8822,91 @@ msgstr "Непознат език: %1$s."
 msgid "Current Server"
 msgstr "Текущ сървър"
 
-#: libraries/server_privileges.lib.php:135 server_privileges.php:97
+#: libraries/server_privileges.lib.php:135 server_privileges.php:98
 msgid "No privileges."
 msgstr "Няма права."
 
-#: libraries/server_privileges.lib.php:145 server_privileges.php:62
+#: libraries/server_privileges.lib.php:145 server_privileges.php:63
 msgid "Includes all privileges except GRANT."
 msgstr "Дава всички права освен GRANT."
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:639
-#: libraries/server_privileges.lib.php:821 server_privileges.php:90
+#: libraries/server_privileges.lib.php:821 server_privileges.php:91
 msgid "Allows reading data."
 msgstr "Позволява четене на данни."
 
 #: libraries/server_privileges.lib.php:171
 #: libraries/server_privileges.lib.php:644
-#: libraries/server_privileges.lib.php:822 server_privileges.php:79
+#: libraries/server_privileges.lib.php:822 server_privileges.php:80
 msgid "Allows inserting and replacing data."
 msgstr "Позволява вмъкване и заменяне на данни."
 
 #: libraries/server_privileges.lib.php:175
 #: libraries/server_privileges.lib.php:649
-#: libraries/server_privileges.lib.php:823 server_privileges.php:96
+#: libraries/server_privileges.lib.php:823 server_privileges.php:97
 msgid "Allows changing data."
 msgstr "Позволява промяна на данни."
 
 #: libraries/server_privileges.lib.php:179
-#: libraries/server_privileges.lib.php:824 server_privileges.php:71
+#: libraries/server_privileges.lib.php:824 server_privileges.php:72
 msgid "Allows deleting data."
 msgstr "Позволява изтриване на данни."
 
 #: libraries/server_privileges.lib.php:183
-#: libraries/server_privileges.lib.php:850 server_privileges.php:65
+#: libraries/server_privileges.lib.php:850 server_privileges.php:66
 msgid "Allows creating new databases and tables."
 msgstr "Позволява създаване на нови БД и таблици."
 
 #: libraries/server_privileges.lib.php:187
-#: libraries/server_privileges.lib.php:862 server_privileges.php:72
+#: libraries/server_privileges.lib.php:862 server_privileges.php:73
 msgid "Allows dropping databases and tables."
 msgstr "Позволява изтриване на БД и таблици."
 
 #: libraries/server_privileges.lib.php:191
-#: libraries/server_privileges.lib.php:938 server_privileges.php:87
+#: libraries/server_privileges.lib.php:938 server_privileges.php:88
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Позволява презареждане на настройките и изчистване на буфера на сървъра."
 
 #: libraries/server_privileges.lib.php:195
-#: libraries/server_privileges.lib.php:942 server_privileges.php:93
+#: libraries/server_privileges.lib.php:942 server_privileges.php:94
 msgid "Allows shutting down the server."
 msgstr "Позволява спиране на сървъра."
 
 #: libraries/server_privileges.lib.php:199
-#: libraries/server_privileges.lib.php:934 server_privileges.php:85
+#: libraries/server_privileges.lib.php:934 server_privileges.php:86
 msgid "Allows viewing processes of all users"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:203
-#: libraries/server_privileges.lib.php:830 server_privileges.php:76
+#: libraries/server_privileges.lib.php:830 server_privileges.php:77
 msgid "Allows importing data from and exporting data into files."
 msgstr "Позволява импортиране на данни от и експортиране на данни във файлове."
 
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:654
-#: libraries/server_privileges.lib.php:955 server_privileges.php:86
+#: libraries/server_privileges.lib.php:955 server_privileges.php:87
 msgid "Has no effect in this MySQL version."
 msgstr "Няма ефект в тази версия на MySQL."
 
 #: libraries/server_privileges.lib.php:211
-#: libraries/server_privileges.lib.php:858 server_privileges.php:78
+#: libraries/server_privileges.lib.php:858 server_privileges.php:79
 msgid "Allows creating and dropping indexes."
 msgstr "Позволява създаване и изтриване на индекси."
 
 #: libraries/server_privileges.lib.php:215
-#: libraries/server_privileges.lib.php:856 server_privileges.php:63
+#: libraries/server_privileges.lib.php:856 server_privileges.php:64
 msgid "Allows altering the structure of existing tables."
 msgstr "Позволява промяна на структурата на съществуващи таблици."
 
 #: libraries/server_privileges.lib.php:219
-#: libraries/server_privileges.lib.php:946 server_privileges.php:91
+#: libraries/server_privileges.lib.php:946 server_privileges.php:92
 msgid "Gives access to the complete list of databases."
 msgstr "Дава достъп до пълния списък на базите данни."
 
 #: libraries/server_privileges.lib.php:223
-#: libraries/server_privileges.lib.php:930 server_privileges.php:94
+#: libraries/server_privileges.lib.php:930 server_privileges.php:95
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -8906,65 +8917,65 @@ msgstr ""
 "променливи или спиране на нишка на други потребители."
 
 #: libraries/server_privileges.lib.php:227
-#: libraries/server_privileges.lib.php:868 server_privileges.php:68
+#: libraries/server_privileges.lib.php:868 server_privileges.php:69
 msgid "Allows creating temporary tables."
 msgstr "Позволява създаването на временни таблици."
 
 #: libraries/server_privileges.lib.php:231
-#: libraries/server_privileges.lib.php:951 server_privileges.php:80
+#: libraries/server_privileges.lib.php:951 server_privileges.php:81
 msgid "Allows locking tables for the current thread."
 msgstr "Позволява заключване на таблици за текущата нишка."
 
 #: libraries/server_privileges.lib.php:235
-#: libraries/server_privileges.lib.php:964 server_privileges.php:89
+#: libraries/server_privileges.lib.php:964 server_privileges.php:90
 msgid "Needed for the replication slaves."
 msgstr "Нужно за replication slaves."
 
 #: libraries/server_privileges.lib.php:239
-#: libraries/server_privileges.lib.php:960 server_privileges.php:88
+#: libraries/server_privileges.lib.php:960 server_privileges.php:89
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Дава правото на потребител да знае къде са slaves / masters."
 
 #: libraries/server_privileges.lib.php:243
 #: libraries/server_privileges.lib.php:256
 #: libraries/server_privileges.lib.php:888
-#: libraries/server_privileges.lib.php:895 server_privileges.php:70
+#: libraries/server_privileges.lib.php:895 server_privileges.php:71
 msgid "Allows creating new views."
 msgstr "Позволява създаване на изгледи."
 
 #: libraries/server_privileges.lib.php:247
-#: libraries/server_privileges.lib.php:902 server_privileges.php:74
+#: libraries/server_privileges.lib.php:902 server_privileges.php:75
 msgid "Allows to set up events for the event scheduler"
 msgstr "Позволява създаване на събития за Диспечер на събитията"
 
 #: libraries/server_privileges.lib.php:251
-#: libraries/server_privileges.lib.php:906 server_privileges.php:95
+#: libraries/server_privileges.lib.php:906 server_privileges.php:96
 msgid "Allows creating and dropping triggers"
 msgstr "Позволява създаване и изтриване на тригери"
 
 #: libraries/server_privileges.lib.php:260
 #: libraries/server_privileges.lib.php:265
-#: libraries/server_privileges.lib.php:872 server_privileges.php:92
+#: libraries/server_privileges.lib.php:872 server_privileges.php:93
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Позволява изпълнение на SHOW CREATE VIEW заявки."
 
 #: libraries/server_privileges.lib.php:269
-#: libraries/server_privileges.lib.php:876 server_privileges.php:66
+#: libraries/server_privileges.lib.php:876 server_privileges.php:67
 msgid "Allows creating stored routines."
 msgstr "Позволява създаване на съхранени процедури."
 
 #: libraries/server_privileges.lib.php:273
-#: libraries/server_privileges.lib.php:880 server_privileges.php:64
+#: libraries/server_privileges.lib.php:880 server_privileges.php:65
 msgid "Allows altering and dropping stored routines."
 msgstr "Позволява промяна и изтриване на съхранени процедури."
 
 #: libraries/server_privileges.lib.php:277
-#: libraries/server_privileges.lib.php:968 server_privileges.php:69
+#: libraries/server_privileges.lib.php:968 server_privileges.php:70
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Позволява създаване, изтриване и преименуване на потребителски сметки."
 
 #: libraries/server_privileges.lib.php:281
-#: libraries/server_privileges.lib.php:882 server_privileges.php:75
+#: libraries/server_privileges.lib.php:882 server_privileges.php:76
 msgid "Allows executing stored routines."
 msgstr "Позволява изпълнение на съхранени процедури."
 
@@ -8984,14 +8995,14 @@ msgstr ""
 "Забележка: Установяването на тези опции с 0 (нула) премахва ограничението."
 
 #: libraries/server_privileges.lib.php:504
-#: libraries/server_privileges.lib.php:512 server_privileges.php:82
+#: libraries/server_privileges.lib.php:512 server_privileges.php:83
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Ограничава броя на заявките, които потребителя може да изпрати към сървъра "
 "на час."
 
 #: libraries/server_privileges.lib.php:519
-#: libraries/server_privileges.lib.php:525 server_privileges.php:83
+#: libraries/server_privileges.lib.php:525 server_privileges.php:84
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9000,13 +9011,13 @@ msgstr ""
 "даден потребител може да инициира за час."
 
 #: libraries/server_privileges.lib.php:532
-#: libraries/server_privileges.lib.php:537 server_privileges.php:81
+#: libraries/server_privileges.lib.php:537 server_privileges.php:82
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Ограничава броя на новите връзки, които потребителя може да отвори за час."
 
 #: libraries/server_privileges.lib.php:544
-#: libraries/server_privileges.lib.php:552 server_privileges.php:84
+#: libraries/server_privileges.lib.php:552 server_privileges.php:85
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Ограничава броя на едновременните връзки, които потребителят може да държи "
@@ -9039,15 +9050,15 @@ msgstr "Глобални права"
 msgid "Database-specific privileges"
 msgstr "Специфични за БД права"
 
-#: libraries/server_privileges.lib.php:851 server_privileges.php:67
+#: libraries/server_privileges.lib.php:851 server_privileges.php:68
 msgid "Allows creating new tables."
 msgstr "Позволява създаване на нови таблици."
 
-#: libraries/server_privileges.lib.php:863 server_privileges.php:73
+#: libraries/server_privileges.lib.php:863 server_privileges.php:74
 msgid "Allows dropping tables."
 msgstr "Позволява изтриване на таблици."
 
-#: libraries/server_privileges.lib.php:924 server_privileges.php:77
+#: libraries/server_privileges.lib.php:924 server_privileges.php:78
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
@@ -9129,7 +9140,7 @@ msgstr "специфични за БД"
 msgid "wildcard"
 msgstr "знак за заместване"
 
-#: libraries/server_privileges.lib.php:1751 server_privileges.php:171
+#: libraries/server_privileges.lib.php:1751 server_privileges.php:172
 msgid "No user found."
 msgstr "Няма потребител."
 
@@ -10058,17 +10069,17 @@ msgstr "Лиценз"
 msgid "disabled"
 msgstr "изключено"
 
-#: server_privileges.php:214
+#: server_privileges.php:215
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Потребител %s вече съществува!"
 
-#: server_privileges.php:316
+#: server_privileges.php:317
 #, php-format
 msgid "Deleting %s"
 msgstr "Изтриване на %s"
 
-#: server_privileges.php:361
+#: server_privileges.php:362
 msgid "The privileges were reloaded successfully."
 msgstr "Правата бяха презаредени успешно."
 
@@ -10332,11 +10343,11 @@ msgstr "Брой редове:"
 msgid "Refresh rate: "
 msgstr "Скорост на опресняване: "
 
-#: server_status.php:894 server_variables.php:146
+#: server_status.php:894 server_variables.php:156
 msgid "Filters"
 msgstr "Филтри"
 
-#: server_status.php:904 server_variables.php:148
+#: server_status.php:904 server_variables.php:158
 msgid "Containing the word:"
 msgstr "Съдържащ думата:"
 
@@ -11237,19 +11248,19 @@ msgid_plural "%d minutes"
 msgstr[0] "%d минута"
 msgstr[1] "%d минути"
 
-#: server_variables.php:104
+#: server_variables.php:107
 msgid "Setting variable failed"
 msgstr "Неуспешно създаване на променлива"
 
-#: server_variables.php:117
+#: server_variables.php:119
 msgid "Server variables and settings"
 msgstr "Сървърни променливи и настройки"
 
-#: server_variables.php:158 server_variables.php:195
+#: server_variables.php:168 server_variables.php:208
 msgid "Session value"
 msgstr "Сесийна стойност"
 
-#: server_variables.php:158
+#: server_variables.php:168
 msgid "Global value"
 msgstr "Глобална стойност"
 
@@ -11945,7 +11956,7 @@ msgstr "Описание"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Не разполагате с права, за да се намирате тук!"
 
-#: user_password.php:105
+#: user_password.php:106
 msgid "The profile has been updated."
 msgstr "Профилът беше обновен."
 

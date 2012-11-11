@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-07 13:10-0500\n"
+"POT-Creation-Date: 2012-11-11 07:41-0500\n"
 "PO-Revision-Date: 2012-11-05 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -51,7 +51,7 @@ msgstr "Pretraživanje"
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
-#: libraries/display_change_password.lib.php:75
+#: libraries/display_change_password.lib.php:95
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:439 libraries/display_import.lib.php:337
 #: libraries/insert_edit.lib.php:1576 libraries/insert_edit.lib.php:1611
@@ -312,7 +312,7 @@ msgstr ""
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
-#: libraries/plugins/export/ExportXml.class.php:456
+#: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:111
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:293
@@ -404,7 +404,7 @@ msgstr "Praćene tabele"
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/plugins/export/ExportXml.class.php:389
+#: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:110
 #: libraries/server_privileges.lib.php:1983
 #: libraries/server_privileges.lib.php:2224
@@ -502,7 +502,7 @@ msgstr "Odabrani tip izvoza mora biti sačuvan u datoteku!"
 msgid "Bad parameters!"
 msgstr "Pogrešni parametri!"
 
-#: export.php:193 export.php:224 export.php:784
+#: export.php:193 export.php:224 export.php:791
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Nedovoljno prostora za snimanje datoteke %s."
@@ -520,7 +520,7 @@ msgstr ""
 msgid "The web server does not have permission to save the file %s."
 msgstr "Veb serveru nije dozvoljeno da sačuva datoteku %s."
 
-#: export.php:790
+#: export.php:797
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Sadržaj baze je sačuvan u datoteku %s."
@@ -706,7 +706,7 @@ msgid "Your SQL query has been executed successfully"
 msgstr "Vaš SQL upit je uspešno izvršen"
 
 #: import_status.php:101 libraries/Util.class.php:726
-#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:240
 msgid "Back"
 msgstr "Nazad"
 
@@ -714,8 +714,8 @@ msgstr "Nazad"
 msgid "General Settings"
 msgstr "Opšta podešavanja"
 
-#: index.php:144 libraries/display_change_password.lib.php:32
-#: user_password.php:233
+#: index.php:144 libraries/display_change_password.lib.php:47
+#: user_password.php:234
 msgid "Change password"
 msgstr "Promeni lozinku"
 
@@ -787,7 +787,7 @@ msgstr "Informacije o verziji"
 #: libraries/config/FormDisplay.tpl.php:147
 #: libraries/display_export.lib.php:280 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:233
-#: libraries/relation.lib.php:88 server_variables.php:160
+#: libraries/relation.lib.php:88 server_variables.php:137
 msgid "Documentation"
 msgstr "Dokumentacija"
 
@@ -962,12 +962,12 @@ msgid "The user name is empty!"
 msgstr "Ime korisnika nije uneto!"
 
 #: js/messages.php:53 libraries/server_privileges.lib.php:1315
-#: user_password.php:109
+#: user_password.php:110
 msgid "The password is empty!"
 msgstr "Lozinka je prazna!"
 
 #: js/messages.php:54 libraries/server_privileges.lib.php:1313
-#: user_password.php:112
+#: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Lozinke nisu identične!"
 
@@ -996,7 +996,7 @@ msgstr "Zatvori"
 #: libraries/Util.class.php:660 libraries/Util.class.php:1205
 #: libraries/Util.class.php:3448 libraries/Util.class.php:3449
 #: libraries/config/messages.inc.php:486
-#: libraries/schema/User_Schema.class.php:215 server_variables.php:128
+#: libraries/schema/User_Schema.class.php:215 server_variables.php:130
 #: setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "Promeni"
@@ -1430,7 +1430,7 @@ msgstr "Aniliziram…"
 msgid "Explain output"
 msgstr "Objasni izlaz"
 
-#: js/messages.php:186 js/messages.php:525
+#: js/messages.php:186 js/messages.php:534
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
@@ -1582,7 +1582,7 @@ msgstr "Test"
 #: js/messages.php:232 pmd_general.php:427 pmd_general.php:464
 #: pmd_general.php:584 pmd_general.php:632 pmd_general.php:708
 #: pmd_general.php:762 pmd_general.php:825 pmd_general.php:856
-#: server_variables.php:132
+#: server_variables.php:134
 msgid "Cancel"
 msgstr "Otkaži"
 
@@ -1758,7 +1758,7 @@ msgstr "%d nije ispravan broj reda."
 #: js/messages.php:293 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1489
 #: libraries/schema/User_Schema.class.php:373
-#: libraries/tbl_properties.inc.php:887 server_variables.php:130
+#: libraries/tbl_properties.inc.php:887 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_gis_visualization.php:195 tbl_indexes.php:324 tbl_relation.php:577
 msgid "Save"
@@ -1901,64 +1901,75 @@ msgstr ""
 "izmene u gridu, checkbox, Edit, Copy i Delete linkovi može da se desi da ne "
 "rade nakon snimanja."
 
-#: js/messages.php:358
+#: js/messages.php:362
+#, fuzzy
+#| msgid ""
+#| "You can also edit most columns<br />by clicking directly on their content."
+msgid ""
+"You can also edit most columns<br />by double-clicking directly on their "
+"content."
+msgstr ""
+"Možete izmeniti većinu kolona<br />tako što kliknete direktno na njen "
+"sadržaj."
+
+#: js/messages.php:365
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Možete izmeniti većinu kolona<br />tako što kliknete direktno na njen "
 "sadržaj."
 
-#: js/messages.php:359
+#: js/messages.php:368
 msgid "Go to link"
 msgstr "Idi na link"
 
-#: js/messages.php:360
+#: js/messages.php:369
 msgid "Copy column name"
 msgstr "Kopiraj ime kolone"
 
-#: js/messages.php:361
+#: js/messages.php:370
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:362
+#: js/messages.php:371
 msgid "Show data row(s)"
 msgstr "Prikaži red(ove) podataka"
 
-#: js/messages.php:365
+#: js/messages.php:374
 msgid "Generate password"
 msgstr "Generiši lozinku"
 
-#: js/messages.php:366 libraries/replication_gui.lib.php:389
+#: js/messages.php:375 libraries/replication_gui.lib.php:389
 msgid "Generate"
 msgstr "Generiši"
 
-#: js/messages.php:367
+#: js/messages.php:376
 msgid "Change Password"
 msgstr "Promeni lozinku"
 
-#: js/messages.php:370 libraries/structure.lib.php:1881
+#: js/messages.php:379 libraries/structure.lib.php:1881
 msgid "More"
 msgstr "Još"
 
-#: js/messages.php:373
+#: js/messages.php:382
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Prikaži sve"
 
-#: js/messages.php:374
+#: js/messages.php:383
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Sakrij indekse"
 
-#: js/messages.php:377
+#: js/messages.php:386
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Izabrani korisnik nije pronađen u tabeli privilegija."
 
-#: js/messages.php:380 setup/lib/index.lib.php:188
+#: js/messages.php:389 setup/lib/index.lib.php:188
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1968,266 +1979,266 @@ msgstr ""
 "nadogradnji. Najnovije verzija je %s, objavljena %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:382
+#: js/messages.php:391
 msgid ", latest stable version:"
 msgstr ", poslednja stabilna verzija:"
 
-#: js/messages.php:383
+#: js/messages.php:392
 msgid "up to date"
 msgstr "Ažurno"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:402
+#: js/messages.php:411
 msgid "Done"
 msgstr "Gotovo"
 
-#: js/messages.php:406
+#: js/messages.php:415
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prethodni"
 
-#: js/messages.php:411
+#: js/messages.php:420
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sledeći"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:414
+#: js/messages.php:423
 msgid "Today"
 msgstr "Danas"
 
-#: js/messages.php:418
+#: js/messages.php:427
 msgid "January"
 msgstr "Januar"
 
-#: js/messages.php:419
+#: js/messages.php:428
 msgid "February"
 msgstr "Februar"
 
-#: js/messages.php:420
+#: js/messages.php:429
 msgid "March"
 msgstr "Mart"
 
-#: js/messages.php:421
+#: js/messages.php:430
 msgid "April"
 msgstr "April"
 
-#: js/messages.php:422
+#: js/messages.php:431
 msgid "May"
 msgstr "Maj"
 
-#: js/messages.php:423
+#: js/messages.php:432
 msgid "June"
 msgstr "Jun"
 
-#: js/messages.php:424
+#: js/messages.php:433
 msgid "July"
 msgstr "Jul"
 
-#: js/messages.php:425
+#: js/messages.php:434
 msgid "August"
 msgstr "Avgust"
 
-#: js/messages.php:426
+#: js/messages.php:435
 msgid "September"
 msgstr "Septembar"
 
-#: js/messages.php:427
+#: js/messages.php:436
 msgid "October"
 msgstr "Oktobar"
 
-#: js/messages.php:428
+#: js/messages.php:437
 msgid "November"
 msgstr "Novembar"
 
-#: js/messages.php:429
+#: js/messages.php:438
 msgid "December"
 msgstr "Decembar"
 
 #. l10n: Short month name
-#: js/messages.php:436 libraries/Util.class.php:1630
+#: js/messages.php:445 libraries/Util.class.php:1630
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:438 libraries/Util.class.php:1632
+#: js/messages.php:447 libraries/Util.class.php:1632
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:440 libraries/Util.class.php:1634
+#: js/messages.php:449 libraries/Util.class.php:1634
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:442 libraries/Util.class.php:1636
+#: js/messages.php:451 libraries/Util.class.php:1636
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:444 libraries/Util.class.php:1638
+#: js/messages.php:453 libraries/Util.class.php:1638
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:446 libraries/Util.class.php:1640
+#: js/messages.php:455 libraries/Util.class.php:1640
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:448 libraries/Util.class.php:1642
+#: js/messages.php:457 libraries/Util.class.php:1642
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/Util.class.php:1644
+#: js/messages.php:459 libraries/Util.class.php:1644
 msgid "Aug"
 msgstr "Avg"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/Util.class.php:1646
+#: js/messages.php:461 libraries/Util.class.php:1646
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:454 libraries/Util.class.php:1648
+#: js/messages.php:463 libraries/Util.class.php:1648
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:456 libraries/Util.class.php:1650
+#: js/messages.php:465 libraries/Util.class.php:1650
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:458 libraries/Util.class.php:1652
+#: js/messages.php:467 libraries/Util.class.php:1652
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:464
+#: js/messages.php:473
 msgid "Sunday"
 msgstr "Nedelja"
 
-#: js/messages.php:465
+#: js/messages.php:474
 msgid "Monday"
 msgstr "Ponedeljak"
 
-#: js/messages.php:466
+#: js/messages.php:475
 msgid "Tuesday"
 msgstr "Utorak"
 
-#: js/messages.php:467
+#: js/messages.php:476
 msgid "Wednesday"
 msgstr "Sreda"
 
-#: js/messages.php:468
+#: js/messages.php:477
 msgid "Thursday"
 msgstr "Četvrtak"
 
-#: js/messages.php:469
+#: js/messages.php:478
 msgid "Friday"
 msgstr "Petak"
 
-#: js/messages.php:470
+#: js/messages.php:479
 msgid "Saturday"
 msgstr "Subota"
 
 #. l10n: Short week day name
-#: js/messages.php:477
+#: js/messages.php:486
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:479 libraries/Util.class.php:1657
+#: js/messages.php:488 libraries/Util.class.php:1657
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:481 libraries/Util.class.php:1659
+#: js/messages.php:490 libraries/Util.class.php:1659
 msgid "Tue"
 msgstr "Uto"
 
 #. l10n: Short week day name
-#: js/messages.php:483 libraries/Util.class.php:1661
+#: js/messages.php:492 libraries/Util.class.php:1661
 msgid "Wed"
 msgstr "Sre"
 
 #. l10n: Short week day name
-#: js/messages.php:485 libraries/Util.class.php:1663
+#: js/messages.php:494 libraries/Util.class.php:1663
 msgid "Thu"
 msgstr "Čet"
 
 #. l10n: Short week day name
-#: js/messages.php:487 libraries/Util.class.php:1665
+#: js/messages.php:496 libraries/Util.class.php:1665
 msgid "Fri"
 msgstr "Pet"
 
 #. l10n: Short week day name
-#: js/messages.php:489 libraries/Util.class.php:1667
+#: js/messages.php:498 libraries/Util.class.php:1667
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:496
+#: js/messages.php:505
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:498
+#: js/messages.php:507
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:500
+#: js/messages.php:509
 msgid "Tu"
 msgstr "Ut"
 
 #. l10n: Minimal week day name
-#: js/messages.php:502
+#: js/messages.php:511
 msgid "We"
 msgstr "Sr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:504
+#: js/messages.php:513
 msgid "Th"
 msgstr "Če"
 
 #. l10n: Minimal week day name
-#: js/messages.php:506
+#: js/messages.php:515
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
-#: js/messages.php:508
+#: js/messages.php:517
 msgid "Sa"
 msgstr "Su"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:512
+#: js/messages.php:521
 msgid "Wk"
 msgstr "Vk"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
-#: js/messages.php:515
+#: js/messages.php:524
 msgid "calendar-month-year"
 msgstr "kalendar-mesec-godina"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:517
+#: js/messages.php:526
 msgctxt "Year suffix"
 msgid "none"
 msgstr "nema"
 
-#: js/messages.php:526
+#: js/messages.php:535
 msgid "Hour"
 msgstr "Čas"
 
-#: js/messages.php:527
+#: js/messages.php:536
 msgid "Minute"
 msgstr "Minut"
 
-#: js/messages.php:528
+#: js/messages.php:537
 msgid "Second"
 msgstr "Sekund"
 
@@ -2550,7 +2561,7 @@ msgstr "Sortiraj po ključu"
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:71
 #: libraries/plugins/export/ExportTexytext.class.php:51
-#: libraries/plugins/export/ExportXml.class.php:80
+#: libraries/plugins/export/ExportXml.class.php:81
 #: libraries/plugins/export/ExportYaml.class.php:50
 #: libraries/plugins/import/ImportCsv.class.php:64
 #: libraries/plugins/import/ImportLdi.class.php:70
@@ -2897,7 +2908,7 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:655
 #: libraries/plugins/export/ExportSql.class.php:1468
 #: libraries/plugins/export/ExportTexytext.class.php:506
-#: libraries/plugins/export/ExportXml.class.php:120
+#: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:41
 msgid "Triggers"
 msgstr "Okidači"
@@ -2917,7 +2928,7 @@ msgstr "Upit po primeru"
 
 #: libraries/Menu.class.php:387 libraries/server_privileges.lib.php:1581
 #: libraries/server_privileges.lib.php:2226
-#: libraries/server_privileges.lib.php:2791 server_privileges.php:149
+#: libraries/server_privileges.lib.php:2791 server_privileges.php:150
 msgid "Privileges"
 msgstr "Privilegije"
 
@@ -3643,7 +3654,7 @@ msgstr "Deljeno"
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:183
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
-#: libraries/plugins/export/ExportXml.class.php:115 server_status.php:667
+#: libraries/plugins/export/ExportXml.class.php:116 server_status.php:667
 msgid "Tables"
 msgstr "Tabele"
 
@@ -5854,7 +5865,7 @@ msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
 #: libraries/config/messages.inc.php:492
-#: libraries/display_change_password.lib.php:43
+#: libraries/display_change_password.lib.php:62
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
 #: libraries/replication_gui.lib.php:375
@@ -6136,24 +6147,24 @@ msgstr ""
 "Konekcija za controluser-a, onako kako je definisana u vašoj konfiguraciji, "
 "nije uspela."
 
-#: libraries/display_change_password.lib.php:37
+#: libraries/display_change_password.lib.php:54
 #: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Nema lozinke"
 
-#: libraries/display_change_password.lib.php:48
+#: libraries/display_change_password.lib.php:68
 #: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
 msgstr "Ponovite unos"
 
-#: libraries/display_change_password.lib.php:54
+#: libraries/display_change_password.lib.php:75
 msgid "Password Hashing"
 msgstr "Heširanje lozinke"
 
-#: libraries/display_change_password.lib.php:68
+#: libraries/display_change_password.lib.php:88
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 kompatibilno"
 
@@ -6167,7 +6178,7 @@ msgid "Create"
 msgstr "Napravi"
 
 #: libraries/display_create_database.lib.php:43
-#: libraries/server_privileges.lib.php:2931 server_privileges.php:152
+#: libraries/server_privileges.lib.php:2931 server_privileges.php:153
 #: server_replication.php:34
 msgid "No Privileges"
 msgstr "Nema privilegija"
@@ -7230,7 +7241,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
-#: libraries/plugins/export/ExportXml.class.php:106
+#: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Funkcije"
 
@@ -7246,7 +7257,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
-#: libraries/plugins/export/ExportXml.class.php:110
+#: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Procedure"
 
@@ -7267,7 +7278,7 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
-#: libraries/plugins/export/ExportXml.class.php:124
+#: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
 msgstr "Pogledi"
 
@@ -7602,7 +7613,7 @@ msgstr "Excel izdanje:"
 #: libraries/plugins/export/ExportLatex.class.php:157
 #: libraries/plugins/export/ExportOdt.class.php:123
 #: libraries/plugins/export/ExportTexytext.class.php:80
-#: libraries/plugins/export/ExportXml.class.php:132
+#: libraries/plugins/export/ExportXml.class.php:133
 msgid "Data dump options"
 msgstr "Opcije za izvoz podataka"
 
@@ -7691,7 +7702,7 @@ msgstr "Prikaži MIME tipove"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
-#: libraries/plugins/export/ExportXml.class.php:190
+#: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:195
 #: libraries/replication_gui.lib.php:293 libraries/replication_gui.lib.php:296
 #: libraries/replication_gui.lib.php:353
@@ -7706,19 +7717,19 @@ msgstr "Domaćin"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:195 sql.php:1073
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1073
 msgid "Generation Time"
 msgstr "Vreme kreiranja"
 
 #: libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:197
+#: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
 msgstr "Verzija servera"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
-#: libraries/plugins/export/ExportXml.class.php:198
+#: libraries/plugins/export/ExportXml.class.php:199
 msgid "PHP Version"
 msgstr "verzija PHP-a"
 
@@ -7869,11 +7880,11 @@ msgstr "RELACIJE TABELE"
 msgid "Error reading data:"
 msgstr "Greška kod čitanja podataka:"
 
-#: libraries/plugins/export/ExportXml.class.php:101
+#: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/plugins/export/ExportXml.class.php:136
+#: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
 msgstr "Izvoz sadržajaTip izvoza"
 
@@ -8265,7 +8276,7 @@ msgid "Slave status"
 msgstr "Status podređenog"
 
 #: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
-#: server_status.php:1708 server_variables.php:156
+#: server_status.php:1708 server_variables.php:166
 msgid "Variable"
 msgstr "Promenljiva"
 
@@ -8885,91 +8896,91 @@ msgstr "Nepoznat jezik: %1$s."
 msgid "Current Server"
 msgstr "Trenutni server"
 
-#: libraries/server_privileges.lib.php:135 server_privileges.php:97
+#: libraries/server_privileges.lib.php:135 server_privileges.php:98
 msgid "No privileges."
 msgstr "Nema privilegija."
 
-#: libraries/server_privileges.lib.php:145 server_privileges.php:62
+#: libraries/server_privileges.lib.php:145 server_privileges.php:63
 msgid "Includes all privileges except GRANT."
 msgstr "Uključuje sve privilegije osim GRANT."
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:639
-#: libraries/server_privileges.lib.php:821 server_privileges.php:90
+#: libraries/server_privileges.lib.php:821 server_privileges.php:91
 msgid "Allows reading data."
 msgstr "Dozvoljava čitanje podataka."
 
 #: libraries/server_privileges.lib.php:171
 #: libraries/server_privileges.lib.php:644
-#: libraries/server_privileges.lib.php:822 server_privileges.php:79
+#: libraries/server_privileges.lib.php:822 server_privileges.php:80
 msgid "Allows inserting and replacing data."
 msgstr "Dozvoljava umetanje i zamenu podataka."
 
 #: libraries/server_privileges.lib.php:175
 #: libraries/server_privileges.lib.php:649
-#: libraries/server_privileges.lib.php:823 server_privileges.php:96
+#: libraries/server_privileges.lib.php:823 server_privileges.php:97
 msgid "Allows changing data."
 msgstr "Dozvoljava izmenu podataka."
 
 #: libraries/server_privileges.lib.php:179
-#: libraries/server_privileges.lib.php:824 server_privileges.php:71
+#: libraries/server_privileges.lib.php:824 server_privileges.php:72
 msgid "Allows deleting data."
 msgstr "Dozvoljava brisanje podataka."
 
 #: libraries/server_privileges.lib.php:183
-#: libraries/server_privileges.lib.php:850 server_privileges.php:65
+#: libraries/server_privileges.lib.php:850 server_privileges.php:66
 msgid "Allows creating new databases and tables."
 msgstr "Dozvoljava kreiranje novih baza i tabela."
 
 #: libraries/server_privileges.lib.php:187
-#: libraries/server_privileges.lib.php:862 server_privileges.php:72
+#: libraries/server_privileges.lib.php:862 server_privileges.php:73
 msgid "Allows dropping databases and tables."
 msgstr "Dozvoljava odbacivanje baza i tabela."
 
 #: libraries/server_privileges.lib.php:191
-#: libraries/server_privileges.lib.php:938 server_privileges.php:87
+#: libraries/server_privileges.lib.php:938 server_privileges.php:88
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Dozvoljava ponovno učitavanje podešavanja servera i pražnjenje keša servera."
 
 #: libraries/server_privileges.lib.php:195
-#: libraries/server_privileges.lib.php:942 server_privileges.php:93
+#: libraries/server_privileges.lib.php:942 server_privileges.php:94
 msgid "Allows shutting down the server."
 msgstr "Dozvoljava gašenje servera."
 
 #: libraries/server_privileges.lib.php:199
-#: libraries/server_privileges.lib.php:934 server_privileges.php:85
+#: libraries/server_privileges.lib.php:934 server_privileges.php:86
 msgid "Allows viewing processes of all users"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:203
-#: libraries/server_privileges.lib.php:830 server_privileges.php:76
+#: libraries/server_privileges.lib.php:830 server_privileges.php:77
 msgid "Allows importing data from and exporting data into files."
 msgstr "Dozvoljava uvoz podataka i njihov izvoz u datoteke."
 
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:654
-#: libraries/server_privileges.lib.php:955 server_privileges.php:86
+#: libraries/server_privileges.lib.php:955 server_privileges.php:87
 msgid "Has no effect in this MySQL version."
 msgstr "Nema efekta u ovoj verziji MySQL-a."
 
 #: libraries/server_privileges.lib.php:211
-#: libraries/server_privileges.lib.php:858 server_privileges.php:78
+#: libraries/server_privileges.lib.php:858 server_privileges.php:79
 msgid "Allows creating and dropping indexes."
 msgstr "Dozvoljava kreiranje i brisanje ključeva."
 
 #: libraries/server_privileges.lib.php:215
-#: libraries/server_privileges.lib.php:856 server_privileges.php:63
+#: libraries/server_privileges.lib.php:856 server_privileges.php:64
 msgid "Allows altering the structure of existing tables."
 msgstr "Dozvoljava izmenu struktura postojećih tabela."
 
 #: libraries/server_privileges.lib.php:219
-#: libraries/server_privileges.lib.php:946 server_privileges.php:91
+#: libraries/server_privileges.lib.php:946 server_privileges.php:92
 msgid "Gives access to the complete list of databases."
 msgstr "Daje pristup kompletnoj listi baza."
 
 #: libraries/server_privileges.lib.php:223
-#: libraries/server_privileges.lib.php:930 server_privileges.php:94
+#: libraries/server_privileges.lib.php:930 server_privileges.php:95
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -8980,65 +8991,65 @@ msgstr ""
 "promenljivih ili prekidanje procesa ostalih korisnika."
 
 #: libraries/server_privileges.lib.php:227
-#: libraries/server_privileges.lib.php:868 server_privileges.php:68
+#: libraries/server_privileges.lib.php:868 server_privileges.php:69
 msgid "Allows creating temporary tables."
 msgstr "Dozvoljava kreiranje privremenih tabela.."
 
 #: libraries/server_privileges.lib.php:231
-#: libraries/server_privileges.lib.php:951 server_privileges.php:80
+#: libraries/server_privileges.lib.php:951 server_privileges.php:81
 msgid "Allows locking tables for the current thread."
 msgstr "Dozvoljava zaključavanje tabela tekućim procesima."
 
 #: libraries/server_privileges.lib.php:235
-#: libraries/server_privileges.lib.php:964 server_privileges.php:89
+#: libraries/server_privileges.lib.php:964 server_privileges.php:90
 msgid "Needed for the replication slaves."
 msgstr "Potrebno zbog pomoćnih servera za replikaciju."
 
 #: libraries/server_privileges.lib.php:239
-#: libraries/server_privileges.lib.php:960 server_privileges.php:88
+#: libraries/server_privileges.lib.php:960 server_privileges.php:89
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Daje pravo korisniku da pita gde su glavni/pomoćni serveri."
 
 #: libraries/server_privileges.lib.php:243
 #: libraries/server_privileges.lib.php:256
 #: libraries/server_privileges.lib.php:888
-#: libraries/server_privileges.lib.php:895 server_privileges.php:70
+#: libraries/server_privileges.lib.php:895 server_privileges.php:71
 msgid "Allows creating new views."
 msgstr "Dozvoli kreiranje novih pogleda."
 
 #: libraries/server_privileges.lib.php:247
-#: libraries/server_privileges.lib.php:902 server_privileges.php:74
+#: libraries/server_privileges.lib.php:902 server_privileges.php:75
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:251
-#: libraries/server_privileges.lib.php:906 server_privileges.php:95
+#: libraries/server_privileges.lib.php:906 server_privileges.php:96
 msgid "Allows creating and dropping triggers"
 msgstr "Omogućava kreiranje i brisanje okidača"
 
 #: libraries/server_privileges.lib.php:260
 #: libraries/server_privileges.lib.php:265
-#: libraries/server_privileges.lib.php:872 server_privileges.php:92
+#: libraries/server_privileges.lib.php:872 server_privileges.php:93
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Dozvoljava izvršavanje SHOW CREATE VIEW upita."
 
 #: libraries/server_privileges.lib.php:269
-#: libraries/server_privileges.lib.php:876 server_privileges.php:66
+#: libraries/server_privileges.lib.php:876 server_privileges.php:67
 msgid "Allows creating stored routines."
 msgstr "Dozvoljava pravljenje sačuvanih rutina."
 
 #: libraries/server_privileges.lib.php:273
-#: libraries/server_privileges.lib.php:880 server_privileges.php:64
+#: libraries/server_privileges.lib.php:880 server_privileges.php:65
 msgid "Allows altering and dropping stored routines."
 msgstr "Dozvoljava izmenu i odbacivanje sačuvanih rutina."
 
 #: libraries/server_privileges.lib.php:277
-#: libraries/server_privileges.lib.php:968 server_privileges.php:69
+#: libraries/server_privileges.lib.php:968 server_privileges.php:70
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Dozvoljava pravljenje, odbacivanje i preimenovanje korisničkih naloga."
 
 #: libraries/server_privileges.lib.php:281
-#: libraries/server_privileges.lib.php:882 server_privileges.php:75
+#: libraries/server_privileges.lib.php:882 server_privileges.php:76
 msgid "Allows executing stored routines."
 msgstr "Dozvoljava izvršavanje sačuvanih rutina."
 
@@ -9057,12 +9068,12 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja ograničenja."
 
 #: libraries/server_privileges.lib.php:504
-#: libraries/server_privileges.lib.php:512 server_privileges.php:82
+#: libraries/server_privileges.lib.php:512 server_privileges.php:83
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "Ograničava broj upita koje korisnik može da uputi serveru za sat."
 
 #: libraries/server_privileges.lib.php:519
-#: libraries/server_privileges.lib.php:525 server_privileges.php:83
+#: libraries/server_privileges.lib.php:525 server_privileges.php:84
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9071,12 +9082,12 @@ msgstr ""
 "izvrši na sat."
 
 #: libraries/server_privileges.lib.php:532
-#: libraries/server_privileges.lib.php:537 server_privileges.php:81
+#: libraries/server_privileges.lib.php:537 server_privileges.php:82
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "Ograničava broj novih konekcija koje korisnik može ta otvori na sat."
 
 #: libraries/server_privileges.lib.php:544
-#: libraries/server_privileges.lib.php:552 server_privileges.php:84
+#: libraries/server_privileges.lib.php:552 server_privileges.php:85
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Ograničava broj istovremenih konekcija koje korisnik može da ima."
 
@@ -9107,15 +9118,15 @@ msgstr "Globalne privilegije"
 msgid "Database-specific privileges"
 msgstr "Privilegije vezane za bazu"
 
-#: libraries/server_privileges.lib.php:851 server_privileges.php:67
+#: libraries/server_privileges.lib.php:851 server_privileges.php:68
 msgid "Allows creating new tables."
 msgstr "Dozvoljava kreiranje novih tabela."
 
-#: libraries/server_privileges.lib.php:863 server_privileges.php:73
+#: libraries/server_privileges.lib.php:863 server_privileges.php:74
 msgid "Allows dropping tables."
 msgstr "Dozvoljava odbacivanje tabela."
 
-#: libraries/server_privileges.lib.php:924 server_privileges.php:77
+#: libraries/server_privileges.lib.php:924 server_privileges.php:78
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
@@ -9195,7 +9206,7 @@ msgstr "Specifično za bazu"
 msgid "wildcard"
 msgstr "džoker"
 
-#: libraries/server_privileges.lib.php:1751 server_privileges.php:171
+#: libraries/server_privileges.lib.php:1751 server_privileges.php:172
 msgid "No user found."
 msgstr "Ni jedan korisnik nije pronađen."
 
@@ -10125,17 +10136,17 @@ msgstr ""
 msgid "disabled"
 msgstr "onemogućeno"
 
-#: server_privileges.php:214
+#: server_privileges.php:215
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Korisnik %s već postoji!"
 
-#: server_privileges.php:316
+#: server_privileges.php:317
 #, php-format
 msgid "Deleting %s"
 msgstr "Brišem %s"
 
-#: server_privileges.php:361
+#: server_privileges.php:362
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegije su uspešno ponovo učitane."
 
@@ -10386,11 +10397,11 @@ msgstr "Broj tačaka podataka: "
 msgid "Refresh rate: "
 msgstr "Interval osvežavanja: "
 
-#: server_status.php:894 server_variables.php:146
+#: server_status.php:894 server_variables.php:156
 msgid "Filters"
 msgstr "Filteri"
 
-#: server_status.php:904 server_variables.php:148
+#: server_status.php:904 server_variables.php:158
 msgid "Containing the word:"
 msgstr "Sadrži reč:"
 
@@ -11393,19 +11404,19 @@ msgstr[0] "%d minut"
 msgstr[1] "%d minuta"
 msgstr[2] "%d minuta"
 
-#: server_variables.php:104
+#: server_variables.php:107
 msgid "Setting variable failed"
 msgstr "Neuspelo podešavanje promenljive"
 
-#: server_variables.php:117
+#: server_variables.php:119
 msgid "Server variables and settings"
 msgstr "Serverske promenljive i podešavanja"
 
-#: server_variables.php:158 server_variables.php:195
+#: server_variables.php:168 server_variables.php:208
 msgid "Session value"
 msgstr "Vrednost sesije"
 
-#: server_variables.php:158
+#: server_variables.php:168
 msgid "Global value"
 msgstr "Globalna vrednost"
 
@@ -12100,7 +12111,7 @@ msgstr "Opis"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nije Vam dozvoljeno da budete ovde!"
 
-#: user_password.php:105
+#: user_password.php:106
 msgid "The profile has been updated."
 msgstr "Profil je promenjen."
 
