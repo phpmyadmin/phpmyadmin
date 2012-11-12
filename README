@@ -22,7 +22,7 @@ Copyright (C) 2001-2012
     Garvin Hicking <me_at_supergarv.de>
     Michael Keck <mkkeck_at_users.sourceforge.net>
     Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
-    [check Documentation.txt/.html file for more details]
+    [check documentation for more details]
 
 License
 -------
@@ -50,7 +50,7 @@ Summary
 -------
 
 phpMyAdmin is intended to handle the administration of MySQL over the web.
-For a summary of features, please see the Documentation.txt/.html file.
+For a summary of features, please see the documentation in the doc folder.
 
 Download
 --------
@@ -60,7 +60,7 @@ You can get the newest version at http://www.phpmyadmin.net/.
 More Information
 ----------------
 
-Please see the Documentation.txt/.html file.
+Please see the documentation in the doc folder.
 
 Support
 -------
@@ -80,5 +80,5 @@ Please, don't send us emails with question like "How do I compile PHP with
 MySQL-support". We just don't have the time to be your free help desk.
 
 Please send your questions to the appropriate mailing lists / forums.  Before
-contacting us, please read the Documentation.html (esp. the FAQ part).
+contacting us, please read the documentation (especially the FAQ part).
 
