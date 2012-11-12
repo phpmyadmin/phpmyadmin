@@ -12,6 +12,7 @@
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/Util.class.php';
 
 class PMA_sanitize_test extends PHPUnit_Framework_TestCase
 {
@@ -61,22 +62,9 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
      */
     public function testDoc()
     {
-        $this->assertEquals(
-            '<a href="./Documentation.html#foo" target="documentation">doclink</a>',
+        $this->assertContains(
+            'setup.html#foo',
             PMA_sanitize('[doc@foo]doclink[/doc]')
-        );
-    }
-
-    /**
-     * Tests links to documentation.
-     *
-     * @return void
-     */
-    public function testLinkDoc()
-    {
-        $this->assertEquals(
-            '<a href="./Documentation.html">doc</a>',
-            PMA_sanitize('[a@./Documentation.html]doc[/a]')
         );
     }
 
@@ -114,8 +102,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     public function testLinkAndXssInHref()
     {
         $this->assertEquals(
-            '<a href="./Documentation.html">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
-            PMA_sanitize('[a@./Documentation.html]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
+            '<a href="./url.php?url=http%3A%2F%2Fphpmyadmin.readthedocs.org%2F&amp;token=token">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
+            PMA_sanitize('[a@http://phpmyadmin.readthedocs.org/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
 

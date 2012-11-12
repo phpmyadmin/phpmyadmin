@@ -538,6 +538,8 @@ class PMA_Util
         /* Check if we have built local documentation */
         if (file_exists('doc/html/index.html')) {
             return './doc/html/' . $url;
+        } else if (defined('PMA_SETUP') && file_exists('../doc/html/index.html')) {
+            return '../doc/html/' . $url;
         } else {
             /* TODO: Should link to correct branch for released versions */
             return PMA_linkURL('https://phpmyadmin.readthedocs.org/en/latest/' . $url);
