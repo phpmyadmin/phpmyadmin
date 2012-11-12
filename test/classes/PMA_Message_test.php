@@ -11,6 +11,7 @@
  */
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
@@ -348,7 +349,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 '[doc@foo]link[/doc]',
-                '<a href="./Documentation.html#foo" target="documentation">link</a>'
+                '<a href="./url.php?url=https%3A%2F%2Fphpmyadmin.readthedocs.org%2Fen%2Flatest%2Fsetup.html%23foo&amp;lang=en&amp;token=token" target="documentation">link</a>'
             ),
         );
     }
@@ -474,7 +475,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./Documentation.html#cfg_Example" target="documentation">test</a>',
+            '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fphpmyadmin.readthedocs.org%2Fen%2Flatest%2Fcfg.html%23cfg_Example&amp;lang=en&amp;token=token" target="documentation">test</a>',
             $this->object->getMessage()
         );
     }

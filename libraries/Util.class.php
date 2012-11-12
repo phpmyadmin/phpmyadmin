@@ -536,7 +536,10 @@ class PMA_Util
         }
 
         /* Check if we have built local documentation */
-        if (file_exists('doc/html/index.html')) {
+        if (defined('TESTSUITE')) {
+            /* Provide consistent URL for testsuite */
+            return PMA_linkURL('https://phpmyadmin.readthedocs.org/en/latest/' . $url);
+        } else if (file_exists('doc/html/index.html')) {
             return './doc/html/' . $url;
         } else if (defined('PMA_SETUP') && file_exists('../doc/html/index.html')) {
             return '../doc/html/' . $url;
