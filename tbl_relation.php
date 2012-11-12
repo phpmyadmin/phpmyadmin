@@ -442,7 +442,7 @@ if (count($columns) > 0) {
         $myfield_md5 = md5($myfield);
         $myfield_html = htmlspecialchars($myfield);
 
-        echo '<tr class="' . $odd_row ? 'odd' : 'even' . '">';
+        echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = ! $odd_row;
         echo '<td class="center">';
         echo '<strong>' . $myfield_html . '</strong>';
