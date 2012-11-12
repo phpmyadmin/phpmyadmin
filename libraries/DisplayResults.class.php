@@ -4495,7 +4495,7 @@ class PMA_DisplayResults
             $pre_count = '~';
             $after_count = PMA_Util::showHint(
                 PMA_sanitize(
-                    __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
+                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]')
                 )
             );
         } else {

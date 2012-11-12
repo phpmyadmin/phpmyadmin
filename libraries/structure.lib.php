@@ -775,7 +775,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_Util::showHint(
             PMA_sanitize(
-                __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
+                __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]')
             )
         ) . "\n"
         .'</th>' . "\n";
