@@ -1118,7 +1118,7 @@ Generic settings
 
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop Database`
-    will not be shown, and even a "DROP DATABASE mydatabase" will be
+    will not be shown, and even a ``DROP DATABASE mydatabase`` will be
     rejected. Quite practical for :abbr:`ISP (Internet service
     provider)`'s with many customers. 
 
