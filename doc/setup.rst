@@ -334,6 +334,8 @@ HTTP authentication mode
 
 .. index:: pair: Cookie; Authentication mode
 
+.. _cookie:
+
 Cookie authentication mode
 --------------------------
 
@@ -431,4 +433,4 @@ are always ways to make your installation more secure:
 * in case you don't want all MySQL users to be able to access 
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
 * consider hiding phpMyAdmin behind authentication proxy, so that 
-  MySQL credenticals are not all users need to login
+  MySQL credentials are not all users need to login
