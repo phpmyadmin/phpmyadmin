@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-11 08:58-0500\n"
-"PO-Revision-Date: 2012-11-12 13:52+0200\n"
+"PO-Revision-Date: 2012-11-12 13:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -5433,7 +5433,7 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver le support des "
+"Laisser vide pour désactiver le support des "
 "[a@http://wiki.phpmyadmin.net/pma/bookmark]signets[/a], suggestion : "
 "[kbd]pma__bookmark[/kbd]"
 
@@ -5665,7 +5665,6 @@ msgid "Server port"
 msgstr "Port"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5674,14 +5673,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 "Laisser vide pour ne pas conserver de manière «persistante» les tables "
-"récemment utilisées, valeur suggérée : [kbd]pma_recent[/kbd]"
+"récemment utilisées; suggestion : [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "Table récemment utilisée"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5689,8 +5687,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver le support [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relationnel[/a], suggéré : [kbd]pma_relation[/kbd]"
+"Laisser vider pour désactiver le support "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relationnel[/a], suggestion : "
+"[kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5739,21 +5738,20 @@ msgid "Use SSL"
 msgstr "Utiliser SSL"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
-msgstr "Laisser vider pour désactiver, suggéré : [kbd]pma_table_coords[/kbd]"
+msgstr ""
+"Laisser vider pour désactiver, suggestion : [kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "Table pour coordonnées du schéma en PDF"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5762,14 +5760,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Sert à définir les colonnes descriptives, laisser vide pour désactiver; "
-"suggéré : [kbd]pma_table_info[/kbd]"
+"suggestion : [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "Table pour colonnes descriptives"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5778,7 +5775,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 "Laisser vider pour ne pas conserver les préférences d'interface de tables de "
-"manière «persistante», valeur suggérée : [kbd]pma_table_uiprefs[/kbd]"
+"manière «persistante»; suggestion : [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5831,7 +5828,6 @@ msgid "Statements to track"
 msgstr "Énoncés à suivre"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5839,8 +5835,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver le suivi des changements SQL, valeur "
-"suggérée : [kbd]pma_tracking[/kbd]"
+"Laisser vide pour désactiver le suivi des changements SQL; suggestion : "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
@@ -5859,7 +5855,6 @@ msgid "Automatically create versions"
 msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5867,8 +5862,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
-"Laisser vider pour désactiver les préférences utilisateur, valeur suggérée : "
-"[kbd]pma_config[/kbd]"
+"Laisser vide pour désactiver les préférences utilisateur, valeur suggérée : "
+"[kbd]pma__config[/kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
