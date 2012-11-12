@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-11 08:58-0500\n"
-"PO-Revision-Date: 2012-11-05 09:11+0200\n"
+"PO-Revision-Date: 2012-11-12 10:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:808
@@ -1900,14 +1900,13 @@ msgstr ""
 "fungovat."
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid ""
 "You can also edit most columns<br />by double-clicking directly on their "
 "content."
 msgstr ""
-"Většinu sloupců můžete také přímo upravit<br />kliknutím na jejich obsah."
+"Většinu sloupců můžete také přímo upravit<br />dvojklikem na jejich obsah."
 
 #: js/messages.php:365
 msgid ""
@@ -5360,7 +5359,6 @@ msgid "Authentication type"
 msgstr "Typ přihlašování"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5368,15 +5366,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]záložek[/a], doporučené nastavení: [kbd]pma_bookmarks[/kbd]"
+"Nechte prázdné pro vypnutí podpory "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]záložek[/a], doporučené "
+"nastavení: [kbd]pma__bookmarks[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
 msgstr "Tabulka záložek"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5385,7 +5383,7 @@ msgid ""
 "pma__column_info[/kbd]"
 msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
-"[kbd]pma_column_info[/kbd]"
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5443,7 +5441,6 @@ msgid "Count tables"
 msgstr "Počítat tabulky"
 
 #: libraries/config/messages.inc.php:391
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5451,8 +5448,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázné pro vypnutí návrháře, výchozí nastavení: [kbd]"
-"pma_designer_coords[/kbd]"
+"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Designer table"
@@ -5487,7 +5484,6 @@ msgid "Hide databases"
 msgstr "Skrýt databáze"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5495,8 +5491,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Nechte prázné pro vypnutí SQL historie, výchozí hodnota [kbd]pma_history[/"
-"kbd]"
+"Nechte prázdné pro vypnutí SQL historie, výchozí hodnota "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
@@ -5560,14 +5556,13 @@ msgid "Password for config auth"
 msgstr "Heslo pro přihlašování config"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma_table_pages[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
+"[kbd]pma__table_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5591,14 +5586,13 @@ msgstr "Jméno databáze"
 #: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Port na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu"
+"Port na kterém poslouchá MySQL server, ponechte prázdné pro výchozí hodnotu"
 
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
 msgstr "Port serveru"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5607,14 +5601,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek, výchozí "
-"nastavení: [kbd]pma_recent[/kbd]"
+"nastavení: [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5622,8 +5615,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relace[/a], výchozí nastavení: [kbd]pma_relation[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relace[/a], výchozí nastavení: "
+"[kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5656,7 +5650,8 @@ msgstr "URL pro přihlášení"
 #: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Socket na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu"
+"Socket na kterém poslouchá MySQL server, ponechte prázdné pro výchozí "
+"hodnotu"
 
 #: libraries/config/messages.inc.php:428
 msgid "Server socket"
@@ -5671,7 +5666,6 @@ msgid "Use SSL"
 msgstr "Použít SSL"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5679,15 +5673,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: [kbd]"
-"pma_table_coords[/kbd]"
+"Nechte prázdné pro vypnutí podpory pro PDF schémata, výchozí nastavení: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF schéma: tabulka souřadnic"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5696,14 +5689,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Tabulka obsahující popisy polí, nechte prázdnou pro vypnutí této funkce. "
-"Výchozí hodnota: [kbd]pma_table_info[/kbd]"
+"Výchozí hodnota: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "Tabulka s popisem polí"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5712,7 +5704,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro „trvalé“ ukládání nastavení "
-"procházení tabulek, výchozí nastavení: [kbd]pma_uiprefs[/kbd]"
+"procházení tabulek, výchozí nastavení: [kbd]pma__uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5763,7 +5755,6 @@ msgid "Statements to track"
 msgstr "Sledované příkazy"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5772,7 +5763,7 @@ msgid ""
 "[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, výchozí "
-"nastavení: [kbd]pma_tracking[/kbd]"
+"nastavení: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
@@ -5790,7 +5781,6 @@ msgid "Automatically create versions"
 msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5799,7 +5789,7 @@ msgid ""
 "pma__userconfig[/kbd]"
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
-"výchozí nastavení: [kbd]pma_userconfig[/kbd]"
+"výchozí nastavení: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
@@ -5814,7 +5804,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"Přívětivý popis tohoto serveru. Pokud necháte prázné, zobrazí se jeho jméno."
+"Přívětivý popis tohoto serveru. Pokud necháte prázdné, zobrazí se jeho "
+"jméno."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
