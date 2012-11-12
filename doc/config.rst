@@ -104,22 +104,6 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
-.. config:option:: $cfg['blowfish_secret']
-
-    :type: string
-    :default: ``''``
-
-    The "cookie" auth\_type uses blowfish algorithm to encrypt the
-    password. If you are using the "cookie" auth\_type, enter here a
-    random passphrase of your choice. It will be used internally by the
-    blowfish algorithm: you won’t be prompted for this passphrase. There
-    is no maximum length for this secret. 
-
-    Since version 3.1.0 phpMyAdmin
-    can generate this on the fly, but it makes a bit weaker security as
-    this generated secret is stored in session and furthermore it makes
-    impossible to recall user name from cookie.
-
 Server connection settings
 --------------------------
 
@@ -1154,6 +1138,40 @@ Generic settings
     Whether a warning ("Are your really sure...") should be displayed when
     you're about to lose data.
 
+.. config:option:: $cfg['UseDbSearch']
+
+    :type: boolean
+    :default: true
+
+    Define whether the "search string inside database" is enabled or not.
+
+.. config:option:: $cfg['IgnoreMultiSubmitErrors']
+
+    :type: boolean
+    :default: false
+
+    Define whether phpMyAdmin will continue executing a multi-query
+    statement if one of the queries fails. Default is to abort execution.
+
+Cookie authentication options
+-----------------------------
+
+.. config:option:: $cfg['blowfish_secret']
+
+    :type: string
+    :default: ``''``
+
+    The "cookie" auth\_type uses blowfish algorithm to encrypt the
+    password. If you are using the "cookie" auth\_type, enter here a
+    random passphrase of your choice. It will be used internally by the
+    blowfish algorithm: you won’t be prompted for this passphrase. There
+    is no maximum length for this secret. 
+
+    Since version 3.1.0 phpMyAdmin
+    can generate this on the fly, but it makes a bit weaker security as
+    this generated secret is stored in session and furthermore it makes
+    impossible to recall user name from cookie.
+
 .. config:option:: $cfg['LoginCookieRecall']
 
     :type: boolean
@@ -1195,21 +1213,6 @@ Generic settings
     If enabled (default), logout deletes cookies for all servers,
     otherwise only for current one. Setting this to false makes it easy to
     forget to log out from other server, when you are using more of them.
-
-.. config:option:: $cfg['UseDbSearch']
-
-    :type: boolean
-    :default: true
-
-    Define whether the "search string inside database" is enabled or not.
-
-.. config:option:: $cfg['IgnoreMultiSubmitErrors']
-
-    :type: boolean
-    :default: false
-
-    Define whether phpMyAdmin will continue executing a multi-query
-    statement if one of the queries fails. Default is to abort execution.
 
 .. _AllowArbitraryServer:
 .. config:option:: $cfg['AllowArbitraryServer']
