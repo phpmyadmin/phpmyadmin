@@ -520,17 +520,48 @@ class PMA_Util
     } // end of the 'showMySQLDocu()' function
 
     /**
+     * Returns link to documentation.
+     *
+     * @param string $page   Page in documentation
+     * @param string $anchor Optional anchor in page
+     *
+     * @return string URL
+     */
+    public static function getDocuLink($page, $anchor = '')
+    {
+        /* Construct base URL */
+        $url =  $page . '.html';
+        if (!empty($anchor)) {
+            $url .= '#' . $anchor;
+        }
+
+        /* Check if we have built local documentation */
+        if (defined('TESTSUITE')) {
+            /* Provide consistent URL for testsuite */
+            return PMA_linkURL('https://phpmyadmin.readthedocs.org/en/latest/' . $url);
+        } else if (file_exists('doc/html/index.html')) {
+            return './doc/html/' . $url;
+        } else if (defined('PMA_SETUP') && file_exists('../doc/html/index.html')) {
+            return '../doc/html/' . $url;
+        } else {
+            /* TODO: Should link to correct branch for released versions */
+            return PMA_linkURL('https://phpmyadmin.readthedocs.org/en/latest/' . $url);
+        }
+    }
+
+    /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string $anchor anchor in documentation
+     * @param string $page   Page in documentation
+     * @param string $anchor Optional anchor in page
      *
      * @return string  the html link
      *
      * @access  public
      */
-    public static function showDocu($anchor)
+    public static function showDocu($page, $anchor = '')
     {
-        return self::showDocLink('Documentation.html#' . $anchor);
+        return self::showDocLink(self::getDocuLink($page, $anchor));
     } // end of the 'showDocu()' function
 
     /**
@@ -2099,7 +2130,7 @@ class PMA_Util
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
-                    . self::showDocu('faqmissingparameters')
+                    . self::showDocu('faq', 'faqmissingparameters')
                     . '<br />';
                 $found_error = true;
             }

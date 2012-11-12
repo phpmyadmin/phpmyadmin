@@ -213,7 +213,7 @@ class PMA_NavigationHeader
             );
         }
         $retval .= $this->_getLink(
-            'Documentation.html',
+            PMA_Util::getDocuLink('index'),
             $showText,
             __('phpMyAdmin documentation'),
             $showIcon,

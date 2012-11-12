@@ -329,7 +329,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Documentation'),
     'li_pma_docs',
-    'Documentation.html',
+    PMA_Util::getDocuLink('index'),
     null,
     '_blank'
 );

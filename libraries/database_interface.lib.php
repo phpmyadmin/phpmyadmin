@@ -66,7 +66,7 @@ if (defined('TESTSUITE')) {
         PMA_warnMissingExtension(
             $GLOBALS['cfg']['Server']['extension'],
             false,
-            PMA_Util::showDocu('faqmysql')
+            PMA_Util::showDocu('faq', 'faqmysql')
         );
 
         if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
@@ -80,7 +80,7 @@ if (defined('TESTSUITE')) {
             PMA_warnMissingExtension(
                 $GLOBALS['cfg']['Server']['extension'],
                 true,
-                PMA_Util::showDocu('faqmysql')
+                PMA_Util::showDocu('faq', 'faqmysql')
             );
         }
 
@@ -142,11 +142,11 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
 
     $trace = array();
     foreach (debug_backtrace() as $trace_step) {
-        $trace[] = 
+        $trace[] =
             (isset($trace_step['file'])
                 ? PMA_Error::relPath($trace_step['file'])
                 : '')
-            . (isset($trace_step['line']) 
+            . (isset($trace_step['line'])
                 ?  '#' . $trace_step['line'] . ': '
                 : '')
             . (isset($trace_step['class']) ? $trace_step['class'] : '')

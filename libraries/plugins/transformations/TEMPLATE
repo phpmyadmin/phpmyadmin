@@ -3,7 +3,7 @@
 /**
  * This file contains the basic structure for a specific MIME Type and Subtype
  * transformations class.
- * For instructions, read the /Documentation.html file.
+ * For instructions, read the documentation
  *
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]

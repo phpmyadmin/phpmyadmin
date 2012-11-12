@@ -179,7 +179,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo __('Log in');
-        echo PMA_Util::showDocu('');
+        echo PMA_Util::showDocu('index');
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '

@@ -1393,7 +1393,7 @@ class PMA_Table
                 $message = PMA_Message::error(
                     sprintf(
                         __('Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'),
-                        PMA_Util::showDocu('cfg_Servers_MaxTableUiprefs')
+                        PMA_Util::showDocu('config', 'cfg_Servers_MaxTableUiprefs')
                     )
                 );
                 $message->addMessage('<br /><br />');

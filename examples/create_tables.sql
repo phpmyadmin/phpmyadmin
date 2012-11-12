@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- SQL Commands to set up the pmadb as described in Documentation.html.
+-- SQL Commands to set up the pmadb as described in the documentation.
 -- 
 -- This file is meant for use with MySQL 5 and above!
 -- 

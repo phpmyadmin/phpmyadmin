@@ -81,10 +81,12 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
     $retval = '';
 
+    $doc_url = PMA_Util::getDocuLink('config', 'cfg_Servers_%s');
+
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
         . '</strong></font>'
-        . ' [ <a href="Documentation.html#%s" target="documentation">'
+        . ' [ <a href="' . $doc_url .'" target="documentation">'
         . __('Documentation')
         . '</a> ]';
 
@@ -142,7 +144,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'pdf_pages',
             isset($cfgRelation['pdf_pages']),
             $messages,
-            'table_coords'
+            'pdf_pages'
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Creation of PDFs'),
@@ -153,7 +155,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'column_info',
             isset($cfgRelation['column_info']),
             $messages,
-            'col_com'
+            'column_info'
         );
         $retval .= PMA_getDiagMessageForFeature(
             __('Displaying Column Comments'),
@@ -257,11 +259,11 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'Create the needed tables with the '
             . '<code>examples/create_tables.sql</code>.'
         );
-        $retval .= ' ' . PMA_Util::showDocu('linked-tables');
+        $retval .= ' ' . PMA_Util::showDocu('setup', 'linked-tables');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __('Create a pma user and give access to these tables.');
-        $retval .= ' ' . PMA_Util::showDocu('pmausr');
+        $retval .= ' ' . PMA_Util::showDocu('config', 'cfg_Servers_controluser');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __(
@@ -269,7 +271,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             . '(<code>config.inc.php</code>), for example by '
             . 'starting from <code>config.sample.inc.php</code>.'
         );
-        $retval .= ' ' . PMA_Util::showDocu('quick_install');
+        $retval .= ' ' . PMA_Util::showDocu('setup', 'quick-install');
         $retval .= '</li>';
         $retval .= '<li>';
         $retval .= __(
@@ -314,7 +316,7 @@ function PMA_getDiagMessageForFeature($feature_name,
  * @param string  $parameter              config parameter name to display
  * @param boolean $relation_parameter_set whether this parameter is set
  * @param array   $messages               utility messages
- * @param string  $doc_anchor             anchor in Documentation.html
+ * @param string  $doc_anchor             anchor in documentation
  *
  * @return void
  */
@@ -1079,7 +1081,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
         $foreign_field   = $foreigner['foreign_field'];
 
         // Count number of rows in the foreign table. Currently we do
-        // not use a drop-down if more than ForeignKeyMaxLimit rows in the 
+        // not use a drop-down if more than ForeignKeyMaxLimit rows in the
         // foreign table,
         // for speed reasons and because we need a better interface for this.
         //

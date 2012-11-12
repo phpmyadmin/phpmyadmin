@@ -25,10 +25,7 @@ function PMA_checkLink($url)
         './url.php?url=https%3A%2F%2F',
     );
     if (defined('PMA_SETUP')) {
-        $valid_starts[] = '../Documentation.html';
         $valid_starts[] = '?page=form&';
-    } else {
-        $valid_starts[] = './Documentation.html';
     }
     foreach ($valid_starts as $val) {
         if (substr($url, 0, strlen($val)) == $val) {
@@ -70,6 +67,28 @@ function PMA_replaceBBLink($found)
     }
 
     return '<a href="' . $url . '"' . $target . '>';
+}
+
+/**
+ * Callback function for replacing [doc@anchor] links in bb code.
+ *
+ * @param array $found Array of preg matches
+ *
+ * @return string Replaced string
+ */
+function PMA_replaceDocLink($found)
+{
+    $anchor = $found[1];
+    if (strncmp('faq', $anchor, 3) == 0) {
+        $page = 'faq';
+    } else if (strncmp('cfg', $anchor, 3) == 0) {
+        $page = 'cfg';
+    } else {
+        /* Guess */
+        $page = 'setup';
+    }
+    $link = PMA_Util::getDocuLink($page, $anchor);
+    return '<a href="' . $link . '" target="documentation">';
 }
 
 /**
@@ -117,13 +136,6 @@ function PMA_sanitize($message, $escape = false, $safe = false)
 
     $message = strtr($message, $replace_pairs);
 
-    /* Adjust links for setup, which lives in subfolder */
-    if (defined('PMA_SETUP')) {
-        $docname = '../Documentation.html';
-    } else {
-        $docname = './Documentation.html';
-    }
-
     /* Match links in bb code ([a@url@target], where @target is options) */
     $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
@@ -131,9 +143,9 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     $message = preg_replace_callback($pattern, 'PMA_replaceBBLink', $message);
 
     /* Replace documentation links */
-    $message = preg_replace(
+    $message = preg_replace_callback(
         '/\[doc@([a-zA-Z0-9_-]+)\]/',
-        '<a href="' . $docname . '#\1" target="documentation">',
+        'PMA_replaceDocLink',
         $message
     );
 

@@ -19,17 +19,17 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
     function setup()
     {
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = '99';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
     }
 
     function testShowDocu()
     {
-        $anchor = "relation";
-        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation">'
-                  . '<img src="themes/dot.gif" title="' . __('Documentation') . '" '
-                  . 'alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
-
         $this->assertEquals(
-            $expected, PMA_Util::showDocu($anchor)
+            '<a href="./url.php?url=https%3A%2F%2Fphpmyadmin.readthedocs.org%2Fen%2Flatest%2Fpage.html%23anchor&amp;server=99&amp;lang=en&amp;token=token" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a>',
+            PMA_Util::showDocu('page', 'anchor')
         );
 
     }
