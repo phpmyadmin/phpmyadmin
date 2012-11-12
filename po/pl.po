@@ -659,11 +659,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nie otrzymano żadnych danych do importu. Albo nie dostarczono nazwy pliku, "
 "albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez "
-"konfigurację PHP. Zobacz [doc@faq1_16]FAQ 1.16[/doc]."
+"konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2649,8 +2649,8 @@ msgid "Kill"
 msgstr "Zabij"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Może być w przybliżeniu. Zobacz [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Może być w przybliżeniu. Zobacz [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2782,9 +2782,9 @@ msgid "Unknown error in file upload."
 msgstr "Nieznany błąd w przesyłania pliku."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Błąd podczas przenoszenia przesłanego pliku. Zobacz [doc@faq1_11]FAQ 1.11[/"
+"Błąd podczas przenoszenia przesłanego pliku. Zobacz [doc@faq1-11]FAQ 1.11[/"
 "doc]"
 
 #: libraries/File.class.php:493
@@ -14489,10 +14489,10 @@ msgstr "concurrent_insert jest ustawiony na 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Pamiętaj, że nie każde wyniki tabeli można umieścić na wykresie. Zobacz "
-#~ "<a href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ "
+#~ "<a href=\"./Documentation.html#faq6-29\" target=\"Documentation\">FAQ "
 #~ "6.29</a>"
 
 #~ msgid "Note: Generating the query chart can take a long time."
@@ -14529,11 +14529,11 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ msgstr "Liczba wolnych bloków pamięci w podręcznym buforze zapytań."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz "
-#~ "[doc@faq6_29]FAQ 6.29[/doc]"
+#~ "[doc@faq6-29]FAQ 6.29[/doc]"
 
 #~ msgid "Theme / Style"
 #~ msgstr "Motyw / Styl"

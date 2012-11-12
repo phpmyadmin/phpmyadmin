@@ -659,11 +659,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Tidak ada data untuk diimpor. Kemungkinan karena tidak ada berkas yang "
 "diambil atau ukuran berkas melebihi ukuran maksimum yang diizinkan oleh "
-"konfigurasi PHP Anda. Lihat [doc@faq1_16]FAQ 1.16[/doc]."
+"konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2658,8 +2658,8 @@ msgid "Kill"
 msgstr "Tutup"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2790,8 +2790,8 @@ msgid "Unknown error in file upload."
 msgstr "Galat tidak dikenal sewaktu mengunggah berkas."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq1_11]FAQ 3.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq1-11]FAQ 3.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -13920,9 +13920,9 @@ msgstr "Koneksi konkuren maks."
 #~ msgstr "Sukses reload Hak Istimewa (Privileges)."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
-#~ msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3_11]FAQ 3.11[/doc]"
+#~ msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]"
 
 #~ msgid "Add a New User"
 #~ msgstr "Menambahkan pengguna baru"

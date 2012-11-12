@@ -678,11 +678,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nicio informație nu a fost recepționată pentru import. Ori niciun fișier nu "
 "a fost trimit, ori mărimea fișierului a depășit mărimea maximă permisă de "
-"configurația PHP-ului dumneavoastră. Vedeți [doc@faq1_16]FAQ 1.16[/doc]."
+"configurația PHP-ului dumneavoastră. Vedeți [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2804,8 +2804,8 @@ msgid "Kill"
 msgstr "Oprește"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Poate fi aproximativ. Vezi [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Poate fi aproximativ. Vezi [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2939,9 +2939,9 @@ msgid "Unknown error in file upload."
 msgstr "Eroare necunoscută la încărcarea fișierului."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Eroare la mutarea fișierului încărcat, vezi [doc@faq1_11]FAQ 1.11[/doc]"
+"Eroare la mutarea fișierului încărcat, vezi [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -14728,7 +14728,7 @@ msgstr "concurrent_insert este setat la 0"
 #~ msgstr "Drepturile au fost reîncarcate cu succes."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr "Poate fi aproximativ. Vezi FAQ 3.11"
 

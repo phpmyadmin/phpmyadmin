@@ -680,11 +680,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Dadzienyja dla impartavańnia nie atrymanyja. Albo nivodny fajł nia byŭ "
 "zahružany, albo pamier fajła pieravysiŭ maksymalny pamier, vyznačany "
-"kanfihuracyjaj PHP. Hł. [doc@faq1_16]FAQ 1.16[/doc]."
+"kanfihuracyjaj PHP. Hł. [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2899,8 +2899,8 @@ msgid "Kill"
 msgstr "Spynić"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -3037,9 +3037,9 @@ msgid "Unknown error in file upload."
 msgstr "Padčas zahruzki fajła adbyłasia nieviadomaja pamyłka."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Pamyłka pieramiaščeńnia zahružanaha fajła. Hladzicie raździeł [doc@faq1_11]"
+"Pamyłka pieramiaščeńnia zahružanaha fajła. Hladzicie raździeł [doc@faq1-11]"
 "1.11 u FAQ[/doc]"
 
 #: libraries/File.class.php:493
@@ -14481,7 +14481,7 @@ msgstr "maksymum adnačasovych złučeńniaŭ"
 #~ msgstr "Pryvilei byli paśpiachova pierazahružanyja."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr "Značeńnie moža być prybliznym. Hł. FAQ 3.11"
 

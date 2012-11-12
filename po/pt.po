@@ -651,11 +651,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Não foram recebidos dados para importar. Ou não foi submetir um nome de "
 "ficheiro, ou o tamanho do ficheiro excede o tamanho máximo permitido pela "
-"sua configuração PHP. Veja [doc@faq1_16]FAQ 1.16[/doc]."
+"sua configuração PHP. Veja [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2639,8 +2639,8 @@ msgid "Kill"
 msgstr "Termina"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Pode ser aproximado. Veja o [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Pode ser aproximado. Veja o [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2773,8 +2773,8 @@ msgid "Unknown error in file upload."
 msgstr "Erro desconhecido no upload do ficheiro."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr "Erro ao mover o arquivo carregado, veja [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "Erro ao mover o arquivo carregado, veja [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."

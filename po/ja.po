@@ -656,10 +656,10 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "インポートするデータを受信できませんでした。ファイル名が送信されていないか、"
-"ファイルサイズが PHP の設定で許可された最大値を超えています。[doc@faq1_16]"
+"ファイルサイズが PHP の設定で許可された最大値を超えています。[doc@faq1-16]"
 "FAQ 1.16[/doc] をご覧ください。"
 
 #: import.php:429
@@ -2636,8 +2636,8 @@ msgid "Kill"
 msgstr "停止"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "正確な数字とは限りません。[doc@faq3_11]FAQ 3.11[/doc] をご覧ください"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2768,9 +2768,9 @@ msgid "Unknown error in file upload."
 msgstr "ファイルのアップロード中に予期しないエラーが発生しました。"
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"アップロードされたファイルの移動に失敗しました。[doc@faq1_11]FAQ 1.11[/doc] "
+"アップロードされたファイルの移動に失敗しました。[doc@faq1-11]FAQ 1.11[/doc] "
 "をご覧ください。"
 
 #: libraries/File.class.php:493
@@ -14478,10 +14478,10 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgstr "グラフが正常に作成されました。"
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "このクエリの結果は、グラフに使用することができませんでした。[doc@faq6_29]"
+#~ "このクエリの結果は、グラフに使用することができませんでした。[doc@faq6-29]"
 #~ "FAQ 6.29[/doc] を参照してください。"
 
 #~ msgid "Title"
@@ -14516,10 +14516,10 @@ msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "必ずしも、テーブルの結果を全てグラフにできるとは限りません。<a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>参照。"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>参照。"
 
 #~ msgid "Add a New User"
 #~ msgstr "新しいユーザを追加する"

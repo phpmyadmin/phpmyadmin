@@ -661,11 +661,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Es wurden keinen Daten zum Importieren empfangen. Entweder wurde keine Datei "
 "ausgewählt, oder die Dateigröße hat die maximal erlaubte Größe der PHP-"
-"Konfiguration überschritten. Siehe [doc@faq1_16]FAQ 1.16[/doc]."
+"Konfiguration überschritten. Siehe [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2663,10 +2663,10 @@ msgid "Kill"
 msgstr "Beenden"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
 "Es kann sich hierbei um Näherungswerte handeln. Bitte lesen Sie auch "
-"[doc@faq3_11]FAQ 3.11[/doc]"
+"[doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2801,9 +2801,9 @@ msgid "Unknown error in file upload."
 msgstr "Unbekannter Fehler beim hochladen der Datei."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fehler beim Verschieben der hochgeladenen Datei, siehe [doc@faq1_11]FAQ 1.11"
+"Fehler beim Verschieben der hochgeladenen Datei, siehe [doc@faq1-11]FAQ 1.11"
 "[/doc]"
 
 #: libraries/File.class.php:493
@@ -14787,11 +14787,11 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgstr "Diagramm erfolgreich generiert."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Das Ergebnis dieser Abfrage kann nicht für ein Diagramm verwendet werden. "
-#~ "Siehe [doc@faq6_29]FAQ 6.29[/doc]"
+#~ "Siehe [doc@faq6-29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Titel"
@@ -14826,10 +14826,10 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Anmerkung: nicht alle Ergebnistabellen können im Diagramm dargerstellt "
-#~ "weren. Siehe <a href=\"./Documentation.html#faq6_29\" target="
+#~ "weren. Siehe <a href=\"./Documentation.html#faq6-29\" target="
 #~ "\"Documentation\">FAQ 6.29</a>"
 
 #~ msgid "Add a New User"

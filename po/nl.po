@@ -659,12 +659,12 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Er zijn geen gegevens ontvangen om te importeren. Dit kan gebeuren wanneer "
 "er geen bestand werd verzonden, of wanneer deze werd afgekeurd op basis van "
 "de maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2650,8 +2650,8 @@ msgid "Kill"
 msgstr "stop proces"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Bij benadering. Zie [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2783,9 +2783,9 @@ msgid "Unknown error in file upload."
 msgstr "Onbekende fout bij het uploaden."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1_11]FAQ 1.11"
+"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ 1.11"
 "[/doc]"
 
 #: libraries/File.class.php:493
@@ -14668,11 +14668,11 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgstr "De grafiek werd succesvol aangemaakt."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Het resultaat van deze query kan niet gebruikt worden voor een grafiek. "
-#~ "Zie [doc@faq6_29]FAQ 6.29[/doc]"
+#~ "Zie [doc@faq6-29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Titel"
@@ -14707,10 +14707,10 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Merk op dat niet elke resultaattabel omgevormd kan worden tot een "
-#~ "grafiek. Zie <a href=\"./Documentation.html#faq6_29\" target="
+#~ "grafiek. Zie <a href=\"./Documentation.html#faq6-29\" target="
 #~ "\"Documentation\">FAQ 6.29</a>"
 
 #~ msgid "Add a New User"

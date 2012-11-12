@@ -650,11 +650,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις [doc@faq1_16]ΣΑΕ 1.16[/doc]."
+"της ΡΗΡ. Δείτε τις [doc@faq1-16]ΣΑΕ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2639,8 +2639,8 @@ msgid "Kill"
 msgstr "Τερματισμός"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3_11]ΣΑΕ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2773,9 +2773,9 @@ msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1_11]ΣΑΕ 1.11[/"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1-11]ΣΑΕ 1.11[/"
 "doc]"
 
 #: libraries/File.class.php:493
@@ -14698,11 +14698,11 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Το διάγραμμα δημιουργήθηκε επιτυχώς."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις "
-#~ "[doc@faq6_29]ΣΑΕ 6.29[/doc]"
+#~ "[doc@faq6-29]ΣΑΕ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Τίτλος"
@@ -14737,10 +14737,10 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Σημειώστε ότι δεν μπορεί κάθε πίνακας αποτελεσμάτων να μπει σε διάγραμμα. "
-#~ "Δείτε τις <a href=\"./Documentation.html#faq6_29\" target=\"Documentation"
+#~ "Δείτε τις <a href=\"./Documentation.html#faq6-29\" target=\"Documentation"
 #~ "\">ΣΑΕ 6.29</a>"
 
 #~ msgid "Add a New User"

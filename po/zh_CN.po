@@ -646,10 +646,10 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
-"参见 [doc@faq1_16]FAQ 1.16[/doc]。"
+"参见 [doc@faq1-16]FAQ 1.16[/doc]。"
 
 #: import.php:429
 msgid ""
@@ -2594,8 +2594,8 @@ msgid "Kill"
 msgstr "杀死"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "可能接近。参见 [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "可能接近。参见 [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2722,8 +2722,8 @@ msgid "Unknown error in file upload."
 msgstr "上传文件时发生未知错误。"
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr "移动上传文件时发生错误，参见 [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "移动上传文件时发生错误，参见 [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -13924,10 +13924,10 @@ msgstr "concurrent_insert 被设为 0"
 #~ msgstr "图表生成成功。"
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "该查询的结果不能用于图表。参见[doc@faq6_29]常见问题 (FAQ) 6.29[/doc]"
+#~ "该查询的结果不能用于图表。参见[doc@faq6-29]常见问题 (FAQ) 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "标题"
@@ -13958,9 +13958,9 @@ msgstr "concurrent_insert 被设为 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6_29"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6-29"
 #~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"

@@ -657,11 +657,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "No s'han rebut dades per importar. O bé no s'ha especificat un nom d'arxiu, "
 "o el tamany de l'arxiu es més gran que el permès per la configuració del "
-"vostre PHP. Veieu [doc@faq1_16]PFC(FAQ) 1.16[/doc]."
+"vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2659,8 +2659,8 @@ msgid "Kill"
 msgstr "Finalitzar"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Pot ser aproximat. Veieu [doc@faq3_11]PCF -FAQ- 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2791,9 +2791,9 @@ msgid "Unknown error in file upload."
 msgstr "Error desconegut al pujar l'arxiu."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Error movent l'arxiu pujat, consulta la [doc@faq1_11]PCF -FAQ- 1.11[/doc]"
+"Error movent l'arxiu pujat, consulta la [doc@faq1-11]PCF -FAQ- 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -14632,11 +14632,11 @@ msgstr "{concurrent_insert} està establert a 0"
 #~ msgstr "Gràfic generat correctament."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "El resultat d'aquesta consuta no es pot usar per a un gràfic. See "
-#~ "[doc@faq6_29]PFC -FAQ- 6.29[/doc]"
+#~ "[doc@faq6-29]PFC -FAQ- 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Títol"
@@ -14671,10 +14671,10 @@ msgstr "{concurrent_insert} està establert a 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Teniu en compte que no totes les taules de resultat poden esdevenir un "
-#~ "gràfic. Veieu <a href=\"./Documentation.html#faq6_29\" target="
+#~ "gràfic. Veieu <a href=\"./Documentation.html#faq6-29\" target="
 #~ "\"Documentation\">PFC -FAQ- 6.29</a>"
 
 #~ msgid "Add a New User"

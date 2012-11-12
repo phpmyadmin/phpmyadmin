@@ -658,11 +658,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "कोई डेटा आयात करने के लिए प्राप्त नहीं किया गया. या तो कोई फ़ाइल नाम प्रस्तुत नहीं किया "
 "गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति आकार के पार हो गई है. "
-"[doc@faq1_16] अकसर किये गए सवाल 1.16 [/doc] देखें."
+"[doc@faq1-16] अकसर किये गए सवाल 1.16 [/doc] देखें."
 
 #: import.php:429
 msgid ""
@@ -2760,8 +2760,8 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "शायद अनुमानित हैं. [doc@faq3_11]FAQ 3.11[/doc] देखें"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "शायद अनुमानित हैं. [doc@faq3-11]FAQ 3.11[/doc] देखें"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2890,9 +2890,9 @@ msgid "Unknown error in file upload."
 msgstr "फ़ाइल अपलोड करने में अज्ञात त्रुटि."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"अपलोड की गयी फाइल की जगह बदलने में त्रुटि आई है. [doc@faq1_1]अकसर किये गए सवाल 1,11"
+"अपलोड की गयी फाइल की जगह बदलने में त्रुटि आई है. [doc@faq1-1]अकसर किये गए सवाल 1,11"
 "[/doc] देखें"
 
 #: libraries/File.class.php:493
@@ -14117,9 +14117,9 @@ msgstr "अधिकतम वर्तमान कनेक्शन"
 #~ msgstr "Thread %s को सफलता से मारा गया।"
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
-#~ msgstr "शायद अनुमानित हैं. [doc@faq3_11]FAQ 3.11[/doc] देखें"
+#~ msgstr "शायद अनुमानित हैं. [doc@faq3-11]FAQ 3.11[/doc] देखें"
 
 #~ msgid "Title"
 #~ msgstr "ऊँचाई"

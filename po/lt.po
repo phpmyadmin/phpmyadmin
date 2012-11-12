@@ -661,11 +661,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nebuvo gauta duomenų importavimui. Arba be failo pavadinimo išsiųsta arba "
 "failo dydis viršija didžiausią leidžiamą dydį PHP konfigūracijos. Žiūrėti "
-"[doc@faq1_16]DUK 1.16[/doc]."
+"[doc@faq1-16]DUK 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2683,8 +2683,8 @@ msgid "Kill"
 msgstr "Stabdyti procesą"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3_11]DUK 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3-11]DUK 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2815,8 +2815,8 @@ msgid "Unknown error in file upload."
 msgstr "Nežinoma klaida failų įkėlime."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr "Klaida perkeliant įkeltą failą, žiūrėti [doc@faq1_11]DUK 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "Klaida perkeliant įkeltą failą, žiūrėti [doc@faq1-11]DUK 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -14139,11 +14139,11 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgstr "Diagrama sėkmingai sukurta."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Užklausos rezultatas negali būti naudojamas diagramai braižyti. Žiūrėti "
-#~ "[doc@faq6_29]DUK 6.29[/doc]"
+#~ "[doc@faq6-29]DUK 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Pavadinimas"
@@ -14178,10 +14178,10 @@ msgstr "MyISAM concurrent įterpimai"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Atkreipkite dėmesį, kad ne visų lentelių rezultatai gali būti pateikiami "
-#~ "diagramos forma. Žiūrėti <a href=\"./Documentation.html#faq6_29\" target="
+#~ "diagramos forma. Žiūrėti <a href=\"./Documentation.html#faq6-29\" target="
 #~ "\"Documentation\">DUK 6.29</a>"
 
 #~ msgid "Add a New User"

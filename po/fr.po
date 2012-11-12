@@ -653,11 +653,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Aucune données n'a été reçu en vue de l'importation. Aucun nom de fichier "
 "n'a été fourni, ou encore la taille du fichier a dépassé la limite permise "
-"par votre configuration de PHP. Voir [doc@faq1_16]FAQ 1.16[/doc]."
+"par votre configuration de PHP. Voir [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2633,8 +2633,8 @@ msgid "Kill"
 msgstr "Supprimer"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Peut être approximatif. Voir [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Peut être approximatif. Voir [doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2768,9 +2768,9 @@ msgid "Unknown error in file upload."
 msgstr "Erreur inconnue durant le téléchargement."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1_11]FAQ 1.11"
+"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ 1.11"
 "[/doc]"
 
 #: libraries/File.class.php:493
@@ -14651,11 +14651,11 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgstr "Le graphique a été généré."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Les résultats de cette requête ne peuvent servir à produire un graphique. "
-#~ "Voir le [doc@faq6_29]FAQ 6.29[/doc]"
+#~ "Voir le [doc@faq6-29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Titre"
@@ -14690,10 +14690,10 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Toute table de résultats ne peut être affichée en graphique. Voir le <a "
-#~ "href=\"./Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</"
+#~ "href=\"./Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</"
 #~ "a>"
 
 #~ msgid "Add a New User"

@@ -676,11 +676,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
 "سائز مقررہ حد سے تجاوز کرگئی ہو جو آپ کے PHP تشکیل میں ہے۔ دیکھیں"
-"[doc@faq1_16]عمومی سوالات 1.16[/doc]."
+"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2771,7 +2771,7 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4894
@@ -2905,9 +2905,9 @@ msgid "Unknown error in file upload."
 msgstr "اپ لوڈ مسل میں نامعلوم نقص ہے۔"
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [doc@faq1_11]عمومی سوالات 1.11[/doc]"
+"اپ لوڈ مسل کو بڑھاتے ہوئے نقص ہے, دیکھیں [doc@faq1-11]عمومی سوالات 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."

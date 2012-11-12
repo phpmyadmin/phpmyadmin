@@ -652,11 +652,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nem került importálandó adat fogadásra. Vagy nem került átadásra fájlnév, "
 "vagy a fájlméret túllépte a PHP beállításokban engedélyezett legnagyobb "
-"méretet. Lásd [doc@faq1_16]GYIK 1.16.[/doc].."
+"méretet. Lásd [doc@faq1-16]GYIK 1.16.[/doc].."
 
 #: import.php:429
 msgid ""
@@ -2617,8 +2617,8 @@ msgid "Kill"
 msgstr "Leállít"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Becsült érték lehet. Lásd [doc@faq3_11]GyIK 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Becsült érték lehet. Lásd [doc@faq3-11]GyIK 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2751,9 +2751,9 @@ msgid "Unknown error in file upload."
 msgstr "Ismeretlen hiba a fájlfeltöltésben."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Hiba történt a feltöltött fájl áthelyezésekor, lásd [doc@faq1_11]GyIK 1.11[/"
+"Hiba történt a feltöltött fájl áthelyezésekor, lásd [doc@faq1-11]GyIK 1.11[/"
 "doc]"
 
 #: libraries/File.class.php:493
@@ -14262,7 +14262,7 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ msgstr "A grafikon generálása sikeres."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr "Becsült érték lehet. Lásd: GYIK 3.11"
 

@@ -657,11 +657,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Non se recibiron datos para importar. Ou ben non se enviou o ficheiro ou ben "
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
-"Consulte a [doc@faq1_16]Pregunta frecuente 1.16[/doc]."
+"Consulte a [doc@faq1-16]Pregunta frecuente 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2648,9 +2648,9 @@ msgid "Kill"
 msgstr "Matar (kill)"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
-"Pode non ser exacto. Consulte a [doc@faq3_11]pregunta frecuente 3.11[/doc]"
+"Pode non ser exacto. Consulte a [doc@faq3-11]pregunta frecuente 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2783,9 +2783,9 @@ msgid "Unknown error in file upload."
 msgstr "Produciuse un erro descoñecido ao enviar o ficheiro."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Produciuse un erro ao mover o ficheiro enviado. Consulte a [doc@faq1_11]"
+"Produciuse un erro ao mover o ficheiro enviado. Consulte a [doc@faq1-11]"
 "Pregunta frecuente 1.11[/doc]"
 
 #: libraries/File.class.php:493
@@ -14470,7 +14470,7 @@ msgstr "concurrent_insert está definido como 0"
 #~ msgstr "Non houbo problemas ao recargar os privilexios."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr "Pode non ser exacto. Consulte a FAQ 3.11"
 

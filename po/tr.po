@@ -649,11 +649,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "İçe aktarmak için veri alınmadı. Ya gönderilen dosya adı yok ya da dosya "
 "boyutu PHP yapılandırmanız tarafından izin verilen en fazla boyutu aştı. "
-"[doc@faq1_16]SSS 1.16[/doc]'ya bakın."
+"[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
 #: import.php:429
 msgid ""
@@ -2627,8 +2627,8 @@ msgid "Kill"
 msgstr "Sonlandır"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Yaklaşık olabilir. [doc@faq3_11]SSS 3.11[/doc]'e bakın"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -2759,8 +2759,8 @@ msgid "Unknown error in file upload."
 msgstr "Dosya göndermede bilinmeyen hata oldu."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr "Gönderilen dosyayı taşıma hatası, [doc@faq1_11]SSS 1.11[/doc]'e bakın"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "Gönderilen dosyayı taşıma hatası, [doc@faq1-11]SSS 1.11[/doc]'e bakın"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -14633,10 +14633,10 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ msgstr "Çizelge başarılı olarak oluşturuldu."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Bu sorgunun sonucu çizelge için kullanılamaz. [doc@faq6_29]SSS 6.29[/"
+#~ "Bu sorgunun sonucu çizelge için kullanılamaz. [doc@faq6-29]SSS 6.29[/"
 #~ "doc]'a bakın"
 
 #~ msgid "Title"
@@ -14672,10 +14672,10 @@ msgstr "concurrent_insert 0'a ayarlı"
 
 #~ msgid ""
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Documentation\">FAQ 6.29</a>"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Unutmayın, her sonuç tablosu çizelgeye koyulamayabilir. <a href=\"./"
-#~ "Documentation.html#faq6_29\" target=\"Belge\">SSS 6.29</a>'a bakın"
+#~ "Documentation.html#faq6-29\" target=\"Belge\">SSS 6.29</a>'a bakın"
 
 #~ msgid "Add a New User"
 #~ msgstr "Yeni Kullanıcı Ekle"

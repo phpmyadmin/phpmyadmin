@@ -677,11 +677,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Импорт қилиш имкони йўқ. Сабаблар: импорт файли танланмаган; импорт "
 "қилинаётган файл ҳажми PHP конфигурацион файлида кўрсатилган максимал "
-"қийматдан катта. Қаранг: [doc@faq1_16]FAQ 1.16[/doc]."
+"қийматдан катта. Қаранг: [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2939,8 +2939,8 @@ msgid "Kill"
 msgstr "Тугатиш"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
-msgstr "Тахминий бўлиши мумкин. [doc@faq3_11]\"FAQ 3.11\"[/doc]га қаранг"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Тахминий бўлиши мумкин. [doc@faq3-11]\"FAQ 3.11\"[/doc]га қаранг"
 
 #: libraries/DisplayResults.class.php:4894
 msgid "in query"
@@ -3077,9 +3077,9 @@ msgid "Unknown error in file upload."
 msgstr "Файл юкланаётган вақтда номаълум хатолик юз берди."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Юкланган файл жойини ўзгартиришда хатолик, [doc@faq1_11]\"FAQ 1.11\"[/doc]га "
+"Юкланган файл жойини ўзгартиришда хатолик, [doc@faq1-11]\"FAQ 1.11\"[/doc]га "
 "қаранг"
 
 #: libraries/File.class.php:493
@@ -15272,9 +15272,9 @@ msgstr "Максимал уланишлар сони "
 #~ msgstr "Привилегиялар муваффақиятли қайта юкланди."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
-#~ msgstr "Тахминий бўлиши мумкин. [doc@faq3_11]\"FAQ 3.11\"[/doc]га қаранг"
+#~ msgstr "Тахминий бўлиши мумкин. [doc@faq3-11]\"FAQ 3.11\"[/doc]га қаранг"
 
 #~ msgid "Add a New User"
 #~ msgstr "Янги фойдаланувчи қўшиш"

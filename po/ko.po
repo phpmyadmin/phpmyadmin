@@ -655,10 +655,10 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[doc@faq1_16]FAQ 1.16[/doc]."
+"[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
-"대 파일 크기를 초과했을 수 있습니다. [doc@faq1_16]FAQ 1.16[/doc] 참조."
+"대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
 #: import.php:429
 msgid ""
@@ -2632,7 +2632,7 @@ msgid "Kill"
 msgstr "Kill"
 
 #: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
-msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4894
@@ -2766,9 +2766,9 @@ msgid "Unknown error in file upload."
 msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.class.php:475
-msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1_11]FAQ 1.11[/doc] 참조."
+"업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조."
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -13585,10 +13585,10 @@ msgstr ""
 #~ msgstr "권한을 다시 로딩했습니다."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1_11]FAQ 1.11[/doc] 참조."
+#~ "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조."
 
 #~ msgid "Add a New User"
 #~ msgstr "새 사용자 추가"
