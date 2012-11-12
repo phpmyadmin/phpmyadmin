@@ -359,6 +359,9 @@ Signon authentication mode
   data.
 * More details in the  section.
 
+.. seealso:: :config:option:`$cfg['Servers'][$i]['SignonSession']` :config:option:`$cfg['Servers'][$i]['SignonScript']` :config:option:`$cfg['Servers'][$i]['SignonURL']`
+
+
 .. index:: pair: Config; Authentication mode
 
 Config authentication mode
