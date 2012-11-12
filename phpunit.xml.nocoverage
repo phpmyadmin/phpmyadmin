@@ -3,6 +3,7 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          strict="true"
+         colors="true"
          verbose="true">
 
     <selenium>
