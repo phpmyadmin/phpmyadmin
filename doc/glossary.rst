@@ -93,7 +93,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Foreign_key>
 
-    FPDF (FreePDF)
+    FPDF
       the free PDF library	
 
       .. seealso:: <http://www.fpdf.org/>
