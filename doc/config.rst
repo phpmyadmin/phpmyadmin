@@ -1270,7 +1270,7 @@ Navigation panel setup
     :default: ``'__'``
 
     Defines a string to be used to nest table spaces. This means if you have
-    tables like 'first\_\_second\_\_third' this will be shown as a three-level
+    tables like ``first__second__third`` this will be shown as a three-level
     hierarchy like: first > second > third.  If set to false or empty, the
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
@@ -1691,10 +1691,10 @@ Tabs display settings
     :type: string
     :default: ``'both'``
 
-    If set to ``true``, will display icons instead of text for db and
-    table properties links (like 'Browse', 'Select', 'Insert', ...). Can
-    be set to ``'both'`` if you want icons AND text. When set to
-    ``false``, will only show text.
+    If set to ``true``, will display icons instead of text for db and table
+    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
+    :guilabel:`Insert`, ...). Can be set to ``'both'`` if you want icons AND
+    text. When set to ``false``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
