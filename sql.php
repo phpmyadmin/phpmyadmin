@@ -300,7 +300,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
         );
         $GLOBALS['using_bookmark_message']->addParam($table);
         $GLOBALS['using_bookmark_message']->addMessage(
-            PMA_Util::showDocu('faq6_22')
+            PMA_Util::showDocu('faq', 'faq6-22')
         );
         $sql_query = $book_sql_query;
     } else {

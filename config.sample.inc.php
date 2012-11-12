@@ -4,8 +4,8 @@
  * phpMyAdmin sample configuration, you can use it as base for
  * manual configuration. For easier setup you can use setup/
  *
- * All directives are explained in Documentation.html and on phpMyAdmin
- * wiki <http://wiki.phpmyadmin.net>.
+ * All directives are explained in documentation in the doc/ folder
+ * or at <http://phpmyadmin.readthedocs.org/>.
  *
  * @package PhpMyAdmin
  */
@@ -135,7 +135,7 @@ $cfg['SaveDir'] = '';
 //$cfg['QueryHistoryMax'] = 100;
 
 /*
- * You can find more configuration options in Documentation.html
- * or here: http://wiki.phpmyadmin.net/pma/Config
+ * You can find more configuration options in the documentation
+ * in the doc/ folder or at <http://phpmyadmin.readthedocs.org/>.
  */
 ?>

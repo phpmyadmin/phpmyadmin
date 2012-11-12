@@ -408,7 +408,7 @@ function PMA_sqlQueryFormBookmark()
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
     echo __('Variable');
-    echo PMA_Util::showDocu('faqbookmark');
+    echo PMA_Util::showDocu('faq', 'faqbookmark');
     echo '<input type="text" name="bookmark_variable" class="textfield"'
         .' size="10" />' . "\n";
     echo '</div>' . "\n";

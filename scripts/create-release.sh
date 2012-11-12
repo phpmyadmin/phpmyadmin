@@ -57,9 +57,11 @@ cat <<END
 Please ensure you have incremented rc count or version in the repository :
      - in libraries/Config.class.php PMA_Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
-     - in Documentation.html the 2 lines
+     - in Documentation.html (if exists) the 2 lines
           " <title>phpMyAdmin $version - Documentation</title> "
           " <h1>phpMyAdmin $version Documentation</h1> "
+     - in doc/conf.py (if exists) the line
+          " version = '$version' "
      - in README
 
 Continue (y/n)?
@@ -92,8 +94,11 @@ if ! grep -q "'PMA_VERSION', '$version'" libraries/Config.class.php ; then
     echo "There seems to be wrong version in libraries/Config.class.php!"
     exit 2
 fi
-if ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
+if test -f Documentation.html && ! grep -q "phpMyAdmin $version - Documentation" Documentation.html ; then
     echo "There seems to be wrong version in Documentation.html"
+fi
+if test -f doc/conf.py && ! grep -q "version = '$version'" doc/conf.py ; then
+    echo "There seems to be wrong version in doc/conf.py"
     exit 2
 fi
 if ! grep -q "Version $version\$" README ; then
@@ -104,9 +109,13 @@ fi
 # Cleanup release dir
 LC_ALL=C date -u > RELEASE-DATE-${version}
 
-# Building Documentation.txt
-echo "* Generating Documentation.txt"
-LC_ALL=C w3m -dump Documentation.html > Documentation.txt
+# Building documentation
+echo "* Generating documentation"
+if [ -f doc/conf.py ] ; then
+    LC_ALL=C make -C doc html
+else
+    LC_ALL=C w3m -dump Documentation.html > Documentation.txt
+fi
 
 # Check for gettext support
 if [ -d po ] ; then
@@ -289,14 +298,16 @@ Todo now:
         phpmyadmin-users@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
-    based on Documentation.html.
+    based on documentation.
 
  7. increment rc count or version in the repository :
         - in libraries/Config.class.php PMA_Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
-        - in Documentation.html the 2 lines
+        - in Documentation.html (if it exists) the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
+        - in doc/conf.py (if it exists) the line
+              " version = '2.7.1-dev' "
 
  8. add a group for bug tracking this new version, at
     https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1

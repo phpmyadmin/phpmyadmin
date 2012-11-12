@@ -428,7 +428,7 @@ function PMA_pluginGetOneOption(
                     $doc[2]
                 );
             } elseif (count($doc) == 1) {
-                $ret .= PMA_Util::showDocu($doc[0]);
+                $ret .= PMA_Util::showDocu('faq', $doc[0]);
             } else {
                 $ret .= PMA_Util::showMySQLDocu(
                     $doc[0],

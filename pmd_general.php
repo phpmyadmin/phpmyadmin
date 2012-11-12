@@ -103,7 +103,7 @@ echo '</div>';
         <img title="<?php echo __('Reload'); ?>" alt=""
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/reload.png'); ?>" />
     </a>
-    <a href="Documentation.html#faq6_31" target="documentation" class="M_butt" target="_self">
+    <a href="<?php echo PMA_Util::getDocuLink('faq', 'faq6-31') ?>" target="documentation" class="M_butt" target="_self">
         <img title="<?php echo __('Help'); ?>" alt=""
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/help.png'); ?>" />
     </a>

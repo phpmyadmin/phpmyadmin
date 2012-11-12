@@ -92,7 +92,7 @@ if ($_POST == array() && $_GET == array()) {
     $message = PMA_Message::error(
         __('You probably tried to upload a file that is too large. Please refer to %sdocumentation%s for a workaround for this limit.')
     );
-    $message->addParam('[doc@faq1_16]');
+    $message->addParam('[doc@faq1-16]');
     $message->addParam('[/doc]');
 
     // so we can obtain the message

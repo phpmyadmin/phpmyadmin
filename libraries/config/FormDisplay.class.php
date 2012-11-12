@@ -684,7 +684,10 @@ class FormDisplay
         if ($test == 'Import' || $test == 'Export') {
             return '';
         }
-        return 'Documentation.html#cfg_' . $this->_getOptName($path);
+        return PMA_Util::getDocuLink(
+            'config',
+            'cfg_' .  $this->_getOptName($path)
+        );
     }
 
     /**

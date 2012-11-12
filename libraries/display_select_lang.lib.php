@@ -56,7 +56,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
         $language_title = __('Language')
             . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
         if ($show_doc) {
-            $language_title .= PMA_Util::showDocu('faq7_2');
+            $language_title .= PMA_Util::showDocu('faq', 'faq7-2');
         }
         if ($use_fieldset) {
             $retval .= '<fieldset><legend lang="en" dir="ltr">'

@@ -11,7 +11,6 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * This class tracks changes on databases, tables and views.
- * For more information please see phpMyAdmin/Documentation.html
  *
  * @package PhpMyAdmin
  *
@@ -82,10 +81,10 @@ class PMA_Tracker
         'RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX',
         'CREATE VIEW','ALTER VIEW','DROP VIEW'
     );
-    
-    
+
+
     /**
-     * Initializes settings. See phpMyAdmin/Documentation.html.
+     * Initializes settings.
      *
      * @static
      *
@@ -262,7 +261,7 @@ class PMA_Tracker
         include_once "libraries/plugin_interface.lib.php";
         $export_sql_plugin = PMA_getPlugin(
             "export",
-            "sql",    
+            "sql",
             'libraries/plugins/export/',
             array(
                 'export_type' => $export_type,
@@ -446,7 +445,7 @@ class PMA_Tracker
     static private function _changeTracking($dbname, $tablename,
         $version, $new_state
     ) {
-        
+
         $sql_query = " UPDATE " . self::$pma_table .
         " SET `tracking_active` = '" . $new_state . "' " .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .
