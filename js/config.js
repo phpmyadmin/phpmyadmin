@@ -10,6 +10,13 @@ var defaultValues = {};
 var PMA_messages = {};
 
 /**
+ * Automatic form submission on change.
+ */
+$('.autosubmit').live('change', function(e) {
+    e.target.form.submit();
+});
+
+/**
  * Returns field type
  *
  * @param {Element} field
