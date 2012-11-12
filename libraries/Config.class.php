@@ -381,7 +381,11 @@ class PMA_Config
         // are we on any branch?
         if (strstr($ref_head, '/')) {
             $ref_head = substr(trim($ref_head), 5);
-            $branch = basename($ref_head);
+            if (substr($ref_head, 0, 11) === 'refs/heads/') {
+                $branch = substr($ref_head, 11);
+            } else {
+                $branch = basename($ref_head);
+            }
 
             if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
                 return;
