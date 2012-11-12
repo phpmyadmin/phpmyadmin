@@ -2,4 +2,5 @@
 /_build
 /doctrees
 /html
+/locale
 *.pyc
