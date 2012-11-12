@@ -112,16 +112,16 @@ Server connection settings
     :type: array
     :default: one server array with settings listed bellow
 
-    Since version 1.4.2, phpMyAdmin supports the administration of
-    multiple MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has been added which
-    contains the login information for the different servers. The first
-    :config:option:`$cfg['Servers'][$i]['host']`
-    contains the hostname of the first server, the second :config:option:`$cfg['Servers'][$i]['host']` the hostname of
-    the second server, etc. In :file:`libraries/config.default.php`, there
-    is only one section for server definition, however you can put as many
-    as you need in :file:`config.inc.php`, copy that block or needed parts
-    (you don't have to define all settings, just those you need to
-    change).
+    Since version 1.4.2, phpMyAdmin supports the administration of multiple
+    MySQL servers. Therefore, a :config:option:`$cfg['Servers']`-array has been
+    added which contains the login information for the different servers. The
+    first :config:option:`$cfg['Servers'][$i]['host']` contains the hostname of
+    the first server, the second :config:option:`$cfg['Servers'][$i]['host']`
+    the hostname of the second server, etc. In
+    :file:`libraries/config.default.php`, there is only one section for server
+    definition, however you can put as many as you need in
+    :file:`config.inc.php`, copy that block or needed parts (you don't have to
+    define all settings, just those you need to change).
 
 .. config:option:: $cfg['Servers'][$i]['host']
 
@@ -129,7 +129,7 @@ Server connection settings
     :default: ``'localhost'``
 
     The hostname or :abbr:`IP (Internet Protocol)` address of your $i-th
-    MySQL-server. E.g. localhost.
+    MySQL-server. E.g. ``localhost``.
 
 .. config:option:: $cfg['Servers'][$i]['port']
 
@@ -165,10 +165,10 @@ Server connection settings
     :default: ``'tcp'``
 
     What type connection to use with the MySQL server. Your options are
-    ``'socket'`` and ``'tcp'``. It defaults to 'tcp' as that is nearly
-    guaranteed to be available on all MySQL servers, while sockets are not
-    supported on some platforms. To use the socket mode, your MySQL server
-    must be on the same machine as the Web server.
+    ``'socket'`` and ``'tcp'``. It defaults to tcp as that is nearly guaranteed
+    to be available on all MySQL servers, while sockets are not supported on
+    some platforms. To use the socket mode, your MySQL server must be on the
+    same machine as the Web server.
 
 .. config:option:: $cfg['Servers'][$i]['extension']
 
@@ -176,10 +176,14 @@ Server connection settings
     :default: ``'mysqli'``
 
     What php MySQL extension to use for the connection. Valid options are:
-    ``*mysql*`` : The classic MySQL extension. ``*mysqli*`` : The improved
-    MySQL extension. This extension became available with PHP 5.0.0 and is
-    the recommended way to connect to a server running MySQL 4.1.x or
-    newer.
+
+    ``mysql``
+        The classic MySQL extension. 
+
+    ``mysqli*`` 
+        The improved MySQL extension. This extension became available with PHP
+        5.0.0 and is the recommended way to connect to a server running MySQL
+        4.1.x or newer.
 
 .. config:option:: $cfg['Servers'][$i]['compress']
 
@@ -760,7 +764,7 @@ Server connection settings
     :default: true
 
     Whether to allow root access. This is just a shortcut for the
-    AllowDeny rules below.
+    :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` below.
 
 .. config:option:: $cfg['Servers'][$i]['AllowNoPassword']
 
@@ -1221,8 +1225,8 @@ Cookie authentication options
     :default: false
 
     If enabled, allows you to log in to arbitrary servers using cookie
-    auth and permits to specify servers of your choice in the Synchronize
-    dialog.  
+    authentication and permits to specify servers of your choice in the
+    Synchronize dialog.  
 
     .. note::
        
@@ -1374,8 +1378,12 @@ Navigation panel setup
 
     Defines the tab displayed by default when clicking the small icon next
     to each table name in the navigation panel. Possible values:
-    "tbl\_structure.php", "tbl\_sql.php", "tbl\_select.php",
-    "tbl\_change.php" or "sql.php".
+
+    * ``tbl_structure.php``
+    * ``tbl_sql.php``
+    * ``tbl_select.php``
+    * ``tbl_change.php``
+    * ``sql.php``
 
 Main panel
 ----------
@@ -1419,7 +1427,7 @@ Main panel
     the starting main (right) frame. This setting does not check MySQL commands
     entered directly. 
     
-    Please note that to block the usage of phpinfo() in scripts, you have to
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
     put this in your :file:`php.ini`:
 
     .. code-block:: ini
@@ -2698,7 +2706,7 @@ Debugging settings
 
 .. warning::
 
-    These settings might have huge effect on performace or security.
+    These settings might have huge effect on performance or security.
 
 .. config:option:: $cfg['DBG']
 
