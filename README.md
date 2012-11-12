@@ -1,6 +1,8 @@
 phpMyAdmin - Readme
 ===================
 
+Master: [![Build Status](https://secure.travis-ci.org/phpmyadmin/phpmyadmin.png?branch=master)](https://travis-ci.org/phpmyadmin/phpmyadmin)
+
 Version 4.0.0-dev
 
 A set of PHP-scripts to manage MySQL over the web.
