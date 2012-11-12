@@ -1039,19 +1039,6 @@ Generic settings
     are longer than 1000 characters. Also, if a query's length exceeds this
     limit, this query is not saved in the history.
 
-.. config:option:: $cfg['OBGzip']
-
-    :type: string/boolean
-    :default: ``'auto'``
-
-    Defines whether to use GZip output buffering for increased speed in
-    :abbr:`HTTP (HyperText Transfer Protocol)` transfers. Set to
-    true/false for enabling/disabling. When set to 'auto' (string),
-    phpMyAdmin tries to enable output buffering and will automatically
-    disable it if your browser has some problems with buffering. IE6 with
-    a certain patch is known to cause data corruption when having enabled
-    buffering.
-
 .. config:option:: $cfg['PersistentConnections']
 
     :type: boolean
@@ -1867,6 +1854,19 @@ Languages
 
 Web server settings
 -------------------
+
+.. config:option:: $cfg['OBGzip']
+
+    :type: string/boolean
+    :default: ``'auto'``
+
+    Defines whether to use GZip output buffering for increased speed in
+    :abbr:`HTTP (HyperText Transfer Protocol)` transfers. Set to
+    true/false for enabling/disabling. When set to 'auto' (string),
+    phpMyAdmin tries to enable output buffering and will automatically
+    disable it if your browser has some problems with buffering. IE6 with
+    a certain patch is known to cause data corruption when having enabled
+    buffering.
 
 .. config:option:: $cfg['TrustedProxies']
 
