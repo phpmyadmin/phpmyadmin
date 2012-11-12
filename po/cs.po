@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-20 16:36+0200\n"
+"PO-Revision-Date: 2012-11-12 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/3-5/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -3322,13 +3322,13 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Definuje, který typ ovládacích prvků má být použit při editaci polí typu "
-"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje omezit délku vstupu, [kbd]"
-"textová oblast[/kbd] - umožní použít odřádkování"
+"Definuje, který typ ovládacích prvků má být použit při úpravách polí typu "
+"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
+"[kbd]textarea[/kbd] - umožní použít odřádkování"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr "Editace polí typu CHAR"
+msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4677,8 +4677,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
-"Nechte prázné pro vypnutí návrháře, výchozí nastavení: [kbd]"
-"pma_designer_coords[/kbd]"
+"Nechte prázdné pro vypnutí návrháře, výchozí nastavení: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -4717,8 +4717,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
-"Nechte prázné pro vypnutí SQL historie, výchozí hodnota [kbd]pma_history[/"
-"kbd]"
+"Nechte prázdné pro vypnutí SQL historie, výchozí hodnota "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -4810,7 +4810,7 @@ msgstr "Jméno databáze"
 #: libraries/config/messages.inc.php:414
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Port na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu"
+"Port na kterém poslouchá MySQL server, ponechte prázdné pro výchozí hodnotu"
 
 #: libraries/config/messages.inc.php:415
 msgid "Server port"
@@ -4867,7 +4867,8 @@ msgstr "URL pro přihlášení"
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Socket na kterém poslouchá MySQL server, nechte prázné pro výchozí hodnotu"
+"Socket na kterém poslouchá MySQL server, ponechte prázdné pro výchozí "
+"hodnotu"
 
 #: libraries/config/messages.inc.php:426
 msgid "Server socket"
@@ -5016,7 +5017,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"Přívětivý popis tohoto serveru. Pokud necháte prázné, zobrazí se jeho jméno."
+"Přívětivý popis tohoto serveru. Pokud necháte prázdné, zobrazí se jeho "
+"jméno."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
@@ -5215,7 +5217,7 @@ msgid ""
 "possible) or keep the text field empty"
 msgstr ""
 "Navrhne jméno nové databáze ve formuláři pro vytváření databáze (pokud je to "
-"možné) nebo ponechá pole prázné"
+"možné) nebo ponechá pole prázdné"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suggest new database name"
