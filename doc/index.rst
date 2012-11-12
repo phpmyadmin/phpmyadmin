@@ -18,6 +18,7 @@ Contents:
     transformations
     faq
     developers
+    vendors
     copyright
     credits
     glossary
