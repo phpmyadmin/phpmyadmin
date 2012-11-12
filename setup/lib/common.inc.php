@@ -19,6 +19,7 @@ if (!file_exists('./libraries/common.inc.php')) {
 }
 
 require_once './libraries/common.inc.php';
+require_once './libraries/Util.class.php';
 require_once './libraries/config/config_functions.lib.php';
 require_once './libraries/config/messages.inc.php';
 require_once './libraries/config/ConfigFile.class.php';
