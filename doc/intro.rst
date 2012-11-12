@@ -10,8 +10,10 @@ database. It's up to you to look up the appropriate part in the MySQL
 manual.
 
 
+Supported features
+------------------
+
 Currently phpMyAdmin can:
-+++++++++++++++++++++++++
 
 * browse and drop databases, tables, views, columns and indexes
 * display multiple results sets through stored procedures or queries
@@ -51,8 +53,8 @@ Currently phpMyAdmin can:
   servers see :ref:`faq9_1`
 
 
-A word about users:
--------------------
+A word about users
+------------------
 
 Many people have difficulty understanding the concept of user
 management with regards to phpMyAdmin. When a user logs in to
