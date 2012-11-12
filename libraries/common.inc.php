@@ -372,7 +372,6 @@ $goto_whitelist = array(
     'db_printview.php',
     'db_search.php',
     'db_routines.php',
-    //'Documentation.html',
     'export.php',
     'import.php',
     //'index.php',
