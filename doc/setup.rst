@@ -119,7 +119,7 @@ On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
 
-Next, open `setup/ <setup/>`_ in your browser. Note that **changes are
+Next, open ``setup/`` in your browser. Note that **changes are
 not saved to disk until explicitly choose ``Save``** from the
 *Configuration* area of the screen. Normally the script saves the new
 :file:`config.inc.php` to the ``config/`` directory, but if the webserver does
@@ -410,3 +410,4 @@ information. If you want to purchase a Swekey please visit
 `http://phpmyadmin.net/auth\_key <http://phpmyadmin.net/auth_key>`_
 since this link provides funding for phpMyAdmin.
 
+.. seealso:: :config:option:`$cfg['Servers'][$i]['auth_swekey_config']`
