@@ -23,13 +23,8 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 
     function testShowDocu()
     {
-        $anchor = "relation";
-        $expected = '<a href="Documentation.html#' . $anchor . '" target="documentation">'
-                  . '<img src="themes/dot.gif" title="' . __('Documentation') . '" '
-                  . 'alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
-
-        $this->assertEquals(
-            $expected, PMA_Util::showDocu($anchor)
+        $this->assertContains(
+            'page.html#anchor', PMA_Util::showDocu('page', 'anchor')
         );
 
     }

@@ -14,7 +14,7 @@
  * phpMyAdmin default configuration, you can copy values from here to your
  * config.inc.php
  *
- * All directives are explained in Documentation.html
+ * All directives are explained in the documentation
  *
  * @package PhpMyAdmin
  */

@@ -151,7 +151,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     <?php
 } else { // no plugin available
     ?>
-                $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq2_9'); ?>');
+                $('#upload_form_status_info').html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Please be patient, the file is being uploaded. Details about the upload are not available.'), false) . PMA_Util::showDocu('faq', 'faq2_9'); ?>');
                         $('#upload_form_status').css("display", "none");
     <?php
 } // else

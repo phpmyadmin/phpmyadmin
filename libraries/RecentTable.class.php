@@ -14,7 +14,7 @@ require_once './libraries/Message.class.php';
  * Handles the recently used tables.
  *
  * @TODO Change the release version in table pma_recent
- * (#recent in Documentation.html)
+ * (#recent in documentation)
  *
  * @package PhpMyAdmin
  */

@@ -282,8 +282,9 @@ $msg->addParam(
 );
 $msg->addParam('</a>', false);
 $msg->addParam($trans);
+$doc_url = PMA_Util::getDocuLink('faq', 'faq6-27');
 $msg->addParam(
-    '<a href="Documentation.html#faq6_27" target="documentation">',
+    '<a href="'. $doc_url . '" target="documentation">',
     false
 );
 $msg->addParam('</a>', false);
