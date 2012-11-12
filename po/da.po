@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-11 08:58-0500\n"
-"PO-Revision-Date: 2012-11-05 10:20+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2012-11-12 07:34+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -1606,12 +1605,12 @@ msgstr "Felj i udførsel af forespørgsel"
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Fejlkode: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Fejltekst: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -1908,15 +1907,14 @@ msgstr ""
 "sletning fungerer måske ikke, efter at data er gemt."
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid ""
 "You can also edit most columns<br />by double-clicking directly on their "
 "content."
 msgstr ""
-"Du kan også redigere de fleste kolonner<br />ved at klikke direkte på deres "
-"indhold."
+"Du kan også redigere de fleste kolonner<br />ved at dobbelt-klikke direkte i "
+"deres indhold."
 
 #: js/messages.php:365
 msgid ""
@@ -1958,22 +1956,20 @@ msgid "More"
 msgstr "Mere"
 
 #: js/messages.php:384
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Vis alle"
+msgstr "Vis panel"
 
 #: js/messages.php:385
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Skjul indekser"
+msgstr "Skjul panel"
 
 #: js/messages.php:388
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Den valgte bruger blev ikke fundet i privilegietabellen."
+msgstr ""
+"Den forespurgte side blev ikke fundet i historikken. Den kan være udløbet."
 
 #: js/messages.php:391 setup/lib/index.lib.php:188
 #, php-format
@@ -3823,11 +3819,11 @@ msgstr "Højre"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Dobbelt-klik"
 
 #: libraries/config.values.php:71 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:96
@@ -4579,16 +4575,14 @@ msgid "Databases display options"
 msgstr "Indstillinger for visning af databaser"
 
 #: libraries/config/messages.inc.php:179 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Navigationsramme"
+msgstr "Navigationspanel"
 
 #: libraries/config/messages.inc.php:180
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Tilpas navigationsrammens udseende"
+msgstr "Tilpas navigationspanelets udseende"
 
 #: libraries/config/messages.inc.php:181 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4604,10 +4598,9 @@ msgid "Tables display options"
 msgstr "Indstillinger for visning af tabeller"
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Hovedramme"
+msgstr "Hovedpanel"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
@@ -4721,16 +4714,14 @@ msgid "Customize import defaults"
 msgstr "Tilpas import-indstillinger"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Tilpas navigations-rammen"
+msgstr "Tilpas navigationspanelet"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Tilpas hoved-rammen"
+msgstr "Tilpas hovedpanelet"
 
 #: libraries/config/messages.inc.php:213 libraries/config/messages.inc.php:218
 #: setup/frames/menu.inc.php:18
@@ -5012,25 +5003,23 @@ msgid "Users cannot set a higher value"
 msgstr "Brugere kan ikke sætte en højere værdi"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Maksimalt antal tabeller vist i tabellisten"
+msgstr "Maksimalt antal databaser som vises i listen med databaser"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum databases"
 msgstr "Maksimalt antal databaser"
 
 #: libraries/config/messages.inc.php:288
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Antallet af joins som lavede en fuld scan af den første tabel."
+msgstr "Antallet af elementer som kan vises i hver side for navigationstræet"
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maksimum for elementer i gren"
 
 #: libraries/config/messages.inc.php:290
 msgid ""
@@ -5079,20 +5068,18 @@ msgid "Memory limit"
 msgstr "Hukommelsesgrænse"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Vis logoet i venstre ramme"
+msgstr "Vis logoet i navigationspanel"
 
 #: libraries/config/messages.inc.php:300
 msgid "Display logo"
 msgstr "Vis logo"
 
 #: libraries/config/messages.inc.php:301
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "URL som logoet i navigations-rammen vil pege på"
+msgstr "URL som logoet i navigationspanelet vil pege på"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link URL"
@@ -5111,10 +5098,9 @@ msgid "Logo link target"
 msgstr "Logo link target"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Vis servervalg øverst i venstre ramme"
+msgstr "Vis servervalg øverst i venstre panel"
 
 #: libraries/config/messages.inc.php:306
 msgid "Display servers selection"
@@ -5125,18 +5111,18 @@ msgid "Target for quick access icon"
 msgstr "Mål for hurtigt valg ikon"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Mindste antal tabeller der skal vises i tabel-filterboksen"
+msgstr ""
+"Angiver det mindste antal af elementer (tabeller, visninger, rutiner og "
+"begivenheder), der skal indgå for at vise en filterboks."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Mindste antal tabeller der skal vises i tabel-filterboksen"
+msgstr "Det mindste antal af elementer, der skal til for at vise filterboksen"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
