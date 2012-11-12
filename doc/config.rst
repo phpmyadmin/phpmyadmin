@@ -104,22 +104,6 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
-.. config:option:: $cfg['blowfish_secret']
-
-    :type: string
-    :default: ``''``
-
-    The "cookie" auth\_type uses blowfish algorithm to encrypt the
-    password. If you are using the "cookie" auth\_type, enter here a
-    random passphrase of your choice. It will be used internally by the
-    blowfish algorithm: you won’t be prompted for this passphrase. There
-    is no maximum length for this secret. 
-
-    Since version 3.1.0 phpMyAdmin
-    can generate this on the fly, but it makes a bit weaker security as
-    this generated secret is stored in session and furthermore it makes
-    impossible to recall user name from cookie.
-
 Server connection settings
 --------------------------
 
@@ -1134,7 +1118,7 @@ Generic settings
 
     Defines whether normal users (non-administrator) are allowed to delete
     their own database or not. If set as false, the link :guilabel:`Drop Database`
-    will not be shown, and even a "DROP DATABASE mydatabase" will be
+    will not be shown, and even a ``DROP DATABASE mydatabase`` will be
     rejected. Quite practical for :abbr:`ISP (Internet service
     provider)`'s with many customers. 
 
@@ -1153,6 +1137,40 @@ Generic settings
 
     Whether a warning ("Are your really sure...") should be displayed when
     you're about to lose data.
+
+.. config:option:: $cfg['UseDbSearch']
+
+    :type: boolean
+    :default: true
+
+    Define whether the "search string inside database" is enabled or not.
+
+.. config:option:: $cfg['IgnoreMultiSubmitErrors']
+
+    :type: boolean
+    :default: false
+
+    Define whether phpMyAdmin will continue executing a multi-query
+    statement if one of the queries fails. Default is to abort execution.
+
+Cookie authentication options
+-----------------------------
+
+.. config:option:: $cfg['blowfish_secret']
+
+    :type: string
+    :default: ``''``
+
+    The "cookie" auth\_type uses blowfish algorithm to encrypt the
+    password. If you are using the "cookie" auth\_type, enter here a
+    random passphrase of your choice. It will be used internally by the
+    blowfish algorithm: you won’t be prompted for this passphrase. There
+    is no maximum length for this secret. 
+
+    Since version 3.1.0 phpMyAdmin
+    can generate this on the fly, but it makes a bit weaker security as
+    this generated secret is stored in session and furthermore it makes
+    impossible to recall user name from cookie.
 
 .. config:option:: $cfg['LoginCookieRecall']
 
@@ -1195,21 +1213,6 @@ Generic settings
     If enabled (default), logout deletes cookies for all servers,
     otherwise only for current one. Setting this to false makes it easy to
     forget to log out from other server, when you are using more of them.
-
-.. config:option:: $cfg['UseDbSearch']
-
-    :type: boolean
-    :default: true
-
-    Define whether the "search string inside database" is enabled or not.
-
-.. config:option:: $cfg['IgnoreMultiSubmitErrors']
-
-    :type: boolean
-    :default: false
-
-    Define whether phpMyAdmin will continue executing a multi-query
-    statement if one of the queries fails. Default is to abort execution.
 
 .. _AllowArbitraryServer:
 .. config:option:: $cfg['AllowArbitraryServer']
@@ -1270,7 +1273,7 @@ Navigation panel setup
     :default: ``'__'``
 
     Defines a string to be used to nest table spaces. This means if you have
-    tables like 'first\_\_second\_\_third' this will be shown as a three-level
+    tables like ``first__second__third`` this will be shown as a three-level
     hierarchy like: first > second > third.  If set to false or empty, the
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
@@ -1411,10 +1414,10 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display the "PHP information" and "Change password
-    " links and form for creating database or not at the starting main
-    (right) frame. This setting does not check MySQL commands entered
-    directly. 
+    Defines whether to display the :guilabel:`PHP information` and
+    :guilabel:`Change password` links and form for creating database or not at
+    the starting main (right) frame. This setting does not check MySQL commands
+    entered directly. 
     
     Please note that to block the usage of phpinfo() in scripts, you have to
     put this in your :file:`php.ini`:
@@ -1423,8 +1426,8 @@ Main panel
 
         disable_functions = phpinfo()
 
-    Also note that enabling the "Change password " link has no effect with
-    "config" authentication mode: because of the hard coded password value
+    Also note that enabling the :guilabel:`Change password` link has no effect
+    with config authentication mode: because of the hard coded password value
     in the configuration file, end users can't be allowed to change their
     passwords.
 
@@ -1691,10 +1694,10 @@ Tabs display settings
     :type: string
     :default: ``'both'``
 
-    If set to ``true``, will display icons instead of text for db and
-    table properties links (like 'Browse', 'Select', 'Insert', ...). Can
-    be set to ``'both'`` if you want icons AND text. When set to
-    ``false``, will only show text.
+    If set to ``true``, will display icons instead of text for db and table
+    properties links (like :guilabel:`Browse`, :guilabel:`Select`,
+    :guilabel:`Insert`, ...). Can be set to ``'both'`` if you want icons AND
+    text. When set to ``false``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
 
