@@ -569,8 +569,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
 
     
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
-    ProxyPassReverse /mirror/foo/
-    http://backend.example.com/%7Euser/phpmyadmin
+    ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
 
 .. seealso:: <http://httpd.apache.org/docs/2.2/mod/mod_proxy.html>
@@ -1979,9 +1978,7 @@ logs. Currently there are two variables available:
 
 .. code-block:: apache
 
-    
-    LogFormat "%h %l %u %t \"%r\" %>s %b \
-    \"%{Referer}i\" \"%{User-Agent}i\" %{userID}n %{userStatus}n"   pma_combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %{userID}n %{userStatus}n"   pma_combined
 
 You can then use any log analyzing tools to detect possible break-in
 attempts.
