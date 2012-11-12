@@ -1,5 +1,5 @@
-phpMyAdmin - hints for distributing phpMyAdmin
-==============================================
+Distributing and packaging phpMyAdmin
+=====================================
 
 This document is intended to give advices to people who want to
 redistribute phpMyAdmin inside other software package such as Linux
@@ -7,12 +7,12 @@ distribution or some all in one package including web server and MySQL
 server.
 
 Generally you can customize some basic aspects (paths to some files and
-behavior) in libraries/vendor_config.php.
+behavior) in :file:`libraries/vendor_config.php`.
 
-For example if you want setup script to generate config file in var,
-change SETUP_CONFIG_FILE to /var/lib/phpmyadmin/config.inc.php and you
+For example if you want setup script to generate config file in var, change
+``SETUP_CONFIG_FILE`` to :file:`/var/lib/phpmyadmin/config.inc.php` and you
 will also probably want to skip directory writable check, so set
-SETUP_DIR_WRITABLE to false.
+``SETUP_DIR_WRITABLE`` to false.
 
 External libraries
 ------------------
@@ -32,4 +32,3 @@ libraries/php-gettext
 libraries/tcpdf 
     tcpdf library, stripped down of not needed files 
 
-# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
