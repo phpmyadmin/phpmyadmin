@@ -467,7 +467,7 @@ Server connection settings
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the relation table name in :config:option:`$cfg['Servers'][$i]['relation']`
     * now as normal user open phpMyAdmin and for each one of your tables
-      where you want to use this feature, click "Structure/Relation view/"
+      where you want to use this feature, click :guilabel:`Structure/Relation view/`
       and choose foreign columns.
 
     .. note:: 
