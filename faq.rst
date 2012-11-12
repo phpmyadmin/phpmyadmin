@@ -1378,7 +1378,7 @@ look for the word "upload" in this document.
 ---------------------------------------------------------
 
 Here is an example with the tables persons, towns and countries, all
-located in the database mydb. If you don't have a ``pma_relation``
+located in the database mydb. If you don't have a ``pma__relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 
@@ -1441,7 +1441,7 @@ Then test like this:
 6.7 How can I use the "display column" feature?
 -----------------------------------------------
 
-Starting from the previous example, create the pma\_table\_info as
+Starting from the previous example, create the ``pma__table_info`` as
 explained in the configuration section, then browse your persons
 table, and move the mouse over a town code or country code.  See also
 :ref:`faq6_21` for an additional feature that "display column"

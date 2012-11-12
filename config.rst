@@ -490,7 +490,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['table\_info']` (e.g.
-      'pma\_table\_info')
+      ``pma__table_info``)
     * then for each table where you want to use this feature, click
       "Structure/Relation view/Choose column to display" to choose the
       column.
@@ -552,7 +552,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['column\_info']` (e.g.
-      'pma\_column\_info')
+      ``pma__column_info``)
     * to update your PRE-2.5.0 Column\_comments Table use this:  and
       remember that the Variable in :file:`config.inc.php` has been renamed from
       :config:option:`$cfg['Servers'][$i]['column\_comments']` to
@@ -560,7 +560,7 @@ Server connection settings
 
       .. code-block:: mysql
 
-           ALTER TABLE `pma_column_comments`
+           ALTER TABLE `pma__column_comments`
            ADD `mimetype` VARCHAR( 255 ) NOT NULL,
            ADD `transformation` VARCHAR( 255 ) NOT NULL,
            ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
@@ -588,7 +588,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['history']` (e.g.
-      'pma\_history')
+      ``pma__history``)
 
 .. _recent:
 .. config:option:: $cfg['Servers'][$i]['recent']
@@ -611,7 +611,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['recent']` (e.g.
-      'pma\_recent')
+      ``pma__recent``)
 
 .. _table_uiprefs:
 .. config:option:: $cfg['Servers'][$i]['table_uiprefs']
@@ -629,7 +629,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['table\_uiprefs']` (e.g.
-      'pma\_table\_uiprefs')
+      ``pma__table_uiprefs``)
 
 
 .. _tracking:
@@ -662,7 +662,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['tracking']` (e.g.
-      'pma\_tracking')
+      ``pma__tracking``)
 
 
 .. _tracking2:
@@ -752,7 +752,7 @@ Server connection settings
 
     * set up :config:option:`$cfg['Servers'][$i]['pmadb']` and the phpMyAdmin configuration storage
     * put the table name in :config:option:`$cfg['Servers'][$i]['designer\_coords']`
-      (e.g. 'pma\_designer\_coords')
+      (e.g. ``pma__designer_coords``)
 
 
 
