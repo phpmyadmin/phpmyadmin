@@ -76,6 +76,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 3.5.5.0 (not yet released)
 - bug #3563824 [export] Support Apache's mod_deflate
 - bug #3585523 [interface] Inline query editing broken after row update
+- bug #3586389 [setup] Cannot switch language in /setup
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
