@@ -2614,7 +2614,7 @@ SQL parser settings
     * **comment** Applies to all comment sub-classes
     * **comment\_mysql** Comments as ``"#...\n"``
     * **comment\_ansi** Comments as ``"-- ...\n"``
-    * **comment\_c** Comments as ``"/\*...\*/"``
+    * **comment\_c** Comments as ``"/*...*/"``
     * **digit** Applies to all digit sub-classes
     * **digit\_hex** Hexadecimal numbers
     * **digit\_integer** Integer numbers

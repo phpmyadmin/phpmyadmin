@@ -494,7 +494,7 @@ Suhosin configuration might lead to malfunction in some cases and it
 can not be fully avoided as phpMyAdmin is kind of application which
 needs to transfer big amounts of columns in single HTTP request, what
 is something what Suhosin tries to prevent. Generally all
-``suhosin.request.\*``, ``suhosin.post.\*`` and ``suhosin.get.\*``
+``suhosin.request.*``, ``suhosin.post.*`` and ``suhosin.get.*``
 directives can have negative effect on phpMyAdmin usability. You can
 always find in your error logs which limit did cause dropping of
 variable, so you can diagnose the problem and adjust matching
