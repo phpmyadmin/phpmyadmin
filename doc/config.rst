@@ -35,7 +35,7 @@ Basic settings
 
     Sets here the complete :abbr:`URL (Uniform Resource Locator)` (with
     full path) to your phpMyAdmin installation's directory. E.g.
-    ``http://www.your_web.net/path_to_your_phpMyAdmin_directory/``.
+    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.
     Note also that the :abbr:`URL (Uniform Resource Locator)` on some web
     servers are case–sensitive. Don’t forget the trailing slash at the
     end. 
