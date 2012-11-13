@@ -14,7 +14,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 ?>
 .CodeMirror {
-  font-size: 140%;
+  font-size: 100%;
   font-family: monospace;
   background: #fff;
   border: 1px solid #000;
