@@ -147,6 +147,9 @@ rm -rf PMAStandard
 # Testsuite setup
 rm -f build.xml phpunit.xml.dist
 
+# Remove readme for github
+rm -f README.rst
+
 # Remove git metadata
 rm -rf .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
