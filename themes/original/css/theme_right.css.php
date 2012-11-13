@@ -2203,7 +2203,7 @@ fieldset .disabled-field td {
 }
 
 .CodeMirror {
-  font-size: 140%;
+  font-size: 100%;
   font-family: monospace;
   background: white;
   border: 1px solid black;
