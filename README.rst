@@ -8,9 +8,13 @@ http://www.phpmyadmin.net/
 Status
 ------
 
+Continuous integration:
+
 .. image:: https://secure.travis-ci.org/phpmyadmin/phpmyadmin.png?branch=master
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
+
+Translations:
 
 .. image:: https://l10n.cihar.com/widgets/phpmyadmin/287x66/white/
     :alt: Translation status
