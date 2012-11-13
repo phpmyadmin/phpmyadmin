@@ -5,7 +5,7 @@
  * manual configuration. For easier setup you can use setup/
  *
  * All directives are explained in documentation in the doc/ folder
- * or at <http://phpmyadmin.readthedocs.org/>.
+ * or at <http://docs.phpmyadmin.net/>.
  *
  * @package PhpMyAdmin
  */
@@ -136,6 +136,6 @@ $cfg['SaveDir'] = '';
 
 /*
  * You can find more configuration options in the documentation
- * in the doc/ folder or at <http://phpmyadmin.readthedocs.org/>.
+ * in the doc/ folder or at <http://docs.phpmyadmin.net/>.
  */
 ?>
