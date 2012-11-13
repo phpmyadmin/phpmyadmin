@@ -1234,23 +1234,6 @@ Cookie authentication options
         behind the firewall where your :abbr:`HTTP (HyperText Transfer Protocol)`
         server is placed.
 
-Error handling
---------------
-
-.. config:option:: $cfg['Error_Handler']['display']
-
-    :type: boolean
-    :default: false
-
-    Whether to display errors from PHP or not.
-
-.. config:option:: $cfg['Error_Handler']['gather']
-
-    :type: boolean
-    :default: false
-
-    Whether to gather errors from PHP or not.
- 
 Navigation panel setup
 ----------------------
 
@@ -1572,35 +1555,6 @@ Editing mode
 
     Defines whether or not type fields should be initially displayed in
     edit/insert mode. The user can toggle this setting from the interface.
-
-.. config:option:: $cfg['CharEditing']
-
-    :type: string
-    :default: ``'input'``
-
-    Defines which type of editing controls should be used for CHAR and
-    VARCHAR columns. Possible values are:
-
-    * input - this allows to limit size of text to size of columns in MySQL,
-      but has problems with newlines in columns
-    * textarea - no problems with newlines in columns, but also no length
-      limitations
-
-.. config:option:: $cfg['MinSizeForInputField']
-
-    :type: integer
-    :default: 4
-
-    Defines the minimum size for input fields generated for CHAR and
-    VARCHAR columns.
-
-.. config:option:: $cfg['MaxSizeForInputField']
-
-    :type: integer
-    :default: 60
-
-    Defines the maximum size for input fields generated for CHAR and
-    VARCHAR columns.
 
 .. config:option:: $cfg['InsertRows']
 
@@ -2086,49 +2040,6 @@ Design customization
 
     Whether to activate the browse marker or not.
 
-.. config:option:: $cfg['TextareaCols']
-
-    :type: integer
-    :default: 40
-
-.. config:option:: $cfg['TextareaRows']
-
-    :type: integer
-    :default: 15
-
-.. config:option:: $cfg['CharTextareaCols']
-
-    :type: integer
-    :default: 40
-
-.. config:option:: $cfg['CharTextareaRows']
-
-    :type: integer
-    :default: 2
-
-    Number of columns and rows for the textareas. This value will be
-    emphasized (\*2) for :abbr:`SQL (structured query language)` query
-    textareas and (\*1.25) for :abbr:`SQL (structured query language)`
-    textareas inside the query window.
-
-    The Char\* values are used for CHAR
-    and VARCHAR editing (if configured via :config:option:`$cfg['CharEditing']`).
-
-.. config:option:: $cfg['LongtextDoubleTextarea']
-
-    :type: boolean
-    :default: true
-
-    Defines whether textarea for LONGTEXT columns should have double size.
-
-.. config:option:: $cfg['TextareaAutoSelect']
-
-    :type: boolean
-    :default: false
-
-    Defines if the whole textarea of the query box will be selected on
-    click.
-
 .. config:option:: $cfg['LimitChars']
 
     :type: integer
@@ -2195,6 +2106,82 @@ Design customization
     comments are displayed using a CSS-formatted dashed-line below the
     name of the column. The comment is shown as a tool-tip for that
     column.
+
+Text fields
+-----------
+
+.. config:option:: $cfg['CharEditing']
+
+    :type: string
+    :default: ``'input'``
+
+    Defines which type of editing controls should be used for CHAR and
+    VARCHAR columns. Possible values are:
+
+    * input - this allows to limit size of text to size of columns in MySQL,
+      but has problems with newlines in columns
+    * textarea - no problems with newlines in columns, but also no length
+      limitations
+
+.. config:option:: $cfg['MinSizeForInputField']
+
+    :type: integer
+    :default: 4
+
+    Defines the minimum size for input fields generated for CHAR and
+    VARCHAR columns.
+
+.. config:option:: $cfg['MaxSizeForInputField']
+
+    :type: integer
+    :default: 60
+
+    Defines the maximum size for input fields generated for CHAR and
+    VARCHAR columns.
+
+.. config:option:: $cfg['TextareaCols']
+
+    :type: integer
+    :default: 40
+
+.. config:option:: $cfg['TextareaRows']
+
+    :type: integer
+    :default: 15
+
+.. config:option:: $cfg['CharTextareaCols']
+
+    :type: integer
+    :default: 40
+
+.. config:option:: $cfg['CharTextareaRows']
+
+    :type: integer
+    :default: 2
+
+    Number of columns and rows for the textareas. This value will be
+    emphasized (\*2) for :abbr:`SQL (structured query language)` query
+    textareas and (\*1.25) for :abbr:`SQL (structured query language)`
+    textareas inside the query window.
+
+    The Char\* values are used for CHAR
+    and VARCHAR editing (if configured via :config:option:`$cfg['CharEditing']`).
+
+.. config:option:: $cfg['LongtextDoubleTextarea']
+
+    :type: boolean
+    :default: true
+
+    Defines whether textarea for LONGTEXT columns should have double size.
+
+.. config:option:: $cfg['TextareaAutoSelect']
+
+    :type: boolean
+    :default: false
+
+    Defines if the whole textarea of the query box will be selected on
+    click.
+
 
 SQL query box settings
 ----------------------
@@ -2488,8 +2475,8 @@ Various display setting
     Activates in the user preferences a tab containing options for
     developers of phpMyAdmin.
 
-Window title settings
----------------------
+Page titles
+-----------
 
 .. config:option:: $cfg['TitleTable']
 
@@ -2701,8 +2688,8 @@ MySQL settings
     for first timestamp column in table.
 
 
-Debugging settings
-------------------
+Developer
+---------
 
 .. warning::
 
@@ -2720,3 +2707,18 @@ Debugging settings
 
     Enable logging queries and execution times to be
     displayed in the bottom of main page (right frame).
+
+.. config:option:: $cfg['Error_Handler']['display']
+
+    :type: boolean
+    :default: false
+
+    Whether to display errors from PHP or not.
+
+.. config:option:: $cfg['Error_Handler']['gather']
+
+    :type: boolean
+    :default: false
+
+    Whether to gather errors from PHP or not.
+ 
