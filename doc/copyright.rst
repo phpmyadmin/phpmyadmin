@@ -5,7 +5,6 @@ Copyright
 
 .. code-block:: none
 
-    
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
     Copyright (C) 2001-2012 Marc Delisle <marc_at_infomarc.info>
         Olivier Müller <om_at_omnis.ch>
@@ -29,4 +28,3 @@ General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see `http://www.gnu.org/licenses/
 <http://www.gnu.org/licenses/>`_.
-
