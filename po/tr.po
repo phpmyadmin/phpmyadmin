@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-03 15:27+0200\n"
+"PO-Revision-Date: 2012-11-13 07:55+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -4957,8 +4957,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Veritabanı oluşturulduğunda günlüğe ilk satır olarak DROP DATABASE IF EXISTS "
-"ifadesi eklenecek."
+"Bir veritabanı oluşturulduğunda günlüğe ilk satır olarak DROP DATABASE IF "
+"EXISTS ifadesi eklenecekse."
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
@@ -4969,8 +4969,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Tablo oluşturulduğunda günlüğe ilk satır olarak DROP TABLE IF EXISTS ifadesi "
-"eklenecek."
+"Bir tablo oluşturulduğunda günlüğe ilk satır olarak DROP TABLE IF EXISTS "
+"ifadesi eklenecekse."
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP TABLE"
@@ -4981,8 +4981,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Görünüm oluşturulduğunda gerekirse günlüğe ilk satır olarak DROP VIEW IF "
-"EXISTS ifadesi eklenecek."
+"Bir görünüm oluşturulduğunda günlüğe ilk satır olarak DROP VIEW IF EXISTS "
+"ifadesi eklenecekse."
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP VIEW"
@@ -4991,7 +4991,7 @@ msgstr "DROP VIEW ifadesi ekle"
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Yeni sürümler için otomatik oluşturma kullanan ifade listesini tanımlar."
+"Yeni sürümler için otomatik oluşturma kullanan ifadeler listesini tanımlar."
 
 #: libraries/config/messages.inc.php:442
 msgid "Statements to track"
@@ -5015,7 +5015,7 @@ msgid ""
 "automatically."
 msgstr ""
 "İzleme mekanizması tablolar ve görünümler için otomatik olarak sürümler "
-"oluşturur."
+"oluşturursa."
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
