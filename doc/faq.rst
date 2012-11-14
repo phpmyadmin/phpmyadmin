@@ -40,8 +40,8 @@ groups.
 
 .. _faq1_4:
 
-1.4 Using phpMyAdmin on :term:`IIS`, I'm displayed the error message: "The specified :term:`CGI` application misbehaved by not returning a complete set of :term:`HTTP` headers ...".
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.4 Using phpMyAdmin on IIS, I'm displayed the error message: "The specified CGI application misbehaved by not returning a complete set of HTTP headers ...".
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 You just forgot to read the *install.txt* file from the PHP
 distribution. Have a look at the last message in this `PHP bug report #12061
@@ -50,8 +50,8 @@ database.
 
 .. _faq1_5:
 
-1.5 Using phpMyAdmin on :term:`IIS`, I'm facing crashes and/or many error messages with the :term:`HTTP`.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.5 Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages with the HTTP.
+-----------------------------------------------------------------------------------------
 
 This is a known problem with the PHP :term:`ISAPI` filter: it's not so stable.
 Please use instead the cookie authentication mode.
@@ -68,8 +68,8 @@ and :file:`index.php`.
 
 .. _faq1_7:
 
-1.7 How can I GZip or Bzip a dump or a :term:`CSV` export? It does not seem to work.
--------------------------------------------------------------------------------------------------------------
+1.7 How can I GZip or Bzip a dump or a CSV export? It does not seem to work.
+----------------------------------------------------------------------------
 
 These features are based on the ``gzencode()`` and ``bzcompress()``
 PHP functions to be more independent of the platform (Unix/Windows,
@@ -152,8 +152,8 @@ align with current standards.
 
 .. _faq1_16:
 
-1.16 I cannot upload big dump files (memory, :term:`HTTP` or timeout problems).
--------------------------------------------------------------------------------------------------------------
+1.16 I cannot upload big dump files (memory, HTTP or timeout problems).
+-----------------------------------------------------------------------
 
 Starting with version 2.7.0, the import engine has been re–written and
 these problems should not occur. If possible, upgrade your phpMyAdmin
@@ -250,8 +250,8 @@ or something similar.
 
 .. _faq1_21:
 
-1.21 I am running the :term:`CGI` version of PHP under Unix, and I cannot log in using cookie auth.
-------------------------------------------------------------------------------------------------------------------------------
+1.21 I am running the CGI version of PHP under Unix, and I cannot log in using cookie auth.
+-------------------------------------------------------------------------------------------
 
 In :file:`php.ini`, set ``mysql.max_links`` higher than 1.
 
@@ -292,8 +292,8 @@ check the value of this directive using the query
 
 .. _faq1_25:
 
-1.25 I am running Apache with mod\_gzip-1.3.26.1a on Windows XP, and I get problems, such as undefined variables when I run a :term:`SQL` query.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.25 I am running Apache with mod\_gzip-1.3.26.1a on Windows XP, and I get problems, such as undefined variables when I run a SQL query.
+----------------------------------------------------------------------------------------------------------------------------------------
 
 A tip from Jose Fandos: put a comment on the following two lines in
 httpd.conf, like this:
@@ -309,8 +309,8 @@ PHP scripts. Of course you have to restart Apache.
 
 .. _faq1_26:
 
-1.26 I just installed phpMyAdmin in my document root of :term:`IIS` but I get the error "No input file specified" when trying to run phpMyAdmin.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.26 I just installed phpMyAdmin in my document root of IIS but I get the error "No input file specified" when trying to run phpMyAdmin.
+----------------------------------------------------------------------------------------------------------------------------------------
 
 This is a permission problem. Right-click on the phpmyadmin folder and
 choose properties. Under the tab Security, click on "Add" and select
@@ -394,8 +394,8 @@ branch is still maintained.
 
 .. _faq1_32:
 
-1.32 Can I use :term:`HTTP` authentication with :term:`IIS`?
---------------------------------------------------------------------------------------------------------------------------
+1.32 Can I use HTTP authentication with IIS?
+--------------------------------------------
 
 Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 :term:`ISAPI` mode under :term:`IIS` 5.1.
@@ -446,8 +446,8 @@ forget to change directory name inside of it):
 
 .. _faq1_35:
 
-1.35 Can I use :term:`HTTP` authentication with Apache :term:`CGI`?
-----------------------------------------------------------------------------------------------------------------------------
+1.35 Can I use HTTP authentication with Apache CGI?
+---------------------------------------------------
 
 Yes. However you need to pass authentication variable to :term:`CGI` using
 following rewrite rule:
@@ -689,8 +689,8 @@ revision.
 
 .. _faq2_5:
 
-2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with :term:`HTTP` or cookie authentication, I'm asked to log in again. What's wrong?
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with HTTP or cookie authentication, I'm asked to log in again. What's wrong?
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Check the value you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
 configuration file.
@@ -798,8 +798,8 @@ Known limitations
 
 .. _login_bug:
 
-3.1 When using :term:`HTTP` authentication, a user who logged out can not log in again in with the same nick.
--------------------------------------------------------------------------------------------------------------------------------------------
+3.1 When using HTTP authentication, a user who logged out can not log in again in with the same nick.
+-----------------------------------------------------------------------------------------------------
 
 This is related to the authentication mechanism (protocol) used by
 phpMyAdmin. To bypass this problem: just close all the opened browser
@@ -968,8 +968,8 @@ it's not likely to be solved in the future.
 
 .. _faq3_18:
 
-3.18 When I import a :term:`CSV` file that contains multiple tables, they are lumped together into a single table.
--------------------------------------------------------------------------------------------------------------------------------------------
+3.18 When I import a CSV file that contains multiple tables, they are lumped together into a single table.
+----------------------------------------------------------------------------------------------------------
 
 There is no reliable way to differentiate tables in :term:`CSV` format. For the
 time being, you will have to break apart :term:`CSV` files containing multiple
@@ -996,8 +996,8 @@ ISPs, multi-user installations
 
 .. _faq4_1:
 
-4.1 I'm an :term:`ISP`. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer.
---------------------------------------------------------------------------------------------------------------------------------------------
+4.1 I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer.
+--------------------------------------------------------------------------------------------------------
 
 Since version 2.0.3, you can setup a central copy of phpMyAdmin for all your
 users. The development of this feature was kindly sponsored by NetCologne GmbH.
@@ -1037,8 +1037,8 @@ normal operation of phpMyAdmin.
 
 .. _faq4_4:
 
-4.4 phpMyAdmin always gives "Access denied" when using :term:`HTTP` authentication.
------------------------------------------------------------------------------------------------------------------
+4.4 phpMyAdmin always gives "Access denied" when using HTTP authentication.
+---------------------------------------------------------------------------
 
 This could happen for several reasons:
 
@@ -1190,16 +1190,16 @@ Mozilla versions.
 
 .. _faq5_9:
 
-5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the :term:`SQL`-Query edit area: the page scrolls down.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the SQL-Query edit area: the page scrolls down.
+-------------------------------------------------------------------------------------------------------------------------------
 
 This is a Mozilla bug (see bug #26882 at `BugZilla
 <http://bugzilla.mozilla.org/>`_).
 
 .. _faq5_10:
 
-5.10 With Netscape 4.75 I get empty rows between each row of data in a :term:`CSV` exported file.
---------------------------------------------------------------------------------------------------------------------------
+5.10 With Netscape 4.75 I get empty rows between each row of data in a CSV exported file.
+-----------------------------------------------------------------------------------------
 
 This is a known Netscape 4.75 bug: it adds some line feeds when
 exporting data in octet-stream mode. Since we can't detect the
@@ -1217,16 +1217,16 @@ by the recent versions of the most browsers.
 
 .. _faq5_12:
 
-5.12 :term:`Mac OS X`: Safari browser changes special characters to "?".
----------------------------------------------------------------------------------------------------------------------
+5.12 Mac OS X Safari browser changes special characters to "?".
+---------------------------------------------------------------
 
 This issue has been reported by a :term:`Mac OS X` user, who adds that Chimera,
 Netscape and Mozilla do not have this problem.
 
 .. _faq5_13:
 
-5.13 With Internet Explorer 5.5 or 6, and :term:`HTTP` authentication type, I cannot manage two servers: I log in to the first one, then the other one, but if I switch back to the first, I have to log in on each operation.
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.13 With Internet Explorer 5.5 or 6, and HTTP authentication type, I cannot manage two servers: I log in to the first one, then the other one, but if I switch back to the first, I have to log in on each operation.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a bug in Internet Explorer, other browsers do not behave this
 way.
@@ -1295,8 +1295,8 @@ Using phpMyAdmin
 
 .. _faq6_1:
 
-6.1 I can't insert new rows into a table / I can't create a table - MySQL brings up a :term:`SQL`-error.
-------------------------------------------------------------------------------------------------------------------------------------
+6.1 I can't insert new rows into a table / I can't create a table - MySQL brings up a SQL error.
+------------------------------------------------------------------------------------------------
 
 Examine the :term:`SQL` error with care.
 Often the problem is caused by specifying a wrong column-type. Common
@@ -1435,8 +1435,8 @@ enables: drop-down list of possible values.
 
 .. _faqpdf:
 
-6.8 How can I produce a :term:`PDF` schema of my database?
--------------------------------------------------------------------------------------
+6.8 How can I produce a PDF schema of my database?
+--------------------------------------------------
 
 First the configuration variables "relation", "table\_coords" and
 "pdf\_pages" have to be filled in.  Then you need to think about your
@@ -1541,8 +1541,8 @@ work with it, nor delete it.
 
 .. _faqsqlvalidator:
 
-6.14 How do I set up the :term:`SQL` Validator?
----------------------------------------------------------------------------
+6.14 How do I set up the SQL Validator?
+---------------------------------------
 
 To use SQL Validator, you need PHP with :term:`XML`, :term:`PCRE` and
 :term:`PEAR` support. In addition you need a :term:`SOAP` support, either as a
