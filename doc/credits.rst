@@ -19,7 +19,7 @@ Credits, in chronological order
 
   * various fixes and improvements
 
-  * :abbr:`SQL (structured query language)` analyser (most of it)
+  * :term:`SQL` analyser (most of it)
 
   * current project maintainer
 
@@ -37,9 +37,8 @@ Credits, in chronological order
 
   * rewrote and optimized javascript, DHTML and DOM stuff
 
-  * rewrote the scripts so they fit the :abbr:`PEAR (PHP Extension and
-    Application Repository)` coding standards and generate XHTML1.0 and
-    CSS2 compliant codes
+  * rewrote the scripts so they fit the :term:`PEAR` coding standards and 
+    generate XHTML1.0 and CSS2 compliant codes
 
   * improved the language detection system
 
@@ -51,13 +50,13 @@ Credits, in chronological order
 
   * table type code
 
-  * Host authentication :abbr:`IP (Internet Protocol)` Allow/Deny
+  * Host authentication :term:`IP` Allow/Deny
 
   * DB-based configuration (Not completed)
 
-  * :abbr:`SQL (structured query language)` parser and pretty-printer
+  * :term:`SQL` parser and pretty-printer
 
-  * :abbr:`SQL (structured query language)` validator
+  * :term:`SQL` validator
 
   * many bugfixes and improvements
 
@@ -109,7 +108,7 @@ Credits, in chronological order
 
   * privileges administration
 
-  * :abbr:`XML (Extensible Markup Language)` exports
+  * :term:`XML` exports
 
   * various features and fixes
 
@@ -144,8 +143,7 @@ Credits, in chronological order
 
   * built the patch for vertical display of table rows
 
-  * built the Javascript based Query window + :abbr:`SQL (structured query
-    language)` history
+  * built the Javascript based Query window + :term:`SQL` history
 
   * Improvement of column/db comments
 
@@ -155,8 +153,8 @@ Credits, in chronological order
 
   * hierarchical/nested table display
 
-  * :abbr:`PDF (Portable Document Format)`-scratchboard for WYSIWYG-
-    distribution of :abbr:`PDF (Portable Document Format)` relations
+  * :term:`PDF`-scratchboard for WYSIWYG-
+    distribution of :term:`PDF` relations
 
   * new icon sets
 
@@ -178,14 +176,14 @@ Credits, in chronological order
 
 * Maxime Delorme <delorme.maxime\_at\_free.fr>
 
-  * :abbr:`PDF (Portable Document Format)` schema output, thanks also to
+  * :term:`PDF` schema output, thanks also to
     Olivier Plathey for the "FPDF" library (see <http://www.fpdf.org/>), Steven
     Wittens for the "UFPDF" library (see <http://www.acko.net/node/56>) and
     Nicola Asuni for the "TCPDF" library (see <http://www.tcpdf.org/>).
 
 * Olof Edlund <olof.edlund\_at\_upright.se>
 
-  * :abbr:`SQL (structured query language)` validator server
+  * :term:`SQL` validator server
 
 * Ivan R. Lanin <ivanlanin\_at\_users.sourceforge.net>
 

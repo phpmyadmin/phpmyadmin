@@ -40,7 +40,7 @@ groups.
 
 .. _faq1_4:
 
-1.4 Using phpMyAdmin on :abbr:`IIS (Internet Information Services)`, I'm displayed the error message: "The specified :abbr:`CGI (Common Gateway Interface)` application misbehaved by not returning a complete set of :abbr:`HTTP (HyperText Transfer Protocol)` headers ...".
+1.4 Using phpMyAdmin on :term:`IIS`, I'm displayed the error message: "The specified :term:`CGI` application misbehaved by not returning a complete set of :term:`HTTP` headers ...".
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 You just forgot to read the *install.txt* file from the PHP
@@ -50,12 +50,11 @@ database.
 
 .. _faq1_5:
 
-1.5 Using phpMyAdmin on :abbr:`IIS (Internet Information Services)`, I'm facing crashes and/or many error messages with the :abbr:`HTTP (HyperText Transfer Protocol)`.
+1.5 Using phpMyAdmin on :term:`IIS`, I'm facing crashes and/or many error messages with the :term:`HTTP`.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This is a known problem with the PHP :abbr:`ISAPI (Internet Server
-Application Programming Interface)` filter: it's not so stable. Please
-use instead the cookie authentication mode.
+This is a known problem with the PHP :term:`ISAPI` filter: it's not so stable.
+Please use instead the cookie authentication mode.
 
 .. _faq1_6:
 
@@ -69,7 +68,7 @@ and :file:`index.php`.
 
 .. _faq1_7:
 
-1.7 How can I GZip or Bzip a dump or a :abbr:`CSV (comma separated values)` export? It does not seem to work.
+1.7 How can I GZip or Bzip a dump or a :term:`CSV` export? It does not seem to work.
 -------------------------------------------------------------------------------------------------------------
 
 These features are based on the ``gzencode()`` and ``bzcompress()``
@@ -120,10 +119,9 @@ It seems to clear up many problems between Internet Explorer and SSL.
 ------------------------------------------------------------------------------------
 
 Since version 2.2.4, phpMyAdmin supports servers with open\_basedir
-restrictions. However you need to create temporary directory and
-configure it as :config:option:`$cfg['TempDir']`. The uploaded files will be
-moved there, and after execution of your :abbr:`SQL (structured query
-language)` commands, removed.
+restrictions. However you need to create temporary directory and configure it
+as :config:option:`$cfg['TempDir']`. The uploaded files will be moved there,
+and after execution of your :term:`SQL` commands, removed.
 
 .. _faq1_12:
 
@@ -154,7 +152,7 @@ align with current standards.
 
 .. _faq1_16:
 
-1.16 I cannot upload big dump files (memory, :abbr:`HTTP (HyperText Transfer Protocol)` or timeout problems).
+1.16 I cannot upload big dump files (memory, :term:`HTTP` or timeout problems).
 -------------------------------------------------------------------------------------------------------------
 
 Starting with version 2.7.0, the import engine has been re–written and
@@ -252,7 +250,7 @@ or something similar.
 
 .. _faq1_21:
 
-1.21 I am running the :abbr:`CGI (Common Gateway Interface)` version of PHP under Unix, and I cannot log in using cookie auth.
+1.21 I am running the :term:`CGI` version of PHP under Unix, and I cannot log in using cookie auth.
 ------------------------------------------------------------------------------------------------------------------------------
 
 In :file:`php.ini`, set ``mysql.max_links`` higher than 1.
@@ -294,7 +292,7 @@ check the value of this directive using the query
 
 .. _faq1_25:
 
-1.25 I am running Apache with mod\_gzip-1.3.26.1a on Windows XP, and I get problems, such as undefined variables when I run a :abbr:`SQL (structured query language)` query.
+1.25 I am running Apache with mod\_gzip-1.3.26.1a on Windows XP, and I get problems, such as undefined variables when I run a :term:`SQL` query.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A tip from Jose Fandos: put a comment on the following two lines in
@@ -311,7 +309,7 @@ PHP scripts. Of course you have to restart Apache.
 
 .. _faq1_26:
 
-1.26 I just installed phpMyAdmin in my document root of :abbr:`IIS (Internet Information Services)` but I get the error "No input file specified" when trying to run phpMyAdmin.
+1.26 I just installed phpMyAdmin in my document root of :term:`IIS` but I get the error "No input file specified" when trying to run phpMyAdmin.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a permission problem. Right-click on the phpmyadmin folder and
@@ -396,12 +394,11 @@ branch is still maintained.
 
 .. _faq1_32:
 
-1.32 Can I use :abbr:`HTTP (HyperText Transfer Protocol)` authentication with :abbr:`IIS (Internet Information Services)`?
+1.32 Can I use :term:`HTTP` authentication with :term:`IIS`?
 --------------------------------------------------------------------------------------------------------------------------
 
 Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
-:abbr:`ISAPI (Internet Server Application Programming Interface)` mode
-under :abbr:`IIS (Internet Information Services)` 5.1.
+:term:`ISAPI` mode under :term:`IIS` 5.1.
 
 #. In your :file:`php.ini` file, set ``cgi.rfc2616_headers = 0``
 #. In ``Web Site Properties -> File/Directory Security -> Anonymous
@@ -424,13 +421,11 @@ under :abbr:`IIS (Internet Information Services)` 5.1.
 1.34 Can I access directly to database or table pages?
 ------------------------------------------------------
 
-Yes. Out of the box, you can use :abbr:`URL (Uniform Resource
-Locator)` like http://server/phpMyAdmin/index.php?server=X&db=databas
+Yes. Out of the box, you can use :term:`URL` like http://server/phpMyAdmin/index.php?server=X&db=databas
 e&table=table&target=script. For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
-http://server/phpMyAdmin/database[/table][/script] :abbr:`URL (Uniform
-Resource Locator)`, you need to do some configuration. Following
+http://server/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
 lines apply only for `Apache <http://httpd.apache.org>`_ web server.
 First make sure, that you have enabled some features within global
 configuration. You need ``Options FollowSymLinks`` and ``AllowOverride
@@ -451,11 +446,11 @@ forget to change directory name inside of it):
 
 .. _faq1_35:
 
-1.35 Can I use :abbr:`HTTP (HyperText Transfer Protocol)` authentication with Apache :abbr:`CGI (Common Gateway Interface)`?
+1.35 Can I use :term:`HTTP` authentication with Apache :term:`CGI`?
 ----------------------------------------------------------------------------------------------------------------------------
 
-Yes. However you need to pass authentication variable to :abbr:`CGI
-(Common Gateway Interface)` using following rewrite rule:
+Yes. However you need to pass authentication variable to :term:`CGI` using
+following rewrite rule:
 
 .. code-block:: apache
 
@@ -530,7 +525,7 @@ parameters:
   needs to be disabled (the default)
 * `suhosin.log.\* <http://www.hardened-
   php.net/suhosin/configuration.html#logging_configuration>`_ should not
-  include :abbr:`SQL (structured query language)`, otherwise you get big
+  include :term:`SQL`, otherwise you get big
   slowdown
 
 You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
@@ -624,12 +619,11 @@ Configuration
 ------------------------------------------------------------------------------------------------------------------------------
 
 Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
-blank lines, no spaces, no characters...) neither before the ``<?php``
-tag at the beginning, neither after the ``?>`` tag at the end. We also
-got a report from a user under :abbr:`IIS (Internet Information
-Services)`, that used a zipped distribution kit: the file
-:file:`libraries/Config.class.php` contained an end-of-line character (hex
-0A) at the end; removing this character cleared his errors.
+blank lines, no spaces, no characters...) neither before the ``<?php`` tag at
+the beginning, neither after the ``?>`` tag at the end. We also got a report
+from a user under :term:`IIS`, that used a zipped distribution kit: the file
+:file:`libraries/Config.class.php` contained an end-of-line character (hex 0A)
+at the end; removing this character cleared his errors.
 
 .. _faq2_2:
 
@@ -695,7 +689,7 @@ revision.
 
 .. _faq2_5:
 
-2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with :abbr:`HTTP (HyperText Transfer Protocol)` or cookie authentication, I'm asked to log in again. What's wrong?
+2.5 Each time I want to insert or change a row or drop a database or a table, an error 404 (page not found) is displayed or, with :term:`HTTP` or cookie authentication, I'm asked to log in again. What's wrong?
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Check the value you set for the :config:option:`$cfg['PmaAbsoluteUri']` directive in the phpMyAdmin
@@ -713,7 +707,7 @@ as expected. Erik Wasser explains: The solution is: if your host is
 tries to use the socket connection for speeding up things. And that
 doesn't work in this configuration with port forwarding. If you enter
 "127.0.0.1" as hostname, everything is right and MySQL uses the
-:abbr:`TCP (Transmission Control Protocol)` connection.
+:term:`TCP` connection.
 
 .. _faqthemes:
 
@@ -804,7 +798,7 @@ Known limitations
 
 .. _login_bug:
 
-3.1 When using :abbr:`HTTP (HyperText Transfer Protocol)` authentication, a user who logged out can not log in again in with the same nick.
+3.1 When using :term:`HTTP` authentication, a user who logged out can not log in again in with the same nick.
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 This is related to the authentication mechanism (protocol) used by
@@ -909,11 +903,11 @@ official phpMyAdmin-homepage.
 ---------------------------------------------------------------------------
 
 When MySQL is running in ANSI-compatibility mode, there are some major
-differences in how :abbr:`SQL (structured query language)` is structured (see
+differences in how :term:`SQL` is structured (see
 <http://dev.mysql.com/doc/mysql/en/ansi-mode.html>). Most important of all, the
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
-invalid :abbr:`SQL (structured query language)` statements. There is no
+invalid :term:`SQL` statements. There is no
 workaround to this behaviour.  News to this item will be posted in `Bug report
 #816858
 <https://sourceforge.net/tracker/index.php?func=detail&aid=816858&group_id=23067&atid=377408>`_
@@ -974,12 +968,11 @@ it's not likely to be solved in the future.
 
 .. _faq3_18:
 
-3.18 When I import a :abbr:`CSV (comma separated values)` file that contains multiple tables, they are lumped together into a single table.
+3.18 When I import a :term:`CSV` file that contains multiple tables, they are lumped together into a single table.
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-There is no reliable way to differentiate tables in :abbr:`CSV (comma
-separated values)` format. For the time being, you will have to break
-apart :abbr:`CSV (comma separated values)` files containing multiple
+There is no reliable way to differentiate tables in :term:`CSV` format. For the
+time being, you will have to break apart :term:`CSV` files containing multiple
 tables.
 
 .. _faq3_19:
@@ -1003,14 +996,13 @@ ISPs, multi-user installations
 
 .. _faq4_1:
 
-4.1 I'm an :abbr:`ISP (Internet service provider)`. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer.
+4.1 I'm an :term:`ISP`. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer.
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Since version 2.0.3, you can setup a central copy of phpMyAdmin for
-all your users. The development of this feature was kindly sponsored
-by NetCologne GmbH. This requires a properly setup MySQL user
-management and phpMyAdmin :abbr:`HTTP (HyperText Transfer Protocol)`
-or cookie authentication. 
+Since version 2.0.3, you can setup a central copy of phpMyAdmin for all your
+users. The development of this feature was kindly sponsored by NetCologne GmbH.
+This requires a properly setup MySQL user management and phpMyAdmin
+:term:`HTTP` or cookie authentication. 
 
 .. seealso:: :ref:`authentication_modes`
 
@@ -1019,12 +1011,13 @@ or cookie authentication.
 4.2 What's the preferred way of making phpMyAdmin secure against evil access.
 -----------------------------------------------------------------------------
 
-This depends on your system. If you're running a server which cannot
-be accessed by other people, it's sufficient to use the directory
-protection bundled with your webserver (with Apache you can use
-:term:`.htaccess` files, for example). If other people have telnet access to your
-server, you should use phpMyAdmin's :abbr:`HTTP (HyperText Transfer
-Protocol)` or cookie authentication features.  Suggestions:
+This depends on your system. If you're running a server which cannot be
+accessed by other people, it's sufficient to use the directory protection
+bundled with your webserver (with Apache you can use :term:`.htaccess` files,
+for example). If other people have telnet access to your server, you should use
+phpMyAdmin's :term:`HTTP` or cookie authentication features.  
+    
+Suggestions:
 
 * Your :file:`config.inc.php` file should be ``chmod 660``.
 * All your phpMyAdmin files should be chown -R phpmy.apache, where phpmy
@@ -1044,7 +1037,7 @@ normal operation of phpMyAdmin.
 
 .. _faq4_4:
 
-4.4 phpMyAdmin always gives "Access denied" when using :abbr:`HTTP (HyperText Transfer Protocol)` authentication.
+4.4 phpMyAdmin always gives "Access denied" when using :term:`HTTP` authentication.
 -----------------------------------------------------------------------------------------------------------------
 
 This could happen for several reasons:
@@ -1080,7 +1073,7 @@ just add those updated lines into the
 
 If you want a pre-made sample, you can try this fragment. It stops the
 'root' user from logging in from any networks other than the private
-network :abbr:`IP (Internet Protocol)` blocks.
+network :term:`IP` blocks.
 
 .. code-block:: php
 
@@ -1100,11 +1093,10 @@ network :abbr:`IP (Internet Protocol)` blocks.
 4.7 Authentication window is displayed more than once, why?
 -----------------------------------------------------------
 
-This happens if you are using a :abbr:`URL (Uniform Resource Locator)`
-to start phpMyAdmin which is different than the one set in your 
-:config:option:`$cfg['PmaAbsoluteUri']`. For
-example, a missing "www", or entering with an :abbr:`IP (Internet
-Protocol)` address while a domain name is defined in the config file.
+This happens if you are using a :term:`URL` to start phpMyAdmin which is
+different than the one set in your :config:option:`$cfg['PmaAbsoluteUri']`. For
+example, a missing "www", or entering with an :term:`IP` address while a domain
+name is defined in the config file.
 
 .. _faq4_8:
 
@@ -1175,12 +1167,10 @@ Upgrade to at least Internet Explorer 5.5 SP2.
 5.6 In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found") when trying to modify a row in a table with many columns, or with a text column
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Your table neither have a primary key nor an unique one, so we must
-use a long :abbr:`URL (Uniform Resource Locator)` to identify this
-row. There is a limit on the length of the :abbr:`URL (Uniform
-Resource Locator)` in those browsers, and this not happen in Netscape,
-for example. The workaround is to create a primary or unique key, or
-use another browser.
+Your table neither have a primary key nor an unique one, so we must use a long
+:term:`URL` to identify this row. There is a limit on the length of the
+:term:`URL` in those browsers, and this not happen in Netscape, for example.
+The workaround is to create a primary or unique key, or use another browser.
 
 .. _faq5_7:
 
@@ -1200,7 +1190,7 @@ Mozilla versions.
 
 .. _faq5_9:
 
-5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the :abbr:`SQL (structured query language)`-Query edit area: the page scrolls down.
+5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the :term:`SQL`-Query edit area: the page scrolls down.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a Mozilla bug (see bug #26882 at `BugZilla
@@ -1208,7 +1198,7 @@ This is a Mozilla bug (see bug #26882 at `BugZilla
 
 .. _faq5_10:
 
-5.10 With Netscape 4.75 I get empty rows between each row of data in a :abbr:`CSV (comma separated values)` exported file.
+5.10 With Netscape 4.75 I get empty rows between each row of data in a :term:`CSV` exported file.
 --------------------------------------------------------------------------------------------------------------------------
 
 This is a known Netscape 4.75 bug: it adds some line feeds when
@@ -1227,16 +1217,15 @@ by the recent versions of the most browsers.
 
 .. _faq5_12:
 
-5.12 :abbr:`Mac (Apple Macintosh)` :abbr:`OS (operating system)` X: Safari browser changes special characters to "?".
+5.12 :term:`Mac OS X`: Safari browser changes special characters to "?".
 ---------------------------------------------------------------------------------------------------------------------
 
-This issue has been reported by a :abbr:`OS (operating system)` X
-user, who adds that Chimera, Netscape and Mozilla do not have this
-problem.
+This issue has been reported by a :term:`Mac OS X` user, who adds that Chimera,
+Netscape and Mozilla do not have this problem.
 
 .. _faq5_13:
 
-5.13 With Internet Explorer 5.5 or 6, and :abbr:`HTTP (HyperText Transfer Protocol)` authentication type, I cannot manage two servers: I log in to the first one, then the other one, but if I switch back to the first, I have to log in on each operation.
+5.13 With Internet Explorer 5.5 or 6, and :term:`HTTP` authentication type, I cannot manage two servers: I log in to the first one, then the other one, but if I switch back to the first, I have to log in on each operation.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is a bug in Internet Explorer, other browsers do not behave this
@@ -1264,13 +1253,12 @@ Please upgrade to at least version 1.2.3.
 Please check the following points:
 
 * Maybe you have defined your :config:option:`$cfg['PmaAbsoluteUri']` setting in
-  :file:`config.inc.php` to an :abbr:`IP (Internet Protocol)` address and
-  you are starting phpMyAdmin with a :abbr:`URL (Uniform Resource
-  Locator)` containing a domain name, or the reverse situation.
+  :file:`config.inc.php` to an :term:`IP` address and you are starting phpMyAdmin
+  with a :term:`URL` containing a domain name, or the reverse situation.
 * Security settings in IE and/or Microsoft Security Center are too high,
   thus blocking scripts execution.
 * The Windows Firewall is blocking Apache and MySQL. You must allow
-  :abbr:`HTTP (HyperText Transfer Protocol)` ports (80 or 443) and MySQL
+  :term:`HTTP` ports (80 or 443) and MySQL
   port (usually 3306) in the "in" and "out" directions.
 
 .. _faq5_17:
@@ -1307,10 +1295,10 @@ Using phpMyAdmin
 
 .. _faq6_1:
 
-6.1 I can't insert new rows into a table / I can't create a table - MySQL brings up a :abbr:`SQL (structured query language)`-error.
+6.1 I can't insert new rows into a table / I can't create a table - MySQL brings up a :term:`SQL`-error.
 ------------------------------------------------------------------------------------------------------------------------------------
 
-Examine the :abbr:`SQL (structured query language)` error with care.
+Examine the :term:`SQL` error with care.
 Often the problem is caused by specifying a wrong column-type. Common
 errors include:
 
@@ -1348,13 +1336,12 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 
 Click on a database or table name in the navigation panel, the properties will
 be displayed. Then on the menu, click "Export", you can dump the structure, the
-data, or both. This will generate standard :abbr:`SQL (structured query
-language)` statements that can be used to recreate your database/table.  You
-will need to choose "Save as file", so that phpMyAdmin can transmit the
-resulting dump to your station.  Depending on your PHP configuration, you will
-see options to compress the dump. See also the
-:config:option:`$cfg['ExecTimeLimit']` configuration variable. For additional
-help on this subject, look for the word "dump" in this document.
+data, or both. This will generate standard :term:`SQL` statements that can be
+used to recreate your database/table.  You will need to choose "Save as file",
+so that phpMyAdmin can transmit the resulting dump to your station.  Depending
+on your PHP configuration, you will see options to compress the dump. See also
+the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For
+additional help on this subject, look for the word "dump" in this document.
 
 .. _faq6_5:
 
@@ -1363,7 +1350,7 @@ help on this subject, look for the word "dump" in this document.
 
 Click on a database name in the navigation panel, the properties will
 be displayed. Select "Import" from the list of tabs in the right–hand
-frame (or ":abbr:`SQL (structured query language)`" if your phpMyAdmin
+frame (or ":term:`SQL`" if your phpMyAdmin
 version is previous to 2.7.0). In the "Location of the text file"
 section, type in the path to your dump filename, or use the Browse
 button. Then click Go.  With version 2.7.0, the import engine has been
@@ -1448,7 +1435,7 @@ enables: drop-down list of possible values.
 
 .. _faqpdf:
 
-6.8 How can I produce a :abbr:`PDF (Portable Document Format)` schema of my database?
+6.8 How can I produce a :term:`PDF` schema of my database?
 -------------------------------------------------------------------------------------
 
 First the configuration variables "relation", "table\_coords" and
@@ -1457,9 +1444,9 @@ schema layout. Which tables will go on which pages?
 
 * Select your database in the navigation panel.
 * Choose "Operations" in the navigation bar at the top.
-* Choose "Edit :abbr:`PDF (Portable Document Format)` Pages" near the
+* Choose "Edit :term:`PDF` Pages" near the
   bottom of the page.
-* Enter a name for the first :abbr:`PDF (Portable Document Format)` page
+* Enter a name for the first :term:`PDF` page
   and click Go. If you like, you can use the "automatic layout," which
   will put all your linked tables onto the new page.
 * Select the name of the new page (making sure the Edit radio button is
@@ -1469,14 +1456,13 @@ schema layout. Which tables will go on which pages?
   fit the page. When initially placing tables on the page, just pick any
   coordinates -- say, 50x50. After clicking Save, you can then use the
   :ref:`wysiwyg` to position the element correctly.
-* When you'd like to look at your :abbr:`PDF (Portable Document
-  Format)`, first be sure to click the Save button beneath the list of
-  tables and coordinates, to save any changes you made there. Then
-  scroll all the way down, select the :abbr:`PDF (Portable Document
-  Format)` options you want, and click Go.
+* When you'd like to look at your :term:`PDF`, first be sure to click the Save 
+  button beneath the list of tables and coordinates, to save any changes you 
+  made there. Then scroll all the way down, select the :term:`PDF` options you 
+  want, and click Go.
 * Internet Explorer for Windows may suggest an incorrect filename when
-  you try to save a generated :abbr:`PDF (Portable Document Format)`.
-  When saving a generated :abbr:`PDF (Portable Document Format)`, be
+  you try to save a generated :term:`PDF`.
+  When saving a generated :term:`PDF`, be
   sure that the filename ends in ".pdf", for example "schema.pdf".
   Browsers on other operating systems, and other browsers on Windows, do
   not have this problem.
@@ -1526,8 +1512,8 @@ It means "average".
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
 * "Add into comments" includes column comments, relations, and MIME
-  types set in the pmadb in the dump as :abbr:`SQL (structured query
-  language)` comments (*/\* xxx \*/*).
+  types set in the pmadb in the dump as :term:`SQL` comments 
+  (*/\* xxx \*/*).
 
 **Data:**
 
@@ -1555,7 +1541,7 @@ work with it, nor delete it.
 
 .. _faqsqlvalidator:
 
-6.14 How do I set up the :abbr:`SQL (structured query language)` Validator?
+6.14 How do I set up the :term:`SQL` Validator?
 ---------------------------------------------------------------------------
 
 To use SQL Validator, you need PHP with :term:`XML`, :term:`PCRE` and
@@ -1566,12 +1552,10 @@ To install :term:`PEAR` :term:`SOAP` module, run :command:`pear install
 Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME SOAP` to get the necessary
 :term:`PEAR` modules for usage.
 
-If you use the Validator, you should be aware that any :abbr:`SQL
-(structured query language)` statement you submit will be stored
-anonymously (database/table/column names, strings, numbers replaced
-with generic values). The Mimer :abbr:`SQL (structured query
-language)` Validator itself, is © 2001 Upright Database Technology. We
-utilize it as free SOAP service.
+If you use the Validator, you should be aware that any :term:`SQL` statement
+you submit will be stored anonymously (database/table/column names, strings,
+numbers replaced with generic values). The Mimer :term:`SQL` Validator itself,
+is © 2001 Upright Database Technology. We utilize it as free SOAP service.
 
 .. _faq6_15:
 
@@ -1730,7 +1714,7 @@ public bookmark, it will be executed.
 6.23 Export: I heard phpMyAdmin can export Microsoft Excel files?
 -----------------------------------------------------------------
 
-You can use :abbr:`CSV (comma separated values)` for Microsoft Excel,
+You can use :term:`CSV` for Microsoft Excel,
 which works out of the box. Since phpMyAdmin 3.4.5 support for direct
 export to Microsoft Excel version 97 and newer was dropped.
 

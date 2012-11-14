@@ -10,13 +10,11 @@ page can be used for this.
 
 .. warning::
 
-    :abbr:`Mac (Apple Macintosh)` users should note that if you are on a
-    :abbr:`Mac (Apple Macintosh)` :abbr:`OS (operating system)` version before
-    :abbr:`OS (operating system)` X, StuffIt unstuffs with :abbr:`Mac (Apple
-    Macintosh)` formats. So you'll have to resave as in BBEdit to Unix style
-    ALL phpMyAdmin scripts before uploading them to your server, as PHP seems
-    not to like :abbr:`Mac (Apple Macintosh)`-style end of lines character
-    ("``\r``").
+    :term:`Mac` users should note that if you are on a version before
+    :term:`Mac OS X`, StuffIt unstuffs with :term:`Mac` formats. So you'll have
+    to resave as in BBEdit to Unix style ALL phpMyAdmin scripts before
+    uploading them to your server, as PHP seems not to like :term:`Mac`-style
+    end of lines character ("``\r``").
 
 .. _quick_install:
 
@@ -153,7 +151,7 @@ options which the setup script does not provide.
    for additional information, especially :ref:`faq4_4`.
 #. Open the `main phpMyAdmin directory <index.php>`_ in your browser.
    phpMyAdmin should now display a welcome screen and your databases, or
-   a login dialog if using :abbr:`HTTP (HyperText Transfer Protocol)` or
+   a login dialog if using :term:`HTTP` or
    cookie authentication mode.
 #. You should deny access to the ``./libraries`` and ``./setup/lib``
    subfolders in your webserver configuration. For Apache you can use
@@ -177,14 +175,12 @@ options which the setup script does not provide.
 phpMyAdmin configuration storage
 ++++++++++++++++++++++++++++++++
 
-For a whole set of new features (bookmarks, comments, :abbr:`SQL
-(structured query language)`-history, tracking mechanism, :abbr:`PDF
-(Portable Document Format)`-generation, column contents
-transformation, etc.) you need to create a set of special tables.
-Those tables can be located in your own database, or in a central
-database for a multi-user installation (this database would then be
-accessed by the controluser, so no other user should have rights to
-it).
+For a whole set of new features (bookmarks, comments, :term:`SQL`-history,
+tracking mechanism, :term:`PDF`-generation, column contents transformation,
+etc.) you need to create a set of special tables.  Those tables can be located
+in your own database, or in a central database for a multi-user installation
+(this database would then be accessed by the controluser, so no other user
+should have rights to it).
 
 Please look at your ``./examples/`` directory, where you should find a
 file called *create\_tables.sql*. (If you are using a Windows server,
@@ -222,10 +218,9 @@ You should **not** copy :file:`libraries/config.default.php` over
 :file:`config.inc.php` because the default configuration file is version-
 specific.
 
-If you have upgraded your MySQL server from a version previous to
-4.1.2 to version 5.x or newer and if you use the phpMyAdmin
-configuration storage, you should run the :abbr:`SQL (structured query
-language)` script found in
+If you have upgraded your MySQL server from a version previous to 4.1.2 to
+version 5.x or newer and if you use the phpMyAdmin configuration storage, you
+should run the :term:`SQL` script found in
 :file:`examples/upgrade_tables_mysql_4_1_2+.sql`.
 
 .. index:: Authentication mode
@@ -235,16 +230,15 @@ language)` script found in
 Using authentication modes
 ++++++++++++++++++++++++++
 
-:abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
-modes are recommended in a **multi-user environment** where you want
-to give users access to their own database and don't want them to play
-around with others. Nevertheless be aware that MS Internet Explorer
-seems to be really buggy about cookies, at least till version 6. Even
-in a **single-user environment**, you might prefer to use :abbr:`HTTP
-(HyperText Transfer Protocol)` or cookie mode so that your
-user/password pair are not in clear in the configuration file.
+:term:`HTTP` and cookie authentication modes are recommended in a **multi-user
+environment** where you want to give users access to their own database and
+don't want them to play around with others. Nevertheless be aware that MS
+Internet Explorer seems to be really buggy about cookies, at least till version
+6. Even in a **single-user environment**, you might prefer to use :term:`HTTP`
+or cookie mode so that your user/password pair are not in clear in the
+configuration file.
 
-:abbr:`HTTP (HyperText Transfer Protocol)` and cookie authentication
+:term:`HTTP` and cookie authentication
 modes are more secure: the MySQL login information does not need to be
 set in the phpMyAdmin configuration file (except possibly for the 
 :config:option:`$cfg['Servers'][$i]['controluser']`).
@@ -257,22 +251,18 @@ stored, encrypted with the blowfish algorithm, in a temporary cookie.
     This section is only applicable if your MySQL server is running
     with ``--skip-show-database``. 
 
-For ':abbr:`HTTP (HyperText Transfer
-Protocol)`' and 'cookie' modes, phpMyAdmin needs a controluser that
-has **only** the ``SELECT`` privilege on the *`mysql`.`user` (all
-columns except `Password`)*, *`mysql`.`db` (all columns)*,
-*`mysql`.`host` (all columns)* and *`mysql`.`tables\_priv` (all
-columns except `Grantor` and `Timestamp`)* tables. You must specify
-the details for the controluser  in the :file:`config.inc.php` file under the 
-:config:option:`$cfg['Servers'][$i]['controluser']` and
-:config:option:`$cfg['Servers'][$i]['controlpass']`
-settings. The following example assumes you want to use ``pma`` as the
-controluser and ``pmapass`` as the controlpass, but **this is only an
-example: use something else in your file!** Input these statements
-from the phpMyAdmin :abbr:`SQL (structured query language)` Query
-window or mysql command–line client. Of course you have to replace
-``localhost`` with the webserver's host if it's not the same as the
-MySQL server's one. 
+For ':term:`HTTP`' and 'cookie' modes, phpMyAdmin needs a controluser that has
+**only** the ``SELECT`` privilege on the *`mysql`.`user` (all columns except
+`Password`)*, *`mysql`.`db` (all columns)*, *`mysql`.`host` (all columns)* and
+*`mysql`.`tables\_priv` (all columns except `Grantor` and `Timestamp`)* tables.
+You must specify the details for the controluser  in the :file:`config.inc.php`
+file under the :config:option:`$cfg['Servers'][$i]['controluser']` and
+:config:option:`$cfg['Servers'][$i]['controlpass']` settings. The following
+example assumes you want to use ``pma`` as the controluser and ``pmapass`` as
+the controlpass, but **this is only an example: use something else in your
+file!** Input these statements from the phpMyAdmin :term:`SQL` Query window or
+mysql command–line client. Of course you have to replace ``localhost`` with the
+webserver's host if it's not the same as the MySQL server's one. 
 
 If you want to use the many new relation and bookmark features:  (this of
 course requires that your :ref:`linked-tables` be set up).
@@ -322,15 +312,13 @@ user/password fields inside the :config:option:`$cfg['Servers']`.
 HTTP authentication mode
 ------------------------
 
-* Uses :abbr:`HTTP (HyperText Transfer Protocol)` Basic authentication
+* Uses :term:`HTTP` Basic authentication
   method and allows you to log in as any valid MySQL user.
-* Is supported with most PHP configurations. For :abbr:`IIS (Internet
-  Information Services)` (:abbr:`ISAPI (Internet Server Application
-  Programming Interface)`) support using :abbr:`CGI (Common Gateway
-  Interface)` PHP see :ref:`faq1_32`, for using with Apache :abbr:`CGI
-  (Common Gateway Interface)` see :ref:`faq1_35`.
+* Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`) 
+  support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache 
+  :term:`CGI` see :ref:`faq1_35`.
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
-  ':abbr:`HTTP (HyperText Transfer Protocol)`' authentication mode.
+  ':term:`HTTP`' authentication mode.
 
 .. index:: pair: Cookie; Authentication mode
 
@@ -339,9 +327,8 @@ HTTP authentication mode
 Cookie authentication mode
 --------------------------
 
-* You can use this method as a replacement for the :abbr:`HTTP
-  (HyperText Transfer Protocol)` authentication (for example, if you're
-  running :abbr:`IIS (Internet Information Services)`).
+* You can use this method as a replacement for the :term:`HTTP` authentication 
+  (for example, if you're running :term:`IIS`).
 * Obviously, the user must enable cookies in the browser, but this is
   now a requirement for all authentication modes.
 * With this mode, the user can truly log out of phpMyAdmin and log in

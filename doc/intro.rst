@@ -21,15 +21,12 @@ Currently phpMyAdmin can:
   indexes
 * maintenance server, databases and tables, with proposals on server
   configuration
-* execute, edit and bookmark any :abbr:`SQL (structured query
-  language)`-statement, even batch-queries
+* execute, edit and bookmark any :term:`SQL`-statement, even batch-queries
 * load text files into tables
 * create [#f1]_ and read dumps of tables
-* export [#f1]_ data to various formats: :term:`CSV`,
-  :term:`XML`, :term:`PDF`, :abbr:`ISO (International Standards
-  Organisation)`/:abbr:`IEC (International Electrotechnical Commission)`
-  26300 - OpenDocument Text and Spreadsheet, :abbr:`Word (Microsoft Word
-  2000)`, and LATEX formats
+* export [#f1]_ data to various formats: :term:`CSV`, :term:`XML`, :term:`PDF`, 
+  :term:`ISO`/:term:`IEC` 26300 - OpenDocument Text and Spreadsheet, Microsoft 
+  Word 2000, and LATEX formats
 * import data and :term:`MySQL` structures from :term:`OpenDocument` spreadsheets, as
   well as :term:`XML`, :term:`CSV`, and :term:`SQL` files
 * administer multiple servers
@@ -37,7 +34,7 @@ Currently phpMyAdmin can:
 * check referential integrity in MyISAM tables
 * using Query-by-example (QBE), create complex queries automatically
   connecting required tables
-* create :abbr:`PDF (Portable Document Format)` graphics of your
+* create :term:`PDF` graphics of your
   Database layout
 * search globally in a database or a subset of it
 * transform stored data into any format using a set of predefined
