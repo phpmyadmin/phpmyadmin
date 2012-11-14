@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-12 14:19+0100\n"
+"POT-Creation-Date: 2012-11-14 11:00+0100\n"
 "PO-Revision-Date: 2012-11-14 09:42+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
+">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5112,9 +5113,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mindste antal databaser, der skal vises i database-filterboksen"
 
 #: libraries/config/messages.inc.php:311
-#| msgid ""
-#| "Only light version; display databases in a tree (determined by the "
-#| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
@@ -5230,9 +5228,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manglende phpMyAdmin configuration storage tabeller"
 
 #: libraries/config/messages.inc.php:336
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
@@ -5331,7 +5326,6 @@ msgid "Grid editing: trigger action"
 msgstr "Gitter-redering: trigger/udløser-handling"
 
 #: libraries/config/messages.inc.php:361
-#| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
 msgstr "Gitter-redigering: gem alle redigerede celler med det samme"
 
@@ -5398,31 +5392,24 @@ msgid "Authentication type"
 msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:376
-#| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af "
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]bogmærkeer[/a], forslag: "
-"[kbd]pma_bookmark[/kbd]"
+"Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
+"net/pma/bookmark]bogmærkeer[/a], forslag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
 msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:378
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
-"[kbd]pma_column_info[/kbd]"
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
+"pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5481,15 +5468,12 @@ msgid "Count tables"
 msgstr "Optæl tabeller"
 
 #: libraries/config/messages.inc.php:391
-#| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Efterlades tom for at undlade Designer-understøttelse, forslag: "
-"[kbd]pma_designer_coords[/kbd]"
+"Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Designer table"
@@ -5525,9 +5509,6 @@ msgid "Hide databases"
 msgstr "Skjul databaser"
 
 #: libraries/config/messages.inc.php:399
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -5598,13 +5579,11 @@ msgid "Password for config auth"
 msgstr "Adgangskode for config auth"
 
 #: libraries/config/messages.inc.php:412
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5633,9 +5612,6 @@ msgid "Server port"
 msgstr "Serverport"
 
 #: libraries/config/messages.inc.php:418
-#| msgid ""
-#| "Leave blank for no \"persistent\" recently used tables across sessions, "
-#| "suggested: [kbd]pma_recent[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
@@ -5648,16 +5624,12 @@ msgid "Recently used table"
 msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:420
-#| msgid ""
-#| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af "
-"[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a], forslag: "
-"[kbd]pma_relation[/kbd]"
+"Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
+"net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5704,24 +5676,18 @@ msgid "Use SSL"
 msgstr "Brug SSL"
 
 #: libraries/config/messages.inc.php:431
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
-"[kbd]pma_table_coords[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
+"pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF-skematik: tabel coordinates"
 
 #: libraries/config/messages.inc.php:433
-#| msgid ""
-#| "Table to describe the display columns, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
@@ -5734,15 +5700,12 @@ msgid "Display columns table"
 msgstr "Visningskolonnetabel"
 
 #: libraries/config/messages.inc.php:435
-#| msgid ""
-#| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
-#| "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Efterlades tom for at undlade \"vedvarende\" brugerflade-præferencer for tabel "
-"på tværs af sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
+"Efterlades tom for at undlade \"vedvarende\" brugerflade-præferencer for "
+"tabel på tværs af sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5794,9 +5757,6 @@ msgid "Statements to track"
 msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:445
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
@@ -5820,9 +5780,6 @@ msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:449
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
@@ -6624,10 +6581,6 @@ msgstr ""
 "%d."
 
 #: libraries/display_import.lib.php:291
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
@@ -7384,18 +7337,15 @@ msgstr[0] "Fandt %s andet resultat"
 msgstr[1] "Fandt %s andre resultater"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "filtrér databaser efter navn"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#| msgid "Clear series"
 msgid "Clear Fast Filter"
 msgstr "Ryd Hurtig/Fast-filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#| msgid "Filter tables by name"
 msgid "filter items by name"
 msgstr "filtrér elementer efter navn"
 
@@ -7408,7 +7358,8 @@ msgstr "Ugyldigt klassenavn \"%1$s\", bruger standarden \"Node\""
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr "Klassen \"%1$s\" kunne ikke inkluderes, filen \"%2$s\" blev ikke fundet"
+msgstr ""
+"Klassen \"%1$s\" kunne ikke inkluderes, filen \"%2$s\" blev ikke fundet"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7416,13 +7367,11 @@ msgid "Columns"
 msgstr "Kolonner"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Ny"
@@ -7434,13 +7383,11 @@ msgid "Functions"
 msgstr "Funktioner"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nyt"
@@ -7453,19 +7400,16 @@ msgstr "Procedurer"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Ny"
@@ -7476,7 +7420,6 @@ msgid "Views"
 msgstr "Views"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Ny"
@@ -9418,7 +9361,6 @@ msgid "User has been added."
 msgstr "Bruger er blevet tilføjet."
 
 #: libraries/server_privileges.lib.php:1625
-#| msgid "New"
 msgctxt "Create new user"
 msgid "New"
 msgstr "Ny"
@@ -12064,7 +12006,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
 #: sql.php:381
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Bogmærke blev ikke oprettet"
 
@@ -12103,7 +12044,6 @@ msgid "The columns have been moved successfully."
 msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: tbl_chart.php:41
-#| msgid "No data found"
 msgid "No data to display"
 msgstr "Ingen data til visning"
 
