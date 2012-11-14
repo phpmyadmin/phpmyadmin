@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-12 14:19+0100\n"
-"PO-Revision-Date: 2012-11-14 09:12+0200\n"
+"PO-Revision-Date: 2012-11-14 09:38+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -1120,7 +1120,7 @@ msgstr "Systemhukommelse"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr "System swap"
+msgstr "System-swap"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/Util.class.php:1454
@@ -5398,7 +5398,6 @@ msgid "Authentication type"
 msgstr "Autentifikationstype"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5406,15 +5405,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lades blank for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-"a] understøttelse, forslag: [kbd]pma_bookmark[/kbd]"
+"Efterlades tom for at undlade understøttelse af "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bogmærkeer[/a], forslag: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
 msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5422,8 +5421,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Lades blank ved ingen kolonnekommentarer/mime types, forslag: [kbd]"
-"pma_column_info[/kbd]"
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5482,7 +5481,6 @@ msgid "Count tables"
 msgstr "Optæl tabeller"
 
 #: libraries/config/messages.inc.php:391
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5490,8 +5488,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Lad være blank for ingen Designer support, forslag: [kbd]pma_designer_coords"
-"[/kbd]"
+"Efterlades tom for at undlade Designer-understøttelse, forslag: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Designer table"
@@ -5527,7 +5525,6 @@ msgid "Hide databases"
 msgstr "Skjul databaser"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5535,8 +5532,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Lades blank for ingen historik for SQL-forespørgsler, forslag: [kbd]"
-"pma_history[/kbd]"
+"Efterlades tom for at fravælge historik-understøttelse for SQL-"
+"forespørgsler, forslag: [kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
@@ -5601,14 +5598,13 @@ msgid "Password for config auth"
 msgstr "Adgangskode for config auth"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5637,7 +5633,6 @@ msgid "Server port"
 msgstr "Serverport"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5645,15 +5640,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Lades blank for ingen \"vedvarende\" senest benyttede tabeller på tværs af "
-"sessioner, forslag: [kbd]pma_recent[/kbd]"
+"Efterlades tom for at undlade \"vedvarende\", senest benyttede tabeller på "
+"tværs af sessioner, forslag: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "Senest benyttede tabel"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5661,8 +5655,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Lades blank for ingen understøttelse af [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
+"Efterlades tom for at undlade understøttelse af "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a], forslag: "
+"[kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5709,7 +5704,6 @@ msgid "Use SSL"
 msgstr "Brug SSL"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5717,15 +5711,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Lades blank for ingen understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF-skematik: tabel coordinates"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5733,15 +5726,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"Tabel til at beskrive visningskolonnerne, lades blank for ingen "
-"understøttelset; forslag: [kbd]pma_table_info[/kbd]"
+"Tabel til beskrivelse af visningskolonnerne, efterlades tom for at undlade "
+"understøttelse; forslag: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "Visningskolonnetabel"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5749,8 +5741,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Lades blank for ingen \"vedvarende\" tabel UI præferencer på tværs af "
-"sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
+"Efterlades tom for at undlade \"vedvarende\" brugerflade-præferencer for tabel "
+"på tværs af sessioner, forslag: [kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5802,7 +5794,6 @@ msgid "Statements to track"
 msgstr "Forespørgsler, der skal spores"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5810,8 +5801,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Lades blank for ingen understøttelse af SQL-forspørgselssporing, forslag: "
-"[kbd]pma_tracking[/kbd]"
+"Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
+"forslag: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
@@ -5829,7 +5820,6 @@ msgid "Automatically create versions"
 msgstr "Opret versioner automatisk"
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5837,8 +5827,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
-"Lades blank for ingen bruger preference storage i database, forslag: [kbd]"
-"pma_userconfig[/kbd]"
+"Efterlades tom for at undlade lagring af bruger-præferencer i database, "
+"forslag: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
@@ -6634,7 +6624,6 @@ msgstr ""
 "%d."
 
 #: libraries/display_import.lib.php:291
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6644,9 +6633,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Tillad afbrydelse af import hvis scriptet er tæt på tidsgrænsen.<i>( Dette "
-"kan være en god metode til at importere større filer, men kan ødelægge "
-"transaktioner.)</i>"
+"Tillad afbrydelse af import hvis skriptet registrerer, at det er tæt på PHPs "
+"grænse for tidsudløb.<i>( Dette kan være en god metode til at importere "
+"større filer, men kan ødelægge transaktioner.)</i>"
 
 #: libraries/display_import.lib.php:298
 msgid "Number of rows to skip, starting from the first row:"
@@ -7369,7 +7358,7 @@ msgstr "ukendt"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Der opstod en fejl under indlæsinng af navigationstræet"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7391,38 +7380,35 @@ msgstr "Genindlæs navigationsramme"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fandt %s andet resultat"
+msgstr[1] "Fandt %s andre resultater"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "filtrer databaser efter navn"
+msgstr "filtrér databaser efter navn"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Slet serie"
+msgstr "Ryd Hurtig/Fast-filter"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "filtrer tabeller efter navn"
+msgstr "filtrér elementer efter navn"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Ugyldigt klassenavn \"%1$s\", bruger standarden \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Klassen \"%1$s\" kunne ikke inkluderes, filen \"%2$s\" blev ikke fundet"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7430,14 +7416,12 @@ msgid "Columns"
 msgstr "Kolonner"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7450,18 +7434,16 @@ msgid "Functions"
 msgstr "Funktioner"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "Ny"
+msgstr "Nyt"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
@@ -7471,21 +7453,18 @@ msgstr "Procedurer"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7497,7 +7476,6 @@ msgid "Views"
 msgstr "Views"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
@@ -9440,7 +9418,6 @@ msgid "User has been added."
 msgstr "Bruger er blevet tilføjet."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -10031,7 +10008,7 @@ msgstr "Fejl i ZIP arkiv:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Kritisk fejl: Navigationen kan kun tilgås via ajax"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12087,10 +12064,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Bogmærke %s oprettet"
+msgstr "Bogmærke blev ikke oprettet"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12127,10 +12103,9 @@ msgid "The columns have been moved successfully."
 msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Fandt ingen data"
+msgstr "Ingen data til visning"
 
 #: tbl_chart.php:130
 msgctxt "Chart type"
