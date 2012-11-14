@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-12 11:35+0200\n"
+"PO-Revision-Date: 2012-11-14 13:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/3-5/cs/>\n"
 "Language: cs\n"
@@ -8431,7 +8431,7 @@ msgstr "Znaková sada"
 
 #: main.php:196
 msgid "Web server"
-msgstr "Webserver"
+msgstr "Webový server"
 
 #: main.php:209
 msgid "Database client version"
