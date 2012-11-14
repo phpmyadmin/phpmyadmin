@@ -847,8 +847,7 @@ The invalid part of the code is the horizontal line made of dashes
 that appears once in every dump created with mysqldump. If you want to
 run your dump you have to turn it into valid MySQL. This means, you
 have to add a whitespace after the first two dashes of the line or add
-a # before it:  ``--
--------------------------------------------------------`` or
+a # before it:  ``-- -------------------------------------------------------`` or
 ``#---------------------------------------------------------``
 
 .. _faq3_5:
