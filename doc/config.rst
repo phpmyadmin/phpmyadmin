@@ -2680,10 +2680,10 @@ SQL validator settings
     :type: boolean
     :default: false
 
-    phpMyAdmin now supports use of the `Mimer :term:`SQL` Validator
+    phpMyAdmin now supports use of the `Mimer SQL Validator
     <http://developer.mimer.com/validator/index.htm>`_ service, as originally
     published on `Slashdot
-    <http://developers.slashdot.org/article.pl?sid=02/02/19/1720246>`_.  For
+    <http://developers.slashdot.org/article.pl?sid=02/02/19/1720246>`_. For
     help in setting up your system to use the service, see the
     :ref:`faqsqlvalidator`.
 
