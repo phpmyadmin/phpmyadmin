@@ -12,6 +12,9 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/.htaccess>
 
+    ACL
+      Access Contol List
+
     Blowfish
       a keyed, symmetric block cipher, designed in 1993 by Bruce Schneier.	
 
@@ -94,7 +97,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <http://www.wikipedia.org/wiki/Foreign_key>
 
     FPDF
-      the free PDF library	
+      the free :term:`PDF` library	
 
       .. seealso:: <http://www.fpdf.org/>
 
@@ -128,9 +131,12 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <http://www.wikipedia.org/wiki/HyperText_Transfer_Protocol>
 
     https
-      a :abbr:`HTTP (HyperText Transfer Protocol)`-connection with additional security measures.	
+      a :term:`HTTP`-connection with additional security measures.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/Https:_URI_scheme>
+
+    IEC
+      International Electrotechnical Commission
 
     IIS 
       Internet Information Services is a set of Internet-based services for
@@ -165,6 +171,9 @@ From Wikipedia, the free encyclopedia
       access to the Internet and related services.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/ISP>
+
+    ISO
+      International Standards Organisation
 
     JPEG
       a most commonly used standard method of lossy compression for photographic images.	

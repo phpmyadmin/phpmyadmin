@@ -7,8 +7,8 @@ Configuration
 
 .. warning::
 
-    :abbr:`Mac (Apple Macintosh)` users should note that PHP does not seem to
-    like :abbr:`Mac (Apple Macintosh)` end of lines character (``\r``). So
+    :term:`Mac` users should note that PHP does not seem to
+    like :term:`Mac` end of lines character (``\r``). So
     ensure you choose the option that allows to use the \*nix end of line
     character (``\n``) in your text editor before saving a script you have
     modified.
@@ -33,10 +33,10 @@ Basic settings
     :type: string
     :default: ``''``
 
-    Sets here the complete :abbr:`URL (Uniform Resource Locator)` (with
+    Sets here the complete :term:`URL` (with
     full path) to your phpMyAdmin installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.
-    Note also that the :abbr:`URL (Uniform Resource Locator)` on some web
+    Note also that the :term:`URL` on some web
     servers are case–sensitive. Don’t forget the trailing slash at the
     end. 
     
@@ -128,7 +128,7 @@ Server connection settings
     :type: string
     :default: ``'localhost'``
 
-    The hostname or :abbr:`IP (Internet Protocol)` address of your $i-th
+    The hostname or :term:`IP` address of your $i-th
     MySQL-server. E.g. ``localhost``.
 
 .. config:option:: $cfg['Servers'][$i]['port']
@@ -216,10 +216,10 @@ Server connection settings
     This special account is used for 2 distinct purposes: to make possible all
     relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`) and,
     for a MySQL server running with ``--skip-show-database``, to enable a
-    multi-user installation (:abbr:`HTTP (HyperText Transfer Protocol)` or cookie
+    multi-user installation (:term:`HTTP` or cookie
     authentication mode). 
 
-    When using :abbr:`HTTP (HyperText Transfer Protocol)` or
+    When using :term:`HTTP` or
     cookie authentication modes (or 'config' authentication mode since phpMyAdmin
     2.2.1), you need to supply the details of a MySQL account that has ``SELECT``
     privilege on the *mysql.user (all columns except "Password")*, *mysql.db (all
@@ -237,7 +237,7 @@ Server connection settings
     :type: string
     :default: ``'cookie'``
 
-    Whether config or cookie or :abbr:`HTTP (HyperText Transfer Protocol)`
+    Whether config or cookie or :term:`HTTP`
     or signon authentication should be used for this server.
 
     * 'config' authentication (``$auth_type = 'config'``) is the plain old
@@ -271,12 +271,11 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    When using auth\_type = ':abbr:`HTTP (HyperText Transfer Protocol)`',
-    this field allows to define a custom :abbr:`HTTP (HyperText Transfer
-    Protocol)` Basic Auth Realm which will be displayed to the user. If
-    not explicitly specified in your configuration, a string combined of
-    "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` 
-    or :config:option:`$cfg['Servers'][$i]['host']` will be used.
+    When using auth\_type = ``http``, this field allows to define a custom
+    :term:`HTTP` Basic Auth Realm which will be displayed to the user. If not
+    explicitly specified in your configuration, a string combined of
+    "phpMyAdmin " and either :config:option:`$cfg['Servers'][$i]['verbose']` or
+    :config:option:`$cfg['Servers'][$i]['host']` will be used.
 
 .. _servers_auth_swekey_config:
 .. config:option:: $cfg['Servers'][$i]['auth_swekey_config']
@@ -301,7 +300,7 @@ Server connection settings
     When using :config:option:`$cfg['Servers'][$i]['auth_type']` set to
     'config', this is the user/password-pair which phpMyAdmin will use to
     connect to the MySQL server. This user/password pair is not needed when
-    :abbr:`HTTP (HyperText Transfer Protocol)` or cookie authentication is used
+    :term:`HTTP` or cookie authentication is used
     and should be empty.
 
 .. _servers_nopassword:
@@ -445,7 +444,7 @@ Server connection settings
     * display links on the table properties page, to check referential
       integrity (display missing foreign keys) for each described key;
     * in query-by-example, create automatic joins (see :ref:`faq6_6`)
-    * enable you to get a :abbr:`PDF (Portable Document Format)` schema of
+    * enable you to get a :term:`PDF` schema of
       your database (also uses the table\_coords table).
 
     The keys can be numeric or character. 
@@ -496,13 +495,11 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Since release 2.3.0 you can have phpMyAdmin create :abbr:`PDF
-    (Portable Document Format)` pages showing the relations between your
-    tables. To do this it needs two tables "pdf\_pages" (storing
-    information about the available :abbr:`PDF (Portable Document Format)`
-    pages) and "table\_coords" (storing coordinates where each table will
-    be placed on a :abbr:`PDF (Portable Document Format)` schema output).
-    You must be using the "relation" feature. 
+    Since release 2.3.0 you can have phpMyAdmin create :term:`PDF` pages
+    showing the relations between your tables. To do this it needs two tables
+    "pdf\_pages" (storing information about the available :term:`PDF` pages)
+    and "table\_coords" (storing coordinates where each table will be placed on
+    a :term:`PDF` schema output).  You must be using the "relation" feature. 
 
     To allow the usage of this functionality:
 
@@ -559,10 +556,10 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    Since release 2.5.0 you can store your :abbr:`SQL (structured query
-    language)` history, which means all queries you entered manually into
-    the phpMyAdmin interface. If you don't want to use a table-based
-    history, you can use the JavaScript-based history. 
+    Since release 2.5.0 you can store your :term:`SQL` history, which means all
+    queries you entered manually into the phpMyAdmin interface. If you don't
+    want to use a table-based history, you can use the JavaScript-based
+    history. 
 
     Using that, all your history items are deleted when closing the window.
     Using :config:option:`$cfg['QueryHistoryMax']` you can specify an amount of
@@ -627,7 +624,7 @@ Server connection settings
     :default: ``''``
 
     Since release 3.3.x a tracking mechanism is available. It helps you to
-    track every :abbr:`SQL (structured query language)` command which is
+    track every :term:`SQL` command which is
     executed by phpMyAdmin. The mechanism supports logging of data
     manipulation and data definition statements. After enabling it you can
     create versions of tables.  
@@ -782,7 +779,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    If your rule order is empty, then :abbr:`IP (Internet Protocol)`
+    If your rule order is empty, then :term:`IP`
     authorization is disabled. 
 
     If your rule order is set to
@@ -841,16 +838,16 @@ Server connection settings
     from all'`` if your rule order is set to ``'allow,deny'`` or
     ``'explicit'``.
 
-    For the :abbr:`IP (Internet Protocol)` matching
+    For the :term:`IP` matching
     system, the following work: 
 
-    * ``xxx.xxx.xxx.xxx`` (an exact :abbr:`IP (Internet Protocol)` address) 
-    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :abbr:`IP (Internet Protocol)` address range) 
-    * ``xxx.xxx.xxx.xxx/nn`` (CIDR, Classless Inter-Domain Routing type :abbr:`IP (Internet Protocol)` addresses) 
+    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP` address) 
+    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP` address range) 
+    * ``xxx.xxx.xxx.xxx/nn`` (CIDR, Classless Inter-Domain Routing type :term:`IP` addresses) 
 
     But the following does not work: 
 
-    * ``xxx.xxx.xxx.xx[yyy-zzz]`` (partial :abbr:`IP (Internet Protocol)` address range) 
+    * ``xxx.xxx.xxx.xx[yyy-zzz]`` (partial :term:`IP` address range) 
 
     Also IPv6 addresses are not supported.
 
@@ -909,7 +906,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    :abbr:`URL (Uniform Resource Locator)` where user will be redirected
+    :term:`URL` where user will be redirected
     to log in for signon authentication method. Should be absolute
     including protocol.
 
@@ -918,7 +915,7 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    :abbr:`URL (Uniform Resource Locator)` where user will be redirected
+    :term:`URL` where user will be redirected
     after logout (doesn't affect config authentication method). Should be
     absolute including protocol.
 
@@ -1020,12 +1017,11 @@ Generic settings
     :type: integer
     :default: 1000
 
-    The maximum number of characters when a :abbr:`SQL (structured query
-    language)` query is displayed. The default limit of 1000 should be correct
-    to avoid the display of tons of hexadecimal codes that represent BLOBs, but
-    some users have real :abbr:`SQL (structured query language)` queries that
-    are longer than 1000 characters. Also, if a query's length exceeds this
-    limit, this query is not saved in the history.
+    The maximum number of characters when a :term:`SQL` query is displayed. The
+    default limit of 1000 should be correct to avoid the display of tons of
+    hexadecimal codes that represent BLOBs, but some users have real
+    :term:`SQL` queries that are longer than 1000 characters. Also, if a
+    query's length exceeds this limit, this query is not saved in the history.
 
 .. config:option:: $cfg['PersistentConnections']
 
@@ -1094,7 +1090,7 @@ Generic settings
     :type: boolean
     :default: true
 
-    Defines whether :abbr:`SQL (structured query language)` queries
+    Defines whether :term:`SQL` queries
     generated by phpMyAdmin should be displayed or not.
 
 .. config:option:: $cfg['RetainQueryBox']
@@ -1102,7 +1098,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    Defines whether the :abbr:`SQL (structured query language)` query box
+    Defines whether the :term:`SQL` query box
     should be kept displayed after its submission.
 
 .. config:option:: $cfg['CodemirrorEnable']
@@ -1121,16 +1117,15 @@ Generic settings
     :default: false
 
     Defines whether normal users (non-administrator) are allowed to delete
-    their own database or not. If set as false, the link :guilabel:`Drop Database`
-    will not be shown, and even a ``DROP DATABASE mydatabase`` will be
-    rejected. Quite practical for :abbr:`ISP (Internet service
-    provider)`'s with many customers. 
+    their own database or not. If set as false, the link :guilabel:`Drop
+    Database` will not be shown, and even a ``DROP DATABASE mydatabase`` will
+    be rejected. Quite practical for :term:`ISP` 's with many customers. 
 
     .. note:: 
        
-        This limitation of :abbr:`SQL (structured query language)` queries is not
+        This limitation of :term:`SQL` queries is not
         as strict as when using MySQL privileges. This is due to nature of
-        :abbr:`SQL (structured query language)` queries which might be quite
+        :term:`SQL` queries which might be quite
         complicated.  So this choice should be viewed as help to avoid accidental
         dropping rather than strict privilege limitation.
 
@@ -1231,7 +1226,7 @@ Cookie authentication options
     .. note::
        
         Please use this carefully, as this may allow users access to MySQL servers
-        behind the firewall where your :abbr:`HTTP (HyperText Transfer Protocol)`
+        behind the firewall where your :term:`HTTP`
         server is placed.
 
 Navigation panel setup
@@ -1303,7 +1298,7 @@ Navigation panel setup
     :type: string
     :default: ``'index.php'``
 
-    Enter :abbr:`URL (Uniform Resource Locator)` where logo in the
+    Enter :term:`URL` where logo in the
     navigation panel will point to. For use especially with self made
     theme which changes this.
 
@@ -1717,7 +1712,7 @@ Documentation
     :type: string
     :default: ``'http://dev.mysql.com/doc/refman'``
 
-    If set to an :abbr:`URL (Uniform Resource Locator)` which points to
+    If set to an :term:`URL` which points to
     the MySQL documentation (type depends on
     :config:option:`$cfg['MySQLManualType']`), appropriate help links are
     generated. 
@@ -1826,7 +1821,7 @@ Web server settings
     :default: ``'auto'``
 
     Defines whether to use GZip output buffering for increased speed in
-    :abbr:`HTTP (HyperText Transfer Protocol)` transfers. Set to
+    :term:`HTTP` transfers. Set to
     true/false for enabling/disabling. When set to 'auto' (string),
     phpMyAdmin tries to enable output buffering and will automatically
     disable it if your browser has some problems with buffering. IE6 with
@@ -1882,11 +1877,9 @@ Web server settings
     :type: integer
     :default: 1000
 
-    Limit for length of :abbr:`URL (Uniform Resource Locator)` in links.
-    When length would be above this limit, it is replaced by form with
-    button. This is required as some web servers (:abbr:`IIS (Internet
-    Information Services)`) have problems with long :abbr:`URL (Uniform
-    Resource Locator)`.
+    Limit for length of :term:`URL` in links.  When length would be above this
+    limit, it is replaced by form with button. This is required as some web
+    servers (:term:`IIS`) have problems with long :term:`URL` .
 
 .. config:option:: $cfg['DisableMultiTableMaintenance']
 
@@ -2160,8 +2153,8 @@ Text fields
     :default: 2
 
     Number of columns and rows for the textareas. This value will be
-    emphasized (\*2) for :abbr:`SQL (structured query language)` query
-    textareas and (\*1.25) for :abbr:`SQL (structured query language)`
+    emphasized (\*2) for :term:`SQL` query
+    textareas and (\*1.25) for :term:`SQL`
     textareas inside the query window.
 
     The Char\* values are used for CHAR
@@ -2234,10 +2227,10 @@ Web server upload/save/import directories
     :type: string
     :default: ``''``
 
-    The name of the directory where :abbr:`SQL (structured query
-    language)` files have been uploaded by other means than phpMyAdmin
-    (for example, ftp). Those files are available under a drop-down box
-    when you click the database or table name, then the Import tab. 
+    The name of the directory where :term:`SQL` files have been uploaded by
+    other means than phpMyAdmin (for example, ftp). Those files are available
+    under a drop-down box when you click the database or table name, then the
+    Import tab. 
 
     If
     you want different directory for each user, %u will be replaced with
@@ -2248,7 +2241,7 @@ Web server upload/save/import directories
     enabled).
 
     This feature is useful when your file is too big to be
-    uploaded via :abbr:`HTTP (HyperText Transfer Protocol)`, or when file
+    uploaded via :term:`HTTP`, or when file
     uploads are disabled in PHP.
 
     .. note::
@@ -2306,7 +2299,7 @@ Web server upload/save/import directories
         chmod 700 tmp
 
     If you cannot change owner of the directory, you can achieve a similar
-    setup using :abbr:`ACL (Access Control List)`:
+    setup using :term:`ACL`:
 
     .. code-block:: sh
 
@@ -2366,12 +2359,11 @@ Various display setting
     :type: integer
     :default: 25
 
-    All those variables affect the query window feature. A :abbr:`SQL
-    (structured query language)` link or icon is always displayed in the
-    navigation panel. If JavaScript is enabled in your browser, a click on
-    this opens a distinct query window, which is a direct interface to
-    enter :abbr:`SQL (structured query language)` queries. Otherwise, the
-    right panel changes to display a query box. 
+    All those variables affect the query window feature. A :term:`SQL` link or
+    icon is always displayed in the navigation panel. If JavaScript is enabled
+    in your browser, a click on this opens a distinct query window, which is a
+    direct interface to enter :term:`SQL` queries. Otherwise, the right panel
+    changes to display a query box. 
 
     The size of this query window can be customized with
     :config:option:`$cfg['QueryWindowWidth']` and
@@ -2382,7 +2374,7 @@ Various display setting
     If :config:option:`$cfg['EditInWindow']` is set to true, a click on [Edit]
     from the results page (in the :guilabel:`Showing Rows` section) opens the
     query window and puts the current query inside it. If set to false,
-    clicking on the link puts the :abbr:`SQL (structured query language)` query
+    clicking on the link puts the :term:`SQL` query
     in the right panel's query box.  
 
     If :config:option:`$cfg['QueryHistoryDB']` is set to ``true``, all your
@@ -2556,8 +2548,8 @@ SQL parser settings
     :type: string
     :default: ``'html'``
 
-    The main use of the new :abbr:`SQL (structured query language)` Parser
-    is to pretty-print :abbr:`SQL (structured query language)` queries. By
+    The main use of the new :term:`SQL` Parser
+    is to pretty-print :term:`SQL` queries. By
     default we use HTML to format the query, but you can disable this by
     setting this variable to ``'none'``.
 
@@ -2577,7 +2569,7 @@ SQL parser settings
     :type: string
     :default: ``'em'``
 
-    For the pretty-printing of :abbr:`SQL (structured query language)` queries,
+    For the pretty-printing of :term:`SQL` queries,
     under some cases the part of a query inside a bracket is indented. By
     changing :config:option:`$cfg['SQP']['fmtInd']` you can change the amount
     of this indent. 
@@ -2599,7 +2591,7 @@ SQL parser settings
     :default:
 
     This array is used to define the colours for each type of element of
-    the pretty-printed :abbr:`SQL (structured query language)` queries.
+    the pretty-printed :term:`SQL` queries.
     The tuple format is *class* => [*HTML colour code* | *empty string*]
 
 
@@ -2629,8 +2621,7 @@ SQL parser settings
       attribute
     * **alpha\_functionName** Identifiers matching a MySQL function name
     * **alpha\_reservedWord** Identifiers matching any other reserved word
-    * **alpha\_variable** Identifiers matching a :abbr:`SQL (structured
-      query language)` variable ``"@foo"``
+    * **alpha\_variable** Identifiers matching a :term:`SQL` variable ``"@foo"``
     * **alpha\_identifier** All other identifiers
     * **quote** Applies to all quotation mark classes
     * **quote\_double** Double quotes ``"``
@@ -2652,9 +2643,9 @@ SQL validator settings
     :type: boolean
     :default: false
 
-    phpMyAdmin now supports use of the `Mimer :abbr:`SQL (structured query
-    language)` Validator <http://developer.mimer.com/validator/index.htm>`_
-    service, as originally published on `Slashdot
+    phpMyAdmin now supports use of the `Mimer :term:`SQL` Validator
+    <http://developer.mimer.com/validator/index.htm>`_ service, as originally
+    published on `Slashdot
     <http://developers.slashdot.org/article.pl?sid=02/02/19/1720246>`_.  For
     help in setting up your system to use the service, see the
     :ref:`faqsqlvalidator`.
