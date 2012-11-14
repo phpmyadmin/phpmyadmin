@@ -2647,7 +2647,7 @@ SQL parser settings
     * **digit\_integer** Integer numbers
     * **digit\_float** Floating point numbers
     * **punct** Applies to all punctuation sub-classes
-    * **punct\_bracket\_open\_round** Opening brackets``"("``
+    * **punct\_bracket\_open\_round** Opening brackets ``"("``
     * **punct\_bracket\_close\_round** Closing brackets ``")"``
     * **punct\_listsep** List item Separator ``","``
     * **punct\_qualifier** Table/Column Qualifier ``"."``
