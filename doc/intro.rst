@@ -25,7 +25,7 @@ Currently phpMyAdmin can:
 * load text files into tables
 * create [#f1]_ and read dumps of tables
 * export [#f1]_ data to various formats: :term:`CSV`, :term:`XML`, :term:`PDF`, 
-  :term:`ISO`/:term:`IEC` 26300 - OpenDocument Text and Spreadsheet, Microsoft 
+  :term:`ISO`/:term:`IEC` 26300 - :term:`OpenDocument` Text and Spreadsheet, Microsoft 
   Word 2000, and LATEX formats
 * import data and :term:`MySQL` structures from :term:`OpenDocument` spreadsheets, as
   well as :term:`XML`, :term:`CSV`, and :term:`SQL` files
