@@ -23,10 +23,8 @@ Quick Install
 
 #. Choose an appropriate distribution kit from the phpmyadmin.net
    Downloads page. Some kits contain only the English messages, others
-   contain all languages in UTF-8 format (this should be fine in most
-   situations), others contain all languages and all character sets.
-   We'll assume you chose a kit whose name looks like ``phpMyAdmin-x.x.x
-   -all-languages.tar.gz``.
+   contain all languages. We'll assume you chose a kit whose name 
+   looks like ``phpMyAdmin-x.x.x -all-languages.tar.gz``.
 #. Untar or unzip the distribution (be sure to unzip the subdirectories):
    ``tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz`` in your
    webserver's document root. If you don't have direct access to your
