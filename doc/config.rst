@@ -66,18 +66,17 @@ Basic settings
     of one database where you would like to use it. You will find a link
     that will analyze why those features have been disabled.
     
-    If you do not
-    want to use those features set this variable to ``true`` to stop this
-    message from appearing.
+    If you do not want to use those features set this variable to ``true`` to
+    stop this message from appearing.
 
 .. config:option:: $cfg['SuhosinDisableWarning']
 
     :type: boolean
     :default: false
 
-    A warning is displayed on the main page if Suhosin is detected. You
-    can set this parameter to ``true`` to stop this message from
-    appearing.
+    A warning is displayed on the main page if Suhosin is detected. 
+    
+    You can set this parameter to ``true`` to stop this message from appearing.
 
 .. config:option:: $cfg['McryptDisableWarning']
 
@@ -85,8 +84,9 @@ Basic settings
     :default: false
 
     Disable the default warning that is displayed if mcrypt is missing for
-    cookie authentication. You can set this parameter to ``true`` to stop
-    this message from appearing.
+    cookie authentication. 
+    
+    You can set this parameter to ``true`` to stop this message from appearing.
 
 .. config:option:: $cfg['ServerLibraryDifference_DisableWarning']
 
@@ -94,8 +94,9 @@ Basic settings
     :default: false
 
     A warning is displayed on the main page if there is a difference
-    between the MySQL library and server version. You can set this
-    parameter to ``true`` to stop this message from appearing.
+    between the MySQL library and server version. 
+    
+    You can set this parameter to ``true`` to stop this message from appearing.
 
 .. config:option:: $cfg['TranslationWarningThreshold']
 
