@@ -3,31 +3,46 @@
 Requirements
 ============
 
-* **PHP**
+Web server
+----------
 
-  * You need PHP 5.2.0 or newer, with ``session`` support (see
-    :ref:`faq1_31`) , the Standard PHP Library (SPL) extension and JSON
-    support.
+Since, phpMyAdmin's interface is based entirely in your browser, you'll need a
+web server (such as Apache, :term:`IIS`) to install phpMyAdmin's files into.
 
-  * To support uploading of ZIP files, you need the PHP ``zip`` extension.
+PHP
+---
 
-  * For proper support of multibyte strings (eg. UTF-8, which is currently
-    the default), you should install the mbstring and ctype extensions.
+* You need PHP 5.2.0 or newer, with ``session`` support (see
+  :ref:`faq1_31`) , the Standard PHP Library (SPL) extension and JSON
+  support.
 
-  * You need GD2 support in PHP to display inline thumbnails of JPEGs
-    ("image/jpeg: inline") with their original aspect ratio.
+* To support uploading of ZIP files, you need the PHP ``zip`` extension.
 
-  * When using the "cookie" :ref:`authentication_modes`, the `mcrypt
-    <http://www.php.net/mcrypt>`_ extension is strongly suggested for most
-    users and is **required** for 64–bit machines. Not using mcrypt will
-    cause phpMyAdmin to load pages significantly slower.
+* For proper support of multibyte strings (eg. UTF-8, which is currently
+  the default), you should install the ``mbstring`` and ``ctype`` extensions.
 
-  * To support upload progress bars, see :ref:`faq2_9`.
+* You need GD2 support in PHP to display inline thumbnails of JPEGs
+  ("image/jpeg: inline") with their original aspect ratio.
 
-  * To support XML and Open Document Spreadsheet importing, you need PHP
-    5.2.17 or newer and the `libxml <http://www.php.net/libxml>`_
-    extension.
+* When using the cookie :ref:`authentication_modes`, the `mcrypt
+  <http://www.php.net/mcrypt>`_ extension is strongly suggested for most
+  users and is **required** for 64–bit machines. Not using mcrypt will
+  cause phpMyAdmin to load pages significantly slower.
 
-* **MySQL** 5.0 or newer (see :ref:`faq1_17`);
-* **Web browser** with cookies enabled.
+* To support upload progress bars, see :ref:`faq2_9`.
+
+* To support XML and Open Document Spreadsheet importing, you need PHP
+  5.2.17 or newer and the `libxml <http://www.php.net/libxml>`_
+  extension.
+
+MySQL
+-----
+
+MySQL 5.0 or newer (see :ref:`faq1_17`) is required.
+
+Web browser
+-----------
+
+To access phpMyAdmin you need a web browser with cookies and javascript
+enabled.
 
