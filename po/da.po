@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-12 14:19+0100\n"
-"PO-Revision-Date: 2012-11-12 07:34+0200\n"
+"PO-Revision-Date: 2012-11-14 09:12+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5113,18 +5112,19 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Mindste antal databaser, der skal vises i database-filterboksen"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr "Kun i lille version; vis databaser i træ (afgjort vha. separator)"
+msgstr ""
+"Gruppér elementer i navigationstræet (afgjort vha. separator defineret "
+"nedenfor)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Gruppér elementer i træet"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5230,7 +5230,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Manglende phpMyAdmin configuration storage tabeller"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5238,12 +5237,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Deaktiver standardadvarslen som vises, hvis mcrypt mangler til cookie "
-"autentifikation"
+"Deaktiver standardadvarslen som vises, hvis der registreres en forskel "
+"mellem MySQL-biblioteket og serveren"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Advarsel om server/bibliotek-forskel"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5329,13 +5328,12 @@ msgstr "Gentag overskrifter"
 
 #: libraries/config/messages.inc.php:360
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Gitter-redering: trigger/udløser-handling"
 
 #: libraries/config/messages.inc.php:361
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Gem alle redigerede celler med det samme"
+msgstr "Gitter-redigering: gem alle redigerede celler med det samme"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
