@@ -200,8 +200,10 @@ link the MySQL extension of your choice to a MySQL client library of
 at least the same minor version since the one that is bundled with
 some PHP distributions is rather old and might cause problems see
 :ref:`faq1_17a`. `MariaDB <http://mariadb.org/>`_ is also supported
-(versions 5.1 and 5.2 were tested). Since phpMyAdmin 3.5 `Drizzle
-<http://www.drizzle.org/>`_ is supported.
+(versions 5.1 and 5.2 were tested). 
+
+.. versionchanged:: 3.5
+    Since phpMyAdmin 3.5 `Drizzle <http://www.drizzle.org/>`_ is supported.
 
 .. _faq1_17a:
 
@@ -1715,8 +1717,11 @@ public bookmark, it will be executed.
 -----------------------------------------------------------------
 
 You can use :term:`CSV` for Microsoft Excel,
-which works out of the box. Since phpMyAdmin 3.4.5 support for direct
-export to Microsoft Excel version 97 and newer was dropped.
+which works out of the box. 
+
+.. versionchanged:: 3.4.5
+    Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel version
+    97 and newer was dropped.
 
 .. _faq6_24:
 
