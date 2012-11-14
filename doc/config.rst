@@ -5,6 +5,21 @@
 Configuration
 =============
 
+Almost all configurable data is placed in :file:`config.inc.php`. If this file
+does not exist, please refer to the :ref:`setup` section to create one. This
+file only needs to contain the parameters you want to change from their
+corresponding default value in :file:`libraries/config.default.php`.
+
+The parameters which relate to design (like colors) are placed in
+:file:`themes/themename/layout.inc.php`. You might also want to create
+:file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add
+your site specific code to be included on start and end of each page.
+
+.. note::
+
+    Some distributions (eg. Debian or Ubuntu) store :file:`config.inc.php` in
+    ``/etc/phpmyadmin`` instead of withing phpMyAdmin sources.
+
 .. warning::
 
     :term:`Mac` users should note that PHP does not seem to
@@ -12,18 +27,6 @@ Configuration
     ensure you choose the option that allows to use the \*nix end of line
     character (``\n``) in your text editor before saving a script you have
     modified.
-
-.. note::
-
-    Almost all configurable data is placed in :file:`config.inc.php`. If this file
-    does not exist, please refer to the :ref:`setup` section to create one. This file only
-    needs to contain the parameters you want to change from their corresponding
-    default value in :file:`libraries/config.default.php`.
-
-    The parameters which relate to design (like colors) are placed in
-    :file:`themes/themename/layout.inc.php`. You might also want to create
-    :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add your
-    site specific code to be included on start and end of each page.
 
 Basic settings
 --------------
