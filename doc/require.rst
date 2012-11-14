@@ -35,10 +35,16 @@ PHP
   5.2.17 or newer and the `libxml <http://www.php.net/libxml>`_
   extension.
 
-MySQL
------
+Database
+--------
 
-MySQL 5.0 or newer (see :ref:`faq1_17`) is required.
+phpMyAdmin support MySQL compatible databases. 
+
+* MySQL 5.0 or newer
+* MariaDB 5.0 or newer
+* Drizzle
+
+.. seealso:: :ref:`faq1_17`
 
 Web browser
 -----------
