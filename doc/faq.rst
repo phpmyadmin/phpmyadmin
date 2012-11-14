@@ -324,10 +324,10 @@ should work.
 1.27 I get empty page when I want to view huge page (eg. db\_structure.php with plenty of tables).
 --------------------------------------------------------------------------------------------------
 
-This is a `PHP bug <http://bugs.php.net/21079>`_ that occur when GZIP
-output buffering is enabled. If you turn off it (by :config:option:`$cfg['OBGzip']` in
-:file:`config.inc.php`), it should work. This bug will be fixed in PHP
-5.0.0.
+This was caused by a `PHP bug <http://bugs.php.net/21079>`_ that occur when
+GZIP output buffering is enabled. If you turn off it (by
+:config:option:`$cfg['OBGzip']` in :file:`config.inc.php`), it should work.
+This bug will has been fixed in PHP 5.0.0.
 
 .. _faq1_28:
 
