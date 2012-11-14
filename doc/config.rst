@@ -2638,32 +2638,56 @@ SQL parser settings
     
     **Class name key:**
 
-    * **comment** Applies to all comment sub-classes
-    * **comment\_mysql** Comments as ``"#...\n"``
-    * **comment\_ansi** Comments as ``"-- ...\n"``
-    * **comment\_c** Comments as ``"/*...*/"``
-    * **digit** Applies to all digit sub-classes
-    * **digit\_hex** Hexadecimal numbers
-    * **digit\_integer** Integer numbers
-    * **digit\_float** Floating point numbers
-    * **punct** Applies to all punctuation sub-classes
-    * **punct\_bracket\_open\_round** Opening brackets ``"("``
-    * **punct\_bracket\_close\_round** Closing brackets ``")"``
-    * **punct\_listsep** List item Separator ``","``
-    * **punct\_qualifier** Table/Column Qualifier ``"."``
-    * **punct\_queryend** End of query marker ``";"``
-    * **alpha** Applies to all alphabetic classes
-    * **alpha\_columnType** Identifiers matching a column type
-    * **alpha\_columnAttrib** Identifiers matching a database/table/column
-      attribute
-    * **alpha\_functionName** Identifiers matching a MySQL function name
-    * **alpha\_reservedWord** Identifiers matching any other reserved word
-    * **alpha\_variable** Identifiers matching a :term:`SQL` variable ``"@foo"``
-    * **alpha\_identifier** All other identifiers
-    * **quote** Applies to all quotation mark classes
-    * **quote\_double** Double quotes ``"``
-    * **quote\_single** Single quotes ``'``
-    * **quote\_backtick** Backtick quotes `````
+    comment
+        Applies to all comment sub-classes
+    comment\_mysql
+        Comments as ``"#...\n"``
+    comment\_ansi
+        Comments as ``"-- ...\n"``
+    comment\_c
+        Comments as ``"/*...*/"``
+    digit
+        Applies to all digit sub-classes
+    digit\_hex
+        Hexadecimal numbers
+    digit\_integer
+        Integer numbers
+    digit\_float
+        Floating point numbers
+    punct
+        Applies to all punctuation sub-classes
+    punct\_bracket\_open\_round
+        Opening brackets ``"("``
+    punct\_bracket\_close\_round
+        Closing brackets ``")"``
+    punct\_listsep
+        List item Separator ``","``
+    punct\_qualifier
+        Table/Column Qualifier ``"."``
+    punct\_queryend
+        End of query marker ``";"``
+    alpha
+        Applies to all alphabetic classes
+    alpha\_columnType
+        Identifiers matching a column type
+    alpha\_columnAttrib
+        Identifiers matching a database/table/column attribute
+    alpha\_functionName
+        Identifiers matching a MySQL function name
+    alpha\_reservedWord
+        Identifiers matching any other reserved word
+    alpha\_variable
+        Identifiers matching a :term:`SQL` variable ``"@foo"``
+    alpha\_identifier
+        All other identifiers
+    quote
+        Applies to all quotation mark classes
+    quote\_double
+        Double quotes ``"``
+    quote\_single
+        Single quotes ``'``
+    quote\_backtick
+        Backtick quotes `````
 
 SQL validator settings
 ----------------------
