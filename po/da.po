@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-12 14:19+0100\n"
-"PO-Revision-Date: 2012-11-14 09:38+0200\n"
+"PO-Revision-Date: 2012-11-14 09:42+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -2897,7 +2897,7 @@ msgstr "Sporing"
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:41
 msgid "Triggers"
-msgstr "Triggers"
+msgstr "Triggers/udløsere"
 
 #: libraries/Menu.class.php:319 libraries/Menu.class.php:320
 msgid "Table seems to be empty!"
@@ -5081,7 +5081,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Logo link target"
-msgstr "Logo link target"
+msgstr "Henvisning for placering af logo"
 
 #: libraries/config/messages.inc.php:305
 msgid "Display server choice at the top of the navigation panel"
@@ -5693,7 +5693,7 @@ msgstr "Socket hvorpå MySQL server lytter, lades tom for standard"
 
 #: libraries/config/messages.inc.php:428
 msgid "Server socket"
-msgstr "Server socket"
+msgstr "Server-sokkel"
 
 #: libraries/config/messages.inc.php:429
 msgid "Enable SSL for connection to MySQL server"
@@ -6479,11 +6479,11 @@ msgstr "zippet"
 
 #: libraries/display_export.lib.php:383
 msgid "gzipped"
-msgstr "gzipped"
+msgstr "gzippet"
 
 #: libraries/display_export.lib.php:390
 msgid "bzipped"
-msgstr "bzipped"
+msgstr "bzippet"
 
 #: libraries/display_export.lib.php:408
 msgid "View output as text"
@@ -8922,7 +8922,7 @@ msgstr "Eksport af trigger %s"
 
 #: libraries/rte/rte_words.lib.php:37
 msgid "trigger"
-msgstr "trigger"
+msgstr "trigger/udløser"
 
 #: libraries/rte/rte_words.lib.php:38
 msgid "You do not have the necessary privileges to create a trigger"
