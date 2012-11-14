@@ -36,25 +36,25 @@ Basic settings
     :type: string
     :default: ``''``
 
-    Sets here the complete :term:`URL` (with
-    full path) to your phpMyAdmin installation's directory. E.g.
-    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.
-    Note also that the :term:`URL` on some web
-    servers are case–sensitive. Don’t forget the trailing slash at the
-    end. 
-    
-    Starting with version 2.3.0, it is advisable to try leaving this
-    blank. In most cases phpMyAdmin automatically detects the proper
-    setting. Users of port forwarding will need to set PmaAbsoluteUri
-    (`more info <https://sourceforge.net/tracker/index.php?func=detail&aid
+    Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
+    installation's directory. E.g.
+    ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    that the :term:`URL` on some web servers are case–sensitive. Don’t forget
+    the trailing slash at the end.
+
+    Starting with version 2.3.0, it is advisable to try leaving this blank. In
+    most cases phpMyAdmin automatically detects the proper setting. Users of
+    port forwarding will need to set PmaAbsoluteUri (`more info
+    <https://sourceforge.net/tracker/index.php?func=detail&aid
     =1340187&group_id=23067&atid=377409>`_). 
-    
-    A good test is to browse a
-    table, edit a row and save it. There should be an error message if
-    phpMyAdmin is having trouble auto–detecting the correct value. If you
-    get an error that this must be set or if the autodetect code fails to
-    detect your path, please post a bug report on our bug tracker so we
-    can improve the code.
+
+    A good test is to browse a table, edit a row and save it. There should be
+    an error message if phpMyAdmin is having trouble auto–detecting the correct
+    value. If you get an error that this must be set or if the autodetect code
+    fails to detect your path, please post a bug report on our bug tracker so
+    we can improve the code.
+
+    .. seealso:: :ref:`faq1_40`
 
 .. config:option:: $cfg['PmaNoRelation_DisableWarning']
 
@@ -127,13 +127,29 @@ Server connection settings
     :file:`config.inc.php`, copy that block or needed parts (you don't have to
     define all settings, just those you need to change).
 
+    .. note::
+       
+        The :config:option:`$cfg['Servers']` array starts with
+        $cfg['Servers'][1]. Do not use $cfg['Servers'][0]. If you want more
+        than one server, just copy following section (including $i
+        incrementation) serveral times. There is no need to define full server
+        array, just define values you need to change.
+
+
 .. config:option:: $cfg['Servers'][$i]['host']
 
     :type: string
     :default: ``'localhost'``
 
-    The hostname or :term:`IP` address of your $i-th
-    MySQL-server. E.g. ``localhost``.
+    The hostname or :term:`IP` address of your $i-th MySQL-server. E.g.
+    ``localhost``.
+
+    Possible values are:
+
+    * hostname, e.g., ``'localhost'`` or ``'mydb.example.org'``
+    * IP address, e.g., ``'127.0.0.1'`` or ``'192.168.10.1'``
+    * dot - ``'.'``, i.e., use named pipes on windows systems
+    * empty - ``''``, disables this server
 
 .. config:option:: $cfg['Servers'][$i]['port']
 
@@ -141,10 +157,14 @@ Server connection settings
     :default: ``''``
 
     The port-number of your $i-th MySQL-server. Default is 3306 (leave
-    blank). If you use ``localhost`` as the hostname, MySQL ignores this
-    port number and connects with the socket, so if you want to connect to
-    a port different from the default port, use ``127.0.0.1`` or the real
-    hostname in :config:option:`$cfg['Servers'][$i]['host']`.
+    blank). 
+    
+    .. note::
+       
+       If you use ``localhost`` as the hostname, MySQL ignores this port number
+       and connects with the socket, so if you want to connect to a port
+       different from the default port, use ``127.0.0.1`` or the real hostname
+       in :config:option:`$cfg['Servers'][$i]['host']`.
 
 .. config:option:: $cfg['Servers'][$i]['socket']
 
@@ -184,7 +204,7 @@ Server connection settings
     ``mysql``
         The classic MySQL extension. 
 
-    ``mysqli*`` 
+    ``mysqli`` 
         The improved MySQL extension. This extension became available with PHP
         5.0.0 and is the recommended way to connect to a server running MySQL
         4.1.x or newer.
@@ -241,8 +261,8 @@ Server connection settings
     :type: string
     :default: ``'cookie'``
 
-    Whether config or cookie or :term:`HTTP`
-    or signon authentication should be used for this server.
+    Whether config or cookie or :term:`HTTP` or signon authentication should be
+    used for this server.
 
     * 'config' authentication (``$auth_type = 'config'``) is the plain old
       way: username and password are stored in :file:`config.inc.php`.
@@ -870,10 +890,22 @@ Server connection settings
     :type: string
     :default: ``'SHOW DATABASES'``
 
-    On a server with a huge number of databases, the default ``SHOW
-    DATABASES`` command used to fetch the name of available databases will
-    probably be too slow, so it can be replaced by faster commands (see
-    :file:`libraries/config.default.php` for examples).
+    On a server with a huge number of databases, the default ``SHOW DATABASES``
+    command used to fetch the name of available databases will probably be too
+    slow, so it can be replaced by faster commands. You can use ``#user#``
+    string will be replaced by current user.
+
+    When using ``false``, it will disable fetching databases from the server,
+    only databases in :config:option:`$cfg['Servers'][$i]['only_db']` will be
+    displayed.
+    
+    Examples:
+
+    * ``'SHOW DATABASES'``
+    * ``"SHOW DATABASES LIKE '#user#\_%'"``
+    * ``'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'``
+    * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
+    * ``false``
 
 .. config:option:: $cfg['Servers'][$i]['CountTables']
 
@@ -1170,10 +1202,11 @@ Cookie authentication options
     blowfish algorithm: you won’t be prompted for this passphrase. There
     is no maximum length for this secret. 
 
-    Since version 3.1.0 phpMyAdmin
-    can generate this on the fly, but it makes a bit weaker security as
-    this generated secret is stored in session and furthermore it makes
-    impossible to recall user name from cookie.
+    .. versionchanged:: 3.1.0
+        Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
+        makes a bit weaker security as this generated secret is stored in
+        session and furthermore it makes impossible to recall user name from
+        cookie.
 
 .. config:option:: $cfg['LoginCookieRecall']
 
