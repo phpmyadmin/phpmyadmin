@@ -233,7 +233,7 @@ Documentation <http://dev.mysql.com/doc/mysql/en/old-client.html>`_.
 1.19 I can't run the "display relations" feature because the script seems not to know the font face I'm using!
 --------------------------------------------------------------------------------------------------------------
 
-The "TCPDF" library we're using for this feature requires some special
+The :term:`TCPDF` library we're using for this feature requires some special
 files to use font faces. Please refers to the `TCPDF manual
 <http://www.tcpdf.org/>`_ to build these files.
 
