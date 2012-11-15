@@ -41,7 +41,7 @@ $js_messages['strFormEmpty'] = __('Missing value in the form!');
 $js_messages['strNotNumber'] = __('This is not a number!');
 $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
-$js_messages['strAddToIndex'] = __('Add %d column(s) to index');
+$js_messages['strAddToIndex'] = __('Add %s column(s) to index');
 
 /* Charts */
 /* l10n: Default description for the y-Axis of Charts */

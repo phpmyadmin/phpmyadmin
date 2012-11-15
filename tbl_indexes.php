@@ -326,7 +326,7 @@ if ($GLOBALS['is_ajax_request'] != true || ! empty($_REQUEST['ajax_page_request'
     <?php
     echo __('Or') . ' ';
     printf(
-        __('Add to index &nbsp;%s&nbsp;column(s)') . "\n",
+        __('Add %s column(s) to index') . "\n",
         '<input type="text" name="added_fields" size="2" value="1" />'
     );
     echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n";
@@ -334,7 +334,7 @@ if ($GLOBALS['is_ajax_request'] != true || ! empty($_REQUEST['ajax_page_request'
     </span>
     <?php
 } else {
-    $btn_value = sprintf(__('Add %d column(s) to index'), 1);
+    $btn_value = sprintf(__('Add %s column(s) to index'), 1);
     echo '<div class="slider"></div>';
     echo '<div class="add_fields">';
     echo '<input type="submit" value="' . $btn_value . '" />';
