@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-15 09:51+0100\n"
-"PO-Revision-Date: 2012-11-13 07:55+0200\n"
+"PO-Revision-Date: 2012-11-15 10:02+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -954,10 +954,10 @@ msgid "Edit Index"
 msgstr "İndeksi düzenle"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "İndekse %d sütun ekle"
+msgstr "İndekse %s sütun ekle"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
