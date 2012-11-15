@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -957,10 +957,10 @@ msgstr "अनुक्रमणिका जोड़"
 msgid "Edit Index"
 msgstr "संपादन मोड"
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "%s क्षेत्र जोडें"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12166,11 +12166,6 @@ msgstr "\"PRIMARY\" नाम हो सकता है  केवल एक �
 msgid "Index type:"
 msgstr "इन्डेक्स प्रकार"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "सूचकांक में जोडें &nbsp;%s&nbsp;column(s)"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "एक ही टेबल में स्थानांतरित नहीं कर सकते"
@@ -13602,6 +13597,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "अधिकतम वर्तमान कनेक्शन"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "सूचकांक में जोडें &nbsp;%s&nbsp;column(s)"
 
 #~ msgid "Synchronize"
 #~ msgstr "सिंक्रनाइज़"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -949,9 +949,10 @@ msgstr "افزودن index"
 msgid "Edit Index"
 msgstr "ویرایش کردن ایندکس"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "افزودن %d  ستون جديد به index"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11821,11 +11822,6 @@ msgstr "(<b>فقط و فقط بايد</b> \"PRIMARY\" نام يك كليد اص�
 msgid "Index type:"
 msgstr "نوع فهرست&nbsp;:"
 
-#: tbl_indexes.php:329
-#, fuzzy, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr ""
@@ -13167,6 +13163,10 @@ msgstr ""
 #, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert  صفر میباشد"
+
+#, fuzzy
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
 
 #, fuzzy
 #~ msgid "Source database"

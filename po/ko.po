@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -946,9 +946,10 @@ msgstr "인덱스 추가"
 msgid "Edit Index"
 msgstr "인덱스 수정"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "인덱스에 %d 열 추가"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11934,11 +11935,6 @@ msgstr "(\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!)"
 msgid "Index type:"
 msgstr "인덱스 종류:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "%s개 열(칼럼)에 인덱스 추가"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
@@ -13293,6 +13289,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "%s개 열(칼럼)에 인덱스 추가"
 
 #, fuzzy
 #~ msgid "Source database"

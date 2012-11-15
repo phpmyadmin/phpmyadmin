@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-12 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -925,9 +925,10 @@ msgstr "เพิ่มดัชนีใหม่"
 msgid "Edit Index"
 msgstr "แก้ไขดัชนี"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "ทำดัชนีใน สดมส์นี้ %d"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12006,11 +12007,6 @@ msgstr "(ชื่อของไพรมารีคีย์<b>จะต้�
 msgid "Index type:"
 msgstr "ชนิดของดัชนี :"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "เพิ่มดัชนีคอลัมน์ %s"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "ย้ายตารางไปที่เดิมไม่ได้"
@@ -13431,6 +13427,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "เพิ่มดัชนีคอลัมน์ %s"
 
 #, fuzzy
 #~ msgid "Source database"

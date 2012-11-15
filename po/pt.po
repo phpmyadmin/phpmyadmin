@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -955,9 +955,10 @@ msgstr "Adicionar Índice"
 msgid "Edit Index"
 msgstr "Editar Índice"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Adiciona %d coluna(s) ao Índice"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12161,11 +12162,6 @@ msgstr ""
 msgid "Index type:"
 msgstr "Tipo de Índice&nbsp;:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Adicionar ao índice &nbsp;%s&nbsp;coluna(s)"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Não é posivel mover a tabela para o mesmo!"
@@ -13573,6 +13569,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definida com o valor 0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Adicionar ao índice &nbsp;%s&nbsp;coluna(s)"
 
 #~ msgid "Synchronize"
 #~ msgstr "Sincronizar"

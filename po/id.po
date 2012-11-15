@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -952,9 +952,10 @@ msgstr "Tambah indek"
 msgid "Edit Index"
 msgstr "Mengedit Indeks"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Tambahkan %d kolom ke index"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11957,11 +11958,6 @@ msgstr ""
 msgid "Index type:"
 msgstr "Jenis indeks:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Tambahkan kolom &nbsp;%s&nbsp; pada indeks"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Memindahkan tabel ke diri-sendiri tidak bisa dilakukan!"
@@ -13378,6 +13374,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Koneksi konkuren maks."
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Tambahkan kolom &nbsp;%s&nbsp; pada indeks"
 
 #~ msgid "Synchronize"
 #~ msgstr "Sinkronisasi"

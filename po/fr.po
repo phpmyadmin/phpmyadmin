@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-12 14:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
@@ -958,9 +958,10 @@ msgstr "Ajouter Index"
 msgid "Edit Index"
 msgstr "Modifier un index"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Ajouter %d colonne(s) à l'index"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12306,11 +12307,6 @@ msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire
 msgid "Index type:"
 msgstr "Type d'index : "
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Ajouter à l'index&nbsp;%s&nbsp;colonne(s)"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "On ne peut déplacer la table sur elle-même !"
@@ -13817,6 +13813,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Ajouter à l'index&nbsp;%s&nbsp;colonne(s)"
 
 #~ msgid "Synchronize"
 #~ msgstr "Synchroniser"

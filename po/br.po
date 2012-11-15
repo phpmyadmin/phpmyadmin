@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
@@ -951,10 +951,10 @@ msgstr "Menegerioù"
 msgid "Edit Index"
 msgstr "Mod aozañ"
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
 #| msgid "Add/Delete columns"
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Ouzhpennañ/Diverkañ bannoù"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11767,11 +11767,6 @@ msgstr ""
 
 #: tbl_indexes.php:229
 msgid "Index type:"
-msgstr ""
-
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
 #: tbl_move_copy.php:43

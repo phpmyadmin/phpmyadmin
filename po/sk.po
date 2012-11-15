@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-09 13:18+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -952,9 +952,10 @@ msgstr "Pridať index"
 msgid "Edit Index"
 msgstr "Upraviť index"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Pridať %d polí do indexu"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12067,11 +12068,6 @@ msgstr "(\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)"
 msgid "Index type:"
 msgstr "Typ indexu&nbsp;:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Pridať do indexu &nbsp;%s&nbsp;stĺpce"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Nedá sa presunúť tabuľka sama do seba!"
@@ -13414,6 +13410,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Pridať do indexu &nbsp;%s&nbsp;stĺpce"
 
 #~ msgid "Synchronize"
 #~ msgstr "Synchronizovať"

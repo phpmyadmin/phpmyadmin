@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-12 18:28+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -955,9 +955,10 @@ msgstr "Dodaj indeks"
 msgid "Edit Index"
 msgstr "Uredi indeks"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Dodaj %d stolpec(-cev) k indeksu"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12205,11 +12206,6 @@ msgstr "(\"PRIMARY\" <b>mora</b> biti ime <b>samo</b> primarnega ključa!)"
 msgid "Index type:"
 msgstr "Vrsta indeksa:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Dodaj indeksu &nbsp;%s&nbsp;stolpec(ce)"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Tabele ni mogoče premakniti same vase!"
@@ -13692,6 +13688,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Dodaj indeksu &nbsp;%s&nbsp;stolpec(ce)"
 
 #~ msgid "Synchronize"
 #~ msgstr "Sinhroniziraj"

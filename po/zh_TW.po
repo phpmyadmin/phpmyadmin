@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -948,10 +948,10 @@ msgstr "新增索引"
 msgid "Edit Index"
 msgstr "編輯模式"
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
 #| msgid "Add %s column(s)"
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "增加 %s 個字段"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12222,11 +12222,6 @@ msgstr "(“PRIMARY”<b>必須</b>而且<b>只能</b>作爲主鍵的名稱！)"
 msgid "Index type:"
 msgstr "索引類型："
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "新增 %s 個索引欄位"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "目標資料表不能爲來源資料表！"
@@ -13667,6 +13662,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert設置為0"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "新增 %s 個索引欄位"
 
 #~ msgid "Synchronize"
 #~ msgstr "同步"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-06 12:16+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
@@ -938,10 +938,10 @@ msgid "Edit Index"
 msgstr "క్రొత్త వాడుకరిని చేర్చు"
 
 # మొదటి అనువాదము
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
 #| msgid "Add into comments"
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "స్పందనలకు చేర్చు"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11875,11 +11875,6 @@ msgstr ""
 
 #: tbl_indexes.php:229
 msgid "Index type:"
-msgstr ""
-
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
 #: tbl_move_copy.php:43

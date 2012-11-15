@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -982,9 +982,10 @@ msgstr "Lisää indeksi"
 msgid "Edit Index"
 msgstr "Muokkaa indeksiä"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Lisää indeksiin %d kolumni(a)"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12566,11 +12567,6 @@ msgstr "(\"PRIMARY\" saa olla <b>vain ja ainoastaan</b> perusavaimen nimenä!)"
 msgid "Index type:"
 msgstr "Indeksin tyyppi:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "Lisää indeksiin %s sarake(tta)"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Taulua ei voi siirtää itseensä!"
@@ -14024,6 +14020,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Enim. yhtäaikaisia yhteyksiä"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Lisää indeksiin %s sarake(tta)"
 
 #~ msgid "Synchronize"
 #~ msgstr "Yhtenäistä"

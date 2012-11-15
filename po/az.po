@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-05-17 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: azerbaijani <az@li.org>\n"
@@ -970,9 +970,9 @@ msgstr "Yeni sahe elave et"
 msgid "Edit Index"
 msgstr "Bir sonrakı setre keç"
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Yeni sahe elave et"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -12283,11 +12283,6 @@ msgstr "(\"PRIMARY\" sadece birinci dereceli açarın adı <b>olmalıdır</b>!)"
 msgid "Index type:"
 msgstr "İndex tipi&nbsp;:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "İndekse &nbsp;%s&nbsp;sütun elave et"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr ""
@@ -13653,6 +13648,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "İndekse &nbsp;%s&nbsp;sütun elave et"
 
 #, fuzzy
 #~ msgid "Source database"

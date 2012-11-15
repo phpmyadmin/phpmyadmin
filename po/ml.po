@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2011-09-27 08:42+0200\n"
 "Last-Translator: <sadik.khalid@gmail.com>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
@@ -902,9 +902,9 @@ msgstr ""
 msgid "Edit Index"
 msgstr ""
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, php-format
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr ""
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11381,11 +11381,6 @@ msgstr ""
 
 #: tbl_indexes.php:229
 msgid "Index type:"
-msgstr ""
-
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
 #: tbl_move_copy.php:43

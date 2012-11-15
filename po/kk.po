@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-06-01 09:41+0200\n"
 "Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
@@ -924,10 +924,11 @@ msgstr "Индекс қосу"
 msgid "Edit Index"
 msgstr "Индексті өзгерту"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
-msgstr ""
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add columns"
+msgid "Add %s column(s) to index"
+msgstr "Бағаналар қосу"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -11406,11 +11407,6 @@ msgstr ""
 
 #: tbl_indexes.php:229
 msgid "Index type:"
-msgstr ""
-
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
 msgstr ""
 
 #: tbl_move_copy.php:43

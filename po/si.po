@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -924,9 +924,10 @@ msgstr "සුචිය එක් කරන්න"
 msgid "Edit Index"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
-#: js/messages.php:44 tbl_indexes.php:337
-#, php-format
-msgid "Add %d column(s) to index"
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
+#, fuzzy, php-format
+#| msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "සුචියට ක්ෂේත්‍ර %d ක් එක් කරන්න"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -11848,11 +11849,6 @@ msgstr "(\"PRIMARY\" නාමය ප්‍රාථමික මූලය ස�
 msgid "Index type:"
 msgstr "සූචි වර්ගය:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "&nbsp;%s&nbsp;තීර(ය) සූචියට එක් කරන්න"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr ""
@@ -13222,6 +13218,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "&nbsp;%s&nbsp;තීර(ය) සූචියට එක් කරන්න"
 
 #~ msgid "Synchronize"
 #~ msgstr "සමමුහුර්ත කරන්න"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-14 11:00+0100\n"
+"POT-Creation-Date: 2012-11-15 09:51+0100\n"
 "PO-Revision-Date: 2012-11-05 10:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -1024,10 +1024,10 @@ msgstr "Индекс(лар)ни сақлаш"
 msgid "Edit Index"
 msgstr "Таҳрирлаш усули"
 
-#: js/messages.php:44 tbl_indexes.php:337
+#: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
 #| msgid "Add column(s)"
-msgid "Add %d column(s) to index"
+msgid "Add %s column(s) to index"
 msgstr "Устун(лар) қўшиш"
 
 #. l10n: Default description for the y-Axis of Charts
@@ -13253,11 +13253,6 @@ msgstr "(\"PRIMARY\" номи <b>фақат</b> бирламчи индексг�
 msgid "Index type:"
 msgstr "Индекс тури:"
 
-#: tbl_indexes.php:329
-#, php-format
-msgid "Add to index &nbsp;%s&nbsp;column(s)"
-msgstr "\"%s\" майдон(лар)ини индексга қўшиш"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "Жадвални ўз-ўзига кўчириб бўлмайди!"
@@ -14705,6 +14700,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Максимал уланишлар сони "
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "\"%s\" майдон(лар)ини индексга қўшиш"
 
 #~ msgid "Synchronize"
 #~ msgstr "Синхронизация қилиш"
