@@ -91,8 +91,8 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                                 // calculate estimated time
                                 var used_time = now - import_start;
                                 var seconds = parseInt(((total - complete) / complete) * used_time / 1000);
-                                var speed = '<?php echo PMA_jsFormat(__('%s/sec.'), false); ?>'
-                                    .replace('%s', formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator));
+                                var speed = $.sprintf('<?php echo PMA_jsFormat(__('%s/sec.'), false); ?>'
+                                    , formatBytes(complete / used_time * 1000, 1, PMA_messages.strDecimalSeparator));
 
                                 var minutes = parseInt(seconds / 60);
                                 seconds %= 60;

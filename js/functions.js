@@ -465,7 +465,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's a number but it is not between min and max
     else if (val < min || val > max) {
         theField.select();
-        alert(message.replace('%d', val));
+        alert($.sprintf(message, val));
         theField.focus();
         return false;
     }
@@ -2518,7 +2518,7 @@ AJAX.registerOnload('functions.js', function() {
                    + "<div class='slider'></div>"
                    + "</td><td>"
                    + "<form><div><input type='submit' class='add_value' value='"
-                   + PMA_messages['enum_addValue'].replace(/%d/, 1)
+                   + $.sprintf(PMA_messages['enum_addValue'], 1)
                    + "'/></div></form>"
                    + "</td></tr></table>"
                    + "<input type='hidden' value='" // So we know which column's data is being edited
@@ -2577,7 +2577,7 @@ AJAX.registerOnload('functions.js', function() {
             max: 9,
             slide: function( event, ui ) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    PMA_messages['enum_addValue'].replace(/%d/, ui.value)
+                    $.sprintf(PMA_messages['enum_addValue'], ui.value)
                 );
             }
         });
@@ -2765,7 +2765,7 @@ function indexEditorDialog(url, title)
                 max: 16,
                 slide: function( event, ui ) {
                     $(this).closest('fieldset').find('input[type=submit]').val(
-                        PMA_messages['strAddToIndex'].replace(/%d/, ui.value)
+                        $.sprintf(PMA_messages['strAddToIndex'], ui.value)
                     );
                 }
             });
