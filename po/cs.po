@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-15 09:51+0100\n"
-"PO-Revision-Date: 2012-11-14 13:43+0200\n"
+"PO-Revision-Date: 2012-11-15 10:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -950,10 +950,10 @@ msgid "Edit Index"
 msgstr "Upravit klíč"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Přidat %d polí do klíče"
+msgstr "Přidat %s polí do klíče"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
