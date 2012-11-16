@@ -7,7 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3586389 [setup] Cannot switch language in /setup
 - bug #3585695 [CSS] Font size in inline query editor is way too big
 
-3.5.4.0 (not yet released)
+3.5.4.0 (2012-11-16)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
 - bug #3569577 [edit] Add routine parameter headers not valid for "function" 
 - bug #3575799 [search] Various search operators not working as expected
