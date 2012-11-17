@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-13 07:55+0200\n"
+"PO-Revision-Date: 2012-11-17 23:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -2724,7 +2724,7 @@ msgstr "Donanım kimlik doğrulaması başarısız"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:163
 msgid "No valid authentication key plugged"
-msgstr "Geçerli kimlik doğrulama anahtarı takılı değil"
+msgstr "Geçerli kimlik doğrulaması anahtarı takılı değil"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:195
 msgid "Authenticating..."
@@ -2869,7 +2869,7 @@ msgstr "Sunucu"
 
 #: libraries/common.inc.php:866
 msgid "Invalid authentication method set in configuration:"
-msgstr "Yapılandırma içinde geçersiz kimlik doğrulama yöntemi ayarı:"
+msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 
 #: libraries/common.inc.php:981
 #, php-format
@@ -3292,7 +3292,7 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"[kbd]Tanımlama bilgisi[/kbd] kimlik doğrulamada tanımlama bilgilerini "
+"[kbd]Tanımlama bilgisi[/kbd] kimlik doğrulamasında tanımlama bilgilerini "
 "şifrelemek için kullanılan gizli şifreleme tekniği"
 
 #: libraries/config/messages.inc.php:25
@@ -3901,11 +3901,11 @@ msgstr "Temel ayarlar"
 
 #: libraries/config/messages.inc.php:201
 msgid "Authentication"
-msgstr "Kimlik doğrulama"
+msgstr "Kimlik doğrulaması"
 
 #: libraries/config/messages.inc.php:202
 msgid "Authentication settings"
-msgstr "Kimlik doğrulama ayarları"
+msgstr "Kimlik doğrulaması ayarları"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
@@ -4610,9 +4610,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"[a@http://swekey.com]SweKey donanımsal kimlik doğrulama[/a] için "
-"yapılandırma dosyası yolu (belge kök klasörünüzde yer almaz; önerilen: /etc/"
-"swekey.conf)"
+"[a@http://swekey.com]SweKey donanımsal kimlik doğrulaması[/a] için "
+"yapılandırma dosyası yolu (belge kök klasörünüzde yer almaz; önerilen: "
+"/etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
@@ -4620,11 +4620,11 @@ msgstr "SweKey yapılandırma dosyası"
 
 #: libraries/config/messages.inc.php:372
 msgid "Authentication method to use"
-msgstr "Kullanmak için kimlik doğrulama yöntemi"
+msgstr "Kullanmak için kimlik doğrulaması yöntemi"
 
 #: libraries/config/messages.inc.php:373 setup/frames/index.inc.php:128
 msgid "Authentication type"
-msgstr "Kimlik doğrulama türü"
+msgstr "Kimlik doğrulaması türü"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
@@ -5077,9 +5077,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"Lütfen unutmayın, bunu etkinleştirmek kimlik doğrulama kipi [kbd]"
-"yapılandırmasını[/kbd] etkilemez çünkü parola yapılandırma dosyasında sıkı "
-"kodlanmıştır; bu, doğrudan aynı komutun yürütme kabiliyetini sınırlandırmaz"
+"Lütfen unutmayın, bunu etkinleştirmek kimlik doğrulaması kipi "
+"[kbd]yapılandırmasını[/kbd] etkilemez çünkü parola yapılandırma dosyasında "
+"sıkı kodlanmıştır; bu, doğrudan aynı komutun yürütme kabiliyetini "
+"sınırlandırmaz"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
@@ -12113,7 +12114,7 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Geliştirilmiş performansa sahip MySQL 5.1'e ve daha çok MySQL 5.5'e "
+"Gelişmiş performansa sahip MySQL 5.1'e ve daha çok MySQL 5.5'e "
 "yükseltmelisiniz."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
@@ -12134,8 +12135,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Geliştirilmiş performansa sahip MySQL 5.1'in en son sürümüne ve daha çok "
-"MySQL 5.5'e yükseltmelisiniz."
+"Gelişmiş performansa sahip MySQL 5.1'in en son sürümüne ve daha çok MySQL "
+"5.5'e yükseltmelisiniz."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
