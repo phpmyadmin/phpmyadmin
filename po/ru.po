@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-15 09:51+0100\n"
-"PO-Revision-Date: 2012-11-17 12:26+0200\n"
+"PO-Revision-Date: 2012-11-17 12:51+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: Russian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
@@ -5145,25 +5145,24 @@ msgid "Target for quick access icon"
 msgstr "Цель иконки быстрого доступа"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Минимальное количество таблиц для отображения поля фильтра"
+msgstr ""
+"Определяет минимальное количество пунктов (таблиц, представлений, функций и "
+"событий) для вывода поля фильтра."
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Минимальное количество таблиц для отображения поля фильтра"
+msgstr "Минимальное количество пунктов для вывода поля фильтра"
 
 #: libraries/config/messages.inc.php:310
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Минимальное количество баз данных для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5171,12 +5170,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Только в облегченном варианте; отображать базы данных в виде дерева "
-"(определяется указанием разделителя ниже)"
+"Группировать пункты в дереве навигации (определяется указанием разделителя "
+"ниже)"
 
 #: libraries/config/messages.inc.php:312
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Группировать пункты в дереве"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates databases into different tree levels"
@@ -5283,7 +5282,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Отсутствие таблиц хранения конфигурации phpMyAdmin"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5291,12 +5289,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Отключить отображение предупреждения при отсутствии mcrypt, необходимого для "
-"идентификации методом cookie"
+"Отключить отображение предупреждения при определении различия версий "
+"библиотеки MySQL и сервера"
 
 #: libraries/config/messages.inc.php:337
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Предупреждение различия Сервера/библиотеки"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5455,7 +5453,6 @@ msgid "Authentication type"
 msgstr "Тип идентификации"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5463,15 +5460,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/bookmark]закладок"
-"[/a] оставьте поле пустым. Рекомендуется: [kbd]pma_bookmark[/kbd]"
+"Для отключения поддержки "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]закладок[/a] оставьте поле "
+"пустым, рекомендуется: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
 msgstr "Таблица закладок"
 
 #: libraries/config/messages.inc.php:378
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5479,8 +5476,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Для отключения поддержки комментариев/mime-типов полей оставьте поле пустым. "
-"Рекомендуется: [kbd]pma_column_info[/kbd]"
+"Для отключения поддержки комментариев/mime-типов полей оставьте поле пустым, "
+"рекомендуется: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:379
 msgid "Column information table"
@@ -5539,7 +5536,6 @@ msgid "Count tables"
 msgstr "Подсчитывать таблицы"
 
 #: libraries/config/messages.inc.php:391
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5547,8 +5543,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Для отключения поддержки Дизайнера Связей оставьте поле пустым. "
-"Рекомендуется: [kbd]pma_designer_coords[/kbd]"
+"Для отключения поддержки Дизайнера Связей оставьте поле пустым, "
+"рекомендуется: [kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Designer table"
@@ -5585,7 +5581,6 @@ msgid "Hide databases"
 msgstr "Скрыть базы данных"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5593,8 +5588,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Для отключения поддержки истории SQL запросов оставьте поле пустым. "
-"Рекомендуется: [kbd]pma_history[/kbd]"
+"Для отключения поддержки истории SQL запросов оставьте поле пустым, "
+"рекомендуется: [kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
@@ -5662,14 +5657,13 @@ msgid "Password for config auth"
 msgstr "Прописанный пароль"
 
 #: libraries/config/messages.inc.php:412
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Для отключения поддержки PDF схемы оставьте поле пустым. Рекомендуется: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5701,7 +5695,6 @@ msgid "Server port"
 msgstr "Порт сервера"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5710,14 +5703,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 "Для отключения возможности просмотра недавно использованных таблиц, оставьте "
-"поле пустым. Рекомендуется: [kbd]pma_recent[/kbd]"
+"поле пустым, рекомендуется: [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Recently used table"
 msgstr "Недавно использованная таблица"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5725,9 +5717,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/relation]"
-"связанных таблиц[/a] оставьте поле пустым. Рекомендуется: [kbd]pma_relation[/"
-"kbd]"
+"Для отключения поддержки "
+"[a@http://wiki.phpmyadmin.net/pma/relation]связанных таблиц[/a] оставьте "
+"поле пустым, рекомендуется: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
@@ -5776,7 +5768,6 @@ msgid "Use SSL"
 msgstr "Использовать SSL"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5784,15 +5775,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Для отключения поддержки PDF схемы оставьте поле пустым. Рекомендуется: [kbd]"
-"pma_table_coords[/kbd]"
+"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "PDF schema: table coordinates"
 msgstr "PDF схема: координаты таблиц"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5801,14 +5791,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Таблица для описания отображаемых полей. Для отключения поддержки данной "
-"функции оставьте поле пустым. Рекомендуется: [kbd]pma_table_info[/kbd]"
+"функции оставьте поле пустым, рекомендуется: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "Display columns table"
 msgstr "Таблица с описаниями полей"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5817,7 +5806,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 "Для отключения возможности хранения настроек интерфейса таблиц, оставьте "
-"поле пустым. Рекомендуется: [kbd]pma_table_uiprefs[/kbd]"
+"поле пустым, рекомендуется: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -5870,7 +5859,6 @@ msgid "Statements to track"
 msgstr "Слежение за выражениями"
 
 #: libraries/config/messages.inc.php:445
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5878,8 +5866,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Для отключения поддержки слежения за SQL запросами оставьте поле пустым. "
-"Рекомендуется: [kbd]pma_tracking[/kbd]"
+"Для отключения поддержки слежения за SQL запросами оставьте поле пустым, "
+"рекомендуется: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
@@ -5898,7 +5886,6 @@ msgid "Automatically create versions"
 msgstr "Автоматическое создание версий"
 
 #: libraries/config/messages.inc.php:449
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5907,7 +5894,7 @@ msgid ""
 "pma__userconfig[/kbd]"
 msgstr ""
 "Для отключения возможности хранения пользовательских настроек в базе данных "
-"оставьте поле пустым. Рекомендуется: [kbd]pma_userconfig[/kbd]"
+"оставьте поле пустым, рекомендуется: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
@@ -7451,7 +7438,7 @@ msgstr "неизвестно"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "При загрузке дерева навигации произошла ошибка"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7473,39 +7460,36 @@ msgstr "Обновить фрейм навигации"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "найден еще %s результат"
+msgstr[1] "найдено еще %s результата"
+msgstr[2] "найдено еще %s результатов"
 
 #: libraries/navigation/NavigationTree.class.php:1025
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Фильтровать базы данных по имени"
+msgstr "фильтровать базы данных по имени"
 
 #: libraries/navigation/NavigationTree.class.php:1026
 #: libraries/navigation/NavigationTree.class.php:1052
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Очистить серии"
+msgstr "Очистить Быстрый Фильтр"
 
 #: libraries/navigation/NavigationTree.class.php:1051
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Фильтровать таблицы по имени"
+msgstr "фильтровать пункты по имени"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:40
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Неверное имя класса \"%1$s\", использовано изначальное \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:64
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Невозможно включить класс \"%1$s\", файл \"%2$s\" не найден"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:282
@@ -7513,18 +7497,16 @@ msgid "Columns"
 msgstr "Столбцы"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Новый"
+msgstr "Новое"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
-msgstr "Новый"
+msgstr "Новое"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
@@ -7533,14 +7515,12 @@ msgid "Functions"
 msgstr "Функции"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Новый"
+msgstr "Новая"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7554,21 +7534,18 @@ msgstr "Процедуры"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Новый"
+msgstr "Новая"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "Новый"
+msgstr "Новая"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7580,11 +7557,10 @@ msgid "Views"
 msgstr "Представления"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Новый"
+msgstr "Новое"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -9538,7 +9514,6 @@ msgid "User has been added."
 msgstr "Пользователь был добавлен."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -10124,6 +10099,8 @@ msgstr "Ошибка в ZIP-архиве:"
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
 msgstr ""
+"Неисправимая ошибка: Панель навигации может быть доступна только с помощью "
+"ajax"
 
 #: pmd_general.php:81
 msgid "Show/Hide left menu"
@@ -12222,10 +12199,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Для обзора данных использован запрос из закладки \"%s\"."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Закладка &quot;%s&quot; создана"
+msgstr "Закладка не создана"
 
 #: sql.php:898
 msgid "Showing as PHP code"
@@ -12262,7 +12238,6 @@ msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Данные не найдены"
