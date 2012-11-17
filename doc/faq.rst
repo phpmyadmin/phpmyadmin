@@ -858,7 +858,7 @@ a # before it:  ``-- -------------------------------------------------------`` o
 Please note that you should not use the separating string multiple
 times without any characters between them, or at the beginning/end of
 your table name. If you have to, think about using another
-TableSeparator or disabling that feature
+TableSeparator or disabling that feature.
 
 .. seealso:: :config:option:`$cfg['NavigationTreeTableSeparator']`
 
