@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-31 11:31+0200\n"
-"Last-Translator: Rui Simoes <ruisimoes.ouca@gmail.com>\n"
+"PO-Revision-Date: 2012-11-18 21:53+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.3\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -7946,7 +7946,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
 msgid "ltr"
-msgstr "LTR"
+msgstr "ltr"
 
 #: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
 #: libraries/select_lang.lib.php:507
