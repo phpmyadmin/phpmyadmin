@@ -609,7 +609,7 @@ var ResizeHandler = function () {
      * @return void
      */
     this.mousemove = function (event) {
-        if (event.data.resize_handler.active) {
+        if (event.data && event.data.resize_handler && event.data.resize_handler.active) {
             event.preventDefault();
             var pos = event.data.resize_handler.getPos(event);
             event.data.resize_handler.setWidth(pos);
