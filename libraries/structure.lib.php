@@ -537,9 +537,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
     $html_output = '<td class="insert_table center">'
-        . '<a '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '')
-        . ' href="tbl_change.php?' . $tbl_url_query . '">'
+        . '<a href="tbl_change.php?' . $tbl_url_query . '">'
         . $titles['Insert']
         . '</a></td>';
     $html_output .= '<td class="center">' . $empty_table . '</td>';
