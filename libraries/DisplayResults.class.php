@@ -649,6 +649,7 @@ class PMA_DisplayResults
                     . '" method="post">';
 
                 $table_navigation_html .= PMA_Util::pageselector(
+                    'pos',
                     $_SESSION['tmp_user_values']['max_rows'],
                     $pageNow, $nbTotalPage, 200, 5, 5, 20, 10
                 );
