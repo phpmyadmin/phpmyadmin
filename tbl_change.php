@@ -49,7 +49,7 @@ if (isset($_REQUEST['after_insert'])) {
 /**
  * file listing
  */
-require_once 'libraries/file_listing.php';
+require_once 'libraries/file_listing.lib.php';
 
 
 /**

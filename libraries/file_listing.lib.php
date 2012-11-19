@@ -3,7 +3,6 @@
 /**
  * Functions for listing directories
  *
- * @todo rename to file_listing.lib.php
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

@@ -18,8 +18,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-require_once './libraries/file_listing.php'; // used for file listing
-require_once './libraries/bookmark.lib.php'; // used for file listing
+require_once './libraries/file_listing.lib.php'; // used for file listing
+require_once './libraries/bookmark.lib.php'; // used for bookmarks 
 
 /**
  * Prints the sql query boxes
