@@ -280,7 +280,13 @@ unset(
     $last_messages, $last_message
 );
 
-if ($response->isAjax()) {
+/**
+ * The following section only applies to grid editing.
+ * However, verifying isAjax() is not enough to ensure we are coming from
+ * grid editing. If we are coming from the Edit or Copy link in Browse mode,
+ * ajax_page_request is present in the POST parameters.
+ */
+if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     /**
      * If we are in grid editing, we need to process the relational and
      * transformed fields, if they were edited. After that, output the correct
