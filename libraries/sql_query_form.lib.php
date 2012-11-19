@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 require_once './libraries/file_listing.lib.php'; // used for file listing
-require_once './libraries/bookmark.lib.php'; // used for bookmarks 
+require_once './libraries/bookmark.lib.php'; // used for bookmarks
 
 /**
  * Prints the sql query boxes
@@ -140,15 +140,6 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
     }
 
     echo '</form>' . "\n";
-    if ($is_querywindow) {
-        ?>
-        <script type="text/javascript">
-        //<![CDATA[
-            PMA_querywindow.showQuery();
-        //]]>
-        </script>
-        <?php
-    }
 
     // print an empty div, which will be later filled with
     // the sql query results by ajax

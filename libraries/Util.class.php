@@ -1233,7 +1233,7 @@ class PMA_Util
                 $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton(
-                        $edit_link, __('Edit'), array('onclick' => $onclick)
+                        $edit_link, __('Edit'), array('onclick' => $onclick, 'class' => 'disableAjax')
                     )
                     . ']';
             } else {

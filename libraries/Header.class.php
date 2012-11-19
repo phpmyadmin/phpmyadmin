@@ -200,7 +200,7 @@ class PMA_Header
         return array(
             'common_query' => PMA_generate_common_url('', '', '&'),
             'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
-            'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false',
+            'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 1 : 0,
             'querywindow_height' => $GLOBALS['cfg']['QueryWindowHeight'],
             'querywindow_width' => $GLOBALS['cfg']['QueryWindowWidth'],
             'collation_connection' => $GLOBALS['collation_connection'],

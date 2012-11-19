@@ -172,10 +172,14 @@ var PMA_querywindow = (function ($, window) {
          *
          * @return void
          */
-        open: function (url) {
+        open: function (url, sql_query) {
             if (! url) {
                 url = 'querywindow.php' + PMA_commonParams.getUrlQuery();
             }
+            if (sql_query) {
+                url += '&sql_query=' + encodeURIComponent(sql_query);
+            }
+
             if (! querywindow.closed && querywindow.location) {
                 var href = querywindow.location.href;
                 if (href != url
@@ -219,8 +223,7 @@ var PMA_querywindow = (function ($, window) {
                 // we need first to open the window and cannot pass the query with it
                 // as we dont know if the query exceeds max url length
                 queryToLoad = sql_query;
-                this.open();
-                this.showQuery();
+                this.open(false, sql_query);
             } else {
                 //var querywindow = querywindow;
                 var hiddenqueryform = querywindow
@@ -235,18 +238,6 @@ var PMA_querywindow = (function ($, window) {
                 } else {
                     querywindow.focus();
                 }
-            }
-        },
-        /**
-         * Displays the stored SQL query in the SQL form of the query window
-         *
-         * @return void
-         */
-        showQuery: function () {
-            var $sqlBox = $('#sqlquery', querywindow);
-            if (queryToLoad != '' && $sqlBox.length) {
-                $sqlBox.val(queryToLoad);
-                queryToLoad = '';
             }
         },
         /**

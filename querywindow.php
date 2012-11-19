@@ -107,6 +107,9 @@ if ($no_js) {
  */
 if (! empty($show_query)) {
     $query_to_display = $sql_query;
+} else if (! empty($_REQUEST['sql_query'])) {
+    $query_to_display = htmlspecialchars($_REQUEST['sql_query']);
+    $show_query = 1;
 } else {
     $query_to_display = '';
 }
