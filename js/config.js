@@ -20,13 +20,6 @@ AJAX.registerTeardown('config.js', function() {
 var defaultValues = {};
 
 /**
- * Automatic form submission on change.
- */
-$('.autosubmit').live('change', function(e) {
-    e.target.form.submit();
-});
-
-/**
  * Returns field type
  *
  * @param {Element} field

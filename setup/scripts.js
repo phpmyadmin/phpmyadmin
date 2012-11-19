@@ -42,6 +42,13 @@ $(function() {
 // Form validation and field operations
 //
 
+/**
+ * Automatic form submission on change.
+ */
+$('.autosubmit').live('change', function(e) {
+    e.target.form.submit();
+});
+
 $.extend(true, validators, {
     // field validators
     _field: {
