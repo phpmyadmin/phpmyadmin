@@ -170,7 +170,7 @@ if (isset($where_clause)) {
 // Copying a row - fetched data will be inserted as a new row,
 // therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-    unset($where_clause, $where_clauses);
+    $where_clause = $where_clauses = null;
 }
 
 // retrieve keys into foreign fields, if any
