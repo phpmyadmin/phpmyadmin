@@ -161,7 +161,7 @@ if (isset($where_clause)) {
     // we are inserting
     $insert_mode = true;
     $where_clause = null;
-    list($result, $rows) = PMA_loadFirstRowInEditMode($table, $db);
+    list($result, $rows) = PMA_loadFirstRow($table, $db);
     $where_clauses = null;
     $where_clause_array = null;
     $found_unique_key = false;

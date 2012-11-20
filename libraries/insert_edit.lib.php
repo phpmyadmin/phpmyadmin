@@ -149,7 +149,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
  *
  * @return array                containing $result and $rows arrays
  */
-function PMA_loadFirstRowInEditMode($table, $db)
+function PMA_loadFirstRow($table, $db)
 {
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_Util::backquote($db)
