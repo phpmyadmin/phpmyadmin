@@ -3,21 +3,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-11-15 09:51+0100\n"
+"POT-Creation-Date: 2012-11-20 11:39-0500\n"
 "PO-Revision-Date: 2012-11-05 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "id/>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.3-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
-#: libraries/DisplayResults.class.php:808
+#: libraries/DisplayResults.class.php:809
 #: libraries/server_privileges.lib.php:2616
 msgid "Show all"
 msgstr "Tampilkan semua"
@@ -49,12 +49,12 @@ msgid "Search"
 msgstr "Cari"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:231
-#: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1658
+#: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1659
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
 #: libraries/display_change_password.lib.php:95
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:440 libraries/display_import.lib.php:337
-#: libraries/insert_edit.lib.php:1576 libraries/insert_edit.lib.php:1611
+#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:256
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
@@ -75,9 +75,9 @@ msgstr "Cari"
 #: libraries/server_privileges.lib.php:1965
 #: libraries/server_privileges.lib.php:2556
 #: libraries/server_privileges.lib.php:3081
-#: libraries/sql_query_form.lib.php:376 libraries/sql_query_form.lib.php:433
-#: libraries/sql_query_form.lib.php:496 libraries/structure.lib.php:1588
-#: libraries/structure.lib.php:1615 libraries/tbl_properties.inc.php:743
+#: libraries/sql_query_form.lib.php:367 libraries/sql_query_form.lib.php:424
+#: libraries/sql_query_form.lib.php:487 libraries/structure.lib.php:1586
+#: libraries/structure.lib.php:1613 libraries/tbl_properties.inc.php:743
 #: pmd_pdf.php:153 prefs_manage.php:266 prefs_manage.php:316
 #: server_binlog.php:115 server_replication.php:224 server_replication.php:327
 #: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:515
@@ -127,7 +127,7 @@ msgstr "Komentar tabel"
 
 #: db_datadict.php:163 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1595
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:503
@@ -145,8 +145,8 @@ msgid "Column"
 msgstr "Kolom"
 
 #: db_datadict.php:164 db_printview.php:101 libraries/Index.class.php:562
-#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:268
-#: libraries/insert_edit.lib.php:272
+#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:239
+#: libraries/insert_edit.lib.php:243
 #: libraries/plugins/export/ExportHtmlword.class.php:279
 #: libraries/plugins/export/ExportHtmlword.class.php:394
 #: libraries/plugins/export/ExportLatex.class.php:504
@@ -160,14 +160,14 @@ msgstr "Kolom"
 #: libraries/rte/rte_routines.lib.php:1493
 #: libraries/schema/Pdf_Relation_Schema.class.php:1350
 #: libraries/schema/Pdf_Relation_Schema.class.php:1371
-#: libraries/server_privileges.lib.php:1580 libraries/structure.lib.php:783
-#: libraries/structure.lib.php:1187 libraries/tbl_properties.inc.php:86
+#: libraries/server_privileges.lib.php:1580 libraries/structure.lib.php:781
+#: libraries/structure.lib.php:1185 libraries/tbl_properties.inc.php:86
 #: tbl_printview.php:131 tbl_tracking.php:319 tbl_tracking.php:377
 msgid "Type"
 msgstr "Jenis"
 
 #: db_datadict.php:166 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1604
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:505
@@ -177,7 +177,7 @@ msgstr "Jenis"
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/schema/Pdf_Relation_Schema.class.php:1373
-#: libraries/structure.lib.php:1190 libraries/tbl_properties.inc.php:106
+#: libraries/structure.lib.php:1188 libraries/tbl_properties.inc.php:106
 #: tbl_printview.php:132 tbl_tracking.php:321 tbl_tracking.php:383
 msgid "Null"
 msgstr "Kosong"
@@ -191,7 +191,7 @@ msgstr "Kosong"
 #: libraries/plugins/export/ExportTexytext.class.php:372
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
 #: libraries/schema/Pdf_Relation_Schema.class.php:1374
-#: libraries/structure.lib.php:213 libraries/structure.lib.php:1191
+#: libraries/structure.lib.php:213 libraries/structure.lib.php:1189
 #: libraries/tbl_properties.inc.php:97 tbl_printview.php:133
 #: tbl_tracking.php:322
 msgid "Default"
@@ -235,7 +235,7 @@ msgstr "Komentar"
 #: libraries/server_privileges.lib.php:2151
 #: libraries/server_privileges.lib.php:2157
 #: libraries/server_privileges.lib.php:2476
-#: libraries/server_privileges.lib.php:2490 libraries/structure.lib.php:1275
+#: libraries/server_privileges.lib.php:2490 libraries/structure.lib.php:1273
 #: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:413
 #: sql.php:497 tbl_printview.php:186 tbl_tracking.php:339 tbl_tracking.php:393
 #: tbl_tracking.php:398
@@ -262,7 +262,7 @@ msgstr "Tidak"
 #: libraries/server_privileges.lib.php:2150
 #: libraries/server_privileges.lib.php:2155
 #: libraries/server_privileges.lib.php:2473
-#: libraries/server_privileges.lib.php:2490 libraries/structure.lib.php:1275
+#: libraries/server_privileges.lib.php:2490 libraries/structure.lib.php:1273
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:495
 #: tbl_printview.php:187 tbl_structure.php:50 tbl_tracking.php:339
@@ -320,32 +320,32 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:293
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
-#: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:764
+#: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:762
 #: tbl_tracking.php:757
 msgid "Table"
 msgstr "Tabel"
 
-#: db_printview.php:100 db_tables_search.php:25 db_tables_search.php:57
-#: libraries/Table.class.php:283 libraries/build_html_for_db.lib.php:31
-#: libraries/import.lib.php:181 libraries/structure.lib.php:775
-#: libraries/structure.lib.php:1745 libraries/structure.lib.php:1924
-#: libraries/structure.lib.php:2065 sql.php:1080 tbl_printview.php:365
+#: db_printview.php:100 libraries/Table.class.php:283
+#: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
+#: libraries/structure.lib.php:773 libraries/structure.lib.php:1743
+#: libraries/structure.lib.php:1922 libraries/structure.lib.php:2063
+#: sql.php:1080 tbl_printview.php:365
 msgid "Rows"
 msgstr "Baris"
 
-#: db_printview.php:104 libraries/structure.lib.php:794 tbl_indexes.php:244
+#: db_printview.php:104 libraries/structure.lib.php:792 tbl_indexes.php:244
 msgid "Size"
 msgstr "Ukuran"
 
 #: db_printview.php:159 libraries/plugins/export/ExportSql.class.php:1020
-#: libraries/structure.lib.php:738
+#: libraries/structure.lib.php:736
 msgid "in use"
 msgstr "sedang digunakan"
 
 #: db_printview.php:185 libraries/db_info.inc.php:69
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
+#: libraries/structure.lib.php:803 libraries/structure.lib.php:1782
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "Pembuatan"
@@ -353,7 +353,7 @@ msgstr "Pembuatan"
 #: db_printview.php:194 libraries/db_info.inc.php:75
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1791
+#: libraries/structure.lib.php:810 libraries/structure.lib.php:1789
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "Pembaruan terakhir"
@@ -361,7 +361,7 @@ msgstr "Pembaruan terakhir"
 #: db_printview.php:203 libraries/db_info.inc.php:81
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
-#: libraries/structure.lib.php:819 libraries/structure.lib.php:1799
+#: libraries/structure.lib.php:817 libraries/structure.lib.php:1797
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "Pemeriksaan terakhir"
@@ -435,13 +435,13 @@ msgstr "Status"
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
 #: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1583
 #: libraries/server_privileges.lib.php:2234
-#: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:772
-#: libraries/structure.lib.php:1205 server_databases.php:236
+#: libraries/server_privileges.lib.php:2398 libraries/structure.lib.php:770
+#: libraries/structure.lib.php:1203 server_databases.php:236
 msgid "Action"
 msgstr "Tindakan"
 
 #: db_tracking.php:85 libraries/DBQbe.class.php:466
-#: libraries/DisplayResults.class.php:902 tbl_change.php:223
+#: libraries/DisplayResults.class.php:903 tbl_change.php:235
 #: tbl_tracking.php:762
 msgid "Show"
 msgstr "Tampilkan"
@@ -452,8 +452,8 @@ msgstr "Hapus pelacakan data untuk tabel ini"
 
 #: db_tracking.php:103 libraries/Index.class.php:629
 #: libraries/Util.class.php:3475 libraries/Util.class.php:3476
-#: libraries/structure.lib.php:310 libraries/structure.lib.php:1384
-#: libraries/structure.lib.php:2224 libraries/structure.lib.php:2226
+#: libraries/structure.lib.php:310 libraries/structure.lib.php:1382
+#: libraries/structure.lib.php:2222 libraries/structure.lib.php:2224
 #: server_databases.php:327
 msgid "Drop"
 msgstr "Hapus"
@@ -482,7 +482,7 @@ msgstr "Snapshot struktur"
 msgid "Untracked tables"
 msgstr "Tabel yang tidak dilacak"
 
-#: db_tracking.php:212 libraries/structure.lib.php:1521
+#: db_tracking.php:212 libraries/structure.lib.php:1519
 msgid "Track table"
 msgstr "Lacak tabel"
 
@@ -543,7 +543,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:328
-#: libraries/DisplayResults.class.php:1642
+#: libraries/DisplayResults.class.php:1643
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -623,14 +623,14 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat "
-"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Harap lihat %"
+"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -702,7 +702,7 @@ msgstr ""
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
-#: import.php:563 libraries/DisplayResults.class.php:4552
+#: import.php:563 libraries/DisplayResults.class.php:4553
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:182
 #: tbl_relation.php:298 tbl_row_action.php:122 view_operations.php:56
@@ -1002,7 +1002,7 @@ msgid "Close"
 msgstr "Tutup"
 
 #: js/messages.php:61 js/messages.php:286
-#: libraries/DisplayResults.class.php:3318 libraries/Index.class.php:593
+#: libraries/DisplayResults.class.php:3319 libraries/Index.class.php:593
 #: libraries/Util.class.php:691 libraries/Util.class.php:1236
 #: libraries/Util.class.php:3479 libraries/Util.class.php:3480
 #: libraries/config/messages.inc.php:486
@@ -1029,7 +1029,7 @@ msgstr "Data statis"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2364
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2362
 #: server_databases.php:271 server_status.php:1225 server_status.php:1294
 #: tbl_printview.php:331
 msgid "Total"
@@ -1251,7 +1251,7 @@ msgstr "Tambahkan bagan pada grid"
 msgid "Please add at least one variable to the series"
 msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri"
 
-#: js/messages.php:139 libraries/DisplayResults.class.php:1287
+#: js/messages.php:139 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
 #: libraries/display_export.lib.php:370
 #: libraries/plugins/export/ExportSql.class.php:1545
@@ -1764,8 +1764,8 @@ msgstr "Tampilkan kotak kueri"
 msgid "No rows selected"
 msgstr "Tidak ada baris yang dipilih"
 
-#: js/messages.php:288 libraries/DisplayResults.class.php:5072
-#: libraries/structure.lib.php:1380 libraries/structure.lib.php:2222
+#: js/messages.php:288 libraries/DisplayResults.class.php:5073
+#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2220
 #: querywindow.php:85
 msgid "Change"
 msgstr "Ubah"
@@ -1774,14 +1774,14 @@ msgstr "Ubah"
 msgid "Query execution time"
 msgstr "Waktu eksekusi kueri"
 
-#: js/messages.php:290 libraries/DisplayResults.class.php:720
-#: libraries/DisplayResults.class.php:728
+#: js/messages.php:290 libraries/DisplayResults.class.php:721
+#: libraries/DisplayResults.class.php:729
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
 #: js/messages.php:293 libraries/config/FormDisplay.tpl.php:394
-#: libraries/insert_edit.lib.php:1489
+#: libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:373
 #: libraries/tbl_properties.inc.php:887 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
@@ -1845,12 +1845,12 @@ msgstr "Operasi hasil pertanyaan"
 msgid "Data point content"
 msgstr "Isi titk data"
 
-#: js/messages.php:320 tbl_change.php:251 tbl_indexes.php:259
+#: js/messages.php:320 tbl_change.php:263 tbl_indexes.php:259
 #: tbl_indexes.php:297
 msgid "Ignore"
 msgstr "Abaikan"
 
-#: js/messages.php:321 libraries/DisplayResults.class.php:3321
+#: js/messages.php:321 libraries/DisplayResults.class.php:3322
 msgid "Copy"
 msgstr "Salin"
 
@@ -1977,7 +1977,7 @@ msgstr "Hasilkan"
 msgid "Change Password"
 msgstr "Ubah Sandi"
 
-#: js/messages.php:381 libraries/structure.lib.php:1881
+#: js/messages.php:381 libraries/structure.lib.php:1879
 msgid "More"
 msgstr "Lainnya"
 
@@ -2353,26 +2353,26 @@ msgstr ""
 msgid "Font size"
 msgstr "Ukuran huruf"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1271
-#: libraries/DisplayResults.class.php:2012
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:806
-#: libraries/operations.lib.php:632 libraries/structure.lib.php:867
-#: libraries/structure.lib.php:884 server_databases.php:202
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
+#: libraries/DisplayResults.class.php:2013
+#: libraries/DisplayResults.class.php:2021 libraries/TableSearch.class.php:806
+#: libraries/operations.lib.php:632 libraries/structure.lib.php:865
+#: libraries/structure.lib.php:882 server_databases.php:202
 #: server_databases.php:219 server_status.php:1431
 msgid "Ascending"
 msgstr "Menaik"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1283
-#: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2025 libraries/TableSearch.class.php:807
-#: libraries/operations.lib.php:633 libraries/structure.lib.php:872
-#: libraries/structure.lib.php:889 server_databases.php:202
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
+#: libraries/DisplayResults.class.php:2008
+#: libraries/DisplayResults.class.php:2026 libraries/TableSearch.class.php:807
+#: libraries/operations.lib.php:633 libraries/structure.lib.php:870
+#: libraries/structure.lib.php:887 server_databases.php:202
 #: server_databases.php:219 server_status.php:1428
 msgid "Descending"
 msgstr "Menurun"
 
-#: libraries/DBQbe.class.php:404 libraries/DisplayResults.class.php:2080
-#: libraries/structure.lib.php:858
+#: libraries/DBQbe.class.php:404 libraries/DisplayResults.class.php:2081
+#: libraries/structure.lib.php:856
 msgid "Sort"
 msgstr "Urutan"
 
@@ -2397,7 +2397,7 @@ msgid "Use Tables"
 msgstr "Gunakan Tabel"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1213
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:327
 msgid "Or"
 msgstr "Atau"
@@ -2464,7 +2464,7 @@ msgstr[0] "%s cocok dalam tabel <i>%s</i>"
 
 #: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
 #: libraries/Util.class.php:3260 libraries/Util.class.php:3468
-#: libraries/Util.class.php:3469 libraries/structure.lib.php:1374
+#: libraries/Util.class.php:3469 libraries/structure.lib.php:1372
 msgid "Browse"
 msgstr "Jelajahi"
 
@@ -2473,13 +2473,13 @@ msgstr "Jelajahi"
 msgid "Delete the matches for the %s table?"
 msgstr "Hapus yang cocok untuk %s tabel?"
 
-#: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3389
-#: libraries/DisplayResults.class.php:5048
+#: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3390
+#: libraries/DisplayResults.class.php:5049
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
 #: libraries/schema/User_Schema.class.php:359
-#: libraries/sql_query_form.lib.php:426 pmd_general.php:462
+#: libraries/sql_query_form.lib.php:417 pmd_general.php:462
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
 #: tbl_tracking.php:532 tbl_tracking.php:552 tbl_tracking.php:614
 msgid "Delete"
@@ -2509,73 +2509,73 @@ msgstr "Dalam tabel:"
 msgid "Inside column:"
 msgstr "Dalam kolom:"
 
-#: libraries/DisplayResults.class.php:697
+#: libraries/DisplayResults.class.php:698
 msgid "Save edited data"
 msgstr "Simpan data yang diedit"
 
-#: libraries/DisplayResults.class.php:703
+#: libraries/DisplayResults.class.php:704
 msgid "Restore column order"
 msgstr "Pulihkan urutan kolom"
 
-#: libraries/DisplayResults.class.php:774 libraries/Util.class.php:2539
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2539
 #: libraries/Util.class.php:2543
 msgctxt "First page"
 msgid "Begin"
 msgstr "Awal"
 
-#: libraries/DisplayResults.class.php:777 libraries/Util.class.php:2541
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2541
 #: libraries/Util.class.php:2544 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Sebelumnya"
 
-#: libraries/DisplayResults.class.php:834 libraries/Util.class.php:2574
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2574
 #: libraries/Util.class.php:2577 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Berikutnya"
 
-#: libraries/DisplayResults.class.php:862 libraries/Util.class.php:2575
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2575
 #: libraries/Util.class.php:2578
 msgctxt "Last page"
 msgid "End"
 msgstr "Akhir"
 
-#: libraries/DisplayResults.class.php:903 tbl_chart.php:194
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:194
 msgid "Start row"
 msgstr "Baris mulai"
 
-#: libraries/DisplayResults.class.php:907 tbl_chart.php:196
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:196
 msgid "Number of rows"
 msgstr "Jumlah baris"
 
-#: libraries/DisplayResults.class.php:916
+#: libraries/DisplayResults.class.php:917
 msgid "Mode"
 msgstr "Modus"
 
-#: libraries/DisplayResults.class.php:918
+#: libraries/DisplayResults.class.php:919
 msgid "horizontal"
 msgstr "horisontal"
 
-#: libraries/DisplayResults.class.php:919
+#: libraries/DisplayResults.class.php:920
 msgid "horizontal (rotated headers)"
 msgstr "horisontal (judul diputar)"
 
-#: libraries/DisplayResults.class.php:920
+#: libraries/DisplayResults.class.php:921
 msgid "vertical"
 msgstr "vertikal"
 
-#: libraries/DisplayResults.class.php:932
+#: libraries/DisplayResults.class.php:933
 #, fuzzy, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Judul setiap %s baris"
 
-#: libraries/DisplayResults.class.php:1229
+#: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
 msgstr "Urut berdasarkan kunci"
 
-#: libraries/DisplayResults.class.php:1579 libraries/TableSearch.class.php:748
+#: libraries/DisplayResults.class.php:1580 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1196 libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2599,118 +2599,118 @@ msgstr "Urut berdasarkan kunci"
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1730
+#: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1728
 msgid "Options"
 msgstr "Opsi"
 
-#: libraries/DisplayResults.class.php:1585
-#: libraries/DisplayResults.class.php:1691
+#: libraries/DisplayResults.class.php:1586
+#: libraries/DisplayResults.class.php:1692
 msgid "Partial texts"
 msgstr "Teks parsial"
 
-#: libraries/DisplayResults.class.php:1586
-#: libraries/DisplayResults.class.php:1695
+#: libraries/DisplayResults.class.php:1587
+#: libraries/DisplayResults.class.php:1696
 msgid "Full texts"
 msgstr "Teks penuh"
 
-#: libraries/DisplayResults.class.php:1600
+#: libraries/DisplayResults.class.php:1601
 msgid "Relational key"
 msgstr "Kunci relasi"
 
-#: libraries/DisplayResults.class.php:1601
+#: libraries/DisplayResults.class.php:1602
 msgid "Relational display column"
 msgstr "Kolom tampilan relasi"
 
-#: libraries/DisplayResults.class.php:1613
+#: libraries/DisplayResults.class.php:1614
 msgid "Show binary contents"
 msgstr "Tampilkan konten biner"
 
-#: libraries/DisplayResults.class.php:1618
+#: libraries/DisplayResults.class.php:1619
 msgid "Show BLOB contents"
 msgstr "Tampilkan konten BLOB"
 
-#: libraries/DisplayResults.class.php:1623
+#: libraries/DisplayResults.class.php:1624
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr "Tampilkan konten biner dalam HEX"
 
-#: libraries/DisplayResults.class.php:1634
+#: libraries/DisplayResults.class.php:1635
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Transformasi Browser"
 
-#: libraries/DisplayResults.class.php:1643
+#: libraries/DisplayResults.class.php:1644
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1644
+#: libraries/DisplayResults.class.php:1645
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3362
-#: libraries/DisplayResults.class.php:3378
+#: libraries/DisplayResults.class.php:3363
+#: libraries/DisplayResults.class.php:3379
 msgid "The row has been deleted"
 msgstr "Baris telah dihapus"
 
-#: libraries/DisplayResults.class.php:3416
-#: libraries/DisplayResults.class.php:5048 server_status.php:1483
+#: libraries/DisplayResults.class.php:3417
+#: libraries/DisplayResults.class.php:5049 server_status.php:1483
 msgid "Kill"
 msgstr "Tutup"
 
-#: libraries/DisplayResults.class.php:4498 libraries/structure.lib.php:778
+#: libraries/DisplayResults.class.php:4499 libraries/structure.lib.php:776
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4894
+#: libraries/DisplayResults.class.php:4895
 msgid "in query"
 msgstr "dalam susunan pemeriksaan"
 
-#: libraries/DisplayResults.class.php:4931 libraries/structure.lib.php:660
+#: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
-"%sdokumentasi%s"
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %"
+"sdokumentasi%s"
 
-#: libraries/DisplayResults.class.php:4944
+#: libraries/DisplayResults.class.php:4945
 msgid "Showing rows"
 msgstr "Tampilan baris"
 
-#: libraries/DisplayResults.class.php:4960
+#: libraries/DisplayResults.class.php:4961
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4971 sql.php:911
+#: libraries/DisplayResults.class.php:4972 sql.php:911
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Pencarian dilakukan dalam %01.4f detik"
 
-#: libraries/DisplayResults.class.php:5062
-#: libraries/DisplayResults.class.php:5068 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5063
+#: libraries/DisplayResults.class.php:5069 libraries/mult_submits.inc.php:40
 #: libraries/server_privileges.lib.php:2413
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
-#: libraries/structure.lib.php:1363 libraries/structure.lib.php:1370
+#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
 #: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "Dengan pilihan:"
 
-#: libraries/DisplayResults.class.php:5066
 #: libraries/DisplayResults.class.php:5067
+#: libraries/DisplayResults.class.php:5068
 #: libraries/server_privileges.lib.php:786
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
-#: libraries/structure.lib.php:285 libraries/structure.lib.php:1366
-#: libraries/structure.lib.php:1367 server_databases.php:320
+#: libraries/structure.lib.php:285 libraries/structure.lib.php:1364
+#: libraries/structure.lib.php:1365 server_databases.php:320
 #: server_databases.php:321
 msgid "Check All"
 msgstr "Pilih Semua"
 
-#: libraries/DisplayResults.class.php:5085
-#: libraries/DisplayResults.class.php:5283 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5086
+#: libraries/DisplayResults.class.php:5284 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:468
 #: libraries/Util.class.php:3481 libraries/Util.class.php:3482
 #: libraries/config/messages.inc.php:164 libraries/display_export.lib.php:94
@@ -2720,33 +2720,33 @@ msgstr "Pilih Semua"
 msgid "Export"
 msgstr "Ekspor"
 
-#: libraries/DisplayResults.class.php:5183
+#: libraries/DisplayResults.class.php:5184
 msgid "Query results operations"
 msgstr "Operasi hasil kueri"
 
-#: libraries/DisplayResults.class.php:5207 libraries/Header.class.php:333
+#: libraries/DisplayResults.class.php:5208 libraries/Header.class.php:333
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
-#: libraries/structure.lib.php:1487
+#: libraries/structure.lib.php:1485
 msgid "Print view"
 msgstr "Tampilan cetak"
 
-#: libraries/DisplayResults.class.php:5225
+#: libraries/DisplayResults.class.php:5226
 msgid "Print view (with full texts)"
 msgstr "Tampilan cetak (teks lengkap)"
 
-#: libraries/DisplayResults.class.php:5296 tbl_chart.php:127
+#: libraries/DisplayResults.class.php:5297 tbl_chart.php:127
 msgid "Display chart"
 msgstr "Tampilkan bagan"
 
-#: libraries/DisplayResults.class.php:5321
+#: libraries/DisplayResults.class.php:5322
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5353 view_create.php:152
+#: libraries/DisplayResults.class.php:5354 view_create.php:152
 msgid "Create view"
 msgstr "Buat tampilan"
 
-#: libraries/DisplayResults.class.php:5546
+#: libraries/DisplayResults.class.php:5547
 msgid "Link not found"
 msgstr "Tautan tidak ditemukan"
 
@@ -2826,12 +2826,12 @@ msgstr "Indeks belum ditentukan!"
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
 #: libraries/build_html_for_db.lib.php:41
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
-#: libraries/structure.lib.php:1602 tbl_tracking.php:372
+#: libraries/structure.lib.php:1600 tbl_tracking.php:372
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1393
-#: libraries/structure.lib.php:2232 libraries/structure.lib.php:2242
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
+#: libraries/structure.lib.php:2230 libraries/structure.lib.php:2240
 #: libraries/tbl_properties.inc.php:554 tbl_tracking.php:378
 msgid "Unique"
 msgstr "Unik"
@@ -2847,8 +2847,8 @@ msgstr "Kardinalitas"
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
 #: libraries/operations.lib.php:242 libraries/operations.lib.php:808
-#: libraries/structure.lib.php:787 libraries/structure.lib.php:1188
-#: libraries/structure.lib.php:1738 libraries/tbl_properties.inc.php:104
+#: libraries/structure.lib.php:785 libraries/structure.lib.php:1186
+#: libraries/structure.lib.php:1736 libraries/tbl_properties.inc.php:104
 #: libraries/tbl_properties.inc.php:831 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:320 tbl_tracking.php:382
 msgid "Collation"
@@ -2884,8 +2884,8 @@ msgstr ""
 msgid "Databases"
 msgstr "Basis data"
 
-#: libraries/Menu.class.php:190 libraries/structure.lib.php:684
-#: libraries/structure.lib.php:714 libraries/structure.lib.php:1195
+#: libraries/Menu.class.php:190 libraries/structure.lib.php:682
+#: libraries/structure.lib.php:712 libraries/structure.lib.php:1193
 #: libraries/tbl_info.inc.php:59
 msgid "View"
 msgstr "Gambarkan"
@@ -2914,7 +2914,7 @@ msgstr "SQL"
 
 #: libraries/Menu.class.php:273 libraries/Util.class.php:3259
 #: libraries/Util.class.php:3472 libraries/Util.class.php:3473
-#: libraries/sql_query_form.lib.php:302 libraries/sql_query_form.lib.php:305
+#: libraries/sql_query_form.lib.php:293 libraries/sql_query_form.lib.php:296
 msgid "Insert"
 msgstr "Tambahkan"
 
@@ -2983,7 +2983,7 @@ msgid "Binary log"
 msgstr "Log biner"
 
 #: libraries/Menu.class.php:491 libraries/structure.lib.php:185
-#: libraries/structure.lib.php:768 server_replication.php:32
+#: libraries/structure.lib.php:766 server_replication.php:32
 #: server_replication.php:148 server_status.php:665
 msgid "Replication"
 msgstr "Replikasi"
@@ -3007,7 +3007,7 @@ msgstr "Mesin"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:653
 #: libraries/core.lib.php:228 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1209 tbl_chart.php:27 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:296 view_operations.php:57
 msgid "Error"
 msgstr "Galat"
@@ -3136,8 +3136,8 @@ msgstr ""
 "terus-menerus setelah Anda me-refresh halaman ini. Silakan periksa jika "
 "struktur tabel telah berubah."
 
-#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:236
-#: libraries/insert_edit.lib.php:242 libraries/rte/rte_routines.lib.php:1495
+#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:207
+#: libraries/insert_edit.lib.php:213 libraries/rte/rte_routines.lib.php:1495
 msgid "Function"
 msgstr "Fungsi"
 
@@ -3148,7 +3148,7 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1605 libraries/replication_gui.lib.php:124
+#: libraries/insert_edit.lib.php:1576 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:515
 #: pmd_general.php:574 pmd_general.php:697 pmd_general.php:814
 #: server_status.php:1709
@@ -3159,7 +3159,7 @@ msgstr "Nilai"
 msgid "Table Search"
 msgstr "Pencarian Tabel"
 
-#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1379
+#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1350
 msgid "Edit/Insert"
 msgstr "Edit/Tambah"
 
@@ -3188,7 +3188,7 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
-#: sql.php:162 tbl_change.php:218
+#: sql.php:162 tbl_change.php:230
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
@@ -3289,14 +3289,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3647,7 +3647,7 @@ msgstr "Fungsionalitas %s dipengaruhi oleh suatu bug, lihat %s"
 msgid "Click to toggle"
 msgstr "Klik untuk beralih"
 
-#: libraries/Util.class.php:3387 libraries/sql_query_form.lib.php:466
+#: libraries/Util.class.php:3387 libraries/sql_query_form.lib.php:457
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Telusuri komputer Anda:"
@@ -3657,8 +3657,8 @@ msgstr "Telusuri komputer Anda:"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Pilih dari direktori unggah <b>%s</b> pada web server:"
 
-#: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1210
-#: libraries/sql_query_form.lib.php:475
+#: libraries/Util.class.php:3441 libraries/insert_edit.lib.php:1181
+#: libraries/sql_query_form.lib.php:466
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi"
 
@@ -3700,13 +3700,13 @@ msgstr "Tabel"
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2342
+#: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2340
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Data"
 
-#: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:798
-#: libraries/structure.lib.php:2355 tbl_printview.php:315
+#: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:796
+#: libraries/structure.lib.php:2353 tbl_printview.php:315
 msgid "Overhead"
 msgstr "Beban"
 
@@ -3975,7 +3975,7 @@ msgstr "Kembalikan nilai bawaan"
 msgid "Allow users to customize this value"
 msgstr "Izinkan pengguna untuk mengubah nilai ini"
 
-#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1578
+#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
 #: libraries/schema/User_Schema.class.php:537 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
@@ -4238,7 +4238,7 @@ msgid "Character set of the file"
 msgstr "Set karakter berkas"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: libraries/structure.lib.php:1719 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1717 tbl_gis_visualization.php:182
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -5899,7 +5899,7 @@ msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
-#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:372
+#: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:363
 #, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
@@ -6260,7 +6260,7 @@ msgstr "Buat tabel"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:932
-#: libraries/rte/rte_routines.lib.php:1492 libraries/structure.lib.php:1186
+#: libraries/rte/rte_routines.lib.php:1492 libraries/structure.lib.php:1184
 #: libraries/tbl_properties.inc.php:85 setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "Nama"
@@ -6360,8 +6360,8 @@ msgstr ", @TABLE@ akan menjadi nama tabel"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:329
@@ -6369,7 +6369,7 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/display_export.lib.php:335 libraries/display_import.lib.php:257
-#: libraries/display_import.lib.php:271 libraries/sql_query_form.lib.php:491
+#: libraries/display_import.lib.php:271 libraries/sql_query_form.lib.php:482
 msgid "Character set of the file:"
 msgstr "Set karakter berkas:"
 
@@ -6859,8 +6859,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -6875,7 +6875,7 @@ msgstr ""
 msgid "No data found for GIS visualization."
 msgstr "Data untuk visualisasi GIS tidak ditemukan."
 
-#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:149
+#: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1362 sql.php:906 tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
@@ -6926,77 +6926,77 @@ msgstr "Struktur %s"
 msgid "Go to view: %s"
 msgstr "Tuju ke view"
 
-#: libraries/insert_edit.lib.php:241 libraries/insert_edit.lib.php:272
+#: libraries/insert_edit.lib.php:212 libraries/insert_edit.lib.php:243
 #: pmd_general.php:184
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: libraries/insert_edit.lib.php:485 libraries/mysql_charsets.lib.php:239
+#: libraries/insert_edit.lib.php:456 libraries/mysql_charsets.lib.php:239
 #: libraries/mysql_charsets.lib.php:440
 msgid "Binary"
 msgstr "Biner"
 
-#: libraries/insert_edit.lib.php:680
+#: libraries/insert_edit.lib.php:651
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Karena panjangnya,<br /> isian ini mungkin tidak dapat diedit"
 
-#: libraries/insert_edit.lib.php:1116
+#: libraries/insert_edit.lib.php:1087
 msgid "Binary - do not edit"
 msgstr "Biner - jangan diedit"
 
-#: libraries/insert_edit.lib.php:1214 libraries/sql_query_form.lib.php:478
+#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:469
 msgid "web server upload directory"
 msgstr "direktori unggahan server web"
 
-#: libraries/insert_edit.lib.php:1429
+#: libraries/insert_edit.lib.php:1400
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Lanjutkan penambahan untuk %s baris"
 
-#: libraries/insert_edit.lib.php:1459
+#: libraries/insert_edit.lib.php:1430
 msgid "and then"
 msgstr "selanjutnya"
 
-#: libraries/insert_edit.lib.php:1492
+#: libraries/insert_edit.lib.php:1463
 msgid "Insert as new row"
 msgstr "Tambahkan sebagai baris baru"
 
-#: libraries/insert_edit.lib.php:1495
+#: libraries/insert_edit.lib.php:1466
 msgid "Insert as new row and ignore errors"
 msgstr "Tambahkan sebagai baris baru dan abaikan galat"
 
-#: libraries/insert_edit.lib.php:1498
+#: libraries/insert_edit.lib.php:1469
 msgid "Show insert query"
 msgstr "Tampilkan kueri penambahan"
 
-#: libraries/insert_edit.lib.php:1518
+#: libraries/insert_edit.lib.php:1489
 msgid "Go back to previous page"
 msgstr "kembali"
 
-#: libraries/insert_edit.lib.php:1521
+#: libraries/insert_edit.lib.php:1492
 msgid "Insert another new row"
 msgstr "tambahkan baris baru berikutnya"
 
-#: libraries/insert_edit.lib.php:1526
+#: libraries/insert_edit.lib.php:1497
 msgid "Go back to this page"
 msgstr "Kembali ke halaman ini"
 
-#: libraries/insert_edit.lib.php:1548
+#: libraries/insert_edit.lib.php:1519
 msgid "Edit next row"
 msgstr "Edit baris berikut"
 
-#: libraries/insert_edit.lib.php:1570
+#: libraries/insert_edit.lib.php:1541
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Gunakan tombol TAB untuk maju dari angka ke angka atau gunakan CTRL+panah "
 "untuk maju kemana saja"
 
-#: libraries/insert_edit.lib.php:1940 sql.php:901
+#: libraries/insert_edit.lib.php:1911 sql.php:901
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/insert_edit.lib.php:1965 sql.php:881
+#: libraries/insert_edit.lib.php:1936 sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -7028,7 +7028,7 @@ msgid "To"
 msgstr "Menjadi"
 
 #: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:304
-#: libraries/sql_query_form.lib.php:418
+#: libraries/sql_query_form.lib.php:409
 msgid "Submit"
 msgstr "Kirim"
 
@@ -7233,7 +7233,7 @@ msgid "Czech-Slovak"
 msgstr "Cecko-Slovakia"
 
 #: libraries/mysql_charsets.lib.php:436 libraries/mysql_charsets.lib.php:443
-#: libraries/structure.lib.php:1075
+#: libraries/structure.lib.php:1073
 msgid "unknown"
 msgstr "tidak diketahui"
 
@@ -7294,7 +7294,7 @@ msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
-#: libraries/sql_query_form.lib.php:282
+#: libraries/sql_query_form.lib.php:273
 msgid "Columns"
 msgstr "Kolom"
 
@@ -7478,7 +7478,7 @@ msgid "Repair table"
 msgstr "Perbaiki tabel"
 
 #: libraries/operations.lib.php:1173 libraries/structure.lib.php:315
-#: libraries/structure.lib.php:1662
+#: libraries/structure.lib.php:1660
 msgid "Optimize table"
 msgstr "Optimalkan tabel"
 
@@ -7558,11 +7558,11 @@ msgstr "Selamat Datang di %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan "
-"%1$ssetup script%2$s untuk membuatnya."
+"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan %1"
+"$ssetup script%2$s untuk membuatnya."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -8273,11 +8273,11 @@ msgstr ""
 "Harap pelajari dokumentasi tentang cara memperbarui tabel column_comments "
 "Anda"
 
-#: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:398
+#: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:389
 msgid "Bookmarked SQL query"
 msgstr "Kueri SQL yang dimarkahi"
 
-#: libraries/relation.lib.php:194 querywindow.php:70 querywindow.php:151
+#: libraries/relation.lib.php:194 querywindow.php:70 querywindow.php:154
 msgid "SQL history"
 msgstr "Riwayat SQL"
 
@@ -8360,7 +8360,7 @@ msgstr "Status master"
 msgid "Slave status"
 msgstr "Status slave"
 
-#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:410
+#: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:401
 #: server_status.php:1708 server_variables.php:166
 msgid "Variable"
 msgstr "Variabel"
@@ -8862,13 +8862,13 @@ msgstr "Daftar Isi"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1351
 #: libraries/schema/Pdf_Relation_Schema.class.php:1372
-#: libraries/structure.lib.php:1189 libraries/tbl_properties.inc.php:105
+#: libraries/structure.lib.php:1187 libraries/tbl_properties.inc.php:105
 msgid "Attributes"
 msgstr "Atribut"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1354
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/structure.lib.php:1192 tbl_tracking.php:323
+#: libraries/structure.lib.php:1190 tbl_tracking.php:323
 msgid "Extra"
 msgstr "Ekstra"
 
@@ -9410,8 +9410,8 @@ msgstr "Ikhtisar pengguna"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
 "tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
@@ -9427,45 +9427,45 @@ msgstr "Pengguna yang dipilih tidak ditemukan pada tabel hak akses."
 msgid "You have added a new user."
 msgstr "Pengguna baru telah ditambahkan."
 
-#: libraries/sql_query_form.lib.php:195
+#: libraries/sql_query_form.lib.php:186
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "Jalankan perintah SQL pada basis data %s"
 
-#: libraries/sql_query_form.lib.php:216 libraries/sql_query_form.lib.php:240
+#: libraries/sql_query_form.lib.php:207 libraries/sql_query_form.lib.php:231
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Jalankan perintah SQL pada basis data %s"
 
-#: libraries/sql_query_form.lib.php:277 setup/frames/index.inc.php:260
+#: libraries/sql_query_form.lib.php:268 setup/frames/index.inc.php:260
 msgid "Clear"
 msgstr "Bersihkan"
 
-#: libraries/sql_query_form.lib.php:320 sql.php:1264 sql.php:1284
+#: libraries/sql_query_form.lib.php:311 sql.php:1264 sql.php:1284
 msgid "Bookmark this SQL query"
 msgstr "Markahi kueri SQL ini"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1276
+#: libraries/sql_query_form.lib.php:317 sql.php:1276
 msgid "Let every user access this bookmark"
 msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 
-#: libraries/sql_query_form.lib.php:332
+#: libraries/sql_query_form.lib.php:323
 msgid "Replace existing bookmark of same name"
 msgstr "Ganti markah bernama sama yang ada"
 
-#: libraries/sql_query_form.lib.php:348
+#: libraries/sql_query_form.lib.php:339
 msgid "Do not overwrite this query from outside the window"
 msgstr "Jangan timpahkan pencarian ini dari jendela luar"
 
-#: libraries/sql_query_form.lib.php:355
+#: libraries/sql_query_form.lib.php:346
 msgid "Delimiter"
 msgstr "Pembatas"
 
-#: libraries/sql_query_form.lib.php:363
+#: libraries/sql_query_form.lib.php:354
 msgid "Show this query here again"
 msgstr "Tampilkan ulang perintah SQL"
 
-#: libraries/sql_query_form.lib.php:422
+#: libraries/sql_query_form.lib.php:413
 msgid "View only"
 msgstr "Hanya melihat"
 
@@ -9575,172 +9575,172 @@ msgstr "Tambahkan prefiks untuk tabel"
 msgid "Check tables having overhead"
 msgstr "Pilih tabel berbeban tambahan"
 
-#: libraries/structure.lib.php:1286 tbl_tracking.php:353
+#: libraries/structure.lib.php:1284 tbl_tracking.php:353
 msgctxt "None for default"
 msgid "None"
 msgstr "Tidak ada"
 
-#: libraries/structure.lib.php:1335
+#: libraries/structure.lib.php:1333
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Kolom %s telah dihapus"
 
-#: libraries/structure.lib.php:1389 libraries/structure.lib.php:2228
-#: libraries/structure.lib.php:2238 libraries/tbl_properties.inc.php:547
+#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2226
+#: libraries/structure.lib.php:2236 libraries/tbl_properties.inc.php:547
 msgid "Primary"
 msgstr "Kunci Utama"
 
-#: libraries/structure.lib.php:1397 libraries/structure.lib.php:2230
-#: libraries/structure.lib.php:2240 libraries/structure.lib.php:2348
+#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2228
+#: libraries/structure.lib.php:2238 libraries/structure.lib.php:2346
 #: libraries/tbl_properties.inc.php:113 libraries/tbl_properties.inc.php:561
 #: tbl_printview.php:306
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/structure.lib.php:1404 libraries/structure.lib.php:2234
-#: libraries/structure.lib.php:2244
+#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2232
+#: libraries/structure.lib.php:2242
 msgid "Spatial"
 msgstr "Spasial"
 
-#: libraries/structure.lib.php:1414 libraries/structure.lib.php:2236
-#: libraries/structure.lib.php:2246 libraries/tbl_properties.inc.php:569
+#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2234
+#: libraries/structure.lib.php:2244 libraries/tbl_properties.inc.php:569
 msgid "Fulltext"
 msgstr "Teks penuh"
 
-#: libraries/structure.lib.php:1429 libraries/structure.lib.php:1525
+#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
 msgstr "Hapus kolom"
 
-#: libraries/structure.lib.php:1432
+#: libraries/structure.lib.php:1430
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: libraries/structure.lib.php:1466
+#: libraries/structure.lib.php:1464
 msgid "Edit view"
 msgstr "Tampilan edit"
 
-#: libraries/structure.lib.php:1499
+#: libraries/structure.lib.php:1497
 msgid "Relation view"
 msgstr "Tampilan relasi"
 
-#: libraries/structure.lib.php:1511
+#: libraries/structure.lib.php:1509
 msgid "Propose table structure"
 msgstr "Usulkan struktur tabel"
 
-#: libraries/structure.lib.php:1547 libraries/tbl_properties.inc.php:747
+#: libraries/structure.lib.php:1545 libraries/tbl_properties.inc.php:747
 msgid "You have to add at least one column."
 msgstr "Anda perlu menambahkan paling tidak satu kolom."
 
-#: libraries/structure.lib.php:1558
+#: libraries/structure.lib.php:1556
 msgid "Add column"
 msgstr "Tambah kolom"
 
-#: libraries/structure.lib.php:1563 libraries/tbl_properties.inc.php:737
+#: libraries/structure.lib.php:1561 libraries/tbl_properties.inc.php:737
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Tambahkan %s kolom"
 
-#: libraries/structure.lib.php:1580
+#: libraries/structure.lib.php:1578
 msgid "At End of Table"
 msgstr "Pada Akhir Tabel"
 
-#: libraries/structure.lib.php:1581
+#: libraries/structure.lib.php:1579
 msgid "At Beginning of Table"
 msgstr "Pada Awal Tabel"
 
-#: libraries/structure.lib.php:1582
+#: libraries/structure.lib.php:1580
 #, php-format
 msgid "After %s"
 msgstr "Setelah %s"
 
-#: libraries/structure.lib.php:1609
+#: libraries/structure.lib.php:1607
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Buat indeks pada &nbsp;%s&nbsp; kolom"
 
-#: libraries/structure.lib.php:1707 tbl_printview.php:345
+#: libraries/structure.lib.php:1705 tbl_printview.php:345
 msgid "Row Statistics"
 msgstr "Statistik Baris"
 
-#: libraries/structure.lib.php:1712 tbl_printview.php:353
+#: libraries/structure.lib.php:1710 tbl_printview.php:353
 msgid "static"
 msgstr ""
 
-#: libraries/structure.lib.php:1714 tbl_printview.php:355
+#: libraries/structure.lib.php:1712 tbl_printview.php:355
 msgid "dynamic"
 msgstr "dinamis"
 
-#: libraries/structure.lib.php:1725
+#: libraries/structure.lib.php:1723
 msgid "partitioned"
 msgstr ""
 
-#: libraries/structure.lib.php:1756 tbl_printview.php:376
+#: libraries/structure.lib.php:1754 tbl_printview.php:376
 msgid "Row length"
 msgstr "Panjang baris"
 
-#: libraries/structure.lib.php:1768 tbl_printview.php:390
+#: libraries/structure.lib.php:1766 tbl_printview.php:390
 msgid "Row size"
 msgstr "Besar baris"
 
-#: libraries/structure.lib.php:1776 tbl_printview.php:399
+#: libraries/structure.lib.php:1774 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr "Indeks otomatis berikut"
 
-#: libraries/structure.lib.php:1880
+#: libraries/structure.lib.php:1878
 msgid "Show more actions"
 msgstr "Tampilkan tindakan lain"
 
-#: libraries/structure.lib.php:1888 libraries/structure.lib.php:2107
+#: libraries/structure.lib.php:1886 libraries/structure.lib.php:2105
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "Suatu kunci primer telah ditambahkan pada %s"
 
-#: libraries/structure.lib.php:1895 libraries/structure.lib.php:1902
-#: libraries/structure.lib.php:1910 libraries/structure.lib.php:1918
-#: libraries/structure.lib.php:2033 libraries/structure.lib.php:2117
-#: libraries/structure.lib.php:2125 libraries/structure.lib.php:2142
+#: libraries/structure.lib.php:1893 libraries/structure.lib.php:1900
+#: libraries/structure.lib.php:1908 libraries/structure.lib.php:1916
+#: libraries/structure.lib.php:2031 libraries/structure.lib.php:2115
+#: libraries/structure.lib.php:2123 libraries/structure.lib.php:2140
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Suatu indeks telah ditambahkan pada %s"
 
-#: libraries/structure.lib.php:2177 libraries/structure.lib.php:2248
+#: libraries/structure.lib.php:2175 libraries/structure.lib.php:2246
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "Jelajahi nilai distingtif"
 
-#: libraries/structure.lib.php:2180 libraries/structure.lib.php:2183
+#: libraries/structure.lib.php:2178 libraries/structure.lib.php:2181
 msgid "Add primary key"
 msgstr "Tambahkan kunci primer"
 
-#: libraries/structure.lib.php:2186 libraries/structure.lib.php:2189
+#: libraries/structure.lib.php:2184 libraries/structure.lib.php:2187
 #: tbl_indexes.php:193
 msgid "Add index"
 msgstr "Tambahkan indeks"
 
-#: libraries/structure.lib.php:2192 libraries/structure.lib.php:2195
+#: libraries/structure.lib.php:2190 libraries/structure.lib.php:2193
 msgid "Add unique index"
 msgstr "Tambahkan indeks unik"
 
-#: libraries/structure.lib.php:2198 libraries/structure.lib.php:2201
+#: libraries/structure.lib.php:2196 libraries/structure.lib.php:2199
 msgid "Add SPATIAL index"
 msgstr "Tambahkan indeks SPATIAL"
 
-#: libraries/structure.lib.php:2204 libraries/structure.lib.php:2207
+#: libraries/structure.lib.php:2202 libraries/structure.lib.php:2205
 msgid "Add FULLTEXT index"
 msgstr "Tambahkan indeks FULLTEXT"
 
-#: libraries/structure.lib.php:2333 server_binlog.php:189
+#: libraries/structure.lib.php:2331 server_binlog.php:189
 msgid "Information"
 msgstr "Informasi"
 
-#: libraries/structure.lib.php:2338 tbl_printview.php:296
+#: libraries/structure.lib.php:2336 tbl_printview.php:296
 msgid "Space usage"
 msgstr "Penggunaan ruang"
 
-#: libraries/structure.lib.php:2358 tbl_printview.php:322
+#: libraries/structure.lib.php:2356 tbl_printview.php:322
 msgid "Effective"
 msgstr "Efektif"
 
@@ -12501,8 +12501,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12628,8 +12628,8 @@ msgstr ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
 #| "less than 1 per hour"
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
