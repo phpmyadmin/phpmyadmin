@@ -639,12 +639,12 @@ function PMA_getDisplayField($db, $table)
 } // end of the 'PMA_getDisplayField()' function
 
 /**
- * Gets the comments for all rows of a table or the db itself
+ * Gets the comments for all columns of a table or the db itself
  *
  * @param string $db    the name of the db to check for
  * @param string $table the name of the table to check for
  *
- * @return array    [field_name] = comment
+ * @return array    [column_name] = comment
  *
  * @access  public
  */
@@ -654,11 +654,11 @@ function PMA_getComments($db, $table = '')
 
     if ($table != '') {
         // MySQL native column comments
-        $fields = PMA_DBI_get_columns($db, $table, null, true);
-        if ($fields) {
-            foreach ($fields as $field) {
-                if (! empty($field['Comment'])) {
-                    $comments[$field['Field']] = $field['Comment'];
+        $columns = PMA_DBI_get_columns($db, $table, null, true);
+        if ($columns) {
+            foreach ($columns as $column) {
+                if (! empty($column['Comment'])) {
+                    $comments[$column['Field']] = $column['Comment'];
                 }
             }
         }
