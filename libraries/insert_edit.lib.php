@@ -43,35 +43,6 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
 }
 
 /**
- * Retrieve the values for pma edit mode
- *
- * @param type $where_clause where clauses
- * @param type $table        name of the table
- * @param type $db           name of the database
- *
- * @return type containing insert_mode,whereClauses, result array
- *              where_clauses_array and found_unique_key boolean value
- */
-function PMA_getStuffForEditMode($where_clause, $table, $db)
-{
-    if (isset($where_clause)) {
-        $where_clause_array = PMA_getWhereClauseArray($where_clause);
-        list($whereClauses, $resultArray, $rowsArray, $found_unique_key)
-            = PMA_analyzeWhereClauses(
-                $where_clause_array, $table, $db
-            );
-        return array(
-            false, $whereClauses,
-            $resultArray, $rowsArray,
-            $where_clause_array, $found_unique_key
-        );
-    } else {
-        list($results, $row) = PMA_loadFirstRowInEditMode($table, $db);
-        return array(true, null, $results, $row, null, false);
-    }
-}
-
-/**
  * Creates array of where clauses
  *
  * @param array $where_clause where clause
