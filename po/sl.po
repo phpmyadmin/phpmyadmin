@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-31 11:14+0200\n"
+"PO-Revision-Date: 2012-11-20 18:53+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sl/>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -5489,7 +5489,7 @@ msgstr "Napačen IP-naslov: %s"
 #: libraries/core.lib.php:268
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "Razširitev %s manjka. Prosimo, preverite vašo konfiguracijo PHP."
+msgstr "Manjka razširitev %s. Prosimo, preverite vašo konfiguracijo PHP."
 
 #: libraries/core.lib.php:416
 msgid "possible deep recursion attack"
