@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:51+0200\n"
+"PO-Revision-Date: 2012-11-21 16:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/3-5/hi/>\n"
 "Language: hi\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -488,7 +488,7 @@ msgstr "टेबल का उपयोग करो"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "डेटाबेस <b>%s<b> पर SQL क्वरी:"
+msgstr "डेटाबेस <b>%s</b> पर SQL क्वरी:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1217
 msgid "Submit Query"
@@ -6859,7 +6859,7 @@ msgstr "प्रतिशत को उचित दशमलव के रू�
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "आयात मुद्राओं ($5.00 से 5.00)"
+msgstr "आयात मुद्राओं <i>($5.00 से 5.00)</i>"
 
 #: libraries/import/ods.php:88 libraries/import/xml.php:83
 #: libraries/import/xml.php:139
