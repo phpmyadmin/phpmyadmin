@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 15:53+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-21 23:22+0200\n"
+"Last-Translator: Kęstutis <forkik@gmail.com>\n"
 "Language-Team: Lithuanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/lt/>\n"
 "Language: lt\n"
@@ -2591,10 +2591,10 @@ msgid "vertical"
 msgstr "vertikaliai"
 
 #: libraries/DisplayResults.class.php:933
-#, fuzzy, php-format
+#, php-format
 #| msgid "Execute every"
 msgid "Headers every %s rows"
-msgstr "Vykdyti kas"
+msgstr "Antraštės kas %s eilučių"
 
 #: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
