@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-25 15:44+0200\n"
+"PO-Revision-Date: 2012-11-21 16:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/3-5/pl/>\n"
 "Language: pl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1259,9 +1259,9 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 "Ustawienia konfiguracji wykresu w lokalnym magazynie przeglądarki nie są już "
-"zgodne z nowszą wersją okna dialogowego monitora. Jest bardzo prawdopodobne, "
-"że bieżąca konfiguracja nie będzie już działać. Proszę zresetować "
-"konfigurację do <b>domyślnej</b> w menu <i>Ustawienia</i>."
+"zgodne z nowszą wersją okna dialogowego monitora. Jest bardzo "
+"prawdopodobne, że bieżąca konfiguracja nie będzie już działać. Proszę "
+"zresetować konfigurację do domyślnej w menu <i>Ustawienia</i>."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
@@ -2837,7 +2837,7 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"To zazwyczaj oznacza, że ​​jest błąd składni w tym, sprawdź wszelkie błędy "
+"To zazwyczaj oznacza, że jest błąd składni w tym, sprawdź wszelkie błędy "
 "poniżej."
 
 #: libraries/common.inc.php:632
@@ -6932,7 +6932,7 @@ msgstr ""
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importuj waluty <i>(np. $5.00 do 5.00)</ i>"
+msgstr "Importuj waluty <i>(np. $5.00 do 5.00)</i>"
 
 #: libraries/import/ods.php:88 libraries/import/xml.php:83
 #: libraries/import/xml.php:139
@@ -9843,14 +9843,14 @@ msgstr ""
 #: server_status.php:1084
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Ten serwer MySQL jest ustawiony jako <b>master</b> i <b>slave</b> w procesie "
+"Ten serwer MySQL jest ustawiony jako <b>master</b> w procesie "
 "<b>replikacji</b>."
 
 #: server_status.php:1086
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Ten serwer MySQL jest pracuje jako <b>główny</b> i <b>podrzędny</b> w "
-"procesie <b>replikacji</b>."
+"Ten serwer MySQL jest pracuje jako <b>podrzędny</b> w procesie "
+"<b>replikacji</b>."
 
 #: server_status.php:1089
 msgid ""
@@ -9858,7 +9858,7 @@ msgid ""
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 "Więcej informacji na temat stanu replikacji na serwerze, odwiedź <a "
-"href=#replication>sekcja replikacji</a>."
+"href=\"#replication\">sekcja replikacji</a>."
 
 #: server_status.php:1098
 msgid "Replication status"
@@ -13247,8 +13247,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Ustawienie {concurrent_insert} na 1 zmniejsza rywalizację pomiędzy odczytem "
-"i zapisem dla danej tabeli. Zobacz także <a Documentation href=\"http://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Dokumentację MySQL</a>"
+"i zapisem dla danej tabeli. Zobacz także <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">Dokumentację MySQL</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
