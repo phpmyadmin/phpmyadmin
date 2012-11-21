@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:55+0200\n"
+"PO-Revision-Date: 2012-11-21 15:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/3-5/sv/>\n"
 "Language: sv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -5801,8 +5801,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
-"En komprimerad fils namn måste sluta med <b> [format].[komprimering]</ b>. "
-"Exempel:. <b>sql.zip</ b>"
+"En komprimerad fils namn måste sluta med <b>.[format].[komprimering]</b>. "
+"Exempel:. <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
@@ -9491,7 +9491,7 @@ msgid ""
 "master"
 msgstr ""
 "När du startat om MySQL-server, klicka på Go-knappen. Därefter bör du se ett "
-"meddelande som informerar dig, att denna server <b>är</ b> konfigurerad som "
+"meddelande som informerar dig, att denna server <b>är</b> konfigurerad som "
 "master"
 
 #: server_replication.php:291
@@ -12185,9 +12185,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Du använder MySQL Querycachen med en ganska högbelastad databas. Det kan "
-"vara värt att överväga att använda <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\"> memcached </ a> istället för MySQL "
-"Querycachen, speciellt om du har flera slavar."
+"vara värt att överväga att använda <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\"> memcached "
+"</a> istället för MySQL Querycachen, speciellt om du har flera slavar."
 
 #: po/advisory_rules.php:78
 #, php-format
