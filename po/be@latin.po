@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:38+0200\n"
+"PO-Revision-Date: 2012-11-21 16:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian (latin) <http://l10n.cihar.com/projects/"
-"phpmyadmin/3-5/be@latin/>\n"
+"Language-Team: Belarusian (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/be@latin/>\n"
 "Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -508,7 +508,7 @@ msgstr "Vykarystoŭvać tablicy"
 #: db_qbe.php:662
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL-zapyt da BD %s:"
+msgstr "SQL-zapyt da BD <b>%s</b>:"
 
 #: db_qbe.php:955 libraries/common.lib.php:1217
 msgid "Submit Query"
@@ -540,7 +540,7 @@ msgstr "rehularny vyraz"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Vyniki pošuku \"%s\" %s:"
+msgstr "Vyniki pošuku \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, fuzzy, php-format
@@ -8577,7 +8577,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Kali łaska, uvodźcie značeńni opcyjaŭ pieraŭtvareńnia vykarystoŭvajučy hety "
-"farmat: 'a', 100, b,'c'... Kali vam treba ŭžyć zvarotny słeš (\"\\\") abo "
+"farmat: 'a', 100, b,'c'...<br />Kali vam treba ŭžyć zvarotny słeš (\"\\\") abo "
 "apostraf (\"'\") u hetych značeńniach, ustaŭcie zvarotny słeš pierad imi "
 "(naprykład, '\\\\xyz' abo 'a\\'b')."
 
@@ -9362,7 +9362,7 @@ msgstr "Usie"
 #: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "Tablica %s nia znojdzienaja abo nia vyznačanaja ŭ %s"
+msgstr "Tablica <b>%s</b> nia znojdzienaja abo nia vyznačanaja ŭ %s"
 
 #: schema_export.php:39
 #, fuzzy
@@ -11964,7 +11964,7 @@ msgstr "(asobna)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
-msgstr "Pieranieści tablicu ŭ (baza dadzienych.tablica):"
+msgstr "Pieranieści tablicu ŭ (baza dadzienych<b>.</b>tablica):"
 
 #: tbl_operations.php:355
 msgid "Table options"
@@ -11976,7 +11976,7 @@ msgstr "Pierajmienavać tablicu ŭ"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "Skapijavać tablicu ŭ (baza dadzienych.tablica):"
+msgstr "Skapijavać tablicu ŭ (baza dadzienych<b>.</b>tablica):"
 
 #: tbl_operations.php:584
 msgid "Switch to copied table"
