@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 15:59+0200\n"
+"PO-Revision-Date: 2012-11-21 16:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -6639,7 +6639,6 @@ msgstr ""
 "fortsätta från position %d."
 
 #: libraries/display_import.lib.php:291
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6651,7 +6650,7 @@ msgid ""
 msgstr ""
 "Tillåt avbrytande av importl skriptet ifall det upptäcker att det är nära "
 "till PHP timeout. <i>(Detta kan vara bra sätt att importera stora filer, men "
-"det kan bryta transaktioner.)</ >"
+"det kan bryta transaktioner.)</i>"
 
 #: libraries/display_import.lib.php:298
 msgid "Number of rows to skip, starting from the first row:"
