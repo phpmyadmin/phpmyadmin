@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:46+0200\n"
+"PO-Revision-Date: 2012-11-21 15:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/3-5/fi/>\n"
 "Language: fi\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -9668,8 +9668,8 @@ msgid ""
 "master"
 msgstr ""
 "Kun olet käynnistänyt MySQL-palvelimen alusta, paina Siirry-painiketta. Sen "
-"jälkeen esiin pitäisi tulla sanoman, joka kertoo, että palvelin <strong>on</"
-"strong> asetettu isäntäpalvelimeksi"
+"jälkeen esiin pitäisi tulla sanoman, joka kertoo, että palvelin <b>on</b> "
+"asetettu isäntäpalvelimeksi"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
