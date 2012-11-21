@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:46+0200\n"
+"PO-Revision-Date: 2012-11-21 15:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/3-5/gl/>\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -6656,7 +6656,7 @@ msgid ""
 "and server version)</i>"
 msgstr ""
 "Mostrar os comentarios <i>(inclúe información como a marca horaria da "
-"exportación, a versión do PHP e a versión do servidor)"
+"exportación, a versión do PHP e a versión do servidor)</i>"
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
@@ -6706,7 +6706,7 @@ msgstr "instrucións <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:245
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "instrucións <code>INSERT IGNORE</code></code>"
+msgstr "instrucións <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
