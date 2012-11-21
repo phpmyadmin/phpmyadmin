@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-08-11 04:26+0200\n"
-"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
+"PO-Revision-Date: 2012-11-21 15:57+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/3-5/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1993,7 +1993,7 @@ msgstr "برای علامتگذاری / برداشتن علامت اینجا ر�
 
 #: js/messages.php:352
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr "با کلیک بر روی منوی کشویی <br فلش /> به ضامن دید ستون"
+msgstr "با کلیک بر روی منوی کشویی <br/> فلش  به ضامن دید ستون"
 
 #: js/messages.php:354
 msgid ""
@@ -10991,7 +10991,7 @@ msgstr "اسم فهرست&nbsp;:"
 #: tbl_indexes.php:188
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(<b>فقط و فقط بايد</b> \"PRIMARY\" نام يك كليد اصلي باشد!)"
+msgstr "(فقط و فقط بايد \"PRIMARY\" نام يك كليد اصلي باشد!)"
 
 #: tbl_indexes.php:199
 msgid "Index type:"
