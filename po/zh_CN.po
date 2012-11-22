@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (China) <http://l10n.cihar.com/projects/"
-"phpmyadmin/3-5/zh_CN/>\n"
+"PO-Revision-Date: 2012-11-22 15:50+0200\n"
+"Last-Translator: Liang Comver <comver@qq.com>\n"
+"Language-Team: Chinese (China) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1524,7 +1524,7 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
+msgstr "这一列显示了相同的查询被组合在一起了。然而，有且只有SQL文本被修改过了,因此查询其他属性例如启动时间可能不同。"
 
 #: js/messages.php:180
 msgid ""
@@ -4542,7 +4542,7 @@ msgstr "控制用户"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
-msgstr ""
+msgstr "一个会变的主机被设置在了设置文件中，你可以留空以使用已经定义了的主机"
 
 #: libraries/config/messages.inc.php:386
 msgid "Control host"
@@ -8210,7 +8210,6 @@ msgstr ""
 "展的 phpMyAdmin 不能正确分割字符串，可能产生意想不到的结果。"
 
 #: main.php:292
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -8222,10 +8221,10 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 配置参数 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime (外链，英文)[/a] 短于您"
-"在 phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 "
-"phpMyAdmin 中设置的时间要更短。"
+"您的 PHP 配置参数 "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime (外链，英文)[/a] 短于您在 phpMyAdmin 中设置的 "
+"Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的时间要更短。"
 
 #: main.php:299
 msgid ""
@@ -9333,10 +9332,9 @@ msgid "Advisor"
 msgstr "建议"
 
 #: server_status.php:803 server_status.php:829
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "记录数："
+msgstr "记录数: "
 
 #: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
@@ -11577,10 +11575,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 被设为 'OFF'"
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "清除所有数据"
+msgstr "发行版系列"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
@@ -11806,7 +11803,7 @@ msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
-msgstr ""
+msgstr "缓存碎片的数量已经到达至 %s%%，当到 100%% 的时候那就意味着已用空间和可用空间的界线已经不清楚了，这个值会下降 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
@@ -11832,7 +11829,7 @@ msgstr ""
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
+msgstr "删除查询比插入查询的比例是 %s%%.这个比例越小越好。（警戒比例：0.1%%）"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12170,7 +12167,7 @@ msgstr "从内存读取索引的百分比"
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "%% 使用索引缓存的比例是低的。"
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
