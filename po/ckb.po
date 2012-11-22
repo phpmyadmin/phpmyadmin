@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-05 10:22+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2012-11-22 07:44+0200\n"
+"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -709,28 +709,28 @@ msgstr "گەڕانەوە"
 
 #: index.php:114
 msgid "General Settings"
-msgstr ""
+msgstr "ڕێکخستنە گشتیەکان"
 
 #: index.php:144 libraries/display_change_password.lib.php:47
 #: user_password.php:234
 msgid "Change password"
-msgstr ""
+msgstr "گۆڕینی وشەی نهێنی"
 
 #: index.php:159
 msgid "Server connection collation"
-msgstr ""
+msgstr "ڕێکخستنی پەیوەندی ڕاژەکار"
 
 #: index.php:185
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ڕێکخستنی دەرکەوتنەکان"
 
 #: index.php:214 prefs_manage.php:275
 msgid "More settings"
-msgstr ""
+msgstr "ڕێکخستنی تر"
 
 #: index.php:231
 msgid "Database server"
-msgstr ""
+msgstr "ڕاژەکاری بکنەی دراوە"
 
 #: index.php:234 libraries/Menu.class.php:150 libraries/common.inc.php:649
 #: libraries/config/messages.inc.php:508 server_status.php:827
@@ -739,46 +739,46 @@ msgstr "سێرڤەر"
 
 #: index.php:238
 msgid "Software"
-msgstr ""
+msgstr "نەرمەواڵە"
 
 #: index.php:242
 msgid "Software version"
-msgstr ""
+msgstr "وەشانی نەرمەواڵە"
 
 #: index.php:246
 msgid "Protocol version"
-msgstr ""
+msgstr "وەشانی پرۆتۆکۆڵ"
 
 #: index.php:250 libraries/server_privileges.lib.php:1578
 #: libraries/server_privileges.lib.php:2389
 #: libraries/server_privileges.lib.php:2806
 #: libraries/server_privileges.lib.php:2854 server_status.php:1326
 msgid "User"
-msgstr ""
+msgstr "بەکارهێنەر"
 
 #: index.php:255
 msgid "Server charset"
-msgstr ""
+msgstr "پیتەکانی ڕاژەکار"
 
 #: index.php:267
 msgid "Web server"
-msgstr ""
+msgstr "ڕاژەکاری وێب"
 
 #: index.php:280
 msgid "Database client version"
-msgstr ""
+msgstr "وەشانی ڕاژەخوازی بنکەی دراوە"
 
 #: index.php:284
 msgid "PHP extension"
-msgstr ""
+msgstr "پێوەکراوەکانی php"
 
 #: index.php:298
 msgid "Show PHP information"
-msgstr ""
+msgstr "پیشاندانی زانیاری php"
 
 #: index.php:321 libraries/engines/bdb.lib.php:25
 msgid "Version information"
-msgstr ""
+msgstr "زانیاری وەشان"
 
 #: index.php:330 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:147
@@ -790,23 +790,23 @@ msgstr "به‌ڵگه‌سازی"
 
 #: index.php:337 libraries/config/FormDisplay.tpl.php:148
 msgid "Wiki"
-msgstr ""
+msgstr "wiki"
 
 #: index.php:346
 msgid "Official Homepage"
-msgstr ""
+msgstr "پەڕەی سەرەکی"
 
 #: index.php:353
 msgid "Contribute"
-msgstr ""
+msgstr "بەشداری کردن"
 
 #: index.php:360
 msgid "Get support"
-msgstr ""
+msgstr "پاڵپشتی کردن"
 
 #: index.php:367
 msgid "List of changes"
-msgstr ""
+msgstr "خشتەی گۆڕانکاریەکان"
 
 #: index.php:390
 msgid ""
@@ -899,7 +899,7 @@ msgstr ""
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "سڕینەوەی شوێنپێی دراوەکان"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
@@ -907,7 +907,7 @@ msgstr ""
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "ئەم کردارە لەوانەیە درێژخایەن بێت،ئایا بەردەوام ئەبیت؟"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -1341,19 +1341,19 @@ msgstr "یەکە"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "لە تۆماری خاوەوە"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "لە تۆماری گشتیەوە"
 
 #: js/messages.php:172
 msgid "Analysing logs"
-msgstr ""
+msgstr "شیکردنەوەی تۆمارەکان"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "شیکردنەوە & کردنەوەی تۆمارەکان. لەوانەیە کاتێکی کەمی پێ بچێت."
 
 #: js/messages.php:174
 msgid "Cancel request"
@@ -1375,7 +1375,7 @@ msgstr ""
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr ":داتا تۆمارکراوەکان کرانەوە،داواکاریەکان جێبەجێ ئەکرێن لەم کاتەدا"
 
 #: js/messages.php:179
 msgid "Jump to Log table"
@@ -1442,7 +1442,7 @@ msgstr "پاڵێو"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "پاڵاوتنی داواکاریەکان بە word/regexp:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1501,7 +1501,7 @@ msgstr ""
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "تکایە ئەو پەڕگەیە دەستنیشان بکە کە ئەتەوێت بکرێتەوە"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1552,21 +1552,21 @@ msgstr "ئامادەکردن"
 
 #: js/messages.php:236
 msgid "Processing Request"
-msgstr ""
+msgstr "کردنەوەی داواکاری"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:43
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "هەڵە لە کردنەوەی داواکاری"
 
 #: js/messages.php:238
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "هەڵەی کۆد: %s"
 
 #: js/messages.php:239
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "هەڵەی نوسین: %s"
 
 #: js/messages.php:240 libraries/db_common.inc.php:58 server_databases.php:89
 msgid "No databases selected."
@@ -1578,7 +1578,7 @@ msgstr "ستونە سڕێنراوەکان"
 
 #: js/messages.php:242
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "زیادکردنی کلیلی سەرەکی"
 
 #: js/messages.php:243 pmd_general.php:425 pmd_general.php:582
 #: pmd_general.php:630 pmd_general.php:706 pmd_general.php:760
