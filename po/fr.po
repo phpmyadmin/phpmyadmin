@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 15:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-22 07:36+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -958,10 +958,10 @@ msgid "Edit Index"
 msgstr "Modifier un index"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Ajouter %d colonne(s) à l'index"
+msgstr "Ajouter %s colonne(s) à l'index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
