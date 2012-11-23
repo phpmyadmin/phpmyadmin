@@ -610,8 +610,8 @@ AJAX.cache = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            menuPrepare();
-            menuResize();
+            menuPrepare($('#topmenu'));
+            menuResize($('#topmenu'));
         }
     }
 };

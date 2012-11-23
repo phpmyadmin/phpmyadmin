@@ -2816,15 +2816,24 @@ AJAX.registerOnload('functions.js', function() {
 /**
  * This function handles the resizing of the content frame
  * and adjusts the top menu according to the new size of the frame
+ *
+ * @param object $container jquery object, menu container object
+ *
+ * @return void
  */
-function menuResize()
+function menuResize($container)
 {
-    var $cnt = $('#topmenu');
-    var wmax = $cnt.innerWidth() - $('#pma_navigation').width() - 5 ; // 5 px margin for jumping menu in Chrome
-    var $submenu = $cnt.find('.submenu');
+    if ($container.length == 0) {
+        return;
+    }
+    var wmax = $container.innerWidth();
+    wmax -= $('#pma_navigation').width();
+    wmax -= $('#pma_navigation_resizer').width();
+    wmax -= 5 ; // 5 px margin for jumping menu in Chrome
+    var $submenu = $container.find('.submenu');
     var submenu_w = $submenu.outerWidth(true);
     var $submenu_ul = $submenu.find('ul');
-    var $li = $cnt.find('> li');
+    var $li = $container.find('> li');
     var $li2 = $submenu_ul.find('li');
     var more_shown = $li2.length > 0;
 
@@ -2877,7 +2886,7 @@ function menuResize()
         $submenu.removeClass('shown');
     }
 
-    if ($cnt.find('> li').length == 1) {
+    if ($container.find('> li').length == 1) {
         // If there is only the "More" tab left, then we need
         // to align the submenu to the left edge of the tab
         $submenu_ul.removeClass().addClass('only');
@@ -2893,23 +2902,27 @@ function menuResize()
     }
 }
 
-function menuPrepare()
+/**
+ * Prepares a horizontal menu for adapting to the screen width
+ *
+ * @param object $container jquery object, menu container object
+ *
+ * @return void
+ */
+function menuPrepare($container)
 {
-    var topmenu = $('#topmenu');
-    if (topmenu.length == 0) {
+    if ($container.length == 0) {
         return;
     }
     // create submenu container
     var link = $('<a />', {href: '#', 'class': 'tab'})
         .text(PMA_messages['strMore'])
-        .click(function(e) {
-            e.preventDefault();
-        });
-    var img = topmenu.find('li:first-child img');
+        .bind('click', false); // same as event.preventDefault()
+    var img = $container.find('li img');
     if (img.length) {
         $(PMA_getImage('b_more.png').toString()).prependTo(link);
     }
-    var submenu = $('<li />', {'class': 'submenu'})
+    var $submenu = $('<li />', {'class': 'submenu'})
         .append(link)
         .append($('<ul />'))
         .mouseenter(function() {
@@ -2922,15 +2935,17 @@ function menuPrepare()
                 $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
             }
         });
-    topmenu.append(submenu);
+    $container.append($submenu);
 }
 
 // This must be fired only once after the inital page load
 $(function() {
-    menuPrepare();
+    menuPrepare($('#topmenu'));
     // populate submenu and register resize event
-    menuResize();
-    $(window).resize(menuResize);
+    menuResize($('#topmenu'));
+    $(window).resize(function (){
+        menuResize($('#topmenu'));
+    });
 });
 
 /**
@@ -3636,7 +3651,7 @@ AJAX.registerOnload('functions.js', function() {
             'padding-top',
             $('#floating_menubar').outerHeight(true)
         );
-        menuResize();
+        menuResize($('#topmenu'));
     }
 
     /**

@@ -2,7 +2,6 @@
 /**
  * Functions used in server plugins pages
  */
-
 var pma_theme_image; // filled in server_plugins.php
 
 AJAX.registerOnload('server_plugins.js', function() {
@@ -12,7 +11,7 @@ AJAX.registerOnload('server_plugins.js', function() {
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
         show: function(event, ui) {
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
-            menuResize();
+            menuResize($('#topmenu'));
             // 'Plugins' tab is too high due to hiding of 'Modules' by negative left position,
             // hide tabs by changing display to fix it
             $(ui.panel).closest('.ui-tabs').find('> div').not(ui.panel).css('display', 'none');

@@ -598,7 +598,7 @@ var ResizeHandler = function () {
             event.data.resize_handler.active = false;
             $('body').css('cursor', '');
             $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
-            menuResize();
+            menuResize($('#topmenu'));
         }
     };
     /**
@@ -638,7 +638,7 @@ var ResizeHandler = function () {
         // If we have a cookie, set the width of the panel to its value
         var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10));
         this.setWidth(pos);
-        menuResize();
+        menuResize($('#topmenu'));
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')
