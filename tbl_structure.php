@@ -303,8 +303,6 @@ foreach ($fields as $row) {
     if ($primary && $primary->hasColumn($field_name)) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
-    $response->addHTML("\n");
-
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
@@ -334,7 +332,7 @@ foreach ($fields as $row) {
     unset($field_charset);
 } // end foreach
 
-$response->addHTML('</tbody>' . "\n" .'</table>' . "\n");
+$response->addHTML('</tbody></table>');
 
 $response->addHTML(
     PMA_getHtmlForCheckAllTableColumn(
@@ -405,7 +403,7 @@ if ($cfg['ShowStats']) {
 // END - Calc Table Space
 
 $response->addHTML(
-    '<div class="clearfloat"></div>' . "\n"
+    '<div class="clearfloat"></div>'
 );
 
 ?>
