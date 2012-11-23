@@ -2085,7 +2085,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
  * @param array   $titles                    titles array
  * @param array   $row                       current row
  * @param string  $rownum                    row number
- * @param array   $hidden_titles             hedden titles
+ * @param array   $hidden_titles             hidden titles
  * @param array   $columns_with_unique_index columns with unique index
  *
  * @return string $html_output;
