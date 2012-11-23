@@ -1796,15 +1796,6 @@ table#index_columns select {
     width: 100%;
 }
 
-iframe.IE_hack {
-    z-index: 1;
-    position: absolute;
-    display: none;
-    border: 0;
-    filter: alpha(opacity=0);
-    overflow: hidden;
-}
-
 #move_columns_dialog div {
     padding: 1em;
 }

@@ -176,11 +176,7 @@ if ($db_is_information_schema) {
 }
 $response->addHTML($tabletype);
 
-$tablestructure = '<table id="tablestructure" class="data';
-if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
-    $tablestructure .= ' PropertiesIconic';
-}
-$tablestructure .= '">';
+$tablestructure = '<table id="tablestructure" class="data">';
 $response->addHTML($tablestructure);
 
 
@@ -355,10 +351,6 @@ $response->addHTML(
 if (! $tbl_is_view && ! $db_is_information_schema) {
     $response->addHTML('<br />');
     $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
-
-    $response->addHTML(
-        '<iframe class="IE_hack"></iframe><hr />'
-    );
     $response->addHTML(
         '<div id="index_div" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >'
