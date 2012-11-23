@@ -67,9 +67,6 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
                 $sql_query .=  ', ' . PMA_Util::backquote($sval);
             }
         }
-
-        // what is this htmlspecialchars() for??
-        //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
         $sql_query .= ' FROM ' . PMA_Util::backquote($db)
         . '.' . PMA_Util::backquote($table);
         include 'sql.php';
@@ -207,11 +204,7 @@ $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
     include_once 'libraries/transformations.lib.php';
-
-    //$cfgRelation = PMA_getRelationsParam();
-
     $comments_map = PMA_getComments($db, $table);
-
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table, true);
     }
