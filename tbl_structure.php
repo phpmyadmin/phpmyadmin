@@ -158,7 +158,6 @@ $hidden_titles = PMA_getHiddenTitlesArray();
  */
 /* TABLE INFORMATION */
 // table header
-$i = 0;
 
 $html_form = '<form method="post" action="tbl_structure.php" name="fieldsForm" '
 . 'id="fieldsForm" '
@@ -193,8 +192,6 @@ $response->addHTML(
 );
 
 $response->addHTML('<tbody>');
-
-unset($i);
 
 // table body
 
