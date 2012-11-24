@@ -911,7 +911,7 @@ div#tablestatistics table {
 /* Heading */
 #topmenucontainer {
     background: white;
-    padding-right: 1em;
+    padding-<?php echo $right; ?>: 1em;
     width: 100%;
 }
 

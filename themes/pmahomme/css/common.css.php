@@ -1158,7 +1158,7 @@ div#tablestatistics table {
 
 /* Heading */
 #topmenucontainer {
-    padding-right: 1em;
+    padding-<?php echo $right; ?>: 1em;
     width: 100%;
 }
 
