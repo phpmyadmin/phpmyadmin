@@ -528,6 +528,9 @@ var ResizeHandler = function () {
             this.left,
             (pos - $('#pma_navigation_scrollbar').width()) + 'px'
         );
+        setTimeout(function (){
+            $(window).trigger('resize');
+        }, 4);
     };
     /**
      * Returns the horizontal position of the mouse,
@@ -598,7 +601,7 @@ var ResizeHandler = function () {
             event.data.resize_handler.active = false;
             $('body').css('cursor', '');
             $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
-            menuResize($('#topmenu'));
+            $('#topmenu').menuResizer('resize');
         }
     };
     /**
@@ -638,7 +641,7 @@ var ResizeHandler = function () {
         // If we have a cookie, set the width of the panel to its value
         var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10));
         this.setWidth(pos);
-        menuResize($('#topmenu'));
+        $('#topmenu').menuResizer('resize');
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')

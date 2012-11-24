@@ -159,9 +159,16 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 /* TABLE INFORMATION */
 // table header
 
+
+$HideStructureActions .= '';
+if ($GLOBALS['cfg']['PropertiesIconic'] !== true
+    && $GLOBALS['cfg']['HideStructureActions'] === true
+) {
+    $HideStructureActions .= ' HideStructureActions';
+}
+
 $html_form = '<form method="post" action="tbl_structure.php" name="fieldsForm" '
-. 'id="fieldsForm" '
-. ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+. 'id="fieldsForm" class="ajax' . $HideStructureActions . '">';
 
 $response->addHTML($html_form);
 $response->addHTML(PMA_generate_common_hidden_inputs($db, $table));

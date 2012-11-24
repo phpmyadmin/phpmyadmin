@@ -1831,17 +1831,16 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
     $message, $action, $titles, $row, $isPrimary
 ) {
-    $html_output = '<td class="'. $class .'">';
+    $html_output = '<li class="'. $class .'">';
 
     if ($type == 'text'
         || $type == 'blob'
         || 'ARCHIVE' == $tbl_storage_engine
         || $hasField
     ) {
-        $html_output .= $titles['No' . $action] . "\n";
+        $html_output .= $titles['No' . $action];
         $action_enabled = false;
     } else {
-        $html_output .= "\n";
         $html_output .= '<a '
             . ($hasLinkClass ? 'class="add_primary_key_anchor" ' : '')
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
@@ -1860,8 +1859,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
             . $titles[$action] . '</a>';
         $action_enabled = true;
     }
-    $html_output .= "\n";
-    $html_output .= '</td>';
+    $html_output .= '</li>';
 
     return array($html_output, $action_enabled);
 }
@@ -1881,7 +1879,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
 ) {
-    $html_output = '<td class="fulltext replaced_by_more center nowrap">';
+    $html_output = '<li class="fulltext nowrap">';
     if (! empty($tbl_storage_engine)
         && ($tbl_storage_engine == 'MYISAM'
         || $tbl_storage_engine == 'ARIA'
@@ -1889,7 +1887,6 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
         && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output .= "\n";
         $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
@@ -1906,14 +1903,11 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
             . '">';
         $html_output .= $titles['IdxFulltext'] . '</a>';
         $fulltext_enabled = true;
-        $html_output .= '</td>';
     } else {
-        $html_output .= "\n";
-        $html_output .= $titles['NoIdxFulltext'] . "\n";
+        $html_output .= $titles['NoIdxFulltext'];
         $fulltext_enabled = false;
-        $html_output .= '</td>';
     }
-
+    $html_output .= '</li>';
     return array($html_output, $fulltext_enabled);
 }
 
@@ -1928,7 +1922,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
  */
 function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 {
-    $html_output = '<td class="browse replaced_by_more center">';
+    $html_output = '<li class="browse nowrap">';
     $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
         . urlencode(
             'SELECT COUNT(*) AS ' . PMA_Util::backquote(__('Rows'))
@@ -1940,7 +1934,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
         . '">'
         . $titles['DistinctValues']
         . '</a>';
-    $html_output .= '</td>';
+    $html_output .= '</li>';
 
     return $html_output;
 }
@@ -1965,11 +1959,11 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
     $columns_with_unique_index
 ) {
-    $html_output = '';
+    $html_output = '<td><ul class="table-structure-actions resizable-menu">';
     list($primary, $primary_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'primary replaced_by_more center',
+            'primary nowrap',
             ($primary && $primary->hasColumn($field_name)),
             true, $url_query, $primary,
             'ADD PRIMARY KEY',
@@ -1980,7 +1974,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     list($unique, $unique_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'unique replaced_by_more center',
+            'unique nowrap',
             isset($columns_with_unique_index[$field_name]),
             false, $url_query, $primary, 'ADD UNIQUE',
             __('An index has been added on %s'),
@@ -1990,7 +1984,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     list($index, $index_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'index replaced_by_more center', false, false, $url_query,
+            'index nowrap', false, false, $url_query,
             $primary, 'ADD INDEX', __('An index has been added on %s'),
             'Index', $titles, $row, false
         );
@@ -2003,7 +1997,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         list($spatial, $spatial_enabled)
             = PMA_getHtmlForActionRowInStructureTable(
                 $type, $tbl_storage_engine,
-                'spatial replaced_by_more center',
+                'spatial nowrap',
                 (! in_array($type, $spatial_types)
                     || 'MYISAM' != $tbl_storage_engine
                 ),
@@ -2020,7 +2014,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         $html_output .= $fulltext;
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
-
+    $html_output .= '</ul></td>';
     return $html_output;
 }
 

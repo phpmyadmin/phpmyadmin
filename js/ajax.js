@@ -615,8 +615,7 @@ AJAX.cache = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            menuPrepare($('#topmenu'));
-            menuResize($('#topmenu'));
+            $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
         }
     }
 };

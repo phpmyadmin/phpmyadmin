@@ -283,8 +283,7 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
-.hover,
-.structure_actions_dropdown {
+.hover {
     background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
@@ -714,45 +713,6 @@ ul#topmenu a, ul#topmenu span {
     margin:             2px 2px 0;
     padding:            2px 2px 0;
     white-space:        nowrap;
-}
-
-ul#topmenu ul a {
-    margin:             0;
-    padding-bottom:     2px;
-}
-
-ul#topmenu .submenu {
-    position:           relative;
-    display:            none;
-}
-ul#topmenu .shown {
-    display:            block;
-}
-
-ul#topmenu ul {
-    margin:             0;
-    padding:            0;
-    position:           absolute;
-    list-style-type:    none;
-    display:            none;
-    border:             1px #666 solid;
-    z-index:            2;
-}
-
-ul#topmenu ul.only {
-    left: 0;
-}
-
-ul#topmenu ul.notonly {
-    right: 0;
-}
-
-ul#topmenu li:hover ul, ul#topmenu .submenuhover ul {
-    display:            block;
-}
-
-ul#topmenu ul li {
-    width:              100%;
 }
 
 ul#topmenu2 a {
@@ -1738,20 +1698,18 @@ input#input_import_file {
 /**
  * Table structure styles
  */
-.structure_actions_dropdown {
-    position: absolute;
-    padding: 3px;
-    display: none;
-    z-index: 100;
+#fieldsForm ul.table-structure-actions {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-
-.structure_actions_dropdown a {
-    display: block;
+#fieldsForm ul.table-structure-actions li {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: 0.5em; /* same as padding of "table td" */
 }
-
-td.more_opts {
-    display: none;
-    white-space: nowrap;
+#fieldsForm ul.table-structure-actions .submenu li {
+    padding: 0.3em;
+    margin: 0.1em;
 }
 
 /**

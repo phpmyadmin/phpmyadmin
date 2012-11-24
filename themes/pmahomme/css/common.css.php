@@ -488,8 +488,7 @@ table tr.marked {
 /* hovered items */
 .odd:hover,
 .even:hover,
-.hover,
-.structure_actions_dropdown {
+.hover {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
@@ -941,61 +940,6 @@ ul#topmenu2 li {
     background: #fff !important;
 }
 
-ul#topmenu a,
-ul#topmenu span {
-    display: block;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-
-ul#topmenu ul a {
-    margin: 0;
-
-}
-
-ul#topmenu .submenu {
-    display: none;
-    position: relative;
-}
-
-ul#topmenu .shown {
-    display: inline-block;
-}
-
-ul#topmenu ul {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    list-style-type: none;
-    display: none;
-    border: 1px #ddd solid;
-    z-index: 2;
-}
-
-ul#topmenu ul.only {
-    left: 0;
-}
-
-ul#topmenu ul.notonly {
-    right: 0;
-}
-
-ul#topmenu li:hover {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e5e5e5'); ?>
-}
-
-ul#topmenu li:hover ul,
-ul#topmenu .submenuhover ul {
-    display: block;
-    font-weight: 3em;
-    background: #fff;
-}
-
-ul#topmenu ul li {
-    width: 100%;
-}
-
 ul#topmenu2 a {
     display: block;
     margin: 7px 6px 7px 0;
@@ -1031,6 +975,10 @@ ul#topmenu ul {
     -moz-box-shadow: 1px 1px 6px #ddd;
     -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow: 2px 2px 3px #666;
+}
+
+ul#topmenu ul.only {
+    <?php echo $left; ?>: 0;
 }
 
 ul#topmenu > li {
@@ -2162,27 +2110,23 @@ input#input_import_file {
 /**
  * Table structure styles
  */
-.structure_actions_dropdown {
-    position: absolute;
-    padding: 3px;
-    display: none;
-    z-index: 100;
-    background: #fff;
-    line-height: 24px;
-    border: 1px solid #aaa;
-    -moz-box-shadow: 0 3px 3px #ddd;
+#fieldsForm ul.table-structure-actions {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-.structure_actions_dropdown span {
-    display: block;
+#fieldsForm ul.table-structure-actions li {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: 0.3em; /* same as padding of "table td" */
 }
-.structure_actions_dropdown span:hover {
-    background: #ddd;
+#fieldsForm ul.table-structure-actions .submenu li {
+    padding: 0;
+    margin: 0;
 }
-
-td.more_opts {
-    white-space: nowrap;
+#fieldsForm ul.table-structure-actions .submenu li span {
+    padding: 0.3em;
+    margin: 0.1em;
 }
-
 /**
  * Indexes
  */

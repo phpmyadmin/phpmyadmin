@@ -252,6 +252,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         buttons: button_options_error
                     }); // end dialog options
                 } else {
+                    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
                     // sort the fields table
                     var $fields_table = $("table#tablestructure tbody");
                     // remove all existing rows and remember them
@@ -277,6 +278,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
+                    $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer);
                 }
             });
         };
@@ -337,12 +339,44 @@ function reloadFieldForm(message) {
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
         $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
-        /* Call the function to display the more options in table */
-        $table_clone = false;
-        $("div.replace_in_more").hide(); // fix "more" dropdown
-        moreOptsMenuResize();
+        /* reinitialise the more options in table */
+        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
         setTimeout(function() {
             PMA_ajaxShowMessage(message);
         }, 500);
     });
 }
+
+function PMA_tbl_structure_menu_resizer_callback() {
+    var pagewidth = $('body').width();
+    var $page = $('#page_content');
+    pagewidth -= $page.outerWidth(true) - $page.outerWidth();
+    var columnsWidth = 0;
+    var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
+    $columns.not(':last').each(function (){
+        columnsWidth += $(this).outerWidth(true)
+    })
+    var totalCellSpacing = $('#tablestructure').width();
+    $columns.each(function (){
+        totalCellSpacing -= $(this).outerWidth(true);
+    });
+    return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin
+};
+
+/** Handler for "More" dropdown in structure table rows */
+AJAX.registerOnload('tbl_structure.js', function() {
+    if ($('#fieldsForm').hasClass('HideStructureActions')) {
+        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+    }
+});
+AJAX.registerTeardown('tbl_structure.js', function() {
+    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+});
+$(function () {
+    $(window).resize($.throttle(function () {
+        var $list = $('#fieldsForm ul.table-structure-actions');
+        if ($list.length) {
+            $list.menuResizer('resize');
+        }
+    }));
+});

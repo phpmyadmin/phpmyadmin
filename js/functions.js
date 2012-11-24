@@ -2813,138 +2813,17 @@ AJAX.registerOnload('functions.js', function() {
     PMA_showHints();
 });
 
-/**
- * This function handles the resizing of the content frame
- * and adjusts the top menu according to the new size of the frame
- *
- * @param object $container jquery object, menu container object
- *
- * @return void
- */
-function menuResize($container)
-{
-    if ($container.length == 0) {
-        return;
-    }
-    var wmax = $container.innerWidth();
-    wmax -= $('#pma_navigation').width();
-    wmax -= $('#pma_navigation_resizer').width();
-    wmax -= 5 ; // 5 px margin for jumping menu in Chrome
-    var $submenu = $container.find('.submenu');
-    var submenu_w = $submenu.outerWidth(true);
-    var $submenu_ul = $submenu.find('ul');
-    var $li = $container.find('> li');
-    var $li2 = $submenu_ul.find('li');
-    var more_shown = $li2.length > 0;
-
-    // Calculate the total width used by all the shown tabs
-    var total_len = more_shown ? submenu_w : 0;
-    var l = $li.length - 1;
-    for (var i = 0; i < l; i++) {
-        total_len += $($li[i]).outerWidth(true);
-    }
-
-    // Now hide menu elements that don't fit into the menubar
-    var hidden = false; // Whether we have hidden any tabs
-    while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
-        hidden = true;
-        var el = $($li[l]);
-        var el_width = el.outerWidth(true);
-        el.data('width', el_width);
-        if (! more_shown) {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
-            total_len += submenu_w;
-            more_shown = true;
-        } else {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
-        }
-    }
-
-    // If we didn't hide any tabs, then there might be some space to show some
-    if (! hidden) {
-        // Show menu elements that do fit into the menubar
-        for (var i = 0, l = $li2.length; i < l; i++) {
-            total_len += $($li2[i]).data('width');
-            // item fits or (it is the last item
-            // and it would fit if More got removed)
-            if (total_len < wmax
-                || (i == $li2.length - 1 && total_len - submenu_w < wmax)
-            ) {
-                $($li2[i]).insertBefore($submenu);
-            } else {
-                break;
-            }
-        }
-    }
-
-    // Show/hide the "More" tab as needed
-    if ($submenu_ul.find('li').length > 0) {
-        $submenu.addClass('shown');
-    } else {
-        $submenu.removeClass('shown');
-    }
-
-    if ($container.find('> li').length == 1) {
-        // If there is only the "More" tab left, then we need
-        // to align the submenu to the left edge of the tab
-        $submenu_ul.removeClass().addClass('only');
-    } else {
-        // Otherwise we align the submenu to the right edge of the tab
-        $submenu_ul.removeClass().addClass('notonly');
-    }
-
-    if ($submenu.find('.tabactive').length) {
-        $submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
-    } else {
-        $submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
-    }
+function PMA_mainMenuResizerCallback() {
+    // 5 px margin for jumping menu in Chrome
+    return $('body').width() - 5;
 }
-
-/**
- * Prepares a horizontal menu for adapting to the screen width
- *
- * @param object $container jquery object, menu container object
- *
- * @return void
- */
-function menuPrepare($container)
-{
-    if ($container.length == 0) {
-        return;
-    }
-    // create submenu container
-    var link = $('<a />', {href: '#', 'class': 'tab'})
-        .text(PMA_messages['strMore'])
-        .bind('click', false); // same as event.preventDefault()
-    var img = $container.find('li img');
-    if (img.length) {
-        $(PMA_getImage('b_more.png').toString()).prependTo(link);
-    }
-    var $submenu = $('<li />', {'class': 'submenu'})
-        .append(link)
-        .append($('<ul />'))
-        .mouseenter(function() {
-            if ($(this).find('ul .tabactive').length == 0) {
-                $(this).addClass('submenuhover').find('> a').addClass('tabactive');
-            }
-        })
-        .mouseleave(function() {
-            if ($(this).find('ul .tabactive').length == 0) {
-                $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
-            }
-        });
-    $container.append($submenu);
-}
-
 // This must be fired only once after the inital page load
 $(function() {
-    menuPrepare($('#topmenu'));
-    // populate submenu and register resize event
-    menuResize($('#topmenu'));
+    // Initialise the menu resize plugin
+    $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
+    // register resize event
     $(window).resize(function (){
-        menuResize($('#topmenu'));
+        $('#topmenu').menuResizer('resize');
     });
 });
 
@@ -3651,7 +3530,7 @@ AJAX.registerOnload('functions.js', function() {
             'padding-top',
             $('#floating_menubar').outerHeight(true)
         );
-        menuResize($('#topmenu'));
+        $('#topmenu').menuResizer('resize');
     }
 
     /**
