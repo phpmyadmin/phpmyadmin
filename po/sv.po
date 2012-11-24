@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 16:12+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-24 14:31+0200\n"
+"Last-Translator: Love Dager <lovedager@gmail.com>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
@@ -1594,7 +1594,7 @@ msgstr "Laddar"
 
 #: js/messages.php:236
 msgid "Processing Request"
-msgstr "Processa begäran"
+msgstr "Bearbetar begäran"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:43
 msgid "Error in Processing Request"
