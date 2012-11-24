@@ -2847,42 +2847,6 @@ function PMA_set_status_label($element)
 }
 
 /**
- * Initializes slider effect.
- */
-function PMA_init_slider()
-{
-    $('div.pma_auto_slider').each(function() {
-        var $this = $(this);
-
-        if ($this.hasClass('slider_init_done')) {
-            return;
-        }
-        $this.addClass('slider_init_done');
-
-        var $wrapper = $('<div>', {'class': 'slide-wrapper'});
-        $wrapper.toggle($this.is(':visible'));
-        $('<a>', {href: '#'+this.id})
-            .text(this.title)
-            .prepend($('<span>'))
-            .insertBefore($this)
-            .click(function() {
-                var $wrapper = $this.closest('.slide-wrapper');
-                var visible = $this.is(':visible');
-                if (!visible) {
-                    $wrapper.show();
-                }
-                $this[visible ? 'hide' : 'show']('blind', function() {
-                    $wrapper.toggle(!visible);
-                    PMA_set_status_label($this);
-                });
-                return false;
-            });
-        $this.wrap($wrapper);
-        PMA_set_status_label($this);
-    });
-}
-
-/**
  * var  toggleButton  This is a function that creates a toggle
  *                    sliding button given a jQuery reference
  *                    to the correct DOM element
@@ -3041,10 +3005,6 @@ AJAX.registerOnload('functions.js', function() {
         }
         );
 
-    /**
-     * Slider effect.
-     */
-    PMA_init_slider();
 
     /**
      * Vertical marker
@@ -3135,6 +3095,60 @@ AJAX.registerOnload('functions.js', function() {
     }
 
 }); // end of $()
+
+
+/**
+ * Initializes slider effect.
+ */
+function PMA_init_slider()
+{
+    $('div.pma_auto_slider').each(function() {
+        var $this = $(this);
+        if ($this.data('slider_init_done')) {
+            return;
+        }
+        var $wrapper = $('<div>', {'class': 'slide-wrapper'});
+        $wrapper.toggle($this.is(':visible'));
+        $('<a>', {href: '#'+this.id, class:'ajax'})
+            .text(this.title)
+            .prepend($('<span>'))
+            .insertBefore($this)
+            .click(function() {
+                var $wrapper = $this.closest('.slide-wrapper');
+                var visible = $this.is(':visible');
+                if (!visible) {
+                    $wrapper.show();
+                }
+                $this[visible ? 'hide' : 'show']('blind', function() {
+                    $wrapper.toggle(!visible);
+                    PMA_set_status_label($this);
+                });
+                return false;
+            });
+        $this.wrap($wrapper);
+        PMA_set_status_label($this);
+        $this.data('slider_init_done', 1);
+    });
+}
+
+/**
+ * Initializes slider effect.
+ */
+AJAX.registerOnload('functions.js', function() {
+    PMA_init_slider();
+});
+
+/**
+ * Restores sliders to the state they were in before initialisation.
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('div.pma_auto_slider').each(function() {
+        var $this = $(this);
+        $this.removeData();
+        $this.parent().replaceWith($this);
+        $this.parent().children('a').remove();
+    });
+});
 
 /**
  * Creates a message inside an object with a sliding effect

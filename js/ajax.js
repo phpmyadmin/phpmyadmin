@@ -201,7 +201,7 @@ var AJAX = {
                 return;
             }
 
-            AJAX.scriptHandler.reset(this, function () {
+            AJAX.scriptHandler.reset(function () {
                 if (data._reloadNavigation) {
                     PMA_reloadNavigation();
                 }
@@ -381,7 +381,7 @@ var AJAX = {
          *
          * @return void
          */
-        reset: function (ctx, callback) {
+        reset: function (callback) {
             for (var i in this._scriptsToBeFired) {
                 AJAX.fireTeardown(this._scriptsToBeFired[i]);
             }
@@ -392,7 +392,8 @@ var AJAX = {
              */
             $('a').die('click').live('click', AJAX.requestHandler);
             $('form').die('submit').live('submit', AJAX.requestHandler);
-            callback.call(ctx);
+            AJAX.cache.update();
+            callback();
         }
     }
 };
@@ -496,16 +497,15 @@ AJAX.cache = {
                 false
             );
         } else {
-            this.update();
             AJAX.active = true;
             var record = this.pages[index];
-            AJAX.scriptHandler.reset(this, function () {
+            AJAX.scriptHandler.reset(function () {
                 $('#page_content').html(record.content);
                 $('#selflink').html(record.selflink);
-                this.menus.replace(this.menus.get(record.menu));
+                AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
                 AJAX.scriptHandler.load(record.scripts);
-                this.current = ++index;
+                AJAX.cache.current = ++index;
             });
         }
     },
