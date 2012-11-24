@@ -278,7 +278,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
-                    $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer);
+                    $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
                 }
             });
         };
