@@ -23,7 +23,7 @@
  */
 AJAX.registerTeardown('tbl_structure.js', function() {
     $("a.drop_column_anchor.ajax").die('click');
-    $("a.action_primary.ajax").die('click');
+    $("a.add_primary_key_anchor.ajax").die('click');
     $('a.drop_primary_key_index_anchor.ajax').die('click');
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
     $('#index_frm input[type=submit]').die('click');
@@ -38,7 +38,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $("a.drop_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
         /**
          * @var curr_table_name String containing the name of the current table
          */
@@ -59,14 +58,11 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
-
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
                     toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
@@ -90,9 +86,8 @@ AJAX.registerOnload('tbl_structure.js', function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("a.action_primary.ajax").live('click', function(event) {
+    $("a.add_primary_key_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
         /**
          * @var curr_table_name String containing the name of the current table
          */
@@ -105,19 +100,16 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
-
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
                         PMA_commonActions.refreshMain();
+                        PMA_reloadNavigation();
                     }
-                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -132,9 +124,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();
-
         $anchor = $(this);
-
         /**
          * @var $curr_row    Object containing reference to the current field's row
          */
@@ -146,16 +136,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
         for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
             $rows_to_hide = $rows_to_hide.add($last_row);
         }
-
         var question = $curr_row.children('td').children('.drop_primary_key_index_msg').val();
-
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table

@@ -1842,7 +1842,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         $action_enabled = false;
     } else {
         $html_output .= '<a '
-            . ($hasLinkClass ? 'class="add_primary_key_anchor" ' : '')
+            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : '')
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
