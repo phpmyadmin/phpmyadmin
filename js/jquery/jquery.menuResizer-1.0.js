@@ -3,7 +3,20 @@
  * Handles the resizing of a menu according to the available screen width
  *
  * Uses themes/original/css/resizable-menu.css.php
-
+ *
+ * To initialise:
+ * $('#myMenu').menuResizer(function () {
+ *     // This function will be called to find out how much
+ *     // available gorizontal space there is for the menu
+ *     return $('body').width() - 5; // Some extra margin for good measure
+ * });
+ *
+ * To trigger a resize operation:
+ * $('#myMenu').menuResizer('resize'); // Bind this to $(window).resize()
+ *
+ * To restore the menu to a state like before it was initialized:
+ * $('#myMenu').menuResizer('destroy');
+ *
  * @package PhpMyAdmin
  */
 (function ($) {
