@@ -160,7 +160,7 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 // table header
 
 
-$HideStructureActions .= '';
+$HideStructureActions = '';
 if ($GLOBALS['cfg']['PropertiesIconic'] !== true
     && $GLOBALS['cfg']['HideStructureActions'] === true
 ) {
