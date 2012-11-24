@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-09-05 04:39+0200\n"
-"Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
-"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
-">\n"
+"PO-Revision-Date: 2012-11-24 13:37+0200\n"
+"Last-Translator: Genti Ereqi <gereqi@gmail.com>\n"
+"Language-Team: Albanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -106,6 +106,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Skedari %s nuk ështe i disponueshëm në këtë sistem, ju lutem vizitoni "
+"www.phpmyadmin.net për informacione të mëtejshme."
 
 #: db_create.php:74
 #, php-format
@@ -138,10 +140,9 @@ msgstr "Komentet e tabelës"
 #: libraries/tbl_properties.inc.php:339 tbl_indexes.php:243
 #: tbl_printview.php:130 tbl_relation.php:421 tbl_tracking.php:318
 #: tbl_tracking.php:380
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Emrat e kollonave"
+msgstr "Kolonë(a)"
 
 #: db_datadict.php:164 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:239
@@ -303,7 +304,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "Databaza %s është kopjuar tek %s"
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -311,8 +312,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Karakteristikat shtesë janë çaktivizuar për sa i takon funksionimit me "
-"tabelat e lidhura. Për të kuptuar përse, klikoni %skëtu%s."
+"Karakteristikat shtesë për sa i takon funksionimit me tabelat e lidhura, "
+"janë ç'aktivizuar. Për të kuptuar përse, klikoni %skëtu%s."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
@@ -369,22 +370,22 @@ msgid "Last check"
 msgstr "Kontrolli i fundit"
 
 #: db_printview.php:220 libraries/structure.lib.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabela(at)"
-msgstr[1] "%s tabela(at)"
+msgstr[0] "%s tabelë"
+msgstr[1] "%s tabelat"
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
 msgstr "Zgjidh të paktën një kollonë për të shfaqur"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Kalo tek tabela e kopjuar"
+msgstr "Kalo tek %svisual builder%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -395,14 +396,13 @@ msgid "Access denied"
 msgstr "Ndalohet hyrja"
 
 #: db_structure.php:86
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Nuk gjenden tabela në databazë."
+msgstr "Nuk gjenden tabela në bazën e të dhënave"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
-msgstr ""
+msgstr "Tabela të monitoruara"
 
 #: db_tracking.php:78 libraries/Menu.class.php:167
 #: libraries/config/messages.inc.php:504
@@ -422,16 +422,15 @@ msgstr "Databazat"
 
 #: db_tracking.php:80
 msgid "Last version"
-msgstr ""
+msgstr "Versioni i fundit"
 
 #: db_tracking.php:81 tbl_tracking.php:759
-#, fuzzy
 msgid "Created"
-msgstr "Krijo"
+msgstr "Krijuar"
 
 #: db_tracking.php:82 tbl_tracking.php:760
 msgid "Updated"
-msgstr ""
+msgstr "Përditësuar"
 
 #: db_tracking.php:83 js/messages.php:185 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
@@ -456,7 +455,7 @@ msgstr "Shfaq"
 
 #: db_tracking.php:97 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Fshij të dhënat e monitorimit për këtë tabelë"
 
 #: db_tracking.php:103 libraries/Index.class.php:629
 #: libraries/Util.class.php:3475 libraries/Util.class.php:3476
@@ -468,54 +467,48 @@ msgstr "Elemino"
 
 #: db_tracking.php:120 tbl_tracking.php:717 tbl_tracking.php:771
 msgid "active"
-msgstr ""
+msgstr "aktiv"
 
 #: db_tracking.php:122 tbl_tracking.php:719 tbl_tracking.php:773
 msgid "not active"
-msgstr ""
+msgstr "jo-aktiv"
 
 #: db_tracking.php:138
-#, fuzzy
 msgid "Versions"
-msgstr "Operacione"
+msgstr "Versione"
 
 #: db_tracking.php:139 tbl_tracking.php:483 tbl_tracking.php:793
 msgid "Tracking report"
-msgstr ""
+msgstr "Raporti i monitorimit"
 
 #: db_tracking.php:140 tbl_tracking.php:288 tbl_tracking.php:798
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Vetëm struktura"
+msgstr "Pamje çasti e strukturës"
 
 #: db_tracking.php:193
 msgid "Untracked tables"
-msgstr ""
+msgstr "Tabela të pa-monitoruara"
 
 #: db_tracking.php:212 libraries/structure.lib.php:1519
-#, fuzzy
 msgid "Track table"
 msgstr "Kontrollo tabelën"
 
 #: db_tracking.php:240
-#, fuzzy
 msgid "Database Log"
-msgstr "Databazat"
+msgstr "Log i bazave të të dhënave"
 
 #: export.php:42
-#, fuzzy
 msgid "Bad type!"
-msgstr "Lloji i query"
+msgstr "Lloj i gabuar!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Tipi i eksportit te perzgjedhur duhet te ruhet ne nje skedar!"
 
 #: export.php:122
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Bad parameters!"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Parametra të gabuar!"
 
 #: export.php:193 export.php:224 export.php:791
 #, php-format
@@ -541,97 +534,90 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump u ruajt tek file %s."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Lloji i Eksportit"
+msgstr "Lloji i eksportit është i pavlefshëm"
 
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Vlera për fushën \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:173
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Përdor OpenStreetMaps si nivel bazë"
 
 #: gis_data_editor.php:161
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:328
 #: libraries/DisplayResults.class.php:1643
 msgid "Geometry"
-msgstr ""
+msgstr "Gjeometria"
 
 #: gis_data_editor.php:206 js/messages.php:324
 msgid "Point"
-msgstr ""
+msgstr "Pikë"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:322
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:323
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:325
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Pika %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:331
-#, fuzzy
 msgid "Add a point"
-msgstr "Shto një fushë të re"
+msgstr "Shto një pikë të re"
 
 #: gis_data_editor.php:262 js/messages.php:326
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Rreshta që mbarojnë me"
+msgstr "Linjë-varg"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:330
 msgid "Outer Ring"
-msgstr ""
+msgstr "Rrethi i Jashtëm"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:329
 msgid "Inner Ring"
-msgstr ""
+msgstr "Rrethi i Brendshëm"
 
 #: gis_data_editor.php:303
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Shto një përdorues të ri"
+msgstr "Shto një linestring"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:332
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Shto një përdorues të ri"
+msgstr "Shto një rreth të brendshëm"
 
 #: gis_data_editor.php:325 js/messages.php:327
 msgid "Polygon"
-msgstr ""
+msgstr "Shumëkëndësh"
 
 #: gis_data_editor.php:384 js/messages.php:333
-#, fuzzy
 msgid "Add a polygon"
-msgstr "Shto një fushë të re"
+msgstr "Shto një shumëkëndësh"
 
 #: gis_data_editor.php:390
-#, fuzzy
 msgid "Add geometry"
-msgstr "Shto një përdorues të ri"
+msgstr "Shto një gjeometri"
 
 #: gis_data_editor.php:399
 msgid "Output"
-msgstr ""
+msgstr "Nxjerrje"
 
 #: gis_data_editor.php:402
 msgid ""
@@ -648,7 +634,7 @@ msgstr ""
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Afishimi i shenjuesve"
 
 #: import.php:247 import.php:493
 msgid "The bookmark has been deleted."
@@ -666,6 +652,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Po mundoheni të importoni një skedar me kompresim (%s) i cili nuk ka "
+"mbështetje. Mbështetja për këtë lloj kompresimi ose nuk është implementuar "
+"akoma, ose është i ç'aktivizuar në konfigurimin tuaj."
 
 #: import.php:409
 msgid ""
@@ -678,32 +667,43 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Nuk mund të konvertohet kompleti i karaktereve në skedar në mungesë të një "
+"librarie konvertimi"
 
 #: import.php:466 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Nuk mund të ngarkohen plugin-et e importimit, ju lutem kontrolloni "
+"instalimin tuaj!"
 
 #: import.php:500 sql.php:377 sql.php:1192
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Shenjuesi %s u krijua"
 
 #: import.php:509 import.php:517
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Importimi u krye me sukses, u kryen %d query."
 
 #: import.php:528
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"Koha limit për ekzekutimin e script është tejkaluar, nëse dëshironi të "
+"mbaroni me importimin duhet të ri-dërgoni sërish të njëjtin skedar dhe "
+"procesi do të rifillojë."
 
 #: import.php:532
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Në ekzekutimin e fundit nuk është përpunuar asnjë e dhënë, zakonisht kjo "
+"tregon se koha limit e konfiguruar është e pamjaftueshme për të lejuar që "
+"phpMyAdmin të mbarojë të gjitha veprimet, vetëm nëse ju rrisni kohën limit "
+"në PHP."
 
 #: import.php:563 libraries/DisplayResults.class.php:4553
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
@@ -930,30 +930,28 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Jeni duke SHKATËRRUAR një databazë komplete!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Jeni duke SHKATËRRUAR një databazë komplete!"
+msgstr "Jeni duke SHKATËRRUAR një tabelë komplete!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Jeni duke SHKATËRRUAR një databazë komplete!"
+msgstr "Jeni duke COPËTUAR një tabelë komplete!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Lejon futjen dhe mbishkrimin e të dhënave."
+msgstr "Duke fshirë të dhënat e monitorimit"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Duke fshirë Çelësin Kryesor/Indeks"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
+"Ky operacion mund të kërkojë një kohë shumë të gjatë. Sidoqoftë, të vazhdoj?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -964,16 +962,14 @@ msgid "This is not a number!"
 msgstr "Ky nuk është një numër!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "Treguesi"
+msgstr "Shto Indeks"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Index"
 msgid "Edit Index"
-msgstr "Treguesi"
+msgstr "Modifiko Indeks"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
@@ -982,7 +978,6 @@ msgstr "Shto një fushë të re"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
 msgstr "Gjithsej"
@@ -1009,27 +1004,24 @@ msgstr "Fjalëkalimi nuk korrispondon!"
 #: libraries/server_privileges.lib.php:1636
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:2832
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Çfarëdo përdorues"
+msgstr "Shto përdorues"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Duke ringarkuar të drejtat"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Heq përdoruesit e zgjedhur"
+msgstr "Duke hequr përdoruesit e zgjedhur"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:289
 #: tbl_tracking.php:484
 msgid "Close"
-msgstr ""
+msgstr "Mbyll"
 
 #: js/messages.php:61 js/messages.php:286
 #: libraries/DisplayResults.class.php:3319 libraries/Index.class.php:593
@@ -1042,23 +1034,21 @@ msgid "Edit"
 msgstr "Ndrysho"
 
 #: js/messages.php:62 server_status.php:857
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Zgjedhja e serverit"
+msgstr "Grafiku i trafikut në kohë reale"
 
 #: js/messages.php:63 server_status.php:860
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Grafiku i lidhjeve dhe proceseve në kohë reale"
 
 #: js/messages.php:64 server_status.php:885
-#, fuzzy
 msgid "Live query chart"
-msgstr "query SQL"
+msgstr "Grafiku i query në kohë reale"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "Të dhëna statike"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
@@ -1071,7 +1061,7 @@ msgstr "Gjithsej"
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:671 server_status.php:1098
 msgid "Other"
-msgstr ""
+msgstr "Të tjera"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1504
@@ -1085,50 +1075,47 @@ msgstr ","
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "KiB të dërguara nga përditësimi i fundit"
 
 #: js/messages.php:77
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "KiB të marra nga përditësimi i fundit"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Zgjedhja e serverit"
+msgstr "Trafiku i serverit (në KiB)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "Numri i lidhjeve nga përditësimi i fundit"
 
 #: js/messages.php:80 js/messages.php:118 server_status.php:1393
 msgid "Processes"
 msgstr "Proceset"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Lidhje"
+msgstr "Lidhje/Procese"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "Numri i 'questions' nga përditësimi i fundit"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "Questions (instruksione të ekzekutuara nga serveri)"
 
 #: js/messages.php:87 server_status.php:828
-#, fuzzy
 msgid "Query statistics"
-msgstr "Statistikat e rreshtave"
+msgstr "Statistikat e query"
 
 #: js/messages.php:90
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "Konfigurimi i monitorit lokal është i papajtueshëm"
 
 #: js/messages.php:91
 msgid ""
@@ -1137,33 +1124,35 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Konfigurimi i ruajtur në ruajtjen lokale të shfletuesit tuaj, të pozicioneve "
+"të grafikëve nuk është më e pajtueshme me këtë version të ri, të dialogut "
+"të monitorimit. Ka shumë mundësi që parametrat tuaj aktualë nuk do të "
+"funksionojnë më. Ju lutemi rivendosni në gjendjen fillestare këto parametra "
+"në menunë <i>Parametrat</i>."
 
 #: js/messages.php:93
-#, fuzzy
 msgid "Query cache efficiency"
-msgstr "Lloji i query"
+msgstr "Efikasiteti i cache të query"
 
 #: js/messages.php:94
-#, fuzzy
 msgid "Query cache usage"
-msgstr "Lloji i query"
+msgstr "Përdorimi i cache të query"
 
 #: js/messages.php:95
-#, fuzzy
 msgid "Query cache used"
-msgstr "Lloji i query"
+msgstr "Cache e query e përdorur"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
-msgstr ""
+msgstr "Përdorimi i CPU të sistemit"
 
 #: js/messages.php:98
 msgid "System memory"
-msgstr ""
+msgstr "Kujtesa e sistemit"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "Swap i sistemit"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/Util.class.php:1454
@@ -1179,39 +1168,37 @@ msgstr "KB"
 
 #: js/messages.php:103
 msgid "Average load"
-msgstr ""
+msgstr "Ngarkesa mesatare"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "Gjithsej"
+msgstr "Kujtesë gjithsej"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr ""
+msgstr "Kujtesa në cache"
 
 #: js/messages.php:106
 msgid "Buffered memory"
-msgstr ""
+msgstr "Kujtesa në buffer"
 
 #: js/messages.php:107
 msgid "Free memory"
-msgstr ""
+msgstr "Kujtesa e lirë"
 
 #: js/messages.php:108
 msgid "Used memory"
-msgstr ""
+msgstr "Kujtesa e përdorur"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "Gjithsej"
+msgstr "Gjithsej swap"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap në cache"
 
 #: js/messages.php:112
 msgid "Used Swap"
@@ -1226,10 +1213,9 @@ msgid "Bytes sent"
 msgstr ""
 
 #: js/messages.php:116
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "Marrë"
+msgstr "Byte të marrë"
 
 #: js/messages.php:117 server_status.php:1248
 msgid "Connections"
@@ -1261,32 +1247,29 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%d table(s)"
-msgstr "%s tabela(at)"
+msgstr "%d tabelë(a)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
-#, fuzzy
 msgid "Questions"
-msgstr "Operacione"
+msgstr "Pyetje"
 
 #: js/messages.php:132 server_status.php:1185
 msgid "Traffic"
 msgstr "Trafiku"
 
 #: js/messages.php:133 libraries/Menu.class.php:476 server_status.php:1803
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "Karakteristikat e përgjithshme të relacionit"
+msgstr "Parametrat"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove chart"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Hiqe grafikun"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
@@ -1363,24 +1346,24 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "Ruaje me emër..."
+msgstr "Vendos log_output në %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:155
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Aktiv"
+msgstr "Aktivizo %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "Çaktivizo"
+msgstr "Ç'aktivizo %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
@@ -1395,22 +1378,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:161
-#, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
-msgstr "Karakteristikat e përgjithshme të relacionit"
+msgstr "Modifiko parametrat"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
-msgstr "Karakteristikat e përgjithshme të relacionit"
+msgstr "Parametrat aktuale"
 
 #: js/messages.php:164 server_status.php:1899
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart Title"
-msgstr "Importo files"
+msgstr "Titulli i grafikut"
 
 #. l10n: As in differential values
 #: js/messages.php:166
@@ -1435,9 +1415,8 @@ msgid "From general log"
 msgstr ""
 
 #: js/messages.php:172
-#, fuzzy
 msgid "Analysing logs"
-msgstr "Lokal"
+msgstr "Analizimi i log"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1466,15 +1445,13 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:179
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "Asnjë databazë"
+msgstr "Kapërce në tabelën e Log"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Asnjë databazë"
+msgstr "Nuk u gjet asnjë e dhënë"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1485,10 +1462,9 @@ msgid "Analyzing…"
 msgstr ""
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Shpjego SQL"
+msgstr "Shpjego nxjerrjen"
 
 #: js/messages.php:186 js/messages.php:536
 #: libraries/plugins/export/ExportHtmlword.class.php:484
@@ -1499,46 +1475,39 @@ msgid "Time"
 msgstr "Koha"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "Gjithsej"
+msgstr "Koha gjithsej:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
-msgstr "Rezultati SQL"
+msgstr "Rezultati i profilizimit"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Familje gërmash"
+msgstr "Grafiku"
 
 #: js/messages.php:191
-#, fuzzy
 msgid "Edit chart"
-msgstr "Shto një fushë të re"
+msgstr "Modifiko grafikun"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Series"
-msgstr "query SQL"
+msgstr "Seria"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "Opcione për tabelën"
+msgstr "Mundësi filtrimi për log-un e tabelave"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -1554,21 +1523,18 @@ msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "regjistrime për faqe"
+msgstr "Shuma e rreshtave të grupuara:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Gjithsej"
+msgstr "Gjithsej:"
 
 #: js/messages.php:203
-#, fuzzy
 msgid "Loading logs"
-msgstr "Lokal"
+msgstr "Duke ngarkuar log-et"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
@@ -1582,10 +1548,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload page"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Ri-ngarko faqen"
 
 #: js/messages.php:208
 msgid "Affected rows:"
@@ -1604,9 +1569,8 @@ msgstr ""
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:472
 #: libraries/config/messages.inc.php:170 libraries/display_import.lib.php:189
 #: prefs_manage.php:232 server_status.php:1852 setup/frames/menu.inc.php:21
-#, fuzzy
 msgid "Import"
-msgstr "Eksporto"
+msgstr "Importo"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
@@ -1617,10 +1581,9 @@ msgid "Please select the file you want to import"
 msgstr ""
 
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Përditëso kërkesën"
+msgstr "Analizo Query"
 
 #: js/messages.php:220
 msgid "Advisor system"
@@ -1635,20 +1598,18 @@ msgid "Issue"
 msgstr ""
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentet"
+msgstr "Rekomandim"
 
 #: js/messages.php:224
 msgid "Rule details"
 msgstr ""
 
 #: js/messages.php:225
-#, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
-msgstr "Dokumentet"
+msgstr "Justifikim"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
@@ -1666,15 +1627,13 @@ msgid "Cancel"
 msgstr ""
 
 #: js/messages.php:235 libraries/navigation/NavigationHeader.class.php:58
-#, fuzzy
 msgid "Loading"
-msgstr "Lokal"
+msgstr "Duke ngarkuar"
 
 #: js/messages.php:236
-#, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
-msgstr "Proceset"
+msgstr "Duke përpunuar Kërkesën"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:43
 msgid "Error in Processing Request"
@@ -1713,52 +1672,44 @@ msgid "Click to dismiss this notification"
 msgstr ""
 
 #: js/messages.php:247
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Duke ndyshuar emrat e bazave të të dhënave"
 
 #: js/messages.php:248
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Reload Database"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Ri-ngarko Bazën e të Dhënave"
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
-msgstr "Kopjo databazën në"
+msgstr "Duke kopjuar Bazën e të Dhënave"
 
 #: js/messages.php:250
-#, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
-msgstr "Familje gërmash"
+msgstr "Duke ndryshuar familjen e gërmave"
 
 #: js/messages.php:251
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
-msgstr "Zgjidh të paktën një kollonë për të shfaqur"
+msgstr "Tabela duhet të ketë të paktën një kolonë"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Përdor tabelat"
+msgstr "Shto tabelë"
 
 #: js/messages.php:257
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "Tregues"
+msgstr "Fshih treguesit"
 
 #: js/messages.php:258
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Shfaq rrjetën"
+msgstr "Afisho treguesit"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:325
 #, fuzzy
@@ -1779,32 +1730,27 @@ msgid "(Disabled)"
 msgstr "Jo aktiv"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
-msgstr "Kërko"
+msgstr "Në kërkim"
 
 #: js/messages.php:265
-#, fuzzy
 msgid "Hide search results"
-msgstr "query SQL"
+msgstr "Fshih rezultatet e kërkimit"
 
 #: js/messages.php:266
-#, fuzzy
 msgid "Show search results"
-msgstr "query SQL"
+msgstr "Afisho rezultatet e kërkimit"
 
 #: js/messages.php:267
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Shfleto"
 
 #: js/messages.php:268
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Në fshirje e sipër të %s"
+msgstr "Duke fshirë %s"
 
 #: js/messages.php:271
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1812,26 +1758,26 @@ msgstr ""
 
 #: js/messages.php:274 libraries/rte/rte_routines.lib.php:760
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Redaktues i ENUM/SET"
 
 #: js/messages.php:275
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of rows per page"
 msgid "Values for column %s"
-msgstr "regjistrime për faqe"
+msgstr "Vlera për fushën %s"
 
 #: js/messages.php:276
 msgid "Values for a new column"
-msgstr ""
+msgstr "Vlera për një fushë të re"
 
 #: js/messages.php:277
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "Jepni çdo vlerë në një fushë të veçantë"
 
 #: js/messages.php:278
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "Shto një përdorues të ri"
+msgstr "Shto %d vlerë(a)"
 
 #: js/messages.php:281
 msgid ""
@@ -1839,14 +1785,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:284
-#, fuzzy
 msgid "Hide query box"
-msgstr "query SQL"
+msgstr "Fshih kutinë e query"
 
 #: js/messages.php:285
-#, fuzzy
 msgid "Show query box"
-msgstr "query SQL"
+msgstr "Afisho kutinë e query"
 
 #: js/messages.php:287 tbl_row_action.php:21
 msgid "No rows selected"
@@ -1878,20 +1822,17 @@ msgid "Save"
 msgstr "Ruaj"
 
 #: js/messages.php:296
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "query SQL"
+msgstr "Fshih kriteret e kërkimit"
 
 #: js/messages.php:297
-#, fuzzy
 msgid "Show search criteria"
-msgstr "query SQL"
+msgstr "Afisho kriteret e kërkimit"
 
 #: js/messages.php:300 libraries/TableSearch.class.php:210
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "Kërko"
+msgstr "Kërkim me Zoom"
 
 #: js/messages.php:302
 msgid "Each point represents a data row."
@@ -1918,26 +1859,23 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
-msgstr "Shto/Fshi kollonat e fushës"
+msgstr "Zgjidhni dy kolona"
 
 #: js/messages.php:315
 msgid "Select two different columns"
 msgstr ""
 
 #: js/messages.php:316
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
 msgstr "Rezultati SQL"
 
 #: js/messages.php:317
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
-msgstr "Tabela e përmbajtjes"
+msgstr "Përmbajtja e të dhënave të kësaj pike"
 
 #: js/messages.php:320 tbl_change.php:263 tbl_indexes.php:259
 #: tbl_indexes.php:297
@@ -1949,7 +1887,6 @@ msgid "Copy"
 msgstr ""
 
 #: js/messages.php:336
-#, fuzzy
 msgid "Add columns"
 msgstr "Shto një fushë të re"
 
@@ -1966,7 +1903,6 @@ msgid "Please select the primary key or a unique key"
 msgstr ""
 
 #: js/messages.php:342 pmd_general.php:99 tbl_relation.php:560
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Zgjidh fushën që dëshiron të shohësh"
@@ -2049,27 +1985,23 @@ msgid "Show data row(s)"
 msgstr "Shfaqja e regjistrimeve "
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "Ndrysho fjalëkalimin"
+msgstr "Gjenero fjalëkalimin"
 
 #: js/messages.php:377 libraries/replication_gui.lib.php:389
-#, fuzzy
 msgid "Generate"
-msgstr "Gjeneruar nga"
+msgstr "Gjenero"
 
 #: js/messages.php:378
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Ndrysho fjalëkalimin"
 
 #: js/messages.php:381 libraries/structure.lib.php:1879
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Hën"
+msgstr "Më shumë"
 
 #: js/messages.php:384
 #, fuzzy
@@ -2102,91 +2034,79 @@ msgid ", latest stable version:"
 msgstr ""
 
 #: js/messages.php:394
-#, fuzzy
 msgid "up to date"
-msgstr "Asnjë databazë"
+msgstr "e përditësuar"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:413
-#, fuzzy
 #| msgid "None"
 msgid "Done"
-msgstr "Asnjë lloj"
+msgstr "Kryer"
 
 #: js/messages.php:417
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Paraardhësi"
 
 #: js/messages.php:422
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Në vazhdim"
+msgstr "Pasardhësi"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:425
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "Gjithsej"
+msgstr "Sot"
 
 #: js/messages.php:429
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "Binar"
+msgstr "Janar"
 
 #: js/messages.php:430
 msgid "February"
 msgstr ""
 
 #: js/messages.php:431
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
-msgstr "Mar"
+msgstr "Mars"
 
 #: js/messages.php:432
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
-msgstr "Pri"
+msgstr "Prill"
 
 #: js/messages.php:433
 msgid "May"
 msgstr "Maj"
 
 #: js/messages.php:434
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
-msgstr "Qer"
+msgstr "Qershor"
 
 #: js/messages.php:435
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
-msgstr "Kor"
+msgstr "Korrik"
 
 #: js/messages.php:436
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
-msgstr "Gsh"
+msgstr "Gusht"
 
 #: js/messages.php:437
 msgid "September"
 msgstr ""
 
 #: js/messages.php:438
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
-msgstr "Tet"
+msgstr "Tetor"
 
 #: js/messages.php:439
 msgid "November"
@@ -2218,7 +2138,6 @@ msgstr "Pri"
 
 #. l10n: Short month name
 #: js/messages.php:455 libraries/Util.class.php:1669
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -2260,22 +2179,19 @@ msgid "Dec"
 msgstr "Dhj"
 
 #: js/messages.php:475
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "Djl"
+msgstr "E diel"
 
 #: js/messages.php:476
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "Hën"
+msgstr "E hënë"
 
 #: js/messages.php:477
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "Mar"
+msgstr "E martë"
 
 #: js/messages.php:478
 msgid "Wednesday"
@@ -2286,10 +2202,9 @@ msgid "Thursday"
 msgstr ""
 
 #: js/messages.php:480
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "Pre"
+msgstr "E premte"
 
 #: js/messages.php:481
 msgid "Saturday"
@@ -2297,11 +2212,10 @@ msgstr ""
 
 #. l10n: Short week day name
 #: js/messages.php:488
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
-msgstr "Djl"
+msgstr "Die"
 
 #. l10n: Short week day name
 #: js/messages.php:490 libraries/Util.class.php:1688
@@ -2335,52 +2249,45 @@ msgstr "Sht"
 
 #. l10n: Minimal week day name
 #: js/messages.php:507
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
-msgstr "Djl"
+msgstr "Di"
 
 #. l10n: Minimal week day name
 #: js/messages.php:509
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
-msgstr "Hën"
+msgstr "Hë"
 
 #. l10n: Minimal week day name
 #: js/messages.php:511
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
-msgstr "Mar"
+msgstr "Ma"
 
 #. l10n: Minimal week day name
 #: js/messages.php:513
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
-msgstr "Mër"
+msgstr "Më"
 
 #. l10n: Minimal week day name
 #: js/messages.php:515
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
-msgstr "Enj"
+msgstr "En"
 
 #. l10n: Minimal week day name
 #: js/messages.php:517
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
-msgstr "Pre"
+msgstr "Pr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:519
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Sht"
+msgstr "Sh"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:523
@@ -2394,27 +2301,24 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:528
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Asnjë lloj"
+msgstr "asnjë"
 
 #: js/messages.php:537
 msgid "Hour"
 msgstr ""
 
 #: js/messages.php:538
-#, fuzzy
 #| msgid "in use"
 msgid "Minute"
-msgstr "në përdorim"
+msgstr "Minutë"
 
 #: js/messages.php:539
-#, fuzzy
 #| msgid "per second"
 msgid "Second"
-msgstr "në sekondë"
+msgstr "Sekondë"
 
 #: libraries/Advisor.class.php:77
 #, php-format
@@ -2520,16 +2424,14 @@ msgid "Criteria"
 msgstr "Kriteri"
 
 #: libraries/DBQbe.class.php:574
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "Shto/Fshi rreshtin e kriterit"
 
 #: libraries/DBQbe.class.php:574
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Shto/Fshi kollonat e fushës"
+msgstr "Shto/Fshi kolonat"
 
 #: libraries/DBQbe.class.php:601 libraries/DBQbe.class.php:633
 msgid "Update Query"
@@ -2592,12 +2494,12 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Rezultatet e kërkimit për \"<i>%s</i>\" %s:"
 
 #: libraries/DbSearch.class.php:294
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)"
-msgstr[1] "<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)"
+msgstr[0] "<b>Gjithsej:</b> <i>%s</i> korrespondon"
+msgstr[1] "<b>Gjithsej:</b> <i>%s</i> korrespondojnë"
 
 #: libraries/DbSearch.class.php:330
 #, fuzzy, php-format
@@ -2614,10 +2516,10 @@ msgid "Browse"
 msgstr "Shfleto"
 
 #: libraries/DbSearch.class.php:352
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Dump i të dhënave për tabelën"
+msgstr "Të fshihen të dhënat korresponduese me tabelën %s?"
 
 #: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3390
 #: libraries/DisplayResults.class.php:5049
@@ -2636,10 +2538,9 @@ msgid "Search in database"
 msgstr "Kërko në databazë"
 
 #: libraries/DbSearch.class.php:385
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Fjala(ë) apo vlera(at) për t'u kërkuar (karakteri Jolly: \"%\"):"
+msgstr "Fjalë apo vlera për t'u kërkuar (karakteri përgjithësues \"%\"):"
 
 #: libraries/DbSearch.class.php:394
 msgid "Find:"
@@ -2650,16 +2551,14 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Fjalët veçohen me anë të një hapësirë bosh (\" \")."
 
 #: libraries/DbSearch.class.php:418
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tek tabela(at):"
+msgstr "Tek tabelat:"
 
 #: libraries/DbSearch.class.php:444
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Tek fusha:"
+msgstr "Në fushat:"
 
 #: libraries/DisplayResults.class.php:698
 msgid "Save edited data"
@@ -2848,6 +2747,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation%"
 "s."
 msgstr ""
+"Kjo pamje ka të paktën këtë numër rreshtash. Për më shumë referojuni %"
+"sdokumentacionit%s."
 
 #: libraries/DisplayResults.class.php:4945
 msgid "Showing rows"
@@ -3032,7 +2933,6 @@ msgstr "Rradhitja"
 #: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:529
 #: libraries/rte/rte_routines.lib.php:1029 tbl_tracking.php:324
 #: tbl_tracking.php:384
-#, fuzzy
 msgid "Comment"
 msgstr "Komente"
 
@@ -3197,26 +3097,25 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Message.class.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Nuk ka rreshta të zgjedhur"
-msgstr[1] "Nuk ka rreshta të zgjedhur"
+msgstr[0] "%1$d rresht i fshirë."
+msgstr[1] "%1$d rreshta të fshirë."
 
 #: libraries/Message.class.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "No rows selected"
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Nuk ka rreshta të zgjedhur"
-msgstr[1] "Nuk ka rreshta të zgjedhur"
+msgstr[0] "%1$d rresht i shtuar."
+msgstr[1] "%1$d rreshta të shtuar."
 
 #: libraries/PDF.class.php:114
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Lejon leximin e të dhënave."
+msgstr "Gabim gjatë krijimit të PDF:"
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
@@ -3239,7 +3138,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:203
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s është motori standard i memorizimit në këtë server MySQL."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
@@ -7191,16 +7090,14 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:275 libraries/structure.lib.php:324
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Zëvendëso të dhënat e tabelës me file"
+msgstr "Zëvendëso prefiksin e tabelës"
 
 #: libraries/mult_submits.inc.php:275 libraries/structure.lib.php:326
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Zëvendëso të dhënat e tabelës me file"
+msgstr "Kopjo tabelën me prefiks"
 
 #: libraries/mult_submits.inc.php:278
 #, fuzzy
@@ -7253,11 +7150,11 @@ msgstr "Kineze tradicionale"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
 msgid "case-insensitive"
-msgstr "case-insensitive"
+msgstr "i pandjeshëm për madhësinë e gërmës"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:449
 msgid "case-sensitive"
-msgstr "case-sensitive"
+msgstr "i ndjeshëm për madhësinë e gërmës"
 
 #: libraries/mysql_charsets.lib.php:267
 msgid "Croatian"
@@ -7358,7 +7255,7 @@ msgstr "Suedisht"
 
 #: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:433
 msgid "Thai"
-msgstr "Thai"
+msgstr "Tai"
 
 #: libraries/mysql_charsets.lib.php:339 libraries/mysql_charsets.lib.php:427
 msgid "Turkish"
@@ -7396,7 +7293,7 @@ msgstr "Armene"
 
 #: libraries/mysql_charsets.lib.php:403
 msgid "Cyrillic"
-msgstr "Cyrillic"
+msgstr "Cirilike"
 
 #: libraries/mysql_charsets.lib.php:406
 msgid "Arabic"
@@ -7557,15 +7454,13 @@ msgid "Database %s has been dropped."
 msgstr "Databaza %s u eleminua."
 
 #: libraries/operations.lib.php:119
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Ndysho emrin e databazës në"
+msgstr "Fshij bazën e të dhënave"
 
 #: libraries/operations.lib.php:125
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Asnjë databazë"
+msgstr "Fshij bazën e të dhënave (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1015
 #: tbl_tracking.php:500
@@ -7599,10 +7494,9 @@ msgid "Switch to copied database"
 msgstr "Kalo tek databaza e kopjuar"
 
 #: libraries/operations.lib.php:279
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Skema relacionale"
+msgstr "Modifiko ose eksporto skemën relacionale"
 
 #: libraries/operations.lib.php:622
 msgid "Alter table order by"
@@ -8011,7 +7905,7 @@ msgstr "Lloje MIME në dispozicion"
 #: libraries/server_privileges.lib.php:2390 server_status.php:1330
 #: sql.php:1070
 msgid "Host"
-msgstr "Host"
+msgstr "Pritësi"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
@@ -8411,8 +8305,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Shfaq një miniaturë të klikueshme; mundësitë: gjërësia, lartësia në pixels "
-"(ruan proporcionin origjinal)"
+"Shfaq një miniaturë të klikueshme. Mundësitë janë: gjerësia dhe lartësia në "
+"piksel. Do të ruhet proporcioni origjinal."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
@@ -9159,7 +9053,7 @@ msgstr "Pronësi"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1375
 #: libraries/structure.lib.php:1190 tbl_tracking.php:323
 msgid "Extra"
-msgstr "Extra"
+msgstr "Shtesë"
 
 #: libraries/schema/User_Schema.class.php:130
 msgid "Create a page"
@@ -9230,9 +9124,8 @@ msgid "Display all tables with the same width"
 msgstr "Shfaq të gjitha tabelat me të njëjtën gjerësi"
 
 #: libraries/schema/User_Schema.class.php:451 libraries/structure.lib.php:382
-#, fuzzy
 msgid "Data Dictionary"
-msgstr "Data Dictionary"
+msgstr "Fjalori i të dhënave"
 
 #: libraries/schema/User_Schema.class.php:453
 msgid "Only show keys"
@@ -9271,7 +9164,7 @@ msgstr "(ç')aktivo scratchboard"
 #. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:499
 msgid "ltr"
-msgstr "ltr"
+msgstr "mnd"
 
 #: libraries/select_lang.lib.php:517 libraries/select_lang.lib.php:526
 #: libraries/select_lang.lib.php:535
@@ -9580,7 +9473,7 @@ msgstr "Përdoruesit që kanë hyrje tek &quot;%s&quot;"
 #: libraries/server_privileges.lib.php:2227
 #: libraries/server_privileges.lib.php:2397
 msgid "Grant"
-msgstr "Grant"
+msgstr "Dhënie"
 
 #: libraries/server_privileges.lib.php:1617
 #, fuzzy
@@ -9609,7 +9502,7 @@ msgstr "specifik i databazës"
 
 #: libraries/server_privileges.lib.php:1704
 msgid "wildcard"
-msgstr "wildcard"
+msgstr "karakteri përgjithësues"
 
 #: libraries/server_privileges.lib.php:1751 server_privileges.php:172
 #, fuzzy
@@ -9875,13 +9768,12 @@ msgid "Table %s has been dropped"
 msgstr "Tabela %s u eleminua"
 
 #: libraries/structure.lib.php:188
-#, fuzzy
 msgid "Sum"
-msgstr "Sum"
+msgstr "Totali"
 
 #: libraries/structure.lib.php:322
 msgid "Add prefix to table"
-msgstr ""
+msgstr "Shtoji prefiks tabelës"
 
 #: libraries/structure.lib.php:347
 msgid "Check tables having overhead"
