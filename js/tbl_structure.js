@@ -63,6 +63,14 @@ AJAX.registerOnload('tbl_structure.js', function() {
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
                     PMA_ajaxRemoveMessage($msg);
+                    if ($('#result_query').length) {
+                        $('#result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div id="result_query"></div>')
+                            .html(data.sql_query)
+                            .prependTo('#page_content');
+                    }
                     toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
@@ -107,7 +115,16 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
-                        PMA_commonActions.refreshMain();
+                        PMA_commonActions.refreshMain(false, function () {
+                            if ($('#result_query').length) {
+                                $('#result_query').remove();
+                            }
+                            if (data.sql_query) {
+                                $('<div id="result_query"></div>')
+                                    .html(data.sql_query)
+                                    .prependTo('#page_content');
+                            }
+                        });
                         PMA_reloadNavigation();
                     }
                 } else {
@@ -156,6 +173,14 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });
+                    }
+                    if ($('#result_query').length) {
+                        $('#result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div id="result_query"></div>')
+                            .html(data.sql_query)
+                            .prependTo('#page_content');
                     }
                     PMA_reloadNavigation();
                 } else {

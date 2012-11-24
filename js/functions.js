@@ -2706,11 +2706,16 @@ function indexEditorDialog(url, title)
             }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data.sql_query);
+                if ($('#result_query').length) {
+                    $('#result_query').remove();
+                }
+                if (data.sql_query) {
+                    $('<div id="result_query"></div>')
+                        .html(data.sql_query)
+                        .prependTo('#page_content');
+                }
                 $("#result_query .notice").remove();
                 $("#result_query").prepend(data.message);
-
                 /*Reload the field form*/
                 $("#table_index").remove();
                 var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
