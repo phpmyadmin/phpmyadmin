@@ -194,45 +194,49 @@ AJAX.registerOnload('server_privileges.js', function() {
                         appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                     }
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             });
         };
         button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close"); };
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
-            var $div = $('<div id="add_user_dialog"></div>')
-            .prepend(data.message)
-            .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
-            .end()
-            .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
-            .end()
-            .dialog({
-                title: PMA_messages['strAddUser'],
-                width: 800,
-                // height is a workaround for this Chrome problem:
-                // http://bugs.jqueryui.com/ticket/4671
-                // also it's interesting to be able to scroll this window
-                height: 600,
-                modal: true,
-                buttons: button_options,
-                close: function () {
-                    $(this).remove();
-                }
-            }); //dialog options end
-            displayPasswordGenerateButton();
-            PMA_showHints($div);
-            PMA_ajaxRemoveMessage($msgbox);
-            $div.find("input[autofocus]").focus();
+            if (data.success == true) {
+                var $div = $('<div id="add_user_dialog"></div>')
+                .prepend(data.message)
+                .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
+                .end()
+                .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
+                .end()
+                .dialog({
+                    title: PMA_messages['strAddUser'],
+                    width: 800,
+                    // height is a workaround for this Chrome problem:
+                    // http://bugs.jqueryui.com/ticket/4671
+                    // also it's interesting to be able to scroll this window
+                    height: 600,
+                    modal: true,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
+                    }
+                }); //dialog options end
+                displayPasswordGenerateButton();
+                PMA_showHints($div);
+                PMA_ajaxRemoveMessage($msgbox);
+                $div.find("input[autofocus]").focus();
 
-            $div.find('form[name=usersForm]').bind('submit', function (e) {
-                e.preventDefault();
-                $(this)
-                    .closest('.ui-dialog')
-                    .find('.ui-dialog-buttonpane .ui-button')
-                    .first()
-                    .click();
-            });
+                $div.find('form[name=usersForm]').bind('submit', function (e) {
+                    e.preventDefault();
+                    $(this)
+                        .closest('.ui-dialog')
+                        .find('.ui-dialog-buttonpane .ui-button')
+                        .first()
+                        .click();
+                });
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -339,27 +343,33 @@ AJAX.registerOnload('server_privileges.js', function() {
         button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close");};
 
         var token = $(this).parents('form').find('input[name="token"]').val();
-        $.get($(this).attr('href'),
+        $.get(
+            $(this).attr('href'),
             {
                 'ajax_request':true,
                 'edit_user_dialog': true,
                 'token': token
             },
             function(data) {
-                var $div = $('<div id="edit_user_dialog"></div>')
-                .append(data.message)
-                .dialog({
-                    width: 900,
-                    height: 600,
-                    buttons: button_options,
-                    close: function () {
-                        $(this).remove();
-                    }
-                }); //dialog options end
-            displayPasswordGenerateButton();
-            PMA_ajaxRemoveMessage($msgbox);
-            PMA_showHints($div);
-        }); // end $.get()
+                if (data.success == true) {
+                    var $div = $('<div id="edit_user_dialog"></div>')
+                        .append(data.message)
+                        .dialog({
+                            width: 900,
+                            height: 600,
+                            buttons: button_options,
+                            close: function () {
+                                $(this).remove();
+                            }
+                        }); //dialog options end
+                    displayPasswordGenerateButton();
+                    PMA_ajaxRemoveMessage($msgbox);
+                    PMA_showHints($div);
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }
+        ); // end $.get()
     });
 
     /**
@@ -466,33 +476,39 @@ AJAX.registerOnload('server_privileges.js', function() {
         button_options[PMA_messages['strClose']] = function() {
             $(this).dialog("close");
         };
-        $.post($(this.form).prop('action'),
+        $.post(
+            $(this.form).prop('action'),
             $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
             function(data) {
-                var $ajaxDialog = $('<div />')
-                .append(data.message)
-                .dialog({
-                    title: data.title,
-                    width: 500,
-                    buttons: button_options,
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
-                PMA_ajaxRemoveMessage($msgbox);
-                // Attach syntax highlited editor to export dialog
-                if (typeof CodeMirror != 'undefined') {
-                    CodeMirror.fromTextArea(
-                        $ajaxDialog.find('textarea')[0],
-                        {
-                            lineNumbers: true,
-                            matchBrackets: true,
-                            indentUnit: 4,
-                            mode: "text/x-mysql"
+                if (data.success == true) {
+                    var $ajaxDialog = $('<div />')
+                    .append(data.message)
+                    .dialog({
+                        title: data.title,
+                        width: 500,
+                        buttons: button_options,
+                        close: function () {
+                            $(this).remove();
                         }
-                    );
+                    });
+                    PMA_ajaxRemoveMessage($msgbox);
+                    // Attach syntax highlited editor to export dialog
+                    if (typeof CodeMirror != 'undefined') {
+                        CodeMirror.fromTextArea(
+                            $ajaxDialog.find('textarea')[0],
+                            {
+                                lineNumbers: true,
+                                matchBrackets: true,
+                                indentUnit: 4,
+                                mode: "text/x-mysql"
+                            }
+                        );
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
                 }
-        }); //end $.post
+            }
+        ); //end $.post
     });
     // if exporting non-ajax, highlight anyways
     if ($("textarea.export").length > 0
@@ -520,28 +536,32 @@ AJAX.registerOnload('server_privileges.js', function() {
             $(this).dialog("close");
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            var $ajaxDialog = $('<div />')
-            .append(data.message)
-            .dialog({
-                title: data.title,
-                width: 500,
-                buttons: button_options,
-                close: function () {
-                    $(this).remove();
-                }
-            });
-            PMA_ajaxRemoveMessage($msgbox);
-            // Attach syntax highlited editor to export dialog
-            if (typeof CodeMirror != 'undefined') {
-                CodeMirror.fromTextArea(
-                    $ajaxDialog.find('textarea')[0],
-                    {
-                        lineNumbers: true,
-                        matchBrackets: true,
-                        indentUnit: 4,
-                        mode: "text/x-mysql"
+            if (data.success == true) {
+                var $ajaxDialog = $('<div />')
+                .append(data.message)
+                .dialog({
+                    title: data.title,
+                    width: 500,
+                    buttons: button_options,
+                    close: function () {
+                        $(this).remove();
                     }
-                );
+                });
+                PMA_ajaxRemoveMessage($msgbox);
+                // Attach syntax highlited editor to export dialog
+                if (typeof CodeMirror != 'undefined') {
+                    CodeMirror.fromTextArea(
+                        $ajaxDialog.find('textarea')[0],
+                        {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            indentUnit: 4,
+                            mode: "text/x-mysql"
+                        }
+                    );
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
             }
         }); //end $.get
     }); //end export privileges
@@ -556,20 +576,21 @@ AJAX.registerOnload('server_privileges.js', function() {
      */
     $("#initials_table").find("a.ajax").live('click', function(event) {
         event.preventDefault();
-
         var $msgbox = PMA_ajaxShowMessage();
-
         $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
-            // This form is not on screen when first entering Privileges
-            // if there are more than 50 users
-            $("div.notice").remove();
-            $("#usersForm").hide("medium").remove();
-            $("#fieldset_add_user").hide("medium").remove();
-            $("#initials_table")
-             .after(data.message).show("medium")
-             .siblings("h2").not(":first").remove();
-
-            PMA_ajaxRemoveMessage($msgbox);
+            if (data.success == true) {
+                PMA_ajaxRemoveMessage($msgbox);
+                // This form is not on screen when first entering Privileges
+                // if there are more than 50 users
+                $("div.notice").remove();
+                $("#usersForm").hide("medium").remove();
+                $("#fieldset_add_user").hide("medium").remove();
+                $("#initials_table")
+                    .after(data.message).show("medium")
+                    .siblings("h2").not(":first").remove();
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
         }); // end $.get
     }); // end of the paginate users table
 
