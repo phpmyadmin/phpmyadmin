@@ -1,5 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
+var runtime = {};
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -22,6 +22,11 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
     $('a[href="#submitClearSeries"]').unbind('click');
     $('a[href="#submitAddSeries"]').unbind('click');
     // $("input#variableInput").destroy();
+    clearTimeout(runtime.refreshTimeout);
+    runtime.refreshTimeout = null;
+    window.localStorage.removeItem('monitorCharts');
+    window.localStorage.removeItem('monitorSettings');
+    $.cookie('pma_serverStatusTabs', null);
 });
 
 AJAX.registerOnload('server_status_monitor.js', function() {
@@ -61,7 +66,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     var monitorProtocolVersion = '1.0';
 
     // Runtime parameter of the monitor, is being fully set in initGrid()
-    var runtime = {
+    runtime = {
         // Holds all visible charts in the grid
         charts: null,
         // Stores the timeout handler so it can be cleared
