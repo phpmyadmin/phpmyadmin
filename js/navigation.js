@@ -639,7 +639,7 @@ var ResizeHandler = function () {
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
-        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10));
+        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10) || 0);
         this.setWidth(pos);
         $('#topmenu').menuResizer('resize');
     }
