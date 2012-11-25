@@ -107,7 +107,7 @@ class PMA_Menu
         } else {
             $tabs = $this->_getServerTabs();
         }
-        return PMA_Util::getHtmlTabs($tabs, $url_params);
+        return PMA_Util::getHtmlTabs($tabs, $url_params, 'topmenu', true);
     }
 
     /**

@@ -2706,11 +2706,16 @@ function indexEditorDialog(url, title)
             }
             if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data.sql_query);
+                if ($('#result_query').length) {
+                    $('#result_query').remove();
+                }
+                if (data.sql_query) {
+                    $('<div id="result_query"></div>')
+                        .html(data.sql_query)
+                        .prependTo('#page_content');
+                }
                 $("#result_query .notice").remove();
                 $("#result_query").prepend(data.message);
-
                 /*Reload the field form*/
                 $("#table_index").remove();
                 var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
@@ -2813,124 +2818,18 @@ AJAX.registerOnload('functions.js', function() {
     PMA_showHints();
 });
 
-/**
- * This function handles the resizing of the content frame
- * and adjusts the top menu according to the new size of the frame
- */
-function menuResize()
-{
-    var $cnt = $('#topmenu');
-    var wmax = $cnt.innerWidth() - $('#pma_navigation').width() - 5 ; // 5 px margin for jumping menu in Chrome
-    var $submenu = $cnt.find('.submenu');
-    var submenu_w = $submenu.outerWidth(true);
-    var $submenu_ul = $submenu.find('ul');
-    var $li = $cnt.find('> li');
-    var $li2 = $submenu_ul.find('li');
-    var more_shown = $li2.length > 0;
-
-    // Calculate the total width used by all the shown tabs
-    var total_len = more_shown ? submenu_w : 0;
-    var l = $li.length - 1;
-    for (var i = 0; i < l; i++) {
-        total_len += $($li[i]).outerWidth(true);
-    }
-
-    // Now hide menu elements that don't fit into the menubar
-    var hidden = false; // Whether we have hidden any tabs
-    while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
-        hidden = true;
-        var el = $($li[l]);
-        var el_width = el.outerWidth(true);
-        el.data('width', el_width);
-        if (! more_shown) {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
-            total_len += submenu_w;
-            more_shown = true;
-        } else {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
-        }
-    }
-
-    // If we didn't hide any tabs, then there might be some space to show some
-    if (! hidden) {
-        // Show menu elements that do fit into the menubar
-        for (var i = 0, l = $li2.length; i < l; i++) {
-            total_len += $($li2[i]).data('width');
-            // item fits or (it is the last item
-            // and it would fit if More got removed)
-            if (total_len < wmax
-                || (i == $li2.length - 1 && total_len - submenu_w < wmax)
-            ) {
-                $($li2[i]).insertBefore($submenu);
-            } else {
-                break;
-            }
-        }
-    }
-
-    // Show/hide the "More" tab as needed
-    if ($submenu_ul.find('li').length > 0) {
-        $submenu.addClass('shown');
-    } else {
-        $submenu.removeClass('shown');
-    }
-
-    if ($cnt.find('> li').length == 1) {
-        // If there is only the "More" tab left, then we need
-        // to align the submenu to the left edge of the tab
-        $submenu_ul.removeClass().addClass('only');
-    } else {
-        // Otherwise we align the submenu to the right edge of the tab
-        $submenu_ul.removeClass().addClass('notonly');
-    }
-
-    if ($submenu.find('.tabactive').length) {
-        $submenu.addClass('active').find('> a').removeClass('tab').addClass('tabactive');
-    } else {
-        $submenu.removeClass('active').find('> a').addClass('tab').removeClass('tabactive');
-    }
+function PMA_mainMenuResizerCallback() {
+    // 5 px margin for jumping menu in Chrome
+    return $('body').width() - 5;
 }
-
-function menuPrepare()
-{
-    var topmenu = $('#topmenu');
-    if (topmenu.length == 0) {
-        return;
-    }
-    // create submenu container
-    var link = $('<a />', {href: '#', 'class': 'tab'})
-        .text(PMA_messages['strMore'])
-        .click(function(e) {
-            e.preventDefault();
-        });
-    var img = topmenu.find('li:first-child img');
-    if (img.length) {
-        $(PMA_getImage('b_more.png').toString()).prependTo(link);
-    }
-    var submenu = $('<li />', {'class': 'submenu'})
-        .append(link)
-        .append($('<ul />'))
-        .mouseenter(function() {
-            if ($(this).find('ul .tabactive').length == 0) {
-                $(this).addClass('submenuhover').find('> a').addClass('tabactive');
-            }
-        })
-        .mouseleave(function() {
-            if ($(this).find('ul .tabactive').length == 0) {
-                $(this).removeClass('submenuhover').find('> a').removeClass('tabactive');
-            }
-        });
-    topmenu.append(submenu);
-}
-
 // This must be fired only once after the inital page load
 $(function() {
-    menuPrepare();
-    // populate submenu and register resize event
-    menuResize();
-    $(window).resize(menuResize);
+    // Initialise the menu resize plugin
+    $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
+    // register resize event
+    $(window).resize(function (){
+        $('#topmenu').menuResizer('resize');
+    });
 });
 
 /**
@@ -2950,42 +2849,6 @@ function PMA_set_status_label($element)
         ? '+ '
         : '- ';
     $element.closest('.slide-wrapper').prev().find('span').text(text);
-}
-
-/**
- * Initializes slider effect.
- */
-function PMA_init_slider()
-{
-    $('div.pma_auto_slider').each(function() {
-        var $this = $(this);
-
-        if ($this.hasClass('slider_init_done')) {
-            return;
-        }
-        $this.addClass('slider_init_done');
-
-        var $wrapper = $('<div>', {'class': 'slide-wrapper'});
-        $wrapper.toggle($this.is(':visible'));
-        $('<a>', {href: '#'+this.id})
-            .text(this.title)
-            .prepend($('<span>'))
-            .insertBefore($this)
-            .click(function() {
-                var $wrapper = $this.closest('.slide-wrapper');
-                var visible = $this.is(':visible');
-                if (!visible) {
-                    $wrapper.show();
-                }
-                $this[visible ? 'hide' : 'show']('blind', function() {
-                    $wrapper.toggle(!visible);
-                    PMA_set_status_label($this);
-                });
-                return false;
-            });
-        $this.wrap($wrapper);
-        PMA_set_status_label($this);
-    });
 }
 
 /**
@@ -3147,10 +3010,6 @@ AJAX.registerOnload('functions.js', function() {
         }
         );
 
-    /**
-     * Slider effect.
-     */
-    PMA_init_slider();
 
     /**
      * Vertical marker
@@ -3241,6 +3100,60 @@ AJAX.registerOnload('functions.js', function() {
     }
 
 }); // end of $()
+
+
+/**
+ * Initializes slider effect.
+ */
+function PMA_init_slider()
+{
+    $('div.pma_auto_slider').each(function() {
+        var $this = $(this);
+        if ($this.data('slider_init_done')) {
+            return;
+        }
+        var $wrapper = $('<div>', {'class': 'slide-wrapper'});
+        $wrapper.toggle($this.is(':visible'));
+        $('<a>', {href: '#'+this.id, class:'ajax'})
+            .text(this.title)
+            .prepend($('<span>'))
+            .insertBefore($this)
+            .click(function() {
+                var $wrapper = $this.closest('.slide-wrapper');
+                var visible = $this.is(':visible');
+                if (!visible) {
+                    $wrapper.show();
+                }
+                $this[visible ? 'hide' : 'show']('blind', function() {
+                    $wrapper.toggle(!visible);
+                    PMA_set_status_label($this);
+                });
+                return false;
+            });
+        $this.wrap($wrapper);
+        PMA_set_status_label($this);
+        $this.data('slider_init_done', 1);
+    });
+}
+
+/**
+ * Initializes slider effect.
+ */
+AJAX.registerOnload('functions.js', function() {
+    PMA_init_slider();
+});
+
+/**
+ * Restores sliders to the state they were in before initialisation.
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('div.pma_auto_slider').each(function() {
+        var $this = $(this);
+        $this.removeData();
+        $this.parent().replaceWith($this);
+        $this.parent().children('a').remove();
+    });
+});
 
 /**
  * Creates a message inside an object with a sliding effect
@@ -3636,7 +3549,7 @@ AJAX.registerOnload('functions.js', function() {
             'padding-top',
             $('#floating_menubar').outerHeight(true)
         );
-        menuResize();
+        $('#topmenu').menuResizer('resize');
     }
 
     /**

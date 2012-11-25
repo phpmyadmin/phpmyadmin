@@ -76,7 +76,8 @@ class PMA_Theme
         'pmd',
         'rte',
         'codemirror',
-        'jqplot'
+        'jqplot',
+        'resizable-menu'
     );
 
     /**
