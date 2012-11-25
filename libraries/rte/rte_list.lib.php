@@ -248,7 +248,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval .= "            </td>\n";
     if (empty($table)) {
         $retval .= "            <td>\n";
-        $retval .= "                <a href='db_triggers.php?db={$db}"
+        $retval .= "                <a href='db_triggers.php?{$url_query}"
                                      . "&amp;table={$trigger['table']}'>"
                                      . $trigger['table'] . "</a>\n";
         $retval .= "            </td>\n";
