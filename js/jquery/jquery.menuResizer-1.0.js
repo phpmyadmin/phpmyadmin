@@ -7,7 +7,7 @@
  * To initialise:
  * $('#myMenu').menuResizer(function () {
  *     // This function will be called to find out how much
- *     // available gorizontal space there is for the menu
+ *     // available horizontal space there is for the menu
  *     return $('body').width() - 5; // Some extra margin for good measure
  * });
  *
