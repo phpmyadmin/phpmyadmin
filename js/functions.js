@@ -2302,7 +2302,7 @@ AJAX.registerOnload('functions.js', function() {
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function(data) {
                 if (data.success == true) {
-                    $("#floating_menubar").after(data.message);
+                    $("#page_content").prepend(data.message);
                     $("#change_password_dialog").hide().remove();
                     $("#edit_user_dialog").dialog("close").remove();
                     PMA_ajaxRemoveMessage($msgbox);
@@ -3176,9 +3176,10 @@ function PMA_slidingMessage(msg, $obj)
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length == 0) {
-            $('#floating_menubar')
-            .after('<span id="PMA_slidingMessage" '
-                 + 'style="display: inline-block;"></span>');
+            $('#page_content').prepend(
+                '<span id="PMA_slidingMessage" '
+                 + 'style="display: inline-block;"></span>'
+            );
         }
         $obj = $('#PMA_slidingMessage');
     }
@@ -3299,7 +3300,7 @@ AJAX.registerOnload('functions.js', function() {
                 }
                 if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
                     $("#sqlqueryresults").html(data.sql_query);
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
@@ -3744,7 +3745,7 @@ $(function () {
                     $(".error").remove();
                 }
                 if (data.success == true) {
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
                     $("#result_query").prepend(data.message);
