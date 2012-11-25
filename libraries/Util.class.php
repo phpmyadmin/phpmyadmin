@@ -1830,14 +1830,20 @@ class PMA_Util
      * @param array  $tabs       one element per tab
      * @param string $url_params additional URL parameters
      * @param string $menu_id    HTML id attribute for the menu container
+     * @param bool   $resizable  whether to add a "resizable" class
      *
      * @return string  html-code for tab-navigation
      */
-    public static function getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+    public static function getHtmlTabs($tabs, $url_params, $menu_id, $resizable = false)
     {
+        $class = '';
+        if ($resizable) {
+            $class = ' class="resizable-menu"';
+        }
+
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
-            .'<ul id="' . htmlentities($menu_id) . '">';
+            .'<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
 
         foreach ($tabs as $tab) {
             $tab_navigation .= self::getHtmlTab($tab, $url_params);

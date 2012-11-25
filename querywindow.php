@@ -138,7 +138,7 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
 echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
-    echo PMA_Util::getHtmlTabs($tabs, array());
+    echo PMA_Util::getHtmlTabs($tabs, array(), 'topmenu');
     unset($tabs);
 }
 

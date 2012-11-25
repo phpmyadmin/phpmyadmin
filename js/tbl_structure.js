@@ -23,12 +23,11 @@
  */
 AJAX.registerTeardown('tbl_structure.js', function() {
     $("a.drop_column_anchor.ajax").die('click');
-    $("a.action_primary.ajax").die('click');
+    $("a.add_primary_key_anchor.ajax").die('click');
     $('a.drop_primary_key_index_anchor.ajax').die('click');
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
     $('#index_frm input[type=submit]').die('click');
     $("#move_columns_anchor").die('click');
-    $("#addColumns.ajax input[type=submit]").die('click');
 });
 
 AJAX.registerOnload('tbl_structure.js', function() {
@@ -39,7 +38,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $("a.drop_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
         /**
          * @var curr_table_name String containing the name of the current table
          */
@@ -60,14 +58,19 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
-
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
+                    if ($('#result_query').length) {
+                        $('#result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div id="result_query"></div>')
+                            .html(data.sql_query)
+                            .prependTo('#page_content');
+                    }
                     toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
@@ -91,9 +94,8 @@ AJAX.registerOnload('tbl_structure.js', function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("a.action_primary.ajax").live('click', function(event) {
+    $("a.add_primary_key_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
         /**
          * @var curr_table_name String containing the name of the current table
          */
@@ -106,19 +108,25 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
-
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
-                        PMA_commonActions.refreshMain();
+                        PMA_commonActions.refreshMain(false, function () {
+                            if ($('#result_query').length) {
+                                $('#result_query').remove();
+                            }
+                            if (data.sql_query) {
+                                $('<div id="result_query"></div>')
+                                    .html(data.sql_query)
+                                    .prependTo('#page_content');
+                            }
+                        });
+                        PMA_reloadNavigation();
                     }
-                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -133,9 +141,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();
-
         $anchor = $(this);
-
         /**
          * @var $curr_row    Object containing reference to the current field's row
          */
@@ -147,16 +153,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
         for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
             $rows_to_hide = $rows_to_hide.add($last_row);
         }
-
         var question = $curr_row.children('td').children('.drop_primary_key_index_msg').val();
-
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-
-            PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
-
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if(data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
+                    PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
@@ -171,6 +173,14 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });
+                    }
+                    if ($('#result_query').length) {
+                        $('#result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div id="result_query"></div>')
+                            .html(data.sql_query)
+                            .prependTo('#page_content');
                     }
                     PMA_reloadNavigation();
                 } else {
@@ -253,6 +263,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         buttons: button_options_error
                     }); // end dialog options
                 } else {
+                    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
                     // sort the fields table
                     var $fields_table = $("table#tablestructure tbody");
                     // remove all existing rows and remember them
@@ -278,6 +289,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
+                    $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
                 }
             });
         };
@@ -338,151 +350,44 @@ function reloadFieldForm(message) {
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
         $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
-        /* Call the function to display the more options in table */
-        $table_clone = false;
-        $("div.replace_in_more").hide(); // fix "more" dropdown
-        moreOptsMenuResize();
+        /* reinitialise the more options in table */
+        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
         setTimeout(function() {
             PMA_ajaxShowMessage(message);
         }, 500);
     });
 }
 
-/**
- * Hides certain table structure actions, replacing them
- * with the word "More". They are displayed in a dropdown
- * menu when the user hovers over the word "More."
- */
-function moreOptsMenuResize() {
-    var $table = $("#tablestructure");
-
-    // don't use More menu if we're only showing icons and no text
-    if ($table.length == 0 || $table.hasClass("PropertiesIconic")) {
-        return;
-    }
-
-    // reset table to defaults
-    if ($table_clone === false) {
-        $table_clone = $table.clone();
-    }
-    else {
-        $table.replaceWith($table_clone);
-        $table = $table_clone;
-        $table_clone = $table.clone();
-    }
-
-    $table.find("td.more_opts").hide();
-
-    var getCurWidth = function() {
-        var cur_width = 0;
-        $table.find("tr").eq(1)
-            .find("td.edit, td.drop, .replaced_by_more:visible, .more_opts:visible")
-            .each(function () {
-                cur_width += $(this).outerWidth();
-            });
-        return cur_width;
-    };
-
-    // get window width
-    var window_width = $(window).width()
-        - $('#pma_navigation').width()
-        - $('#pma_navigation_resizer').width();
-
-    // find out maximum action links width
-    var max_width = window_width;
-    $table.find("tr").eq(0).children().each(function () {
-        if ($(this).index() < 9) {
-            max_width -= $(this).outerWidth() + 1;
-        }
+function PMA_tbl_structure_menu_resizer_callback() {
+    var pagewidth = $('body').width();
+    var $page = $('#page_content');
+    pagewidth -= $page.outerWidth(true) - $page.outerWidth();
+    var columnsWidth = 0;
+    var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
+    $columns.not(':last').each(function (){
+        columnsWidth += $(this).outerWidth(true)
+    })
+    var totalCellSpacing = $('#tablestructure').width();
+    $columns.each(function (){
+        totalCellSpacing -= $(this).outerWidth(true);
     });
+    return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin
+};
 
-    // current action links width
-    var cur_width = getCurWidth();
-
-    // remove some links if current width is wider than maximum allowed
-    if (cur_width > max_width && $table.find("td.more_opts").length != 0) {
-        while (cur_width > max_width
-            && $(".replaced_by_more:visible").length > 0) {
-
-            // hide last visible element
-            var css_class = $table.find("tr").eq(1)
-                .find(".replaced_by_more:visible").last().prop("className").split(" ");
-            $table.find("." + css_class.join(".")).hide();
-            // show corresponding more-menu entry
-            $table.find(".replace_in_more.action_" + css_class[0]).show();
-            $table.find("td.more_opts").show();
-            // recalculate width
-            cur_width = getCurWidth();
+/** Handler for "More" dropdown in structure table rows */
+AJAX.registerOnload('tbl_structure.js', function() {
+    if ($('#fieldsForm').hasClass('HideStructureActions')) {
+        $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+    }
+});
+AJAX.registerTeardown('tbl_structure.js', function() {
+    $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
+});
+$(function () {
+    $(window).resize($.throttle(function () {
+        var $list = $('#fieldsForm ul.table-structure-actions');
+        if ($list.length) {
+            $list.menuResizer('resize');
         }
-    }
-
-    if ($(".replaced_by_more:hidden").length == 0) {
-        $table.find("td.more_opts").hide();
-    }
-
-    // wait for topmenu resize handler
-    setTimeout(function () {
-        // Position the dropdown
-        $(".structure_actions_dropdown").each(function() {
-            // Optimize DOM querying
-            var $this_dropdown = $(this);
-             // The top offset must be set for IE even if it didn't change
-            var cell_right_edge_offset = $this_dropdown.parent().position().left + $this_dropdown.parent().innerWidth();
-            var left_offset = cell_right_edge_offset - $this_dropdown.innerWidth();
-            var top_offset = $this_dropdown.parent().position().top + $this_dropdown.parent().innerHeight();
-            $this_dropdown.css({ top: top_offset, left: left_offset });
-        });
-    }, 100);
-
-    // A hack for IE6 to prevent the after_field select element from being displayed on top of the dropdown by
-    // positioning an iframe directly on top of it
-    var $after_field = $("select[name='after_field']");
-    // This dropdown is only present for a table, not for a view
-    if ($after_field.length) {
-        $("iframe[class='IE_hack']")
-            .width($after_field.width())
-            .height($after_field.height())
-            .offset({
-                top: $after_field.offset().top,
-                left: $after_field.offset().left
-            });
-    }
-
-    // When "more" is hovered over, show the hidden actions
-    $table.find("td.more_opts")
-        .unbind("mouseenter")
-        .bind("mouseenter", function() {
-            if($.browser.msie && $.browser.version == "6.0") {
-                $("iframe[class='IE_hack']")
-                    .show()
-                    .width($after_field.width()+4)
-                    .height($after_field.height()+4)
-                    .offset({
-                        top: $after_field.offset().top,
-                        left: $after_field.offset().left
-                    });
-            }
-            $(".structure_actions_dropdown").hide(); // Hide all the other ones that may be open
-            $(this).children(".structure_actions_dropdown").show();
-            // Need to do this again for IE otherwise the offset is wrong
-            if($.browser.msie) {
-                var left_offset_IE = $(this).offset().left + $(this).innerWidth() - $(this).children(".structure_actions_dropdown").innerWidth();
-                var top_offset_IE = $(this).offset().top + $(this).innerHeight();
-                $(this).children(".structure_actions_dropdown").offset({
-                    top: top_offset_IE,
-                    left: left_offset_IE });
-            }
-        })
-        .unbind("mouseleave")
-        .bind("mouseleave", function() {
-            $(this).children(".structure_actions_dropdown").hide();
-            if($.browser.msie && $.browser.version == "6.0") {
-                $("iframe[class='IE_hack']").hide();
-            }
-        });
-}
-AJAX.registerOnload('tbl_structure.js', function () {
-    $(window).resize(moreOptsMenuResize); // FIXME: shouldn't register that can't be unbound easily
-    $("div.replace_in_more").hide();
-    moreOptsMenuResize();
+    }));
 });

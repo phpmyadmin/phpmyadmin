@@ -106,7 +106,7 @@ var AJAX = {
      */
     fireTeardown: function (file) {
         eventName = 'teardown_' + AJAX.hash(file);
-        $(document).trigger(eventName);
+        $(document).triggerHandler(eventName);
         this._debug && console.log(
             // no need to translate
             "Fired event " + eventName + " for file " + file
@@ -201,80 +201,80 @@ var AJAX = {
                 return;
             }
 
-            AJAX.scriptHandler.reset();
+            AJAX.scriptHandler.reset(function () {
+                if (data._reloadNavigation) {
+                    PMA_reloadNavigation();
+                }
+                if (data._reloadQuerywindow) {
+                    var params = data._reloadQuerywindow;
+                    PMA_querywindow.reload(
+                        params.db,
+                        params.table,
+                        params.sql_query
+                    );
+                }
+                if (data._focusQuerywindow) {
+                    PMA_querywindow.focus(
+                        data._focusQuerywindow
+                    );
+                }
+                if (data._title) {
+                    $('title').replaceWith(data._title);
+                }
+                if (data._menu) {
+                    AJAX.cache.menus.replace(data._menu);
+                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                } else if (data._menuHash) {
+                    AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
+                }
 
-            if (data._reloadNavigation) {
-                PMA_reloadNavigation();
-            }
-            if (data._reloadQuerywindow) {
-                var params = data._reloadQuerywindow;
-                PMA_querywindow.reload(
-                    params.db,
-                    params.table,
-                    params.sql_query
+                // Remove all containers that may have
+                // been added outside of #page_content
+                $('body').children()
+                    .not('#pma_navigation')
+                    .not('#floating_menubar')
+                    .not('#page_content')
+                    .not('#selflink')
+                    .not('#session_debug')
+                    .remove();
+                // Replace #page_content with new content
+                $('#page_content').replaceWith(
+                    "<div id='page_content'>" + data.message + "</div>"
                 );
-            }
-            if (data._focusQuerywindow) {
-                PMA_querywindow.focus(
-                    data._focusQuerywindow
-                );
-            }
-            if (data._title) {
-                $('title').replaceWith(data._title);
-            }
-            if (data._menu) {
-                AJAX.cache.menus.replace(data._menu);
-                AJAX.cache.menus.add(data._menuHash, data._menu);
-            } else if (data._menuHash) {
-                AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
-            }
 
-            // Remove all containers that may have
-            // been added outside of #page_content
-            $('body').children()
-                .not('#pma_navigation')
-                .not('#floating_menubar')
-                .not('#page_content')
-                .not('#selflink')
-                .not('#session_debug')
-                .remove();
-            // Replace #page_content with new content
-            $('#page_content').replaceWith(
-                "<div id='page_content'>" + data.message + "</div>"
-            );
+                if (data._selflink) {
+                    $('#selflink > a').attr('href', data._selflink);
+                }
+                if (data._scripts) {
+                    AJAX.scriptHandler.load(data._scripts, 1);
+                }
+                if (data._selflink && data._scripts && data._menuHash && data._params) {
+                    AJAX.cache.add(
+                        data._selflink,
+                        data._scripts,
+                        data._menuHash,
+                        data._params
+                    );
+                }
+                if (data._params) {
+                    PMA_commonParams.setAll(data._params);
+                }
+                if (data._displayMessage) {
+                    $('#page_content').prepend(data._displayMessage);
+                }
 
-            if (data._selflink) {
-                $('#selflink > a').attr('href', data._selflink);
-            }
-            if (data._scripts) {
-                AJAX.scriptHandler.load(data._scripts, 1);
-            }
-            if (data._selflink && data._scripts && data._menuHash && data._params) {
-                AJAX.cache.add(
-                    data._selflink,
-                    data._scripts,
-                    data._menuHash,
-                    data._params
-                );
-            }
-            if (data._params) {
-                PMA_commonParams.setAll(data._params);
-            }
-            if (data._displayMessage) {
-                $('#page_content').prepend(data._displayMessage);
-            }
+                $('#pma_errors').remove();
+                if (data._errors) {
+                    $('<div/>', {id:'pma_errors'})
+                        .insertAfter('#selflink')
+                        .append(data._errors);
+                }
 
-            $('#pma_errors').remove();
-            if (data._errors) {
-                $('<div/>', {id:'pma_errors'})
-                    .insertAfter('#selflink')
-                    .append(data._errors);
-            }
-
-            if (typeof AJAX._callback === 'function') {
-                AJAX._callback.call();
-            }
-            AJAX._callback = function () {};
+                if (typeof AJAX._callback === 'function') {
+                    AJAX._callback.call();
+                }
+                AJAX._callback = function () {};
+            });
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
@@ -376,9 +376,12 @@ var AJAX = {
          * Fires all the teardown event handlers for the current page
          * and rebinds all forms and links to the request handler
          *
+         * @param object   ctx      Context for the callback
+         * @param function callback The callback to call after resetting
+         *
          * @return void
          */
-        reset: function () {
+        reset: function (callback) {
             for (var i in this._scriptsToBeFired) {
                 AJAX.fireTeardown(this._scriptsToBeFired[i]);
             }
@@ -389,6 +392,8 @@ var AJAX = {
              */
             $('a').die('click').live('click', AJAX.requestHandler);
             $('form').die('submit').live('submit', AJAX.requestHandler);
+            AJAX.cache.update();
+            callback();
         }
     }
 };
@@ -492,16 +497,16 @@ AJAX.cache = {
                 false
             );
         } else {
-            this.update();
             AJAX.active = true;
             var record = this.pages[index];
-            AJAX.scriptHandler.reset();
-            $('#page_content').html(record.content);
-            $('#selflink').html(record.selflink);
-            this.menus.replace(this.menus.get(record.menu));
-            PMA_commonParams.setAll(record.params);
-            AJAX.scriptHandler.load(record.scripts);
-            this.current = ++index;
+            AJAX.scriptHandler.reset(function () {
+                $('#page_content').html(record.content);
+                $('#selflink').html(record.selflink);
+                AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
+                PMA_commonParams.setAll(record.params);
+                AJAX.scriptHandler.load(record.scripts);
+                AJAX.cache.current = ++index;
+            });
         }
     },
     /**
@@ -610,8 +615,7 @@ AJAX.cache = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            menuPrepare();
-            menuResize();
+            $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
         }
     }
 };

@@ -67,9 +67,6 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
                 $sql_query .=  ', ' . PMA_Util::backquote($sval);
             }
         }
-
-        // what is this htmlspecialchars() for??
-        //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
         $sql_query .= ' FROM ' . PMA_Util::backquote($db)
         . '.' . PMA_Util::backquote($table);
         include 'sql.php';
@@ -161,11 +158,17 @@ $hidden_titles = PMA_getHiddenTitlesArray();
  */
 /* TABLE INFORMATION */
 // table header
-$i = 0;
+
+
+$HideStructureActions = '';
+if ($GLOBALS['cfg']['PropertiesIconic'] !== true
+    && $GLOBALS['cfg']['HideStructureActions'] === true
+) {
+    $HideStructureActions .= ' HideStructureActions';
+}
 
 $html_form = '<form method="post" action="tbl_structure.php" name="fieldsForm" '
-. 'id="fieldsForm" '
-. ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+. 'id="fieldsForm" class="ajax' . $HideStructureActions . '">';
 
 $response->addHTML($html_form);
 $response->addHTML(PMA_generate_common_hidden_inputs($db, $table));
@@ -180,11 +183,7 @@ if ($db_is_information_schema) {
 }
 $response->addHTML($tabletype);
 
-$tablestructure = '<table id="tablestructure" class="data';
-if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
-    $tablestructure .= ' PropertiesIconic';
-}
-$tablestructure .= '">';
+$tablestructure = '<table id="tablestructure" class="data">';
 $response->addHTML($tablestructure);
 
 
@@ -197,8 +196,6 @@ $response->addHTML(
 
 $response->addHTML('<tbody>');
 
-unset($i);
-
 // table body
 
 // prepare comments
@@ -207,11 +204,7 @@ $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
     include_once 'libraries/transformations.lib.php';
-
-    //$cfgRelation = PMA_getRelationsParam();
-
     $comments_map = PMA_getComments($db, $table);
-
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table, true);
     }
@@ -303,8 +296,6 @@ foreach ($fields as $row) {
     if ($primary && $primary->hasColumn($field_name)) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
-    $response->addHTML("\n");
-
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
@@ -334,7 +325,7 @@ foreach ($fields as $row) {
     unset($field_charset);
 } // end foreach
 
-$response->addHTML('</tbody>' . "\n" .'</table>' . "\n");
+$response->addHTML('</tbody></table>');
 
 $response->addHTML(
     PMA_getHtmlForCheckAllTableColumn(
@@ -367,10 +358,6 @@ $response->addHTML(
 if (! $tbl_is_view && ! $db_is_information_schema) {
     $response->addHTML('<br />');
     $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
-
-    $response->addHTML(
-        '<iframe class="IE_hack"></iframe><hr />'
-    );
     $response->addHTML(
         '<div id="index_div" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >'
@@ -405,7 +392,7 @@ if ($cfg['ShowStats']) {
 // END - Calc Table Space
 
 $response->addHTML(
-    '<div class="clearfloat"></div>' . "\n"
+    '<div class="clearfloat"></div>'
 );
 
 ?>

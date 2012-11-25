@@ -171,7 +171,7 @@ AJAX.registerOnload('server_status.js', function() {
         cookie: { name: 'pma_serverStatusTabs', expires: 1 },
         show: function(event, ui) {
             // Fixes line break in the menu bar when the page overflows and scrollbar appears
-            menuResize();
+            menuResize($('#topmenu'));
 
             // Initialize selected tab
             if (!$(ui.tab.hash).data('init-done')) {
