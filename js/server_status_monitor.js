@@ -85,7 +85,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         xmin: -1,
         xmax: -1
     };
-
     var monitorSettings = null;
 
     var defaultMonitorSettings = {
@@ -135,14 +134,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     // chart tooltip
     var tooltipBox;
-    
+
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                series: [ { 
+                series: [ {
                     label: PMA_messages['strAverageLoad']
                 } ],
                 nodes: [ {
@@ -230,12 +229,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
         });
         break;
-        
+
     case 'SunOS':
         $.extend(presetCharts, {
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                series: [ { 
+                series: [ {
                     label: PMA_messages['strAverageLoad']
                 } ],
                 nodes: [ {
@@ -1312,7 +1311,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             loadLog('slow', min, max);
             $(this).dialog("close");
         };
-                        
+
         dlgBtns[PMA_messages['strFromGeneralLog']] = function() {
             loadLog('general', min, max);
             $(this).dialog("close");
@@ -1337,7 +1336,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             limitTypes: $('input#limitTypes').prop('checked')
         });
     }
-                        
+
     /* Removes a chart from the grid */
     function removeChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
@@ -2046,7 +2045,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 });
 
                 profilingChart = PMA_createProfilingChartJqplot(
-                        'queryProfiling', 
+                        'queryProfiling',
                         chartData
                 );
 
