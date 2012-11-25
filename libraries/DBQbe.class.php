@@ -1309,6 +1309,9 @@ class PMA_DbQbe
         $html_output .= $this->_getTableFooters();
         // get tables select list
         $html_output .= $this->_getTablesList();
+        $html_output .= '</form>';
+        $html_output .= '<form action="db_qbe.php" method="post">';
+        $html_output .= PMA_generate_common_hidden_inputs(array('db' => $this->_db));
         // get SQL query
         $html_output .= '<div class="floatleft">';
         $html_output .= '<fieldset>';
@@ -1327,8 +1330,8 @@ class PMA_DbQbe
         $html_output .= '</fieldset>';
         // displays form's footers
         $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="submit" name="submit_sql"'
-            . ' value="' . __('Submit Query') . '" />';
+        $html_output .= '<input type="hidden" name="submit_sql" value="1" />';
+        $html_output .= '<input type="submit" value="' . __('Submit Query') . '" />';
         $html_output .= '</fieldset>';
         $html_output .= '</div>';
         $html_output .= '</form>';
