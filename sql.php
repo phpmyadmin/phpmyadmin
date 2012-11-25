@@ -929,6 +929,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         // The Response class will handle that automatically
         $response->addJSON(isset($extra_data) ? $extra_data : array());
         if (empty($_REQUEST['ajax_page_request'])) {
+            $response->addJSON('message', $message);
             exit;
         }
     }

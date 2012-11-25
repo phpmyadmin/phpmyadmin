@@ -2157,6 +2157,8 @@ AJAX.registerOnload('functions.js', function() {
             } else if (data.success == true) {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.message);
+                var $success = $temp_div.find("#result_query .success");
+                PMA_ajaxShowMessage($success);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.message);
                 PMA_init_slider();
