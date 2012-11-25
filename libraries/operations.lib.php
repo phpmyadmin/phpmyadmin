@@ -1215,7 +1215,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link,
     $isAjax = ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     return '<li>'
         . '<a class="maintain_action' . $isAjax . '" '
-        . 'href="tbl_operations.php'
+        . 'href="sql.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action
         . '</a>'

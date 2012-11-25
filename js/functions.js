@@ -2138,9 +2138,6 @@ AJAX.registerOnload('functions.js', function() {
     **/
     $("#tbl_maintenance li a.maintain_action.ajax").live('click', function(event) {
         event.preventDefault();
-        var $link = $(this);
-        var href = $link.attr("href");
-        href = href.split('?');
         if ($("#sqlqueryresults").length != 0) {
             $("#sqlqueryresults").remove();
         }
@@ -2148,20 +2145,23 @@ AJAX.registerOnload('functions.js', function() {
             $("#result_query").remove();
         }
         //variables which stores the common attributes
-        $.post(href[0], href[1]+"&ajax_request=true", function(data) {
+        $.post($(this).attr('href'), { ajax_request: 1 }, function(data) {
+            function scrollToTop() {
+                $('html, body').animate({ scrollTop: 0 });
+            }
             if (data.success == true && data.sql_query != undefined) {
                 PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
+                $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.sql_query);
+                scrollToTop();
             } else if (data.success == true) {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.message);
-                var $success = $temp_div.find("#result_query .success");
-                PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
+                $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.message);
                 PMA_init_slider();
-                $("#sqlqueryresults").children("fieldset").remove();
+                $("#sqlqueryresults").children("fieldset,br").remove();
+                scrollToTop();
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
@@ -2170,7 +2170,6 @@ AJAX.registerOnload('functions.js', function() {
             }
         }); // end $.post()
     });//end of table maintanance ajax click
-
 }); //end $(document).ready for 'Table operations'
 
 /**
