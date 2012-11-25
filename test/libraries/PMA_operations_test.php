@@ -174,7 +174,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $this->assertRegExp(
-            '/.*href="tbl_operations.php.*post.*/',
+            '/.*href="sql.php.*post.*/',
             PMA_getMaintainActionlink(
                 "post",
                 array("name" => 'foo', "value" => 'bar'),
