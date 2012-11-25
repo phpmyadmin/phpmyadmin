@@ -155,8 +155,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree div.block img {
     position: relative;
-    top: -7px;
-    left: -7px;
+    top: -0.6em;
+    left: 0;
+    margin-left: -7px;
 }
 #pma_navigation_tree div.throbber img {
     top: 2px;
