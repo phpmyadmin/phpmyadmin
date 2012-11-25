@@ -9,6 +9,10 @@ var AJAX = {
      */
     active: false,
     /**
+     * @var object source The object whose event initialized the request
+     */
+    source: null,
+    /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
      */
@@ -144,6 +148,8 @@ var AJAX = {
             return false;
         }
 
+        AJAX.source = $(this);
+
         $('html, body').animate({scrollTop: 0}, 'fast');
 
         var isLink = !! href || false;
@@ -253,7 +259,8 @@ var AJAX = {
                         data._selflink,
                         data._scripts,
                         data._menuHash,
-                        data._params
+                        data._params,
+                        AJAX.source.attr('rel')
                     );
                 }
                 if (data._params) {
@@ -448,11 +455,19 @@ AJAX.cache = {
      * @param array  scripts A list of scripts that is requured for the page
      * @param string menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
-     * @oaram array  params  A list of parameters used by PMA_commonParams()
+     * @param array  params  A list of parameters used by PMA_commonParams()
+     * @param string rel     A relationship to the current page:
+     *                       'samepage': Forces the response to be treated as
+     *                                   the same page as the current one
+     *                       'newpage':  Forces the response to be treated as
+     *                                   a new page
+     *                       undefined:  Default behaviour, 'samepage' if the
+     *                                   selflinks of the two pages are the same.
+     *                                   'newpage' otherwise
      *
      * @return void
      */
-    add: function (hash, scripts, menu, params) {
+    add: function (hash, scripts, menu, params, rel) {
         if (this.pages.length > AJAX.cache.MAX) {
             // Trim the cache, to the maximum number of allowed entries
             // This way we will have a cached menu for every page
@@ -465,22 +480,26 @@ AJAX.cache = {
             // and are now going forward again
             this.pages.pop();
         }
-        if (typeof this.pages[this.current - 1] !== 'undefined'
-            && this.pages[this.current - 1].hash == hash
+        if (rel === 'newpage' ||
+            (
+                typeof rel === 'undefined' && (
+                    typeof this.pages[this.current - 1] === 'undefined'
+                    ||
+                    this.pages[this.current - 1].hash !== hash
+                )
+            )
         ) {
-            // we're on the same page
-            return;
+            this.pages.push({
+                hash: hash,
+                content: $('#page_content').html(),
+                scripts: scripts,
+                selflink: $('#selflink').html(),
+                menu: menu,
+                params: params
+            });
+            AJAX.setUrlHash(this.current, hash);
+            this.current++;
         }
-        this.pages.push({
-            hash: hash,
-            content: $('#page_content').html(),
-            scripts: scripts,
-            selflink: $('#selflink').html(),
-            menu: menu,
-            params: params
-        });
-        AJAX.setUrlHash(this.current, hash);
-        this.current++;
     },
     /**
      * Restores a page from the cache. This is called when the hash
