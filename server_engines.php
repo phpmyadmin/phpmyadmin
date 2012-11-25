@@ -56,7 +56,7 @@ if (empty($_REQUEST['engine'])
                 ? ' disabled'
                 : '')
            . '">' . "\n"
-           . '    <td><a href="server_engines.php'
+           . '    <td><a rel="newpage" href="server_engines.php'
            . PMA_generate_common_url(array('engine' => $engine)) . '">' . "\n"
            . '            ' . htmlspecialchars($details['Engine']) . "\n"
            . '        </a></td>' . "\n"

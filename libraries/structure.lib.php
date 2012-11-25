@@ -1841,7 +1841,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         $html_output .= $titles['No' . $action];
         $action_enabled = false;
     } else {
-        $html_output .= '<a '
+        $html_output .= '<a rel="samepage" '
             . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : '')
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
@@ -1887,7 +1887,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
         && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])

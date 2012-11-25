@@ -16,6 +16,11 @@ AJAX.registerTeardown('config.js', function() {
     $('#prefs_autoload').find('a').unbind('click');
 });
 
+AJAX.registerOnload('config.js', function() {
+    $('#topmenu2').find('li.active a').attr('rel', 'samepage');
+    $('#topmenu2').find('li:not(.active) a').attr('rel', 'newpage');
+});
+
 // default values for fields
 var defaultValues = {};
 
