@@ -522,7 +522,7 @@ if (count($columns) > 0) {
 } // end if (we have columns in this table)
 
 // Render HTML output
-echo $html_output;
+PMA_Response::getInstance()->addHTML($html_output);
 
 /**
  * Generate dropdown choices
