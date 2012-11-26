@@ -216,7 +216,7 @@ function PMA_fatalError(
     if ($GLOBALS['is_ajax_request']) {
         $response = PMA_Response::getInstance();
         $response->isSuccess(false);
-        $response->addJSON('message', PMA_Message::error($error_message)->getDisplay());
+        $response->addJSON('message', PMA_Message::error($error_message));
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
