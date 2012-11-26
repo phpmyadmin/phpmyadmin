@@ -358,6 +358,22 @@ function reloadFieldForm(message) {
     });
 }
 
+/**
+ * This function returns the horizontal space available for the menu in pixels.
+ * To calculate this value we start we the width of the main panel, then we
+ * substract the margin of the page content, then we substract any cellspacing
+ * that the table may have (original theme only) and finally we substract the
+ * width of all columns of the table except for the last one (which is where
+ * the menu will go). What we should end up with is the distance between the
+ * start of the last column on the table and the edge of the page, again this
+ * is the space available for the menu.
+ *
+ * In the case where the table cell where the menu will be displayed is already
+ * off-screen (the table is wider than the page), a negative value will be returned,
+ * but this will be treated as a zero by the menuResizer plugin.
+ *
+ * @return int
+ */
 function PMA_tbl_structure_menu_resizer_callback() {
     var pagewidth = $('body').width();
     var $page = $('#page_content');
