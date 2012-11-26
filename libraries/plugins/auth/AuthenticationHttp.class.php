@@ -103,7 +103,6 @@ class AuthenticationHttp extends AuthenticationPlugin
     public function authCheck()
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
-        global $old_usr;
 
         // Grabs the $PHP_AUTH_USER variable whatever are the values of the
         // 'register_globals' and the 'variables_order' directives
@@ -159,7 +158,8 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // User logged out -> ensure the new username is not the same
-        if (!empty($old_usr)
+        $old_usr = $_REQUEST['old_usr'];
+        if (! empty($old_usr)
             && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
         ) {
             $PHP_AUTH_USER = '';
