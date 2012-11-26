@@ -39,6 +39,7 @@ $post_params = array(
     'on_delete',
     'on_update'
 );
+
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
@@ -58,72 +59,9 @@ $options_array = array(
 );
 
 /**
- * Generate dropdown choices
- *
- * @param string $dropdown_question Message to display
- * @param string $select_name       Name of the <select> field
- * @param array  $choices           Choices for dropdown
- * @param string $selected_value    Selected value
- *
- * @return string   The existing value (for selected)
- *
- * @access  public
- */
-function PMA_generateDropdown(
-    $dropdown_question, $select_name, $choices, $selected_value
-) {
-    echo htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;';
-
-    echo '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
-
-    foreach ($choices as $one_value => $one_label) {
-        echo '<option value="' . htmlspecialchars($one_value) . '"';
-        if ($selected_value == $one_value) {
-            echo ' selected="selected" ';
-        }
-        echo '>' . htmlspecialchars($one_label) . '</option>' . "\n";
-    }
-    echo '</select>' . "\n";
-}
-
-/**
- * Split a string on backquote pairs
- *
- * @param string $text original string
- *
- * @return array   containing the elements (and their surrounding backquotes)
- *
- * @access  public
- */
-function PMA_backquoteSplit($text)
-{
-    $elements = array();
-    $final_pos = strlen($text) - 1;
-    $pos = 0;
-    while ($pos <= $final_pos) {
-        $first_backquote = strpos($text, '`', $pos);
-        $second_backquote = strpos($text, '`', $first_backquote + 1);
-        // after the second one, there might be another one which means
-        // this is an escaped backquote
-        if ($second_backquote < $final_pos && '`' == $text[$second_backquote + 1]) {
-            $second_backquote = strpos($text, '`', $second_backquote + 2);
-        }
-        if (false === $first_backquote || false === $second_backquote) {
-            break;
-        }
-        $elements[] = substr(
-            $text, $first_backquote, $second_backquote - $first_backquote + 1
-        );
-        $pos = $second_backquote + 1;
-    }
-    return($elements);
-}
-
-/**
  * Gets the relation settings
  */
 $cfgRelation = PMA_getRelationsParam();
-
 
 /**
  * Updates
@@ -142,6 +80,8 @@ if ($cfgRelation['displaywork']) {
 $multi_edit_columns_name = isset($_REQUEST['fields_name'])
     ? $_REQUEST['fields_name']
     : null;
+
+$html_output = '';
 
 // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 if (isset($destination) && $cfgRelation['relwork']) {
@@ -279,13 +219,13 @@ if (isset($_REQUEST['destination_foreign'])) {
                 ||  substr($tmp_error, 1, 4) == '1452'
             ) {
                 PMA_Util::mysqlDie($tmp_error, $sql_query, false, '', false);
-                echo PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                $html_output .= PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
                 $message = PMA_Message::error(__('Error creating foreign key on %1$s (check data types)'));
                 $message->addParam($master_field);
                 $message->display();
-                echo PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                $html_output .= PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             unset($tmp_error);
             $sql_query = '';
@@ -293,9 +233,9 @@ if (isset($_REQUEST['destination_foreign'])) {
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            echo PMA_Util::getMessage(__('Error'), null, 'error');
+            $html_output .= PMA_Util::getMessage(__('Error'), null, 'error');
         } else {
-            echo PMA_Util::getMessage(__('Your SQL query has been executed successfully'), null, 'success');
+            $html_output .= PMA_Util::getMessage(__('Your SQL query has been executed successfully'), null, 'success');
         }
     }
 } // end if isset($destination_foreign)
@@ -352,8 +292,8 @@ if ($cfgRelation['displaywork']) {
  */
 
 // common form
-echo '<form method="post" action="tbl_relation.php">' . "\n";
-echo PMA_generate_common_hidden_inputs($db, $table);
+$html_output .= '<form method="post" action="tbl_relation.php">' . "\n"
+    . PMA_generate_common_hidden_inputs($db, $table);
 
 
 // relations
@@ -409,30 +349,32 @@ if ($cfgRelation['relwork']
 $columns = PMA_DBI_get_columns($db, $table);
 
 if (count($columns) > 0) {
+    
     foreach ($columns as $row) {
         $save_row[] = $row;
     }
+    
     $saved_row_cnt  = count($save_row);
-
-    echo '<fieldset>';
-    echo '<legend>' . __('Relations'). '</legend>';
-
-    echo '<table>';
-    echo '<tr><th>' . __('Column') . '</th>';
+    $html_output .= '<fieldset>'
+        . '<legend>' . __('Relations'). '</legend>'
+        . '<table>'
+        . '<tr><th>' . __('Column') . '</th>';
+    
     if ($cfgRelation['relwork']) {
-        echo '<th>' . __('Internal relation');
+        $html_output .= '<th>' . __('Internal relation');
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
-            echo PMA_Util::showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
+            $html_output .= PMA_Util::showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
         }
-        echo '</th>';
+        $html_output .= '</th>';
     }
+    
     if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        echo '<th colspan="2">' . __('Foreign key constraint')
+        $html_output .= '<th colspan="2">' . __('Foreign key constraint')
             . ' (' . $tbl_storage_engine . ')';
-        echo '</th>';
+        $html_output .= '</th>';
     }
-    echo '</tr>';
+    $html_output .= '</tr>';
 
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
@@ -442,16 +384,16 @@ if (count($columns) > 0) {
         $myfield_md5 = md5($myfield);
         $myfield_html = htmlspecialchars($myfield);
 
-        echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+            . '<td class="center">'
+            . '<strong>' . $myfield_html . '</strong>'
+            . '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
+            . ' value="' . $myfield_html . '"/>'
+            . '</td>';
         $odd_row = ! $odd_row;
-        echo '<td class="center">';
-        echo '<strong>' . $myfield_html . '</strong>';
-        echo '<input type="hidden" name="fields_name[' . $myfield_md5 . ']"'
-            . ' value="' . $myfield_html . '"/>';
-        echo '</td>';
 
         if ($cfgRelation['relwork']) {
-            echo '<td><select name="destination[' . $myfield_md5 . ']">';
+            $html_output .= '<td><select name="destination[' . $myfield_md5 . ']">';
             // PMA internal relations
             if (isset($existrel[$myfield])) {
                 $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
@@ -462,30 +404,30 @@ if (count($columns) > 0) {
             }
             $seen_key = false;
             foreach ($selectboxall as $value) {
-                echo '<option value="' . htmlspecialchars($value) . '"';
+                $html_output .= '<option value="' . htmlspecialchars($value) . '"';
                 if ($foreign_field && $value == $foreign_field) {
-                    echo ' selected="selected"';
+                    $html_output .= ' selected="selected"';
                     $seen_key = true;
                 }
-                echo '>' . htmlspecialchars($value) . '</option>'. "\n";
+                $html_output .= '>' . htmlspecialchars($value) . '</option>'. "\n";
             } // end while
 
             // if the link defined in relationtable points to a foreign field
             // that is not a key in the foreign table, we show the link
             // (will not be shown with an arrow)
             if ($foreign_field && !$seen_key) {
-                echo '<option value="' . htmlspecialchars($foreign_field) . '"'
+                $html_output .= '<option value="' . htmlspecialchars($foreign_field) . '"'
                     . ' selected="selected">' . $foreign_field . '</option>'. "\n";
             }
-            echo '</select>';
-            echo '</td>';
+            $html_output .= '</select>'
+                . '</td>';
         } // end if (internal relations)
 
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
-            echo '<td>';
+            $html_output .= '<td>';
             if (!empty($save_row[$i]['Key'])) {
-                echo '<span class="formelement">';
-                echo '<select name="destination_foreign[' . $myfield_md5 . ']"'
+                $html_output .= '<span class="formelement">'
+                    . '<select name="destination_foreign[' . $myfield_md5 . ']"'
                     . ' class="referenced_column_dropdown">';
                 if (isset($existrel_foreign[$myfield])) {
                     // need to PMA_Util::backquote to support a dot character inside
@@ -499,84 +441,152 @@ if (count($columns) > 0) {
 
                 $found_foreign_field = false;
                 foreach ($selectboxall_foreign as $value) {
-                    echo '<option value="' . htmlspecialchars($value) . '"';
+                    $html_output .= '<option value="' . htmlspecialchars($value) . '"';
                     if ($foreign_field && $value == $foreign_field) {
-                        echo ' selected="selected"';
+                        $html_output .= ' selected="selected"';
                         $found_foreign_field = true;
                     }
-                    echo '>' . htmlspecialchars($value) . '</option>'. "\n";
+                    $html_output .= '>' . htmlspecialchars($value) . '</option>'. "\n";
                 } // end while
 
                 // we did not find the foreign field in the tables of current db,
                 // must be defined in another db so show it to avoid erasing it
                 if (!$found_foreign_field && $foreign_field) {
-                    echo '<option value="' . htmlspecialchars($foreign_field) . '"';
-                    echo ' selected="selected"';
-                    echo '>' . $foreign_field . '</option>' . "\n";
+                    $html_output .= '<option value="' . htmlspecialchars($foreign_field) . '"'
+                        . ' selected="selected"'
+                        . '>' . $foreign_field . '</option>' . "\n";
                 }
-                echo '</select>';
-                echo '</span>';
+                $html_output .= '</select>'
+                    . '</span>';
 
-                echo '<span class="formelement">';
+                $html_output .= '<span class="formelement">';
                 // For ON DELETE and ON UPDATE, the default action
                 // is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                 // won't display the clause if it's set as RESTRICT.
                 $on_delete = isset($existrel_foreign[$myfield]['on_delete'])
                     ? $existrel_foreign[$myfield]['on_delete'] : 'RESTRICT';
-                PMA_generateDropdown(
+                $html_output .= PMA_generateDropdown(
                     'ON DELETE',
                     'on_delete[' . $myfield_md5 . ']',
                     $options_array,
                     $on_delete
                 );
-                echo '</span>' . "\n";
+                $html_output .= '</span>' . "\n";
 
-                echo '<span class="formelement">' . "\n";
+                $html_output .= '<span class="formelement">' . "\n";
                 $on_update = isset($existrel_foreign[$myfield]['on_update'])
                     ? $existrel_foreign[$myfield]['on_update'] : 'RESTRICT';
-                PMA_generateDropdown(
+                $html_output .= PMA_generateDropdown(
                     'ON UPDATE',
                     'on_update[' . $myfield_md5 . ']',
                     $options_array,
                     $on_update
                 );
-                echo '</span>' . "\n";
+                $html_output .= '</span>' . "\n";
             } else {
-                echo __('No index defined!');
+                $html_output .= __('No index defined!');
             } // end if (a key exists)
-            echo '</td>';
+            $html_output .= '</td>';
         } // end if (InnoDB)
-        echo '</tr>';
+        $html_output .= '</tr>';
     } // end for
 
     unset( $myfield, $myfield_md5, $myfield_html);
-    echo '</table>' . "\n";
-    echo '</fieldset>' . "\n";
+    $html_output .= '</table>' . "\n"
+        . '</fieldset>' . "\n";
 
     if ($cfgRelation['displaywork']) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
-        echo '<fieldset>';
-        echo '<label>' . __('Choose column to display') . ': </label>';
-        echo '<select name="display_field">';
-        echo '<option value="">---</option>';
+        $html_output .= '<fieldset>'
+            . '<label>' . __('Choose column to display') . ': </label>'
+            . '<select name="display_field">'
+            . '<option value="">---</option>';
 
         foreach ($save_row AS $row) {
-            echo '<option value="' . htmlspecialchars($row['Field']) . '"';
+            $html_output .= '<option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
-                echo ' selected="selected"';
+                $html_output .= ' selected="selected"';
             }
-            echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
+            $html_output .= '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
         } // end while
 
-        echo '</select>';
-        echo '</fieldset>';
+        $html_output .= '</select>'
+            . '</fieldset>';
     } // end if (displayworks)
 
-    echo '<fieldset class="tblFooters">';
-    echo '<input type="submit" value="' . __('Save') . '" />';
-    echo '</fieldset>';
-    echo '</form>';
+    $html_output .= '<fieldset class="tblFooters">'
+        . '<input type="submit" value="' . __('Save') . '" />'
+        . '</fieldset>'
+        . '</form>';
 } // end if (we have columns in this table)
+
+// Render HTML output
+echo $html_output;
+
+/**
+ * Generate dropdown choices
+ *
+ * @param string $dropdown_question Message to display
+ * @param string $select_name       Name of the <select> field
+ * @param array  $choices           Choices for dropdown
+ * @param string $selected_value    Selected value
+ *
+ * @return string $html_output The html code for existing value (for selected)
+ *
+ * @access  public
+ */
+function PMA_generateDropdown(
+    $dropdown_question, $select_name, $choices, $selected_value
+) {
+    
+    $html_output .= htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
+        . '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
+
+    foreach ($choices as $one_value => $one_label) {
+        $html_output .= '<option value="' . htmlspecialchars($one_value) . '"';
+        if ($selected_value == $one_value) {
+            $html_output .= ' selected="selected" ';
+        }
+        $html_output .= '>' . htmlspecialchars($one_label) . '</option>' . "\n";
+    }
+    $html_output .= '</select>' . "\n";
+    
+    return $html_output;
+    
+}
+
+/**
+ * Split a string on backquote pairs
+ *
+ * @param string $text original string
+ *
+ * @return array   containing the elements (and their surrounding backquotes)
+ *
+ * @access  public
+ */
+function PMA_backquoteSplit($text)
+{
+    $elements = array();
+    $final_pos = strlen($text) - 1;
+    $pos = 0;
+    while ($pos <= $final_pos) {
+        $first_backquote = strpos($text, '`', $pos);
+        $second_backquote = strpos($text, '`', $first_backquote + 1);
+        // after the second one, there might be another one which means
+        // this is an escaped backquote
+        if ($second_backquote < $final_pos && '`' == $text[$second_backquote + 1]) {
+            $second_backquote = strpos($text, '`', $second_backquote + 2);
+        }
+        if (false === $first_backquote || false === $second_backquote) {
+            break;
+        }
+        $elements[] = substr(
+            $text, $first_backquote, $second_backquote - $first_backquote + 1
+        );
+        $pos = $second_backquote + 1;
+    }
+    return($elements);
+}
 
 ?>
