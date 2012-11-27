@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 16:10+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-27 04:52+0200\n"
+"Last-Translator: Andrey Aires <andrey_tere@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1784,13 +1784,12 @@ msgstr "Adicionar chave primária"
 #: js/messages.php:244 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
 #: js/messages.php:245
 msgid "Click to dismiss this notification"
-msgstr "Clique para fechar esta notificação"
+msgstr "Clique para fechar este aviso"
 
 #: js/messages.php:248
 msgid "Renaming Databases"
@@ -1802,11 +1801,11 @@ msgstr "Recarregar o Banco de Dados"
 
 #: js/messages.php:250
 msgid "Copying Database"
-msgstr "Copiar Banco de Dados"
+msgstr "Copiando Banco de Dados"
 
 #: js/messages.php:251
 msgid "Changing Charset"
-msgstr "Modificando charset"
+msgstr "Modificando o Conjunto de Caracteres"
 
 #: js/messages.php:252
 msgid "Table must have at least one column"
@@ -1814,7 +1813,7 @@ msgstr "A tabela deve ter pelo menos uma coluna"
 
 #: js/messages.php:257
 msgid "Insert Table"
-msgstr "Inserir tabela"
+msgstr "Inserir Tabela"
 
 #: js/messages.php:258
 msgid "Hide indexes"
@@ -1826,7 +1825,7 @@ msgstr "Mostrar índices"
 
 #: js/messages.php:262
 msgid "Searching"
-msgstr "Buscando"
+msgstr "Pesquisando"
 
 #: js/messages.php:263
 msgid "Hide search results"
@@ -1838,7 +1837,7 @@ msgstr "Mostrar resultados da pesquisa"
 
 #: js/messages.php:265
 msgid "Browsing"
-msgstr "Navegação"
+msgstr "Navegando"
 
 #: js/messages.php:266
 msgid "Deleting"
@@ -7548,7 +7547,6 @@ msgid "You must provide an event definition."
 msgstr "Você deve informar uma definição do evento."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2413
-#, fuzzy
 msgid "New"
 msgstr "Novo"
 
@@ -12112,6 +12110,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time está ajustado em 10 segundos ou mais, de modo que apenas "
+"consultas lentas que demoram mais do que 10 segundos são registradas."
 
 #: po/advisory_rules.php:27
 msgid ""
