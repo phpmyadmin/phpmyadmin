@@ -131,6 +131,19 @@ class PMA_Response
     {
         if (empty(self::$_instance)) {
             self::$_instance = new PMA_Response();
+            $response = self::$_instance;
+        }
+        if ($response->_isAjax && $_SESSION[' PMA_token '] != $_REQUEST['token']) {
+            /*
+             * There is no point in even attempting to process
+             * an ajax request if there is a token mismatch
+             */
+            $response->isSuccess(false);
+            $response->addJSON(
+                'message',
+                PMA_Message::error(__('Error: Token mismatch'))
+            );
+            exit;
         }
         return self::$_instance;
     }
@@ -296,7 +309,7 @@ class PMA_Response
 
         if ($this->_isAjaxPage) {
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
-            
+
             $menuHash = $this->getHeader()->getMenu()->getHash();
             $this->addJSON('_menuHash', $menuHash);
             $hashes = array();
