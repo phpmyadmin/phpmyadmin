@@ -400,14 +400,18 @@ class PMA_Header
     public function getMessage()
     {
         $retval = '';
+        $message = '';
         if (! empty($GLOBALS['message'])) {
+            $message = $GLOBALS['message'];
+            unset($GLOBALS['message']);
+        } else if (! empty($_REQUEST['message'])) {
+            $message = $_REQUEST['message'];
+        }
+        if (! empty($message)) {
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= PMA_Util::getMessage(
-                $GLOBALS['message']
-            );
-            unset($GLOBALS['message']);
+            $retval .= PMA_Util::getMessage($message);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
             }
