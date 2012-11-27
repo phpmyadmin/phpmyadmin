@@ -280,11 +280,13 @@ Credits, in chronological order
 
   * Visual query builder
 
-* Rouslan Placella (Google Summer of Code 2011)
+* Rouslan Placella (Google Summer of Code 2011 and 2012)
 
   * Improved support for Stored Routines, Triggers and Events
 
   * Italian translation updates
+
+  * Removal of frames, new navigation
 
 * Dieter Adriaenssens
 
@@ -292,6 +294,25 @@ Credits, in chronological order
 
   * Dutch translation updates
 
+* Alex Marin (Google Summer of Code 2012)
+
+  * New plugins and properties system
+
+* Thilina Buddika Abeyrathna (Google Summer of Code 2012)
+  
+  * Refactoring
+
+* Atul Pratap Singh  (Google Summer of Code 2012)
+  
+  * Refactoring
+
+* Chanaka Indrajith (Google Summer of Code 2012)
+  
+  * Refactoring
+
+* Yasitha Pandithawatta (Google Summer of Code 2012)
+  
+  * Automated testing
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
