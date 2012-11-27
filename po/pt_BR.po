@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 15:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-11-27 04:52+0200\n"
+"Last-Translator: Andrey Aires <andrey_tere@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1651,7 +1651,7 @@ msgstr "OK"
 
 #: js/messages.php:244
 msgid "Click to dismiss this notification"
-msgstr "Clique para fechar esta notificação"
+msgstr "Clique para fechar este aviso"
 
 #: js/messages.php:247
 msgid "Renaming Databases"
@@ -1663,11 +1663,11 @@ msgstr "Recarregar o Banco de Dados"
 
 #: js/messages.php:249
 msgid "Copying Database"
-msgstr "Copiar Banco de Dados"
+msgstr "Copiando Banco de Dados"
 
 #: js/messages.php:250
 msgid "Changing Charset"
-msgstr "Modificando charset"
+msgstr "Modificando o Conjunto de Caracteres"
 
 #: js/messages.php:251
 msgid "Table must have at least one column"
@@ -1675,7 +1675,7 @@ msgstr "A tabela deve ter pelo menos uma coluna"
 
 #: js/messages.php:256
 msgid "Insert Table"
-msgstr "Inserir tabela"
+msgstr "Inserir Tabela"
 
 #: js/messages.php:257
 msgid "Hide indexes"
@@ -1699,7 +1699,7 @@ msgstr "(Desabilitado)"
 
 #: js/messages.php:264
 msgid "Searching"
-msgstr "Buscando"
+msgstr "Pesquisando"
 
 #: js/messages.php:265
 msgid "Hide search results"
@@ -1711,7 +1711,7 @@ msgstr "Mostrar resultados da pesquisa"
 
 #: js/messages.php:267
 msgid "Browsing"
-msgstr "Navegação"
+msgstr "Navegando"
 
 #: js/messages.php:268
 msgid "Deleting"
@@ -12582,6 +12582,8 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time está ajustado em 10 segundos ou mais, de modo que apenas "
+"consultas lentas que demoram mais do que 10 segundos são registradas."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
