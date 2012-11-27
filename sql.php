@@ -406,10 +406,10 @@ if ($goto == 'sql.php') {
           . '&amp;sql_query=' . urlencode($sql_query);
 } // end if
 
-
 /**
  * Go back to further page if table should not be dropped
  */
+$btnDrop = $_REQUEST['btnDrop'];
 if (isset($btnDrop) && $btnDrop == __('No')) {
     if (! empty($back)) {
         $goto = $back;
@@ -453,51 +453,68 @@ if (! $cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
+    $input = '<input type="hidden" name="%s" value="%s" />';
+    $output = '';
     if ($is_drop_database) {
-        echo '<h1 class="error">'
-            . __('You are about to DESTROY a complete database!')
-            . '</h1>';
+        $output .= '<h1 class="error">';
+        $output .= __('You are about to DESTROY a complete database!');
+        $output .= '</h1>';
     }
-    echo '<form action="sql.php" method="post">' . "\n"
-        .PMA_generate_common_hidden_inputs($db, $table);
+    $form .= '<form action="sql.php" method="post">';
+    $form .= PMA_generate_common_hidden_inputs($db, $table);
 
-    echo '<input type="hidden" name="sql_query" value="'
-        . htmlspecialchars($sql_query) . '" />';
-    echo '<input type="hidden" name="message_to_show" value="'
-        . (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : '')
-        . '" />';
-    echo '<input type="hidden" name="goto" value="' . $goto . '" />';
-    echo '<input type="hidden" name="back" value="'
-        . (isset($back) ? PMA_sanitize($back, true) : '')
-        . '" />';
-    echo '<input type="hidden" name="reload" value="'
-        . (isset($reload) ? PMA_sanitize($reload, true) : 0)
-        . '" />';
-    echo '<input type="hidden" name="purge" value="'
-        . (isset($purge) ? PMA_sanitize($purge, true) : '')
-        . '" />';
-    echo '<input type="hidden" name="dropped_column" value="'
-        . (isset($dropped_column) ? PMA_sanitize($dropped_column, true) : '')
-        . '" />';
-    echo '<input type="hidden" name="show_query" value="'
-        . (isset($show_query) ? PMA_sanitize($show_query, true) : '')
-        . '" />';
+    $form .= sprintf(
+        $input, 'sql_query', htmlspecialchars($sql_query)
+    );
+    $form .= sprintf(
+        $input, 'message_to_show',
+        (isset($message_to_show) ? PMA_sanitize($message_to_show, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'goto', $goto
+    );
+    $form .= sprintf(
+        $input, 'back',
+        (isset($back) ? PMA_sanitize($back, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'reload',
+        (isset($reload) ? PMA_sanitize($reload, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'purge',
+        (isset($purge) ? PMA_sanitize($purge, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'dropped_column',
+        (isset($dropped_column) ? PMA_sanitize($dropped_column, true) : '')
+    );
+    $form .= sprintf(
+        $input, 'show_query',
+        (isset($message_to_show) ? PMA_sanitize($show_query, true) : '')
+    );
+    $form .= '%s</form>';
 
-    echo '<fieldset class="confirmation">' . "\n"
+    $output .='<fieldset class="confirmation">'
         .'<legend>'
         . __('Do you really want to execute the following query?')
         . '</legend>'
-        .'<code>' . htmlspecialchars($stripped_sql_query) . '</code>' . "\n"
-        .'</fieldset>' . "\n"
-        .'<fieldset class="tblFooters">' . "\n";
+        .'<code>' . htmlspecialchars($stripped_sql_query) . '</code>'
+        .'</fieldset>'
+        .'<fieldset class="tblFooters">';
 
-    echo '<input type="submit" name="btnDrop" value="'
-        . __('Yes') . '" id="buttonYes" />';
-    echo '<input type="submit" name="btnDrop" value="'
-        . __('No') . '" id="buttonNo" />';
+    $yes_input  = sprintf($input, 'btnDrop', __('Yes'));
+    $yes_input .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
+    $no_input   = sprintf($input, 'btnDrop', __('No'));
+    $no_input  .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
 
-    echo '</fieldset>' . "\n"
-       . '</form>' . "\n";
+    $output .= sprintf($form, $yes_input);
+    $output .= sprintf($form, $no_input);
+
+    $output .='</fieldset>';
+    $output .= '';
+
+    PMA_Response::getInstance()->addHTML($output);
 
     exit;
 } // end if $do_confirm
