@@ -459,8 +459,9 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA_Config
  */
+$token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
 if (! PMA_isValid($_REQUEST['token'])
-    || $_SESSION[' PMA_token '] != $_REQUEST['token']
+    || $token_mismatch
 ) {
     /**
      *  List of parameters which are allowed from unsafe source
@@ -1026,6 +1027,19 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         unset($_SESSION['profiling']);
     }
 
+    /*
+     * There is no point in even attempting to process
+     * an ajax request if there is a token mismatch
+     */
+    $response = PMA_Response::getInstance();
+    if ($response->isAjax() && $token_mismatch) {
+        $response->isSuccess(false);
+        $response->addJSON(
+            'message',
+            PMA_Message::error(__('Error: Token mismatch'))
+        );
+        exit;
+    }
 } // end if !defined('PMA_MINIMUM_COMMON')
 
 // load user preferences
