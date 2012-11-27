@@ -131,8 +131,8 @@ class PMA_Response
     {
         if (empty(self::$_instance)) {
             self::$_instance = new PMA_Response();
-            $response = self::$_instance;
         }
+        $response = self::$_instance;
         if ($response->_isAjax && $_SESSION[' PMA_token '] != $_REQUEST['token']) {
             /*
              * There is no point in even attempting to process
