@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 16:02+0200\n"
+"PO-Revision-Date: 2012-11-28 14:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/be@latin/>\n"
@@ -12737,7 +12737,8 @@ msgstr "Imia indeksa:"
 #: tbl_indexes.php:212
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" musić być imiem pieršasnaha kluča i tolki jaho!)"
+msgstr ""
+"(\"PRIMARY\" <b>musić</b> być imiem pieršasnaha kluča i <b>tolki</b> jaho!)"
 
 #: tbl_indexes.php:229
 msgid "Index type:"
