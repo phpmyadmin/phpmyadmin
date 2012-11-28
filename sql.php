@@ -1528,9 +1528,9 @@ function getTableHtmlForMultipleQueries(
             }
 
             // Set the needed properties related to executing sql query
-            $displayResultsObject->__set('_db', $db);
-            $displayResultsObject->__set('_table', $table);
-            $displayResultsObject->__set('_goto', $goto);
+            $displayResultsObject->__set('db', $db);
+            $displayResultsObject->__set('table', $table);
+            $displayResultsObject->__set('goto', $goto);
         }
 
         if (! $is_affected) {
@@ -1542,7 +1542,7 @@ function getTableHtmlForMultipleQueries(
         if (isset($sql_data['valid_sql'][$sql_no])) {
 
             $displayResultsObject->__set(
-                '_sql_query',
+                'sql_query',
                 $sql_data['valid_sql'][$sql_no]
             );
             $displayResultsObject->setProperties(

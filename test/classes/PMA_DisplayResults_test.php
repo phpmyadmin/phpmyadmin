@@ -187,7 +187,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             false, false, true, null, null, null, false
         );
 
-        $this->object->__set('_sql_query', 'SELECT * FROM `pma_bookmark` WHERE 1');
+        $this->object->__set('sql_query', 'SELECT * FROM `pma_bookmark` WHERE 1');
 
         $this->assertEquals(
             $output,
@@ -599,7 +599,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_vertical_display', $vertical_display);
+        $this->object->__set('vertical_display', $vertical_display);
 
         $this->assertEquals(
             $output,
@@ -654,7 +654,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_vertical_display', $vertical_display);
+        $this->object->__set('vertical_display', $vertical_display);
 
         $this->assertEquals(
             $output,
@@ -710,7 +710,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_vertical_display', $vertical_display);
+        $this->object->__set('vertical_display', $vertical_display);
 
         $this->assertEquals(
             $output,
@@ -756,7 +756,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_vertical_display', $vertical_display);
+        $this->object->__set('vertical_display', $vertical_display);
 
         $_SESSION['tmp_user_values']['repeat_cells'] = 0;
         $this->assertEquals(
@@ -1520,8 +1520,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testIsNeedToSyntaxHighlight($db, $table, $data, $field,  $output)
     {
-        $this->object->__set('_db', $db);
-        $this->object->__set('_table', $table);
+        $this->object->__set('db', $db);
+        $this->object->__set('table', $table);
         $this->object->__set('syntax_highlighting_column_info', $data);
 
         $this->assertEquals(
@@ -1584,8 +1584,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_db', $db);
-        $this->object->__set('_table', $table);
+        $this->object->__set('db', $db);
+        $this->object->__set('table', $table);
 
         $this->assertEquals(
             $output,
@@ -1701,8 +1701,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $this->object->__set('_db', $db);
-        $this->object->__set('_table', $table);
+        $this->object->__set('db', $db);
+        $this->object->__set('table', $table);
 
         $this->assertEquals(
             $output,
@@ -1773,8 +1773,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetRowInfoForSpecialLinks(
         $fields_meta, $fiels_count, $row, $col_order,  $output
     ) {
-        $this->object->__set('_fields_meta', $fields_meta);
-        $this->object->__set('_fields_cnt', $fiels_count);
+        $this->object->__set('fields_meta', $fields_meta);
+        $this->object->__set('fields_cnt', $fiels_count);
 
         $this->assertEquals(
             $output,
@@ -1822,9 +1822,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetShowAllButtonForTableNavigation(
         $db, $table, $goto, $html_sql_query, $output
     ) {
-        $this->object->__set('_db', $db);
-        $this->object->__set('_table', $table);
-        $this->object->__set('_goto', $goto);
+        $this->object->__set('db', $db);
+        $this->object->__set('table', $table);
+        $this->object->__set('goto', $goto);
 
         $this->assertEquals(
             $output,
@@ -1886,7 +1886,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $output,
-            $this->object->__get('_highlight_columns')
+            $this->object->__get('highlight_columns')
         );
     }
 }
