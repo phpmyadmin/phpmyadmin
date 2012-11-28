@@ -1700,7 +1700,7 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     }
 
     if ($column['True_Type'] == 'bit') {
-        $special_chars = PMA_convert_bit_default_value($column['Default']);
+        $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
     } else {
         $special_chars = htmlspecialchars($column['Default']);
     }
