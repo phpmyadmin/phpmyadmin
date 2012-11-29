@@ -459,10 +459,12 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA_Config
  */
-$token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
-if (! PMA_isValid($_REQUEST['token'])
-    || $token_mismatch
-) {
+$token_mismatch = true;
+if (PMA_isValid($_REQUEST['token'])) {
+    $token_mismatch = ($_SESSION[' PMA_token '] != $_REQUEST['token']);
+}
+
+if ($token_mismatch) {
     /**
      *  List of parameters which are allowed from unsafe source
      */
