@@ -356,7 +356,6 @@ $GLOBALS['url_params'] = array();
  */
 $goto_whitelist = array(
     //'browse_foreigners.php',
-    //'calendar.php',
     //'changelog.php',
     //'chk_rel.php',
     'db_create.php',
@@ -382,7 +381,6 @@ $goto_whitelist = array(
     'pdf_schema.php',
     //'phpinfo.php',
     'querywindow.php',
-    //'readme.php',
     'server_binlog.php',
     'server_collations.php',
     'server_databases.php',
