@@ -409,8 +409,7 @@ if ($goto == 'sql.php') {
 /**
  * Go back to further page if table should not be dropped
  */
-$btnDrop = $_REQUEST['btnDrop'];
-if (isset($btnDrop) && $btnDrop == __('No')) {
+if (isset($_REQUEST['btnDrop']) && $_REQUEST['btnDrop'] == __('No')) {
     if (! empty($back)) {
         $goto = $back;
     }
@@ -442,7 +441,7 @@ if (isset($btnDrop) && $btnDrop == __('No')) {
 // dialog, we won't execute the query anyway, so don't confirm
 if (! $cfg['Confirm']
     || isset($_REQUEST['is_js_confirmed'])
-    || isset($btnDrop)
+    || isset($_REQUEST['btnDrop'])
     || isset($GLOBALS['show_as_php'])
     || ! empty($GLOBALS['validatequery'])
 ) {
