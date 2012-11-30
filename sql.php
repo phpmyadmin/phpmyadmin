@@ -459,7 +459,7 @@ if ($do_confirm) {
         $output .= __('You are about to DESTROY a complete database!');
         $output .= '</h1>';
     }
-    $form .= '<form action="sql.php" method="post">';
+    $form  = '<form action="sql.php" method="post">';
     $form .= PMA_generate_common_hidden_inputs($db, $table);
 
     $form .= sprintf(
