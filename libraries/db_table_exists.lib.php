@@ -20,22 +20,31 @@ if (empty($is_db)) {
     if (! $is_db) {
         // not a valid db name -> back to the welcome page
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
-            $url_params = array('reload' => 1);
-            if (isset($message)) {
-                $url_params['message'] = $message;
+            $response = PMA_Response::getInstance();
+            if ($response->isAjax()) {
+                $response->isSuccess(false);
+                $response->addJSON(
+                    'message',
+                    PMA_Message::error(__('No databases selected.'))
+                );
+            } else {
+                $url_params = array('reload' => 1);
+                if (isset($message)) {
+                    $url_params['message'] = $message;
+                }
+                if (! empty($sql_query)) {
+                    $url_params['sql_query'] = $sql_query;
+                }
+                if (isset($show_as_php)) {
+                    $url_params['show_as_php'] = $show_as_php;
+                }
+                PMA_sendHeaderLocation(
+                    $cfg['PmaAbsoluteUri'] . 'index.php'
+                    . PMA_generate_common_url($url_params, '&')
+                );
             }
-            if (! empty($sql_query)) {
-                $url_params['sql_query'] = $sql_query;
-            }
-            if (isset($show_as_php)) {
-                $url_params['show_as_php'] = $show_as_php;
-            }
-            PMA_sendHeaderLocation(
-                $cfg['PmaAbsoluteUri'] . 'index.php'
-                . PMA_generate_common_url($url_params, '&')
-            );
+            exit;
         }
-        exit;
     }
 } // end if (ensures db exists)
 
