@@ -1298,21 +1298,22 @@ AJAX.registerOnload('functions.js', function() {
 
         // These settings are duplicated from the .ready()function in functions.js
         var height = $('#sql_query_edit').css('height');
+        var codemirror_inline_editor = false;
         if (typeof CodeMirror !== 'undefined') {
-            codemirror_editor = CodeMirror.fromTextArea($('textarea[name="sql_query_edit"]')[0], {
+            codemirror_inline_editor = CodeMirror.fromTextArea($('textarea[name="sql_query_edit"]')[0], {
                 lineNumbers: true,
                 matchBrackets: true,
                 indentUnit: 4,
                 mode: "text/x-mysql",
                 lineWrapping: true
             });
-            codemirror_editor.getScrollerElement().style.height = height;
-            codemirror_editor.refresh();
+            codemirror_inline_editor.getScrollerElement().style.height = height;
+            codemirror_inline_editor.refresh();
         }
 
         $("input.btnSave").click(function() {
-            if (codemirror_editor) {
-                var sql_query = codemirror_editor.getValue();
+            if (codemirror_inline_editor) {
+                var sql_query = codemirror_inline_editor.getValue();
             } else {
                 var sql_query = $(this).prev().val();
             }
@@ -3325,6 +3326,12 @@ AJAX.registerOnload('functions.js', function() {
             mode: "text/x-mysql",
             lineWrapping: true
         });
+    }
+});
+AJAX.registerTeardown('functions.js', function() {
+    if (codemirror_editor) {
+        codemirror_editor.toTextArea();
+        codemirror_editor = false;
     }
 });
 
