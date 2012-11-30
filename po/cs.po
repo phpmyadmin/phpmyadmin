@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-21 15:24+0200\n"
+"PO-Revision-Date: 2012-11-30 09:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -5288,11 +5288,11 @@ msgstr "Opakovat záhlaví"
 
 #: libraries/config/messages.inc.php:360
 msgid "Grid editing: trigger action"
-msgstr "Editační mřížka: činnost pro spuštění"
+msgstr "Úpravy v mřížce: činnost pro spuštění"
 
 #: libraries/config/messages.inc.php:361
 msgid "Grid editing: save all edited cells at once"
-msgstr "Editační mřížka: Uložit všechny upravené buňky najednou"
+msgstr "Úpravy v mřížce: Uložit všechny upravené buňky najednou"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
