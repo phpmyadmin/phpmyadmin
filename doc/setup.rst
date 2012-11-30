@@ -344,9 +344,12 @@ Signon authentication mode
   application to authenticate to phpMyAdmin.
 * The other application has to store login information into session
   data.
-* More details in the  section.
 
-.. seealso:: :config:option:`$cfg['Servers'][$i]['SignonSession']` :config:option:`$cfg['Servers'][$i]['SignonScript']` :config:option:`$cfg['Servers'][$i]['SignonURL']`
+.. seealso::
+    :config:option:`$cfg['Servers'][$i]['auth_type']`,
+    :config:option:`$cfg['Servers'][$i]['SignonSession']`,
+    :config:option:`$cfg['Servers'][$i]['SignonScript']`,
+    :config:option:`$cfg['Servers'][$i]['SignonURL']`
 
 
 .. index:: pair: Config; Authentication mode
