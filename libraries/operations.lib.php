@@ -1444,7 +1444,7 @@ function PMA_getQueryAndResultForReorderingTable()
  */
 function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $tbl_storage_engine, $transactional, $tbl_collation
+    $is_pbxt, $row_format, $new_tbl_storage_engine, $transactional, $tbl_collation
 ) {
     $table_alters = array();
 
@@ -1454,10 +1454,10 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
-    if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
+    if (! empty($new_tbl_storage_engine)
+        && strtolower($new_tbl_storage_engine) !== strtolower($GLOBALS['tbl_storage_engine'])
     ) {
-        $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_storage_engine'];
+        $table_alters[] = 'ENGINE = ' . $new_tbl_storage_engine;
     }
     if (! empty($_REQUEST['tbl_collation'])
         && $_REQUEST['tbl_collation'] !== $tbl_collation

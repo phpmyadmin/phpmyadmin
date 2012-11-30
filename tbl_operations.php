@@ -110,11 +110,11 @@ if (isset($_REQUEST['submitoptions'])) {
         && strtolower($_REQUEST['new_tbl_storage_engine'])
             !== strtolower($tbl_storage_engine)
     ) {
-        $tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
+        $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
         list($is_myisam_or_aria, $is_innodb, $is_isam,
             $is_berkeleydb, $is_aria, $is_pbxt
-        ) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
+        ) = PMA_setGlobalVariablesForEngine($new_tbl_storage_engine);
 
         if ($is_aria) {
             $transactional = (isset($transactional) && $transactional == '0')
@@ -131,7 +131,7 @@ if (isset($_REQUEST['submitoptions'])) {
         ((isset($page_checksum)) ? $page_checksum : ''),
         (empty($delay_key_write) ? '0' : '1'),
         $is_innodb, $is_pbxt, $row_format,
-        $tbl_storage_engine,
+        $new_tbl_storage_engine,
         ((isset($transactional) && $transactional == '0') ? '0' : '1'),
         $tbl_collation
     );

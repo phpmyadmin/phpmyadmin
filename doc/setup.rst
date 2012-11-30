@@ -253,7 +253,7 @@ For ':term:`HTTP`' and 'cookie' modes, phpMyAdmin needs a controluser that has
 **only** the ``SELECT`` privilege on the *`mysql`.`user` (all columns except
 `Password`)*, *`mysql`.`db` (all columns)*, *`mysql`.`host` (all columns)* and
 *`mysql`.`tables\_priv` (all columns except `Grantor` and `Timestamp`)* tables.
-You must specify the details for the controluser  in the :file:`config.inc.php`
+You must specify the details for the controluser in the :file:`config.inc.php`
 file under the :config:option:`$cfg['Servers'][$i]['controluser']` and
 :config:option:`$cfg['Servers'][$i]['controlpass']` settings. The following
 example assumes you want to use ``pma`` as the controluser and ``pmapass`` as
@@ -332,7 +332,7 @@ Cookie authentication mode
 * With this mode, the user can truly log out of phpMyAdmin and log in
   back with the same username.
 * If you want to log in to arbitrary server see :config:option:`$cfg['AllowArbitraryServer']` directive.
-* As mentioned in the  section, having the ``mcrypt`` extension will
+* As mentioned in the :ref:`require` section, having the ``mcrypt`` extension will
   speed up access considerably, but is not required.
 
 .. index:: pair: Signon; Authentication mode
@@ -344,9 +344,12 @@ Signon authentication mode
   application to authenticate to phpMyAdmin.
 * The other application has to store login information into session
   data.
-* More details in the  section.
 
-.. seealso:: :config:option:`$cfg['Servers'][$i]['SignonSession']` :config:option:`$cfg['Servers'][$i]['SignonScript']` :config:option:`$cfg['Servers'][$i]['SignonURL']`
+.. seealso::
+    :config:option:`$cfg['Servers'][$i]['auth_type']`,
+    :config:option:`$cfg['Servers'][$i]['SignonSession']`,
+    :config:option:`$cfg['Servers'][$i]['SignonScript']`,
+    :config:option:`$cfg['Servers'][$i]['SignonURL']`
 
 
 .. index:: pair: Config; Authentication mode
