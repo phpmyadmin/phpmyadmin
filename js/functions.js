@@ -3317,9 +3317,9 @@ AJAX.registerOnload('functions.js', function() {
  * Attach CodeMirror2 editor to SQL edit area.
  */
 AJAX.registerOnload('functions.js', function() {
-    var elm = $('#sqlquery');
-    if (elm.length > 0 && typeof CodeMirror != 'undefined') {
-        codemirror_editor = CodeMirror.fromTextArea(elm[0], {
+    var $elm = $('#sqlquery');
+    if ($elm.length > 0 && typeof CodeMirror != 'undefined') {
+        codemirror_editor = CodeMirror.fromTextArea($elm[0], {
             lineNumbers: true,
             matchBrackets: true,
             indentUnit: 4,
