@@ -443,12 +443,6 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         exit(json_encode($return));
     }
-
-    if (isset($_REQUEST['advisor'])) {
-        include 'libraries/Advisor.class.php';
-        $advisor = new Advisor();
-        exit(json_encode($advisor->run()));
-    }
 }
 
 
@@ -830,9 +824,9 @@ echo '<li><a href="#statustabs_allvars">'
     . __('All status variables') . '</a></li>';
 echo '<li class="jsfeature"><a href="#statustabs_charting">'
     . __('Monitor') . '</a></li>';
-echo '<li class="jsfeature"><a href="#statustabs_advisor">'
-    . __('Advisor') . '</a></li>';
 echo '</ul>';
+echo '<a href="server_status_advisor.php?' . PMA_generate_common_url() . '">'
+    . __('Advisor') . '</a>';
 
 echo '<div id="statustabs_traffic" class="clearfloat">';
 echo '<div class="buttonlinks jsfeature">';
@@ -958,29 +952,6 @@ echo '<div id="statustabs_charting" class="jsfeature">';
 printMonitor();
 echo '</div>';
 
-echo '<div id="statustabs_advisor" class="jsfeature">';
-echo '<div class="tabLinks">';
-echo PMA_Util::getImage('play.png');
-echo '<a href="#startAnalyzer">' . __('Run analyzer') . '</a>';
-echo PMA_Util::getImage('b_help.png');
-echo '<a href="#openAdvisorInstructions">' . __('Instructions') . '</a>';
-echo '</div>';
-echo '<div class="tabInnerContent clearfloat">';
-echo '</div>';
-echo '<div id="advisorInstructionsDialog" style="display:none;">';
-
-echo '<p>';
-echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
-echo '</p> <p>';
-echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
-echo '</p> <p>';
-echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
-echo '</p> <p>';
-echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
-echo '</p>';
-
-echo '</div>';
-echo '</div>';
 echo '</div>';
 echo '</div>';
 

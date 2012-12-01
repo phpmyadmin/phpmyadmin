@@ -36,8 +36,6 @@ AJAX.registerTeardown('server_status.js', function() {
     $('#filterText').unbind('keyup');
     $('#filterCategory').unbind('change');
     $('input#dontFormat').unbind('change');
-    $('a[href="#openAdvisorInstructions"]').unbind('click');
-    $('a[href="#startAnalyzer"]').unbind('click');
 });
 
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
@@ -202,14 +200,6 @@ AJAX.registerOnload('server_status.js', function() {
                 }, 50);
 
                 monitorLoaded = true;
-            }
-
-            // Run the advisor immediately when the user clicks the tab, but only when this is the first time
-            if (ui.tab.hash == '#statustabs_advisor' && $('table#rulesFired').length == 0) {
-                // Start with a small delay because the click event hasn't been setup yet
-                setTimeout(function() {
-                    $('a[href="#startAnalyzer"]').trigger('click');
-                }, 25);
             }
         }
     });
@@ -738,87 +728,6 @@ AJAX.registerOnload('server_status.js', function() {
 
         return pointInfo;
     }
-
-    /**** Server config advisor ****/
-
-    $('a[href="#openAdvisorInstructions"]').click(function() {
-        var dlgBtns = {};
-
-        dlgBtns[PMA_messages['strClose']] = function() {
-            $(this).dialog('close');
-        };
-
-        $('#advisorInstructionsDialog').attr('title', PMA_messages['strAdvisorSystem']);
-        $('#advisorInstructionsDialog').dialog({
-            width: 700,
-            buttons: dlgBtns
-        });
-    });
-
-    $('a[href="#startAnalyzer"]').click(function() {
-        var $cnt = $('#statustabs_advisor .tabInnerContent');
-        $cnt.html('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
-
-        $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
-            var $tbody, $tr, str, even = true;
-
-            data = $.parseJSON(data.message);
-
-            $cnt.html('');
-
-            if (data.parse.errors.length > 0) {
-                $cnt.append('<b>Rules file not well formed, following errors were found:</b><br />- ');
-                $cnt.append(data.parse.errors.join('<br/>- '));
-                $cnt.append('<p></p>');
-            }
-
-            if (data.run.errors.length > 0) {
-                $cnt.append('<b>Errors occured while executing rule expressions:</b><br />- ');
-                $cnt.append(data.run.errors.join('<br/>- '));
-                $cnt.append('<p></p>');
-            }
-
-            if (data.run.fired.length > 0) {
-                $cnt.append('<p><b>' + PMA_messages['strPerformanceIssues'] + '</b></p>');
-                $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
-                            '<th>' + PMA_messages['strIssuse'] + '</th><th>' + PMA_messages['strRecommendation'] +
-                            '</th></tr></thead><tbody></tbody></table>');
-                $tbody = $cnt.find('table#rulesFired');
-
-                var rc_stripped;
-
-                $.each(data.run.fired, function(key, value) {
-                    // recommendation may contain links, don't show those in overview table (clicking on them redirects the user)
-                    rc_stripped = $.trim($('<div>').html(value.recommendation).text());
-                    $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' +
-                                            value.issue + '</td><td>' + rc_stripped + ' </td></tr>'));
-                    even = !even;
-                    $tr.data('rule', value);
-
-                    $tr.click(function() {
-                        var rule = $(this).data('rule');
-                        $('div#emptyDialog').dialog({title: PMA_messages['strRuleDetails']});
-                        $('div#emptyDialog').html(
-                            '<p><b>' + PMA_messages['strIssuse'] + ':</b><br />' + rule.issue + '</p>' +
-                            '<p><b>' + PMA_messages['strRecommendation'] + ':</b><br />' + rule.recommendation + '</p>' +
-                            '<p><b>' + PMA_messages['strJustification'] + ':</b><br />' + rule.justification + '</p>' +
-                            '<p><b>' + PMA_messages['strFormula'] + ':</b><br />' + rule.formula + '</p>' +
-                            '<p><b>' + PMA_messages['strTest'] + ':</b><br />' + rule.test + '</p>'
-                        );
-
-                        var dlgBtns = {};
-                        dlgBtns[PMA_messages['strClose']] = function() {
-                            $(this).dialog('close');
-                        };
-
-                        $('div#emptyDialog').dialog({ width: 600, buttons: dlgBtns });
-                    });
-                });
-            }
-        });
-
-        return false;
-    });
 });
 
 
