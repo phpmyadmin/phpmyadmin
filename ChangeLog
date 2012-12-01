@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3586389 [setup] Cannot switch language in /setup
 - bug #3585695 [CSS] Font size in inline query editor is way too big
 - bug #3588354 [l10n] Portuguese Language not displaying correctly
+- bug #3591412 [status] Live charts don't work for non-default server
 
 3.5.4.0 (2012-11-16)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

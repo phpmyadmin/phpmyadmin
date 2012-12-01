@@ -334,6 +334,7 @@ $(function() {
             type: 'post',
             data: {
                 'token' : window.parent.token,
+                'server' : window.parent.server,
                 'ajax_request' : true,
                 'chart_data' : true,
                 'type' : type
