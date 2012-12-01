@@ -3330,6 +3330,7 @@ AJAX.registerOnload('functions.js', function() {
 });
 AJAX.registerTeardown('functions.js', function() {
     if (codemirror_editor) {
+        $('#sqlquery').text(codemirror_editor.getValue());
         codemirror_editor.toTextArea();
         codemirror_editor = false;
     }
