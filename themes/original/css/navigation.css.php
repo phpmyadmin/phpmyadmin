@@ -26,6 +26,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php echo $left; ?>: 0;
     height: 100%;
     border-<?php echo $right; ?>: 1px solid gray;
+    z-index: 800;
 }
 
 #pma_navigation_content {
