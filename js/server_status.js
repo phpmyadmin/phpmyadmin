@@ -374,6 +374,7 @@ AJAX.registerOnload('server_status.js', function() {
             type: 'post',
             data: {
                 'token' : PMA_commonParams.get('token'),
+                'server' : PMA_commonParams.get('server'),
                 'ajax_request' : true,
                 'chart_data' : true,
                 'type' : type
