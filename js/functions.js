@@ -25,9 +25,14 @@ var only_once_elements = new Array();
 var ajax_message_count = 0;
 
 /**
- * @var codemirror_editor object containing CodeMirror editor
+ * @var codemirror_editor object containing CodeMirror editor of the query editor in SQL tab
  */
 var codemirror_editor = false;
+
+/**
+ * @var codemirror_editor object containing CodeMirror editor of the inline query editor
+ */
+var codemirror_inline_editor = false;
 
 /**
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
@@ -1268,17 +1273,27 @@ function pdfPaperSize(format, axis)
  */
 AJAX.registerTeardown('functions.js', function() {
     $("a.inline_edit_sql").die('click');
-    $("input.btnSave").unbind('click');
-    $("input.btnDiscard").unbind('click');
+    $("input#sql_query_edit_save").die('click');
+    $("input#sql_query_edit_discard").die('click');
     $('input.sqlbutton').unbind('click');
     $("#export_type").unbind('change');
     $('#sqlquery').unbind('keydown');
+
+    if (codemirror_inline_editor) {
+        // Copy the sql query to the text area to preserve it.
+        $('#sql_query_edit').text(codemirror_inline_editor.getValue());
+        codemirror_inline_editor.toTextArea();
+        codemirror_inline_editor = false;
+    }
 });
 
 /**
  * Jquery Coding for inline editing SQL_QUERY
  */
 AJAX.registerOnload('functions.js', function() {
+    // If we are coming back to the page by clicking forward button 
+    // of the browser, bind the code mirror to inline query editor.
+    bindCodeMirrorToInlineEditor();
     $("a.inline_edit_sql").live('click', function() {
         if ($('#sql_query_edit').length) {
             // An inline query editor is already open,
@@ -1286,47 +1301,45 @@ AJAX.registerOnload('functions.js', function() {
             return false;
         }
 
-        var $form = $(this).prev();
+        var $form = $(this).prev('form');
         var sql_query  = $form.find("input[name='sql_query']").val();
         var $inner_sql = $(this).parent().prev().find('.inner_sql');
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += "<input type=\"submit\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
-        new_content    += "<input type=\"button\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
-        $inner_sql.replaceWith(new_content);
+        new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
+        new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
+        var $editor_area = $('div#inline_editor');
+        if ($editor_area.length == 0) {
+            $editor_area = $('<div id="inline_editor_outer"></div>');
+            $editor_area.insertBefore($inner_sql);
+        }
+        $editor_area.html(new_content);
+        $inner_sql.hide();
 
-        // These settings are duplicated from the .ready()function in functions.js
-        var height = $('#sql_query_edit').css('height');
-        var codemirror_inline_editor = false;
-        if (typeof CodeMirror !== 'undefined') {
-            codemirror_inline_editor = CodeMirror.fromTextArea($('textarea[name="sql_query_edit"]')[0], {
-                lineNumbers: true,
-                matchBrackets: true,
-                indentUnit: 4,
-                mode: "text/x-mysql",
-                lineWrapping: true
-            });
-            codemirror_inline_editor.getScrollerElement().style.height = height;
-            codemirror_inline_editor.refresh();
+        bindCodeMirrorToInlineEditor();
+        return false;
+    });
+
+    $("input#sql_query_edit_save").live('click', function() {
+        if (codemirror_inline_editor) {
+            var sql_query = codemirror_inline_editor.getValue();
+        } else {
+            var sql_query = $(this).prev().val();
         }
 
-        $("input.btnSave").click(function() {
-            if (codemirror_inline_editor) {
-                var sql_query = codemirror_inline_editor.getValue();
-            } else {
-                var sql_query = $(this).prev().val();
-            }
-            var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
-                    .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
-                    .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
-                    .append($('<input>', {type: 'hidden', name: 'sql_query', value: sql_query}));
-            $fake_form.appendTo($('body')).submit();
-        });
-        $("input.btnDiscard").click(function() {
-            $(this).closest(".sql").html("<span class=\"syntax\"><span class=\"inner_sql\">" + old_text + "</span></span>");
-        });
-        return false;
+        $form = $("a.inline_edit_sql").prev('form');
+        var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
+                .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
+                .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
+                .append($('<input>', {type: 'hidden', name: 'sql_query', value: sql_query}));
+        $fake_form.appendTo($('body')).submit();
+    });
+
+    $("input#sql_query_edit_discard").live('click', function() {
+        $('div#inline_editor_outer')
+            .empty()
+            .siblings('.inner_sql').show();
     });
 
     $('input.sqlbutton').click(function(evt) {
@@ -1387,6 +1400,25 @@ AJAX.registerOnload('functions.js', function() {
         }
     }
 });
+
+/**
+ * Binds the CodeMirror to the text area used to inline edit a query.
+ */
+function bindCodeMirrorToInlineEditor() {
+    var $inline_editor = $('textarea[name="sql_query_edit"]');
+    if ($inline_editor.length > 0 && typeof CodeMirror !== 'undefined') {
+        var height = $('#sql_query_edit').css('height');
+        codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            mode: "text/x-mysql",
+            lineWrapping: true
+        });
+        codemirror_inline_editor.getScrollerElement().style.height = height;
+        codemirror_inline_editor.refresh();
+    }
+}
 
 /**
  * Show a message on the top of the page for an Ajax request
