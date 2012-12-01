@@ -3570,30 +3570,6 @@ AJAX.registerTeardown('functions.js', function() {
 
 AJAX.registerOnload('functions.js', function() {
     $('input#print').click(printPage);
-
-    /**
-     * Makes the breadcrumbs and the menu bar float at the top of the viewport
-     */
-    if ($("#floating_menubar").length && $('#PMA_disable_floating_menubar').length == 0) {
-        var left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
-        $("#floating_menubar")
-            .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
-            .css(left, 0)
-            .css({
-                'position': 'fixed',
-                'top': 0,
-                'width': '100%',
-                'z-index': 500
-            })
-            .append($('#serverinfo'))
-            .append($('#topmenucontainer'));
-        $('body').css(
-            'padding-top',
-            $('#floating_menubar').outerHeight(true)
-        );
-        $('#topmenu').menuResizer('resize');
-    }
-
     /**
      * Ajaxification for the "Create View" action
      */
@@ -3664,6 +3640,34 @@ function PMA_createViewDialog($this)
         }
     });
 }
+
+/**
+ * Makes the breadcrumbs and the menu bar float at the top of the viewport
+ */
+$(function () {
+    if ($("#floating_menubar").length && $('#PMA_disable_floating_menubar').length == 0) {
+        var left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
+        $("#floating_menubar")
+            .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
+            .css(left, 0)
+            .css({
+                'position': 'fixed',
+                'top': 0,
+                'width': '100%',
+                'z-index': 500
+            })
+            .append($('#serverinfo'))
+            .append($('#topmenucontainer'));
+        // Allow the DOM to render, then adjust the padding on the body
+        setTimeout(function () {
+            $('body').css(
+                'padding-top',
+                $('#floating_menubar').outerHeight(true)
+            );
+            $('#topmenu').menuResizer('resize');
+        }, 4);
+    }
+});
 
 /**
  * Watches checkboxes in a form to set the checkall box accordingly

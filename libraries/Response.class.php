@@ -294,7 +294,7 @@ class PMA_Response
             unset($this->_JSON['message']);
         }
 
-        if ($this->_isAjaxPage) {
+        if ($this->_isAjaxPage && $this->_isSuccess) {
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
             $menuHash = $this->getHeader()->getMenu()->getHash();
