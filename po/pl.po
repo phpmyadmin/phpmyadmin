@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 16:10+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-12-03 02:03+0200\n"
+"Last-Translator: Stefan Wajda <zwiastun@zwiastun.net>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/3-5/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -347,8 +347,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Przechowywanie konfiguracji phpMyAdmin została wyłączona. Aby dowiedzieć "
-"się, dlaczego kliknij %stutaj%s."
+"Przechowywanie konfiguracji phpMyAdmin zostało wyłączone. Aby dowiedzieć się "
+"dlaczego, kliknij %stutaj%s."
 
 #: db_operations.php:595
 msgid "Edit or export relational schema"
@@ -784,7 +784,7 @@ msgstr "aktywny"
 
 #: db_tracking.php:122 tbl_tracking.php:607 tbl_tracking.php:665
 msgid "not active"
-msgstr "nie aktywny"
+msgstr "nieaktywny"
 
 #: db_tracking.php:135
 msgid "Versions"
@@ -1075,7 +1075,7 @@ msgstr "Masz zamiar ZNISZCZYĆ całą bazę danych!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "Masz zamiar ZNISZCZYĆ kompletną tabelę!"
+msgstr "Masz zamiar ZNISZCZYĆ całą tabelę!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
@@ -1547,7 +1547,7 @@ msgstr "Analizowanie logów"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Analiza & wczytywanie dzienników. To może trochę potrwać ..."
+msgstr "Analiza i wczytywanie dzienników. To może trochę potrwać ..."
 
 #: js/messages.php:178
 msgid "Cancel request"
@@ -1641,7 +1641,7 @@ msgstr "Filtr"
 
 #: js/messages.php:202
 msgid "Filter queries by word/regexp:"
-msgstr "Filtr zapytań porzez wyraz / wyrażenie regularne:"
+msgstr "Filtr zapytań poprzez wyraz / wyrażenie regularne:"
 
 #: js/messages.php:203
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1669,9 +1669,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
-"Choć żądanie nowych danych wykresu serwer zwrócił nieprawidłową odpowiedź. "
-"To jest najbardziej prawdopodobne, ponieważ Twoja sesja wygasła. Odświeżenie "
-"strony i ponownego wprowadzania poświadczenia powinno pomóc."
+"Podczas żądania nowych danych wykresu serwer zwrócił nieprawidłową "
+"odpowiedź. To jest najbardziej prawdopodobne, ponieważ Twoja sesja wygasła. "
+"Odświeżenie strony i ponownego wprowadzania poświadczenia powinno pomóc."
 
 #: js/messages.php:210
 msgid "Reload page"
@@ -1766,7 +1766,7 @@ msgstr "Błąd przetwarzania wywołania"
 
 #: js/messages.php:242
 msgid "Dropping Column"
-msgstr "Usuwanie Kolumny"
+msgstr "Usuwanie kolumny"
 
 #: js/messages.php:243
 msgid "Adding Primary Key"
@@ -1836,7 +1836,7 @@ msgstr "Usuwanie"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "Definicja przechowywania funkcji musi zawierać deklaracje RETURN!"
+msgstr "Definicja przechowywania funkcji musi zawierać deklarację RETURN!"
 
 #: js/messages.php:276
 #, php-format
@@ -1909,7 +1909,7 @@ msgstr ""
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
-msgstr "liknij link by zresetować powiększenie i wrócić do pierwotnego stanu."
+msgstr "Kliknij link, by zresetować powiększenie i wrócić do pierwotnego stanu."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1973,7 +1973,7 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"Nie zapisano zmian w układzie. Zostaną utracone, jeśli nie zapiszesz ich. "
+"Nie zapisano zmian w układzie. Zostaną utracone, jeśli ich nie zapiszesz. "
 "Czy chcesz kontynuować?"
 
 #: js/messages.php:344
@@ -1982,7 +1982,7 @@ msgstr "Dodaj opcję do kolumny "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr "Naciśnij ESCAPE aby anulować edycję"
+msgstr "Naciśnij ESCAPE, aby anulować edycję"
 
 #: js/messages.php:348
 msgid ""
@@ -2006,7 +2006,7 @@ msgstr "Kliknij, aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:352
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr "Kliknij rozwijane strzałki <br/> aby przełączyć widoczność kolumn"
+msgstr "Kliknij rozwijane strzałki, <br/> aby przełączyć widoczność kolumn"
 
 #: js/messages.php:354
 msgid ""
@@ -2021,7 +2021,7 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
-"Można także edytować większość kolumn <br /> klikając bezpośrednio na ich "
+"Można także edytować większość kolumn, <br /> klikając bezpośrednio na ich "
 "treść."
 
 #: js/messages.php:356
@@ -2051,7 +2051,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "Dostępna jest nowa wersja phpMyAdmina, należy rozważyć aktualizację. Nowa "
-"werja to %s, wydana dnia %s."
+"wersja to %s, wydana dnia %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:369
@@ -3140,7 +3140,7 @@ msgstr "Własna - wyświetl wszystkie opcje konfiguracyjne"
 
 #: libraries/config.values.php:105
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr "Własna - jak wyżej, ale bez wyboru szybkiego/włąsnego"
+msgstr "Własna - jak wyżej, ale bez wyboru szybkiego/własnego"
 
 #: libraries/config.values.php:123
 msgid "complete inserts"
@@ -3330,14 +3330,15 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
+#, fuzzy
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Określa jaki rodzaj pól edycyjnych powinna zostać użyta do kolumn typu CHAR "
-"i VARCHAR; [kbd]input[/kbd] - umożliwia ograniczenie długości wejściowych, "
-"[kbd]textarea[/kbd] - pozwala nowej linii w kolumnach"
+"Określa, jaki rodzaj pól edycyjnych powinien zostać użyty do kolumn typu "
+"CHAR i VARCHAR; [kbd]input[/kbd] - umożliwia ograniczenie długości "
+"wejściowych, [kbd]textarea[/kbd] - pozwala nowej linii w kolumnach"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3393,7 +3394,7 @@ msgid ""
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
 "Kompresuje eksporty gzip/bzip2 w locie, bez dużego zapotrzebowania na "
-"pamięć; w przypadku wystąpienia problemów z tworzonymi plikami gzip/bzip2, "
+"pamięć; w przypadku wystąpienia problemów z tworzonymi plikami gzip/bzip2 "
 "należy wyłączyć tę funkcję"
 
 #: libraries/config/messages.inc.php:44
@@ -3729,7 +3730,7 @@ msgstr "Porządek sortowania kluczy obcych"
 
 #: libraries/config/messages.inc.php:154
 msgid "A dropdown will be used if fewer items are present"
-msgstr "Jeśli jest mniej pozycji zostanie użyta lista wyboru"
+msgstr "Jeśli jest mniej pozycji, zostanie użyta lista wyboru"
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
@@ -3917,7 +3918,7 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
-"Zaawansowane ustawienia serwera; nie zmieniaj ich jeżeli nie jesteś pewien "
+"Zaawansowane ustawienia serwera; nie zmieniaj ich, jeżeli nie jesteś pewien "
 "ich znaczenia"
 
 #: libraries/config/messages.inc.php:205
@@ -3934,9 +3935,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Konfiguracja pamięcimagazywnowania konfiguracji phpMyAdmin, aby uzyskać "
-"dostęp do dodatkowych opcji, patrz [a@Documentation.html#linked-tables]"
-"przechowywanie konfiguracji phpMyAdmin[/a] w dokumentacji"
+"Konfiguracja pamięci magazynowania konfiguracji phpMyAdmin, aby uzyskać "
+"dostęp do dodatkowych opcji, patrz [a@Documentation.html#linked-"
+"tables]przechowywanie konfiguracji phpMyAdmin[/a] w dokumentacji"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
@@ -4125,7 +4126,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
-msgstr "Ilość zapytań aby przejść od początku"
+msgstr "Ilość zapytań, aby przejść od początku"
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
@@ -4141,7 +4142,7 @@ msgstr "Początkowy stan pasków przesuwania"
 
 #: libraries/config/messages.inc.php:267
 msgid "How many rows can be inserted at one time"
-msgstr "Pokazuje ile wierszy może zostać wstawionych w jednym czasie"
+msgstr "Pokazuje, ile wierszy może zostać wstawionych w jednym czasie"
 
 #: libraries/config/messages.inc.php:268
 msgid "Number of inserted rows"
@@ -4149,7 +4150,7 @@ msgstr "Liczba wstawianych wierszy"
 
 #: libraries/config/messages.inc.php:269
 msgid "Target for quick access icon"
-msgstr "Cel dla szybkie ikona dostępu"
+msgstr "Cel dla ikony szybkiego dostępu"
 
 #: libraries/config/messages.inc.php:270
 msgid "Show logo in left frame"
@@ -4386,7 +4387,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
-msgstr "ostrzeżenie mcrypt"
+msgstr "Ostrzeżenie mcrypt"
 
 #: libraries/config/messages.inc.php:319
 msgid ""
@@ -4410,7 +4411,7 @@ msgstr "Gdzie wyświetlić linki wiersza tabeli"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
-msgstr "Użyj naturalnego porządeku do sortowania nazw tabeli i bazy danych"
+msgstr "Użyj naturalnego porządku do sortowania nazw tabeli i bazy danych"
 
 #: libraries/config/messages.inc.php:324
 msgid "Natural order"
@@ -4443,7 +4444,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
-msgstr "Domyslny porządek sortowania"
+msgstr "Domyślny porządek sortowania"
 
 #: libraries/config/messages.inc.php:331
 msgid "Use persistent connections to MySQL databases"
@@ -4485,7 +4486,7 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Włącz jeśli chcesz DB oparte na historii zapytań (phpMyAdmin wymaga "
+"Włącz, jeśli chcesz DB oparte na historii zapytań (phpMyAdmin wymaga "
 "przechowywania konfiguracji). Jeśli jest wyłączona, to korzysta z JS-"
 "procedury, aby wyświetlić historię zapytań (utracone przez zamknięte okna)."
 
@@ -4527,7 +4528,7 @@ msgstr "Szerokość pola zapytania"
 
 #: libraries/config/messages.inc.php:350
 msgid "Select which functions will be used for character set conversion"
-msgstr "Wybierz funckje, które będą użyte do konwersji kodowania znaków"
+msgstr "Wybierz funkcje, które będą użyte do konwersji kodowania znaków"
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
@@ -4535,7 +4536,7 @@ msgstr "Konwersja silnika"
 
 #: libraries/config/messages.inc.php:352
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr "Podczas przeglądania tabel, sortowanie każdej tabeli jest pamiętany"
+msgstr "Podczas przeglądania tabel, sortowanie każdej tabeli jest pamiętane"
 
 #: libraries/config/messages.inc.php:353
 msgid "Remember table's sorting"
@@ -4552,7 +4553,7 @@ msgstr "Powtórz nagłówki"
 
 #: libraries/config/messages.inc.php:356
 msgid "Show help button instead of Documentation text"
-msgstr "Pokaż przycisk pomoc zamiast tekstu Dokumentacji"
+msgstr "Pokaż przycisk Pomoc zamiast tekstu Dokumentacji"
 
 #: libraries/config/messages.inc.php:357
 msgid "Show help button"
@@ -4584,7 +4585,7 @@ msgstr "Pozostaw puste, aby użyć wartości domyślnych"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization rules"
-msgstr "Zasady autoryzacji Hosta"
+msgstr "Zasady autoryzacji hosta"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
@@ -4759,7 +4760,7 @@ msgstr "Tabela historii zapytań SQL"
 
 #: libraries/config/messages.inc.php:399
 msgid "Hostname where MySQL server is running"
-msgstr "Nazwa hosta na którym uruchomiony jest serwer MySQL"
+msgstr "Nazwa hosta, na którym uruchomiony jest serwer MySQL"
 
 #: libraries/config/messages.inc.php:400
 msgid "Server hostname"
@@ -4844,7 +4845,7 @@ msgstr "Nazwa bazy danych"
 #: libraries/config/messages.inc.php:414
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Port na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną"
+"Port, na którym nasłuchuje serwer MySQL, pole puste oznacza wartość domyślną"
 
 #: libraries/config/messages.inc.php:415
 msgid "Server port"
@@ -4956,8 +4957,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Czy sprawoadanie DROP DATABASE IF EXISTS zostanie dodany jako pierwsza linia "
-"w dzienniku podczas tworzenia bazy danych."
+"Czy podczas tworzenia bazy danych polecenie DROP DATABASE IF EXISTS zostanie "
+"dodane jako pierwsza linia w dzienniku."
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
@@ -4968,7 +4969,7 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Czy sprawoadanie DROP TABLE IF EXISTS zostanie dodany jako pierwsza linia w "
+"Czy polecenie DROP TABLE IF EXISTS zostanie dodane jako pierwsza linia w "
 "dzienniku podczas tworzenia tabeli."
 
 #: libraries/config/messages.inc.php:438
@@ -4980,7 +4981,7 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Czy sprawozdanie DROP VIEW IF EXISTS zostanie dodany jako pierwsza linia w "
+"Czy polecenie DROP VIEW IF EXISTS zostanie dodane jako pierwsza linia w "
 "dzienniku podczas tworzenia widoku."
 
 #: libraries/config/messages.inc.php:440
@@ -5040,7 +5041,7 @@ msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
-"Dezaktywuj jeśli jesteś pewien, że tabele pma_* są zaktualizowane. To "
+"Dezaktywuj, jeśli jesteś pewien, że tabele pma_* są zaktualizowane. To "
 "zapobiega ciągłemu sprawdzaniu kompatybilności, przez co zwiększa wydajność"
 
 #: libraries/config/messages.inc.php:452
@@ -5105,8 +5106,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
-"Określa czy typ pola powinny być początkowo wyświetlany w trybie edycji/"
-"wstawiania"
+"Określa, czy typ pola powinny być początkowo wyświetlany w trybie "
+"edycji/wstawiania"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
@@ -5365,7 +5366,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
-msgstr "Włącz zakładkę Developerską w ustawieniach"
+msgstr "Włącz zakładkę deweloperską w ustawieniach"
 
 #: libraries/config/messages.inc.php:519
 msgid ""
@@ -5374,7 +5375,7 @@ msgid ""
 "contain."
 msgstr ""
 "Pokaż przetworzone wiersze każdej instrukcji w wielokrotnych zapytaniach. "
-"Zobacz libraries/import.lib.php, aby dowiedzieć się ile instrukcja może "
+"Zobacz libraries/import.lib.php, aby dowiedzieć się, ile instrukcja może "
 "domyślnie zawierać zapytań."
 
 #: libraries/config/messages.inc.php:520
@@ -5387,7 +5388,7 @@ msgstr "Sprawdź, czy jest nowsza wersja"
 
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "Włącza sprawdzanie czy są aktualizacje phpMyAdmin"
+msgstr "Włącza sprawdzanie, czy są aktualizacje phpMyAdmin"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
@@ -5411,7 +5412,7 @@ msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "Uwierzytelnianie w pliku configuracyjnym"
+msgstr "Uwierzytelnianie w pliku konfiguracyjnym"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
@@ -5723,7 +5724,7 @@ msgstr "Zapisz wynik do pliku"
 
 #: libraries/display_export.lib.php:222
 msgid "File name template:"
-msgstr "Nazwa pliku szablonu:"
+msgstr "Szablon nazwy pliku:"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
@@ -5745,9 +5746,9 @@ msgid ""
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Wartość ta jest interpretowana za pomocą %1$sstrftime%2$s, dzięki czemu "
-"można używać wartości czsu formatowania. Dodatkowo po transformacji stanie "
-"się: %3$s. Inne teksty będą przechowywane tak jak są. Zobacz szczegóły w "
-"%4$sFAQ%5$s."
+"można używać wartości czasu formatowania. Dodatkowo po transformacji stanie "
+"się: %3$s. Inne teksty będą przechowywane tak, jak zostaną wstawione. Zobacz "
+"szczegóły w %4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -5785,7 +5786,7 @@ msgstr "Format:"
 
 #: libraries/display_export.lib.php:333
 msgid "Format-specific options:"
-msgstr "Specyficzne opcje format:"
+msgstr "Specyficzne opcje formatu:"
 
 #: libraries/display_export.lib.php:334
 msgid ""
@@ -5806,12 +5807,12 @@ msgid ""
 "browsers."
 msgstr ""
 "Plik przesyłany na serwer jest prawdopodobnie większy niż maksymalny "
-"dozwolony rozmiar, lub wystąpił znany błąd w przeglądarkach opartych o "
+"dozwolony rozmiar albo wystąpił znany błąd w przeglądarkach opartych o "
 "silnik Webkit (Safari, Google Chrome, Arora itp.)."
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr "Plik jest przetwarzany. Proszę o cierpliwość."
+msgstr "Plik jest przetwarzany. Prosimy o cierpliwość."
 
 #: libraries/display_import.lib.php:98
 msgid ""
@@ -5865,8 +5866,8 @@ msgstr "Import częściowy:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"Poprzedni import przekroczył limit czasu, ponowne przedłożenie tego pliku  "
-"spowoduje kontynuacje od miejsca %d."
+"Poprzedni import przekroczył limit czasu, ponowne przedłożenie tego pliku "
+"spowoduje kontynuację od miejsca %d."
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -6033,7 +6034,7 @@ msgstr "Utwórz widok"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
-msgstr "Łącze nie znalezione"
+msgstr "Łącza nie znaleziono"
 
 #: libraries/engines/bdb.lib.php:20 main.php:236
 msgid "Version information"
