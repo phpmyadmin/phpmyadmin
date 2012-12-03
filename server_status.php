@@ -405,7 +405,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             PMA_DBI_select_db($_REQUEST['database']);
         }
 
-        if ($profiling == PMA_Util::profilingSupported()) {
+        if ($profiling = PMA_Util::profilingSupported()) {
             PMA_DBI_query('SET PROFILING=1;');
         }
 
