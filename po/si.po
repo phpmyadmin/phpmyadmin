@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-28 11:47+0200\n"
+"PO-Revision-Date: 2012-12-03 18:45+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/3-5/si/>\n"
 "Language: si\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -2401,6 +2401,7 @@ msgid "Packed"
 msgstr "අහුරන ලද"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:324
+#, fuzzy
 msgid "Cardinality"
 msgstr "Cardinality"
 
@@ -5911,6 +5912,7 @@ msgid ""
 msgstr "තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
 #: libraries/engines/innodb.lib.php:130
+#, fuzzy
 msgid "Buffer Pool"
 msgstr "Buffer Pool"
 
@@ -5963,10 +5965,12 @@ msgid "Write requests"
 msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
 
 #: libraries/engines/innodb.lib.php:230
+#, fuzzy
 msgid "Read misses"
 msgstr "Read misses"
 
 #: libraries/engines/innodb.lib.php:236
+#, fuzzy
 msgid "Write waits"
 msgstr "Write waits"
 
@@ -9355,6 +9359,7 @@ msgid "Transaction coordinator"
 msgstr ""
 
 #: server_status.php:617
+#, fuzzy
 msgid "Flush (close) all tables"
 msgstr "Flush (close) all tables"
 
@@ -11006,6 +11011,7 @@ msgid "Alter table order by"
 msgstr "වගු අනුපිළිවෙල වෙනස් කරන්න"
 
 #: tbl_operations.php:277
+#, fuzzy
 msgid "(singly)"
 msgstr "(singly)"
 
