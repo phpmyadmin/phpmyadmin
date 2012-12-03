@@ -2015,15 +2015,31 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 var chartData = [];
                 var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages['strStatus'] + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
                 var duration;
+                var otherTime = 0;
 
                 for (var i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
 
-                    chartData.push([data.profiling[i].state, duration]);
                     totalTime += duration;
 
                     numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + PMA_prettyProfilingNum(duration, 2) + '</td></tr>';
                 }
+                
+                // Only put those values in the pie which are > 2%
+                for (var i = 0, l = data.profiling.length; i < l; i++) {
+                    duration = parseFloat(data.profiling[i].duration);
+                    
+                    if (duration / totalTime > 0.02) {
+                        chartData.push([PMA_prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
+                    } else {
+                        otherTime += duration;
+                    }
+                }
+                
+                if (otherTime > 0) {
+                    chartData.push([PMA_prettyProfilingNum(otherTime, 2) + ' ' + PMA_messages['strOther'], otherTime]);
+                }
+                
                 numberTable += '<tr><td><b>' + PMA_messages['strTotalTime'] + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
@@ -2049,7 +2065,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         chartData
                 );
 
-                $('div#queryProfiling').resizable();
+                //$('div#queryProfiling').resizable();
             }
         });
     }

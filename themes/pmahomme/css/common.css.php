@@ -1357,7 +1357,7 @@ div#queryAnalyzerDialog div.CodeMirror-scroll {
 }
 
 div#queryAnalyzerDialog div#queryProfiling {
-    height: 250px;
+    height: 300px;
 }
 
 div#queryAnalyzerDialog td.explain {
