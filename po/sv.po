@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-11-20 11:39-0500\n"
-"PO-Revision-Date: 2012-11-24 14:31+0200\n"
-"Last-Translator: Love Dager <lovedager@gmail.com>\n"
+"PO-Revision-Date: 2012-12-03 11:17+0200\n"
+"Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
@@ -948,10 +948,10 @@ msgid "Edit Index"
 msgstr "Redigera index"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Lägg till %d kolumner till index"
+msgstr "Lägg till %s kolumn(er) till index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1902,15 +1902,14 @@ msgstr ""
 "fungerar när du har sparat."
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid ""
 "You can also edit most columns<br />by double-clicking directly on their "
 "content."
 msgstr ""
-"Du kan även redigera de flesta kolumner<br />genom att klicka direkt på "
-"deras innehåll."
+"Du kan även redigera de flesta kolumner<br />genom att dubbelklicka direkt "
+"på deras innehåll."
 
 #: js/messages.php:365
 msgid ""
@@ -12081,10 +12080,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Bokmärket %s har skapats"
+msgstr "Bokmärke ej skapat"
 
 #: sql.php:898
 msgid "Showing as PHP code"
