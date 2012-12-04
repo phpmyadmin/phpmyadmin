@@ -24,8 +24,6 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
     // $("input#variableInput").destroy();
     clearTimeout(runtime.refreshTimeout);
     runtime.refreshTimeout = null;
-    window.localStorage.removeItem('monitorCharts');
-    window.localStorage.removeItem('monitorSettings');
     $.cookie('pma_serverStatusTabs', null);
 });
 
