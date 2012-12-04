@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-24 13:37+0200\n"
+"PO-Revision-Date: 2012-12-04 11:37+0200\n"
 "Last-Translator: Genti Ereqi <gereqi@gmail.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sq/>\n"
 "Language: sq\n"
@@ -2956,7 +2956,7 @@ msgstr "Madhësia maksimum: %s%s"
 #: libraries/sql_query_form.lib.php:392 libraries/sql_query_form.lib.php:395
 #: main.php:237 server_variables.php:129
 msgid "Documentation"
-msgstr "Dokumentet"
+msgstr "Dokumentacioni"
 
 #: libraries/common.lib.php:622 libraries/header_printview.inc.php:63
 #: server_status.php:591 server_status.php:1257
@@ -3310,7 +3310,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:238
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -6054,9 +6054,8 @@ msgid "Link not found"
 msgstr "Lidhja nuk u gjet"
 
 #: libraries/engines/bdb.lib.php:20 main.php:236
-#, fuzzy
 msgid "Version information"
-msgstr "Informacione mbi Identifikimin"
+msgstr "Informacione mbi versionin"
 
 #: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
@@ -8523,46 +8522,41 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Karakteristikat e përgjithshme të relacionit"
+msgstr "Karakteristikat e përgjithshme"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "Vendosja e lidhjes MySQL"
 
 #: main.php:124
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Parametrat e Pamjes"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Karakteristikat e përgjithshme të relacionit"
+msgstr "Karakteristika të mëtejshme"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "Databazat"
+msgstr "Serveri i Bazës së të Dhënave"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: main.php:173
-#, fuzzy
 #| msgid "Server version"
 msgid "Software version"
-msgstr "Versioni i MySQL"
+msgstr "Versioni i software"
 
 #: main.php:175
 msgid "Protocol version"
-msgstr ""
+msgstr "Versioni i protokollit"
 
 #: main.php:179 server_privileges.php:1547 server_privileges.php:1702
 #: server_privileges.php:1826 server_privileges.php:2256
@@ -8571,48 +8565,43 @@ msgid "User"
 msgstr "Përdorues"
 
 #: main.php:184
-#, fuzzy
 msgid "Server charset"
-msgstr "Zgjedhja e serverit"
+msgstr "Kodifikimi karaktereve te server"
 
 #: main.php:196
 msgid "Web server"
-msgstr ""
+msgstr "Serveri web"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
-msgstr "Komenti për databazën: "
+msgstr "Versioni i klientit të bazës së të dhënave"
 
 #: main.php:213
-#, fuzzy
 msgid "PHP extension"
-msgstr "Versioni i PHP"
+msgstr "Shtesa PHP"
 
 #: main.php:221
 msgid "Show PHP information"
-msgstr "Trego info mbi PHP"
+msgstr "Afisho informacion mbi PHP"
 
 #: main.php:241
 msgid "Official Homepage"
 msgstr "Faqja zyrtare e phpMyAdmin"
 
 #: main.php:242
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Pronësi"
+msgstr "Kontribuoni"
 
 #: main.php:243
 msgid "Get support"
-msgstr ""
+msgstr "Merrni ndihmë"
 
 #: main.php:244
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Asnjë ndryshim"
+msgstr "Lista e ndryshimeve"
 
 #: main.php:268
 msgid ""
@@ -8657,7 +8646,8 @@ msgstr ""
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"Tani nevoitet një fjalëkalim sekret për file e konfigurimit(blowfish_secret)."
+"Tani nevojitet një fjalëkalim sekret për skedarin e "
+"konfigurimit(blowfish_secret)."
 
 #: main.php:315
 msgid ""
@@ -8665,9 +8655,12 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"Dosja [code]config[/code], e cila përdoret nga skripti i instalimit, "
+"ekziston akoma në dosjen tuaj të phpMyAdmin. Ju këshillojmë që ta hiqni pasi "
+"të keni konfiguruar phpMyAdmin."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -8675,8 +8668,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Karakteristikat shtesë janë çaktivizuar për sa i takon funksionimit me "
-"tabelat e lidhura. Për të kuptuar përse, klikoni %skëtu%s."
+"Konfigurimi i depos së phpMyAdmin nuk është kryer plotësisht, prandaj disa "
+"nga karakteristikat shtesë janë ç'aktivizuar. Për të kuptuar përse, klikoni "
+"%skëtu%s."
 
 #: main.php:336
 msgid ""
@@ -8691,6 +8685,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Libraria juaj e PHP për MySQL me version %s janë të ndryshme nga versioni i "
+"serverit MySQL %s. Kjo mund të shkaktoje sjellje të paparashikueshme."
 
 #: main.php:378
 #, php-format
@@ -8698,6 +8694,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Serveri është në gjendje ekzekutimi Suhosin. Referojuni %sdokumentacionit%s "
+"për probleme të mundshme."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
