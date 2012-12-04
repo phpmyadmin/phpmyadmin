@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-04 10:20+0100\n"
-"PO-Revision-Date: 2012-11-26 21:36+0200\n"
+"PO-Revision-Date: 2012-12-04 11:16+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3787,7 +3787,7 @@ msgstr "%s %s veya sonrasına yükseltmelisiniz."
 
 #: libraries/common.inc.php:1039
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Hata: Belirti uyuşmazlığı"
 
 #: libraries/common.inc.php:1083
 msgid "GLOBALS overwrite attempt"
