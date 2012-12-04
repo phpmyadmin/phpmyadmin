@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-04 10:20+0100\n"
-"PO-Revision-Date: 2012-11-15 11:51+0200\n"
+"PO-Revision-Date: 2012-12-04 10:59+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -3813,7 +3813,7 @@ msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη.
 
 #: libraries/common.inc.php:1039
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Σφάλμα: Το πειστήριο δεν ταιριάζει"
 
 #: libraries/common.inc.php:1083
 msgid "GLOBALS overwrite attempt"
