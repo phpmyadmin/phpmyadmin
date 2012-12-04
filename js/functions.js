@@ -1291,7 +1291,7 @@ AJAX.registerTeardown('functions.js', function() {
  * Jquery Coding for inline editing SQL_QUERY
  */
 AJAX.registerOnload('functions.js', function() {
-    // If we are coming back to the page by clicking forward button 
+    // If we are coming back to the page by clicking forward button
     // of the browser, bind the code mirror to inline query editor.
     bindCodeMirrorToInlineEditor();
     $("a.inline_edit_sql").live('click', function() {
@@ -1504,7 +1504,7 @@ function PMA_ajaxShowMessage(message, timeout)
     .hide()
     .appendTo("#loading_parent")
     .html(message)
-    .fadeIn('medium');
+    .show();
     // If the notification is self-closing we should create a callback to remove it
     if (self_closing) {
         $retval
