@@ -28,14 +28,6 @@ AJAX.registerTeardown('server_status.js', function() {
     $(document).unbind('click'); // Am I sure about this? I guess not...
     $('div.buttonlinks select').unbind('click');
     $('div.buttonlinks a.tabRefresh').unbind('click');
-    $('div.buttonlinks a.livetrafficLink').unbind('click');
-    $('div.buttonlinks a.liveconnectionsLink').unbind('click');
-    $('div.buttonlinks a.livequeriesLink').unbind('click');
-
-    $('#filterAlert').unbind('change');
-    $('#filterText').unbind('keyup');
-    $('#filterCategory').unbind('change');
-    $('input#dontFormat').unbind('change');
 });
 
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
@@ -175,13 +167,6 @@ AJAX.registerOnload('server_status.js', function() {
             if (!$(ui.tab.hash).data('init-done')) {
                 initTab($(ui.tab.hash), null);
             }
-            // Replot on tab switching
-            if (ui.tab.hash == '#statustabs_traffic' && tabChart['statustabs_traffic'] != null) {
-                recursiveTimer($('#statustabs_traffic'), "traffic");
-            }
-            else if (ui.tab.hash == '#statustabs_queries' && tabChart['statustabs_queries'] != null) {
-                recursiveTimer($('#statustabs_queries'), "queries");
-            }
             // Load Server status monitor
             if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
                 $('div#statustabs_charting').append( //PMA_messages['strLoadingMonitor'] + ' ' +
@@ -217,134 +202,7 @@ AJAX.registerOnload('server_status.js', function() {
         }, 0.5);
     });
 
-    // Handles refresh rate changing
-    $('.buttonlinks .refreshRate').change(function() {
-
-        var $tab = $(this).parents('div.ui-tabs-panel');
-        clearTimeout(chart_replot_timers[$tab.attr('id')]);
-        var tabstat = tabStatus[$tab.attr('id')];
-
-        if(tabstat == 'livequeries') {
-            recursiveTimer($tab, 'queries');
-        } else if(tabstat == 'livetraffic') {
-            recursiveTimer($tab, 'traffic');
-        } else if(tabstat == 'liveconnections') {
-            recursiveTimer($tab, 'proc');
-        }
-
-        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
-        // Clear current timeout and set timeout with the new refresh rate
-        clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
-        if (chart.options.realtime.postRequest) {
-            chart.options.realtime.postRequest.abort();
-        }
-
-        chart.options.realtime.refreshRate = 1000*parseInt(this.value);
-
-        chart.xAxis[0].setExtremes(
-            new Date().getTime() - server_time_diff - chart.options.realtime.numMaxPoints * chart.options.realtime.refreshRate,
-            new Date().getTime() - server_time_diff,
-            true
-        );
-
-        chart_activeTimeouts[chart.options.chart.renderTo] = setTimeout(
-            chart.options.realtime.timeoutCallBack,
-            chart.options.realtime.refreshRate
-        );
-    });
-
-    // Ajax refresh of variables (always the first element in each tab)
-    $('div.buttonlinks a.tabRefresh').click(function() {
-        // ui-tabs-panel class is added by the jquery tabs feature
-        var tab = $(this).parents('div.ui-tabs-panel');
-        var that = this;
-
-        // Show ajax load icon
-        $(this).find('img').show();
-
-        $.get($(this).attr('href'), { ajax_request: 1 }, function(data) {
-            $(that).find('img').hide();
-            initTab(tab, data);
-        });
-
-        tabStatus[tab.attr('id')] = 'data';
-
-        return false;
-    });
-
-
     /** Realtime charting of variables **/
-
-    // variables to hold previous y data value to calculate difference
-    var previous_y_line1 = new Object();
-    var previous_y_line2 = new Object();
-    var series = new Object();
-
-    // Live traffic charting
-    $('div.buttonlinks a.livetrafficLink').click(function() {
-        // ui-tabs-panel class is added by the jquery tabs feature
-        var $tab = $(this).parents('div.ui-tabs-panel');
-        var tabstat = tabStatus[$tab.attr('id')];
-
-        if (tabstat == 'static' || tabstat == 'liveconnections') {
-
-            setupLiveChart($tab, this, getSettings('traffic'));
-            var set_previous = getCurrentDataSet($tab, 'traffic');
-            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
-            recursiveTimer($tab, 'traffic');
-
-            if (tabstat == 'liveconnections') {
-                $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
-            }
-            tabStatus[$tab.attr('id')] = 'livetraffic';
-        } else {
-            $(this).html(PMA_messages['strLiveTrafficChart']);
-            setupLiveChart($tab, this, null);
-        }
-
-        return false;
-    });
-
-    // Live connection/process charting
-    $('div.buttonlinks a.liveconnectionsLink').click(function() {
-        var $tab = $(this).parents('div.ui-tabs-panel');
-        var tabstat = tabStatus[$tab.attr('id')];
-
-        if (tabstat == 'static' || tabstat == 'livetraffic') {
-
-            setupLiveChart($tab, this, getSettings('proc'));
-            var set_previous = getCurrentDataSet($tab, 'proc');
-            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
-            recursiveTimer($tab, 'proc');
-            if (tabstat == 'livetraffic') {
-                $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
-            }
-            tabStatus[$tab.attr('id')] = 'liveconnections';
-        } else {
-            $(this).html(PMA_messages['strLiveConnChart']);
-            setupLiveChart($tab, this, null);
-        }
-
-        return false;
-    });
-
-    // Live query statistics
-    $('div.buttonlinks a.livequeriesLink').click(function() {
-        var $tab = $(this).parents('div.ui-tabs-panel');
-        if (tabStatus[$tab.attr('id')] == 'static') {
-
-            setupLiveChart($tab, this, getSettings('queries'));
-            var set_previous = getCurrentDataSet($tab, 'queries');
-            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
-            recursiveTimer($tab, 'queries');
-            tabStatus[$tab.attr('id')] = 'livequeries';
-
-        } else {
-            $(this).html(PMA_messages['strLiveQueryChart']);
-            setupLiveChart($tab, this, null);
-        }
-        return false;
-    });
 
     function recursiveTimer($tab, type) {
             replotLiveChart($tab, type);
@@ -487,80 +345,6 @@ AJAX.registerOnload('server_status.js', function() {
         tabChart[$tab.attr('id')].replot();
     }
 
-    function setupLiveChart($tab, link, settings) {
-        if (settings != null) {
-            // Loading a chart with existing chart => remove old chart first
-            if (tabStatus[$tab.attr('id')] != 'static') {
-                clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-                chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
-                delete tabChart[$tab.attr('id')];
-                // Also reset the select list
-                $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
-            }
-
-            if (! settings.chart) settings.chart = {};
-            settings.chart.renderTo = $tab.attr('id') + "_chart_cnt";
-
-            if($('#' + $tab.attr('id') + '_chart_cnt').length == 0) {
-                $tab.find('.tabInnerContent')
-                    .hide()
-                    .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
-            }
-            $(link).html(PMA_messages['strStaticData']);
-            $tab.find('.buttonlinks a.tabRefresh').hide();
-            $tab.find('.buttonlinks .refreshList').show();
-        } else {
-            clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
-            $tab.find('.tabInnerContent').show();
-            $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
-            tabStatus[$tab.attr('id')] = 'static';
-            delete tabChart[$tab.attr('id')];
-            $tab.find('.buttonlinks a.tabRefresh').show();
-            $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
-            $tab.find('.buttonlinks .refreshList').hide();
-        }
-        clearTimeout(chart_replot_timers[$tab.attr('id')]);
-        previous_y_line1[$tab.attr('id')] = 0;
-        previous_y_line2[$tab.attr('id')] = 0;
-        series[$tab.attr('id')] = new Array();
-        series[$tab.attr('id')][0] = new Array();
-        series[$tab.attr('id')][1] = new Array();
-    }
-
-    /* 3 Filtering functions */
-    $('#filterAlert').change(function() {
-        alertFilter = this.checked;
-        filterVariables();
-    });
-
-    $('#filterText').keyup(function(e) {
-        var word = $(this).val().replace(/_/g, ' ');
-
-        if (word.length == 0) {
-            textFilter = null;
-        } else {
-            textFilter = new RegExp("(^| )" + word, 'i');
-        }
-
-        text = word;
-
-        filterVariables();
-    });
-
-    $('#filterCategory').change(function() {
-        categoryFilter = $(this).val();
-        filterVariables();
-    });
-
-    $('input#dontFormat').change(function() {
-        // Hiding the table while changing values speeds up the process a lot
-        $('#serverstatusvariables').hide();
-        $('#serverstatusvariables td.value span.original').toggle(this.checked);
-        $('#serverstatusvariables td.value span.formatted').toggle(! this.checked);
-        $('#serverstatusvariables').show();
-    });
-
     /* Adjust DOM / Add handlers to the tabs */
     function initTab(tab, data) {
         if ($(tab).data('init-done') && !data) {
@@ -573,33 +357,6 @@ AJAX.registerOnload('server_status.js', function() {
                     tab.find('.tabInnerContent').html(data.message);
                 }
                 PMA_showHints();
-                break;
-            case 'statustabs_queries':
-                if (data != null) {
-                    queryPieChart.destroy();
-                    tab.find('.tabInnerContent').html(data.message);
-                }
-
-                // Build query statistics chart
-                var cdata = new Array();
-                $.each(jQuery.parseJSON($('#serverstatusquerieschart span').html()), function(key, value) {
-                    cdata.push([key, parseInt(value)]);
-                });
-
-                queryPieChart = PMA_createProfilingChartJqplot(
-                    'serverstatusquerieschart',
-                    cdata
-                );
-
-                initTableSorter(tab.attr('id'));
-                break;
-
-            case 'statustabs_allvars':
-                if (data != null) {
-                    tab.find('.tabInnerContent').html(data.message);
-                    filterVariables();
-                }
-                initTableSorter(tab.attr('id'));
                 break;
         }
     }
@@ -633,55 +390,6 @@ AJAX.registerOnload('server_status.js', function() {
         $table.tablesorter(opts);
         $table.find('tr:first th')
             .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
-    }
-
-    /* Filters the status variables by name/category/alert in the variables tab */
-    function filterVariables() {
-        var useful_links = 0;
-        var section = text;
-
-        if (categoryFilter.length > 0) {
-            section = categoryFilter;
-        }
-
-        if (section.length > 1) {
-            $('#linkSuggestions span').each(function() {
-                if ($(this).attr('class').indexOf('status_' + section) != -1) {
-                    useful_links++;
-                    $(this).css('display', '');
-                } else {
-                    $(this).css('display', 'none');
-                }
-
-
-            });
-        }
-
-        if (useful_links > 0) {
-            $('#linkSuggestions').css('display', '');
-        } else {
-            $('#linkSuggestions').css('display', 'none');
-        }
-
-        odd_row = false;
-        $('#serverstatusvariables th.name').each(function() {
-            if ((textFilter == null || textFilter.exec($(this).text()))
-                && (! alertFilter || $(this).next().find('span.attention').length>0)
-                && (categoryFilter.length == 0 || $(this).parent().hasClass('s_' + categoryFilter))
-            ) {
-                odd_row = ! odd_row;
-                $(this).parent().css('display', '');
-                if (odd_row) {
-                    $(this).parent().addClass('odd');
-                    $(this).parent().removeClass('even');
-                } else {
-                    $(this).parent().addClass('even');
-                    $(this).parent().removeClass('odd');
-                }
-            } else {
-                $(this).parent().css('display', 'none');
-            }
-        });
     }
 
     // Provides a nicely formatted and sorted tooltip of each datapoint of the query statistics
