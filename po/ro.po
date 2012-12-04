@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-05 09:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-12-05 00:02+0200\n"
+"Last-Translator: Stefan Ionut <ionutz4u92@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -408,7 +408,7 @@ msgstr "Ultima verficare"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabelă"
+msgstr[0] "%s tabel"
 msgstr[1] "%s tabele"
 msgstr[2] "%s tabele"
 
@@ -789,7 +789,6 @@ msgid "Delete tracking data for this table"
 msgstr "Șterge datele urmărite din acest tabel"
 
 #: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
-#, fuzzy
 msgid "active"
 msgstr "activ(ă)"
 
@@ -820,9 +819,8 @@ msgid "Track table"
 msgstr "Monitorizează tabel"
 
 #: db_tracking.php:227
-#, fuzzy
 msgid "Database Log"
-msgstr "Jurnalul (log) bazei de date"
+msgstr "Jurnalul bazei de date"
 
 #: enum_editor.php:23 js/messages.php:272
 #: libraries/rte/rte_routines.lib.php:707
@@ -855,20 +853,18 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Copiază si lipește valorile unite în câmpul \"Lungime/Valori\""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tip interogare"
+msgstr "Tipul este greșit!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
 msgstr "Tipul selectat pentru export trebuie salvat într-un fișier!"
 
 #: export.php:106
-#, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
-msgstr "Rutine"
+msgstr "Parametrii greșiţi!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -894,9 +890,8 @@ msgid "Dump has been saved to file %s."
 msgstr "Copia a fost salvată în fișierul %s."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Modul de export"
+msgstr "Modul de export este invalid"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -909,12 +904,12 @@ msgstr ""
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:326
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: gis_data_editor.php:172 js/messages.php:322
 msgid "Point"
@@ -928,7 +923,7 @@ msgstr ""
 #: gis_data_editor.php:175 gis_data_editor.php:199 gis_data_editor.php:247
 #: gis_data_editor.php:299 js/messages.php:321
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:195 gis_data_editor.php:243 gis_data_editor.php:295
 #: js/messages.php:323
