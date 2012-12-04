@@ -1925,25 +1925,26 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         dlgBtns[PMA_messages['strAnalyzeQuery']] = function() {
             loadQueryAnalysis(rowData);
         };
-        dlgBtns[PMA_messages['strClose']] = function() {
-            if (profilingChart != null) {
-                profilingChart.destroy();
-            }
-            $('div#queryAnalyzerDialog div.placeHolder').html('');
-            if (codemirror_editor) {
-                codemirror_editor.setValue('');
-            }
-            else {
-                $('#sqlquery').val('');
-            }
-            $(this).dialog("close");
+        dlgBtns[PMA_messages['strClose']] = function () {
+            $(this).dialog('close');
         };
 
         $('div#queryAnalyzerDialog').dialog({
             width: 'auto',
             height: 'auto',
             resizable: false,
-            buttons: dlgBtns
+            buttons: dlgBtns,
+            close: function() {
+                if (profilingChart != null) {
+                    profilingChart.destroy();
+                }
+                $('div#queryAnalyzerDialog div.placeHolder').html('');
+                if (codemirror_editor) {
+                    codemirror_editor.setValue('');
+                } else {
+                    $('#sqlquery').val('');
+                }
+            }
         });
     }
 
