@@ -1476,7 +1476,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
      * TODO: make jqplot's autoscale:true work here
      */
     function getMaxYLabel(dataValues) {
-        var yValues = [];
         var maxY = dataValues[0][1];
         $.each(dataValues,function(k,v){maxY = (v[1]>maxY) ? v[1] : maxY});
         return maxY;
