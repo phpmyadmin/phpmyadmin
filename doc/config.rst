@@ -1224,12 +1224,12 @@ Cookie authentication options
     :type: integer [number of seconds]
     :default: 1440
 
-    Define how long is login cookie valid. Please note that php
+    Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
     <http://php.net/manual/en/session.configuration.php#ini.session.gc-
-    maxlifetime>`_ might limit session validity and if session is lost,
-    login cookie is also invalidated. So it is a good idea to set
-    ``session.gc_maxlifetime`` not lower than the value of
+    maxlifetime>`_ might limit session validity and if the session is lost,
+    the login cookie is also invalidated. So it is a good idea to set
+    ``session.gc_maxlifetime`` at least to the same value of
     :config:option:`$cfg['LoginCookieValidity']`.
 
 .. config:option:: $cfg['LoginCookieStore']
