@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-04 10:20+0100\n"
-"PO-Revision-Date: 2012-11-05 10:20+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
-">\n"
+"PO-Revision-Date: 2012-12-05 00:02+0200\n"
+"Last-Translator: Stefan Ionut <ionutz4u92@gmail.com>\n"
+"Language-Team: Romanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -367,7 +367,7 @@ msgstr "Ultima verficare"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabelă"
+msgstr[0] "%s tabel"
 msgstr[1] "%s tabele"
 msgstr[2] "%s tabele"
 
@@ -461,7 +461,6 @@ msgid "Drop"
 msgstr "Aruncă"
 
 #: db_tracking.php:120 tbl_tracking.php:717 tbl_tracking.php:771
-#, fuzzy
 msgid "active"
 msgstr "activ(ă)"
 
@@ -492,25 +491,22 @@ msgid "Track table"
 msgstr "Monitorizează tabel"
 
 #: db_tracking.php:240
-#, fuzzy
 msgid "Database Log"
-msgstr "Jurnalul (log) bazei de date"
+msgstr "Jurnalul bazei de date"
 
 #: export.php:42
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Tip interogare"
+msgstr "Tipul este greșit!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
 msgstr "Tipul selectat pentru export trebuie salvat într-un fișier!"
 
 #: export.php:122
-#, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
-msgstr "Rutine"
+msgstr "Parametrii greșiţi!"
 
 #: export.php:193 export.php:224 export.php:791
 #, php-format
@@ -536,9 +532,8 @@ msgid "Dump has been saved to file %s."
 msgstr "Copia a fost salvată în fișierul %s."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Modul de export"
+msgstr "Modul de export este invalid"
 
 #: gis_data_editor.php:112
 #, php-format
@@ -551,12 +546,12 @@ msgstr ""
 
 #: gis_data_editor.php:161
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:328
 #: libraries/DisplayResults.class.php:1643
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: gis_data_editor.php:206 js/messages.php:324
 msgid "Point"
@@ -570,7 +565,7 @@ msgstr ""
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:323
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:325
@@ -638,7 +633,7 @@ msgid ""
 msgstr ""
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -646,8 +641,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la "
-"%sdocumentație%s pentru căi de ocolire a acestei limite."
+"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la %"
+"sdocumentație%s pentru căi de ocolire a acestei limite."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
