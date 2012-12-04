@@ -572,25 +572,32 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     $('a[href="#exportMonitorConfig"]').click(function() {
         var gridCopy = {};
-
         $.each(runtime.charts, function(key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
         });
-
         var exportData = {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
         };
-        var $form;
-
-        $('body').append($form = $('<form method="post" action="file_echo.php?' + url_query + '&filename=1" style="display:none;"></form>'));
-
-        $form.append('<input type="hidden" name="monitorconfig" value="' + encodeURI($.toJSON(exportData)) + '">');
-        $form.submit();
-        $form.remove();
+        $('<form />', {
+            "class": "disableAjax",
+            method: "post",
+            action: "file_echo.php?" + url_query + "&filename=1",
+            style: "display:none;"
+        })
+        .append(
+            $('<input />', {
+                type: "hidden",
+                name: "monitorconfig",
+                value: $.toJSON(exportData)
+            })
+        )
+        .appendTo('body')
+        .submit()
+        .remove();
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
