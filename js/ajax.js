@@ -239,6 +239,7 @@ var AJAX = {
                 $('body').children()
                     .not('#pma_navigation')
                     .not('#floating_menubar')
+                    .not('#goto_pagetop')
                     .not('#page_content')
                     .not('#selflink')
                     .not('#session_debug')
@@ -635,7 +636,6 @@ AJAX.cache = {
                 // TODO: don't send it in the response
                 .children().first().remove();
             $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
-            PMA_createqTip($("#serverinfo"), PMA_messages['strScrollTopFeatureHint']);
         }
     }
 };
