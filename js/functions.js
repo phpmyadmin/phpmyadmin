@@ -3673,7 +3673,8 @@ $(function () {
  * Scrolls the page to the top if clicking the serverinfo bar
  */
 $(function () {
-    $('#goto_pagetop').bind("click", function () {
+    $('#goto_pagetop').bind("click", function (event) {
+        event.preventDefault();
         $('html, body').animate({scrollTop: 0}, 'fast');
     });
 });
