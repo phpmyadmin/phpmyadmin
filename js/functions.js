@@ -3673,12 +3673,18 @@ $(function () {
  * Scrolls the page to the top if clicking the serverinfo bar
  */
 $(function () {
+    var $serverinfo = $("#serverinfo");
     $(document).delegate("#serverinfo", "click", function () {
         $('html, body').animate({scrollTop: 0}, 'fast');
     });
-    $(document).delegate("#serverinfo > *", "click", function (e) {
+    $(document).delegate("#serverinfo > *", "click mouseover", function (e) {
         e.stopPropagation();
+        $serverinfo.qtip("hide");
     });
+    $(document).delegate("#serverinfo > *", "mouseout", function () {
+        $serverinfo.qtip("show");
+    });
+    PMA_createqTip($("#serverinfo"), PMA_messages['strScrollTopFeatureHint']);
 });
 
 /**

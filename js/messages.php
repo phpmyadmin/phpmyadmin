@@ -379,6 +379,7 @@ $js_messages['strChangePassword'] = __('Change Password');
 
 /* navigation tabs */
 $js_messages['strMore'] = __('More');
+$js_messages['strScrollTopFeatureHint'] = __('You may click this navigation bar to scroll the page to the top.');
 
 /* navigation panel */
 $js_messages['strShowPanel'] = __('Show Panel');
