@@ -3670,6 +3670,18 @@ $(function () {
 });
 
 /**
+ * Scrolls the page to the top if clicking the serverinfo bar
+ */
+$(function () {
+    $(document).delegate("#serverinfo", "click", function () {
+        $('html, body').animate({scrollTop: 0}, 'fast');
+    });
+    $(document).delegate("#serverinfo > *", "click", function (e) {
+        e.stopPropagation();
+    });
+});
+
+/**
  * Watches checkboxes in a form to set the checkall box accordingly
  */
 var checkboxes_sel = "input.checkall:checkbox:enabled";
