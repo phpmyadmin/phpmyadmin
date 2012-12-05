@@ -635,7 +635,7 @@ AJAX.cache = {
                 // TODO: don't send it in the response
                 .children().first().remove();
             $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
-            PMA_createqTip($("#serverinfo"), 'x' + PMA_messages['strScrollTopFeatureHint']);
+            PMA_createqTip($("#serverinfo"), PMA_messages['strScrollTopFeatureHint']);
         }
     }
 };
