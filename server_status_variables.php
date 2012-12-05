@@ -16,6 +16,22 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
+/**
+ * flush status variables if requested
+ */
+if (isset($_REQUEST['flush'])) {
+    $_flush_commands = array(
+        'STATUS',
+        'TABLES',
+        'QUERY CACHE',
+    );
+
+    if (in_array($_REQUEST['flush'], $_flush_commands)) {
+        PMA_DBI_query('FLUSH ' . $_REQUEST['flush'] . ';');
+    }
+    unset($_flush_commands);
+}
+
 $ServerStatusData = new PMA_ServerStatusData('server_status_variables.php');
 
 $response = PMA_Response::getInstance();
@@ -24,7 +40,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_status_variables.js');
 
 $response->addHTML('<div>');
-$response->addHTML(PMA_ServerStatusData::getMenuHtml());
+$response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(getFilterHtml($ServerStatusData));
 $response->addHTML(getLinkSuggestionsHtml($ServerStatusData));
 $response->addHTML(getVariablesTableHtml($ServerStatusData));

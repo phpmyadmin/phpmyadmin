@@ -9,13 +9,22 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Advisor.class.php';
 require_once 'libraries/ServerStatusData.class.php';
+if (PMA_DRIZZLE) {
+    $server_master_status = false;
+    $server_slave_status = false;
+} else {
+    include_once 'libraries/replication.inc.php';
+    include_once 'libraries/replication_gui.lib.php';
+}
+
+$ServerStatusData = new PMA_ServerStatusData('server_status_advisor.php');
 
 $response = PMA_Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
 $scripts->addFile('server_status_advisor.js');
 
 $output  = '<div>';
-$output .= PMA_ServerStatusData::getMenuHtml();
+$output .= $ServerStatusData->getMenuHtml();
 $output .= '<a href="#openAdvisorInstructions">';
 $output .= PMA_Util::getIcon('b_help.png', __('Instructions'));
 $output .= '</a>';

@@ -456,6 +456,16 @@ class PMA_Menu
         $tabs['status']['icon'] = 's_status.png';
         $tabs['status']['link'] = 'server_status.php';
         $tabs['status']['text'] = __('Status');
+        $tabs['status']['active'] = in_array(
+            basename($GLOBALS['PMA_PHP_SELF']),
+            array(
+                'server_status.php',
+                'server_status_advisor.php',
+                'server_status_monitor.php',
+                'server_status_queries.php',
+                'server_status_variables.php'
+            )
+        );
 
         if ($is_superuser && ! PMA_DRIZZLE) {
             $tabs['rights']['icon'] = 's_rights.png';

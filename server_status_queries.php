@@ -16,7 +16,7 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData('server_status_qyuries.php');
+$ServerStatusData = new PMA_ServerStatusData('server_status_queries.php');
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -38,7 +38,7 @@ $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
 
 // Add the html content to the response
 $response->addHTML('<div>');
-$response->addHTML(PMA_ServerStatusData::getMenuHtml());
+$response->addHTML($ServerStatusData->getMenuHtml());
 $response->addHTML(getQueryStatisticsHtml($ServerStatusData));
 $response->addHTML('</div>');
 exit;

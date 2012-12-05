@@ -308,23 +308,48 @@ class PMA_ServerStatusData {
      *
      * @return array
      */
-    public static function getMenuHtml()
+    public function getMenuHtml()
     {
-        $retval = '<ul id="topmenu2">';
-        $retval .= '<li>';
-        $retval .= '<a class="tab" href="server_status_queries.php?' . PMA_generate_common_url() . '">';
-        $retval .= __('Query statistics') . '</a>';
-        $retval .= '</li>';
-        $retval .= '<li>';
-        $retval .= '<a class="tab" href="server_status_variables.php?' . PMA_generate_common_url() . '">';
-        $retval .= __('All status variables') . '</a>';
-        $retval .= '</li>';
-        $retval .= '<li>';
-        $retval .= '<a class="tab" href="server_status_advisor.php?' . PMA_generate_common_url() . '">';
-        $retval .= __('Advisor') . '</a>';
-        $retval .= '</li>';
+        $url_params = PMA_generate_common_url();
+        $items = array(
+            array(
+                'name' => __('Server'),
+                'url' => 'server_status.php'
+            ),
+            array(
+                'name' => __('Query statistics'),
+                'url' => 'server_status_queries.php'
+            ),
+            array(
+                'name' => __('All status variables'),
+                'url' => 'server_status_variables.php'
+            ),
+            array(
+                'name' => __('Monitor'),
+                'url' => 'server_status_monitor.php'
+            ),
+            array(
+                'name' => __('Advisor'),
+                'url' => 'server_status_advisor.php'
+            )
+        );
+
+        $retval  = '<ul id="topmenu2">';
+        foreach ($items as $item) {
+            $class = '';
+            if ($item['url'] === $this->selfUrl) {
+                $class = ' class="tabactive"';
+            }
+            $retval .= '<li>';
+            $retval .= '<a' . $class;
+            $retval .= ' href="' . $item['url'] . '?' . $url_params . '">';
+            $retval .= $item['name'];
+            $retval .= '</a>';
+            $retval .= '</li>';
+        }
         $retval .= '</ul>';
         $retval .= '<div class="clearfloat"></div>';
+
         return $retval;
     }
 }
