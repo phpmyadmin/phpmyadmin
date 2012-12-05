@@ -3148,7 +3148,7 @@ function PMA_init_slider()
         }
         var $wrapper = $('<div>', {'class': 'slide-wrapper'});
         $wrapper.toggle($this.is(':visible'));
-        $('<a>', {href: '#'+this.id, class:'ajax'})
+        $('<a>', {href: '#'+this.id, "class":'ajax'})
             .text(this.title)
             .prepend($('<span>'))
             .insertBefore($this)
