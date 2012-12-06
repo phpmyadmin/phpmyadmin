@@ -98,7 +98,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     /**** Monitor charting implementation ****/
     /* Saves the previous ajax response for differential values */
     var oldChartData = null;
-    // Holds about to created chart
+    // Holds about to be created chart
     var newChart = null;
     var chartSpacing;
 
