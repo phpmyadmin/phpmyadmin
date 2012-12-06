@@ -2345,8 +2345,9 @@ class PMA_Util
         }
 
         /* Opera has trouble with <input type="image"> */
-        /* IE has trouble with <button> */
-        if (PMA_USR_BROWSER_AGENT != 'IE') {
+        /* IE (before version 9) has trouble with <button> */
+        if (PMA_USR_BROWSER_AGENT != 'IE'
+            || (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER > 8)) {
             return '<button class="' . $button_class . '" type="submit"'
                 .' name="' . $button_name . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text) . '">' . "\n"
