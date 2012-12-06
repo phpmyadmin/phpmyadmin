@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-12-06 19:34+0200\n"
+"Last-Translator: dansaania bro <cssdank@gmail.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/3-5/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -4358,7 +4358,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt varoitus"
 
 #: libraries/config/messages.inc.php:319
 msgid ""
@@ -4527,7 +4527,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Tallenna kaikki muokatut solut kerralla"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
@@ -13200,7 +13200,7 @@ msgstr "Jatkuvat yhteydet"
 
 #: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "Liian monta yhtettä keskeytetty."
 
 #: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
@@ -13262,7 +13262,7 @@ msgstr ""
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Onko InnoDB poistettu käytöstä?"
 
 #: po/advisory_rules.php:251
 #, fuzzy
