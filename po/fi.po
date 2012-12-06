@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-04 10:20+0100\n"
-"PO-Revision-Date: 2012-11-21 15:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
-">\n"
+"PO-Revision-Date: 2012-12-06 19:34+0200\n"
+"Last-Translator: dansaania bro <cssdank@gmail.com>\n"
+"Language-Team: Finnish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5035,7 +5035,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:296
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt varoitus"
 
 #: libraries/config/messages.inc.php:297
 msgid ""
@@ -13807,10 +13807,9 @@ msgid "Percentage of aborted connections"
 msgstr "Jatkuvat yhteydet"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Sallii tilapäisten taulujen luomisen."
+msgstr "Liian monta yhtettä keskeytetty."
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13875,7 +13874,7 @@ msgstr "Lajittelupuskurin koko"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Onko InnoDB poistettu käytöstä?"
 
 #: libraries/advisory_rules.txt:425
 #, fuzzy
