@@ -29,4 +29,11 @@ AJAX.registerOnload('server_status_queries.js', function() {
     } catch (exception) {
         // Could not load chart, no big deal...
     }
+
+    /*** Table sort tooltip ***/
+    PMA_createqTip(
+        $('table.sortable').children('thead').children('tr').has('th'),
+        PMA_messages['strSortHint']
+    );
+    initTableSorter('statustabs_queries');
 });

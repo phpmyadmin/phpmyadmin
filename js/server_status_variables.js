@@ -16,6 +16,13 @@ AJAX.registerTeardown('server_status_variables.js', function() {
 });
 
 AJAX.registerOnload('server_status_variables.js', function() {
+    /*** Table sort tooltip ***/
+    PMA_createqTip(
+        $('table.sortable').children('thead').children('tr').has('th'),
+        PMA_messages['strSortHint']
+    );
+    initTableSorter('statustabs_allvars');
+
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');

@@ -35,6 +35,8 @@ $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('server_status_sorter.js');
 
 // Add the html content to the response
 $response->addHTML('<div>');
