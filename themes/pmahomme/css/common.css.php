@@ -1127,7 +1127,7 @@ div#tablestatistics table {
 
 #goto_pagetop {
     position: fixed;
-    padding: .3em;
+    padding: .25em;
     top: 0;
     <?php echo $right; ?>: 0;
     z-index: 900;
