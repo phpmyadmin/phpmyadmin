@@ -126,23 +126,29 @@ function parseVersionString (str)
  */
 function PMA_current_version(data)
 {
-    var current = parseVersionString(pmaversion);
-    var latest = parseVersionString(data['version']);
-    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
-    if (latest > current) {
-        var message = $.sprintf(PMA_messages['strNewerVersion'], escapeHtml(data['version']), escapeHtml(data['date']));
-        if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
-            /* Security update */
-            klass = 'error';
-        } else {
-            klass = 'notice';
+    if (data && data.version && data.date) {
+        var current = parseVersionString(pmaversion);
+        var latest = parseVersionString(data['version']);
+        var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
+        if (latest > current) {
+            var message = $.sprintf(
+                PMA_messages['strNewerVersion'],
+                escapeHtml(data['version']),
+                escapeHtml(data['date'])
+            );
+            if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
+                /* Security update */
+                klass = 'error';
+            } else {
+                klass = 'notice';
+            }
+            $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
         }
-        $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
+        if (latest === current) {
+            version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
+        }
+        $('#li_pma_version').append(version_information_message);
     }
-    if (latest == current) {
-        version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
-    }
-    $('#li_pma_version').append(version_information_message);
 }
 
 /**
@@ -3096,8 +3102,8 @@ AJAX.registerOnload('functions.js', function() {
     /**
      * Load version information asynchronously.
      */
-    if ($('li.jsversioncheck').length > 0) {
-        $.getJSON('http://www.phpmyadmin.net/home_page/version.json', {}, PMA_current_version);
+    if ($('.jsversioncheck').length > 0) {
+        $.getJSON('version_check.php', {}, PMA_current_version);
     }
 
     if ($('#is_git_revision').length > 0) {
