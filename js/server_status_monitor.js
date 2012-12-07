@@ -756,8 +756,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
                 function(data) {
-                    var logVars = $.parseJSON(data.message),
-                        icon = PMA_getImage('s_success.png'), msg='', str='';
+                    var logVars;
+                    if (data.success == true) {
+                        logVars = data.message;
+                    } else {
+                        return serverResponseError();
+                    }
+                    var icon = PMA_getImage('s_success.png'), msg='', str='';
 
                     if (logVars['general_log'] == 'ON') {
                         if (logVars['slow_query_log'] == 'ON') {
@@ -1403,9 +1408,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             requiredData: $.toJSON(runtime.dataList)
         }, function(data) {
             var chartData;
-            try {
-                chartData = $.parseJSON(data.message);
-            } catch(err) {
+            if (data.success == true) {
+                chartData = data.message;
+            } else {
                 return serverResponseError();
             }
             var value, i = 0;
@@ -1611,9 +1616,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             },
             function(data) {
                 var logData;
-                try {
-                    logData = $.parseJSON(data.message);
-                } catch(err) {
+                if (data.success == true) {
+                    logData = data.message;
+                } else {
                     return serverResponseError();
                 }
 
@@ -2004,14 +2009,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function(data) {
-            data = $.parseJSON(data.message);
-            var totalTime = 0;
-
-            if (data.error) {
+            if (data.success == true) {
+                data = data.message;
+            } else {
                 $('div#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }
-
+            var totalTime = 0;
             // Float sux, I'll use table :(
             $('div#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');

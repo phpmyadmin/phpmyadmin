@@ -149,7 +149,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             $ret['x'] = microtime(true) * 1000;
 
-            exit(json_encode($ret));
+            PMA_Response::getInstance()->addJSON('message', $ret);
+            exit;
         }
     }
 
@@ -214,7 +215,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             PMA_DBI_free_result($result);
 
-            exit(json_encode($return));
+            PMA_Response::getInstance()->addJSON('message', $return);
+            exit;
         }
 
         if ($_REQUEST['type'] == 'general') {
@@ -313,7 +315,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             PMA_DBI_free_result($result);
 
-            exit(json_encode($return));
+            PMA_Response::getInstance()->addJSON('message', $return);
+            exit;
         }
     }
 
@@ -338,7 +341,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             0,
             1
         );
-        exit(json_encode($loggingVars));
+        PMA_Response::getInstance()->addJSON('message', $loggingVars);
+        exit;
     }
 
     if (isset($_REQUEST['query_analyzer'])) {
@@ -384,7 +388,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             PMA_DBI_free_result($result);
         }
 
-        exit(json_encode($return));
+        PMA_Response::getInstance()->addJSON('message', $return);
+        exit;
     }
 }
 
