@@ -400,6 +400,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_monitor.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('server_status_sorter.js');
 $scripts->addFile('jquery/jquery.json-2.2.js');
 $scripts->addFile('jquery/jquery.sortableTable.js');
 $scripts->addFile('jquery/timepicker.js');
