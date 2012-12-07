@@ -3102,7 +3102,7 @@ AJAX.registerOnload('functions.js', function() {
     /**
      * Load version information asynchronously.
      */
-    if ($('.jsversioncheck').length > 0) {
+    if ($('li.jsversioncheck').length > 0) {
         $.getJSON('version_check.php', {}, PMA_current_version);
     }
 
