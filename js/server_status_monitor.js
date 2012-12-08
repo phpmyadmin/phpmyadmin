@@ -192,7 +192,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 nodes: [ {
                     dataPoints: [{ type: 'cpu', name: 'loadavg'}]
                  } ],
-                maxYLabel: 0
+                maxYLabel: 100
             },
 
             'memory': {
@@ -1460,8 +1460,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.1);
-                elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2/5);
+                if (elem.title !== PMA_messages['strSystemCPUUsage']) {
+                    elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.1);
+                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2/5);
+                }
                 i++;
 
                 if (runtime.redrawCharts) {
