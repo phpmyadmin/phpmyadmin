@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 5.9.197
+// Version     : 5.9.199
 // Begin       : 2002-08-03
-// Last Update : 2012-11-06
+// Last Update : 2012-11-29
 // Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
 // License     : http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT GNU-LGPLv3
 // -------------------------------------------------------------------
@@ -139,7 +139,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 5.9.197
+ * @version 5.9.199
  */
 
 // Main configuration file. Define the K_TCPDF_EXTERNAL_CONFIG constant to skip this file.
@@ -151,7 +151,7 @@ require_once(dirname(__FILE__).'/config/tcpdf_config.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 5.9.197
+ * @version 5.9.199
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -162,7 +162,7 @@ class TCPDF {
 	 * Current TCPDF version.
 	 * @private
 	 */
-	private $tcpdf_version = '5.9.197';
+	private $tcpdf_version = '5.9.199';
 
 	// Protected properties
 
@@ -8202,10 +8202,6 @@ class TCPDF {
 				// force grayscale
 				$info['cs'] = 'DeviceGray';
 			}
-			$info['i'] = $this->numimages;
-			if (!in_array($file, $this->imagekeys)) {
-				++$info['i'];
-			}
 			if ($imgmask !== false) {
 				$info['masked'] = $imgmask;
 			}
@@ -8215,7 +8211,7 @@ class TCPDF {
 			// array of alternative images
 			$info['altimgs'] = $altimgs;
 			// add image to document
-			$this->setImageBuffer($file, $info);
+			$info['i'] = $this->setImageBuffer($file, $info);
 		}
 		// set alignment
 		$this->img_rb_y = $y + $h;
@@ -25981,10 +25977,16 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 	 * Set image buffer content.
 	 * @param $image (string) image key
 	 * @param $data (array) image data
+	 * @return int image index number
 	 * @protected
 	 * @since 4.5.000 (2008-12-31)
 	 */
 	protected function setImageBuffer($image, $data) {
+		if (($data['i'] = array_search($image, $this->imagekeys)) === FALSE) {
+			$this->imagekeys[$this->numimages] = $image;
+			$data['i'] = $this->numimages;
+			++$this->numimages;
+		}
 		if ($this->diskcache) {
 			if (!isset($this->images[$image])) {
 				$this->images[$image] = $this->getObjFilename('image'.$image);
@@ -25993,10 +25995,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 		} else {
 			$this->images[$image] = $data;
 		}
-		if (!in_array($image, $this->imagekeys)) {
-			$this->imagekeys[] = $image;
-			++$this->numimages;
-		}
+		return $data['i'];
 	}
 
 	/**

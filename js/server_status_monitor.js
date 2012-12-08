@@ -24,8 +24,6 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
     // $("input#variableInput").destroy();
     clearTimeout(runtime.refreshTimeout);
     runtime.refreshTimeout = null;
-    window.localStorage.removeItem('monitorCharts');
-    window.localStorage.removeItem('monitorSettings');
     $.cookie('pma_serverStatusTabs', null);
 });
 
@@ -111,7 +109,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
                 transformFn: 'qce'
              } ],
-            maxYLabel: []
+            maxYLabel: 0
         },
         // Query cache usage
         'qcu': {
@@ -123,7 +121,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
                 transformFn: 'qcu'
              } ],
-            maxYLabel: []
+            maxYLabel: 0
         }
     };
 
@@ -147,7 +145,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 nodes: [ {
                     dataPoints: [{ type: 'cpu', name: 'loadavg'}]
                  } ],
-                maxYLabel: []
+                maxYLabel: 0
             },
 
             'memory': {
@@ -165,7 +163,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
                         { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
             },
 
             'swap': {
@@ -182,7 +180,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
                         { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
                 ],
-                maxYLabel: []
+                maxYLabel: 0
             }
         });
         break;
@@ -195,7 +193,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     label: PMA_messages['strAverageLoad']
                 } ],
                 nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux'}],
-                maxYLabel: []
+                maxYLabel: 0
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
@@ -211,7 +209,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
              },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
@@ -225,7 +223,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
             }
         });
         break;
@@ -240,7 +238,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 nodes: [ {
                     dataPoints: [{ type: 'cpu', name: 'loadavg'}]
                  } ],
-                maxYLabel: []
+                maxYLabel: 0
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
@@ -252,7 +250,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
              },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
@@ -264,7 +262,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
             }
         });
         break;
@@ -275,7 +273,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         'c0': {  title: PMA_messages['strQuestions'],
                  series: [{label: PMA_messages['strQuestions']}],
                  nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }],
-                maxYLabel: []
+                maxYLabel: 0
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
@@ -284,7 +282,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                  nodes: [ { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
                           { dataPoints: [{ type: 'proc', name: 'processes' }] }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
@@ -296,7 +294,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
                     { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
                 ],
-                maxYLabel: []
+                maxYLabel: 0
          }
     };
 
@@ -574,25 +572,32 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     $('a[href="#exportMonitorConfig"]').click(function() {
         var gridCopy = {};
-
         $.each(runtime.charts, function(key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
         });
-
         var exportData = {
             monitorCharts: gridCopy,
             monitorSettings: monitorSettings
         };
-        var $form;
-
-        $('body').append($form = $('<form method="post" action="file_echo.php?' + url_query + '&filename=1" style="display:none;"></form>'));
-
-        $form.append('<input type="hidden" name="monitorconfig" value="' + encodeURI($.toJSON(exportData)) + '">');
-        $form.submit();
-        $form.remove();
+        $('<form />', {
+            "class": "disableAjax",
+            method: "post",
+            action: "file_echo.php?" + url_query + "&filename=1",
+            style: "display:none;"
+        })
+        .append(
+            $('<input />', {
+                type: "hidden",
+                name: "monitorconfig",
+                value: $.toJSON(exportData)
+            })
+        )
+        .appendTo('body')
+        .submit()
+        .remove();
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
@@ -1122,7 +1127,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
 
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
-        chartObj.numPoints = 0;
 
         if (initialize != true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
@@ -1384,7 +1388,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             /* Update values in each graph */
             $.each(runtime.charts, function(orderKey, elem) {
                 var key = elem.chartID;
-                var maxVal = 1;
                 // If newly added chart, we have no data for it yet
                 if (! chartData[key]) {
                     return;
@@ -1434,33 +1437,30 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
                     // Set y value, if defined
                     if (value != undefined) {
-                        elem.chart.series[j].data.push([chartData.x, value]);
-                        maxVal = (maxVal > value) ? maxVal : value;
+                        elem.chart.series[j].data.push([chartData.x, value]);      
+                        if(value > elem.maxYLabel) {
+                            elem.maxYLabel = value;
+                        }
+                        // free old data point values and update maxYLabel
+                        if(elem.chart.series[j].data.length > runtime.gridMaxPoints) {
+                            // check if the next freeable point is highest
+                            if(elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
+                                elem.chart.series[j].data.shift();
+                                elem.maxYLabel = getMaxYLabel(elem.chart.series[j].data);
+                            } else {
+                                elem.chart.series[j].data.shift();
+                            }
+                        }
                     }
                 }
-                if (elem.maxYLabel.length == 0) {
-                    elem.maxYLabel.push([runtime.xmax, 1]);
-                }
 
-                if (maxVal > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
-                    elem.maxYLabel.push([chartData.x, (Math.ceil(maxVal*1.2))]);
-                } else if (maxVal > elem.maxYLabel[0][1]) {
-                    elem.maxYLabel.splice(1,0,[chartData.x, (Math.ceil(maxVal*1.2))]);
-                }
-
-                if (elem.maxYLabel.length > 1
-                    && elem.maxYLabel[elem.maxYLabel.length - 1][0] < runtime.xmin
-                ) {
-                    elem.maxYLabel.pop();
-                    elem.maxYLabel.sort(function(a,b){return a[1]-b[1]});
-                }
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['yaxis']['max'] = elem.maxYLabel[elem.maxYLabel.length - 1][1];
-                elem.chart['axes']['yaxis']['tickInterval'] = elem.maxYLabel[elem.maxYLabel.length - 1][1]/5;
+                elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.2);
+                elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2)/5;
                 i++;
-                runtime.charts[orderKey].numPoints++;
+
                 if (runtime.redrawCharts) {
                     elem.chart.replot();
                 }
@@ -1470,6 +1470,15 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
         });
+    }
+
+    /* Function to get highest plotted point's y label, to scale the chart, 
+     * TODO: make jqplot's autoscale:true work here
+     */
+    function getMaxYLabel(dataValues) {
+        var maxY = dataValues[0][1];
+        $.each(dataValues,function(k,v){maxY = (v[1]>maxY) ? v[1] : maxY});
+        return maxY;
     }
 
     /* Function that supplies special value transform functions for chart values */
@@ -1925,25 +1934,26 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         dlgBtns[PMA_messages['strAnalyzeQuery']] = function() {
             loadQueryAnalysis(rowData);
         };
-        dlgBtns[PMA_messages['strClose']] = function() {
-            if (profilingChart != null) {
-                profilingChart.destroy();
-            }
-            $('div#queryAnalyzerDialog div.placeHolder').html('');
-            if (codemirror_editor) {
-                codemirror_editor.setValue('');
-            }
-            else {
-                $('#sqlquery').val('');
-            }
-            $(this).dialog("close");
+        dlgBtns[PMA_messages['strClose']] = function () {
+            $(this).dialog('close');
         };
 
         $('div#queryAnalyzerDialog').dialog({
             width: 'auto',
             height: 'auto',
             resizable: false,
-            buttons: dlgBtns
+            buttons: dlgBtns,
+            close: function() {
+                if (profilingChart != null) {
+                    profilingChart.destroy();
+                }
+                $('div#queryAnalyzerDialog div.placeHolder').html('');
+                if (codemirror_editor) {
+                    codemirror_editor.setValue('');
+                } else {
+                    $('#sqlquery').val('');
+                }
+            }
         });
     }
 
@@ -2015,15 +2025,31 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 var chartData = [];
                 var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages['strStatus'] + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
                 var duration;
+                var otherTime = 0;
 
                 for (var i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
 
-                    chartData.push([data.profiling[i].state, duration]);
                     totalTime += duration;
 
                     numberTable += '<tr><td>' + data.profiling[i].state + ' </td><td> ' + PMA_prettyProfilingNum(duration, 2) + '</td></tr>';
                 }
+                
+                // Only put those values in the pie which are > 2%
+                for (var i = 0, l = data.profiling.length; i < l; i++) {
+                    duration = parseFloat(data.profiling[i].duration);
+                    
+                    if (duration / totalTime > 0.02) {
+                        chartData.push([PMA_prettyProfilingNum(duration, 2) + ' ' + data.profiling[i].state, duration]);
+                    } else {
+                        otherTime += duration;
+                    }
+                }
+                
+                if (otherTime > 0) {
+                    chartData.push([PMA_prettyProfilingNum(otherTime, 2) + ' ' + PMA_messages['strOther'], otherTime]);
+                }
+                
                 numberTable += '<tr><td><b>' + PMA_messages['strTotalTime'] + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
@@ -2049,7 +2075,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         chartData
                 );
 
-                $('div#queryProfiling').resizable();
+                //$('div#queryProfiling').resizable();
             }
         });
     }

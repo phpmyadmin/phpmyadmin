@@ -73,6 +73,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Improved layout of server variables page
 + rfe #1052091 [config] Double-underscores in PMA table names
 + Improved the "More" dropdown on the table structure page
++ [interface] Added "scroll to top" link in menubar
 
 3.5.5.0 (not yet released)
 - bug #3563824 [export] Support Apache's mod_deflate
@@ -81,6 +82,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3585695 [CSS] Font size in inline query editor is way too big
 - bug #3588354 [l10n] Portuguese Language not displaying correctly
 - bug #3591412 [status] Live charts don't work for non-default server
+- bug [core] Proxy ajax calls to pma.net to avoid browser notices
 
 3.5.4.0 (2012-11-16)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

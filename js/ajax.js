@@ -239,6 +239,7 @@ var AJAX = {
                 $('body').children()
                     .not('#pma_navigation')
                     .not('#floating_menubar')
+                    .not('#goto_pagetop')
                     .not('#page_content')
                     .not('#selflink')
                     .not('#session_debug')

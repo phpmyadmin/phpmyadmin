@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 
+define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
 
 /* For chart exporting */
@@ -49,14 +50,14 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     }
 
     /* Send download header */
-    PMA_download_header($filename, $_REQUEST['type'], strlen($data));
+    PMA_downloadHeader($filename, $_REQUEST['type'], strlen($data));
 
     /* Send data */
     echo $data;
 
 } else if (isset($_REQUEST['monitorconfig'])) {
     /* For monitor chart config export */
-    PMA_download_header('monitor.cfg', 'application/force-download');
+    PMA_downloadHeader('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
 
 } else if (isset($_REQUEST['import'])) {

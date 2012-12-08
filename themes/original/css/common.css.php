@@ -888,6 +888,15 @@ div#tablestatistics table {
     float: <?php echo $left; ?>
 }
 
+#goto_pagetop {
+    position: fixed;
+    padding: .1em .3em;
+    top: 0;
+    <?php echo $right; ?>: 0;
+    z-index: 900;
+    background: white;
+}
+
 #span_table_comment {
     font-weight:        normal;
     font-style:         italic;

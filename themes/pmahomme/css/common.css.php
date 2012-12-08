@@ -1125,6 +1125,15 @@ div#tablestatistics table {
     float: <?php echo $left; ?>
 }
 
+#goto_pagetop {
+    position: fixed;
+    padding: .25em;
+    top: 0;
+    <?php echo $right; ?>: 0;
+    z-index: 900;
+    background: #888;
+}
+
 #span_table_comment {
     font-weight: normal;
     font-style: italic;
@@ -1357,7 +1366,7 @@ div#queryAnalyzerDialog div.CodeMirror-scroll {
 }
 
 div#queryAnalyzerDialog div#queryProfiling {
-    height: 250px;
+    height: 300px;
 }
 
 div#queryAnalyzerDialog td.explain {

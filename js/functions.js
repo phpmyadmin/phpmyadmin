@@ -126,23 +126,29 @@ function parseVersionString (str)
  */
 function PMA_current_version(data)
 {
-    var current = parseVersionString(pmaversion);
-    var latest = parseVersionString(data['version']);
-    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
-    if (latest > current) {
-        var message = $.sprintf(PMA_messages['strNewerVersion'], escapeHtml(data['version']), escapeHtml(data['date']));
-        if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
-            /* Security update */
-            klass = 'error';
-        } else {
-            klass = 'notice';
+    if (data && data.version && data.date) {
+        var current = parseVersionString(pmaversion);
+        var latest = parseVersionString(data['version']);
+        var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
+        if (latest > current) {
+            var message = $.sprintf(
+                PMA_messages['strNewerVersion'],
+                escapeHtml(data['version']),
+                escapeHtml(data['date'])
+            );
+            if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
+                /* Security update */
+                klass = 'error';
+            } else {
+                klass = 'notice';
+            }
+            $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
         }
-        $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
+        if (latest === current) {
+            version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
+        }
+        $('#li_pma_version').append(version_information_message);
     }
-    if (latest == current) {
-        version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
-    }
-    $('#li_pma_version').append(version_information_message);
 }
 
 /**
@@ -1291,7 +1297,7 @@ AJAX.registerTeardown('functions.js', function() {
  * Jquery Coding for inline editing SQL_QUERY
  */
 AJAX.registerOnload('functions.js', function() {
-    // If we are coming back to the page by clicking forward button 
+    // If we are coming back to the page by clicking forward button
     // of the browser, bind the code mirror to inline query editor.
     bindCodeMirrorToInlineEditor();
     $("a.inline_edit_sql").live('click', function() {
@@ -1504,7 +1510,7 @@ function PMA_ajaxShowMessage(message, timeout)
     .hide()
     .appendTo("#loading_parent")
     .html(message)
-    .fadeIn('medium');
+    .show();
     // If the notification is self-closing we should create a callback to remove it
     if (self_closing) {
         $retval
@@ -3097,7 +3103,7 @@ AJAX.registerOnload('functions.js', function() {
      * Load version information asynchronously.
      */
     if ($('li.jsversioncheck').length > 0) {
-        $.getJSON('http://www.phpmyadmin.net/home_page/version.json', {}, PMA_current_version);
+        $.getJSON('version_check.php', {}, PMA_current_version);
     }
 
     if ($('#is_git_revision').length > 0) {
@@ -3148,7 +3154,7 @@ function PMA_init_slider()
         }
         var $wrapper = $('<div>', {'class': 'slide-wrapper'});
         $wrapper.toggle($this.is(':visible'));
-        $('<a>', {href: '#'+this.id, class:'ajax'})
+        $('<a>', {href: '#'+this.id, "class":'ajax'})
             .text(this.title)
             .prepend($('<span>'))
             .insertBefore($this)
@@ -3667,6 +3673,16 @@ $(function () {
             $('#topmenu').menuResizer('resize');
         }, 4);
     }
+});
+
+/**
+ * Scrolls the page to the top if clicking the serverinfo bar
+ */
+$(function () {
+    $('#goto_pagetop').bind("click", function (event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 'fast');
+    });
 });
 
 /**

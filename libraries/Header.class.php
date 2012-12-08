@@ -379,6 +379,12 @@ class PMA_Header
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
+                    $pagetop_link = '<a id="goto_pagetop" href="#" title="%s">%s</a>';
+                    $retval .= sprintf(
+                        $pagetop_link,
+                        __('Scroll to the top of the page'),
+                        PMA_Util::getImage('s_top.png')
+                    );
                 }
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
