@@ -1192,6 +1192,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             series.push([emptyArr]);
         }
 
+        $('#gridchart' + runtime.chartAI).css('overflow', 'hidden');
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
 
         if (initialize != true) {
