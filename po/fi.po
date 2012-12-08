@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-04 10:20+0100\n"
-"PO-Revision-Date: 2012-12-07 17:38+0200\n"
-"Last-Translator: Ilkka Kiviharju <ilkka.kiviharju@gmail.com>\n"
+"PO-Revision-Date: 2012-12-08 10:55+0200\n"
+"Last-Translator: Jere Vainionpää <jermakovi@hotmail.fi>\n"
 "Language-Team: Finnish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
@@ -753,7 +753,7 @@ msgstr "Palvelin"
 
 #: index.php:238
 msgid "Software"
-msgstr ""
+msgstr "Ohjelmisto"
 
 #: index.php:242
 #, fuzzy
