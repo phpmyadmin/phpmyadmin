@@ -398,9 +398,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
  */
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_status_monitor.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('server_status_sorter.js');
 $scripts->addFile('jquery/jquery.json-2.2.js');
 $scripts->addFile('jquery/jquery.sortableTable.js');
 $scripts->addFile('jquery/timepicker.js');
@@ -417,7 +415,12 @@ $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
 $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
+$scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 $scripts->addFile('date.js');
+
+$scripts->addFile('server_status_monitor.js');
+$scripts->addFile('server_status_sorter.js');
+
 
 /**
  * start output

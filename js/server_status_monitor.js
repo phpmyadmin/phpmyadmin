@@ -261,13 +261,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 series: [
-                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
                     { label: PMA_messages['strCachedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
                     { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
                 ],
                 nodes: [
-                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
                 ],
                 maxYLabel: 0
@@ -1134,10 +1134,29 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 }
             },
             highlighter: {
-            show: true,
-            showTooltip: false
+                show: true,
+                showTooltip: true,
+                tooltipAxes: 'y',
+                useAxesFormatters: true
             }
         };
+
+        if (settings.title === PMA_messages['strSystemCPUUsage']) {
+            settings.axes.yaxis.tickOptions = {
+                formatString: "%d %%"
+            };
+        } else if (settings.title === PMA_messages['strSystemMemory']
+            || settings.title === PMA_messages['strSystemSwap']
+        ) {
+            settings.stackSeries = true;
+            settings.axes.yaxis.tickOptions = {
+                formatter: $.jqplot.byteFormatter(2) // MiB
+            };
+        } else if (settings.title === PMA_messages['strTraffic']) {
+            settings.axes.yaxis.tickOptions = {
+                formatter: $.jqplot.byteFormatter(1) // KiB
+            };
+        }
 
         settings.series = chartObj.series;
 
@@ -1204,37 +1223,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
-
-            if (neighbor != null) {
-                if ($('#tooltip_box').length) {
-                    $('#tooltip_box')
-                        .css({
-                            left: ev.pageX + 15,
-                            top: ev.pageY + 15,
-                            padding:'5px'
-                        })
-                        .fadeIn();
-                }
-                var xVal = new Date(Math.ceil(neighbor.data[0]));
-                var xValHours = xVal.getHours();
-                (xValHours < 10) ? (xValHours = "0" + xValHours) : "";
-
-                var xValMinutes = xVal.getMinutes();
-                (xValMinutes < 10) ? (xValMinutes = "0" + xValMinutes) : "";
-
-                var xValSeconds = xVal.getSeconds();
-                (xValSeconds < 10) ? (xValSeconds = "0" + xValSeconds) : "";
-
-                xVal = xValHours + ":" + xValMinutes + ":" + xValSeconds;
-                var s = '<b>' + xVal + '<br/>' + neighbor.data[1] + '</b>';
-
-                $('#tooltip_box').html(s);
-            }
-
             if (! drawTimeSpan) {
                 return;
             }
-
             if (selectionStartX != undefined) {
                 $('#selection_box')
                     .css({
@@ -1244,26 +1235,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
         });
 
-
-        $('#gridchart' + runtime.chartAI).bind('jqplotMouseEnter', function(ev, gridpos, datapos, neighbor, plot) {
-            if ($('#tooltip_box').length) {
-                tooltipBox.remove();
-            }
-            tooltipBox = $('<div style="z-index:1000;height:40px;position:absolute;background-color:#FFFFFD;opacity:0.8;filter:alpha(opacity=80);">');
-            $(document.body).append(tooltipBox);
-            tooltipBox
-                .attr({id: 'tooltip_box'})
-                .css({
-                    top: ev.pageY + 15,
-                    left: ev.pageX + 15
-                })
-                .fadeIn();
-        });
-
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseLeave', function(ev, gridpos, datapos, neighbor, plot) {
-            if ($('#tooltip_box').length) {
-                tooltipBox.remove();
-            }
             drawTimeSpan = false;
         });
 
@@ -1488,8 +1460,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.2);
-                elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2)/5;
+                elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.1);
+                elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2/5);
                 i++;
 
                 if (runtime.redrawCharts) {
