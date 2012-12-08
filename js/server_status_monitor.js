@@ -1192,8 +1192,29 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             series.push([emptyArr]);
         }
 
-        $('#gridchart' + runtime.chartAI).css('overflow', 'hidden');
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
+        var $legend = $('<div />').css('padding', '0.5em');
+        for (var i in chartObj.chart.series) {
+            $legend.append(
+                $('<div />').append(
+                    $('<div>').css({
+                        width: '1em',
+                        height: '1em',
+                        background: chartObj.chart.seriesColors[i]
+                    }).addClass('floatleft')
+                ).append(
+                    $('<div>').text(
+                        chartObj.chart.series[i].label
+                    ).addClass('floatleft')
+                ).append(
+                    $('<div class="clearfloat">')
+                ).addClass('floatleft')
+            );
+        }
+        $('#gridchart' + runtime.chartAI)
+            .css('overflow', 'hidden')
+            .parent()
+            .append($legend);
 
         if (initialize != true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
