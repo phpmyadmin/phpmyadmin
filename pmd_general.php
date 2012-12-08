@@ -152,6 +152,7 @@ if (isset($_REQUEST['query'])) {
     </a>
 </div>
 
+<div id="canvas_outer">
 <form action="" method="post" name="form1">
 <div id="osn_tab">
   <canvas class="pmd" id="canvas" width="100" height="100" onclick="Canvas_click(this)"></canvas>
@@ -229,12 +230,12 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           left: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
-          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(90, 550); ?>px;
+          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
           visibility: <?php
           echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
             ? "visible"
             : "hidden"; ?>;
-         z-index: 901;">
+         z-index: 400;">
 <thead>
 <tr>
     <?php
@@ -372,6 +373,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 }
 ?>
 </form>
+</div>
 <div id="pmd_hint"></div>
 
 <table id="layer_new_relation" style="display:none;"

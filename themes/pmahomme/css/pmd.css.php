@@ -19,6 +19,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     color: #000;
 }
 
+#canvas_outer {
+    position: relative;
+}
+
 #canvas {
     background-color: #fff;
     color: #000;
