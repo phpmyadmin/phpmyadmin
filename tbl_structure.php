@@ -76,6 +76,10 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         // handle confirmation of deleting multiple fields/columns
         $action = 'tbl_structure.php';
         include 'libraries/mult_submits.inc.php';
+        /**
+         * if $submit_mult == 'change', execution will have stopped
+         * at this point
+         */
 
         if (empty($message)) {
             $message = PMA_Message::success();

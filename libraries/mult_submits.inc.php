@@ -126,7 +126,9 @@ if (! empty($submit_mult)
             break;
         case 'change':
             include './tbl_alter.php';
-            break;
+            // execution stops here but PMA_Response correctly finishes
+            // the rendering 
+            exit;
         case 'browse':
             // this should already be handled by tbl_structure.php
         }
@@ -343,7 +345,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     exit;
 
-} elseif ($mult_btn == __('Yes')) {
+} elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
     /**
      * Executes the query - dropping rows, columns/fields, tables or dbs
      */
