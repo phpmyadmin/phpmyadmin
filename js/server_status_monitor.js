@@ -199,13 +199,11 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 title: PMA_messages['strSystemMemory'],
                 series: [ {
                     label: PMA_messages['strTotalMemory'],
-                    fill:true,
-                    stackSeries: true
+                    fill:true
                 }, {
                     dataType: 'memory',
                     label: PMA_messages['strUsedMemory'],
-                    fill:true,
-                    stackSeries: true
+                    fill:true
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
                         { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
@@ -217,12 +215,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 title: PMA_messages['strSystemSwap'],
                 series: [ {
                     label: PMA_messages['strTotalSwap'],
-                    fill:true,
-                    stackSeries: true
+                    fill:true
                 }, {
                     label: PMA_messages['strUsedSwap'],
-                    fill:true,
-                    stackSeries: true
+                    fill:true
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
                         { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
@@ -245,10 +241,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 series: [
-                    { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strCachedMemory'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
+                    { label: PMA_messages['strBufferedMemory'], fill:true},
+                    { label: PMA_messages['strUsedMemory'], fill:true},
+                    { label: PMA_messages['strCachedMemory'], fill:true},
+                    { label: PMA_messages['strFreeMemory'], fill:true}
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
@@ -261,9 +257,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 series: [
-                    { label: PMA_messages['strCachedSwap'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
+                    { label: PMA_messages['strCachedSwap'], fill:true},
+                    { label: PMA_messages['strUsedSwap'], fill:true},
+                    { label: PMA_messages['strFreeSwap'], fill:true}
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
@@ -290,8 +286,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 series: [
-                    { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
+                    { label: PMA_messages['strUsedMemory'], fill:true },
+                    { label: PMA_messages['strFreeMemory'], fill:true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -302,8 +298,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 series: [
-                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
+                    { label: PMA_messages['strUsedSwap'], fill:true },
+                    { label: PMA_messages['strFreeSwap'], fill:true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
