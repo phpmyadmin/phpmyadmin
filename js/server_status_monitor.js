@@ -245,15 +245,15 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 series: [
+                    { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
                     { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
                     { label: PMA_messages['strCachedMemory'], fill:true, stackSeries: true},
-                    { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
                     { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
                 ],
                 nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024 },
-                    { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
                 ],
                 maxYLabel: 0
