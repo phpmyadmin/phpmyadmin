@@ -1383,6 +1383,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
             var value, i = 0;
             var diff;
+            var total;
 
             /* Update values in each graph */
             $.each(runtime.charts, function(orderKey, elem) {
@@ -1392,6 +1393,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     return;
                 }
                 // Draw all series
+                total = 0;
                 for (var j = 0; j < elem.nodes.length; j++) {
                     // Update x-axis
                     if (i == 0 && j == 0) {
@@ -1450,15 +1452,28 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                                 elem.chart.series[j].data.shift();
                             }
                         }
+                        if (elem.title === PMA_messages['strSystemMemory']
+                            || elem.title === PMA_messages['strSystemSwap']
+                        ) {
+                            total += value;
+                        }
                     }
                 }
 
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                if (elem.title !== PMA_messages['strSystemCPUUsage']) {
+                if (elem.title !== PMA_messages['strSystemCPUUsage']
+                    && elem.title !== PMA_messages['strSystemMemory']
+                    && elem.title !== PMA_messages['strSystemSwap']
+                ) {
                     elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.1);
-                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.2/5);
+                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.1/5);
+                } else if (elem.title === PMA_messages['strSystemMemory']
+                    || elem.title === PMA_messages['strSystemSwap']
+                ) {
+                    elem.chart['axes']['yaxis']['max'] = Math.ceil(total * 1.1 / 100) * 100;
+                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(total * 1.1 / 5);
                 }
                 i++;
 
