@@ -51,7 +51,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 AJAX.registerTeardown('server_status_monitor.js', function() {
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').unbind('click');
     $('div.popupContent select[name="chartColumns"]').unbind('change');
-    $(' div.popupContent select[name="gridChartRefresh"]').unbind('change');
+    $('div.popupContent select[name="gridChartRefresh"]').unbind('change');
     $('a[href="#addNewChart"]').unbind('click');
     $('a[href="#exportMonitorConfig"]').unbind('click');
     $('a[href="#importMonitorConfig"]').unbind('click');
@@ -67,6 +67,8 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
     $('a[href="#submitClearSeries"]').unbind('click');
     $('a[href="#submitAddSeries"]').unbind('click');
     // $("input#variableInput").destroy();
+    $('#chartPreset').unbind('click');
+    $('#chartStatusVar').unbind('click');
     destroyGrid();
 });
 
@@ -600,8 +602,25 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
             });
             $presetList.change(function() {
-                $('input#chartPreset').trigger('click');
-                $('input[name="chartTitle"]').val(presetCharts[$(this).val()].title);
+                $('input[name="chartTitle"]').val(
+                    $presetList.find(':selected').text()
+                );
+                $('#chartPreset').prop('checked', true);
+            })
+            $('#chartPreset').click(function () {
+                $('input[name="chartTitle"]').val(
+                    $presetList.find(':selected').text()
+                );
+            });
+            $('#chartStatusVar').click(function () {
+                $('input[name="chartTitle"]').val(
+                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                );
+            });
+            $('#chartSeries').change(function () {
+                $('input[name="chartTitle"]').val(
+                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                );
             });
         }
 
@@ -1137,7 +1156,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
         };
 
-        if (settings.title === PMA_messages['strSystemCPUUsage']) {
+        if (settings.title === PMA_messages['strSystemCPUUsage']
+            || settings.title === PMA_messages['strQueryCacheEfficiency']) {
             settings.axes.yaxis.tickOptions = {
                 formatString: "%d %%"
             };
@@ -1464,6 +1484,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
                 if (elem.title !== PMA_messages['strSystemCPUUsage']
+                    && elem.title !== PMA_messages['strQueryCacheEfficiency']
                     && elem.title !== PMA_messages['strSystemMemory']
                     && elem.title !== PMA_messages['strSystemSwap']
                 ) {
