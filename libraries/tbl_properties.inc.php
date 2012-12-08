@@ -27,6 +27,16 @@ require_once './libraries/StorageEngine.class.php';
  */
 require_once './libraries/Partition.class.php';
 
+/**
+ * We are in transition between old-style echo and new-style PMA_Response
+ * so this script generates $html and at the bottom, either echos it
+ * or uses addHTML on it. 
+ *
+ * Initialize $html in case this variable was used by a caller 
+ * (yes, this script should be refactored into functions)
+ */
+$html = '';
+
 $length_values_input_size = 8;
 
 $_form_params = array(
@@ -706,7 +716,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 } // end for
 
-echo '<script src="js/keyhandler.js" type="text/javascript"></script>'
+$html .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
     . '<script type="text/javascript">'
     . '// <![CDATA['
     . 'var switch_movement = 0;'
@@ -714,14 +724,14 @@ echo '<script src="js/keyhandler.js" type="text/javascript"></script>'
     . '// ]]>'
     . '</script>';
 
-echo '<form method="post" action="' . $action  . '" class="'
+$html .= '<form method="post" action="' . $action  . '" class="'
     . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
     . '_form' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '') . '">';
 
-echo PMA_generate_common_hidden_inputs($_form_params);
+$html .= PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);
 if ($action == 'tbl_create.php') {
-    echo '<table>'
+    $html .= '<table>'
         . '<tr class="vmiddle">'
         . '<td>' . __('Table name')
         . ':&nbsp;<input type="text" name="table" size="40" maxlength="80"'
@@ -733,13 +743,13 @@ if ($action == 'tbl_create.php') {
     if ($action == 'tbl_create.php'
         || $action == 'tbl_addfield.php'
     ) {
-        echo sprintf(
+        $html .= sprintf(
             __('Add %s column(s)'), '<input type="text" id="added_fields" '
             . 'name="added_fields" size="2" value="1" onfocus="this.select'
             . '()" />'
         );
 
-        echo '<input type="submit" name="submit_num_fields"'
+        $html .= '<input type="submit" name="submit_num_fields"'
             . 'value="' . __('Go') . '"'
             . 'onclick="return'
             . ' checkFormElementInRange(this.form, \'added_fields\', \''
@@ -747,7 +757,7 @@ if ($action == 'tbl_create.php') {
                 '\'', '\\\'', __('You have to add at least one column.')
             ) . '\', 1)" />';
     }
-    echo '</td>'
+    $html .= '</td>'
         . '</tr>'
         . '</table>';
 }
@@ -756,29 +766,29 @@ if (is_array($content_cells) && is_array($header_cells)) {
     // last row is for javascript insert
     //$empty_row = array_pop($content_cells);
 
-    echo '<table id="table_columns" class="noclick">';
-    echo '<caption class="tblHeaders">' . __('Structure')
+    $html .= '<table id="table_columns" class="noclick">';
+    $html .= '<caption class="tblHeaders">' . __('Structure')
         . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_TABLE') . '</caption>';
 
-    echo '<tr>';
+    $html .= '<tr>';
     foreach ($header_cells as $header_val) {
-        echo '<th>' . $header_val . '</th>';
+        $html .= '<th>' . $header_val . '</th>';
     }
-    echo '</tr>';
+    $html .= '</tr>';
 
     $odd_row = true;
     foreach ($content_cells as $content_row) {
-        echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+        $html .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = ! $odd_row;
 
         if (is_array($content_row)) {
             foreach ($content_row as $content_row_val) {
-                echo '<td class="center">' . $content_row_val . '</td>';
+                $html .= '<td class="center">' . $content_row_val . '</td>';
             }
         }
-        echo '</tr>';
+        $html .= '</tr>';
     }
-    echo '</table>'
+    $html .= '</table>'
         . '<br />';
 }
 
@@ -820,7 +830,7 @@ function addField()
  */
 
 if ($action == 'tbl_create.php') {
-    echo '<table>'
+    $html .= '<table>'
         . '<tr class="vtop">'
         . '<th>' . __('Table comments') . ':&nbsp;</th>'
         . '<td width="25">&nbsp;</td>'
@@ -861,7 +871,7 @@ if ($action == 'tbl_create.php') {
         . '</tr>';
 
     if (PMA_Partition::havePartitioning()) {
-        echo '<tr class="vtop">'
+        $html .= '<tr class="vtop">'
             . '<th>' . __('PARTITION definition') . ':&nbsp;'
             . PMA_Util::showMySQLDocu('Partitioning', 'Partitioning')
             . '</th>'
@@ -879,14 +889,21 @@ if ($action == 'tbl_create.php') {
             . '</td>'
             . '</tr>';
     }
-    echo '</table>'
+    $html .= '</table>'
         . '<br />';
 } // end if ($action == 'tbl_create.php')
 
-echo '<fieldset class="tblFooters">'
+$html .= '<fieldset class="tblFooters">'
     . '<input type="submit" name="do_save_data" value="' . __('Save') . '" />'
     . '</fieldset>'
     . '<div id="properties_message"></div>'
     . '</form>';
 
-echo '<div id="popup_background"></div>';
+$html .= '<div id="popup_background"></div>';
+
+// here we expect that the convention of using $response was applied
+if (isset($response)) {
+    $response->addHTML($html);
+} else {
+    echo $html;
+}
