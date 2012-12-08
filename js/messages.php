@@ -86,8 +86,6 @@ $js_messages['strQueryCacheUsed'] = __('Query cache used');
 $js_messages['strSystemCPUUsage'] = __('System CPU Usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');
-$js_messages['strMiB'] = __('MiB');
-$js_messages['strKiB'] = __('KiB');
 
 $js_messages['strAverageLoad'] = __('Average load');
 $js_messages['strTotalMemory'] = __('Total memory');
