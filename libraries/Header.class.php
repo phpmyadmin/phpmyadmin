@@ -382,7 +382,7 @@ class PMA_Header
                     $pagetop_link = '<a id="goto_pagetop" href="#" title="%s">%s</a>';
                     $retval .= sprintf(
                         $pagetop_link,
-                        __('Scroll to the top of the page'),
+                        __('Click on the bar to scroll to top of page'),
                         PMA_Util::getImage('s_top.png')
                     );
                 }
