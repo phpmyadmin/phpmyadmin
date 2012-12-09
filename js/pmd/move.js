@@ -708,6 +708,8 @@ function Canvas_click(id)
     var selected = 0;
     var a = new Array();
     var Key0, Key1, Key2, Key3, Key, x1, x2;
+    var Local_X = Glob_X - document.getElementById("canvas_outer").offsetLeft;
+    var Local_Y = Glob_Y - document.getElementById("canvas_outer").offsetTop;
     Clear();
     for (K in contr) {
         for (key in contr[K]) {
@@ -759,7 +761,7 @@ function Canvas_click(id)
                     var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2+"."+key3).offsetTop + height_field;
                     var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
                                      document.getElementById(contr[K][key][key2][key3][0]+"."+contr[K][key][key2][key3][1]).offsetTop + height_field;
-                    if (!selected && Glob_X > x1 - 10 && Glob_X < x1 + 10 && Glob_Y > y1 - 7 && Glob_Y < y1 + 7) {
+                    if (!selected && Local_X > x1 - 10 && Local_X < x1 + 10 && Local_Y > y1 - 7 && Local_Y < y1 + 7) {
                         Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, "rgba(255,0,0,1)");
                         selected = 1; // Rect(x1-sm_x,y1-sm_y,10,10,"rgba(0,255,0,1)");
                         relation_name = key; //
