@@ -217,7 +217,7 @@ for ($i = 0; $i < $name_cnt; $i++) {
 <div class="center">
     <?php echo __('Number of tables') . ': ' . $name_cnt; ?>
 </div>
-<div class="right">
+<div class="floatright">
     <div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">
     </div>
 </div>

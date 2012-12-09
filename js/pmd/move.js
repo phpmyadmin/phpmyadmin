@@ -857,7 +857,7 @@ function Hide_tab_all(id_this) // max/min all tables
         if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_') {
             if (id_this.alt == 'v') {
                 E.elements[i].checked = true;
-                document.getElementById(E.elements[i].value).style.display = 'block';
+                document.getElementById(E.elements[i].value).style.display = '';
             } else {
                 E.elements[i].checked = false;
                 document.getElementById(E.elements[i].value).style.display = 'none';
@@ -908,7 +908,7 @@ function No_have_constr(id_this)
             if (!in_array_k(E.elements[i].value, a)) {
                 if (id_this.alt == 'v') {
                     E.elements[i].checked = true;
-                    document.getElementById(E.elements[i].value).style.display = 'block';
+                    document.getElementById(E.elements[i].value).style.display = '';
                 } else {
                     E.elements[i].checked = false;
                     document.getElementById(E.elements[i].value).style.display = 'none';

@@ -362,6 +362,14 @@ select[multiple] {
     margin-<?php echo $right; ?>: 1em;
 }
 
+.floatright {
+    float: <?php echo $right; ?>;
+}
+
+.center {
+    text-align: center;
+}
+
 table.nospacing {
     border-spacing: 0;
 }

@@ -210,8 +210,6 @@ canvas.pmd * {
 .L_butt2_1 {
     padding: 1px;
     text-decoration: none;
-    background-color: #fff;
-    color: #000;
     vertical-align: middle;
     cursor: default;
 }
@@ -220,8 +218,9 @@ canvas.pmd * {
     padding: 0;
     border: #0099CC solid 1px;
     background: #FFEE99;
-    text-decoration: none;
     color: #000;
+    text-decoration: none;
+    vertical-align: middle;
     cursor: default;
 }
 
