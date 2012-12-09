@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 06:25-0500\n"
-"PO-Revision-Date: 2012-11-22 07:36+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2012-12-09 12:40+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -2789,7 +2788,7 @@ msgstr "Ouvrir une nouvelle fenêtre phpMyAdmin"
 
 #: libraries/Header.class.php:385
 msgid "Scroll to the top of the page"
-msgstr ""
+msgstr "Faire défiler vers le haut de la page"
 
 #: libraries/Header.class.php:591
 #: libraries/plugins/auth/AuthenticationCookie.class.php:259
@@ -3821,7 +3820,7 @@ msgstr "Vous devriez utiliser %s en version %s ou plus récente."
 
 #: libraries/common.inc.php:1039
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Erreur: disparité du jeton"
 
 #: libraries/common.inc.php:1083
 msgid "GLOBALS overwrite attempt"
@@ -10060,11 +10059,11 @@ msgstr "Montrer/cacher le menu de gauche"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Voir en plein écran"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Quitter le plein écran"
 
 #: pmd_general.php:95
 msgid "Save position"
