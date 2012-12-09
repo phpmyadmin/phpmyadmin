@@ -177,7 +177,7 @@ for ($i = 0; $i < $name_cnt; $i++) {
     ?>
     <tr><td title="<?php echo __('Structure'); ?>" width="1px"
             onmouseover="this.className='L_butt2_2'"
-            onmouseout="this.className='L_butt2_1'">
+            onmouseout="this.className='L_butt2_1'" class="L_butt2_1">
             <img onclick="Start_tab_upd('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>');"
                 src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png'); ?>" alt="" /></td>
         <td width="1px">
