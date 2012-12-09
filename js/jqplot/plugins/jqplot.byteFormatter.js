@@ -1,4 +1,9 @@
-/* global PMA_messages */
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * jqplot formatter for byte values
+ *
+ * @package phpMyAdmin
+ */
 (function($) {
     "use strict";
     var formatByte = function (val, index) {

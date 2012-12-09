@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * Server status monitor feature
  *
  * @package PhpMyAdmin
  */
@@ -461,7 +461,9 @@ exit;
 /**
  * Prints html with monitor
  *
- * @return void
+ * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
  */
 function getPrintMonitorHtml($ServerStatusData)
 {
@@ -581,7 +583,8 @@ function getPrintMonitorHtml($ServerStatusData)
             . ' chart by holding down the left mouse button and panning over the'
             . ' chart. Once confirmed, this will load a table of grouped queries,'
             . ' there you may click on any occuring SELECT statements to further'
-            . ' analyze them.');
+            . ' analyze them.'
+        );
         $retval .= '</p>';
         $retval .= '<p>';
         $retval .= PMA_Util::getImage('s_attention.png');
@@ -607,7 +610,9 @@ function getPrintMonitorHtml($ServerStatusData)
     $retval .= '<label for="chartPreset">' . __('Preset chart') . '</label>';
     $retval .= '<select name="presetCharts"></select><br/>';
     $retval .= '<input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked" />';
-    $retval .= '<label for="chartStatusVar">' . __('Status variable(s)') . '</label><br/>';
+    $retval .= '<label for="chartStatusVar">';
+    $retval .= __('Status variable(s)');
+    $retval .= '</label><br/>';
     $retval .= '<div id="chartVariableSettings">';
     $retval .= '<label for="chartSeries">' . __('Select series:') . '</label><br />';
     $retval .= '<select id="chartSeries" name="varChartList" size="1">';
@@ -640,10 +645,13 @@ function getPrintMonitorHtml($ServerStatusData)
     $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
     $retval .= '<span class="divisorInput" style="display:none;">';
     $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
-    $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, <a href="#mibDivisor">' . __('MiB') . '</a>)';
+    $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, ';
+    $retval .= '<a href="#mibDivisor">' . __('MiB') . '</a>)';
     $retval .= '</span><br />';
     $retval .= '<input type="checkbox" id="useUnit" name="useUnit" value="1" />';
-    $retval .= '<label for="useUnit">' . __('Append unit to data values') . '</label>';
+    $retval .= '<label for="useUnit">';
+    $retval .= __('Append unit to data values');
+    $retval .= '</label>';
     $retval .= '<span class="unitInput" style="display:none;">';
     $retval .= '<input type="text" name="valueUnit" size="4" value="" />';
     $retval .= '</span>';
@@ -724,7 +732,7 @@ function getPrintMonitorHtml($ServerStatusData)
  * @param int    $defaultRate  Currently chosen rate
  * @param array  $refreshRates List of refresh rates
  *
- * @return HTML code with select
+ * @return string
  */
 function PMA_getRefreshList($name,
     $defaultRate = 5,

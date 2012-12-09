@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- *
+ * object the server status page: processes, connections and traffic
  *
  * @package PhpMyAdmin
  */
@@ -54,7 +54,9 @@ exit;
 /**
  * Prints server traffic information
  *
- * @return void
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
  */
 function getServerTrafficHtml($ServerStatusData)
 {
@@ -116,7 +118,9 @@ function getServerTrafficHtml($ServerStatusData)
      */
     if ($GLOBALS['server_master_status'] || $GLOBALS['server_slave_status']) {
         $retval .= '<hr class="clearfloat" />';
-        $retval .= '<h3><a name="replication"></a>' . __('Replication status') . '</h3>';
+        $retval .= '<h3><a name="replication">';
+        $retval .= __('Replication status');
+        $retval .= '</a></h3>';
         foreach ($GLOBALS['replication_types'] as $type) {
             if (${"server_{$type}_status"}) {
                 PMA_replication_print_status_table($type);
@@ -293,9 +297,13 @@ function getServerTrafficHtml($ServerStatusData)
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(array(), 'html', '?');
+        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+            array(), 'html', '?'
+        );
     } else {
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
+        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+            array('full' => 1)
+        );
     }
 
     // This array contains display name and real column name of each
@@ -380,15 +388,15 @@ function getServerTrafficHtml($ServerStatusData)
             && ! empty($_REQUEST['sort_order'])
             && ($_REQUEST['order_by_field'] == $column['order_by_field']);
 
-        $column['sort_order'] = ($is_sorted
-            && ($_REQUEST['sort_order'] == 'ASC'))
-            ? 'DESC'
-            : 'ASC';
+        $column['sort_order'] = 'ASC';
+        if ($is_sorted && $_REQUEST['sort_order'] === 'ASC') {
+            $column['sort_order'] = 'DESC';
+        }
 
         if ($is_sorted) {
             if ($_REQUEST['sort_order'] == 'ASC') {
-               $asc_display_style = 'inline';
-               $desc_display_style = 'none';
+                $asc_display_style = 'inline';
+                $desc_display_style = 'none';
             } elseif ($_REQUEST['sort_order'] == 'DESC') {
                 $desc_display_style = 'inline';
                 $asc_display_style = 'none';
@@ -475,7 +483,7 @@ function getServerTrafficHtml($ServerStatusData)
         if (empty($process['Info'])) {
             $retval .= '---';
         } else {
-            if (!$show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            if (! $show_full_sql && strlen($process['Info']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $retval .= htmlspecialchars(substr($process['Info'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])) . '[...]';
             } else {
                 $retval .= PMA_SQP_formatHtml(PMA_SQP_parse($process['Info']));

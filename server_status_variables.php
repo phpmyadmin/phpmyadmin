@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays a list of server status variables
  *
  * @package PhpMyAdmin
  */
@@ -50,9 +51,15 @@ $response->addHTML('</div>');
 
 exit;
 
+/**
+ * Returns the html for the list filter
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
 function getFilterHtml($ServerStatusData)
 {
-
     $filterAlert = '';
     if (! empty($_REQUEST['filterAlert'])) {
         $filterAlert = ' checked="checked"';
@@ -88,7 +95,9 @@ function getFilterHtml($ServerStatusData)
 
     foreach ($ServerStatusData->sections as $section_id => $section_name) {
         if (isset($ServerStatusData->categoryUsed[$section_id])) {
-            if (! empty($_REQUEST['filterCategory']) && $_REQUEST['filterCategory'] == $section_id) {
+            if (! empty($_REQUEST['filterCategory'])
+                && $_REQUEST['filterCategory'] == $section_id
+            ) {
                 $selected = ' selected="selected"';
             } else {
                 $selected = '';
@@ -111,10 +120,16 @@ function getFilterHtml($ServerStatusData)
     return $retval;
 }
 
+/**
+ * Prints the suggestion links
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
 function getLinkSuggestionsHtml($ServerStatusData)
 {
-    $retval  = '';
-    $retval .= '<div id="linkSuggestions" class="defaultLinks" style="display:none">';
+    $retval  = '<div id="linkSuggestions" class="defaultLinks" style="display:none">';
     $retval .= '<p class="notice">' . __('Related links:');
     foreach ($ServerStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
@@ -140,9 +155,11 @@ function getLinkSuggestionsHtml($ServerStatusData)
 }
 
 /**
- * Prints table with variables information
+ * Returns a table with variables information
  *
- * @return void
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
  */
 function getVariablesTableHtml($ServerStatusData)
 {
@@ -230,7 +247,12 @@ function getVariablesTableHtml($ServerStatusData)
         $retval .= htmlspecialchars(str_replace('_', ' ', $name));
         /* Fields containing % are calculated, they can not be described in MySQL documentation */
         if (strpos($name, '%') === false) {
-             $retval .= PMA_Util::showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
+            $retval .= PMA_Util::showMySQLDocu(
+                'server-status-variables',
+                'server-status-variables',
+                false,
+                'statvar_' . $name
+            );
         }
         $retval .= '</th>';
 
@@ -290,6 +312,11 @@ function getVariablesTableHtml($ServerStatusData)
     return $retval;
 }
 
+/**
+ * Returns a list of variable descriptions
+ *
+ * @return array
+ */
 function getStatusVariablesDescriptions()
 {
     /**
@@ -728,7 +755,8 @@ function getStatusVariablesDescriptions()
             'Thread cache hit rate (calculated value)'
         ),
         'Threads_running' => __(
-            'The number of threads that are not sleeping.')
+            'The number of threads that are not sleeping.'
+        )
     );
 }
 

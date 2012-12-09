@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays query statistics for the server
  *
  * @package PhpMyAdmin
  */
@@ -47,6 +48,8 @@ exit;
 
 /**
  * Returns the html content for the query statistics
+ *
+ * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
  *
  * @return string
  */
@@ -137,7 +140,9 @@ function getQueryStatisticsHtml($ServerStatusData)
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
-        $retval .= htmlspecialchars(PMA_Util::formatNumber($value * $perc_factor, 0, 2));
+        $retval .= htmlspecialchars(
+            PMA_Util::formatNumber($value * $perc_factor, 0, 2)
+        );
         $retval .= '</td>';
         $retval .= '</tr>';
     }

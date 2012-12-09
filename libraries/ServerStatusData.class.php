@@ -1,13 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PMA_ServerStatusData class
+ * Used by server_status_*.php pages
  *
  * @package PhpMyAdmin
  */
 
 require_once 'libraries/common.inc.php';
 
-class PMA_ServerStatusData {
+/**
+ * This class provides data about the server status
+ *
+ * All properties of the class are read-only
+ *
+ * TODO: Use lazy initialisation for some of the properties
+ *       since not all of the server_status_*.php pages need
+ *       all the data that this class provides.
+ *
+ * @package PhpMyAdmin
+ */
+class PMA_ServerStatusData
+{
     public $status;
     public $sections;
     public $variables;
@@ -21,12 +35,24 @@ class PMA_ServerStatusData {
 
     /**
      * An empty setter makes the above properties read-only
+     *
+     * @param string $a key
+     * @param mixed  $b value
+     *
+     * @return void
      */
-    public function __set($a, $b) {
+    public function __set($a, $b)
+    {
         // Discard everything
     }
 
-    public function __construct() {
+    /**
+     * Constructor
+     *
+     * @return object
+     */
+    public function __construct()
+    {
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
         /**
          * get status from server
@@ -186,8 +212,9 @@ class PMA_ServerStatusData {
 
         if ($GLOBALS['server_master_status']) {
             $links['repl'][__('Show slave hosts')]
-                = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS') .
-                    '&amp;goto=' . $this->selfUrl . '&amp;' . PMA_generate_common_url();
+                = 'sql.php?sql_query=' . urlencode('SHOW SLAVE HOSTS')
+                    . '&amp;goto=' . $this->selfUrl . '&amp;'
+                    . PMA_generate_common_url();
             $links['repl'][__('Show master status')] = '#replication_master';
         }
         if ($GLOBALS['server_slave_status']) {
@@ -303,8 +330,6 @@ class PMA_ServerStatusData {
 
     /**
      * cleanup of some deprecated values
-     *
-     * @param array $server_status status array to process
      *
      * @return array
      */
