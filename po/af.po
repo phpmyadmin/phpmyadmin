@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-09 06:25-0500\n"
+"POT-Creation-Date: 2012-12-09 07:12-0500\n"
 "PO-Revision-Date: 2012-05-17 15:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: afrikaans <af@li.org>\n"
@@ -2935,7 +2935,7 @@ msgid "Open new phpMyAdmin window"
 msgstr ""
 
 #: libraries/Header.class.php:385
-msgid "Scroll to the top of the page"
+msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: libraries/Header.class.php:591
