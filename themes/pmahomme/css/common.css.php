@@ -2713,6 +2713,10 @@ fieldset .disabled-field td {
     background: #DDD;
 }
 
+#page_content {
+    background-color: white;
+}
+
 .navigation {
     margin: .8em 0;
 

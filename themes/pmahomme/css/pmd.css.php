@@ -21,6 +21,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #canvas_outer {
     position: relative;
+    overflow: auto;
+    float: left;
 }
 
 #canvas {
