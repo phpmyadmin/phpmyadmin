@@ -74,6 +74,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #1052091 [config] Double-underscores in PMA table names
 + Improved the "More" dropdown on the table structure page
 + [interface] Added "scroll to top" link in menubar
++ [designer] Fullscreen mode for the designer
 
 3.5.5.0 (not yet released)
 - bug #3563824 [export] Support Apache's mod_deflate

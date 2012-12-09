@@ -49,6 +49,7 @@ $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
 $scripts->addFile('pmd/init.js');
+$scripts->addFile('jquery/jquery.fullscreen.js');
 
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
@@ -81,6 +82,15 @@ echo '</div>';
         <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>" alt="v"
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png'); ?>" />
     </a>
+    <a href="#" id="enterFullscreen" onclick="Enter_fullscreen(); return false" class="M_butt" target="_self">
+        <img title="<?php echo __('View in fullscreen') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/viewInFullscreen.png'); ?>" />
+    </a>
+    <a href="#" id="exitFullscreen" onclick="Exit_fullscreen(); return false" class="M_butt hide" target="_self">
+        <img title="<?php echo __('Exit fullscreen') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exitFullscreen.png'); ?>" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
     <a href="#" onclick="Save2(); return false" class="M_butt" target="_self">
         <img title="<?php echo __('Save position') ?>" alt=""
             src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save.png'); ?>" />
