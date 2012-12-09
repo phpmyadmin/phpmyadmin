@@ -425,7 +425,7 @@ $scripts->addFile('server_status_sorter.js');
 /**
  * start output
  */
-$ServerStatusData = new PMA_ServerStatusData('server_status_monitor.php');
+$ServerStatusData = new PMA_ServerStatusData();
 
 /**
  * Define some data needed on the client side

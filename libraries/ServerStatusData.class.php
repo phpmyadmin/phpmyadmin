@@ -26,8 +26,8 @@ class PMA_ServerStatusData {
         // Discard everything
     }
 
-    public function __construct($selfUrl) {
-        $this->selfUrl = $selfUrl;
+    public function __construct() {
+        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
         /**
          * get status from server
          */

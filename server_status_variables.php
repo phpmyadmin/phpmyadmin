@@ -32,7 +32,7 @@ if (isset($_REQUEST['flush'])) {
     unset($_flush_commands);
 }
 
-$ServerStatusData = new PMA_ServerStatusData('server_status_variables.php');
+$ServerStatusData = new PMA_ServerStatusData();
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();

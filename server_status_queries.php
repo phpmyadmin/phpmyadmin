@@ -16,7 +16,7 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData('server_status_queries.php');
+$ServerStatusData = new PMA_ServerStatusData();
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();

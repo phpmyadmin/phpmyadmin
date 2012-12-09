@@ -21,7 +21,7 @@ if (PMA_DRIZZLE) {
     include_once 'libraries/replication_gui.lib.php';
 }
 
-$ServerStatusData = new PMA_ServerStatusData('server_status.php');
+$ServerStatusData = new PMA_ServerStatusData();
 
 /**
  * Kills a selected process
