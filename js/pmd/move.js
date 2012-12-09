@@ -12,6 +12,27 @@
  var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
  var show_relation_lines = true;
 
+AJAX.registerTeardown('pmd/move.js', function() {
+    if ($.FullScreen.supported) {
+        $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
+    }
+});
+
+AJAX.registerOnload('pmd/move.js', function() {
+    $('#exitFullscreen').hide();
+    if ($.FullScreen.supported) {
+        $(document).fullScreenChange(function() {
+            if (! $.FullScreen.isFullScreen()) {
+                $('#canvas_outer').css({'width': 'auto', 'height': 'auto'});
+                $('#enterFullscreen').show();
+                $('#exitFullscreen').hide();
+            }
+        });
+    } else {
+        $('#enterFullscreen').hide();
+    }
+});
+
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
 /*
@@ -461,7 +482,23 @@ function Rect(x1, y1, w, h, color)
     ctx.fillStyle = color;
     ctx.fillRect(x1, y1, w, h);
 }
+//--------------------------- FULLSCREEN -------------------------------------
+function Enter_fullscreen()
+{
+    if (! $.FullScreen.isFullScreen()) {
+        $('#canvas_outer').css({'width': screen.width - 5, 'height': screen.height - 28});
+        $('#enterFullscreen').hide();
+        $('#exitFullscreen').show();
+        $('#page_content').requestFullScreen();
+    }
+}
 
+function Exit_fullscreen()
+{
+    if ($.FullScreen.isFullScreen()) {
+        $.FullScreen.cancelFullScreen();
+    }
+}
 //------------------------------ SAVE ------------------------------------------
 function Save(url) // (del?) no for pdf
 {
