@@ -110,7 +110,7 @@ function MouseDown(e)
 
         alert(" dx = " + dx + " dy = " +dy);
         */
-        cur_click.style.zIndex = 902;
+        cur_click.style.zIndex = 401;
     }
     if (layer_menu_cur_click) {
         offsetx = e.pageX;
@@ -926,8 +926,7 @@ function Show_left_menu(id_this) // max/min all tables
     if (id_this.alt == "v") {
         var pos = $("#top_menu").offset();
         var height = $("#top_menu").height();
-        document.getElementById("layer_menu").style.top = (pos.top + height) + 'px';
-        document.getElementById("layer_menu").style.left = pos.left + 'px';
+        document.getElementById("layer_menu").style.top = '0px';
         document.getElementById("layer_menu").style.display = 'block';
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/uparrow2_m.png";
