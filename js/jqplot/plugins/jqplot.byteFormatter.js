@@ -23,11 +23,15 @@
             format + ' ' + units[index], val
         );
     };
+    /**
+     * The index indicates what unit the incoming data will be in.
+     * 0 for bytes, 1 for kilobytes and so on...
+     */
     $.jqplot.byteFormatter = function (index) {
         index = index || 0;
         return function (format, val) {
             if (typeof val === 'number') {
-                val = parseFloat(val, 10) || 0;
+                val = parseFloat(val) || 0;
                 return formatByte(val, index);
             } else {
                 return String(val);
