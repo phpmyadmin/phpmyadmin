@@ -745,7 +745,7 @@ function Canvas_click(id)
     var selected = 0;
     var a = new Array();
     var Key0, Key1, Key2, Key3, Key, x1, x2;
-    var Local_X = Glob_X - document.getElementById("canvas_outer").offsetLeft;
+    var Local_X = $.FullScreen.isFullScreen() ? Glob_X : Glob_X - document.getElementById("canvas_outer").offsetLeft;
     var Local_Y = Glob_Y - document.getElementById("canvas_outer").offsetTop;
     Clear();
     for (K in contr) {
