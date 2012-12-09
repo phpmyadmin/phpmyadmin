@@ -235,7 +235,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
             ? "visible"
             : "hidden"; ?>;
-         z-index: 400;">
+         z-index: 1;">
 <thead>
 <tr>
     <?php

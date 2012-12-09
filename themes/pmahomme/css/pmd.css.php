@@ -322,7 +322,7 @@ a.M_butt:hover {
 }
 
 #layer_menu {
-    z-index: 402;
+    z-index: 100;
     position: absolute;
     left: 0;
     background-color: #EAEEF0;
@@ -333,14 +333,14 @@ a.M_butt:hover {
     position: absolute;
     left: 637px;
     top: 224px;
-    z-index: 402;
+    z-index: 100;
 }
 
 #layer_new_relation {
     position: absolute;
     left: 636px;
     top: 85px;
-    z-index: 402;
+    z-index: 100;
     width: 153px;
 }
 
@@ -348,7 +348,7 @@ a.M_butt:hover {
     position: absolute;
     left: 636px;
     top: 85px;
-    z-index: 402;
+    z-index: 100;
     width: 153px;
 }
 

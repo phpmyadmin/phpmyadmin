@@ -110,7 +110,7 @@ function MouseDown(e)
 
         alert(" dx = " + dx + " dy = " +dy);
         */
-        cur_click.style.zIndex = 401;
+        cur_click.style.zIndex = 2;
     }
     if (layer_menu_cur_click) {
         offsetx = e.pageX;
@@ -163,7 +163,7 @@ function MouseUp(e)
     if (cur_click != null) {
         document.getElementById("canvas").style.display = 'inline-block';
         Re_load();
-        cur_click.style.zIndex = 400;
+        cur_click.style.zIndex = 1;
         cur_click = null;
     }
     layer_menu_cur_click = 0;
