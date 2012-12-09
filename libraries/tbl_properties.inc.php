@@ -901,9 +901,5 @@ $html .= '<fieldset class="tblFooters">'
 
 $html .= '<div id="popup_background"></div>';
 
-// here we expect that the convention of using $response was applied
-if (isset($response)) {
-    $response->addHTML($html);
-} else {
-    echo $html;
-}
+PMA_Response::getInstance()->addHTML($html);
+?>
