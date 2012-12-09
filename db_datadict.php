@@ -15,6 +15,9 @@ if (! isset($selected_tbl)) {
     include 'libraries/db_info.inc.php';
 }
 
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$header->enablePrintView();
 
 /**
  * Gets the relations settings

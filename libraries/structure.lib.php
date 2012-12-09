@@ -376,7 +376,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
  */
 function PMA_getHtmlForDataDictionaryLink($url_query)
 {
-    return '<a href="db_datadict.php?' . $url_query . '">'
+    return '<a href="db_datadict.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon(
             'b_tblanalyse.png',
             __('Data Dictionary'),
