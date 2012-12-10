@@ -23,9 +23,11 @@ AJAX.registerOnload('pmd/move.js', function() {
     if ($.FullScreen.supported) {
         $(document).fullScreenChange(function() {
             if (! $.FullScreen.isFullScreen()) {
-                $('#canvas_outer').css({'width': 'auto', 'height': 'auto'});
+                $('#page_content').removeClass('content_fullscreen')
+                    .css({'width': 'auto', 'height': 'auto'});
                 $('#enterFullscreen').show();
                 $('#exitFullscreen').hide();
+                Top_menu_reposition($('#key_Left_Right')[0]);
             }
         });
     } else {
@@ -485,11 +487,14 @@ function Rect(x1, y1, w, h, color)
 //--------------------------- FULLSCREEN -------------------------------------
 function Enter_fullscreen()
 {
-    if (! $.FullScreen.isFullScreen()) {
-        $('#canvas_outer').css({'width': screen.width - 5, 'height': screen.height - 28});
+    if (! $.FullScreen.isFullScreen()) {        
         $('#enterFullscreen').hide();
         $('#exitFullscreen').show();
-        $('#page_content').requestFullScreen();
+        $('#page_content')
+            .addClass('content_fullscreen')
+            .css({'width': screen.width - 5, 'height': screen.height - 5})
+            .requestFullScreen();
+        Top_menu_reposition($('#key_Left_Right')[0]);
     }
 }
 
@@ -983,12 +988,7 @@ function Show_left_menu(id_this) // max/min all tables
 function Top_menu_right(id_this)
 {
     if (id_this.alt == ">") {
-        var top_menu_width = 10;
-        $('#top_menu').children().each(function () {
-            top_menu_width += $(this).outerWidth(true);
-        });
-        var offset = parseInt(document.getElementById('top_menu').offsetWidth - top_menu_width, 10);
-        document.getElementById('top_menu').style.paddingLeft = offset + 'px';
+        moveTopMenuToRight(id_this);
         id_this.alt = "<";
         id_this.src = pmaThemeImage + "pmd/2leftarrow_m.png";
     } else {
@@ -996,6 +996,23 @@ function Top_menu_right(id_this)
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/2rightarrow_m.png";
     }
+}
+
+function Top_menu_reposition(id_this)
+{
+    if (id_this.alt == "<") {
+        moveTopMenuToRight(id_this);
+    }
+}
+
+function moveTopMenuToRight(id_this)
+{
+    var top_menu_width = 10;
+    $('#top_menu').children().each(function () {
+        top_menu_width += $(this).outerWidth(true);
+    });
+    var offset = parseInt(document.getElementById('canvas_outer').offsetWidth - top_menu_width, 10);
+    document.getElementById('top_menu').style.paddingLeft = offset + 'px';
 }
 //------------------------------------------------------------------------------
 function Start_display_field()

@@ -19,10 +19,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     color: #000;
 }
 
+.content_fullscreen {
+    position : relative;
+    overflow: auto;
+}
+
 #canvas_outer {
     position: relative;
-    overflow: auto;
-    float: left;
 }
 
 #canvas {
@@ -281,6 +284,9 @@ canvas.pmd * {
     border-right: #999 solid 1px;
     border-left: #999 solid 1px;
     height: 28px;
+    position: fixed;
+    z-index: 101;
+    width: 100%
 }
 
 .pmd_header a {
