@@ -109,7 +109,7 @@ if (true === $cfg['SkipLockedTables']) {
                         }
 
                         if ($cfg['ShowTooltip']) {
-                            PMA_Util::PMA_fillTooltip(
+                            PMA_Util::fillTooltip(
                                 $tooltip_truename, $tooltip_aliasname, $sts_tmp
                             );
                         }
@@ -195,7 +195,7 @@ if (! isset($sot_ready)) {
 
     if ($cfg['ShowTooltip']) {
         foreach ($tables as $each_table) {
-            PMA_Util::PMA_fillTooltip(
+            PMA_Util::fillTooltip(
                 $tooltip_truename, $tooltip_aliasname, $each_table
             );
         }

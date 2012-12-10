@@ -4074,7 +4074,7 @@ class PMA_Util
      *
      * @return void
      */
-    public static function PMA_fillTooltip(
+    public static function fillTooltip(
         &$tooltip_truename, &$tooltip_aliasname, $table)
     {
         if (strstr($table['Comment'], '; InnoDB free') === false) {
