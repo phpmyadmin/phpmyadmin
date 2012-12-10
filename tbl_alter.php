@@ -242,8 +242,8 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
+        $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
-            $response = PMA_Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON(
