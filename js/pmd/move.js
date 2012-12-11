@@ -970,7 +970,7 @@ function Show_left_menu(id_this) // max/min all tables
     if (id_this.alt == "v") {
         var pos = $("#top_menu").offset();
         var height = $("#top_menu").height();
-        document.getElementById("layer_menu").style.top = '0px';
+        document.getElementById("layer_menu").style.top = '28px'; // height of the designer menu bar
         document.getElementById("layer_menu").style.display = 'block';
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/uparrow2_m.png";
