@@ -368,11 +368,11 @@ a.M_butt:hover {
 
 .panel {
     position: fixed;
-    top: 50px;
+    top: 60px;
     right: 0;
     display: none;
     background: #FFF;
-    border: 1px solid #F5F5F5;
+    border: 1px solid gray;
     width: 350 px;
     height: auto;
     padding: 30px 170px 30px 30px;
