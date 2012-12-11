@@ -923,6 +923,8 @@ class PMA_NavigationTree
                         if ($title) {
                             $title = " title='" . htmlentities($title, ENT_QUOTES) . "'";
                         }
+                    } else {
+                        $title = '';
                     }
                     $retval .= "<a$linkClass$title href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
