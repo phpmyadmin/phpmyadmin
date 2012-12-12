@@ -169,7 +169,13 @@ if (isset($_REQUEST['submit_create_version'])) {
     }
     $tracking_set = rtrim($tracking_set, ',');
 
-    if (PMA_Tracker::createVersion($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['version'], $tracking_set )) {
+    if (PMA_Tracker::createVersion(
+        $GLOBALS['db'], 
+        $GLOBALS['table'], 
+        $_REQUEST['version'], 
+        $tracking_set, 
+        PMA_Table::isView($GLOBALS['db'], $GLOBALS['table']))
+    ) {
         $msg = PMA_Message::success(sprintf(__('Version %s is created, tracking for %s.%s is activated.'), htmlspecialchars($_REQUEST['version']), htmlspecialchars($GLOBALS['db']), htmlspecialchars($GLOBALS['table'])));
         $msg->display();
     }
@@ -236,10 +242,11 @@ if (isset($_REQUEST['snapshot'])) {
 <?php
     $data = PMA_Tracker::getTrackedData($_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']);
 
-    // Get first DROP TABLE and CREATE TABLE statements
+    // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
     $drop_create_statements = $data['ddlog'][0]['statement'];
 
-    if (strstr($data['ddlog'][0]['statement'], 'DROP TABLE')) {
+    if (strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
+        || strstr($data['ddlog'][0]['statement'], 'DROP VIEW')) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
