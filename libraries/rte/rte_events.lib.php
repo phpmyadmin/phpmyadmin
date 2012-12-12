@@ -583,7 +583,7 @@ function PMA_EVN_getQueryFromRequest()
         }
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . $common_functions->sqlAddslashes(
+        $query .= "COMMENT '" . PMA_sqlAddslashes(
             $_REQUEST['item_comment']
         ) . "' ";
     }

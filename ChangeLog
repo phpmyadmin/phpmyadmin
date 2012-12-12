@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug [core] Proxy ajax calls to pma.net to avoid browser notices
 - bug #3593534 [tracking] Structure Snapshot on tracked view renders invalid
 SQL
+- bug #3544366 [events] Event comments not saved
 
 3.5.4.0 (2012-11-16)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
