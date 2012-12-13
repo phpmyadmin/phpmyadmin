@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-28 14:21+0200\n"
+"PO-Revision-Date: 2012-12-13 13:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/be@latin/>\n"
@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Niemahčyma abnavić metavaje akno braŭzera. Mahčyma, vy zakryli baćkoŭskaje "
 "akno abo nałady biaśpieki vašaha braŭzera skanfihuranyja na blakavańnie "
-"mižvakonnych ŭzajemadziejańniaŭ"
+"mižvakonnych ŭzajemadziejańniaŭ."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3125
 #: libraries/common.lib.php:3132 libraries/common.lib.php:3341
@@ -6311,7 +6311,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" Pamier pryraščeńnia dla pašyreńnia pamieru prastory aŭtapašyralnaj tablicy, "
+"Pamier pryraščeńnia dla pašyreńnia pamieru prastory aŭtapašyralnaj tablicy, "
 "kali jana zapoŭnicca."
 
 #: libraries/engines/innodb.lib.php:32
@@ -9525,7 +9525,7 @@ msgstr "Dazvalaje stvarać časovyja tablicy."
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Dazvalaje stvarać, vydalać i pierajmianoŭvać ulikovyja zapisy karystalnikaŭ"
+"Dazvalaje stvarać, vydalać i pierajmianoŭvać ulikovyja zapisy karystalnikaŭ."
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
@@ -9879,7 +9879,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... vydalić staroha z tablicy karystalnikaŭ i paśla pierazahruzić pryvilei."
+"... vydalić staroha z tablicy karystalnikaŭ i paśla pierazahruzić pryvilei."
 
 #: server_privileges.php:2217
 msgid "Database for user"
