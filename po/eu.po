@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-07-03 16:20+0200\n"
+"PO-Revision-Date: 2012-12-13 13:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: basque <eu@li.org>\n"
+"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/3-5/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -9541,14 +9541,14 @@ msgstr "... zaharra ezabatu erabiltzaileen tauletatik."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... zaharraren pribilegio aktibo guztiak errebokatu eta ondoren ezabatu."
+"... zaharraren pribilegio aktibo guztiak errebokatu eta ondoren ezabatu."
 
 #: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... zaharra ezabatu erabiltzaileen tauletatik eta ondoren berkargatu "
+"... zaharra ezabatu erabiltzaileen tauletatik eta ondoren berkargatu "
 "pribilegioak."
 
 #: server_privileges.php:2217
