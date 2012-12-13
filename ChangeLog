@@ -76,6 +76,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [interface] Added "scroll to top" link in menubar
 + [designer] Fullscreen mode for the designer
 
+3.5.6.0 (not yet released)
+
 3.5.5.0 (not yet released)
 - bug #3563824 [export] Support Apache's mod_deflate
 - bug #3585523 [interface] Inline query editing broken after row update
