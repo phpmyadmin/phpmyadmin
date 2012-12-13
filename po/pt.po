@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-18 21:53+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"PO-Revision-Date: 2012-12-13 12:55+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1108,7 +1108,7 @@ msgstr ""
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "Nº de dados insuficiente!\\nPreencha todas as opções!"
+msgstr "Nº de dados insuficiente!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
@@ -1146,8 +1146,7 @@ msgstr "Indique a palavras-passe!"
 
 #: js/messages.php:58 server_privileges.php:1314 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr ""
-"As palavras-passe são diferentes!\\nLembre-se de confirmar a palavra-passe!"
+msgstr "As palavras-passe são diferentes!"
 
 #: js/messages.php:59 server_privileges.php:1775 server_privileges.php:1799
 #: server_privileges.php:2211 server_privileges.php:2416
@@ -9394,15 +9393,14 @@ msgstr "... apagar o antigo das tabelas do utilizador."
 #: server_privileges.php:2193
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
-msgstr ""
-" ... revogar todos os privilégios activos do antigo e a seguir apagá-lo."
+msgstr "... revogar todos os privilégios activos do antigo e a seguir apagá-lo."
 
 #: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... apagar o antigo das tabelas do utilizador e depois recarregue os "
+"... apagar o antigo das tabelas do utilizador e depois recarregue os "
 "privilégios."
 
 #: server_privileges.php:2217
