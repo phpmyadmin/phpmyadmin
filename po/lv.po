@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-10-31 03:22+0200\n"
-"Last-Translator: Janis Reinsons <fixed2009@gmail.com>\n"
+"PO-Revision-Date: 2012-12-13 13:04+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/3-5/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -9565,7 +9565,7 @@ msgstr "... dzēst veco lietotāju no lietotāju tabulas."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... atņemt vecajam lietotājam visas aktīvās privilēģijas, un pēc tam dzēst "
+"... atņemt vecajam lietotājam visas aktīvās privilēģijas, un pēc tam dzēst "
 "viņu."
 
 #: server_privileges.php:2194
@@ -9573,7 +9573,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... dzēst veco lietotāju no lietotāju tabulas, un pēc tam pārlādēt "
+"... dzēst veco lietotāju no lietotāju tabulas, un pēc tam pārlādēt "
 "privilēģijas."
 
 #: server_privileges.php:2217
