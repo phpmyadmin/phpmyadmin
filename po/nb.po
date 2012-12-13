@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:58+0200\n"
+"PO-Revision-Date: 2012-12-13 13:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
@@ -9532,14 +9532,14 @@ msgstr "... slett den gamle fra brukertabellene."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... tilbakekall alle aktive privilegier fra den gamle og slett den etterpå."
+"... tilbakekall alle aktive privilegier fra den gamle og slett den etterpå."
 
 #: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... slett den gamle fra brukertabellene og deretter oppfrisk privilegiene."
+"... slett den gamle fra brukertabellene og deretter oppfrisk privilegiene."
 
 #: server_privileges.php:2217
 msgid "Database for user"
@@ -11465,7 +11465,7 @@ msgstr "Tabellen %1$s har blitt endret"
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
-" På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
+"På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
 "redigerbar"
 
 #: tbl_change.php:817
