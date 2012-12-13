@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-11-21 15:57+0200\n"
+"PO-Revision-Date: 2012-12-13 13:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"Language-Team: Persian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -693,7 +693,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-" در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
+"در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
 "تواند ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای php را افزایش "
 "دهید."
 
@@ -1013,7 +1013,7 @@ msgstr "نمودار ترافیک لحظه ای"
 
 #: js/messages.php:63 server_status.php:860
 msgid "Live conn./process chart"
-msgstr " نمودار روند./اجرا لحظه ای"
+msgstr "نمودار روند./اجرا لحظه ای"
 
 #: js/messages.php:64 server_status.php:885
 msgid "Live query chart"
@@ -2466,7 +2466,7 @@ msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\
 
 #: libraries/DbSearch.class.php:394
 msgid "Find:"
-msgstr " یافتن :"
+msgstr "یافتن : "
 
 #: libraries/DbSearch.class.php:399 libraries/DbSearch.class.php:403
 msgid "Words are separated by a space character (\" \")."
@@ -3021,7 +3021,7 @@ msgstr[1] ""
 
 #: libraries/PDF.class.php:114
 msgid "Error while creating PDF:"
-msgstr " PDF خطا در موقع درست کردن   "
+msgstr "PDF خطا در موقع درست کردن   "
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
@@ -3062,7 +3062,7 @@ msgstr ""
 
 #: libraries/Table.class.php:327
 msgid "unknown table status: "
-msgstr " :وضعیت جدول ناشناس"
+msgstr ":وضعیت جدول ناشناس"
 
 #: libraries/Table.class.php:726
 #, fuzzy, php-format
@@ -3076,7 +3076,7 @@ msgstr "جستجو در پايگاه‌داده"
 
 #: libraries/Table.class.php:1162
 msgid "Invalid database"
-msgstr " پایگاه داده  نامعتبر "
+msgstr "پایگاه داده  نامعتبر "
 
 #: libraries/Table.class.php:1176 tbl_get_field.php:30
 msgid "Invalid table name"
@@ -4810,7 +4810,7 @@ msgstr "استفاده از کلید واژه های محلی"
 #: libraries/config/messages.inc.php:258 libraries/config/messages.inc.php:266
 #: libraries/config/messages.inc.php:267
 msgid "Column names in first row"
-msgstr " نام ستونها در اولين سطر"
+msgstr "نام ستونها در اولين سطر"
 
 #: libraries/config/messages.inc.php:259
 #: libraries/plugins/import/ImportOds.class.php:82
@@ -6444,7 +6444,7 @@ msgstr "افزایش خودکار گسترش"
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr " را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
+msgstr "را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
@@ -6464,11 +6464,11 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:144 server_status.php:715
 msgid "InnoDB Status"
-msgstr " InnoDB حالت"
+msgstr "InnoDB حالت"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
-msgstr " مقداراستفاده از حافظه بافر"
+msgstr "مقداراستفاده از حافظه بافر"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
@@ -12451,7 +12451,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
-msgstr " حداکثر اندازه حافظه پنهان جست جو"
+msgstr "حداکثر اندازه حافظه پنهان جست جو"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -12735,7 +12735,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:294
 msgid "key_buffer_size is 0"
-msgstr " است key_buffer_size 0"
+msgstr "است key_buffer_size 0"
 
 #: libraries/advisory_rules.txt:296
 #, fuzzy, php-format
