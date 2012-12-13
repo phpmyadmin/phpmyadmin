@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-11-05 10:16+0200\n"
+"PO-Revision-Date: 2012-12-13 13:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
+"Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uz\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -36,7 +36,7 @@ msgid ""
 "cross-window updates."
 msgstr ""
 "Браузернинг нишондаги ойнасини янгилаб бўлмади. Эҳтимол, бош ойна ёпилган "
-"ёки браузер хавфсизлик юзасидан ойналараро янгилашни блокировка қилмоқда"
+"ёки браузер хавфсизлик юзасидан ойналараро янгилашни блокировка қилмоқда."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3264
@@ -375,7 +375,7 @@ msgstr[1] "Жадваллар сони: \"%s\""
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
-msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак."
+msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак"
 
 #: db_qbe.php:60
 #, fuzzy, php-format
@@ -1954,7 +1954,7 @@ msgstr "Максимум бажарилиш вақти"
 #: libraries/DisplayResults.class.php:729
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d сони тўғри қатор рақами эмас!"
+msgstr "%d сони тўғри қатор рақами эмас."
 
 #: js/messages.php:293 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1460
@@ -3046,15 +3046,15 @@ msgstr ""
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Юкланаётган файл ҳажми PHP конфигурацион файлида (php.ini) кўрсатилган "
-"\"upload_max_filesize\" директиваси қийматидан катта!"
+"\"upload_max_filesize\" директиваси қийматидан катта."
 
 #: libraries/File.class.php:282
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Юкланаётган файл ҳажми HTML формада кўрсатилган \"MAX_FILE_SIZE\" "
-"директиваси қийматидан катта!"
+"Юкланаётган файл ҳажми HTML формада кўрсатилган \"MAX_FILE_SIZE\" директиваси "
+"қийматидан катта."
 
 #: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
@@ -3951,13 +3951,13 @@ msgstr "Муолажалар"
 #: libraries/Util.class.php:2651
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "\"%s\" маълумотлар базасига ўтиш"
+msgstr "\"%s\" маълумотлар базасига ўтиш."
 
 #: libraries/Util.class.php:2675
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
-" \"%s\" параметрининг иши маълум хатоликка олиб келиши мумкин, батафсил "
+"\"%s\" параметрининг иши маълум хатоликка олиб келиши мумкин, батафсил "
 "маълумот учун қаранг \"%s\""
 
 #: libraries/Util.class.php:2851
@@ -4050,7 +4050,7 @@ msgstr "Репликация (захира нусха кўчириш)"
 #: libraries/build_html_for_db.lib.php:170
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "\"%s\" маълумотлар базасининг привилегияларни текшириш"
+msgstr "\"%s\" маълумотлар базасининг привилегияларни текшириш."
 
 #: libraries/build_html_for_db.lib.php:175
 msgid "Check Privileges"
@@ -4096,7 +4096,7 @@ msgstr "Сервер рақами нотўғри: \"%s\""
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-" %1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
+"%1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
 "файлида белгиланган созлашларни тўғирланг."
 
 #: libraries/common.inc.php:843
@@ -5376,7 +5376,7 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-" cookie-логин усули қанча вақт (секундларда) браузерда сақланиши кераклигини "
+"cookie-логин усули қанча вақт (секундларда) браузерда сақланиши кераклигини "
 "белгиланг. Асл қиймати 0 бўлиб, унга кўра cookie фақат жорий сессия учун "
 "сақланади ва браузер ойнаси ёпилган заҳоти ўчирилади. Бу қиймат ишончсиз "
 "муҳитлар учун тавсия этилади."
@@ -13293,7 +13293,7 @@ msgstr "Жадвалларни кўрсатиш"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-" %1$s да ташқи калит (FOREIGN KEY) тузишда хатолик (маълумот турини "
+"%1$s да ташқи калит (FOREIGN KEY) тузишда хатолик (маълумот турини "
 "текширинг)"
 
 #: tbl_relation.php:364
