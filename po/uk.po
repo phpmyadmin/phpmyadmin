@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:21+0200\n"
+"PO-Revision-Date: 2012-12-13 13:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -9274,7 +9274,7 @@ msgstr "... знищити старого з таблиці користувач
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... анулювати всі активні права старого користувача, знищивши його після "
+"... анулювати всі активні права старого користувача, знищивши його після "
 "того."
 
 #: server_privileges.php:2194
@@ -9282,7 +9282,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... знищити старого з таблиці користувачів та перевантажити права після "
+"... знищити старого з таблиці користувачів та перевантажити права після "
 "того."
 
 #: server_privileges.php:2217
