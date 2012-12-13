@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:57+0200\n"
+"PO-Revision-Date: 2012-12-13 13:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/3-5/fa/>\n"
 "Language: fa\n"
@@ -569,7 +569,7 @@ msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\
 
 #: db_search.php:282
 msgid "Find:"
-msgstr " یافتن :"
+msgstr "یافتن : "
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
@@ -1033,7 +1033,7 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-" در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
+"در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
 "تواند ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای php را افزایش "
 "دهید."
 
@@ -1169,7 +1169,7 @@ msgstr "نمودار ترافیک لحظه ای"
 
 #: js/messages.php:67 server_status.php:815
 msgid "Live conn./process chart"
-msgstr " نمودار روند./اجرا لحظه ای"
+msgstr "نمودار روند./اجرا لحظه ای"
 
 #: js/messages.php:68 server_status.php:837
 msgid "Live query chart"
@@ -2478,7 +2478,7 @@ msgstr[1] ""
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
-msgstr " PDF خطا در موقع درست کردن   "
+msgstr "PDF خطا در موقع درست کردن   "
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2514,11 +2514,11 @@ msgstr ""
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr " :وضعیت جدول ناشناس"
+msgstr ":وضعیت جدول ناشناس"
 
 #: libraries/Table.class.php:1121
 msgid "Invalid database"
-msgstr " پایگاه داده  نامعتبر "
+msgstr "پایگاه داده  نامعتبر "
 
 #: libraries/Table.class.php:1135 tbl_get_field.php:25
 msgid "Invalid table name"
@@ -4035,7 +4035,7 @@ msgstr "استفاده از کلید واژه های محلی"
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
 msgid "Column names in first row"
-msgstr " نام ستونها در اولين سطر"
+msgstr "نام ستونها در اولين سطر"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
@@ -5844,7 +5844,7 @@ msgstr "افزایش خودکار گسترش"
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr " را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
+msgstr "را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -5864,11 +5864,11 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:652
 msgid "InnoDB Status"
-msgstr " InnoDB حالت"
+msgstr "InnoDB حالت"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr " مقداراستفاده از حافظه بافر"
+msgstr "مقداراستفاده از حافظه بافر"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
@@ -11894,7 +11894,7 @@ msgstr ""
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
-msgstr " حداکثر اندازه حافظه پنهان جست جو"
+msgstr "حداکثر اندازه حافظه پنهان جست جو"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12168,7 +12168,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr " است key_buffer_size 0"
+msgstr "است key_buffer_size 0"
 
 #: po/advisory_rules.php:165
 #, php-format
