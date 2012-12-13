@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:59+0200\n"
+"PO-Revision-Date: 2012-12-13 12:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/3-5/es/>\n"
 "Language: es\n"
@@ -6701,9 +6701,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Comentario de cabecera personalizado adicional (\n"
-" divide líneas):"
+msgstr "Comentario de cabecera personalizado adicional (\\n divide líneas):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -9516,14 +9514,14 @@ msgstr "...borrar el viejo de las tablas de usuario."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ...revocar todos los privilegios activos del viejo y eliminarlo después."
+"...revocar todos los privilegios activos del viejo y eliminarlo después."
 
 #: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ...borrar el viejo de las tablas de usuario y luego volver a cargar los "
+"...borrar el viejo de las tablas de usuario y luego volver a cargar los "
 "privilegios."
 
 #: server_privileges.php:2217
