@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-12-10 16:38+0200\n"
-"Last-Translator: Emil Hemdal <emil.hemdal.em@gmail.com>\n"
+"PO-Revision-Date: 2012-12-13 12:56+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
@@ -878,7 +878,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-" phpMyAdmin konfigurationen är inte fullständigt konfigurerat, vissa utökade "
+"phpMyAdmin konfigurationen är inte fullständigt konfigurerat, vissa utökade "
 "funktioner har inaktiverats.. Föra att ta reda på varför klicka%shär%s."
 
 #: index.php:500
@@ -7953,9 +7953,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Ytterligare Anpassa sidhuvud kommentar (\n"
-" delar rader):"
+msgstr "Ytterligare Anpassa sidhuvud kommentar (\\n delar rader):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""
@@ -9467,14 +9465,14 @@ msgstr "... ta bort den gamla från användartabellerna."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
+"... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... ta bort den gamla från användartabellerna och ladda om privilegierna "
+"... ta bort den gamla från användartabellerna och ladda om privilegierna "
 "efteråt."
 
 #: libraries/server_privileges.lib.php:1948
@@ -12740,7 +12738,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
-msgstr " Frågecache metod"
+msgstr "Frågecache metod"
 
 #: libraries/advisory_rules.txt:156
 msgid "Suboptimal caching method."
