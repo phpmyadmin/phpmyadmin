@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 16:09+0200\n"
+"PO-Revision-Date: 2012-12-13 13:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/3-5/hi/>\n"
 "Language: hi\n"
@@ -404,8 +404,8 @@ msgstr "पिछली जाँच"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] " %s टेबलें"
-msgstr[1] " %s टेबल"
+msgstr[0] "%s टेबलें"
+msgstr[1] "%s टेबल"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -5673,7 +5673,7 @@ msgstr "डाटाबेस(s)"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr " टेबल(s) "
+msgstr "टेबल(s) "
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
@@ -8953,8 +8953,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-" नोट: यहां डाटाबेस के आँकडे Enable करने से webserver और MySQL के बीच में ट्रेफिक बडने की "
-"संभावना है। "
+"नोट: यहां डाटाबेस के आँकडे Enable करने से webserver और MySQL के बीच में "
+"ट्रेफिक बडने की संभावना है। "
 
 #: server_engines.php:45
 msgid "Storage Engines"
