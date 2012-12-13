@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:32+0200\n"
+"PO-Revision-Date: 2012-12-13 13:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Macedonian <http://l10n.cihar.com/projects/phpmyadmin/3-5/mk/"
-">\n"
+"Language-Team: Macedonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Одредишни прозор претраживача није могао да буде ажуриран. Можда сте "
 "затворили матични прозор, или ваш претраживач онемогућава ажурирање међу "
-"прозорима због сигурносних подешавања"
+"прозорима због сигурносних подешавања."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3125
 #: libraries/common.lib.php:3132 libraries/common.lib.php:3341
@@ -122,7 +122,7 @@ msgstr ""
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Базата на податоци %1$s е креирана"
+msgstr "Базата на податоци %1$s е креирана."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
@@ -280,12 +280,12 @@ msgstr "Преименувај ја базата на податоци во"
 
 #: db_operations.php:438
 msgid "Remove database"
-msgstr "Избриши ја базата на податоци."
+msgstr "Избриши ја базата на податоци"
 
 #: db_operations.php:450
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Базата на податоци %s не е прифатена"
+msgstr "Базата на податоци %s не е прифатена."
 
 #: db_operations.php:455
 #, fuzzy
@@ -2837,7 +2837,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "Сервер"
+msgstr "Сервер:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
@@ -2853,7 +2853,7 @@ msgstr "Избор на сервер"
 
 #: libraries/auth/cookie.auth.lib.php:273 libraries/header.inc.php:87
 msgid "Cookies must be enabled past this point."
-msgstr "вашиот веб прелистувач треба да допушти cookies"
+msgstr "вашиот веб прелистувач треба да допушти cookies."
 
 #: libraries/auth/cookie.auth.lib.php:568
 #: libraries/auth/signon.auth.lib.php:235
@@ -6207,7 +6207,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" Големина на чекорот на проширување на големината на табелите кои автоматски "
+"Големина на чекорот на проширување на големината на табелите кои автоматски "
 "се прошируваат кога ќе се наполнат."
 
 #: libraries/engines/innodb.lib.php:32
@@ -6300,7 +6300,7 @@ msgid ""
 "tables when no MAX_ROWS option is specified."
 msgstr ""
 "Default големина на покажувачите во бајти, се користи при CREATE TABLE за "
-"MyISAM табелите кога не е зададена опцијата MAX_ROWS"
+"MyISAM табелите кога не е зададена опцијата MAX_ROWS."
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
@@ -6340,7 +6340,7 @@ msgid ""
 msgstr ""
 "Ако привремената податотека која се користи за брзо креирање на MyISAM "
 "индекси биде поголема отколку при користење на кешот за овде зададената "
-"вредност, користи го методот на кеширања на клучевите"
+"вредност, користи го методот на кеширања на клучевите."
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
@@ -8252,7 +8252,7 @@ msgstr "Запамти SQL упит"
 
 #: libraries/sql_query_form.lib.php:307 sql.php:984
 msgid "Let every user access this bookmark"
-msgstr "дади дозвола на секој корисник да пристапува на овој упит."
+msgstr "дади дозвола на секој корисник да пристапува на овој упит"
 
 #: libraries/sql_query_form.lib.php:313
 msgid "Replace existing bookmark of same name"
@@ -8306,7 +8306,7 @@ msgstr ""
 "помогне да го откриете проблемот. Ако и понатаму имате проблеми или ако "
 "парсерот не успеава иако од командата линија се е во ред, испратете го "
 "својот SQL упит со извештајот за грешка и делот од кодот во долната РЕЗ "
-"секција до нас за да можеме да провериме за што се работи."
+"секција до нас за да можеме да провериме за што се работи:"
 
 #: libraries/sqlparser.lib.php:177
 msgid "BEGIN CUT"
@@ -8522,7 +8522,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Прикажува намалена слика на која е можно да се кликне; опции: ширина, висина "
-"во пиксели (зачуван е оргиналнит однос)"
+"во пиксели (зачуван е оргиналнит однос)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
@@ -9482,9 +9482,9 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-" Дозволува поврзување иако е постигнат макслималниот број на врски; "
-"Неопходно за повеќето административни опции како што е подесување на "
-"глобални променливи или прекин на процеси наостанатите корисници."
+"Дозволува поврзување иако е постигнат макслималниот број на врски; Неопходно "
+"за повеќето административни опции како што е подесување на глобални "
+"променливи или прекин на процеси наостанатите корисници."
 
 #: server_privileges.php:67 server_privileges.php:281
 #: server_privileges.php:650
@@ -9699,7 +9699,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... избриши го стариот корисник од табелата на корисници а потоа повторно "
+"... избриши го стариот корисник од табелата на корисници а потоа повторно "
 "вчитај ги привилегиите."
 
 #: server_privileges.php:2217
@@ -11672,7 +11672,7 @@ msgstr "Премини на копираната табела"
 
 #: tbl_operations.php:596
 msgid "Table maintenance"
-msgstr "Можете да извршите:"
+msgstr "Можете да извршите"
 
 #: tbl_operations.php:624
 msgid "Defragment table"
@@ -12142,7 +12142,7 @@ msgstr "Немате право на пристап овде!"
 
 #: user_password.php:96
 msgid "The profile has been updated."
-msgstr "Профилот е променет"
+msgstr "Профилот е променет."
 
 #: view_create.php:141
 msgid "VIEW name"
