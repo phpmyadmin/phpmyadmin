@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-11-22 23:06+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2012-12-13 13:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -6633,7 +6632,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" Størrelsen på den udvidelse der vil forekomme, når pladsen i en "
+"Størrelsen på den udvidelse der vil forekomme, når pladsen i en "
 "autoudvidende tabel udvides fordi den løber fuld."
 
 #: libraries/engines/innodb.lib.php:40
@@ -7908,9 +7907,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Ekstra kommentarer i headeren (\n"
-" deler linjer):"
+msgstr "Ekstra kommentarer i headeren (\\n deler linjer):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""
@@ -9417,7 +9414,7 @@ msgstr "... slet den gamle fra brugertabellerne."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... tilbagekald alle aktive privilegier fra den gamle og slet den "
+"... tilbagekald alle aktive privilegier fra den gamle og slet den "
 "efterfølgende."
 
 #: libraries/server_privileges.lib.php:1937
@@ -9425,7 +9422,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... slet den gamle fra brugertabellerne og genindlæs privilegierne "
+"... slet den gamle fra brugertabellerne og genindlæs privilegierne "
 "efterfølgende."
 
 #: libraries/server_privileges.lib.php:1948
@@ -11948,10 +11945,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-" Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
+"Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
 "sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
-"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
-"mange tusinde brugere."
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder "
+"med mange tusinde brugere."
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -12638,7 +12635,7 @@ msgstr "'source' fundet i version_comment"
 
 #: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr " MySQL manualen er kun korrekt for officielle MySQL binære filer."
+msgstr "MySQL manualen er kun korrekt for officielle MySQL binære filer."
 
 #: libraries/advisory_rules.txt:125
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
