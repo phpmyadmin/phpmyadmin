@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-24 14:31+0200\n"
-"Last-Translator: Love Dager <lovedager@gmail.com>\n"
+"PO-Revision-Date: 2012-12-13 12:56+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/3-5/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -6577,9 +6577,7 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Ytterligare Anpassa sidhuvud kommentar (\n"
-" delar rader):"
+msgstr "Ytterligare Anpassa sidhuvud kommentar (\\n delar rader):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -8554,7 +8552,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-" phpMyAdmin konfigurationen är inte fullständigt konfigurerat, vissa utökade "
+"phpMyAdmin konfigurationen är inte fullständigt konfigurerat, vissa utökade "
 "funktioner har inaktiverats.. Föra att ta reda på varför klicka%shär%s."
 
 #: main.php:336
@@ -9347,14 +9345,14 @@ msgstr "... ta bort den gamla från användartabellerna."
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-" ... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
+"... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
 
 #: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... ta bort den gamla från användartabellerna och ladda om privilegierna "
+"... ta bort den gamla från användartabellerna och ladda om privilegierna "
 "efteråt."
 
 #: server_privileges.php:2217
@@ -12171,7 +12169,7 @@ msgstr ""
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
-msgstr " Frågecache metod"
+msgstr "Frågecache metod"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
