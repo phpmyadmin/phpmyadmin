@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-15 08:15-0500\n"
-"PO-Revision-Date: 2012-12-13 12:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2012-12-15 19:26+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -1851,7 +1850,7 @@ msgstr "Ajouter une option pour la colonne "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objet(s) créé(s)"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -12655,7 +12654,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries a une valeur de 'OFF'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12663,14 +12661,13 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Activez la journalisation des requêtes longues en réglant {log_slow_queries} "
-"à 'ON'. Ceci aidera à dépanner les problèmes de lenteur des requêtes."
+"Activez la journalisation des requêtes longues en réglant {slow_query_log} à "
+"'ON'. Ceci aidera à dépanner les problèmes de lenteur des requêtes."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries a une valeur de 'OFF'"
+msgstr "slow_query_log a la valeur 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
