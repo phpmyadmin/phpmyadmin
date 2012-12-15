@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-15 08:15-0500\n"
-"PO-Revision-Date: 2012-12-15 19:29+0200\n"
+"PO-Revision-Date: 2012-12-15 22:03+0200\n"
 "Last-Translator: Chunmin Tai <taichunmin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -35,9 +35,7 @@ msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
-msgstr ""
-"無法更新目標瀏覽視窗。可能您已經關閉了父視窗或您瀏覽器的安全設定阻止了跨視窗"
-"更新"
+msgstr "無法更新目標瀏覽視窗。可能您已經關閉了父視窗或您瀏覽器的安全設定阻止了跨視窗更新。"
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3264
@@ -104,12 +102,12 @@ msgstr "使用此值"
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "本系統不支援 %s 格式，詳情請參考 www.phpmyadmin.net"
+msgstr "找不到檔案 %s，詳情請參考 www.phpmyadmin.net。"
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "建立資料庫 %1$s 成功"
+msgstr "建立資料庫 %1$s 成功。"
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -487,7 +485,7 @@ msgstr "錯誤的類型!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
-msgstr "選擇的匯出的檔案格式"
+msgstr "請選擇的匯出的檔案格式！"
 
 #: export.php:122
 msgid "Bad parameters!"
@@ -507,7 +505,7 @@ msgstr "檔案 %s 已存在, 請更改檔案名稱或選擇「覆寫己存在檔
 #: export.php:368 export.php:374
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "網站伺服器沒有儲存 %s 檔案的權限"
+msgstr "網頁伺服器沒有儲存 %s 檔案的權限。"
 
 #: export.php:797
 #, php-format
@@ -678,9 +676,7 @@ msgstr ""
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
-msgstr ""
-"在最後一次執行時沒有資料被解析，建議您增加 PHP 運行時間限制，否則 phpMyAdmin "
-"將無法完成匯入操作"
+msgstr "在最後一次執行匯入時沒有資料被解析，建議您增加 PHP 運行時間限制，否則 phpMyAdmin 將無法完成匯入操作。"
 
 #: import.php:563 libraries/DisplayResults.class.php:4553
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1344
@@ -894,7 +890,7 @@ msgstr "伺服器上運行了 Suhosin。請先查看%s檔案%s中是否有類似
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:337
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "已經停用刪除資料庫 (“DROP DATABASE”) 指令"
+msgstr "刪除資料庫的指令「DROP DATABASE」已經被停用。"
 
 #: js/messages.php:30
 #, fuzzy, php-format
@@ -928,7 +924,7 @@ msgstr "這個作業將會執行較長的時間, 請問使否確定執行?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
-msgstr "表單內缺少部分資料"
+msgstr "表單內缺少某些值！"
 
 #: js/messages.php:41
 msgid "This is not a number!"
@@ -1247,15 +1243,15 @@ msgstr "general_log與slow_query_log已啟用"
 
 #: js/messages.php:131
 msgid "general_log is enabled."
-msgstr "general_log已啟用"
+msgstr "general_log 已啟用。"
 
 #: js/messages.php:132
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log已啟用"
+msgstr "slow_query_log 已啟用。"
 
 #: js/messages.php:133
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log與general_log已關閉"
+msgstr "slow_query_log 與 general_log 已停用。"
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
@@ -1278,7 +1274,7 @@ msgstr ""
 #: js/messages.php:137
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time已設為%d秒"
+msgstr "long_query_time 被指定為 %d 秒。"
 
 #: js/messages.php:138
 msgid ""
@@ -1728,7 +1724,7 @@ msgstr "增加 %d 個值"
 #: js/messages.php:268
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "注意: 若檔案包含多個資料表, 它們會被結合成一個資料表."
+msgstr "備註：若檔案中包含多個資料表，它們會被結合成同一個資料表。"
 
 #: js/messages.php:271
 msgid "Hide query box"
@@ -1757,7 +1753,7 @@ msgstr "查詢耗時"
 #: libraries/DisplayResults.class.php:729
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d 不是有效行數"
+msgstr "%d 不是正確的資料列行數。"
 
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1460
@@ -1978,7 +1974,7 @@ msgstr "在權限表內找不到選中的使用者"
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr "有新的 phpMyAdmin 可用，請考慮升級。最新的版本是 %s，於 %s 發佈"
+msgstr "新的 phpMyAdmin 已經發佈了，請考慮升級至最新的版本（版本 %s，於 %s 發佈）。"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
@@ -2472,7 +2468,7 @@ msgstr "搜尋："
 
 #: libraries/DbSearch.class.php:399 libraries/DbSearch.class.php:403
 msgid "Words are separated by a space character (\" \")."
-msgstr "每個單詞用空格 (“ ”) 分隔"
+msgstr "每個單詞用空格「 」分隔。"
 
 #: libraries/DbSearch.class.php:418
 #| msgid "Inside table(s):"
@@ -2484,67 +2480,58 @@ msgid "Inside column:"
 msgstr "於以下欄位:"
 
 #: libraries/DisplayResults.class.php:698
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "保存文件夾"
+msgstr "儲存"
 
 #: libraries/DisplayResults.class.php:704
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "文字框列"
+msgstr "還原欄位的順序"
 
 #: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2545
 #: libraries/Util.class.php:2549
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
-msgstr "開始"
+msgstr "最前頁"
 
 #: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2547
 #: libraries/Util.class.php:2550 server_binlog.php:141 server_binlog.php:143
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "上一個"
+msgstr "上一頁"
 
 # 這應該使用於選擇日期的小月曆
 #: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2580
 #: libraries/Util.class.php:2583 server_binlog.php:174 server_binlog.php:176
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "下個月"
+msgstr "下一頁"
 
 #: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2581
 #: libraries/Util.class.php:2584
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "結束"
+msgstr "最末頁"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:194
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Start row"
-msgstr "文字框行"
+msgstr "開始的資料列"
 
 #: libraries/DisplayResults.class.php:908 tbl_chart.php:196
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "記錄數："
+msgstr "顯示數量"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "更多"
+msgstr "座標軸模式"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -2561,7 +2548,7 @@ msgstr "垂直"
 #: libraries/DisplayResults.class.php:933
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "每 %s 列顯示欄位標題"
 
 #: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
@@ -2627,18 +2614,17 @@ msgid "Show binary contents as HEX"
 msgstr "以十六進制顯示二進制內容"
 
 #: libraries/DisplayResults.class.php:1635
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "瀏覽器轉換"
+msgstr "隱藏瀏覽器轉換"
 
 #: libraries/DisplayResults.class.php:1644
 msgid "Well Known Text"
-msgstr ""
+msgstr "易懂的文字"
 
 #: libraries/DisplayResults.class.php:1645
 msgid "Well Known Binary"
-msgstr ""
+msgstr "易懂的二進位檔"
 
 #: libraries/DisplayResults.class.php:3363
 #: libraries/DisplayResults.class.php:3379
@@ -2731,7 +2717,7 @@ msgstr "顯示圖表"
 
 #: libraries/DisplayResults.class.php:5322
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "虛擬的 GIS 資料"
 
 #: libraries/DisplayResults.class.php:5354 view_create.php:152
 msgid "Create view"
@@ -2751,33 +2737,33 @@ msgstr "檔案上傳失敗。"
 
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "上傳檔案的大小超過 php.ini 檔案中 upload_max_filesize 的限制"
+msgstr "上傳檔案的大小超過 php.ini 檔案中 upload_max_filesize 的限制。"
 
 #: libraries/File.class.php:282
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "上傳檔案的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值"
+msgstr "上傳檔案的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值，"
 
 #: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
-msgstr "僅上傳了檔案的一部分內容"
+msgstr "檔案上傳失敗，僅上傳了一部分的檔案。"
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr "找不到臨時資料夾"
+msgstr "找不到暫存資料夾。"
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
-msgstr "將檔案寫入硬碟失敗"
+msgstr "將檔案寫入硬碟時發生錯誤。"
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
-msgstr "因外掛而停止檔案上傳"
+msgstr "因附加元件而停止檔案上傳。"
 
 #: libraries/File.class.php:297
 msgid "Unknown error in file upload."
-msgstr "上傳檔案時發生未知錯誤"
+msgstr "上傳檔案時發生未知錯誤。"
 
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
@@ -2867,7 +2853,7 @@ msgstr "已刪除索引 %s"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除"
+msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一個將可能被刪除。"
 
 #: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:177
@@ -3144,27 +3130,27 @@ msgstr ""
 #: libraries/StorageEngine.class.php:216
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "沒有該儲存引擎的詳細狀態資訊"
+msgstr "沒有該儲存引擎的詳細狀態資訊。"
 
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:203
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s 是此 MySQL 伺服器的預設儲存引擎"
+msgstr "此 MySQL 伺服器的預設儲存引擎是 %s。"
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr "MySQL 伺服器支援 %s"
+msgstr "MySQL 伺服器支援 %s。"
 
 #: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr "%s 在此 MySQL 伺服器上被禁止了"
+msgstr "%s 在此 MySQL 伺服器上被禁用。"
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "此 MySQL 伺服器不支援 %s 儲存引擎"
+msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
 
 #: libraries/Table.class.php:327
 #| msgid "Show slave status"
@@ -3204,14 +3190,14 @@ msgstr "已將資料表 %s 改名爲 %s"
 
 #: libraries/Table.class.php:1371
 msgid "Could not save table UI preferences"
-msgstr "無法儲存表格介面使用者喜好設定"
+msgstr "無法儲存資料表「介面偏好」"
 
 #: libraries/Table.class.php:1395
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
-msgstr "在清空資料表「介面設定」時發生錯誤。（詳見 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
+msgstr "在清空資料表「介面偏好」時發生錯誤。（詳見 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
 #: libraries/Table.class.php:1533
 #, php-format
@@ -3219,7 +3205,7 @@ msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
-msgstr ""
+msgstr "無法儲存介面偏好「%s」，這個修改在下次將不會生效。請檢查該資料表的架構是否被修改過。"
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:207
 #: libraries/insert_edit.lib.php:213 libraries/rte/rte_routines.lib.php:1495
@@ -3340,7 +3326,7 @@ msgstr "未找到主題 %s ！"
 #: libraries/Theme_Manager.class.php:271
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "找不到主題 %s 的路徑"
+msgstr "找不到主題 %s 的路徑！"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
@@ -3719,15 +3705,14 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
 #: libraries/Util.class.php:2137
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "一般"
+msgstr "缺少必要的參數："
 
 #: libraries/Util.class.php:2651
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "跳轉到資料庫“%s”"
+msgstr "跳轉到資料庫「%s」。"
 
 #: libraries/Util.class.php:2675
 #, php-format
@@ -3735,10 +3720,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一個已知的缺陷 (bug) 影響，參見 %s"
 
 #: libraries/Util.class.php:2851
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "點擊選取"
+msgstr "點此切換"
 
 #: libraries/Util.class.php:3393 libraries/sql_query_form.lib.php:457
 #: prefs_manage.php:242
@@ -3817,16 +3801,15 @@ msgid "Check Privileges"
 msgstr "檢查權限"
 
 #: libraries/common.inc.php:578
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "無法儲存設定"
+msgstr "無法讀取設定檔"
 
 #: libraries/common.inc.php:580
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr ""
+msgstr "這通常是代表在設定黨內有一些語法錯誤，請檢查以下的任何錯誤。"
 
 #: libraries/common.inc.php:587
 #, php-format
@@ -3868,15 +3851,15 @@ msgstr ""
 
 #: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
 #: libraries/common.inc.php:1094
 msgid "possible exploit"
-msgstr ""
+msgstr "$_REQUEST 數量過多（駭客？）"
 
 #: libraries/common.inc.php:1103
 msgid "numeric key detected"
-msgstr ""
+msgstr "$_GLOBALS 內含非法的數字鍵名"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
@@ -4151,25 +4134,23 @@ msgstr ""
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr ""
+msgstr "為產生的 CHAR 和 VARCHAR 欄位定義一個最小的輸入字數"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "自定文字輸入框"
+msgstr "最少的輸入字數"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr ""
+msgstr "為產生的 CHAR 和 VARCHAR 欄位定義一個最大的輸入字數"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "臨時排序檔案的最大大小"
+msgstr "最大的輸入字數"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4276,13 +4257,12 @@ msgstr "顯示伺服器爲列表"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "禁止資料表的維護操作，如：optimize（最佳化）或 repair（修復）。"
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "表維護"
+msgstr "禁止多重資料表維護"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -4760,7 +4740,7 @@ msgstr "修改追蹤"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "追蹤資料庫的修改。需要 phpMyAdmin 進階功能"
+msgstr "追蹤資料庫的修改。需要 phpMyAdmin 進階功能。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -4902,9 +4882,7 @@ msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"該功能作用於在匯入時指令檢測到可能需要花費很長時間。儘管這會中斷交易，但在導"
-"入大檔案時是個很好的方法"
+msgstr "允許在程式偵測到執行時間快到上限時自動中斷匯入。這功能在導入大檔案時是個很好的方法，但是這會破壞 transactions（交易）。"
 
 #: libraries/config/messages.inc.php:242
 msgid "Partial import: allow interrupt"
@@ -4991,9 +4969,7 @@ msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
-msgstr ""
-"如果設爲 TRUE，在登出時將會刪除所有伺服器的 Cookies。如果設爲 FALSE，在您登錄"
-"多臺伺服器的時候，容易忘記登出登錄"
+msgstr "如果設爲 TRUE，在登出時將會自動刪除所有伺服器的 Cookies。如果設爲 FALSE，在您登錄多臺伺服器的時候，很可能會使您忘記登出。"
 
 #: libraries/config/messages.inc.php:274
 msgid "Delete all cookies on logout"
@@ -5016,9 +4992,7 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"設定登錄 Cookies 應該儲存多長時間 (單位：秒)。若設定爲 0，Cookies 的有效期將"
-"爲瀏覽器程序，在關閉瀏覽器之後 Cookies 就會被刪除。預設值爲0。在不安全的環境"
-"下建議使用預設值"
+"設定瀏覽器應該儲存登入用的 Cookies 多少秒。若設定爲 0，Cookies 將會被保留至瀏覽器關閉。預設值爲 0。在不安全的環境下建議使用預設值。"
 
 #: libraries/config/messages.inc.php:278
 msgid "Login cookie store"
@@ -5079,9 +5053,7 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
-msgstr ""
-"瀏覽一個結果集時一次顯示的最多行數。如果結果集超過此值，將會顯示 &quot;上一頁"
-"&quot; 和 &quot;下一頁&quot; 的連結"
+msgstr "瀏覽一個查詢結果時一次顯示的最多行數。如果結果超過此值，將會顯示「上一頁」和「下一頁」的連結。"
 
 #: libraries/config/messages.inc.php:291
 msgid "Maximum number of rows to display"
@@ -5224,23 +5196,21 @@ msgstr "啓用醒目提示"
 
 #: libraries/config/messages.inc.php:320
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "最多顯示幾個最近使用的資料表；0 代表不顯示"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "未追蹤的資料表"
+msgstr "最近使用的資料表"
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "它們是編輯、快速編輯、複製和刪除連結"
+msgstr "這些是編輯、複製和刪除的連結"
 
 #: libraries/config/messages.inc.php:323
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "用來顯示資料列的連結"
 
 #: libraries/config/messages.inc.php:324
 msgid "Use natural order for sorting table and database names"
@@ -5329,8 +5299,7 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"允許使用基於資料庫的查詢歷史 (需要 phpMyAdmin  進階功能)。如果停用，將使用 "
-"JS 程序來顯示查詢歷史 (關閉視窗即丟失)"
+"允許使用資料庫保存查詢歷史（需要 phpMyAdmin 進階功能）。如果停用，將使用 Javascript 來保存查詢歷史（關閉瀏覽器後資料消失）。"
 
 #: libraries/config/messages.inc.php:343
 msgid "Permanent query history"
@@ -5378,13 +5347,12 @@ msgstr "記錄引擎"
 
 #: libraries/config/messages.inc.php:355
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "再次瀏覽資料表時，之前的排序偏好會被記錄"
 
 #: libraries/config/messages.inc.php:356
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "將資料表改名為"
+msgstr "紀錄資料表的排序偏好"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -5529,13 +5497,12 @@ msgstr "控制使用者"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
-msgstr ""
+msgstr "儲存設定檔的備用伺服器；留空以使用預先定義的伺服器"
 
 #: libraries/config/messages.inc.php:388
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "控制使用者"
+msgstr "管理伺服器"
 
 #: libraries/config/messages.inc.php:389
 msgid "Count tables when showing database list"
@@ -5617,13 +5584,12 @@ msgstr "登出網址"
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
-msgstr ""
+msgstr "資料表的偏好設定是有限的，比較舊的資料會被自動取代"
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "在資料表列資料表中最多顯示的資料表個數"
+msgstr "資料表偏好設定的儲存最大值"
 
 #: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
@@ -5641,9 +5607,9 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
-"可以使用 MySQL 萬用字元 (% 和 _)，若表示它們本身，請轉義，例：用 [kbd]'my"
-"\\_db'[/kbd] 而不是 [kbd]'my_db'[/kbd]。透過該選項您可以對資料庫列表排序，只"
-"需按順序輸入它們的名稱並加上 [kbd]*[/kbd]，剩下的資料庫將按字母順序排在最後"
+"您可以使用 MySQL 萬用字元 (% 和 _)，如果想要表示萬用字元的原始意義，請在前面加上反斜線。例：用 [kbd]'my\\_db'[/kbd] "
+"而不是 [kbd]'my_db'[/kbd]。透過該選項您可以對資料庫列表排序，只要依序輸入它們的名稱並在最後加上 [kbd]*[/kbd] "
+"顯示剩下的資料庫（依字母排序）。"
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -5691,20 +5657,18 @@ msgid "Server port"
 msgstr "伺服器端口"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "ve blank for no user preferences storage in database, suggested: [kbd]"
 #| "_config[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
-msgstr "不在資料庫中儲存使用者偏好請留空，預設：[kbd]pma_config[/kbd]"
+msgstr "如果不想要自動使用最近的資料表，本欄為請留空。建議設定：[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "分析資料表"
+msgstr "最近使用的資料表"
 
 #: libraries/config/messages.inc.php:420
 #, fuzzy
@@ -5800,16 +5764,15 @@ msgid ""
 msgstr "不在資料庫中儲存使用者偏好請留空，預設：[kbd]pma_config[/kbd]"
 
 #: libraries/config/messages.inc.php:436
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "整理資料表"
+msgstr "「介面偏好」資料表"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr "設定當記錄資料庫建立時，是否在前面加上 DROP DATABASE IF EXISTS 命令"
+msgstr "設定當資料庫建立時，是否在紀錄檔第一行加上 DROP DATABASE IF EXISTS 指令。"
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
@@ -5819,7 +5782,7 @@ msgstr "新增 DROP DATABASE"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr "設定當記錄資料表建立時，是否在前面加上 DROP TABLE IF EXISTS 命令"
+msgstr "設定當資料表建立時，是否在紀錄檔前面加上 DROP TABLE IF EXISTS 指令。"
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
@@ -5829,7 +5792,7 @@ msgstr "新增 DROP TABLE"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "設定當記錄 view建立時，是否在前面加上 DROP VIEW IF EXISTS 命令"
+msgstr "設定當 view 建立時，是否在紀錄檔前面加上 DROP VIEW IF EXISTS 命令。"
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -5837,7 +5800,7 @@ msgstr "新增 DROP VIEW"
 
 #: libraries/config/messages.inc.php:443
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "定義自動建立新版的命令列表"
+msgstr "給新版的自動建立指定一個指令清單。"
 
 #: libraries/config/messages.inc.php:444
 msgid "Statements to track"
@@ -5954,13 +5917,12 @@ msgstr "查看主伺服器狀態"
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
-msgstr ""
+msgstr "是否在瀏覽資料表時顯示文字方向選項"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "預設顯示模式"
+msgstr "文字方向"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -5982,13 +5944,12 @@ msgstr "顯示函數列"
 
 #: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "是否顯示使用小技巧"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "顯示網格"
+msgstr "顯示小技巧"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
@@ -6016,13 +5977,12 @@ msgstr "顯示 SQL 查詢"
 #: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr ""
+msgstr "是否讓查詢的對話框在送出查詢後繼續保留"
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:363
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "隱藏查詢框"
+msgstr "保留查詢框"
 
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -6262,10 +6222,9 @@ msgstr "OpenOffice 檔案"
 
 #: libraries/config/validate.lib.php:214
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "無法初始化 MySQL 連結函式庫"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:231
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
 msgstr "無法連線到 MySQL 伺服器"
@@ -6306,25 +6265,23 @@ msgstr "缺少 %s 外掛。請檢查 PHP 設定"
 
 #: libraries/core.lib.php:437
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "您可能遭遇多層遞迴攻擊"
 
 #: libraries/database_interface.lib.php:2020
-#, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(或者本地 MySQL 伺服器的連線埠沒有正確設定)"
+msgstr "伺服器沒有回應（或者是伺服器的 socket 沒有被正確的設定）"
 
 #: libraries/database_interface.lib.php:2023
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "伺服器沒有響應"
+msgstr "伺服器沒有回應。"
 
 #: libraries/database_interface.lib.php:2028
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "請檢查資料庫所在的資料夾權限。"
 
 #: libraries/database_interface.lib.php:2037
 msgid "Details..."
@@ -6366,7 +6323,6 @@ msgstr "MySQL 4.0 相容"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "建立新資料庫"
@@ -6680,7 +6636,6 @@ msgstr "格式特定選項："
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
-#, fuzzy
 msgid "Language"
 msgstr "語系"
 
@@ -6998,10 +6953,9 @@ msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "PrimeBase XT 博客 —— Paul McCullagh 著"
 
 #: libraries/gis_visualization.lib.php:135
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "未找到圖表所需資料"
+msgstr "沒有找到 GIS 虛擬所需資料。"
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1362 sql.php:922 tbl_get_field.php:41
@@ -7014,10 +6968,9 @@ msgid ""
 msgstr "下列結構被建立或修改。您可以:"
 
 #: libraries/import.lib.php:1192
-#, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
-msgstr "點選它的名字查看內容"
+msgstr "點選結構的名字查看內容"
 
 #: libraries/import.lib.php:1193
 msgid ""
@@ -7028,37 +6981,37 @@ msgstr "點選相應的“選項”連結修改它的設定"
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "點選“結構”連結編輯它的結構"
+msgstr "點選「結構」連結以編輯"
 
 #: libraries/import.lib.php:1198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "轉到資料庫"
+msgstr "前往資料庫：%s"
 
 #: libraries/import.lib.php:1201 libraries/import.lib.php:1229
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "在 %s 中丟失資料"
+msgstr "修改 %s 的設定"
 
 #: libraries/import.lib.php:1224
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "轉到資料表"
+msgstr "前往資料表：%s"
 
 #: libraries/import.lib.php:1227
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "僅結構"
+msgstr "%s 的結構"
 
 #: libraries/import.lib.php:1235
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "轉到 view"
+msgstr "前往 VIEW：%s"
 
 #: libraries/insert_edit.lib.php:212 libraries/insert_edit.lib.php:243
 #: pmd_general.php:195
@@ -7152,14 +7105,13 @@ msgid "Copy table with prefix"
 msgstr "複製資料表名稱的前綴文字"
 
 #: libraries/mult_submits.inc.php:280
-#, fuzzy
 #| msgid "Fri"
 msgid "From"
-msgstr "Fri"
+msgstr "從"
 
 #: libraries/mult_submits.inc.php:283
 msgid "To"
-msgstr ""
+msgstr "至"
 
 #: libraries/mult_submits.inc.php:289 libraries/mult_submits.inc.php:306
 #: libraries/sql_query_form.lib.php:409
@@ -7168,11 +7120,11 @@ msgstr "送出"
 
 #: libraries/mult_submits.inc.php:297
 msgid "Add table prefix"
-msgstr ""
+msgstr "新增資料表的前綴文字"
 
 #: libraries/mult_submits.inc.php:300
 msgid "Add prefix"
-msgstr ""
+msgstr "新增前綴文字"
 
 #: libraries/mult_submits.inc.php:316 sql.php:499
 #, fuzzy
@@ -7676,8 +7628,7 @@ msgstr "歡迎使用 %s"
 msgid ""
 "You probably did not create a configuration file. You might want to use the %"
 "1$ssetup script%2$s to create one."
-msgstr ""
-"您可能還沒有建立設定檔案。您可以使用 %1$s設定指令%2$s 來建立一個設定檔案"
+msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -7686,12 +7637,14 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin 嘗試連線到 MySQL 伺服器，但伺服器拒絕連線。您應該檢查設定檔案中的"
-"主機、帳號和密碼，並確認這些資訊與 MySQL 伺服器管理員所給出的資訊一致"
+"phpMyAdmin 嘗試連線到 MySQL 伺服器，但伺服器拒絕連線。您應該檢查設定檔案中的主機、帳號和密碼，並確認這些資訊與 MySQL "
+"伺服器管理員所給出的資訊一致。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:48
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
+"無法使用 Blowfish 密文進行加密！（<a href=\"http://www.question-defense.com/tools"
+"/phpmyadmin-blowfish-secret-generator\" target=\"_blank\">參考資料</a>）"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:92
 msgid "Your session has expired. Please login again."
@@ -7704,7 +7657,7 @@ msgstr "登錄"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:189
 #: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "您可以輸入以空格分隔的主機名/IP網址和連結埠"
+msgstr "您可以輸入以空格分隔的 主機名/IP網址 和 連結埠。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:192
 msgid "Server:"
@@ -7742,7 +7695,7 @@ msgstr "無法登錄 MySQL 伺服器"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:75
 msgid "Wrong username/password. Access denied."
-msgstr "帳號/密碼錯誤。拒絕訪問"
+msgstr "帳號/密碼錯誤，拒絕訪問。"
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
 msgid "Can not find signon authentication script:"
@@ -7825,7 +7778,7 @@ msgstr "轉存資料表中的資料"
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
 msgid "Event"
-msgstr "事件"
+msgstr "Event"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:568
@@ -7983,16 +7936,13 @@ msgid "Add statements:"
 msgstr "新增指令："
 
 #: libraries/plugins/export/ExportSql.class.php:279
-#, fuzzy
 #| msgid ""
 #| "lose table and field names with backquotes <i>(Protects field and le "
 #| "names formed with special characters or keywords)</i>"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
-"給資料表名稱和欄位名稱加上反引號 <i>(保護名稱中含有特殊字元或保留字的欄位和"
-"表)</i>"
+msgstr "給資料表名稱和欄位名稱加上反引號 <i>(保護名稱中含有特殊字元或保留字的欄位和表)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
 #, fuzzy
@@ -8092,10 +8042,9 @@ msgid "RELATIONS FOR TABLE"
 msgstr "表的關聯"
 
 #: libraries/plugins/export/ExportSql.class.php:1566
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "允許讀取資料"
+msgstr "讀取資料錯誤："
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
@@ -8186,28 +8135,29 @@ msgstr "該 XML 檔案有錯誤或者不完整。請修復錯誤後重試"
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
 msgstr ""
+"<a href=\"http://zh.wikipedia.org/wiki/ESRI\" target=\"_blank\">ESRI</a> <a "
+"href=\"http://zh.wikipedia.org/wiki/Shapefile\" target=\"_blank\">Shape File</a>"
 
 #: libraries/plugins/import/ImportShp.class.php:154
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "在匯入 ESRI Shapefile 時發生錯誤：「%s」"
 
 #: libraries/plugins/import/ImportShp.class.php:207
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "您匯入了不正確的檔案或是內涵不正確的內容"
 
 #: libraries/plugins/import/ImportShp.class.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial 附加元件不支援「%s」ESRI 類型。"
 
 #: libraries/plugins/import/ImportShp.class.php:261
-#, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "The imported file does not contain any data"
-msgstr "此頁沒有包含任何資料表！"
+msgstr "匯入的檔案中沒有包含任何資料"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -8409,11 +8359,11 @@ msgstr "SQL 歷史"
 
 #: libraries/relation.lib.php:216
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "使用最近的資料表"
 
 #: libraries/relation.lib.php:227
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "一律使用資料表的「介面偏好」"
 
 #: libraries/relation.lib.php:249
 msgid "User preferences"
@@ -8562,31 +8512,31 @@ msgstr "產生密碼"
 #: libraries/rte/rte_routines.lib.php:1370
 #: libraries/rte/rte_triggers.lib.php:82 libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
-msgstr "下列查詢被執行:"
+msgstr "執行以下的查詢時發生錯誤：「%s」"
 
 #: libraries/rte/rte_events.lib.php:134
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "抱歉，系統回復被刪除的 Event 時失敗。"
 
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:315
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
-msgstr ""
+msgstr "備份用的查詢是："
 
 #: libraries/rte/rte_events.lib.php:144
-#, fuzzy, php-format
+#, php-format
 #| msgid "Column %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "已刪除欄位 %s "
+msgstr "Event %1$s 已被修改。"
 
 #: libraries/rte/rte_events.lib.php:164
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "建立資料表 %1$s 成功"
+msgstr "建立 Event %1$s 成功。"
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:355
 #: libraries/rte/rte_triggers.lib.php:147
@@ -8594,10 +8544,9 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:228
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "編輯伺服器"
+msgstr "編輯 Event"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_routines.lib.php:435
 #: libraries/rte/rte_routines.lib.php:1396
@@ -8616,14 +8565,13 @@ msgid "Details"
 msgstr "詳細..."
 
 #: libraries/rte/rte_events.lib.php:420
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "事件類型"
+msgstr "Event 名稱"
 
 #: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
 msgid "Event type"
-msgstr "事件類型"
+msgstr "Event 類型"
 
 #: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:921
 #, fuzzy, php-format
@@ -8673,23 +8621,23 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:574
 msgid "You must provide an event name"
-msgstr ""
+msgstr "您必須為 Event 指定一個名稱"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "您必須為 Event 指定一個正確的時間間隔。"
 
 #: libraries/rte/rte_events.lib.php:603
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "您必須為 Event 指定一個正確的執行時間。"
 
 #: libraries/rte/rte_events.lib.php:607
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "您必須為 Event 指定一個正確的類型。"
 
 #: libraries/rte/rte_events.lib.php:631
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "您必須為 Event 給予一個正確的定義。"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
@@ -8701,7 +8649,7 @@ msgstr ""
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Event 排程狀態"
 
 #: libraries/rte/rte_list.lib.php:55
 #, fuzzy
@@ -8903,7 +8851,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:466
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "您必須為 Event 指定一個正確觸發條件"
 
 #: libraries/rte/rte_triggers.lib.php:474
 #, fuzzy
@@ -8988,34 +8936,31 @@ msgid "There are no triggers to display."
 msgstr "沒有可上傳的檔案"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "新增伺服器"
+msgstr "新增 Event"
 
 #: libraries/rte/rte_words.lib.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
-msgstr "匯出內容"
+msgstr "匯出 Event %s"
 
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "事件"
+msgstr "Event"
 
 #: libraries/rte/rte_words.lib.php:50
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "權限不足！"
+msgstr "您沒有足夠的權限建立一個 Event"
 
 #: libraries/rte/rte_words.lib.php:51
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "沒有在資料庫中找到表"
+msgstr "在資料庫「%2$s」中找不到名為「%1$s」的 Event"
 
 #: libraries/rte/rte_words.lib.php:52
 #, fuzzy
@@ -9309,7 +9254,7 @@ msgstr "允許建立 views."
 #: libraries/server_privileges.lib.php:247
 #: libraries/server_privileges.lib.php:902 server_privileges.php:75
 msgid "Allows to set up events for the event scheduler"
-msgstr "允許爲事件觸發器設定事件"
+msgstr "允許爲 Event 設定排程"
 
 #: libraries/server_privileges.lib.php:251
 #: libraries/server_privileges.lib.php:906 server_privileges.php:96
@@ -9728,11 +9673,11 @@ msgstr "已清空表 %s"
 
 #: libraries/structure.lib.php:94 tbl_create.php:321
 msgid "Tracking is active."
-msgstr "追蹤已啓用"
+msgstr "追蹤已啓用。"
 
 #: libraries/structure.lib.php:101 tbl_create.php:327
 msgid "Tracking is not active."
-msgstr "追蹤已停用"
+msgstr "追蹤已停用。"
 
 #: libraries/structure.lib.php:132 tbl_operations.php:327
 #, php-format
@@ -13596,7 +13541,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert設置為0"
+msgstr "concurrent_insert 已被設置為 0"
 
 #~ msgid "KiB sent since last refresh"
 #~ msgstr "最後一次傳送的資料量(單位為KiB，即2^10)"
