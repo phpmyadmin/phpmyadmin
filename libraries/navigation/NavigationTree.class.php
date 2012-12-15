@@ -1071,15 +1071,15 @@ class PMA_NavigationTree
         $retval = '';
         if ($node === $this->_tree) {
              $retval .= PMA_Util::getListNavigator(
-                $this->_tree->getPresence('databases', $this->_searchClause),
-                $this->_pos,
-                array('server' => $GLOBALS['server']),
-                'navigation.php',
-                'frame_navigation',
-                $GLOBALS['cfg']['MaxNavigationItems'],
-                'pos',
-                array('dbselector')
-            );
+                 $this->_tree->getPresence('databases', $this->_searchClause),
+                 $this->_pos,
+                 array('server' => $GLOBALS['server']),
+                 'navigation.php',
+                 'frame_navigation',
+                 $GLOBALS['cfg']['MaxNavigationItems'],
+                 'pos',
+                 array('dbselector')
+             );
         } else if ($node->type == Node::CONTAINER && ! $node->is_group) {
             $paths = $node->getPaths();
 
