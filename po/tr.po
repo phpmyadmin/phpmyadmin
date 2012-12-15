@@ -12581,7 +12581,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:96
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log 'OFF'a ayarlı"
+msgstr "slow_query_log 'OFF' olarak ayarlı"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
