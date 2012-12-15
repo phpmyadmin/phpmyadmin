@@ -19,6 +19,7 @@ AJAX.registerTeardown('pmd/move.js', function() {
 });
 
 AJAX.registerOnload('pmd/move.js', function() {
+    $('#page_content').css({'margin-left': '3px'});
     $('#exitFullscreen').hide();
     if ($.FullScreen.supported) {
         $(document).fullScreenChange(function() {
