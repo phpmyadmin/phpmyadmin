@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-12-04 16:09+0200\n"
-"Last-Translator: Roger Pueyo Centelles <cihar@rogerpueyo.com>\n"
-"Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
-">\n"
+"PO-Revision-Date: 2012-12-13 13:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Catalan "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -6744,7 +6744,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" La quantitat a incrementar per ampliar el tamany d'una taula autoextensible "
+"La quantitat a incrementar per ampliar el tamany d'una taula autoextensible "
 "quan estigui a punt d'omplir-se."
 
 #: libraries/engines/innodb.lib.php:40
@@ -7138,8 +7138,7 @@ msgstr "Binari"
 
 #: libraries/insert_edit.lib.php:651
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr ""
-" A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
+msgstr "A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
 
 #: libraries/insert_edit.lib.php:1087
 msgid "Binary - do not edit"
@@ -8050,9 +8049,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Afegeix comentari personalitzat a la capçalera (\n"
-" divideix línies):"
+msgstr "Afegeix comentari personalitzat a la capçalera (\\n divideix línies):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""
@@ -9585,7 +9582,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... esborra l'antic de les taules d'usuaris i recarrega els permisos "
+"... esborra l'antic de les taules d'usuaris i recarrega els permisos "
 "després."
 
 #: libraries/server_privileges.lib.php:1948
@@ -11614,7 +11611,7 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-" El nombre de fils a la memòria cau de fil. L'index de memòria cau es pot "
+"El nombre de fils a la memòria cau de fil. L'index de memòria cau es pot "
 "comptar com Threads_created/Connections. Si aquest valor és vermell s'hauria "
 "d'augmentar el valor de thread_cache_size."
 
@@ -11629,9 +11626,10 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-" El nombre de fils creats per gestionar connexions. Si Threads_created és "
+"El nombre de fils creats per gestionar connexions. Si Threads_created és "
 "gran, pots voler augmentar el valor de thread_cache_size. (Normalment això "
-"no dóna una millora de rendiment notable si es té una bona aplicació de fil.)"
+"no dóna una millora de rendiment notable si es té una bona aplicació de "
+"fil.)"
 
 #: server_status.php:1639
 #, fuzzy

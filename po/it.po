@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-11-08 18:46+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2012-12-13 12:58+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -8028,9 +8028,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Aggiunge un commento personalizzato al header (\n"
-" per tornare a capo):"
+msgstr "Aggiunge un commento personalizzato al header (\\n  per tornare a capo):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""

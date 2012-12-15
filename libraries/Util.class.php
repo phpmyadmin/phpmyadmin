@@ -4064,5 +4064,62 @@ class PMA_Util
 
         return $values;
     }
+
+    /**
+     * fills given tooltip arrays
+     *
+     * @param array &$tooltip_truename  tooltip data
+     * @param array &$tooltip_aliasname tooltip data
+     * @param array $table              tabledata
+     *
+     * @return void
+     */
+    public static function fillTooltip(
+        &$tooltip_truename, &$tooltip_aliasname, $table)
+    {
+        if (strstr($table['Comment'], '; InnoDB free') === false) {
+            if (!strstr($table['Comment'], 'InnoDB free') === false) {
+                // here we have just InnoDB generated part
+                $table['Comment'] = '';
+            }
+        } else {
+            // remove InnoDB comment from end, just the minimal part
+            // (*? is non greedy)
+            $table['Comment'] = preg_replace(
+                '@; InnoDB free:.*?$@', '', $table['Comment']
+            );
+        }
+        // views have VIEW as comment so it's not a real comment put by a user
+        if ('VIEW' == $table['Comment']) {
+            $table['Comment'] = '';
+        }
+        if (empty($table['Comment'])) {
+            $table['Comment'] = $table['Name'];
+        } else {
+            // todo: why?
+            $table['Comment'] .= ' ';
+        }
+
+        $tooltip_truename[$table['Name']] = $table['Name'];
+        $tooltip_aliasname[$table['Name']] = $table['Comment'];
+
+        if (isset($table['Create_time']) && !empty($table['Create_time'])) {
+            $tooltip_aliasname[$table['Name']] .= ', ' . __('Creation')
+                . ': '
+                . PMA_Util::localisedDate(strtotime($table['Create_time']));
+        }
+
+        if (! empty($table['Update_time'])) {
+            $tooltip_aliasname[$table['Name']] .= ', ' . __('Last update')
+                . ': '
+                . PMA_Util::localisedDate(strtotime($table['Update_time']));
+        }
+
+        if (! empty($table['Check_time'])) {
+            $tooltip_aliasname[$table['Name']] .= ', ' . __('Last check')
+                . ': '
+                . PMA_Util::localisedDate(strtotime($table['Check_time']));
+        }
+    }
 }
 ?>

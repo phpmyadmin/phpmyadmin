@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-09 07:12-0500\n"
-"PO-Revision-Date: 2012-11-05 10:15+0200\n"
+"PO-Revision-Date: 2012-12-13 13:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"be/>\n"
+"Language-Team: Belarusian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:356
 #: libraries/DisplayResults.class.php:809
@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 "Немагчыма абнавіць мэтавае акно браўзэра. Магчыма, вы закрылі бацькоўскае "
 "акно або налады бясьпекі вашага браўзэра сканфігураныя на блякаваньне "
-"міжваконных ўзаемадзеяньняў"
+"міжваконных ўзаемадзеяньняў."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3264
@@ -6940,7 +6940,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-" Памер прырашчэньня для пашырэньня памеру прасторы аўтапашыральнай табліцы, "
+"Памер прырашчэньня для пашырэньня памеру прасторы аўтапашыральнай табліцы, "
 "калі яна запоўніцца."
 
 #: libraries/engines/innodb.lib.php:40
@@ -9715,7 +9715,7 @@ msgstr "Дазваляе зьмяняць і выдаляць праграмы, 
 #: libraries/server_privileges.lib.php:968 server_privileges.php:70
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
-"Дазваляе ствараць, выдаляць і пераймяноўваць уліковыя запісы карыстальнікаў"
+"Дазваляе ствараць, выдаляць і пераймяноўваць уліковыя запісы карыстальнікаў."
 
 #: libraries/server_privileges.lib.php:281
 #: libraries/server_privileges.lib.php:882 server_privileges.php:76
@@ -9918,7 +9918,7 @@ msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-" ... выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць "
+"... выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць "
 "прывілеі."
 
 #: libraries/server_privileges.lib.php:1948
