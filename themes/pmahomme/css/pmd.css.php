@@ -284,7 +284,6 @@ canvas.pmd * {
     border-right: #999 solid 1px;
     border-left: #999 solid 1px;
     height: 28px;
-    position: fixed;
     z-index: 101;
     width: 100%
 }
@@ -368,16 +367,16 @@ a.M_butt:hover {
 
 .panel {
     position: fixed;
-    top: 50px;
+    top: 60px;
     right: 0;
     display: none;
     background: #FFF;
-    border: 1px solid #F5F5F5;
+    border: 1px solid gray;
     width: 350 px;
     height: auto;
     padding: 30px 170px 30px 30px;
     color: #FFF;
-    z-index: 99;
+    z-index: 102;
 }
 
 a.trigger {
@@ -389,17 +388,13 @@ a.trigger {
     background: #333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/plus.png'); ?>) 85% 55% no-repeat;
     border: 1px solid #444;
     display: block;
+    z-index: 102;
 }
 
 a.trigger:hover {
-    position: fixed;
-    text-decoration: none;
-    top: 60px; right: 0;
     color: #080808;
-    padding: 10px 40px 10px 15px;
     background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/plus.png'); ?>) 85% 55% no-repeat;
     border: 1px solid #999;
-    display: block;
 }
 
 a.active.trigger {
@@ -409,7 +404,6 @@ a.active.trigger {
 
 a.active.trigger:hover {
     background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/minus.png'); ?>) 85% 55% no-repeat;
-    z-index: 999;
 }
 
 h2.tiger {

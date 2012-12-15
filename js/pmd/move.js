@@ -19,6 +19,7 @@ AJAX.registerTeardown('pmd/move.js', function() {
 });
 
 AJAX.registerOnload('pmd/move.js', function() {
+    $('#page_content').css({'margin-left': '3px'});
     $('#exitFullscreen').hide();
     if ($.FullScreen.supported) {
         $(document).fullScreenChange(function() {
@@ -514,7 +515,9 @@ function Save(url) // (del?) no for pdf
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.form1.action = url;
-    document.form1.submit();
+    // Submitting the form with form.submit() will not trigger the AJAX page loading mechanism.
+    // Hence we are using AJAX.submitFormProgrammatically() here.
+    AJAX.submitFormProgrammatically(document.form1);
 }
 
 function Get_url_pos()
@@ -603,7 +606,7 @@ function Click_field(T, f, PK) // table field
             }
             var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth>>1);
             document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight + 40;
+            var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
             document.getElementById('layer_new_relation').style.display = 'block';
             link_relation += '&T2=' + T + '&F2=' + f;
@@ -1247,8 +1250,7 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    document.getElementById('pmd_hint').innerHTML = sum + "object created" ;
-    document.getElementById('pmd_hint').style.display = 'block';
+    PMA_ajaxShowMessage($.sprintf(PMA_messages['strObjectsCreated'], sum));
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);

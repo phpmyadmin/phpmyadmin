@@ -117,6 +117,15 @@ var AJAX = {
         );
     },
     /**
+     * Use this method when you want to submit a form programmatically
+     * and want the AJAX page loading system to handle the results.
+     *  
+     * @param objecct form form to be submitted
+     */
+    submitFormProgrammatically: function(form) {
+        this.requestHandler.call(form);
+    },
+    /**
      * Event handler for clicks on links and form submissions
      *
      * @param object e Event data
@@ -138,8 +147,10 @@ var AJAX = {
             return true;
         }
 
-        event.preventDefault();
-        event.stopImmediatePropagation();
+        if (typeof event != 'undefined') {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+        }
         if (AJAX.active == true) {
             // Silently bail out, there is already a request in progress.
             // TODO: save a reference to the request and cancel the old request
