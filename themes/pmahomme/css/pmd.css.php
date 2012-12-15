@@ -284,7 +284,6 @@ canvas.pmd * {
     border-right: #999 solid 1px;
     border-left: #999 solid 1px;
     height: 28px;
-    position: fixed;
     z-index: 101;
     width: 100%
 }

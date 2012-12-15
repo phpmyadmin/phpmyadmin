@@ -240,7 +240,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
           left: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
-          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(50, 550); ?>px;
+          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(20, 550); ?>px;
           visibility: <?php
           echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
             ? "visible"
