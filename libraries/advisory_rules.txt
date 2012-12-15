@@ -81,12 +81,19 @@ rule 'Long query time' [!PMA_DRIZZLE]
 	It is suggested to set {long_query_time} to a lower value, depending on your environment. Usually a value of 1-5 seconds is suggested.
 	long_query_time is currently set to %ds. | value
 
-rule 'Slow query logging' [!PMA_DRIZZLE]
+rule 'Slow query logging' [!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION < 50600]
 	log_slow_queries
 	value == 'OFF'
 	The slow query log is disabled.
 	Enable slow query logging by setting {log_slow_queries} to 'ON'. This will help troubleshooting badly performing queries.
 	log_slow_queries is set to 'OFF'
+
+rule 'Slow query logging' [!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50600]
+	slow_query_log
+	value == 'OFF'
+	The slow query log is disabled.
+	Enable slow query logging by setting {slow_query_log} to 'ON'. This will help troubleshooting badly performing queries.
+	slow_query_log is set to 'OFF'
 
 #
 # versions
@@ -419,7 +426,7 @@ rule 'Rate of aborted clients'
 
 #
 # InnoDB
-rule 'Is InnoDB disabled?' [!PMA_DRIZZLE]
+rule 'Is InnoDB disabled?' [!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION < 50600]
 	have_innodb
 	value != "YES"
 	You do not have InnoDB enabled.
