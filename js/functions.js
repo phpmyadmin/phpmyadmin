@@ -3679,7 +3679,7 @@ $(function () {
  * Scrolls the page to the top if clicking the serverinfo bar
  */
 $(function () {
-    $(document).delegate("#serverinfo", "click", function (event) { 
+    $(document).delegate("#serverinfo, #goto_pagetop", "click", function (event) { 
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, 'fast');
     });
