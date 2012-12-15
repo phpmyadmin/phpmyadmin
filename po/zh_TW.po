@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-15 08:15-0500\n"
-"PO-Revision-Date: 2012-11-05 10:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_TW/>\n"
+"PO-Revision-Date: 2012-12-15 19:29+0200\n"
+"Last-Translator: Chunmin Tai <taichunmin@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -519,7 +519,7 @@ msgid "Invalid export type"
 msgstr "無效的輸出類型"
 
 #: gis_data_editor.php:112
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Value for the column \"%s\""
 msgstr "%s 欄位的值"
@@ -559,16 +559,14 @@ msgstr "點 %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:318
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "新增點"
+msgstr "新增一個點"
 
 #: gis_data_editor.php:262 js/messages.php:313
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "線"
+msgstr "一維折線"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:317
 msgid "Outer Ring"
@@ -937,16 +935,14 @@ msgid "This is not a number!"
 msgstr "這不是一個數字！"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "新增索引"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "編輯模式"
+msgstr "編輯索引"
 
 #: js/messages.php:44 tbl_indexes.php:329 tbl_indexes.php:337
 #, fuzzy, php-format
@@ -1052,10 +1048,9 @@ msgid "Connections / Processes"
 msgstr "連線"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "無法儲存設定"
+msgstr "本地的狀態監測器設定檔不相容"
 
 #: js/messages.php:80
 msgid ""
@@ -1063,25 +1058,22 @@ msgid ""
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
-msgstr ""
+msgstr "在你的瀏覽器內的圖表版面設定對於新的狀態監測器來說已經太舊了。 請在「<i>設定</i>」選單重新設定以避免發生不可預期的錯誤。"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
-msgstr "查詢快取"
+msgstr "查詢快取的效率"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
-msgstr "查詢快取"
+msgstr "查詢快取的使用量"
 
 #: js/messages.php:84
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
-msgstr "查詢快取"
+msgstr "查詢已使用的快取"
 
 #: js/messages.php:86
 msgid "System CPU Usage"
@@ -1093,7 +1085,7 @@ msgstr "系統記憶體"
 
 #: js/messages.php:88
 msgid "System swap"
-msgstr "系統Swap"
+msgstr "系統暫存區"
 
 #: js/messages.php:90
 msgid "Average load"
@@ -1120,10 +1112,9 @@ msgid "Used memory"
 msgstr "已使用記憶體"
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "總計Swap"
+msgstr "暫存區總計"
 
 #: js/messages.php:98
 msgid "Cached Swap"
@@ -1134,17 +1125,15 @@ msgid "Used Swap"
 msgstr "已用Swap"
 
 #: js/messages.php:100
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "空閒頁"
+msgstr "可使用的暫存區"
 
 #: js/messages.php:102
 msgid "Bytes sent"
 msgstr "Bytes 送出"
 
 #: js/messages.php:103
-#, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Bytes 已接收"
@@ -1195,18 +1184,17 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:115
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s 張資料表"
+msgstr "%s 個資料表"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "版本"
+msgstr "Questions"
 
 #: js/messages.php:119 server_status.php:136
 msgid "Traffic"
@@ -1229,7 +1217,7 @@ msgstr "編輯標題與標籤"
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
-msgstr "對齊網格"
+msgstr "新增一張圖表與格線對齊"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
@@ -1254,7 +1242,6 @@ msgid "Pause monitor"
 msgstr "暫停監控"
 
 #: js/messages.php:130
-#, fuzzy
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log與slow_query_log已啟用"
 
@@ -1272,11 +1259,11 @@ msgstr "slow_query_log與general_log已關閉"
 
 #: js/messages.php:134
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output 沒有被指定 TABLE。"
 
 #: js/messages.php:135
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output 已經被指定至 TABLE."
 
 #: js/messages.php:136
 #, php-format
@@ -1285,6 +1272,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log 已經被啟用，但是伺服器仍然只為執行時間大於 %d 秒的查詢做紀錄。建議根據您的系統將 long_query_time "
+"設定為 0-2 秒。"
 
 #: js/messages.php:137
 #, php-format
@@ -1295,14 +1284,14 @@ msgstr "long_query_time已設為%d秒"
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "以下的這些設定將會被套用在所有的地方直到系統重新啟動："
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:140
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "儲存爲檔案"
+msgstr "將 log_output 設定至 %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:142
@@ -1320,35 +1309,31 @@ msgstr "已關閉 %s"
 #: js/messages.php:146
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "將 long_query_time 設定為 %d 秒"
 
 #: js/messages.php:147
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
-msgstr ""
+msgstr "您沒有辦法修改這些變數，請改用 root 登入或是聯絡該資料庫的管理員。"
 
 #: js/messages.php:148
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
 msgstr "管理我的設定"
 
 #: js/messages.php:149
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "更多設定"
+msgstr "目前的設定"
 
 #: js/messages.php:151 server_status_monitor.php:608
-#, fuzzy
 #| msgid "Report title:"
 msgid "Chart Title"
-msgstr "報告標題："
+msgstr "圖表的標題"
 
 #. l10n: As in differential values
 #: js/messages.php:153
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "差異"
@@ -1356,29 +1341,28 @@ msgstr "差異"
 #: js/messages.php:154
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "使用 %s 切割"
 
 #: js/messages.php:155
 msgid "Unit"
-msgstr ""
+msgstr "單位"
 
 #: js/messages.php:157
 msgid "From slow log"
-msgstr ""
+msgstr "從較慢的查詢紀錄檔"
 
 #: js/messages.php:158
 msgid "From general log"
-msgstr ""
+msgstr "從普通的查詢記錄檔"
 
 #: js/messages.php:159
-#, fuzzy
 #| msgid "Loading"
 msgid "Analysing logs"
-msgstr "載入中"
+msgstr "分析用的紀錄檔"
 
 #: js/messages.php:160
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "讀取且分析紀錄檔中... 這可能會花費一些時間。"
 
 #: js/messages.php:161
 msgid "Cancel request"
@@ -1389,34 +1373,32 @@ msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
-msgstr ""
+msgstr "這個欄位顯示一些被群組起來的相似查詢。但是系統只是用這些查詢的文字作為群組的標準，所以查詢的結果可能會有些許不同。"
 
 #: js/messages.php:163
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
-msgstr ""
+msgstr "因為有一些被群組的插入查詢被選擇了，這些查詢的「目的地資料表」也將不管這些「即將被插入的資料」而被合併。"
 
 #: js/messages.php:164
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "紀錄檔已被讀取，時間區間："
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "轉到資料庫"
+msgstr "跳轉至紀錄檔的資料表"
 
 #: js/messages.php:167
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "沒有資料庫"
+msgstr "無資料"
 
 #: js/messages.php:168
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "紀錄檔已經被分析了，但是在這個時間區段內沒有任何資料。"
 
 #: js/messages.php:170
 #, fuzzy
@@ -1425,10 +1407,9 @@ msgid "Analyzing…"
 msgstr "分析"
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "SQL說明 "
+msgstr "輸出說明"
 
 #: js/messages.php:173 js/messages.php:524
 #: libraries/plugins/export/ExportHtmlword.class.php:484
@@ -1439,47 +1420,40 @@ msgid "Time"
 msgstr "時間"
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "總計"
+msgstr "總計耗時："
 
 #: js/messages.php:175
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "概要"
+msgstr "分析結果"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "表"
+msgstr "資料表"
 
 #: js/messages.php:177
-#, fuzzy
 msgid "Chart"
-msgstr "文字編碼"
+msgstr "圖表"
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Add index"
 msgid "Edit chart"
-msgstr "新增索引"
+msgstr "編輯圖表"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series"
-msgstr "SQL 查詢"
+msgstr "系列"
 
 #. l10n: A collection of available filters
 #: js/messages.php:182
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "資料表顯示選項"
+msgstr "紀錄檔篩選"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:184
@@ -1489,42 +1463,40 @@ msgstr "過濾"
 #: js/messages.php:185
 msgid "Filter queries by word/regexp:"
 msgstr ""
+"使用文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
+"target=\"_blank\">REGEXP</a> 進行篩選："
 
 #: js/messages.php:186
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "忽略 where 的條件並進行群組的查詢"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "插入的行數"
+msgstr "群組的行數總計："
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "總計"
+msgstr "總計："
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "載入中"
+msgstr "載入紀錄檔中"
 
 #: js/messages.php:191
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "狀態監測器無法進行重新整理"
 
 #: js/messages.php:192
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
-msgstr ""
+msgstr "在讀取新的圖表時發生錯誤，這很可能是您的 SESSION 已經過期。您可以重新整理嘗試解決這個問題。"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "重新載入"
@@ -1535,7 +1507,7 @@ msgstr "影響的行數"
 
 #: js/messages.php:197
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "讀取設定檔時發生錯誤。設定檔看起來不是合法的 JSON 格式。"
 
 #: js/messages.php:198
 msgid ""
@@ -1551,56 +1523,50 @@ msgid "Import"
 msgstr "輸入"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "無法匯入設定"
+msgstr "無法匯入狀態監視器的設定"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "請選擇主鍵或唯一鍵"
+msgstr "請選擇您想要匯入的檔案"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "更新查詢"
+msgstr "分析查詢"
 
 #: js/messages.php:207
 msgid "Advisor system"
-msgstr ""
+msgstr "顧問系統"
 
 #: js/messages.php:208
 msgid "Possible performance issues"
-msgstr ""
+msgstr "可能的執行效率問題"
 
 #: js/messages.php:209
 msgid "Issue"
 msgstr "問題"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "文件"
+msgstr "推薦"
 
 #: js/messages.php:211
-#, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
-msgstr "詳細..."
+msgstr "詳細的規則"
 
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "認證"
+msgstr "校正"
 
 #: js/messages.php:213
 msgid "Used variable / formula"
-msgstr ""
+msgstr "使用的變數/公式"
 
 #: js/messages.php:214
 msgid "Test"
@@ -1657,7 +1623,7 @@ msgstr "確定"
 
 #: js/messages.php:231
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "點此關閉這個通知"
 
 #: js/messages.php:234
 msgid "Renaming Databases"
@@ -1684,16 +1650,14 @@ msgid "Insert Table"
 msgstr "插入資料表"
 
 #: js/messages.php:244
-#, fuzzy
 #| msgid "Add index"
 msgid "Hide indexes"
-msgstr "新增索引"
+msgstr "隱藏索引"
 
 #: js/messages.php:245
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "顯示網格"
+msgstr "顯示索引"
 
 #: js/messages.php:246 libraries/mult_submits.inc.php:327
 #, fuzzy
@@ -1735,14 +1699,14 @@ msgstr "刪除"
 
 #: js/messages.php:258
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "被儲存的函式定義當中必須要有 RETURN 敘述！"
 
 #: js/messages.php:261 libraries/rte/rte_routines.lib.php:760
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET 編輯器"
 
 #: js/messages.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "%s 欄位的值"
@@ -1756,10 +1720,10 @@ msgid "Enter each value in a separate field"
 msgstr "請分別將資料填入以下欄位"
 
 #: js/messages.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a new value"
 msgid "Add %d value(s)"
-msgstr "+ 增加"
+msgstr "增加 %d 個值"
 
 #: js/messages.php:268
 msgid ""
@@ -1785,10 +1749,9 @@ msgid "Change"
 msgstr "修改"
 
 #: js/messages.php:276
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "最長執行時間"
+msgstr "查詢耗時"
 
 #: js/messages.php:277 libraries/DisplayResults.class.php:721
 #: libraries/DisplayResults.class.php:729
@@ -1814,22 +1777,21 @@ msgid "Show search criteria"
 msgstr "顯示搜尋條件"
 
 #: js/messages.php:287 libraries/TableSearch.class.php:210
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "搜尋"
+msgstr "進一步搜尋"
 
 #: js/messages.php:289
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "每一個指標均代表一筆資料。"
 
 #: js/messages.php:291
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "將滑鼠指到指標上可以顯示其標籤。"
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "選擇這個圖的一部份以放大。"
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
@@ -1837,33 +1799,31 @@ msgstr ""
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "點選資料指標以瀏覽或修改這筆資料。"
 
 #: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "這個圖可以在其邊框的右下角進行縮放。"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "新增/刪除欄位"
+msgstr "選擇兩個欄位"
 
 #: js/messages.php:302
 msgid "Select two different columns"
-msgstr ""
+msgstr "選擇兩個不同的欄位"
 
 #: js/messages.php:303
 #, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "查詢結果選項"
+msgstr "查詢結果"
 
 #: js/messages.php:304
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "資料指標大小"
+msgstr "資料指標內容"
 
 #: js/messages.php:307 tbl_change.php:263 tbl_indexes.php:259
 #: tbl_indexes.php:297
@@ -1875,7 +1835,6 @@ msgid "Copy"
 msgstr "複製"
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
 msgstr "新增欄位"
@@ -1913,27 +1872,26 @@ msgstr ""
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "按下 ESC 取消編輯"
 
 #: js/messages.php:338
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr ""
+msgstr "有一些修改的資料尚未儲存，你確定要不儲存直接離開本頁？"
 
 #: js/messages.php:339
 msgid "Drag to reorder"
-msgstr ""
+msgstr "您可以拖曳來重新排序"
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "點擊選取"
+msgstr "點此進行排序"
 
 #: js/messages.php:341
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "點此標記或取消標記"
 
 #: js/messages.php:342
 msgid "Double-click to copy column name"
@@ -1941,13 +1899,13 @@ msgstr ""
 
 #: js/messages.php:343
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "點擊下拉箭頭<br />切換欄位的可見度"
 
 #: js/messages.php:345
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
-msgstr ""
+msgstr "這個資料表不含唯一的資料欄位，跟修改、複製、刪除有關的功能可能會無效。"
 
 #: js/messages.php:350
 msgid ""
@@ -1958,13 +1916,12 @@ msgstr ""
 #: js/messages.php:353
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr ""
+msgstr "您可以直接點擊欄位內容<br />來修改大部分的欄位。"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "轉到 view"
+msgstr "前往這個超連結"
 
 #: js/messages.php:359
 #, fuzzy
@@ -2039,7 +1996,6 @@ msgstr "完成"
 
 # 這應該是使用於選擇日期的月曆
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
@@ -2047,7 +2003,6 @@ msgstr "上個月"
 
 # 這應該使用於選擇日期的小月曆
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2273,15 +2228,14 @@ msgstr "周"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:514
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:516
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "無"
+msgstr "none"
 
 #: js/messages.php:525
 msgid "Hour"
@@ -2362,11 +2316,11 @@ msgstr "每天"
 #: libraries/Config.class.php:922
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "設定檔 %s 是唯獨狀態，請開啟該檔案的讀取權限。（如果您沒有相關權限，請聯絡系統管理員。）"
 
 #: libraries/Config.class.php:952
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "phpMyAdmin 發現您的設定檔允許任何人寫入，為了安全性的考量，請重新設定該設定檔的權限。"
 
 #: libraries/Config.class.php:1528
 msgid "Font size"
@@ -2521,10 +2475,9 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "每個單詞用空格 (“ ”) 分隔"
 
 #: libraries/DbSearch.class.php:418
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "於以下表："
+msgstr "在這些資料表內："
 
 #: libraries/DbSearch.class.php:444
 msgid "Inside column:"
@@ -2790,11 +2743,11 @@ msgstr "找不到連結"
 
 #: libraries/Error_Handler.class.php:73
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "檔案上傳失敗。"
 
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2832,11 +2785,11 @@ msgstr "移動上傳文件時發生錯誤，參見 [doc@faq1-11]FAQ 1.11[/doc]�
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "移動暫存檔時發生錯誤，請確認 TempDir 資料夾的寫入權限。"
 
 #: libraries/File.class.php:501
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "移動上傳的暫存檔後，無法讀取該檔案。"
 
 #: libraries/Footer.class.php:133 libraries/Footer.class.php:137
 #: libraries/Footer.class.php:140
@@ -3072,10 +3025,9 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/PDF.class.php:114
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "允許讀取資料"
+msgstr "在產生 PDF 檔案時發生錯誤："
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
@@ -3215,10 +3167,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 伺服器不支援 %s 儲存引擎"
 
 #: libraries/Table.class.php:327
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "顯示從伺服器狀態"
+msgstr "未知的資料表狀態："
 
 #: libraries/Table.class.php:726
 #, fuzzy, php-format
@@ -3260,7 +3211,7 @@ msgstr "無法儲存表格介面使用者喜好設定"
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
-msgstr ""
+msgstr "在清空資料表「介面設定」時發生錯誤。（詳見 $cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
 #: libraries/Table.class.php:1533
 #, php-format
@@ -3319,7 +3270,7 @@ msgstr "顯示順序："
 
 #: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "使用這個欄位來標記每個點"
 
 #: libraries/TableSearch.class.php:854
 #, fuzzy
@@ -3359,10 +3310,9 @@ msgid "How to use"
 msgstr "控制使用者"
 
 #: libraries/TableSearch.class.php:1175
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "重置"
+msgstr "重設縮放大小"
 
 #: libraries/Theme.class.php:170
 #, php-format
