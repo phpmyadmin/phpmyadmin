@@ -344,6 +344,7 @@ $js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the l
 
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
+$js_messages['strObjectsCreated'] = __('%d object(s) created');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */
 $js_messages['strCellEditHint'] = __('Press escape to cancel editing');

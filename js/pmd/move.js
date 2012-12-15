@@ -1247,8 +1247,7 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    document.getElementById('pmd_hint').innerHTML = sum + "object created" ;
-    document.getElementById('pmd_hint').style.display = 'block';
+    PMA_ajaxShowMessage($.sprintf(PMA_messages['strObjectsCreated'], sum));
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init,history_array.length);
