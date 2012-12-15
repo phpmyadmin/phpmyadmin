@@ -73,18 +73,7 @@ $js_messages['strThousandsSeparator'] = __(',');
 /* l10n: Decimal separator */
 $js_messages['strDecimalSeparator'] = __('.');
 
-$js_messages['strChartKBSent'] = __('KiB sent since last refresh');
-$js_messages['strChartKBReceived'] = __('KiB received since last refresh');
-$js_messages['strChartServerTraffic'] = __('Server traffic (in KiB)');
-$js_messages['strChartConnections'] = __('Connections since last refresh');
-$js_messages['strChartProcesses'] = __('Processes');
 $js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
-/* l10n: Questions is the name of a MySQL Status variable */
-$js_messages['strChartIssuedQueries'] = __('Questions since last refresh');
-/* l10n: Questions is the name of a MySQL Status variable */
-$js_messages['strChartIssuedQueriesTitle'] = __('Questions (executed statements by the server)');
-
-$js_messages['strChartQueryPie'] = __('Query statistics');
 
 /* server status monitor */
 $js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible');
@@ -97,8 +86,6 @@ $js_messages['strQueryCacheUsed'] = __('Query cache used');
 $js_messages['strSystemCPUUsage'] = __('System CPU Usage');
 $js_messages['strSystemMemory'] = __('System memory');
 $js_messages['strSystemSwap'] = __('System swap');
-$js_messages['strMiB'] = __('MiB');
-$js_messages['strKiB'] = __('KiB');
 
 $js_messages['strAverageLoad'] = __('Average load');
 $js_messages['strTotalMemory'] = __('Total memory');
