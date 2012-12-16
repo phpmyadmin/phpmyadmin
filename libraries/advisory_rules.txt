@@ -171,7 +171,7 @@ rule 'Query cache low memory prunes' [!PMA_DRIZZLE && Qcache_inserts > 0 && !fir
 
 rule 'Query cache max size' [!fired('Query cache disabled')]
 	query_cache_size
-	value > 1024 * 128
+	value > 1024 * 1024 * 128
 	The query cache size is above 128 MiB. Big query caches may cause significant overhead that is required to maintain the cache.
 	Depending on your environment, it might be performance increasing to reduce this value.
 	Current query cache size: %s | implode(' ',PMA_formatByteDown(value, 2, 2))
