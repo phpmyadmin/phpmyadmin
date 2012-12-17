@@ -698,14 +698,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     json = $.secureEvalJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
                 } catch (err) {
                     alert(PMA_messages['strFailedParsingConfig']);
-                    $('div#emptyDialog').dialog('close');
+                    $('#emptyDialog').dialog('close');
                     return;
                 }
 
                 // Basic check, is this a monitor config json?
                 if (!json || ! json.monitorCharts || ! json.monitorCharts) {
                     alert(PMA_messages['strFailedParsingConfig']);
-                    $('div#emptyDialog').dialog('close');
+                    $('#emptyDialog').dialog('close');
                     return;
                 }
 
@@ -1411,7 +1411,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         // which throws an error when the chart is destroyed
         setTimeout(function() {
             chartObj.destroy();
-            $('div#' + htmlnode).remove();
+            $('#' + htmlnode).remove();
         }, 10);
 
         saveMonitor(); // Save settings
@@ -1768,7 +1768,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
-            $('div#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
+            $('#logTable table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')').each(function() {
                 var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
@@ -2087,7 +2087,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             explain += '<p><b>' + PMA_messages['strAffectedRows'] + '</b> ' + data.affectedRows;
 
-            $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
+            $('#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
 
             $('#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
                 var id = $(this).attr('href').split('-')[1];
@@ -2149,7 +2149,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         chartData
                 );
 
-                //$('div#queryProfiling').resizable();
+                //$('#queryProfiling').resizable();
             }
         });
     }
@@ -2210,7 +2210,7 @@ function destroyGrid() {
     try {
         clearTimeout(runtime.refreshTimeout);
     } catch(err) {}
-    $('table#chartGrid').html('');
+    $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;
     monitorSettings = null;
