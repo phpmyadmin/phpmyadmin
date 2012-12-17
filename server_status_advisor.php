@@ -59,7 +59,6 @@ $output .= __(
 );
 $output .= '</p>';
 $output .= '</div>';
-$output .= '<div id="emptyDialog" style="display:none;"></div>';
 $output .= '<div id="advisorData" style="display:none;">';
 $advisor = new Advisor();
 $output .= htmlspecialchars(

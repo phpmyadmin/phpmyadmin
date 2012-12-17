@@ -11,11 +11,12 @@
 AJAX.registerTeardown('server_status_advisor.js', function() {
     $('a[href="#openAdvisorInstructions"]').unbind('click');
     $('#statustabs_advisor').html('');
-    $('div#emptyDialog').dialog('destroy');
+    $('#advisorDialog').dialog('destroy');
 });
 
 AJAX.registerOnload('server_status_advisor.js', function() {
     /**** Server config advisor ****/
+    var $dialog = $('<div />').attr('id', 'advisorDialog');
 
     $('a[href="#openAdvisorInstructions"]').click(function() {
         var dlgBtns = {};
@@ -66,8 +67,9 @@ AJAX.registerOnload('server_status_advisor.js', function() {
 
             $tr.click(function() {
                 var rule = $(this).data('rule');
-                $('div#emptyDialog').dialog({title: PMA_messages['strRuleDetails']});
-                $('div#emptyDialog').html(
+                $dialog
+                .dialog({title: PMA_messages['strRuleDetails']})
+                .html(
                     '<p><b>' + PMA_messages['strIssuse'] + ':</b><br />' + rule.issue + '</p>' +
                     '<p><b>' + PMA_messages['strRecommendation'] + ':</b><br />' + rule.recommendation + '</p>' +
                     '<p><b>' + PMA_messages['strJustification'] + ':</b><br />' + rule.justification + '</p>' +
@@ -80,7 +82,7 @@ AJAX.registerOnload('server_status_advisor.js', function() {
                     $(this).dialog('close');
                 };
 
-                $('div#emptyDialog').dialog({ width: 600, buttons: dlgBtns });
+                $dialog.dialog({ width: 600, buttons: dlgBtns });
             });
         });
     }
