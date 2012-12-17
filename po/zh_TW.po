@@ -1100,7 +1100,7 @@ msgstr "編輯索引"
 #, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "增加 %s 個欄位當作索引"
+msgstr "增加 %d 個欄位當作索引"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1364,7 +1364,7 @@ msgstr "EB"
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s 個資料表"
+msgstr "%d 個資料表"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
