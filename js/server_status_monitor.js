@@ -383,7 +383,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
     };
 
-    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function() {
+    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function(event) {
+        event.preventDefault();
         editMode = !editMode;
         if ($(this).attr('href') == '#endChartEditMode') {
             editMode = false;
@@ -569,7 +570,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         saveMonitor(); // Save settings
     });
 
-    $('a[href="#addNewChart"]').click(function() {
+    $('a[href="#addNewChart"]').click(function(event) {
+        event.preventDefault();
         var dlgButtons = { };
 
         dlgButtons[PMA_messages['strAddChart']] = function() {
@@ -644,7 +646,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         return false;
     });
 
-    $('a[href="#exportMonitorConfig"]').click(function() {
+    $('a[href="#exportMonitorConfig"]').click(function(event) {
+        event.preventDefault();
         var gridCopy = {};
         $.each(runtime.charts, function(key, elem) {
             gridCopy[key] = {};
@@ -674,7 +677,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         .remove();
     });
 
-    $('a[href="#importMonitorConfig"]').click(function() {
+    $('a[href="#importMonitorConfig"]').click(function(event) {
+        event.preventDefault();
         $('#emptyDialog').dialog({title: PMA_messages['strImportDialogTitle']});
         $('#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
@@ -742,7 +746,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         });
     });
 
-    $('a[href="#clearMonitorConfig"]').click(function() {
+    $('a[href="#clearMonitorConfig"]').click(function(event) {
+        event.preventDefault();
         window.localStorage.removeItem('monitorCharts');
         window.localStorage.removeItem('monitorSettings');
         window.localStorage.removeItem('monitorVersion');
@@ -750,7 +755,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         rebuildGrid();
     });
 
-    $('a[href="#pauseCharts"]').click(function() {
+    $('a[href="#pauseCharts"]').click(function(event) {
+        event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
             $(this).html(PMA_getImage('play.png') + ' ' + PMA_messages['strResumeMonitor']);
@@ -764,7 +770,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         return false;
     });
 
-    $('a[href="#monitorInstructionsDialog"]').click(function() {
+    $('a[href="#monitorInstructionsDialog"]').click(function(event) {
+        event.preventDefault();
+
         var $dialog = $('#monitorInstructionsDialog');
 
         $dialog.dialog({
@@ -927,7 +935,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
     });
 
-    $('a[href="#kibDivisor"]').click(function() {
+    $('a[href="#kibDivisor"]').click(function(event) {
+        event.preventDefault();
         $('input[name="valueDivisor"]').val(1024);
         $('input[name="valueUnit"]').val(PMA_messages['strKiB']);
         $('span.unitInput').toggle(true);
@@ -935,7 +944,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         return false;
     });
 
-    $('a[href="#mibDivisor"]').click(function() {
+    $('a[href="#mibDivisor"]').click(function(event) {
+        event.preventDefault();
         $('input[name="valueDivisor"]').val(1024*1024);
         $('input[name="valueUnit"]').val(PMA_messages['strMiB']);
         $('span.unitInput').toggle(true);
@@ -943,13 +953,15 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         return false;
     });
 
-    $('a[href="#submitClearSeries"]').click(function() {
+    $('a[href="#submitClearSeries"]').click(function(event) {
+        event.preventDefault();
         $('#seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
         newChart = null;
         $('#clearSeriesLink').hide();
     });
 
-    $('a[href="#submitAddSeries"]').click(function() {
+    $('a[href="#submitAddSeries"]').click(function(event) {
+        event.preventDefault();
         if ($('#variableInput').val() == "") {
             return false;
         }
@@ -2180,7 +2192,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     $('a[href="#pauseCharts"]').trigger('click');
 });
 
-// Needs to be global as server_status_monitor.js uses it too
 function serverResponseError() {
     var btns = {};
     btns[PMA_messages['strReloadPage']] = function() {
