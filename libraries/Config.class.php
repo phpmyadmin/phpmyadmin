@@ -368,9 +368,7 @@ class PMA_Config
     {
         // find out if there is a .git folder
         $git_folder = '.git';
-        if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')
-        ) {
+        if (! $this->isGitRevision()){
             return;
         }
 
