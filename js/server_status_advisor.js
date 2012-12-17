@@ -12,18 +12,22 @@ AJAX.registerTeardown('server_status_advisor.js', function() {
     $('a[href="#openAdvisorInstructions"]').unbind('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').dialog('destroy');
+    $('#instructionsDialog').dialog('destroy');
 });
 
 AJAX.registerOnload('server_status_advisor.js', function() {
     /**** Server config advisor ****/
     var $dialog = $('<div />').attr('id', 'advisorDialog');
+    var $instructionsDialog = $('<div />')
+        .attr('id', 'instructionsDialog')
+        .html($('#advisorInstructionsDialog').html());
 
     $('a[href="#openAdvisorInstructions"]').click(function() {
         var dlgBtns = {};
         dlgBtns[PMA_messages['strClose']] = function() {
             $(this).dialog('close');
         };
-        $('#advisorInstructionsDialog').dialog({
+        $instructionsDialog.dialog({
             title: PMA_messages['strAdvisorSystem'],
             width: 700,
             buttons: dlgBtns
