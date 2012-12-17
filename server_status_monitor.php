@@ -670,8 +670,6 @@ function getPrintMonitorHtml($ServerStatusData)
     $retval .= '</div>';
     $retval .= '</div>';
 
-    $retval .= '<div id="emptyDialog" title="Dialog" style="display:none;"></div>';
-
     if (! PMA_DRIZZLE) {
         $retval .= '<div id="logAnalyseDialog" title="';
         $retval .= __('Log statistics') . '" style="display:none;">';

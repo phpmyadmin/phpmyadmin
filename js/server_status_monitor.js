@@ -16,6 +16,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_status_monitor.js', function() {
+    $('#emptyDialog').dialog('destroy');
     $('#addChartDialog').dialog('destroy');
     $('a.popupLink').unbind('click');
     $('body').unbind('click');
@@ -24,6 +25,9 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
  * Popup behaviour
  */
 AJAX.registerOnload('server_status_monitor.js', function() {
+    $('<div />')
+        .attr('id', 'emptyDialog')
+        .appendTo('#page_content');
     $('#addChartForm').clone()
         .attr('id', 'addChartDialog')
         .appendTo('#page_content');
