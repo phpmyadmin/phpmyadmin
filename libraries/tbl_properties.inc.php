@@ -40,7 +40,7 @@ $html = '';
 $length_values_input_size = 8;
 
 $_form_params = array(
-    'db' => $db,
+    'db' => $db
 );
 
 if ($action == 'tbl_create.php') {
@@ -137,7 +137,10 @@ $header_cells[] = __('Comments');
 
 if (isset($fields_meta)) {
     // for moving, load all available column names
-    $move_columns_sql_query    = 'SELECT * FROM ' . PMA_Util::backquote($table);
+    $move_columns_sql_query    = 'SELECT * FROM ' 
+        . PMA_Util::backquote($db)
+        . '.'
+        . PMA_Util::backquote($table);
     $move_columns_sql_result = PMA_DBI_try_query($move_columns_sql_query);
     $move_columns = PMA_DBI_get_fields_meta($move_columns_sql_result);
     unset($move_columns_sql_query, $move_columns_sql_result);
@@ -145,7 +148,7 @@ if (isset($fields_meta)) {
     $header_cells[] = __('Move column');
 }
 
-if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
 
@@ -648,7 +651,7 @@ for ($i = 0; $i < $num_fields; $i++) {
 
     // column MIME-types
     if ($cfgRelation['mimework']
-        && $cfg['BrowseMIME']
+        && $GLOBALS['cfg']['BrowseMIME']
         && $cfgRelation['commwork']
     ) {
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_'

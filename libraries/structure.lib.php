@@ -1316,8 +1316,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
-            . '<a href="tbl_alter.php?' . $url_query . '&amp;field='
-            . $field_encoded . '">'
+            . '<a href="tbl_structure.php?' . $url_query . '&amp;field='
+            . $field_encoded . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
             . '<a class="drop_column_anchor'
@@ -2239,6 +2239,198 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     );
 
     return $html_output;
+}
+
+/**
+ * 
+ */
+function PMA_getHtmlForColumnChange($db, $table, $selected, $action) 
+{
+    // $selected comes from multi_submits.inc.php
+    if (empty($selected)) {
+        $selected[]   = $_REQUEST['field'];
+        $selected_cnt = 1;
+    } else { // from a multiple submit
+        $selected_cnt = count($selected);
+    }
+
+    /**
+     * @todo optimize in case of multiple fields to modify
+     */
+    for ($i = 0; $i < $selected_cnt; $i++) {
+        $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
+    }
+    $num_fields  = count($fields_meta);
+    // set these globals because tbl_properties.inc.php verifies them
+    // @todo: refactor tbl_properties.inc.php so that it uses function params
+    $GLOBALS['action'] = 'tbl_alter.php';
+    $GLOBALS['num_fields'] = $num_fields; 
+
+    // Get more complete field information.
+    // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
+    // and to know when there is an empty DEFAULT value.
+    // Later, if the analyser returns more information, it
+    // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
+    /**
+     * @todo put this code into a require()
+     * or maybe make it part of PMA_DBI_get_columns();
+     */
+
+    // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
+    // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
+    // in MySQL 4.0.25).
+
+    $show_create_table = PMA_DBI_fetch_value(
+        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
+        0, 1
+    );
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    unset($show_create_table);
+    /**
+     * Form for changing properties.
+     */
+    include 'libraries/tbl_properties.inc.php';
+}
+
+
+/**
+ * Modifications have been submitted -> updates the table
+ */
+function PMA_updateColumns($db, $table)
+{
+    $field_cnt = count($_REQUEST['field_orig']);
+    $key_fields = array();
+    $changes = array();
+
+    for ($i = 0; $i < $field_cnt; $i++) {
+        $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+            $_REQUEST['field_orig'][$i],
+            $_REQUEST['field_name'][$i],
+            $_REQUEST['field_type'][$i],
+            $_REQUEST['field_length'][$i],
+            $_REQUEST['field_attribute'][$i],
+            isset($_REQUEST['field_collation'][$i])
+                ? $_REQUEST['field_collation'][$i]
+                : '',
+            isset($_REQUEST['field_null'][$i])
+                ? $_REQUEST['field_null'][$i]
+                : 'NOT NULL',
+            $_REQUEST['field_default_type'][$i],
+            $_REQUEST['field_default_value'][$i],
+            isset($_REQUEST['field_extra'][$i])
+                ? $_REQUEST['field_extra'][$i]
+                : false,
+            isset($_REQUEST['field_comments'][$i])
+                ? $_REQUEST['field_comments'][$i]
+                : '',
+            $key_fields,
+            $i,
+            isset($_REQUEST['field_move_to'][$i])
+                ? $_REQUEST['field_move_to'][$i]
+                : ''
+        );
+    } // end for
+
+    // Builds the primary keys statements and updates the table
+    $key_query = '';
+    /**
+     * this is a little bit more complex
+     *
+     * @todo if someone selects A_I when altering a column we need to check:
+     *  - no other column with A_I
+     *  - the column has an index, if not create one
+     *
+    if (count($key_fields)) {
+        $fields = array();
+        foreach ($key_fields as $each_field) {
+            if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
+                $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$each_field]);
+            }
+        } // end for
+        $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
+    }
+     */
+
+    // To allow replication, we first select the db to use and then run queries
+    // on this db.
+    if (! PMA_DBI_select_db($db)) {
+        PMA_Util::mysqlDie(
+            PMA_DBI_getError(),
+            'USE ' . PMA_Util::backquote($db) . ';',
+            '',
+            $err_url
+        );
+    }
+    $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+    $sql_query .= implode(', ', $changes) . $key_query;
+    $sql_query .= ';';
+    $result    = PMA_DBI_try_query($sql_query);
+
+    if ($result !== false) {
+        $message = PMA_Message::success(
+            __('Table %1$s has been altered successfully')
+        );
+        $message->addParam($table);
+        $btnDrop = 'Fake';
+
+        /**
+         * If comments were sent, enable relation stuff
+         */
+        include_once 'libraries/transformations.lib.php';
+
+        // update field names in relation
+        if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
+            foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
+                if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
+                    PMA_REL_renameField(
+                        $db, $table, $fieldcontent,
+                        $_REQUEST['field_name'][$fieldindex]
+                    );
+                }
+            }
+        }
+
+        // update mime types
+        if (isset($_REQUEST['field_mimetype'])
+            && is_array($_REQUEST['field_mimetype'])
+            && $GLOBALS['cfg']['BrowseMIME']
+        ) {
+            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_REQUEST['field_name'][$fieldindex])
+                    && strlen($_REQUEST['field_name'][$fieldindex])
+                ) {
+                    PMA_setMIME(
+                        $db, $table, $_REQUEST['field_name'][$fieldindex],
+                        $mimetype,
+                        $_REQUEST['field_transformation'][$fieldindex],
+                        $_REQUEST['field_transformation_options'][$fieldindex]
+                    );
+                }
+            }
+        }
+
+        $response = PMA_Response::getInstance();
+        $response->addHTML($message->getDisplay());
+        //if ($response->isAjax()) {
+        //    $response->isSuccess($message->isSuccess());
+        //    $response->addJSON('message', $message);
+        //    $response->addJSON(
+        //        'sql_query',
+        //        PMA_Util::getMessage(null, $sql_query)
+        //    );
+        //}
+    } else {
+        PMA_Util::mysqlDie('', '', '', $err_url, false);
+        // An error happened while inserting/updating a table definition.
+        // to prevent total loss of that data, we embed the form once again.
+        // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
+        // @todo: test this code, now that it's inside a function
+        if (isset($_REQUEST['orig_field'])) {
+            $_REQUEST['field'] = $_REQUEST['orig_field'];
+        }
+
+        $regenerate = true;
+    }
 }
 
 ?>

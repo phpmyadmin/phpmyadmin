@@ -25,6 +25,23 @@ $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 
 /**
+ * A click on Change has been made for one column 
+ */
+if (isset($_REQUEST['change_column'])) {
+    PMA_getHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
+    exit;
+}
+/**
+ * Modifications have been submitted -> updates the table
+ */
+if (isset($_REQUEST['do_save_data'])) {
+    PMA_updateColumns($db, $table);
+    // and continue to show the table's structure
+    unset($_REQUEST['selected']);
+    unset($_REQUEST['true_selected']);
+}
+
+/**
  * handle multiple field commands if required
  *
  * submit_mult_*_x comes from IE if <input type="img" ...> is used
