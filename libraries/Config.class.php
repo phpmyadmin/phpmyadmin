@@ -385,10 +385,41 @@ class PMA_Config
                 $branch = basename($ref_head);
             }
 
-            if (! $hash = @file_get_contents($git_folder . '/' . $ref_head)) {
-                return;
+            $ref_file = $git_folder . '/' . $ref_head;
+            if (@file_exists($ref_file)) {
+                if (! $hash = @file_get_contents($ref_file)) {
+                    return;
+                }
+                $hash = trim($hash);
+            } else {
+                // deal with packed refs
+                if (! $packed_refs = @file_get_contents($git_folder . '/packed-refs')) {
+                    return;
+                }
+                // split file to lines
+                $ref_lines = explode("\n", $packed_refs);
+                foreach ($ref_lines as $line) {
+                    // skip comments
+                    if ($line[0] == '#') {
+                        continue;
+                    }
+                    // parse line
+                    $parts = explode(' ', $line);
+                    // care only about named refs
+                    if (count($parts) != 2) {
+                        continue;
+                    }
+                    // have found our ref?
+                    if ($parts[1] == $ref_head) {
+                        $hash = $parts[0];
+                        break;
+                    }
+                }
+                if (! isset($hash)) {
+                    // Could not find ref
+                    return;
+                }
             }
-            $hash = trim($hash);
         } else {
             $hash = trim($ref_head);
         }
