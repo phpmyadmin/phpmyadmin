@@ -603,7 +603,7 @@ function getPrintMonitorHtml($ServerStatusData)
     }
     $retval .= '</div>';
 
-    $retval .= '<div id="addChartDialog" title="' . __('Add chart') . '" style="display:none;">';
+    $retval .= '<div id="addChartForm" title="' . __('Add chart') . '" style="display:none;">';
     $retval .= '<div id="tabGridVariables">';
     $retval .= '<p><input type="text" name="chartTitle" value="' . __('Chart Title') . '" /></p>';
     $retval .= '<input type="radio" name="chartType" value="preset" id="chartPreset" />';
