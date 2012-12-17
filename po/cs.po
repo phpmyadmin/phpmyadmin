@@ -12457,7 +12457,7 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Povolte záznam pomalých dotazů nastavením {log_slow_queries} na 'ON'. To vám "
+"Povolte záznam pomalých dotazů nastavením {slow_query_log} na 'ON'. To vám "
 "pomůže prozkoumat tyto zatěžující dotazy."
 
 #: libraries/advisory_rules.txt:96
