@@ -80,7 +80,7 @@ AJAX.registerTeardown('server_status_monitor.js', function() {
 AJAX.registerOnload('server_status_monitor.js', function() {
     // Show tab links
     $('div.tabLinks').show();
-    $('img#loadingMonitorIcon').remove();
+    $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! codemirror_editor) {
         var $elm = $('#sqlquery');
@@ -98,7 +98,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     }
     // Timepicker is loaded on demand so we need to initialize
     // datetime fields from the 'load log' dialog
-    $('div#logAnalyseDialog .datetimefield').each(function() {
+    $('#logAnalyseDialog .datetimefield').each(function() {
         PMA_addDatepicker($(this));
     });
 
@@ -387,7 +387,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         // Icon graphics have zIndex 19, 20 and 21.
         // Let's just hope nothing else has the same zIndex
-        $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
+        $('#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
 
         $('a[href="#endChartEditMode"]').toggle(editMode);
 
@@ -484,11 +484,11 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         var newSize = chartSize();
 
         // Empty cells should keep their size so you can drop onto them
-        $('table#chartGrid tr td').css('width', newSize.width + 'px');
+        $('#chartGrid tr td').css('width', newSize.width + 'px');
 
         /* Reorder all charts that it fills all column cells */
         var numColumns;
-        var $tr = $('table#chartGrid tr:first');
+        var $tr = $('#chartGrid tr:first');
         var row = 0;
         while($tr.length != 0) {
             numColumns = 1;
@@ -572,7 +572,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             var type = $('input[name="chartType"]:checked').val();
 
             if (type == 'preset') {
-                newChart = presetCharts[$('div#addChartDialog select[name="presetCharts"]').prop('value')];
+                newChart = presetCharts[$('#addChartDialog select[name="presetCharts"]').prop('value')];
             } else {
                 // If user builds his own chart, it's being set/updated
                 // each time he adds a series
@@ -601,7 +601,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $(this).dialog("close");
         };
 
-        var $presetList = $('div#addChartDialog select[name="presetCharts"]');
+        var $presetList = $('#addChartDialog select[name="presetCharts"]');
         if ($presetList.html().length == 0) {
             $.each(presetCharts, function(key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
@@ -629,13 +629,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             });
         }
 
-        $('div#addChartDialog').dialog({
+        $('#addChartDialog').dialog({
             width: 'auto',
             height: 'auto',
             buttons: dlgButtons
         });
 
-        $('div#addChartDialog #seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
+        $('#addChartDialog #seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
 
         return false;
     });
@@ -671,8 +671,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     });
 
     $('a[href="#importMonitorConfig"]').click(function() {
-        $('div#emptyDialog').dialog({title: PMA_messages['strImportDialogTitle']});
-        $('div#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
+        $('#emptyDialog').dialog({title: PMA_messages['strImportDialogTitle']});
+        $('#emptyDialog').html(PMA_messages['strImportDialogMessage'] + ':<br/><form action="file_echo.php?' + PMA_commonParams.get('common_query') + '&import=1" method="post" enctype="multipart/form-data">' +
             '<input type="file" name="file"> <input type="hidden" name="import" value="1"> </form>');
 
         var dlgBtns = {};
@@ -718,12 +718,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     rebuildGrid();
                 }
 
-                $('div#emptyDialog').dialog('close');
+                $('#emptyDialog').dialog('close');
             });
 
-            $("body", d).append($form = $('div#emptyDialog').find('form'));
+            $("body", d).append($form = $('#emptyDialog').find('form'));
             $form.submit();
-            $('div#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            $('#emptyDialog').append('<img class="ajaxIcon" src="' + pmaThemeImage + 'ajax_clock_small.gif" alt="">');
         };
 
         dlgBtns[PMA_messages['strCancel']] = function() {
@@ -731,7 +731,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         };
 
 
-        $('div#emptyDialog').dialog({
+        $('#emptyDialog').dialog({
             width: 'auto',
             height: 'auto',
             buttons: dlgBtns
@@ -761,7 +761,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     });
 
     $('a[href="#monitorInstructionsDialog"]').click(function() {
-        var $dialog = $('div#monitorInstructionsDialog');
+        var $dialog = $('#monitorInstructionsDialog');
 
         $dialog.dialog({
             width: 595,
@@ -942,11 +942,11 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     $('a[href="#submitClearSeries"]').click(function() {
         $('#seriesPreview').html('<i>' + PMA_messages['strNone'] + '</i>');
         newChart = null;
-        $('span#clearSeriesLink').hide();
+        $('#clearSeriesLink').hide();
     });
 
     $('a[href="#submitAddSeries"]').click(function() {
-        if ($('input#variableInput').val() == "") {
+        if ($('#variableInput').val() == "") {
             return false;
         }
 
@@ -960,8 +960,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
 
         var serie = {
-            dataPoints: [{ type: 'statusvar', name: $('input#variableInput').val() }],
-            name: $('input#variableInput').val(),
+            dataPoints: [{ type: 'statusvar', name: $('#variableInput').val() }],
+            name: $('#variableInput').val(),
             display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : ''
         };
 
@@ -985,7 +985,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         newChart.nodes.push(serie);
 
-        $('input#variableInput').val('');
+        $('#variableInput').val('');
         $('input[name="differentialValue"]').prop('checked', true);
         $('input[name="useDivisor"]').prop('checked', false);
         $('input[name="useUnit"]').prop('checked', false);
@@ -993,13 +993,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         $('input[name="useUnit"]').trigger('change');
         $('select[name="varChartList"]').get(0).selectedIndex = 0;
 
-        $('span#clearSeriesLink').show();
+        $('#clearSeriesLink').show();
 
         return false;
     });
 
-    $("input#variableInput").autocomplete({
-            source: variableNames
+    $("#variableInput").autocomplete({
+        source: variableNames
     });
 
     /* Initializes the monitor, called only once */
@@ -1017,13 +1017,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
 
             if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
-                $('div#emptyDialog').dialog({title: PMA_messages['strIncompatibleMonitorConfig']});
-                $('div#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
+                $('#emptyDialog').dialog({title: PMA_messages['strIncompatibleMonitorConfig']});
+                $('#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
                 var dlgBtns = {};
                 dlgBtns[PMA_messages['strClose']] = function() { $(this).dialog('close'); };
 
-                $('div#emptyDialog').dialog({
+                $('#emptyDialog').dialog({
                     width: 400,
                     buttons: dlgBtns
                 });
@@ -1050,14 +1050,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
 
         /* Calculate how much spacing there is between each chart */
-        $('table#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
+        $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
         chartSpacing = {
-            width: $('table#chartGrid td:nth-child(2)').offset().left
-                    - $('table#chartGrid td:nth-child(1)').offset().left,
-            height: $('table#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top
-                    - $('table#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
+            width: $('#chartGrid td:nth-child(2)').offset().left
+                    - $('#chartGrid td:nth-child(1)').offset().left,
+            height: $('#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top
+                    - $('#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
         };
-        $('table#chartGrid').html('');
+        $('#chartGrid').html('');
 
         /* Add all charts - in correct order */
         var keys = [];
@@ -1070,14 +1070,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
 
         /* Fill in missing cells */
-        var numCharts = $('table#chartGrid .monitorChart').length;
+        var numCharts = $('#chartGrid .monitorChart').length;
         var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
         for (var i = 0; i < numMissingCells; i++) {
-            $('table#chartGrid tr:last').append('<td></td>');
+            $('#chartGrid tr:last').append('<td></td>');
         }
 
         // Empty cells should keep their size so you can drop onto them
-        $('table#chartGrid tr td').css('width', chartSize().width + 'px');
+        $('#chartGrid tr td').css('width', chartSize().width + 'px');
 
         buildRequiredDataList();
         refreshChartGrid();
@@ -1115,7 +1115,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     /* Calculactes the dynamic chart size that depends on the column width */
     function chartSize() {
-        var wdt = $('div#logTable').innerWidth() / monitorSettings.columns - (monitorSettings.columns - 1) * chartSpacing.width;
+        var wdt = $('#logTable').innerWidth() / monitorSettings.columns - (monitorSettings.columns - 1) * chartSpacing.width;
         return {
             width: wdt,
             height: 0.75 * wdt
@@ -1182,13 +1182,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         settings.series = chartObj.series;
 
         if ($('#' + 'gridchart' + runtime.chartAI).length == 0) {
-            var numCharts = $('table#chartGrid .monitorChart').length;
+            var numCharts = $('#chartGrid .monitorChart').length;
 
             if (numCharts == 0 || !( numCharts % monitorSettings.columns)) {
-                $('table#chartGrid').append('<tr></tr>');
+                $('#chartGrid').append('<tr></tr>');
             }
 
-            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
+            $('#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
         var series = [];
@@ -1289,7 +1289,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         });
 
         // Edit, Print icon only in edit mode
-        $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
+        $('#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
 
         runtime.chartAI++;
     }
@@ -1323,10 +1323,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         dlgBtns = {};
         dlgBtns[PMA_messages['strSave']] = function() {
-            runtime.charts[chartKey].title = $('div#emptyDialog input[name="chartTitle"]').val();
+            runtime.charts[chartKey].title = $('#emptyDialog input[name="chartTitle"]').val();
             runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
 
-            $('div#emptyDialog input[name*="chartSerie"]').each(function() {
+            $('#emptyDialog input[name*="chartSerie"]').each(function() {
                 var $t = $(this);
                 var idx = $t.attr('name').split('-')[1];
                 runtime.charts[chartKey].nodes[idx].name = $t.val();
@@ -1340,8 +1340,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $(this).dialog('close');
         };
 
-        $('div#emptyDialog').html(htmlStr + '</ol>');
-        $('div#emptyDialog').dialog({
+        $('#emptyDialog').html(htmlStr + '</ol>');
+        $('#emptyDialog').dialog({
             title: PMA_messages['strChartEdit'],
             width: 'auto',
             height: 'auto',
@@ -1382,8 +1382,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             src: type,
             start: dateStart,
             end: dateEnd,
-            removeVariables: $('input#removeVariables').prop('checked'),
-            limitTypes: $('input#limitTypes').prop('checked')
+            removeVariables: $('#removeVariables').prop('checked'),
+            limitTypes: $('#limitTypes').prop('checked')
         });
     }
 
@@ -1671,7 +1671,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
                     /* Add filter options if more than a bunch of rows there to filter */
                     if (logData.numRows > 12) {
-                        $('div#logTable').prepend(
+                        $('#logTable').prepend(
                             '<fieldset id="logDataFilter">' +
                             '    <legend>' + PMA_messages['strFiltersForLogTable'] + '</legend>' +
                             '    <div class="formelement">' +
@@ -1686,14 +1686,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                             '</fieldset>'
                         );
 
-                        $('div#logTable input#noWHEREData').change(function() {
+                        $('#logTable #noWHEREData').change(function() {
                             filterQueries(true);
                         });
 
                         if (logData.numRows > 250) {
-                            $('div#logTable button#startFilterQueryText').click(filterQueries);
+                            $('#logTable #startFilterQueryText').click(filterQueries);
                         } else {
-                            $('div#logTable input#filterQueryText').keyup(filterQueries);
+                            $('#logTable #filterQueryText').keyup(filterQueries);
                         }
 
                     }
@@ -1701,7 +1701,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     var dlgBtns = {};
                     dlgBtns[PMA_messages['strJumpToTable']] = function() {
                         $(this).dialog("close");
-                        $(document).scrollTop($('div#logTable').offset().top);
+                        $(document).scrollTop($('#logTable').offset().top);
                     };
 
                     $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
@@ -1729,7 +1729,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         */
         function filterQueries(varFilterChange) {
             var odd_row = false, cell, textFilter;
-            var val = $('div#logTable input#filterQueryText').val();
+            var val = $('#logTable #filterQueryText').val();
 
             if (val.length == 0) {
                 textFilter = null;
@@ -1738,7 +1738,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
 
             var rowSum = 0, totalSum = 0, i = 0, q;
-            var noVars = $('div#logTable input#noWHEREData').prop('checked');
+            var noVars = $('#logTable #noWHEREData').prop('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
             var filteredQueries = {}, filteredQueriesLines = {};
@@ -1840,7 +1840,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             // We finished summarizing counts => Update count values of all grouped entries
             if (varFilterChange) {
                 if (noVars) {
-                    var numCol, row, $table = $('div#logTable table tbody');
+                    var numCol, row, $table = $('#logTable table tbody');
                     $.each(filteredQueriesLines, function(key, value) {
                         if (filteredQueries[key] <= 1) {
                             return;
@@ -1859,14 +1859,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     });
                 }
 
-                $('div#logTable table').trigger("update");
+                $('#logTable table').trigger("update");
                 setTimeout(function() {
-                    $('div#logTable table').trigger('sorton', [[[runtime.logDataCols.length - 1, 1]]]);
+                    $('#logTable table').trigger('sorton', [[[runtime.logDataCols.length - 1, 1]]]);
                 }, 0);
             }
 
             // Display some stats at the bottom of the table
-            $('div#logTable table tfoot tr')
+            $('#logTable table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
                       PMA_messages['strSumRows'] + ' ' + rowSum + '<span style="float:right">' +
                       PMA_messages['strTotal'] + '</span></th><th class="right">' + totalSum + '</th>');
@@ -1970,12 +1970,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             });
         }
 
-        $('div#logTable table').tablesorter({
+        $('#logTable table').tablesorter({
             sortList: [[cols.length - 1, 1]],
             widgets: ['fast-zebra']
         });
 
-        $('div#logTable table thead th')
+        $('#logTable table thead th')
             .append('<img class="icon sortableIcon" src="themes/dot.gif" alt="">');
 
         return cols;
@@ -2009,7 +2009,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $(this).dialog('close');
         };
 
-        $('div#queryAnalyzerDialog').dialog({
+        $('#queryAnalyzerDialog').dialog({
             width: 'auto',
             height: 'auto',
             resizable: false,
@@ -2018,7 +2018,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 if (profilingChart != null) {
                     profilingChart.destroy();
                 }
-                $('div#queryAnalyzerDialog div.placeHolder').html('');
+                $('#queryAnalyzerDialog div.placeHolder').html('');
                 if (codemirror_editor) {
                     codemirror_editor.setValue('');
                 } else {
@@ -2032,7 +2032,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     function loadQueryAnalysis(rowData) {
         var db = rowData.db || '';
 
-        $('div#queryAnalyzerDialog div.placeHolder').html(
+        $('#queryAnalyzerDialog div.placeHolder').html(
             PMA_messages['strAnalyzing'] + ' <img class="ajaxIcon" src="' +
             pmaThemeImage + 'ajax_clock_small.gif" alt="">');
 
@@ -2045,12 +2045,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             if (data.success == true) {
                 data = data.message;
             } else {
-                $('div#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
+                $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }
             var totalTime = 0;
             // Float sux, I'll use table :(
-            $('div#queryAnalyzerDialog div.placeHolder')
+            $('#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
             var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + $('#explain_docu').html();
@@ -2085,7 +2085,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             $('div#queryAnalyzerDialog div.placeHolder td.explain').append(explain);
 
-            $('div#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
+            $('#queryAnalyzerDialog div.placeHolder a[href*="#showExplain"]').click(function() {
                 var id = $(this).attr('href').split('-')[1];
                 $(this).parent().find('div[class*="explain"]').hide();
                 $(this).parent().find('div[class*="explain-' + id + '"]').show();
@@ -2123,20 +2123,20 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 numberTable += '<tr><td><b>' + PMA_messages['strTotalTime'] + '</b></td><td>' + PMA_prettyProfilingNum(totalTime, 2) + '</td></tr>';
                 numberTable += '</tbody></table>';
 
-                $('div#queryAnalyzerDialog div.placeHolder td.chart').append(
+                $('#queryAnalyzerDialog div.placeHolder td.chart').append(
                     '<b>' + PMA_messages['strProfilingResults'] + ' ' + $('#profiling_docu').html() + '</b> ' +
                     '(<a href="#showNums">' + PMA_messages['strTable'] + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
-                $('div#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
-                    $('div#queryAnalyzerDialog div#queryProfiling').hide();
-                    $('div#queryAnalyzerDialog table.queryNums').show();
+                $('#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function() {
+                    $('#queryAnalyzerDialog #queryProfiling').hide();
+                    $('#queryAnalyzerDialog table.queryNums').show();
                     return false;
                 });
 
-                $('div#queryAnalyzerDialog div.placeHolder a[href="#showChart"]').click(function() {
-                    $('div#queryAnalyzerDialog div#queryProfiling').show();
-                    $('div#queryAnalyzerDialog table.queryNums').hide();
+                $('#queryAnalyzerDialog div.placeHolder a[href="#showChart"]').click(function() {
+                    $('#queryAnalyzerDialog #queryProfiling').show();
+                    $('#queryAnalyzerDialog table.queryNums').hide();
                     return false;
                 });
 
