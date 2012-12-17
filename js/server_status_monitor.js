@@ -2005,6 +2005,8 @@ $(function() {
             gridCopy[key].nodes = elem.nodes;
             gridCopy[key].settings = elem.settings;
             gridCopy[key].title = elem.title;
+            gridCopy[key].series = elem.series;
+            gridCopy[key].maxYLabel = elem.maxYLabel;
         });
 
         if (window.localStorage) {
