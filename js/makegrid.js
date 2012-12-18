@@ -1658,7 +1658,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 // temporarily remove ajax class so the page loader will not handle it,
                                 // submit and then add it back
                                 $link.removeClass('ajax');
-                                AJAX.submitFormProgrammatically(e.target);
+                                AJAX.requestHandler.call($link[0]);
                                 $link.addClass('ajax');
                                 $cell.data('clicks', 0);
                             }, 700);

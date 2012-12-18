@@ -117,15 +117,6 @@ var AJAX = {
         );
     },
     /**
-     * Use this method when you want to submit a form programmatically
-     * and want the AJAX page loading system to handle the results.
-     *  
-     * @param objecct form form to be submitted
-     */
-    submitFormProgrammatically: function(form) {
-        this.requestHandler.call(form);
-    },
-    /**
      * Event handler for clicks on links and form submissions
      *
      * @param object e Event data

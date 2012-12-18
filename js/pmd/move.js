@@ -515,9 +515,7 @@ function Save(url) // (del?) no for pdf
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.form1.action = url;
-    // Submitting the form with form.submit() will not trigger the AJAX page loading mechanism.
-    // Hence we are using AJAX.submitFormProgrammatically() here.
-    AJAX.submitFormProgrammatically(document.form1);
+    $(document.form1).submit();
 }
 
 function Get_url_pos()
