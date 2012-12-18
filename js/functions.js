@@ -3021,8 +3021,10 @@ AJAX.registerTeardown('functions.js', function() {
  */
 AJAX.registerOnload('functions.js', function () {
     $('div.toggleAjax').each(function () {
-        $(this).show();
-        toggleButton($(this));
+        var $button = $(this).show();
+        $button.find('img').load(function () {
+            toggleButton($button);
+        });
     });
 });
 
@@ -3679,7 +3681,7 @@ $(function () {
  * Scrolls the page to the top if clicking the serverinfo bar
  */
 $(function () {
-    $(document).delegate("#serverinfo, #goto_pagetop", "click", function (event) { 
+    $(document).delegate("#serverinfo, #goto_pagetop", "click", function (event) {
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, 'fast');
     });
