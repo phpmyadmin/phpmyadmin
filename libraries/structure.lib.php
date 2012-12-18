@@ -2301,6 +2301,7 @@ function PMA_getHtmlForColumnChange($db, $table, $selected, $action)
  */
 function PMA_updateColumns($db, $table)
 {
+    $regenerate = false;
     $field_cnt = count($_REQUEST['field_orig']);
     $key_fields = array();
     $changes = array();
@@ -2433,6 +2434,7 @@ function PMA_updateColumns($db, $table)
 
         $regenerate = true;
     }
+    return $regenerate;
 }
 
 ?>

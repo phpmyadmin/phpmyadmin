@@ -35,10 +35,15 @@ if (isset($_REQUEST['change_column'])) {
  * Modifications have been submitted -> updates the table
  */
 if (isset($_REQUEST['do_save_data'])) {
-    PMA_updateColumns($db, $table);
-    // and continue to show the table's structure
-    unset($_REQUEST['selected']);
-    unset($_REQUEST['true_selected']);
+    $regenerate = PMA_updateColumns($db, $table);
+    if ($regenerate) {
+        // @todo: find in which situation this happens, then 
+        // do something appropriate
+    } else {
+        // continue to show the table's structure
+        unset($_REQUEST['selected']);
+        unset($_REQUEST['true_selected']);
+    }
 }
 
 /**
