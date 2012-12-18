@@ -47,6 +47,8 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     .html(data.message)
                     .insertBefore('#page_content');
                 PMA_verifyColumnsProperties();
+            } else {
+                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
             }
         });
     });
@@ -67,6 +69,8 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     .html(data.message)
                     .insertBefore('#page_content');
                 PMA_verifyColumnsProperties();
+            } else {
+                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
             }
         });
     });
