@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-15 08:15-0500\n"
+"POT-Creation-Date: 2012-12-18 11:00+0100\n"
 "PO-Revision-Date: 2012-11-06 12:16+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
 ">\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -626,8 +626,8 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:232 import.php:497
@@ -2362,16 +2362,16 @@ msgstr "గంటకి"
 msgid "per day"
 msgstr ""
 
-#: libraries/Config.class.php:922
+#: libraries/Config.class.php:1050
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:952
+#: libraries/Config.class.php:1080
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1528
+#: libraries/Config.class.php:1656
 msgid "Font size"
 msgstr ""
 
@@ -2712,8 +2712,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4945
@@ -3435,14 +3435,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -6398,8 +6398,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:329
@@ -6862,8 +6862,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7568,8 +7568,8 @@ msgstr "%sకి స్వాగతం"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
@@ -9409,8 +9409,8 @@ msgstr "అవలోకనం"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3026
@@ -10679,37 +10679,37 @@ msgstr ""
 msgid "Series in Chart:"
 msgstr ""
 
-#: server_status_monitor.php:677
+#: server_status_monitor.php:675
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "గణాంకాలను చూపించు"
 
-#: server_status_monitor.php:678
+#: server_status_monitor.php:676
 msgid "Selected time range:"
 msgstr ""
 
-#: server_status_monitor.php:684
+#: server_status_monitor.php:682
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status_monitor.php:689
+#: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status_monitor.php:692
+#: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status_monitor.php:695
+#: server_status_monitor.php:693
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status_monitor.php:699
+#: server_status_monitor.php:697
 msgid "Query analyzer"
 msgstr ""
 
-#: server_status_monitor.php:747
+#: server_status_monitor.php:745
 #, fuzzy, php-format
 #| msgid "Second"
 msgid "%d second"
@@ -10718,7 +10718,7 @@ msgstr[0] "క్షణం"
 msgstr[1] "క్షణం"
 
 # మొదటి అనువాదము
-#: server_status_monitor.php:750
+#: server_status_monitor.php:748
 #, fuzzy, php-format
 #| msgid "Minute"
 msgid "%d minute"
@@ -12406,8 +12406,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12536,8 +12536,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

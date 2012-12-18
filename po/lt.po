@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-15 08:15-0500\n"
+"POT-Creation-Date: 2012-12-18 11:00+0100\n"
 "PO-Revision-Date: 2012-12-13 12:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "lt/>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
@@ -624,14 +624,14 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti %"
-"sdokumentaciją%s būdams kaip apeiti šį apribojimą."
+"Jūs tikriausiai bandėte įkelti per didelį failą. Prašome perskaityti "
+"%sdokumentaciją%s būdams kaip apeiti šį apribojimą."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -2288,8 +2288,8 @@ msgstr ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
-"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: %"
-"s"
+"Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: "
+"%s"
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2330,17 +2330,17 @@ msgstr "per valandą"
 msgid "per day"
 msgstr "per dieną"
 
-#: libraries/Config.class.php:922
+#: libraries/Config.class.php:1050
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Esamo konfigūracinio failo (%s) neina nuskaityti."
 
-#: libraries/Config.class.php:952
+#: libraries/Config.class.php:1080
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Blogos teisės konfigūracinio failo, neturėtų būti įrašymo galimybė visiems!"
 
-#: libraries/Config.class.php:1528
+#: libraries/Config.class.php:1656
 msgid "Font size"
 msgstr "Šrifto dydis"
 
@@ -2673,11 +2673,11 @@ msgstr "užklausa vykdoma"
 #: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos %"
-"sdokumentacijoje%s."
+"Šis rodinys turi mažiausiai tiek eilučių. Daugiau informacijos "
+"%sdokumentacijoje%s."
 
 #: libraries/DisplayResults.class.php:4945
 msgid "Showing rows"
@@ -3402,14 +3402,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -6540,8 +6540,8 @@ msgstr ", @TABLE@ taps lentelės pavadinimu"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ši reikšmė interpretuojama naudojant %1$sstrftime%2$s, taigi Jūs galite "
 "keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
@@ -7036,8 +7036,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7723,8 +7723,8 @@ msgstr "Jūs naudojate %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Jūs dar turbūt nesukūrėte nustatymų failo. Galite pasinaudoti %1$snustatymų "
 "skriptu%2$s, kad sukurtumėte failą."
@@ -9638,8 +9638,8 @@ msgstr "Naudotojų apžvalga"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
@@ -10927,35 +10927,35 @@ msgstr ""
 msgid "Series in Chart:"
 msgstr "Eilės diagramoje:"
 
-#: server_status_monitor.php:677
+#: server_status_monitor.php:675
 msgid "Log statistics"
 msgstr "Registruoti statistiką"
 
-#: server_status_monitor.php:678
+#: server_status_monitor.php:676
 msgid "Selected time range:"
 msgstr "Pasirinktas laiko tarpas:"
 
-#: server_status_monitor.php:684
+#: server_status_monitor.php:682
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status_monitor.php:689
+#: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status_monitor.php:692
+#: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status_monitor.php:695
+#: server_status_monitor.php:693
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status_monitor.php:699
+#: server_status_monitor.php:697
 msgid "Query analyzer"
 msgstr "Užklausos analizatorius"
 
-#: server_status_monitor.php:747
+#: server_status_monitor.php:745
 #, fuzzy, php-format
 #| msgid "Second"
 msgid "%d second"
@@ -10964,7 +10964,7 @@ msgstr[0] "Sekundė"
 msgstr[1] "Sekundės"
 msgstr[2] "Sekundžių"
 
-#: server_status_monitor.php:750
+#: server_status_monitor.php:748
 #, fuzzy, php-format
 #| msgid "Minute"
 msgid "%d minute"
@@ -12725,8 +12725,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12859,8 +12859,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

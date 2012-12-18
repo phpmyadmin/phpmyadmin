@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-15 08:15-0500\n"
+"POT-Creation-Date: 2012-12-18 11:00+0100\n"
 "PO-Revision-Date: 2012-12-15 16:30+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -615,8 +615,8 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -883,8 +883,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya%"
-"s tıklayın."
+"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya"
+"%s tıklayın."
 
 #: index.php:500
 #, php-format
@@ -1273,8 +1273,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
-"2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
+"0-2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:137
 #, php-format
@@ -1958,8 +1958,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
-"s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
+"%s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
@@ -2290,17 +2290,17 @@ msgstr "saat başına"
 msgid "per day"
 msgstr "gün başına"
 
-#: libraries/Config.class.php:922
+#: libraries/Config.class.php:1050
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Mevcut yapılandırma dosyası (%s) okunabilir değil."
 
-#: libraries/Config.class.php:952
+#: libraries/Config.class.php:1080
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Yapılandırma dosyasında yanlış izinler, herkesçe yazılabilir olmamalıdır!"
 
-#: libraries/Config.class.php:1528
+#: libraries/Config.class.php:1656
 msgid "Font size"
 msgstr "Yazı Tipi boyutu"
 
@@ -2615,8 +2615,8 @@ msgstr "sorgu içerisinde"
 #: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -3339,20 +3339,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
-"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
+"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:312
@@ -6511,8 +6511,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -7036,8 +7036,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -7712,8 +7712,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -9594,8 +9594,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -10272,8 +10272,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
-"sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
+"%sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -10895,41 +10895,41 @@ msgstr "Diziyi temizle"
 msgid "Series in Chart:"
 msgstr "Çizelgedeki Dizi:"
 
-#: server_status_monitor.php:677
+#: server_status_monitor.php:675
 msgid "Log statistics"
 msgstr "Günlük istatistikleri"
 
-#: server_status_monitor.php:678
+#: server_status_monitor.php:676
 msgid "Selected time range:"
 msgstr "Seçili zaman aralığı:"
 
-#: server_status_monitor.php:684
+#: server_status_monitor.php:682
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Sadece SELECT,INSERT,UPDATE ve DELETE İfadeleri erişir"
 
-#: server_status_monitor.php:689
+#: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Daha iyi gruplama için INSERT ifadelerindeki değişken veriyi kaldır"
 
-#: server_status_monitor.php:692
+#: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "İstatistiklerin oluşturulmasını istediğiniz yerden günlüğü seçin."
 
-#: server_status_monitor.php:695
+#: server_status_monitor.php:693
 msgid "Results are grouped by query text."
 msgstr "Sonuçlar sorgu metnine göre gruplandırılır."
 
-#: server_status_monitor.php:699
+#: server_status_monitor.php:697
 msgid "Query analyzer"
 msgstr "Sorgu çözümleyici"
 
-#: server_status_monitor.php:747
+#: server_status_monitor.php:745
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d saniye"
 
-#: server_status_monitor.php:750
+#: server_status_monitor.php:748
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11952,9 +11952,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- %"
-"sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%s. "
-"Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
+"%sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
+"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/index.lib.php:316
@@ -11969,8 +11969,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
-"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
+"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: setup/lib/index.lib.php:318
@@ -12567,9 +12567,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries 'OFF'a ayarlı"
 
 #: libraries/advisory_rules.txt:95
-#| msgid ""
-#| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
-#| "will help troubleshooting badly performing queries."
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -12579,7 +12576,6 @@ msgstr ""
 "gidermede yardımcı olacaktır."
 
 #: libraries/advisory_rules.txt:96
-#| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log 'OFF' olarak ayarlı"
 
@@ -12788,8 +12784,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -12940,8 +12936,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -14121,12 +14117,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are -"
-#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are "
+#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
-#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
+#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""

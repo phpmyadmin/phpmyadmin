@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-15 08:15-0500\n"
+"POT-Creation-Date: 2012-12-18 11:00+0100\n"
 "PO-Revision-Date: 2012-12-13 13:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -618,11 +618,11 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du forsøkte sansynligvis å laste opp en for stor fil. Sjekk %sdokumentasjonen"
 "%s for måter å omgå denne begrensningen."
@@ -2318,16 +2318,16 @@ msgstr "per time"
 msgid "per day"
 msgstr "hver dag"
 
-#: libraries/Config.class.php:922
+#: libraries/Config.class.php:1050
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
-#: libraries/Config.class.php:952
+#: libraries/Config.class.php:1080
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
-#: libraries/Config.class.php:1528
+#: libraries/Config.class.php:1656
 msgid "Font size"
 msgstr "Fontstørrelse"
 
@@ -2648,8 +2648,8 @@ msgstr "i spørring"
 #: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4945
@@ -2773,8 +2773,8 @@ msgstr "Ukjent feil oppstod under filopplastingen."
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Feil oppstod under forsøk på flytting av den opplastede fila, se [doc@faq1-"
-"11]FAQ 1.11[/doc]"
+"Feil oppstod under forsøk på flytting av den opplastede fila, se "
+"[doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3370,14 +3370,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -6527,8 +6527,8 @@ msgstr ", @TABLE@ vil bli tabellnavnet"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -7056,8 +7056,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7764,8 +7764,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -9748,8 +9748,8 @@ msgstr "Brukeroversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -10121,8 +10121,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-"stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på "
+"%stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_properties.inc.php:167
 msgid "Transformation options"
@@ -11099,41 +11099,41 @@ msgstr ""
 msgid "Series in Chart:"
 msgstr "SQL spørringer"
 
-#: server_status_monitor.php:677
+#: server_status_monitor.php:675
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Log statistics"
 msgstr "Vis statistikk"
 
-#: server_status_monitor.php:678
+#: server_status_monitor.php:676
 #, fuzzy
 #| msgid "Select page"
 msgid "Selected time range:"
 msgstr "Velg side"
 
-#: server_status_monitor.php:684
+#: server_status_monitor.php:682
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status_monitor.php:689
+#: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status_monitor.php:692
+#: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status_monitor.php:695
+#: server_status_monitor.php:693
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status_monitor.php:699
+#: server_status_monitor.php:697
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Spørringstype"
 
-#: server_status_monitor.php:747
+#: server_status_monitor.php:745
 #, fuzzy, php-format
 #| msgid "Second"
 msgid "%d second"
@@ -11141,7 +11141,7 @@ msgid_plural "%d seconds"
 msgstr[0] "Sekund"
 msgstr[1] "Sekund"
 
-#: server_status_monitor.php:750
+#: server_status_monitor.php:748
 #, fuzzy, php-format
 #| msgid "Minute"
 msgid "%d minute"
@@ -12198,8 +12198,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -13104,8 +13104,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13240,8 +13240,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14359,8 +14359,8 @@ msgstr "maks. samtidige tilkoblinger"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %"
-#~ "s?"
+#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
