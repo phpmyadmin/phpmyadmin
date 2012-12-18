@@ -28,7 +28,7 @@ $scripts->addFile('indexes.js');
  * A click on Change has been made for one column 
  */
 if (isset($_REQUEST['change_column'])) {
-    PMA_getHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
+    PMA_displayHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
     exit;
 }
 /**

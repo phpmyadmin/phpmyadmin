@@ -2255,7 +2255,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  * @return boolean $regenerate              true if error occurred
  * 
  */
-function PMA_getHtmlForColumnChange($db, $table, $selected, $action) 
+function PMA_displayHtmlForColumnChange($db, $table, $selected, $action) 
 {
     // $selected comes from multi_submits.inc.php
     if (empty($selected)) {

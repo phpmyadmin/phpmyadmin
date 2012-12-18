@@ -125,7 +125,7 @@ if (! empty($submit_mult)
             $mult_btn   = __('Yes');
             break;
         case 'change':
-            PMA_getHtmlForColumnChange($db, $table, $selected, $action);
+            PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
             // execution stops here but PMA_Response correctly finishes
             // the rendering 
             exit;
