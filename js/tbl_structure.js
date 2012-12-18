@@ -46,6 +46,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                PMA_verifyColumnsProperties();
             }
         });
     });
@@ -65,6 +66,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                PMA_verifyColumnsProperties();
             }
         });
     });
