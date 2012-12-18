@@ -3022,8 +3022,14 @@ AJAX.registerTeardown('functions.js', function() {
 AJAX.registerOnload('functions.js', function () {
     $('div.toggleAjax').each(function () {
         var $button = $(this).show();
-        $button.find('img').load(function () {
-            toggleButton($button);
+        $button.find('img').each(function() {
+            if (this.complete) {
+                toggleButton($button);
+            } else {
+                $(this).load(function () {
+                    toggleButton($button);
+                });
+            }
         });
     });
 });
