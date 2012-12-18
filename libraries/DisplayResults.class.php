@@ -5597,7 +5597,7 @@ class PMA_DisplayResults
                         . $where_comparison,
                 );
 
-                $result .= '<a href="sql.php' . PMA_generate_common_url($_url_params)
+                $result .= '<a class="ajax" href="sql.php' . PMA_generate_common_url($_url_params)
                      . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {

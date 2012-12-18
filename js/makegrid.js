@@ -1645,7 +1645,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     e.preventDefault();
                     // In the case of relational link, We want single click on the link 
                     // to goto the link and double click to start grid-editing.
-                    if ($(e.target).is('.grid_edit a')) {
+                    var $link = $(e.target);
+                    if ($link.is('.grid_edit a')) {
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
                         clicks = (clicks == null) ? 1 : clicks + 1;
@@ -1654,7 +1655,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             // if there are no previous clicks, 
                             // start the single click timer
                             timer = setTimeout(function() {
-                                window.location.href = $(e.target).attr("href");
+                                // temporarily remove ajax class so the page loader will not handle it,
+                                // submit and then add it back
+                                $link.removeClass('ajax');
+                                AJAX.submitFormProgrammatically(e.target);
+                                $link.addClass('ajax');
                                 $cell.data('clicks', 0);
                             }, 700);
                             $cell.data('clicks', clicks);
