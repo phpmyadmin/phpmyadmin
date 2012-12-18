@@ -22,6 +22,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_structure.js', function() {
+    $("a.change_column_anchor.ajax").die('click');
     $("a.drop_column_anchor.ajax").die('click');
     $("a.add_primary_key_anchor.ajax").die('click');
     $('a.drop_primary_key_index_anchor.ajax').die('click');
@@ -31,6 +32,23 @@ AJAX.registerTeardown('tbl_structure.js', function() {
 });
 
 AJAX.registerOnload('tbl_structure.js', function() {
+    /**
+     * Attach Event Handler for 'Change Column'
+     *
+     * (see $GLOBALS['cfg']['AjaxEnable'])
+     */
+    $("a.change_column_anchor.ajax").live('click', function(event) {
+        event.preventDefault();
+        $('#page_content').hide();
+        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if (data.success) {
+                $('<div id="change_column_dialog"></div>')
+                    .html(data.message)
+                    .insertBefore('#page_content');
+            }
+        });
+    });
+
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -356,6 +374,7 @@ function reloadFieldForm(message) {
             PMA_ajaxShowMessage(message);
         }, 500);
     });
+    $('#page_content').show();
 }
 
 /**

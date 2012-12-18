@@ -1316,8 +1316,11 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
-            . '<a href="tbl_structure.php?' . $url_query . '&amp;field='
-            . $field_encoded . '&amp;change_column=1">'
+            . '<a class="change_column_anchor'
+            . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
+            . '" href="tbl_structure.php?' 
+            . $url_query . '&amp;field=' . $field_encoded 
+            . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
             . '<a class="drop_column_anchor'
@@ -2410,15 +2413,14 @@ function PMA_updateColumns($db, $table)
         }
 
         $response = PMA_Response::getInstance();
-        $response->addHTML($message->getDisplay());
-        //if ($response->isAjax()) {
-        //    $response->isSuccess($message->isSuccess());
-        //    $response->addJSON('message', $message);
-        //    $response->addJSON(
-        //        'sql_query',
-        //        PMA_Util::getMessage(null, $sql_query)
-        //    );
-        //}
+        if ($response->isAjax()) {
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message);
+            $response->addJSON(
+                'sql_query',
+                PMA_Util::getMessage(null, $sql_query)
+            );
+        }
     } else {
         PMA_Util::mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
