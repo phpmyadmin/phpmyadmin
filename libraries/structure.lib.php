@@ -2245,6 +2245,14 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 }
 
 /**
+ * Displays HTML for changing one or more columns
+ *
+ * @param string  $db                       database name
+ * @param string  $table                    table name
+ * @param array   $selected                 the selected columns
+ * @param string  $action                   target script to call 
+ *
+ * @return boolean $regenerate              true if error occurred
  * 
  */
 function PMA_getHtmlForColumnChange($db, $table, $selected, $action) 
@@ -2297,7 +2305,13 @@ function PMA_getHtmlForColumnChange($db, $table, $selected, $action)
 
 
 /**
- * Modifications have been submitted -> updates the table
+ * Update the table's structure based on $_REQUEST
+ *
+ * @param string  $db                       database name
+ * @param string  $table                    table name
+ *
+ * @return boolean $regenerate              true if error occurred
+ *
  */
 function PMA_updateColumns($db, $table)
 {
