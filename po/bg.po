@@ -1873,7 +1873,7 @@ msgstr "%d не е валиден номер на ред."
 #: setup/frames/index.inc.php:229 tbl_change.php:1025
 #: tbl_gis_visualization.php:193 tbl_indexes.php:280 tbl_relation.php:559
 msgid "Save"
-msgstr "Зпазване"
+msgstr "Запазване"
 
 #: js/messages.php:294
 msgid "Hide search criteria"
