@@ -425,25 +425,20 @@ function getServerTrafficHtml($ServerStatusData)
         $retval .= '</a>';
 
         if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) {
-            $retval .= '<a href="' . $full_text_link . '" title="';
+            $retval .= '<a href="' . $full_text_link . '">';
             if ($show_full_sql) {
-                $retval .= __('Truncate Shown Queries');
+                $retval .= PMA_Util::getImage(
+                    's_partialtext.png',
+                    __('Truncate Shown Queries')
+                );
             } else {
-                $retval .= __('Show Full Queries');
+                $retval .= PMA_Util::getImage(
+                    's_fulltext.png',
+                    __('Show Full Queries')
+                );
             }
-            $retval .= '">';
-            $retval .= '<img src="' . $GLOBALS['pmaThemeImage']
-                . 's_' . ($show_full_sql ? 'partial' : 'full') . 'text.png" '
-                . 'alt="';
-            if ($show_full_sql) {
-                $retval .= __('Truncate Shown Queries');
-            } else {
-                $retval .= __('Show Full Queries');
-            }
-            $retval .= '">';
             $retval .= '</a>';
         }
-
         $retval .= '</th>';
     }
 
