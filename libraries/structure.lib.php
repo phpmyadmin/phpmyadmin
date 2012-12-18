@@ -1377,8 +1377,8 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= PMA_Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_change',
-            __('Change'), 'b_edit.png', 'change'
+            'submit_mult', 'mult_submit change_columns_anchor ajax',
+            'submit_mult_change', __('Change'), 'b_edit.png', 'change'
         );
         $html_output .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_drop',
