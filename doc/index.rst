@@ -15,7 +15,7 @@ Contents:
     require
     setup
     config
-    transformations
+    user
     faq
     developers
     vendors
