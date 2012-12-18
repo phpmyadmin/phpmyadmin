@@ -197,9 +197,11 @@ class PMA_Scripts
     {
         $retval = '';
 
-        $retval .= $this->_includeFiles(
-            $this->_files
-        );
+        if (count($this->_files) > 0) {
+            $retval .= $this->_includeFiles(
+                $this->_files
+            );
+        }
 
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
