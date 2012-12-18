@@ -24,7 +24,7 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
             ) {
                 // Disallow "." and ".." alone
                 // Allow alphanumeric, "." and "-" chars only
-                $script_name .= "/" . $filename;
+                $script_name .= DIRECTORY_SEPARATOR . $filename;
             }
         }
         // Output file contents
