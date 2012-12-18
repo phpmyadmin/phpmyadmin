@@ -2321,7 +2321,7 @@ class PMA_Util
      * Generate a button or image tag
      *
      * @param string $button_name  name of button element
-     * @param string $button_class class of button element
+     * @param string $button_class class of button or image element
      * @param string $image_name   name of image element
      * @param string $text         text to display
      * @param string $image        image to display
@@ -2348,6 +2348,7 @@ class PMA_Util
         /* IE (before version 9) has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
             return '<input type="image" name="' . $image_name
+                . '" class="' . $button_class 
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
                 . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
