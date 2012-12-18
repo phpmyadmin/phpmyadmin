@@ -1728,7 +1728,7 @@ msgstr "%d не е валиден номер на ред."
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_gis_visualization.php:195 tbl_indexes.php:324 tbl_relation.php:519
 msgid "Save"
-msgstr "Зпазване"
+msgstr "Запазване"
 
 #: js/messages.php:283
 msgid "Hide search criteria"
