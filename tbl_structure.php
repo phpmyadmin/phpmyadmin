@@ -25,6 +25,17 @@ $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 
 /**
+ * Handle column moving
+ */
+if (isset($_REQUEST['move_columns'])
+    && is_array($_REQUEST['move_columns'])
+    && $response->isAjax() 
+) {
+    PMA_moveColumns($db, $table);
+    exit;
+}
+
+/**
  * A click on Change has been made for one column 
  */
 if (isset($_REQUEST['change_column'])) {

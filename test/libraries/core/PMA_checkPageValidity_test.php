@@ -28,7 +28,6 @@ class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
         'server_binlog.php',
         'server_variables.php',
         'sql.php',
-        'tbl_alter.php',
         'tbl_select.php',
         'transformation_overview.php',
         'transformation_wrapper.php',

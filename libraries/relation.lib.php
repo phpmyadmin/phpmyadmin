@@ -1209,7 +1209,7 @@ function PMA_getRelatives($all_tables, $master)
 /**
  * Rename a field in relation tables
  *
- * usually called after a field in a table was renamed in tbl_alter.php
+ * usually called after a column in a table was renamed
  *
  * @param string $db       databse name
  * @param string $table    table name
