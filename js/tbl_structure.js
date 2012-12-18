@@ -23,7 +23,7 @@
  */
 AJAX.registerTeardown('tbl_structure.js', function() {
     $("a.change_column_anchor.ajax").die('click');
-    $("button.change_columns_anchor.ajax").die('click');
+    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").die('click');
     $("a.drop_column_anchor.ajax").die('click');
     $("a.add_primary_key_anchor.ajax").die('click');
     $('a.drop_primary_key_index_anchor.ajax').die('click');
@@ -55,7 +55,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("button.change_columns_anchor.ajax").live('click', function(event) {
+    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function(event) {
         event.preventDefault();
         $('#page_content').hide();
         var $form = $(this).closest('form');
