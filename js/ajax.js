@@ -255,7 +255,7 @@ var AJAX = {
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts, 1);
+                    AJAX.scriptHandler.load(data._scripts);
                 }
                 if (data._selflink && data._scripts && data._menuHash && data._params) {
                     AJAX.cache.add(
@@ -329,46 +329,46 @@ var AJAX = {
             return this;
         },
         /**
-         * Queues up an array of files to be downloaded
+         * Download a list of js files in one request
          *
          * @param array files An array of filenames and flags
          *
          * @return void
          */
-        load: function (files, reset) {
-            if (reset) {
-                this._scriptsToBeLoaded = [];
-                this._scriptsToBeFired = [];
-            }
+        load: function (files) {
+            var self = this;
+            self._scriptsToBeLoaded = [];
+            self._scriptsToBeFired = [];
             for (var i in files) {
-                this._scriptsToBeLoaded.push(files[i].name);
+                self._scriptsToBeLoaded.push(files[i].name);
                 if (files[i].fire) {
-                    this._scriptsToBeFired.push(files[i].name);
+                    self._scriptsToBeFired.push(files[i].name);
                 }
             }
-            this.callback();
-        },
-        /**
-         * Called whenever a file is loaded.
-         * Will queue up another file, or call done();
-         *
-         * @return void
-         */
-        callback: function () {
-            var scripts = this._scriptsToBeLoaded;
-            if (scripts.length > 0) {
-                var script = scripts.shift();
-                if ($.inArray(script, this._scripts) == -1) {
+            // Generate a request string
+            var request = [];
+            var needRequest = false;
+            for (var index in self._scriptsToBeLoaded) {
+                var script = self._scriptsToBeLoaded[index];
+                // Only for scripts that we don't already have
+                if ($.inArray(script, self._scripts) == -1) {
+                    needRequest = true;
                     this.add(script);
-                    var self = this;
-                    $.getScript('js/' + script, function () {
-                        self.callback();
-                    });
-                } else {
-                   this.callback();
+                    request.push("scripts[]=" + script);
                 }
+            }
+            // Download the composite js file, if necessary
+            if (needRequest) {
+                $.ajax({
+                    url: "js/get_scripts.js.php?" + request.join("&"),
+                    cache: true,
+                    success: function () {
+                        self.done();
+                    },
+                    dataType: "script"
+                });
             } else {
-                this.done();
+                self.done();
             }
         },
         /**
@@ -386,7 +386,6 @@ var AJAX = {
          * Fires all the teardown event handlers for the current page
          * and rebinds all forms and links to the request handler
          *
-         * @param object   ctx      Context for the callback
          * @param function callback The callback to call after resetting
          *
          * @return void

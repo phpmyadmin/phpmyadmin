@@ -44,32 +44,38 @@ class PMA_Scripts
     /**
      * Returns HTML code to include javascript file.
      *
-     * @param string $url            Location of javascript, relative to js/ folder.
-     * @param int    $timestamp      The date when the file was last modified
-     * @param string $ie_conditional true - wrap with IE conditional comment
-     *                               'lt 9' etc. - wrap for specific IE version
+     * @param array $files The list of js file to include
      *
      * @return string HTML code for javascript inclusion.
      */
-    private function _includeFile($url, $timestamp = null, $ie_conditional = false)
+    private function _includeFiles($files)
     {
-        $include = '';
-        if ($ie_conditional !== false) {
-            if ($ie_conditional === true) {
-                $include .= '<!--[if IE]>' . "\n    ";
+        $dynamic_scripts = "";
+        $params = array();
+        foreach ($files as $key => $value) {
+            if (strpos($value['filename'], "?") === false) {
+                $include = true;
+                if ($value['conditional_ie'] !== false && PMA_USR_BROWSER_AGENT === 'IE') {
+                    if ($value['conditional_ie'] === true) {
+                        $include = true;
+                    } else if ($value['conditional_ie'] == PMA_USR_BROWSER_VER) {
+                        $include = true;
+                    } else {
+                        $include = false;
+                    }
+                }
+                if ($include) {
+                    $params[] = "scripts[]=" . $value['filename'];
+                }
             } else {
-                $include .= '<!--[if IE ' . $ie_conditional . ']>' . "\n    ";
+                $dynamic_scripts .= "<script type='text/javascript' src='js/" . $value['filename'] . "'></script>";
             }
         }
-        $include .= '<script src="' . $url;
-        if (! empty($timestamp)) {
-            $include .= '?ts=' . filemtime($url);
-        }
-        $include .= '" type="text/javascript"></script>' . "\n";
-        if ($ie_conditional !== false) {
-            $include .= '<![endif]-->' . "\n";
-        }
-        return $include;
+        $static_scripts = sprintf(
+            "<script type='text/javascript' src='js/get_scripts.js.php?%s'></script>",
+            implode("&", $params)
+        );
+        return $static_scripts . $dynamic_scripts;
     }
 
     /**
@@ -99,14 +105,9 @@ class PMA_Scripts
         $hash = md5($filename);
         if (empty($this->_files[$hash])) {
             $has_onload = $this->_eventBlacklist($filename);
-            $timestamp  = null;
-            if (strpos($filename, '?') === false) {
-                $timestamp = filemtime('js/' . $filename);
-            }
             $this->_files[$hash] = array(
                 'has_onload' => $has_onload,
                 'filename' => $filename,
-                'timestamp' => $timestamp,
                 'conditional_ie' => $conditional_ie
             );
         }
@@ -175,11 +176,13 @@ class PMA_Scripts
     {
         $retval = array();
         foreach ($this->_files as $file) {
-            if (! $file['conditional_ie'] || PMA_USR_BROWSER_AGENT == 'IE') {
-                $retval[] = array(
-                    'name' => $file['filename'],
-                    'fire' => $file['has_onload']
-                );
+            if (strpos($file['filename'], "?") === false) {
+                if (! $file['conditional_ie'] || PMA_USR_BROWSER_AGENT == 'IE') {
+                    $retval[] = array(
+                        'name' => $file['filename'],
+                        'fire' => $file['has_onload']
+                    );
+                }
             }
         }
         return $retval;
@@ -194,13 +197,12 @@ class PMA_Scripts
     {
         $retval = '';
 
-        foreach ($this->_files as $file) {
-            $retval .= $this->_includeFile(
-                'js/' . $file['filename'],
-                $file['timestamp'],
-                $file['conditional_ie']
+        if (count($this->_files) > 0) {
+            $retval .= $this->_includeFiles(
+                $this->_files
             );
         }
+
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
             $code .= sprintf(
