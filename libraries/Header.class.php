@@ -146,9 +146,9 @@ class PMA_Header
      */
     private function _addDefaultScripts()
     {
-        $this->_scripts->addFile('jquery/jquery-1.6.2.js');
+        $this->_scripts->addFile('jquery/jquery-1.8.3.js');
         $this->_scripts->addFile('ajax.js');
-        $this->_scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
@@ -512,7 +512,7 @@ class PMA_Header
                 . $common_url . '&amp;nocache='
                 . $theme_id . $GLOBALS['text_dir'] . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.8.16.custom.css" />';
+                . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
         }
 
         return $retval;
