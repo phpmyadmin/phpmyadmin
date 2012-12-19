@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-08-27 20:55+0200\n"
+"PO-Revision-Date: 2012-12-19 15:49+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/3-5/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -4191,7 +4191,7 @@ msgstr "Het minimale aantal tabellen waarbij een filterveld wordt getoond"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
-msgstr "Teken(reeks) dat de boomdiepte aangeeft in databasenamen"
+msgstr "Tekenreeks dat verschillende niveaus aangeeft in databanknamen"
 
 #: libraries/config/messages.inc.php:276
 msgid "Database tree separator"
@@ -5898,7 +5898,7 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"Sta het onderbreken van de import toe wanneer het script herkent dat de "
+"Sta het onderbreken van de import toe wanneer het script herkent dat de PHP "
 "tijdslimiet nadert. <i>(Dit kan nuttig zijn bij het importeren van grote "
 "bestanden, maar kan transacties verstoren.)</i>"
 
