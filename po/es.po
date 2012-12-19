@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-19 10:08-0500\n"
-"PO-Revision-Date: 2012-12-15 23:13+0200\n"
+"PO-Revision-Date: 2012-12-19 16:16+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -1907,22 +1907,20 @@ msgstr ""
 "pueden no funcionar luego de guardar."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by double-clicking directly on their "
 #| "content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Puede editar la mayoría de las columnas<br />pulsando directamente en su "
-"contenido."
+"Puede editar la mayoría de los valores<br />con un pulsado doble "
+"directamente en su contenido."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Puede editar la mayoría de las columnas<br />pulsando directamente en su "
+"Puede editar la mayoría de los valores<br />pulsando directamente en su "
 "contenido."
 
 #: js/messages.php:358
