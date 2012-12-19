@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-18 11:00+0100\n"
+"POT-Creation-Date: 2012-12-19 08:11-0500\n"
 "PO-Revision-Date: 2012-12-13 13:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
 ">\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -22,7 +22,7 @@ msgid "Show all"
 msgstr "Vis alle"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2536
+#: libraries/Util.class.php:2537
 #: libraries/schema/Pdf_Relation_Schema.class.php:1178
 #: libraries/schema/Pdf_Relation_Schema.class.php:1202
 #: libraries/schema/User_Schema.class.php:417
@@ -41,9 +41,9 @@ msgstr ""
 "i sikkerhedsindstillingerne."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3264
-#: libraries/Util.class.php:3271 libraries/Util.class.php:3476
-#: libraries/Util.class.php:3477
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3265
+#: libraries/Util.class.php:3272 libraries/Util.class.php:3477
+#: libraries/Util.class.php:3478
 msgid "Search"
 msgstr "Søg"
 
@@ -59,7 +59,7 @@ msgstr "Søg"
 #: libraries/operations.lib.php:638 libraries/operations.lib.php:691
 #: libraries/operations.lib.php:740 libraries/operations.lib.php:1057
 #: libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:235
+#: libraries/plugins/auth/AuthenticationCookie.class.php:231
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
@@ -75,8 +75,8 @@ msgstr "Søg"
 #: libraries/server_privileges.lib.php:2556
 #: libraries/server_privileges.lib.php:3081
 #: libraries/sql_query_form.lib.php:367 libraries/sql_query_form.lib.php:424
-#: libraries/sql_query_form.lib.php:487 libraries/structure.lib.php:1586
-#: libraries/structure.lib.php:1613 libraries/tbl_properties.inc.php:753
+#: libraries/sql_query_form.lib.php:487 libraries/structure.lib.php:1589
+#: libraries/structure.lib.php:1616 libraries/tbl_properties.inc.php:756
 #: pmd_pdf.php:151 prefs_manage.php:266 prefs_manage.php:316
 #: server_binlog.php:115 server_replication.php:224 server_replication.php:327
 #: tbl_chart.php:198 tbl_indexes.php:332 tbl_tracking.php:520
@@ -119,7 +119,7 @@ msgstr "Databasekommentar: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:786
 #: libraries/schema/Pdf_Relation_Schema.class.php:1323
-#: libraries/tbl_properties.inc.php:835 tbl_printview.php:120
+#: libraries/tbl_properties.inc.php:838 tbl_printview.php:120
 msgid "Table comments"
 msgstr "Tabel kommentarer"
 
@@ -136,7 +136,7 @@ msgstr "Tabel kommentarer"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1349
 #: libraries/schema/Pdf_Relation_Schema.class.php:1370
-#: libraries/tbl_properties.inc.php:349 tbl_indexes.php:243
+#: libraries/tbl_properties.inc.php:352 tbl_indexes.php:243
 #: tbl_printview.php:130 tbl_relation.php:361 tbl_tracking.php:323
 #: tbl_tracking.php:385
 msgid "Column"
@@ -263,7 +263,7 @@ msgstr "Nej"
 #: libraries/server_privileges.lib.php:2490 libraries/structure.lib.php:1273
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:505 sql.php:506
-#: tbl_printview.php:187 tbl_structure.php:50 tbl_tracking.php:344
+#: tbl_printview.php:187 tbl_structure.php:83 tbl_tracking.php:344
 #: tbl_tracking.php:396 tbl_tracking.php:401
 msgid "Yes"
 msgstr "Ja"
@@ -322,8 +322,8 @@ msgstr "Tabel"
 
 #: db_printview.php:100 libraries/Table.class.php:283
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:773 libraries/structure.lib.php:1743
-#: libraries/structure.lib.php:1928 sql.php:1098 tbl_printview.php:365
+#: libraries/structure.lib.php:773 libraries/structure.lib.php:1746
+#: libraries/structure.lib.php:1931 sql.php:1098 tbl_printview.php:365
 msgid "Rows"
 msgstr "Rækker"
 
@@ -336,26 +336,26 @@ msgstr "Størrelse"
 msgid "in use"
 msgstr "i brug"
 
-#: db_printview.php:185 libraries/Util.class.php:4107
+#: db_printview.php:185 libraries/Util.class.php:4108
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
-#: libraries/structure.lib.php:803 libraries/structure.lib.php:1782
+#: libraries/structure.lib.php:803 libraries/structure.lib.php:1785
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "Oprettelse"
 
-#: db_printview.php:194 libraries/Util.class.php:4113
+#: db_printview.php:194 libraries/Util.class.php:4114
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/structure.lib.php:810 libraries/structure.lib.php:1789
+#: libraries/structure.lib.php:810 libraries/structure.lib.php:1792
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "Sidste opdatering"
 
-#: db_printview.php:203 libraries/Util.class.php:4119
+#: db_printview.php:203 libraries/Util.class.php:4120
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
-#: libraries/structure.lib.php:817 libraries/structure.lib.php:1797
+#: libraries/structure.lib.php:817 libraries/structure.lib.php:1800
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "Sidste check"
@@ -378,7 +378,7 @@ msgstr "Skift til %svisuel konstruktør%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:575
+#: libraries/plugins/auth/AuthenticationCookie.class.php:571
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -446,9 +446,9 @@ msgid "Delete tracking data for this table"
 msgstr "Slet sporingsdata for denne tabel"
 
 #: db_tracking.php:103 libraries/Index.class.php:629
-#: libraries/Util.class.php:3481 libraries/Util.class.php:3482
-#: libraries/structure.lib.php:310 libraries/structure.lib.php:1382
-#: libraries/structure.lib.php:2077 libraries/structure.lib.php:2079
+#: libraries/Util.class.php:3482 libraries/Util.class.php:3483
+#: libraries/structure.lib.php:310 libraries/structure.lib.php:1385
+#: libraries/structure.lib.php:2080 libraries/structure.lib.php:2082
 #: server_databases.php:327
 msgid "Drop"
 msgstr "Slet"
@@ -477,7 +477,7 @@ msgstr "Øjebliksbillede af struktur"
 msgid "Untracked tables"
 msgstr "Ikke-sporede tabeller"
 
-#: db_tracking.php:212 libraries/structure.lib.php:1519
+#: db_tracking.php:212 libraries/structure.lib.php:1522
 msgid "Track table"
 msgstr "Sporingstabel"
 
@@ -614,8 +614,8 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
@@ -729,7 +729,7 @@ msgid "Database server"
 msgstr "Database-server"
 
 #: index.php:234 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:654
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
 #: libraries/config/messages.inc.php:508
 msgid "Server"
 msgstr "Server"
@@ -880,8 +880,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
-"%sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
+"sher%s."
 
 #: index.php:500
 #, php-format
@@ -1000,7 +1000,7 @@ msgstr "Luk"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3319 libraries/Index.class.php:593
 #: libraries/Util.class.php:691 libraries/Util.class.php:1236
-#: libraries/Util.class.php:3485 libraries/Util.class.php:3486
+#: libraries/Util.class.php:3486 libraries/Util.class.php:3487
 #: libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:215 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1025,7 +1025,7 @@ msgstr "Statiske data"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2217
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2220
 #: server_databases.php:271 server_status.php:187 server_status.php:277
 #: tbl_printview.php:331
 msgid "Total"
@@ -1224,8 +1224,8 @@ msgstr "Tilføj mindst en variabel til serien"
 #: libraries/display_export.lib.php:370
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
-#: libraries/tbl_properties.inc.php:678 pmd_general.php:561
-#: server_status.php:477 server_status_monitor.php:667
+#: libraries/tbl_properties.inc.php:681 pmd_general.php:561
+#: server_status.php:472 server_status_monitor.php:667
 msgid "None"
 msgstr "Ingen"
 
@@ -1722,7 +1722,7 @@ msgid "No rows selected"
 msgstr "Ingen rækker valgt"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5073
-#: libraries/structure.lib.php:1378 libraries/structure.lib.php:2075
+#: libraries/structure.lib.php:1381 libraries/structure.lib.php:2078
 #: querywindow.php:85
 msgid "Change"
 msgstr "Ret"
@@ -1740,7 +1740,7 @@ msgstr "%d er ikke et gyldigt rækkenummer."
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:373
-#: libraries/tbl_properties.inc.php:897 server_variables.php:132
+#: libraries/tbl_properties.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
 #: tbl_gis_visualization.php:195 tbl_indexes.php:324 tbl_relation.php:519
 msgid "Save"
@@ -2410,8 +2410,8 @@ msgstr[0] "%1$s sammenfald i <strong>%2$s</strong>"
 msgstr[1] "%1$s sammenfald i <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3266 libraries/Util.class.php:3474
-#: libraries/Util.class.php:3475 libraries/structure.lib.php:1372
+#: libraries/Util.class.php:3267 libraries/Util.class.php:3475
+#: libraries/Util.class.php:3476 libraries/structure.lib.php:1375
 msgid "Browse"
 msgstr "Vis"
 
@@ -2464,26 +2464,26 @@ msgstr "Gem redigerede data"
 msgid "Restore column order"
 msgstr "Gendan kolonneorden"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2545
-#: libraries/Util.class.php:2549
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2546
+#: libraries/Util.class.php:2550
 msgctxt "First page"
 msgid "Begin"
 msgstr "Start"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2547
-#: libraries/Util.class.php:2550 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2548
+#: libraries/Util.class.php:2551 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Forrige"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2580
-#: libraries/Util.class.php:2583 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2581
+#: libraries/Util.class.php:2584 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Næste"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2581
-#: libraries/Util.class.php:2584
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2582
+#: libraries/Util.class.php:2585
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
@@ -2545,7 +2545,7 @@ msgstr "Sorteringsnøgle"
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1728
+#: libraries/rte/rte_routines.lib.php:935 libraries/structure.lib.php:1731
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -2598,7 +2598,7 @@ msgid "The row has been deleted"
 msgstr "Rækken er slettet"
 
 #: libraries/DisplayResults.class.php:3417
-#: libraries/DisplayResults.class.php:5049 server_status.php:473
+#: libraries/DisplayResults.class.php:5049 server_status.php:468
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -2613,8 +2613,8 @@ msgstr "i forespørgsel"
 #: libraries/DisplayResults.class.php:4932 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -2636,7 +2636,7 @@ msgstr "forepørgsel tog %01.4f sek"
 #: libraries/server_privileges.lib.php:2413
 #: libraries/server_privileges.lib.php:2416 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:296 libraries/structure.lib.php:298
-#: libraries/structure.lib.php:1361 libraries/structure.lib.php:1368
+#: libraries/structure.lib.php:1364 libraries/structure.lib.php:1371
 #: server_databases.php:319 server_databases.php:322
 msgid "With selected:"
 msgstr "Med det markerede:"
@@ -2646,8 +2646,8 @@ msgstr "Med det markerede:"
 #: libraries/server_privileges.lib.php:786
 #: libraries/server_privileges.lib.php:2414
 #: libraries/server_privileges.lib.php:2415 libraries/structure.lib.php:284
-#: libraries/structure.lib.php:285 libraries/structure.lib.php:1364
-#: libraries/structure.lib.php:1365 server_databases.php:320
+#: libraries/structure.lib.php:285 libraries/structure.lib.php:1367
+#: libraries/structure.lib.php:1368 server_databases.php:320
 #: server_databases.php:321
 msgid "Check All"
 msgstr "Vælg alle"
@@ -2655,7 +2655,7 @@ msgstr "Vælg alle"
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5284 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3487 libraries/Util.class.php:3488
+#: libraries/Util.class.php:3488 libraries/Util.class.php:3489
 #: libraries/config/messages.inc.php:164 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1798
 #: libraries/server_privileges.lib.php:2420 libraries/structure.lib.php:300
@@ -2670,7 +2670,7 @@ msgstr "Forespørgselsresultat operationer"
 
 #: libraries/DisplayResults.class.php:5208 libraries/Header.class.php:336
 #: libraries/structure.lib.php:302 libraries/structure.lib.php:365
-#: libraries/structure.lib.php:1485
+#: libraries/structure.lib.php:1488
 msgid "Print view"
 msgstr "Udskriv"
 
@@ -2756,12 +2756,12 @@ msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: libraries/Header.class.php:593
-#: libraries/plugins/auth/AuthenticationCookie.class.php:259
+#: libraries/plugins/auth/AuthenticationCookie.class.php:255
 msgid "Cookies must be enabled past this point."
 msgstr "Herefter skal cookies være slået til."
 
 #: libraries/Header.class.php:598
-#: libraries/plugins/auth/AuthenticationCookie.class.php:163
+#: libraries/plugins/auth/AuthenticationCookie.class.php:159
 msgid "Javascript must be enabled past this point"
 msgstr "Herefter skal JavaScript være slået til"
 
@@ -2772,13 +2772,13 @@ msgstr "Intet indeks defineret!"
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
 #: libraries/build_html_for_db.lib.php:41
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
-#: libraries/structure.lib.php:1600 tbl_tracking.php:377
+#: libraries/structure.lib.php:1603 tbl_tracking.php:377
 msgid "Indexes"
 msgstr "Indeks"
 
-#: libraries/Index.class.php:563 libraries/structure.lib.php:1391
-#: libraries/structure.lib.php:2085 libraries/structure.lib.php:2095
-#: libraries/tbl_properties.inc.php:564 tbl_tracking.php:383
+#: libraries/Index.class.php:563 libraries/structure.lib.php:1394
+#: libraries/structure.lib.php:2088 libraries/structure.lib.php:2098
+#: libraries/tbl_properties.inc.php:567 tbl_tracking.php:383
 msgid "Unique"
 msgstr "Unik"
 
@@ -2794,8 +2794,8 @@ msgstr "Kardinalitet"
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
 #: libraries/operations.lib.php:242 libraries/operations.lib.php:808
 #: libraries/structure.lib.php:785 libraries/structure.lib.php:1186
-#: libraries/structure.lib.php:1736 libraries/tbl_properties.inc.php:114
-#: libraries/tbl_properties.inc.php:841 server_collations.php:38
+#: libraries/structure.lib.php:1739 libraries/tbl_properties.inc.php:114
+#: libraries/tbl_properties.inc.php:844 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Collation"
 msgstr "Tegnsæt (sortering)"
@@ -2837,8 +2837,8 @@ msgid "View"
 msgstr "Visning"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3262 libraries/Util.class.php:3269
-#: libraries/Util.class.php:3480 libraries/config/setup.forms.php:293
+#: libraries/Util.class.php:3263 libraries/Util.class.php:3270
+#: libraries/Util.class.php:3481 libraries/config/setup.forms.php:293
 #: libraries/config/setup.forms.php:330 libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
@@ -2846,26 +2846,26 @@ msgstr "Visning"
 #: libraries/import.lib.php:1222
 #: libraries/plugins/export/ExportLatex.class.php:480
 #: libraries/server_privileges.lib.php:755
-#: libraries/tbl_properties.inc.php:770 pmd_general.php:188
+#: libraries/tbl_properties.inc.php:773 pmd_general.php:188
 #: tbl_tracking.php:319
 msgid "Structure"
 msgstr "Struktur"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3263
-#: libraries/Util.class.php:3270 libraries/config/messages.inc.php:214
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3264
+#: libraries/Util.class.php:3271 libraries/config/messages.inc.php:214
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3265
-#: libraries/Util.class.php:3478 libraries/Util.class.php:3479
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3266
+#: libraries/Util.class.php:3479 libraries/Util.class.php:3480
 #: libraries/sql_query_form.lib.php:293 libraries/sql_query_form.lib.php:296
 msgid "Insert"
 msgstr "Indsæt"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3272
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3273
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Operationer"
@@ -3341,20 +3341,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til "
-"-1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
+"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til -"
+"1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er "
-"-1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
+"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er -"
+"1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
 "2.2250738585072014E-308 til 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3720,51 +3720,51 @@ msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 msgid "Missing parameter:"
 msgstr "Manglende parameter:"
 
-#: libraries/Util.class.php:2651
+#: libraries/Util.class.php:2652
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Hop til database &quot;%s&quot;."
 
-#: libraries/Util.class.php:2675
+#: libraries/Util.class.php:2676
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funktionaliteten af %s er påvirket af en kendt fejl, se %s"
 
-#: libraries/Util.class.php:2851
+#: libraries/Util.class.php:2852
 msgid "Click to toggle"
 msgstr "Klik for at skifte"
 
-#: libraries/Util.class.php:3393 libraries/sql_query_form.lib.php:457
+#: libraries/Util.class.php:3394 libraries/sql_query_form.lib.php:457
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Gennemse din computer:"
 
-#: libraries/Util.class.php:3418
+#: libraries/Util.class.php:3419
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vælg fra <b>%s</b> - webserverens upload-mappe:"
 
-#: libraries/Util.class.php:3447 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3448 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:466
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Mappen du har sat til upload-arbejde kan ikke findes"
 
-#: libraries/Util.class.php:3458
+#: libraries/Util.class.php:3459
 msgid "There are no files to upload"
 msgstr "Der er ikke nogen filer at uploade"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a
 # state it should translate to "Tom".
-#: libraries/Util.class.php:3483 libraries/Util.class.php:3484
+#: libraries/Util.class.php:3484 libraries/Util.class.php:3485
 #: libraries/structure.lib.php:308
 msgid "Empty"
 msgstr "Tøm"
 
-#: libraries/Util.class.php:3489 libraries/Util.class.php:3490
+#: libraries/Util.class.php:3490 libraries/Util.class.php:3491
 msgid "Execute"
 msgstr "Udfør"
 
-#: libraries/Util.class.php:4013
+#: libraries/Util.class.php:4014
 msgid "Print"
 msgstr "Print"
 
@@ -3781,13 +3781,13 @@ msgstr "delt"
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2195
+#: libraries/server_privileges.lib.php:754 libraries/structure.lib.php:2198
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:796
-#: libraries/structure.lib.php:2208 tbl_printview.php:315
+#: libraries/structure.lib.php:2211 tbl_printview.php:315
 msgid "Overhead"
 msgstr "Overhead"
 
@@ -3812,11 +3812,11 @@ msgstr "Check privilegier for database &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Check privilegier"
 
-#: libraries/common.inc.php:578
+#: libraries/common.inc.php:577
 msgid "Failed to read configuration file"
 msgstr "Kunne ikke indlæse konfigurationsfilen"
 
-#: libraries/common.inc.php:580
+#: libraries/common.inc.php:579
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3824,12 +3824,12 @@ msgstr ""
 "Dette betyder ofte, at der er en eller flere syntaksmæssige fejl i den, "
 "kontroller venligst for fejlen(e) vist herunder."
 
-#: libraries/common.inc.php:587
+#: libraries/common.inc.php:586
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke indlæse standardkonfiguration fra: %1$s"
 
-#: libraries/common.inc.php:594
+#: libraries/common.inc.php:593
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3837,39 +3837,39 @@ msgstr ""
 "Direktitvet [code]$cfg['PmaAbsoluteUri'][/code] SKAL være sat i din "
 "konfigurationsfil!"
 
-#: libraries/common.inc.php:627
+#: libraries/common.inc.php:626
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Server indekset %s er ugyldigt"
 
-#: libraries/common.inc.php:638
+#: libraries/common.inc.php:637
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Ugyldigt værtsnavn for server %1$s. Gennemgå venligst din konfiguration."
 
-#: libraries/common.inc.php:847
+#: libraries/common.inc.php:846
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
 
-#: libraries/common.inc.php:969
+#: libraries/common.inc.php:968
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du burde opdatere til %s %s eller senere."
 
-#: libraries/common.inc.php:1043
+#: libraries/common.inc.php:1042
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1087
+#: libraries/common.inc.php:1086
 msgid "GLOBALS overwrite attempt"
 msgstr "forsøg på overskrivning af GLOBALS"
 
-#: libraries/common.inc.php:1094
+#: libraries/common.inc.php:1093
 msgid "possible exploit"
 msgstr "muligt sikkerhedshul"
 
-#: libraries/common.inc.php:1103
+#: libraries/common.inc.php:1102
 msgid "numeric key detected"
 msgstr "numerisk tast opfanget"
 
@@ -4329,7 +4329,7 @@ msgid "Character set of the file"
 msgstr "Filens tegnsæt"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: libraries/structure.lib.php:1717 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1720 tbl_gis_visualization.php:182
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -4439,7 +4439,7 @@ msgstr "Mærke nøgle"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134
 #: libraries/plugins/export/ExportOdt.class.php:480
-#: libraries/tbl_properties.inc.php:165
+#: libraries/tbl_properties.inc.php:168
 msgid "MIME type"
 msgstr "MIME-type"
 
@@ -6487,8 +6487,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -7006,8 +7006,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
@@ -7569,7 +7569,7 @@ msgstr "Tabel-indstillinger"
 msgid "Rename table to"
 msgstr "Omdøb tabel til"
 
-#: libraries/operations.lib.php:795 libraries/tbl_properties.inc.php:837
+#: libraries/operations.lib.php:795 libraries/tbl_properties.inc.php:840
 #: server_engines.php:41
 msgid "Storage Engine"
 msgstr "Datalager"
@@ -7603,7 +7603,7 @@ msgid "Repair table"
 msgstr "Reparer tabel"
 
 #: libraries/operations.lib.php:1173 libraries/structure.lib.php:315
-#: libraries/structure.lib.php:1660
+#: libraries/structure.lib.php:1663
 msgid "Optimize table"
 msgstr "Optimer tabel"
 
@@ -7674,7 +7674,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Kan ikke forbinde: ugyldige indstillinger."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:151
+#: libraries/plugins/auth/AuthenticationCookie.class.php:147
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
@@ -7683,8 +7683,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -7701,42 +7701,42 @@ msgstr ""
 "og sikre dig at de svarer til den information du har fået af administratoren "
 "af MySQL-serveren."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:48
+#: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Kunne ikke bruge Blowfish fra mcrypt!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:92
+#: libraries/plugins/auth/AuthenticationCookie.class.php:88
 msgid "Your session has expired. Please login again."
 msgstr "Din session er udløbet. Log venligst ind igen."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:181
+#: libraries/plugins/auth/AuthenticationCookie.class.php:177
 msgid "Log in"
 msgstr "Login"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:189
-#: libraries/plugins/auth/AuthenticationCookie.class.php:199
+#: libraries/plugins/auth/AuthenticationCookie.class.php:185
+#: libraries/plugins/auth/AuthenticationCookie.class.php:195
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Du kan angive værtsnavn/IP adresse og port ved at adskille dem med et "
 "mellemrum."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:192
+#: libraries/plugins/auth/AuthenticationCookie.class.php:188
 msgid "Server:"
 msgstr "Server:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
+#: libraries/plugins/auth/AuthenticationCookie.class.php:200
 msgid "Username:"
 msgstr "Brugernavn:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:210
+#: libraries/plugins/auth/AuthenticationCookie.class.php:206
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:216
+#: libraries/plugins/auth/AuthenticationCookie.class.php:212
 msgid "Server Choice"
 msgstr "Servervalg"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:571
+#: libraries/plugins/auth/AuthenticationCookie.class.php:567
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -7744,15 +7744,15 @@ msgstr ""
 "Det er ifølge konfigurationen ikke tilladt at logge ind uden en adgangskode "
 "(se AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:578
+#: libraries/plugins/auth/AuthenticationCookie.class.php:574
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
 "Ingen aktivitet i de seneste %s sekunder eller mere, log venligst ind igen"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:583
-#: libraries/plugins/auth/AuthenticationCookie.class.php:585
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
+#: libraries/plugins/auth/AuthenticationCookie.class.php:581
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "Kan ikke logge ind på MySQL-serveren"
@@ -8409,7 +8409,7 @@ msgstr "Oprettelse af PDFer"
 msgid "Displaying Column Comments"
 msgstr "Viser kolonne-kommentarer"
 
-#: libraries/relation.lib.php:167 libraries/tbl_properties.inc.php:166
+#: libraries/relation.lib.php:167 libraries/tbl_properties.inc.php:169
 #: transformation_overview.php:38
 msgid "Browser transformation"
 msgstr "Browser-transformation"
@@ -9560,14 +9560,14 @@ msgstr "Oversigt over brugere"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
-"%s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
+"s før du fortsætter."
 
 #: libraries/server_privileges.lib.php:3026
 msgid "The selected user was not found in the privilege table."
@@ -9732,159 +9732,168 @@ msgctxt "None for default"
 msgid "None"
 msgstr "Ingen"
 
-#: libraries/structure.lib.php:1333
+#: libraries/structure.lib.php:1336
 #, php-format
 msgid "Column %s has been dropped"
 msgstr "Kolonne %s er slettet"
 
-#: libraries/structure.lib.php:1387 libraries/structure.lib.php:2081
-#: libraries/structure.lib.php:2091 libraries/tbl_properties.inc.php:557
+#: libraries/structure.lib.php:1390 libraries/structure.lib.php:2084
+#: libraries/structure.lib.php:2094 libraries/tbl_properties.inc.php:560
 msgid "Primary"
 msgstr "Primær"
 
-#: libraries/structure.lib.php:1395 libraries/structure.lib.php:2083
-#: libraries/structure.lib.php:2093 libraries/structure.lib.php:2201
-#: libraries/tbl_properties.inc.php:123 libraries/tbl_properties.inc.php:571
+#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2086
+#: libraries/structure.lib.php:2096 libraries/structure.lib.php:2204
+#: libraries/tbl_properties.inc.php:123 libraries/tbl_properties.inc.php:574
 #: tbl_printview.php:306
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/structure.lib.php:1402 libraries/structure.lib.php:2087
-#: libraries/structure.lib.php:2097
+#: libraries/structure.lib.php:1405 libraries/structure.lib.php:2090
+#: libraries/structure.lib.php:2100
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/structure.lib.php:1412 libraries/structure.lib.php:2089
-#: libraries/structure.lib.php:2099 libraries/tbl_properties.inc.php:579
+#: libraries/structure.lib.php:1415 libraries/structure.lib.php:2092
+#: libraries/structure.lib.php:2102 libraries/tbl_properties.inc.php:582
 msgid "Fulltext"
 msgstr "Fuldtekst"
 
-#: libraries/structure.lib.php:1427 libraries/structure.lib.php:1523
+#: libraries/structure.lib.php:1430 libraries/structure.lib.php:1526
 msgid "Move columns"
 msgstr "Flyt kolonner"
 
-#: libraries/structure.lib.php:1430
+#: libraries/structure.lib.php:1433
 msgid "Move the columns by dragging them up and down."
 msgstr "Flyt kolonnerne ved at trække dem op og ned."
 
-#: libraries/structure.lib.php:1464
+#: libraries/structure.lib.php:1467
 msgid "Edit view"
 msgstr "Rediger view"
 
-#: libraries/structure.lib.php:1497
+#: libraries/structure.lib.php:1500
 msgid "Relation view"
 msgstr "Relations-visning"
 
-#: libraries/structure.lib.php:1509
+#: libraries/structure.lib.php:1512
 msgid "Propose table structure"
 msgstr "Foreslå tabelstruktur"
 
-#: libraries/structure.lib.php:1545 libraries/tbl_properties.inc.php:757
+#: libraries/structure.lib.php:1548 libraries/tbl_properties.inc.php:760
 msgid "You have to add at least one column."
 msgstr "Du skal tilføje mindst en kolonne."
 
-#: libraries/structure.lib.php:1556
+#: libraries/structure.lib.php:1559
 msgid "Add column"
 msgstr "Tilføj kolonne"
 
-#: libraries/structure.lib.php:1561 libraries/tbl_properties.inc.php:747
+#: libraries/structure.lib.php:1564 libraries/tbl_properties.inc.php:750
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Tilføj %s kolonne(r)"
 
-#: libraries/structure.lib.php:1578
+#: libraries/structure.lib.php:1581
 msgid "At End of Table"
 msgstr "I slutningen af tabel"
 
-#: libraries/structure.lib.php:1579
+#: libraries/structure.lib.php:1582
 msgid "At Beginning of Table"
 msgstr "I begyndelsen af tabel"
 
-#: libraries/structure.lib.php:1580
+#: libraries/structure.lib.php:1583
 #, php-format
 msgid "After %s"
 msgstr "Efter %s"
 
-#: libraries/structure.lib.php:1607
+#: libraries/structure.lib.php:1610
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Opret et indeks på &nbsp;%s&nbsp; kolonner"
 
-#: libraries/structure.lib.php:1705 tbl_printview.php:345
+#: libraries/structure.lib.php:1708 tbl_printview.php:345
 msgid "Row Statistics"
 msgstr "Rækkestatistik"
 
-#: libraries/structure.lib.php:1710 tbl_printview.php:353
+#: libraries/structure.lib.php:1713 tbl_printview.php:353
 msgid "static"
 msgstr "statisk"
 
-#: libraries/structure.lib.php:1712 tbl_printview.php:355
+#: libraries/structure.lib.php:1715 tbl_printview.php:355
 msgid "dynamic"
 msgstr "dynamisk"
 
-#: libraries/structure.lib.php:1723
+#: libraries/structure.lib.php:1726
 msgid "partitioned"
 msgstr "partitioneret"
 
-#: libraries/structure.lib.php:1754 tbl_printview.php:376
+#: libraries/structure.lib.php:1757 tbl_printview.php:376
 msgid "Row length"
 msgstr "Rækkelængde"
 
-#: libraries/structure.lib.php:1766 tbl_printview.php:390
+#: libraries/structure.lib.php:1769 tbl_printview.php:390
 msgid "Row size"
 msgstr "Rækkestørrelse"
 
-#: libraries/structure.lib.php:1774 tbl_printview.php:399
+#: libraries/structure.lib.php:1777 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr "Næste autoindeks"
 
-#: libraries/structure.lib.php:1899 libraries/structure.lib.php:1980
-#: libraries/structure.lib.php:1988 libraries/structure.lib.php:2005
+#: libraries/structure.lib.php:1902 libraries/structure.lib.php:1983
+#: libraries/structure.lib.php:1991 libraries/structure.lib.php:2008
 #, php-format
 msgid "An index has been added on %s"
 msgstr "Der er tilføjet et indeks til %s"
 
-#: libraries/structure.lib.php:1970
+#: libraries/structure.lib.php:1973
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "En primær nøgle er blevet tilføjet til %s"
 
-#: libraries/structure.lib.php:2030 libraries/structure.lib.php:2101
+#: libraries/structure.lib.php:2033 libraries/structure.lib.php:2104
 msgid "Distinct values"
 msgstr "Distinkte værdier"
 
-#: libraries/structure.lib.php:2033 libraries/structure.lib.php:2036
+#: libraries/structure.lib.php:2036 libraries/structure.lib.php:2039
 msgid "Add primary key"
 msgstr "Tilføj primær nøgle"
 
-#: libraries/structure.lib.php:2039 libraries/structure.lib.php:2042
+#: libraries/structure.lib.php:2042 libraries/structure.lib.php:2045
 #: tbl_indexes.php:193
 msgid "Add index"
 msgstr "Tilføj indeks"
 
-#: libraries/structure.lib.php:2045 libraries/structure.lib.php:2048
+#: libraries/structure.lib.php:2048 libraries/structure.lib.php:2051
 msgid "Add unique index"
 msgstr "Tilføj unikt indeks"
 
-#: libraries/structure.lib.php:2051 libraries/structure.lib.php:2054
+#: libraries/structure.lib.php:2054 libraries/structure.lib.php:2057
 msgid "Add SPATIAL index"
 msgstr "Tilføj SPATIAL indeks"
 
-#: libraries/structure.lib.php:2057 libraries/structure.lib.php:2060
+#: libraries/structure.lib.php:2060 libraries/structure.lib.php:2063
 msgid "Add FULLTEXT index"
 msgstr "Tilføj FULLTEXT indeks"
 
-#: libraries/structure.lib.php:2186 server_binlog.php:189
+#: libraries/structure.lib.php:2189 server_binlog.php:189
 msgid "Information"
 msgstr "Information"
 
-#: libraries/structure.lib.php:2191 tbl_printview.php:296
+#: libraries/structure.lib.php:2194 tbl_printview.php:296
 msgid "Space usage"
 msgstr "Pladsforbrug"
 
-#: libraries/structure.lib.php:2211 tbl_printview.php:322
+#: libraries/structure.lib.php:2214 tbl_printview.php:322
 msgid "Effective"
 msgstr "Effektiv"
+
+#: libraries/structure.lib.php:2389 tbl_addfield.php:188 tbl_indexes.php:107
+#, php-format
+msgid "Table %1$s has been altered successfully"
+msgstr "Tabel %1$s er blevet ændret"
+
+#: libraries/structure.lib.php:2541
+msgid "The columns have been moved successfully."
+msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: libraries/tbl_common.inc.php:53
 #, php-format
@@ -9911,11 +9920,11 @@ msgstr ""
 "For standardværdier, indtast venligst kun en enkelt værdi, uden backslash "
 "escaping eller quotes, ud fra følgende format: a"
 
-#: libraries/tbl_properties.inc.php:145
+#: libraries/tbl_properties.inc.php:148
 msgid "Move column"
 msgstr "Fjern kolonne"
 
-#: libraries/tbl_properties.inc.php:155
+#: libraries/tbl_properties.inc.php:158
 #, php-format
 msgid ""
 "For a list of available transformation options and their MIME type "
@@ -9924,11 +9933,11 @@ msgstr ""
 "For en liste over mulige transformationsindstillinger og deres MIME-type "
 "transformationer, klik på %stransformationsbeskrivelser%s"
 
-#: libraries/tbl_properties.inc.php:167
+#: libraries/tbl_properties.inc.php:170
 msgid "Transformation options"
 msgstr "Transformationsindstillinger"
 
-#: libraries/tbl_properties.inc.php:170
+#: libraries/tbl_properties.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -9940,37 +9949,37 @@ msgstr ""
 "\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
 "\\xyz' eller 'a\\'b')."
 
-#: libraries/tbl_properties.inc.php:408
+#: libraries/tbl_properties.inc.php:411
 msgid "ENUM or SET data too long?"
 msgstr "ENUM eller SET data for lang?"
 
-#: libraries/tbl_properties.inc.php:410
+#: libraries/tbl_properties.inc.php:413
 msgid "Get more editing space"
 msgstr "Få mere redigeringsplads"
 
-#: libraries/tbl_properties.inc.php:426
+#: libraries/tbl_properties.inc.php:429
 msgctxt "for default"
 msgid "None"
 msgstr "Ingen"
 
-#: libraries/tbl_properties.inc.php:427
+#: libraries/tbl_properties.inc.php:430
 msgid "As defined:"
 msgstr "Som defineret:"
 
-#: libraries/tbl_properties.inc.php:629
+#: libraries/tbl_properties.inc.php:632
 msgid "first"
 msgstr "første"
 
-#: libraries/tbl_properties.inc.php:639
+#: libraries/tbl_properties.inc.php:642
 #, php-format
 msgid "after %s"
 msgstr "efter %s"
 
-#: libraries/tbl_properties.inc.php:736
+#: libraries/tbl_properties.inc.php:739
 msgid "Table name"
 msgstr "Tabelnavn"
 
-#: libraries/tbl_properties.inc.php:875
+#: libraries/tbl_properties.inc.php:878
 msgid "PARTITION definition"
 msgstr "PARTITION-definition"
 
@@ -10281,11 +10290,11 @@ msgstr "Filen eksisterer ikke"
 msgid "Select binary log to view"
 msgstr "Vælg binærlog til gennemsyn"
 
-#: server_binlog.php:154 server_status.php:430 server_status.php:439
+#: server_binlog.php:154 server_status.php:432
 msgid "Truncate Shown Queries"
 msgstr "Trunker viste forespørgsler"
 
-#: server_binlog.php:158 server_status.php:432 server_status.php:441
+#: server_binlog.php:158 server_status.php:437
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -11917,10 +11926,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  "
-"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
-"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
-"udbyder med mange tusinde brugere."
+"Hvis du føler, at dette er nødvendigt, brug yderligere sikring -  %"
+"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
+"mange tusinde brugere."
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -11934,8 +11943,8 @@ msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
+"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12013,15 +12022,6 @@ msgstr "Problemer med indeksene på tabel `%s`"
 #: sql.php:1286
 msgid "Label"
 msgstr "Mærke"
-
-#: tbl_addfield.php:188 tbl_alter.php:204 tbl_indexes.php:107
-#, php-format
-msgid "Table %1$s has been altered successfully"
-msgstr "Tabel %1$s er blevet ændret"
-
-#: tbl_alter.php:121
-msgid "The columns have been moved successfully."
-msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: tbl_chart.php:41
 msgid "No data to display"
@@ -12760,8 +12760,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%%"
@@ -12915,8 +12915,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
