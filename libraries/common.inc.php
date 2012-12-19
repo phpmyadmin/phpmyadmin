@@ -398,7 +398,6 @@ $goto_whitelist = array(
     'server_variables.php',
     'sql.php',
     'tbl_addfield.php',
-    'tbl_alter.php',
     'tbl_change.php',
     'tbl_create.php',
     'tbl_import.php',

@@ -1432,7 +1432,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
     $html_output .= '<p>'
         . __('Move the columns by dragging them up and down.') . '</p>';
 
-    $html_output .= '<form action="tbl_alter.php">'
+    $html_output .= '<form action="tbl_structure.php">'
         . '<div>'
         . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
         . '<ul></ul>'
@@ -2274,7 +2274,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     $num_fields  = count($fields_meta);
     // set these globals because tbl_properties.inc.php verifies them
     // @todo: refactor tbl_properties.inc.php so that it uses function params
-    $GLOBALS['action'] = 'tbl_alter.php';
+    $GLOBALS['action'] = 'tbl_structure.php';
     $GLOBALS['num_fields'] = $num_fields; 
 
     // Get more complete field information.
@@ -2451,4 +2451,98 @@ function PMA_updateColumns($db, $table)
     return $regenerate;
 }
 
+/**
+ * Moves columns in the table's structure based on $_REQUEST
+ *
+ * @param string  $db                       database name
+ * @param string  $table                    table name
+ */
+function PMA_moveColumns($db, $table)
+{
+    PMA_DBI_select_db($db);
+
+    /*
+     * load the definitions for all columns
+     */
+    $columns = PMA_DBI_get_columns_full($db, $table);
+    $column_names = array_keys($columns);
+    $changes = array();
+    $we_dont_change_keys = array();
+
+    // move columns from first to last
+    for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
+        $column = $_REQUEST['move_columns'][$i];
+        // is this column already correctly placed?
+        if ($column_names[$i] == $column) {
+            continue;
+        }
+
+        // it is not, let's move it to index $i
+        $data = $columns[$column];
+        $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
+        if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
+            $extracted_columnspec['attribute'] = $data['Extra'];
+            unset($data['Extra']);
+        }
+        $current_timestamp = false;
+        if ($data['Type'] == 'timestamp' && $data['Default'] == 'CURRENT_TIMESTAMP') {
+            $current_timestamp = true;
+        }
+        $default_type
+            = $data['Null'] === 'YES' && $data['Default'] === null
+                ? 'NULL'
+                : ($current_timestamp
+                    ? 'CURRENT_TIMESTAMP'
+                    : ($data['Default'] == ''
+                        ? 'NONE'
+                        : 'USER_DEFINED'));
+
+        $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+            $column,
+            $column,
+            strtoupper($extracted_columnspec['type']),
+            $extracted_columnspec['spec_in_brackets'],
+            $extracted_columnspec['attribute'],
+            isset($data['Collation']) ? $data['Collation'] : '',
+            $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
+            $default_type,
+            $current_timestamp ? '' : $data['Default'],
+            isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
+            isset($data['Comments']) && $data['Comments'] !== ''
+            ? $data['Comments'] : false,
+            $we_dont_change_keys,
+            $i,
+            $i === 0 ? '-first' : $column_names[$i - 1]
+        );
+        // update current column_names array, first delete old position
+        for ($j = 0, $ll = count($column_names); $j < $ll; $j++) {
+            if ($column_names[$j] == $column) {
+                unset($column_names[$j]);
+            }
+        }
+        // insert moved column
+        array_splice($column_names, $i, 0, $column);
+    }
+    $response = PMA_Response::getInstance();
+    if (empty($changes)) { // should never happen
+        $response->isSuccess(false);
+        exit;
+    }
+    $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+    $move_query .= implode(', ', $changes);
+    // move columns
+    $result = PMA_DBI_try_query($move_query);
+    $tmp_error = PMA_DBI_getError();
+    if ($tmp_error) {
+        $response->isSuccess(false);
+        $response->addJSON('message', PMA_Message::error($tmp_error));
+    } else {
+        $message = PMA_Message::success(
+            __('The columns have been moved successfully.')
+        );
+        $response->addJSON('message', $message);
+        $response->addJSON('columns', $column_names);
+    }
+    exit;
+}
 ?>

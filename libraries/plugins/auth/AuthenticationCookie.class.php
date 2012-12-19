@@ -21,10 +21,6 @@ if (! empty($_REQUEST['target'])) {
     $GLOBALS['target'] = $_REQUEST['target'];
 } else if (PMA_getenv('SCRIPT_NAME')) {
     $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
-    // avoid "missing parameter: field" on re-entry
-    if ('tbl_alter.php' == $GLOBALS['target']) {
-        $GLOBALS['target'] = 'tbl_structure.php';
-    }
 }
 
 /**
