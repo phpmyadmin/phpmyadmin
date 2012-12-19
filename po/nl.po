@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-19 10:08-0500\n"
-"PO-Revision-Date: 2012-12-19 15:57+0200\n"
+"PO-Revision-Date: 2012-12-19 16:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -1902,20 +1902,17 @@ msgstr ""
 "opslaan."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most fields<br />by double-clicking directly on their "
 #| "content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr ""
-"U kan de meeste velden bewerken<br />door dubbel te klikken op de inhoud."
+msgstr "U kan de meeste waarden bewerken<br />door er dubbel op te klikken."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most fields<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "U kan de meeste velden bewerken<br />door op de inhoud te klikken."
+msgstr "U kan de meeste waarden bewerken<br />door erop te klikken."
 
 #: js/messages.php:358
 msgid "Go to link"
