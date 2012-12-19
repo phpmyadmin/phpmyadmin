@@ -62,7 +62,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_chart.js');
 $scripts->addFile('jqplot/jquery.jqplot.js');
-$scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
 $scripts->addFile('jqplot/plugins/jqplot.barRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
