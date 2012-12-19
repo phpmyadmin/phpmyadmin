@@ -280,6 +280,30 @@ Credits, in chronological order
 
   * Visual query builder
 
+* Madhura Jayaratne (Google Summer of Code 2011)
+
+  * OpenGIS support
+
+* Ammar Yasir (Google Summer of Code 2011)
+
+  * Zoom search
+
+* Aris Feryanto (Google Summer of Code 2011)
+
+  * Browse-mode improvements
+
+* Thilanka Kaushalya (Google Summer of Code 2011)
+
+  * AJAXification
+
+* Tyron Madlener (Google Summer of Code 2011)
+
+  * Query statistics and charts for the status page
+
+* Zarubin Stas (Google Summer of Code 2011)
+
+  * Automated testing
+
 * Rouslan Placella (Google Summer of Code 2011 and 2012)
 
   * Improved support for Stored Routines, Triggers and Events
