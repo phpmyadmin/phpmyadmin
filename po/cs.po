@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-19 15:13+0100\n"
-"PO-Revision-Date: 2012-12-17 09:52+0200\n"
+"PO-Revision-Date: 2012-12-19 15:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -1880,24 +1880,20 @@ msgstr ""
 "fungovat."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by double-clicking directly on their "
 #| "content."
 msgid ""
 "You can also edit most fields<br />by double-clicking directly on their "
 "content."
-msgstr ""
-"Většinu sloupců můžete také přímo upravit<br />dvojklikem na jejich obsah."
+msgstr "Většinu polí můžete také přímo upravit<br />dvojklikem na jejich obsah."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid ""
 "You can also edit most fields<br />by clicking directly on their content."
-msgstr ""
-"Většinu sloupců můžete také přímo upravit<br />kliknutím na jejich obsah."
+msgstr "Většinu polí můžete také přímo upravit<br />kliknutím na jejich obsah."
 
 #: js/messages.php:358
 msgid "Go to link"
