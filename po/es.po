@@ -1912,7 +1912,7 @@ msgstr ""
 #| "content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Puede editar la mayoría de los valores<br />con un pulsado doble "
+"También puede editar la mayoría de los valores<br />con un pulsado doble "
 "directamente en su contenido."
 
 #: js/messages.php:353
