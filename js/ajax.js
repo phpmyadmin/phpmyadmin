@@ -247,9 +247,11 @@ var AJAX = {
                     .not('#session_debug')
                     .remove();
                 // Replace #page_content with new content
-                $('#page_content').replaceWith(
-                    "<div id='page_content'>" + data.message + "</div>"
-                );
+                if(data.message && data.message.length > 0) {
+                    $('#page_content').replaceWith(
+                        "<div id='page_content'>" + data.message + "</div>"
+                    );
+                }
 
                 if (data._selflink) {
                     $('#selflink > a').attr('href', data._selflink);

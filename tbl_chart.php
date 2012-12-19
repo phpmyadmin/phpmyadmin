@@ -120,7 +120,7 @@ url_query = '<?php echo $url_query;?>';
 </script>
 <!-- Display Chart options -->
 <div id="div_view_options">
-<form method="post" id="tblchartform" action="tbl_chart.php">
+<form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
