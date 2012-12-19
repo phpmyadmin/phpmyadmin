@@ -11,8 +11,8 @@
 AJAX.registerTeardown('server_status_advisor.js', function() {
     $('a[href="#openAdvisorInstructions"]').unbind('click');
     $('#statustabs_advisor').html('');
-    $('#advisorDialog').dialog('destroy');
-    $('#instructionsDialog').dialog('destroy');
+    $('#advisorDialog').remove();
+    $('#instructionsDialog').remove();
 });
 
 AJAX.registerOnload('server_status_advisor.js', function() {
