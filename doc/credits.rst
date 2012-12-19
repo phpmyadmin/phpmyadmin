@@ -245,7 +245,7 @@ Credits, in chronological order
 
 * Zahra Naeem (Google Summer of Code 2009)
 
-  * Synchronization feature
+  * Synchronization feature (removed in release 4.0)
 
 * Tomáš Srnka (Google Summer of Code 2009)
 
