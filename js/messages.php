@@ -347,10 +347,10 @@ $js_messages['strAlertNonUnique'] = __('This table does not contain a unique col
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
 case 'double-click':
-    $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by double-clicking directly on their content.');
+    $js_messages['strGridEditFeatureHint'] = __('You can also edit most fields<br />by double-clicking directly on their content.');
     break;
 case 'click':
-    $js_messages['strGridEditFeatureHint'] = __('You can also edit most columns<br />by clicking directly on their content.');
+    $js_messages['strGridEditFeatureHint'] = __('You can also edit most fields<br />by clicking directly on their content.');
     break;
 default:
     break;
