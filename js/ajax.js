@@ -359,8 +359,13 @@ var AJAX = {
             }
             // Download the composite js file, if necessary
             if (needRequest) {
-                $.getScript("js/get_scripts.js.php?" + request.join("&"), function () {
-                    self.done();
+                $.ajax({
+                    url: "js/get_scripts.js.php?" + request.join("&"),
+                    cache: true,
+                    success: function () {
+                        self.done();
+                    },
+                    dataType: "script"
                 });
             } else {
                 self.done();
