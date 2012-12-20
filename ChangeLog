@@ -83,7 +83,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3593604 [status] Erroneous advisor rule
 - bug #3596070 [status] localStorage broken in server status monitor
 
-3.5.5.0 (not yet released)
+3.5.5.0 (2012-12-21)
 - bug #3563824 [export] Support Apache's mod_deflate
 - bug #3585523 [interface] Inline query editing broken after row update
 - bug #3586389 [setup] Cannot switch language in /setup
