@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Display form for changing/adding table fields/columns.
- * Included by tbl_addfield.php, -_alter.php, -_create.php
+ * Included by tbl_addfield.php and tbl_create.php
  *
  * @package PhpMyAdmin
  */
