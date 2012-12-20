@@ -432,8 +432,7 @@ var ScrollHandler = {
         };
         this.displayScrollbar();
         $(window).bind('resize', this.displayScrollbar);
-        this.elms.$handle.live(
-            'drag',
+        this.elms.$scrollbar.drag(
             $.throttle(function (event, drag) {
                 var elms = ScrollHandler.elms;
                 var scrollbarOffset = elms.$scrollbar.offset().top;
@@ -442,9 +441,10 @@ var ScrollHandler = {
                 value = ScrollHandler.sanitize(pos / height);
                 ScrollHandler.setScrollbar(value);
                 ScrollHandler.setContent(value);
-            }, 4)
+            }, 4),
+            { handle:"#pma_navigation_scrollbar_handle" }
         );
-        this.elms.$scrollbar.live('click', function (event) {
+        this.elms.$scrollbar.bind('mousedown', function (event) {
             if ($(event.target).attr('id') === $(this).attr('id')) {
                 var $scrollbar = ScrollHandler.elms.$scrollbar;
                 var $handle = ScrollHandler.elms.$handle;
@@ -455,7 +455,7 @@ var ScrollHandler = {
                 ScrollHandler.setContent(target);
             }
         });
-        $('#pma_navigation').live(
+        $('#pma_navigation').bind(
             'mousewheel',
             function(event, delta, deltaX, deltaY) {
                 event.preventDefault();
