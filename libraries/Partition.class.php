@@ -45,8 +45,25 @@ class PMA_Partition
         static $already_checked = false;
 
         if (! $already_checked) {
-            $have_partitioning = PMA_MYSQL_INT_VERSION >= 50100 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'have_partitioning';");
+            if (PMA_MYSQL_INT_VERSION >= 50100) {
+                if (PMA_MYSQL_INT_VERSION < 50600) {
+                    if (PMA_DBI_fetch_value(
+                        "SHOW VARIABLES LIKE 'have_partitioning';"
+                        )) {
+                        $have_partitioning = true;
+                        }
+                } else {
+                // see http://dev.mysql.com/doc/refman/5.6/en/partitioning.html
+                    $plugins = PMA_DBI_fetch_result("SHOW PLUGINS");
+                    foreach ($plugins as $key => $value) {
+                        if ($value['Name'] == 'partition') {
+                            $have_partitioning = true;
+                            break;
+                        }
+                    }
+                }
             $already_checked = true;
+            }
         }
         return $have_partitioning;
     }
