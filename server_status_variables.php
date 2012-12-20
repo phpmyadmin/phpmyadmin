@@ -271,7 +271,11 @@ function getVariablesTableHtml($ServerStatusData)
                 PMA_Util::timespanFormat($value)
             );
         } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
-            $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
+            $retval .= '<abbr title="'
+                // makes available the raw value as a title
+                . htmlspecialchars(PMA_Util::formatNumber($value, 0))
+                . '">'
+                . htmlspecialchars(PMA_Util::formatNumber($value, 3, 1));
         } elseif (is_numeric($value) && $value == (int) $value) {
             $retval .= htmlspecialchars(PMA_Util::formatNumber($value, 3, 0));
         } elseif (is_numeric($value)) {

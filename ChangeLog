@@ -76,6 +76,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [interface] Added "scroll to top" link in menubar
 + [designer] Fullscreen mode for the designer
 + Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2
++ Patch #3597529 [status] Add raw value as title on server status page
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule
