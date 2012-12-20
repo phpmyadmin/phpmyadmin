@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 5.9.199
+// Version     : 5.9.202
 // Begin       : 2002-08-03
-// Last Update : 2012-11-29
+// Last Update : 2012-12-16
 // Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
 // License     : http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT GNU-LGPLv3
 // -------------------------------------------------------------------
@@ -139,7 +139,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 5.9.199
+ * @version 5.9.202
  */
 
 // Main configuration file. Define the K_TCPDF_EXTERNAL_CONFIG constant to skip this file.
@@ -151,7 +151,7 @@ require_once(dirname(__FILE__).'/config/tcpdf_config.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 5.9.199
+ * @version 5.9.202
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -162,7 +162,7 @@ class TCPDF {
 	 * Current TCPDF version.
 	 * @private
 	 */
-	private $tcpdf_version = '5.9.199';
+	private $tcpdf_version = '5.9.202';
 
 	// Protected properties
 
@@ -275,16 +275,28 @@ class TCPDF {
 	protected $lMargin;
 
 	/**
-	 * Top margin.
-	 * @protected
-	 */
-	protected $tMargin;
-
-	/**
 	 * Right margin.
 	 * @protected
 	 */
 	protected $rMargin;
+
+	/**
+	 * Cell left margin (used by regions).
+	 * @protected
+	 */
+	protected $clMargin;
+
+	/**
+	 * Cell right margin (used by regions).
+	 * @protected
+	 */
+	protected $crMargin;
+
+	/**
+	 * Top margin.
+	 * @protected
+	 */
+	protected $tMargin;
 
 	/**
 	 * Page break margin.
@@ -1654,6 +1666,12 @@ class TCPDF {
 	protected $page_regions = array();
 
 	/**
+	 * Boolean value true when page region check is active.
+	 * @protected
+	 */
+	protected $check_page_regions = true;
+
+	/**
 	 * Array containing HTML color names and values.
 	 * @protected
 	 * @since 5.9.004 (2010-10-18)
@@ -2034,6 +2052,8 @@ class TCPDF {
 		// page margins (1 cm)
 		$margin = 28.35 / $this->k;
 		$this->SetMargins($margin, $margin);
+		$this->clMargin = $this->lMargin;
+		$this->crMargin = $this->rMargin;
 		// internal cell padding
 		$cpadding = $margin / 10;
 		$this->setCellPaddings($cpadding, 0, $cpadding, 0);
@@ -5304,7 +5324,7 @@ class TCPDF {
 			$cbbox = array();
 		}
 		// initialize subsetchars
-		$subsetchars = array();
+		$subsetchars = array_fill(0, 255, true);
 		$this->setFontBuffer($fontkey, array('fontkey' => $fontkey, 'i' => $this->numfonts, 'type' => $type, 'name' => $name, 'desc' => $desc, 'up' => $up, 'ut' => $ut, 'cw' => $cw, 'cbbox' => $cbbox, 'dw' => $dw, 'enc' => $enc, 'cidinfo' => $cidinfo, 'file' => $file, 'ctg' => $ctg, 'subset' => $subset, 'subsetchars' => $subsetchars));
 		if ($this->inxobj) {
 			// we are inside an XObject template
@@ -6726,30 +6746,32 @@ class TCPDF {
 		// apply margins
 		$oy = $y + $mc_margin['T'];
 		if ($this->rtl) {
-			$ox = $this->w - $x - $mc_margin['R'];
+			$ox = ($this->w - $x - $mc_margin['R']);
 		} else {
-			$ox = $x + $mc_margin['L'];
+			$ox = ($x + $mc_margin['L']);
 		}
 		$this->x = $ox;
 		$this->y = $oy;
 		// set width
 		if ($this->empty_string($w) OR ($w <= 0)) {
 			if ($this->rtl) {
-				$w = $this->x - $this->lMargin - $mc_margin['L'];
+				$w = ($this->x - $this->lMargin - $mc_margin['L']);
 			} else {
-				$w = $this->w - $this->x - $this->rMargin - $mc_margin['R'];
+				$w = ($this->w - $this->x - $this->rMargin - $mc_margin['R']);
 			}
 		}
 		// store original margin values
 		$lMargin = $this->lMargin;
 		$rMargin = $this->rMargin;
 		if ($this->rtl) {
-			$this->rMargin = $this->w - $this->x;
-			$this->lMargin = $this->x - $w;
+			$this->rMargin = ($this->w - $this->x);
+			$this->lMargin = ($this->x - $w);
 		} else {
-			$this->lMargin = $this->x;
-			$this->rMargin = $this->w - $this->x - $w;
+			$this->lMargin = ($this->x);
+			$this->rMargin = ($this->w - $this->x - $w);
 		}
+		$this->clMargin = $this->lMargin;
+		$this->crMargin = $this->rMargin;
 		if ($autopadding) {
 			// add top padding
 			$this->y += $mc_padding['T'];
@@ -6832,6 +6854,9 @@ class TCPDF {
 		if ($this->num_columns == 0) {
 			$this->num_columns = 1;
 		}
+		// disable page regions check
+		$check_page_regions = $this->check_page_regions;
+		$this->check_page_regions = false;
 		// get border modes
 		$border_start = $this->getBorderMode($border, $position='start');
 		$border_end = $this->getBorderMode($border, $position='end');
@@ -6975,6 +7000,8 @@ class TCPDF {
 				}
 			}
 		} // end for each page
+		// restore page regions check
+		$this->check_page_regions = $check_page_regions;
 		// Get end-of-cell Y position
 		$currentY = $this->GetY();
 		// restore previous values
@@ -7009,6 +7036,8 @@ class TCPDF {
 		$this->setContentMark();
 		$this->cell_padding = $prev_cell_padding;
 		$this->cell_margin = $prev_cell_margin;
+		$this->clMargin = $this->lMargin;
+		$this->crMargin = $this->rMargin;
 		return $nl;
 	}
 
@@ -12764,7 +12793,7 @@ class TCPDF {
 		$xmp .= "\t\t\t".'</dc:description>'."\n";
 		$xmp .= "\t\t\t".'<dc:subject>'."\n";
 		$xmp .= "\t\t\t\t".'<rdf:Bag>'."\n";
-		$xmp .= "\t\t\t\t\t".'<rdf:li>'.$this->_escapeXML($this->keywords).'</rdf:li>'."\n";
+		$xmp .= "\t\t\t\t\t".'<rdf:li>'.$this->_escapeXML($this->keywords).' TCPDF</rdf:li>'."\n";
 		$xmp .= "\t\t\t\t".'</rdf:Bag>'."\n";
 		$xmp .= "\t\t\t".'</dc:subject>'."\n";
 		$xmp .= "\t\t".'</rdf:Description>'."\n";
@@ -23827,6 +23856,10 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 					$hbz = $this->FontSize * $this->cell_height_ratio;
 				}
 			}
+			if (isset($dom[($key - 1)]) AND ($dom[($key - 1)]['value'] == 'table')) {
+				// fix vertical space after table
+				$hbz = 0;
+			}
 		}
 		// Opening tag
 		switch($tag['value']) {
@@ -23835,6 +23868,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				$cs = 0;
 				$dom[$key]['rowspans'] = array();
 				if (!isset($dom[$key]['attribute']['nested']) OR ($dom[$key]['attribute']['nested'] != 'true')) {
+					$this->htmlvspace = 0;
 					// set table header
 					if (!$this->empty_string($dom[$key]['thead'])) {
 						// set table header
@@ -24585,11 +24619,11 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 					// update row-spanned cells
 					if (isset($dom[($dom[$key]['parent'])]['rowspans'])) {
 						foreach ($dom[($dom[$key]['parent'])]['rowspans'] as $k => $trwsp) {
-							if ($trwsp['trid'] == $trkey) {
-								$dom[($dom[$key]['parent'])]['rowspans'][$k]['mrowspan'] -= 1;
-							}
-							if (isset($prevtrkey) AND ($trwsp['trid'] == $prevtrkey) AND ($trwsp['mrowspan'] >= 0)) {
+							if (isset($prevtrkey) AND ($trwsp['trid'] == $prevtrkey) AND ($trwsp['mrowspan'] > 0)) {
 								$dom[($dom[$key]['parent'])]['rowspans'][$k]['trid'] = $trkey;
+							}
+							if ($dom[($dom[$key]['parent'])]['rowspans'][$k]['trid'] == $trkey) {
+								$dom[($dom[$key]['parent'])]['rowspans'][$k]['mrowspan'] -= 1;
 							}
 						}
 					}
@@ -27975,7 +28009,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 		if ($y === '') {
 			$y = $this->y;
 		}
-		if (empty($this->page_regions)) {
+		if (!$this->check_page_regions OR empty($this->page_regions)) {
 			// no page regions defined
 			return array($x, $y);
 		}
@@ -27990,15 +28024,15 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 		}
 		if ($this->num_columns > 1) {
 			if ($this->rtl) {
-				$this->lMargin = $this->columns[$this->current_column]['x'] - $this->columns[$this->current_column]['w'];
+				$this->lMargin = ($this->columns[$this->current_column]['x'] - $this->columns[$this->current_column]['w']);
 			} else {
-				$this->rMargin = $this->w - $this->columns[$this->current_column]['x'] - $this->columns[$this->current_column]['w'];
+				$this->rMargin = ($this->w - $this->columns[$this->current_column]['x'] - $this->columns[$this->current_column]['w']);
 			}
 		} else {
 			if ($this->rtl) {
-				$this->lMargin = $this->original_lMargin;
+				$this->lMargin = max($this->clMargin, $this->original_lMargin);
 			} else {
-				$this->rMargin = $this->original_rMargin;
+				$this->rMargin = max($this->crMargin, $this->original_rMargin);
 			}
 		}
 		// adjust coordinates and page margins
@@ -28017,7 +28051,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 						if ($this->lMargin < $new_margin) {
 							if ($this->rtl) {
 								// adjust left page margin
-								$this->lMargin = $new_margin;
+								$this->lMargin = max(0, $new_margin);
 							}
 							if ($x < $new_margin) {
 								// adjust x position
@@ -28033,7 +28067,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 						if (($this->w - $this->rMargin) > $new_margin) {
 							if (!$this->rtl) {
 								// adjust right page margin
-								$this->rMargin = ($this->w - $new_margin);
+								$this->rMargin = max(0, ($this->w - $new_margin));
 							}
 							if ($x > $new_margin) {
 								// adjust x position
