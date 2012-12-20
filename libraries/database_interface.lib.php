@@ -1546,9 +1546,9 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  *
  * @param string|mysql_result $result     query or mysql result
  * @param integer             $row_number row to fetch the value from,
- *                                        starting at 0, with 0 beeing default
+ *                                        starting at 0, with 0 being default
  * @param integer|string      $field      field to fetch the value from,
- *                                        starting at 0, with 0 beeing default
+ *                                        starting at 0, with 0 being default
  * @param resource            $link       mysql link
  *
  * @return mixed value of first field in first row from result
