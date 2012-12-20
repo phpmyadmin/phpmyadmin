@@ -116,8 +116,8 @@ $header_cells[] = __('Attributes');
 $header_cells[] = __('Null');
 
 // We could remove this 'if' and let the key information be shown and
-// editable. However, for this to work, tbl_alter must be modified to use the
-// key fields, as tbl_addfield does.
+// editable. However, for this to work, structure.lib.php must be modified 
+// to use the key fields, as tbl_addfield does.
 
 if (! $is_backup) {
     $header_cells[] = __('Index');
