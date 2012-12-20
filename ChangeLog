@@ -77,6 +77,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [designer] Fullscreen mode for the designer
 + Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2
 + Patch #3597529 [status] Add raw value as title on server status page
++ Support MySQL 5.6 partitioning
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule
