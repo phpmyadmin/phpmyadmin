@@ -192,7 +192,7 @@ function insertDataAndClose() {
     var input_name = $form.find("input[name='input_name']").val();
 
     $.post('gis_data_editor.php', $form.serialize() + "&generate=true&ajax_request=true", function(data) {
-        if(data.success == true) {
+        if (data.success == true) {
             $("input[name='" + input_name + "']").val(data.result);
         } else {
             PMA_ajaxShowMessage(data.error, false);
@@ -243,7 +243,7 @@ AJAX.registerOnload('gis_data_editor.js', function() {
     $('#gis_editor').find("input[type='text']").live('change', function() {
         var $form = $('form#gis_data_editor_form');
         $.post('gis_data_editor.php', $form.serialize() + "&generate=true&ajax_request=true", function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 $('#gis_data_textarea').val(data.result);
                 $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
                 $('#openlayersmap').empty();
@@ -263,7 +263,7 @@ AJAX.registerOnload('gis_data_editor.js', function() {
         var $form = $('form#gis_data_editor_form');
 
         $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true&ajax_request=true", function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 $gis_editor.html(data.gis_editor);
                 initGISEditorVisualization();
                 prepareJSVersion();

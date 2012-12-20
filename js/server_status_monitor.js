@@ -1502,13 +1502,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     // Set y value, if defined
                     if (value != undefined) {
                         elem.chart.series[j].data.push([chartData.x, value]);
-                        if(value > elem.maxYLabel) {
+                        if (value > elem.maxYLabel) {
                             elem.maxYLabel = value;
                         }
                         // free old data point values and update maxYLabel
-                        if(elem.chart.series[j].data.length > runtime.gridMaxPoints) {
+                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints) {
                             // check if the next freeable point is highest
-                            if(elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
+                            if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
                                 elem.chart.series[j].data.shift();
                                 elem.maxYLabel = getMaxYLabel(elem.chart.series[j].data);
                             } else {

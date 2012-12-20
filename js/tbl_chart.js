@@ -94,7 +94,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     $('input[name="barStacked"]').click(function() {
-        if(this.checked) {
+        if (this.checked) {
             $.extend(true,currentSettings,{ stackSeries: true });
         } else {
             $.extend(true,currentSettings,{ stackSeries: false });
@@ -163,7 +163,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
  *
  */
 $("#tblchartform").live('submit', function(event) {
-    if(!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
+    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
         || !checkFormElementInRange(this, 'pos', PMA_messages['strNotValidRowNumber'], 0-1)) {
         return false;
      }

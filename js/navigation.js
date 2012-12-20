@@ -445,7 +445,7 @@ var ScrollHandler = {
             }, 4)
         );
         this.elms.$scrollbar.live('click', function (event) {
-            if($(event.target).attr('id') === $(this).attr('id')) {
+            if ($(event.target).attr('id') === $(this).attr('id')) {
                 var $scrollbar = ScrollHandler.elms.$scrollbar;
                 var $handle = ScrollHandler.elms.$handle;
                 var pos = event.pageY - $scrollbar.offset().top - ($handle.height() / 2);

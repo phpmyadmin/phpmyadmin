@@ -308,7 +308,7 @@ AJAX.registerOnload('db_structure.js', function() {
             PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     var $tracked_table = $curr_tracking_row.parents('table');
                     var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
 

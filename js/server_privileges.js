@@ -55,7 +55,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     var is_show_all = (first_row_initial != curr_shown_initial) ? true : false;
 
     //Append to the table and set the id/names correctly
-    if((curr_shown_initial == new_user_initial) || is_show_all) {
+    if ((curr_shown_initial == new_user_initial) || is_show_all) {
         $(new_user_string)
         .insertAfter($curr_last_row)
         .find('input:checkbox')
@@ -256,7 +256,7 @@ AJAX.registerOnload('server_privileges.js', function() {
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
 
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 PMA_ajaxRemoveMessage($msgbox);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -281,7 +281,7 @@ AJAX.registerOnload('server_privileges.js', function() {
         $form = $("#usersForm");
 
         $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
                 // that is the same as the username of the deleted user
@@ -294,7 +294,7 @@ AJAX.registerOnload('server_privileges.js', function() {
                     $(this).remove();
 
                     //If this is the last user with this_user_initial, remove the link from #initials_table
-                    if($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length == 0) {
+                    if ($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length == 0) {
                         $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
                     }
 
@@ -405,24 +405,24 @@ AJAX.registerOnload('server_privileges.js', function() {
         var curr_submit_value = $t.find('.tblFooters').find('input:submit').val();
 
         $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
 
                 PMA_ajaxShowMessage(data.message);
 
                 //Close the jQueryUI dialog
                 $("#edit_user_dialog").dialog("close");
 
-                if(data.sql_query) {
+                if (data.sql_query) {
                     $("#result_query").remove();
                     $('#page_content').prepend(data.sql_query);
                     var $notice_class = $("#result_query").find('.notice');
-                    if($notice_class.text() == '') {
+                    if ($notice_class.text() == '') {
                         $notice_class.remove();
                     }
                 } //Show SQL Query that was executed
 
                 //Append new user if necessary
-                if(data.new_user_string) {
+                if (data.new_user_string) {
                     appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
                 }
 
@@ -440,7 +440,7 @@ AJAX.registerOnload('server_privileges.js', function() {
                 }
 
                 //Change privileges, if they were edited and need to be reloaded
-                if(data.new_privileges && reload_privs) {
+                if (data.new_privileges && reload_privs) {
                     $("#usersForm")
                     .find('.current_row')
                     .find('code')

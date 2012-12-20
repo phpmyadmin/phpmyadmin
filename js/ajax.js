@@ -247,7 +247,7 @@ var AJAX = {
                     .not('#session_debug')
                     .remove();
                 // Replace #page_content with new content
-                if(data.message && data.message.length > 0) {
+                if (data.message && data.message.length > 0) {
                     $('#page_content').replaceWith(
                         "<div id='page_content'>" + data.message + "</div>"
                     );

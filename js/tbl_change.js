@@ -166,34 +166,34 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         return true;
     }
 
-    if(target.name.substring(0,6)=="fields") {
+    if (target.name.substring(0,6)=="fields") {
         // validate for date time
-        if(theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp") {
+        if (theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp") {
             $this_input.removeClass("invalid_value");
             var dt_value = $this_input.val();
-            if(theType=="date"){
+            if (theType=="date"){
                 if (! isDate(dt_value)) {
                     $this_input.addClass("invalid_value");
                     return false;
                 }
-            } else if(theType=="time") {
+            } else if (theType=="time") {
                 if (! isTime(dt_value)) {
                     $this_input.addClass("invalid_value");
                     return false;
                 }
-            } else if(theType=="datetime"||theType=="timestamp") {
+            } else if (theType=="datetime"||theType=="timestamp") {
                 tmstmp=false;
-                if(dt_value == "CURRENT_TIMESTAMP") {
+                if (dt_value == "CURRENT_TIMESTAMP") {
                     return true;
                 }
-                if(theType=="timestamp") {
+                if (theType=="timestamp") {
                     tmstmp=true;
                 }
-                if(dt_value=="0000-00-00 00:00:00") {
+                if (dt_value=="0000-00-00 00:00:00") {
                     return true;
                 }
                 var dv=dt_value.indexOf(" ");
-                if(dv==-1) {
+                if (dv==-1) {
                     $this_input.addClass("invalid_value");
                     return false;
                 } else {
@@ -205,9 +205,9 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
             }
         }
         //validate for integer type
-        if(theType.substring(0,3) == "int"){
+        if (theType.substring(0,3) == "int"){
             $this_input.removeClass("invalid_value");
-            if(isNaN($this_input.val())){
+            if (isNaN($this_input.val())){
                 $this_input.addClass("invalid_value");
                 return false;
             }
@@ -329,7 +329,7 @@ AJAX.registerOnload('tbl_change.js', function() {
             $(this).datepicker('destroy');
         });
 
-        if(curr_rows < target_rows ) {
+        if (curr_rows < target_rows ) {
             while( curr_rows < target_rows ) {
 
                 /**
@@ -430,7 +430,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                     });
 
                 //Insert/Clone the ignore checkboxes
-                if(curr_rows == 1 ) {
+                if (curr_rows == 1 ) {
                     $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
                     .insertBefore("table.insertRowTable:last")
                     .after('<label for="insert_ignore_1">' + PMA_messages['strIgnore'] + '</label>');
@@ -481,7 +481,7 @@ AJAX.registerOnload('tbl_change.js', function() {
         $('input.datefield, input.datetimefield').each(function(){
             PMA_addDatepicker($(this));
             });
-        } else if( curr_rows > target_rows) {
+        } else if ( curr_rows > target_rows) {
             while(curr_rows > target_rows) {
                 $("input[id^=insert_ignore]:last")
                 .nextUntil("fieldset")

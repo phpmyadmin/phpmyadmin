@@ -66,7 +66,7 @@ AJAX.registerOnload('server_databases.js', function() {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
                 $.post(url, function(data) {
-                    if(data.success == true) {
+                    if (data.success == true) {
                         PMA_ajaxShowMessage(data.message);
 
                         var $rowsToRemove = $form.find('tr.removeMe');

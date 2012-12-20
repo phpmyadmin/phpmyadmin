@@ -280,7 +280,7 @@ AJAX.registerOnload('sql.js', function() {
                 PMA_init_slider();
 
                 if (typeof data.action_bookmark == 'undefined') {
-                    if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
+                    if ( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
                         if ($("#togglequerybox").siblings(":visible").length > 0) {
                             $("#togglequerybox").trigger('click');
                         }

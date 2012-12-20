@@ -244,35 +244,35 @@ function getDateFromFormat(val,format) {
             }
         else if (token=="MM"||token=="M") {
             month=_getInt(val,i_val,token.length,2);
-            if(month==null||(month<1)||(month>12)){return 0;}
+            if (month==null||(month<1)||(month>12)){return 0;}
             i_val+=month.length;}
         else if (token=="dd"||token=="d") {
             date=_getInt(val,i_val,token.length,2);
-            if(date==null||(date<1)||(date>31)){return 0;}
+            if (date==null||(date<1)||(date>31)){return 0;}
             i_val+=date.length;}
         else if (token=="hh"||token=="h") {
             hh=_getInt(val,i_val,token.length,2);
-            if(hh==null||(hh<1)||(hh>12)){return 0;}
+            if (hh==null||(hh<1)||(hh>12)){return 0;}
             i_val+=hh.length;}
         else if (token=="HH"||token=="H") {
             hh=_getInt(val,i_val,token.length,2);
-            if(hh==null||(hh<0)||(hh>23)){return 0;}
+            if (hh==null||(hh<0)||(hh>23)){return 0;}
             i_val+=hh.length;}
         else if (token=="KK"||token=="K") {
             hh=_getInt(val,i_val,token.length,2);
-            if(hh==null||(hh<0)||(hh>11)){return 0;}
+            if (hh==null||(hh<0)||(hh>11)){return 0;}
             i_val+=hh.length;}
         else if (token=="kk"||token=="k") {
             hh=_getInt(val,i_val,token.length,2);
-            if(hh==null||(hh<1)||(hh>24)){return 0;}
+            if (hh==null||(hh<1)||(hh>24)){return 0;}
             i_val+=hh.length;hh--;}
         else if (token=="mm"||token=="m") {
             mm=_getInt(val,i_val,token.length,2);
-            if(mm==null||(mm<0)||(mm>59)){return 0;}
+            if (mm==null||(mm<0)||(mm>59)){return 0;}
             i_val+=mm.length;}
         else if (token=="ss"||token=="s") {
             ss=_getInt(val,i_val,token.length,2);
-            if(ss==null||(ss<0)||(ss>59)){return 0;}
+            if (ss==null||(ss<0)||(ss>59)){return 0;}
             i_val+=ss.length;}
         else if (token=="a") {
             if (val.substring(i_val,i_val+2).toLowerCase()=="am") {ampm="AM";}

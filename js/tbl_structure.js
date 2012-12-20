@@ -105,7 +105,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
@@ -155,7 +155,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
@@ -201,7 +201,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {

@@ -38,7 +38,7 @@ AJAX.registerTeardown('db_search.js', function() {
 function loadResult(result_path, table_name, link, ajaxEnable)
 {
     $(function() {
-        if(ajaxEnable) {
+        if (ajaxEnable) {
             /**   Hides the results shown by the delete criteria */
             var $msg = PMA_ajaxShowMessage(PMA_messages['strBrowsing'], false);
             $('#sqlqueryform').hide();
@@ -79,8 +79,8 @@ function deleteResult(result_path, msg, ajaxEnable)
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        if(confirm(msg)) {
-            if(ajaxEnable) {
+        if (confirm(msg)) {
+            if (ajaxEnable) {
                 var $msg = PMA_ajaxShowMessage(PMA_messages['strDeleting'], false);
                 /** Load the deleted option to the page*/
                 $('#sqlqueryform').html('');

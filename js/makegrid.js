@@ -851,7 +851,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     });
                     g.isEditCellTextEditable = true;
                 }
-                else if($td.is('.enum')) {
+                else if ($td.is('.enum')) {
                     //handle enum fields
                     $editArea.addClass('edit_area_loading');
 
@@ -880,7 +880,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
-                else if($td.is('.set')) {
+                else if ($td.is('.set')) {
                     //handle set fields
                     $editArea.addClass('edit_area_loading');
 
@@ -910,7 +910,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                 }
-                else if($td.is('.truncated, .transformed')) {
+                else if ($td.is('.truncated, .transformed')) {
                     if ($td.is('.to_be_saved')) {   // cell has been edited
                         var value = $td.data('value');
                         $(g.cEdit).find('.edit_box').val(value);
@@ -947,7 +947,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }, function(data) {
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
-                            if(data.success == true) {
+                            if (data.success == true) {
                                 if ($td.is('.truncated')) {
                                     // get the truncated data length
                                     g.maxTruncatedLen = $(g.currentEditCell).text().length - 3;
@@ -1117,7 +1117,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                      */
                     var this_field_params = {};
 
-                    if($this_field.is('.transformed')) {
+                    if ($this_field.is('.transformed')) {
                         transformation_fields =  true;
                     }
                     this_field_params[field_name] = $this_field.data('value');
@@ -1137,12 +1137,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         fields.push($this_field.data('value'));
 
                         var cell_index = $this_field.index('.to_be_saved');
-                        if($this_field.is(":not(.relation, .enum, .set, .bit)")) {
-                            if($this_field.is('.transformed')) {
+                        if ($this_field.is(":not(.relation, .enum, .set, .bit)")) {
+                            if ($this_field.is('.transformed')) {
                                 transform_fields[cell_index] = {};
                                 $.extend(transform_fields[cell_index], this_field_params);
                             }
-                        } else if($this_field.is('.relation')) {
+                        } else if ($this_field.is('.relation')) {
                             relation_fields[cell_index] = {};
                             $.extend(relation_fields[cell_index], this_field_params);
                         }
@@ -1225,7 +1225,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $('div.save_edited').removeClass('saving_edited_data')
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
-                        if(data.success == true) {
+                        if (data.success == true) {
                             PMA_ajaxShowMessage(data.message);
                             // update where_clause related data in each edited row
                             $('td.to_be_saved').parents('tr').each(function() {

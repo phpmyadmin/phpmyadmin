@@ -58,7 +58,7 @@ AJAX.registerOnload('db_operations.js', function() {
         $form.PMA_confirm(question, $form.attr('action'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases'], false);
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
-                if(data.success == true) {
+                if (data.success == true) {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
 
@@ -98,9 +98,9 @@ AJAX.registerOnload('db_operations.js', function() {
         $.get($form.attr('action'), $form.serialize(), function(data) {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
-            if(data.success == true) {
+            if (data.success == true) {
                 PMA_commonParams.set('db', data.newname);
-                if( $("#checkbox_switch").is(":checked")) {
+                if ( $("#checkbox_switch").is(":checked")) {
                     PMA_commonParams.set('db', data.newname);
                     PMA_commonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);
@@ -126,7 +126,7 @@ AJAX.registerOnload('db_operations.js', function() {
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
         $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function(data) {
-            if(data.success == true) {
+            if (data.success == true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
