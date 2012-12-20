@@ -40,7 +40,7 @@ $err_url = 'tbl_create.php?' . PMA_generate_common_url($db, $table);
 
 // check number of fields to be created
 if (isset($_REQUEST['submit_num_fields'])) {
-    $regenerate = true; // for libraries/tbl_properties.inc.php
+    $regenerate = true; // for libraries/tbl_columns_definition_form.inc.php
     $num_fields = $_REQUEST['orig_num_fields'] + $_REQUEST['added_fields'];
 } elseif (isset($_REQUEST['num_fields']) && intval($_REQUEST['num_fields']) > 0) {
     $num_fields = (int) $_REQUEST['num_fields'];
@@ -424,7 +424,7 @@ if (isset($_REQUEST['do_save_data'])) {
             // An error happened while inserting/updating a table definition.
             // To prevent total loss of that data, we embed the form once again.
             // The variable $regenerate will be used to restore data in
-            // libraries/tbl_properties.inc.php
+            // libraries/tbl_columns_definition_form.inc.php
             $num_fields = $_REQUEST['orig_num_fields'];
             $regenerate = true;
         }
@@ -442,7 +442,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     echo('<div id="create_table_div">');
 }
 
-require 'libraries/tbl_properties.inc.php';
+require 'libraries/tbl_columns_definition_form.inc.php';
 
 if ($GLOBALS['is_ajax_request'] != true) {
     echo('</div>');

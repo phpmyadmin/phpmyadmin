@@ -207,7 +207,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
+        // The variable $regenerate will be used to restore data in libraries/tbl_columns_definition_form.inc.php
         $num_fields = $_REQUEST['orig_num_fields'];
         if (isset($_REQUEST['orig_after_field'])) {
             $_REQUEST['after_field'] = $_REQUEST['orig_after_field'];
@@ -234,7 +234,7 @@ if ($abort == false) {
      * Display the form
      */
     $action = 'tbl_addfield.php';
-    include_once 'libraries/tbl_properties.inc.php';
+    include_once 'libraries/tbl_columns_definition_form.inc.php';
 }
 
 ?>
