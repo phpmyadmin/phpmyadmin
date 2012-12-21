@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-19 10:08-0500\n"
-"PO-Revision-Date: 2012-11-21 15:57+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2012-12-21 20:48+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -799,7 +798,7 @@ msgstr "문서"
 
 #: index.php:337 libraries/config/FormDisplay.tpl.php:148
 msgid "Wiki"
-msgstr ""
+msgstr "위키"
 
 #: index.php:346
 msgid "Official Homepage"
@@ -1757,7 +1756,7 @@ msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "확대하려면 선택한 플롯을 클릭하세요."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
@@ -1769,7 +1768,7 @@ msgstr ""
 
 #: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "우측 하단 코너로 드래그하여 플롯을 확대할 수 있습니다."
 
 #: js/messages.php:301
 msgid "Select two columns"
@@ -1808,14 +1807,13 @@ msgstr ""
 
 #: js/messages.php:327
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "외래키 선택"
 
 #: js/messages.php:328
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "기본키 혹은 유니크키를 선택하십시오."
 
 #: js/messages.php:329 pmd_general.php:109 tbl_relation.php:502
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "출력할 필드 선택"
@@ -1828,7 +1826,7 @@ msgstr ""
 
 #: js/messages.php:333
 msgid "Add an option for column "
-msgstr ""
+msgstr "필드 옵션 추가"
 
 #: js/messages.php:334
 #, php-format
@@ -1837,7 +1835,7 @@ msgstr ""
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "편집을 취소하려면 ESC를 누르세요."
 
 #: js/messages.php:338
 msgid ""
@@ -1847,11 +1845,11 @@ msgstr ""
 
 #: js/messages.php:339
 msgid "Drag to reorder"
-msgstr ""
+msgstr "재정렬하려면 드래그하세요."
 
 #: js/messages.php:340
 msgid "Click to sort"
-msgstr ""
+msgstr "정렬하려면 클릭하세요."
 
 #: js/messages.php:341
 msgid "Click to mark/unmark"
@@ -1881,7 +1879,7 @@ msgstr ""
 
 #: js/messages.php:358
 msgid "Go to link"
-msgstr ""
+msgstr "링크로 이동합니다."
 
 #: js/messages.php:359
 #, fuzzy
@@ -1900,26 +1898,23 @@ msgid "Show data row(s)"
 msgstr "행 업데이트"
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
-msgstr "암호 변경"
+msgstr "암호 생성"
 
 #: js/messages.php:365 libraries/replication_gui.lib.php:389
 msgid "Generate"
-msgstr ""
+msgstr "생성"
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "암호 변경"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Mo"
 msgid "More"
-msgstr "월"
+msgstr "더보기"
 
 #: js/messages.php:372
 #, fuzzy
@@ -1944,17 +1939,16 @@ msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니�
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
-msgstr ""
+msgstr "phpMyAdmin 업그레이드가 필요합니다. 최신버전은 %s이며 %s에 릴리즈 되었습니다."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", 최신 안정 버전:"
 
 #: js/messages.php:382
-#, fuzzy
 msgid "up to date"
-msgstr "데이터베이스가 없습니다"
+msgstr "최신버전"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:401
@@ -1962,14 +1956,12 @@ msgid "Done"
 msgstr "완료"
 
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "이전"
 
 #: js/messages.php:410
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2119,7 +2111,6 @@ msgstr "토요일"
 
 #. l10n: Short week day name
 #: js/messages.php:476
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2202,7 +2193,6 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:516
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2269,20 +2259,20 @@ msgstr ""
 
 #: libraries/Advisor.class.php:450 server_status_queries.php:86
 msgid "per second"
-msgstr ""
+msgstr "초당"
 
 #: libraries/Advisor.class.php:453 server_status_queries.php:82
 msgid "per minute"
-msgstr ""
+msgstr "분당"
 
 #: libraries/Advisor.class.php:456 server_status.php:144 server_status.php:213
 #: server_status_queries.php:79 server_status_queries.php:108
 msgid "per hour"
-msgstr ""
+msgstr "시간당"
 
 #: libraries/Advisor.class.php:459
 msgid "per day"
-msgstr ""
+msgstr "하루당"
 
 #: libraries/Config.class.php:1050
 #, php-format
@@ -2706,11 +2696,11 @@ msgstr ""
 
 #: libraries/Error_Handler.class.php:73
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되지 않습니다."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "파일은 업로드된 파일이 아닙니다."
 
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2751,7 +2741,7 @@ msgstr ""
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "업로드된 파일을 이동하는 중에 오류가 발생하였습니다."
 
 #: libraries/File.class.php:501
 msgid "Cannot read (moved) upload file."
@@ -2997,16 +2987,15 @@ msgstr "PDF 생성 실패:"
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
-msgstr ""
+msgstr "최근 테이블을 저장할 수 없습니다."
 
 #: libraries/RecentTable.class.php:151
-#, fuzzy
 msgid "Recent tables"
-msgstr "테이블이 없습니다"
+msgstr "최근 테이블"
 
 #: libraries/RecentTable.class.php:163
 msgid "There are no recent tables"
-msgstr ""
+msgstr "최근 테이블이 없습니다."
 
 #: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:666
 #: server_status.php:341 sql.php:1094
@@ -3123,12 +3112,12 @@ msgstr "%s는 이 MySQL 서버의 기본 스토리지 엔진입니다."
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "%s 는 이 MySQL 서버에서 가능합니다."
 
 #: libraries/StorageEngine.class.php:358
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "%s 는 이 MySQL 서버에서 비활성화되었습니다."
 
 #: libraries/StorageEngine.class.php:362
 #, php-format
@@ -3137,7 +3126,7 @@ msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다.
 
 #: libraries/Table.class.php:327
 msgid "unknown table status: "
-msgstr ""
+msgstr "알 수 없는 테이블 상태:"
 
 #: libraries/Table.class.php:726
 #, fuzzy, php-format
@@ -3151,16 +3140,16 @@ msgstr "데이터베이스 검색"
 
 #: libraries/Table.class.php:1162
 msgid "Invalid database"
-msgstr ""
+msgstr "잘못된 데이터베이스"
 
 #: libraries/Table.class.php:1176 tbl_get_field.php:30
 msgid "Invalid table name"
-msgstr ""
+msgstr "잘못된 테이블 이름"
 
 #: libraries/Table.class.php:1208
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr ""
+msgstr "%1$s 에서 %2$s 로 테이블 이름을 바꾸는데 오류가 발생하였습니다."
 
 #: libraries/Table.class.php:1227
 #, fuzzy, php-format
@@ -3286,7 +3275,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:459
 msgid "No preview available."
-msgstr ""
+msgstr "미리보기가 불가능합니다."
 
 #: libraries/Theme.class.php:461
 msgid "take it"
@@ -3295,12 +3284,12 @@ msgstr ""
 #: libraries/Theme_Manager.class.php:137
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "기본테마 %s 를 찾을 수 없습니다."
 
 #: libraries/Theme_Manager.class.php:194
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "%s 테마를 찾을 수 없습니다."
 
 #: libraries/Theme_Manager.class.php:271
 #, php-format
@@ -3309,7 +3298,7 @@ msgstr ""
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
-msgstr ""
+msgstr "테마"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3756,9 +3745,8 @@ msgid "Overhead"
 msgstr "부담"
 
 #: libraries/build_html_for_db.lib.php:94
-#, fuzzy
 msgid "Jump to database"
-msgstr "데이터베이스가 없습니다"
+msgstr "데이터베이스로 이동"
 
 #: libraries/build_html_for_db.lib.php:142
 msgid "Not replicated"
@@ -3851,11 +3839,11 @@ msgstr ""
 
 #: libraries/config.values.php:56
 msgid "Left"
-msgstr ""
+msgstr "왼쪽"
 
 #: libraries/config.values.php:57
 msgid "Right"
-msgstr ""
+msgstr "오른쪽"
 
 #: libraries/config.values.php:69
 msgid "Click"
@@ -3873,7 +3861,7 @@ msgstr "사용불가"
 
 #: libraries/config.values.php:101
 msgid "Open"
-msgstr ""
+msgstr "열기"
 
 #: libraries/config.values.php:102
 #, fuzzy
@@ -3900,7 +3888,7 @@ msgstr "구조"
 #: libraries/plugins/export/ExportSql.class.php:198
 #: libraries/plugins/export/ExportTexytext.class.php:69
 msgid "data"
-msgstr ""
+msgstr "데이터"
 
 #: libraries/config.values.php:134
 #: libraries/plugins/export/ExportHtmlword.class.php:71
@@ -3959,19 +3947,19 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:90
 #: libraries/config/validate.lib.php:504
 msgid "Not a valid port number"
-msgstr ""
+msgstr "유효한 포트번호가 아닙니다."
 
 #: libraries/config/FormDisplay.class.php:91
 #: libraries/config/FormDisplay.class.php:587
 #: libraries/config/validate.lib.php:435 libraries/config/validate.lib.php:566
 msgid "Incorrect value"
-msgstr ""
+msgstr "잘못된 값"
 
 #: libraries/config/FormDisplay.class.php:92
 #: libraries/config/validate.lib.php:582
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "값은 %s보다 작거나 같아야합니다."
 
 #: libraries/config/FormDisplay.class.php:541
 #, php-format
@@ -3980,10 +3968,9 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:765
 #: libraries/config/FormDisplay.class.php:771
-#, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
-msgstr "변수"
+msgstr "사용불가"
 
 #: libraries/config/FormDisplay.class.php:767
 #: libraries/config/FormDisplay.class.php:773
@@ -4012,7 +3999,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:825
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "최대 %s"
 
 #: libraries/config/FormDisplay.tpl.php:223
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -7651,7 +7638,7 @@ msgstr ""
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "하드웨어 인증 실패"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
@@ -13086,10 +13073,9 @@ msgid "Percentage of aborted connections"
 msgstr "연결 수"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "임시테이블 생성 허용."
+msgstr "너무 많은 연결이 종료되었습니다."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -13105,10 +13091,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Connections"
 msgid "Rate of aborted connections"
-msgstr "연결 수"
+msgstr "종료된 연결 비율"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
@@ -13122,10 +13107,9 @@ msgid "Percentage of aborted clients"
 msgstr "테이블 설명"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "임시테이블 생성 허용."
+msgstr "너무 많은 클라이언트가 종료되었습니다."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -13151,11 +13135,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB를 비활성화할까요?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
-msgstr ""
+msgstr "InnoDB가 활성화되지 않았습니다."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
@@ -13167,7 +13151,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
-msgstr ""
+msgstr "InnoDB 로그 크기"
 
 #: libraries/advisory_rules.txt:439
 msgid ""
@@ -13198,7 +13182,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "InnoDB 로그 최대크기"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
@@ -13225,7 +13209,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
-msgstr ""
+msgstr "InnoDB 버퍼풀 크기"
 
 #: libraries/advisory_rules.txt:453
 msgid "Your InnoDB buffer pool is fairly small."
@@ -13261,7 +13245,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
+msgstr "concurrent_insert를 1로 활성화합니다."
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -13272,7 +13256,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert가 0으로 설정되었습니다."
 
 #~ msgid "KiB sent since last refresh"
 #~ msgstr "KiB가 마지막 새로고침 이후로 전송되었습니다."
