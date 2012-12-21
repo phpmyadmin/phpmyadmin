@@ -31,8 +31,6 @@ AJAX.registerOnload('db_operations.js', function() {
 
     /**
      * Ajax event handlers for 'Rename Database'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $("#rename_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
@@ -87,8 +85,6 @@ AJAX.registerOnload('db_operations.js', function() {
 
     /**
      * Ajax Event Handler for 'Copy Database'
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $("#copy_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
@@ -117,8 +113,6 @@ AJAX.registerOnload('db_operations.js', function() {
 
     /**
      * Ajax Event handler for 'Change Charset' of the database
-     *
-     * @see     $cfg['AjaxEnable']
      */
     $("#change_db_charset_form.ajax").live('submit', function(event) {
         event.preventDefault();

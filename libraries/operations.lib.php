@@ -55,7 +55,7 @@ function PMA_getHtmlForRenameDatabase($db)
 {
     $html_output = '<div class="operations_half_width">'
         . '<form id="rename_db_form" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
+        . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
         . 'onsubmit="return emptyFormElements(this, \'newname\')">';
     if (isset($_REQUEST['db_collation'])) {
@@ -156,7 +156,7 @@ function PMA_getHtmlForCopyDatabase($db)
 
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form id="copy_db_form" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
+        . 'class="ajax" '
         . 'method="post" action="db_operations.php"'
         . 'onsubmit="return emptyFormElements(this, \'newname\')">';
 
@@ -227,9 +227,7 @@ function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 {
     $html_output = '<div class="operations_half_width">'
         . '<form id="change_db_charset_form" ';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $html_output .= ' class="ajax" ';
-    }
+    $html_output .= 'class="ajax" ';
     $html_output .= 'method="post" action="db_operations.php">';
 
     $html_output .= PMA_generate_common_hidden_inputs($db, $table);
@@ -988,7 +986,7 @@ function PMA_getHtmlForCopytable()
     $html_output .= '<form method="post" action="tbl_operations.php" '
         . 'name="copyTable" '
         . 'id="copyTable" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
+        . ' class="ajax" '
         . 'onsubmit="return emptyFormElements(this, \'new_name\')">'
         . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="reload" value="1" />';
@@ -1212,9 +1210,8 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 function PMA_getMaintainActionlink($action, $params, $url_params, $link,
     $chapter = 'MySQL_Database_Administration'
 ) {
-    $isAjax = ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     return '<li>'
-        . '<a class="maintain_action' . $isAjax . '" '
+        . '<a class="maintain_action ajax" '
         . 'href="sql.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action
@@ -1274,10 +1271,9 @@ function PMA_getHtmlForDeleteDataOrTable(
  */
 function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
 {
-    $isAjax = $GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '';
     return  '<li><a '
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
-        . ' id="' . $id . '"' . $isAjax . '>'
+        . ' id="' . $id . '" class="ajax">'
         . $link . '</a>'
         . PMA_Util::showMySQLDocu(
             'SQL-Syntax', $syntax

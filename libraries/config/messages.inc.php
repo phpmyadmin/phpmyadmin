@@ -14,8 +14,6 @@ if (!function_exists('__')) {
     PMA_fatalError('Bad invocation!');
 }
 
-$strConfigAjaxEnable_desc = __('Improves efficiency of screen refresh');
-$strConfigAjaxEnable_name = __('Enable Ajax');
 $strConfigAllowArbitraryServer_desc = __('If enabled user can enter any MySQL server in login form for cookie auth');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowUserDropDatabase_name = __('Show &quot;Drop database&quot; link to normal users');

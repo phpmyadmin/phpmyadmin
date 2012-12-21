@@ -2222,8 +2222,6 @@ AJAX.registerTeardown('functions.js', function() {
 /**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
- *
- * @see $cfg['AjaxEnable']
  */
 AJAX.registerOnload('functions.js', function() {
     $("#drop_db_anchor.ajax").live('click', function(event) {
@@ -2307,7 +2305,6 @@ AJAX.registerOnload('functions.js', function() {
 
     /**
      * Attach Ajax event handler on the change password anchor
-     * @see $cfg['AjaxEnable']
      */
     $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
@@ -3291,8 +3288,6 @@ AJAX.registerTeardown('functions.js', function() {
 });
 /**
  * Attach Ajax event handlers for Drop Table.
- *
- * @see $cfg['AjaxEnable']
  */
 AJAX.registerOnload('functions.js', function() {
     $("#drop_tbl_anchor.ajax").live('click', function(event) {

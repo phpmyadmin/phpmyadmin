@@ -560,7 +560,7 @@ class PMA_DisplayResults
             . '" />'
             . $input_for_real_end
             . '<input type="submit" name="navig"'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' )
+            . ' class="ajax" '
             . 'value="' . $caption_output . '" ' . $title_output . $onclick . ' />'
             . '</form>'
             . '</td>';
@@ -899,7 +899,7 @@ class PMA_DisplayResults
             . '<input type="hidden" name="goto" value="' . $this->__get('goto')
             . '" />'
             . '<input type="submit" name="navig"'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
+            . ' class="ajax"'
             . ' value="' . __('Show') . ' :" />'
             . __('Start row') . ': ' . "\n"
             . '<input type="text" name="pos" size="3" value="'
@@ -1561,9 +1561,7 @@ class PMA_DisplayResults
             . 'name="displayOptionsForm" '
             . 'id="displayOptionsForm"';
 
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $options_html .= ' class="ajax" ';
-        }
+        $options_html .= ' class="ajax" ';
 
         $options_html .= '>';
         $url_params = array(
@@ -1729,22 +1727,18 @@ class PMA_DisplayResults
             $form_html .= '<form method="post" action="tbl_row_action.php" '
                 . 'name="resultsForm" id="resultsForm"';
 
-            if ($GLOBALS['cfg']['AjaxEnable']) {
-                $form_html .= ' class="ajax" ';
-            }
+            $form_html .= ' class="ajax" ';
 
-            $form_html .= '>' . "\n"
+            $form_html .= '>'
                 . PMA_generate_common_hidden_inputs(
                     $this->__get('db'), $this->__get('table'), 1
                 )
-                . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
+                . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
         $form_html .= '<table id="table_results" class="data';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $form_html .= ' ajax';
-        }
-        $form_html .= '">' . "\n";
+        $form_html .= ' ajax';
+        $form_html .= '">';
 
         return $form_html;
 
@@ -5345,7 +5339,7 @@ class PMA_DisplayResults
 
         if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
 
-            $ajax_class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
+            $ajax_class = ' ajax';
 
             $results_operations_html .= '<span>'
                 . PMA_Util::linkOrButton(

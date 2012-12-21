@@ -581,14 +581,10 @@ class PMA_Index
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
                 $r .= '<td class="edit_index';
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= ' ajax';
-                }
+                $r .= ' ajax';
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= 'ajax';
-                }
+                $r .= 'ajax';
                 $r .= '" href="tbl_indexes.php' . PMA_generate_common_url($this_params)
                    . '">' . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
@@ -621,9 +617,7 @@ class PMA_Index
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= ' ajax';
-                }
+                $r .= ' ajax';
                 $r .= '" href="sql.php' . PMA_generate_common_url($this_params)
                    . '" >'
                    . PMA_Util::getIcon('b_drop.png', __('Drop'))  . '</a>'

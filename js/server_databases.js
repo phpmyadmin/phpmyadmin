@@ -87,8 +87,6 @@ AJAX.registerOnload('server_databases.js', function() {
 
     /**
      * Attach Ajax event handlers for 'Create Database'.
-     *
-     * @see $cfg['AjaxEnable']
      */
     $('#create_database_form.ajax').live('submit', function(event) {
         event.preventDefault();

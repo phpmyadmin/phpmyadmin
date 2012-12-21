@@ -1069,7 +1069,7 @@ EOT;
 
         $html_output .= '<form method="post" action="' . $scriptName . '" '
             . 'name="insertForm" id="' . $formId . '" '
-            . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') . '>';
+            . 'class="ajax"' . '>';
 
         $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
@@ -1154,7 +1154,7 @@ EOT;
         $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+            . ' class="ajax"' . '>';
         $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html_output .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
