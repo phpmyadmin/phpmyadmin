@@ -396,8 +396,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     $response->addHTML('<br />');
     $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
     $response->addHTML(
-        '<div id="index_div" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >'
+        '<div id="index_div" class="ajax" >'
     );
 }
 

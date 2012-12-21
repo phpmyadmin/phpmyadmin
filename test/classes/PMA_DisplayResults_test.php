@@ -354,7 +354,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $caption, $title, $pos, $html_sql_query, $output
     ) {
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
-        $GLOBALS['cfg']['AjaxEnable'] = true;
         $_SESSION[' PMA_token '] = 'token';
 
         $this->assertEquals(
@@ -411,7 +410,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb, $output
     ) {
         $_SESSION['tmp_user_values']['max_rows'] = '20';
-        $GLOBALS['cfg']['AjaxEnable'] = true;
         $_SESSION['tmp_user_values']['pos'] = true;
         $GLOBALS['num_rows'] = '20';
         $GLOBALS['unlim_num_rows'] = '50';

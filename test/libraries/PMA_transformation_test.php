@@ -37,7 +37,6 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg'] = array(
             'MySQLManualType' => 'none',
-            'AjaxEnable' => true,
             'ServerDefault' => 1,
             'PropertiesIconic' => true,
         );

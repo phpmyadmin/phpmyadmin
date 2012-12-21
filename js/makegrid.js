@@ -367,7 +367,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Send column preferences (column order and visibility) to the server.
          */
         sendColPrefs: function() {
-            if ($(g.t).is('.ajax')) {   // only send preferences if AjaxEnable is true
+            if ($(g.t).is('.ajax')) {   // only send preferences if ajax class 
                 var post_params = {
                     ajax_request: true,
                     db: g.db,
@@ -1801,7 +1801,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         g.initColVisib();
     }
     if (enableGridEdit &&
-        $(t).is('.ajax'))   // make sure AjaxEnable is enabled in Settings
+        $(t).is('.ajax'))   // make sure we have the ajax class
     {
         g.initGridEdit();
     }

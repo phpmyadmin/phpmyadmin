@@ -32,7 +32,7 @@ foreach ($drops as $each_drop) {
 }
 unset($drops, $each_drop);
 
-// If we have a valid a valid target, lets load that script instead
+// If we have a valid a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
@@ -135,11 +135,7 @@ if ($server > 0
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             if ($cfg['ShowChgPassword']) {
-                if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $conditional_class = 'ajax';
-                } else {
-                    $conditional_class = null;
-                }
+                $conditional_class = 'ajax';
                 PMA_printListItem(
                     __('Change password'),
                     'li_change_password',

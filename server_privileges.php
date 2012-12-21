@@ -51,11 +51,7 @@ foreach (array_keys($_POST) as $post_key) {
 
 require 'libraries/server_common.inc.php';
 
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $conditional_class = 'ajax';
-} else {
-    $conditional_class = '';
-}
+$conditional_class = 'ajax';
 
 /**
  * Messages are built using the message name

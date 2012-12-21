@@ -30,10 +30,7 @@ function PMA_getHtmlForChangePassword($username, $hostname) {
     $html = '<form method="post" id="change_password_form" '
         . 'action="' . $GLOBALS['PMA_PHP_SELF'] . '" '
         . 'name="chgPassword" ' 
-        . ($GLOBALS['cfg']['AjaxEnable'] 
-            ? 'class="ajax" ' 
-            : '')
-        . '>';
+        . 'class="ajax" >';
 
     $html .= PMA_generate_common_hidden_inputs();
 
