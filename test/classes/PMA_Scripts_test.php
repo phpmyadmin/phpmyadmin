@@ -10,6 +10,8 @@
  */
 
 require_once 'libraries/Scripts.class.php';
+require_once 'libraries/js_escape.lib.php';
+
 
 class PMA_Scripts_test extends PHPUnit_Framework_TestCase
 {
@@ -28,6 +30,9 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Scripts();
+        if (! defined('PMA_USR_BROWSER_AGENT')) {
+            define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
+        }
     }
 
     /**
@@ -61,59 +66,28 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _includeFile
      *
-     * @param tring  $url            Location of javascript, relative to js/ folder.
-     * @param int    $timestamp      The date when the file was last modified
-     * @param string $ie_conditional true - wrap with IE conditional comment
-     *                               'lt 9' etc. - wrap for specific IE version
-     * @param string $output         output from the _includeFile method
+     * @param array  $files  A list of files to include
+     * @param string $output output from the _includeFile method
      *
      * @return void
-     *
-     * @dataProvider providerForTestIncludeFile
      */
-    public function testIncludeFile($url, $timestamp, $ie_conditional, $output)
+    public function testIncludeFile()
     {
         $this->assertEquals(
-            $output,
+            '<script type=\'text/javascript\' src=\'js/get_scripts.js.php?scripts[]=common.js\'></script>',
             $this->_callPrivateFunction(
-                '_includeFile',
-                array($url, $timestamp, $ie_conditional)
+                '_includeFiles',
+                array(
+                    array(
+                        array(
+                            'has_onload' => false,
+                            'filename' => 'common.js',
+                            'conditional_ie' => false
+                        )
+                    )
+                )
             )
         );
-    }
-
-    /**
-     * @return array data for testIncludeFile
-     */
-    public function providerForTestIncludeFile()
-    {
-                return array(
-                    array(
-                        'common.js',
-                        null,
-                        true,
-                        '<!--[if IE]>
-    <script src="common.js" type="text/javascript"></script>
-<![endif]-->
-'
-                    ),
-                    array(
-                        'common.js',
-                        null,
-                        7,
-                        '<!--[if IE 7]>
-    <script src="common.js" type="text/javascript"></script>
-<![endif]-->
-'
-                    ),
-                    array(
-                        'common.js',
-                        null,
-                        false,
-                        '<script src="common.js" type="text/javascript"></script>
-'
-                    )
-                );
     }
 
     /**
@@ -128,8 +102,7 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->object->addEvent('onClick', 'doSomething');
 
         $this->assertRegExp(
-            '@<script src="js/common.js\\?ts=[0-9]*" type="text/javascript"></script>
-<script type="text/javascript">// <!\\[CDATA\\[
+            '@<script type=\'text/javascript\' src=\'js/get_scripts.js.php\\?scripts\\[\\]=common.js\'></script><script type="text/javascript">// <!\\[CDATA\\[
 AJAX.scriptHandler.add\\("common.js",1\\);
 \\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);
 \\$\\(window\\).bind\\(\'onClick\', doSomething\\);
