@@ -61,10 +61,8 @@ if (PMA_isValid($tbl_group)) {
     $tbl_group_sql = '';
 }
 
-if ($cfg['ShowTooltip']) {
-    $tooltip_truename = array();
-    $tooltip_aliasname = array();
-}
+$tooltip_truename = array();
+$tooltip_aliasname = array();
 
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if (true === $cfg['SkipLockedTables']) {
