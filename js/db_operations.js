@@ -40,18 +40,6 @@ AJAX.registerOnload('db_operations.js', function() {
         var question = escapeHtml('CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + PMA_commonParams.get('db'));
 
         PMA_prepareForAjaxRequest($form);
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var button_options = {};
-        button_options[PMA_messages['strYes']] = function() {
-            $(this).dialog("close").remove();
-            PMA_commonActions.refreshMain();
-            PMA_reloadNavigation();
-        };
-        button_options[PMA_messages['strNo']] = function() {
-            $(this).dialog("close").remove();
-        }
 
         $form.PMA_confirm(question, $form.attr('action'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases'], false);
@@ -60,22 +48,21 @@ AJAX.registerOnload('db_operations.js', function() {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
 
-                    $("#page_content")
-                    .find('#result_query')
-                    .remove();
-                    $("#page_content")
-                    .prepend(data.sql_query);
-
-                    //Remove the empty notice div generated due to a NULL query passed to PMA_Util::getMessage()
-                    var $notice_class = $('#result_query').find('.notice');
-                    if ($notice_class.text() == '') {
-                        $notice_class.remove();
-                    }
-
-                    $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
-                        buttons: button_options,
-                        modal: true
-                    }) //end dialog options
+                    PMA_reloadNavigation();
+                    // without this timeout, when looking in the navigation
+                    // tree for the new db name, I only find the old name
+                    setTimeout(function() {
+                        $('#pma_navigation_tree')
+                            .find("a:not('.expander')")
+                            .each(function(index) {
+                                var $thisAnchor = $(this);
+                                if ($thisAnchor.text() == data.newname) {
+                                    // simulate a click on the new db name
+                                    // in navigation
+                                    $thisAnchor.trigger('click');
+                                }
+                            });
+                    }, 500);
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
