@@ -220,9 +220,10 @@ $(function() {
 /**
  * Reloads the whole navigation tree while preserving its state
  *
+ * @param  function     the callback function 
  * @return void
  */
-function PMA_reloadNavigation() {
+function PMA_reloadNavigation(callback) {
     var $throbber = $('#pma_navigation .throbber')
         .first()
         .css('visibility', 'visible');
@@ -230,7 +231,7 @@ function PMA_reloadNavigation() {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
     };
-    // Trasverse the navigation tree backwards to generate all the actual
+    // Traverse the navigation tree backwards to generate all the actual
     // and virtual paths, as well as the positions in the pagination at
     // various levels, if necessary.
     var count = 0;
@@ -271,6 +272,10 @@ function PMA_reloadNavigation() {
         $throbber.css('visibility', 'hidden');
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
+            // Fire the callback, if any
+            if (typeof callback === 'function') {
+                callback.call();
+            }
         } else {
             PMA_ajaxShowMessage(data.error);
         }
