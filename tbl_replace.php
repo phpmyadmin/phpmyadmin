@@ -352,32 +352,9 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $column_value = $_REQUEST['fields']['multi_edit'][0][0];
     $column_meta_data = PMA_DBI_get_columns($db, $table, $column_name);
     
-    if (stripos($column_meta_data['Type'], 'smallint') !== false) {
-        
-        $extra_data['isTruncatableField'] = true;
-        $extra_data['hasUniqueIdentifier'] = hasPrimaryKeyOrUniqueKey($db, $table)
-            ? true
-            : false;
-        
-        // If table has unique identifier (primary/unique key), fetch the value
-        // of the field. (Yes, can be just round and return, but better need to
-        // retrieve the value really saved in the database when it is possible)
-        if ($extra_data['hasUniqueIdentifier']) {
-            
-            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.' . PMA_Util::backquote($column_name)
-                . ' FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
-                . ' WHERE ' . $_REQUEST['where_clause'][0];
-            
-            $extra_data['truncatableFieldValue'] = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
-                ? PMA_DBI_fetch_value($sql_for_real_value)
-                : round($column_value);
-            
-        } else {
-            $extra_data['truncatableFieldValue'] = round($column_value);
-        }
-        
-    }
-    
+    PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        $db, $table, $column_name, $column_value, $column_meta_data, $extra_data
+    );
     
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords(

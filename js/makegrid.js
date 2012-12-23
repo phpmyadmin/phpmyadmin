@@ -1230,7 +1230,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         if (data.success == true) {
                             PMA_ajaxShowMessage(data.message);
                             
-                            // Generate new where clause again if the field
+                            // Generate new where clause again if the column
                             // can be truncated by MySQL and table does not have
                             // primary/unique key
                             if (data.isTruncatableField && !data.hasUniqueIdentifier) {

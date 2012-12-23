@@ -2337,7 +2337,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
  *
  * @return boolean
  */
-function hasPrimaryKeyOrUniqueKey($db, $table) {
+function PMA_hasPrimaryKeyOrUniqueKey($db, $table) {
     
     $table_indexes = PMA_DBI_get_table_indexes($db, $table);
     
@@ -2348,6 +2348,49 @@ function hasPrimaryKeyOrUniqueKey($db, $table) {
     }
     
     return false;
+    
+}
+
+/**
+ * Check whether inline edited value can be truncated or not,
+ * and add additional parameters for extra_data array  if needed
+ *
+ * @param string $db               Database name
+ * @param string $table            Table name
+ * @param string $column_name      Column name
+ * @param string $column_value     Edited column value
+ * @param array  $column_meta_data Column meta data
+ * @param array  &$extra_data      Extra data for ajax response
+ */
+function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+    $db, $table, $column_name, $column_value, $column_meta_data, &$extra_data
+) {
+    
+    if (stripos($column_meta_data['Type'], 'smallint') !== false) {
+        
+        $extra_data['isTruncatableField'] = true;
+        $extra_data['hasUniqueIdentifier'] = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
+            ? true
+            : false;
+        
+        // If table has unique identifier (primary/unique key), fetch the value
+        // of the field. (Yes, can be just round and return, but better need to
+        // retrieve the value really saved in the database when it is possible)
+        if ($extra_data['hasUniqueIdentifier']) {
+            
+            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.' . PMA_Util::backquote($column_name)
+                . ' FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
+                . ' WHERE ' . $_REQUEST['where_clause'][0];
+            
+            $extra_data['truncatableFieldValue'] = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
+                ? PMA_DBI_fetch_value($sql_for_real_value)
+                : round($column_value);
+            
+        } else {
+            $extra_data['truncatableFieldValue'] = round($column_value);
+        }
+        
+    }
     
 }
 
