@@ -420,27 +420,4 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
 require '' . PMA_securePath($goto_include);
 exit;
 
-
-/**
- * Check whether particular table has primary key or unique key
- *
- * @param string $db    Database name
- * @param string $table Table name
- *
- * @return boolean
- */
-function hasPrimaryKeyOrUniqueKey($db, $table) {
-    
-    $table_indexes = PMA_DBI_get_table_indexes($db, $table);
-    
-    foreach ($table_indexes as $index) {
-        if (($index['Key_name'] == 'PRIMARY') || ($index['Non_unique'] == '0')) {
-            return true;
-        }
-    }
-    
-    return false;
-    
-}
-
 ?>

@@ -2329,4 +2329,26 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     return $current_value;
 }
 
+/**
+ * Check whether particular table has primary key or unique key
+ *
+ * @param string $db    Database name
+ * @param string $table Table name
+ *
+ * @return boolean
+ */
+function hasPrimaryKeyOrUniqueKey($db, $table) {
+    
+    $table_indexes = PMA_DBI_get_table_indexes($db, $table);
+    
+    foreach ($table_indexes as $index) {
+        if (($index['Key_name'] == 'PRIMARY') || ($index['Non_unique'] == '0')) {
+            return true;
+        }
+    }
+    
+    return false;
+    
+}
+
 ?>
