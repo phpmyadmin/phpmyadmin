@@ -127,7 +127,6 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
         $each_table, $newsearchsqls, $odd_row, $output
     ) {
 
-        $GLOBALS['cfg']['AjaxEnable'] = true;
         $this->assertEquals(
             $output,
             $this->_callProtectedFunction(
@@ -155,7 +154,7 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
                     'delete' => 'column2'
                 ),
                 true,
-                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong></td><td><a name="browse_search" href="sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" onclick="loadResult(\'sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\',\'1\');return false;" >Browse</a></td><td><a name="delete_search" href="sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token" onclick="deleteResult(\'sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token\' , \'Delete the matches for the table1 table?\',\'1\');return false;">Delete</a></td></tr>'
+                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong></td><td><a name="browse_search" href="sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" onclick="loadResult(\'sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');return false;" >Browse</a></td><td><a name="delete_search" href="sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token" onclick="deleteResult(\'sql.php?db=pma&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;lang=en&amp;token=token\' , \'Delete the matches for the table1 table?\');return false;">Delete</a></td></tr>'
             )
         );
     }

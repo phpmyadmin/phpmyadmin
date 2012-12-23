@@ -340,8 +340,8 @@ class PMA_DbSearch
             $html_output .= '<td><a name="browse_search" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\',\''
-                . ($GLOBALS['cfg']['AjaxEnable']) .'\');return false;" >'
+                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\''
+                . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
@@ -352,7 +352,7 @@ class PMA_DbSearch
                     __('Delete the matches for the %s table?'),
                     htmlspecialchars($each_table)
                 )
-                . '\',\'' . ($GLOBALS['cfg']['AjaxEnable']) . '\');return false;">'
+                . '\');return false;">'
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'
@@ -373,7 +373,7 @@ class PMA_DbSearch
     {
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
+            . ' class="ajax"'
             . ' method="post" action="db_search.php" name="db_search">';
         $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db']);
         $html_output .= '<fieldset>';

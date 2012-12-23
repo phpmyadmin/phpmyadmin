@@ -991,7 +991,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // At least one row is returned -> displays a table with results
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
-    if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
+    if ($GLOBALS['grid_edit'] == true) {
         $row = PMA_DBI_fetch_row($result);
         $response = PMA_Response::getInstance();
         $response->addJSON('value', $row[0]);
@@ -1107,7 +1107,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         unset($message);
 
-        if (! $GLOBALS['is_ajax_request'] || ! $GLOBALS['cfg']['AjaxEnable']) {
+        if (! $GLOBALS['is_ajax_request']) {
             if (strlen($table)) {
                 include 'libraries/tbl_common.inc.php';
                 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
@@ -1137,9 +1137,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     //begin the sqlqueryresults div here. container div
     echo '<div id="sqlqueryresults"';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        echo ' class="ajax"';
-    }
+    echo ' class="ajax"';
     echo '>';
 
     // Display previous update query (from tbl_replace)

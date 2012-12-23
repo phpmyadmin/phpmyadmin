@@ -93,9 +93,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         <?php
     } else {
         echo '<form method="post" action="import.php" ' . $enctype;
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            echo ' class="ajax"';
-        }
+        echo ' class="ajax"';
         echo ' id="sqlqueryform" name="sqlform">' . "\n";
     }
 

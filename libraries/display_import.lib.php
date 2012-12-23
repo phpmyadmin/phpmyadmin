@@ -165,9 +165,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
     echo ' target="import_upload_iframe"';
 }
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    echo ' class="ajax"';
-}
+echo ' class="ajax"';
 ?>>
     <input type="hidden" name="<?php
         echo $_SESSION[$SESSION_KEY]["handler"]::getIdKey();

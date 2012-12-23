@@ -729,7 +729,7 @@ $html .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
 
 $html .= '<form method="post" action="' . $action  . '" class="'
     . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
-    . '_form' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '') . '">';
+    . '_form ajax">';
 
 $html .= PMA_generate_common_hidden_inputs($_form_params);
 unset($_form_params);

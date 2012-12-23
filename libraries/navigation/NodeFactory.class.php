@@ -34,6 +34,7 @@ class PMA_NodeFactory
     private static function _sanitizeClass($class)
     {
         if ($class !== 'Node' && ! preg_match('@^Node_\w+(_\w+)?$@', $class)) {
+            $class = 'Node';
             trigger_error(
                 sprintf(
                     /* l10n: The word "Node" must not be translated here */
@@ -42,7 +43,6 @@ class PMA_NodeFactory
                 ),
                 E_USER_ERROR
             );
-            $class = 'Node';
         }
         return self::_checkFile($class);
     }
@@ -59,6 +59,7 @@ class PMA_NodeFactory
     {
         $path = sprintf(self::$_path, $class);
         if (! is_readable($path)) {
+            $class = 'Node';
             trigger_error(
                 sprintf(
                     __('Could not include class "%1$s", file "%2$s" not found'),
@@ -67,7 +68,6 @@ class PMA_NodeFactory
                 ),
                 E_USER_ERROR
             );
-            $class = 'Node';
         }
         return $class;
     }

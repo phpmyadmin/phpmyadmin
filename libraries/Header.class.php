@@ -152,7 +152,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
-        $this->_scripts->addFile('jquery/jquery.event.drag-2.0.js');
+        $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
         $this->_scripts->addFile('jquery/timepicker.js');
         $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');

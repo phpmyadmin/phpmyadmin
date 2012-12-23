@@ -2395,9 +2395,7 @@ class PMA_Util
         $pageNowPlusRange = ($pageNow + $range);
 
         $gotopage = $prompt . ' <select class="pageselector ';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $gotopage .= ' ajax';
-        }
+        $gotopage .= ' ajax';
 
         $gotopage .= '" name="' . $name . '" >';
         if ($nbTotalPage < $showAll) {

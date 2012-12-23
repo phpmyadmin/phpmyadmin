@@ -35,8 +35,6 @@ AJAX.registerTeardown('tbl_structure.js', function() {
 AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Change Column'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("a.change_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
@@ -55,8 +53,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
 
     /**
      * Attach Event Handler for 'Change multiple columns'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function(event) {
         event.preventDefault();
@@ -77,8 +73,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
 
     /**
      * Attach Event Handler for 'Drop Column'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("a.drop_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
@@ -135,8 +129,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
 
     /**
      * Ajax Event handler for 'Add Primary Key'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("a.add_primary_key_anchor.ajax").live('click', function(event) {
         event.preventDefault();
@@ -180,8 +172,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
 
     /**
      * Ajax Event handler for 'Drop Primary Key/Index'
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();

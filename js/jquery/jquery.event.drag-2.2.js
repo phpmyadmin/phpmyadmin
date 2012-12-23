@@ -1,11 +1,11 @@
 /*! 
- * jquery.event.drag - v 2.0.0 
+ * jquery.event.drag - v 2.2
  * Copyright (c) 2010 Three Dub Media - http://threedubmedia.com
  * Open Source MIT License - http://threedubmedia.com/code/license
  */
 // Created: 2008-06-04 
-// Updated: 2010-06-07
-// REQUIRES: jquery 1.4.2+
+// Updated: 2012-05-21
+// REQUIRES: jquery 1.7.x
 
 ;(function( $ ){
 
@@ -44,8 +44,8 @@ drag = $special.drag = {
 	// the key name for stored drag data
 	datakey: "dragdata",
 	
-	// the namespace for internal live events
-	livekey: "livedrag",
+	// prevent bubbling for better performance
+	noBubble: true,
 	
 	// count bound related events
 	add: function( obj ){ 
@@ -55,11 +55,6 @@ drag = $special.drag = {
 		opts = obj.data || {};
 		// count another realted event
 		data.related += 1;
-		// bind the live "draginit" delegator
-		if ( !data.live && obj.selector ){
-			data.live = true;
-			$event.add( this, "draginit."+ drag.livekey, drag.delegate );
-		}
 		// extend data options bound with this event
 		// don't iterate "opts" in case it is a node 
 		$.each( drag.defaults, function( key, def ){
@@ -83,7 +78,7 @@ drag = $special.drag = {
 		// store the interaction data
 		$.data( this, drag.datakey, data );
 		// bind the mousedown event, which starts drag interactions
-		$event.add( this, "mousedown", drag.init, data );
+		$event.add( this, "touchstart mousedown", drag.init, data );
 		// prevent image dragging in IE...
 		if ( this.attachEvent ) 
 			this.attachEvent("ondragstart", drag.dontstart ); 
@@ -91,15 +86,14 @@ drag = $special.drag = {
 	
 	// destroy configured interaction
 	teardown: function(){
+		var data = $.data( this, drag.datakey ) || {};
 		// check for related events
-		if ( $.data( this, drag.datakey ).related ) 
+		if ( data.related ) 
 			return;
 		// remove the stored data
 		$.removeData( this, drag.datakey );
 		// remove the mousedown event
-		$event.remove( this, "mousedown", drag.init );
-		// remove the "live" delegation
-		$event.remove( this, "draginit", drag.delegate );
+		$event.remove( this, "touchstart mousedown", drag.init );
 		// enable text selection
 		drag.textselect( true ); 
 		// un-prevent image dragging in IE...
@@ -108,11 +102,14 @@ drag = $special.drag = {
 	},
 		
 	// initialize the interaction
-	init: function( event ){
+	init: function( event ){ 
+		// sorry, only one touch at a time
+		if ( drag.touched ) 
+			return;
 		// the drag/drop interaction data
 		var dd = event.data, results;
 		// check the which directive
-		if ( dd.which > 0 && event.which != dd.which ) 
+		if ( event.which != 0 && dd.which > 0 && event.which != dd.which ) 
 			return; 
 		// check for suppressed selector
 		if ( $( event.target ).is( dd.not ) ) 
@@ -120,8 +117,10 @@ drag = $special.drag = {
 		// check for handle selector
 		if ( dd.handle && !$( event.target ).closest( dd.handle, event.currentTarget ).length ) 
 			return;
-		// store/reset some initial attributes
+
+		drag.touched = event.type == 'touchstart' ? this : null;
 		dd.propagates = 1;
+		dd.mousedown = this;
 		dd.interactions = [ drag.interaction( this, dd ) ];
 		dd.target = event.target;
 		dd.pageX = event.pageX;
@@ -149,27 +148,36 @@ drag = $special.drag = {
 		// disable text selection
 		drag.textselect( false ); 
 		// bind additional events...
-		$event.add( document, "mousemove mouseup", drag.handler, dd );
-		// helps prevent text selection
-		return false;
+		if ( drag.touched )
+			$event.add( drag.touched, "touchmove touchend", drag.handler, dd );
+		else 
+			$event.add( document, "mousemove mouseup", drag.handler, dd );
+		// helps prevent text selection or scrolling
+		if ( !drag.touched || dd.live )
+			return false;
 	},	
+	
 	// returns an interaction object
 	interaction: function( elem, dd ){
+		var offset = $( elem )[ dd.relative ? "position" : "offset" ]() || { top:0, left:0 };
 		return {
 			drag: elem, 
 			callback: new drag.callback(), 
 			droppable: [],
-			offset: $( elem )[ dd.relative ? "position" : "offset" ]() || { top:0, left:0 }
+			offset: offset
 		};
 	},
+	
 	// handle drag-releatd DOM events
 	handler: function( event ){ 
 		// read the data before hijacking anything
-		var dd = event.data;
+		var dd = event.data;	
 		// handle various events
 		switch ( event.type ){
 			// mousemove, check distance, start dragging
-			case !dd.dragging && 'mousemove': 
+			case !dd.dragging && 'touchmove': 
+				event.preventDefault();
+			case !dd.dragging && 'mousemove':
 				//  drag tolerance, x² + y² = distance²
 				if ( Math.pow(  event.pageX-dd.pageX, 2 ) + Math.pow(  event.pageY-dd.pageY, 2 ) < Math.pow( dd.distance, 2 ) ) 
 					break; // distance tolerance not reached
@@ -178,78 +186,49 @@ drag = $special.drag = {
 				if ( dd.propagates ) // "dragstart" not rejected
 					dd.dragging = true; // activate interaction
 			// mousemove, dragging
-			case 'mousemove': 
+			case 'touchmove':
+				event.preventDefault();
+			case 'mousemove':
 				if ( dd.dragging ){
 					// trigger "drag"		
 					drag.hijack( event, "drag", dd );
 					if ( dd.propagates ){
 						// manage drop events
 						if ( dd.drop !== false && $special.drop )
-							$special.drop.handler( event, dd ); // "dropstart", "dropend"
+							$special.drop.handler( event, dd ); // "dropstart", "dropend"							
 						break; // "drag" not rejected, stop		
 					}
 					event.type = "mouseup"; // helps "drop" handler behave
 				}
 			// mouseup, stop dragging
+			case 'touchend': 
 			case 'mouseup': 
-				$event.remove( document, "mousemove mouseup", drag.handler ); // remove page events
+			default:
+				if ( drag.touched )
+					$event.remove( drag.touched, "touchmove touchend", drag.handler ); // remove touch events
+				else 
+					$event.remove( document, "mousemove mouseup", drag.handler ); // remove page events	
 				if ( dd.dragging ){
-					if ( dd.drop !== false && $special.drop ) 
+					if ( dd.drop !== false && $special.drop )
 						$special.drop.handler( event, dd ); // "drop"
 					drag.hijack( event, "dragend", dd ); // trigger "dragend"	
-					}
-				drag.textselect( true ); // enable text selection
-				
-				// if suppressing click events...
-				if ( dd.click === false && dd.dragging ){
-					jQuery.event.triggered = true;
-					setTimeout(function(){
-						jQuery.event.triggered = false;
-					}, 20 );
-				dd.dragging = false; // deactivate element	
 				}
+				drag.textselect( true ); // enable text selection
+				// if suppressing click events...
+				if ( dd.click === false && dd.dragging )
+					$.data( dd.mousedown, "suppress.click", new Date().getTime() + 5 );
+				dd.dragging = drag.touched = false; // deactivate element	
 				break;
 		}
 	},
-	
-	// identify potential delegate elements
-	delegate: function( event ){
-		// local refs
-		var elems = [], target, 
-		// element event structure
-		events = $.data( this, "events" ) || {};
-		// query live events
-		$.each( events.live || [], function( i, obj ){
-			// no event type matches
-			if ( obj.preType.indexOf("drag") !== 0 )
-				return;
-			// locate the element to delegate
-			target = $( event.target ).closest( obj.selector, event.currentTarget )[0];
-			// no element found
-			if ( !target ) 
-				return;
-			// add an event handler
-			$event.add( target, obj.origType+'.'+drag.livekey, obj.origHandler, obj.data );
-			// remember new elements
-			if ( $.inArray( target, elems ) < 0 )
-				elems.push( target );		
-		});
-		// if there are no elements, break
-		if ( !elems.length ) 
-			return false;
-		// return the matched results, and clenup when complete		
-		return $( elems ).bind("dragend."+ drag.livekey, function(){
-			$event.remove( this, "."+ drag.livekey ); // cleanup delegation
-		});
-	},
-	
+		
 	// re-use event object for custom events
 	hijack: function( event, type, dd, x, elem ){
 		// not configured
 		if ( !dd ) 
 			return;
 		// remember the original event and type
-		var orig = { event:event.originalEvent, type: event.type },
+		var orig = { event:event.originalEvent, type:event.type },
 		// is the event drag related or drog related?
 		mode = type.indexOf("drop") ? "drag" : "drop",
 		// iteration vars
@@ -274,8 +253,10 @@ drag = $special.drag = {
 			$( elem || ia[ mode ] || dd.droppable ).each(function( p, subject ){
 				// identify drag or drop targets individually
 				callback.target = subject;
+				// force propagtion of the custom event
+				event.isPropagationStopped = function(){ return false; };
 				// handle the event	
-				result = subject ? $event.handle.call( subject, event, callback ) : null;
+				result = subject ? $event.dispatch.call( subject, event, callback ) : null;
 				// stop the drag interaction for this element
 				if ( result === false ){
 					if ( mode == "drag" ){
@@ -333,8 +314,8 @@ drag = $special.drag = {
 		obj.originalX = ia.offset.left;
 		obj.originalY = ia.offset.top;
 		// adjusted element position
-		obj.offsetX = event.pageX - ( dd.pageX - obj.originalX );
-		obj.offsetY = event.pageY - ( dd.pageY - obj.originalY );
+		obj.offsetX = obj.originalX + obj.deltaX; 
+		obj.offsetY = obj.originalY + obj.deltaY;
 		// assign the drop targets information
 		obj.drop = drag.flatten( ( ia.drop || [] ).slice() );
 		obj.available = drag.flatten( ( ia.droppable || [] ).slice() );
@@ -358,8 +339,9 @@ drag = $special.drag = {
 	// toggles text selection attributes ON (true) or OFF (false)
 	textselect: function( bool ){ 
 		$( document )[ bool ? "unbind" : "bind" ]("selectstart", drag.dontstart )
-			.attr("unselectable", bool ? "off" : "on" )
 			.css("MozUserSelect", bool ? "" : "none" );
+		// .attr("unselectable", bool ? "off" : "on" )
+		document.unselectable = bool ? "off" : "on"; 
 	},
 	
 	// suppress "selectstart" and "ondragstart" events
@@ -379,6 +361,38 @@ drag.callback.prototype = {
 			$.each( this.available, function( i ){
 				$special.drop.locate( this, i );
 			});
+	}
+};
+
+// patch $.event.$dispatch to allow suppressing clicks
+var $dispatch = $event.dispatch;
+$event.dispatch = function( event ){
+	if ( $.data( this, "suppress."+ event.type ) - new Date().getTime() > 0 ){
+		$.removeData( this, "suppress."+ event.type );
+		return;
+	}
+	return $dispatch.apply( this, arguments );
+};
+
+// event fix hooks for touch events...
+var touchHooks = 
+$event.fixHooks.touchstart = 
+$event.fixHooks.touchmove = 
+$event.fixHooks.touchend =
+$event.fixHooks.touchcancel = {
+	props: "clientX clientY pageX pageY screenX screenY".split( " " ),
+	filter: function( event, orig ) {
+		if ( orig ){
+			var touched = ( orig.touches && orig.touches[0] )
+				|| ( orig.changedTouches && orig.changedTouches[0] )
+				|| null; 
+			// iOS webkit: touchstart, touchmove, touchend
+			if ( touched ) 
+				$.each( touchHooks.props, function( i, prop ){
+					event[ prop ] = touched[ prop ];
+				});
+		}
+		return event;
 	}
 };
 

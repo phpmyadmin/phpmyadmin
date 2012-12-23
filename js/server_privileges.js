@@ -118,7 +118,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      *
      * @see         PMA_ajaxShowMessage()
      * @see         appendNewUser()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        add_user_click
      *
@@ -246,7 +245,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * Ajax event handler for 'Reload Privileges' anchor
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        reload_privileges_click
      */
@@ -269,7 +267,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * AJAX handler for 'Revoke User'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
@@ -326,7 +323,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * Step 1: Load Edit User Dialog
      * @memberOf    jQuery
      * @name        edit_user_click
-     * @see         $cfg['AjaxEnable']
      */
     $("a.edit_user_anchor.ajax").live('click', function(event) {
         /** @lends jQuery */
@@ -376,7 +372,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * Step 2: Submit the Edit User Dialog
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
@@ -461,7 +456,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * AJAX handler for 'Export Privileges'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        export_user_click
      */
@@ -570,7 +564,6 @@ AJAX.registerOnload('server_privileges.js', function() {
      * AJAX handler to Paginate the Users Table
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */

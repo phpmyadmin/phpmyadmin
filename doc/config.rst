@@ -993,16 +993,6 @@ Generic settings
     If you have only one server configured,
     :config:option:`$cfg['ServerDefault']` MUST be set to that server.
 
-.. config:option:: $cfg['AjaxEnable']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to refresh only parts of certain pages using Ajax
-    techniques. Applies only where a non-Ajax behavior is possible; for
-    example, the Designer feature is Ajax-only so this directive does not
-    apply to it.
-
 .. config:option:: $cfg['VersionCheck']
 
     :type: boolean

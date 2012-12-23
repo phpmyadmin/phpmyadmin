@@ -222,7 +222,6 @@ AJAX.registerOnload('sql.js', function() {
      * Ajax Event handler for 'SQL Query Submit'
      *
      * @see         PMA_ajaxShowMessage()
-     * @see         $cfg['AjaxEnable']
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
@@ -312,7 +311,6 @@ AJAX.registerOnload('sql.js', function() {
      * Paginate results with Page Selector dropdown
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
-     * @see         $cfg['AjaxEnable']
      */
     $("#pageselector").live('change', function(event) {
         var $form = $(this).parent("form");
@@ -323,7 +321,6 @@ AJAX.registerOnload('sql.js', function() {
      * Ajax Event handler for the display options
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
-     * @see         $cfg['AjaxEnable']
      */
     $("#displayOptionsForm.ajax").live('submit', function(event) {
         event.preventDefault();

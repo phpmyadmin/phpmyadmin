@@ -56,11 +56,8 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         . $truename . '</a>';
 
     if (!$db_is_information_schema) {
-        $empty_table = '<a class="truncate_table_anchor';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $empty_table .= ' ajax';
-        }
-        $empty_table .= '" href="sql.php?' . $tbl_url_query
+        $empty_table = '<a class="truncate_table_anchor ajax"';
+        $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
             'TRUNCATE ' . PMA_Util::backquote($current_table['TABLE_NAME'])
@@ -543,15 +540,13 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $html_output .= '<td class="center">' . $empty_table . '</td>';
     $html_output .= '<td class="center">';
     $html_output .= '<a ';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $html_output .= 'class="ajax drop_table_anchor';
-        if ($table_is_view || $current_table['ENGINE'] == null) {
-            // this class is used in db_structure.js to display the
-            // correct confirmation message
-            $html_output .= ' view';
-        }
-        $html_output .= '"';
+    $html_output .= 'class="ajax drop_table_anchor';
+    if ($table_is_view || $current_table['ENGINE'] == null) {
+        // this class is used in db_structure.js to display the
+        // correct confirmation message
+        $html_output .= ' view';
     }
+    $html_output .= '"';
     $html_output .= 'href="sql.php?' . $tbl_url_query
         . '&amp;reload=1&amp;purge=1&amp;sql_query='
         . urlencode($drop_query) . '&amp;message_to_show='
@@ -1316,16 +1311,14 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
-            . '<a class="change_column_anchor'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
-            . '" href="tbl_structure.php?' 
+            . '<a class="change_column_anchor ajax"'
+            . ' href="tbl_structure.php?' 
             . $url_query . '&amp;field=' . $field_encoded 
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
-            . '<a class="drop_column_anchor'
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
-            . '" href="sql.php?' . $url_query . '&amp;sql_query='
+            . '<a class="drop_column_anchor ajax"'
+            . ' href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($table)
                 . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'
@@ -1611,9 +1604,8 @@ function PMA_getHtmlForDisplayIndexes()
             '<input type="text" size="2" name="added_fields" value="1" />'
         );
     $html_output .= '<input type="hidden" name="create_index" value="1" />'
-        . '<input '
-        . 'class="add_index' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
-        . '" type="submit" value="' . __('Go') . '" />';
+        . '<input class="add_index ajax"'
+        . ' type="submit" value="' . __('Go') . '" />';
 
     $html_output .= '</form>'
         . '</fieldset>'

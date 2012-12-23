@@ -49,8 +49,6 @@ AJAX.registerOnload('tbl_select.js', function() {
 
     /**
      * Ajax event handler for Table Search
-     *
-     * (see $GLOBALS['cfg']['AjaxEnable'])
      */
     $("#tbl_search_form.ajax").live('submit', function(event) {
         var unaryFunctions = [

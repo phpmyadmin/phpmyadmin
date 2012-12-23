@@ -54,15 +54,13 @@ $ajax_class = array(
     'drop'   => '',
     'export' => ''
 );
-if ($GLOBALS['cfg']['AjaxEnable']) {
-    $ajax_class = array(
-        'add'    => 'class="ajax add_anchor"',
-        'edit'   => 'class="ajax edit_anchor"',
-        'exec'   => 'class="ajax exec_anchor"',
-        'drop'   => 'class="ajax drop_anchor"',
-        'export' => 'class="ajax export_anchor"'
-    );
-}
+$ajax_class = array(
+    'add'    => 'class="ajax add_anchor"',
+    'edit'   => 'class="ajax edit_anchor"',
+    'exec'   => 'class="ajax exec_anchor"',
+    'drop'   => 'class="ajax drop_anchor"',
+    'export' => 'class="ajax export_anchor"'
+);
 
 /**
  * Create labels for the list

@@ -322,7 +322,7 @@ if ($databases_count > 0) {
            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         echo PMA_Util::getButtonOrImage(
             '',
-            'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''),
+            'mult_submit' . ' ajax',
             'drop_selected_dbs',
             __('Drop'), 'b_deltbl.png'
         );
