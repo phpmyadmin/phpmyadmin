@@ -364,8 +364,8 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         // retrieve the value really saved in the database when it is possible)
         if ($extra_data['hasUniqueIdentifier']) {
             
-            $sql_for_real_value = 'SELECT '. PMA_backquote($table) . '.' . PMA_backquote($column_name)
-                . ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.' . PMA_Util::backquote($column_name)
+                . ' FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
                 . ' WHERE ' . $_REQUEST['where_clause'][0];
             
             $extra_data['truncatableFieldValue'] = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
