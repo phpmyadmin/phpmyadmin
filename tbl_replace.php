@@ -566,7 +566,40 @@ if ($GLOBALS['is_ajax_request'] == true) {
             }   // end of loop for each transformation cell
         }   // end of loop for each $mime_map
     }
-
+    
+    // Need to check the inline edited value can be truncated by MySQL
+    // without informing while saving
+    $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
+    $column_value = $_REQUEST['fields']['multi_edit'][0][0];
+    $column_meta_data = PMA_DBI_get_columns($db, $table, $column_name);
+    
+    if (stripos($column_meta_data['Type'], 'smallint') !== false) {
+        
+        $extra_data['isTruncatableField'] = true;
+        $extra_data['hasUniqueIdentifier'] = hasPrimaryKeyOrUniqueKey($db, $table)
+            ? true
+            : false;
+        
+        // If table has unique identifier (primary/unique key), fetch the value
+        // of the field. (Yes, can be just round and return, but better need to
+        // retrieve the value really saved in the database when it is possible)
+        if ($extra_data['hasUniqueIdentifier']) {
+            
+            $sql_for_real_value = 'SELECT '. PMA_backquote($table) . '.' . PMA_backquote($column_name)
+                . ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+                . ' WHERE ' . $_REQUEST['where_clause'][0];
+            
+            $extra_data['truncatableFieldValue'] = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
+                ? PMA_DBI_fetch_value($sql_for_real_value)
+                : round($column_value);
+            
+        } else {
+            $extra_data['truncatableFieldValue'] = round($column_value);
+        }
+        
+    }
+    
+    
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
     $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['display_query']);
@@ -604,4 +637,28 @@ require_once './libraries/header.inc.php';
  */
 require './' . PMA_securePath($goto_include);
 exit;
+
+
+/**
+ * Check whether particular table has primary key or unique key
+ *
+ * @param string $db    Database name
+ * @param string $table Table name
+ *
+ * @return boolean
+ */
+function hasPrimaryKeyOrUniqueKey($db, $table) {
+    
+    $table_indexes = PMA_DBI_get_table_indexes($db, $table);
+    
+    foreach ($table_indexes as $index) {
+        if (($index['Key_name'] == 'PRIMARY') || ($index['Non_unique'] == '0')) {
+            return true;
+        }
+    }
+    
+    return false;
+    
+}
+
 ?>
