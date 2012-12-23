@@ -48,10 +48,7 @@ AJAX.registerOnload('db_operations.js', function() {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
 
-                    PMA_reloadNavigation();
-                    // without this timeout, when looking in the navigation
-                    // tree for the new db name, I only find the old name
-                    setTimeout(function() {
+                    PMA_reloadNavigation(function() { 
                         $('#pma_navigation_tree')
                             .find("a:not('.expander')")
                             .each(function(index) {
@@ -62,7 +59,7 @@ AJAX.registerOnload('db_operations.js', function() {
                                     $thisAnchor.trigger('click');
                                 }
                             });
-                    }, 500);
+                    });
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
