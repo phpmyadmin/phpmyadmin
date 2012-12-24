@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-24 02:46+0200\n"
-"Last-Translator: Deokyun Yu <i@saintjr.com>\n"
+"PO-Revision-Date: 2012-12-24 09:13+0200\n"
+"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -777,9 +777,8 @@ msgid "Database client version"
 msgstr "데이터베이스 클라이언트 버전"
 
 #: index.php:280
-#, fuzzy
 msgid "PHP extension"
-msgstr "PHP 버전"
+msgstr "PHP 확장"
 
 #: index.php:294
 msgid "Show PHP information"
@@ -1859,11 +1858,11 @@ msgstr "선택/해제하려면 클릭하세요."
 
 #: js/messages.php:342
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "칼럼명을 복사하려면 더블클릭하세요"
 
 #: js/messages.php:343
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "칼럼보이기를 토글하려면<br />드롭다운 화살표를 클릭하세요"
 
 #: js/messages.php:345
 msgid ""
