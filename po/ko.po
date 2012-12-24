@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-24 02:11+0200\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
+"PO-Revision-Date: 2012-12-24 02:46+0200\n"
+"Last-Translator: Deokyun Yu <i@saintjr.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -443,7 +443,7 @@ msgstr "보기"
 
 #: db_qbe.php:322
 msgid "Criteria"
-msgstr "Criteria"
+msgstr "조건"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
@@ -886,7 +886,7 @@ msgstr "SRID"
 #: gis_data_editor.php:151 js/messages.php:326
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr "Geometry"
+msgstr "기하데이터"
 
 #: gis_data_editor.php:172 js/messages.php:322
 msgid "Point"
@@ -1891,8 +1891,9 @@ msgid "Click reset zoom link to come back to original state."
 msgstr "원래 상태로 돌아오려면 줌 다시 설정 링크를 클릭합니다."
 
 #: js/messages.php:308
+#, fuzzy
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "데이터 포인트(플롯 지점)를 클릭하면 행의 열람과 편집이 가능합니다."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1931,7 +1932,7 @@ msgstr "필드 추가하기"
 
 #: js/messages.php:337
 msgid "Select referenced key"
-msgstr ""
+msgstr "참고키 선택"
 
 #: js/messages.php:338
 msgid "Select Foreign Key"
@@ -1950,7 +1951,7 @@ msgstr "출력할 필드 선택"
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
-msgstr ""
+msgstr "레이아웃의 변경을 저장하지 않았습니다. 저장하지 않으면, 변경사항이 손실됩니다. 이대로 계속 하시겠습니까?"
 
 #: js/messages.php:344
 msgid "Add an option for column "
@@ -1964,7 +1965,7 @@ msgstr "편집을 취소하려면 ESC를 누르세요."
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
-msgstr ""
+msgstr "일부 데이터를 변경한 후 저장하지 않았습니다. 데이터를 저장하지 않고 페이지를 이동하기를 원합니까?"
 
 #: js/messages.php:349
 msgid "Drag to reorder"
@@ -1976,7 +1977,7 @@ msgstr "정렬하려면 클릭하세요."
 
 #: js/messages.php:351
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "선택/해제하려면 클릭하세요."
 
 #: js/messages.php:352
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
