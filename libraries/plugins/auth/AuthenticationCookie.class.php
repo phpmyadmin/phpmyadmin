@@ -77,7 +77,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $login_link = '<br /><br />[ ' .
                 sprintf(
-                    '<a href="%s" class="disableAjax">%s</a>', 
+                    '<a href="%s" class="ajax login-link">%s</a>', 
                     $GLOBALS['cfg']['PmaAbsoluteUri'], 
                     __('Log in')) .
                 ' ]';

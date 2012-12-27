@@ -3777,6 +3777,14 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
+ * When user gets an ajax session expiry message, we show a login link
+ */
+$('a.login-link').live('click', function(e) {
+    e.preventDefault();
+    window.location.reload(true);
+});
+
+/**
  * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
