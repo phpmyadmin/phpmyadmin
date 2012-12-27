@@ -4,8 +4,6 @@
  * This library is used with the server IP allow/deny host authentication
  * feature
  *
- * @todo Broken for IPv6
- *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -52,6 +50,31 @@ function PMA_getIp()
 
 
 /**
+ * Matches for IPv4 or IPv6 addresses
+ *
+ * @param string $testRange string of IP range to match
+ * @param string $ipToTest  string of IP to test against range
+ *
+ * @return boolean    whether the IP mask matches
+ *
+ * @access  public
+ */
+function PMA_ipMaskTest($testRange, $ipToTest)
+{
+    $result = true;
+
+    if (strpos($testRange, ':') > -1 || strpos($ipToTest, ':') > -1) {
+        // assume IPv6
+        $result = PMA_ipv6MaskTest($testRange, $ipToTest);
+    } else {
+        $result = PMA_ipv4MaskTest($testRange, $ipToTest);
+    }
+
+    return $result;
+} // end of the "PMA_ipMaskTest()" function
+
+
+/**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
  * Found on <http://www.php.net/manual/en/function.ip2long.php>
@@ -68,11 +91,11 @@ function PMA_getIp()
  * @param string $testRange string of IP range to match
  * @param string $ipToTest  string of IP to test against range
  *
- * @return boolean    always true
+ * @return boolean    whether the IP mask matches
  *
  * @access  public
  */
-function PMA_ipMaskTest($testRange, $ipToTest)
+function PMA_ipv4MaskTest($testRange, $ipToTest)
 {
     $result = true;
     $match = preg_match(
@@ -120,7 +143,106 @@ function PMA_ipMaskTest($testRange, $ipToTest)
     } //end if/else
 
     return $result;
-} // end of the "PMA_IPMaskTest()" function
+} // end of the "PMA_ipv4MaskTest()" function
+
+
+/**
+ * IPv6 matcher
+ * CIDR section taken from http://stackoverflow.com/a/10086404
+ * Modified for phpMyAdmin
+ *
+ * Matches:
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx         (exact)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]  (range, only at end of IP - no subnets)
+ * xxxx:xxxx:xxxx:xxxx/nn                          (CIDR)
+ *
+ * Does not match:
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]  (range, partial octets not supported)
+ *
+ * @param string $test_range  string of IP range to match
+ * @param string $ip_to_test  string of IP to test against range
+ *
+ * @return boolean    whether the IP mask matches
+ *
+ * @access  public
+ */
+function PMA_ipv6MaskTest($test_range, $ip_to_test)
+{
+    $result = true;
+    
+    // convert to lowercase for easier comparison
+    $test_range = strtolower($test_range);
+    $ip_to_test = strtolower($ip_to_test);
+
+    $is_cidr = strpos($test_range, '/') > -1;
+    $is_range = strpos($test_range, '[') > -1;
+    $is_single = ! $is_cidr && ! $is_range;
+
+    $ip_hex = bin2hex(inet_pton($ip_to_test));
+
+    if ($is_single) {
+        $range_hex = bin2hex(inet_pton($test_range));
+        $result = $ip_hex === $range_hex;
+    } elseif ($is_range) {
+        // what range do we operate on?
+        $range_match = array();
+        if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match)) {
+            $range_start = $range_match[1];
+            $range_end   = $range_match[2];
+
+            // get the first and last allowed IPs
+            $first_ip  = str_replace($range_match[0], $range_start, $test_range);
+            $first_hex = bin2hex(inet_pton($first_ip));
+            $last_ip   = str_replace($range_match[0], $range_end, $test_range);
+            $last_hex  = bin2hex(inet_pton($last_ip));
+
+            // check if the IP to test is within the range
+            $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
+        }
+    } elseif ($is_cidr) {
+        // Split in address and prefix length
+        list($first_ip, $subnet) = explode('/', $test_range);
+
+        // Parse the address into a binary string
+        $first_bin = inet_pton($first_ip);
+        $first_hex = bin2hex($first_bin);
+
+        // Overwriting first address string to make sure notation is optimal
+        $first_ip = inet_ntop($first_bin);
+
+        $flexbits = 128 - $subnet;
+
+        // Build the hexadecimal string of the last address
+        $last_hex = $first_hex;
+
+        $pos = 31;
+        while ($flexbits > 0) {
+          // Get the character at this position
+          $orig = substr($last_hex, $pos, 1);
+
+          // Convert it to an integer
+          $origval = hexdec($orig);
+
+          // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
+          $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+
+          // Convert it back to a hexadecimal character
+          $new = dechex($newval);
+
+          // And put that character back in the string
+          $last_hex = substr_replace($last_hex, $new, $pos, 1);
+
+          // We processed one nibble, move to previous position
+          $flexbits -= 4;
+          $pos -= 1;
+        }
+
+        // check if the IP to test is within the range
+        $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
+    }
+
+    return $result;
+} // end of the "PMA_ipv6MaskTest()" function
 
 
 /**

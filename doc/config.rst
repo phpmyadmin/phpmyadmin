@@ -862,18 +862,26 @@ Server connection settings
     from all'`` if your rule order is set to ``'allow,deny'`` or
     ``'explicit'``.
 
-    For the :term:`IP` matching
+    For the :term:`IP address` matching
     system, the following work: 
 
-    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP` address) 
-    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP` address range) 
+    * ``xxx.xxx.xxx.xxx`` (an exact :term:`IP address`) 
+    * ``xxx.xxx.xxx.[yyy-zzz]`` (an :term:`IP address` range) 
     * ``xxx.xxx.xxx.xxx/nn`` (CIDR, Classless Inter-Domain Routing type :term:`IP` addresses) 
 
     But the following does not work: 
 
     * ``xxx.xxx.xxx.xx[yyy-zzz]`` (partial :term:`IP` address range) 
 
-    Also IPv6 addresses are not supported.
+    For :term:`IPv6` addresses, the following work:
+
+    * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx`` (an exact :term:`IPv6` address)
+    * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]`` (an :term:`IPv6` address range)
+    * ``xxxx:xxxx:xxxx:xxxx/nn`` (CIDR, Classless Inter-Domain Routing type :term:`IPv6` addresses)
+
+    But the following does not work:
+
+    * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
 
