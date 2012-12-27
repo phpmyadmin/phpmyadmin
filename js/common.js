@@ -142,7 +142,10 @@ var PMA_commonActions = {
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
-        $('<a />', {href: url}).click();
+        $('<a />', {href: url})
+            .appendTo('body')
+            .click()
+            .remove();
         AJAX._callback = callback;
     }
 };
