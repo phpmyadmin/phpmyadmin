@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-24 09:13+0200\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
+"PO-Revision-Date: 2012-12-27 08:27+0200\n"
+"Last-Translator: seho yun <liba2000@naver.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1756,7 +1756,7 @@ msgstr "포인트에 마우스를 올리면 라벨이 표시됩니다."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "확대하려면 선택한 플롯을 클릭하세요."
+msgstr "확대하려면 마우스로 플롯의 한 영역을 선택하세요."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
