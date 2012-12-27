@@ -2159,10 +2159,8 @@ AJAX.registerOnload('functions.js', function() {
             $.post($form.attr('action'), $form.serialize(), function(data) {
                 if (data.success == true) {
                     PMA_commonParams.set('table', tbl);
-                    $('#page_content').replaceWith(
-                        "<div id='page_content'>" + data.message + "</div>"
-                    );
-                    $('html, body').animate({scrollTop: 0}, 'fast');
+                    // @toto: somehow show the generated sql query
+                    PMA_commonActions.refreshMain();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
