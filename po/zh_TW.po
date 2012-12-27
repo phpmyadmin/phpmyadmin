@@ -7580,7 +7580,7 @@ msgstr ""
 "tools/phpmyadmin-blowfish-secret-generator\" target=\"_blank\">參考資料</a>）"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:88
-msgid "Your session has expired. Please login again."
+msgid "Your session has expired. Please log in again."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:177
