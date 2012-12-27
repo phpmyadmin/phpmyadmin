@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-03 18:45+0200\n"
+"PO-Revision-Date: 2012-12-27 18:22+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/3-5/si/>\n"
 "Language: si\n"
@@ -8275,6 +8275,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය "
+"phpMyAdmin සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
 
 #: main.php:284
 msgid ""
@@ -8282,6 +8284,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"mbstring PHP දිගුව සොයාගැනීමට නොමැති අතර ඔබ බහු-බයිට අක්ෂර කට්ටලයක් භාවිතා "
+"කරයි. mbstring දිගුව නොමැති ව phpMyAdmin හට නිවැරදිව පෙළ බෙදීමට නොහැකි අතර "
+"මෙය බලාපොරොත්තු නොවන ප්‍රතිඵල ගෙන දිය හැක."
 
 #: main.php:292
 msgid ""
@@ -8290,16 +8295,23 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"ඔබගේ [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි "
+"සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය "
+"phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
 #: main.php:299
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"ලොගින් කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු "
+"අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් "
+"ඉකුත් විය හැක."
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "වින්‍යාස ගොනුවට දැන් රහස්‍ය වාක්‍ය ඛණ්ඩයක් (blowfish_secret) අවශ්‍යය."
 
 #: main.php:315
 msgid ""
@@ -8307,6 +8319,9 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් "
+"ඔබගේ phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ "
+"එය ඉවත් කල යුතුය."
 
 #: main.php:321
 #, php-format
@@ -8341,6 +8356,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් "
+"%sලියකියවිලි%s බලන්න."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -9356,7 +9373,7 @@ msgstr "තේරීම"
 
 #: server_status.php:605
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "ගනුදෙනු සම්බන්ධීකාරක"
 
 #: server_status.php:617
 #, fuzzy
