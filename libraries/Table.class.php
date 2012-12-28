@@ -556,7 +556,9 @@ class PMA_Table
                         }
                     }
                 }
-                PMA_Table::$cache[$db][$table]['ExactRows'] = $row_count;
+                if ($row_count) {
+                    PMA_Table::$cache[$db][$table]['ExactRows'] = $row_count;
+                }
             }
         }
 
