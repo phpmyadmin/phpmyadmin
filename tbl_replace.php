@@ -345,7 +345,17 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             }
         }   // end of loop for each $mime_map
     }
-
+    
+    // Need to check the inline edited value can be truncated by MySQL
+    // without informing while saving
+    $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
+    $column_value = $_REQUEST['fields']['multi_edit'][0][0];
+    $column_meta_data = PMA_DBI_get_columns($db, $table, $column_name);
+    
+    PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        $db, $table, $column_name, $column_value, $column_meta_data, $extra_data
+    );
+    
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords(
         $_REQUEST['db'], $_REQUEST['table']
@@ -386,4 +396,5 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
  */
 require '' . PMA_securePath($goto_include);
 exit;
+
 ?>
