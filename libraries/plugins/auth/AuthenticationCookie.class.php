@@ -74,7 +74,18 @@ class AuthenticationCookie extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         if ($response->isAjax()) {
             $response->isSuccess(false);
+
+            $login_link = '<br /><br />[ ' .
+                sprintf(
+                    '<a href="%s" class="ajax login-link">%s</a>', 
+                    $GLOBALS['cfg']['PmaAbsoluteUri'], 
+                    __('Log in')) .
+                ' ]';
+
             if (! empty($conn_error)) {
+
+                $conn_error .= $login_link;
+
                 $response->addJSON(
                     'message',
                     PMA_Message::error(
@@ -85,7 +96,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $response->addJSON(
                     'message',
                     PMA_Message::error(
-                        __('Your session has expired. Please login again.')
+                        __('Your session has expired. Please log in again.') .
+                        $login_link
                     )
                 );
             }

@@ -2159,10 +2159,8 @@ AJAX.registerOnload('functions.js', function() {
             $.post($form.attr('action'), $form.serialize(), function(data) {
                 if (data.success == true) {
                     PMA_commonParams.set('table', tbl);
-                    $('#page_content').replaceWith(
-                        "<div id='page_content'>" + data.message + "</div>"
-                    );
-                    $('html, body').animate({scrollTop: 0}, 'fast');
+                    // @todo: somehow show the generated sql query
+                    PMA_commonActions.refreshMain();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -2241,9 +2239,12 @@ AJAX.registerOnload('functions.js', function() {
                     //Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
                     PMA_commonParams.set('db', '');
-                    PMA_commonActions.refreshMain('index.php', function () {
-                        PMA_ajaxShowMessage(data.message);
-                    });
+                    PMA_commonActions.refreshMain(
+                        'server_databases.php',
+                        function () {
+                            PMA_ajaxShowMessage(data.message);
+                        }
+                    );
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -3774,6 +3775,14 @@ AJAX.registerOnload('functions.js', function () {
             $('#input_username').focus();
         }
     }
+});
+
+/**
+ * When user gets an ajax session expiry message, we show a login link
+ */
+$('a.login-link').live('click', function(e) {
+    e.preventDefault();
+    window.location.reload(true);
 });
 
 /**

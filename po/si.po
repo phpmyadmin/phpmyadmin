@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-03 18:45+0200\n"
+"PO-Revision-Date: 2012-12-27 18:39+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
-">\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -820,6 +820,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය "
+"phpMyAdmin සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
 
 #: index.php:408
 msgid ""
@@ -827,6 +829,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"mbstring PHP දිගුව සොයාගැනීමට නොමැති අතර ඔබ බහු-බයිට අක්ෂර කට්ටලයක් භාවිතා "
+"කරයි. mbstring දිගුව නොමැති ව phpMyAdmin හට නිවැරදිව පෙළ බෙදීමට නොහැකි අතර "
+"මෙය බලාපොරොත්තු නොවන ප්‍රතිඵල ගෙන දිය හැක."
 
 #: index.php:419
 msgid ""
@@ -835,16 +840,23 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"ඔබගේ [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි "
+"සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය "
+"phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
 #: index.php:431
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"ලොගින් කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු "
+"අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් "
+"ඉකුත් විය හැක."
 
 #: index.php:443
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "වින්‍යාස ගොනුවට දැන් රහස්‍ය වාක්‍ය ඛණ්ඩයක් (blowfish_secret) අවශ්‍යය."
 
 #: index.php:454
 msgid ""
@@ -852,6 +864,9 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් "
+"ඔබගේ phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ "
+"එය ඉවත් කල යුතුය."
 
 #: index.php:464
 #, php-format
@@ -877,6 +892,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් "
+"%sලියකියවිලි%s බලන්න."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:337
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -928,10 +945,10 @@ msgid "Edit Index"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
 #: js/messages.php:44 tbl_indexes.php:326 tbl_indexes.php:334
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "සුචියට ක්ෂේත්‍ර %d ක් එක් කරන්න"
+msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කරන්න"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1547,12 +1564,12 @@ msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇ
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "දෝෂ කේතය: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "දෝෂ පණිවුඩය: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1810,7 +1827,7 @@ msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් 
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "වස්තූන් %d ක් නිමැවිණි"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1851,18 +1868,20 @@ msgstr ""
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
+msgstr ""
+"අන්තර්ගත දත්ත මත ද්විත්ව-ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත "
+"වෙනස් කල හැක."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
+msgstr ""
+"අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල "
+"හැක."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1897,22 +1916,19 @@ msgid "More"
 msgstr "තවත්"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "සියල්ල පෙන්වන්න"
+msgstr "පැනලය පෙන්වන්න"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "සුචි සඟවන්න"
+msgstr "පැනලය සඟවන්න"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "තෝරාගත් භාවිත කරන්නා වරප්‍රසාද වගුවේ හමු නොවිණි."
+msgstr "ඔබ ඉල්ලු පිටුව ඉතිහාසයේ හමු නොවිණි, එය කල් ඉකුත් වී ඇතිවා විය හැකිය."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2714,7 +2730,7 @@ msgstr "නව phpMyAdmin කවුළුවක් විවෘත කරන්�
 
 #: libraries/Header.class.php:387
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "පිටුව මුලට යාමට මෙය මත ක්ලික් කරන්න"
 
 #: libraries/Header.class.php:593
 #: libraries/plugins/auth/AuthenticationCookie.class.php:255
@@ -3004,7 +3020,7 @@ msgstr "වගු"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "ගනුදෙනු සම්බන්ධීකාරක"
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
 msgid "Files"
@@ -3797,7 +3813,7 @@ msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් ව�
 
 #: libraries/common.inc.php:1042
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
 #: libraries/common.inc.php:1086
 msgid "GLOBALS overwrite attempt"
@@ -4565,16 +4581,14 @@ msgid "Databases display options"
 msgstr "දත්තගබඩා පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "යාත්‍රණ රාමුව"
+msgstr "යාත්‍රණ පැනලය"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "යාත්‍රණ රාමුවේ පෙනුම රිසි සේ සකසන්න"
+msgstr "යාත්‍රණ පැනලයේ පෙනුම රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4590,10 +4604,9 @@ msgid "Tables display options"
 msgstr "ගොනු පෙන්වුම් විකල්ප"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "ප්‍රධාන රාමුව"
+msgstr "ප්‍රධාන පැනලය"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4703,16 +4716,14 @@ msgid "Customize import defaults"
 msgstr "ආනයන පෙරනිමි රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "යාත්‍රණ රාමුව රිසි සේ සකසන්න"
+msgstr "යාත්‍රණ පැනලය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "ප්‍රධාන රාමුව රිසි සේ සකසන්න"
+msgstr "ප්‍රධාන පැනලය රිසි සේ සකසන්න"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
@@ -4979,10 +4990,9 @@ msgid "Users cannot set a higher value"
 msgstr "භාවිතා කරන්නන්ට වැඩි අගයක් සිටුවිය නොහැක"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "වගු ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු වගු ගණන"
+msgstr "දත්තගබඩා ලයිස්තුවේ උපරිම ලෙස පෙන්විය යුතු දත්තගබඩා ගණන"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
@@ -4991,11 +5001,11 @@ msgstr "උපරිම දත්තගබඩා"
 #: libraries/config/messages.inc.php:286
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr ""
+msgstr "යාත්‍රණ ගසෙහි එක පිටුවක පෙන්විය හැකි අයිතම ගණන"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "අත්තක උපරිම අයිතම ගණන"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5041,20 +5051,18 @@ msgid "Memory limit"
 msgstr "මතක සීමාව"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "වම්පස රාමුවේ ලාංඡනය පෙන්වන්න"
+msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:298
 msgid "Display logo"
 msgstr "ලාංඡනය පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "යාත්‍රණ රාමුවේ දැක්වෙන ලාංඡනය සබැඳිය යුතු URL"
+msgstr "යාත්‍රණ පැනලයේ දැක්වෙන ලාංඡනය සබැඳිය යුතු URL"
 
 #: libraries/config/messages.inc.php:300
 msgid "Logo link URL"
@@ -5073,10 +5081,9 @@ msgid "Logo link target"
 msgstr "ලාංඡනයේ සබැඳුම"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "සේවාදායක තේරීම වම්පස රාමුවේ ඉහල පෙන්වන්න"
+msgstr "සේවාදායක තේරීම යාත්‍රණ පැනලයේ ඉහල පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:304
 msgid "Display servers selection"
@@ -5087,38 +5094,35 @@ msgid "Target for quick access icon"
 msgstr "ක්ෂණික ප්‍රවේශය අයිකනය සඳහා ඉලක්කය"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
+msgstr ""
+"පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු අයිතම (වගු, දසුන්, නෛත්‍යක සහ "
+"සිද්ධි) ගණන."
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
+msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු අයිතම ගණන"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
 msgstr "දත්තගබඩා පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු දත්තගබඩා ගණන"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
-msgstr ""
-"සැහැල්ලු ප්‍රකාරය පමණි; දත්තගබඩා ලැයිස්තුව ගසක ආකාරයෙන් පෙන්වන්න (පහත සඳහන් වෙන්කරණය මත "
-"තීරණය වේ)"
+msgstr "යාත්‍රණ ගසෙහි අයිතම සමූහගත කරන්න (පහත සඳහන් වෙන්කරණය මත තීරණය වේ)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "ගසෙහි අයිතම සමූහගත කරන්න"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -7603,7 +7607,7 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත් විය!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:88
-msgid "Your session has expired. Please login again."
+msgid "Your session has expired. Please log in again."
 msgstr "ඔබගේ සැසිය කල් ඉකුත් වී ඇත. නැවත ඇතුළු වන්න."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:177

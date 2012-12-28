@@ -161,6 +161,13 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/IP_Address>
 
+    IPv6 
+      IPv6 (Internet Protocol version 6) is the latest revision of the 
+      Internet Protocol (:term:`IP`), designed to deal with the 
+      long-anticipated problem of its precedessor IPv4 running out of addresses.
+
+      .. seealso:: <http://www.wikipedia.org/wiki/IPv6>
+
     ISAPI 
       Internet Server Application Programming Interface is the API of Internet Information Services (IIS).	
 

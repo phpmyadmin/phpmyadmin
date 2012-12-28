@@ -81,8 +81,9 @@ var PMA_commonParams = (function () {
          */
         getUrlQuery: function () {
             return $.sprintf(
-                '?%s&db=%s&table=%s',
+                '?%s&server=%s&db=%s&table=%s',
                 this.get('common_query'),
+                encodeURIComponent(this.get('server')),
                 encodeURIComponent(this.get('db')),
                 encodeURIComponent(this.get('table'))
             );
@@ -141,7 +142,10 @@ var PMA_commonActions = {
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
-        $('<a />', {href: url}).click();
+        $('<a />', {href: url})
+            .appendTo('body')
+            .click()
+            .remove();
         AJAX._callback = callback;
     }
 };

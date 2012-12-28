@@ -7823,7 +7823,7 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "¡No se pudo utilizar Blowfish de la biblioteca mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:88
-msgid "Your session has expired. Please login again."
+msgid "Your session has expired. Please log in again."
 msgstr "Su sesión expiró. Inicie sesión nuevamente."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:177
