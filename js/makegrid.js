@@ -378,10 +378,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     table_create_time: g.tableCreateTime
                 };
                 if (g.colOrder.length > 0) {
-                    $.extend(post_params, { col_order: g.colOrder.toString() });
+                    $.extend(post_params, {col_order: g.colOrder.toString()});
                 }
                 if (g.colVisib.length > 0) {
-                    $.extend(post_params, { col_visib: g.colVisib.toString() });
+                    $.extend(post_params, {col_visib: g.colVisib.toString()});
                 }
                 $.post('sql.php', post_params, function(data) {
                     if (data.success != true) {
@@ -637,7 +637,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $this_field.addClass('null');
                     } else {
                         $this_field.removeClass('null');
-                        var new_html = $this_field.data('value');
+                        var new_html = data.isTruncatableField
+                            ? data.truncatableFieldValue
+                            : $this_field.data('value');
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
                                 new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
@@ -1227,6 +1229,32 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }
                         if (data.success == true) {
                             PMA_ajaxShowMessage(data.message);
+                            
+                            // Generate new where clause again if the column
+                            // can be truncated by MySQL and table does not have
+                            // primary/unique key
+                            if (data.isTruncatableField && !data.hasUniqueIdentifier) {
+                                
+                                var $toBeSavedColumn = $('.to_be_saved');
+                                var condition_array = jQuery.parseJSON($toBeSavedColumn.parent().find('.condition_array').val());
+                                var field_name = getFieldName($toBeSavedColumn);
+                                var field_str = '`' + g.table + '`.' + '`' + field_name + '`';
+                                condition_array[field_str] = ' =' + data.truncatableFieldValue;
+                                
+                                // save new_clause
+                                var new_clause = '';
+                                for (var field in condition_array) {
+                                    new_clause += field + ' ' + condition_array[field] + ' AND ';
+                                }
+                                new_clause = new_clause.substring(0, new_clause.length - 5); // remove the last AND
+                                new_clause = PMA_urlencode(new_clause);
+                                $toBeSavedColumn.parent().data('new_clause', new_clause);
+                                
+                                // save condition_array
+                                $toBeSavedColumn.parent().find('.condition_array').val(JSON.stringify(condition_array));
+                                
+                            }
+                            
                             // update where_clause related data in each edited row
                             $('td.to_be_saved').parents('tr').each(function() {
                                 var new_clause = $(this).data('new_clause');
