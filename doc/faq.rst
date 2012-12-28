@@ -1605,12 +1605,15 @@ stored a bookmark, it is related to the database you run the query on.
 You can now access a bookmark dropdown on each page, the query box
 appears on for that database.
 
-Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks.
-Just use the string ``/*[VARIABLE]*/`` anywhere in your query. Everything
-which is put into the *value* input box on the query box page will replace the
-string ``/*[VARIABLE]*/`` in your stored query. Just be aware of that you
-HAVE to create a valid query, otherwise your query won't be even able to be
-stored in the database. 
+You can also have, inside the query, a placeholder for a variable.
+This is done by inserting into the query a SQL comment between ``/*`` and 
+``*/``. Inside the comment, the special string ``[VARIABLE]`` is used. 
+Be aware that the whole query minus the SQL comment must be
+valid by itself, otherwise you won't be able to store it as a bookmark.
+
+When you execute the bookmark, everything typed into the *value* 
+input box on the query box page will replace the string ``/*[VARIABLE]*/`` in 
+your stored query.
 
 Also remember, that everything else inside the ``/*[VARIABLE]*/`` string for
 your query will remain the way it is, but will be stripped of the ``/**/``
