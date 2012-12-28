@@ -3312,7 +3312,7 @@ AJAX.registerOnload('functions.js', function() {
                     PMA_reloadNavigation();
                     PMA_commonParams.set('table', '');
                     PMA_commonActions.refreshMain(
-                        'db_structure.php',
+                        PMA_commonParams.get('opendb_url'),
                         function () {
                             PMA_ajaxShowMessage(data.message);
                         }
