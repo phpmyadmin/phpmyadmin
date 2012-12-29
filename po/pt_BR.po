@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-13 13:44+0200\n"
-"Last-Translator: Rogério Munhoz <mdarogerinho@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2012-12-29 21:06+0200\n"
+"Last-Translator: Vitor Gonçaves <vitorxlx22@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -12599,6 +12599,9 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Ative o registro de consultas lentas ajustando {log_slow_queries} para "
+"'LIGADO'. Isso ajudará a resolver problemas relacionados ao mau desempenho "
+"das consultas."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12652,6 +12655,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Você deve atualizar, uma vez que versões recentes do MySQL 5.1 têm "
+"desempenho aprimorado e as do MySQL 5.5 são ainda melhores."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -12714,7 +12719,7 @@ msgstr "Arquitetura MySQL"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL não foi compilado como um pacote de 64 bits."
 
 #: libraries/advisory_rules.txt:146
 msgid ""
@@ -12730,7 +12735,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:147
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Memória disponível nesta máquina: %s"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
@@ -12775,6 +12780,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Você está usando o cache do MySQL Query com um banco de dados de tráfego "
+"bastante elevado. Pode valer a pena considerando a possibilidade de usar <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\"> memcached "
+"</ a> em vez do cache de consultas do MySQL, especialmente se você tem "
+"vários slaves."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -12782,6 +12792,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"O cache de consulta é ativado eo servidor recebe consultas %d por segundo. "
+"Esta regra é acionado se há mais de 100 consultas por segundo."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
