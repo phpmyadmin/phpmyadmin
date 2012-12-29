@@ -386,13 +386,13 @@ MMCache but upgrading MMCache to version 2.3.21 solves the problem.
 
 .. _faq1_31:
 
-1.31 Does phpMyAdmin support php5?
-----------------------------------
+1.31 Does phpMyAdmin support PHP 5?
+-----------------------------------
 
 Yes.
 
-Since release 3.0 only PHP 5.2 and newer. For older PHP versions 2.9
-branch is still maintained.
+Since release 3.0 only PHP 5.2 and newer. For older PHP versions, use
+phpMyAdmin 2.11.x.
 
 .. _faq1_32:
 
