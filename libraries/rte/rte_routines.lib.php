@@ -770,7 +770,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         'item_comment'
     );
     foreach ($need_escape as $key => $index) {
-        $routine[$index] = htmlentities($routine[$index], ENT_QUOTES);
+        $routine[$index] = htmlentities($routine[$index], ENT_QUOTES, 'UTF-8');
     }
     for ($i=0; $i<$routine['item_num_params']; $i++) {
         $routine['item_param_name'][$i]   = htmlentities(
