@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-29 02:03+0200\n"
-"Last-Translator: Deokyun Yu <i@saintjr.com>\n"
+"PO-Revision-Date: 2012-12-30 04:00+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2278,11 +2278,12 @@ msgstr "하루당"
 #: libraries/Config.class.php:1050
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
 #: libraries/Config.class.php:1080
+#, fuzzy
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "환경설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다."
 
 #: libraries/Config.class.php:1656
 msgid "Font size"
@@ -2729,7 +2730,7 @@ msgstr "디스크 쓰기에 실패했습니다."
 
 #: libraries/File.class.php:294
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "확장프로그램 때문에 파일 업로드가 중지되었습니다."
 
 #: libraries/File.class.php:297
 msgid "Unknown error in file upload."
@@ -3051,9 +3052,8 @@ msgid "Transaction coordinator"
 msgstr ""
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
-#, fuzzy
 msgid "Files"
-msgstr "필드"
+msgstr "파일들"
 
 #: libraries/ServerStatusData.class.php:207
 msgid "Flush (close) all tables"
@@ -3273,7 +3273,7 @@ msgstr "리세트"
 #: libraries/Theme.class.php:170
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "%s 테마를 위한 정상적인 이미지 경로를 찾을 수 없습니다."
 
 #: libraries/Theme.class.php:459
 msgid "No preview available."
@@ -3296,7 +3296,7 @@ msgstr "%s 테마를 찾을 수 없습니다."
 #: libraries/Theme_Manager.class.php:271
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "%s 테마를 위한 테마 경로를 찾을 수 없습니다."
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
@@ -3688,7 +3688,7 @@ msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십
 
 #: libraries/Util.class.php:2850
 msgid "Click to toggle"
-msgstr ""
+msgstr "토글하려면 클릭"
 
 #: libraries/Util.class.php:3392 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
@@ -3725,7 +3725,7 @@ msgstr "인쇄"
 
 #: libraries/bookmark.lib.php:82
 msgid "shared"
-msgstr ""
+msgstr "공유"
 
 #: libraries/build_html_for_db.lib.php:36 libraries/config/setup.forms.php:301
 #: libraries/config/setup.forms.php:337 libraries/config/setup.forms.php:360
@@ -3833,11 +3833,11 @@ msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다."
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
 msgid "Both"
-msgstr ""
+msgstr "둘다"
 
 #: libraries/config.values.php:55
 msgid "Nowhere"
-msgstr ""
+msgstr "아무데도"
 
 #: libraries/config.values.php:56
 msgid "Left"
@@ -3866,10 +3866,9 @@ msgid "Open"
 msgstr "열기"
 
 #: libraries/config.values.php:102
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "따옴표(quote)가 닫히지 않았음"
+msgstr "닫기"
 
 #: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -3990,11 +3989,11 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL 유효화검증기가 비활성화되어 있습니다."
 
 #: libraries/config/FormDisplay.class.php:815
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "SOAP 확장을 찾을 수 없습니다."
 
 #: libraries/config/FormDisplay.class.php:825
 #, php-format
@@ -4008,16 +4007,16 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:311
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "설정된 값: %s"
 
 #: libraries/config/FormDisplay.tpl.php:316
 #: libraries/config/messages.inc.php:357
 msgid "Restore default value"
-msgstr ""
+msgstr "기본값으로 복원"
 
 #: libraries/config/FormDisplay.tpl.php:330
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "이 값을 사용자화하기 위한 사용자 허용"
 
 #: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
 #: libraries/schema/User_Schema.class.php:537 prefs_manage.php:320
@@ -7543,7 +7542,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "mcrypt에서 Blowfish를 사용하는데 실패하였습니다."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:88
 msgid "Your session has expired. Please log in again."
@@ -7556,7 +7555,7 @@ msgstr "로그인"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:185
 #: libraries/plugins/auth/AuthenticationCookie.class.php:195
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "호스트이름/IP주소와 포트를 공백으로 구분하여 입력할 수 있습니다."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:188
 msgid "Server:"
@@ -7598,15 +7597,14 @@ msgid "Wrong username/password. Access denied."
 msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
-#, fuzzy
 #| msgid "Authenticating…"
 msgid "Can not find signon authentication script:"
-msgstr "인증중입니다..."
+msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:134
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:176
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:196
@@ -7615,7 +7613,7 @@ msgstr "하드웨어 인증 실패"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:183
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "유효하지 않은 인증키가 입력되었습니다."
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Authenticating…"
@@ -8346,7 +8344,7 @@ msgstr "아무데서나"
 #: libraries/replication_gui.lib.php:330
 #: libraries/server_privileges.lib.php:1151
 msgid "Local"
-msgstr "Local"
+msgstr "로컬"
 
 #: libraries/replication_gui.lib.php:336
 #: libraries/server_privileges.lib.php:1160
@@ -10168,15 +10166,15 @@ msgstr ""
 
 #: server_binlog.php:184
 msgid "Log name"
-msgstr ""
+msgstr "로그 이름"
 
 #: server_binlog.php:185
 msgid "Position"
-msgstr ""
+msgstr "위치"
 
 #: server_binlog.php:188
 msgid "Original position"
-msgstr ""
+msgstr "원본 위치"
 
 #: server_collations.php:24
 msgid "Character Sets and Collations"
