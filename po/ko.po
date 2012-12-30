@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-29 02:03+0200\n"
-"Last-Translator: Deokyun Yu <i@saintjr.com>\n"
+"PO-Revision-Date: 2012-12-30 04:00+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2322,11 +2322,12 @@ msgstr "phpMyAdmin을 사용하기전에 \"./config\" 디렉토리를 삭제하�
 #: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
 #: libraries/Config.class.php:753
+#, fuzzy
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "환경설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다."
 
 #: libraries/Config.class.php:1304
 msgid "Font size"
@@ -2371,7 +2372,7 @@ msgstr "디스크 쓰기에 실패했습니다."
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "확장프로그램 때문에 파일 업로드가 중지되었습니다."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
@@ -2549,7 +2550,7 @@ msgstr ""
 #: libraries/Theme.class.php:145
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "%s 테마를 위한 정상적인 이미지 경로를 찾을 수 없습니다."
 
 #: libraries/Theme.class.php:352
 msgid "No preview available."
@@ -2572,7 +2573,7 @@ msgstr "%s 테마를 찾을 수 없습니다."
 #: libraries/Theme_Manager.class.php:217
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "%s 테마를 위한 테마 경로를 찾을 수 없습니다."
 
 #: libraries/Theme_Manager.class.php:296 themes.php:20 themes.php:27
 msgid "Theme"
@@ -2607,7 +2608,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "mcrypt에서 Blowfish를 사용하는데 실패하였습니다."
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -2624,7 +2625,7 @@ msgstr "phpMyAdmin 설명서"
 #: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
+msgstr "호스트이름/IP주소와 포트를 공백으로 구분하여 입력할 수 있습니다."
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
@@ -2670,15 +2671,14 @@ msgid "Wrong username/password. Access denied."
 msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다."
 
 #: libraries/auth/signon.auth.lib.php:88
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Can not find signon authentication script:"
-msgstr "인증중입니다..."
+msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:116
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:156
 #: libraries/auth/swekey/swekey.auth.lib.php:176
@@ -2687,7 +2687,7 @@ msgstr "하드웨어 인증 실패"
 
 #: libraries/auth/swekey/swekey.auth.lib.php:163
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "유효하지 않은 인증키가 입력되었습니다."
 
 #: libraries/auth/swekey/swekey.auth.lib.php:195
 msgid "Authenticating..."
@@ -2732,7 +2732,7 @@ msgstr "파일을 열 수 없습니다: %s"
 
 #: libraries/bookmark.lib.php:73
 msgid "shared"
-msgstr ""
+msgstr "공유"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
@@ -2976,7 +2976,7 @@ msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십
 
 #: libraries/common.lib.php:2749
 msgid "Click to toggle"
-msgstr ""
+msgstr "토글하려면 클릭"
 
 #: libraries/common.lib.php:3123 libraries/common.lib.php:3130
 #: libraries/common.lib.php:3345 libraries/config/setup.forms.php:296
@@ -3042,11 +3042,11 @@ msgstr "인쇄"
 #: libraries/config.values.php:45 libraries/config.values.php:47
 #: libraries/config.values.php:51
 msgid "Both"
-msgstr ""
+msgstr "둘다"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "아무데도"
 
 #: libraries/config.values.php:47
 msgid "Left"
@@ -3061,10 +3061,9 @@ msgid "Open"
 msgstr "열기"
 
 #: libraries/config.values.php:77
-#, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
-msgstr "따옴표(quote)가 닫히지 않았음"
+msgstr "닫기"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
@@ -3179,11 +3178,11 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:738
 msgid "SQL Validator is disabled"
-msgstr ""
+msgstr "SQL 유효화검증기가 비활성화되어 있습니다."
 
 #: libraries/config/FormDisplay.class.php:745
 msgid "SOAP extension not found"
-msgstr ""
+msgstr "SOAP 확장을 찾을 수 없습니다."
 
 #: libraries/config/FormDisplay.class.php:753
 #, php-format
@@ -3201,16 +3200,16 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "설정된 값: %s"
 
 #: libraries/config/FormDisplay.tpl.php:279
 #: libraries/config/messages.inc.php:358
 msgid "Restore default value"
-msgstr ""
+msgstr "기본값으로 복원"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "이 값을 사용자화하기 위한 사용자 허용"
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
@@ -7155,7 +7154,7 @@ msgstr "아무데서나"
 
 #: libraries/replication_gui.lib.php:312 server_privileges.php:851
 msgid "Local"
-msgstr "Local"
+msgstr "로컬"
 
 #: libraries/replication_gui.lib.php:318 server_privileges.php:856
 msgid "This Host"
@@ -8702,9 +8701,8 @@ msgid "Select binary log to view"
 msgstr ""
 
 #: server_binlog.php:103 server_status.php:606
-#, fuzzy
 msgid "Files"
-msgstr "필드"
+msgstr "파일들"
 
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1261
 #: server_status.php:1263
@@ -8718,15 +8716,15 @@ msgstr ""
 
 #: server_binlog.php:180
 msgid "Log name"
-msgstr ""
+msgstr "로그 이름"
 
 #: server_binlog.php:181
 msgid "Position"
-msgstr ""
+msgstr "위치"
 
 #: server_binlog.php:184
 msgid "Original position"
-msgstr ""
+msgstr "원본 위치"
 
 #: server_binlog.php:185 tbl_structure.php:776
 #, fuzzy
