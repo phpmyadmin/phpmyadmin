@@ -1011,7 +1011,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
 
-                    // remove {cursor: 'pointer'} added inside timepicker.js
+                    // remove {cursor: 'pointer'} added inside
+                    // jquery-ui-timepicker-addon.js
                     $input_field.css('cursor', '');
                     // make the cell editable, so one can can bypass the timepicker
                     // and enter date/time value manually

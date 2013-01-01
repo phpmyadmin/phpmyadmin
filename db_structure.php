@@ -20,7 +20,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_structure.js');
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 
 $post_params = array(
     'error',
