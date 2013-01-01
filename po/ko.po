@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2013-01-01 17:50+0200\n"
+"PO-Revision-Date: 2013-01-01 18:01+0200\n"
 "Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -2280,9 +2280,8 @@ msgid "Existing configuration file (%s) is not readable."
 msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
 #: libraries/Config.class.php:1080
-#, fuzzy
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "환경설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다."
+msgstr "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다."
 
 #: libraries/Config.class.php:1656
 msgid "Font size"
@@ -3751,11 +3750,11 @@ msgstr "데이터베이스로 이동"
 
 #: libraries/build_html_for_db.lib.php:142
 msgid "Not replicated"
-msgstr ""
+msgstr "복제되지 않음"
 
 #: libraries/build_html_for_db.lib.php:153
 msgid "Replicated"
-msgstr ""
+msgstr "복제"
 
 #: libraries/build_html_for_db.lib.php:170
 #, php-format
@@ -12845,7 +12844,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "메모리에서 읽은 인덱스: %s%%, 이 값은 95%% 이상이어야 합니다."
 
 #: libraries/advisory_rules.txt:327
 msgid "Rate of table open"
@@ -12867,9 +12866,8 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "열린 테이블 비율: %s, 이 값은 시간당 10보다 작아야 합니다."
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "파일 문자셋:"
+msgstr "사용된 열린 파일 한도의 비율"
 
 #: libraries/advisory_rules.txt:337
 msgid ""
@@ -12914,7 +12912,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습니다."
 
 #: libraries/advisory_rules.txt:353
 #, php-format
@@ -12928,7 +12926,7 @@ msgstr "테이블락 대기 비율"
 #: libraries/advisory_rules.txt:360
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "테이블락 대기 비율: %s, 이 값은 시간당 1 미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -12945,10 +12943,9 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "트래킹이 활성화되어 있지 않습니다."
+msgstr "스레드 캐시가 0으로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:369
 #, fuzzy, php-format
@@ -12957,14 +12954,13 @@ msgid "Thread cache hit rate %%"
 msgstr "트래킹이 활성화되어 있지 않습니다."
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "트래킹이 활성화되어 있지 않습니다."
+msgstr "스레드 캐시가 비효율적입니다."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "{thread_cache_size}를 증가시켜야합니다."
 
 #: libraries/advisory_rules.txt:374
 #, php-format
@@ -12995,10 +12991,9 @@ msgid "Slow launch time"
 msgstr ""
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time이 %d초로 설정되였습니다."
+msgstr "Slow_launch_threads가 2 초 이상입니다."
 
 #: libraries/advisory_rules.txt:387
 msgid ""
@@ -13007,16 +13002,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time이 %d초로 설정되였습니다."
+msgstr "slow_launch_time이 %s로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of used connections"
-msgstr "연결 수"
+msgstr "사용된 연결의 비율"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
