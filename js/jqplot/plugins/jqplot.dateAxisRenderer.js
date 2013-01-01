@@ -2,10 +2,10 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.2
- * Revision: 1108
+ * Version: 1.0.4
+ * Revision: 1121
  *
- * Copyright (c) 2009-2011 Chris Leonello
+ * Copyright (c) 2009-2012 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
  * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
  * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
@@ -335,28 +335,6 @@
         var threshold = 30;
         var insetMult = 1;
 
-        var daTickInterval = null;
-
-        // if user specified a tick interval, convert to usable.
-        if (this.tickInterval != null)
-        {
-            // if interval is a number or can be converted to one, use it.
-            // Assume it is in SECONDS!!!
-            if (Number(this.tickInterval)) {
-                daTickInterval = [Number(this.tickInterval), 'seconds'];
-            }
-            // else, parse out something we can build from.
-            else if (typeof this.tickInterval == "string") {
-                var parts = this.tickInterval.split(' ');
-                if (parts.length == 1) {
-                    daTickInterval = [1, parts[0]];
-                }
-                else if (parts.length == 2) {
-                    daTickInterval = [parts[0], parts[1]];
-                }
-            }
-        }
-
         var tickInterval = this.tickInterval;
         
         // if we already have ticks, use them.
@@ -486,7 +464,7 @@
             // tickInterval will be used before numberTicks, that is if
             // both are specified, numberTicks will be ignored.
             else if (this.tickInterval) {
-                titarget = new $.jsDate(0).add(daTickInterval[0], daTickInterval[1]).getTime();
+                titarget = this.tickInterval;
             }
 
             // if numberTicks specified, try to honor it.
@@ -502,10 +480,9 @@
                 var tempti = ret[0];
                 this._autoFormatString = ret[1];
 
-                //min = Math.floor(min/tempti) * tempti;
+                min = Math.floor(min/tempti) * tempti;
                 min = new $.jsDate(min);
-                //min = min.getTime() + min.getUtcOffset();
-min = Math.floor((min.getTime() - min.getUtcOffset())/tempti) * tempti + min.getUtcOffset();
+                min = min.getTime() + min.getUtcOffset();
 
                 nttarget = Math.ceil((max - min) / tempti) + 1;
                 this.min = min;
@@ -663,7 +640,7 @@ min = Math.floor((min.getTime() - min.getUtcOffset())/tempti) * tempti + min.get
                 this.tickInterval = null;
             }
             
-     /*       // if user specified a tick interval, convert to usable.
+            // if user specified a tick interval, convert to usable.
             if (this.tickInterval != null)
             {
                 // if interval is a number or can be converted to one, use it.
@@ -681,12 +658,8 @@ min = Math.floor((min.getTime() - min.getUtcOffset())/tempti) * tempti + min.get
                         this.daTickInterval = [parts[0], parts[1]];
                     }
                 }
-            }*/
+            }
             
-            if (this.tickInterval != null && daTickInterval != null) {
-                this.daTickInterval = daTickInterval;
-             }
-
             // if min and max are same, space them out a bit
             if (min == max) {
                 var adj = 24*60*60*500;  // 1/2 day

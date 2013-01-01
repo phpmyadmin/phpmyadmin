@@ -81,6 +81,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Removed the AjaxEnable directive
 + rfe #3542567 Accept IPv6 ranges and IPv6 CIDR notations in $cfg['Servers'][$i]['AllowDeny']['rules']
 - Bug #3576788 Grid editing shows the value before silent truncation
+- Upgraded jqPlot to 1.0.4 r1121
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule

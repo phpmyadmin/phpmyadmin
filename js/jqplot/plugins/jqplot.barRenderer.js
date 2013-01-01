@@ -2,10 +2,10 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.2
- * Revision: 1108
+ * Version: 1.0.4
+ * Revision: 1121
  *
- * Copyright (c) 2009-2011 Chris Leonello
+ * Copyright (c) 2009-2012 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
  * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
  * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
@@ -198,14 +198,20 @@
             var count = 0;
             for (var i=skip; i<l; i+=skip) {
                 this.data.splice(i+count, 0, [null, null]);
+                this._plotData.splice(i+count, 0, [null, null]);
+                this._stackData.splice(i+count, 0, [null, null]);
                 count++;
             }
             for (i=0; i<this.data.length; i++) {
                 if (this._primaryAxis == '_xaxis') {
                     this.data[i][0] = i+1;
+                    this._plotData[i][0] = i+1;
+                    this._stackData[i][0] = i+1;
                 }
                 else {
                     this.data[i][1] = i+1;
+                    this._plotData[i][1] = i+1;
+                    this._stackData[i][1] = i+1;
                 }
             }
         }
@@ -377,7 +383,7 @@
                         ystart = getStart(this.index, i, this._plotData[i][1], plot, 'y');
                     }
 
-                    // not stacked and first series in stack
+                    // not stacked
                     else {
                         if (this.fillToZero) {
                             ystart = this._yaxis.series_u2p(0);
@@ -463,7 +469,7 @@
             
             else if (this.barDirection == 'horizontal'){
                 for (var i=0; i<gridData.length; i++) {
-                    if (this.data[i][0] == null) {
+                    if (!this._stack && this.data[i][0] == null) {
                         continue;
                     }
                     points = [];
@@ -473,13 +479,13 @@
                     if (this._stack && this._prevGridData.length) {
                         xstart = getStart(this.index, i, this._plotData[i][0], plot, 'x');
                     }
-                    // not stacked and first series in stack
+                    // not stacked
                     else {
                         if (this.fillToZero) {
                             xstart = this._xaxis.series_u2p(0);
                         }
                         else if (this.waterfall && i > 0 && i < this.gridData.length-1) {
-                            xstart = this.gridData[i-1][1];
+                            xstart = this.gridData[i-1][0];
                         }
                         else if (this.waterfall && i == 0 && i < this.gridData.length-1) {
                             if (this._xaxis.min <= 0 && this._xaxis.max >= 0) {
@@ -489,7 +495,7 @@
                                 xstart = 0;
                             }
                             else {
-                                xstart = ctx.canvas.width;
+                                xstart = 0;
                             }
                         }
                         else if (this.waterfall && i == this.gridData.length - 1) {
@@ -550,8 +556,8 @@
                     }
                     var clr = opts.fillStyle || this.color;
                     this._dataColors.push(clr);
-                    this.renderer.shapeRenderer.draw(ctx, points, opts); 
-                }  
+                    this.renderer.shapeRenderer.draw(ctx, points, opts);
+                } 
             }
         }                
         
