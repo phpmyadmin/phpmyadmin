@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2012-12-30 06:06+0200\n"
-"Last-Translator: Deokyun Yu <i@saintjr.com>\n"
+"PO-Revision-Date: 2013-01-01 17:50+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1348,7 +1348,7 @@ msgstr "일반 로그로부터"
 
 #: js/messages.php:159
 msgid "Analysing logs"
-msgstr "로그 분석중"
+msgstr "로그를 분석하고 있습니다."
 
 #: js/messages.php:160
 msgid "Analysing & loading logs. This may take a while."
@@ -1487,7 +1487,7 @@ msgstr "적용된 행:"
 
 #: js/messages.php:197
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr "구성 파일을 분석할 수 없습니다. 유효한 JSON 코드가 아닙니다."
+msgstr "설정 파일을 분석할 수 없습니다. 유효한 JSON 코드가 아닙니다."
 
 #: js/messages.php:198
 msgid ""
@@ -13058,7 +13058,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "전체 연결 중 %s%%가 종료되었습니다. 이 값은 1%% 이내여야 합니다."
 
 #: libraries/advisory_rules.txt:406
 #| msgid "Connections"
@@ -13095,9 +13095,8 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요."
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 msgid "Rate of aborted clients"
-msgstr "테이블 설명"
+msgstr "종료된 클라이언트 비율"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
