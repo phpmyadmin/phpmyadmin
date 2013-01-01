@@ -3472,6 +3472,35 @@ function PMA_createqTip($elements, content, options)
 }
 
 /**
+ * Create a jQuery UI tooltip
+ *
+ * @param $elements     jQuery object representing the elements
+ * @param item          the item
+ *                      (see http://api.jqueryui.com/tooltip/#option-items)
+ * @param myContent     content of the tooltip
+ * @param additional_options to override the default options
+ *
+ */
+function PMA_tooltip($elements, item, myContent, additional_options)
+{
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
+    var default_options = {
+        content: myContent,
+        items:  item,
+        //@todo: when PMA_createqTip() is gone, rename this class
+        tooltipClass: "normalqTip",
+        track: true,
+        show: {effect: "slideDown", duration: 250},
+        hide: {effect: "slideUp", duration: 250}
+    }
+
+    $elements.tooltip($.extend(true, default_options, additional_options));
+}
+
+/**
  * Return value of a cell in a table.
  */
 function PMA_getCellValue(td) {
