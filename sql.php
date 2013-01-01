@@ -20,7 +20,7 @@ require_once 'libraries/bookmark.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_change.js');
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
 $scripts->addFile('tbl_structure.js');

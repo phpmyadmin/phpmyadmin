@@ -401,7 +401,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('jquery/jquery.json-2.4.js');
 $scripts->addFile('jquery/jquery.sortableTable.js');
-$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('jqplot/excanvas.js');

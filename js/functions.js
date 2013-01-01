@@ -843,7 +843,7 @@ function insertValueQuery()
 
 /**
  * Add a date/time picker to each element that needs it
- * (only when timepicker.js is loaded)
+ * (only when jquery-ui-timepicker-addon.js is loaded)
  */
 function addDateTimePicker() {
     if ($.timepicker != undefined) {
