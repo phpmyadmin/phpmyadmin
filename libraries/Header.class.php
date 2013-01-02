@@ -374,7 +374,7 @@ class PMA_Header
                     $retval .= PMA_userprefsAutoloadGetHeader();
                 }
                 // pass configuration for hint tooltip display
-                // (to be used by PMA_createqTip in js/functions.js)
+                // (to be used by PMA_tooltip() in js/functions.js)
                 if (! $GLOBALS['cfg']['ShowHint']) {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }

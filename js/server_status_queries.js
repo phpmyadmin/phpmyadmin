@@ -31,8 +31,9 @@ AJAX.registerOnload('server_status_queries.js', function() {
     }
 
     /*** Table sort tooltip ***/
-    PMA_createqTip(
-        $('table.sortable').children('thead').children('tr').has('th'),
+    PMA_tooltip(
+        $('table.sortable>thead>tr:first').find('th'),
+        'th',
         PMA_messages['strSortHint']
     );
     initTableSorter('statustabs_queries');
