@@ -440,13 +440,14 @@ class PMA_Header
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
             header(
-                "X-Content-Security-Policy: allow 'self' http://www.phpmyadmin.net; "
-                . "options inline-script eval-script; "
+                "X-Content-Security-Policy: allow 'self';"
+                . "options inline-script eval-script;"
                 . "img-src 'self' data:; "
             );
             header(
-                "X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; "
-                . "options inline-script eval-script"
+                "X-WebKit-CSP: default-src 'self';"
+                . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+                . "style-src 'self' 'unsafe-inline'"
             );
         }
         PMA_noCacheHeader();
