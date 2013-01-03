@@ -329,10 +329,10 @@ class PMA_User_Schema
                      . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
                 echo "\n" . '        </td>';
                 echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" class="position-change" data-axis="left" data-number="' . $i . '" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
+                     . "\n" . '            <input type="text" class="position-change" data-axis="left" data-number="' . $i . '" id="c_table_' . $i . '_x" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
                 echo "\n" . '        </td>';
                 echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" class="position-change" data-axis="top" data-number="' . $i . '" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
+                     . "\n" . '            <input type="text" class="position-change" data-axis="top" data-number="' . $i . '" id="c_table_' . $i . '_y" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
                 echo "\n" . '        </td>';
                 echo "\n" . '    </tr>';
                 $i++;
@@ -531,31 +531,25 @@ class PMA_User_Schema
     {
         global $with_field_names, $db;
         ?>
-        <script type="text/javascript" src="js/dom-drag.js"></script>
         <form method="post" action="schema_edit.php" name="dragdrop">
         <input type="button" name="dragdrop" id="toggle-dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" />
         <input type="button" name="dragdropreset" id="reset-dragdrop" value="<?php echo __('Reset'); ?>" />
         </form>
         <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
         <?php
-        $draginit = '';
-        $draginit2 = '';
-        $reset_draginit = '';
         $i = 0;
         foreach ($array_sh_page as $temp_sh_page) {
             $drag_x = $temp_sh_page['x'];
             $drag_y = $temp_sh_page['y'];
 
-            $draginit2      .= ' Drag.init($("#table_' . $i . '")[0], null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
-            $draginit2      .= '    $("#table_' . $i . '")[0].onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
-            $draginit       .= '    $("#table_' . $i . '")[0].style.left = "' . $drag_x . 'px";' . "\n";
-            $draginit       .= '    $("#table_' . $i . '")[0].style.top  = "' . $drag_y . 'px";' . "\n";
-            $reset_draginit .= '    $("#table_' . $i . '")[0].style.left = "2px";' . "\n";
-            $reset_draginit .= '    $("#table_' . $i . '")[0].style.top  = "' . (15 * $i) . 'px";' . "\n";
-            $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
-            $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
+            echo '<div id="table_' . $i . '" '
+                . 'data-number="' . $i .'" '
+                . 'data-x="' . $drag_x . '" '
+                . 'data-y="' . $drag_y . '" '
+                . 'class="pdflayout_table"'
+                . '>'
+                . '<u>' . $temp_sh_page['table_name'] . '</u>';
 
-            echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
             if (isset($with_field_names)) {
                 $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
                 // if the table has been dropped from outside phpMyAdmin,
@@ -571,25 +565,6 @@ class PMA_User_Schema
         }
         ?>
         </div>
-        <script type="text/javascript">
-        //<![CDATA[
-        function PDFinit() {
-            refreshLayout();
-            myid = $('#pdflayout')[0];
-            <?php echo $draginit; ?>
-            TableDragInit();
-        }
-
-        function TableDragInit() {
-            myid = $('#pdflayout')[0];
-            <?php echo $draginit2; ?>
-        }
-
-        function resetDrag() {
-            <?php echo $reset_draginit; ?>
-        }
-        //]]>
-        </script>
         <?php
     }
 

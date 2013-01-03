@@ -877,6 +877,42 @@ function refreshLayout()
 }
 
 /**
+ * Initializes positions of elements.
+ */
+function TableDragInit() {
+    $('.pdflayout_table').each(function () {
+        var $this = $(this);
+        var number = $this.data('number');
+        var x = $('#c_table_' + number + '_x').val();
+        var y = $('#c_table_' + number + '_y').val();
+        $this.css('left', x + 'px');
+        $this.css('top', y + 'px');
+        /* Make elements draggable */
+        $this.draggable({
+            containment: "parent",
+            drag: function (evt, ui) {
+                var number = $this.data('number');
+                $('#c_table_' + number + '_x').val(parseInt(ui.position.left));
+                $('#c_table_' + number + '_y').val(parseInt(ui.position.top));
+            }
+        });
+    });
+}
+
+/**
+ * Resets drag and drop positions.
+ */
+function resetDrag() {
+    $('.pdflayout_table').each(function () {
+        var $this = $(this);
+        var x = $this.data('x');
+        var y = $this.data('y');
+        $this.css('left', x + 'px');
+        $this.css('top', y + 'px');
+    });
+}
+
+/**
  * User schema handlers.
  */
 $(function () {
@@ -898,7 +934,8 @@ $(function () {
     $('#toggle-dragdrop').live('click', function () {
         var $elm = $('#pdflayout');
         if ($elm.css('visibility') == 'hidden') {
-            PDFinit(); /* Defined in pdf_pages.php */
+            refreshLayout();
+            TableDragInit();
             $elm.css('visibility', 'visible');
             $elm.css('display', 'block');
             $('#showwysiwyg').val('1');
