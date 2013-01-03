@@ -282,30 +282,43 @@ class PMA_User_Schema
                 $with_field_names = true;
             }
             $this->_displayScratchboardTables($array_sh_page);
-            ?>
 
-            <form method="post" action="schema_edit.php" name="edcoord">
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-            <input type="hidden" name="chpage" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
-            <input type="hidden" name="do" value="edcoord" />
-            <table>
-            <tr>
-                <th><?php echo __('Table'); ?></th>
-                <th><?php echo __('Delete'); ?></th>
-                <th>X</th>
-                <th>Y</th>
-            </tr>
-            <?php
+            echo '<form method="post" action="schema_edit.php" name="edcoord">';
+
+            echo PMA_generate_common_hidden_inputs($db, $table);
+            echo '<input type="hidden" name="chpage" '
+                . 'value="' . htmlspecialchars($this->chosenPage) . '" />';
+            echo '<input type="hidden" name="do" value="edcoord" />';
+            echo '<table>';
+            echo '<tr>';
+            echo '<th>' . __('Table') . '</th>';
+            echo '<th>' . __('Delete') . '</th>';
+            echo '<th>X</th>';
+            echo '<th>Y</th>';
+            echo '</tr>';
+
             if (isset($ctable)) {
                 unset($ctable);
             }
 
+            /*
+             * Add one more empty row
+             */
+            $array_sh_page[] = array(
+                'table_name' => '',
+                'x' => '0',
+                'y' => '0',
+            );
+
             $i = 0;
             $odd_row = true;
             foreach ($array_sh_page as $sh_page) {
-                $_mtab            =  $sh_page['table_name'];
-                $tabExist[$_mtab] =  false;
-                echo "\n" . '    <tr class="noclick ';
+                $_mtab  = $sh_page['table_name'];
+                if (! empty($_mtab)) {
+                    $tabExist[$_mtab] = false;
+                }
+
+                echo '<tr class="noclick ';
                 if ($odd_row) {
                     echo 'odd';
                 } else {
@@ -313,65 +326,49 @@ class PMA_User_Schema
                 }
                 echo '">';
                 $odd_row != $odd_row;
-                echo "\n" . '        <td>'
-                     . "\n" . '            <select name="c_table_' . $i . '[name]">';
+
+                echo '<td>';
+                echo '<select name="c_table_' . $i . '[name]">';
+
                 foreach ($selectboxall as $key => $value) {
-                    echo "\n" . '                <option value="' . htmlspecialchars($value) . '"';
-                    if ($value == $sh_page['table_name']) {
+                    echo '<option value="' . htmlspecialchars($value) . '"';
+                    if (! empty($_mtab) && $value == $_mtab) {
                         echo ' selected="selected"';
                         $tabExist[$_mtab] = true;
                     }
                     echo '>' . htmlspecialchars($value) . '</option>';
                 }
-                echo "\n" . '            </select>'
-                     . "\n" . '        </td>';
-                echo "\n" . '        <td>'
-                     . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
-                echo "\n" . '        </td>';
-                echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" class="position-change" data-axis="left" data-number="' . $i . '" id="c_table_' . $i . '_x" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
-                echo "\n" . '        </td>';
-                echo "\n" . '        <td>'
-                     . "\n" . '            <input type="text" class="position-change" data-axis="top" data-number="' . $i . '" id="c_table_' . $i . '_y" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
-                echo "\n" . '        </td>';
-                echo "\n" . '    </tr>';
+                echo '</select>';
+                echo '</td>';
+
+                echo '<td>';
+                echo '<input type="checkbox" id="id_c_table_' . $i .'" '
+                    . 'name="c_table_' . $i . '[delete]" value="y" />';
+                echo '<label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
+                echo '</td>';
+
+                echo '<td>';
+                echo '<input type="text" class="position-change" data-axis="left" '
+                    . 'data-number="' . $i . '" id="c_table_' . $i . '_x" '
+                    . 'name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
+                echo '</td>';
+
+                echo '<td>';
+                echo '<input type="text" class="position-change" data-axis="top" '
+                    . 'data-number="' . $i . '" id="c_table_' . $i . '_y" '
+                    . 'name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
+                echo '</td>';
+                echo '</tr>';
                 $i++;
             }
-            /*
-             * Add one more empty row
-             */
-            echo "\n" . '    <tr class="noclick ';
-            if ($odd_row) {
-                echo 'odd';
-            } else {
-                echo 'even';
-            }
-            $odd_row != $odd_row;
-            echo '">';
-            echo "\n" . '        <td>'
-                 . "\n" . '            <select name="c_table_' . $i . '[name]">';
-            foreach ($selectboxall as $key => $value) {
-                echo "\n" . '                <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($value) . '</option>';
-            }
-            echo "\n" . '            </select>'
-                 . "\n" . '        </td>';
-            echo "\n" . '        <td>'
-                 . "\n" . '            <input type="checkbox" id="id_c_table_' . $i .'" name="c_table_' . $i . '[delete]" value="y" /><label for="id_c_table_' . $i .'">' . __('Delete') . '</label>';
-            echo "\n" . '        </td>';
-            echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
-            echo "\n" . '        </td>';
-            echo "\n" . '        <td>'
-                 . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . (isset($sh_page['y'])?$sh_page['y']:'') . '" />';
-            echo "\n" . '        </td>';
-            echo "\n" . '    </tr>';
-            echo "\n" . '    </table>' . "\n";
 
-            echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
-            echo "\n" . '    <input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
-            echo "\n" . '    <input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
-            echo "\n" . '    <input type="submit" value="' . __('Save') . '" />';
-            echo "\n" . '</form>' . "\n\n";
+            echo '</table>';
+
+            echo '<input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
+            echo '<input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
+            echo '<input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
+            echo '<input type="submit" value="' . __('Save') . '" />';
+            echo '</form>' . "\n\n";
         } // end if
 
         if (isset($tabExist)) {
@@ -530,14 +527,17 @@ class PMA_User_Schema
     private function _displayScratchboardTables($array_sh_page)
     {
         global $with_field_names, $db;
-        ?>
-        <form method="post" action="schema_edit.php" name="dragdrop">
-        <input type="button" name="dragdrop" id="toggle-dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" />
-        <input type="button" name="dragdropreset" id="reset-dragdrop" value="<?php echo __('Reset'); ?>" />
-        </form>
-        <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
-        <?php
+
+        echo '<form method="post" action="schema_edit.php" name="dragdrop">';
+        echo '<input type="button" name="dragdrop" id="toggle-dragdrop" '
+            . 'value="' . __('Toggle scratchboard') . '" />';
+        echo '<input type="button" name="dragdropreset" id="reset-dragdrop" '
+            . 'value="' . __('Reset') . '" />';
+        echo '</form>';
+        echo '<div id="pdflayout" class="pdflayout" style="visibility: hidden;">';
+
         $i = 0;
+
         foreach ($array_sh_page as $temp_sh_page) {
             $drag_x = $temp_sh_page['x'];
             $drag_y = $temp_sh_page['y'];
@@ -563,9 +563,8 @@ class PMA_User_Schema
             echo '</div>' . "\n";
             $i++;
         }
-        ?>
-        </div>
-        <?php
+
+        echo '</div>';
     }
 
     /**
