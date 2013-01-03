@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-03 14:04+0100\n"
-"PO-Revision-Date: 2013-01-02 16:59+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-01-03 22:27+0200\n"
+"Last-Translator: Nabu Marduk <studionabu@gmail.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2820,7 +2819,7 @@ msgstr "인덱스 %s 를 제거했습니다"
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr ""
+msgstr "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 무방합니다."
 
 #: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
@@ -3098,7 +3097,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:216
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "이 유형의 스토리지 엔진은 자세한 상태 정보를 제공하지 않습니다."
 
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:200
 #, php-format
@@ -3155,7 +3154,7 @@ msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1373
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "테이블 UI 환경 설정을 저장할 수 없습니다."
 
 #: libraries/Table.class.php:1397
 #, php-format
