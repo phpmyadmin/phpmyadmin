@@ -907,18 +907,16 @@ function ToggleDragDrop(e)
 }
 
 /**
-  * PDF scratchboard: When a position is entered manually, update
-  * the fields inside the scratchboard.
-  */
-function dragPlace(no, axis, value)
-{
-    var $elm = $('#table_' + no);
-    if (axis == 'x') {
-        $elm.css('left', value + 'px');
-    } else {
-        $elm.css('top', value + 'px');
-    }
-}
+ * User schema handlers.
+ */
+$(function () {
+    /* Move in scratchboard on manual change */
+    $('.position-change').live('change', function () {
+        var $this = $(this);
+        var $elm = $('#table_' + $this.data('number'));
+        $elm.css($this.data('axis'), $this.val() + 'px');
+    });
+});
 
 /**
  * Returns paper sizes for a given format
@@ -1535,8 +1533,8 @@ function PMA_ajaxShowMessage(message, timeout)
          *                     to remove any animation when showing and hiding
          */
         var tooltipOptions = {
-            show: false, 
-            hide: false 
+            show: false,
+            hide: false
         };
         /**
          * Add a tooltip to the notification to let the user know that (s)he
@@ -1547,7 +1545,7 @@ function PMA_ajaxShowMessage(message, timeout)
             'span',
             PMA_messages['strDismiss'],
             tooltipOptions
-        ); 
+        );
     }
 
     return $retval;
