@@ -280,6 +280,8 @@ class PMA_User_Schema
 
             if (! isset($_POST['with_field_names']) && ! isset($_POST['showwysiwyg'])) {
                 $with_field_names = true;
+            } elseif (isset($_POST['with_field_names'])) {
+                $with_field_names = true;
             }
             $this->_displayScratchboardTables($array_sh_page);
 
