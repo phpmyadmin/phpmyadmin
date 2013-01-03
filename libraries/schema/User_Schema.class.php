@@ -451,13 +451,13 @@ class PMA_User_Schema
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
             <input type="checkbox" name="show_keys" id="show_keys" />
             <label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
-            <select name="orientation" id="orientation_opt" onchange="refreshDragOption('pdflayout');" >
+            <select name="orientation" id="orientation_opt" class="paper-change">
                 <option value="L"><?php echo __('Landscape');?></option>
                 <option value="P"><?php echo __('Portrait');?></option>
             </select>
             <label for="orientation_opt"><?php echo __('Orientation'); ?></label>
             <br />
-            <select name="paper" id="paper_opt" onchange="refreshDragOption('pdflayout');">
+            <select name="paper" id="paper_opt" class="paper-change">
                 <?php
                 foreach ($cfg['PDFPageSizes'] as $val) {
                         echo '<option value="' . $val . '"';

@@ -854,18 +854,6 @@ function addDateTimePicker() {
 }
 
 /**
-  * Refresh the WYSIWYG scratchboard after changes have been made
-  */
-function refreshDragOption(e)
-{
-    var $elm = $('#' + e);
-    if ($elm.css('visibility') == 'visible') {
-        refreshLayout();
-        TableDragInit();
-    }
-}
-
-/**
   * Refresh/resize the WYSIWYG scratchboard
   */
 function refreshLayout()
@@ -915,6 +903,14 @@ $(function () {
         var $this = $(this);
         var $elm = $('#table_' + $this.data('number'));
         $elm.css($this.data('axis'), $this.val() + 'px');
+    });
+    /* Refresh on paper size/orientation change */
+    $('.paper-change').live('change', function () {
+        var $elm = $('#pdflayout');
+        if ($elm.css('visibility') == 'visible') {
+            refreshLayout();
+            TableDragInit();
+        }
     });
 });
 
