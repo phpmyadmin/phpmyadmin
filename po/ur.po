@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-22 13:22-0500\n"
+"POT-Creation-Date: 2013-01-03 14:04+0100\n"
 "PO-Revision-Date: 2012-11-05 10:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -60,7 +60,7 @@ msgstr "تلاش"
 #: libraries/operations.lib.php:636 libraries/operations.lib.php:689
 #: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
 #: libraries/operations.lib.php:1339
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:243
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
@@ -391,7 +391,7 @@ msgstr "بصری تعمیر کنندہ"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:571
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -642,14 +642,14 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے %"
-"sdocumentation%s دیکھیں۔"
+"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے "
+"%sdocumentation%s دیکھیں۔"
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -681,8 +681,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"سائز مقررہ حد سے تجاوز کرگئی ہو جو آپ کے PHP تشکیل میں ہے۔ دیکھیں[doc@faq1-"
-"16]عمومی سوالات 1.16[/doc]."
+"سائز مقررہ حد سے تجاوز کرگئی ہو جو آپ کے PHP تشکیل میں ہے۔ دیکھیں"
+"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:429
 msgid ""
@@ -2067,8 +2067,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ %"
-"s, جاری کیا گیا %s."
+"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ "
+"%s, جاری کیا گیا %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
@@ -2759,8 +2759,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
@@ -2905,13 +2905,13 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:593
-#: libraries/plugins/auth/AuthenticationCookie.class.php:255
+#: libraries/Header.class.php:594
+#: libraries/plugins/auth/AuthenticationCookie.class.php:267
 msgid "Cookies must be enabled past this point."
 msgstr "اس جگہ کوکی لازمی اہل ہوں۔"
 
-#: libraries/Header.class.php:598
-#: libraries/plugins/auth/AuthenticationCookie.class.php:159
+#: libraries/Header.class.php:599
+#: libraries/plugins/auth/AuthenticationCookie.class.php:171
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
@@ -3282,48 +3282,48 @@ msgstr "یہMySQL سرور میں %s اس ذخیرہ انجن کی معاونت 
 msgid "unknown table status: "
 msgstr ""
 
-#: libraries/Table.class.php:726
+#: libraries/Table.class.php:728
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr ""
 
-#: libraries/Table.class.php:734
+#: libraries/Table.class.php:736
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "خیالیہ %s نیہں ملا!"
 
-#: libraries/Table.class.php:1162
+#: libraries/Table.class.php:1164
 msgid "Invalid database"
 msgstr "غلط کوائفیہ"
 
-#: libraries/Table.class.php:1176 tbl_get_field.php:30
+#: libraries/Table.class.php:1178 tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "غلط جدول نام"
 
-#: libraries/Table.class.php:1208
+#: libraries/Table.class.php:1210
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "جدول %1$s کو %2$s نام تبدیل کرتے ہوئے نقص ہے"
 
-#: libraries/Table.class.php:1227
+#: libraries/Table.class.php:1229
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "جدول%s نام %s میں تبدیل ہوچکا ہے"
 
-#: libraries/Table.class.php:1371
+#: libraries/Table.class.php:1373
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1395
+#: libraries/Table.class.php:1397
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1533
+#: libraries/Table.class.php:1535
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3492,14 +3492,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4169,7 +4169,7 @@ msgid "Allow users to customize this value"
 msgstr "صارفین کو اس قدر کے مخصوص کرنے کی اجازت دیں"
 
 #: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
-#: libraries/schema/User_Schema.class.php:537 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:536 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
 msgstr "دوبارہ سیٹ کریں"
@@ -6628,8 +6628,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:329
@@ -7101,8 +7101,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7791,7 +7791,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "جڑ نہیں سکتا: غلط ترتیبات۔"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:147
+#: libraries/plugins/auth/AuthenticationCookie.class.php:159
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
@@ -7800,8 +7800,8 @@ msgstr "%s میں خوش آمدید"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "آپ نے شاید تشکیل مسل نہیں بنایا۔ آپ ہوسکتا ہے کہ  %1$ssetup script%2$s کو "
 "استعمال کرتے ہوئے بنانا چاہتے ہیں۔"
@@ -7821,49 +7821,50 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:88
-msgid "Your session has expired. Please log in again."
-msgstr ""
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:177
+#: libraries/plugins/auth/AuthenticationCookie.class.php:82
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
 msgid "Log in"
 msgstr "لاگ ان"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:185
-#: libraries/plugins/auth/AuthenticationCookie.class.php:195
+#: libraries/plugins/auth/AuthenticationCookie.class.php:99
+msgid "Your session has expired. Please log in again."
+msgstr ""
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:197
+#: libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "آپ ہوسٹ نام یا IP پتا اور دہانہ وقفوں سے جدا کرکے داخل کرسکتے ہیں۔"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:188
+#: libraries/plugins/auth/AuthenticationCookie.class.php:200
 msgid "Server:"
 msgstr "سرور:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:200
+#: libraries/plugins/auth/AuthenticationCookie.class.php:212
 msgid "Username:"
 msgstr "صارف نام:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:206
+#: libraries/plugins/auth/AuthenticationCookie.class.php:218
 msgid "Password:"
 msgstr "پاس ورڈ:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:212
+#: libraries/plugins/auth/AuthenticationCookie.class.php:224
 msgid "Server Choice"
 msgstr "سرور انتخاب"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:567
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "پاس ورڈ کے بغیر لاگ ان تشکیل میں ممنوع ہے (دیکھیں AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:586
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبارہ لاگ ان کریں۔"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:579
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:591
+#: libraries/plugins/auth/AuthenticationCookie.class.php:593
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
@@ -9236,7 +9237,7 @@ msgid ""
 "like to delete those references?"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:536
+#: libraries/schema/User_Schema.class.php:535
 msgid "Toggle scratchboard"
 msgstr ""
 
@@ -9661,8 +9662,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3026
@@ -12687,8 +12688,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12821,8 +12822,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

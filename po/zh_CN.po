@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-12-22 13:22-0500\n"
+"POT-Creation-Date: 2013-01-03 14:04+0100\n"
 "PO-Revision-Date: 2012-11-22 15:50+0200\n"
 "Last-Translator: Liang Comver <comver@qq.com>\n"
 "Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -58,7 +58,7 @@ msgstr "搜索"
 #: libraries/operations.lib.php:636 libraries/operations.lib.php:689
 #: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
 #: libraries/operations.lib.php:1339
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:243
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
 #: libraries/rte/rte_routines.lib.php:1042
@@ -378,7 +378,7 @@ msgstr "切换到 %s可视化查询生成器%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
-#: libraries/plugins/auth/AuthenticationCookie.class.php:571
+#: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
@@ -615,11 +615,11 @@ msgstr "从 \"函数\" 列中选择 \"GeomFromText\" 并粘贴下列内容到 \"
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您可能正在上传很大的文件，请参考%s文档%s来寻找解决方法。"
 
 #: import.php:232 import.php:497
@@ -2590,8 +2590,8 @@ msgstr "查询中"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "该视图最少包含的行数，参见%s文档%s。"
 
 #: libraries/DisplayResults.class.php:4939
@@ -2729,13 +2729,13 @@ msgstr "打开新 phpMyAdmin 窗口"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:593
-#: libraries/plugins/auth/AuthenticationCookie.class.php:255
+#: libraries/Header.class.php:594
+#: libraries/plugins/auth/AuthenticationCookie.class.php:267
 msgid "Cookies must be enabled past this point."
 msgstr "必须启用 Cookies 才能登录。"
 
-#: libraries/Header.class.php:598
-#: libraries/plugins/auth/AuthenticationCookie.class.php:159
+#: libraries/Header.class.php:599
+#: libraries/plugins/auth/AuthenticationCookie.class.php:171
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
@@ -3095,42 +3095,42 @@ msgstr "此 MySQL 服务器不支持 %s 存储引擎。"
 msgid "unknown table status: "
 msgstr "未知表状态: "
 
-#: libraries/Table.class.php:726
+#: libraries/Table.class.php:728
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
 msgstr "源数据库"
 
-#: libraries/Table.class.php:734
+#: libraries/Table.class.php:736
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "未找到主题 %s ！"
 
-#: libraries/Table.class.php:1162
+#: libraries/Table.class.php:1164
 msgid "Invalid database"
 msgstr "无效的数据库"
 
-#: libraries/Table.class.php:1176 tbl_get_field.php:30
+#: libraries/Table.class.php:1178 tbl_get_field.php:30
 msgid "Invalid table name"
 msgstr "无效的数据表名"
 
-#: libraries/Table.class.php:1208
+#: libraries/Table.class.php:1210
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "将表 %1$s 改名为 %2$s 时发生错误"
 
-#: libraries/Table.class.php:1227
+#: libraries/Table.class.php:1229
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将数据表 %s 改名为 %s"
 
-#: libraries/Table.class.php:1371
+#: libraries/Table.class.php:1373
 msgid "Could not save table UI preferences"
 msgstr "无法保存表界面设置"
 
-#: libraries/Table.class.php:1395
+#: libraries/Table.class.php:1397
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3138,7 +3138,7 @@ msgid ""
 msgstr ""
 "清除表用户界面设置失败（查看$cfg['Servers'][$i]['MaxTableUiprefs'] %s）"
 
-#: libraries/Table.class.php:1533
+#: libraries/Table.class.php:1535
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3296,14 +3296,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3967,7 +3967,7 @@ msgid "Allow users to customize this value"
 msgstr "允许用户自定义该值"
 
 #: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
-#: libraries/schema/User_Schema.class.php:537 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:536 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
 msgstr "重置"
@@ -6362,8 +6362,8 @@ msgstr "，@TABLE@ 将变成数据表名"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
 "列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
@@ -6856,8 +6856,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "关于 PBXT 的文档和更多信息请参见 %sPrimeBase XT 主页%s。"
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7541,7 +7541,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "无法连接：无效的设置。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
-#: libraries/plugins/auth/AuthenticationCookie.class.php:147
+#: libraries/plugins/auth/AuthenticationCookie.class.php:159
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
@@ -7550,8 +7550,8 @@ msgstr "欢迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "你可能还没有创建配置文件。你可以使用 %1$s设置脚本%2$s 来创建一个配置文件。"
 
@@ -7569,49 +7569,50 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "使用 mcrypt 进行 Blowfish 失败！"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:88
-msgid "Your session has expired. Please log in again."
-msgstr ""
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:177
+#: libraries/plugins/auth/AuthenticationCookie.class.php:82
+#: libraries/plugins/auth/AuthenticationCookie.class.php:189
 msgid "Log in"
 msgstr "登录"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:185
-#: libraries/plugins/auth/AuthenticationCookie.class.php:195
+#: libraries/plugins/auth/AuthenticationCookie.class.php:99
+msgid "Your session has expired. Please log in again."
+msgstr ""
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:197
+#: libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "您可以输入以空格分隔的主机名/IP地址和端口号。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:188
+#: libraries/plugins/auth/AuthenticationCookie.class.php:200
 msgid "Server:"
 msgstr "服务器："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:200
+#: libraries/plugins/auth/AuthenticationCookie.class.php:212
 msgid "Username:"
 msgstr "用户名："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:206
+#: libraries/plugins/auth/AuthenticationCookie.class.php:218
 msgid "Password:"
 msgstr "密码："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:212
+#: libraries/plugins/auth/AuthenticationCookie.class.php:224
 msgid "Server Choice"
 msgstr "选择服务器"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:567
+#: libraries/plugins/auth/AuthenticationCookie.class.php:579
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "空密码登录被禁止 (参见 允许空密码)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:574
+#: libraries/plugins/auth/AuthenticationCookie.class.php:586
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr "登录超时 (%s 秒未活动)，请重新登录"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:579
-#: libraries/plugins/auth/AuthenticationCookie.class.php:581
+#: libraries/plugins/auth/AuthenticationCookie.class.php:591
+#: libraries/plugins/auth/AuthenticationCookie.class.php:593
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
 msgstr "无法登录 MySQL 服务器"
@@ -8959,7 +8960,7 @@ msgid ""
 "like to delete those references?"
 msgstr "当前页所引用的表不存在了。您是否想要删除这些引用？"
 
-#: libraries/schema/User_Schema.class.php:536
+#: libraries/schema/User_Schema.class.php:535
 msgid "Toggle scratchboard"
 msgstr "切换草稿板"
 
@@ -9386,12 +9387,12 @@ msgstr "用户概况"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容"
-"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%"
-"s。"
+"将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
+"限%s。"
 
 #: libraries/server_privileges.lib.php:3026
 msgid "The selected user was not found in the privilege table."
@@ -12426,8 +12427,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -12558,8 +12559,8 @@ msgstr "根据系统内存，考虑增加 sort_buffer_size 和/或 read_rnd_buff
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -14000,8 +14001,8 @@ msgstr "concurrent_insert 被设为 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"
