@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-12-22 13:22-0500\n"
-"PO-Revision-Date: 2013-01-01 18:01+0200\n"
+"PO-Revision-Date: 2013-01-02 16:59+0200\n"
 "Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -3260,7 +3260,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1170
 msgid "How to use"
-msgstr ""
+msgstr "사용방법"
 
 #: libraries/TableSearch.class.php:1175
 #, fuzzy
@@ -3810,7 +3810,7 @@ msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.: "
 #: libraries/common.inc.php:968
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr "%s를 %s 이상으로 업그레이드 하십시오"
+msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
 #: libraries/common.inc.php:1042
 msgid "Error: Token mismatch"
@@ -6928,11 +6928,11 @@ msgstr "이어서"
 
 #: libraries/insert_edit.lib.php:1463
 msgid "Insert as new row"
-msgstr "새 열을 삽입합니다"
+msgstr "새 행을 삽입합니다."
 
 #: libraries/insert_edit.lib.php:1466
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "새 행을 삽입하고 에러를 무시합니다."
 
 #: libraries/insert_edit.lib.php:1469
 msgid "Show insert query"
@@ -6940,7 +6940,7 @@ msgstr "삽입 쿼리 보기"
 
 #: libraries/insert_edit.lib.php:1489
 msgid "Go back to previous page"
-msgstr "되돌아가기"
+msgstr "이전 페이지로 되돌아가기"
 
 #: libraries/insert_edit.lib.php:1492
 msgid "Insert another new row"
@@ -7448,10 +7448,9 @@ msgid "Table %s has been flushed"
 msgstr "테이블 %s 을 닫았습니다(캐시 삭제)"
 
 #: libraries/operations.lib.php:1190
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "테이블 닫기(캐시 삭제)"
+msgstr "테이블 갱신 (캐시 삭제)"
 
 #: libraries/operations.lib.php:1237
 #, fuzzy
@@ -7484,9 +7483,8 @@ msgid "Rebuild"
 msgstr "리빌드"
 
 #: libraries/operations.lib.php:1299
-#, fuzzy
 msgid "Repair"
-msgstr "테이블 복구"
+msgstr "복구"
 
 #: libraries/operations.lib.php:1306
 #, fuzzy
@@ -9362,7 +9360,7 @@ msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 #: libraries/server_privileges.lib.php:2549
 #: libraries/server_privileges.lib.php:2550
 msgid "Drop the databases that have the same names as the users."
-msgstr "사용자명과 같은 이름의 데이터베이스를 삭제"
+msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
 #: libraries/server_privileges.lib.php:2681
 msgid "No users selected for deleting!"
@@ -9550,7 +9548,6 @@ msgid "Check tables having overhead"
 msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: libraries/structure.lib.php:1279 tbl_tracking.php:358
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
@@ -9673,7 +9670,7 @@ msgstr "행 크기"
 
 #: libraries/structure.lib.php:1769 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr ""
+msgstr "다음 자동인덱스"
 
 #: libraries/structure.lib.php:1894 libraries/structure.lib.php:1975
 #: libraries/structure.lib.php:1983 libraries/structure.lib.php:2000
@@ -11630,22 +11627,21 @@ msgid ""
 msgstr ""
 
 #: setup/lib/index.lib.php:348
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "웹 서버가 지원한다면 SSL 연결 사용"
+msgstr "데이터베이스 서버가 지원한다면 SSL 연결을 사용해야 합니다."
 
 #: setup/lib/index.lib.php:363
 msgid "You should use mysqli for performance reasons."
-msgstr "효율적 이유로 mysqli 사용"
+msgstr "성능을 향상시키려면 mysqli를 사용해야 합니다."
 
 #: setup/lib/index.lib.php:400
 msgid "You allow for connecting to the server without a password."
-msgstr "암호 없이 서버 접속 허용"
+msgstr "암호 없이 서버 접속을 허용합니다."
 
 #: setup/lib/index.lib.php:424
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "키가 너무 짧다. 8글자 이상 사용"
+msgstr "키가 너무 짧습니다. 최소 8글자 이상이어야 합니다."
 
 #: setup/lib/index.lib.php:431
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -11825,19 +11821,17 @@ msgstr "전체 사용량"
 
 #: tbl_gis_visualization.php:176
 msgid "Redraw"
-msgstr ""
+msgstr "다시그리기"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
 msgstr "파일로 저장"
 
 #: tbl_gis_visualization.php:179
-#, fuzzy
 #| msgid "User name"
 msgid "File name"
-msgstr "사용자명"
+msgstr "파일명"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11852,10 +11846,9 @@ msgid "No index parts defined!"
 msgstr ""
 
 #: tbl_indexes.php:192
-#, fuzzy
 #| msgid "Add index"
 msgid "Edit index"
-msgstr "인덱스 추가"
+msgstr "인덱스 편집"
 
 #: tbl_indexes.php:204
 msgid "Index name:"
@@ -11893,7 +11886,6 @@ msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
 msgstr "테이블 보기"
@@ -11941,7 +11933,7 @@ msgstr "트래킹이 활성화되었습니다."
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
-msgstr "SQL 문장 실행됨"
+msgstr "SQL 문장이 실행되었습니다."
 
 #: tbl_tracking.php:260
 msgid ""
@@ -11990,10 +11982,9 @@ msgid "Delete tracking data row from report"
 msgstr "데이터 추가(insert) 및 변경(replace) 허용."
 
 #: tbl_tracking.php:545
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "데이터베이스가 없습니다"
+msgstr "데이터 없음"
 
 #: tbl_tracking.php:554 tbl_tracking.php:616
 #, fuzzy
@@ -12018,7 +12009,7 @@ msgstr "SQL 덤프"
 
 #: tbl_tracking.php:679
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "이 옵션은 테이블과 그 안에 담겨 있는 데이터를 교체하게 됩니다."
 
 #: tbl_tracking.php:680
 msgid "SQL execution"
@@ -12027,7 +12018,7 @@ msgstr "SQL 실행"
 #: tbl_tracking.php:698
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "%s로 내보내기"
 
 #: tbl_tracking.php:735
 msgid "Show versions"
@@ -12077,17 +12068,16 @@ msgstr "더 많은 테마들!"
 
 #: transformation_overview.php:21
 msgid "Available MIME types"
-msgstr ""
+msgstr "사용가능한 MIME 형식"
 
 #: transformation_overview.php:34
 msgid "Available transformations"
 msgstr ""
 
 #: transformation_overview.php:39
-#, fuzzy
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "설명이 없습니다"
+msgstr "설명"
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -12149,9 +12139,8 @@ msgid "Current amount of Questions: %s"
 msgstr "연결 수"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "SQL 질의"
+msgstr "지연된 쿼리 비율"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -12210,9 +12199,8 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time이 %d초로 설정되였습니다."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL 질의"
+msgstr "지연 쿼리 로깅"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 #, fuzzy
@@ -12227,10 +12215,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time이 %d초로 설정되였습니다."
+msgstr "log_slow_queries가 OFF로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12251,7 +12238,7 @@ msgstr "모두 선택"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL 서버 버전이 5.1 미만입니다."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
@@ -12261,14 +12248,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "서버 버전"
+msgstr "현재 버전: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "PHP 버전"
+msgstr "마이너 버전"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12299,7 +12285,7 @@ msgstr "설명"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "MySQL 공식 바이너리가 아닌 소스에서 컴파일된 버전입니다."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
@@ -12322,7 +12308,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "version_comment에서 percona가 발견되었습니다."
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
@@ -12334,14 +12320,13 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: libraries/advisory_rules.txt:142
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL 문자셋"
+msgstr "MySQL 아키텍쳐"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL이 64비트 패키지로 컴파일되지 않았습니다."
 
 #: libraries/advisory_rules.txt:146
 msgid ""
@@ -12356,9 +12341,8 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:153
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "질의 종류"
+msgstr "쿼리 캐시가 비활성화되어 있습니다."
 
 #: libraries/advisory_rules.txt:156
 #, fuzzy
@@ -12379,9 +12363,8 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy
 msgid "Query caching method"
-msgstr "질의 종류"
+msgstr "쿼리 캐시 방법"
 
 #: libraries/advisory_rules.txt:163
 #, fuzzy
