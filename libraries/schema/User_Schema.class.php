@@ -364,7 +364,7 @@ class PMA_User_Schema
 
             echo '</table>';
 
-            echo '<input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
+            echo '<input type="hidden" name="c_table_rows" value="' . $i . '" />';
             echo '<input type="hidden" id="showwysiwyg" name="showwysiwyg" value="' . ((isset($showwysiwyg) && $showwysiwyg == '1') ? '1' : '0') . '" />';
             echo '<input type="checkbox" name="with_field_names" ' . (isset($with_field_names) ? 'checked="checked"' : ''). ' />' . __('Column names') . '<br />';
             echo '<input type="submit" value="' . __('Save') . '" />';
