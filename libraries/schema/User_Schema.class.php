@@ -490,29 +490,30 @@ class PMA_User_Schema
         $_strtrans  = '';
         $_strname   = '';
         $shoot      = false;
-        if (! empty($tabExist) && is_array($tabExist)) {
-            foreach ($tabExist as $key => $value) {
-                if (! $value) {
-                    $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . htmlspecialchars($key) . '" />' . "\n";
-                    $_strname   .= '<li>' . htmlspecialchars($key) . '</li>' . "\n";
-                    $shoot       = true;
-                }
-            }
-            if ($shoot) {
-                echo '<form action="schema_edit.php" method="post">' . "\n"
-                    . PMA_generate_common_hidden_inputs($db)
-                    . '<input type="hidden" name="do" value="delete_old_references" />' . "\n"
-                    . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
-                    . __('The current page has references to tables that no longer exist. Would you like to delete those references?')
-                    . '<ul>' . "\n"
-                    . $_strname
-                    . '</ul>' . "\n"
-                    . $_strtrans
-                    . '<input type="submit" value="' . __('Go') . '" />' . "\n"
-                    . '</form>';
+        if (empty($tabExist) || ! is_array($tabExist)) {
+            return;
+        }
+        foreach ($tabExist as $key => $value) {
+            if (! $value) {
+                $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . htmlspecialchars($key) . '" />' . "\n";
+                $_strname   .= '<li>' . htmlspecialchars($key) . '</li>' . "\n";
+                $shoot       = true;
             }
         }
-
+        if (!$shoot) {
+            return;
+        }
+        echo '<br /><form action="schema_edit.php" method="post">' . "\n"
+            . PMA_generate_common_hidden_inputs($db)
+            . '<input type="hidden" name="do" value="delete_old_references" />' . "\n"
+            . '<input type="hidden" name="chpage" value="' . htmlspecialchars($chpage) . '" />' . "\n"
+            . __('The current page has references to tables that no longer exist. Would you like to delete those references?')
+            . '<ul>' . "\n"
+            . $_strname
+            . '</ul>' . "\n"
+            . $_strtrans
+            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+            . '</form>';
     }
 
     /**
