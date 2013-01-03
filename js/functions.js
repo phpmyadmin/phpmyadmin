@@ -877,24 +877,6 @@ function refreshLayout()
 }
 
 /**
-  * Show/hide the WYSIWYG scratchboard
-  */
-function ToggleDragDrop(e)
-{
-    var $elm = $('#' + e);
-    if ($elm.css('visibility') == 'hidden') {
-        PDFinit(); /* Defined in pdf_pages.php */
-        $elm.css('visibility', 'visible');
-        $elm.css('display', 'block');
-        $('#showwysiwyg').val('1');
-    } else {
-        $elm.css('visibility', 'hidden');
-        $elm.css('display', 'none');
-        $('#showwysiwyg').val('0');
-    }
-}
-
-/**
  * User schema handlers.
  */
 $(function () {
@@ -911,6 +893,24 @@ $(function () {
             refreshLayout();
             TableDragInit();
         }
+    });
+    /* Show/hide the WYSIWYG scratchboard */
+    $('#toggle-dragdrop').live('click', function () {
+        var $elm = $('#pdflayout');
+        if ($elm.css('visibility') == 'hidden') {
+            PDFinit(); /* Defined in pdf_pages.php */
+            $elm.css('visibility', 'visible');
+            $elm.css('display', 'block');
+            $('#showwysiwyg').val('1');
+        } else {
+            $elm.css('visibility', 'hidden');
+            $elm.css('display', 'none');
+            $('#showwysiwyg').val('0');
+        }
+    });
+    /* Reset scratchboard */
+    $('#reset-dragdrop').live('click', function () {
+        resetDrag();
     });
 });
 

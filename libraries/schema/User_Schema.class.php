@@ -533,8 +533,8 @@ class PMA_User_Schema
         ?>
         <script type="text/javascript" src="js/dom-drag.js"></script>
         <form method="post" action="schema_edit.php" name="dragdrop">
-        <input type="button" name="dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" onclick="ToggleDragDrop('pdflayout');" />
-        <input type="button" name="dragdropreset" value="<?php echo __('Reset'); ?>" onclick="resetDrag();" />
+        <input type="button" name="dragdrop" id="toggle-dragdrop" value="<?php echo __('Toggle scratchboard'); ?>" />
+        <input type="button" name="dragdropreset" id="reset-dragdrop" value="<?php echo __('Reset'); ?>" />
         </form>
         <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
         <?php
