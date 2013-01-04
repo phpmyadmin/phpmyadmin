@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-04 09:53+0200\n"
+"Last-Translator: Arman Khan <memaakn@gmail.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/3-5/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
 msgid "Show all"
-msgstr "সবগুলো দেখাও"
+msgstr "সব দেখাও"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2444
@@ -145,7 +145,7 @@ msgstr "টেবিলের মন্তব্য সমূহ"
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:441
 msgid "Column"
-msgstr "কলামের"
+msgstr "স্তম্ভ"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -253,11 +253,11 @@ msgstr "ডাটাবেজ এ কোন টেবিল পাওয়া য�
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
-msgstr "সব সিলেক্ট করুন"
+msgstr "সব চিহ্নিত করুন"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
-msgstr "সবগুলো অনির্বাচিত হোক"
+msgstr "সব অনির্বাচিত হোক"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
@@ -275,7 +275,7 @@ msgstr "%s ডাটাবেজ়  %s তে কপি করা হয়েছ�
 
 #: db_operations.php:412
 msgid "Rename database to"
-msgstr "ডাটাবেজ রিনেম কর"
+msgstr "ডাটাবেজ পুনঃনামকরন"
 
 #: db_operations.php:438
 msgid "Remove database"
@@ -284,11 +284,11 @@ msgstr "ডাটাবেজ মূছে ফেল"
 #: db_operations.php:450
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s ডাটাবেজ মুছে ফেলা হয়েছে"
+msgstr "%s ডাটাবেজ ফেলা দেয়া হয়েছে"
 
 #: db_operations.php:455
 msgid "Drop the database (DROP)"
-msgstr "ডাটাবেজটি ড্রপ কর (DROP)"
+msgstr "ডাটাবেজটি ফেলে দিন (DROP)"
 
 #: db_operations.php:484
 msgid "Copy database to"
@@ -304,7 +304,7 @@ msgstr "গঠনপ্রণালী এবং তথ্য"
 
 #: db_operations.php:493 tbl_operations.php:556 tbl_tracking.php:425
 msgid "Data only"
-msgstr "শুধু ডাটা"
+msgstr "শুধু তথ্য"
 
 #: db_operations.php:501
 msgid "CREATE DATABASE before copying"
@@ -320,11 +320,11 @@ msgstr "সংযুক্ত %s"
 #: db_operations.php:508 libraries/config/messages.inc.php:121
 #: tbl_operations.php:318 tbl_operations.php:564
 msgid "Add AUTO_INCREMENT value"
-msgstr "AUTO_INCREMENT এর মান সংযুক্ত করুন"
+msgstr "AUTO_INCREMENT এর মান দিন"
 
 #: db_operations.php:512 tbl_operations.php:571
 msgid "Add constraints"
-msgstr "constraints সংযুক্ত করুন"
+msgstr "constraints যোগ করুন"
 
 #: db_operations.php:525
 msgid "Switch to copied database"
@@ -338,7 +338,7 @@ msgstr "অনুলিপি ডাটাবেজ এ পরিবর্তি
 #: tbl_structure.php:204 tbl_structure.php:876 tbl_tracking.php:259
 #: tbl_tracking.php:325
 msgid "Collation"
-msgstr "Collation"
+msgstr "একত্রীকরণ"
 
 #: db_operations.php:561
 #, php-format
@@ -457,7 +457,7 @@ msgstr "এবং"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "Del"
+msgstr "মুছা"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
