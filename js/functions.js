@@ -1548,10 +1548,7 @@ function PMA_ajaxShowMessage(message, timeout)
         .delay(timeout)
         .fadeOut('medium', function() {
             if ($(this).is('.dismissable')) {
-                // Here we should destroy the qtip instance, but
-                // due to a bug in qtip's implementation we can
-                // only hide it without throwing JS errors.
-                $(this).qtip('hide');
+                $(this).tooltip('destroy');
             }
             // Remove the notification
             $(this).remove();
