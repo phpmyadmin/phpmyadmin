@@ -27,7 +27,19 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
+    $kill_query = sprintf('KILL %d;', $_REQUEST['kill']);
+    
+    // Check if Amazon RDS is being used:
+    $res = PMA_DBI_query('SELECT @@basedir basedir');
+    if ($res) {
+        $retval = PMA_DBI_fetch_single_row($res);
+        
+        if ($info['basedir'] == '/rdsdbbin/mysql/') {
+            $kill_query = sprintf('CALL mysql.rds_kill(%d);', $_REQUEST['kill']);
+        }
+    }
+    
+    if (PMA_DBI_try_query($kill_query)) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
         $message = PMA_Message::error(
