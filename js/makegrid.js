@@ -42,11 +42,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         sortHint: '',               // string, hint for column sorting
         markHint: '',               // string, hint for column marking
         copyHint: '',               // string, hint for copy column name
-        colVisibHint: '',           // string, hint for column visibility drop-down
         showReorderHint: false,
         showSortHint: false,
         showMarkHint: false,
-        showColVisibHint: false,
 
         // Grid editing
         isCellEditActive: false,    // true if current focus is in edit cell
@@ -440,10 +438,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += g.markHint;
                     text += text.length > 0 ? '<br />' : '';
                     text += g.copyHint;
-                }
-                if (g.showColVisibHint && g.colVisibHint) {
-                    text += text.length > 0 ? '<br />' : '';
-                    text += g.colVisibHint;
                 }
                 // hide the hint if no text and the event is mouseenter
                 if (g.qtip) {
@@ -1532,7 +1526,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cList).hide();
 
             // assign column visibility related hints
-            g.colVisibHint = PMA_messages['strColVisibHint'];
             g.showAllColText = PMA_messages['strShowAllCol'];
 
             // get data columns in the first row of the table
@@ -1555,7 +1548,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
                 var $colVisibTh = $(g.t).find('th:not(.draggable)');
-                PMA_createqTip($colVisibTh);
+                PMA_tooltip(
+                    $colVisibTh,
+                    'th',
+                    PMA_messages['strColVisibHint']
+                );
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function() {
@@ -1571,12 +1568,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 }
                             });
                         $(g.cDrop).append(cd);
-                    })
-                    .mouseenter(function(e) {
-                        g.showColVisibHint = true;
-                    })
-                    .mouseleave(function(e) {
-                        g.showColVisibHint = false;
                     });
 
                 // add column visibility control
@@ -1867,7 +1858,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     }
 
     // bind event to update currently hovered qtip API
-    $(t).find('th')
+    $(t).find('th.draggable')
         .mouseenter(function(e) {
             g.qtip = $(this).qtip('api');
             g.updateHint(e);
