@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:04+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-07 00:17+0200\n"
+"Last-Translator: Pham Andrei <pham.andrei4@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
 msgid "Show all"
-msgstr "Arată toate"
+msgstr "Arată-le pe toate"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2444
@@ -105,14 +105,13 @@ msgid "No blob streaming server configured!"
 msgstr "Nici un server de streaming aglomerat nu a fost configurat!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Eșec la scrierea fișierului pe disc."
+msgstr "Eșec la obținerea antetului"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "A avut loc un eșec în deschiderea URL-ului de la distanță."
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -417,10 +416,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Trebuie să alegeți cel puțin o coloană pentru a putea afișa"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Schimbă la tabela copiată"
+msgstr "Comutați la %smodul vizual%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1003
@@ -475,10 +474,9 @@ msgid "Modify"
 msgstr "Modificare"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Adaugă/șterge criteriu"
+msgstr "Adaugă/Șterge criteriul răndurilor"
 
 #: db_qbe.php:618
 msgid "Add/Delete columns"
@@ -755,7 +753,7 @@ msgstr "Tabelele urmărite"
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
-msgstr "Baza de date"
+msgstr "Bază de date"
 
 #: db_tracking.php:87
 msgid "Last version"
@@ -5302,7 +5300,9 @@ msgstr "Numele \"verbose\" al acestui server"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Dacă unui utilizator să i se afișeze un buton \"show all\""
+msgstr ""
+"Dacă unui utilizator să i se afișeze un buton &quot;arata-le pe "
+"toate(randurile&quot;"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -7815,10 +7815,9 @@ msgstr "Sfârșitul"
 
 #: libraries/rte/rte_events.lib.php:482 libraries/rte/rte_routines.lib.php:940
 #: libraries/rte/rte_triggers.lib.php:373
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Descriere"
+msgstr "Definiție"
 
 #: libraries/rte/rte_events.lib.php:488
 #, fuzzy
@@ -7829,13 +7828,15 @@ msgstr "Inserări complete"
 #: libraries/rte/rte_events.lib.php:492 libraries/rte/rte_routines.lib.php:950
 #: libraries/rte/rte_triggers.lib.php:379
 msgid "Definer"
-msgstr ""
+msgstr "Definitor"
 
 #: libraries/rte/rte_events.lib.php:535
 #: libraries/rte/rte_routines.lib.php:1014
 #: libraries/rte/rte_triggers.lib.php:417
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
+"Datele introduse aici trebuie sa fie în format-ul \"nume-de-utilizator"
+"@numele-gazdei\" (username@hostname)"
 
 #: libraries/rte/rte_events.lib.php:542
 msgid "You must provide an event name"
@@ -7871,13 +7872,12 @@ msgstr "PORNIT"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Statutul programatorului de evenimente"
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Tipul întors"
+msgstr "Întoarce"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:359
 msgid "Event"
@@ -7889,6 +7889,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Extensia 'mysql' a PHP pe care o folosiți este învechită, și nu poate "
+"executa interogări multiple. <b>Execuția unor rutine stocate ar putea "
+"eșua!</b> Vă rugăm folosiți extensia 'mysql' îmbunătățită, pentru a evita "
+"orice fel de probleme."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1022
@@ -7899,13 +7903,13 @@ msgstr "Index de server nevalid: „%s”"
 
 #: libraries/rte/rte_routines.lib.php:275
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Ne pare rău, am eșuat încercând să recuperăm rutina ștearsă."
 
 #: libraries/rte/rte_routines.lib.php:284
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
-msgstr "Tabelul %s a fost aruncat"
+msgstr "Tabelul %1$s a fost modificat."
 
 #: libraries/rte/rte_routines.lib.php:301
 #, fuzzy, php-format
@@ -7927,7 +7931,7 @@ msgstr "Rutine"
 
 #: libraries/rte/rte_routines.lib.php:871
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrii"
 
 #: libraries/rte/rte_routines.lib.php:876
 #, fuzzy
@@ -13416,7 +13420,7 @@ msgstr ""
 
 #: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Mărimea maximă a înregistrării InnoDB."
 
 #: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
@@ -13435,6 +13439,17 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"De obicei, este suficientă setarea propietății innodb_log_file_size la 25%% "
+"din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
+"innodb_log_file_size va încetini considerabil timpul de recuperare după o "
+"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
+"ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
+"pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
+"asigura că totul a decurs bine. A se vedea de asemenea <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">acest post din blog</a>."
 
 #: po/advisory_rules.php:263
 #, php-format
@@ -13442,10 +13457,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: po/advisory_rules.php:265
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Buffer pool size"
+msgstr "Mărimea buffer-ului pool al InnoDB."
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
