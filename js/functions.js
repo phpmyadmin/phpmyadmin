@@ -3506,16 +3506,16 @@ function PMA_createqTip($elements, content, options)
  * @param item          the item
  *                      (see http://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
- * @param additional_options to override the default options
+ * @param additionalOptions to override the default options
  *
  */
-function PMA_tooltip($elements, item, myContent, additional_options)
+function PMA_tooltip($elements, item, myContent, additionalOptions)
 {
     if ($('#no_hint').length > 0) {
         return;
     }
 
-    var default_options = {
+    var defaultOptions = {
         content: myContent,
         items:  item,
         //@todo: when PMA_createqTip() is gone, rename this class
@@ -3525,7 +3525,7 @@ function PMA_tooltip($elements, item, myContent, additional_options)
         hide: {effect: "slideUp", duration: 250}
     }
 
-    $elements.tooltip($.extend(true, default_options, additional_options));
+    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
 }
 
 /**

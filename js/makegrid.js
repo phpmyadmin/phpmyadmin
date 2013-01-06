@@ -127,7 +127,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 objTop: objPos.top,
                 objLeft: objPos.left
             };
-            g.hideHint();
+            $(t).find('th.draggable').tooltip('disable');
+
             $('body').css('cursor', 'move');
             $('body').noSelect();
             if (g.isCellEditActive) {
@@ -226,6 +227,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             }
             $('body').css('cursor', 'inherit');
             $('body').noSelect(false);
+            $(t).find('th.draggable').tooltip('enable');
         },
 
         /**
@@ -417,13 +419,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
         /**
          * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
-         * It will hide the hint if all the boolean values is false.
          *
-         * @param e event
          */
-        updateHint: function(e) {
+        updateHint: function() {
+            var text = '';
             if (!g.colRsz && !g.colReorder) {     // if not resizing or dragging
-                var text = '';
+                if (g.visibleHeadersCount > 1) {
+                    g.showReorderHint = true;
+                }
+                if ($(t).find('th.marker').length > 0) {
+                    g.showMarkHint = true;
+                }
+
                 if (g.showReorderHint && g.reorderHint) {
                     text += g.reorderHint;
                 }
@@ -439,21 +446,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += g.copyHint;
                 }
-                // hide the hint if no text and the event is mouseenter
-                if (g.qtip) {
-                    g.qtip.disable(!text && e.type == 'mouseenter');
-                    g.qtip.updateContent(text, false);
-                }
-            } else {
-                g.hideHint();
             }
-        },
-
-        hideHint: function() {
-            if (g.qtip) {
-                g.qtip.hide();
-                g.qtip.disable(true);
-            }
+            return text;
         },
 
         /**
@@ -1467,7 +1461,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 })
                 .mouseenter(function(e) {
                     if (g.visibleHeadersCount > 1) {
-                        g.showReorderHint = true;
                         $(this).css('cursor', 'move');
                     } else {
                         $(this).css('cursor', 'inherit');
@@ -1475,6 +1468,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 })
                 .mouseleave(function(e) {
                     g.showReorderHint = false;
+                    $(t).find("th.draggable").tooltip("option", {
+                        content: g.updateHint()
+                    }) ;
                 })
                 .dblclick(function(e) {
                     e.preventDefault();
@@ -1826,27 +1822,28 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         g.initGridEdit();
     }
 
-    // create qtip for each <th> with draggable class
-    PMA_createqTip($(t).find('th.draggable'));
+    // create tooltip for each <th> with draggable class
+    PMA_tooltip(
+            $(t).find("th.draggable"),
+            'th',
+            g.updateHint()
+    );
 
-    // register events for hint tooltip
+    // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')
-        .attr('title', '')          // hide default tooltip for sorting
         .mouseenter(function(e) {
             g.showSortHint = true;
-            g.updateHint(e);
+            $(t).find("th.draggable").tooltip("option", {
+                content: g.updateHint()
+            }); 
         })
         .mouseleave(function(e) {
             g.showSortHint = false;
-            g.updateHint(e);
+            $(t).find("th.draggable").tooltip("option", {
+                content: g.updateHint()
+            }); 
         });
-    $(t).find('th.marker')
-        .mouseenter(function(e) {
-            g.showMarkHint = true;
-        })
-        .mouseleave(function(e) {
-            g.showMarkHint = false;
-        });
+
     // register events for dragging-related feature
     if (enableResize || enableReorder) {
         $(document).mousemove(function(e) {
@@ -1856,16 +1853,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.dragEnd(e);
         });
     }
-
-    // bind event to update currently hovered qtip API
-    $(t).find('th.draggable')
-        .mouseenter(function(e) {
-            g.qtip = $(this).qtip('api');
-            g.updateHint(e);
-        })
-        .mouseleave(function(e) {
-            g.updateHint(e);
-        });
 
     // some adjustment
     $(t).removeClass('data');
