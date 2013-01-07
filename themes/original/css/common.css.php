@@ -2177,7 +2177,7 @@ fieldset .disabled-field td {
     width: 10px;
 }
 
-.normalqTip {
+.tooltip {
     background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
@@ -2187,15 +2187,12 @@ fieldset .disabled-field td {
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
     font-weight: bold !important;
+    padding: 1px 3px !important;
 }
 
-.normalqTip * {
+.tooltip * {
     background: none !important;
     color: #FFF !important;
-}
-
-.normalqTipContent {
-    padding: 1px 3px !important;
 }
 
 

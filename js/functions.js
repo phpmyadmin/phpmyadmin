@@ -3458,48 +3458,6 @@ AJAX.registerTeardown('functions.js', function() {
 })(jQuery);
 
 /**
- * Create default PMA tooltip for the element specified. The default appearance
- * can be overriden by specifying optional "options" parameter (see qTip options).
- */
-function PMA_createqTip($elements, content, options)
-{
-    if ($('#no_hint').length > 0) {
-        return;
-    }
-
-    var o = {
-        content: content,
-        style: {
-            classes: {
-                tooltip: 'normalqTip',
-                content: 'normalqTipContent'
-            },
-            name: 'dark'
-        },
-        position: {
-            target: 'mouse',
-            corner: { target: 'rightMiddle', tooltip: 'leftMiddle' },
-            adjust: { x: 10, y: 20 }
-        },
-        show: {
-            delay: 0,
-            effect: {
-                type: 'grow',
-                length: 150
-            }
-        },
-        hide: {
-            effect: {
-                type: 'grow',
-                length: 200
-            }
-        }
-    };
-
-    $elements.qtip($.extend(true, o, options));
-}
-
-/**
  * Create a jQuery UI tooltip
  *
  * @param $elements     jQuery object representing the elements
@@ -3518,8 +3476,7 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
     var defaultOptions = {
         content: myContent,
         items:  item,
-        //@todo: when PMA_createqTip() is gone, rename this class
-        tooltipClass: "normalqTip",
+        tooltipClass: "tooltip",
         track: true,
         show: false,
         hide: false 
