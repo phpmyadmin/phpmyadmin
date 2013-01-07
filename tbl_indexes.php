@@ -99,6 +99,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
+    $sql_query .= "COMMENT '" . PMA_Util::sqlAddSlashes($index->getComment()) . "'";
     $sql_query .= ';';
 
     if (! $error) {
@@ -217,6 +218,18 @@ echo PMA_Util::showHint(
         </div>
         <input type="text" name="index[Key_name]" id="input_index_name" size="25"
             value="<?php echo htmlspecialchars($index->getName()); ?>"
+            onfocus="this.select()" />
+    </div>
+    <div>
+        <div class="label">
+            <strong>
+                <label for="input_index_comment">
+                    <?php echo __('Comment:'); ?>
+                </label>
+            </strong>
+        </div>
+        <input type="text" name="index[Index_comment]" id="input_index_comment" size="30"
+            value="<?php echo htmlspecialchars($index->getComment()); ?>"
             onfocus="this.select()" />
     </div>
     <div>
