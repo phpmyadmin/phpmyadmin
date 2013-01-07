@@ -83,6 +83,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - Bug #3576788 Grid editing shows the value before silent truncation
 - Upgraded jqPlot to 1.0.4 r1121
 - Upgraded to jquery-ui-timepicker-addon 1.1.1
++ rfe #3599046 [interface] Added comments for indexes
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule
