@@ -37,7 +37,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         visibleHeadersCount: 0,     // number of visible data headers
 
         // Table hint variables
-        qtip: null,                 // qtip API
         reorderHint: '',            // string, hint for column reordering
         sortHint: '',               // string, hint for column sorting
         markHint: '',               // string, hint for column marking
