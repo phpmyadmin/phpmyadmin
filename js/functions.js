@@ -1559,22 +1559,13 @@ function PMA_ajaxShowMessage(message, timeout)
     if (dismissable) {
         $retval.addClass('dismissable').css('cursor', 'pointer');
         /**
-         * @var tooltipOptions Options for "Dismiss notification" tooltip
-         *                     to remove any animation when showing and hiding
-         */
-        var tooltipOptions = {
-            show: false,
-            hide: false
-        };
-        /**
          * Add a tooltip to the notification to let the user know that (s)he
          * can dismiss the ajax notification by clicking on it.
          */
         PMA_tooltip(
             $retval,
             'span',
-            PMA_messages['strDismiss'],
-            tooltipOptions
+            PMA_messages['strDismiss']
         );
     }
 
