@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-03 14:04+0100\n"
-"PO-Revision-Date: 2013-01-07 22:48+0200\n"
+"PO-Revision-Date: 2013-01-07 23:44+0200\n"
 "Last-Translator: Pham Andrei <pham.andrei4@gmail.com>\n"
 "Language-Team: Romanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -4869,10 +4869,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Setări care nu s-au potrivit altundeva"
 
 #: libraries/config/messages.inc.php:190
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "Titluri pagini"
+msgstr "Titluri de pagini"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
