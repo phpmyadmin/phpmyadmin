@@ -1613,11 +1613,11 @@ $(function() {
      */
     $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseover', function () {
-        $(this).parents('span.ajax_notification').qtip('hide');
+        $(this).parents('span.ajax_notification').tooltip('disable');
     });
     $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseout', function () {
-        $(this).parents('span.ajax_notification').qtip('show');
+        $(this).parents('span.ajax_notification').tooltip('enable');
     });
 });
 
