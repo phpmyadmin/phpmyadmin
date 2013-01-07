@@ -3521,8 +3521,8 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
         //@todo: when PMA_createqTip() is gone, rename this class
         tooltipClass: "normalqTip",
         track: true,
-        show: {effect: "slideDown", duration: 250},
-        hide: {effect: "slideUp", duration: 250}
+        show: false,
+        hide: false 
     }
 
     $elements.tooltip($.extend(true, defaultOptions, additionalOptions));

@@ -1742,7 +1742,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
             if (PMA_messages['strGridEditFeatureHint'] != undefined) {
-                PMA_createqTip($(g.t).find('.edit_row_anchor a'), PMA_messages['strGridEditFeatureHint']);
+                PMA_tooltip(
+                    $(g.t).find('.edit_row_anchor a'),
+                    'a',
+                    PMA_messages['strGridEditFeatureHint']
+                );
             }
         }
     };
