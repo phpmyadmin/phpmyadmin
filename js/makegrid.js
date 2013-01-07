@@ -127,7 +127,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 objTop: objPos.top,
                 objLeft: objPos.left
             };
-            $(t).find('th.draggable').tooltip('disable');
 
             $('body').css('cursor', 'move');
             $('body').noSelect();
@@ -227,7 +226,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             }
             $('body').css('cursor', 'inherit');
             $('body').noSelect(false);
-            $(t).find('th.draggable').tooltip('enable');
         },
 
         /**
