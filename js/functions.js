@@ -2859,12 +2859,11 @@ function PMA_showHints($div)
         $div = $("body");
     }
     $div.find('.pma_hint').each(function () {
-        $(this).children('img').qtip({
-            content: $(this).children('span').html(),
-            show: { delay: 0 },
-            hide: { delay: 1000 },
-            style: { background: '#ffffcc' }
-        });
+        PMA_tooltip(
+            $(this).children('img'),
+            'img',
+            $(this).children('span').html()
+        );
     });
 }
 
