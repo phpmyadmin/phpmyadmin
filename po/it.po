@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-03 14:04+0100\n"
-"PO-Revision-Date: 2012-12-13 12:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2013-01-08 20:53+0200\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -970,10 +970,10 @@ msgid "Edit Index"
 msgstr "Modifica Indice"
 
 #: js/messages.php:44 tbl_indexes.php:326 tbl_indexes.php:334
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Aggiungi %d campo/i all'indice"
+msgstr "Aggiungi %s campo/i all'indice"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1937,7 +1937,7 @@ msgstr ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"È possibile modificare la maggior parte dei campi<br /> cliccando "
+"È possibile modificare la maggior parte dei valori<br />cliccando "
 "direttamente sul loro contenuto."
 
 #: js/messages.php:358
@@ -2295,10 +2295,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Formato non valido per l'input CSV alla linea %d."
+msgstr "Formato non valido per l'input CSV alla linea %s"
 
 #: libraries/Advisor.class.php:403
 #, php-format
