@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-08-27 11:33+0200\n"
+"PO-Revision-Date: 2013-01-08 09:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uighur <http://l10n.cihar.com/projects/phpmyadmin/3-5/ug/>\n"
 "Language: ug\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1070,7 +1070,7 @@ msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكل�
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
-msgstr "راستىنلا ئجرا قىلىمسىز"
+msgstr "راستىنلا ئجرا قىلىمسىز "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
