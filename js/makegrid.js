@@ -1465,7 +1465,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 })
                 .mouseleave(function(e) {
                     g.showReorderHint = false;
-                    $(t).find("th.draggable").tooltip("option", {
+                    $(this).tooltip("option", {
                         content: g.updateHint()
                     }) ;
                 })
