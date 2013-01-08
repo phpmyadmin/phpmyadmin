@@ -3383,7 +3383,8 @@ AJAX.registerOnload('functions.js', function() {
         });
         codemirror_wrapper_element = codemirror_editor.getWrapperElement();
         $(codemirror_wrapper_element).bind('keypress', function (e) {
-            if (e.ctrlKey && (e.keyCode == 13 || e.keyCode == 10)) { // ctrl-enter is 10 in chrome and ie, but 13 in ff
+            // ctrl-enter is 10 in chrome and ie, but 13 in ff
+            if (e.ctrlKey && (e.keyCode == 13 || e.keyCode == 10)) { 
                 $("#button_submit_query").submit();
                 return false;
             }
