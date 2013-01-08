@@ -591,7 +591,12 @@ class PMA_Util
      */
     public static function showHint($message)
     {
-        return '<span class="pma_hint">'
+        if ($GLOBALS['cfg']['ShowHint']) {
+            $classClause = ' class="pma_hint"';
+        } else {
+            $classClause = '';
+        }
+        return '<span' . $classClause . '>'
             . self::getImage('b_help.png')
             . '<span class="hide">' . $message . '</span>'
             . '</span>';
