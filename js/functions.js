@@ -1423,12 +1423,6 @@ AJAX.registerOnload('functions.js', function() {
         }
     });
 
-    $('#sqlquery').focus().keydown(function (e) {
-        if (e.ctrlKey && e.keyCode == 13) {
-            $("#sqlqueryform").submit();
-        }
-    });
-
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
             $('#input_username').focus();
@@ -3385,8 +3379,15 @@ AJAX.registerOnload('functions.js', function() {
             matchBrackets: true,
             indentUnit: 4,
             mode: "text/x-mysql",
-            lineWrapping: true
+            lineWrapping: true,
+            onKeyEvent: function (inst, e) {
+                if (e.type == 'keydown' && e.ctrlKey && (e.keyCode == 13 || e.keyCode == 10)) {
+                    $("#button_submit_query").submit();
+                    return false;
+                }
+            }
         });
+        codemirror_editor.focus();
     }
 });
 AJAX.registerTeardown('functions.js', function() {
