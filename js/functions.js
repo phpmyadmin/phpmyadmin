@@ -3386,7 +3386,6 @@ AJAX.registerOnload('functions.js', function() {
             // ctrl-enter is 10 in chrome and ie, but 13 in ff
             if (e.ctrlKey && (e.keyCode == 13 || e.keyCode == 10)) { 
                 $("#button_submit_query").submit();
-                return false;
             }
         });
         codemirror_editor.focus();
