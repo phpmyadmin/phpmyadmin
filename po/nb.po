@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-08 15:28+0200\n"
+"Last-Translator: Knut Erik Langdahl <knut.erik.langdahl@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
 "Language: nb\n"
@@ -1915,6 +1915,7 @@ msgstr "Velg et datapunkt for å vise, og eventuelt endre raden med data."
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Du kan endre størrelsen på området ved å dra i hjørnet nederst til høyre."
 
 #: js/messages.php:312
 msgid "Select two columns"
