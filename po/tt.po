@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-03 14:04+0100\n"
+"POT-Creation-Date: 2013-01-09 14:17+0100\n"
 "PO-Revision-Date: 2012-09-05 10:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <http://l10n.cihar.com/projects/phpmyadmin/master/tt/>\n"
@@ -21,10 +21,10 @@ msgid "Show all"
 msgstr "Barısın kürsät"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2535
+#: libraries/Util.class.php:2540
 #: libraries/schema/Pdf_Relation_Schema.class.php:1178
 #: libraries/schema/Pdf_Relation_Schema.class.php:1202
-#: libraries/schema/User_Schema.class.php:417
+#: libraries/schema/User_Schema.class.php:419
 #: libraries/select_lang.lib.php:510
 msgid "Page number:"
 msgstr "Bitneñ sanı:"
@@ -40,9 +40,9 @@ msgstr ""
 "tora."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3263
-#: libraries/Util.class.php:3270 libraries/Util.class.php:3475
-#: libraries/Util.class.php:3476
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3268
+#: libraries/Util.class.php:3275 libraries/Util.class.php:3480
+#: libraries/Util.class.php:3481
 msgid "Search"
 msgstr "Ezläw"
 
@@ -66,8 +66,8 @@ msgstr "Ezläw"
 #: libraries/rte/rte_triggers.lib.php:420
 #: libraries/schema/User_Schema.class.php:163
 #: libraries/schema/User_Schema.class.php:225
-#: libraries/schema/User_Schema.class.php:474
-#: libraries/schema/User_Schema.class.php:514
+#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:520
 #: libraries/server_privileges.lib.php:480
 #: libraries/server_privileges.lib.php:1486
 #: libraries/server_privileges.lib.php:1965
@@ -79,7 +79,7 @@ msgstr "Ezläw"
 #: libraries/tbl_columns_definition_form.inc.php:756 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:197
-#: tbl_indexes.php:329 tbl_tracking.php:520 tbl_tracking.php:683
+#: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:221 view_operations.php:98
 msgid "Go"
 msgstr "Äydä"
@@ -127,7 +127,7 @@ msgstr "Tüşämä açıqlaması"
 #: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
-#: libraries/plugins/export/ExportLatex.class.php:503
+#: libraries/plugins/export/ExportLatex.class.php:508
 #: libraries/plugins/export/ExportOdt.class.php:358
 #: libraries/plugins/export/ExportOdt.class.php:456
 #: libraries/plugins/export/ExportTexytext.class.php:269
@@ -135,7 +135,7 @@ msgstr "Tüşämä açıqlaması"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1349
 #: libraries/schema/Pdf_Relation_Schema.class.php:1370
-#: libraries/tbl_columns_definition_form.inc.php:352 tbl_indexes.php:240
+#: libraries/tbl_columns_definition_form.inc.php:352 tbl_indexes.php:253
 #: tbl_printview.php:130 tbl_relation.php:361 tbl_tracking.php:323
 #: tbl_tracking.php:385
 #, fuzzy
@@ -148,7 +148,7 @@ msgstr "Alan iseme"
 #: libraries/insert_edit.lib.php:243
 #: libraries/plugins/export/ExportHtmlword.class.php:279
 #: libraries/plugins/export/ExportHtmlword.class.php:394
-#: libraries/plugins/export/ExportLatex.class.php:504
+#: libraries/plugins/export/ExportLatex.class.php:509
 #: libraries/plugins/export/ExportOdt.class.php:361
 #: libraries/plugins/export/ExportOdt.class.php:459
 #: libraries/plugins/export/ExportTexytext.class.php:270
@@ -170,7 +170,7 @@ msgstr "Töre"
 #: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
-#: libraries/plugins/export/ExportLatex.class.php:505
+#: libraries/plugins/export/ExportLatex.class.php:510
 #: libraries/plugins/export/ExportOdt.class.php:364
 #: libraries/plugins/export/ExportOdt.class.php:462
 #: libraries/plugins/export/ExportTexytext.class.php:271
@@ -185,7 +185,7 @@ msgstr "Buş"
 
 #: db_datadict.php:170 libraries/plugins/export/ExportHtmlword.class.php:285
 #: libraries/plugins/export/ExportHtmlword.class.php:400
-#: libraries/plugins/export/ExportLatex.class.php:506
+#: libraries/plugins/export/ExportLatex.class.php:511
 #: libraries/plugins/export/ExportOdt.class.php:367
 #: libraries/plugins/export/ExportOdt.class.php:465
 #: libraries/plugins/export/ExportTexytext.class.php:272
@@ -199,7 +199,7 @@ msgid "Default"
 msgstr "Töpcay"
 
 #: db_datadict.php:174 libraries/plugins/export/ExportHtmlword.class.php:404
-#: libraries/plugins/export/ExportLatex.class.php:508
+#: libraries/plugins/export/ExportLatex.class.php:513
 #: libraries/plugins/export/ExportOdt.class.php:469
 #: libraries/plugins/export/ExportTexytext.class.php:374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
@@ -211,7 +211,7 @@ msgstr "Bonı belän bäyläneş:"
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportHtmlword.class.php:409
-#: libraries/plugins/export/ExportLatex.class.php:511
+#: libraries/plugins/export/ExportLatex.class.php:516
 #: libraries/plugins/export/ExportOdt.class.php:474
 #: libraries/plugins/export/ExportTexytext.class.php:377
 #: libraries/schema/Pdf_Relation_Schema.class.php:1366
@@ -226,7 +226,7 @@ msgstr "Açıqlama"
 #: libraries/config/FormDisplay.tpl.php:260 libraries/mult_submits.inc.php:340
 #: libraries/mult_submits.inc.php:341
 #: libraries/plugins/export/ExportHtmlword.class.php:631
-#: libraries/plugins/export/ExportLatex.class.php:582
+#: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:566
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
@@ -253,7 +253,7 @@ msgstr "Yuq"
 #: libraries/mult_submits.inc.php:305 libraries/mult_submits.inc.php:334
 #: libraries/mult_submits.inc.php:335 libraries/mult_submits.inc.php:348
 #: libraries/plugins/export/ExportHtmlword.class.php:632
-#: libraries/plugins/export/ExportLatex.class.php:582
+#: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:566
 #: libraries/schema/Pdf_Relation_Schema.class.php:1402
@@ -321,7 +321,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/plugins/export/PMA_ExportPdf.class.php:111
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
-#: libraries/schema/User_Schema.class.php:293
+#: libraries/schema/User_Schema.class.php:296
 #: libraries/server_privileges.lib.php:1993
 #: libraries/server_privileges.lib.php:2224
 #: libraries/server_privileges.lib.php:2874 libraries/structure.lib.php:757
@@ -336,7 +336,7 @@ msgstr "Tüşämä"
 msgid "Rows"
 msgstr "Kerem"
 
-#: db_printview.php:104 libraries/structure.lib.php:787 tbl_indexes.php:241
+#: db_printview.php:104 libraries/structure.lib.php:787 tbl_indexes.php:254
 msgid "Size"
 msgstr "Küläme"
 
@@ -345,7 +345,7 @@ msgstr "Küläme"
 msgid "in use"
 msgstr "totıla"
 
-#: db_printview.php:185 libraries/Util.class.php:4106
+#: db_printview.php:185 libraries/Util.class.php:4111
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
@@ -353,7 +353,7 @@ msgstr "totıla"
 msgid "Creation"
 msgstr "Yasalışı"
 
-#: db_printview.php:194 libraries/Util.class.php:4112
+#: db_printview.php:194 libraries/Util.class.php:4117
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
@@ -361,7 +361,7 @@ msgstr "Yasalışı"
 msgid "Last update"
 msgstr "Soñğı yañartılu"
 
-#: db_printview.php:203 libraries/Util.class.php:4118
+#: db_printview.php:203 libraries/Util.class.php:4123
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
@@ -461,7 +461,7 @@ msgid "Delete tracking data for this table"
 msgstr ""
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3480 libraries/Util.class.php:3481
+#: libraries/Util.class.php:3485 libraries/Util.class.php:3486
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
 #: server_databases.php:327
@@ -718,7 +718,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL-sorawıñ uñışlı eşkärtelde"
 
-#: import_status.php:101 libraries/Util.class.php:757
+#: import_status.php:101 libraries/Util.class.php:762
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:240
 msgid "Back"
 msgstr "Kire"
@@ -983,7 +983,7 @@ msgstr "Tezeş"
 msgid "Edit Index"
 msgstr "Kiläse yazma üzgärtü"
 
-#: js/messages.php:44 tbl_indexes.php:326 tbl_indexes.php:334
+#: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s) to index"
@@ -1042,8 +1042,8 @@ msgstr ""
 
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:589
-#: libraries/Util.class.php:691 libraries/Util.class.php:1236
-#: libraries/Util.class.php:3484 libraries/Util.class.php:3485
+#: libraries/Util.class.php:696 libraries/Util.class.php:1241
+#: libraries/Util.class.php:3489 libraries/Util.class.php:3490
 #: libraries/config/messages.inc.php:484
 #: libraries/schema/User_Schema.class.php:215 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1084,12 +1084,12 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/Util.class.php:1504
+#: js/messages.php:72 libraries/Util.class.php:1509
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/Util.class.php:1506
+#: js/messages.php:74 libraries/Util.class.php:1511
 msgid "."
 msgstr "."
 
@@ -1210,39 +1210,39 @@ msgid "Processes"
 msgstr "Proseslar"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:108 libraries/Util.class.php:1450
+#: js/messages.php:108 libraries/Util.class.php:1455
 msgid "B"
 msgstr "Bayt"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:109 libraries/Util.class.php:1452
+#: js/messages.php:109 libraries/Util.class.php:1457
 #: server_status_monitor.php:648
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:110 libraries/Util.class.php:1454
+#: js/messages.php:110 libraries/Util.class.php:1459
 #: server_status_monitor.php:649
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:111 libraries/Util.class.php:1456
+#: js/messages.php:111 libraries/Util.class.php:1461
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:112 libraries/Util.class.php:1458
+#: js/messages.php:112 libraries/Util.class.php:1463
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:113 libraries/Util.class.php:1460
+#: js/messages.php:113 libraries/Util.class.php:1465
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:114 libraries/Util.class.php:1462
+#: js/messages.php:114 libraries/Util.class.php:1467
 msgid "EiB"
 msgstr "EB"
 
@@ -1863,10 +1863,10 @@ msgstr "%d digäne yazma sanı öçen kileşmi."
 
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:394
 #: libraries/insert_edit.lib.php:1460
-#: libraries/schema/User_Schema.class.php:373
+#: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:321 tbl_relation.php:519
+#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Saqla"
 
@@ -1932,8 +1932,8 @@ msgstr "Soraw qaytarmasın eşkärtü"
 msgid "Data point content"
 msgstr "Data pointer olılığı"
 
-#: js/messages.php:307 tbl_change.php:263 tbl_indexes.php:256
-#: tbl_indexes.php:294
+#: js/messages.php:307 tbl_change.php:263 tbl_indexes.php:269
+#: tbl_indexes.php:307
 msgid "Ignore"
 msgstr "Qarama"
 
@@ -2193,27 +2193,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1661
+#: js/messages.php:435 libraries/Util.class.php:1666
 msgid "Jan"
 msgstr "Ğın"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1663
+#: js/messages.php:437 libraries/Util.class.php:1668
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1665
+#: js/messages.php:439 libraries/Util.class.php:1670
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1667
+#: js/messages.php:441 libraries/Util.class.php:1672
 msgid "Apr"
 msgstr "Äpr"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1669
+#: js/messages.php:443 libraries/Util.class.php:1674
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2221,37 +2221,37 @@ msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1671
+#: js/messages.php:445 libraries/Util.class.php:1676
 msgid "Jun"
 msgstr "Yün"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1673
+#: js/messages.php:447 libraries/Util.class.php:1678
 msgid "Jul"
 msgstr "Yül"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1675
+#: js/messages.php:449 libraries/Util.class.php:1680
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1677
+#: js/messages.php:451 libraries/Util.class.php:1682
 msgid "Sep"
 msgstr "Sen"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1679
+#: js/messages.php:453 libraries/Util.class.php:1684
 msgid "Oct"
 msgstr "Ökt"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1681
+#: js/messages.php:455 libraries/Util.class.php:1686
 msgid "Nov"
 msgstr "Nöy"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1683
+#: js/messages.php:457 libraries/Util.class.php:1688
 msgid "Dec"
 msgstr "Dek"
 
@@ -2300,32 +2300,32 @@ msgid "Sun"
 msgstr "Ykş"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1688
+#: js/messages.php:478 libraries/Util.class.php:1693
 msgid "Mon"
 msgstr "Dşm"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1690
+#: js/messages.php:480 libraries/Util.class.php:1695
 msgid "Tue"
 msgstr "Sşm"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1692
+#: js/messages.php:482 libraries/Util.class.php:1697
 msgid "Wed"
 msgstr "Çrş"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1694
+#: js/messages.php:484 libraries/Util.class.php:1699
 msgid "Thu"
 msgstr "Pnc"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1696
+#: js/messages.php:486 libraries/Util.class.php:1701
 msgid "Fri"
 msgstr "Cmğ"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1698
+#: js/messages.php:488 libraries/Util.class.php:1703
 msgid "Sat"
 msgstr "Şmb"
 
@@ -2538,7 +2538,7 @@ msgstr "Tüşämä qullanıp"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
 #: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
-#: libraries/server_privileges.lib.php:323 tbl_indexes.php:324
+#: libraries/server_privileges.lib.php:323 tbl_indexes.php:337
 msgid "Or"
 msgstr "Yä"
 
@@ -2563,7 +2563,7 @@ msgstr "Üzgärt"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> biremlegenä SQL-soraw:"
 
-#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1264
+#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1269
 msgid "Submit Query"
 msgstr "Sorawnı Yulla"
 
@@ -2603,8 +2603,8 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%s kileşü bar, <i>%s</i> atlı tüşämädä"
 
 #: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3265 libraries/Util.class.php:3473
-#: libraries/Util.class.php:3474 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3270 libraries/Util.class.php:3478
+#: libraries/Util.class.php:3479 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Küzätü"
 
@@ -2617,9 +2617,8 @@ msgstr "Tüşämä eçtälegen çığaru"
 #: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5043
 #: libraries/schema/User_Schema.class.php:216
-#: libraries/schema/User_Schema.class.php:294
-#: libraries/schema/User_Schema.class.php:329
-#: libraries/schema/User_Schema.class.php:359
+#: libraries/schema/User_Schema.class.php:297
+#: libraries/schema/User_Schema.class.php:349
 #: libraries/sql_query_form.lib.php:415 pmd_general.php:474
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
 #: tbl_tracking.php:537 tbl_tracking.php:557 tbl_tracking.php:619
@@ -2667,32 +2666,32 @@ msgstr "Biremnär törgäge"
 msgid "Restore column order"
 msgstr "Add/Delete Field Columns"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2544
-#: libraries/Util.class.php:2548
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2549
+#: libraries/Util.class.php:2553
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Başlawğa"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2546
-#: libraries/Util.class.php:2549 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2551
+#: libraries/Util.class.php:2554 server_binlog.php:141 server_binlog.php:143
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Uzğan"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2579
-#: libraries/Util.class.php:2582 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2584
+#: libraries/Util.class.php:2587 server_binlog.php:174 server_binlog.php:176
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kiläse"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2580
-#: libraries/Util.class.php:2583
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2585
+#: libraries/Util.class.php:2588
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -2882,7 +2881,7 @@ msgstr "Saylap Beter"
 #: libraries/DisplayResults.class.php:5080
 #: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3486 libraries/Util.class.php:3487
+#: libraries/Util.class.php:3491 libraries/Util.class.php:3492
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1798
 #: libraries/server_privileges.lib.php:2420 libraries/structure.lib.php:297
@@ -2895,7 +2894,7 @@ msgstr "Export"
 msgid "Query results operations"
 msgstr "Soraw qaytarmasın eşkärtü"
 
-#: libraries/DisplayResults.class.php:5202 libraries/Header.class.php:336
+#: libraries/DisplayResults.class.php:5202 libraries/Header.class.php:335
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
@@ -2980,16 +2979,16 @@ msgstr ""
 msgid "Open new phpMyAdmin window"
 msgstr "Yaña phpMyAdmin-täräzä açu"
 
-#: libraries/Header.class.php:387
+#: libraries/Header.class.php:386
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:594
+#: libraries/Header.class.php:593
 #: libraries/plugins/auth/AuthenticationCookie.class.php:267
 msgid "Cookies must be enabled past this point."
 msgstr ""
 
-#: libraries/Header.class.php:599
+#: libraries/Header.class.php:598
 #: libraries/plugins/auth/AuthenticationCookie.class.php:171
 msgid "Javascript must be enabled past this point"
 msgstr ""
@@ -3066,14 +3065,14 @@ msgid "View"
 msgstr "Qaraş"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3261 libraries/Util.class.php:3268
-#: libraries/Util.class.php:3479 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3266 libraries/Util.class.php:3273
+#: libraries/Util.class.php:3484 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
 #: libraries/config/user_preferences.forms.php:257
 #: libraries/import.lib.php:1222
-#: libraries/plugins/export/ExportLatex.class.php:480
+#: libraries/plugins/export/ExportLatex.class.php:485
 #: libraries/server_privileges.lib.php:755
 #: libraries/tbl_columns_definition_form.inc.php:773 pmd_general.php:188
 #: tbl_tracking.php:319
@@ -3081,20 +3080,20 @@ msgid "Structure"
 msgstr "Tözeleş"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3262
-#: libraries/Util.class.php:3269 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3267
+#: libraries/Util.class.php:3274 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3264
-#: libraries/Util.class.php:3477 libraries/Util.class.php:3478
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3269
+#: libraries/Util.class.php:3482 libraries/Util.class.php:3483
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "Östäw"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3271
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3276
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Eşkärtü"
@@ -3185,7 +3184,7 @@ msgstr ""
 msgid "Engines"
 msgstr "Engine"
 
-#: libraries/Message.class.php:199 libraries/Util.class.php:653
+#: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:228 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1180 tbl_chart.php:27 tbl_operations.php:184
 #: tbl_relation.php:236 view_operations.php:57
@@ -3236,7 +3235,7 @@ msgstr "Berär genä dä tüşämä yuq"
 msgid "There are no recent tables"
 msgstr "Tüşämä tikşerü"
 
-#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:666
+#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:671
 #: server_status.php:341 sql.php:1094
 msgid "SQL query"
 msgstr "SQL-soraw"
@@ -3833,7 +3832,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Max: %s%s"
 
-#: libraries/Util.class.php:710 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.class.php:715 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_routines.lib.php:301
@@ -3846,119 +3845,119 @@ msgstr "Max: %s%s"
 msgid "MySQL said: "
 msgstr "MySQL qaytarışı: "
 
-#: libraries/Util.class.php:1160
+#: libraries/Util.class.php:1165
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/Util.class.php:1202 libraries/config/messages.inc.php:485
+#: libraries/Util.class.php:1207 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "SQL Centekläw"
 
-#: libraries/Util.class.php:1210
+#: libraries/Util.class.php:1215
 msgid "Skip Explain SQL"
 msgstr "SQL Centeklämäskä"
 
-#: libraries/Util.class.php:1249
+#: libraries/Util.class.php:1254
 msgid "Without PHP Code"
 msgstr "PHP Kodısız"
 
-#: libraries/Util.class.php:1252 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1257 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "PHP-Kod yasa"
 
-#: libraries/Util.class.php:1278 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1283 libraries/config/messages.inc.php:486
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "Yañart"
 
-#: libraries/Util.class.php:1288
+#: libraries/Util.class.php:1293
 msgid "Skip Validate SQL"
 msgstr "SQL Tikşermäskä"
 
-#: libraries/Util.class.php:1291 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1296 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "SQL'nı Tikşer"
 
-#: libraries/Util.class.php:1353
+#: libraries/Util.class.php:1358
 msgid "Inline edit of this query"
 msgstr ""
 
-#: libraries/Util.class.php:1355
+#: libraries/Util.class.php:1360
 #, fuzzy
 #| msgid "Engines"
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Engine"
 
-#: libraries/Util.class.php:1423 sql.php:1156
+#: libraries/Util.class.php:1428 sql.php:1156
 msgid "Profiling"
 msgstr ""
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1686
+#: libraries/Util.class.php:1691
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ykş"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1702
+#: libraries/Util.class.php:1707
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y.%m.%d, %H:%M"
 
-#: libraries/Util.class.php:2047
+#: libraries/Util.class.php:2052
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s kön, %s säğät, %s minut ta %s sekund"
 
-#: libraries/Util.class.php:2137
+#: libraries/Util.class.php:2142
 msgid "Missing parameter:"
 msgstr ""
 
-#: libraries/Util.class.php:2650
+#: libraries/Util.class.php:2655
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; biremlegenä küç."
 
-#: libraries/Util.class.php:2674
+#: libraries/Util.class.php:2679
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/Util.class.php:2850
+#: libraries/Util.class.php:2855
 msgid "Click to toggle"
 msgstr ""
 
-#: libraries/Util.class.php:3392 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3397 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/Util.class.php:3417
+#: libraries/Util.class.php:3422
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web-server'neñ yökläw törgäge"
 
-#: libraries/Util.class.php:3446 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3451 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí"
 
-#: libraries/Util.class.php:3457
+#: libraries/Util.class.php:3462
 msgid "There are no files to upload"
 msgstr ""
 
-#: libraries/Util.class.php:3482 libraries/Util.class.php:3483
+#: libraries/Util.class.php:3487 libraries/Util.class.php:3488
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Buşat"
 
-#: libraries/Util.class.php:3488 libraries/Util.class.php:3489
+#: libraries/Util.class.php:3493 libraries/Util.class.php:3494
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.class.php:4012
+#: libraries/Util.class.php:4017
 msgid "Print"
 msgstr "Bastır"
 
@@ -4262,7 +4261,7 @@ msgid "Allow users to customize this value"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
-#: libraries/schema/User_Schema.class.php:536 prefs_manage.php:320
+#: libraries/schema/User_Schema.class.php:541 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
 msgstr "Awdar"
@@ -9356,63 +9355,63 @@ msgstr "Tüşämä Saylaw"
 msgid "Select Tables"
 msgstr "Tüşämä Saylaw"
 
-#: libraries/schema/User_Schema.class.php:372 view_create.php:182
+#: libraries/schema/User_Schema.class.php:374 view_create.php:182
 msgid "Column names"
 msgstr "Alan iseme"
 
-#: libraries/schema/User_Schema.class.php:403
+#: libraries/schema/User_Schema.class.php:405
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Bäyläneşlär sxeme"
 
-#: libraries/schema/User_Schema.class.php:413
+#: libraries/schema/User_Schema.class.php:415
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:438
+#: libraries/schema/User_Schema.class.php:440
 msgid "Show grid"
 msgstr "Sırlı kürsät"
 
-#: libraries/schema/User_Schema.class.php:440
+#: libraries/schema/User_Schema.class.php:442
 msgid "Show color"
 msgstr "Tösle kürsät"
 
-#: libraries/schema/User_Schema.class.php:444
+#: libraries/schema/User_Schema.class.php:446
 msgid "Show dimension of tables"
 msgstr "Tüşämä ülçämen kürsätü"
 
-#: libraries/schema/User_Schema.class.php:448
+#: libraries/schema/User_Schema.class.php:450
 msgid "Display all tables with the same width"
 msgstr "display all Tables with same width?"
 
-#: libraries/schema/User_Schema.class.php:451 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:453 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Eçtälek Süzlege"
 
-#: libraries/schema/User_Schema.class.php:453
+#: libraries/schema/User_Schema.class.php:455
 msgid "Only show keys"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:457
 msgid "Landscape"
 msgstr "Yatqırıp"
 
-#: libraries/schema/User_Schema.class.php:456
+#: libraries/schema/User_Schema.class.php:458
 msgid "Portrait"
 msgstr "Batırıp"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:460
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "Yasalışı"
 
-#: libraries/schema/User_Schema.class.php:471
+#: libraries/schema/User_Schema.class.php:473
 msgid "Paper size"
 msgstr "Qäğäz zuqlığı"
 
-#: libraries/schema/User_Schema.class.php:509
+#: libraries/schema/User_Schema.class.php:515
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -9420,7 +9419,7 @@ msgstr ""
 "The current Page has References to Tables that no longer exist. Would you "
 "like to delete those References?"
 
-#: libraries/schema/User_Schema.class.php:535
+#: libraries/schema/User_Schema.class.php:539
 msgid "Toggle scratchboard"
 msgstr ""
 
@@ -10164,7 +10163,7 @@ msgid "Add primary key"
 msgstr ""
 
 #: libraries/structure.lib.php:2034 libraries/structure.lib.php:2037
-#: tbl_indexes.php:190
+#: tbl_indexes.php:191
 msgid "Add index"
 msgstr ""
 
@@ -10192,7 +10191,7 @@ msgstr "Totılğan Alan"
 msgid "Effective"
 msgstr "Uñışlı"
 
-#: libraries/structure.lib.php:2383 tbl_addfield.php:188 tbl_indexes.php:107
+#: libraries/structure.lib.php:2383 tbl_addfield.php:188 tbl_indexes.php:108
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "Saylanğan qullanuçını beterü uñışlı uzdı."
@@ -12369,22 +12368,27 @@ msgstr "Açqıçnı \"PRIMARY\" itep atap bulmí!"
 msgid "No index parts defined!"
 msgstr ""
 
-#: tbl_indexes.php:192
+#: tbl_indexes.php:193
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit index"
 msgstr "Bastıru küreneşe"
 
-#: tbl_indexes.php:204
+#: tbl_indexes.php:205
 msgid "Index name:"
 msgstr "Tezeş adı&nbsp;:"
 
-#: tbl_indexes.php:209
+#: tbl_indexes.php:210
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr "(Töp açqıçnıñ <b>ğına</b> adı \"PRIMARY\" bulırğa <b>tieş</b>!)"
 
-#: tbl_indexes.php:226
+#: tbl_indexes.php:227
+#, fuzzy
+msgid "Comment:"
+msgstr "Açıqlama"
+
+#: tbl_indexes.php:239
 msgid "Index type:"
 msgstr "Tezeş töre&nbsp;:"
 
