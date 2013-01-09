@@ -1315,12 +1315,17 @@ AJAX.registerTeardown('functions.js', function() {
     $('input.sqlbutton').unbind('click');
     $("#export_type").unbind('change');
     $('#sqlquery').unbind('keydown');
+    $('#sql_query_edit').unbind('keydown');
 
     if (codemirror_inline_editor) {
         // Copy the sql query to the text area to preserve it.
         $('#sql_query_edit').text(codemirror_inline_editor.getValue());
         codemirror_inline_editor.toTextArea();
         codemirror_inline_editor = false;
+        $(codemirror_inline_editor.getWrapperElement()).unbind('keydown');
+    }
+    if (codemirror_editor) {
+        $(codemirror_editor.getWrapperElement()).unbind('keydown');
     }
 });
 
@@ -1450,10 +1455,10 @@ function bindCodeMirrorToInlineEditor() {
             codemirror_inline_editor.getScrollerElement().style.height = height;
             codemirror_inline_editor.refresh();
             codemirror_inline_editor.focus();
-            $(codemirror_inline_editor.getWrapperElement()).bind('keypress', catchKeypressesFromSqlTextboxes);
+            $(codemirror_inline_editor.getWrapperElement()).bind('keydown', catchKeypressesFromSqlTextboxes);
         } else {
             $inline_editor.focus();
-            $inline_editor.bind('keypress', catchKeypressesFromSqlTextboxes);
+            $inline_editor.bind('keydown', catchKeypressesFromSqlTextboxes);
         }
     }
 }
@@ -3402,18 +3407,15 @@ AJAX.registerOnload('functions.js', function() {
                 lineWrapping: true
             });
             codemirror_editor.focus();
-            $(codemirror_editor.getWrapperElement()).bind('keypress', catchKeypressesFromSqlTextboxes);
+            $(codemirror_editor.getWrapperElement()).bind('keydown', catchKeypressesFromSqlTextboxes);
             return false;
         // without codemirror
         } else {
             $elm.focus();
-            $($elm).bind('keypress', catchKeypressesFromSqlTextboxes);
+            $($elm).bind('keydown', catchKeypressesFromSqlTextboxes);
         }
     }
 });
-
-
-
 AJAX.registerTeardown('functions.js', function() {
     if (codemirror_editor) {
         $('#sqlquery').text(codemirror_editor.getValue());
