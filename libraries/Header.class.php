@@ -158,7 +158,6 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
 
-        $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $this->_scripts->addFile('codemirror/lib/codemirror.js');
             $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');

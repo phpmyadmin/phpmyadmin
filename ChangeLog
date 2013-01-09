@@ -84,6 +84,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - Upgraded jqPlot to 1.0.4 r1121
 - Upgraded to jquery-ui-timepicker-addon 1.1.1
 + rfe #3599046 [interface] Added comments for indexes
+- Replaced qtip with jQuery UI tooltip
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule
