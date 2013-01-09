@@ -1436,18 +1436,36 @@ AJAX.registerOnload('functions.js', function() {
  * Binds the CodeMirror to the text area used to inline edit a query.
  */
 function bindCodeMirrorToInlineEditor() {
-    var $inline_editor = $('textarea[name="sql_query_edit"]');
-    if ($inline_editor.length > 0 && typeof CodeMirror !== 'undefined') {
-        var height = $('#sql_query_edit').css('height');
-        codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
-            lineNumbers: true,
-            matchBrackets: true,
-            indentUnit: 4,
-            mode: "text/x-mysql",
-            lineWrapping: true
-        });
-        codemirror_inline_editor.getScrollerElement().style.height = height;
-        codemirror_inline_editor.refresh();
+    var $inline_editor = $('#sql_query_edit');
+    if ($inline_editor.length > 0) {
+		if (typeof CodeMirror !== 'undefined') {
+            var height = $('#sql_query_edit').css('height');
+            codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                mode: "text/x-mysql",
+                lineWrapping: true
+            });
+            codemirror_inline_editor.getScrollerElement().style.height = height;
+            codemirror_inline_editor.refresh();
+            codemirror_inline_editor.focus();
+            $(codemirror_inline_editor.getWrapperElement()).bind('keypress', catch_keypresses_from_sql_textboxes);
+        } else {
+            $($inline_editor).bind('keypress', catch_keypresses_from_sql_textboxes);
+        }
+        $inline_editor.focus();
+    }
+}
+
+function catch_keypresses_from_sql_textboxes(event) {
+    // ctrl-enter is 10 in chrome and ie, but 13 in ff
+    if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) { 
+        if ($('#sql_query_edit').length > 0) {
+            $("#sql_query_edit_save").trigger('click');
+		} else if ($('#sqlquery').length > 0) {
+            $("#button_submit_query").trigger('click');
+        }
     }
 }
 
@@ -3373,24 +3391,29 @@ AJAX.registerOnload('functions.js', function() {
  */
 AJAX.registerOnload('functions.js', function() {
     var $elm = $('#sqlquery');
-    if ($elm.length > 0 && typeof CodeMirror != 'undefined') {
-        codemirror_editor = CodeMirror.fromTextArea($elm[0], {
-            lineNumbers: true,
-            matchBrackets: true,
-            indentUnit: 4,
-            mode: "text/x-mysql",
-            lineWrapping: true
-        });
-        codemirror_wrapper_element = codemirror_editor.getWrapperElement();
-        $(codemirror_wrapper_element).bind('keypress', function (e) {
-            // ctrl-enter is 10 in chrome and ie, but 13 in ff
-            if (e.ctrlKey && (e.keyCode == 13 || e.keyCode == 10)) { 
-                $("#button_submit_query").submit();
-            }
-        });
-        codemirror_editor.focus();
+    if ($elm.length > 0) {
+        // for codemirror
+        if (typeof CodeMirror != 'undefined') {
+            codemirror_editor = CodeMirror.fromTextArea($elm[0], {
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                mode: "text/x-mysql",
+                lineWrapping: true
+            });
+            codemirror_editor.focus();
+            $(codemirror_editor.getWrapperElement()).bind('keypress', catch_keypresses_from_sql_textboxes);
+			return false;
+        // without codemirror
+        } else {
+            $elm.focus();
+            $($elm).bind('keypress', catch_keypresses_from_sql_textboxes);
+        }
     }
 });
+
+
+
 AJAX.registerTeardown('functions.js', function() {
     if (codemirror_editor) {
         $('#sqlquery').text(codemirror_editor.getValue());
