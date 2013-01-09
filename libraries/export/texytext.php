@@ -174,6 +174,11 @@ if (isset($plugin_list)) {
     {
         global $cfgRelation;
 
+        /* We do not export triggers */
+        if ($export_mode == 'triggers') {
+            return true;
+        }
+
         if (! PMA_exportOutputHandler('== ' . __('Table structure for table') . ' ' .$table . "\n\n")) {
             return false;
         }

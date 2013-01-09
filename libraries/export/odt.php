@@ -244,6 +244,11 @@ if (isset($plugin_list)) {
     {
         global $cfgRelation;
 
+        /* We do not export triggers */
+        if ($export_mode == 'triggers') {
+            return true;
+        }
+
         /* Heading */
         $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
             . __('Table structure for table') . ' ' . htmlspecialchars($table) . '</text:h>';

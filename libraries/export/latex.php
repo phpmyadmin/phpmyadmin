@@ -334,6 +334,11 @@ if (isset($plugin_list)) {
     {
         global $cfgRelation;
 
+        /* We do not export triggers */
+        if ($export_mode == 'triggers') {
+            return true;
+        }
+
         /**
          * Get the unique keys in the table
          */
