@@ -1968,22 +1968,16 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         if ($('#logTable th:last').html() == '#') {
             $('#logTable th:last').append('&nbsp;' + PMA_getImage('b_docs.png', '', {'class': 'qroupedQueryInfoIcon'}));
 
-            var qtipContent = PMA_messages['strCountColumnExplanation'];
+            var tooltipContent = PMA_messages['strCountColumnExplanation'];
             if (groupInserts) {
-                qtipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
+                tooltipContent += '<p>' + PMA_messages['strMoreCountColumnExplanation'] + '</p>';
             }
 
-            $('img.qroupedQueryInfoIcon').qtip({
-                content: qtipContent,
-                position: {
-                    corner: {
-                        target: 'bottomMiddle',
-                        tooltip: 'topRight'
-                    }
-
-                },
-                hide: { delay: 1000 }
-            });
+            PMA_tooltip(
+                $('img.qroupedQueryInfoIcon'),
+                'img',
+                tooltipContent
+            );
         }
 
         $('#logTable table').tablesorter({
