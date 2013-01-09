@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2013-01-04 10:05+0200\n"
+"PO-Revision-Date: 2013-01-09 16:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5530,7 +5529,6 @@ msgid "Bookmark table"
 msgstr "Lesezeichen Tabelle"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5538,8 +5536,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Leer lassen für keine Spalten Kommentare/mime types, Vorschlag: [kbd]"
-"pma_column_info[/kbd]"
+"Leer lassen für keine Spalten Kommentare/mime types, Vorschlag: "
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -5756,7 +5754,6 @@ msgid "Recently used table"
 msgstr "Kürzlich verwendete Tabellen"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5765,7 +5762,7 @@ msgid ""
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Leer lassen für keine [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"link[/a] Unterstützung, Vorschlag: [kbd]pma_relation[/kbd]"
+"link[/a] Unterstützung, Vorschlag: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -12370,10 +12367,9 @@ msgstr ""
 "lauten!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Kommentar"
+msgstr "Kommentar:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12746,7 +12742,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries ist deaktiviert"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12754,14 +12749,13 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Loggen von langsamen Abfragen einschalten, indem {log_slow_queries} auf 'ON' "
+"Loggen von langsamen Abfragen einschalten, indem {slow_query_log} auf 'ON' "
 "gesetzt wird. Das hilft beim Erkennen von grauenhaft langsamen Abfragen."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries ist deaktiviert"
+msgstr "slow_query_log ist deaktiviert"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
