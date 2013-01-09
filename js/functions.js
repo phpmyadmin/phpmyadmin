@@ -1315,12 +1315,17 @@ AJAX.registerTeardown('functions.js', function() {
     $('input.sqlbutton').unbind('click');
     $("#export_type").unbind('change');
     $('#sqlquery').unbind('keydown');
+    $('#sql_query_edit').unbind('keydown');
 
     if (codemirror_inline_editor) {
         // Copy the sql query to the text area to preserve it.
         $('#sql_query_edit').text(codemirror_inline_editor.getValue());
+        $(codemirror_inline_editor.getWrapperElement()).unbind('keydown');
         codemirror_inline_editor.toTextArea();
         codemirror_inline_editor = false;
+    }
+    if (codemirror_editor) {
+        $(codemirror_editor.getWrapperElement()).unbind('keydown');
     }
 });
 
@@ -1423,12 +1428,6 @@ AJAX.registerOnload('functions.js', function() {
         }
     });
 
-    $('#sqlquery').focus().keydown(function (e) {
-        if (e.ctrlKey && e.keyCode == 13) {
-            $("#sqlqueryform").submit();
-        }
-    });
-
     if ($('#input_username')) {
         if ($('#input_username').val() == '') {
             $('#input_username').focus();
@@ -1442,18 +1441,36 @@ AJAX.registerOnload('functions.js', function() {
  * Binds the CodeMirror to the text area used to inline edit a query.
  */
 function bindCodeMirrorToInlineEditor() {
-    var $inline_editor = $('textarea[name="sql_query_edit"]');
-    if ($inline_editor.length > 0 && typeof CodeMirror !== 'undefined') {
-        var height = $('#sql_query_edit').css('height');
-        codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
-            lineNumbers: true,
-            matchBrackets: true,
-            indentUnit: 4,
-            mode: "text/x-mysql",
-            lineWrapping: true
-        });
-        codemirror_inline_editor.getScrollerElement().style.height = height;
-        codemirror_inline_editor.refresh();
+    var $inline_editor = $('#sql_query_edit');
+    if ($inline_editor.length > 0) {
+        if (typeof CodeMirror !== 'undefined') {
+            var height = $('#sql_query_edit').css('height');
+            codemirror_inline_editor = CodeMirror.fromTextArea($inline_editor[0], {
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                mode: "text/x-mysql",
+                lineWrapping: true
+            });
+            codemirror_inline_editor.getScrollerElement().style.height = height;
+            codemirror_inline_editor.refresh();
+            codemirror_inline_editor.focus();
+            $(codemirror_inline_editor.getWrapperElement()).bind('keydown', catchKeypressesFromSqlTextboxes);
+        } else {
+            $inline_editor.focus();
+            $inline_editor.bind('keydown', catchKeypressesFromSqlTextboxes);
+        }
+    }
+}
+
+function catchKeypressesFromSqlTextboxes(event) {
+    // ctrl-enter is 10 in chrome and ie, but 13 in ff
+    if (event.ctrlKey && (event.keyCode == 13 || event.keyCode == 10)) { 
+        if ($('#sql_query_edit').length > 0) {
+            $("#sql_query_edit_save").trigger('click');
+        } else if ($('#sqlquery').length > 0) {
+            $("#button_submit_query").trigger('click');
+        }
     }
 }
 
@@ -3375,14 +3392,24 @@ AJAX.registerOnload('functions.js', function() {
  */
 AJAX.registerOnload('functions.js', function() {
     var $elm = $('#sqlquery');
-    if ($elm.length > 0 && typeof CodeMirror != 'undefined') {
-        codemirror_editor = CodeMirror.fromTextArea($elm[0], {
-            lineNumbers: true,
-            matchBrackets: true,
-            indentUnit: 4,
-            mode: "text/x-mysql",
-            lineWrapping: true
-        });
+    if ($elm.length > 0) {
+        // for codemirror
+        if (typeof CodeMirror != 'undefined') {
+            codemirror_editor = CodeMirror.fromTextArea($elm[0], {
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                mode: "text/x-mysql",
+                lineWrapping: true
+            });
+            codemirror_editor.focus();
+            $(codemirror_editor.getWrapperElement()).bind('keydown', catchKeypressesFromSqlTextboxes);
+            return false;
+        // without codemirror
+        } else {
+            $elm.focus();
+            $($elm).bind('keydown', catchKeypressesFromSqlTextboxes);
+        }
     }
 });
 AJAX.registerTeardown('functions.js', function() {
