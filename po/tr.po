@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2012-12-19 17:55+0200\n"
+"PO-Revision-Date: 2013-01-09 14:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12201,10 +12201,9 @@ msgstr ""
 "</b>)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Yorum"
+msgstr "Yorum:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
