@@ -1320,9 +1320,9 @@ AJAX.registerTeardown('functions.js', function() {
     if (codemirror_inline_editor) {
         // Copy the sql query to the text area to preserve it.
         $('#sql_query_edit').text(codemirror_inline_editor.getValue());
+        $(codemirror_inline_editor.getWrapperElement()).unbind('keydown');
         codemirror_inline_editor.toTextArea();
         codemirror_inline_editor = false;
-        $(codemirror_inline_editor.getWrapperElement()).unbind('keydown');
     }
     if (codemirror_editor) {
         $(codemirror_editor.getWrapperElement()).unbind('keydown');
