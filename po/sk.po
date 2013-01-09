@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2012-11-21 15:23+0200\n"
+"PO-Revision-Date: 2013-01-09 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
-">\n"
+"Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,7 +609,6 @@ msgid "Output"
 msgstr "Výstup"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -622,7 +620,7 @@ msgstr ""
 "hodnotu"
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -956,10 +954,10 @@ msgid "Edit Index"
 msgstr "Upraviť index"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Pridať %d polí do indexu"
+msgstr "Pridať %s polí do indexu"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1890,14 +1888,12 @@ msgstr ""
 "uložení."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "Väčšinu stĺpcov môžete upraviť>br />kliknutím na ich obsah."
+msgstr "Väčšinu stĺpcov môžete upraviť<br />dvojkliknutím na ich obsah."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
