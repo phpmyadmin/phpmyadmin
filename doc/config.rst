@@ -18,7 +18,7 @@ your site specific code to be included on start and end of each page.
 .. note::
 
     Some distributions (eg. Debian or Ubuntu) store :file:`config.inc.php` in
-    ``/etc/phpmyadmin`` instead of withing phpMyAdmin sources.
+    ``/etc/phpmyadmin`` instead of within phpMyAdmin sources.
 
 .. warning::
 
