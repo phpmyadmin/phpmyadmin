@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:08+0200\n"
+"PO-Revision-Date: 2013-01-10 13:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Macedonian "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/mk/>\n"
@@ -9333,7 +9333,7 @@ msgstr "Дозволува креирање на нови табела."
 #: server_privileges.php:40 server_privileges.php:257
 #: server_privileges.php:633
 msgid "Allows creating temporary tables."
-msgstr "Дозволува креирање на привремени табели..."
+msgstr "Дозволува креирање на привремени табели."
 
 #: server_privileges.php:41 server_privileges.php:307
 #: server_privileges.php:669
@@ -11580,7 +11580,7 @@ msgstr "Назив на корисник"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Името на примарниот клуч мора да биде... PRIMARY!"
+msgstr "Името на примарниот клуч мора да биде \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
