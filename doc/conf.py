@@ -42,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012, The phpMyAdmin devel team'
+copyright = u'2012 - 2013, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -249,7 +249,7 @@ texinfo_documents = [
 epub_title = u'phpMyAdmin'
 epub_author = u'The phpMyAdmin devel team'
 epub_publisher = u'The phpMyAdmin devel team'
-epub_copyright = u'2012, The phpMyAdmin devel team'
+epub_copyright = copyright
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
