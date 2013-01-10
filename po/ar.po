@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2012-11-05 10:24+0200\n"
+"PO-Revision-Date: 2013-01-10 13:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -1591,7 +1590,7 @@ msgstr "أعادة تحميل قاعدة البيانات"
 
 #: js/messages.php:236
 msgid "Copying Database"
-msgstr "نسخ قاعدة البيانات "
+msgstr "نسخ قاعدة البيانات"
 
 #: js/messages.php:237
 msgid "Changing Charset"
@@ -1803,7 +1802,7 @@ msgstr ""
 
 #: js/messages.php:333
 msgid "Add an option for column "
-msgstr "إضافة خيار للعمود"
+msgstr "إضافة خيار للعمود "
 
 #: js/messages.php:334
 #, php-format
@@ -2592,7 +2591,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
-msgstr "مشاهدة الأسطر "
+msgstr "مشاهدة الأسطر"
 
 #: libraries/DisplayResults.class.php:4955
 msgid "total"
@@ -4025,7 +4024,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
-"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود. "
+"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في "
+"العمود."
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4167,7 +4167,7 @@ msgstr "تعطيل عمليات الصيانة , مثل تحسين وإصلاح 
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr "تعطيل صيانة الجداول المتعددة "
+msgstr "تعطيل صيانة الجداول المتعددة"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -4347,7 +4347,7 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "محاصرة أسماء الجداول و العواميد ب \"`\" "
+msgstr "محاصرة أسماء الجداول و العواميد ب \"`\""
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:437
@@ -9170,7 +9170,7 @@ msgstr "صلاحيات خاصة بالجدول"
 #: libraries/server_privileges.lib.php:793
 #: libraries/server_privileges.lib.php:2394
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط "
+msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط"
 
 #: libraries/server_privileges.lib.php:756
 msgid "Administration"
@@ -9658,7 +9658,7 @@ msgstr "طول الصف"
 
 #: libraries/structure.lib.php:1761 tbl_printview.php:390
 msgid "Row size"
-msgstr "مقاس الصف "
+msgstr "مقاس الصف"
 
 #: libraries/structure.lib.php:1769 tbl_printview.php:399
 msgid "Next autoindex"
@@ -11823,7 +11823,7 @@ msgstr ""
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "عرض بنية الجدول "
+msgstr "عرض بنية الجدول"
 
 #: tbl_gis_visualization.php:109
 msgid "Display GIS Visualization"
