@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:03+0200\n"
+"PO-Revision-Date: 2013-01-10 13:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/3-5/hi/>\n"
 "Language: hi\n"
@@ -116,8 +116,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ "
+"ये %s फ़ाइल तंत्र में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए "
+"www.phpmyadmin.net वेबसाईट पर जाएँ"
 
 #: db_create.php:60
 #, php-format
@@ -239,7 +239,7 @@ msgstr "नहीं"
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:359
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
-msgstr "हाँ "
+msgstr "हाँ"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
@@ -361,7 +361,7 @@ msgstr "संबंधपरक स्कीमा को संपादित
 #: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
-msgstr "टेबल "
+msgstr "टेबल"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
@@ -409,7 +409,7 @@ msgstr[1] "%s टेबल"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr "आपको कम से कम एक स्तंभ प्रदर्शित करने के लिए चयन करना है."
+msgstr "आपको कम से कम एक स्तंभ प्रदर्शित करने के लिए चयन करना है"
 
 #: db_qbe.php:186
 #, fuzzy, php-format
@@ -976,16 +976,16 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr "बुकमार्क प्रदर्शित किया जा रहा है."
+msgstr "बुकमार्क प्रदर्शित किया जा रहा है"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
-msgstr "यह बुकमार्क हटा दिया गया है"
+msgstr "यह बुकमार्क हटा दिया गया है."
 
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
 msgid "File could not be read"
-msgstr "फाइल पढ़ी नहीं जा सकती. "
+msgstr "फाइल पढ़ी नहीं जा सकती"
 
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
@@ -1047,7 +1047,7 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:113 tbl_operations.php:229
 #: tbl_relation.php:284 tbl_row_action.php:126 view_operations.php:60
 msgid "Your SQL query has been executed successfully"
-msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है."
+msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है"
 
 #: import_status.php:29 libraries/common.lib.php:705
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
@@ -1068,11 +1068,11 @@ msgstr "क्या आप सचमुच चाहते है की"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
-msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं! "
+msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "आप एक पूराटेबल नष्ट कर रहे हैं! "
+msgstr "आप एक पूराटेबल नष्ट कर रहे हैं!"
 
 #: js/messages.php:33
 #, fuzzy
@@ -2070,7 +2070,7 @@ msgstr ""
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr "काँलम के लिए एक विकल्प जोड़ें"
+msgstr "काँलम के लिए एक विकल्प जोड़ें "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
@@ -2127,7 +2127,7 @@ msgstr "उत्पन्न"
 
 #: js/messages.php:361
 msgid "Change Password"
-msgstr "पासवर्ड बदलिये "
+msgstr "पासवर्ड बदलिये"
 
 #: js/messages.php:364 tbl_structure.php:480
 msgid "More"
@@ -3016,7 +3016,7 @@ msgstr "SQL वलिदटर से जुड़ने में विफल"
 
 #: libraries/common.lib.php:1167 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
-msgstr "SQL की व्याख्या "
+msgstr "SQL की व्याख्या"
 
 #: libraries/common.lib.php:1171
 msgid "Skip Explain SQL"
@@ -3116,12 +3116,12 @@ msgstr "आखरी"
 #: libraries/common.lib.php:2555
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; डेटाबेस पर जायें "
+msgstr "&quot;%s&quot; डेटाबेस पर जायें"
 
 #: libraries/common.lib.php:2575
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr "%s कार्यक्षमताएक एक बग के द्वारा जनि जाती है| %s पर ध्यान दे "
+msgstr "%s कार्यक्षमताएक एक बग के द्वारा जनि जाती है| %s पर ध्यान दे"
 
 #: libraries/common.lib.php:2749
 #, fuzzy
@@ -3170,7 +3170,7 @@ msgstr "अपने कंप्यूटर ब्राउज़ करें
 #: libraries/common.lib.php:3296
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "अपने वेब सर्वर डिरेक्टरी से अपलोड चुने <b>%s</b>; "
+msgstr "अपने वेब सर्वर डिरेक्टरी से अपलोड चुने <b>%s</b>;"
 
 #: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
@@ -3354,7 +3354,7 @@ msgstr "मूलभूत मान को बहाल"
 
 #: libraries/config/FormDisplay.tpl.php:295
 msgid "Allow users to customize this value"
-msgstr "कर्ता को इस मूल्य को अनुकूलित करने की अनुमति दें "
+msgstr "कर्ता को इस मूल्य को अनुकूलित करने की अनुमति दें"
 
 #: libraries/config/FormDisplay.tpl.php:356
 #: libraries/schema/User_Schema.class.php:508 prefs_manage.php:318
@@ -3513,7 +3513,7 @@ msgstr "विन्यास फाइल"
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
-msgstr "क्या एक चेतावनी प्रदर्शित किया जाना चाहिए जब आप डेटा खो रहे हो. "
+msgstr "क्या एक चेतावनी प्रदर्शित किया जाना चाहिए जब आप डेटा खो रहे हो."
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -3756,7 +3756,7 @@ msgstr "टेम्पलेट फ़ाइल नाम याद रखे�
 
 #: libraries/config/messages.inc.php:122
 msgid "Enclose table and column names with backquotes"
-msgstr "टेबल और फील्ड के नाम को backquotes से बंद करें "
+msgstr "टेबल और फील्ड के नाम को backquotes से बंद करें"
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
@@ -4135,8 +4135,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
-"आयात और निर्यात के संचालन के लिए सक्षम संपीड़न [a@http://en.wikipedia.org/wiki/Gzip]"
-"gzip[/a] "
+"आयात और निर्यात के संचालन के लिए सक्षम संपीड़न "
+"[a@http://en.wikipedia.org/wiki/Gzip]gzip[/a]"
 
 #: libraries/config/messages.inc.php:235
 msgid "GZip"
@@ -4151,7 +4151,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
-"अगर सक्रिय है, phpMyAdmin एकाधिक बयान प्रश्नों कंप्यूटिंग जारी भले ही एक प्रश्न का असफल "
+"अगर सक्रिय है, phpMyAdmin एकाधिक बयान प्रश्नों कंप्यूटिंग जारी भले ही एक "
+"प्रश्न का असफल"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
@@ -4362,8 +4363,9 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान सर्वर से "
-"होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा सर्वर से कनेक्ट हों  "
+"अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान "
+"सर्वर से होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा "
+"सर्वर से कनेक्ट हों"
 
 #: libraries/config/messages.inc.php:297
 msgid "Delete all cookies on logout"
@@ -4472,7 +4474,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"एक लिपि को कितने बाइट्स दिए जायेंगे, eg. [kbd]32M[/kbd], [kbd]0[/kbd] मतलब असीमित "
+"एक लिपि को कितने बाइट्स दिए जायेंगे, eg. [kbd]32M[/kbd], [kbd]0[/kbd] मतलब "
+"असीमित"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4536,8 +4539,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"डेटाबेस पर डिफ़ॉल्ट चेतावनी जो प्रदर्शित की जाती है उसे निष्क्रिय करें. संरचना  पृष्ठ अगर "
-"phpMyAdmin विन्यास भंडारण के लिए आवश्यक टेबल को पाया नहीं जा सका "
+"डेटाबेस पर डिफ़ॉल्ट चेतावनी जो प्रदर्शित की जाती है उसे निष्क्रिय करें. "
+"संरचना  पृष्ठ अगर phpMyAdmin विन्यास भंडारण के लिए आवश्यक टेबल को पाया नहीं "
+"जा सका"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5222,7 +5226,7 @@ msgstr "टेबल के नाम के बजाय टिप्पणी 
 
 #: libraries/config/messages.inc.php:481
 msgid "Display table comments in tooltips"
-msgstr "प्रदर्शन टूलटिप्स में टेबल टिप्पणियाँ "
+msgstr "प्रदर्शन टूलटिप्स में टेबल टिप्पणियाँ"
 
 #: libraries/config/messages.inc.php:482
 msgid ""
@@ -11008,7 +11012,7 @@ msgstr "कोइ डाटाबेस नहिं"
 
 #: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
-msgstr "विदेशी मूल्य ब्राउस करें "
+msgstr "विदेशी मूल्य ब्राउस करें"
 
 #: sql.php:214
 #, php-format
