@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-09 14:17+0100\n"
+"POT-Creation-Date: 2013-01-10 13:45+0100\n"
 "PO-Revision-Date: 2012-11-06 12:16+0200\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
@@ -9748,9 +9748,9 @@ msgstr "%s డేటాబేస్ తుడిచివేయడమైనద�
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-"a single quote (\"'\") amongst those values, precede it with a backslash "
-"(for example '\\\\xyz' or 'a\\'b')."
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:110
