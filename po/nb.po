@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-08 15:28+0200\n"
-"Last-Translator: Knut Erik Langdahl <knut.erik.langdahl@gmail.com>\n"
+"PO-Revision-Date: 2013-01-10 13:44+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
 "Language: nb\n"
@@ -11671,7 +11671,7 @@ msgstr "Tabellnavn"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Navnet til  primærnøkkelen må være... PRIMARY!"
+msgstr "Navnet til primærnøkkelen må være \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
