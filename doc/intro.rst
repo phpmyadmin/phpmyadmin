@@ -46,8 +46,6 @@ Currently phpMyAdmin can:
 * create, edit, export and drop events and triggers
 * communicate in `62 different languages
   <http://www.phpmyadmin.net/home_page/translations.php>`_
-* synchronize two databases residing on the same as well as remote
-  servers see :ref:`faq9_1`
 
 
 A word about users
