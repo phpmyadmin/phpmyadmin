@@ -184,47 +184,45 @@ if (isset($_REQUEST['query'])) {
 <?php
 $name_cnt = count($GLOBALS['PMD']['TABLE_NAME']);
 for ($i = 0; $i < $name_cnt; $i++) {
-    ?>
-    <tr><td title="<?php echo __('Structure'); ?>" width="1px"
-            onmouseover="this.className='L_butt2_2'"
-            onmouseout="this.className='L_butt2_1'" class="L_butt2_1">
-            <img onclick="Start_tab_upd('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>');"
-                src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png'); ?>" alt="" /></td>
-        <td width="1px">
-            <input onclick="VisibleTab(this,'<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>')"
-                title="<?php echo __('Hide'); ?>"
-                id="check_vis_<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
-                style="margin:0px;" type="checkbox"
-                value="<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
-                <?php
-                if (isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]])) {
-                    echo $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"] ? 'checked="checked"' : '';
-                } else {
-                    echo 'checked="checked"';
-                }
-                ?> /></td>
-        <td class="pmd_Tabs" onmouseover="this.className='pmd_Tabs2'"
-            onmouseout="this.className='pmd_Tabs'"
-            onclick="Select_tab('<?php echo $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>');">
-            <?php echo $GLOBALS['PMD_OUT']["TABLE_NAME"][$i]; ?></td>
-    </tr>
-    <?php
+
+    echo '<tr><td title="' . __('Structure') . '" width="1px" '
+        . 'onmouseover="this.className=\'L_butt2_2\'" '
+        . 'onmouseout="this.className=\'L_butt2_1\'" class="L_butt2_1">';
+    echo '<img '
+        . 'onclick="Start_tab_upd(\'' . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '\');" '
+        . 'src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png') . '" alt="" />';
+    echo '</td>';
+    echo '<td width="1px">';
+    echo '<input onclick="VisibleTab(this,\'' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '\')" '
+        . 'title="' . __('Hide') . '" '
+        . 'id="check_vis_' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '" '
+        . 'style="margin:0px;" type="checkbox" '
+        . 'value="' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '"';
+    if (isset($tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]])) {
+        echo $tab_pos[$GLOBALS['PMD']["TABLE_NAME"][$i]]["H"] ? 'checked="checked"' : '';
+    } else {
+        echo 'checked="checked"';
+    }
+    echo '/></td>';
+    echo '<td class="pmd_Tabs" onmouseover="this.className=\'pmd_Tabs2\'" '
+        . 'onmouseout="this.className=\'pmd_Tabs\'" '
+        . 'onclick="Select_tab(\'' . $GLOBALS['PMD_URL']["TABLE_NAME"][$i] . '\');">';
+    echo $GLOBALS['PMD_OUT']["TABLE_NAME"][$i];
+    echo '</td>';
+    echo '</tr>';
 }
-?>
-    </table>
-</div>
+echo '</table>';
+echo '</div>';
 
-<div class="center">
-    <?php echo __('Number of tables') . ': ' . $name_cnt; ?>
-</div>
-<div class="floatright">
-    <div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">
-    </div>
-</div>
-</div>
+echo '<div class="center">';
+echo __('Number of tables') . ': ' . $name_cnt;
+echo '</div>';
+echo '<div class="floatright">';
+echo '<div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">';
+echo '</div>';
+echo '</div>';
+echo '</div>';
 
-
-<?php
 for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
     $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i];
