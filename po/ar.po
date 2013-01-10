@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-08 20:40+0200\n"
-"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"PO-Revision-Date: 2013-01-10 13:39+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1759,7 +1759,7 @@ msgstr "أعادة تحميل قاعدة البيانات"
 
 #: js/messages.php:250
 msgid "Copying Database"
-msgstr "نسخ قاعدة البيانات "
+msgstr "نسخ قاعدة البيانات"
 
 #: js/messages.php:251
 msgid "Changing Charset"
@@ -1940,7 +1940,7 @@ msgstr ""
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr "إضافة خيار للعمود"
+msgstr "إضافة خيار للعمود "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
@@ -3280,7 +3280,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "يعرف أي أدوات التعديل تستخدم مع الأعمدة CHAR و  VARCHAR ,,[kbd]input[/kbd] - "
-"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في العمود. "
+"تسمح بمدخل محدود الطول ,, [kbd]textarea[/kbd] - تسمح بتعدد الأسطر في "
+"العمود."
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3416,7 +3417,7 @@ msgstr "تعطيل عمليات الصيانة , مثل تحسين وإصلاح 
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
-msgstr "تعطيل صيانة الجداول المتعددة "
+msgstr "تعطيل صيانة الجداول المتعددة"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -3587,7 +3588,7 @@ msgstr "تذكر إسم قالب الملف"
 
 #: libraries/config/messages.inc.php:122
 msgid "Enclose table and column names with backquotes"
-msgstr "محاصرة أسماء الجداول و العواميد ب \"`\" "
+msgstr "محاصرة أسماء الجداول و العواميد ب \"`\""
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
@@ -5746,7 +5747,7 @@ msgstr "في الاستعلام"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "مشاهدة الأسطر "
+msgstr "مشاهدة الأسطر"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -9031,7 +9032,7 @@ msgstr "صلاحيات خاصة بالجدول"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1706
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط "
+msgstr "ملاحظه: اسم الامتياز لـMySQL يظهر ويقرأ باللغة الإنجليزية فقط"
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -11042,7 +11043,7 @@ msgstr ""
 
 #: tbl_export.php:26
 msgid "View dump (schema) of table"
-msgstr "عرض بنية الجدول "
+msgstr "عرض بنية الجدول"
 
 #: tbl_gis_visualization.php:112
 msgid "Display GIS Visualization"
@@ -11092,7 +11093,7 @@ msgstr "اسم الجدول"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "اسم المفتاح الأساسي يجب أن يكون أساسيا... PRIMARY!"
+msgstr "اسم المفتاح الأساسي يجب أن يكون أساسيا \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
@@ -11279,7 +11280,7 @@ msgstr "طول الصف"
 
 #: tbl_printview.php:365 tbl_structure.php:902
 msgid "Row size"
-msgstr "مقاس الصف "
+msgstr "مقاس الصف"
 
 #: tbl_printview.php:375 tbl_structure.php:910
 msgid "Next autoindex"
