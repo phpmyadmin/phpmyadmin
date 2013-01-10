@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2013-01-09 15:03+0200\n"
-"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
+"PO-Revision-Date: 2013-01-10 13:39+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -12315,7 +12315,7 @@ msgstr "Ονομασία αρχείου"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Το όνομα του πρωτεύοντος κλειδιού πρέπει να είναι… PRIMARY!"
+msgstr "Το όνομα του πρωτεύοντος κλειδιού πρέπει να είναι \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
