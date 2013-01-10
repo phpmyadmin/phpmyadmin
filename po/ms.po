@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-08-27 11:34+0200\n"
+"PO-Revision-Date: 2013-01-10 13:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/3-5/ms/>\n"
 "Language: ms\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.2\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -11300,7 +11300,7 @@ msgstr "Kata Pengenalan"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Nama kekunci utama mestilah... PRIMARY!"
+msgstr "Nama kekunci utama mestilah \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
