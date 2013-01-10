@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:05+0200\n"
+"PO-Revision-Date: 2013-01-10 13:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sr/>\n"
 "Language: sr\n"
@@ -11776,7 +11776,7 @@ msgstr "Назив табеле"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Име примарног кључа мора да буде... PRIMARY!"
+msgstr "Име примарног кључа мора да буде \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
