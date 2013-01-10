@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2013-01-10 13:43+0200\n"
+"PO-Revision-Date: 2013-01-10 13:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -12108,7 +12108,7 @@ msgstr "Nome do Utilizador"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "O nome da chave primária tem de ser… PRIMARY!"
+msgstr "O nome da chave primária tem de ser \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
