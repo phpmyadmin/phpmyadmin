@@ -4217,10 +4217,10 @@ msgstr "Konfigurationsfil"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Hvorvidt der skal vises en advarsel (&quot;Er du helt sikker...&quot;) , når "
+"Hvorvidt der skal vises en advarsel (&quot;Er du helt sikker…&quot;) , når "
 "du er ved at miste data"
 
 #: libraries/config/messages.inc.php:45
@@ -6323,8 +6323,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Tjek venligst privilegier for mappen som indeholder databasen."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detaljer..."
+msgid "Details…"
+msgstr "Detaljer…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6583,8 +6583,8 @@ msgid "%s of %s"
 msgstr "%s af %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Overfører din importfil ..."
+msgid "Uploading your import file…"
+msgstr "Overfører din importfil …"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8353,13 +8353,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Viser en del af en streng. Første parameter er antal tegn, der skal springes "
 "over fra begyndelsen af en streng (Standard 0). Anden parameter er antal "
 "tegn, der returneres (Standard indtil enden af strengen). Den tredie "
 "parameter definerer hvilke tegn, der skal føjes til foran eller efter "
-"outputtet, når en substring returneres (Standard: \"...\")."
+"outputtet, når en substring returneres (Standard: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9471,26 +9471,26 @@ msgid "Revoke"
 msgstr "Tilbagekald"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... behold den gamle."
+msgid "… keep the old one."
+msgstr "… behold den gamle."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... slet den gamle fra brugertabellerne."
+msgid "… delete the old one from the user tables."
+msgstr "… slet den gamle fra brugertabellerne."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... tilbagekald alle aktive privilegier fra den gamle og slet den "
+"… tilbagekald alle aktive privilegier fra den gamle og slet den "
 "efterfølgende."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... slet den gamle fra brugertabellerne og genindlæs privilegierne "
+"… slet den gamle fra brugertabellerne og genindlæs privilegierne "
 "efterfølgende."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9498,8 +9498,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Ret Login-information / Kopier bruger"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Opret en bruger med samme privilegier og ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Opret en bruger med samme privilegier og …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9906,12 +9906,12 @@ msgstr "Flytning af kolonnen er blevet fuldført."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
-"formen: 'a','b','c'...<br />Skulle du få brug for en backslash (\"\\\") "
+"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\\\") "
 "eller et enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en "
 "ekstra backslash (fx '\\\\xyz' eller 'a\\'b')."
 
@@ -9943,12 +9943,12 @@ msgstr "Transformationsindstillinger"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Indtast værdier for transformationsindstillinger ud fra følgende format: "
-"'a', 100, b,'c'...<br />Skulle du få brug for at indsætte en backslash (\"\\"
+"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\\"
 "\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
 "\\xyz' eller 'a\\'b')."
 
@@ -10942,8 +10942,8 @@ msgid "Show only alert values"
 msgstr "Vis kun alert-værdier"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtrer efter kategori..."
+msgid "Filter by category…"
+msgstr "Filtrer efter kategori…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11083,10 +11083,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Antallet af anmodninger om at læse foregående række i nøgleorden. Denne "
-"læsemetode bruges hovedsageligt til at optimere ORDER BY ... DESC."
+"læsemetode bruges hovedsageligt til at optimere ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -12149,7 +12149,7 @@ msgstr "Filnavn"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Navnet på primærnøglen skal være... PRIMARY!"
+msgstr "Navnet på primærnøglen skal være… PRIMARY!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"

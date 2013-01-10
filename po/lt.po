@@ -4218,10 +4218,10 @@ msgstr "Nustatymų failas"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Ar perspėjimas („Ar tikrai norite...“) turi būti rodomas kai kalbama apie "
+"Ar perspėjimas („Ar tikrai norite…“) turi būti rodomas kai kalbama apie "
 "duomenų praradimą"
 
 #: libraries/config/messages.inc.php:45
@@ -6370,8 +6370,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detalės..."
+msgid "Details…"
+msgstr "Detalės…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6631,7 +6631,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Įkelto failo formatas"
 
 #: libraries/display_import.lib.php:94
@@ -8396,13 +8396,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Rodoma tik dalis teksto. Pirmas parametras nurodo išvedamo teksto pradžią "
 "(nutylint: 0). Antrasis parametras nurodo išvedamo teksto kiekį. Jeigu "
 "antras parametras nenurodytas tai bus išvestas visas tekstas. Trečiasis "
 "parametras nurodo kurios raidės bus prijungtos prie išvedimo teksto "
-"(nutylint: ...)."
+"(nutylint: …)."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9541,25 +9541,25 @@ msgid "Revoke"
 msgstr "Panaikinti"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... palikti seną vartotoją."
+msgid "… keep the old one."
+msgstr "… palikti seną vartotoją."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... pašalinti seną vartotoją iš vartotojų lentelės."
+msgid "… delete the old one from the user tables."
+msgstr "… pašalinti seną vartotoją iš vartotojų lentelės."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... panaikinti visas privilegijas iš seno vartotojo ir poto jį pašalinti."
+"… panaikinti visas privilegijas iš seno vartotojo ir poto jį pašalinti."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... pašalinti seną vartotoją iš vartotojų lentelės ir poto perkrauti "
+"… pašalinti seną vartotoją iš vartotojų lentelės ir poto perkrauti "
 "privilegijas"
 
 #: libraries/server_privileges.lib.php:1948
@@ -9567,8 +9567,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Pakeisti prisijungimo informaciją / Kopijuoti vartotojo duomenis"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Sukurti naują vartotoją su tom pačiom privilegijom ir ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Sukurti naują vartotoją su tom pačiom privilegijom ir …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9979,12 +9979,12 @@ msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Jeigu laukelio tipas yra \"enum\" arba \"set\", tuomet duomenų reikšmes "
-"reikia įvesti naudojant šį formatą: 'a','b','c'...<br />. Jeigu jums reikia "
+"reikia įvesti naudojant šį formatą: 'a','b','c'…<br />. Jeigu jums reikia "
 "įrašyti dešininį įžambųjį brūkšnį (\"\\\") arba kabutes(\"'\") tarp šių "
 "reikšmių, tuomet prieš šios simbolius reikia papildomo dešininio įžambaus "
 "brūkšnio (pavyzdžiui: '\\\\xyz' or 'a\\'b')."
@@ -10019,12 +10019,12 @@ msgstr "Transformacijos nustatymai"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Prašome įvesti transformacijos nustatymų reikšmes naudodami tokį įvedimo "
-"formatą: 'a', 100, b,'c'...<br />Jeigu tarp šių reikšmių prisireiks "
+"formatą: 'a', 100, b,'c'…<br />Jeigu tarp šių reikšmių prisireiks "
 "panaudoti viršutinį vertikalų pasvirą brūkšnį (\"\\\") arba viengubą kabutę "
 "(\"'\"), naudokite viršutinį vertikalų pasvirą brūkšnį prieš šiuos simbolius "
 "(pvz: '\\\\xyz' ar 'a\\'b')."
@@ -11013,8 +11013,8 @@ msgid "Show only alert values"
 msgstr ""
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtruoti pagal kategoriją..."
+msgid "Filter by category…"
+msgstr "Filtruoti pagal kategoriją…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11126,7 +11126,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411
@@ -14231,5 +14231,5 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgid "Background color"
 #~ msgstr "Fono spalva"
 
-#~ msgid "Choose..."
-#~ msgstr "Pasirinkti..."
+#~ msgid "Choose…"
+#~ msgstr "Pasirinkti…"

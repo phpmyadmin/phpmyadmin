@@ -4258,10 +4258,10 @@ msgstr "Archivo de configuración"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Si se debe mostrar o no una advertencia (&quot;Está absolutamente seguro..."
+"Si se debe mostrar o no una advertencia (&quot;Está absolutamente seguro…"
 "&quot;) cuando está a punto de perder datos"
 
 #: libraries/config/messages.inc.php:45
@@ -6417,8 +6417,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Revisa los permisos del directorio que contiene la base de datos."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detalles..."
+msgid "Details…"
+msgstr "Detalles…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6679,8 +6679,8 @@ msgid "%s of %s"
 msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Subiendo su archivo a importar..."
+msgid "Uploading your import file…"
+msgstr "Subiendo su archivo a importar…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8480,14 +8480,14 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Muestra una parte de una cadena de caracteres. La primera opción es el "
 "número de caracteres a pasar por alto desde el principio de la cadena de "
 "caracteres (Predeterminado: 0). La segunda opción es el número de caracteres "
 "a mostrar (Predeterminado: hasta el final de la cadena de caracteres). La "
 "tercera opción es la cadena de caracteres a adjuntar y/o anteponer cuando "
-"haya truncamiento (Predeterminado: \"...\")."
+"haya truncamiento (Predeterminado: \"…\")."
 
 # Per IANA's regulations example domains MUST be example.com
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -9616,25 +9616,25 @@ msgid "Revoke"
 msgstr "Revocar"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "...mantener el anterior."
+msgid "… keep the old one."
+msgstr "…mantener el anterior."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "...borrar el viejo de las tablas de usuario."
+msgid "… delete the old one from the user tables."
+msgstr "…borrar el viejo de las tablas de usuario."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"...revocar todos los privilegios activos del viejo y eliminarlo después."
+"…revocar todos los privilegios activos del viejo y eliminarlo después."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"...borrar el viejo de las tablas de usuario y luego volver a cargar los "
+"…borrar el viejo de las tablas de usuario y luego volver a cargar los "
 "privilegios."
 
 # Login refers to the user account not the act of logging in
@@ -9643,8 +9643,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Cambiar la información de la cuenta / Copiar el usuario"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Crear un nuevo usuario con los mismos privilegios y..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Crear un nuevo usuario con los mismos privilegios y…"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10054,12 +10054,12 @@ msgstr "Las columnas fueron movidas exitosamente."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Si el tipo de campo es \"enum\" o \"set\", introduzca los valores usando "
-"este formato: 'a','b','c'...<br />Si alguna vez necesita poner una barra "
+"este formato: 'a','b','c'…<br />Si alguna vez necesita poner una barra "
 "invertida (\"\\\") o una comilla simple (\"'\") entre esos valores, añada "
 "una barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
 
@@ -10092,12 +10092,12 @@ msgstr "Opciones de transformación"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Introduzca los valores para las opciones de transformación usando este "
-"formato: 'a',100,b,'c'...<br />Si alguna vez requiere insertar una barra "
+"formato: 'a',100,b,'c'…<br />Si alguna vez requiere insertar una barra "
 "invertida (\"\\\") o comilla sencilla (\"'\") entre esos valores, añada una "
 "barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
 
@@ -11117,8 +11117,8 @@ msgid "Show only alert values"
 msgstr "Mostrar sólo valores de alerta"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtrar por categoría..."
+msgid "Filter by category…"
+msgstr "Filtrar por categoría…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11263,11 +11263,11 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "El número de solicitudes hechas para leer la fila previa en un orden de "
 "clave. Este método de lectura se usa principalmente para optimizar a ORDER "
-"BY ... DESC."
+"BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14356,21 +14356,21 @@ msgstr "«concurrent_insert» está definido como 0"
 
 #~ msgid ""
 #~ "An enumeration. A string object that can have only one value, chosen from "
-#~ "the list of values 'value1', 'value2', ..., NULL or the special '' error "
+#~ "the list of values 'value1', 'value2', …, NULL or the special '' error "
 #~ "value. An ENUM column can have a maximum of 65,535 distinct values."
 #~ msgstr ""
 #~ "Una enumeración. Una cadena que puede tener sólo un valor, elegido entre "
-#~ "la lista de valores 'valor1', 'valor2', ..., NULL o el valor especial de "
+#~ "la lista de valores 'valor1', 'valor2', …, NULL o el valor especial de "
 #~ "error ''. Una columna ENUM puede tener un máximo de 65535 valores "
 #~ "distintos."
 
 #~ msgid ""
 #~ "A set. A string object that can have zero or more values, each of which "
-#~ "must be chosen from the list of values 'value1', 'value2', ... A SET "
+#~ "must be chosen from the list of values 'value1', 'value2', … A SET "
 #~ "column can have a maximum of 64 members."
 #~ msgstr ""
 #~ "Un conjunto. Una cadena que puede tener cero o más valores, cada uno de "
-#~ "los cuales tiene que estar en la lista de valores 'valor1', 'valor2', ... "
+#~ "los cuales tiene que estar en la lista de valores 'valor1', 'valor2', … "
 #~ "Una columna SET puede tener un máximo de 64 miembros."
 
 #~ msgid "Constructs a WKB Point using its coordinates."
@@ -14997,5 +14997,5 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgid "Background color"
 #~ msgstr "Color de fondo"
 
-#~ msgid "Choose..."
-#~ msgstr "Elegir..."
+#~ msgid "Choose…"
+#~ msgstr "Elegir…"

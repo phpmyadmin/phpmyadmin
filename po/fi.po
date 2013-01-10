@@ -4202,10 +4202,10 @@ msgstr "Asetustiedosto"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Pitääkö näyttää varoitus (\"Haluatko varmasti...\"), kun tietoja aiotaan "
+"Pitääkö näyttää varoitus (\"Haluatko varmasti…\"), kun tietoja aiotaan "
 "kadottaa."
 
 #: libraries/config/messages.inc.php:45
@@ -6337,8 +6337,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Lisätiedot..."
+msgid "Details…"
+msgstr "Lisätiedot…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6597,8 +6597,8 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Lataa tuontitiedostoa..."
+msgid "Uploading your import file…"
+msgstr "Lataa tuontitiedostoa…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8419,14 +8419,14 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Näyttää vain osan merkkijonoa. Ensimmäinen valinta on tarkoitettu "
 "määrittelemään siirros, jonka kohdalta tekstin näyttäminen aloitetaan "
 "(Oletus: 0). Toinen valinta kertoo, kuinka monta merkkiä tekstistä "
 "näytetään. Tämän ollessa tyhjä merkkijonosta näytetään kaikki loput tekstit. "
 "Kolmas valinta määrittelee, mitä merkkejä merkkijonon perään lisätään sitä "
-"näytettäessä (Oletus: \"...\") ."
+"näytettäessä (Oletus: \"…\") ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -8717,9 +8717,9 @@ msgstr "Virhe pyynnön käsittelyssä"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "Lisätiedot..."
+msgstr "Lisätiedot…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -9647,26 +9647,26 @@ msgid "Revoke"
 msgstr "Pura käyttöoikeudet"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... säilytä vanha käyttäjä."
+msgid "… keep the old one."
+msgstr "… säilytä vanha käyttäjä."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... poista vanha käyttäjä käyttäjätauluista."
+msgid "… delete the old one from the user tables."
+msgstr "… poista vanha käyttäjä käyttäjätauluista."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... peruuta kaikki vanhan käyttäjän aktiiviset käyttöoikeudet ja tuhoa "
+"… peruuta kaikki vanhan käyttäjän aktiiviset käyttöoikeudet ja tuhoa "
 "käyttäjä sen jälkeen."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... poista käyttäjätauluista vanha käyttäjä ja päivitä sen jälkeen "
+"… poista käyttäjätauluista vanha käyttäjä ja päivitä sen jälkeen "
 "käyttöoikeudet."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9674,8 +9674,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Vaihda kirjautumistietoja / Kopioi käyttäjä"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Luo uusi käyttäjä samoilla käyttöoikeuksilla ja ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Luo uusi käyttäjä samoilla käyttöoikeuksilla ja …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10106,17 +10106,17 @@ msgstr "Valitsemiesi käyttäjien poisto onnistui."
 #, fuzzy
 #| msgid ""
 #| "ld type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: ,'b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: ,'b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single te (\"'\") amongst those values, precede it with a kslash (for "
 #| "example xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Jos sarakkeen tietotyyppi on \"enum\" tai \"set\", syötä vaaditut arvot "
-"tässä muodossa: 'a','b','c'...<br />Jos tarvitset arvoissa kenoviivaa (\"\\"
+"tässä muodossa: 'a','b','c'…<br />Jos tarvitset arvoissa kenoviivaa (\"\\"
 "\") tai heittomerkkiä (\"'\"), laita merkin eteen kenoviiva (esim. '\\\\xyz' "
 "tai 'a\\'b')."
 
@@ -10150,11 +10150,11 @@ msgstr "Muunnosvaihtoehdot"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'...<br /"
+"Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'…<br /"
 ">Jos tarvitset arvoissa kenoviivaa (\"\\\") tai yksittäistä lainausmerkkiä "
 "(\"'\"), lisää merkin eteen kenoviiva (esim. '\\\\xyz' tai 'a\\'b')."
 
@@ -11204,7 +11204,7 @@ msgid "Show only alert values"
 msgstr "Näytä avoimet taulut"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11349,10 +11349,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Kertoo niiden pyyntöjen määrän, jotka lukevat edellisen rivin "
-"avainjärjestyksessä. Tätä lukumenetelmää käytetään lähinnä ORDER BY ... DESC "
+"avainjärjestyksessä. Tätä lukumenetelmää käytetään lähinnä ORDER BY … DESC "
 "-kyselyllä optimoimiseen."
 
 #: server_status_variables.php:411

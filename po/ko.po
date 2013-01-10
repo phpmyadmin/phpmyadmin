@@ -4141,7 +4141,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -6028,13 +6028,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Config authentication"
-msgstr "인증중입니다..."
+msgstr "인증중입니다…"
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Cookie authentication"
-msgstr "인증중입니다..."
+msgstr "인증중입니다…"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
@@ -6044,7 +6044,7 @@ msgstr "HTTP 인증"
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Signon authentication"
-msgstr "인증중입니다..."
+msgstr "인증중입니다…"
 
 #: libraries/config/setup.forms.php:247
 #: libraries/config/user_preferences.forms.php:151
@@ -6155,7 +6155,7 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
+msgid "Details…"
 msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
@@ -6433,7 +6433,7 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr ""
 
 #: libraries/display_import.lib.php:94
@@ -8132,7 +8132,7 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -9286,24 +9286,24 @@ msgid "Revoke"
 msgstr "제거"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
+msgid "… keep the old one."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1935
 #, fuzzy
-msgid "... delete the old one from the user tables."
+msgid "… delete the old one from the user tables."
 msgstr "권한 테이블에서 사용자를 삭제하기만 함."
 
 #: libraries/server_privileges.lib.php:1936
 #, fuzzy
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr "모든 활성화된 권한을 박탈하고 사용자를 삭제함."
 
 #: libraries/server_privileges.lib.php:1937
 #, fuzzy
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "사용자를 삭제하고 사용권한을 갱신함."
 
@@ -9312,7 +9312,7 @@ msgid "Change Login Information / Copy User"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
+msgid "Create a new user with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2231
@@ -9719,12 +9719,12 @@ msgstr "선택한 사용자들을 삭제했습니다."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"오: 'a','b','c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
 "면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.inc.php:110
@@ -9753,12 +9753,12 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
-"오: 'a',100, b,'c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"오: 'a',100, b,'c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
 "면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.inc.php:411
@@ -10748,7 +10748,7 @@ msgid "Show only alert values"
 msgstr "테이블 보기"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -10863,7 +10863,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411
@@ -13557,7 +13557,7 @@ msgstr "concurrent_insert가 0으로 설정되었습니다."
 #~ "\\'b')."
 #~ msgstr ""
 #~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하"
-#~ "십시오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
+#~ "십시오: 'a','b','c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
 #~ "한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #~ msgid ""
@@ -13566,7 +13566,7 @@ msgstr "concurrent_insert가 0으로 설정되었습니다."
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하"
-#~ "십시오: 'a','b','c'...<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
+#~ "십시오: 'a','b','c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 "
 #~ "한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #~ msgid "New table"

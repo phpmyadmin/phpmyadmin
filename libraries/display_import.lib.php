@@ -83,7 +83,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                                 // show progress UI
                                 $('#importmain').hide();
                                 $('#import_form_status')
-                                    .html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Uploading your import file...'), false); ?></div><div id="statustext"></div></div>')
+                                    .html('<div class="upload_progress"><div class="upload_progress_bar_outer"><div class="percentage"></div><div id="status" class="upload_progress_bar_inner"><div class="percentage"></div></div></div><div><img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('Uploading your import file…'), false); ?></div><div id="statustext"></div></div>')
                                     .show();
                                 import_start = now;
                             }

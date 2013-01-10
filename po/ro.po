@@ -907,7 +907,7 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-"dezactivate. Pentru a afla de ce ...  %shere%s."
+"dezactivate. Pentru a afla de ce …  %shere%s."
 
 #: index.php:496
 #, php-format
@@ -1632,9 +1632,9 @@ msgstr "Recomandare"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "Detalii..."
+msgstr "Detalii…"
 
 #: js/messages.php:212
 msgid "Justification"
@@ -4362,10 +4362,10 @@ msgstr "Fișier de configurare"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Dacă un avertisment (&quot; Sunteți sigur...&quot;) ar trebui afișat când "
+"Dacă un avertisment (&quot; Sunteți sigur…&quot;) ar trebui afișat când "
 "sunteți pe cale sa pierdeți datele"
 
 #: libraries/config/messages.inc.php:45
@@ -6668,8 +6668,8 @@ msgstr ""
 "de date."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detalii..."
+msgid "Details…"
+msgstr "Detalii…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6959,7 +6959,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Formatul fișierului importat"
 
 #: libraries/display_import.lib.php:94
@@ -8815,13 +8815,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Afișează doar o parte a firului de executie. Prima optiune este un offset "
 "pentru definirea punctului de început a outputului de text (Default 0). A "
 "doua optiune este un offset de text returnat. Daca este gol, returneaza "
 "textul ramas. A treia optiune defineste caracterele care vor fi atasate la "
-"output la returnarea unui substring  (Default: ...) ."
+"output la returnarea unui substring  (Default: …) ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -10020,34 +10020,34 @@ msgid "Revoke"
 msgstr "Revocare"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... menține cel vechi."
+msgid "… keep the old one."
+msgstr "… menține cel vechi."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... șterge cel vechi din tabelul de utilizatori."
+msgid "… delete the old one from the user tables."
+msgstr "… șterge cel vechi din tabelul de utilizatori."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"...revocă toate privilegiile active de la utilizatorul vechi și șterge-l "
+"…revocă toate privilegiile active de la utilizatorul vechi și șterge-l "
 "după aceea."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... șterge cel vechi din tabelul de utilizatori și reîncarcă privilegiile."
+"… șterge cel vechi din tabelul de utilizatori și reîncarcă privilegiile."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Schimbă informațiile de autentificare/Copiază utilizator"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Creează un utilizator nou cu aceleași privilegii și..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Creează un utilizator nou cu aceleași privilegii și…"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10472,17 +10472,17 @@ msgstr "Utilizatorii selectați au fost eliminați."
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Dacă cîmpul este „enum” sau „set”, vă rugăm să adăugați valori folosind "
-"formatul: 'a','b','c'...<br />Daca aveti nevoie sa puneti bara intoarsa "
+"formatul: 'a','b','c'…<br />Daca aveti nevoie sa puneti bara intoarsa "
 "(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul "
 "( '\\\\xyz' or 'a\\'b')."
 
@@ -10516,12 +10516,12 @@ msgstr "Opțiuni de transformare"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Introduceți valorile pentru opțiunile de transformare utilizînd acest "
-"format: 'a', 100, b,'c'...<br />Dacă trebuie să folosiți backslash (\"\\\") "
+"format: 'a', 100, b,'c'…<br />Dacă trebuie să folosiți backslash (\"\\\") "
 "sau apostrof  (\"'\") in aceste valori, introduceți backslash-uri (ex. '\\"
 "\\xyz' sau 'a\\'b')."
 
@@ -11544,7 +11544,7 @@ msgid "Show only alert values"
 msgstr "Afișează tabele deschise"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11664,7 +11664,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411
@@ -12629,7 +12629,7 @@ msgstr "Denumire tabel"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Numele cheii primare trebuie să fie... PRIMARY!"
+msgstr "Numele cheii primare trebuie să fie… PRIMARY!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
@@ -14706,7 +14706,7 @@ msgstr "concurrent_insert este setat la 0"
 #~ "phpMyAdmin nu poate citi corect fisierul de configuratie!  <br />Acesta "
 #~ "se poate intampla in cazul in care PHP nu poate gasi fisierul sau nu o "
 #~ "poate parsa corect.  <br />Vezi configuratia fisierului apasand pe linkul "
-#~ "de mai jos și citeste cu atentie erorile aparute ...  In cele mai multe "
+#~ "de mai jos și citeste cu atentie erorile aparute …  In cele mai multe "
 #~ "cazuri lipsesc apostroful sau ghilimele.<br />Daca primesti o pagina "
 #~ "goala, totul pare sa fie bine."
 
@@ -14787,7 +14787,7 @@ msgstr "concurrent_insert este setat la 0"
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
 #~ "Opțiunile adiționale pentru folosirea tabelelor intercalate au fost "
-#~ "dezactivate. Pentru a afla de ce ...  %shere%s."
+#~ "dezactivate. Pentru a afla de ce …  %shere%s."
 
 #~ msgid "Ignore duplicate rows"
 #~ msgstr "Ignoră rînduri duplicate"
@@ -14805,7 +14805,7 @@ msgstr "concurrent_insert este setat la 0"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Introduceți valorile pentru opțiunile de transformare utilizînd acest "
-#~ "format: 'a', 100, b,'c'...<br />Dacă trebuie să folosiți backslash (\"\\"
+#~ "format: 'a', 100, b,'c'…<br />Dacă trebuie să folosiți backslash (\"\\"
 #~ "\") sau apostrof  (\"'\") in aceste valori, introduceți backslash-uri "
 #~ "(ex. '\\\\xyz' sau 'a\\'b')."
 
@@ -14815,7 +14815,7 @@ msgstr "concurrent_insert este setat la 0"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Introduceți valorile pentru opțiunile de transformare utilizînd acest "
-#~ "format: 'a', 100, b,'c'...<br />Dacă trebuie să folosiți backslash (\"\\"
+#~ "format: 'a', 100, b,'c'…<br />Dacă trebuie să folosiți backslash (\"\\"
 #~ "\") sau apostrof  (\"'\") in aceste valori, introduceți backslash-uri "
 #~ "(ex. '\\\\xyz' sau 'a\\'b')."
 

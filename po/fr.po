@@ -4236,10 +4236,10 @@ msgstr "Fichier de configuration"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Un message (Êtes-vous certain...) devrait-il s'afficher quand vous êtes sur "
+"Un message (Êtes-vous certain…) devrait-il s'afficher quand vous êtes sur "
 "le point de perdre des données"
 
 #: libraries/config/messages.inc.php:45
@@ -5306,7 +5306,7 @@ msgstr "Ordre de tri par défaut"
 
 #: libraries/config/messages.inc.php:330
 msgid "Use persistent connections to MySQL databases"
-msgstr "...au serveur MySQL"
+msgstr "…au serveur MySQL"
 
 #: libraries/config/messages.inc.php:331
 msgid "Persistent connections"
@@ -6367,8 +6367,8 @@ msgstr ""
 "Veuillez vérifier les privilèges du répertoire contenant la base de données."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Détails..."
+msgid "Details…"
+msgstr "Détails…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6628,8 +6628,8 @@ msgid "%s of %s"
 msgstr "%s sur %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Téléversement du fichier d'importation en cours ..."
+msgid "Uploading your import file…"
+msgstr "Téléversement du fichier d'importation en cours …"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8420,12 +8420,12 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "N'affiche qu'une partie du champ. En première option, la position de départ "
 "(par défaut, 0). En seconde option, le nombre de caractères à afficher (par "
 "défaut, le reste). En troisième option, des caractères à afficher à la fin "
-"du texte (par défaut: «...»)."
+"du texte (par défaut: «…»)."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9564,33 +9564,33 @@ msgid "Revoke"
 msgstr "Révoquer"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... conserver intact l'ancien utilisateur."
+msgid "… keep the old one."
+msgstr "… conserver intact l'ancien utilisateur."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... supprimer l'ancien utilisateur."
+msgid "… delete the old one from the user tables."
+msgstr "… supprimer l'ancien utilisateur."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... effacer tous les privilèges de l'ancien utilisateur, puis l'effacer."
+"… effacer tous les privilèges de l'ancien utilisateur, puis l'effacer."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... supprimer l'ancien utilisateur, puis recharger les privilèges au serveur."
+"… supprimer l'ancien utilisateur, puis recharger les privilèges au serveur."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Changement des informations de connexion / Copie d'utilisateur"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Créer un nouvel utilisateur avec les mêmes privilèges et ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Créer un nouvel utilisateur avec les mêmes privilèges et …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9994,12 +9994,12 @@ msgstr "Les colonnes ont été déplacées avec succès."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Les différentes valeurs des colonnes de type enum/set sont à spécifier sous "
-"la forme 'a','b','c'...<br />Pour utiliser un antislash(\"\\\") ou une "
+"la forme 'a','b','c'…<br />Pour utiliser un antislash(\"\\\") ou une "
 "apostrophe (\"'\") dans l'une de ces valeurs, faites-le précéder d'un "
 "antislash (par exemple '\\\\xyz' ou 'a\\'b')."
 
@@ -10031,12 +10031,12 @@ msgstr "Options de transformation"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Veuillez entrer les valeurs des options de transformation en suivant ce "
-"format: 'a', 100, b,'c'...<br />Si vous devez entrer un caractère (\"\\\") "
+"format: 'a', 100, b,'c'…<br />Si vous devez entrer un caractère (\"\\\") "
 "ou une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
@@ -11046,8 +11046,8 @@ msgid "Show only alert values"
 msgstr "Afficher uniquement les valeurs d'alerte"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtrer par catégorie..."
+msgid "Filter by category…"
+msgstr "Filtrer par catégorie…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11189,10 +11189,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Le nombre de requêtes de lecture de la ligne précédente, en ordre de clé. "
-"Utilisé surtout pour optimiser ORDER BY ... DESC."
+"Utilisé surtout pour optimiser ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14189,7 +14189,7 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ "Suggest a database name on the &quot;Create Database&quot; form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "...dans le dialogue de création de base, si possible, sinon laisser le "
+#~ "…dans le dialogue de création de base, si possible, sinon laisser le "
 #~ "champ vide"
 
 #~ msgid "Suggest new database name"
@@ -14714,8 +14714,8 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgid "Background color"
 #~ msgstr "Couleur d'arrière-plan"
 
-#~ msgid "Choose..."
-#~ msgstr "Choisissez..."
+#~ msgid "Choose…"
+#~ msgstr "Choisissez…"
 
 #~ msgid "Delete the matches for the "
 #~ msgstr "Supprimer de la table %s les occurences?"

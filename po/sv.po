@@ -4199,10 +4199,10 @@ msgstr "Konfigurationsfil"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Anger om en varning (&quot;Är du riktigt säker...&quot;) ska visas när du "
+"Anger om en varning (&quot;Är du riktigt säker…&quot;) ska visas när du "
 "håller på att förlora data"
 
 #: libraries/config/messages.inc.php:45
@@ -6318,8 +6318,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Kontrollera privilegierna för katalogen som innehåller databasen."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detaljer..."
+msgid "Details…"
+msgstr "Detaljer…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6577,8 +6577,8 @@ msgid "%s of %s"
 msgstr "%s av %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Ladda upp din importfil..."
+msgid "Uploading your import file…"
+msgstr "Ladda upp din importfil…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8344,13 +8344,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Visar del av en sträng. Första parametern är antalet tecken att hoppa över "
 "från början på strängen (standardvärde: 0). Andra parametern är antalet "
 "tecken som ska returneras (standardvärde: till slutet på strängen). Den "
 "tredje parametern är en sträng som läggs till i slutet och/eller början när "
-"trunkering utförs (standardvärde: \"...\")."
+"trunkering utförs (standardvärde: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9467,25 +9467,25 @@ msgid "Revoke"
 msgstr "Upphäv"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... behåll den gamla."
+msgid "… keep the old one."
+msgstr "… behåll den gamla."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... ta bort den gamla från användartabellerna."
+msgid "… delete the old one from the user tables."
+msgstr "… ta bort den gamla från användartabellerna."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
+"… upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... ta bort den gamla från användartabellerna och ladda om privilegierna "
+"… ta bort den gamla från användartabellerna och ladda om privilegierna "
 "efteråt."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9493,8 +9493,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Ändra inloggningsinformation / Kopiera användare"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Skapa en ny användare med samma privilegier och ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Skapa en ny användare med samma privilegier och …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9900,12 +9900,12 @@ msgstr "Kolumnerna har flyttats framgångsrikt."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Om en fälttyp är \"enum\" eller \"set\", ange värden enligt följande format: "
-"'a','b','c'...<br />Om du behöver lägga till ett  backslash (\"\\\") eller "
+"'a','b','c'…<br />Om du behöver lägga till ett  backslash (\"\\\") eller "
 "ett enkelcitat (\"'\") i värdena, skriv ett  backslash före tecknet (t.ex. "
 "'\\\\xyz' eller 'a\\'b')."
 
@@ -9937,12 +9937,12 @@ msgstr "Omvandlingsparametrar"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ange värdena för omvandlingsparametrar enligt följande format: 'a', 100, "
-"b,'c'...<br />Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
+"b,'c'…<br />Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
 "enkelcitat (\"'\") i värdena, skriv ett bakåtstreck före tecknet (t.ex. '\\"
 "\\xyz' eller 'a\\'b')."
 
@@ -10938,8 +10938,8 @@ msgid "Show only alert values"
 msgstr "Visa endast varnings värden"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtrera efter kategori ..."
+msgid "Filter by category…"
+msgstr "Filtrera efter kategori …"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11078,10 +11078,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Antalet efterfrågningar att läsa den föregående raden i nyckelordning. Denna "
-"läsmetod används huvudsakligen för att optimera ORDER BY ... DESC."
+"läsmetod används huvudsakligen för att optimera ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14478,8 +14478,8 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgid "Background color"
 #~ msgstr "Bakgrundsfärg"
 
-#~ msgid "Choose..."
-#~ msgstr "välj..."
+#~ msgid "Choose…"
+#~ msgstr "välj…"
 
 #~ msgid "Delete the matches for the "
 #~ msgstr "radera matchande för %s tabellen?"

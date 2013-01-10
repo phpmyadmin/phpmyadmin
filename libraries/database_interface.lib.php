@@ -2034,7 +2034,7 @@ function PMA_DBI_formatError($error_number, $error_message)
                 ' (<a href="server_engines.php' .
                 PMA_generate_common_url(
                     array('engine' => 'InnoDB', 'page' => 'Status')
-                ) . '">' . __('Details...') . '</a>)';
+                ) . '">' . __('Details…') . '</a>)';
         }
     } else {
         $error .= ' - ' . $error_message;

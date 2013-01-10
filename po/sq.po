@@ -4145,7 +4145,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -6203,7 +6203,7 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
+msgid "Details…"
 msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
@@ -6366,7 +6366,7 @@ msgstr "Ruaje në server tek directory %s"
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Ruaje me emër..."
+msgstr "Ruaje me emër…"
 
 #: libraries/display_export.lib.php:265
 #, fuzzy
@@ -6431,7 +6431,7 @@ msgstr "\"kompresuar me bzip2\""
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Ruaje me emër..."
+msgstr "Ruaje me emër…"
 
 #: libraries/display_export.lib.php:413 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
@@ -6492,7 +6492,7 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr ""
 
 #: libraries/display_import.lib.php:94
@@ -8255,13 +8255,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Shfaq vetëm një pjesë të string-ës. Opcioni i parë është offset-i që shërben "
 "për të përcaktuar ku fillon output i tekstit tuaj (Default 0). Opcioni i "
 "dytë është një offset që tregon se sa tekst kthehet. Po të jetë bosh, kthen "
 "të gjithë tekstin e mbetur. Opcioni i tretë përcakton çfarë karakteresh do "
-"të shtohen në fund të output kur kthehet një nën-string-ë (Default: ...) ."
+"të shtohen në fund të output kur kthehet një nën-string-ë (Default: …) ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9454,32 +9454,32 @@ msgid "Revoke"
 msgstr "Hiq"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... mbaj të vjetrin."
+msgid "… keep the old one."
+msgstr "… mbaj të vjetrin."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... elemino të vjetrin nga tabela e përdoruesve."
+msgid "… delete the old one from the user tables."
+msgstr "… elemino të vjetrin nga tabela e përdoruesve."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... hiq të gjitha të drejtat nga i vjetri e pastaj eleminoje."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… hiq të gjitha të drejtat nga i vjetri e pastaj eleminoje."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... elemino të vjetrin nga tabela e përdoruesve e pastaj rilexo të drejtat."
+"… elemino të vjetrin nga tabela e përdoruesve e pastaj rilexo të drejtat."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Ndrysho Informacionet e Login / Kopjo përdoruesin"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Krijo një përdorues të ri me të njëjta të drejta dhe ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Krijo një përdorues të ri me të njëjta të drejta dhe …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9903,17 +9903,17 @@ msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "N.q.s. fusha është \"enum\" apo \"set\", shtoni të dhënat duke përdorur "
-"formatin: 'a','b','c'...<br />Nëse megjithatë do t'u duhet të vini "
+"formatin: 'a','b','c'…<br />Nëse megjithatë do t'u duhet të vini "
 "backslashes (\"\\\") apo single quote (\"'\") para këtyre vlerave, backslash-"
 "ojini (për shembull '\\\\xyz' o 'a\\'b')."
 
@@ -9947,12 +9947,12 @@ msgstr "Opcione të transformimeve"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ju lutem shkruani vlerat për opcionet e transformimit duke përdorur këtë "
-"format: 'a', 100, b,'c'...<br />Nëse keni nevojë të shtoni një backslash "
+"format: 'a', 100, b,'c'…<br />Nëse keni nevojë të shtoni një backslash "
 "(\"\\\") apo një apostrofë (\"'\") midis këtyre vlerave, duhet ti backslash-"
 "oni (për shembull '\\\\xyz' ose 'a\\'b')."
 
@@ -10961,7 +10961,7 @@ msgid "Show only alert values"
 msgstr "Shfaq tabelat"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11079,7 +11079,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411
@@ -12020,7 +12020,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Ruaje me emër..."
+msgstr "Ruaje me emër…"
 
 #: tbl_gis_visualization.php:179
 #, fuzzy
@@ -12030,7 +12030,7 @@ msgstr "Emri i përdoruesit"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Emri i kyçit primar duhet të jetë... PRIMARY!"
+msgstr "Emri i kyçit primar duhet të jetë… PRIMARY!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
@@ -13763,7 +13763,7 @@ msgstr ""
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Ju lutem shkruani vlerat për opcionet e transformimit duke përdorur këtë "
-#~ "format: 'a', 100, b,'c'...<br />Nëse keni nevojë të shtoni një backslash "
+#~ "format: 'a', 100, b,'c'…<br />Nëse keni nevojë të shtoni një backslash "
 #~ "(\"\\\") apo një apostrofë (\"'\") midis këtyre vlerave, duhet ti "
 #~ "backslash-oni (për shembull '\\\\xyz' ose 'a\\'b')."
 
@@ -13773,7 +13773,7 @@ msgstr ""
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Ju lutem shkruani vlerat për opcionet e transformimit duke përdorur këtë "
-#~ "format: 'a', 100, b,'c'...<br />Nëse keni nevojë të shtoni një backslash "
+#~ "format: 'a', 100, b,'c'…<br />Nëse keni nevojë të shtoni një backslash "
 #~ "(\"\\\") apo një apostrofë (\"'\") midis këtyre vlerave, duhet ti "
 #~ "backslash-oni (për shembull '\\\\xyz' ose 'a\\'b')."
 
