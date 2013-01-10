@@ -35,7 +35,7 @@ Currently phpMyAdmin can:
 * using Query-by-example (QBE), create complex queries automatically
   connecting required tables
 * create :term:`PDF` graphics of your
-  Database layout
+  database layout
 * search globally in a database or a subset of it
 * transform stored data into any format using a set of predefined
   functions, like displaying BLOB-data as image or download-link
