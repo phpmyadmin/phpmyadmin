@@ -4259,10 +4259,10 @@ msgstr "Конфігураційний файл"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Чи попередження (&quot;Ви дійсно впевнені...&quot;) повинно бути бути "
+"Чи попередження (&quot;Ви дійсно впевнені…&quot;) повинно бути бути "
 "відображене коли ви можете втратити дані"
 
 #: libraries/config/messages.inc.php:45
@@ -6328,7 +6328,7 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
+msgid "Details…"
 msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
@@ -6589,7 +6589,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Формат імпортованих файлів"
 
 #: libraries/display_import.lib.php:94
@@ -8349,13 +8349,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Показує лише частину тексту. Перша опція - це відступ який визначає з якого "
 "місця повинен початися вивід тексту (за замовчуванням: 0). Друга опція - "
 "визначає скільки тексту буде виведено. Якщо вона порожня - виводиться решта "
 "всього тексту. Третя опція - визначає які символи буде додано після "
-"виведеного текстового сегменту (за замовчуванням: ...) ."
+"виведеного текстового сегменту (за замовчуванням: …) ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9478,34 +9478,34 @@ msgid "Revoke"
 msgstr "Відмінити"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... залишити старого."
+msgid "… keep the old one."
+msgstr "… залишити старого."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... знищити старого з таблиці користувачів."
+msgid "… delete the old one from the user tables."
+msgstr "… знищити старого з таблиці користувачів."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... анулювати всі активні права старого користувача, знищивши його після "
+"… анулювати всі активні права старого користувача, знищивши його після "
 "того."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... знищити старого з таблиці користувачів та перевантажити права після того."
+"… знищити старого з таблиці користувачів та перевантажити права після того."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Змінити реєстраційні дані / Копіювати користувача"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Створити нового користувача з такими ж правами і ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Створити нового користувача з такими ж правами і …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9928,12 +9928,12 @@ msgstr "Вибраних користувачів успішно видален�
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
-"'a','b','c'...<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\"
+"'a','b','c'…<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\"
 "\") або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
 "зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
 
@@ -9967,11 +9967,11 @@ msgstr "Опції перетворення"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'...<br /"
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br /"
 ">Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
 "цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
 "\\xyz' чи 'a\\'b')."
@@ -10957,7 +10957,7 @@ msgid "Show only alert values"
 msgstr "Показати таблиці"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11074,7 +11074,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411

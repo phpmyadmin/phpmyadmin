@@ -4213,10 +4213,10 @@ msgstr "Configuratiebestand"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Of er een waarschuwing(&quot;Weet u zeker...&quot;) moet worden getoond op "
+"Of er een waarschuwing(&quot;Weet u zeker…&quot;) moet worden getoond op "
 "het moment dat u gegevens gaat verwijderen"
 
 #: libraries/config/messages.inc.php:45
@@ -6350,8 +6350,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Gelieve de rechten op de folder met de databank na te kijken."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Details..."
+msgid "Details…"
+msgstr "Details…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6385,7 +6385,7 @@ msgstr "Type opnieuw"
 msgid "Password Hashing"
 msgstr "Wachtwoord-hashing"
 
-# Kan ook vertaald worden als "werkt met ..."
+# Kan ook vertaald worden als "werkt met …"
 #: libraries/display_change_password.lib.php:85
 msgid "MySQL 4.0 compatible"
 msgstr "Compatibel met MySQL&nbsp;4.0"
@@ -6616,8 +6616,8 @@ msgid "%s of %s"
 msgstr "%s van %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Uw geïmporteerde bestand wordt ingeladen..."
+msgid "Uploading your import file…"
+msgstr "Uw geïmporteerde bestand wordt ingeladen…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8414,14 +8414,14 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Toont alleen een stuk van een string. De eerst optie is een offset om te "
 "bepalen waar de output van uw tekst start (Standaard 0). De tweede optie is "
 "een offset van de hoeveelheid tekst die terug wordt gegeven (Standaard: tot "
 "het einde van de string). De derde optie definieert welke karakters worden "
 "toegevoegd aan de output wanneer een substring wordt teruggegeven "
-"(Standaard: \"...\")."
+"(Standaard: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9555,25 +9555,25 @@ msgid "Revoke"
 msgstr "Ongedaan maken"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... de oude behouden."
+msgid "… keep the old one."
+msgstr "… de oude behouden."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... de oude verwijderen van de gebruikerstabellen."
+msgid "… delete the old one from the user tables."
+msgstr "… de oude verwijderen van de gebruikerstabellen."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... alle actieve rechten van de oude intrekken en deze daarna verwijderen."
+"… alle actieve rechten van de oude intrekken en deze daarna verwijderen."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... de oude verwijderen van de gebruikerstabellen en de rechten nadien "
+"… de oude verwijderen van de gebruikerstabellen en de rechten nadien "
 "vernieuwen."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9581,8 +9581,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Aanmeldingsinformatie wijzigen / Gebruiker kopiëren"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Een nieuwe gebruiker aanmaken met dezelfde rechten en ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Een nieuwe gebruiker aanmaken met dezelfde rechten en …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9990,12 +9990,12 @@ msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Als het veldtype \"enum\" of \"set\" is, voer dan de waardes in volgens dit "
-"formaat: 'a','b','c'...<br />Als u een backslash moet plaatsen (\"\\\") of "
+"formaat: 'a','b','c'…<br />Als u een backslash moet plaatsen (\"\\\") of "
 "een enkel aanhalingsteken (\"'\") bij deze waardes, plaats er dan een "
 "backslash voor (voorbeeld '\\\\xyz' of 'a\\'b')."
 
@@ -10027,12 +10027,12 @@ msgstr "Transformatieopties"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-"100, b,'c'...<br />Wanneer u een backslash (\"\\\") of een enkele quote "
+"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote "
 "(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
 "(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
 
@@ -11051,8 +11051,8 @@ msgid "Show only alert values"
 msgstr "Enkel belangrijke waarden tonen"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filteren op categorie..."
+msgid "Filter by category…"
+msgstr "Filteren op categorie…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11194,10 +11194,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Het aantal leesopdrachten voor de voorgaande rij in de sleutelvolgorde. Dit "
-"wordt hoofdzakelijk gebruikt voor het optimaliseren van ORDER BY ... DESC."
+"wordt hoofdzakelijk gebruikt voor het optimaliseren van ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14660,5 +14660,5 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgid "Background color"
 #~ msgstr "Achtergrondkleur"
 
-#~ msgid "Choose..."
-#~ msgstr "Kies..."
+#~ msgid "Choose…"
+#~ msgstr "Kies…"

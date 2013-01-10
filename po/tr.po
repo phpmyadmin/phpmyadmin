@@ -4207,10 +4207,10 @@ msgstr "Yapılandırma dosyası"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Veri kaybı yaşamamanız için bir uyarı (&quot;... yapmak istediğiniz için "
+"Veri kaybı yaşamamanız için bir uyarı (&quot;… yapmak istediğiniz için "
 "emin misiniz?&quot;) görüntülenip görüntülenmemesidir"
 
 #: libraries/config/messages.inc.php:45
@@ -6338,8 +6338,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Ayrıntılar..."
+msgid "Details…"
+msgstr "Ayrıntılar…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6601,8 +6601,8 @@ msgid "%s of %s"
 msgstr "%s / %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "İçe aktarma dosyanız gönderiliyor..."
+msgid "Uploading your import file…"
+msgstr "İçe aktarma dosyanız gönderiliyor…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8376,13 +8376,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Karakter dizisinin bir kısmını görüntüler. İlk seçenek dizginin "
 "başlangıcından atlamak için karakter sayısıdır (Varsayılan 0). İkinci "
 "seçenek döndürülecek karakter sayısıdır (Varsayılan: dizginin sonuna kadar). "
 "Üçüncü seçenek kısaltma meydana geldiğinde eklemek ve/veya başa eklemek için "
-"dizgidir (Varsayılan: \"...\")."
+"dizgidir (Varsayılan: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9502,24 +9502,24 @@ msgid "Revoke"
 msgstr "Geri al"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... eski olanı sakla."
+msgid "… keep the old one."
+msgstr "… eski olanı sakla."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... eski olanı kullanıcı tablolarından sil."
+msgid "… delete the old one from the user tables."
+msgstr "… eski olanı kullanıcı tablolarından sil."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… eski olandan bütün aktif yetkileri iptal et ve sonra da sil."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... eski olanı kullanıcı tablolarından sil ve sonra da yetkileri yeniden "
+"… eski olanı kullanıcı tablolarından sil ve sonra da yetkileri yeniden "
 "yükle."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9527,8 +9527,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Otutum Açma Bilgisini değiştir / Kullanıcıyı kopyala"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Aynı yetkilerle yeni bir kullanıcı oluştur ve ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Aynı yetkilerle yeni bir kullanıcı oluştur ve …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9931,12 +9931,12 @@ msgstr "Sütunlar başarılı olarak taşındı."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
-"kullanarak girin: 'a','b','c'...<br />Eğer bu değerler arasına hep ters eğik "
+"kullanarak girin: 'a','b','c'…<br />Eğer bu değerler arasına hep ters eğik "
 "çizgi (\"\\\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters "
 "eğik çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
 
@@ -9968,12 +9968,12 @@ msgstr "Dönüşüm seçenekleri"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Lütfen dönüşüm seçenekleri için değerleri bu biçimi kullanarak giriniz: 'a', "
-"100, b,'c'...<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") "
+"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") "
 "veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun "
 "(örneğin '\\\\xyz' veya 'a\\'b')."
 
@@ -10972,8 +10972,8 @@ msgid "Show only alert values"
 msgstr "Sadece uyarı değerlerini göster"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Kategoriye göre süz..."
+msgid "Filter by category…"
+msgstr "Kategoriye göre süz…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11112,10 +11112,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Anahtar sırasında önceki satırı okumak için istek sayısıdır. Bu okuma "
-"yöntemi başlıca ORDER BY ... DESC komutunu uyarlamak için kullanılır."
+"yöntemi başlıca ORDER BY … DESC komutunu uyarlamak için kullanılır."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14692,5 +14692,5 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ msgid "Background color"
 #~ msgstr "Arkaplan rengi"
 
-#~ msgid "Choose..."
-#~ msgstr "Seçin..."
+#~ msgid "Choose…"
+#~ msgstr "Seçin…"

@@ -4211,10 +4211,10 @@ msgstr "Seadistusfail"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Kas hoiatusi (&quot;Kindel, et soovid...&quot;) peaks näitama, kuid oled "
+"Kas hoiatusi (&quot;Kindel, et soovid…&quot;) peaks näitama, kuid oled "
 "andmeid kaotamas"
 
 #: libraries/config/messages.inc.php:45
@@ -6386,8 +6386,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Palun kontrolli andmebaasi sisaldava kataloogi õigusi."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detailid..."
+msgid "Details…"
+msgstr "Detailid…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6646,8 +6646,8 @@ msgid "%s of %s"
 msgstr "%s / %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Imporditava faili üleslaadimine..."
+msgid "Uploading your import file…"
+msgstr "Imporditava faili üleslaadimine…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8445,12 +8445,12 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Näitab ainult osa tekstist. Esimene valik on sõne algusest vahelejäetavate "
 "sümbolite hulk (Vaikimisi 0). Teine valik on naasvate sümbolite hulk "
 "(Vaikimisi: sõne lõpuni). Kolmas valik on kärpimise korral lisatav sõne "
-"(Vaikimisi: \"...\")."
+"(Vaikimisi: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9562,32 +9562,32 @@ msgid "Revoke"
 msgstr "Tühista"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... hoia eelmine alles."
+msgid "… keep the old one."
+msgstr "… hoia eelmine alles."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... kustuta eelmine kasutajate tabelist."
+msgid "… delete the old one from the user tables."
+msgstr "… kustuta eelmine kasutajate tabelist."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
+"… kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Muuda sisselogimise teavet / Kopeeri kasutajat"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Loo uus kasutaja samade õigustega ja ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Loo uus kasutaja samade õigustega ja …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9992,12 +9992,12 @@ msgstr "Veerud on edukalt liigutatud."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
-"formaadis: 'a','b','c'...<br />Kui pead nende väärtuste vahele lisama "
+"formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
 "kurakaldkriipsu (\"\\\") või jutumärgi (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
@@ -10029,12 +10029,12 @@ msgstr "Transformatsiooni valikud"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Palun sisesta transformatsiooni valikute jaoks vajalikud väärtused, "
-"kasutades formaati: 'a', 100, b,'c'...<br />Kui pead nende väärtuste vahele "
+"kasutades formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele "
 "lisama kurakaldkriipsu (\"\\\") või jutumärgi (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
@@ -11022,8 +11022,8 @@ msgid "Show only alert values"
 msgstr "Näita ainult 'alert' väärtusi"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtreeri kategooria alusel..."
+msgid "Filter by category…"
+msgstr "Filtreeri kategooria alusel…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11161,10 +11161,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Võtme järjekorras eelmise rea lugemise taotluste hulk. Seda lugemise "
-"meetodit kasutatakse peamiselt ORDER BY ... DESC optimeerimiseks."
+"meetodit kasutatakse peamiselt ORDER BY … DESC optimeerimiseks."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14584,8 +14584,8 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgid "Background color"
 #~ msgstr "Taustavärv"
 
-#~ msgid "Choose..."
-#~ msgstr "Vali..."
+#~ msgid "Choose…"
+#~ msgstr "Vali…"
 
 #~ msgid "Delete the matches for the "
 #~ msgstr "Kustuta vasted tulemuselt"

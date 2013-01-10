@@ -4179,10 +4179,10 @@ msgstr "Arquivo de configuração"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Exibir aviso (&quot;Você tem certeza...&quot;) quando estiver prestes a "
+"Exibir aviso (&quot;Você tem certeza…&quot;) quando estiver prestes a "
 "perder dados"
 
 #: libraries/config/messages.inc.php:45
@@ -6353,8 +6353,8 @@ msgstr ""
 "Por favor verifique os privilégios do diretório que contém o banco de dados."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detalhes..."
+msgid "Details…"
+msgstr "Detalhes…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6615,8 +6615,8 @@ msgid "%s of %s"
 msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Fazendo upload do arquivo importado..."
+msgid "Uploading your import file…"
+msgstr "Fazendo upload do arquivo importado…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8394,13 +8394,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Mostrar apenas parte da string. Primeira opção é um offset para definir onde "
 "a saída do seu texto deve iniciar (Padrão: 0). Segunda opção é o quanto do "
 "texto deverá ser retornado. Se estiver em branco, retorna todo o restante do "
 "texto. Terceira opção define quais caracteres serão acrescentados na "
-"substring retornada (Padrão: ...)."
+"substring retornada (Padrão: …)."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9518,32 +9518,32 @@ msgid "Revoke"
 msgstr "Revogar"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... manter o antigo."
+msgid "… keep the old one."
+msgstr "… manter o antigo."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... apagar o antigo da tabela de usuários."
+msgid "… delete the old one from the user tables."
+msgstr "… apagar o antigo da tabela de usuários."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... revogar todos privilégios do usuário antigo e depois apagar ele."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… revogar todos privilégios do usuário antigo e depois apagar ele."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... apagar o antigo da tabela de usuários e depois recarregar os privilégios."
+"… apagar o antigo da tabela de usuários e depois recarregar os privilégios."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Mudar informações de login / Copiar usuário"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Criar um novo usuário com os mesmos privilégios e ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Criar um novo usuário com os mesmos privilégios e …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -9948,12 +9948,12 @@ msgstr "As colunas foram movidas com sucesso."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores "
-"usando este formato: 'a','b','c'...<br />Se você mesmo precisar colocar uma "
+"usando este formato: 'a','b','c'…<br />Se você mesmo precisar colocar uma "
 "barra contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, "
 "coloque uma barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
@@ -9985,12 +9985,12 @@ msgstr "Opções de transformação"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'...<br />Se por acaso precisar inserir uma contra-barra (\"\\\") "
+"100, b,'c'…<br />Se por acaso precisar inserir uma contra-barra (\"\\\") "
 "ou aspas (\"'\") no meio desses valores, faça-o usando outra contra-barra "
 "(por exemplo '\\\\xyz' ou 'a\\'b')."
 
@@ -11000,8 +11000,8 @@ msgid "Show only alert values"
 msgstr "Exibir somente valores de alerta"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtrar por categoria..."
+msgid "Filter by category…"
+msgstr "Filtrar por categoria…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11141,10 +11141,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "O número de requisições para ler a linha precedente na ordem da chave. Este "
-"método de leitura é usado principalmente para otimizar ORDER BY ... DESC."
+"método de leitura é usado principalmente para otimizar ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -12215,7 +12215,7 @@ msgstr "Nome do arquivo"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "O nome da chave primária deve ser... \"PRIMARY\"!"
+msgstr "O nome da chave primária deve ser… \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"

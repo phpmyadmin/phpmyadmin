@@ -99,7 +99,7 @@ $header_cells[] = __('Length/Values')
     . PMA_Util::showHint(
         __(
             'If column type is "enum" or "set", please enter the values using'
-            . ' this format: \'a\',\'b\',\'c\'...<br />If you ever need to put'
+            . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
             . ' a backslash ("\") or a single quote ("\'") amongst those values,'
             . ' precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'
         )
@@ -171,7 +171,7 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
         . PMA_Util::showHint(
             __(
                 'Please enter the values for transformation options using this'
-                . ' format: \'a\', 100, b,\'c\'...<br />If you ever need to put'
+                . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
                 . ' a backslash ("\") or a single quote ("\'") amongst those'
                 . ' values, precede it with a backslash (for example \'\\\\xyz\''
                 . ' or \'a\\\'b\').'

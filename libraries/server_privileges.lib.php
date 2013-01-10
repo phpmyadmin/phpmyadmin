@@ -1931,10 +1931,10 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 {
     $choices = array(
-        '4' => __('... keep the old one.'),
-        '1' => __('... delete the old one from the user tables.'),
-        '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
-        '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
+        '4' => __('… keep the old one.'),
+        '1' => __('… delete the old one from the user tables.'),
+        '2' => __('… revoke all active privileges from the old one and delete it afterwards.'),
+        '3' => __('… delete the old one from the user tables and reload the privileges afterwards.'));
 
     $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
@@ -1951,7 +1951,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 
     $html_output .= '<fieldset>' . "\n"
         . ' <legend>'
-        . __('Create a new user with the same privileges and ...')
+        . __('Create a new user with the same privileges and …')
         . '</legend>' . "\n";
     $html_output .= PMA_Util::getRadioFields(
         'mode', $choices, '4', true
@@ -2681,7 +2681,7 @@ function PMA_deleteUser($queries)
         $message = PMA_Message::error(__('No users selected for deleting!'));
     } else {
         if ($_REQUEST['mode'] == 3) {
-            $queries[] = '# ' . __('Reloading the privileges') . ' ...';
+            $queries[] = '# ' . __('Reloading the privileges') . ' …';
             $queries[] = 'FLUSH PRIVILEGES;';
         }
         $drop_user_error = '';

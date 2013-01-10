@@ -4435,7 +4435,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -6534,7 +6534,7 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
+msgid "Details…"
 msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
@@ -6838,7 +6838,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Формат датотека за увоз"
 
 #: libraries/display_import.lib.php:94
@@ -8665,12 +8665,12 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Показује део стринга. Прва опција је број знакова које треба прескочити од "
 "почетка стринга (подразумевано 0). Друга опција је број враћених знакова "
 "(подразумевано: до краја стринга). Трећа опција је стринг који се додаје "
-"када дође до одсецања (подразумевано: ...) ."
+"када дође до одсецања (подразумевано: …) ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9869,32 +9869,32 @@ msgid "Revoke"
 msgstr "Забрани"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... сачувај старе."
+msgid "… keep the old one."
+msgstr "… сачувај старе."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... обриши старе из табела корисника."
+msgid "… delete the old one from the user tables."
+msgstr "… обриши старе из табела корисника."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... обустави све привилегије старог корисника и затим га обриши."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… обустави све привилегије старог корисника и затим га обриши."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... обриши старог из табеле корисника и затим поново учитај привилегије."
+"… обриши старог из табеле корисника и затим поново учитај привилегије."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Промени информације о пријави / Копирај корисника"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Направи новог корисника са истим привилегијама и ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Направи новог корисника са истим привилегијама и …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10323,16 +10323,16 @@ msgstr "Изабрани корисници су успешно обрисани
 #, fuzzy
 #| msgid ""
 #| "ld type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: ,'b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: ,'b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single te (\"'\") amongst those values, precede it with a kslash (for "
 #| "example xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Ако је поље \"enum\" или \"set\", унесите вредности у формату: 'a','b','c'..."
+"Ако је поље \"enum\" или \"set\", унесите вредности у формату: 'a','b','c'…"
 "<br />Ако вам треба обрнута коса црта (\"\\\") или апостроф (\"'\") "
 "користите их у \"избегнутом\" (escaped) облику (на пример '\\\\xyz' или 'a"
 "\\'b')."
@@ -10367,12 +10367,12 @@ msgstr "Опције трансформације"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Молимо унесите вредности за опције трансформације користећи овај облик: 'a', "
-"100, b,'c'...<br />Ако треба да унесете обрнуту косу црту (\"\\\") или "
+"100, b,'c'…<br />Ако треба да унесете обрнуту косу црту (\"\\\") или "
 "апостроф (\"'\") у те вредности, ставите обрнуту косу црту испред њих (на "
 "пример '\\\\xyz' или 'a\\'b')."
 
@@ -11392,7 +11392,7 @@ msgid "Show only alert values"
 msgstr "Прикажи отворене табеле"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11535,10 +11535,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Број захтева за читањем претходног реда у поретку кључева. Ова метода читања "
-"се углавном користи за оптимизацију ORDER BY ... DESC."
+"се углавном користи за оптимизацију ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -12575,7 +12575,7 @@ msgstr "Назив табеле"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Име примарног кључа мора да буде... PRIMARY!"
+msgstr "Име примарног кључа мора да буде… PRIMARY!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"

@@ -4256,10 +4256,10 @@ msgstr "Konfigurationsdatei"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Warnung (&quot;Sind Sie wirklich sicher...&quot;) anzeigen, wenn Dateien "
+"Warnung (&quot;Sind Sie wirklich sicher…&quot;) anzeigen, wenn Dateien "
 "verloren gehen könnten"
 
 #: libraries/config/messages.inc.php:45
@@ -6393,8 +6393,8 @@ msgstr ""
 "befindet."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Details..."
+msgid "Details…"
+msgstr "Details…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6659,8 +6659,8 @@ msgid "%s of %s"
 msgstr "%s von %s"
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Import-Datei wird hochgeladen..."
+msgid "Uploading your import file…"
+msgstr "Import-Datei wird hochgeladen…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8458,7 +8458,7 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Stellt nur einen Teil des Feldinhaltes dar. Die erste Option definiert die "
 "Position des Textes ab dem die Ausgabe startet (Standard: 0), die zweite "
@@ -8466,7 +8466,7 @@ msgstr ""
 "diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die "
 "dritte Option kann einen Text enthalten, der bei partieller Ausgabe des "
 "Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: "
-"\"...\")."
+"\"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9604,31 +9604,31 @@ msgid "Revoke"
 msgstr "Entfernen"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... behalte den alten bei."
+msgid "… keep the old one."
+msgstr "… behalte den alten bei."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... lösche den alten von den Benutzertabellen."
+msgid "… delete the old one from the user tables."
+msgstr "… lösche den alten von den Benutzertabellen."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... entziehe dem alten alle Rechte und lösche ihn anschließend."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… entziehe dem alten alle Rechte und lösche ihn anschließend."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr "... lösche den alten und lade anschließend die Benutzertabellen neu."
+msgstr "… lösche den alten und lade anschließend die Benutzertabellen neu."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Anmelde-Information ändern/Benutzer kopieren"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Erstelle einen neuen Benutzer mit identischen Rechten und ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Erstelle einen neuen Benutzer mit identischen Rechten und …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10039,12 +10039,12 @@ msgstr "Die Spalten wurden erfolgreich verschoben."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Wenn das Feld vom Typ \"ENUM\" oder \"SET\" ist, benutzen Sie bitte das "
-"Format: 'a','b','c'...<br />Wann immer Sie ein Backslash (\"\\\") oder ein "
+"Format: 'a','b','c'…<br />Wann immer Sie ein Backslash (\"\\\") oder ein "
 "einfaches Anführungszeichen (\"'\") verwenden, setzen Sie bitte ein "
 "Backslash vor das Zeichen. (z.B.: '\\\\xyz' oder 'a\\'b')."
 
@@ -10076,12 +10076,12 @@ msgstr "Umwandlungsoptionen"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Bitte die Werte für die Umwandlungsoptionen in folgendem Format angeben: "
-"'a', 100, b,'c'...<br />Wann immer Sie ein Backslash (\"\\\") oder ein "
+"'a', 100, b,'c'…<br />Wann immer Sie ein Backslash (\"\\\") oder ein "
 "einfaches Anführungszeichen (\"'\") verwenden, setzen Sie bitte ein "
 "Backslash vor das Zeichen. (z.B.: '\\\\xyz' oder 'a\\'b')."
 
@@ -11096,8 +11096,8 @@ msgid "Show only alert values"
 msgstr "Zeige nur Warn-Werte"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Nach Kategorie filtern..."
+msgid "Filter by category…"
+msgstr "Nach Kategorie filtern…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11244,11 +11244,11 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Anzahl der Anfragen, die vorhergehende Zeile in der Reihenfolge des "
 "Schlüssels zu lesen. Diese Lese-Methode ist hauptsächlich zur Optimierung "
-"von ORDER BY ... DESC."
+"von ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14782,5 +14782,5 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgid "Background color"
 #~ msgstr "Hintergrundfarbe"
 
-#~ msgid "Choose..."
-#~ msgstr "Auswahl..."
+#~ msgid "Choose…"
+#~ msgstr "Auswahl…"

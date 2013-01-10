@@ -1661,9 +1661,9 @@ msgstr "Dokumentacija"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "Detalji..."
+msgstr "Detalji…"
 
 #: js/messages.php:212
 #, fuzzy
@@ -4452,7 +4452,7 @@ msgstr "Konfiguracijska datoteka"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -6556,8 +6556,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Detalji..."
+msgid "Details…"
+msgstr "Detalji…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6859,7 +6859,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Oblikovanje uvezene datoteke"
 
 #: libraries/display_import.lib.php:94
@@ -8735,12 +8735,12 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Prikazuje dio niza. Prva opcija je broj znakova koje je potrebno preskočiti, "
 "od početka niza (zadano: 0). Druga opcija je broj znakova za povrat (zadano: "
 "do završetka niza). Treća opcija  je niz koji je potrebno pridodati iza "
-"završetka i/ili prije početka kad započne srezivanje (zadano: \"...\")."
+"završetka i/ili prije početka kad započne srezivanje (zadano: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9026,9 +9026,9 @@ msgstr "Procesi"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "Detalji..."
+msgstr "Detalji…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -9951,32 +9951,32 @@ msgid "Revoke"
 msgstr "Opozovi"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... zadržati staru."
+msgid "… keep the old one."
+msgstr "… zadržati staru."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... izbriši starog iz korisničkih tablica."
+msgid "… delete the old one from the user tables."
+msgstr "… izbriši starog iz korisničkih tablica."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... opozovi sve aktivne privilegije iz stare i potom je izbriši."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… opozovi sve aktivne privilegije iz stare i potom je izbriši."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... izbriši starog iz korisničkih tablica i potom ponovo učitaj privilegije."
+"… izbriši starog iz korisničkih tablica i potom ponovo učitaj privilegije."
 
 #: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Promjena podataka prijave / Kopiranje korisnika"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Izradi novog korisnika s istim privilegijama i..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Izradi novog korisnika s istim privilegijama i…"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10403,17 +10403,17 @@ msgstr "Odabrani korisnici uspješno su izbrisani."
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ako je vrata polja \"enum\" ili \"set\", unesite vrijednosti u sljedećem "
-"obliku: 'a','B','c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\"
+"obliku: 'a','B','c'…<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\"
 "\") or a single quote (\"'\") amongst those values, precede it with a "
 "backslash (for example '\\\\xyz' or 'a\\'b')."
 
@@ -10447,12 +10447,12 @@ msgstr "Opcije preoblikovanja"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-"100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
+"100, b,'c'…<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
 "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka stavite "
 "lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
@@ -11474,7 +11474,7 @@ msgid "Show only alert values"
 msgstr "Prikaži otvorene tablice"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr "Filtriraj po kategoriji"
 
 #: server_status_variables.php:114
@@ -11618,10 +11618,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Broj zahtjeva za čitanje prethodnog retka u redoslijedu ključa. Ovaj način "
-"čitanja uglavnom se upotrebljava za optimiziranje opcije ORDER BY ... DESC."
+"čitanja uglavnom se upotrebljava za optimiziranje opcije ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14629,7 +14629,7 @@ msgstr "najv. uzastopnih veza"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-#~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
+#~ "100, b,'c'…<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
 #~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
 #~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 
@@ -14639,7 +14639,7 @@ msgstr "najv. uzastopnih veza"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Unesite vrijednosti za opcije preoblikovanja upotrebom ovog oblika: 'a', "
-#~ "100, b,'c'...<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
+#~ "100, b,'c'…<br />Ako je potrebno unijeti lijevu kosu crtu (\"\\\") ili "
 #~ "jednostruki navodnik (\"'\") unutar ovih vrijednosti, ispred znaka "
 #~ "stavite lijevu kosu crtu (na primjer: '\\\\xyz' ili 'a\\'B')."
 

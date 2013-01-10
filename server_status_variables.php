@@ -91,7 +91,7 @@ function getFilterHtml($ServerStatusData)
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
     $retval .= '<select id="filterCategory" name="filterCategory">';
-    $retval .= '<option value="">' . __('Filter by category...') . '</option>';
+    $retval .= '<option value="">' . __('Filter by category…') . '</option>';
 
     foreach ($ServerStatusData->sections as $section_id => $section_name) {
         if (isset($ServerStatusData->categoryUsed[$section_id])) {
@@ -405,7 +405,7 @@ function getStatusVariablesDescriptions()
         ),
         'Handler_read_prev' => __(
             'The number of requests to read the previous row in key order.'
-            . ' This read method is mainly used to optimize ORDER BY ... DESC.'
+            . ' This read method is mainly used to optimize ORDER BY … DESC.'
         ),
         'Handler_read_rnd' => __(
             'The number of requests to read a row based on a fixed position.'

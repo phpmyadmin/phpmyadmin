@@ -4197,10 +4197,10 @@ msgstr "設定ファイル"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"データを失う作業をしようとしたとき、「本当に実行しますか?...」という警告を出"
+"データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出"
 "すかどうか。"
 
 #: libraries/config/messages.inc.php:45
@@ -6375,8 +6375,8 @@ msgstr ""
 "データベースを含んでいるディレクトリのパーミッションを確認してください。"
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "詳細..."
+msgid "Details…"
+msgstr "詳細…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6638,8 +6638,8 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "インポートファイルをアップロードしています..."
+msgid "Uploading your import file…"
+msgstr "インポートファイルをアップロードしています…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8435,12 +8435,12 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "文字列の一部のみを表示します。1 つ目のオプションは文字列の先頭から何文字ス"
 "キップするか (デフォルトは 0 です)、2 つ目のオプションは表示するテキストの文"
 "字数です (デフォルトは文字列の末尾までです)。3 つ目のオプションは文字列を切り"
-"詰めるときに前／後に補う省略記号です (デフォルトは ... です)。"
+"詰めるときに前／後に補う省略記号です (デフォルトは … です)。"
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9547,21 +9547,21 @@ msgid "Revoke"
 msgstr "取り消し"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
+msgid "… keep the old one."
 msgstr "元のユーザも残す"
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
+msgid "… delete the old one from the user tables."
 msgstr "ユーザテーブルから元のユーザを削除する"
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr "元のユーザの特権をすべて無効にしてから削除する"
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする"
 
@@ -9570,7 +9570,7 @@ msgid "Change Login Information / Copy User"
 msgstr "ログイン情報の変更 / ユーザの複製"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
+msgid "Create a new user with the same privileges and …"
 msgstr "同じ特権を持つ新しいユーザを作る"
 
 #: libraries/server_privileges.lib.php:2231
@@ -9975,11 +9975,11 @@ msgstr "カラムは正常に移動されました。"
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'...<br />"
+"カラムのデータ型が「enum」ないし「set」の場合の値の書式: 'a','b','c'…<br />"
 "バックスラッシュ (\"\\\") やシングルクォート (\"'\") を含める必要がある場合"
 "は (\\\\xyz や a\\'b のように) その前にバックスラッシュを付けてください。"
 
@@ -10011,11 +10011,11 @@ msgstr "変換オプション"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") やシ"
+"変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") やシ"
 "ングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b のよう"
 "に) バックスラッシュでエスケープしてください。"
 
@@ -11019,8 +11019,8 @@ msgid "Show only alert values"
 msgstr "警告値のみ表示する"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "種別による絞り込み..."
+msgid "Filter by category…"
+msgstr "種別による絞り込み…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11151,10 +11151,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER "
-"BY ... DESC の最適化に利用されます。"
+"BY … DESC の最適化に利用されます。"
 
 #: server_status_variables.php:411
 msgid ""
@@ -14624,7 +14624,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") や"
+#~ "変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") や"
 #~ "シングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b "
 #~ "のように) バックスラッシュでエスケープしてください"
 
@@ -14633,7 +14633,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "変換オプションの値の書式: 'a','b','c'...<br />バックスラッシュ (\"\\\") や"
+#~ "変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") や"
 #~ "シングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b "
 #~ "のように) バックスラッシュでエスケープしてください"
 
@@ -14887,7 +14887,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "Native MS Excel format"
 #~ msgstr "MS Excel のネイティブ形式"
 
-#~ msgctxt "Create SELECT ... query"
+#~ msgctxt "Create SELECT … query"
 #~ msgid "Select"
 #~ msgstr "全選択"
 

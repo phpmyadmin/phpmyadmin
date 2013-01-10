@@ -1665,14 +1665,14 @@ msgstr "Дакумэнтацыя"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "Падрабязьней..."
+msgstr "Падрабязьней…"
 
 #: js/messages.php:212
 #, fuzzy
 msgid "Justification"
-msgstr "Аўтэнтыфікацыя..."
+msgstr "Аўтэнтыфікацыя…"
 
 #: js/messages.php:213
 msgid "Used variable / formula"
@@ -4458,7 +4458,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -5007,12 +5007,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:197
 #, fuzzy
 msgid "Authentication"
-msgstr "Аўтэнтыфікацыя..."
+msgstr "Аўтэнтыфікацыя…"
 
 #: libraries/config/messages.inc.php:198
 #, fuzzy
 msgid "Authentication settings"
-msgstr "Аўтэнтыфікацыя..."
+msgstr "Аўтэнтыфікацыя…"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
@@ -5742,12 +5742,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:372
 #, fuzzy
 msgid "Authentication method to use"
-msgstr "Аўтэнтыфікацыя..."
+msgstr "Аўтэнтыфікацыя…"
 
 #: libraries/config/messages.inc.php:373 setup/frames/index.inc.php:136
 #, fuzzy
 msgid "Authentication type"
-msgstr "Аўтэнтыфікацыя..."
+msgstr "Аўтэнтыфікацыя…"
 
 #: libraries/config/messages.inc.php:374
 msgid ""
@@ -6566,8 +6566,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Падрабязьней..."
+msgid "Details…"
+msgstr "Падрабязьней…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6871,7 +6871,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Фармат імпартаванага файла"
 
 #: libraries/display_import.lib.php:94
@@ -8740,13 +8740,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Паказвае толькі частку радка. Першая опцыя — колькасьць сымбаляў ад пачатку "
 "радка, якія трэба прапусьціць (Па змоўчаньні 0). Другая опцыя — колькасьць "
 "сымбаляў, якія трэба вярнуць (Па змоўчаньні: да канца радка). Трэцяя опцыя — "
 "радок, які трэба далучыць да канца і/або з пачатку радка, калі адбудзецца "
-"ўсячэньне (Па змоўчаньні: \"...\") ."
+"ўсячэньне (Па змоўчаньні: \"…\") ."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9031,9 +9031,9 @@ msgstr "Працэсы"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "Падрабязьней..."
+msgstr "Падрабязьней…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -9959,24 +9959,24 @@ msgid "Revoke"
 msgstr "Ануляваць"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... пакінуць старога."
+msgid "… keep the old one."
+msgstr "… пакінуць старога."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... выдаліць старога з табліцы карыстальнікаў."
+msgid "… delete the old one from the user tables."
+msgstr "… выдаліць старога з табліцы карыстальнікаў."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
-msgstr "... ануляваць усе актыўныя прывілеі старога і пасьля выдаліць яго."
+"… revoke all active privileges from the old one and delete it afterwards."
+msgstr "… ануляваць усе актыўныя прывілеі старога і пасьля выдаліць яго."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць "
+"… выдаліць старога з табліцы карыстальнікаў і пасьля перазагрузіць "
 "прывілеі."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9984,8 +9984,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Зьмяніць рэгістрацыйную інфармацыю / Капіяваць карыстальніка"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Стварыць новага карыстальніка з такімі ж прывілеямі і ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Стварыць новага карыстальніка з такімі ж прывілеямі і …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10419,17 +10419,17 @@ msgstr "Выбраныя карыстальнікі былі пасьпяхов�
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Калі тып поля \"enum\" або \"set\", калі ласка, уводзьце значэньні "
-"выкарыстоўваючы гэты фармат: 'a','b','c'...<br />Калі вам патрэбна ўжыць "
+"выкарыстоўваючы гэты фармат: 'a','b','c'…<br />Калі вам патрэбна ўжыць "
 "зваротны слэш (\"\\\") або апостраф (\"'\") сярод гэтых значэньняў, пастаўце "
 "перад імі зваротны слэш (напрыклад, '\\\\xyz' або 'a\\'b')."
 
@@ -10463,12 +10463,12 @@ msgstr "Опцыі пераўтварэньня"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Калі ласка, уводзьце значэньні опцыяў пераўтварэньня выкарыстоўваючы гэты "
-"фармат: 'a', 100, b,'c'...<br />Калі вам трэба ўжыць зваротны слэш (\"\\\") "
+"фармат: 'a', 100, b,'c'…<br />Калі вам трэба ўжыць зваротны слэш (\"\\\") "
 "або апостраф (\"'\") у гэтых значэньнях, устаўце зваротны слэш перад імі "
 "(напрыклад, '\\\\xyz' або 'a\\'b')."
 
@@ -11487,7 +11487,7 @@ msgid "Show only alert values"
 msgstr "Паказаць адкрытыя табліцы"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11633,10 +11633,10 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Колькасьць запытаў чытаньня папярэдні радок у ключавым парадку. Гэты мэтад "
-"чытаньня выкарыстоўваецца пераважна для аптымізацыі ORDER BY ... DESC."
+"чытаньня выкарыстоўваецца пераважна для аптымізацыі ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -14581,7 +14581,7 @@ msgstr "максымум адначасовых злучэньняў"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Калі ласка, уводзьце значэньні опцыяў пераўтварэньня выкарыстоўваючы гэты "
-#~ "фармат: 'a', 100, b,'c'...<br />Калі вам трэба ўжыць зваротны слэш (\"\\"
+#~ "фармат: 'a', 100, b,'c'…<br />Калі вам трэба ўжыць зваротны слэш (\"\\"
 #~ "\") або апостраф (\"'\") у гэтых значэньнях, устаўце зваротны слэш перад "
 #~ "імі (напрыклад, '\\\\xyz' або 'a\\'b')."
 
@@ -14591,7 +14591,7 @@ msgstr "максымум адначасовых злучэньняў"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Калі ласка, уводзьце значэньні опцыяў пераўтварэньня выкарыстоўваючы гэты "
-#~ "фармат: 'a', 100, b,'c'...<br />Калі вам трэба ўжыць зваротны слэш (\"\\"
+#~ "фармат: 'a', 100, b,'c'…<br />Калі вам трэба ўжыць зваротны слэш (\"\\"
 #~ "\") або апостраф (\"'\") у гэтых значэньнях, устаўце зваротны слэш перад "
 #~ "імі (напрыклад, '\\\\xyz' або 'a\\'b')."
 
@@ -14884,7 +14884,7 @@ msgstr "максымум адначасовых злучэньняў"
 #~ msgid "Native MS Excel format"
 #~ msgstr "Родны фармат MS Excel"
 
-#~ msgctxt "Create SELECT ... query"
+#~ msgctxt "Create SELECT … query"
 #~ msgid "Select"
 #~ msgstr "Выбраць усё"
 

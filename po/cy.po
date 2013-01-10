@@ -1634,15 +1634,15 @@ msgstr "Dogfennaeth"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "Manylion..."
+msgstr "Manylion…"
 
 #: js/messages.php:212
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Justification"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: js/messages.php:213
 msgid "Used variable / formula"
@@ -4351,7 +4351,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -4885,13 +4885,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Authentication"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/messages.inc.php:198
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Authentication settings"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
@@ -6278,25 +6278,25 @@ msgstr "ZIP"
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Config authentication"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/setup.forms.php:45
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Cookie authentication"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/setup.forms.php:48
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "HTTP authentication"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Signon authentication"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/config/setup.forms.php:247
 #: libraries/config/user_preferences.forms.php:151
@@ -6408,8 +6408,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Manylion..."
+msgid "Details…"
+msgstr "Manylion…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6698,7 +6698,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Fformat y ffeil a mewnforiwyd"
 
 #: libraries/display_import.lib.php:94
@@ -7859,7 +7859,7 @@ msgstr "Enw defnyddiwr/cyfrinair anghywir. Mynediad wedi'i wrthod."
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Can not find signon authentication script:"
-msgstr "Yn dilysu..."
+msgstr "Yn dilysu…"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:134
 #, php-format
@@ -8423,7 +8423,7 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -8688,9 +8688,9 @@ msgstr "Prosesau"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "Manylion..."
+msgstr "Manylion…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -9584,21 +9584,21 @@ msgid "Revoke"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
+msgid "… keep the old one."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
+msgid "… delete the old one from the user tables."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
@@ -9607,7 +9607,7 @@ msgid "Change Login Information / Copy User"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
+msgid "Create a new user with the same privileges and …"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2231
@@ -10004,7 +10004,7 @@ msgstr "Cafodd cronfa ddata %s ei gollwng."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
@@ -10035,7 +10035,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
@@ -11032,7 +11032,7 @@ msgid "Show only alert values"
 msgstr "Dangoswch gronfeydd data a restrir yn unig"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11151,7 +11151,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411

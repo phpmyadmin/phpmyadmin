@@ -1618,9 +1618,9 @@ msgstr "დოკუმენტაცია"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "დეტალები..."
+msgstr "დეტალები…"
 
 #: js/messages.php:212
 #, fuzzy
@@ -4412,7 +4412,7 @@ msgstr "კონფიგურაციის ფაილი"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 
@@ -6601,8 +6601,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "დეტალები..."
+msgid "Details…"
+msgstr "დეტალები…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6904,7 +6904,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "შემოტანილი ფაილების ფორმატი"
 
 #: libraries/display_import.lib.php:94
@@ -8703,7 +8703,7 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
@@ -8992,9 +8992,9 @@ msgstr "პროცესები"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "დეტალები..."
+msgstr "დეტალები…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -9912,24 +9912,24 @@ msgid "Revoke"
 msgstr "Revoke"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... ძველის შენახვა."
+msgid "… keep the old one."
+msgstr "… ძველის შენახვა."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... ძველი მომხმარებლის მომხმარებლების ცხრილიდან წაშლა."
+msgid "… delete the old one from the user tables."
+msgstr "… ძველი მომხმარებლის მომხმარებლების ცხრილიდან წაშლა."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... ძველი მომხმარებლის მომხმარებლების სიიდან წაშლა და შემდეგ პრივილეგიების "
+"… ძველი მომხმარებლის მომხმარებლების სიიდან წაშლა და შემდეგ პრივილეგიების "
 "გადატვირთვა."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9937,8 +9937,8 @@ msgid "Change Login Information / Copy User"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "იგივე პრივილეგიების მქონე ახალი მომხმარებლის შექმნა და ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "იგივე პრივილეგიების მქონე ახალი მომხმარებლის შექმნა და …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10346,17 +10346,17 @@ msgstr "%s databases have been dropped successfully."
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "If field type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 
@@ -10386,7 +10386,7 @@ msgstr "გარდაქმნის პარამეტრები"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
@@ -11412,7 +11412,7 @@ msgid "Show only alert values"
 msgstr "Show open tables"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -11531,7 +11531,7 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
 #: server_status_variables.php:411
@@ -14510,7 +14510,7 @@ msgstr "max. concurrent connections"
 #~ "\\'b')."
 #~ msgstr ""
 #~ "Please enter the values for transformation options using this format: "
-#~ "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#~ "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
 #~ "single quote (\"'\") amongst those values, precede it with a backslash "
 #~ "(for example '\\\\xyz' or 'a\\'b')."
 
@@ -14520,7 +14520,7 @@ msgstr "max. concurrent connections"
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "Please enter the values for transformation options using this format: "
-#~ "'a', 100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a "
+#~ "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
 #~ "single quote (\"'\") amongst those values, precede it with a backslash "
 #~ "(for example '\\\\xyz' or 'a\\'b')."
 
@@ -14833,7 +14833,7 @@ msgstr "max. concurrent connections"
 #~ msgid "Native MS Excel format"
 #~ msgstr "Native MS Excel format"
 
-#~ msgctxt "Create SELECT ... query"
+#~ msgctxt "Create SELECT … query"
 #~ msgid "Select"
 #~ msgstr "ყველას მონიშნვა"
 

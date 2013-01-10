@@ -1698,9 +1698,9 @@ msgstr "Dokumentatsiya"
 
 #: js/messages.php:211
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Rule details"
-msgstr "Tafsilotlar..."
+msgstr "Tafsilotlar…"
 
 #: js/messages.php:212
 #, fuzzy
@@ -4556,11 +4556,11 @@ msgstr "Konfiguratsion fayl"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
 "Ma`lumot yo‘qolishi mumkin bo‘lgan vaziyatlarda ogohlantirish (\"Siz "
-"haqiqatdan ham ...\") ko‘rsatish kerakmi?"
+"haqiqatdan ham …\") ko‘rsatish kerakmi?"
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
@@ -6877,8 +6877,8 @@ msgid "Please check privileges of directory containing database."
 msgstr ""
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Tafsilotlar..."
+msgid "Details…"
+msgstr "Tafsilotlar…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -7191,7 +7191,7 @@ msgstr ""
 #: libraries/display_import.lib.php:86
 #, fuzzy
 #| msgid "Format of imported file"
-msgid "Uploading your import file..."
+msgid "Uploading your import file…"
 msgstr "Import qilinayotgan fayl formati"
 
 #: libraries/display_import.lib.php:94
@@ -9094,13 +9094,13 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Satrning faqat bir qismini ko‘rsatadi. Birinchi parametr - ko‘rsatiladigan "
 "matn boshigacha siljish qiymati (asl qiymati: 0). Ikkinchi parametr - "
 "qaytariladigan belgilar soni (asl qiymati: satr oxirigacha). Uchinchi "
 "parametr - mavjud parcha boshi va/yoki oxiriga qo‘shiladigan matn (asl "
-"qiymati: \"...\")."
+"qiymati: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 #, fuzzy
@@ -9401,9 +9401,9 @@ msgstr "Jarayonlar"
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:900
 #: libraries/rte/rte_triggers.lib.php:347
 #, fuzzy
-#| msgid "Details..."
+#| msgid "Details…"
 msgid "Details"
-msgstr "Tafsilotlar..."
+msgstr "Tafsilotlar…"
 
 #: libraries/rte/rte_events.lib.php:420
 #, fuzzy
@@ -10350,21 +10350,21 @@ msgid "Revoke"
 msgstr "Bekor qilish"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
+msgid "… keep the old one."
 msgstr "va eskisini saqlash."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
+msgid "… delete the old one from the user tables."
 msgstr "va foydalanuvchilar jadvalidan eskisini o‘chirish."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ", eskisining barcha faol privilegiyalarini bekor qilib o‘chirish."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 ", foydalanuvchilar jadvalidan eskisini o‘chirib privilegiyalarni qayta "
@@ -10375,8 +10375,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Foydalanuvchining loginini o‘zgartirish / Foydalanuvchidan nusxa olish"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Xuddi shunday privilegiyali yangi foydalanuvchi kiritish..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Xuddi shunday privilegiyali yangi foydalanuvchi kiritish…"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10812,17 +10812,17 @@ msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 #, fuzzy
 #| msgid ""
 #| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") a "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
 #| "single quote (\"'\") amongst those values, precede it with a kslash (for "
 #| "example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "\"enum\" va \"set\" turidagi maydonlar tuzganda, ma`lumotlar quyidagi "
-"formatda bo‘lishi kerak: \"a\",\"b\",\"c\"...<br />Teskari egri chiziq (\\) "
+"formatda bo‘lishi kerak: \"a\",\"b\",\"c\"…<br />Teskari egri chiziq (\\) "
 "va bittalik qo‘shtirnoq (\") belgilari oldidan teskari egri chiziq bo‘lishi "
 "kerak, masalan: \"\\\\xyz\" yoki \"a\\\"b\"."
 
@@ -10856,12 +10856,12 @@ msgstr "O‘girishlar parametrlari"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "O‘girishlar paramerlari qiymatlari quyidagi formatda bo‘lishi shart: \"a\", "
-"100, \"b\", \"c\"...<br />Teskari egri chiziq (\\) va bittalik qo‘shtirnoq "
+"100, \"b\", \"c\"…<br />Teskari egri chiziq (\\) va bittalik qo‘shtirnoq "
 "(\") belgilari oldidan teskari egri chiziq bo‘lishi kerak, masalan: \"\\\\xyz"
 "\" yoki \"a\\\"b\"."
 
@@ -11938,7 +11938,7 @@ msgid "Show only alert values"
 msgstr "Ochiq jadvallar ro‘yxati"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
+msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
@@ -12081,11 +12081,11 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Indeksni kamayib borish tartibida sortirovka qilinganda oldingi yozuvni "
 "o‘qishga bo‘lgan so‘rovlar soni. Odatda optimallashtirish uchun "
-"qo‘llaniladi: ORDER BY ... DESC."
+"qo‘llaniladi: ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
@@ -15422,7 +15422,7 @@ msgstr "Maksimal ulanishlar soni "
 #~ "\\'b')."
 #~ msgstr ""
 #~ "O‘girishlar paramerlari qiymatlari quyidagi formatda bo‘lishi shart: \"a"
-#~ "\", 100, \"b\", \"c\"...<br />Teskari egri chiziq (\\) va bittalik "
+#~ "\", 100, \"b\", \"c\"…<br />Teskari egri chiziq (\\) va bittalik "
 #~ "qo‘shtirnoq (\") belgilari oldidan teskari egri chiziq bo‘lishi kerak, "
 #~ "masalan: \"\\\\xyz\" yoki \"a\\\"b\"."
 
@@ -15432,7 +15432,7 @@ msgstr "Maksimal ulanishlar soni "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
 #~ "O‘girishlar paramerlari qiymatlari quyidagi formatda bo‘lishi shart: \"a"
-#~ "\", 100, \"b\", \"c\"...<br />Teskari egri chiziq (\\) va bittalik "
+#~ "\", 100, \"b\", \"c\"…<br />Teskari egri chiziq (\\) va bittalik "
 #~ "qo‘shtirnoq (\") belgilari oldidan teskari egri chiziq bo‘lishi kerak, "
 #~ "masalan: \"\\\\xyz\" yoki \"a\\\"b\"."
 

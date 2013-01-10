@@ -4195,10 +4195,10 @@ msgstr "File di configurazione"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
-"Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
+"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
-"Se visualizzazare di un messaggio di conferma (&quot;Sei veramente sicuro..."
+"Se visualizzazare di un messaggio di conferma (&quot;Sei veramente sicuro…"
 "&quot;) in caso di lancio di comandi che eliminano dati"
 
 #: libraries/config/messages.inc.php:45
@@ -6413,8 +6413,8 @@ msgid "Please check privileges of directory containing database."
 msgstr "Controllate i privilegi della cartella che contiene il database."
 
 #: libraries/database_interface.lib.php:2037
-msgid "Details..."
-msgstr "Dettagli..."
+msgid "Details…"
+msgstr "Dettagli…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
@@ -6679,8 +6679,8 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:86
-msgid "Uploading your import file..."
-msgstr "Caricamento del file di importazione in corso..."
+msgid "Uploading your import file…"
+msgstr "Caricamento del file di importazione in corso…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8492,14 +8492,14 @@ msgid ""
 "skip from the beginning of the string (Default 0). The second option is the "
 "number of characters to return (Default: until end of string). The third "
 "option is the string to append and/or prepend when truncation occurs "
-"(Default: \"...\")."
+"(Default: \"…\")."
 msgstr ""
 "Mostra soltanto una parte della stringa. La prima opzione è l'offset che "
 "serve a definire dove inizia l'output del vostro testo (Prefinito: 0). La "
 "seconda opzione è un offset che indica quanto testo viene restituito "
 "(Predefinito: tutto il testo rimanente). La terza opzione definisce quali "
 "caratteri saranno aggiunti in fondo all'output quando una soptto-stringa "
-"viene restituita (Predefinito: \"...\")."
+"viene restituita (Predefinito: \"…\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9631,26 +9631,26 @@ msgid "Revoke"
 msgstr "Revoca"
 
 #: libraries/server_privileges.lib.php:1934
-msgid "... keep the old one."
-msgstr "... mantieni quello vecchio."
+msgid "… keep the old one."
+msgstr "… mantieni quello vecchio."
 
 #: libraries/server_privileges.lib.php:1935
-msgid "... delete the old one from the user tables."
-msgstr "... cancella quello vecchio dalla tabella degli utenti."
+msgid "… delete the old one from the user tables."
+msgstr "… cancella quello vecchio dalla tabella degli utenti."
 
 #: libraries/server_privileges.lib.php:1936
 msgid ""
-"... revoke all active privileges from the old one and delete it afterwards."
+"… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"... revoca tutti i privilegi attivi da quello vecchio e in seguito "
+"… revoca tutti i privilegi attivi da quello vecchio e in seguito "
 "cancellalo."
 
 #: libraries/server_privileges.lib.php:1937
 msgid ""
-"... delete the old one from the user tables and reload the privileges "
+"… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
-"... cancella quello vecchio dalla tabella degli utenti e in seguito ricarica "
+"… cancella quello vecchio dalla tabella degli utenti e in seguito ricarica "
 "i privilegi."
 
 #: libraries/server_privileges.lib.php:1948
@@ -9658,8 +9658,8 @@ msgid "Change Login Information / Copy User"
 msgstr "Cambia le Informazioni di Login / Copia Utente"
 
 #: libraries/server_privileges.lib.php:1954
-msgid "Create a new user with the same privileges and ..."
-msgstr "Crea un nuovo utente con gli stessi privilegi e ..."
+msgid "Create a new user with the same privileges and …"
+msgstr "Crea un nuovo utente con gli stessi privilegi e …"
 
 #: libraries/server_privileges.lib.php:2231
 msgid "Column-specific privileges"
@@ -10071,12 +10071,12 @@ msgstr "Gli utenti selezionati sono stati cancellati con successo."
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se il tipo di campo è \"enum\" o \"set\", immetti i valori usando il "
-"formato: 'a','b','c'...<br />Se hai bisogno di inserire una barra rovesciata "
+"formato: 'a','b','c'…<br />Se hai bisogno di inserire una barra rovesciata "
 "(\"\\\") o una virgolette singola quote (\"'\") prefissa a questi caratteri "
 "con un \"\\\" (per esempio '\\\\xyz' o 'a\\'b')."
 
@@ -10110,12 +10110,12 @@ msgstr "Opzioni di transformazione"
 #: libraries/tbl_columns_definition_form.inc.php:173
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'...<br />If you ever need to put a backslash (\"\\\") or a single "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Prego, immettere i valori per le opzioni di trasformazioneutilizzando questo "
-"formato: 'a', 100, b,'c'...<br />Se c'è la necessità di immettere un "
+"formato: 'a', 100, b,'c'…<br />Se c'è la necessità di immettere un "
 "backslash (\"\\\") o un apostrofo (\"'\") tra questi valori, essi vanno "
 "backslashati (ad esempio '\\\\xyz' or 'a\\'b')."
 
@@ -11127,8 +11127,8 @@ msgid "Show only alert values"
 msgstr "Mostra solo i valori di allarme"
 
 #: server_status_variables.php:94
-msgid "Filter by category..."
-msgstr "Filtra per categoria..."
+msgid "Filter by category…"
+msgstr "Filtra per categoria…"
 
 #: server_status_variables.php:114
 msgid "Show unformatted values"
@@ -11272,11 +11272,11 @@ msgstr ""
 #: server_status_variables.php:407
 msgid ""
 "The number of requests to read the previous row in key order. This read "
-"method is mainly used to optimize ORDER BY ... DESC."
+"method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 "Il numero di richieste per leggere la riga precedente nell'ordine delle "
 "chiavi. Questo metodo di lettura è principalmente utilizzato per ottimizzare "
-"ORDER BY ... DESC."
+"ORDER BY … DESC."
 
 #: server_status_variables.php:411
 msgid ""
