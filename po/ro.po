@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2013-01-07 23:44+0200\n"
-"Last-Translator: Pham Andrei <pham.andrei4@gmail.com>\n"
-"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
-">\n"
+"PO-Revision-Date: 2013-01-10 13:37+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Romanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12629,7 +12629,7 @@ msgstr "Denumire tabel"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Numele cheii primare trebuie să fie… PRIMARY!"
+msgstr "Numele cheii primare trebuie să fie \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
