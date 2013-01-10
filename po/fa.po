@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:02+0200\n"
+"PO-Revision-Date: 2013-01-10 13:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/3-5/fa/>\n"
 "Language: fa\n"
@@ -569,7 +569,7 @@ msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\
 
 #: db_search.php:282
 msgid "Find:"
-msgstr "یافتن : "
+msgstr "یافتن :"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
@@ -2478,7 +2478,7 @@ msgstr[1] ""
 
 #: libraries/PDF.class.php:81
 msgid "Error while creating PDF:"
-msgstr "PDF خطا در موقع درست کردن   "
+msgstr "PDF خطا در موقع درست کردن:"
 
 #: libraries/RecentTable.class.php:107
 msgid "Could not save recent table"
@@ -2490,7 +2490,7 @@ msgstr "جدول های اخیر"
 
 #: libraries/RecentTable.class.php:149
 msgid "There are no recent tables"
-msgstr "جدول های اخیری وجود ندارد."
+msgstr "جدول های اخیری وجود ندارد"
 
 #: libraries/StorageEngine.class.php:203
 msgid ""
@@ -2514,11 +2514,11 @@ msgstr ""
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr ":وضعیت جدول ناشناس"
+msgstr ":وضعیت جدول ناشناس "
 
 #: libraries/Table.class.php:1121
 msgid "Invalid database"
-msgstr "پایگاه داده  نامعتبر "
+msgstr "پایگاه داده  نامعتبر"
 
 #: libraries/Table.class.php:1135 tbl_get_field.php:25
 msgid "Invalid table name"
