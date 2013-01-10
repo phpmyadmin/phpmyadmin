@@ -1,175 +1,203 @@
-CodeMirror.defineMode("mysql", function(config, parserConfig) {
-  var indentUnit       = config.indentUnit,
-      keywords         = parserConfig.keywords,
-      verbs            = parserConfig.verbs,
-      functions        = parserConfig.functions,
-      types            = parserConfig.types,
-      attributes       = parserConfig.attributes,
-      multiLineStrings = parserConfig.multiLineStrings,
-      multiPartKeywords= parserConfig.multiPartKeywords;
-  var isOperatorChar   = /[+\-*&%=<>!?:\/|]/;
+/*
+ *	MySQL Mode for CodeMirror 2 by MySQL-Tools
+ *	@author James Thorne (partydroid)
+ *	@link 	http://github.com/partydroid/MySQL-Tools
+ * 	@link 	http://mysqltools.org
+ *	@version 02/Jan/2012
+*/
+CodeMirror.defineMode("mysql", function(config) {
+  var indentUnit = config.indentUnit;
+  var curPunc;
 
-  function chain(stream, state, f) {
-    state.tokenize = f;
-    return f(stream, state);
+  function wordRegexp(words) {
+    return new RegExp("^(?:" + words.join("|") + ")$", "i");
   }
-
-  var type;
-  function ret(tp, style) {
-    type = tp;
-    return style;
-  }
+  var ops = wordRegexp(["str", "lang", "langmatches", "datatype", "bound", "sameterm", "isiri", "isuri",
+                        "isblank", "isliteral", "union", "a"]);
+  var keywords = wordRegexp([
+  ('ACCESSIBLE'),('ALTER'),('AS'),('BEFORE'),('BINARY'),('BY'),('CASE'),('CHARACTER'),('COLUMN'),('CONTINUE'),('CROSS'),('CURRENT_TIMESTAMP'),('DATABASE'),('DAY_MICROSECOND'),('DEC'),('DEFAULT'),
+	('DESC'),('DISTINCT'),('DOUBLE'),('EACH'),('ENCLOSED'),('EXIT'),('FETCH'),('FLOAT8'),('FOREIGN'),('GRANT'),('HIGH_PRIORITY'),('HOUR_SECOND'),('IN'),('INNER'),('INSERT'),('INT2'),('INT8'),
+	('INTO'),('JOIN'),('KILL'),('LEFT'),('LINEAR'),('LOCALTIME'),('LONG'),('LOOP'),('MATCH'),('MEDIUMTEXT'),('MINUTE_SECOND'),('NATURAL'),('NULL'),('OPTIMIZE'),('OR'),('OUTER'),('PRIMARY'),
+	('RANGE'),('READ_WRITE'),('REGEXP'),('REPEAT'),('RESTRICT'),('RIGHT'),('SCHEMAS'),('SENSITIVE'),('SHOW'),('SPECIFIC'),('SQLSTATE'),('SQL_CALC_FOUND_ROWS'),('STARTING'),('TERMINATED'),
+	('TINYINT'),('TRAILING'),('UNDO'),('UNLOCK'),('USAGE'),('UTC_DATE'),('VALUES'),('VARCHARACTER'),('WHERE'),('WRITE'),('ZEROFILL'),('ALL'),('AND'),('ASENSITIVE'),('BIGINT'),('BOTH'),('CASCADE'),
+	('CHAR'),('COLLATE'),('CONSTRAINT'),('CREATE'),('CURRENT_TIME'),('CURSOR'),('DAY_HOUR'),('DAY_SECOND'),('DECLARE'),('DELETE'),('DETERMINISTIC'),('DIV'),('DUAL'),('ELSEIF'),('EXISTS'),('FALSE'),
+	('FLOAT4'),('FORCE'),('FULLTEXT'),('HAVING'),('HOUR_MINUTE'),('IGNORE'),('INFILE'),('INSENSITIVE'),('INT1'),('INT4'),('INTERVAL'),('ITERATE'),('KEYS'),('LEAVE'),('LIMIT'),('LOAD'),('LOCK'),
+	('LONGTEXT'),('MASTER_SSL_VERIFY_SERVER_CERT'),('MEDIUMINT'),('MINUTE_MICROSECOND'),('MODIFIES'),('NO_WRITE_TO_BINLOG'),('ON'),('OPTIONALLY'),('OUT'),('PRECISION'),('PURGE'),('READS'),
+	('REFERENCES'),('RENAME'),('REQUIRE'),('REVOKE'),('SCHEMA'),('SELECT'),('SET'),('SPATIAL'),('SQLEXCEPTION'),('SQL_BIG_RESULT'),('SSL'),('TABLE'),('TINYBLOB'),('TO'),('TRUE'),('UNIQUE'),
+	('UPDATE'),('USING'),('UTC_TIMESTAMP'),('VARCHAR'),('WHEN'),('WITH'),('YEAR_MONTH'),('ADD'),('ANALYZE'),('ASC'),('BETWEEN'),('BLOB'),('CALL'),('CHANGE'),('CHECK'),('CONDITION'),('CONVERT'),
+	('CURRENT_DATE'),('CURRENT_USER'),('DATABASES'),('DAY_MINUTE'),('DECIMAL'),('DELAYED'),('DESCRIBE'),('DISTINCTROW'),('DROP'),('ELSE'),('ESCAPED'),('EXPLAIN'),('FLOAT'),('FOR'),('FROM'),
+	('GROUP'),('HOUR_MICROSECOND'),('IF'),('INDEX'),('INOUT'),('INT'),('INT3'),('INTEGER'),('IS'),('KEY'),('LEADING'),('LIKE'),('LINES'),('LOCALTIMESTAMP'),('LONGBLOB'),('LOW_PRIORITY'),
+	('MEDIUMBLOB'),('MIDDLEINT'),('MOD'),('NOT'),('NUMERIC'),('OPTION'),('ORDER'),('OUTFILE'),('PROCEDURE'),('READ'),('REAL'),('RELEASE'),('REPLACE'),('RETURN'),('RLIKE'),('SECOND_MICROSECOND'),
+	('SEPARATOR'),('SMALLINT'),('SQL'),('SQLWARNING'),('SQL_SMALL_RESULT'),('STRAIGHT_JOIN'),('THEN'),('TINYTEXT'),('TRIGGER'),('UNION'),('UNSIGNED'),('USE'),('UTC_TIME'),('VARBINARY'),('VARYING'),
+	('WHILE'),('XOR'),('FULL'),('COLUMNS'),('MIN'),('MAX'),('STDEV'),('COUNT')
+  ]);
+  var operatorChars = /[*+\-<>=&|]/;
 
   function tokenBase(stream, state) {
     var ch = stream.next();
-    // start of string?
-    if (ch == '"' || ch == "'" || ch == '`')
-      return chain(stream, state, tokenString(ch));
-    // is it one of the special signs []{}().,;? separator?
-    else if (/[\[\]{}\(\),;\.]/.test(ch))
-      return ret(ch, "separator");
-    // start of a number value?
-    else if (/\d/.test(ch)) {
-      stream.eatWhile(/[\w\.]/);
-      return ret("number", "number");
+    curPunc = null;
+    if (ch == "$" || ch == "?") {
+      stream.match(/^[\w\d]*/);
+      return "variable-2";
     }
-    // multi line comment or simple operator?
-    else if (ch == "/") {
-      if (stream.eat("*")) {
-        return chain(stream, state, tokenComment);
-      }
-      else {
-        stream.eatWhile(isOperatorChar);
-        return ret("operator", "operator");
-      }
+    else if (ch == "<" && !stream.match(/^[\s\u00a0=]/, false)) {
+      stream.match(/^[^\s\u00a0>]*>?/);
+      return "atom";
     }
-    // single line comment or simple operator?
-    else if (ch == "-") {
-      if (stream.eat("-")) {
-        stream.skipToEnd();
-        return ret("comment", "comment");
-      }
-      else {
-        stream.eatWhile(isOperatorChar);
-        return ret("operator", "operator");
-      }
+    else if (ch == "\"" || ch == "'") {
+      state.tokenize = tokenLiteral(ch);
+      return state.tokenize(stream, state);
     }
-    // pl/sql variable?
-    else if (ch == "@" || ch == "$") {
-      stream.eatWhile(/[\w\d\$_]/);
-      return ret("word", "variable");
+    else if (ch == "`") {
+      state.tokenize = tokenOpLiteral(ch);
+      return state.tokenize(stream, state);
     }
-    // is it a operator?
-    else if (isOperatorChar.test(ch)) {
-      stream.eatWhile(isOperatorChar);
-      return ret("operator", "operator");
+    else if (/[{}\(\),\.;\[\]]/.test(ch)) {
+      curPunc = ch;
+      return null;
+    }
+    else if (ch == "-" && stream.eat("-")) {
+      stream.skipToEnd();
+      return "comment";
+    }
+    else if (ch == "/" && stream.eat("*")) {
+      state.tokenize = tokenComment;
+      return state.tokenize(stream, state);
+    }
+    else if (operatorChars.test(ch)) {
+      stream.eatWhile(operatorChars);
+      return null;
+    }
+    else if (ch == ":") {
+      stream.eatWhile(/[\w\d\._\-]/);
+      return "atom";
     }
     else {
-      // get the whole word
-      stream.eatWhile(/[\w\$_]/);
-      var word = stream.current().toLowerCase();
-      var oldPos = stream.pos;
-      // is it one of the listed verbs?
-      if (verbs && verbs.propertyIsEnumerable(word)) return ret("keyword", "statement-verb");
-      // is it one of the listed keywords?
-      if (keywords && keywords.propertyIsEnumerable(word)) return ret("keyword", "keyword");
-      // is it one of the listed functions?
-      if (functions && functions.propertyIsEnumerable(word)) {
-          // All functions begin with '('
-          stream.eatSpace();
-          if(stream.peek() == '(')
-            return ret("keyword", "builtin");
-          // Not func => restore old pos
-          stream.pos = oldPos;
+      stream.eatWhile(/[_\w\d]/);
+      if (stream.eat(":")) {
+        stream.eatWhile(/[\w\d_\-]/);
+        return "atom";
       }
-      // is it one of the listed types?
-      if (types && types.propertyIsEnumerable(word)) return ret("keyword", "variable-2");
-      // is it one of the listed attributes?
-      if (attributes && attributes.propertyIsEnumerable(word)) return ret("keyword", "variable-3");
-      // is it a multipart keyword? (currently only checks 2 word parts)
-
-      stream.eatSpace();
-      stream.eatWhile(/[\w\$_]/);
-      var doubleWord = stream.current().toLowerCase();
-      if (multiPartKeywords && multiPartKeywords.propertyIsEnumerable(doubleWord)) return ret("keyword", "keyword");
-
-      // restore old pos
-      stream.pos = oldPos;
-
-      // default: just a "word"
-      return ret("word", "mysql-word");
+      var word = stream.current(), type;
+      if (ops.test(word))
+        return null;
+      else if (keywords.test(word))
+        return "keyword";
+      else
+        return "variable";
     }
   }
 
-  function tokenString(quote) {
+  function tokenLiteral(quote) {
     return function(stream, state) {
-      var escaped = false, next, end = false;
-      while ((next = stream.next()) != null) {
-        if (next == quote && !escaped) {end = true; break;}
-        escaped = !escaped && next == "\\";
+      var escaped = false, ch;
+      while ((ch = stream.next()) != null) {
+        if (ch == quote && !escaped) {
+          state.tokenize = tokenBase;
+          break;
+        }
+        escaped = !escaped && ch == "\\";
       }
-      if (end || !(escaped || multiLineStrings))
-        state.tokenize = tokenBase;
-      return ret("string", "mysql-string");
+      return "string";
+    };
+  }
+
+  function tokenOpLiteral(quote) {
+    return function(stream, state) {
+      var escaped = false, ch;
+      while ((ch = stream.next()) != null) {
+        if (ch == quote && !escaped) {
+          state.tokenize = tokenBase;
+          break;
+        }
+        escaped = !escaped && ch == "\\";
+      }
+      return "variable-2";
     };
   }
 
   function tokenComment(stream, state) {
-    var maybeEnd = false, ch;
-    while (ch = stream.next()) {
-      if (ch == "/" && maybeEnd) {
-        state.tokenize = tokenBase;
+    for (;;) {
+      if (stream.skipTo("*")) {
+        stream.next();
+        if (stream.eat("/")) {
+          state.tokenize = tokenBase;
+          break;
+        }
+      } else {
+        stream.skipToEnd();
         break;
       }
-      maybeEnd = (ch == "*");
     }
-    return ret("comment", "mysql-comment");
+    return "comment";
   }
 
-  // Interface
+
+  function pushContext(state, type, col) {
+    state.context = {prev: state.context, indent: state.indent, col: col, type: type};
+  }
+  function popContext(state) {
+    state.indent = state.context.indent;
+    state.context = state.context.prev;
+  }
 
   return {
-    startState: function(basecolumn) {
-      return {
-        tokenize: tokenBase,
-        startOfLine: true
-      };
+    startState: function(base) {
+      return {tokenize: tokenBase,
+              context: null,
+              indent: 0,
+              col: 0};
     },
 
     token: function(stream, state) {
+      if (stream.sol()) {
+        if (state.context && state.context.align == null) state.context.align = false;
+        state.indent = stream.indentation();
+      }
       if (stream.eatSpace()) return null;
       var style = state.tokenize(stream, state);
+
+      if (style != "comment" && state.context && state.context.align == null && state.context.type != "pattern") {
+        state.context.align = true;
+      }
+
+      if (curPunc == "(") pushContext(state, ")", stream.column());
+      else if (curPunc == "[") pushContext(state, "]", stream.column());
+      else if (curPunc == "{") pushContext(state, "}", stream.column());
+      else if (/[\]\}\)]/.test(curPunc)) {
+        while (state.context && state.context.type == "pattern") popContext(state);
+        if (state.context && curPunc == state.context.type) popContext(state);
+      }
+      else if (curPunc == "." && state.context && state.context.type == "pattern") popContext(state);
+      else if (/atom|string|variable/.test(style) && state.context) {
+        if (/[\}\]]/.test(state.context.type))
+          pushContext(state, "pattern", stream.column());
+        else if (state.context.type == "pattern" && !state.context.align) {
+          state.context.align = true;
+          state.context.col = stream.column();
+        }
+      }
+
       return style;
+    },
+
+    indent: function(state, textAfter) {
+      var firstChar = textAfter && textAfter.charAt(0);
+      var context = state.context;
+      if (/[\]\}]/.test(firstChar))
+        while (context && context.type == "pattern") context = context.prev;
+
+      var closing = context && firstChar == context.type;
+      if (!context)
+        return 0;
+      else if (context.type == "pattern")
+        return context.col;
+      else if (context.align)
+        return context.col + (closing ? 0 : 1);
+      else
+        return context.indent + (closing ? 0 : indentUnit);
     }
   };
 });
 
-(function() {
-  function keywords(str) {
-    var obj = {}, words = str;
-    if(typeof str == 'string') words = str.split(" ");
-    for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
-    return obj;
-  }
-  var cKeywords = "accessible add all and as asc asensitive before between bigint binary blob both cascade case char character collate column condition constraint continue convert cross current_date current_time current_timestamp current_user cursor database databases day_hour day_microsecond day_minute day_second dec decimal declare default delayed desc deterministic distinct distinctrow div double dual each else elseif enclosed escaped event exists exit explain false fetch float float4 float8 for force foreign fulltext from having high_priority hour_microsecond hour_minute hour_second if ignore in index infile inner inout insensitive int int1 int2 int3 int4 int8 integer interval is iterate join key keys leading leave left like limit linear lines localtime localtimestamp long longblob longtext loop low_priority master_ssl_verify_server_cert match maxvalue mediumblob mediumint mediumtext middleint minute_microsecond minute_second mod modifies natural not no_write_to_binlog null numeric on option optionally or out outer outfile precision primary procedure range read reads read_write real references regexp repeat require restrict return right rlike routine schema schemas second_microsecond sensitive separator smallint spatial specific sql sqlexception sqlstate sqlwarning sql_big_result sql_calc_found_rows sql_small_result ssl starting straight_join table terminated then tinyblob tinyint tinytext to trailing trigger true undo union unique unsigned usage using utc_date utc_time utc_timestamp values varbinary varchar varcharacter varying when where while with write xor year_month zerofill";
-
-  var cVerbs = "alter analyze begin binlog call change check checksum commit create deallocate describe do drop execute flush grant handler install kill load lock optimize cache partition prepare purge release rename repair replace reset resignal revoke rollback savepoint select set signal show start truncate uninstall unlock update use xa";
-
-  var cFunctions = "abs acos adddate addtime aes_decrypt aes_encrypt area asbinary ascii asin astext atan atan2 avg bdmpolyfromtext bdmpolyfromwkb bdpolyfromtext bdpolyfromwkb benchmark bin bit_and bit_count bit_length bit_or bit_xor boundary buffer cast ceil ceiling centroid char character_length charset char_length coalesce coercibility collation compress concat concat_ws connection_id contains conv convert convert_tz convexhull cos cot count crc32 crosses curdate current_date current_time current_timestamp current_user curtime database date datediff date_add date_diff date_format date_sub day dayname dayofmonth dayofweek dayofyear decode default degrees des_decrypt des_encrypt difference dimension disjoint distance elt encode encrypt endpoint envelope equals exp export_set exteriorring extract extractvalue field find_in_set floor format found_rows from_days from_unixtime geomcollfromtext geomcollfromwkb geometrycollection geometrycollectionfromtext geometrycollectionfromwkb geometryfromtext geometryfromwkb geometryn geometrytype geomfromtext geomfromwkb get_format get_lock glength greatest group_concat group_unique_users hex hour if ifnull inet_aton inet_ntoa insert instr interiorringn intersection intersects interval isclosed isempty isnull isring issimple is_free_lock is_used_lock last_day last_insert_id lcase least left length linefromtext linefromwkb linestring linestringfromtext linestringfromwkb ln load_file localtime localtimestamp locate log log10 log2 lower lpad ltrim makedate maketime make_set master_pos_wait max mbrcontains mbrdisjoint mbrequal mbrintersects mbroverlaps mbrtouches mbrwithin md5 microsecond mid min minute mlinefromtext mlinefromwkb mod month monthname mpointfromtext mpointfromwkb mpolyfromtext mpolyfromwkb multilinestring multilinestringfromtext multilinestringfromwkb multipoint multipointfromtext multipointfromwkb multipolygon multipolygonfromtext multipolygonfromwkb name_const now nullif numgeometries numinteriorrings numpoints oct octet_length old_password ord overlaps password period_add period_diff pi point pointfromtext pointfromwkb pointn pointonsurface polyfromtext polyfromwkb polygon polygonfromtext polygonfromwkb position pow power quarter quote radians rand related release_lock repeat replace reverse right round row_count rpad rtrim schema second sec_to_time session_user sha sha1 sign sin sleep soundex space sqrt srid startpoint std stddev stddev_pop stddev_samp strcmp str_to_date subdate substr substring substring_index subtime sum symdifference sysdate system_user tan time timediff timestamp timestampadd timestampdiff time_format time_to_sec touches to_days trim truncate ucase uncompress uncompressed_length unhex unique_users unix_timestamp updatexml upper user utc_date utc_time utc_timestamp uuid variance var_pop var_samp version week weekday weekofyear within x y year yearweek";
-
-  var cTypes = "bigint binary bit blob bool boolean char character date datetime dec decimal double enum float float4 float8 geometry geometrycollection int int1 int2 int3 int4 int8 integer linestring long longblob longtext mediumblob mediumint mediumtext middleint multilinestring multipoint multipolygon nchar numeric point polygon real serial set smallint text time timestamp tinyblob tinyint tinytext varbinary varchar year";
-
-  var cAttributes = "archive ascii auto_increment bdb berkeleydb binary blackhole csv default example federated heap innobase innodb isam maria memory merge mrg_isam mrg_myisam myisam national ndb ndbcluster precision undefined unicode unsigned varying zerofill";
-
-  var cmultiPartKeywords = ['insert into', 'group by', 'order by', 'delete from'];
-
-  CodeMirror.defineMIME("text/x-mysql", {
-    name: "mysql",
-    keywords: keywords(cKeywords),
-    multiPartKeywords: keywords(cmultiPartKeywords),
-    verbs: keywords(cVerbs),
-    functions: keywords(cFunctions),
-    types: keywords(cTypes),
-    attributes: keywords(cAttributes)
-  });
-}());
+CodeMirror.defineMIME("text/x-mysql", "mysql");

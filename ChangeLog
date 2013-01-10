@@ -85,6 +85,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - Upgraded to jquery-ui-timepicker-addon 1.1.1
 + rfe #3599046 [interface] Added comments for indexes
 - Replaced qtip with jQuery UI tooltip
+- Upgraded CodeMirror to 2.37
 
 3.5.6.0 (not yet released)
 - bug #3593604 [status] Erroneous advisor rule
