@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:03+0200\n"
+"PO-Revision-Date: 2013-01-10 13:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sq/>\n"
 "Language: sq\n"
@@ -11393,7 +11393,7 @@ msgstr "Emri i përdoruesit"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Emri i kyçit primar duhet të jetë... PRIMARY!"
+msgstr "Emri i kyçit primar duhet të jetë \"PRIMARY\"!"
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
