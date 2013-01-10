@@ -1085,7 +1085,7 @@ Generic settings
 
     Set the number of seconds a script is allowed to run. If seconds is
     set to zero, no time limit is imposed. This setting is used while
-    importing/exporting dump files and in the Synchronize feature but has
+    importing/exporting dump files but has
     no effect when PHP is running in safe mode.
 
 .. config:option:: $cfg['SessionSavePath']
@@ -1255,8 +1255,7 @@ Cookie authentication options
     :default: false
 
     If enabled, allows you to log in to arbitrary servers using cookie
-    authentication and permits to specify servers of your choice in the
-    Synchronize dialog.  
+    authentication.
 
     .. note::
        
