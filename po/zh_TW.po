@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-09 14:17+0100\n"
-"PO-Revision-Date: 2012-12-15 22:03+0200\n"
-"Last-Translator: Chunmin Tai <taichunmin@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_TW/>\n"
+"PO-Revision-Date: 2013-01-10 13:43+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1346,7 +1346,7 @@ msgstr "分析用的紀錄檔"
 
 #: js/messages.php:160
 msgid "Analysing & loading logs. This may take a while."
-msgstr "讀取且分析紀錄檔中… 這可能會花費一些時間。"
+msgstr "讀取且分析紀錄檔中. 這可能會花費一些時間。"
 
 #: js/messages.php:161
 msgid "Cancel request"
