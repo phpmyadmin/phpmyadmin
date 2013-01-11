@@ -569,15 +569,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             ),
             array(
                 'copy',
-                '<tr>
-<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp</tr>
-'
+                "<tr>\nCOPY1COPY2</tr>\n"
             ),
             array(
                 'delete',
-                '<tr>
-<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this</tr>
-'
+                "<tr>\nDELETE1DELETE2</tr>\n"
             ),
         );
     }
@@ -599,14 +595,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             'row_delete' => array(),
             'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
             'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
-            ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
+            'copy' => array('COPY1', 'COPY2'),
+            'delete' => array('DELETE1', 'DELETE2'),
         );
 
         $this->object->__set('vertical_display', $vertical_display);
