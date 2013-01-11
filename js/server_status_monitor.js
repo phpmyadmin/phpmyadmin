@@ -1507,13 +1507,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                             elem.maxYLabel = value;
                         }
                         // free old data point values and update maxYLabel
-                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints) {
+                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints
+                            && elem.chart.series[j].data[0][0] < runtime.xmin) {
                             // check if the next freeable point is highest
                             if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
-                                elem.chart.series[j].data.shift();
+                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                                 elem.maxYLabel = getMaxYLabel(elem.chart.series[j].data);
                             } else {
-                                elem.chart.series[j].data.shift();
+                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
                         if (elem.title === PMA_messages['strSystemMemory']
