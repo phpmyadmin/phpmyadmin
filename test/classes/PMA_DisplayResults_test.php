@@ -44,7 +44,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
-        require_once 'libraries/Response.class.php';
+        include_once 'libraries/Response.class.php';
     }
 
     /**
@@ -78,8 +78,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for setting display mode
      *
-     * @param string  $the_disp_mode the synthetic value for display_mode (see a
-     *                               few lines above for explanations)
+     * @param string  $the_disp_mode the synthetic value for display_mode (see
+     *                               a few lines above for explanations)
      * @param integer $the_total     the total number of rows returned by the SQL
      *                               query without any programmatically appended
      *                               LIMIT clause
