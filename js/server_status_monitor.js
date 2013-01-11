@@ -559,7 +559,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
-
         $.each(runtime.charts, function(key, value) {
             value.chart['axes']['xaxis']['max'] = runtime.xmax;
             value.chart['axes']['xaxis']['min'] = runtime.xmin;
@@ -1167,7 +1166,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             seriesDefaults: {
                 rendererOptions: {
                     smooth: true
-                }
+                },
+                showLine: true,
+                lineWidth: 2
             },
             highlighter: {
                 show: true,
@@ -1207,13 +1208,18 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $('#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
+        // Set series' data as [0,0], smooth lines won't plot with data array having null values.
+        // also chart won't plot initially with no data and data comes on refreshChartGrid()
         var series = [];
-        var emptyArr = new Array(2);
-        for (i in chartObj.series){
-            series.push([emptyArr]);
+        for (i in chartObj.series) {
+            series.push([[0,0]]);
+        }
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
+        // remove [0,0] after plotting
+        for(i in chartObj.chart.series) {
+            chartObj.chart.series[i].data.shift();
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         var $legend = $('<div />').css('padding', '0.5em');
         for (var i in chartObj.chart.series) {
             $legend.append(
