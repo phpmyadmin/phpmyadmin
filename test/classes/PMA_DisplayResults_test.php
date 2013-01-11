@@ -554,11 +554,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provide data for testGetOperationLinksForVerticleTableCase1
+     * Provide data for testGetOperationLinksForVerticleTable
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase1()
+    public function dataProviderForTestGetOperationLinksForVerticleTable()
     {
         return array(
             array(
@@ -566,132 +566,33 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<tr>
 </tr>
 '
-            )
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticleTable - case 1
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticleTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
-     */
-    public function testGetOperationLinksForVerticleTableCase1(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
             ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticleTable',
-                array($operation)
-            )
-        );
-    }
-
-    /**
-     * Provide data for testGetOperationLinksForVerticleTableCase2
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase2()
-    {
-        return array(
             array(
                 'copy',
                 '<tr>
 <td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp</tr>
 '
-            )
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticleTable - case 2
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticleTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
-     */
-    public function testGetOperationLinksForVerticleTableCase2(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
             ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticleTable',
-                array($operation)
-            )
-        );
-    }
-
-
-    /**
-     * Provide data for testGetOperationLinksForVerticleTableCase3
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase3()
-    {
-        return array(
             array(
                 'delete',
                 '<tr>
 <td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this</tr>
 '
-            )
+            ),
         );
     }
 
     /**
-     * Test for _getOperationLinksForVerticleTable - case 3
+     * Test for _getOperationLinksForVerticleTable
      *
      * @param string $operation edit/copy/delete
      * @param string $output    output of _getOperationLinksForVerticleTable
      *
      * @return void
      *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTable
      */
-    public function testGetOperationLinksForVerticleTableCase3(
+    public function testGetOperationLinksForVerticleTable(
         $operation, $output
     ) {
         $vertical_display = array(
