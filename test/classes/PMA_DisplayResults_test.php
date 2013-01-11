@@ -697,14 +697,22 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetSortParamsCase1
+     * Data provider for testGetSortParams
      *
      * @return array parameters and output
      */
-    public function dataProviderForGetSortParamsCase1()
+    public function dataProviderForGetSortParams()
     {
         return array(
-            array('', array('', '', ''))
+            array('', array('', '', '')),
+            array(
+                '`a_sales`.`customer_id` ASC',
+                array(
+                    '`a_sales`.`customer_id` ASC',
+                    '`a_sales`.`customer_id`',
+                    'ASC'
+                )
+            ),
         );
     }
 
@@ -716,48 +724,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider dataProviderForGetSortParamsCase1
+     * @dataProvider dataProviderForGetSortParams
      */
-    public function testGetSortParamsCase1($order_by_clause, $output)
-    {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getSortParams', array($order_by_clause)
-            )
-        );
-    }
-
-    /**
-     * Data provider for testGetSortParamsCase2
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetSortParamsCase2()
-    {
-        return array(
-            array(
-                '`a_sales`.`customer_id` ASC',
-                array(
-                    '`a_sales`.`customer_id` ASC',
-                    '`a_sales`.`customer_id`',
-                    'ASC'
-                )
-            )
-        );
-    }
-
-    /**
-     * Test for _getSortParams - case 2
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     * @param string $output          output of _getSortParams
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetSortParamsCase2
-     */
-    public function testGetSortParamsCase2($order_by_clause, $output)
+    public function testGetSortParams($order_by_clause, $output)
     {
         $this->assertEquals(
             $output,
