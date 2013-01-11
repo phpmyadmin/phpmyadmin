@@ -44,7 +44,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
-        require_once 'libraries/Response.class.php';
+        include_once 'libraries/Response.class.php';
     }
 
     /**
@@ -78,8 +78,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for setting display mode
      *
-     * @param string  $the_disp_mode the synthetic value for display_mode (see a
-     *                               few lines above for explanations)
+     * @param string  $the_disp_mode the synthetic value for display_mode (see
+     *                               a few lines above for explanations)
      * @param integer $the_total     the total number of rows returned by the SQL
      *                               query without any programmatically appended
      *                               LIMIT clause
@@ -554,11 +554,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Provide data for testGetOperationLinksForVerticleTableCase1
+     * Provide data for testGetOperationLinksForVerticleTable
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase1()
+    public function dataProviderForTestGetOperationLinksForVerticleTable()
     {
         return array(
             array(
@@ -566,146 +566,37 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<tr>
 </tr>
 '
-            )
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticleTable - case 1
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticleTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
-     */
-    public function testGetOperationLinksForVerticleTableCase1(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
             ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticleTable',
-                array($operation)
-            )
-        );
-    }
-
-    /**
-     * Provide data for testGetOperationLinksForVerticleTableCase2
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase2()
-    {
-        return array(
             array(
                 'copy',
-                '<tr>
-<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp</tr>
-'
-            )
-        );
-    }
-
-    /**
-     * Test for _getOperationLinksForVerticleTable - case 2
-     *
-     * @param string $operation edit/copy/delete
-     * @param string $output    output of _getOperationLinksForVerticleTable
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
-     */
-    public function testGetOperationLinksForVerticleTableCase2(
-        $operation, $output
-    ) {
-        $vertical_display = array(
-            'row_delete' => array(),
-            'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
-            'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
+                "<tr>\nCOPY1COPY2</tr>\n"
             ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
-        );
-
-        $this->object->__set('vertical_display', $vertical_display);
-
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getOperationLinksForVerticleTable',
-                array($operation)
-            )
-        );
-    }
-
-
-    /**
-     * Provide data for testGetOperationLinksForVerticleTableCase3
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetOperationLinksForVerticleTableCase3()
-    {
-        return array(
             array(
                 'delete',
-                '<tr>
-<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this</tr>
-'
-            )
+                "<tr>\nDELETE1DELETE2</tr>\n"
+            ),
         );
     }
 
     /**
-     * Test for _getOperationLinksForVerticleTable - case 3
+     * Test for _getOperationLinksForVerticleTable
      *
      * @param string $operation edit/copy/delete
      * @param string $output    output of _getOperationLinksForVerticleTable
      *
      * @return void
      *
-     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTable
      */
-    public function testGetOperationLinksForVerticleTableCase3(
+    public function testGetOperationLinksForVerticleTable(
         $operation, $output
     ) {
         $vertical_display = array(
             'row_delete' => array(),
             'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
             'edit' => array(),
-            'copy' => array(
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa',
-                '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp'
-            ),
-            'delete' => array(
-                '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this,',
-                '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
-            )
+            'copy' => array('COPY1', 'COPY2'),
+            'delete' => array('DELETE1', 'DELETE2'),
         );
 
         $this->object->__set('vertical_display', $vertical_display);
@@ -796,45 +687,14 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetSortParamsCase1
+     * Data provider for testGetSortParams
      *
      * @return array parameters and output
      */
-    public function dataProviderForGetSortParamsCase1()
+    public function dataProviderForGetSortParams()
     {
         return array(
-            array('', array('', '', ''))
-        );
-    }
-
-    /**
-     * Test for _getSortParams - case 1
-     *
-     * @param string $order_by_clause the order by clause of the sql query
-     * @param string $output          output of _getSortParams
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetSortParamsCase1
-     */
-    public function testGetSortParamsCase1($order_by_clause, $output)
-    {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getSortParams', array($order_by_clause)
-            )
-        );
-    }
-
-    /**
-     * Data provider for testGetSortParamsCase2
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetSortParamsCase2()
-    {
-        return array(
+            array('', array('', '', '')),
             array(
                 '`a_sales`.`customer_id` ASC',
                 array(
@@ -842,21 +702,21 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     '`a_sales`.`customer_id`',
                     'ASC'
                 )
-            )
+            ),
         );
     }
 
     /**
-     * Test for _getSortParams - case 2
+     * Test for _getSortParams
      *
      * @param string $order_by_clause the order by clause of the sql query
      * @param string $output          output of _getSortParams
      *
      * @return void
      *
-     * @dataProvider dataProviderForGetSortParamsCase2
+     * @dataProvider dataProviderForGetSortParams
      */
-    public function testGetSortParamsCase2($order_by_clause, $output)
+    public function testGetSortParams($order_by_clause, $output)
     {
         $this->assertEquals(
             $output,
@@ -1086,11 +946,11 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testGetCheckboxAndLinksCase1
+     * Data provider for testGetCheckboxAndLinks
      *
      * @return array parameters and output
      */
-    public function dataProviderForGetCheckboxAndLinksCase1()
+    public function dataProviderForGetCheckboxAndLinks()
     {
         return array(
             array(
@@ -1128,63 +988,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 <input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  >
 <a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
 <div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td>'
-            )
-        );
-    }
-
-    /**
-     * Test for _getCheckboxAndLinks - case 1
-     *
-     * @param string $position          the position of the checkbox and links
-     * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all the
-     *                                  display elements
-     * @param string $row_no            row number
-     * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where clause
-     * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
-     * @param string $id_suffix         suffix for the id
-     * @param string $edit_url          edit url
-     * @param string $copy_url          copy url
-     * @param string $class             css classes for the td elements
-     * @param string $edit_str          text for the edit link
-     * @param string $copy_str          text for the copy link
-     * @param string $del_str           text for the delete link
-     * @param string $js_conf           text for the JS confirmation
-     * @param string $output            output of _getCheckboxAndLinks
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetCheckboxAndLinksCase1
-     */
-    public function testGetCheckboxAndLinksCase1(
-        $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
-        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
-    ) {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getCheckboxAndLinks',
-                array(
-                    $position, $del_url, $is_display, $row_no, $where_clause,
-                    $where_clause_html, $condition_array, $del_query,
-                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
-                    $copy_str, $del_str, $js_conf
-                )
-            )
-        );
-    }
-
-    /**
-     * Data provider for testGetCheckboxAndLinksCase2
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetCheckboxAndLinksCase2()
-    {
-        return array(
+            ),
             array(
                 PMA_DisplayResults::POSITION_RIGHT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
@@ -1220,63 +1024,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
 <input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="edit_row_anchor center"  ><span class="nowrap">
 <a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
 <input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td  class="center"><input type="checkbox" id="id_rows_to_delete0_right" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
-            )
-        );
-    }
-
-    /**
-     * Test for _getCheckboxAndLinks - case 2
-     *
-     * @param string $position          the position of the checkbox and links
-     * @param string $del_url           delete url
-     * @param array  $is_display        array with explicit indexes for all the
-     *                                  display elements
-     * @param string $row_no            row number
-     * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where clause
-     * @param array  $condition_array   array of conditions in the where clause
-     * @param string $del_query         delete query
-     * @param string $id_suffix         suffix for the id
-     * @param string $edit_url          edit url
-     * @param string $copy_url          copy url
-     * @param string $class             css classes for the td elements
-     * @param string $edit_str          text for the edit link
-     * @param string $copy_str          text for the copy link
-     * @param string $del_str           text for the delete link
-     * @param string $js_conf           text for the JS confirmation
-     * @param string $output            output of _getCheckboxAndLinks
-     *
-     * @return void
-     *
-     * @dataProvider dataProviderForGetCheckboxAndLinksCase2
-     */
-    public function testGetCheckboxAndLinksCase2(
-        $position, $del_url, $is_display, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
-        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
-    ) {
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getCheckboxAndLinks',
-                array(
-                    $position, $del_url, $is_display, $row_no, $where_clause,
-                    $where_clause_html, $condition_array, $del_query,
-                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
-                    $copy_str, $del_str, $js_conf
-                )
-            )
-        );
-    }
-
-    /**
-     * Data provider for testGetCheckboxAndLinksCase3
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForGetCheckboxAndLinksCase3()
-    {
-        return array(
+            ),
             array(
                 PMA_DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
@@ -1306,12 +1054,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
-            )
+            ),
         );
     }
 
     /**
-     * Test for _getCheckboxAndLinks - case 3
+     * Test for _getCheckboxAndLinks
      *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
@@ -1334,9 +1082,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @dataProvider dataProviderForGetCheckboxAndLinksCase3
+     * @dataProvider dataProviderForGetCheckboxAndLinks
      */
-    public function testGetCheckboxAndLinksCase3(
+    public function testGetCheckboxAndLinks(
         $position, $del_url, $is_display, $row_no, $where_clause,
         $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
