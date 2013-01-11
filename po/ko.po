@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-03 22:27+0200\n"
-"Last-Translator: Nabu Marduk <studionabu@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-01-11 11:36+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -732,10 +731,9 @@ msgid "More settings"
 msgstr ""
 
 #: index.php:227
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "데이터베이스 "
+msgstr "데이터베이스 서버"
 
 #: index.php:230 libraries/Menu.class.php:150
 #: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
@@ -813,10 +811,9 @@ msgid "Get support"
 msgstr ""
 
 #: index.php:363
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "변화 없음"
+msgstr "변경 목록"
 
 #: index.php:386
 msgid ""
@@ -1870,6 +1867,8 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 저장 시에 격자창 편집, 체크박스, 편집, 복사, 삭제 등의 기능이 정상적으로 동작하지 "
+"않을 수 있습니다."
 
 #: js/messages.php:350
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2711,7 +2710,7 @@ msgstr "HTML 폼에 지정된 MAX_FILE_SIZE 값보다 더 큰 파일이 업로�
 
 #: libraries/File.class.php:285
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "파일업로드가 완전하지 않게 실행되었습니다."
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
@@ -3010,11 +3009,11 @@ msgstr "질의 종류"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
-msgstr ""
+msgstr "쓰레드"
 
 #: libraries/ServerStatusData.class.php:188
 msgid "Temporary data"
-msgstr ""
+msgstr "임시 데이터"
 
 #: libraries/ServerStatusData.class.php:189
 #, fuzzy
@@ -3155,7 +3154,7 @@ msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1373
 msgid "Could not save table UI preferences"
-msgstr "테이블 UI 환경 설정을 저장할 수 없습니다."
+msgstr "테이블 UI 설정을 저장할 수 없습니다."
 
 #: libraries/Table.class.php:1397
 #, php-format
@@ -4092,7 +4091,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:33
 msgid "Minimum size for input field"
-msgstr ""
+msgstr "입력 필드의 최소 크기"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4102,7 +4101,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:35
 msgid "Maximum size for input field"
-msgstr ""
+msgstr "입력 필드의 최대 크기"
 
 #: libraries/config/messages.inc.php:36
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4122,7 +4121,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:40
 msgid "Check config file permissions"
-msgstr ""
+msgstr "설정 파일에 대한 권한을 확인해주세요."
 
 #: libraries/config/messages.inc.php:41
 msgid ""
@@ -4137,7 +4136,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:43 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
 msgid "Configuration file"
-msgstr ""
+msgstr "설정 파일"
 
 #: libraries/config/messages.inc.php:44
 msgid ""
@@ -4202,7 +4201,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
-msgstr ""
+msgstr "서버들을 목록으로 표시"
 
 #: libraries/config/messages.inc.php:60
 msgid ""
@@ -4216,7 +4215,7 @@ msgstr "다중테이블 유지보수기능 해제"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "팝업창으로 SQL 쿼리 편집"
 
 #: libraries/config/messages.inc.php:63
 msgid "Edit in window"
@@ -4238,7 +4237,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
-msgstr ""
+msgstr "최대 실행 시간"
 
 #: libraries/config/messages.inc.php:68 prefs_manage.php:299
 msgid "Save as file"
@@ -10422,7 +10421,7 @@ msgstr "쓰레드 %s 를 죽였습니다."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr ""
+msgstr "phpMyAdmin이 쓰레드 %s를 종료하는데 실패했습니다. 이미 해당 쓰레드가 종료되었을 것입니다."
 
 #: server_status.php:70
 #, php-format
