@@ -559,11 +559,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
-        $.each(runtime.charts, function(key, value) {
-            value.chart['axes']['xaxis']['max'] = runtime.xmax;
-            value.chart['axes']['xaxis']['min'] = runtime.xmin;
-        });
-
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
 
         saveMonitor(); // Save settings
@@ -1530,8 +1525,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 }
 
                 // update chart options
-                elem.chart['axes']['xaxis']['max'] = runtime.xmax;
-                elem.chart['axes']['xaxis']['min'] = runtime.xmin;
+                // keep ticks number/positioning consistent while refreshrate changes
+                var tickInterval = (runtime.xmax - runtime.xmin)/5;
+                elem.chart['axes']['xaxis'].ticks = [(runtime.xmax - tickInterval*4),
+                    (runtime.xmax - tickInterval*3), (runtime.xmax - tickInterval*2),
+                    (runtime.xmax - tickInterval), runtime.xmax];
+
                 if (elem.title !== PMA_messages['strSystemCPUUsage']
                     && elem.title !== PMA_messages['strQueryCacheEfficiency']
                     && elem.title !== PMA_messages['strSystemMemory']
