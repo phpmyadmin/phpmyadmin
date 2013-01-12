@@ -807,7 +807,7 @@ function insertValueQuery()
         sql_box_locked = true;
         var chaineAj = "";
         var NbSelect = 0;
-        for(var i=0; i<myListBox.options.length; i++) {
+        for (var i=0; i<myListBox.options.length; i++) {
             if (myListBox.options[i].selected) {
                 NbSelect++;
                 if (NbSelect > 1) {

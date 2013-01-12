@@ -1119,7 +1119,7 @@ function Select_all(id_this,owner)
            }
         }
     }
-    if(document.getElementById('select_all_' + id_this).checked == true) {
+    if (document.getElementById('select_all_' + id_this).checked == true) {
         select_field.push('`' + id_this.substring(owner.length +1) + '`.*');
         tab = id_this.split(".");
         from_array.push(tab[1]);
@@ -1130,8 +1130,8 @@ function Select_all(id_this,owner)
                 select_field.splice(i,1);
             }
         }
-        for(k =0 ;k < from_array.length;k++){
-            if(from_array[k] == id_this){
+        for (k =0 ;k < from_array.length; k++){
+            if (from_array[k] == id_this){
                 from_array.splice(k,1);
                 break;
             }

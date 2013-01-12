@@ -559,12 +559,6 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
-
-        $.each(runtime.charts, function(key, value) {
-            value.chart['axes']['xaxis']['max'] = runtime.xmax;
-            value.chart['axes']['xaxis']['min'] = runtime.xmin;
-        });
-
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
 
         saveMonitor(); // Save settings
@@ -1167,7 +1161,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             seriesDefaults: {
                 rendererOptions: {
                     smooth: true
-                }
+                },
+                showLine: true,
+                lineWidth: 2
             },
             highlighter: {
                 show: true,
@@ -1207,13 +1203,18 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $('#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
+        // Set series' data as [0,0], smooth lines won't plot with data array having null values.
+        // also chart won't plot initially with no data and data comes on refreshChartGrid()
         var series = [];
-        var emptyArr = new Array(2);
-        for (i in chartObj.series){
-            series.push([emptyArr]);
+        for (i in chartObj.series) {
+            series.push([[0,0]]);
+        }
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
+        // remove [0,0] after plotting
+        for (i in chartObj.chart.series) {
+            chartObj.chart.series[i].data.shift();
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         var $legend = $('<div />').css('padding', '0.5em');
         for (var i in chartObj.chart.series) {
             $legend.append(
@@ -1506,13 +1507,14 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                             elem.maxYLabel = value;
                         }
                         // free old data point values and update maxYLabel
-                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints) {
+                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints
+                            && elem.chart.series[j].data[0][0] < runtime.xmin) {
                             // check if the next freeable point is highest
                             if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
-                                elem.chart.series[j].data.shift();
+                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                                 elem.maxYLabel = getMaxYLabel(elem.chart.series[j].data);
                             } else {
-                                elem.chart.series[j].data.shift();
+                                elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
                         if (elem.title === PMA_messages['strSystemMemory']
@@ -1524,8 +1526,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 }
 
                 // update chart options
-                elem.chart['axes']['xaxis']['max'] = runtime.xmax;
-                elem.chart['axes']['xaxis']['min'] = runtime.xmin;
+                // keep ticks number/positioning consistent while refreshrate changes
+                var tickInterval = (runtime.xmax - runtime.xmin)/5;
+                elem.chart['axes']['xaxis'].ticks = [(runtime.xmax - tickInterval*4),
+                    (runtime.xmax - tickInterval*3), (runtime.xmax - tickInterval*2),
+                    (runtime.xmax - tickInterval), runtime.xmax];
+
                 if (elem.title !== PMA_messages['strSystemCPUUsage']
                     && elem.title !== PMA_messages['strQueryCacheEfficiency']
                     && elem.title !== PMA_messages['strSystemMemory']
@@ -1613,7 +1619,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
             runtime.dataList[chartID] = [];
-            for(var i=0, l=chart.nodes.length; i < l; i++) {
+            for (var i=0, l=chart.nodes.length; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
             runtime.charts[key].chartID = chartID;

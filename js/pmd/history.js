@@ -42,12 +42,12 @@ function display(init,finit)
 {
     var str,i,j,k,sto;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
-    for (i = init;i < finit;i++) {
+    for (i = init; i < finit; i++) {
         sto = history_array[i];
         var temp = history_array[i].get_tab() ;//+ '.' + history_array[i].get_obj_no(); for Self JOINS
-        for(j = 0;j < i;j++) {
+        for (j = 0; j < i; j++) {
             if (temp > (history_array[j].get_tab())) {//+ '.' + history_array[j].get_obj_no())) { //for Self JOINS
-                for(k = i;k > j;k--) {
+                for (k = i; k > j; k--) {
                     history_array[k] = history_array[k-1];
                 }
                 history_array[j] = sto;
@@ -154,7 +154,7 @@ function detail (index)
 
 function history_delete(index)
 {
-    for(var k =0 ;k < from_array.length;k++) {
+    for (var k = 0; k < from_array.length; k++) {
         if (from_array[k] == history_array[index].get_tab()) {
             from_array.splice(k,1);
             break;
@@ -431,9 +431,9 @@ var aggregate = function(noperator) {
 function unique(arrayName)
 {
     var newArray=new Array();
-    label:for(var i=0; i<arrayName.length;i++ )
+    label:for (var i=0; i<arrayName.length; i++ )
     {
-        for(var j=0; j<newArray.length;j++ )
+        for (var j=0; j<newArray.length; j++ )
         {
             if (newArray[j]==arrayName[i]) {
                 continue label;
@@ -454,7 +454,7 @@ function unique(arrayName)
 
 function found(arrayName,value)
 {
-    for(var i=0; i<arrayName.length; i++) {
+    for (var i=0; i<arrayName.length; i++) {
         if (arrayName[i] == value) { return 1;}
     }
     return -1;
