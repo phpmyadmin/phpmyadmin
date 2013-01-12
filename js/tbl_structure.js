@@ -354,7 +354,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
 
         var col_list = $("#move_columns_dialog ul")
             .find("li").remove().end();
-        for(var i in columns) {
+        for (var i in columns) {
             col_list.append(columns[i]);
         }
         col_list.sortable({

@@ -1211,7 +1211,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         // remove [0,0] after plotting
-        for(i in chartObj.chart.series) {
+        for (i in chartObj.chart.series) {
             chartObj.chart.series[i].data.shift();
         }
 
@@ -1619,7 +1619,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
             runtime.dataList[chartID] = [];
-            for(var i=0, l=chart.nodes.length; i < l; i++) {
+            for (var i=0, l=chart.nodes.length; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
             runtime.charts[key].chartID = chartID;
