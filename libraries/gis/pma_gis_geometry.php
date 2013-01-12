@@ -76,7 +76,7 @@ abstract class PMA_GIS_Geometry
      *
      * @return WKT with the set of parameters passed by the GIS editor
      */
-    public abstract function generateWkt($gis_data, $index, $empty);
+    public abstract function generateWkt($gis_data, $index, $empty = '');
 
     /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
