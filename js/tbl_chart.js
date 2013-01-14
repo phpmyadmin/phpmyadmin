@@ -24,9 +24,10 @@ AJAX.registerOnload('tbl_chart.js', function() {
 
     // from jQuery UI
     $('#resizer').resizable({
-        minHeight:240,
-        minWidth:300
-    });
+        minHeight: 240,
+        minWidth: 300
+    })
+    .width($('#div_view_options').width() - 50);
 
     $('#resizer').bind('resizestop', function(event, ui) {
         // make room so that the handle will still appear
