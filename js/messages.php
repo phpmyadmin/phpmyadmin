@@ -44,8 +44,8 @@ $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
 
 /* Charts */
-/* l10n: Default description for the y-Axis of Charts */
-$js_messages['strTotalCount'] = __('Total count');
+/* l10n: Default label for the y-Axis of Charts */
+$js_messages['strYValues'] = __('Y Values');
 
 /* For server_privileges.js */
 $js_messages['strHostEmpty'] = __('The host name is empty!');
