@@ -55,7 +55,8 @@ AJAX.registerOnload('tbl_chart.js', function() {
         currentSettings.type = $(this).val();
         drawChart();
         if ($(this).val() == 'bar' || $(this).val() == 'column'
-            || $(this).val() == 'line' || $(this).val() == 'area') {
+            || $(this).val() == 'line' || $(this).val() == 'area'
+            || $(this).val() == 'timeline') {
             $('span.barStacked').show();
         } else {
             $('span.barStacked').hide();
@@ -90,9 +91,24 @@ AJAX.registerOnload('tbl_chart.js', function() {
         }
     });
 
+    var dateTimeCols = [];
+    var vals = $('input[name="dateTimeCols"]').val().split(' ');
+    $.each(vals, function(i, v) {
+        dateTimeCols.push(parseInt(v));
+    });
+
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function() {
         currentSettings.mainAxis = parseInt($(this).val());
+        if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
+            $('span.span_timeline').show();
+        } else {
+            $('span.span_timeline').hide();
+            if (currentSettings.type == 'timeline') {
+                $('input#radio_line').prop('checked', true);
+                currentSettings.type = 'line';
+            }
+        }
         var xaxis_title = $(this).children('option:selected').text();
         $('input[name="xaxis_label"]').val(xaxis_title);
         currentSettings.xaxisLabel = xaxis_title;
@@ -201,6 +217,25 @@ function getSelectedSeries() {
     return ret;
 }
 
+function extractDate(dateString) {
+    var matches, match;
+    var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
+    var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+    
+    matches = dateTimeRegExp.exec(dateString);
+    if (matches != null && matches.length > 0) {
+        match = matches[0];
+        return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
+    } else {
+        matches = dateRegExp.exec(dateString);
+        if (matches != null && matches.length > 0) {
+            match = matches[0];
+            return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
+        }
+    }
+    return null;
+}
+
 function PMA_queryChart(data, columnNames, settings) {
     if ($('#querychart').length == 0) {
         return;
@@ -235,7 +270,11 @@ function PMA_queryChart(data, columnNames, settings) {
 
     // create the data table and add columns
     var dataTable = new DataTable();
-    dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
+    if (settings.type == 'timeline') {
+        dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
+    } else {
+        dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
+    }
     $.each(settings.selectedSeries, function(index, element) {
         dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
     });
@@ -251,8 +290,12 @@ function PMA_queryChart(data, columnNames, settings) {
         newRow = [];
         for ( var j = 0; j < columnsToExtract.length; j++) {
             col = columnNames[columnsToExtract[j]];
-            if (j == 0) { // first column is string type
-                newRow.push(row[col]);
+            if (j == 0) {
+                if (settings.type == 'timeline') { // first column is date type
+                    newRow.push(extractDate(row[col]));
+                } else { // first column is string type
+                    newRow.push(row[col]);
+                }
             } else { // subsequent columns are of type, number
                 newRow.push(parseFloat(row[col]));
             }

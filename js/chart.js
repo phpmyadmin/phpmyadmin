@@ -6,7 +6,8 @@ var ChartType = {
     AREA : 'area',
     BAR : 'bar',
     COLUMN : 'column',
-    PIE : 'pie'
+    PIE : 'pie',
+    TIMELINE: 'timeline'
 };
 
 /**
@@ -161,6 +162,9 @@ JQPlotChartFactory.prototype.createChart = function(type, elementId) {
     case ChartType.LINE:
         chart = new JQPlotLineChart(elementId);
         break;
+    case ChartType.TIMELINE:
+        chart = new JQPloatTimelineChart(elementId);
+        break;
     case ChartType.AREA:
         chart = new JQPlotAreaChart(elementId);
         break;
@@ -292,6 +296,48 @@ JQPlotLineChart.prototype.prepareData = function(dataTable) {
                 retData[j - 1] = retRow;
             }
             retRow.push(row[j]);
+        }
+    }
+    return retData;
+};
+
+/**
+ * JQPlot timeline chart
+ * 
+ * @param elementId
+ *            id of the div element the chart is drawn in
+ */
+var JQPloatTimelineChart = function(elementId) {
+    JQPlotLineChart.call(this, elementId);
+};
+JQPloatTimelineChart.prototype = new JQPlotLineChart();
+JQPloatTimelineChart.prototype.constructor = JQPlotAreaChart;
+
+JQPloatTimelineChart.prototype.populateOptions = function(dataTable, options) {
+    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
+            options);
+    opt.axes.xaxis.renderer = $.jqplot.DateAxisRenderer;
+    opt.axes.xaxis.tickOptions = {
+        formatString:'%b %#d, %y'
+    };
+    return opt;
+};
+
+JQPloatTimelineChart.prototype.prepareData = function(dataTable) {
+    var data = dataTable.getData(), row, d;
+    var retData = [], retRow;
+    for ( var i = 0; i < data.length; i++) {
+        row = data[i];
+        d = row[0];
+        for ( var j = 1; j < row.length; j++) {
+            retRow = retData[j - 1];
+            if (retRow == null) {
+                retRow = [];
+                retData[j - 1] = retRow;
+            }
+            if (d != null) {
+                retRow.push([d.getTime(), row[j]]);
+            }
         }
     }
     return retData;

@@ -68,6 +68,7 @@ $scripts->addFile('jqplot/plugins/jqplot.barRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.categoryAxisRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.pointLabels.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 /* < IE 9 doesn't support canvas natively */
@@ -135,15 +136,20 @@ url_query = '<?php echo $url_query;?>';
         <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line'); ?></label>
         <input type="radio" name="chartType" value="area" id="radio_area" />
         <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Area'); ?></label>
-        <span class="span_pie">
+        <span class="span_pie" style="display:none;">
         <input type="radio" name="chartType" value="pie" id="radio_pie" />
         <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie'); ?></label>
         </span>
+        <span class="span_timeline" style="display:none;">
+        <input type="radio" name="chartType" value="timeline" id="radio_timeline" />
+        <label for ="radio_timeline"><?php echo _pgettext('Chart type', 'Timeline'); ?></label>
+        </span>
+        <br /><br />
         <span class="barStacked">
         <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
         <label for ="checkbox_barStacked"><?php echo __('Stacked'); ?></label>
         </span>
-        <br>
+        <br /><br />
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
     </div>
         <?php
@@ -181,6 +187,15 @@ url_query = '<?php echo $url_query;?>';
             }
         ?>
         </select>
+        <input type="hidden" name="dateTimeCols" value="
+        <?php
+            $date_time_types = array('date', 'datetime', 'timestamp');
+            foreach ($keys as $idx => $key) {
+                if (in_array($fields_meta[$idx]->type, $date_time_types)) {
+                    echo $idx . " ";
+                }
+            }
+        ?>" />
         </div>
         <?php
         }
