@@ -23,7 +23,7 @@ $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
 if (!$GLOBALS['cfg']['AllowThirdPartyFraming']) {
     header('X-Frame-Options: SAMEORIGIN');
     header("X-Content-Security-Policy: allow 'self' ; options inline-script eval-script; frame-ancestors 'self'; img-src 'self' data:");
-    header("X-WebKit-CSP: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'");
+    header("X-WebKit-CSP: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'");
 }
 PMA_no_cache_header();
 if (!defined('IS_TRANSFORMATION_WRAPPER')) {
