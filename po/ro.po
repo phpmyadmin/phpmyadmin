@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-10 13:37+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-14 20:21+0200\n"
+"Last-Translator: Pham Andrei <pham.andrei4@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/3-5/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -11761,15 +11761,15 @@ msgstr "Vizualizarea schemei tabelului"
 
 #: tbl_gis_visualization.php:112
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "Afișează Vizualizarea GIS"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
-msgstr ""
+msgstr "Lățime"
 
 #: tbl_gis_visualization.php:132
 msgid "Height"
-msgstr ""
+msgstr "Înălțime"
 
 #: tbl_gis_visualization.php:136
 #, fuzzy
@@ -11789,7 +11789,7 @@ msgstr "Număr de fișiere-jurnal"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
-msgstr ""
+msgstr "Redesenează"
 
 #: tbl_gis_visualization.php:177
 #, fuzzy

@@ -52,7 +52,8 @@ $(document).ready(function() {
             }
         },
         title: {
-            text: $('input[name="chartTitle"]').attr('value')
+            text: $('input[name="chartTitle"]').attr('value'),
+            escapeHtml: true
             //margin:20
         },
         legend: {
@@ -245,7 +246,8 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
 
     var settings = {
         title: {
-            text: '' 
+            text: '',
+            escapeHtml: true
             //margin:20
         }
     };
@@ -279,7 +281,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     if (passedNonJqplotSettings.chart.type == 'spline') {
         settings.seriesDefaults = {
             rendererOptions: {
-                smooth: true 
+                smooth: true
             }
         };
     }
