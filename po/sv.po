@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2012-12-13 12:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2013-01-15 00:03+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "Visa alla"
 #: libraries/schema/User_Schema.class.php:419
 #: libraries/select_lang.lib.php:510
 msgid "Page number:"
-msgstr "Sida:"
+msgstr "Sida nummer:"
 
 #: browse_foreigners.php:94
 msgid ""
@@ -1840,7 +1840,7 @@ msgstr "Lägg till ett alternativ för kolumn "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekt skapade"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1884,23 +1884,20 @@ msgstr ""
 "fungerar när du har sparat."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by double-clicking directly on their "
 #| "content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Du kan även redigera de flesta kolumner<br />genom att dubbelklicka direkt "
-"på deras innehåll."
+"Du kan även redigera de flesta värden<br />genom att dubbelklicka direkt på "
+"dessa."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Du kan även redigera de flesta kolumner<br />genom att klicka direkt på "
-"deras innehåll."
+"Du kan även redigera de flesta värden<br />genom att klicka direkt på dessa."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -5280,7 +5277,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5288,12 +5284,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Inaktivera standardvarningen som visas när en skillnad mellan MySQL "
-"biblioteket och servern är upptäckt"
+"Inaktivera standardvarningen vilken visas om en skillnad mellan MySQL "
+"biblioteket och servern upptäcks"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Server/bibliotek skillnadsvarning"
 
 #: libraries/config/messages.inc.php:337
 msgid "Iconic table operations"

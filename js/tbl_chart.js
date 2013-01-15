@@ -242,7 +242,10 @@ function PMA_queryChart(data, columnNames, settings) {
     }
 
     jqPlotSettings = {
-        title : settings.title,
+        title : {
+            text : settings.title,
+            escapeHtml: true
+        },
         grid : {
             drawBorder : false,
             shadow : false,

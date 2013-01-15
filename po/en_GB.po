@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2012-11-08 18:56+0200\n"
-"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2013-01-14 10:50+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -953,10 +953,10 @@ msgid "Edit Index"
 msgstr "Edit Index"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Add %d column(s) to index"
+msgstr "Add %s column(s) to index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1581,12 +1581,12 @@ msgstr "Error in Processing Request"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Error code: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Error text: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1840,7 +1840,7 @@ msgstr "Add an option for column "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d object(s) created"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1883,20 +1883,16 @@ msgstr ""
 "edit, tick-box, Edit, Copy and Delete links may not work after saving."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr ""
-"You can also edit most columns<br />by clicking directly on their content."
+msgstr "You can also edit most values<br />by double-clicking directly on them."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr ""
-"You can also edit most columns<br />by clicking directly on their content."
+msgstr "You can also edit most values<br />by clicking directly on them."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -2747,7 +2743,7 @@ msgstr "Open new phpMyAdmin window"
 
 #: libraries/Header.class.php:386
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Click on the bar to scroll to top of page"
 
 #: libraries/Header.class.php:593
 #: libraries/plugins/auth/AuthenticationCookie.class.php:267
@@ -3846,7 +3842,7 @@ msgstr "You should upgrade to %s %s or later."
 
 #: libraries/common.inc.php:1042
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Error: Token mismatch"
 
 #: libraries/common.inc.php:1086
 msgid "GLOBALS overwrite attempt"
@@ -3879,11 +3875,11 @@ msgstr "Right"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Click"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Double click"
 
 #: libraries/config.values.php:71 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
@@ -5054,7 +5050,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maximum items in branch"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5143,25 +5139,24 @@ msgid "Target for quick access icon"
 msgstr "Target for quick access icon"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Minimum number of tables to display the table filter box"
+msgstr ""
+"Defines the minimum number of items (tables, views, routines and events) to "
+"display a filter box."
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Minimum number of tables to display the table filter box"
+msgstr "Minimum number of items to display the filter box"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimum number of databases to display the database filter box"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5169,12 +5164,12 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Only light version; display databases in a tree (determined by the separator "
-"defined below)"
+"Group items in the navigation tree (determined by the separator defined "
+"below)"
 
 #: libraries/config/messages.inc.php:310
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Group items in the tree"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -5279,7 +5274,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Missing phpMyAdmin configuration storage tables"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5287,12 +5281,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication"
+"Disable the default warning that is displayed if a difference between the "
+"MySQL library and server is detected"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Server/library difference warning"
 
 #: libraries/config/messages.inc.php:337
 msgid "Iconic table operations"
@@ -5379,13 +5373,12 @@ msgstr "Repeat headers"
 
 #: libraries/config/messages.inc.php:358
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Grid editing: trigger action"
 
 #: libraries/config/messages.inc.php:359
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Save all edited cells at once"
+msgstr "Grid editing: save all edited cells at once"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
@@ -5450,7 +5443,6 @@ msgid "Authentication type"
 msgstr "Authentication type"
 
 #: libraries/config/messages.inc.php:374
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5459,14 +5451,13 @@ msgid ""
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
-"support, suggested: [kbd]pma_bookmark[/kbd]"
+"support, suggested: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
 msgstr "Bookmark table"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5474,8 +5465,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma_column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -5534,7 +5525,6 @@ msgid "Count tables"
 msgstr "Count tables"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5542,8 +5532,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-"kbd]"
+"Leave blank for no Designer support, suggested: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -5578,7 +5568,6 @@ msgid "Hide databases"
 msgstr "Hide databases"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5586,8 +5575,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
-"kbd]"
+"Leave blank for no SQL query history support, suggested: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -5652,13 +5641,12 @@ msgid "Password for config auth"
 msgstr "Password for config auth"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
+"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -5687,7 +5675,6 @@ msgid "Server port"
 msgstr "Server port"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5696,14 +5683,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
-"suggested: [kbd]pma_recent[/kbd]"
+"suggested: [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
 msgstr "Recently used table"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5711,8 +5697,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma_relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5759,7 +5745,6 @@ msgid "Use SSL"
 msgstr "Use SSL"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5767,14 +5752,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
+"Leave blank for no PDF schema support, suggested: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
 msgstr "PDF schema: table coordinates"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5783,14 +5768,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 "Table to describe the display columns, leave blank for no support; "
-"suggested: [kbd]pma_table_info[/kbd]"
+"suggested: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
 msgstr "Display columns table"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5799,7 +5783,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
-"suggested: [kbd]pma_table_uiprefs[/kbd]"
+"suggested: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5851,7 +5835,6 @@ msgid "Statements to track"
 msgstr "Statements to track"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5859,8 +5842,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma_tracking[/"
-"kbd]"
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -5879,7 +5862,6 @@ msgid "Automatically create versions"
 msgstr "Automatically create versions"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5887,8 +5869,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma_userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -6682,7 +6664,6 @@ msgstr ""
 "Previous import timed out, after resubmitting will continue from position %d."
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -7414,7 +7395,7 @@ msgstr "unknown"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "An error has occurred while loading the navigation tree"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7436,24 +7417,21 @@ msgstr "Reload navigation frame"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s other result found"
+msgstr[1] "%s other results found"
 
 #: libraries/navigation/NavigationTree.class.php:1027
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
-msgstr "Filter databases by name"
+msgstr "filter databases by name"
 
 #: libraries/navigation/NavigationTree.class.php:1028
 #: libraries/navigation/NavigationTree.class.php:1054
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Clear series"
+msgstr "Clear Fast Filter"
 
 #: libraries/navigation/NavigationTree.class.php:1053
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
 msgstr "Filter tables by name"
@@ -7462,12 +7440,12 @@ msgstr "Filter tables by name"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Invalid class name \"%1$s\", using default of \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Could not include class \"%1$s\", file \"%2$s\" not found"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -7475,14 +7453,12 @@ msgid "Columns"
 msgstr "Columns"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7495,14 +7471,12 @@ msgid "Functions"
 msgstr "Functions"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7516,21 +7490,18 @@ msgstr "Procedures"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7542,7 +7513,6 @@ msgid "Views"
 msgstr "Views"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
@@ -9479,7 +9449,6 @@ msgid "User has been added."
 msgstr "User has been added."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -10072,7 +10041,7 @@ msgstr "Error in ZIP archive:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Fatal error: The navigation can only be accessed via Ajax"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -10084,11 +10053,11 @@ msgstr "Show/Hide left menu"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "View in full-screen"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Exit full-screen"
 
 #: pmd_general.php:95
 msgid "Save position"
@@ -12025,10 +11994,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Using bookmark \"%s\" as default browse query."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Bookmark %s created"
+msgstr "Bookmark not created"
 
 #: sql.php:914
 msgid "Showing as PHP code"
@@ -12056,10 +12024,9 @@ msgid "Label"
 msgstr "Label"
 
 #: tbl_chart.php:41
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "No data found"
+msgstr "No data to display"
 
 #: tbl_chart.php:129
 msgctxt "Chart type"
@@ -12200,10 +12167,9 @@ msgstr ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Comment"
+msgstr "Comment:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12569,7 +12535,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries is set to 'OFF'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12577,14 +12542,13 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries is set to 'OFF'"
+msgstr "slow_query_log is set to 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
