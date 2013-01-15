@@ -29,7 +29,8 @@ if (isset($_REQUEST['ajax_request'])
         exit;
     }
 
-    $sql_limit_to_append = ' LIMIT ' . $_REQUEST['pos'] . ', ' . $_REQUEST['session_max_rows'] . " ";
+    $sql_limit_to_append = ' LIMIT ' . $_REQUEST['pos'] . ', '
+        . $_REQUEST['session_max_rows'] . " ";
     $sql_query .= $sql_limit_to_append;
     $data = array();
     $result = PMA_DBI_try_query($sql_query);
@@ -181,9 +182,12 @@ url_query = '<?php echo $url_query;?>';
             foreach ($keys as $idx => $key) {
                 if (in_array($fields_meta[$idx]->type, $numeric_types)) {
                     if ($idx == $yaxis) {
-                        echo '<option value="' . htmlspecialchars($idx) . '">' . htmlspecialchars($key) . '</option>';
+                        echo '<option value="' . htmlspecialchars($idx) . '">'
+                            . htmlspecialchars($key) . '</option>';
                     } else {
-                        echo '<option value="' . htmlspecialchars($idx) . '" selected="selected">' . htmlspecialchars($key) . '</option>';
+                        echo '<option value="' . htmlspecialchars($idx)
+                            . '" selected="selected">' . htmlspecialchars($key)
+                            . '</option>';
                     }
                 }
             }
