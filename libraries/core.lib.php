@@ -222,7 +222,10 @@ function PMA_fatalError(
 
         /* Define fake gettext for fatal errors */
         if (!function_exists('__')) {
-            function __($text) { return $text; }
+            function __($text)
+            {
+                return $text;
+            }
         }
 
         $error_header = __('Error');
@@ -283,9 +286,12 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 {
     /* Gettext does not have to be loaded yet here */
     if (function_exists('__')) {
-        $message = __('The %s extension is missing. Please check your PHP configuration.');
+        $message = __(
+            'The %s extension is missing. Please check your PHP configuration.'
+        );
     } else {
-        $message = 'The %s extension is missing. Please check your PHP configuration.';
+        $message
+            = 'The %s extension is missing. Please check your PHP configuration.';
     }
     $doclink = PMA_getPHPDocLink('book.' . $extension . '.php');
     $message = sprintf(
@@ -303,7 +309,8 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
             E_USER_WARNING,
             '',
             '',
-            $escape=false);
+            false
+        );
     }
 }
 
@@ -533,17 +540,20 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         echo '<meta http-equiv="expires" content="0">' . "\n";
         echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
         echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
-        echo '<meta http-equiv="Refresh" content="0;url=' .  htmlspecialchars($uri) . '">' . "\n";
+        echo '<meta http-equiv="Refresh" content="0;url='
+            .  htmlspecialchars($uri) . '">' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'setTimeout("window.location = unescape(\'"' . PMA_escapeJsString($uri) . '"\')", 2000);' . "\n";
+        echo 'setTimeout("window.location = unescape(\'"'
+            . PMA_escapeJsString($uri) . '"\')", 2000);' . "\n";
         echo '//]]>' . "\n";
         echo '</script>' . "\n";
         echo '</head>' . "\n";
         echo '<body>' . "\n";
         echo '<script type="text/javascript">' . "\n";
         echo '//<![CDATA[' . "\n";
-        echo 'document.write(\'<p><a href="' . htmlspecialchars($uri) . '">' . __('Go') . '</a></p>\');' . "\n";
+        echo 'document.write(\'<p><a href="' . htmlspecialchars($uri) . '">'
+            . __('Go') . '</a></p>\');' . "\n";
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
 
