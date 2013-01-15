@@ -89,7 +89,7 @@ function PMA_getHtmlForChangePassword($username, $hostname) {
         . '</table>'
         . '</fieldset>'
         . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
-	    . '<input type="submit" name="change_pw" value="' . __('Go') . '" />'
+        . '<input type="submit" name="change_pw" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>';
     return $html;

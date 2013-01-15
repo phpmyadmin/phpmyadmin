@@ -18,7 +18,7 @@ $scripts->addFile('db_structure.js');
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
-include 'libraries/db_common.inc.php';
+require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
 // Get the database structure
