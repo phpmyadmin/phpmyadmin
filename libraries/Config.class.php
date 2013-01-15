@@ -368,7 +368,7 @@ class PMA_Config
     {
         // find out if there is a .git folder
         $git_folder = '.git';
-        if (! $this->isGitRevision()){
+        if (! $this->isGitRevision()) {
             return;
         }
 
