@@ -1238,7 +1238,8 @@ class PMA_Util
                 $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton(
-                        $edit_link, __('Edit'), array('onclick' => $onclick, 'class' => 'disableAjax')
+                        $edit_link, __('Edit'),
+                        array('onclick' => $onclick, 'class' => 'disableAjax')
                     )
                     . ']';
             } else {
@@ -1839,8 +1840,9 @@ class PMA_Util
      *
      * @return string  html-code for tab-navigation
      */
-    public static function getHtmlTabs($tabs, $url_params, $menu_id, $resizable = false)
-    {
+    public static function getHtmlTabs($tabs, $url_params, $menu_id,
+        $resizable = false
+    ) {
         $class = '';
         if ($resizable) {
             $class = ' class="resizable-menu"';
@@ -2196,7 +2198,7 @@ class PMA_Util
                     ) {
                         // need (string) === (string)
                         // '' !== 0 but '' == 0
-                        if ((string) $select_expr['alias'] === (string) $meta->name) {
+                        if ((string)$select_expr['alias'] === (string)$meta->name) {
                             $meta->orgname = $select_expr['column'];
                             break;
                         } // end if
@@ -2392,7 +2394,8 @@ class PMA_Util
      * @access  public
      */
     public static function pageselector(
-        $name, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
+        $name, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200,
+        $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
         $increment = floor($nbTotalPage / $percent);
@@ -2524,7 +2527,8 @@ class PMA_Util
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos', $classes = array()
+        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos',
+        $classes = array()
     ) {
 
         $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
@@ -2558,11 +2562,13 @@ class PMA_Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '">' . $caption1 . '</a>';
+                    . PMA_generate_common_url($_url_params) . '">' . $caption1
+                    . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '">' . $caption2 . '</a>';
+                    . PMA_generate_common_url($_url_params) . '">' . $caption2
+                    . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script).
@@ -2592,7 +2598,8 @@ class PMA_Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" >' . $caption3 . '</a>';
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption3
+                    . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
                 if ($_url_params[$name] == $count) {
@@ -2600,7 +2607,8 @@ class PMA_Util
                 }
 
                 $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" >' . $caption4 . '</a>';
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption4
+                    . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
         }
@@ -4079,8 +4087,8 @@ class PMA_Util
      * @return void
      */
     public static function fillTooltip(
-        &$tooltip_truename, &$tooltip_aliasname, $table)
-    {
+        &$tooltip_truename, &$tooltip_aliasname, $table
+    ) {
         if (strstr($table['Comment'], '; InnoDB free') === false) {
             if (!strstr($table['Comment'], 'InnoDB free') === false) {
                 // here we have just InnoDB generated part

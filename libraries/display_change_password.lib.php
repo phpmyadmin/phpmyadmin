@@ -12,18 +12,20 @@ if (! defined('PHPMYADMIN')) {
 /**
   * Get HTML for the Change password dialog 
   *
-  * @param  string $username
-  * @param  string $hostname
+  * @param string $username username
+  * @param string $hostname hostname
   *
   * @return string html snippet
   */
-function PMA_getHtmlForChangePassword($username, $hostname) {
-
+function PMA_getHtmlForChangePassword($username, $hostname)
+{
     /**
      * autocomplete feature of IE kills the "onchange" event handler and it
      * must be replaced by the "onpropertychange" one in this case
      */
-    $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7)
+    $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
+        && PMA_USR_BROWSER_VER >= 5
+        && PMA_USR_BROWSER_VER < 7)
                  ? 'onpropertychange'
                  : 'onchange';
 
