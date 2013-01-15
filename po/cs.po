@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-09 14:32+0200\n"
+"PO-Revision-Date: 2013-01-15 09:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -10798,7 +10798,7 @@ msgstr "Vynásobit"
 
 #: server_status_monitor.php:653
 msgid "Append unit to data values"
-msgstr "Přidat jednoty"
+msgstr "Zobrazit hodnoty s jednotkou"
 
 #: server_status_monitor.php:659
 msgid "Add this series"
