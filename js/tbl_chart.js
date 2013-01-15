@@ -71,6 +71,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
         },
         title: {
             text: $('input[name="chartTitle"]').attr('value')
+            escapeHtml: true,
             //margin:20
         },
         legend: {
@@ -286,6 +287,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
 
     var settings = {
         title: {
+            escapeHtml: true,
             text: ''
             //margin:20
         }
