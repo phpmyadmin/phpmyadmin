@@ -214,7 +214,9 @@ class PMA_Config
         } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
         ) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+            $this->set(
+                'PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]
+            );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
@@ -486,7 +488,13 @@ class PMA_Config
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
-                        $sha = strtolower(bin2hex(substr($index_data, $offset + ($position * 20), 20)));
+                        $sha = strtolower(
+                            bin2hex(
+                                substr(
+                                    $index_data, $offset + ($position * 20), 20
+                                )
+                            )
+                        );
                         if ($sha == $hash) {
                             $found = true;
                             break;
@@ -497,11 +505,15 @@ class PMA_Config
                     }
                     // read pack offset
                     $offset = 8 + (256 * 4) + (24 * $fanout[256]);
-                    $pack_offset = unpack('N', substr($index_data, $offset + ($position * 4), 4));
+                    $pack_offset = unpack(
+                        'N', substr($index_data, $offset + ($position * 4), 4)
+                    );
                     $pack_offset = $pack_offset[1];
 
                     // open pack file
-                    $pack_file = fopen($git_folder . '/objects/pack/' . $pack_name, 'rb');
+                    $pack_file = fopen(
+                        $git_folder . '/objects/pack/' . $pack_name, 'rb'
+                    );
                     if ($pack_file === false) {
                         continue;
                     }
@@ -575,7 +587,8 @@ class PMA_Config
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
-                $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/trees/' . $branch;
+                $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
+                    . '/git/trees/' . $branch;
                 $is_found = $this->checkHTTP($link);
                 switch($is_found) {
                 case true:
@@ -1653,8 +1666,10 @@ class PMA_Config
         }
         $options = PMA_Config::getFontsizeOptions($current_size);
 
-        $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
-        $return .= '<select name="set_fontsize" id="select_fontsize" class="autosubmit">' . "\n";
+        $return = '<label for="select_fontsize">' . __('Font size')
+            . ':</label>' . "\n"
+            . '<select name="set_fontsize" id="select_fontsize"'
+            . ' class="autosubmit">' . "\n";
         foreach ($options as $option) {
             $return .= '<option value="' . $option . '"';
             if ($option == $current_size) {
