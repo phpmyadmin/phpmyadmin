@@ -118,6 +118,7 @@ function PMA_DBI_query($query, $link = null, $options = 0,
  * Stores query data into session data for debugging purposes
  *
  * @param string   $query  Query text
+ * @param resource $link   database link
  * @param resource $result Query result
  * @param integer  $time   Time to execute query
  *
@@ -153,7 +154,10 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
             . (isset($trace_step['type']) ? $trace_step['type'] : '')
             . (isset($trace_step['function']) ? $trace_step['function'] : '')
             . '('
-            . (isset($trace_step['params']) ? implode(', ', $trace_step['params']) : '')
+            . (isset($trace_step['params'])
+                ? implode(', ', $trace_step['params'])
+                : ''
+            )
             . ')'
             ;
     }
@@ -431,10 +435,12 @@ function PMA_DBI_get_tables_full($database, $table = false,
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                  . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table)) . '%\'';
+                    . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table))
+                    . '%\'';
             } elseif ('comment' === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
-                  . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table)) . '%\'';
+                    . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table))
+                    . '%\'';
             } else {
                 $sql_where_table = 'AND t.`TABLE_NAME` = \''
                     . PMA_Util::sqlAddSlashes($table) . '\'';
@@ -578,7 +584,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_Util::backquote($each_database)
                     .' LIKE \''
-                    . PMA_Util::escapeMysqlWildcards(PMA_Util::sqlAddSlashes($table, true))
+                    . PMA_Util::escapeMysqlWildcards(
+                        PMA_Util::sqlAddSlashes($table, true)
+                    )
                     . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
@@ -686,24 +694,42 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 // todo : remove and check usage in the rest of the code,
                 // MySQL 5.0 is required by current PMA version
                 $each_tables[$table_name]['TABLE_SCHEMA']      = $each_database;
-                $each_tables[$table_name]['TABLE_NAME']        =& $each_tables[$table_name]['Name'];
-                $each_tables[$table_name]['ENGINE']            =& $each_tables[$table_name]['Engine'];
-                $each_tables[$table_name]['VERSION']           =& $each_tables[$table_name]['Version'];
-                $each_tables[$table_name]['ROW_FORMAT']        =& $each_tables[$table_name]['Row_format'];
-                $each_tables[$table_name]['TABLE_ROWS']        =& $each_tables[$table_name]['Rows'];
-                $each_tables[$table_name]['AVG_ROW_LENGTH']    =& $each_tables[$table_name]['Avg_row_length'];
-                $each_tables[$table_name]['DATA_LENGTH']       =& $each_tables[$table_name]['Data_length'];
-                $each_tables[$table_name]['MAX_DATA_LENGTH']   =& $each_tables[$table_name]['Max_data_length'];
-                $each_tables[$table_name]['INDEX_LENGTH']      =& $each_tables[$table_name]['Index_length'];
-                $each_tables[$table_name]['DATA_FREE']         =& $each_tables[$table_name]['Data_free'];
-                $each_tables[$table_name]['AUTO_INCREMENT']    =& $each_tables[$table_name]['Auto_increment'];
-                $each_tables[$table_name]['CREATE_TIME']       =& $each_tables[$table_name]['Create_time'];
-                $each_tables[$table_name]['UPDATE_TIME']       =& $each_tables[$table_name]['Update_time'];
-                $each_tables[$table_name]['CHECK_TIME']        =& $each_tables[$table_name]['Check_time'];
-                $each_tables[$table_name]['TABLE_COLLATION']   =& $each_tables[$table_name]['Collation'];
-                $each_tables[$table_name]['CHECKSUM']          =& $each_tables[$table_name]['Checksum'];
-                $each_tables[$table_name]['CREATE_OPTIONS']    =& $each_tables[$table_name]['Create_options'];
-                $each_tables[$table_name]['TABLE_COMMENT']     =& $each_tables[$table_name]['Comment'];
+                $each_tables[$table_name]['TABLE_NAME']
+                    =& $each_tables[$table_name]['Name'];
+                $each_tables[$table_name]['ENGINE']
+                    =& $each_tables[$table_name]['Engine'];
+                $each_tables[$table_name]['VERSION']
+                    =& $each_tables[$table_name]['Version'];
+                $each_tables[$table_name]['ROW_FORMAT']
+                    =& $each_tables[$table_name]['Row_format'];
+                $each_tables[$table_name]['TABLE_ROWS']
+                    =& $each_tables[$table_name]['Rows'];
+                $each_tables[$table_name]['AVG_ROW_LENGTH']
+                    =& $each_tables[$table_name]['Avg_row_length'];
+                $each_tables[$table_name]['DATA_LENGTH']
+                    =& $each_tables[$table_name]['Data_length'];
+                $each_tables[$table_name]['MAX_DATA_LENGTH']
+                    =& $each_tables[$table_name]['Max_data_length'];
+                $each_tables[$table_name]['INDEX_LENGTH']
+                    =& $each_tables[$table_name]['Index_length'];
+                $each_tables[$table_name]['DATA_FREE']
+                    =& $each_tables[$table_name]['Data_free'];
+                $each_tables[$table_name]['AUTO_INCREMENT']
+                    =& $each_tables[$table_name]['Auto_increment'];
+                $each_tables[$table_name]['CREATE_TIME']
+                    =& $each_tables[$table_name]['Create_time'];
+                $each_tables[$table_name]['UPDATE_TIME']
+                    =& $each_tables[$table_name]['Update_time'];
+                $each_tables[$table_name]['CHECK_TIME']
+                    =& $each_tables[$table_name]['Check_time'];
+                $each_tables[$table_name]['TABLE_COLLATION']
+                    =& $each_tables[$table_name]['Collation'];
+                $each_tables[$table_name]['CHECKSUM']
+                    =& $each_tables[$table_name]['Checksum'];
+                $each_tables[$table_name]['CREATE_OPTIONS']
+                    =& $each_tables[$table_name]['Create_options'];
+                $each_tables[$table_name]['TABLE_COMMENT']
+                    =& $each_tables[$table_name]['Comment'];
 
                 if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
                     && $each_tables[$table_name]['Engine'] == null
@@ -907,7 +933,8 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
             }
             $sql .= $sql_where_schema . '
                     GROUP BY BINARY s.SCHEMA_NAME
-                    ORDER BY BINARY ' . PMA_Util::backquote($sort_by) . ' ' . $sort_order
+                    ORDER BY BINARY ' . PMA_Util::backquote($sort_by)
+                . ' ' . $sort_order
                 . $limit;
         }
 
@@ -1053,9 +1080,10 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
                 column_name        AS `Field`,
                 (CASE
                     WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                    THEN concat(lower(data_type), '(', character_maximum_length, ')')
                     WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision, ',', numeric_scale, ')')
+                    THEN concat(lower(data_type), '(', numeric_precision,
+                        ',', numeric_scale, ')')
                     WHEN enum_values IS NOT NULL
                         THEN concat(lower(data_type), '(', enum_values, ')')
                     ELSE lower(data_type) END)
@@ -1070,7 +1098,8 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
                 column_default     AS `Default`,
                 (CASE
                     WHEN is_auto_increment THEN 'auto_increment'
-                    WHEN column_default_update THEN 'on update ' || column_default_update
+                    WHEN column_default_update
+                    THEN 'on update ' || column_default_update
                     ELSE '' END)   AS `Extra`,
                 NULL               AS `Privileges`,
                 column_comment     AS `Comment`
@@ -1130,13 +1159,18 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         // MySQL 5.0 or higher is required for current PMA version
         $columns[$column_name]['COLUMN_NAME'] =& $columns[$column_name]['Field'];
         $columns[$column_name]['COLUMN_TYPE'] =& $columns[$column_name]['Type'];
-        $columns[$column_name]['COLLATION_NAME'] =& $columns[$column_name]['Collation'];
+        $columns[$column_name]['COLLATION_NAME']
+            =& $columns[$column_name]['Collation'];
         $columns[$column_name]['IS_NULLABLE'] =& $columns[$column_name]['Null'];
         $columns[$column_name]['COLUMN_KEY'] =& $columns[$column_name]['Key'];
-        $columns[$column_name]['COLUMN_DEFAULT'] =& $columns[$column_name]['Default'];
-        $columns[$column_name]['EXTRA'] =& $columns[$column_name]['Extra'];
-        $columns[$column_name]['PRIVILEGES'] =& $columns[$column_name]['Privileges'];
-        $columns[$column_name]['COLUMN_COMMENT'] =& $columns[$column_name]['Comment'];
+        $columns[$column_name]['COLUMN_DEFAULT']
+            =& $columns[$column_name]['Default'];
+        $columns[$column_name]['EXTRA']
+            =& $columns[$column_name]['Extra'];
+        $columns[$column_name]['PRIVILEGES']
+            =& $columns[$column_name]['Privileges'];
+        $columns[$column_name]['COLUMN_COMMENT']
+            =& $columns[$column_name]['Comment'];
 
         $columns[$column_name]['TABLE_CATALOG'] = null;
         $columns[$column_name]['TABLE_SCHEMA'] = $database;
@@ -1204,9 +1238,10 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 column_name        AS `Field`,
                 (CASE
                     WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                    THEN concat(lower(data_type), '(', character_maximum_length, ')')
                     WHEN numeric_precision > 0 OR numeric_scale > 0
-                        THEN concat(lower(data_type), '(', numeric_precision, ',', numeric_scale, ')')
+                    THEN concat(lower(data_type), '(', numeric_precision,
+                        ',', numeric_scale, ')')
                     WHEN enum_values IS NOT NULL
                         THEN concat(lower(data_type), '(', enum_values, ')')
                     ELSE lower(data_type) END)
@@ -1219,12 +1254,14 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 (CASE
                     WHEN is_used_in_primary THEN 'PRI'
                     WHEN is_unique AND NOT is_multi THEN 'UNI'
-                    WHEN is_indexed AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
+                    WHEN is_indexed
+                    AND (NOT is_multi OR is_first_in_multi) THEN 'MUL'
                     ELSE '' END)   AS `Key`,
                 column_default     AS `Default`,
                 (CASE
                     WHEN is_auto_increment THEN 'auto_increment'
-                    WHEN column_default_update <> '' THEN 'on update ' || column_default_update
+                    WHEN column_default_update <> ''
+                    THEN 'on update ' || column_default_update
                     ELSE '' END)   AS `Extra`
                 " . ($full ? " ,
                 NULL               AS `Privileges`,
@@ -1236,9 +1273,10 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
                 AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
         // ORDER BY ordinal_position
     } else {
-        $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS
-            FROM ' . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
-            . (($column != null) ? "LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
+        $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
+            . PMA_Util::backquote($database) . '.' . PMA_Util::backquote($table)
+            . (($column != null) ? "LIKE '"
+            . PMA_Util::sqlAddSlashes($column, true) . "'" : '');
     }
     return $sql;
 }
@@ -2017,7 +2055,10 @@ function PMA_DBI_formatError($error_number, $error_message)
     if ($error_number == 2002) {
         $error .= ' - ' . $error_message;
         $error .= '<br />';
-        $error .= __('The server is not responding (or the local server\'s socket is not correctly configured).');
+        $error .= __(
+            'The server is not responding (or the local server\'s socket'
+            . ' is not correctly configured).'
+        );
     } elseif ($error_number == 2003) {
         $error .= ' - ' . $error_message;
         $error .= '<br />' . __('The server is not responding.');
@@ -2028,7 +2069,8 @@ function PMA_DBI_formatError($error_number, $error_message)
                 . __('Please check privileges of directory containing database.');
         } else {
             /* InnoDB contraints, see
-             * http://dev.mysql.com/doc/refman/5.0/en/innodb-foreign-key-constraints.html
+             * http://dev.mysql.com/doc/refman/5.0/en/
+             *  innodb-foreign-key-constraints.html
              */
             $error .= ' - ' . $error_message .
                 ' (<a href="server_engines.php' .
@@ -2060,5 +2102,4 @@ function PMA_is_system_schema($schema_name, $test_for_mysql_schema = false)
             || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
             || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
 }
-
 ?>
