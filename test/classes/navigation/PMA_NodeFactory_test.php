@@ -19,7 +19,8 @@ class NodeFactory_test extends PHPUnit_Framework_TestCase
         $GLOBALS['token'] = 'token';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         if (! function_exists('__')) {
-            function __($str) {
+            function __($str)
+            {
                 return $str;
             }
         }
@@ -43,7 +44,9 @@ class NodeFactory_test extends PHPUnit_Framework_TestCase
 
     public function testGroupContainer()
     {
-        $node = PMA_NodeFactory::getInstance('Node', 'default', Node::CONTAINER, true);
+        $node = PMA_NodeFactory::getInstance(
+            'Node', 'default', Node::CONTAINER, true
+        );
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertEquals(true, $node->is_group);
