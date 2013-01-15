@@ -95,6 +95,21 @@ class PMA_Error_Handler
     /**
      * Error handler - called when errors are triggered/occured
      *
+     * This calls the addError() function, escaping the error string
+     *
+     * @param integer $errno
+     * @param string  $errstr
+     * @param string  $errfile
+     * @param integer $errline
+     */
+    public function handleError($errno, $errstr, $errfile, $errline)
+    {
+        $this->addError($errstr, $errno, $errfile, $errline, $escape=true);
+    }
+
+    /**
+     * Add an error; can also be called directly (with or without escaping)
+     *
      * The following error types cannot be handled with a user defined function:
      * E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR,
      * E_COMPILE_WARNING,
@@ -107,15 +122,19 @@ class PMA_Error_Handler
      * @param string  $errstr  error string
      * @param string  $errfile error file
      * @param integer $errline error line
+     * @param boolean $escape  whether to escape the error string
      *
      * @return void
      */
-    public function handleError($errno, $errstr, $errfile, $errline)
+    public function addError($errstr, $errno, $errfile, $errline, $escape=true)
     {
+        if ($escape) {
+            $errstr = htmlspecialchars($errstr);
+        }
         // create error object
         $error = new PMA_Error(
             $errno,
-            htmlspecialchars($errstr),
+            $errstr,
             $errfile,
             $errline
         );
@@ -148,6 +167,7 @@ class PMA_Error_Handler
             break;
         }
     }
+
 
     /**
      * log error to configured log facility

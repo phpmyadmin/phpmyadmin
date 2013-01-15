@@ -21,7 +21,7 @@ require_once 'libraries/sanitizing.lib.php';
 
 class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
 {
-    public function setup()
+    public function setUp()
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['PMA_Config'] = new PMA_Config();
@@ -39,16 +39,8 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 
-    }
-
-    function testMissingExtension()
-    {
-        $ext = 'php_ext';
-        $this->setExpectedException(
-            'PHPUnit_Framework_Error',
-            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.'
-        );
-        PMA_warnMissingExtension($ext);
+        require_once './libraries/Error_Handler.class.php';
+        $GLOBALS['error_handler'] = new PMA_Error_Handler();
     }
 
     function testMissingExtensionFatal()
@@ -74,17 +66,5 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         ob_end_clean();
 
         $this->assertGreaterThan(0, strpos($printed, $warn));
-    }
-
-    function testMissingExtensionWithExtra()
-    {
-        $ext = 'php_ext';
-        $extra = 'Appended Extra String';
-        $this->setExpectedException(
-            'PHPUnit_Framework_Error',
-            'The [a@'.PMA_getPHPDocLink('book.' . $ext . '.php').'@Documentation][em]'.$ext.'[/em][/a] extension is missing. Please check your PHP configuration.'.' '.$extra
-        );
-        PMA_warnMissingExtension($ext, false, $extra);
-        $this->assertTrue(true);
     }
 }

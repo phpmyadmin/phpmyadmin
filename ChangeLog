@@ -92,6 +92,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3596070 [status] localStorage broken in server status monitor
 - bug #3598736 [routines] Editing a procedure with special characters
 - bug #3600322 [core] Visualize GIS data throws Fatal Error
+- bug #3599362 [core] Double-escaped error message
 
 3.5.5.0 (2012-12-21)
 - bug #3563824 [export] Support Apache's mod_deflate
