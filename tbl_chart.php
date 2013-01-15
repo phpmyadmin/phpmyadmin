@@ -15,14 +15,13 @@ require_once 'libraries/common.inc.php';
  * Execute the query and return the result
  */
 
-if(isset($_REQUEST['ajax_request']) && isset($_REQUEST['pos']) && isset($_REQUEST['session_max_rows'])) {
+if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['pos']) && isset($_REQUEST['session_max_rows'])) {
 
     $response = PMA_Response::getInstance();
 
     if (strlen($GLOBALS['table']) && strlen($GLOBALS['db'])) {
         include './libraries/tbl_common.inc.php';
-    }
-    else {
+    } else {
         $response->isSuccess(false);
         $response->addJSON('message', __('Error'));
         exit;
@@ -36,7 +35,7 @@ if(isset($_REQUEST['ajax_request']) && isset($_REQUEST['pos']) && isset($_REQUES
         $data[] = $row;
     }
 
-    if(empty($data)) {
+    if (empty($data)) {
         $response->isSuccess(false);
         $response->addJSON('message', __('No data to display'));
         exit;
