@@ -122,14 +122,15 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testGetDispUserErrors()
-    {
-
-        $this->assertEquals(
-            '<div class="notice">Compile Error</div>',
-            $this->object->getDispUserErrors()
-        );
-    }
+    
+//    public function testGetDispUserErrors()
+//    {
+//
+//        $this->assertEquals(
+//            '<div class="notice">Compile Error</div>',
+//            $this->object->getDispUserErrors()
+//        );
+//    }
 
     /**
      * Test for getDispErrors
