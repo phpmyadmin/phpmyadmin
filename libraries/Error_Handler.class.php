@@ -55,7 +55,9 @@ class PMA_Error_Handler
                 $_SESSION['errors'] = array();
             }
 
-            if (isset($GLOBALS['cfg']['Error_Handler']) && $GLOBALS['cfg']['Error_Handler']['gather']) {
+            if (isset($GLOBALS['cfg']['Error_Handler'])
+                && $GLOBALS['cfg']['Error_Handler']['gather']
+            ) {
                 // remember all errors
                 $_SESSION['errors'] = array_merge(
                     $_SESSION['errors'],
@@ -70,10 +72,17 @@ class PMA_Error_Handler
                      * $GLOBALS['cfg']['Error_Handler']['gather'] to true
                      */
                     if (count($_SESSION['errors']) >= 20) {
-                        $error = new PMA_Error(0, __('Too many error messages, some are not displayed.'), __FILE__, __LINE__);
+                        $error = new PMA_Error(
+                            0,
+                            __('Too many error messages, some are not displayed.'),
+                            __FILE__,
+                            __LINE__
+                        );
                         $_SESSION['errors'][$error->getHash()] = $error;
                         break;
-                    } else if (($error instanceof PMA_Error) && ! $error->isDisplayed()) {
+                    } else if (($error instanceof PMA_Error)
+                        && ! $error->isDisplayed()
+                    ) {
                         $_SESSION['errors'][$key] = $error;
                     }
                 }
@@ -97,14 +106,16 @@ class PMA_Error_Handler
      *
      * This calls the addError() function, escaping the error string
      *
-     * @param integer $errno
-     * @param string  $errstr
-     * @param string  $errfile
-     * @param integer $errline
+     * @param integer $errno   error number
+     * @param string  $errstr  error string
+     * @param string  $errfile error file
+     * @param integer $errline error line
+     *
+     * @return void
      */
     public function handleError($errno, $errstr, $errfile, $errline)
     {
-        $this->addError($errstr, $errno, $errfile, $errline, $escape=true);
+        $this->addError($errstr, $errno, $errfile, $errline, true);
     }
 
     /**
@@ -118,15 +129,15 @@ class PMA_Error_Handler
      * Do not use the context parameter as we want to avoid storing the
      * complete $GLOBALS inside $_SESSION['errors']
      *
-     * @param integer $errno   error number
      * @param string  $errstr  error string
+     * @param integer $errno   error number
      * @param string  $errfile error file
      * @param integer $errline error line
      * @param boolean $escape  whether to escape the error string
      *
      * @return void
      */
-    public function addError($errstr, $errno, $errfile, $errline, $escape=true)
+    public function addError($errstr, $errno, $errfile, $errline, $escape = true)
     {
         if ($escape) {
             $errstr = htmlspecialchars($errstr);
