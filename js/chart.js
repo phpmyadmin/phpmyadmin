@@ -259,55 +259,36 @@ JQPlotLineChart.prototype.constructor = JQPlotLineChart;
 
 JQPlotLineChart.prototype.populateOptions = function(dataTable, options) {
     var columns = dataTable.getColumns();
-    if (options.series == null) {
-        options.series = [];
-    }
-    if (options.series.length == 0) {
+    var optional = {
+        axes : {
+            xaxis : {
+                label : columns[0].name,
+                renderer : $.jqplot.CategoryAxisRenderer,
+                ticks : []
+            },
+            yaxis : {
+                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                labelRenderer : $.jqplot.CanvasAxisLabelRenderer
+            }
+        },
+        series : []
+    };
+    $.extend(true, optional, options);
+    
+    if (optional.series.length == 0) {
         for ( var i = 1; i < columns.length; i++) {
-            options.series.push({
+            optional.series.push({
                 label : columns[i].name.toString()
             });
         }
     }
-
-    if (options.axes == null) {
-        options.axes = {};
-    }
-    if (options.axes.xaxis == null) {
-        options.axes.xaxis = {};
-    }
-    if (options.axes.xaxis.label == null) {
-        options.axes.xaxis.label = columns[0].name;
-    }
-    if (options.axes.xaxis.renderer == null) {
-        options.axes.xaxis.renderer = $.jqplot.CategoryAxisRenderer;
-    }
-    if (options.axes.xaxis.labelRenderer == null) {
-        options.axes.xaxis.labelRenderer = $.jqplot.CanvasAxisLabelRenderer;
-    }
-    if (options.axes.xaxis.ticks == null) {
-        options.axes.xaxis.ticks = [];
-    }
-    if (options.axes.xaxis.ticks.length == 0) {
+    if (optional.axes.xaxis.ticks.length == 0) {
         var data = dataTable.getData();
         for ( var i = 0; i < data.length; i++) {
-            options.axes.xaxis.ticks.push(data[i][0].toString());
+            optional.axes.xaxis.ticks.push(data[i][0].toString());
         }
     }
-    if (options.axes.yaxis == null) {
-        options.axes.yaxis = {};
-    }
-    if (options.axes.yaxis.label == null) {
-        if (columns.length == 2) {
-            options.axes.yaxis.label = columns[1].name;
-        } else {
-            options.axes.yaxis.label = 'Values';
-        }        
-    }
-    if (options.axes.yaxis.labelRenderer == null) {
-        options.axes.yaxis.labelRenderer = $.jqplot.CanvasAxisLabelRenderer;
-    }
-    return options;
+    return optional;
 };
 
 JQPlotLineChart.prototype.prepareData = function(dataTable) {
@@ -340,15 +321,18 @@ JQPlotSplineChart.prototype = new JQPlotLineChart();
 JQPlotSplineChart.prototype.constructor = JQPlotSplineChart;
 
 JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
-    if (options.seriesDefaults == null) {
-        options.seriesDefaults = {};
-    }
-    if (options.seriesDefaults.rendererOptions == null) {
-        options.seriesDefaults.rendererOptions = {};
-    }
-    options.seriesDefaults.rendererOptions.smooth = true;
-    return JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
+    var optional = {};
+    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
+    var compulsory = {
+        seriesDefaults : {
+            rendererOptions : {
+                smooth : true
+            }
+        }
+    };
+    $.extend(true, optional, opt, compulsory);
+    return optional;
 };
 
 /**
@@ -364,14 +348,26 @@ var JQPloatTimelineChart = function(elementId) {
 JQPloatTimelineChart.prototype = new JQPlotLineChart();
 JQPloatTimelineChart.prototype.constructor = JQPlotAreaChart;
 
-JQPloatTimelineChart.prototype.populateOptions = function(dataTable, options) {
-    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
-            options);
-    opt.axes.xaxis.renderer = $.jqplot.DateAxisRenderer;
-    opt.axes.xaxis.tickOptions = {
-        formatString:'%b %#d, %y'
+JQPloatTimelineChart.prototype.populateOptions = function(dataTable, options) {    
+    var optional = {
+        axes : {
+            xaxis : {
+                tickOptions : {
+                    formatString:'%b %#d, %y'
+                }
+            }
+        }    
     };
-    return opt;
+    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable, options);
+    var compulsory = {
+        axes : {
+            xaxis : {
+                renderer : $.jqplot.DateAxisRenderer
+            }
+        }
+    };
+    $.extend(true, optional, opt, compulsory);
+    return optional;
 };
 
 JQPloatTimelineChart.prototype.prepareData = function(dataTable) {
@@ -407,12 +403,16 @@ JQPlotAreaChart.prototype = new JQPlotLineChart();
 JQPlotAreaChart.prototype.constructor = JQPlotAreaChart;
 
 JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
-    if (options.seriesDefaults == null) {
-        options.seriesDefaults = {};
-    }
-    options.seriesDefaults.fill = true;
-    return JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
+    var optional = {};
+    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
+    var compulsory = {
+        seriesDefaults : {
+            fill : true
+        }    
+    };
+    $.extend(true, optional, opt, compulsory);
+    return optional;
 };
 
 /**
@@ -428,14 +428,17 @@ JQPlotColumnChart.prototype = new JQPlotLineChart();
 JQPlotColumnChart.prototype.constructor = JQPlotColumnChart;
 
 JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
-    if (options.seriesDefaults == null) {
-        options.seriesDefaults = {
-            fillToZero : true
-        };
-    }
-    options.seriesDefaults.renderer = $.jqplot.BarRenderer;
-    return JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
+    var optional = {};
+    var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
+    var compulsory = {
+        seriesDefaults : {
+            fillToZero : true,
+            renderer : $.jqplot.BarRenderer
+        }
+    };
+    $.extend(true, optional, opt, compulsory);
+    return optional;
 };
 
 /**
@@ -451,68 +454,47 @@ JQPlotBarChart.prototype = new JQPlotLineChart();
 JQPlotBarChart.prototype.constructor = JQPlotBarChart;
 
 JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
-    if (options.seriesDefaults == null) {
-        options.seriesDefaults = {
-            fillToZero : true
-        };
-    }
-    options.seriesDefaults.renderer = $.jqplot.BarRenderer;
-    
-    if (options.seriesDefaults.rendererOptions == null) {
-        options.seriesDefaults.rendererOptions = {};
-    }
-    options.seriesDefaults.rendererOptions.barDirection = 'horizontal';
-
     var columns = dataTable.getColumns();
-    if (options.series == null) {
-        options.series = [];
+    var optional = {
+        axes : {
+            yaxis : {
+                label : columns[0].name,                
+                labelRenderer : $.jqplot.CanvasAxisLabelRenderer,
+                renderer : $.jqplot.CategoryAxisRenderer,
+                ticks : []
+            },
+            xaxis : {
+                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                labelRenderer : $.jqplot.CanvasAxisLabelRenderer
+            }
+        },
+        series : []
+    };      
+    var compulsory = {
+        seriesDefaults : {
+            fillToZero : true,
+            renderer : $.jqplot.BarRenderer,
+            rendererOptions : {
+                barDirection : 'horizontal'
+            }
+        }
+    };
+    $.extend(true, optional, options, compulsory);
+    
+    if (optional.axes.yaxis.ticks.length == 0) {
+        var data = dataTable.getData();
+        for ( var i = 0; i < data.length; i++) {
+            optional.axes.yaxis.ticks.push(data[i][0].toString());
+        }
     }
-    if (options.series.length == 0) {
+    if (optional.series.length == 0) {
         for ( var i = 1; i < columns.length; i++) {
-            options.series.push({
+            optional.series.push({
                 label : columns[i].name.toString()
             });
         }
     }
-
-    if (options.axes == null) {
-        options.axes = {};
-    }
-    if (options.axes.yaxis == null) {
-        options.axes.yaxis = {};
-    }
-    if (options.axes.yaxis.label == null) {
-        options.axes.yaxis.label = columns[0].name;
-    }
-    if (options.axes.yaxis.renderer == null) {
-        options.axes.yaxis.renderer = $.jqplot.CategoryAxisRenderer;
-    }
-    if (options.axes.yaxis.labelRenderer == null) {
-        options.axes.yaxis.labelRenderer = $.jqplot.CanvasAxisLabelRenderer;
-    }
-    if (options.axes.yaxis.ticks == null) {
-        options.axes.yaxis.ticks = [];
-    }
-    if (options.axes.yaxis.ticks.length == 0) {
-        var data = dataTable.getData();
-        for ( var i = 0; i < data.length; i++) {
-            options.axes.yaxis.ticks.push(data[i][0].toString());
-        }
-    }
-    if (options.axes.xaxis == null) {
-        options.axes.xaxis = {};
-    }
-    if (options.axes.xaxis.label == null) {
-        if (columns.length == 2) {
-            options.axes.xaxis.label = columns[1].name;
-        } else {
-            options.axes.xaxis.label = 'Values';
-        }        
-    }
-    if (options.axes.xaxis.labelRenderer == null) {
-        options.axes.xaxis.labelRenderer = $.jqplot.CanvasAxisLabelRenderer;
-    }
-    return options;
+    return optional;
 };
 
 /**
@@ -529,11 +511,14 @@ JQPlotPieChart.prototype = new JQPlotChart();
 JQPlotPieChart.prototype.constructor = JQPlotPieChart;
 
 JQPlotPieChart.prototype.populateOptions = function(dataTable, options) {
-    if (options.seriesDefaults == null) {
-        options.seriesDefaults = {};
-    }
-    options.seriesDefaults.renderer = $.jqplot.PieRenderer;
-    return options;
+    var optional = {};
+    var compulsory = {
+        seriesDefaults : {
+            renderer : $.jqplot.PieRenderer
+        }
+    };
+    $.extend(true, optional, options, compulsory);
+    return optional;
 };
 
 JQPlotPieChart.prototype.prepareData = function(dataTable) {
