@@ -164,7 +164,9 @@ function PMA_loadFirstRow($table, $db)
 /**
  * Add some url parameters
  *
- * @param array $url_params containing $db and $table as url parameters
+ * @param array  $url_params         containing $db and $table as url parameters
+ * @param array  $where_clause_array where clauses array
+ * @param string $where_clause       where clause
  *
  * @return array Add some url parameters to $url_params array and return it
  */
@@ -1813,8 +1815,9 @@ function PMA_setSessionForEditNext($one_where_clause)
  */
 function PMA_getGotoInclude($goto_include)
 {
+    $valid_options = array('new_insert', 'same_insert', 'edit_next');
     if (isset($_REQUEST['after_insert'])
-        && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))
+        && in_array($_REQUEST['after_insert'], $valid_options)
     ) {
         $goto_include = 'tbl_change.php';
     } elseif (! empty($GLOBALS['goto'])) {
@@ -2203,7 +2206,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
-        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
+        && ("'" . PMA_Util::sqlAddSlashes($multi_edit_columns_prev[$key]) . "'"
+        == $current_value)
     ) {
         // No change for this column and no MySQL function is used -> next column
     } elseif (! empty($current_value)) {
@@ -2337,8 +2341,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
  *
  * @return boolean
  */
-function PMA_hasPrimaryKeyOrUniqueKey($db, $table) {
-    
+function PMA_hasPrimaryKeyOrUniqueKey($db, $table)
+{
     $table_indexes = PMA_DBI_get_table_indexes($db, $table);
     
     foreach ($table_indexes as $index) {
@@ -2361,15 +2365,17 @@ function PMA_hasPrimaryKeyOrUniqueKey($db, $table) {
  * @param string $column_value     Edited column value
  * @param array  $column_meta_data Column meta data
  * @param array  &$extra_data      Extra data for ajax response
+ *
+ * @return void
  */
 function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, $column_value, $column_meta_data, &$extra_data
 ) {
-    
     if (stripos($column_meta_data['Type'], 'smallint') !== false) {
         
         $extra_data['isTruncatableField'] = true;
-        $extra_data['hasUniqueIdentifier'] = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
+        $extra_data['hasUniqueIdentifier']
+            = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
             ? true
             : false;
         
@@ -2378,20 +2384,20 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         // retrieve the value really saved in the database when it is possible)
         if ($extra_data['hasUniqueIdentifier']) {
             
-            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.' . PMA_Util::backquote($column_name)
-                . ' FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
+            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
+                . PMA_Util::backquote($column_name)
+                . ' FROM ' . PMA_Util::backquote($db) . '.'
+                . PMA_Util::backquote($table)
                 . ' WHERE ' . $_REQUEST['where_clause'][0];
             
-            $extra_data['truncatableFieldValue'] = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
+            $extra_data['truncatableFieldValue']
+                = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
                 ? PMA_DBI_fetch_value($sql_for_real_value)
                 : round($column_value);
-            
         } else {
             $extra_data['truncatableFieldValue'] = round($column_value);
         }
-        
     }
-    
 }
 
 ?>
