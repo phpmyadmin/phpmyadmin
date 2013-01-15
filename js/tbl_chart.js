@@ -56,7 +56,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
         drawChart();
         if ($(this).val() == 'bar' || $(this).val() == 'column'
             || $(this).val() == 'line' || $(this).val() == 'area'
-            || $(this).val() == 'timeline') {
+            || $(this).val() == 'timeline' || $(this).val() == 'spline') {
             $('span.barStacked').show();
         } else {
             $('span.barStacked').hide();

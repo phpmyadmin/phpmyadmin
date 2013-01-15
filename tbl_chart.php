@@ -134,8 +134,10 @@ url_query = '<?php echo $url_query;?>';
         <label for ="radio_column"><?php echo _pgettext('Chart type', 'Column'); ?></label>
         <input type="radio" name="chartType" value="line" id="radio_line" checked="checked" />
         <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line'); ?></label>
+        <input type="radio" name="chartType" value="spline" id="radio_spline" />
+        <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline'); ?></label>
         <input type="radio" name="chartType" value="area" id="radio_area" />
-        <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Area'); ?></label>
+        <label for ="radio_area"><?php echo _pgettext('Chart type', 'Area'); ?></label>
         <span class="span_pie" style="display:none;">
         <input type="radio" name="chartType" value="pie" id="radio_pie" />
         <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie'); ?></label>

@@ -3,6 +3,7 @@
  */
 var ChartType = {
     LINE : 'line',
+    SPLINE : 'spline',
     AREA : 'area',
     BAR : 'bar',
     COLUMN : 'column',
@@ -184,6 +185,9 @@ JQPlotChartFactory.prototype.createChart = function(type, elementId) {
     case ChartType.LINE:
         chart = new JQPlotLineChart(elementId);
         break;
+    case ChartType.SPLINE:
+        chart = new JQPlotSplineChart(elementId);
+        break;
     case ChartType.TIMELINE:
         chart = new JQPloatTimelineChart(elementId);
         break;
@@ -321,6 +325,30 @@ JQPlotLineChart.prototype.prepareData = function(dataTable) {
         }
     }
     return retData;
+};
+
+/**
+ * JQPlot spline chart
+ * 
+ * @param elementId
+ *            id of the div element the chart is drawn in
+ */
+var JQPlotSplineChart = function(elementId) {
+    JQPlotLineChart.call(this, elementId);
+};
+JQPlotSplineChart.prototype = new JQPlotLineChart();
+JQPlotSplineChart.prototype.constructor = JQPlotSplineChart;
+
+JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
+    if (options.seriesDefaults == null) {
+        options.seriesDefaults = {};
+    }
+    if (options.seriesDefaults.rendererOptions == null) {
+        options.seriesDefaults.rendererOptions = {};
+    }
+    options.seriesDefaults.rendererOptions.smooth = true;
+    return JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
+            options);
 };
 
 /**
