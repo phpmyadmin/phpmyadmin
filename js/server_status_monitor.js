@@ -1030,7 +1030,10 @@ $(function() {
     function addChart(chartObj, initialize) {
 
         var settings = {
-            title: chartObj.title,
+            title: {
+                text: chartObj.title,
+                escapeHtml: true,
+            },
             grid: {
                 drawBorder: false,
                 shadow: false,
