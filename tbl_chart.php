@@ -127,7 +127,7 @@ url_query = '<?php echo $url_query;?>';
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
-    <div style="float:left; width:370px;">
+    <div style="float:left; width:420px;">
         <input type="radio" name="chartType" value="bar" id="radio_bar" />
         <label for ="radio_bar"><?php echo _pgettext('Chart type', 'Bar'); ?></label>
         <input type="radio" name="chartType" value="column" id="radio_column" />
