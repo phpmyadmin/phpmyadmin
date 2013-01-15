@@ -92,6 +92,28 @@ PieChart.prototype.validateColumns = function(dataTable) {
 };
 
 /**
+ * Abstract timeline chart
+ * 
+ * @param elementId
+ *            id of the div element the chart is drawn in
+ */
+var TimelineChart = function(elementId) {
+    BaseChart.call(this, elementId);
+};
+TimelineChart.prototype = new BaseChart();
+TimelineChart.prototype.constructor = TimelineChart;
+TimelineChart.prototype.validateColumns = function(dataTable) {    
+    var result = BaseChart.prototype.validateColumns.call(this, dataTable);
+    if (result) {
+        var columns = dataTable.getColumns();
+        if (columns[0].type != ColumnType.DATE) {
+            throw new Error("First column of timeline chart need to be a date column");
+        }
+    }
+    return result;
+};
+
+/**
  * The data table contains column information and data for the chart.
  */
 var DataTable = function() {
@@ -309,6 +331,7 @@ JQPlotLineChart.prototype.prepareData = function(dataTable) {
  */
 var JQPloatTimelineChart = function(elementId) {
     JQPlotLineChart.call(this, elementId);
+    this.validator = TimelineChart.prototype;
 };
 JQPloatTimelineChart.prototype = new JQPlotLineChart();
 JQPloatTimelineChart.prototype.constructor = JQPlotAreaChart;
