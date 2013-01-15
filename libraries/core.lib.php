@@ -277,7 +277,12 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
     if ($fatal) {
         PMA_fatalError($message);
     } else {
-        trigger_error($message, E_USER_WARNING);
+        $GLOBALS['error_handler']->addError(
+            $message, 
+            E_USER_WARNING,
+            '',
+            '',
+            $escape=false);
     }
 }
 
