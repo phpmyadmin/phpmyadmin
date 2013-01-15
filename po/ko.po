@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-11 11:36+0200\n"
+"PO-Revision-Date: 2013-01-15 12:18+0200\n"
 "Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -3378,7 +3378,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
-msgstr ""
+msgstr "기본 데이터베이스 탭"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
@@ -3386,7 +3386,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
-msgstr ""
+msgstr "기본 서버 탭"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
@@ -3394,7 +3394,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr ""
+msgstr "기본 테이블 탭"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -3437,7 +3437,7 @@ msgstr "팝업창으로 SQL 쿼리 편집"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
-msgstr ""
+msgstr "새창에서 편집하기"
 
 #: libraries/config/messages.inc.php:66
 #| msgid "Display order:"
@@ -3610,7 +3610,6 @@ msgid "SQL compatibility mode"
 msgstr "SQL 호환 모드"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
-#, fuzzy
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "<code>CREATE TABLE</code> 옵션 :"
 
@@ -3683,7 +3682,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key limit"
-msgstr ""
+msgstr "외래키 제한"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
@@ -3698,7 +3697,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:219
 #: libraries/config/messages.inc.php:231
 msgid "Customize default options"
-msgstr ""
+msgstr "기본옵션 사용자화"
 
 #: libraries/config/messages.inc.php:160 libraries/config/setup.forms.php:243
 #: libraries/config/setup.forms.php:316
@@ -3710,7 +3709,7 @@ msgstr "CSV 데이터"
 
 #: libraries/config/messages.inc.php:162
 msgid "Developer"
-msgstr ""
+msgstr "개발자"
 
 #: libraries/config/messages.inc.php:163
 msgid "Settings for phpMyAdmin developers"
@@ -3718,11 +3717,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:164
 msgid "Edit mode"
-msgstr ""
+msgstr "편집 모드"
 
 #: libraries/config/messages.inc.php:165
 msgid "Customize edit mode"
-msgstr ""
+msgstr "편집모드 사용자화"
 
 #: libraries/config/messages.inc.php:167
 msgid "Export defaults"
@@ -3730,12 +3729,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:168
 msgid "Customize default export options"
-msgstr ""
+msgstr "기본 내보내기 옵션 사용자화"
 
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "특징"
 
 #: libraries/config/messages.inc.php:170
 msgid "General"
@@ -3755,7 +3754,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
-msgstr ""
+msgstr "가져오기 / 내보내기"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
@@ -3779,25 +3778,24 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:35
 #: setup/frames/index.inc.php:112
-#, fuzzy
 msgid "Servers"
 msgstr "서버"
 
 #: libraries/config/messages.inc.php:184
 msgid "Servers display options"
-msgstr ""
+msgstr "서버보기 옵션"
 
 #: libraries/config/messages.inc.php:186
 msgid "Tables display options"
-msgstr ""
+msgstr "테이블보기 옵션"
 
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "메인 프레임"
 
 #: libraries/config/messages.inc.php:188
 msgid "Microsoft Office"
-msgstr ""
+msgstr "마이크로소프트 오피스"
 
 #: libraries/config/messages.inc.php:190
 #, fuzzy
@@ -3849,7 +3847,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:200
 msgid "Basic settings"
-msgstr ""
+msgstr "기본 설정"
 
 #: libraries/config/messages.inc.php:201
 #| msgid "Authenticating..."
@@ -3863,7 +3861,7 @@ msgstr "인증설정"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
-msgstr ""
+msgstr "서버 환경설정"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
@@ -3898,7 +3896,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
-msgstr ""
+msgstr "내보내기 옵션 사용자화"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize import defaults"
@@ -3910,7 +3908,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize main frame"
-msgstr ""
+msgstr "메인 프레임 사용자화"
 
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
 #: setup/frames/menu.inc.php:17
@@ -3973,7 +3971,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
-msgstr ""
+msgstr "경고"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
@@ -3987,7 +3985,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:236
 msgid "Extra parameters for iconv"
