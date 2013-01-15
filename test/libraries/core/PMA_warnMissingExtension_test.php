@@ -39,7 +39,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 
-        require_once './libraries/Error_Handler.class.php';
+        include_once './libraries/Error_Handler.class.php';
         $GLOBALS['error_handler'] = new PMA_Error_Handler();
     }
 
