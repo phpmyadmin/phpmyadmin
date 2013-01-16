@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-10 13:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-16 23:35+0200\n"
+"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/3-5/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -6949,7 +6949,7 @@ msgstr "Μη έγκυρη μορφή στο εισαχθέν CSV στη γραμ
 #: libraries/import/csv.php:337
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Μη έγκυρο πλήθος πεδίων στο εισαχθέν CSV στη γραμμή %d."
+msgstr "Μη έγκυρο πλήθος στηλών στο εισαχθέν CSV στη γραμμή %d."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
