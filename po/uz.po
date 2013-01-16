@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2012-12-13 13:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-16 20:36+0200\n"
+"Last-Translator: Murodjon Abduvohidov <maueraa@mail.ru>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Ушбу тизимда %s файли мавжуд эмас, мархамат, қўшимча маълумотларни олиш учун "
+"www.phpmyadmin.net сайтига ташриф буюринг"
 
 #: db_create.php:74
 #, php-format
@@ -137,10 +139,9 @@ msgstr "Жадвал изоҳи"
 #: libraries/tbl_columns_definition_form.inc.php:352 tbl_indexes.php:253
 #: tbl_printview.php:130 tbl_relation.php:361 tbl_tracking.php:323
 #: tbl_tracking.php:385
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Майдон номлари"
+msgstr "Устун"
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:239
@@ -304,7 +305,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "\"%s\" маълумотлар базасидан \"%s\" га нусха кўчирилди."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -312,8 +313,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
-"Сабабларини аниқлаш учун %sбу ерга%s босинг."
+"PhpMyAdmin нинг баъзи қўшимча имкониятлари фаол эмас. Сабабларини аниқлаш "
+"учун %sбу ерга%s босинг."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:508
@@ -369,22 +370,21 @@ msgid "Last check"
 msgstr "Охирги текширув"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "Жадваллар сони: \"%s\""
-msgstr[1] "Жадваллар сони: \"%s\""
+msgstr[0] "%s та жадвал"
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
 msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Нусха олинган жадвалга ўтиш"
+msgstr "%сўровларнинг визуал таркибига% ўтиш"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -395,10 +395,9 @@ msgid "Access denied"
 msgstr "Рухсат берилмади"
 
 #: db_structure.php:86
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
+msgstr "Маълумотлар базасида жадвал топилмади"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -2600,16 +2599,14 @@ msgid "Criteria"
 msgstr "Критерий"
 
 #: libraries/DBQbe.class.php:574
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Қатор қўшиш/ўчириш"
+msgstr "Критерия қаторини қўшиш/ўчириш"
 
 #: libraries/DBQbe.class.php:574
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Устун қўшиш/ўчириш"
+msgstr "Устунларни қўшиш/ўчириш"
 
 #: libraries/DBQbe.class.php:601 libraries/DBQbe.class.php:633
 msgid "Update Query"
@@ -2672,12 +2669,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>\"%s\"</i>\" учун қидирув натижалари \"%s\":"
 
 #: libraries/DbSearch.class.php:294
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Жами:</b> <i>\"%s\"</i> ўхшашлик"
-msgstr[1] "<b>Жами:</b> <i>\"%s\"</i> ўхшашлик"
+msgstr[0] "<b>Жами </b> <i>\"%s\"</i> та мослик"
 
 #: libraries/DbSearch.class.php:330
 #, fuzzy, php-format
@@ -2694,10 +2690,10 @@ msgid "Browse"
 msgstr "Кўриб чиқиш"
 
 #: libraries/DbSearch.class.php:352
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
+msgstr "%s жадвалидаги мосликларни ўчирасизми?"
 
 #: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5043
@@ -2715,10 +2711,9 @@ msgid "Search in database"
 msgstr "Маълумотлар базасида қидириш"
 
 #: libraries/DbSearch.class.php:385
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Қидириш учун сўз(лар) ёки қиймат(лар) (ўрнига қўйиш белгиси: \"%\"):"
+msgstr "Қидириш учун сўзлар ёки қийматлар (гурух белгиси: \"%\"):"
 
 #: libraries/DbSearch.class.php:394
 msgid "Find:"
@@ -2729,16 +2724,14 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Сўзлар бўш жой (\" \") ёрдамида бўлинган."
 
 #: libraries/DbSearch.class.php:418
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Қуйидаги жадвал(лар)да қидириш:"
+msgstr "Жадваллардан:"
 
 #: libraries/DbSearch.class.php:444
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Қуйидаги майдон(лар)да қидириш: "
+msgstr "Майдондан:"
 
 #: libraries/DisplayResults.class.php:698
 #, fuzzy
@@ -8142,16 +8135,14 @@ msgid "Database %s has been dropped."
 msgstr "\"%s\" маълумотлар омбори ўчирилди."
 
 #: libraries/operations.lib.php:119
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
+msgstr "Маълумотлар базаси ўчириш"
 
 #: libraries/operations.lib.php:125
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Ушбу базага ўтиш"
+msgstr "Маълумотлар базасини ўчириш (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1013
 #: tbl_tracking.php:505
@@ -8185,10 +8176,9 @@ msgid "Switch to copied database"
 msgstr "Нусха олинган маълумотлар базасига ўтиш"
 
 #: libraries/operations.lib.php:277
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Алоқалар схемаси"
+msgstr "Алоқалар схемасини тахрирлаш ёки экспорт қилиш"
 
 #: libraries/operations.lib.php:620
 msgid "Alter table order by"
