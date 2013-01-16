@@ -1136,10 +1136,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     function addChart(chartObj, initialize) {
 
         var settings = {
-            title: {
-                text: chartObj.title,
-                escapeHtml: true
-            },
+            title: escapeHtml(chartObj.title),
             grid: {
                 drawBorder: false,
                 shadow: false,
