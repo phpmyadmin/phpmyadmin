@@ -62,12 +62,14 @@ if (isset($_REQUEST['ajax_request'])
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
+$scripts->addFile('chart.js');
 $scripts->addFile('tbl_chart.js');
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.barRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.categoryAxisRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.pointLabels.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 /* < IE 9 doesn't support canvas natively */
@@ -126,7 +128,7 @@ url_query = '<?php echo $url_query;?>';
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display chart'); ?></legend>
-    <div style="float:left; width:370px;">
+    <div style="float:left; width:420px;">
         <input type="radio" name="chartType" value="bar" id="radio_bar" />
         <label for ="radio_bar"><?php echo _pgettext('Chart type', 'Bar'); ?></label>
         <input type="radio" name="chartType" value="column" id="radio_column" />
@@ -135,15 +137,22 @@ url_query = '<?php echo $url_query;?>';
         <label for ="radio_line"><?php echo _pgettext('Chart type', 'Line'); ?></label>
         <input type="radio" name="chartType" value="spline" id="radio_spline" />
         <label for ="radio_spline"><?php echo _pgettext('Chart type', 'Spline'); ?></label>
+        <input type="radio" name="chartType" value="area" id="radio_area" />
+        <label for ="radio_area"><?php echo _pgettext('Chart type', 'Area'); ?></label>
         <span class="span_pie" style="display:none;">
         <input type="radio" name="chartType" value="pie" id="radio_pie" />
         <label for ="radio_pie"><?php echo _pgettext('Chart type', 'Pie'); ?></label>
         </span>
-        <span class="barStacked" style="display:none;">
+        <span class="span_timeline" style="display:none;">
+        <input type="radio" name="chartType" value="timeline" id="radio_timeline" />
+        <label for ="radio_timeline"><?php echo _pgettext('Chart type', 'Timeline'); ?></label>
+        </span>
+        <br /><br />
+        <span class="barStacked">
         <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked" />
         <label for ="checkbox_barStacked"><?php echo __('Stacked'); ?></label>
         </span>
-        <br>
+        <br /><br />
         <input type="text" name="chartTitle" value="<?php echo __('Chart title'); ?>">
     </div>
         <?php
@@ -156,7 +165,7 @@ url_query = '<?php echo $url_query;?>';
             <?php
 
             foreach ($keys as $idx => $key) {
-                if ($yaxis == -1 && (($idx == count($data[0]) - 1) || preg_match("/(date|time)/i", $key))) {
+                if ($yaxis == -1) {
                     echo '<option value="' . htmlspecialchars($idx) . '" selected="selected">' . htmlspecialchars($key) . '</option>';
                     $yaxis = $idx;
                 } else {
@@ -169,14 +178,14 @@ url_query = '<?php echo $url_query;?>';
         <label for="select_chartSeries"><?php echo __('Series:'); ?></label>
         <select name="chartSeries" id="select_chartSeries" multiple="multiple">
             <?php
-            $numeric_types = array('int', 'real', 'year', 'bit');
+            $numeric_types = array('int', 'real');
             foreach ($keys as $idx => $key) {
                 if (in_array($fields_meta[$idx]->type, $numeric_types)) {
                     if ($idx == $yaxis) {
-                        echo '<option value"' . htmlspecialchars($key) . '">'
+                        echo '<option value="' . htmlspecialchars($idx) . '">'
                             . htmlspecialchars($key) . '</option>';
                     } else {
-                        echo '<option value"' . htmlspecialchars($key)
+                        echo '<option value="' . htmlspecialchars($idx)
                             . '" selected="selected">' . htmlspecialchars($key)
                             . '</option>';
                     }
@@ -184,6 +193,15 @@ url_query = '<?php echo $url_query;?>';
             }
         ?>
         </select>
+        <input type="hidden" name="dateTimeCols" value="
+        <?php
+            $date_time_types = array('date', 'datetime', 'timestamp');
+            foreach ($keys as $idx => $key) {
+                if (in_array($fields_meta[$idx]->type, $date_time_types)) {
+                    echo $idx . " ";
+                }
+            }
+        ?>" />
         </div>
         <?php
         }
@@ -194,14 +212,18 @@ url_query = '<?php echo $url_query;?>';
             value="<?php echo ($yaxis == -1) ? __('X Values') : htmlspecialchars($keys[$yaxis]); ?>" /><br />
         <label for="yaxis_label"><?php echo __('Y-Axis label:'); ?></label>
         <input type="text" name="yaxis_label" id="yaxis_label" value="<?php echo __('Y Values'); ?>" /><br />
-
-        <label for="pos"><?php echo __('Start row') . ': ' . "\n"; ?></label>
-        <input type="text" name="pos" size="3" value="<?php echo $_SESSION['tmp_user_values']['pos']; ?>" /><br />
-        <label for="session_max_rows"><?php echo __('Number of rows') . ': ' . "\n"; ?></label>
-        <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" /><br />
-        <input type="submit" name="submit" class="Go" value="<?php echo __('Go'); ?>" />
-        <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
     </div>
+    <p style="clear:both;">&nbsp;</p>
+    <fieldset>
+        <div>
+            <label for="pos"><?php echo __('Start row') . ': ' . "\n"; ?></label>
+            <input type="text" name="pos" size="3" value="<?php echo $_SESSION['tmp_user_values']['pos']; ?>" />
+            <label for="session_max_rows"><?php echo __('Number of rows') . ': ' . "\n"; ?></label>
+            <input type="text" name="session_max_rows" size="3" value="<?php echo (($_SESSION['tmp_user_values']['max_rows'] != 'all') ? $_SESSION['tmp_user_values']['max_rows'] : $GLOBALS['cfg']['MaxRows']); ?>" />
+            <input type="submit" name="submit" class="Go" value="<?php echo __('Go'); ?>" />
+            <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
+        </div>
+    </fieldset>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
         <div id="querychart">
