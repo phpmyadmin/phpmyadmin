@@ -189,7 +189,7 @@ JQPlotChartFactory.prototype.createChart = function(type, elementId) {
         chart = new JQPlotSplineChart(elementId);
         break;
     case ChartType.TIMELINE:
-        chart = new JQPloatTimelineChart(elementId);
+        chart = new JQPlotTimelineChart(elementId);
         break;
     case ChartType.AREA:
         chart = new JQPlotAreaChart(elementId);
@@ -341,14 +341,14 @@ JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPloatTimelineChart = function(elementId) {
+var JQPlotTimelineChart = function(elementId) {
     JQPlotLineChart.call(this, elementId);
     this.validator = TimelineChart.prototype;
 };
-JQPloatTimelineChart.prototype = new JQPlotLineChart();
-JQPloatTimelineChart.prototype.constructor = JQPlotAreaChart;
+JQPlotTimelineChart.prototype = new JQPlotLineChart();
+JQPlotTimelineChart.prototype.constructor = JQPlotAreaChart;
 
-JQPloatTimelineChart.prototype.populateOptions = function(dataTable, options) {    
+JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {    
     var optional = {
         axes : {
             xaxis : {
@@ -370,7 +370,7 @@ JQPloatTimelineChart.prototype.populateOptions = function(dataTable, options) {
     return optional;
 };
 
-JQPloatTimelineChart.prototype.prepareData = function(dataTable) {
+JQPlotTimelineChart.prototype.prepareData = function(dataTable) {
     var data = dataTable.getData(), row, d;
     var retData = [], retRow;
     for ( var i = 0; i < data.length; i++) {
