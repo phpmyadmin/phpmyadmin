@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-17 09:01+0200\n"
-"Last-Translator: Murodjon Abduvohidov <maueraa@mail.ru>\n"
+"PO-Revision-Date: 2013-01-17 09:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
@@ -384,7 +384,7 @@ msgstr "Сўровни бажариш учун, майдон/майдонлар 
 #, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "%сўровларнинг визуал таркибига% ўтиш"
+msgstr "%sсўровларнинг визуал таркибига%s ўтиш"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
