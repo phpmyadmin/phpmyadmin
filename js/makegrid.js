@@ -1655,11 +1655,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(t).find('td.data.click2')
                 .click(function(e) {
                     $cell = $(this);
-                    e.preventDefault();
                     // In the case of relational link, We want single click on the link 
                     // to goto the link and double click to start grid-editing.
                     var $link = $(e.target);
-                    if ($link.is('.grid_edit a')) {
+                    if ($link.is('.grid_edit.relation a')) {
+                        e.preventDefault();
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
                         clicks = (clicks == null) ? 1 : clicks + 1;

@@ -250,7 +250,7 @@ $cfg['Servers'][$i]['LogoutURL'] = '';
 $cfg['Servers'][$i]['nopassword'] = false;
 
 /**
- * If set to a db-name, only this db is displayed in left frame
+ * If set to a db-name, only this db is displayed in navigation panel
  * It may also be an array of db-names, where sorting order is relevant.
  *
  * @global string $cfg['Servers'][$i]['only_db']
@@ -815,14 +815,14 @@ $cfg['NavigationTreeTableSeparator'] = '__';
 $cfg['NavigationTreeTableLevel'] = 1;
 
 /**
- * display table comment as tooltip in left frame
+ * display table comment as tooltip in navigation panel
  *
  * @global boolean $cfg['ShowTooltip']
  */
 $cfg['ShowTooltip'] = true;
 
 /**
- * display logo at top of left frame
+ * display logo at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayLogo']
  */
@@ -844,14 +844,14 @@ $cfg['NavigationLogoLink'] = 'index.php';
 $cfg['NavigationLogoLinkWindow'] = 'main';
 
 /**
- * number of recently used tables displayed in the navigation frame
+ * number of recently used tables displayed in the navigation panel 
  *
  * @global integer $cfg['NumRecentTables']
  */
 $cfg['NumRecentTables'] = 10;
 
 /**
- * display a JavaScript table filter in the left frame
+ * display a JavaScript table filter in the navigation panel
  * when more then x tables are present
  *
  * @global boolean $cfg['NavigationTreeDisplayItemFilterMinimum']
@@ -859,11 +859,11 @@ $cfg['NumRecentTables'] = 10;
 $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 
 /**
- * display server choice at top of left frame
+ * display server choice at top of navigation panel
  *
  * @global boolean $cfg['NavigationDisplayServers']
  */
-$cfg['NavigationDisplayServers'] = false;
+$cfg['NavigationDisplayServers'] = true;
 
 /**
  * server choice as links
@@ -873,7 +873,7 @@ $cfg['NavigationDisplayServers'] = false;
 $cfg['DisplayServersList'] = false;
 
 /**
- * display a JavaScript database filter in the left frame
+ * display a JavaScript database filter in the navigation panel
  * when more then x databases are present
  *
  * @global boolean $cfg['NavigationTreeDisplayDbFilterMinimum']

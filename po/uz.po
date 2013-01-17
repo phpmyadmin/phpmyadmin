@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-16 20:36+0200\n"
-"Last-Translator: Murodjon Abduvohidov <maueraa@mail.ru>\n"
+"PO-Revision-Date: 2013-01-17 09:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
@@ -384,7 +384,7 @@ msgstr "Сўровни бажариш учун, майдон/майдонлар 
 #, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "%сўровларнинг визуал таркибига% ўтиш"
+msgstr "%sсўровларнинг визуал таркибига%s ўтиш"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -7771,16 +7771,14 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:277 libraries/structure.lib.php:321
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
+msgstr "Жадвал префиксини алмаштириш"
 
 #: libraries/mult_submits.inc.php:277 libraries/structure.lib.php:323
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
+msgstr "Жадвални префикси билан нусхалаш"
 
 #: libraries/mult_submits.inc.php:280
 #, fuzzy
@@ -10554,10 +10552,9 @@ msgid "Sum"
 msgstr "Жами"
 
 #: libraries/structure.lib.php:319
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Ушбу жадвалга ўтиш"
+msgstr "Жадвалга префикс қўшиш"
 
 #: libraries/structure.lib.php:344
 msgid "Check tables having overhead"
