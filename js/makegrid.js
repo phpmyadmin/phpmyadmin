@@ -1659,7 +1659,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // In the case of relational link, We want single click on the link 
                     // to goto the link and double click to start grid-editing.
                     var $link = $(e.target);
-                    if ($link.is('.grid_edit a')) {
+                    if ($link.is('.grid_edit.relation a')) {
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
                         clicks = (clicks == null) ? 1 : clicks + 1;
