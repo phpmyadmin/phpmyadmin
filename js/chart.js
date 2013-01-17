@@ -403,7 +403,11 @@ JQPlotAreaChart.prototype = new JQPlotLineChart();
 JQPlotAreaChart.prototype.constructor = JQPlotAreaChart;
 
 JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
-    var optional = {};
+    var optional = {
+        seriesDefaults : {
+            fillToZero : true
+        } 
+    };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
     var compulsory = {
@@ -428,12 +432,15 @@ JQPlotColumnChart.prototype = new JQPlotLineChart();
 JQPlotColumnChart.prototype.constructor = JQPlotColumnChart;
 
 JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
-    var optional = {};
+    var optional = {
+        seriesDefaults : {
+            fillToZero : true
+        } 
+    };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
     var compulsory = {
         seriesDefaults : {
-            fillToZero : true,
             renderer : $.jqplot.BarRenderer
         }
     };
@@ -468,11 +475,13 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
-        series : []
+        series : [],
+        seriesDefaults : {
+            fillToZero : true
+        }
     };      
     var compulsory = {
         seriesDefaults : {
-            fillToZero : true,
             renderer : $.jqplot.BarRenderer,
             rendererOptions : {
                 barDirection : 'horizontal'
