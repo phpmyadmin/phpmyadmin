@@ -863,7 +863,7 @@ $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
  *
  * @global boolean $cfg['NavigationDisplayServers']
  */
-$cfg['NavigationDisplayServers'] = false;
+$cfg['NavigationDisplayServers'] = true;
 
 /**
  * server choice as links

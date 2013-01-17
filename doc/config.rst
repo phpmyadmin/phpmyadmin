@@ -1371,7 +1371,7 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationDisplayServers']
 
     :type: boolean
-    :default: false
+    :default: true 
 
     Defines whether or not to display a server choice at the top of the
     navigation panel.
