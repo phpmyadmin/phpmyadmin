@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-17 09:03+0200\n"
+"Last-Translator: Murodjon Abduvohidov <maueraa@mail.ru>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/3-5/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
@@ -100,17 +100,16 @@ msgstr "Ушбу қийматни ишлатиш"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Поток маълумотлари сервери созланмаган"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Файлни дискка ёзишдахатолик юз берди."
+msgstr "Сарлавҳаларни ажратишда хатолик юз берди."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Узоқдаги URL ни очишда хатолик юз берди"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -118,6 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Ушбу тизимда %s файли мавжуд эмас, мархамат, қўшимча маълумотларни олиш учун "
+"www.phpmyadmin.net сайтига ташриф буюринг"
 
 #: db_create.php:60
 #, php-format
@@ -143,10 +144,9 @@ msgstr "Жадвал изоҳи"
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:441
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Майдон номлари"
+msgstr "Устун"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -279,10 +279,9 @@ msgid "Rename database to"
 msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
 
 #: db_operations.php:438
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Маълумотлар базаси номини қуйидагига ўзгартириш"
+msgstr "Маълумотлар базаси ўчириш"
 
 #: db_operations.php:450
 #, php-format
@@ -290,10 +289,9 @@ msgid "Database %s has been dropped."
 msgstr "\"%s\" маълумотлар омбори ўчирилди."
 
 #: db_operations.php:455
-#, fuzzy
 #| msgid "Go to database"
 msgid "Drop the database (DROP)"
-msgstr "Ушбу базага ўтиш"
+msgstr "Маълумотлар базасини ўчириш (DROP)"
 
 #: db_operations.php:484
 msgid "Copy database to"
@@ -346,7 +344,7 @@ msgid "Collation"
 msgstr "Таққослаш"
 
 #: db_operations.php:561
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -354,14 +352,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
-"Сабабларини аниқлаш учун %sбу ерга%s босинг."
+"PhpMyAdmin нинг баъзи қўшимча имкониятлари фаол эмас. Сабабларини аниқлаш "
+"учун %sбу ерга%s босинг."
 
 #: db_operations.php:595
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Алоқалар схемаси"
+msgstr "Алоқалар схемасини тахрирлаш ёки экспорт қилиш"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -412,22 +409,21 @@ msgid "Last check"
 msgstr "Охирги текширув"
 
 #: db_printview.php:219 db_structure.php:524
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "Жадваллар сони: \"%s\""
-msgstr[1] "Жадваллар сони: \"%s\""
+msgstr[0] "%s та жадвал"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
 msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Нусха олинган жадвалга ўтиш"
+msgstr "%сўровларнинг визуал таркибига% ўтиш"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1003
@@ -482,16 +478,14 @@ msgid "Modify"
 msgstr "Ўзгаририш"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Қатор қўшиш/ўчириш"
+msgstr "Критерия қаторини қўшиш/ўчириш"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Устун қўшиш/ўчириш"
+msgstr "Устунларни қўшиш/ўчириш"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -539,12 +533,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "\"<i>\"%s\"</i>\" учун қидирув натижалари \"%s\":"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
-msgstr[1] "<i>\"%s\"</i> жадвалида ўхшашликлар сони \"%s\" та"
+msgstr[0] "<i>\"%s\"</i> жадвалида мосликлар \"%s\" та"
 
 #: db_search.php:234 libraries/common.lib.php:3127
 #: libraries/common.lib.php:3339 libraries/common.lib.php:3340
@@ -553,10 +546,10 @@ msgid "Browse"
 msgstr "Кўриб чиқиш"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Delete tracking data for this table"
 msgid "Delete the matches for the %s table?"
-msgstr "Ушбу жадвал учун кузатув маълумотлари ўчириш"
+msgstr "%s жадвалидаги мосликларни ўчирасизми?"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1426
 #: libraries/display_tbl.lib.php:2473
@@ -571,22 +564,20 @@ msgid "Delete"
 msgstr "Ўчириш"
 
 #: db_search.php:252
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Жами:</b> <i>\"%s\"</i> ўхшашлик"
-msgstr[1] "<b>Жами:</b> <i>\"%s\"</i> ўхшашлик"
+msgstr[0] "<b>Жами </b> <i>\"%s\"</i> та мослик"
 
 #: db_search.php:274
 msgid "Search in database"
 msgstr "Маълумотлар базасида қидириш"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Қидириш учун сўз(лар) ёки қиймат(лар) (ўрнига қўйиш белгиси: \"%\"):"
+msgstr "Қидириш учун сўзлар ёки қийматлар (гурух белгиси: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -597,22 +588,19 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Сўзлар бўш жой (\" \") ёрдамида бўлинган."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Қуйидаги жадвал(лар)да қидириш:"
+msgstr "Жадваллардан:"
 
 #: db_search.php:330
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
-msgstr "Қуйидаги майдон(лар)да қидириш: "
+msgstr "Майдондан:"
 
 #: db_structure.php:68
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
+msgstr "Маълумотлар базасида жадвал топилмади"
 
 #: db_structure.php:228 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
@@ -739,22 +727,19 @@ msgid "Analyze table"
 msgstr "Жадвал таҳлили"
 
 #: db_structure.php:611
-#, fuzzy
 #| msgid "Go to table"
 msgid "Add prefix to table"
-msgstr "Ушбу жадвалга ўтиш"
+msgstr "Жадвалга префикс қўшиш"
 
 #: db_structure.php:613 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
+msgstr "Жадвал префиксини алмаштириш"
 
 #: db_structure.php:615 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Жадвал маълумотларини файл маълумотлари билан алмаштириш"
+msgstr "Жадвални префикси билан нусхалаш"
 
 #: db_structure.php:652 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
