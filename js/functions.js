@@ -3858,7 +3858,7 @@ $(function () {
                     $("#result_query .notice").remove();
                     $("#result_query").prepend(data.message);
                     if ($("#change_column_dialog").length > 0) {
-                        $("#change_column_dialog").dialog("close").remove();
+                        //$("#change_column_dialog").dialog("close").remove();
                     } else if ($("#add_columns").length > 0) {
                         $("#add_columns").dialog("close").remove();
                     }
