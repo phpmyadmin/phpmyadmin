@@ -6,7 +6,8 @@
 /**
  * Gets core libraries and defines some variables
  */
-require_once './libraries/common.inc.php';
+define('PHPMYADMIN', true);
+require_once './libraries/core.lib.php';
 
 if (! PMA_isValid($_GET['url']) || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_GET['url'])) {
     header('Location: ' . $cfg['PmaAbsoluteUri']);
