@@ -26,9 +26,9 @@
 
  <target name="pdepend" description="Generate jdepend.xml and software metrics charts using PHP_Depend">
   <exec executable="pdepend">
-   <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
-              --jdepend-chart=${basedir}/build/pdepend/dependencies.svg
-              --overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg
+   <arg line="'--jdepend-xml=${basedir}/build/logs/jdepend.xml'
+              '--jdepend-chart=${basedir}/build/pdepend/dependencies.svg'
+              '--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg'
               ${source_comma_sep}" />
   </exec>
  </target>
@@ -39,13 +39,13 @@
               xml
               codesize,design,naming,unusedcode
               --exclude test,build,tcpdf,php-gettext,bfShapeFiles
-              --reportfile ${basedir}/build/logs/pmd.xml" />
+              --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
 
  <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
   <exec executable="phpcpd">
-   <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml
+   <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml\
               --exclude test
               --exclude build
               --exclude libraries/tcpdf
@@ -57,7 +57,7 @@
 
  <target name="phploc" description="Generate phploc.csv">
   <exec executable="phploc">
-   <arg line="--log-csv ${basedir}/build/logs/phploc.csv
+   <arg line="--log-csv '${basedir}/build/logs/phploc.csv'
               --exclude test
               --exclude build
               --exclude libraries/tcpdf
@@ -72,7 +72,7 @@
    <arg line="
               --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*
               --report=checkstyle
-              --report-file=${basedir}/build/logs/checkstyle.xml
+              '--report-file=${basedir}/build/logs/checkstyle.xml'
               --standard=PEAR
               ${source}" />
   </exec>
@@ -80,15 +80,15 @@
 
  <target name="phpdoc" description="Generate API documentation using PHPDocumentor">
   <exec executable="phpdoc">
-   <arg line="-d ${source} -t ${basedir}/build/api" />
+   <arg line="-d ${source} -t '${basedir}/build/api'" />
   </exec>
  </target>
 
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
   <exec executable="phpcb">
-   <arg line="--log    ${basedir}/build/logs
-              --source ${source}
-              --output ${basedir}/build/code-browser" />
+   <arg line="--log    '${basedir}/build/logs'
+              --source '${source}'
+              --output '${basedir}/build/code-browser'" />
   </exec>
  </target>
 
