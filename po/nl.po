@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-18 13:44+0200\n"
+"PO-Revision-Date: 2013-01-18 14:10+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -3418,9 +3418,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Een tijdsspanne, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, "
-"wordt opgeslaan als een aantal seconden sinds het ontstaan (1970-01-01 "
-"00:00:00 UTC)"
+"Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, wordt "
+"opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 "
+"UTC)"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
 #, php-format
@@ -3589,7 +3589,7 @@ msgstr "Een verzameling van meetkundige objecten van gelijk welk type"
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numeriek"
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
 msgctxt "date and time types"
@@ -3608,41 +3608,47 @@ msgstr "Ruimtelijk"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Een 4-byte integer, bereik is -2.147.483.648 tot 2.147.483.647"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Een 8-byte integer, bereik is -9.223.372.036.854.775.808 tot "
+"9.223.372.036.854.775.807"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Een systeem standaard dubbele precisie variabele kommapositiegetal"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "Waar of vals"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Een alias voor BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:720
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Bevat een Universeel Unieke Identifier (UUID)"
 
 #: libraries/Types.class.php:726
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Een tijdstip, bereik is '0001-01-01 00:00:00' UTC tot '9999-12-31 23:59:59' "
+"UTC; TIMESTAMP(6) kan microseconden opslaan"
 
 #: libraries/Types.class.php:734
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Een tekenreeks met variabele lengte (0-65.535), gebruikt binaire controle "
+"voor alle vergelijkingen"
 
 #: libraries/Types.class.php:736
 msgid ""
@@ -3670,7 +3676,7 @@ msgstr "Maximale grootte: %s%s"
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
-msgstr "MySQL retourneerde: "
+msgstr "MySQL meldt: "
 
 #: libraries/Util.class.php:1165
 msgid "Failed to connect to SQL validator!"
@@ -3695,7 +3701,7 @@ msgstr "Genereer PHP-code"
 #: libraries/Util.class.php:1283 libraries/config/messages.inc.php:486
 #: server_status_variables.php:80
 msgid "Refresh"
-msgstr "Vernieuw"
+msgstr "Ververs"
 
 #: libraries/Util.class.php:1293
 msgid "Skip Validate SQL"
@@ -5943,8 +5949,7 @@ msgstr "Toon formulier om een nieuwe databank aan te maken"
 #: libraries/config/messages.inc.php:458
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
-"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
-"aangemaakt werd"
+"Toon of verberg een kolom met het tijdstip van aanmaken voor alle tabellen"
 
 #: libraries/config/messages.inc.php:459
 msgid "Show Creation timestamp"
@@ -5954,8 +5959,8 @@ msgstr "Toon het tijdstip van aanmaken"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
-"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
-"laatst aangepast werd"
+"Toon of verberg een kolom met het tijdstip van laatste aanpassing voor alle "
+"tabellen"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Last update timestamp"
@@ -5965,8 +5970,8 @@ msgstr "Toon het tijdstip van laatste aanpassing"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
-"Toon of verberg een kolom met voor alle tabellen het tijdstip waarop deze "
-"laatst bekeken werd"
+"Toon of verberg een kolom met het tijdstip van laatste controle voor alle "
+"tabellen"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last check timestamp"
@@ -8036,8 +8041,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Voeg een tijdstip toe waarop databanken aangemaakt, laatst bijgewerkt en "
-"laatst bekeken werden"
+"Voeg een tijdstip toe waarop databanken aangemaakt, laatst aangepast en "
+"laatst gecontroleerd werden"
 
 #: libraries/plugins/export/ExportSql.class.php:163
 msgid ""
@@ -8144,9 +8149,9 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Dump TIMESTAMP-kolommen in UTC <i>(dit laat toe dat TIMESTAMP-kolommen "
-"gedumpt en opnieuw ingeladen kunnen worden in servers in verschillende "
-"tijdszones)</i>"
+"TIMESTAMP-kolommen exporteren als UTC <i>(dit laat toe dat TIMESTAMP-"
+"kolommen geëxporteerd en opnieuw ingeladen kunnen worden in servers in "
+"verschillende tijdszones)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1197
 msgid "Constraints for dumped tables"
@@ -8326,12 +8331,12 @@ msgid ""
 msgstr ""
 "Toont een veld met TIME, TIMESTAMP, DATETIME of numerieke Unix-tijdstempel "
 "als een opgemaakte datum. De eerste optie is de offset (in uren) welke aan "
-"de tijdstempel zal worden toegevoegd (Standaard: 0). De tweede optie kan "
-"worden gebruikt om een alternatieve opmaak te specificeren. Als derde optie "
-"kan worden opgegeven of de lokale tijd, of de UTC-variant moet worden "
-"gebruikt (gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de "
-"opmaakcode - voor \"local\", zie de documentatie van de PHP-functie strftime"
-"() en voor \"utc\" de functie gmdate()."
+"de tijdstip zal worden toegevoegd (Standaard: 0). De tweede optie kan worden "
+"gebruikt om een alternatieve opmaak te specificeren. Als derde optie kan "
+"worden opgegeven of de lokale tijd, of de UTC-variant moet worden gebruikt "
+"(gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de opmaakcode - "
+"voor \"local\", zie de documentatie van de PHP-functie strftime() en voor "
+"\"utc\" de functie gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
