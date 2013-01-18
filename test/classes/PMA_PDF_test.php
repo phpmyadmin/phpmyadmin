@@ -19,12 +19,18 @@ if (!defined('PMA_VERSION')) {
 
 class PMA_PDF_test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @group large
+     */
     public function testBasic()
     {
         $arr = new PMA_PDF();
         $this->assertContains('PDF', $arr->getPDFData());
     }
 
+    /**
+     * @group large
+     */
     public function testAlias()
     {
         $arr = new PMA_PDF();
