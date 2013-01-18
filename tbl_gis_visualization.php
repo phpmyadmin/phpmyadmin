@@ -123,14 +123,6 @@ $visualization = PMA_GIS_visualizationResults(
     <input type="hidden" name="sql_query" id="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 
     <table class="gis_table">
-    <tr><td><label for="width"><?php echo __("Width"); ?></label></td>
-        <td><input type="text" name="visualizationSettings[width]" id="width" value="<?php echo (isset($visualizationSettings['width']) ? htmlspecialchars($visualizationSettings['width']) : ''); ?>" /></td>
-    </tr>
-
-    <tr><td><label for="height"><?php echo __("Height"); ?></label></td>
-        <td><input type="text" name="visualizationSettings[height]" id="height" value="<?php echo (isset($visualizationSettings['height']) ? htmlspecialchars($visualizationSettings['height']) : ''); ?>" /></td>
-    </tr>
-
     <tr><td><label for="labelColumn"><?php echo __("Label column"); ?></label></td>
         <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
             <option value=""><?php echo __("-- None --"); ?></option>
