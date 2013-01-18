@@ -111,7 +111,7 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 'BLOB',
-                'A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value'
+                'A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value'
             ),
             array(
                 'ENUM',
