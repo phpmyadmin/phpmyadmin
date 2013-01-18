@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-26 21:36+0200\n"
+"PO-Revision-Date: 2013-01-18 19:12+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -1503,7 +1503,7 @@ msgstr ""
 
 #: js/messages.php:165
 msgid "Change settings"
-msgstr "Ayarları değiştir"
+msgstr "Değiştirme ayarları"
 
 #: js/messages.php:166
 msgid "Current settings"
@@ -2299,7 +2299,7 @@ msgstr "calendar-month-year"
 #: js/messages.php:489
 msgctxt "Year suffix"
 msgid "none"
-msgstr "yok"
+msgstr "none"
 
 #: js/messages.php:498
 msgid "Hour"
@@ -3101,7 +3101,7 @@ msgstr "Açık"
 
 #: libraries/config.values.php:77
 msgid "Closed"
-msgstr "Kapandı"
+msgstr "Kapalı"
 
 #: libraries/config.values.php:78 libraries/config/FormDisplay.tpl.php:199
 #: libraries/relation.lib.php:82 libraries/relation.lib.php:89
@@ -10576,11 +10576,11 @@ msgstr "Çizelgeleri düzenle/yeniden düzelt"
 
 #: server_status.php:1597
 msgid "Refresh rate"
-msgstr "Oranı yenile"
+msgstr "Yenileme oranı"
 
 #: server_status.php:1602
 msgid "Chart columns"
-msgstr "Çizelge sütunları"
+msgstr "Çizelge sütunu"
 
 #: server_status.php:1618
 msgid "Chart arrangement"
@@ -10679,7 +10679,7 @@ msgstr "Hazır çizelge"
 
 #: server_status.php:1671
 msgid "Status variable(s)"
-msgstr "Durum değişkeni(leri)"
+msgstr "Durum değişken(leri)i"
 
 #: server_status.php:1673
 msgid "Select series:"
@@ -10695,11 +10695,11 @@ msgstr "veya değişken adını yazın:"
 
 #: server_status.php:1694
 msgid "Display as differential value"
-msgstr "Ayırtedici değer olarak görüntüle"
+msgstr "Ayırdedici değer olarak görüntüle"
 
 #: server_status.php:1696
 msgid "Apply a divisor"
-msgstr "Böleni uygula"
+msgstr "Bir bölen uygula"
 
 #: server_status.php:1703
 msgid "Append unit to data values"
