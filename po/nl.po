@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-19 15:49+0200\n"
+"PO-Revision-Date: 2013-01-18 14:06+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/3-5/nl/>\n"
 "Language: nl\n"
@@ -2925,7 +2925,7 @@ msgstr "SQL-query"
 #: libraries/rte/rte_triggers.lib.php:104
 #: libraries/rte/rte_triggers.lib.php:121
 msgid "MySQL said: "
-msgstr "MySQL retourneerde: "
+msgstr "MySQL meldt: "
 
 #: libraries/common.lib.php:1126
 msgid "Failed to connect to SQL validator!"
@@ -2950,7 +2950,7 @@ msgstr "Genereer PHP-code"
 #: libraries/common.lib.php:1229 libraries/config/messages.inc.php:486
 #: server_status.php:800 server_status.php:826 server_status.php:849
 msgid "Refresh"
-msgstr "Vernieuw"
+msgstr "Ververs"
 
 #: libraries/common.lib.php:1239
 msgid "Skip Validate SQL"
@@ -6672,8 +6672,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Voeg een tijdstip toe waarop databanken aangemaakt, laatst bijgewerkt en "
-"laatst bekeken werden"
+"Voeg een tijdstip toe waarop databanken aangemaakt, laatst aangepast en "
+"laatst gecontroleerd werden"
 
 #: libraries/export/sql.php:100
 msgid ""
@@ -6769,9 +6769,9 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Dump TIMESTAMP-kolommen in UTC <i>(dit laat toe dat TIMESTAMP-kolommen "
-"gedumpt en opnieuw ingeladen kunnen worden in servers in verschillende "
-"tijdszones)</i>"
+"TIMESTAMP-kolommen exporteren als UTC <i>(dit laat toe dat TIMESTAMP-"
+"kolommen geëxporteerd en opnieuw ingeladen kunnen worden in servers in "
+"verschillende tijdszones)</i>"
 
 #: libraries/export/sql.php:342 libraries/export/xml.php:45
 msgid "Procedures"
@@ -8382,12 +8382,12 @@ msgid ""
 msgstr ""
 "Toont een veld met TIME, TIMESTAMP, DATETIME of numerieke Unix-tijdstempel "
 "als een opgemaakte datum. De eerste optie is de offset (in uren) welke aan "
-"de tijdstempel zal worden toegevoegd (Standaard: 0). De tweede optie kan "
-"worden gebruikt om een alternatieve opmaak te specificeren. Als derde optie "
-"kan worden opgegeven of de lokale tijd, of de UTC-variant moet worden "
-"gebruikt (gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de "
-"opmaakcode - voor \"local\", zie de documentatie van de PHP-functie strftime"
-"() en voor \"utc\" de functie gmdate()."
+"de tijdstip zal worden toegevoegd (Standaard: 0). De tweede optie kan worden "
+"gebruikt om een alternatieve opmaak te specificeren. Als derde optie kan "
+"worden opgegeven of de lokale tijd, of de UTC-variant moet worden gebruikt "
+"(gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de opmaakcode - "
+"voor \"local\", zie de documentatie van de PHP-functie strftime() en voor "
+"\"utc\" de functie gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
