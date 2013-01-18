@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-16 23:35+0200\n"
+"PO-Revision-Date: 2013-01-18 21:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12216,7 +12216,7 @@ msgstr "Καμπύλη γραμμή"
 #: tbl_chart.php:141
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Επιφάνεια"
 
 #: tbl_chart.php:144
 msgctxt "Chart type"
@@ -12224,11 +12224,10 @@ msgid "Pie"
 msgstr "Πίτα"
 
 #: tbl_chart.php:148
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Χρόνος"
+msgstr "Χρονολόγιο"
 
 #: tbl_chart.php:155
 msgid "Stacked"
