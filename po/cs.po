@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-15 09:00+0200\n"
+"PO-Revision-Date: 2013-01-18 15:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -11967,7 +11967,7 @@ msgstr "Křivkový"
 #: tbl_chart.php:141
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Plošný"
 
 #: tbl_chart.php:144
 msgctxt "Chart type"
@@ -11975,11 +11975,10 @@ msgid "Pie"
 msgstr "Koláčový"
 
 #: tbl_chart.php:148
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Čas"
+msgstr "Časový"
 
 #: tbl_chart.php:155
 msgid "Stacked"
