@@ -125,10 +125,7 @@ function resizeGISVisualization() {
     $("input[name='visualizationSettings[height]']").parents('tr').remove();
 
     var old_width = $placeholder.width();
-    var extraPadding = 100;
-    var leftWidth = $('table.gis_table').width();
-    var windowWidth = document.documentElement.clientWidth;
-    var visWidth = windowWidth - extraPadding - leftWidth;
+    var visWidth = $('#div_view_options').width() - 48;
 
     // Assign new value for width
     $placeholder.width(visWidth);
