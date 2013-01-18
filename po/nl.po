@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-10 13:45+0100\n"
-"PO-Revision-Date: 2013-01-18 13:25+0200\n"
+"PO-Revision-Date: 2013-01-18 13:44+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -3547,24 +3547,24 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
-"Een oplijsting, geselecteerd uit een lijst van tot 65.535 waarden of de "
+"Een oplijsting, geselecteerd uit een lijst met tot 65.535 waarden of de "
 "speciale '' foutwaarde"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Een enkele waarde geselecteerd uit een lijst met tot 64 waarden"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Een type dat een meetkundig object van gelijk welk type op kan slaan"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Een punt in een 2-dimensionale ruimte"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Een kromme met lineaire interpolatie tussen punten"
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
@@ -3572,19 +3572,19 @@ msgstr "Een veelhoek"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Een verzameling van punten"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Een verzameling van krommen met lineaire interpolatie tussen punten"
 
 #: libraries/Types.class.php:370
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Een verzameling van veelhoeken"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Een verzameling van meetkundige objecten van gelijk welk type"
 
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
 msgctxt "numeric types"
