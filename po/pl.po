@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-10 13:45+0100\n"
+"POT-Creation-Date: 2013-01-18 14:17+0100\n"
 "PO-Revision-Date: 2013-01-10 13:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
@@ -23,7 +23,7 @@ msgid "Show all"
 msgstr "Pokaż wszystko"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2540
+#: libraries/Util.class.php:2544
 #: libraries/schema/Pdf_Relation_Schema.class.php:1178
 #: libraries/schema/Pdf_Relation_Schema.class.php:1202
 #: libraries/schema/User_Schema.class.php:419
@@ -42,19 +42,19 @@ msgstr ""
 "skonfigurowane na blokowanie aktualizacji między oknami."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3268
-#: libraries/Util.class.php:3275 libraries/Util.class.php:3480
-#: libraries/Util.class.php:3481
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3276
+#: libraries/Util.class.php:3283 libraries/Util.class.php:3488
+#: libraries/Util.class.php:3489
 msgid "Search"
 msgstr "Szukaj"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
 #: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1657
-#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:541
-#: libraries/display_change_password.lib.php:92
+#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
+#: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:440 libraries/display_import.lib.php:335
-#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
+#: libraries/insert_edit.lib.php:1549 libraries/insert_edit.lib.php:1584
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
 #: libraries/operations.lib.php:636 libraries/operations.lib.php:689
@@ -80,7 +80,7 @@ msgstr "Szukaj"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:756 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:197
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:232
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:221 view_operations.php:98
 msgid "Go"
@@ -128,7 +128,7 @@ msgstr "Komentarze tabeli"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1566
+#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1568
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -146,8 +146,8 @@ msgid "Column"
 msgstr "Kolumna"
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
-#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:239
-#: libraries/insert_edit.lib.php:243
+#: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
+#: libraries/insert_edit.lib.php:245
 #: libraries/plugins/export/ExportHtmlword.class.php:279
 #: libraries/plugins/export/ExportHtmlword.class.php:394
 #: libraries/plugins/export/ExportLatex.class.php:509
@@ -169,7 +169,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: db_datadict.php:169 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1575
+#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1577
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -342,7 +342,7 @@ msgstr "Rozmiar"
 msgid "in use"
 msgstr "w użyciu"
 
-#: db_printview.php:185 libraries/Util.class.php:4111
+#: db_printview.php:185 libraries/Util.class.php:4119
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
@@ -350,7 +350,7 @@ msgstr "w użyciu"
 msgid "Creation"
 msgstr "Data utworzenia"
 
-#: db_printview.php:194 libraries/Util.class.php:4117
+#: db_printview.php:194 libraries/Util.class.php:4125
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
@@ -358,7 +358,7 @@ msgstr "Data utworzenia"
 msgid "Last update"
 msgstr "Ostatnia aktualizacja"
 
-#: db_printview.php:203 libraries/Util.class.php:4123
+#: db_printview.php:203 libraries/Util.class.php:4131
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1338
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
@@ -453,7 +453,7 @@ msgid "Delete tracking data for this table"
 msgstr "Usuń dane śledzące tę tabelę"
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3485 libraries/Util.class.php:3486
+#: libraries/Util.class.php:3493 libraries/Util.class.php:3494
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
 #: server_databases.php:327
@@ -720,7 +720,7 @@ msgstr "Powrót"
 msgid "General Settings"
 msgstr "Ustawienia ogólne"
 
-#: index.php:140 libraries/display_change_password.lib.php:44
+#: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:234
 msgid "Change password"
 msgstr "Zmień hasło"
@@ -970,10 +970,10 @@ msgstr "Edytuj indeks"
 msgid "Add %s column(s) to index"
 msgstr "Dodaj %d kolumny do indeksu"
 
-#. l10n: Default description for the y-Axis of Charts
-#: js/messages.php:48
-msgid "Total count"
-msgstr "Liczba ogółem"
+#. l10n: Default label for the y-Axis of Charts
+#: js/messages.php:48 tbl_chart.php:217
+msgid "Y Values"
+msgstr "Wartość Y"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1016,7 +1016,7 @@ msgstr "Zamknij"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:589
 #: libraries/Util.class.php:696 libraries/Util.class.php:1241
-#: libraries/Util.class.php:3489 libraries/Util.class.php:3490
+#: libraries/Util.class.php:3497 libraries/Util.class.php:3498
 #: libraries/config/messages.inc.php:484
 #: libraries/schema/User_Schema.class.php:215 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1054,12 +1054,12 @@ msgid "Other"
 msgstr "Inne"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/Util.class.php:1509
+#: js/messages.php:72 libraries/Util.class.php:1510
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/Util.class.php:1511
+#: js/messages.php:74 libraries/Util.class.php:1512
 msgid "."
 msgstr "."
 
@@ -1164,39 +1164,39 @@ msgid "Processes"
 msgstr "Procesy"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:108 libraries/Util.class.php:1455
+#: js/messages.php:108 libraries/Util.class.php:1456
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:109 libraries/Util.class.php:1457
+#: js/messages.php:109 libraries/Util.class.php:1458
 #: server_status_monitor.php:648
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:110 libraries/Util.class.php:1459
+#: js/messages.php:110 libraries/Util.class.php:1460
 #: server_status_monitor.php:649
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:111 libraries/Util.class.php:1461
+#: js/messages.php:111 libraries/Util.class.php:1462
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:112 libraries/Util.class.php:1463
+#: js/messages.php:112 libraries/Util.class.php:1464
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:113 libraries/Util.class.php:1465
+#: js/messages.php:113 libraries/Util.class.php:1466
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:114 libraries/Util.class.php:1467
+#: js/messages.php:114 libraries/Util.class.php:1468
 msgid "EiB"
 msgstr "EB"
 
@@ -1240,7 +1240,7 @@ msgstr "Proszę dodać przynajmniej jedną zmienną do serii"
 #: libraries/display_export.lib.php:370
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2126
-#: libraries/tbl_columns_definition_form.inc.php:681 pmd_general.php:561
+#: libraries/tbl_columns_definition_form.inc.php:681 pmd_general.php:559
 #: server_status.php:472 server_status_monitor.php:667
 msgid "None"
 msgstr "Żaden"
@@ -1575,9 +1575,9 @@ msgstr "Użyj zmiennej/wzoru"
 msgid "Test"
 msgstr "Testuj"
 
-#: js/messages.php:219 pmd_general.php:439 pmd_general.php:476
-#: pmd_general.php:596 pmd_general.php:644 pmd_general.php:720
-#: pmd_general.php:774 pmd_general.php:837 pmd_general.php:868
+#: js/messages.php:219 pmd_general.php:437 pmd_general.php:474
+#: pmd_general.php:594 pmd_general.php:642 pmd_general.php:718
+#: pmd_general.php:772 pmd_general.php:835 pmd_general.php:866
 #: server_variables.php:134
 msgid "Cancel"
 msgstr "Anuluj"
@@ -1618,9 +1618,9 @@ msgstr "Usuwanie kolumny"
 msgid "Adding Primary Key"
 msgstr "Dodawanie klucza głównego"
 
-#: js/messages.php:230 pmd_general.php:437 pmd_general.php:594
-#: pmd_general.php:642 pmd_general.php:718 pmd_general.php:772
-#: pmd_general.php:835
+#: js/messages.php:230 pmd_general.php:435 pmd_general.php:592
+#: pmd_general.php:640 pmd_general.php:716 pmd_general.php:770
+#: pmd_general.php:833
 msgid "OK"
 msgstr "OK"
 
@@ -1752,7 +1752,7 @@ msgid "%d is not valid row number."
 msgstr "%d nie jest prawidłowym numerem wiersza."
 
 #: js/messages.php:280 libraries/config/FormDisplay.tpl.php:394
-#: libraries/insert_edit.lib.php:1460
+#: libraries/insert_edit.lib.php:1462
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
@@ -2059,63 +2059,63 @@ msgid "December"
 msgstr "Grudzień"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1666
+#: js/messages.php:435 libraries/Util.class.php:1667
 msgid "Jan"
 msgstr "Sty"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1668
+#: js/messages.php:437 libraries/Util.class.php:1669
 msgid "Feb"
 msgstr "Lut"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1670
+#: js/messages.php:439 libraries/Util.class.php:1671
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1672
+#: js/messages.php:441 libraries/Util.class.php:1673
 msgid "Apr"
 msgstr "Kwi"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1674
+#: js/messages.php:443 libraries/Util.class.php:1675
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1676
+#: js/messages.php:445 libraries/Util.class.php:1677
 msgid "Jun"
 msgstr "Cze"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1678
+#: js/messages.php:447 libraries/Util.class.php:1679
 msgid "Jul"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1680
+#: js/messages.php:449 libraries/Util.class.php:1681
 msgid "Aug"
 msgstr "Sie"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1682
+#: js/messages.php:451 libraries/Util.class.php:1683
 msgid "Sep"
 msgstr "Wrz"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1684
+#: js/messages.php:453 libraries/Util.class.php:1685
 msgid "Oct"
 msgstr "Paź"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1686
+#: js/messages.php:455 libraries/Util.class.php:1687
 msgid "Nov"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1688
+#: js/messages.php:457 libraries/Util.class.php:1689
 msgid "Dec"
 msgstr "Gru"
 
@@ -2153,32 +2153,32 @@ msgid "Sun"
 msgstr "Nie"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1693
+#: js/messages.php:478 libraries/Util.class.php:1694
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1695
+#: js/messages.php:480 libraries/Util.class.php:1696
 msgid "Tue"
 msgstr "Wto"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1697
+#: js/messages.php:482 libraries/Util.class.php:1698
 msgid "Wed"
 msgstr "Śro"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1699
+#: js/messages.php:484 libraries/Util.class.php:1700
 msgid "Thu"
 msgstr "Czw"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1701
+#: js/messages.php:486 libraries/Util.class.php:1702
 msgid "Fri"
 msgstr "Pią"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1703
+#: js/messages.php:488 libraries/Util.class.php:1704
 msgid "Sat"
 msgstr "Sob"
 
@@ -2312,16 +2312,16 @@ msgstr "na godzinę"
 msgid "per day"
 msgstr "na dzień"
 
-#: libraries/Config.class.php:1050
+#: libraries/Config.class.php:1063
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Istniejący plik konfiguracyjny (%s) nie jest czytelny."
 
-#: libraries/Config.class.php:1080
+#: libraries/Config.class.php:1093
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Złe uprawnienia pliku konfiguracyjnego, nie powinien być zapisywalny!"
 
-#: libraries/Config.class.php:1656
+#: libraries/Config.class.php:1669
 msgid "Font size"
 msgstr "Rozmiar czcionki"
 
@@ -2369,7 +2369,7 @@ msgid "Use Tables"
 msgstr "Użyj tabel"
 
 #: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
-#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
+#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1186
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:337
 msgid "Or"
 msgstr "Lub"
@@ -2395,7 +2395,7 @@ msgstr "Zmodyfikuj"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Zapytanie SQL do bazy danych <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1269
+#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1270
 msgid "Submit Query"
 msgstr "Wyślij zapytanie"
 
@@ -2439,8 +2439,8 @@ msgstr[1] "%1$s dopasowania wewnątrz tabeli <i>%2$s</i>"
 msgstr[2] "%1$s dopasowań wewnątrz tabeli <i>%2$s</i>"
 
 #: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3270 libraries/Util.class.php:3478
-#: libraries/Util.class.php:3479 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3278 libraries/Util.class.php:3486
+#: libraries/Util.class.php:3487 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Przeglądaj"
 
@@ -2454,7 +2454,7 @@ msgstr "Usunąć dopasowania do tabeli %s?"
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:297
 #: libraries/schema/User_Schema.class.php:349
-#: libraries/sql_query_form.lib.php:415 pmd_general.php:474
+#: libraries/sql_query_form.lib.php:415 pmd_general.php:472
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
 #: tbl_tracking.php:537 tbl_tracking.php:557 tbl_tracking.php:619
 msgid "Delete"
@@ -2492,35 +2492,35 @@ msgstr "Zapisz edytowane dane"
 msgid "Restore column order"
 msgstr "Przywrócić porządek w kolumnie"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2549
-#: libraries/Util.class.php:2553
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2553
+#: libraries/Util.class.php:2557
 msgctxt "First page"
 msgid "Begin"
 msgstr "Początek"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2551
-#: libraries/Util.class.php:2554 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2555
+#: libraries/Util.class.php:2558 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Poprzednie"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2584
-#: libraries/Util.class.php:2587 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2590
+#: libraries/Util.class.php:2593 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Następne"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2585
-#: libraries/Util.class.php:2588
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2591
+#: libraries/Util.class.php:2594
 msgctxt "Last page"
 msgid "End"
 msgstr "Koniec"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:193
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:222
 msgid "Start row"
 msgstr "Początek wiersza"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:195
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:226
 msgid "Number of rows"
 msgstr "Liczba wierszy"
 
@@ -2685,7 +2685,7 @@ msgstr "Zaznacz wszystkie"
 #: libraries/DisplayResults.class.php:5080
 #: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3491 libraries/Util.class.php:3492
+#: libraries/Util.class.php:3499 libraries/Util.class.php:3500
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1798
 #: libraries/server_privileges.lib.php:2420 libraries/structure.lib.php:297
@@ -2708,7 +2708,7 @@ msgstr "Podgląd wydruku"
 msgid "Print view (with full texts)"
 msgstr "Podgląd wydruku (z pełnymi tekstami)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:126
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:129
 msgid "Display chart"
 msgstr "Wyświetlanie wykresu"
 
@@ -2724,7 +2724,7 @@ msgstr "Utwórz widok"
 msgid "Link not found"
 msgstr "Łącza nie znaleziono"
 
-#: libraries/Error_Handler.class.php:73
+#: libraries/Error_Handler.class.php:77
 msgid "Too many error messages, some are not displayed."
 msgstr "Zbyt wiele komunikatów o błędach, niektóre nie są wyświetlane."
 
@@ -2871,8 +2871,8 @@ msgid "View"
 msgstr "Widok"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3266 libraries/Util.class.php:3273
-#: libraries/Util.class.php:3484 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3274 libraries/Util.class.php:3281
+#: libraries/Util.class.php:3492 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2886,20 +2886,20 @@ msgid "Structure"
 msgstr "Struktura"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3267
-#: libraries/Util.class.php:3274 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3275
+#: libraries/Util.class.php:3282 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3269
-#: libraries/Util.class.php:3482 libraries/Util.class.php:3483
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3277
+#: libraries/Util.class.php:3490 libraries/Util.class.php:3491
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "Wstaw"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3276
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3284
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Operacje"
@@ -2987,8 +2987,8 @@ msgid "Engines"
 msgstr "Mechanizmy"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
-#: libraries/core.lib.php:228 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:27 tbl_operations.php:184
+#: libraries/core.lib.php:231 libraries/import.lib.php:171
+#: libraries/insert_edit.lib.php:1182 tbl_chart.php:28 tbl_operations.php:184
 #: tbl_relation.php:236 view_operations.php:57
 msgid "Error"
 msgstr "Błąd"
@@ -3211,21 +3211,21 @@ msgstr ""
 "Nie można zapisać \"%s\" własności UI. Wprowadzone zmiany nie będą trwałe po "
 "odświeżeniu strony. Proszę sprawdzić, czy struktura tabeli została zmieniona."
 
-#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:207
-#: libraries/insert_edit.lib.php:213 libraries/rte/rte_routines.lib.php:1495
+#: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:209
+#: libraries/insert_edit.lib.php:215 libraries/rte/rte_routines.lib.php:1495
 msgid "Function"
 msgstr "Funkcja"
 
-#: libraries/TableSearch.class.php:186 pmd_general.php:538 pmd_general.php:558
-#: pmd_general.php:680 pmd_general.php:693 pmd_general.php:756
-#: pmd_general.php:810
+#: libraries/TableSearch.class.php:186 pmd_general.php:536 pmd_general.php:556
+#: pmd_general.php:678 pmd_general.php:691 pmd_general.php:754
+#: pmd_general.php:808
 msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
-#: libraries/insert_edit.lib.php:1576 libraries/replication_gui.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:527
-#: pmd_general.php:586 pmd_general.php:709 pmd_general.php:826
+#: libraries/insert_edit.lib.php:1578 libraries/replication_gui.lib.php:124
+#: libraries/rte/rte_routines.lib.php:1497 pmd_general.php:525
+#: pmd_general.php:584 pmd_general.php:707 pmd_general.php:824
 #: server_status_variables.php:233
 msgid "Value"
 msgstr "Wartość"
@@ -3234,7 +3234,7 @@ msgstr "Wartość"
 msgid "Table Search"
 msgstr "Tabela szukania"
 
-#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1350
+#: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1352
 msgid "Edit/Insert"
 msgstr "Edycja/Wstaw"
 
@@ -3538,7 +3538,7 @@ msgstr ""
 "Kolumna BLOB o maksymalnej długości 16,777,215 (2 ^ 24 - 1) bajtów, "
 "przechowywane z prefiksem trzybajtowy wskazujące długość wartości"
 
-#: libraries/Types.class.php:350
+#: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -3662,14 +3662,6 @@ msgstr ""
 "Ciąg o długości zmiennej (0 do 65 535) używa binarne sortowania dla "
 "wszystkich porównań"
 
-#: libraries/Types.class.php:736
-msgid ""
-"A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
-"a four-byte prefix indicating the length of the value"
-msgstr ""
-"Kolumna BLOB o maksymalnej długości 65 535 (2 ^ 16 - 1) bajtów, "
-"przechowywane prefiksu czwartego bajtu, wskazując długość wartości"
-
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "Wyliczenie, wybrane z listy zdefiniowane wartości"
@@ -3704,104 +3696,104 @@ msgstr "Wyjaśnij SQL"
 msgid "Skip Explain SQL"
 msgstr "Pomiń wyjaśnienie SQL"
 
-#: libraries/Util.class.php:1254
+#: libraries/Util.class.php:1255
 msgid "Without PHP Code"
 msgstr "Bez kodu PHP"
 
-#: libraries/Util.class.php:1257 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1258 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "Utwórz kod PHP"
 
-#: libraries/Util.class.php:1283 libraries/config/messages.inc.php:486
+#: libraries/Util.class.php:1284 libraries/config/messages.inc.php:486
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "Odśwież"
 
-#: libraries/Util.class.php:1293
+#: libraries/Util.class.php:1294
 msgid "Skip Validate SQL"
 msgstr "Pomiń sprawdzanie poprawności SQL"
 
-#: libraries/Util.class.php:1296 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1297 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "Weryfikacja SQL"
 
-#: libraries/Util.class.php:1358
+#: libraries/Util.class.php:1359
 msgid "Inline edit of this query"
 msgstr "Szybka edycja tego zapytania"
 
-#: libraries/Util.class.php:1360
+#: libraries/Util.class.php:1361
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "W linii"
 
-#: libraries/Util.class.php:1428 sql.php:1156
+#: libraries/Util.class.php:1429 sql.php:1156
 msgid "Profiling"
 msgstr "Profilowanie"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1691
+#: libraries/Util.class.php:1692
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Nie"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1707
+#: libraries/Util.class.php:1708
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M"
 
-#: libraries/Util.class.php:2052
+#: libraries/Util.class.php:2054
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dni, %s godzin, %s minut i %s sekund"
 
-#: libraries/Util.class.php:2142
+#: libraries/Util.class.php:2144
 msgid "Missing parameter:"
 msgstr "Brakuje parametru:"
 
-#: libraries/Util.class.php:2655
+#: libraries/Util.class.php:2663
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Przejście do bazy danych &quot;%s&quot;."
 
-#: libraries/Util.class.php:2679
+#: libraries/Util.class.php:2687
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkcja %s jest dotknięta przez znany błąd, zobacz %s"
 
-#: libraries/Util.class.php:2855
+#: libraries/Util.class.php:2863
 msgid "Click to toggle"
 msgstr "Kliknij, aby przełączać"
 
-#: libraries/Util.class.php:3397 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3405 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Wyszukaj w komputerze:"
 
-#: libraries/Util.class.php:3422
+#: libraries/Util.class.php:3430
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Wybierz katalog serwera WWW dla uploadu <b>%s</b>:"
 
-#: libraries/Util.class.php:3451 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3459 libraries/insert_edit.lib.php:1183
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików"
 
-#: libraries/Util.class.php:3462
+#: libraries/Util.class.php:3470
 msgid "There are no files to upload"
 msgstr "Brak plików do wysłania"
 
-#: libraries/Util.class.php:3487 libraries/Util.class.php:3488
+#: libraries/Util.class.php:3495 libraries/Util.class.php:3496
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Opróżnij"
 
-#: libraries/Util.class.php:3493 libraries/Util.class.php:3494
+#: libraries/Util.class.php:3501 libraries/Util.class.php:3502
 msgid "Execute"
 msgstr "Wykonaj"
 
-#: libraries/Util.class.php:4017
+#: libraries/Util.class.php:4025
 msgid "Print"
 msgstr "Drukuj"
 
@@ -4091,7 +4083,7 @@ msgstr "Przywróć wartość domyślną"
 msgid "Allow users to customize this value"
 msgstr "Zezwól użytkownikom na zmianę tej wartości"
 
-#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
+#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1551
 #: libraries/schema/User_Schema.class.php:541 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
@@ -6168,7 +6160,7 @@ msgid "Requires SQL Validator to be enabled"
 msgstr "Wymaga włączenia walidatora SQL"
 
 #: libraries/config/messages.inc.php:490
-#: libraries/display_change_password.lib.php:59
+#: libraries/display_change_password.lib.php:61
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:361 libraries/replication_gui.lib.php:365
 #: libraries/replication_gui.lib.php:375
@@ -6434,16 +6426,16 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr "Nieprawidłowy adres IP: %s"
 
-#: libraries/core.lib.php:286
+#: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Brak rozszerzenia %s. Proszę sprawdzić konfigurację PHP."
 
-#: libraries/core.lib.php:437
+#: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
 msgstr "możliwy głęboki atak rekurencji"
 
-#: libraries/database_interface.lib.php:2020
+#: libraries/database_interface.lib.php:2059
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -6451,15 +6443,15 @@ msgstr ""
 "Serwer nie odpowiada (lub gniazdo lokalnego serwera nie jest prawidłowo "
 "skonfigurowane)."
 
-#: libraries/database_interface.lib.php:2023
+#: libraries/database_interface.lib.php:2064
 msgid "The server is not responding."
 msgstr "Serwer nie odpowiada."
 
-#: libraries/database_interface.lib.php:2028
+#: libraries/database_interface.lib.php:2069
 msgid "Please check privileges of directory containing database."
 msgstr "Proszę sprawdzić uprawnienia katalogu zawierającej bazę danych."
 
-#: libraries/database_interface.lib.php:2037
+#: libraries/database_interface.lib.php:2079
 msgid "Details…"
 msgstr "Szczegóły…"
 
@@ -6478,24 +6470,24 @@ msgstr ""
 "Połączenie dla użytkownika kontrolnego zdefiniowanego w pliku "
 "konfiguracyjnym nie powiodło się."
 
-#: libraries/display_change_password.lib.php:51
+#: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1215
 msgid "No Password"
 msgstr "Brak hasła"
 
-#: libraries/display_change_password.lib.php:65
+#: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379 libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 #: libraries/server_privileges.lib.php:1234
 msgid "Re-type"
 msgstr "Ponownie"
 
-#: libraries/display_change_password.lib.php:72
+#: libraries/display_change_password.lib.php:74
 msgid "Password Hashing"
 msgstr "Sposób kodowania haseł"
 
-#: libraries/display_change_password.lib.php:85
+#: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
 msgstr "Kompatybilny z MySQL-em&nbsp;4.0"
 
@@ -7222,77 +7214,77 @@ msgstr "Struktura %s"
 msgid "Go to view: %s"
 msgstr "Przejdź do widoku: %s"
 
-#: libraries/insert_edit.lib.php:212 libraries/insert_edit.lib.php:243
-#: pmd_general.php:195
+#: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
+#: pmd_general.php:197
 msgid "Hide"
 msgstr "Ukryj"
 
-#: libraries/insert_edit.lib.php:456 libraries/mysql_charsets.lib.php:239
+#: libraries/insert_edit.lib.php:458 libraries/mysql_charsets.lib.php:239
 #: libraries/mysql_charsets.lib.php:440
 msgid "Binary"
 msgstr "Binarne"
 
-#: libraries/insert_edit.lib.php:651
+#: libraries/insert_edit.lib.php:653
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Ze względu na jego długość, <br /> kolumna ta może nie być edytowalne"
 
-#: libraries/insert_edit.lib.php:1087
+#: libraries/insert_edit.lib.php:1089
 msgid "Binary - do not edit"
 msgstr "Binarne - nie do edycji"
 
-#: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:467
+#: libraries/insert_edit.lib.php:1187 libraries/sql_query_form.lib.php:467
 msgid "web server upload directory"
 msgstr "katalog przesyłania serwera web"
 
-#: libraries/insert_edit.lib.php:1400
+#: libraries/insert_edit.lib.php:1402
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Kontynuuj wstawianie %s wierszy"
 
-#: libraries/insert_edit.lib.php:1430
+#: libraries/insert_edit.lib.php:1432
 msgid "and then"
 msgstr "i potem"
 
-#: libraries/insert_edit.lib.php:1463
+#: libraries/insert_edit.lib.php:1465
 msgid "Insert as new row"
 msgstr "Wstaw jako nowy wiersz"
 
-#: libraries/insert_edit.lib.php:1466
+#: libraries/insert_edit.lib.php:1468
 msgid "Insert as new row and ignore errors"
 msgstr "Wstaw jko nowy wiersz i ignoruj błędy"
 
-#: libraries/insert_edit.lib.php:1469
+#: libraries/insert_edit.lib.php:1471
 msgid "Show insert query"
 msgstr "Pokaż wstawiane zapytanie"
 
-#: libraries/insert_edit.lib.php:1489
+#: libraries/insert_edit.lib.php:1491
 msgid "Go back to previous page"
 msgstr "Wróć"
 
-#: libraries/insert_edit.lib.php:1492
+#: libraries/insert_edit.lib.php:1494
 msgid "Insert another new row"
 msgstr "Wstaw nowy wiersz"
 
-#: libraries/insert_edit.lib.php:1497
+#: libraries/insert_edit.lib.php:1499
 msgid "Go back to this page"
 msgstr "Powrót do tej strony"
 
-#: libraries/insert_edit.lib.php:1519
+#: libraries/insert_edit.lib.php:1521
 msgid "Edit next row"
 msgstr "Edytuj następny wiersz"
 
-#: libraries/insert_edit.lib.php:1541
+#: libraries/insert_edit.lib.php:1543
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Użyj TAB, aby przejść z wartości do wartości, lub CTRL+strzałki do "
 "poruszania się w dowolnym miejscu"
 
-#: libraries/insert_edit.lib.php:1911 sql.php:917
+#: libraries/insert_edit.lib.php:1914 sql.php:917
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: libraries/insert_edit.lib.php:1936 sql.php:897
+#: libraries/insert_edit.lib.php:1939 sql.php:897
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
@@ -10243,7 +10235,7 @@ msgstr ""
 msgid "Save position"
 msgstr "Zapamiętaj pozycję"
 
-#: pmd_general.php:104 pmd_general.php:403
+#: pmd_general.php:104 pmd_general.php:401
 msgid "Create relation"
 msgstr "Utwórz relację"
 
@@ -10303,37 +10295,37 @@ msgstr "Ukryj/pokaż tabele bez relacji"
 msgid "Number of tables"
 msgstr "Liczba tabel"
 
-#: pmd_general.php:469
+#: pmd_general.php:467
 msgid "Delete relation"
 msgstr "Usuń relację"
 
-#: pmd_general.php:511 pmd_general.php:570
+#: pmd_general.php:509 pmd_general.php:568
 msgid "Relation operator"
 msgstr "Operator relacji"
 
-#: pmd_general.php:521 pmd_general.php:580 pmd_general.php:703
-#: pmd_general.php:820
+#: pmd_general.php:519 pmd_general.php:578 pmd_general.php:701
+#: pmd_general.php:818
 msgid "Except"
 msgstr "Oprócz"
 
-#: pmd_general.php:527 pmd_general.php:586 pmd_general.php:709
-#: pmd_general.php:826
+#: pmd_general.php:525 pmd_general.php:584 pmd_general.php:707
+#: pmd_general.php:824
 msgid "subquery"
 msgstr "w zapytaniu"
 
-#: pmd_general.php:531 pmd_general.php:627
+#: pmd_general.php:529 pmd_general.php:625
 msgid "Rename to"
 msgstr "Zmień nazwę na"
 
-#: pmd_general.php:533 pmd_general.php:632
+#: pmd_general.php:531 pmd_general.php:630
 msgid "New name"
 msgstr "Nowa nazwa"
 
-#: pmd_general.php:536 pmd_general.php:751
+#: pmd_general.php:534 pmd_general.php:749
 msgid "Aggregate"
 msgstr "Utwórz"
 
-#: pmd_general.php:861
+#: pmd_general.php:859
 msgid "Active options"
 msgstr "Aktywne opcje"
 
@@ -12234,68 +12226,76 @@ msgstr "Problemy z indeksami tabeli `%s`"
 msgid "Label"
 msgstr "Nazwa"
 
-#: tbl_chart.php:41
+#: tbl_chart.php:43
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Nie znaleziono danych"
 
-#: tbl_chart.php:129
+#: tbl_chart.php:132
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Słupkowy"
 
-#: tbl_chart.php:131
+#: tbl_chart.php:134
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolumna"
 
-#: tbl_chart.php:133
+#: tbl_chart.php:137
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linia"
 
-#: tbl_chart.php:135
+#: tbl_chart.php:139
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Klin"
 
-#: tbl_chart.php:138
+#: tbl_chart.php:141
+msgctxt "Chart type"
+msgid "Area"
+msgstr ""
+
+#: tbl_chart.php:144
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Kołowy"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:148
+#, fuzzy
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "Czas"
+
+#: tbl_chart.php:155
 msgid "Stacked"
 msgstr "Spakowany"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:158
 msgid "Chart title"
 msgstr "Tytuł wykresu"
 
-#: tbl_chart.php:152
+#: tbl_chart.php:165
 msgid "X-Axis:"
 msgstr "Oś X:"
 
-#: tbl_chart.php:167
+#: tbl_chart.php:180
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:187
+#: tbl_chart.php:210
 msgid "X-Axis label:"
 msgstr "Etykieta osi X:"
 
-#: tbl_chart.php:189
+#: tbl_chart.php:213
 msgid "X Values"
 msgstr "Wartość X"
 
-#: tbl_chart.php:190
+#: tbl_chart.php:215
 msgid "Y-Axis label:"
 msgstr "Etykieta osi Y:"
-
-#: tbl_chart.php:191
-msgid "Y Values"
-msgstr "Wartość Y"
 
 #: tbl_create.php:32
 #, php-format
@@ -13901,6 +13901,16 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert jest ustawiony na 0"
+
+#~ msgid "Total count"
+#~ msgstr "Liczba ogółem"
+
+#~ msgid ""
+#~ "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored "
+#~ "with a four-byte prefix indicating the length of the value"
+#~ msgstr ""
+#~ "Kolumna BLOB o maksymalnej długości 65 535 (2 ^ 16 - 1) bajtów, "
+#~ "przechowywane prefiksu czwartego bajtu, wskazując długość wartości"
 
 #~ msgid "Improves efficiency of screen refresh"
 #~ msgstr "Poprawia wydajność odświeżania strony"
