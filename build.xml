@@ -45,7 +45,7 @@
 
  <target name="phpcpd" description="Generate pmd-cpd.xml using PHPCPD">
   <exec executable="phpcpd">
-   <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml\
+   <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml'
               --exclude test
               --exclude build
               --exclude libraries/tcpdf
