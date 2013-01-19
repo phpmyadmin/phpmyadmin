@@ -123,11 +123,6 @@ function addZoomPanControllers() {
  */
 function resizeGISVisualization() {
     var $placeholder = $('#placeholder');
-
-    // Hide inputs for width and height
-    $("input[name='visualizationSettings[width]']").parents('tr').remove();
-    $("input[name='visualizationSettings[height]']").parents('tr').remove();
-
     var old_width = $placeholder.width();
     var visWidth = $('#div_view_options').width() - 48;
 
