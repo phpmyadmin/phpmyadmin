@@ -33,10 +33,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
    text-align: <?php echo $right; ?>;
 }
 
-.gis_table .choice {
-    display: none;
-}
-
 /**
  * GIS data editor styles
  */
