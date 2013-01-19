@@ -733,7 +733,7 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'VARBINARY':
             return __('A variable-length (0-65,535) string, uses binary collation for all comparisons');
         case 'BLOB':
-            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a four-byte prefix indicating the length of the value');
+            return __('A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value');
         case 'ENUM':
             return __("An enumeration, chosen from the list of defined values");
         }
