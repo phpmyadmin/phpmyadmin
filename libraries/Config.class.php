@@ -1755,7 +1755,7 @@ class PMA_Config
         if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
-            if ($validity == null) {
+            if ($validity === null) {
                 $validity = time() + 2592000;
             } elseif ($validity == 0) {
                 $validity = 0;
