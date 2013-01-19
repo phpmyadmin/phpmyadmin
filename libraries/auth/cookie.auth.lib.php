@@ -493,11 +493,17 @@ function PMA_auth_set_user()
             PMA_get_blowfish_secret()));
 
     // Duration = as configured
-    $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $GLOBALS['server'],
-        PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
-            PMA_get_blowfish_secret()),
+    $GLOBALS['PMA_Config']->setCookie(
+        'pmaPass-' . $GLOBALS['server'],
+        PMA_blowfish_encrypt(
+            ! empty($cfg['Server']['password']) 
+                ? $cfg['Server']['password'] 
+                : "\xff(blank)",
+            PMA_get_blowfish_secret()
+        ),
         null,
-        $GLOBALS['cfg']['LoginCookieStore']);
+        $GLOBALS['cfg']['LoginCookieStore']
+    );
 
     // Set server cookies if required (once per session) and, in this case, force
     // reload to ensure the client accepts cookies
