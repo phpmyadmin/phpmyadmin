@@ -10,7 +10,7 @@
 
 // Constants
 var zoomFactor = 1.5;
-var defaultX = 0;
+var defaultX;
 var defaultY = 0;
 
 // Variables
@@ -131,8 +131,10 @@ function resizeGISVisualization() {
     $('svg').attr('width', visWidth);
 
     // Assign the offset created due to resizing to defaultX and center the svg.
-    defaultX = (visWidth - old_width) / 2;
-    x = defaultX;
+    if (defaultX == null) {
+        defaultX = (visWidth - old_width) / 2;
+        x = defaultX;
+    }
 }
 
 /**
@@ -327,12 +329,12 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
      */
     $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
             + '.geometrycollection').live('mousemove', function(event) {
-        contents = $.trim(escapeHtml($(this).attr('name')));
+        var contents = $.trim(escapeHtml($(this).attr('name')));
+        alert(contents);
         $("#tooltip").remove();
         if (contents != '') {
             $('<div id="tooltip">' + contents + '</div>').css({
                 position : 'absolute',
-                display : 'none',
                 top : event.pageY + 10,
                 left : event.pageX + 10,
                 border : '1px solid #fdd',
