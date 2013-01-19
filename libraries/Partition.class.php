@@ -19,6 +19,9 @@ class PMA_Partition
     /**
      * returns array of partition names for a specific db/table
      *
+     * @param string $db    database name
+     * @param string $table table name
+     *
      * @access  public
      * @return array   of partition names
      */
