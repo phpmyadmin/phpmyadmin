@@ -8,17 +8,6 @@
 
 require_once 'libraries/common.inc.php';
 
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('openlayers/OpenLayers.js');
-$scripts->addFile('jquery/jquery.svg.js');
-$scripts->addFile('tbl_gis_visualization.js');
-$scripts->addFile('OpenStreetMap.js');
-
-// Allows for resending headers even after sending some data
-ob_start();
-
 // Runs common work
 require_once 'libraries/db_common.inc.php';
 $url_params['goto'] = $cfg['DefaultTabDatabase'];
@@ -66,6 +55,26 @@ while ($row = PMA_DBI_fetch_assoc($modified_result)) {
     $data[] = $row;
 }
 
+$response = PMA_Response::getInstance();
+if (isset($_REQUEST['saveToFile'])) {
+    $response->disable();
+    $file_name = $_REQUEST['fileName'];
+    if ($file_name == '') {
+        $file_name = $visualizationSettings['spatialColumn'];
+    }
+
+    $save_format = $_REQUEST['fileFormat'];
+    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
+    exit();
+}
+
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('openlayers/OpenLayers.js');
+$scripts->addFile('jquery/jquery.svg.js');
+$scripts->addFile('tbl_gis_visualization.js');
+$scripts->addFile('OpenStreetMap.js');
+
 // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
 if (! isset($_REQUEST['displayVisualization'])) {
     $visualizationSettings['choice'] = 'useBaseLayer';
@@ -75,17 +84,6 @@ if (! isset($_REQUEST['displayVisualization'])) {
             break;
         }
     }
-}
-
-if (isset($_REQUEST['saveToFile'])) {
-    $file_name = $_REQUEST['fileName'];
-    if ($file_name == '') {
-        $file_name = $visualizationSettings['spatialColumn'];
-    }
-
-    $save_format = $_REQUEST['fileFormat'];
-    PMA_GIS_saveToFile($data, $visualizationSettings, $save_format, $file_name);
-    exit();
 }
 
 $svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
@@ -160,7 +158,7 @@ if (isset($visualizationSettings['choice'])) {
     </div>
 
     <div  style="float:left;">
-    <form method="post" action="tbl_gis_visualization.php">
+    <form method="post" class="disableAjax"  action="tbl_gis_visualization.php">
     <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
     <table class="gis_table">
     <tr><td><label for="fileName"><?php echo __("File name"); ?></label></td>

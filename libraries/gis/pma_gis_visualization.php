@@ -152,9 +152,6 @@ class PMA_GIS_Visualization
     private function _toFile($file_name, $type, $ext)
     {
         $file_name = $this->_sanitizeName($file_name, $ext);
-
-        ob_clean();
-
         PMA_downloadHeader($file_name, $type);
     }
 
@@ -356,8 +353,6 @@ class PMA_GIS_Visualization
 
         // sanitize file name
         $file_name = $this->_sanitizeName($file_name, 'pdf');
-
-        ob_clean();
         $pdf->Output($file_name, 'D');
     }
 
