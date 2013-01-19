@@ -29,9 +29,9 @@ class PMA_Partition
     {
         if (PMA_Partition::havePartitioning()) {
             return PMA_DBI_fetch_result(
-                "select `PARTITION_NAME` from `information_schema`.`PARTITIONS`"
-                . " where `TABLE_SCHEMA` = '" . $db
-                . "' and `TABLE_NAME` = '" . $table . "'"
+                "SELECT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`"
+                . " WHERE `TABLE_SCHEMA` = '" . $db
+                . "' AND `TABLE_NAME` = '" . $table . "'"
             );
         } else {
             return array();
