@@ -194,9 +194,7 @@ AJAX.registerTeardown('tbl_gis_visualization.js', function() {
     $('#right_arrow').die('click');
     $('#up_arrow').die('click');
     $('#down_arrow').die('click');
-    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
-            + '.geometrycollection')
-        .die('mousemove').die('mouseout');
+    $('.vector').unbind('mousemove').unbind('mouseout');
 });
 
 AJAX.registerOnload('tbl_gis_visualization.js', function() {
@@ -323,14 +321,12 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
         y -= 100;
         zoomAndPan();
     });
-
+    
     /**
      * Detect the mousemove event and show tooltips.
      */
-    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
-            + '.geometrycollection').live('mousemove', function(event) {
+    $('.vector').bind('mousemove', function(event) {
         var contents = $.trim(escapeHtml($(this).attr('name')));
-        alert(contents);
         $("#tooltip").remove();
         if (contents != '') {
             $('<div id="tooltip">' + contents + '</div>').css({
@@ -340,7 +336,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
                 border : '1px solid #fdd',
                 padding : '2px',
                 'background-color' : '#fee',
-                opacity : 0.80
+                opacity : 0.90
             }).appendTo("body").fadeIn(200);
         }
     });
@@ -348,8 +344,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     /**
      * Detect the mouseout event and hide tooltips.
      */
-    $('.polygon, .multipolygon, .point, .multipoint, .linestring, .multilinestring, '
-            + '.geometrycollection').live('mouseout', function(event) {
+    $('.vector').bind('mouseout', function(event) {
         $("#tooltip").remove();
     });
 });
