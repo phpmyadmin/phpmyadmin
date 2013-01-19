@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:04+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-19 15:43+0200\n"
+"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1627,22 +1627,19 @@ msgid "Table"
 msgstr "Таблиця"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Набір символів"
+msgstr "Графік"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Edit chart"
-msgstr "Додати коментар"
+msgstr "Редагувати графік"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Servers"
 msgid "Series"
-msgstr "Сервери"
+msgstr "Серії"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1718,16 +1715,14 @@ msgid "Import"
 msgstr "Імпорт"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Не вдається імпортувати конфігурацію"
+msgstr "Імпорт налаштувань монітору"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Будь ласка, оберіть первинний ключ або унікальний ключ"
+msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1920,14 +1915,12 @@ msgid "Each point represents a data row."
 msgstr "Кожна точка являє собою рядок даних."
 
 #: js/messages.php:302
-#, fuzzy
 msgid "Hovering over a point will show its label."
-msgstr "При наведенні на точку буде показано її лейбл."
+msgstr "Наведення курсора над крапкою відобразить, її назву."
 
 #: js/messages.php:304
-#, fuzzy
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Для маштабування, виділіть ділянку з допомогою мишки"
+msgstr "Для збільшення, виділіть ділянку графіку з допомогою миші"
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -1955,10 +1948,9 @@ msgid "Query results"
 msgstr "Результати запиту"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
-msgstr "Зміст"
+msgstr "Вміст точки даних"
 
 #: js/messages.php:318 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -4435,7 +4427,7 @@ msgstr "Посилання для редагування, копіювання �
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Де можна відобразити посилання на рядки таблиці"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
@@ -4487,6 +4479,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Вимкнути сповіщення, що відображається на сторінці структури бази даних при "
+"відсутності таблиць, необхідних для зберігання конфігурації phpMyAdmin"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -4494,7 +4488,7 @@ msgstr "Відсутня таблиця для збереження конфіг
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
-msgstr ""
+msgstr "Іконки операцій над таблицями"
 
 #: libraries/config/messages.inc.php:337
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -4510,6 +4504,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Увімкніть, для зберігання історії запитів у базі даних (потрібно налаштоване "
+"сховище конфігурації phpMyAdmin). При вимкненні, для зберігання буде "
+"використовуватись JavaScript (історію запитів буде втрачено при закритті "
+"вікна)."
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
@@ -4525,11 +4523,11 @@ msgstr "Довжина історії запитів"
 
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Вкладка, які відображається під час відкриття нового вікна запиту"
 
 #: libraries/config/messages.inc.php:345
 msgid "Default query window tab"
-msgstr ""
+msgstr "Вкладка за замовчуванням вікна запитів"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
@@ -4554,7 +4552,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
-msgstr ""
+msgstr "Механізм перекодування"
 
 #: libraries/config/messages.inc.php:352
 msgid "When browsing tables, the sorting of each table is remembered"
@@ -4620,7 +4618,7 @@ msgstr "Дозволити авторизацію для root"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr ""
+msgstr "Рядок, що відображається при ідентифікації з допомогою HTTP"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
@@ -4675,7 +4673,7 @@ msgstr "Стискати з’єднання"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
+msgstr "Спосіб з'єднання з сервером - якщо не впевнені залиште [kbd]tcp[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
@@ -4683,7 +4681,7 @@ msgstr "Тип з’єднання"
 
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "Пароль виділеного користувача"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
