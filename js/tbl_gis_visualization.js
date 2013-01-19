@@ -10,13 +10,13 @@
 
 // Constants
 var zoomFactor = 1.5;
-var defaultX;
+var defaultX = 0;
 var defaultY = 0;
 
 // Variables
-var x = 0;
-var y = 0;
-var scale = 1;
+var x;
+var y;
+var scale;
 
 var svg;
 
@@ -131,10 +131,10 @@ function resizeGISVisualization() {
     $('svg').attr('width', visWidth);
 
     // Assign the offset created due to resizing to defaultX and center the svg.
-    if (defaultX == null) {
-        defaultX = (visWidth - old_width) / 2;
-        x = defaultX;
-    }
+    defaultX = (visWidth - old_width) / 2;
+    x = defaultX;
+    y = 0;
+    scale = 1;
 }
 
 /**
