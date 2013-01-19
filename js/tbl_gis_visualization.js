@@ -8,12 +8,16 @@
  * @requires    jquery/jquery.event.drag-2.0.js
  */
 
+// Constants
 var zoomFactor = 1.5;
+var defaultX = 0;
+var defaultY = 0;
+
+// Variables
 var x = 0;
-var default_x = 0;
 var y = 0;
-var default_y = 0;
 var scale = 1;
+
 var svg;
 
 /**
@@ -132,9 +136,9 @@ function resizeGISVisualization() {
     $placeholder.width(visWidth);
     $('svg').attr('width', visWidth);
 
-    // Assign the offset created due to resizing to default_x and center the svg.
-    default_x = (visWidth - old_width) / 2;
-    x = default_x;
+    // Assign the offset created due to resizing to defaultX and center the svg.
+    defaultX = (visWidth - old_width) / 2;
+    x = defaultX;
 }
 
 /**
@@ -282,8 +286,8 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     $('#zoom_world').live('click', function(e) {
         e.preventDefault();
         scale = 1;
-        x = default_x;
-        y = default_y;
+        x = defaultX;
+        y = defaultY;
         zoomAndPan();
     });
 
