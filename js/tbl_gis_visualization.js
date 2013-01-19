@@ -155,6 +155,14 @@ function initGISVisualization() {
     zoomAndPan();
 }
 
+function getRelativeCoords(e) {
+    var position = $('#placeholder').offset();
+    return {
+        x : e.pageX - position.left,
+        y : e.pageY - position.top
+    };
+}
+
 /**
  * Ajax handlers for GIS visualization page
  *
@@ -208,19 +216,20 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     });
 
     $('#placeholder').live('mousewheel', function(event, delta) {
+        var relCoords = getRelativeCoords(event);
         if (delta > 0) {
             //zoom in
             scale *= 1.5;
-            // zooming in keeping the position under mouse pointer unmoved.
-            x = event.layerX - (event.layerX - x) * 1.5;
-            y = event.layerY - (event.layerY - y) * 1.5;
+            // zooming in keeping the position under mouse pointer unmoved.            
+            x = relCoords.x - (relCoords.x - x) * 1.5;
+            y = relCoords.y - (relCoords.y - y) * 1.5;
             zoomAndPan();
         } else {
             //zoom out
             scale /= 1.5;
             // zooming out keeping the position under mouse pointer unmoved.
-            x = event.layerX - (event.layerX - x) / 1.5;
-            y = event.layerY - (event.layerY - y) / 1.5;
+            x = relCoords.x - (relCoords.x - x) / 1.5;
+            y = relCoords.y - (relCoords.y - y) / 1.5;
             zoomAndPan();
         }
         return true;
@@ -250,8 +259,9 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     $('#placeholder').live('dblclick', function(event) {
         scale *= 1.5;
         // zooming in keeping the position under mouse pointer unmoved.
-        x = event.layerX - (event.layerX - x) * 1.5;
-        y = event.layerY - (event.layerY - y) * 1.5;
+        var relCoords = getRelativeCoords(event);
+        x = relCoords.x - (relCoords.x - x) * 1.5;
+        y = relCoords.y - (relCoords.y - y) * 1.5;
         zoomAndPan();
     });
 
