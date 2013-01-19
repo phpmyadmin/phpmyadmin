@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Parse and analyse a SQL query
  *
  * @package PhpMyAdmin
  */
