@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * base Partition Class
+ *
  * @package PhpMyAdmin
  */
 class PMA_Partition
@@ -24,7 +25,11 @@ class PMA_Partition
     static public function getPartitionNames($db, $table)
     {
         if (PMA_Partition::havePartitioning()) {
-            return PMA_DBI_fetch_result("select `PARTITION_NAME` from `information_schema`.`PARTITIONS` where `TABLE_SCHEMA` = '" . $db . "' and `TABLE_NAME` = '" . $table . "'");
+            return PMA_DBI_fetch_result(
+                "select `PARTITION_NAME` from `information_schema`.`PARTITIONS`"
+                . " where `TABLE_SCHEMA` = '" . $db
+                . "' and `TABLE_NAME` = '" . $table . "'"
+            );
         } else {
             return array();
         }
@@ -49,11 +54,11 @@ class PMA_Partition
                 if (PMA_MYSQL_INT_VERSION < 50600) {
                     if (PMA_DBI_fetch_value(
                         "SHOW VARIABLES LIKE 'have_partitioning';"
-                        )) {
+                    )) {
                         $have_partitioning = true;
-                        }
+                    }
                 } else {
-                // see http://dev.mysql.com/doc/refman/5.6/en/partitioning.html
+                    // see http://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                     $plugins = PMA_DBI_fetch_result("SHOW PLUGINS");
                     foreach ($plugins as $key => $value) {
                         if ($value['Name'] == 'partition') {
@@ -62,12 +67,10 @@ class PMA_Partition
                         }
                     }
                 }
-            $already_checked = true;
+                $already_checked = true;
             }
         }
         return $have_partitioning;
     }
-
 }
-
 ?>
