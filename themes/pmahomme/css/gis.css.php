@@ -22,13 +22,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     margin: 6px;
 }
 
-.gis_table .save {
-    color: #111;
-    font-weight: bold;
-    vertical-align: bottom;
-    height: 100px;
-}
-
 .gis_table .button {
    text-align: <?php echo $right; ?>;
 }
