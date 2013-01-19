@@ -8,6 +8,7 @@
  * @requires    jquery/jquery.event.drag-2.0.js
  */
 
+var zoomFactor = 1.5;
 var x = 0;
 var default_x = 0;
 var y = 0;
@@ -219,17 +220,17 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
         var relCoords = getRelativeCoords(event);
         if (delta > 0) {
             //zoom in
-            scale *= 1.5;
+            scale *= zoomFactor;
             // zooming in keeping the position under mouse pointer unmoved.            
-            x = relCoords.x - (relCoords.x - x) * 1.5;
-            y = relCoords.y - (relCoords.y - y) * 1.5;
+            x = relCoords.x - (relCoords.x - x) * zoomFactor;
+            y = relCoords.y - (relCoords.y - y) * zoomFactor;
             zoomAndPan();
         } else {
             //zoom out
-            scale /= 1.5;
+            scale /= zoomFactor;
             // zooming out keeping the position under mouse pointer unmoved.
-            x = relCoords.x - (relCoords.x - x) / 1.5;
-            y = relCoords.y - (relCoords.y - y) / 1.5;
+            x = relCoords.x - (relCoords.x - x) / zoomFactor;
+            y = relCoords.y - (relCoords.y - y) / zoomFactor;
             zoomAndPan();
         }
         return true;
@@ -257,24 +258,24 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     });
 
     $('#placeholder').live('dblclick', function(event) {
-        scale *= 1.5;
+        scale *= zoomFactor;
         // zooming in keeping the position under mouse pointer unmoved.
         var relCoords = getRelativeCoords(event);
-        x = relCoords.x - (relCoords.x - x) * 1.5;
-        y = relCoords.y - (relCoords.y - y) * 1.5;
+        x = relCoords.x - (relCoords.x - x) * zoomFactor;
+        y = relCoords.y - (relCoords.y - y) * zoomFactor;
         zoomAndPan();
     });
 
     $('#zoom_in').live('click', function(e) {
         e.preventDefault();
         //zoom in
-        scale *= 1.5;
+        scale *= zoomFactor;
 
         width = $('#placeholder svg').attr('width');
         height = $('#placeholder svg').attr('height');
         // zooming in keeping the center unmoved.
-        x = width / 2 - (width / 2 - x) * 1.5;
-        y = height / 2 - (height / 2 - y) * 1.5;
+        x = width / 2 - (width / 2 - x) * zoomFactor;
+        y = height / 2 - (height / 2 - y) * zoomFactor;
         zoomAndPan();
     });
 
@@ -289,13 +290,13 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     $('#zoom_out').live('click', function(e) {
         e.preventDefault();
         //zoom out
-        scale /= 1.5;
+        scale /= zoomFactor;
 
         width = $('#placeholder svg').attr('width');
         height = $('#placeholder svg').attr('height');
         // zooming out keeping the center unmoved.
-        x = width / 2 - (width / 2 - x) / 1.5;
-        y = height / 2 - (height / 2 - y) / 1.5;
+        x = width / 2 - (width / 2 - x) / zoomFactor;
+        y = height / 2 - (height / 2 - y) / zoomFactor;
         zoomAndPan();
     });
 
