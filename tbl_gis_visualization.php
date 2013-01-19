@@ -103,12 +103,11 @@ $visualization = PMA_GIS_visualizationResults(
 ?>
 <!-- Display visulalization options -->
 <div id="div_view_options">
-<form method="post" action="tbl_gis_visualization.php">
-<?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display GIS Visualization'); ?></legend>
-
     <div style="width: 400px; float: left;">
+    <form method="post" action="tbl_gis_visualization.php">
+    <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
     <table class="gis_table">
     <tr><td><label for="labelColumn"><?php echo __("Label column"); ?></label></td>
         <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
@@ -141,7 +140,7 @@ foreach ($spatialCandidates as $spatialCandidate) {
         </select></td>
     </tr>
     <tr><td></td>
-        <td class="button"><input type="submit" name="displayVisualization" value="<?php echo __('Redraw'); ?>" /></td>
+        <td class="button"><input type="submit" name="displayVisualizationBtn" value="<?php echo __('Redraw'); ?>" /></td>
     </tr>
     <tr><td class="choice" colspan="2">
         <input type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"
@@ -155,9 +154,14 @@ if (isset($visualizationSettings['choice'])) {
         <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
     </td></tr>
     </table>
+    <input type="hidden" name="displayVisualization" value="redraw">
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
+    </form>
     </div>
 
     <div  style="float:left;">
+    <form method="post" action="tbl_gis_visualization.php">
+    <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
     <table class="gis_table">
     <tr><td><label for="fileName"><?php echo __("File name"); ?></label></td>
         <td><input type="text" name="fileName" id="fileName" /></td>
@@ -175,9 +179,12 @@ if ($svg_support) {
         </select></td>
     </tr>
     <tr><td></td>
-        <td class="button"><input type="submit" name="saveToFile" value="<?php echo __('Download'); ?>" /></td>
+        <td class="button"><input type="submit" name="saveToFileBtn" value="<?php echo __('Download'); ?>" /></td>
     </tr>
     </table>
+    <input type="hidden" name="saveToFile" value="download">
+    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
+    </form>
     </div>
 
     <div style="clear:both;">&nbsp;</div>
@@ -193,7 +200,5 @@ if ($svg_support) {
             <?php echo (PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol')); ?>
         }
     </script>
-    <input type="hidden" name="sql_query" id="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
 </fieldset>
-</form>
 </div>
