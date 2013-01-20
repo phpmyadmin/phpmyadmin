@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2012-12-27 18:39+0200\n"
+"PO-Revision-Date: 2013-01-20 17:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
-">\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2749,9 +2749,8 @@ msgid "Packed"
 msgstr "අහුරන ලද"
 
 #: libraries/Index.class.php:566 tbl_tracking.php:386
-#, fuzzy
 msgid "Cardinality"
-msgstr "Cardinality"
+msgstr "අනේකත්වය"
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
@@ -5187,14 +5186,15 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "phpMyAdmin වින්‍යාස ගබඩාවේ අඩු වගු"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
-msgstr "කුකී සත්‍යාපනය සඳහා අවශ්‍ය mcrypt නොමැති අවස්ථාවකදී පෙන්වන අනතුරු ඇඟවීම අක්‍රීය කරන්න"
+msgstr ""
+"MySQL පුස්තකාලය සහ සේවාදායකය අතර වෙනසක් හඳුනාගත් විට පෙන්වන අනතුරු ඇඟවීම "
+"අක්‍රීය කරන්න"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
@@ -5349,7 +5349,6 @@ msgid "Authentication type"
 msgstr "සත්‍යාපන වර්ගය"
 
 #: libraries/config/messages.inc.php:374
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5357,15 +5356,14 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
-"තබන්න. යෝජිත: [kbd]pma_bookmark[/kbd]"
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]පොත්සලකුණු[/a] විශේෂාංගය අනවශ්‍ය "
+"නම් හිස්ව තබන්න. යෝජිත: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
 msgstr "පොත්සලකුණු ගොනුව"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5373,7 +5371,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: [kbd]pma_column_info[/kbd]"
+"තීර විස්තර/mime වර්ග විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න. යෝජිත: "
+"[kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -5432,7 +5431,6 @@ msgid "Count tables"
 msgstr "වගු ගණන් කරන්න"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5440,7 +5438,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"සැලසුම්කරණය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_designer_coords[/kbd]"
+"සැලසුම්කරණය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -5473,7 +5472,6 @@ msgid "Hide databases"
 msgstr "දත්තගබඩා සඟවන්න"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5481,8 +5479,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"SQL විමසුම් ඉතිහාසය රඳවා ගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_history"
-"[/kbd]"
+"SQL විමසුම් ඉතිහාසය රඳවා ගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -5540,14 +5538,13 @@ msgid "Password for config auth"
 msgstr "config සත්‍යාපනය සඳහා මුරපදය"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
-"pma_pdf_pages[/kbd]"
+"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -5576,7 +5573,6 @@ msgid "Server port"
 msgstr "සර්වරයේ පොර්ට්"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5584,15 +5580,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
-"තබන්න, යෝජිත: [kbd]pma_recent[/kbd]"
+"සැසි අතර \"කල් පවත්නා\" ලෙස මෑතදී භාවිතා කල වගු මතක තබාගැනීමේ විශේෂාංගය "
+"අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
 msgstr "මෑතදී භාවිතා වූ වගුව"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5600,8 +5595,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"[a@http://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන සබැඳි[/a] "
-"විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_relation[/kbd]"
+"[a@http://wiki.phpmyadmin.net/pma/relation]වගු අතර සම්බන්ධතා දැක්වෙන "
+"සබැඳි[/a] විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5648,7 +5643,6 @@ msgid "Use SSL"
 msgstr "SSL භාවිතා කරන්න"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5656,15 +5650,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]"
-"pma_table_coords[/kbd]"
+"ක්‍රමානුරූපය PDF ලෙස අපනයනය කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
 msgstr "PDF ක්‍රමානුරූපය: වගු ඛණ්ඩාංක"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5672,15 +5665,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"දර්ෂිත තීර පිලිබඳ දත්ත අඩංගු වගුව. විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: [kbd]"
-"pma_table_info[/kbd]"
+"දර්ෂිත තීර පිලිබඳ දත්ත අඩංගු වගුව. විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
+"[kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
 msgstr "පෙන්විය යුතු තීර පිළිබඳ දත්ත ඇතුලත් වගුව"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5688,8 +5680,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"සැසි අතර \"කල් පවත්නා\" ලෙස වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ විශේෂාංගය අනවශ්‍ය නම් "
-"හිස්ව තබන්න, යෝජිත: [kbd]pma_table_uiprefs[/kbd]"
+"සැසි අතර \"කල් පවත්නා\" ලෙස වගු අතුරු මුහුණත සම්බන්ධ අභිරුචි තබාගැනීමේ "
+"විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5738,7 +5730,6 @@ msgid "Statements to track"
 msgstr "අවධානය සක්‍රීය කල යුතු ප්‍රකාශ"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5746,7 +5737,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"SQL විමසුම් අවධානය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: [kbd]pma_tracking[/kbd]"
+"SQL විමසුම් අවධානය විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න, යෝජිත: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -5763,7 +5755,6 @@ msgid "Automatically create versions"
 msgstr "ස්වයංක්‍රියව අනුවාද සාදන්න"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5771,8 +5762,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
-"භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
-"[kbd]pma_userconfig[/kbd]"
+"භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව "
+"තබන්න; යෝජිත: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -6597,9 +6588,8 @@ msgid ""
 msgstr "තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
 #: libraries/engines/innodb.lib.php:143
-#, fuzzy
 msgid "Buffer Pool"
-msgstr "Buffer Pool"
+msgstr "අන්තරාච එකතුව"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
@@ -6646,14 +6636,12 @@ msgid "Write requests"
 msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
 
 #: libraries/engines/innodb.lib.php:266
-#, fuzzy
 msgid "Read misses"
-msgstr "Read misses"
+msgstr "කියවීම් අතෑරුම්"
 
 #: libraries/engines/innodb.lib.php:274
-#, fuzzy
 msgid "Write waits"
-msgstr "Write waits"
+msgstr "ලිවීම් ප්‍රමාද"
 
 #: libraries/engines/innodb.lib.php:282
 msgid "Read misses in %"
@@ -7249,23 +7237,20 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/navigation/NavigationTree.class.php:1027
-#, fuzzy
 #| msgid "Filter databases by name"
 msgid "filter databases by name"
 msgstr "දත්තගබඩා නමින් පෙරහන්න"
 
 #: libraries/navigation/NavigationTree.class.php:1028
 #: libraries/navigation/NavigationTree.class.php:1054
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "ශ්‍රේණිය ඉවත් කරන්න"
+msgstr "පෙරහන ප්‍රත්‍යාරම්භ කරන්න"
 
 #: libraries/navigation/NavigationTree.class.php:1053
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "වගු නමින් පෙරහන්න"
+msgstr "අයිතම නමින් පෙරහන්න"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7284,18 +7269,16 @@ msgid "Columns"
 msgstr "තීර"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "නව"
+msgstr "නව තීරයක්"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
-msgstr "නව"
+msgstr "නව සිද්ධියක්"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:475
@@ -7304,46 +7287,41 @@ msgid "Functions"
 msgstr "ශ්‍රිත"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "නව"
+msgstr "නව ශ්‍රිතයක්"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
-msgstr "නව"
+msgstr "නව සුචියක්"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
-msgstr "ක්‍රියාපටිපාටිය"
+msgstr "ක්‍රියාපටිපාටි"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "නව"
+msgstr "නව ක්‍රියාපටිපාටියක්"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
-msgstr "නව"
+msgstr "නව වගුවක්"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "නව"
+msgstr "නව ප්‍රේරකයක්"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
@@ -7351,11 +7329,10 @@ msgid "Views"
 msgstr "දසුන්"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "නව"
+msgstr "නව දසුනක්"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to"
@@ -7863,10 +7840,9 @@ msgstr ""
 "නාමයන් ආරක්ෂා කරයි)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "වස්තු නිර්මාණය කිරීමේ විකල්ප"
+msgstr "දත්ත සෑදීමේ විකල්ප"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
@@ -9257,11 +9233,10 @@ msgid "User has been added."
 msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
 #: libraries/server_privileges.lib.php:1625
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
-msgstr "නව"
+msgstr "නව භාවිතා කරන්නෙක්"
 
 #: libraries/server_privileges.lib.php:1681
 #: libraries/server_privileges.lib.php:1847
@@ -11627,10 +11602,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "%s පොත් සලකුණ සාදන ලදි"
+msgstr "පොත් සලකුණ නොසාදන ලදි"
 
 #: sql.php:914
 msgid "Showing as PHP code"
@@ -11658,10 +11632,9 @@ msgid "Label"
 msgstr "ලේබලය"
 
 #: tbl_chart.php:43
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "දත්ත කිසිවක් හමු නොවිණි"
+msgstr "පෙන්වීම සඳහා දත්ත නොමැත"
 
 #: tbl_chart.php:132
 msgctxt "Chart type"
@@ -11694,11 +11667,10 @@ msgid "Pie"
 msgstr "වට"
 
 #: tbl_chart.php:148
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "කාලය"
+msgstr "කාලරාමු"
 
 #: tbl_chart.php:155
 msgid "Stacked"
@@ -11809,10 +11781,9 @@ msgid ""
 msgstr "(\"PRIMARY\" නාමය ප්‍රාථමික මූලය සඳහා <b>පමණක්</b> භාවිතා කල <b>යුතුය</b>!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "ටීකාව"
+msgstr "ටීකාව:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12162,10 +12133,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
+msgstr "slow_query_log, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
 
 #: libraries/advisory_rules.txt:100
 #, fuzzy
@@ -12361,10 +12331,9 @@ msgid "Query cache fragmentation"
 msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "The query cache is considerably fragmented."
-msgstr "විමසුම් කෑෂ් සක්‍රීය කර නැත."
+msgstr "විමසුම් කෑෂය භාගීකරණයට ලක්වී ඇත."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12393,12 +12362,12 @@ msgid "Query cache low memory prunes"
 msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
 
 #: libraries/advisory_rules.txt:191
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "The amount of free memory for query cache."
+msgstr ""
+"අඩු විමසුම් කෑෂ් ධාරිතාව හේතුවෙන් කෑෂ්ගත කරන ලද විමසුම් කෑෂයෙන් ඉවත් කෙරෙයි."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12461,16 +12430,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ප්‍රතිශතයක් ලෙස"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ඉතා විශාල ගණනකි."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -12486,10 +12453,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ගණන"
 
 #: libraries/advisory_rules.txt:223
 #, fuzzy, php-format
