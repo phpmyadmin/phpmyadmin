@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-20 19:39+0200\n"
+"PO-Revision-Date: 2013-01-20 19:51+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -6074,7 +6074,7 @@ msgstr "Пропускати заблоковані таблиці"
 
 #: libraries/config/messages.inc.php:488
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Має бути увімкнений SQL валідатор"
 
 #: libraries/config/messages.inc.php:490
 #: libraries/display_change_password.lib.php:61
@@ -6093,10 +6093,12 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
+"[strong]УВАГА:[/strong] має бути встановлено розширення PHP SOAP або PEAR "
+"SOAP"
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Увімкнути SQL валідатор"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
@@ -6107,7 +6109,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:494 tbl_tracking.php:555
 #: tbl_tracking.php:617
 msgid "Username"
-msgstr ""
+msgstr "Ім'я користувача"
 
 #: libraries/config/messages.inc.php:495
 msgid "A warning is displayed on the main page if Suhosin is detected"
