@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-20 19:01+0200\n"
+"PO-Revision-Date: 2013-01-20 19:25+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/3-5/hi/>\n"
 "Language: hi\n"
@@ -1254,7 +1254,7 @@ msgstr "प्रश्न (सर्वर द्वारा क्रिय�
 
 #: js/messages.php:91 server_status.php:790
 msgid "Query statistics"
-msgstr "डाटाबेसों के सांख्यिकी"
+msgstr "क्वॅरी संबंधी आंकड़े"
 
 #: js/messages.php:94
 #, fuzzy
