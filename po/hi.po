@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-19 14:37+0200\n"
+"PO-Revision-Date: 2013-01-20 12:34+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
@@ -916,11 +916,11 @@ msgstr "क्या आप सचमुच \"%s\" निष्पादित �
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:459
 msgid "You are about to DESTROY a complete database!"
-msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं!"
+msgstr "आप एक पूरा डॅटाबेस मिटाने जा रहे हैं!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "आप एक पूराटेबल नष्ट कर रहे हैं!"
+msgstr "आप एक पूरी डॅटा टेबल मिटाने जा रहे हैं!"
 
 #: js/messages.php:33
 #, fuzzy
@@ -934,31 +934,31 @@ msgstr "ट्रैकिंग डेटा हटाएँ"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "प्राथमिक-कुंजी/सूची छोड़"
+msgstr "प्राथमिक-कुंजी/अनुक्रमणिका हटायें"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "यह आपरेशन लंबे समय लग सकता है. फिर भी आगे बढ़ें?"
+msgstr ""
+"इस प्रक्रिया में लम्बा वक्त भी लग सकता है। क्या आप चाहते हैं ये प्रक्रिया की "
+"जाये ?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
-msgstr "फॉर्म में मूल्य गूम हैं."
+msgstr "फॉर्म में सूचना गुम हैं!"
 
 #: js/messages.php:41
 msgid "This is not a number!"
-msgstr "यह नंबर नहीं है!"
+msgstr "यह 'आंकिक' या नम्बर रूप में नहीं है।"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "अनुक्रमणिका जोड़ें"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "संपादन मोड"
+msgstr "अनुक्रमणिका सम्पादित करें"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
 #, fuzzy, php-format
