@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-20 18:09+0200\n"
+"PO-Revision-Date: 2013-01-20 19:28+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -5891,6 +5891,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Чи механізм відстеження створює версії для таблиць і подань автоматично."
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
@@ -5918,15 +5919,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Повна назва цього сервера"
 
 #: libraries/config/messages.inc.php:453
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr ""
+msgstr "Чи користувачеві має відображатися кнопка на \"показати всі (рядки)\""
 
 #: libraries/config/messages.inc.php:454
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Дозволити відображати всі рядки"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -5937,11 +5938,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:456
 msgid "Show password change form"
-msgstr ""
+msgstr "Показати форму для зміни паролю"
 
 #: libraries/config/messages.inc.php:457
 msgid "Show create database form"
-msgstr ""
+msgstr "Показати форму для створення бази даних"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
@@ -5976,6 +5977,8 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Визначає, чи буде показуватися при перегляді таблиці параметр типу напрямку "
+"відображення"
 
 #: libraries/config/messages.inc.php:465
 #| msgid "Default display direction"
@@ -5987,6 +5990,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Визначає, чи в режимі редагування/вставки має на початку відображатися тип "
+"поля"
 
 #: libraries/config/messages.inc.php:467
 msgid "Show field types"
