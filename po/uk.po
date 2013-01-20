@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-19 15:43+0200\n"
+"PO-Revision-Date: 2013-01-20 12:52+0200\n"
 "Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -1127,10 +1127,9 @@ msgstr "Додати %d стовпчик(ів) до індексу"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "Разом"
+msgstr "Загальна кількість"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
@@ -1529,29 +1528,27 @@ msgid "Differential"
 msgstr "Диференціальний"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Розділено по %s:"
+msgstr "Розділено на %s"
 
 #: js/messages.php:172
 msgid "Unit"
 msgstr "Модуль"
 
 #: js/messages.php:174
-#, fuzzy
 msgid "From slow log"
-msgstr "Із повільного журналу (slow log)"
+msgstr "З журналу повільних запитів"
 
 #: js/messages.php:175
 msgid "From general log"
 msgstr "Із загального журналу"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Журнал завантаження"
+msgstr "Аналіз журналів"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1589,10 +1586,9 @@ msgid "Jump to Log table"
 msgstr "Перейти до таблиці Log"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "БД відсутні"
+msgstr "Даних не знайдено"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1620,7 +1616,6 @@ msgid "Profiling results"
 msgstr "Результати профілювання"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1690,7 +1685,6 @@ msgid "Reload page"
 msgstr "Перезавантажити сторінку"
 
 #: js/messages.php:212
-#, fuzzy
 msgid "Affected rows:"
 msgstr "Рядки що зазнали змін:"
 
@@ -2315,11 +2309,10 @@ msgstr "календар-місяць-рік"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:489
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Жодного"
+msgstr "немає"
 
 #: js/messages.php:498
 msgid "Hour"
@@ -2497,7 +2490,7 @@ msgid "Error"
 msgstr "Помилка"
 
 #: libraries/Message.class.php:241
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d рядок задіяно."
@@ -3021,7 +3014,6 @@ msgstr "Вперед"
 
 #: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:390
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -4460,6 +4452,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
+"[kbd]SMART[/kbd] - означає зворотній порядок сортування для полів, що мають "
+"тип TIME, DATE, DATETIME и TIMESTAMP; у іншому випадку порядок буде прямим"
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
@@ -4630,6 +4624,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"Шлях до конфігураційного файлу [a@http://swekey.com]апаратної аутентифікації "
+"SweKey[/a] (наприклад, якщо розміщено нижче кореню хоста: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:371
 msgid "SweKey config file"
@@ -4648,6 +4644,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma_bookmark[/kbd]"
 msgstr ""
+"Для вимкнення підтримки "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]закладок[/a] залиште порожнім. "
+"Рекомендовано: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
@@ -4658,6 +4657,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma_column_info[/kbd]"
 msgstr ""
+"Для вимкнення підтримки коментарів/mime-типів полів залиште порожнім. "
+"Рекомендовано: [kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -4688,22 +4689,25 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
+"Спеціальний користувач MySQL з обмеженими привілеями. Детальніше дивіться на "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Control user"
-msgstr ""
+msgstr "Виділений користувач"
 
 #: libraries/config/messages.inc.php:385
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Альтернативний хост для зберігання налаштувань, для використання вже "
+"вказаного хоста - залиште порожнім"
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "Довільний хост"
+msgstr "Керування хостом"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -4718,34 +4722,38 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 "kbd]"
 msgstr ""
+"Для вимкнення підтримки дизайнера зв`язків залиште порожнім. Рекомендовано: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
-msgstr ""
+msgstr "Таблиця дизайнера"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
 "More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
+"Детальніше дивіться на [a@http://sf.net/support/tracker.php?aid=1849494]PMA "
+"bug tracker[/a] та [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Деактивувати використання INFORMATION_SCHEMA"
+msgstr "Вимкнути використання INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
-"Які розширення PHP використовувати; слід використовувати mysqli, якщо "
-"підтримується"
+"Які розширення PHP використовувати для роботи з MySQL. Варто використовувати "
+"mysqli, при можливості"
 
 #: libraries/config/messages.inc.php:394
 msgid "PHP extension to use"
-msgstr ""
+msgstr "PHP розширення"
 
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr ""
+msgstr "Приховати бази даних, що потрапляють під регулярний вираз (PCRE)"
 
 #: libraries/config/messages.inc.php:396
 msgid "Hide databases"
@@ -4756,6 +4764,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma_history[/"
 "kbd]"
 msgstr ""
+"Для вимкнення історії SQL залиште поле порожнім. Рекомендовано: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
 msgid "SQL query history table"
@@ -4763,11 +4773,11 @@ msgstr "Таблиця історії SQL запитів"
 
 #: libraries/config/messages.inc.php:399
 msgid "Hostname where MySQL server is running"
-msgstr "Ім’я сервера де запущений MySQL сервер"
+msgstr "Ім’я сервера на якому запущено MySQL сервер"
 
 #: libraries/config/messages.inc.php:400
 msgid "Server hostname"
-msgstr "Назва сервера"
+msgstr "Хост сервера"
 
 #: libraries/config/messages.inc.php:401
 msgid "Logout URL"
@@ -4778,18 +4788,22 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Обмежує кількість властивостей таблиці, що зберігаються в базі. Застарілі "
+"автоматично видаляються"
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "Максимальна кількість властивостей таблиці, що зберігаються"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
-msgstr "Спробувати з’єднатись буз паролю"
+msgstr ""
+"Спробувати з’єднатись без паролю, якщо пароль не було прийнято при "
+"ідентифікації"
 
 #: libraries/config/messages.inc.php:405
 msgid "Connect without password"
-msgstr "З’єднатись без паролю"
+msgstr "З’єднуватись без паролю"
 
 #: libraries/config/messages.inc.php:406
 msgid ""
