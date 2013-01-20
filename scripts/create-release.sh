@@ -312,8 +312,7 @@ Todo now:
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
- 8. add a group for bug tracking this new version, at
-    https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
+ 8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
  9. the end :-)
 
