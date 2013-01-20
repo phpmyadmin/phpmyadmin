@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-20 12:34+0200\n"
+"PO-Revision-Date: 2013-01-20 16:36+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
@@ -979,32 +979,32 @@ msgstr "मेज़बान का नाम (hostname) खाली है!"
 
 #: js/messages.php:52
 msgid "The user name is empty!"
-msgstr "यूसर नाम खाली है!"
+msgstr "प्रयोगकर्ता का नाम खाली है!"
 
 #: js/messages.php:53 libraries/server_privileges.lib.php:1315
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr "पासवर्ड खाली है"
+msgstr "कूटशब्द (password) खाली है!"
 
 #: js/messages.php:54 libraries/server_privileges.lib.php:1313
 #: user_password.php:113
 msgid "The passwords aren't the same!"
-msgstr "पासवर्ड मिलते झूलते नहीं हैं."
+msgstr "कूटशब्द (password) समान नहीं हैं!"
 
 #: js/messages.php:55 libraries/server_privileges.lib.php:1444
 #: libraries/server_privileges.lib.php:1636
 #: libraries/server_privileges.lib.php:2531
 #: libraries/server_privileges.lib.php:2832
 msgid "Add user"
-msgstr "naya upyokta"
+msgstr "नया प्रयोक्ता जोड़ें"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr "प्रिविलेज पुनः लोड करें"
+msgstr "विशेषाधिकारों को पुनः लोड करें"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
-msgstr "चयनित यूसर को हटायें"
+msgstr "चयनित प्रयोक्ताओं को हटायें"
 
 #: js/messages.php:58 js/messages.php:124 tbl_tracking.php:293
 #: tbl_tracking.php:489
@@ -1029,17 +1029,16 @@ msgstr "सर्वर चुनिये"
 
 #: js/messages.php:63
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "लाईव कनेक्शन / प्रोसेस चार्ट"
 
 #: js/messages.php:64
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "क्वरी चार्ट शो"
+msgstr "जीवन्त (live) क्वॅरी चार्ट"
 
 #: js/messages.php:66
 msgid "Static data"
-msgstr ""
+msgstr "स्थिर (static) डॅटा"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
@@ -1053,7 +1052,7 @@ msgstr "कुल"
 #: js/messages.php:70 libraries/ServerStatusData.class.php:198
 #: server_status_queries.php:155
 msgid "Other"
-msgstr ""
+msgstr "अन्य"
 
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1510
@@ -1066,10 +1065,9 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "कनेक्शन"
+msgstr "कनेक्शन / प्रक्रियाएँ"
 
 #: js/messages.php:79
 #, fuzzy
@@ -1179,7 +1177,7 @@ msgstr "कनेक्शन"
 
 #: js/messages.php:105 server_status.php:384
 msgid "Processes"
-msgstr "प्रक्रियां"
+msgstr "प्रक्रियाएँ"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:108 libraries/Util.class.php:1456
