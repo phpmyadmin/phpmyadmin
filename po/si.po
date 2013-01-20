@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-27 18:22+0200\n"
+"PO-Revision-Date: 2013-01-20 17:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/3-5/si/>\n"
 "Language: si\n"
@@ -2401,9 +2401,8 @@ msgid "Packed"
 msgstr "අහුරන ලද"
 
 #: libraries/Index.class.php:445 tbl_tracking.php:324
-#, fuzzy
 msgid "Cardinality"
-msgstr "Cardinality"
+msgstr "අනේකත්වය"
 
 #: libraries/Index.class.php:448 libraries/rte/rte_events.lib.php:497
 #: libraries/rte/rte_routines.lib.php:974 tbl_tracking.php:263
@@ -5912,9 +5911,8 @@ msgid ""
 msgstr "තම වගු වල දත්ත සහ සුචි කෑෂ්ගත කිරීමට InnoDB භාවිතා කරන මතක බෆරයේ ප්‍රමාණය."
 
 #: libraries/engines/innodb.lib.php:130
-#, fuzzy
 msgid "Buffer Pool"
-msgstr "Buffer Pool"
+msgstr "අන්තරාච එකතුව"
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:652
 msgid "InnoDB Status"
@@ -5965,14 +5963,12 @@ msgid "Write requests"
 msgstr "ලිවීම සඳහා වූ ඉල්ලීම්"
 
 #: libraries/engines/innodb.lib.php:230
-#, fuzzy
 msgid "Read misses"
-msgstr "Read misses"
+msgstr "කියවීම් අතෑරුම්"
 
 #: libraries/engines/innodb.lib.php:236
-#, fuzzy
 msgid "Write waits"
-msgstr "Write waits"
+msgstr "ලිවීම් ප්‍රමාද"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
@@ -6513,7 +6509,7 @@ msgstr ""
 
 #: libraries/export/sql.php:342 libraries/export/xml.php:45
 msgid "Procedures"
-msgstr "ක්‍රියාපටිපාටිය"
+msgstr "ක්‍රියාපටිපාටි"
 
 #: libraries/export/sql.php:359 libraries/export/xml.php:40
 msgid "Functions"
@@ -11800,7 +11796,7 @@ msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "විමසුම් කෑෂය භාගීකරණයට ලක්වී ඇත."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -11827,12 +11823,12 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "The amount of free memory for query cache."
+msgstr ""
+"අඩු විමසුම් කෑෂ් ධාරිතාව හේතුවෙන් කෑෂ්ගත කරන ලද විමසුම් කෑෂයෙන් ඉවත් කෙරෙයි."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -11895,16 +11891,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ප්‍රතිශතයක් ලෙස"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ඉතා විශාල ගණනකි."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
@@ -11920,10 +11914,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Allows creating temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ගණන"
 
 #: po/advisory_rules.php:118
 #, php-format
