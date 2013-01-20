@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-18 15:36+0200\n"
+"PO-Revision-Date: 2013-01-20 22:01+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -3547,7 +3547,7 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
-"Een oplijsting, geselecteerd uit een lijst met tot 65.535 waarden of de "
+"Een opsomming, geselecteerd uit een lijst met tot 65.535 waarden of de "
 "speciale '' foutwaarde"
 
 #: libraries/Types.class.php:356
@@ -3652,7 +3652,7 @@ msgstr ""
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Een opsomming, gekozen uit de lijst van gedefiniëerde waarden"
 
 #: libraries/Util.class.php:223
 #, php-format
@@ -3878,7 +3878,7 @@ msgstr "U moet upgraden naar %s %s of hoger."
 
 #: libraries/common.inc.php:1042
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Fout: token niet hetzelfde"
 
 #: libraries/common.inc.php:1086
 msgid "GLOBALS overwrite attempt"
@@ -3911,11 +3911,11 @@ msgstr "Rechts"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Klik"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Dubbelklik"
 
 #: libraries/config.values.php:71 libraries/config.values.php:103
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
@@ -5096,7 +5096,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maximum elementen in tak"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5327,7 +5327,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Waarschuwing verschil server/bibliotheek"
 
 #: libraries/config/messages.inc.php:337
 msgid "Iconic table operations"
@@ -5417,7 +5417,7 @@ msgstr "Kopregels herhalen"
 
 #: libraries/config/messages.inc.php:358
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Rasterbewerken: trigger actie"
 
 #: libraries/config/messages.inc.php:359
 msgid "Grid editing: save all edited cells at once"
@@ -6368,11 +6368,11 @@ msgstr "Details…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Kan niet zoeken in een ongebufferde resultatenreeks"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Kan geen rijen tellen in een ongebufferde resultatenreeks"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
@@ -7441,7 +7441,7 @@ msgstr "onbekend"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Er is een fout opgetreden bij het laden van de navigatieboom"
 
 #: libraries/navigation/NavigationHeader.class.php:182
 msgid "Home"
@@ -7464,8 +7464,8 @@ msgstr "Navigatievenster herladen"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ander resultaat gevonden"
+msgstr[1] "%s andere resultaten gevonden"
 
 #: libraries/navigation/NavigationTree.class.php:1027
 msgid "filter databases by name"
@@ -7484,12 +7484,12 @@ msgstr "elementen filteren op naam"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Ongeldige klassenaam \"%1$s\", \"Node\" zal gebruikt worden"
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Klasse \"%1$s\" kon niet ingevoegd worden, bestand \"%2$s' niet gevonden"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -7769,7 +7769,7 @@ msgstr "Aanmelden"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:99
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Uw sessie is verlopen. Gelieve opnieuw aan te melden."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:197
 #: libraries/plugins/auth/AuthenticationCookie.class.php:207
@@ -8301,7 +8301,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Meetkundig type '%s' wordt niet ondersteund door MySQL."
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
 msgid ""
@@ -9856,7 +9856,7 @@ msgstr "Kolommen verplaatsen"
 
 #: libraries/structure.lib.php:1426
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "De kolommen verplaatsen door ze omhoog en omlaag te slepen."
 
 #: libraries/structure.lib.php:1460
 msgid "Edit view"
@@ -10057,7 +10057,7 @@ msgstr "Zoals aangegeven:"
 
 #: libraries/tbl_columns_definition_form.inc.php:632
 msgid "first"
-msgstr ""
+msgstr "eerste"
 
 #: libraries/tbl_columns_definition_form.inc.php:642
 #, php-format
@@ -10117,7 +10117,7 @@ msgstr "Fout in het ZIP-archief:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via ajax"
-msgstr ""
+msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -10129,11 +10129,11 @@ msgstr "Toon/verberg linker menu"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "In volledig scherm bekijken"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Volledig scherm modus verlaten"
 
 #: pmd_general.php:95
 msgid "Save position"
@@ -12188,7 +12188,7 @@ msgstr "Spline"
 #: tbl_chart.php:141
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Grafiektype"
 
 #: tbl_chart.php:144
 msgctxt "Chart type"
