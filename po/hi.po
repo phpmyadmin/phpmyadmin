@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-20 19:25+0200\n"
+"PO-Revision-Date: 2013-01-20 19:31+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
@@ -1070,10 +1070,9 @@ msgid "Connections / Processes"
 msgstr "कनेक्शन / प्रक्रियाएँ"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
-msgstr "विन्यास सहेज नहीं सकते"
+msgstr "स्थानीय जाँच व्यवस्था असंगत"
 
 #: js/messages.php:80
 msgid ""
