@@ -5089,7 +5089,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
-msgstr ""
+msgstr "Показувати типи полів"
 
 #: libraries/config/messages.inc.php:464
 msgid "Display the function fields in edit/insert mode"
