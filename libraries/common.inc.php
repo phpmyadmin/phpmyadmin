@@ -481,7 +481,9 @@ if ($token_mismatch) {
         /* Possible login form */
         'pma_servername', 'pma_username', 'pma_password',
         /* Needed to send the correct reply */
-        'ajax_request'
+        'ajax_request',
+        /* Permit to log out even if there is a token mismatch */
+        'old_usr'
     );
     /**
      * Allow changing themes in test/theme.php
