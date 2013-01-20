@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-19 14:37+0200\n"
+"PO-Revision-Date: 2013-01-20 19:01+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/3-5/hi/>\n"
 "Language: hi\n"
@@ -1064,15 +1064,15 @@ msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
-msgstr "क्या आप सचमुच चाहते है की"
+msgstr "क्या आप सचमुच चाहते है कि"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
-msgstr "आप एक पूरा डेटाबेस नष्ट कर रहे हैं!"
+msgstr "आप एक पूरा डॅटाबेस मिटाने जा रहे हैं!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "आप एक पूराटेबल नष्ट कर रहे हैं!"
+msgstr "आप एक पूरी डॅटा टेबल मिटाने जा रहे हैं!"
 
 #: js/messages.php:33
 #, fuzzy
@@ -1086,51 +1086,51 @@ msgstr "ट्रैकिंग डेटा हटाएँ"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "प्राथमिक-कुंजी/सूची छोड़"
+msgstr "प्राथमिक-कुंजी/अनुक्रमणिका हटायें"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "यह आपरेशन लंबे समय लग सकता है. फिर भी आगे बढ़ें?"
+msgstr ""
+"इस प्रक्रिया में लम्बा वक्त भी लग सकता है। क्या आप चाहते हैं ये प्रक्रिया की "
+"जाये ?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr "आप एक BLOB भंडार निष्क्रिय करने वाले हैं!"
+msgstr "आप एक BLOB डॅटा टाईप का भंडार निष्क्रिय करने को हैं!"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr "क्या आप वाकई %s दाताबेस के सारे संदर्भ निष्क्रिय करना चाहते है?"
+msgstr "क्या आप वाकई %s डॅटाबेस के सारे संदर्भ निष्क्रिय करना चाहते है?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
-msgstr "फॉर्म में मूल्य गूम हैं."
+msgstr "फॉर्म में सूचना गुम हैं!"
 
 #: js/messages.php:45
 msgid "This is not a number!"
-msgstr "यह नंबर नहीं है!"
+msgstr "यह 'आंकिक' या नम्बर रूप में नहीं है।"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "अनुक्रमणिका जोड़ें"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "संपादन मोड"
+msgstr "अनुक्रमणिका सम्पादित करें"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "%s क्षेत्र जोडें"
+msgstr "%s कॉलम जोडें"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
 msgid "Total count"
-msgstr "कुल गिनती"
+msgstr "कुल संख्या"
 
 #: js/messages.php:55
 msgid "The host name is empty!"
@@ -1138,28 +1138,28 @@ msgstr "मेज़बान का नाम (hostname) खाली है!"
 
 #: js/messages.php:56
 msgid "The user name is empty!"
-msgstr "यूसर नाम खाली है!"
+msgstr "प्रयोगकर्ता का नाम खाली है!"
 
 #: js/messages.php:57 server_privileges.php:1316 user_password.php:50
 msgid "The password is empty!"
-msgstr "पासवर्ड खाली है"
+msgstr "कूटशब्द (password) खाली है!"
 
 #: js/messages.php:58 server_privileges.php:1314 user_password.php:53
 msgid "The passwords aren't the same!"
-msgstr "पासवर्ड मिलते झूलते नहीं हैं."
+msgstr "कूटशब्द (password) समान नहीं हैं!"
 
 #: js/messages.php:59 server_privileges.php:1775 server_privileges.php:1799
 #: server_privileges.php:2211 server_privileges.php:2416
 msgid "Add user"
-msgstr "naya upyokta"
+msgstr "नया प्रयोक्ता जोड़ें"
 
 #: js/messages.php:60
 msgid "Reloading Privileges"
-msgstr "प्रिविलेज पुनः लोड करें"
+msgstr "विशेषाधिकारों को पुनः लोड करें"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
-msgstr "चयनित यूसर को हटायें"
+msgstr "चयनित प्रयोक्ताओं को हटायें"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
@@ -1182,17 +1182,16 @@ msgstr "सर्वर चुनिये"
 
 #: js/messages.php:67 server_status.php:815
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "लाईव कनेक्शन / प्रोसेस चार्ट"
 
 #: js/messages.php:68 server_status.php:837
-#, fuzzy
 #| msgid "Show query chart"
 msgid "Live query chart"
-msgstr "क्वरी चार्ट शो"
+msgstr "जीवन्त (live) क्वॅरी चार्ट"
 
 #: js/messages.php:70
 msgid "Static data"
-msgstr ""
+msgstr "स्थिर (static) डॅटा"
 
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
@@ -1205,7 +1204,7 @@ msgstr "कुल"
 #. l10n: Other, small valued, queries
 #: js/messages.php:74 server_status.php:608 server_status.php:1035
 msgid "Other"
-msgstr ""
+msgstr "अन्य"
 
 #. l10n: Thousands separator
 #: js/messages.php:76 libraries/common.lib.php:1448
@@ -1219,41 +1218,39 @@ msgstr "."
 
 #: js/messages.php:80
 msgid "KiB sent since last refresh"
-msgstr ""
+msgstr "किलोबाइट भेजे गए, पिछले रिफ्रेश से लेकर अब तक"
 
 #: js/messages.php:81
 msgid "KiB received since last refresh"
-msgstr ""
+msgstr "किलोबाइट प्राप्त हुए, पिछले रिफ्रेश से अब तक"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "सर्वर चुनिये"
+msgstr "सर्वर व्यस्तता (किलोबाइट में)"
 
 #: js/messages.php:83
 msgid "Connections since last refresh"
-msgstr ""
+msgstr "पिछले रिफ्रेश से लेकर अब तक के कनेक्शन"
 
 #: js/messages.php:84 js/messages.php:122 server_status.php:1248
 msgid "Processes"
-msgstr "प्रक्रियां"
+msgstr "प्रक्रियाएँ"
 
 #: js/messages.php:85
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "कनेक्शन"
+msgstr "कनेक्शन / प्रक्रियाएँ"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:87
 msgid "Questions since last refresh"
-msgstr ""
+msgstr "पिछले रिफ्रेश से लेकर अब तक के प्रश्न"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "प्रश्न (सर्वर द्वारा क्रियान्वित किये गए कथन)"
 
 #: js/messages.php:91 server_status.php:790
 msgid "Query statistics"
