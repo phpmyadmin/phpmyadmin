@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-20 18:09+0200\n"
+"PO-Revision-Date: 2013-01-20 19:28+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -4999,6 +4999,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"Чи механізм відстеження створює версії для таблиць і подань автоматично."
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
@@ -5009,6 +5010,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma_userconfig[/kbd]"
 msgstr ""
+"Залиште порожнім, якщо налаштування користувача не зберігаються в базі "
+"даних, пропонується: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5023,10 +5026,12 @@ msgid ""
 "Disable if you know that your pma_* tables are up to date. This prevents "
 "compatibility checks and thereby increases performance"
 msgstr ""
+"Вимкніть, якщо відомо, що таблиці pma_ *, є актуальними. Це запобігає "
+"перевіркам на сумісність і тим самим підвищує продуктивність"
 
 #: libraries/config/messages.inc.php:452
 msgid "Verbose check"
-msgstr ""
+msgstr "Докладна перевірка"
 
 #: libraries/config/messages.inc.php:453
 msgid ""
@@ -5036,15 +5041,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "Повна назва цього сервера"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr ""
+msgstr "Чи користувачеві має відображатися кнопка на \"показати всі (рядки)\""
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "Дозволити відображати всі рядки"
 
 #: libraries/config/messages.inc.php:457
 msgid ""
@@ -5055,17 +5060,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
-msgstr ""
+msgstr "Показати форму для зміни паролю"
 
 #: libraries/config/messages.inc.php:459
 msgid "Show create database form"
-msgstr ""
+msgstr "Показати форму для створення бази даних"
 
 #: libraries/config/messages.inc.php:460
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Визначає, чи буде показуватися при перегляді таблиці параметр типу напрямку "
+"відображення"
 
 #: libraries/config/messages.inc.php:461
 #| msgid "Default display direction"
@@ -5077,6 +5084,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
+"Визначає, чи в режимі редагування/вставки має на початку відображатися тип "
+"поля"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show field types"
