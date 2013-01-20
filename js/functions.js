@@ -157,13 +157,20 @@ function PMA_current_version(data)
 function PMA_display_git_revision()
 {
     $('#is_git_revision').remove();
-    $.get("index.php?token="
-        + $("input[type=hidden][name=token]").val()
-        + "&git_revision=1&ajax_request=true", function (data) {
-        if (data.success == true) {
-            $(data.message).insertAfter('#li_pma_version');
+    $.get(
+        "index.php",
+        {
+            "server": PMA_commonParams.get('server'),
+            "token": PMA_commonParams.get('token'),
+            "git_revision": true,
+            "ajax_request": true
+        },
+        function (data) {
+            if (data.success == true) {
+                $(data.message).insertAfter('#li_pma_version');
+            }
         }
-    });
+    );
 }
 
 /**
