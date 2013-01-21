@@ -86,13 +86,13 @@ function get_columns_info()
             null,
             PMA_DBI_QUERY_STORE
         );
-        $tbl_name = $GLOBALS['PMD']['TABLE_NAME'][$i];
+        $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
-            $tab_column[$tbl_name]['COLUMN_ID'][$j]   = $j;
-            $tab_column[$tbl_name]['COLUMN_NAME'][$j] = $row['Field'];
-            $tab_column[$tbl_name]['TYPE'][$j]        = $row['Type'];
-            $tab_column[$tbl_name]['NULLABLE'][$j]    = $row['Null'];
+            $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
+            $tab_column[$tbl_name_i]['COLUMN_NAME'][$j] = $row['Field'];
+            $tab_column[$tbl_name_i]['TYPE'][$j]        = $row['Type'];
+            $tab_column[$tbl_name_i]['NULLABLE'][$j]    = $row['Null'];
             $j++;
         }
     }
