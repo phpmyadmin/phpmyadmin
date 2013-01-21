@@ -75,6 +75,19 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     ),
                 ),
             array(
+                "ENUM('a&b', 'b''c\\'d', 'e\\\\f')",
+                array(
+                    'type' => 'enum',
+                    'print_type' => "enum('a&b', 'b''c\\'d', 'e\\\\f')",
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
+                    'enum_set_values' => array('a&b', 'b\'c\'d', 'e\\f'),
+                    'attribute' => ' ',
+                    ),
+                ),
+            array(
                 "INT UNSIGNED zerofill",
                 array(
                     'type' => 'int unsigned zerofill',
