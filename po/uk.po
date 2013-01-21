@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 20:13+0200\n"
-"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
+"PO-Revision-Date: 2013-01-21 22:30+0200\n"
+"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -6337,6 +6337,8 @@ msgid ""
 "A \":\" delimited list of metadata headers to be used to initialize the "
 "pbms_metadata_header table when a database is created."
 msgstr ""
+"Символ \":\" розділює список заголовків метаданих, котрі буде використано для "
+"ініціалізації таблиці pbms_metadata_header при створенні бази даних."
 
 #: libraries/engines/pbms.lib.php:94
 #, php-format
@@ -6383,6 +6385,9 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"Об'єм пам'яті виділеної для кешування даних таблиці. Значення за "
+"замовчуванням 32Мб. Дана пам'ять використовується для кешування змін у "
+"файлах зберігання даних (.xtd) та вказівників на рядки (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
@@ -6393,6 +6398,8 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Об'єм пам'яті виділеної для кешування даних журналу транзакцій. Початкове "
+"значення 16Мб."
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
@@ -6403,30 +6410,36 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Розмір журналу транзакцій до відкату і створення нового журналу. Початкове "
+"значення 16Мб."
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Розмір буферу транзакцій"
 
 #: libraries/engines/pbxt.lib.php:43
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"Розмір глобального буферу журналу транзакцій (рушій виділяє 2 буфери даного "
+"розміру). Початкове значення 1Мб."
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Частота перевірки"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"Об'єм записаних даних в журнал транзакцій, до проведення перевірки. "
+"Початкове значення 24Мб."
 
 #: libraries/engines/pbxt.lib.php:52
 msgid "Data log threshold"
-msgstr ""
+msgstr "Поріг журналу даних"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid ""
@@ -6438,7 +6451,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Поріг засмічування"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid ""
@@ -6448,7 +6461,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
-msgstr ""
+msgstr "Розмір буфера журналу"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
@@ -6459,23 +6472,23 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
-msgstr ""
+msgstr "Розмір виростання файлу даних"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "Розмір розростання файлів даних (.xtd)."
 
 #: libraries/engines/pbxt.lib.php:72
 msgid "Row file grow size"
-msgstr ""
+msgstr "Розмір розростання файлу рядків"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "Розмір розростання файлів вказівників на рядки (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
-msgstr ""
+msgstr "Кількість файлів журналу"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid ""
@@ -6513,10 +6526,9 @@ msgid "Columns enclosed with:"
 msgstr "Стовпчики взято в:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Поля екрануються"
+msgstr "Символ екранування:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 #| msgid "Lines terminated by"
@@ -6651,18 +6663,21 @@ msgstr ""
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
+msgstr "Додати до заголовку власний коментар (\\n для розділення рядків):"
 
 #: libraries/export/sql.php:50
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Включити час створення бази даних, час останнього оновлення а також час "
+"останньої перевірки"
 
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Максимальна сумісність з системою бази даних чи застарілою версією MySQL:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -6696,11 +6711,11 @@ msgstr "Вирази <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Використовувати оператор при зберіганні даних:"
 
 #: libraries/export/sql.php:268
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Використовувати синтаксис при вставці даних:"
 
 #: libraries/export/sql.php:274
 msgid ""
@@ -6708,6 +6723,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"включення імен полів у кожному виразі <code>INSERT</code> <br /> &nbsp; "
+"&nbsp; &nbsp; Приклад: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/export/sql.php:275
 msgid ""
@@ -6715,6 +6733,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"включення декількох рядків у кожному виразі <code>INSERT</code><br /> &nbsp; "
+"&nbsp; &nbsp; Приклад: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:276
 msgid ""
