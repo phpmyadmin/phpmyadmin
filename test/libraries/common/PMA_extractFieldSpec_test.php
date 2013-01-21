@@ -46,8 +46,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'a','b'",
                     'enum_set_values' => array('a', 'b'),
                     'attribute' => ' ',
-                    ),
                 ),
+            ),
             array(
                 "SET('\'a','b')",
                 array(
@@ -59,8 +59,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => array("'a", 'b'),
                     'attribute' => ' ',
-                    ),
                 ),
+            ),
             array(
                 "SET('''a','b')",
                 array(
@@ -72,8 +72,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'''a','b'",
                     'enum_set_values' => array("'a", 'b'),
                     'attribute' => ' ',
-                    ),
                 ),
+            ),
             array(
                 "ENUM('a&b', 'b''c\\'d', 'e\\\\f')",
                 array(
@@ -85,8 +85,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
                     'enum_set_values' => array('a&b', 'b\'c\'d', 'e\\f'),
                     'attribute' => ' ',
-                    ),
                 ),
+            ),
             array(
                 "INT UNSIGNED zerofill",
                 array(
@@ -98,8 +98,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '',
                     'enum_set_values' => array(),
                     'attribute' => 'UNSIGNED ZEROFILL',
-                    ),
                 ),
+            ),
             array(
                 "VARCHAR(255)",
                 array(
@@ -111,8 +111,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
                     'attribute' => ' ',
-                    ),
                 ),
+            ),
             array(
                 "VARBINARY(255)",
                 array(
@@ -124,8 +124,8 @@ class PMA_extractFieldSpec_test extends PHPUnit_Framework_TestCase
                     'spec_in_brackets' => '255',
                     'enum_set_values' => array(),
                     'attribute' => ' ',
-                    ),
                 ),
-            );
+            ),
+        );
     }
 }
