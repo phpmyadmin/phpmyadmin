@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-18 19:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -533,7 +533,7 @@ msgstr "Geçersiz dışa aktarma türü"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" sütunu için değer"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
@@ -733,7 +733,7 @@ msgid "Database server"
 msgstr "Veritabanı sunucusu"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Sunucu"
@@ -1747,7 +1747,7 @@ msgstr "%d geçerli bir satır sayısı değil."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Kaydet"
 
@@ -3803,11 +3803,11 @@ msgstr "&quot;%s&quot; veritabanı için yetkileri kontrol et."
 msgid "Check Privileges"
 msgstr "Yetkileri kontrol et"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Yapılandırma dosyasını okuma başarısız"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3815,12 +3815,12 @@ msgstr ""
 "Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
 "gösterilen her hatayı kontrol edin."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Varsayılan yapılandırma bundan yüklenemedi: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3828,40 +3828,40 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] talimatı yapılandırma dosyanız içinde "
 "AYARLANMAK zorundadır!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Geçersiz sunucu indeksi: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s sunucusu için geçersiz anamakine. Lütfen yapılandırma dosyanızı gözden "
 "geçirin."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s veya sonrasına yükseltmelisiniz."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Hata: Belirti uyuşmazlığı"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS üzerine yazma girişimi"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "olası kötüye kullanma"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "sayısal tuş algılandı"
 
@@ -4310,7 +4310,7 @@ msgid "Character set of the file"
 msgstr "Dosyanın karakter grubu"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Biçim"
@@ -10046,7 +10046,9 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP arşivinde hata:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+#, fuzzy
+#| msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Önemli hata: Rehbere sadece ajax aracılığıyla erişilebilir"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11680,6 +11682,7 @@ msgid "Global value"
 msgstr "Genel değer"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "İndir"
 
@@ -12083,7 +12086,6 @@ msgid "Pie"
 msgstr "Dilim"
 
 #: tbl_chart.php:148
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Zaman çizelgesi"
@@ -12135,39 +12137,27 @@ msgstr "Tablo %1$s oluşturuldu."
 msgid "View dump (schema) of table"
 msgstr "Tablonun dökümünü (şemasını) göster"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "GIS görselleştirmesini görüntüle"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Genişlik"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Yükseklik"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Etiket sütunu"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Yok --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Uzaysal sütun"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Yeniden Çiz"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Dosyaya kaydet"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Dosya adı"
 
@@ -13693,6 +13683,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Width"
+#~ msgstr "Genişlik"
+
+#~ msgid "Height"
+#~ msgstr "Yükseklik"
+
+#~ msgid "Save to file"
+#~ msgstr "Dosyaya kaydet"
 
 #~ msgid "Total count"
 #~ msgstr "Toplam sayı"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2012-11-21 15:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
@@ -535,7 +535,7 @@ msgstr "Vale ekspordi tüüp"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" veeru väärtus"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Use OpenStreetMaps as Base Layer"
 
@@ -741,7 +741,7 @@ msgid "Database server"
 msgstr "Andmebaasi server"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1748,7 +1748,7 @@ msgstr "%d ei ole õige reanumber."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Salvesta"
 
@@ -3813,11 +3813,11 @@ msgstr "Kontrolli &quot;%s&quot; andmebaasi õigusi."
 msgid "Check Privileges"
 msgstr "Kontrolli õigusi"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Seadistuse faili lugemine ebaõnnestus"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3825,12 +3825,12 @@ msgstr ""
 "See tähendab tavaliselt, et selles on süntaksi viga, palun kontrolli kõiki "
 "allolevaid vigu."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ei saanud laadida vaikimisi seadistuse faili kohast: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3838,38 +3838,38 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] väärtus PEAB sinu seadistusfailis olema "
 "määratud!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Vale serveri indeks: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Vale hostinimi %1$s serverile. Palun kontrolli oma seadistust."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Seadistuses on valitud vale autentimise meetod:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Peaksid uuendama %s %s või uuemale versioonile."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ülekirjutamise katse"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "võimalik turvaauk"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "tuvastati arvvõti"
 
@@ -4313,7 +4313,7 @@ msgid "Character set of the file"
 msgstr "Faili märgitabel"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Formaat"
@@ -10107,7 +10107,7 @@ msgid "Error in ZIP archive:"
 msgstr "Viga ZIP arhiivis:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11723,6 +11723,7 @@ msgid "Global value"
 msgstr "Globaalne väärtus"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Lae alla"
 
@@ -12177,39 +12178,27 @@ msgstr "%1$s tabel on loodud."
 msgid "View dump (schema) of table"
 msgstr "Vaata tabeli tõmmist (skeemi)"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Näita GIS visualiseerimist"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Laius"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Kõrgus"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Nime veerg"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Puudub --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Ruumiline veerg"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Joonista uuesti"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Salvesta failina"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Faili nimi"
 
@@ -13741,6 +13730,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert väärtuseks on määratud 0"
+
+#~ msgid "Width"
+#~ msgstr "Laius"
+
+#~ msgid "Height"
+#~ msgstr "Kõrgus"
+
+#~ msgid "Save to file"
+#~ msgstr "Salvesta failina"
 
 #~ msgid "Total count"
 #~ msgstr "Koguhulk"

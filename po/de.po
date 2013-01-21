@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-09 16:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -536,7 +536,7 @@ msgstr "Ungültiger Typ für Export"
 msgid "Value for the column \"%s\""
 msgstr "Wert für die Spalte \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Verwende OpenStreetMaps als Basis-Satz"
 
@@ -744,7 +744,7 @@ msgid "Database server"
 msgstr "Datenbank-Server"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1765,7 +1765,7 @@ msgstr "%d ist keine gültige Zeilennummer."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Speichern"
 
@@ -3854,11 +3854,11 @@ msgstr "Überprüft die Rechte für die Datenbank &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Rechte überprüfen"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Fehler beim Lesen der Konfigurationsdatei"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3866,12 +3866,12 @@ msgstr ""
 "Dies bedeutet im Allgemeinen, dass sich ein Syntax-Fehler eingeschlichen "
 "hat. Bitte überprüfen Sie die unten angezeigten Fehler."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Fehler beim Laden der Standard-Konfiguration von: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3879,40 +3879,40 @@ msgstr ""
 "Das [code]$cfg['PmaAbsoluteUri'][/code] Verzeichnis MUSS in Ihrer "
 "Konfigurationsdatei angegeben werden!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ungültige Server-Nummer: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Ungültiger Host-Name für Server %1$s. Bitte überprüfen Sie Ihre "
 "Konfiguration."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ungültige Authentifikationsmethode:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sie sollten auf %s %s oder neuer aktualisieren."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Fehler: Token stimmen nicht überein"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS Überschreibversuch"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "Mögliche Ausnutzung"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "Numerischer Schlüssel entdeckt"
 
@@ -4360,7 +4360,7 @@ msgid "Character set of the file"
 msgstr "Zeichensatz der Datei"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -10150,7 +10150,9 @@ msgid "Error in ZIP archive:"
 msgstr "Fehler im ZIP-Archiv:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+#, fuzzy
+#| msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 "Schwerer Fehler: Auf die Navigation kann nur mit AJAX zugegriffen werden"
 
@@ -11834,6 +11836,7 @@ msgid "Global value"
 msgstr "Globaler Wert"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Download"
 
@@ -12298,39 +12301,27 @@ msgstr "Die Tabelle %1$s wurde erzeugt."
 msgid "View dump (schema) of table"
 msgstr "Dump (Schema) der Tabelle anzeigen"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "GIS-Darstellung anzeigen"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Breite"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Höhe"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Spaltenbeschriftung"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Kein --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Räumliche Spalte"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Neu zeichnen"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "In Datei speichern"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Dateiname"
 
@@ -13902,6 +13893,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Width"
+#~ msgstr "Breite"
+
+#~ msgid "Height"
+#~ msgstr "Höhe"
+
+#~ msgid "Save to file"
+#~ msgstr "In Datei speichern"
 
 #~ msgid "Total count"
 #~ msgstr "Komplette Anzahl"

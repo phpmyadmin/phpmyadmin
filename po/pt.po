@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-10 13:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -534,7 +534,7 @@ msgstr "Tipo de exportação inválido"
 msgid "Value for the column \"%s\""
 msgstr "Valor para a coluna \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Usar OpenStreetMaps como camada base"
 
@@ -743,7 +743,7 @@ msgid "Database server"
 msgstr "Base de Dados"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Servidor"
@@ -1753,7 +1753,7 @@ msgstr "%d não é um número de linha válido."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Guarda"
 
@@ -3783,11 +3783,11 @@ msgstr "Verificar Privilégios para a Base de Dados &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Verificar Privilégios"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Falhou ao ler o arquivo de configuração"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3795,12 +3795,12 @@ msgstr ""
 "Isto geralmente significa que há um erro de sintaxe, por favor verifique "
 "qualquer erro mostrado abaixo."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3812,40 +3812,40 @@ msgstr ""
 "A directiva <code>$cfg['PmaAbsoluteUri']</code> TEM que ser definida no "
 "ficheiro de configuração!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Índice de servidor inválido: \"%s\""
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nome de serivdor inválido para o servidor %1$s. Verifique as suas "
 "configurações."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticação definido nas configurações inválido:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "deve actualizar para %s %s ou mais recente."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "possível 'exploit'"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "Tecla numérica detectada"
 
@@ -4295,7 +4295,7 @@ msgid "Character set of the file"
 msgstr "Configurar o Mapa de Caracteres do ficheiro"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Formato"
@@ -10112,7 +10112,7 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11637,6 +11637,7 @@ msgid "Global value"
 msgstr "Valor Global"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr ""
 
@@ -12063,45 +12064,31 @@ msgstr "A tabela %s foi eliminada"
 msgid "View dump (schema) of table"
 msgstr "Ver o esquema da tabela"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr ""
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr ""
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
 msgstr "Adicionar/Remover Campos"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr ""
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
 msgstr "Total"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "envia"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "User name"
 msgid "File name"
@@ -13565,6 +13552,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definida com o valor 0"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "envia"
 
 #~ msgid "Total count"
 #~ msgstr "Contagem total"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2012-11-05 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -536,7 +536,7 @@ msgstr "Jenis ekspor invalid"
 msgid "Value for the column \"%s\""
 msgstr "Nilai untuk kolom \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Gunakan OpenStreetMaps sebagai Lapisan Dasar"
 
@@ -742,7 +742,7 @@ msgid "Database server"
 msgstr "Server basis data"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1763,7 +1763,7 @@ msgstr "%d bukanlah nomor baris yang berlaku."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Simpan"
 
@@ -3800,11 +3800,11 @@ msgstr "Periksa hak akses untuk basis data &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Periksa Hak Akses"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Gagal membaca berkas konfigurasi"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3812,12 +3812,12 @@ msgstr ""
 "Hal ini biasanya berarti ada kesalahan sintaks di dalamnya, silahkan cek "
 "kesalahan di bawah ini."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3829,39 +3829,39 @@ msgstr ""
 "Directif <code>$cfg['PmaAbsoluteUri']</code> WAJIB diset dalam berkas "
 "konfigurasi!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indeks server tidak sah: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Hostname tidak sah untuk server %1$s. Harap lihat kembali konfigurasi Anda."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "tombol angka terdeteksi"
 
@@ -4303,7 +4303,7 @@ msgid "Character set of the file"
 msgstr "Set karakter berkas"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -9945,7 +9945,7 @@ msgid "Error in ZIP archive:"
 msgstr "Galat pada arsip ZIP:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11455,6 +11455,7 @@ msgid "Global value"
 msgstr "Nilai global"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Unduh"
 
@@ -11874,39 +11875,27 @@ msgstr "Tabel %1$s telah dibuat."
 msgid "View dump (schema) of table"
 msgstr "Tampilkan Dump (Skema) dari tabel"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Tampilkan Visualisasi GIS"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Lebar"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Tinggi"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Kolom label"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Tidak ada --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Kolom spasial"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Gambar ulang"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Simpan dalam berkas"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Nama berkas"
 
@@ -13377,6 +13366,15 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Koneksi konkuren maks."
+
+#~ msgid "Width"
+#~ msgstr "Lebar"
+
+#~ msgid "Height"
+#~ msgstr "Tinggi"
+
+#~ msgid "Save to file"
+#~ msgstr "Simpan dalam berkas"
 
 #~ msgid "Total count"
 #~ msgstr "Jumlah"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-20 19:31+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -539,7 +539,7 @@ msgstr "निर्यात प्रकार"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" काँलम के लिए मान "
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
@@ -746,7 +746,7 @@ msgid "Database server"
 msgstr "यूसर के लिए डेटाबेस"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "सर्वर"
@@ -938,9 +938,7 @@ msgstr "प्राथमिक-कुंजी/अनुक्रमणिक�
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
-"इस प्रक्रिया में लम्बा वक्त भी लग सकता है। क्या आप चाहते हैं ये प्रक्रिया की "
-"जाये ?"
+msgstr "इस प्रक्रिया में लम्बा वक्त भी लग सकता है। क्या आप चाहते हैं ये प्रक्रिया की जाये ?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -951,12 +949,10 @@ msgid "This is not a number!"
 msgstr "यह 'आंकिक' या नम्बर रूप में नहीं है।"
 
 #: js/messages.php:42
-#| msgid "Add index"
 msgid "Add Index"
 msgstr "अनुक्रमणिका जोड़ें"
 
 #: js/messages.php:43
-#| msgid "Edit mode"
 msgid "Edit Index"
 msgstr "अनुक्रमणिका सम्पादित करें"
 
@@ -1032,7 +1028,6 @@ msgid "Live conn./process chart"
 msgstr "लाईव कनेक्शन / प्रोसेस चार्ट"
 
 #: js/messages.php:64
-#| msgid "Show query chart"
 msgid "Live query chart"
 msgstr "जीवन्त (live) क्वॅरी चार्ट"
 
@@ -1065,12 +1060,10 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:76
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "कनेक्शन / प्रक्रियाएँ"
 
 #: js/messages.php:79
-#| msgid "Could not save configuration"
 msgid "Local monitor configuration incompatible"
 msgstr "स्थानीय जाँच व्यवस्था असंगत"
 
@@ -1842,7 +1835,7 @@ msgstr "%d वैध रो संख्या नहीं है"
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "बचाना"
 
@@ -3908,24 +3901,24 @@ msgstr "डाटाबेस के  प्रिविलेज  चेक क
 msgid "Check Privileges"
 msgstr "प्रिविलेज  चेक करें"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "विन्यास सहेज नहीं सकते"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी |"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3936,38 +3929,38 @@ msgid ""
 msgstr ""
 "<code>$cfg['PmaAbsoluteUri']</code> निर्देश आपकी विन्यास फाइल मैं सेट होना आवश्यक है"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "अवैध सर्वर सूचकांक: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "%1$s सर्वर के लिए होस्टनाम अवैध कृपया अपना विन्यास की समीक्षा करें"
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr ""
 
@@ -4407,7 +4400,7 @@ msgid "Character set of the file"
 msgstr "फ़ाइल का चरित्र सेट"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "प्रारूप"
@@ -10102,7 +10095,7 @@ msgid "Error in ZIP archive:"
 msgstr "ज़िप संग्रह में त्रुटि"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11629,6 +11622,7 @@ msgid "Global value"
 msgstr "वैश्विक मूल्य"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "डाउनलोड"
 
@@ -12060,49 +12054,35 @@ msgstr "%1$s टेबल बना दिया गया है"
 msgid "View dump (schema) of table"
 msgstr "टेबल डंप दृश्य"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 #, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "सर्वर चयन प्रदशित करें"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "चौड़ाई "
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "ऊँचाई"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 #, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
 msgstr "- कोई नहीं -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
 msgstr "कुल"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "फिर से बनाएं"
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "फाईल मे सेव करें"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -13586,6 +13566,17 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "अधिकतम वर्तमान कनेक्शन"
+
+#~ msgid "Width"
+#~ msgstr "चौड़ाई "
+
+#~ msgid "Height"
+#~ msgstr "ऊँचाई"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "फाईल मे सेव करें"
 
 #~ msgid "Total count"
 #~ msgstr "कुल गिनती"

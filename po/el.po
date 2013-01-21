@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-18 21:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -533,7 +533,7 @@ msgstr "Μη έγκυρος τύπος εξαγωγής"
 msgid "Value for the column \"%s\""
 msgstr "Τιμή για τη στήλη «%s»"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
@@ -735,7 +735,7 @@ msgid "Database server"
 msgstr "Διακομιστής βάσης δεδομένων"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Διακομιστής"
@@ -1755,7 +1755,7 @@ msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γ�
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -3829,11 +3829,11 @@ msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
 msgid "Check Privileges"
 msgstr "Έλεγχος Δικαιωμάτων"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Αδύνατη η ανάγνωση του αρχείου ρυθμίσεων"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3841,12 +3841,12 @@ msgstr ""
 "Αυτό σημαίνει, συνήθως, ότι υπάρχει συντακτικό λάθος, για αυτό ελέγξτε τα "
 "σφάλματα που εμφανίζονται παρακάτω."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3854,40 +3854,40 @@ msgstr ""
 "Η πδηγία [code]$cfg['PmaAbsoluteUri'][/code] ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Μη έγκυρο ευρετήριο διακομιστή: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Μη έγκυρο όνομα διακομιστή για τον διακομιστή %1$s. Ξαναδείτε τις ρυθμίσεις "
 "σας."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ορίστηκε εσφαλμένη μέθοδος πιστοποίησης στη ρύθμιση:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Σφάλμα: Το πειστήριο δεν ταιριάζει"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "προσπάθεια επανεγγραφής GLOBALS"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "δυνατή αξιοποίηση"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "ανιχνεύτηκε αριθμητικό κλειδί"
 
@@ -4336,7 +4336,7 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Μορφοποίηση"
@@ -10124,7 +10124,9 @@ msgid "Error in ZIP archive:"
 msgstr "Σφάλμα στο συμπιεσμένο αρχείο ZIP:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+#, fuzzy
+#| msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να προσπελαστεί μέσω ajax"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11812,6 +11814,7 @@ msgid "Global value"
 msgstr "Προεπιλεγμένη τιμή"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Λήψη"
 
@@ -12224,7 +12227,6 @@ msgid "Pie"
 msgstr "Πίτα"
 
 #: tbl_chart.php:148
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Χρονολόγιο"
@@ -12276,39 +12278,27 @@ msgstr "Ο πίνακας %1$s έχει δημιουργηθεί."
 msgid "View dump (schema) of table"
 msgstr "Εμφάνιση σκαριφήματος (σχήματος) του πίνακα"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Εμφάνιση Οπτικοποίησης GIS"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Πλάτος"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Ύψος"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Στήλη ετικέτας"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Τίποτα --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Χωρική στήλη"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Επανασχεδίαση"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Αποθήκευση σε αρχείο"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Ονομασία αρχείου"
 
@@ -13898,6 +13888,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Width"
+#~ msgstr "Πλάτος"
+
+#~ msgid "Height"
+#~ msgstr "Ύψος"
+
+#~ msgid "Save to file"
+#~ msgstr "Αποθήκευση σε αρχείο"
 
 #~ msgid "Total count"
 #~ msgstr "Συνολικό πλήθος"

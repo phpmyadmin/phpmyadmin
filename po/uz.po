@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-17 09:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -539,7 +539,7 @@ msgstr "Жадвалларни экспорт қилиш"
 msgid "Value for the column \"%s\""
 msgstr ""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgid "Database server"
 msgstr "Фойдаланувчи учун маълумотлар базаси"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Сервер"
@@ -1927,7 +1927,7 @@ msgstr "%d сони тўғри қатор рақами эмас."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Сақлаш"
 
@@ -4097,25 +4097,25 @@ msgstr "\"%s\" маълумотлар базасининг привилегия�
 msgid "Check Privileges"
 msgstr "Привилегияларни текшириш"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Failed to read configuration file"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "\"%1$s\" файлидан андоза конфигурацияни юклаб бўлмади."
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -4127,42 +4127,42 @@ msgstr ""
 "<code>$cfg[\"PmaAbsoluteUrl\"]</code> директиваси конфигурацион файлда "
 "созланиши ШАРТ!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Сервер рақами нотўғри: \"%s\""
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "%1$s сервери учун нотўғри хост номи кўрсатилган. phpMyAdmin конфигурацион "
 "файлида белгиланган созлашларни тўғирланг."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "phpMyAdmin конфигурацион файлида нотўғри аутентификация усули белгиланган:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "\"%s\" ни \"%s\" версияга ёки каттароқ версияга янгилаш зарур."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr ""
 
@@ -4642,7 +4642,7 @@ msgid "Character set of the file"
 msgstr "Файл кодировкаси"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Формат"
@@ -10868,7 +10868,7 @@ msgid "Error in ZIP archive:"
 msgstr "Ушбу ZIP архивда хатолик:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -12578,6 +12578,7 @@ msgid "Global value"
 msgstr "Глобал қиймат"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Юклаб олиш"
 
@@ -13111,49 +13112,35 @@ msgstr "%1$s жадвали тузилди."
 msgid "View dump (schema) of table"
 msgstr "Жадвал дампини (схемасини) намойиш этиш"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 #, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "Сервер танловини кўрсатиш"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr ""
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr ""
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Label column"
 msgstr "CHAR майдонидаги устунлар сони"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 #, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
 msgstr "- йўқ -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
 msgstr "Журнал файллари сони"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "Файл каби сақлаш"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -14652,6 +14639,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Максимал уланишлар сони "
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "Файл каби сақлаш"
 
 #, fuzzy
 #~| msgid "Log file count"

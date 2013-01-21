@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-10 13:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -526,7 +526,7 @@ msgstr "無效的輸出類型"
 msgid "Value for the column \"%s\""
 msgstr "%s 欄位的值"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "使用OpenStreetMaps"
 
@@ -724,7 +724,7 @@ msgid "Database server"
 msgstr "使用者資料庫"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "伺服器"
@@ -1732,7 +1732,7 @@ msgstr "%d 不是正確的資料列行數。"
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "儲存"
 
@@ -3753,22 +3753,22 @@ msgstr "檢查資料庫 「%s」 之權限."
 msgid "Check Privileges"
 msgstr "檢查權限"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "無法讀取設定檔"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "這通常是代表在設定黨內有一些語法錯誤，請檢查以下的任何錯誤。"
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "無法載入預設設定: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3778,38 +3778,38 @@ msgid ""
 "configuration file!"
 msgstr "必須在您的設定檔案中設定 <code>$cfg['PmaAbsoluteUri']</code> ！"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "無效的伺服器索引: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "伺服器 %1$s 主機名稱錯誤, 請檢查設定檔案."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定檔案中設定的認證方式無效："
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更高版本。"
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "$_REQUEST 數量過多（駭客？）"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "$_GLOBALS 內含非法的數字鍵名"
 
@@ -4240,7 +4240,7 @@ msgid "Character set of the file"
 msgstr "檔案字集"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "格式"
@@ -9922,7 +9922,7 @@ msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有錯誤:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11488,6 +11488,7 @@ msgid "Global value"
 msgstr "全域值"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "下載"
 
@@ -11941,49 +11942,35 @@ msgstr "建立資料表 %1$s 成功"
 msgid "View dump (schema) of table"
 msgstr "查看資料表的轉存(大綱)"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 #, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "顯示伺服器選擇"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "寬"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "高"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Label column"
 msgstr "文本框列"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 #, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
 msgstr "- 無 -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Total count"
 msgid "Spatial column"
 msgstr "總數量"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "重繪"
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "另存檔案"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -13478,6 +13465,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 已被設置為 0"
+
+#~ msgid "Width"
+#~ msgstr "寬"
+
+#~ msgid "Height"
+#~ msgstr "高"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "另存檔案"
 
 #~ msgid "Total count"
 #~ msgstr "總數量"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-20 22:01+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -533,7 +533,7 @@ msgstr "Ongeldig exporttype"
 msgid "Value for the column \"%s\""
 msgstr "Waarde voor kolom \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Gebruik OpenStreetMaps als basislayer"
 
@@ -739,7 +739,7 @@ msgid "Database server"
 msgstr "Databankserver"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1757,7 +1757,7 @@ msgstr "%d is geen geldig rijnummer."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Opslaan"
 
@@ -3419,8 +3419,7 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, wordt "
-"opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 "
-"UTC)"
+"opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
 #, php-format
@@ -3831,11 +3830,11 @@ msgstr "Controleer rechten op databank &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Controleer rechten"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Lezen van het configuratiebestand is niet gelukt"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3844,12 +3843,12 @@ msgstr ""
 "hieronder te bekijken."
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3857,38 +3856,38 @@ msgstr ""
 "De [code]$cfg['PmaAbsoluteUri'][/code] richtlijn MOET ingesteld zijn in het "
 "configuratiebestand!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ongeldige serverindex: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "numerieke toets gedetecteerd"
 
@@ -4338,7 +4337,7 @@ msgid "Character set of the file"
 msgstr "Karakterset voor het bestand"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Opmaak"
@@ -7489,7 +7488,8 @@ msgstr "Ongeldige klassenaam \"%1$s\", \"Node\" zal gebruikt worden"
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr "Klasse \"%1$s\" kon niet ingevoegd worden, bestand \"%2$s' niet gevonden"
+msgstr ""
+"Klasse \"%1$s\" kon niet ingevoegd worden, bestand \"%2$s' niet gevonden"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -8328,8 +8328,8 @@ msgstr ""
 "de tijdstip zal worden toegevoegd (Standaard: 0). De tweede optie kan worden "
 "gebruikt om een alternatieve opmaak te specificeren. Als derde optie kan "
 "worden opgegeven of de lokale tijd, of de UTC-variant moet worden gebruikt "
-"(gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de opmaakcode - "
-"voor \"local\", zie de documentatie van de PHP-functie strftime() en voor "
+"(gebruik \"local\" of \"utc\"). Afhankelijk hiervan verschilt de opmaakcode "
+"- voor \"local\", zie de documentatie van de PHP-functie strftime() en voor "
 "\"utc\" de functie gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
@@ -10116,7 +10116,9 @@ msgid "Error in ZIP archive:"
 msgstr "Fout in het ZIP-archief:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+#, fuzzy
+#| msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11785,6 +11787,7 @@ msgid "Global value"
 msgstr "Globale waarde"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Download"
 
@@ -12196,7 +12199,6 @@ msgid "Pie"
 msgstr "Taart"
 
 #: tbl_chart.php:148
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Tijdlijn"
@@ -12248,39 +12250,27 @@ msgstr "Tabel %1$s is aangemaakt."
 msgid "View dump (schema) of table"
 msgstr "Een dump (schema) van tabel bekijken"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "GIS-visualisatie tonen"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Breedte"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Hoogte"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Kolom naam geven"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Geen --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Plaatshoudende kolom"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Hertekenen"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Opslaan naar bestand"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Bestandsnaam"
 
@@ -13848,6 +13838,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "Width"
+#~ msgstr "Breedte"
+
+#~ msgid "Height"
+#~ msgstr "Hoogte"
+
+#~ msgid "Save to file"
+#~ msgstr "Opslaan naar bestand"
 
 #~ msgid "Total count"
 #~ msgstr "Totaal aantal"
