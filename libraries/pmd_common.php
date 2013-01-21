@@ -31,17 +31,26 @@ function get_tables_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $i = 0;
     foreach ($tables as $one_table) {
-        $GLOBALS['PMD']['TABLE_NAME'][$i] = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
+        $GLOBALS['PMD']['TABLE_NAME'][$i]
+            = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
         $GLOBALS['PMD']['OWNER'][$i] = $GLOBALS['db'];
         $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
 
-        $GLOBALS['PMD_URL']['TABLE_NAME'][$i] = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
+        $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
+            = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
         $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($GLOBALS['db']);
-        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i] = urlencode($one_table['TABLE_NAME']);
+        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
+            = urlencode($one_table['TABLE_NAME']);
 
-        $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars($GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars($GLOBALS['db'], ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);
+        $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
+            $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
+        );
+        $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars(
+            $GLOBALS['db'], ENT_QUOTES
+        );
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $one_table['TABLE_NAME'], ENT_QUOTES
+        );
 
         $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
 
@@ -66,7 +75,16 @@ function get_columns_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
-        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], null, true), null, PMA_DBI_QUERY_STORE);
+        $fields_rs = PMA_DBI_query(
+            PMA_DBI_get_columns_sql(
+                $GLOBALS['db'],
+                $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i],
+                null,
+                true
+            ),
+            null,
+            PMA_DBI_QUERY_STORE
+        );
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
             $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_ID'][$j]   = $j;
@@ -89,7 +107,11 @@ function get_script_contr()
     PMA_DBI_select_db($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
-    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']), null, PMA_DBI_QUERY_STORE);
+    $alltab_rs = PMA_DBI_query(
+        'SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']),
+        null,
+        PMA_DBI_QUERY_STORE
+    );
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
@@ -99,7 +121,9 @@ function get_script_contr()
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
                 $con['DCN'][$i]    = urlencode($field);
-                $con['STN'][$i]    = urlencode($value['foreign_db'] . "." . $value['foreign_table']);
+                $con['STN'][$i]    = urlencode(
+                    $value['foreign_db'] . "." . $value['foreign_table']
+                );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
@@ -112,7 +136,9 @@ function get_script_contr()
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($GLOBALS['db'].".".$val[0]);
                 $con['DCN'][$i]    = urlencode($field);
-                $con['STN'][$i]    = urlencode($value['foreign_db'].".".$value['foreign_table']);
+                $con['STN'][$i]    = urlencode(
+                    $value['foreign_db'].".".$value['foreign_table']
+                );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
@@ -218,9 +244,11 @@ function get_tab_pos()
                 `y` AS `Y`,
                 `v` AS `V`,
                 `h` AS `H`
-           FROM " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
-    $tab_pos = PMA_DBI_fetch_result($query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE);
+           FROM " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
+    $tab_pos = PMA_DBI_fetch_result(
+        $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
+    );
     return count($tab_pos) ? $tab_pos : null;
 }
-
 ?>
