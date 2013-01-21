@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 13:21+0200\n"
+"PO-Revision-Date: 2013-01-21 13:40+0200\n"
 "Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -6484,15 +6484,15 @@ msgstr "Шаблон назви файлу:"
 
 #: libraries/display_export.lib.php:267
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ буде заміщено іменем сервера"
 
 #: libraries/display_export.lib.php:269
 msgid ", @DATABASE@ will become the database name"
-msgstr ""
+msgstr ", @DATABASE@ буде заміщено ім'ям бази даних"
 
 #: libraries/display_export.lib.php:271
 msgid ", @TABLE@ will become the table name"
-msgstr ""
+msgstr ", @TABLE@ буде заміщено ім'ям таблиці"
 
 #: libraries/display_export.lib.php:276
 #, php-format
