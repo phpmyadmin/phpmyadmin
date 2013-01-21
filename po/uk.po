@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 14:20+0200\n"
-"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
+"PO-Revision-Date: 2013-01-21 20:13+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -325,7 +325,7 @@ msgstr "Додати значення AUTO_INCREMENT"
 
 #: db_operations.php:512 tbl_operations.php:571
 msgid "Add constraints"
-msgstr "Додати constraints"
+msgstr "Додати обмеження"
 
 #: db_operations.php:525
 msgid "Switch to copied database"
@@ -400,7 +400,7 @@ msgstr "Останнє оновлення"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:405
 #: tbl_structure.php:934
 msgid "Last check"
-msgstr "Перевірено"
+msgstr "Остання перевірка"
 
 #: db_printview.php:219 db_structure.php:524
 #, php-format
@@ -604,7 +604,7 @@ msgstr "Таблицю %s було очищено"
 #: db_structure.php:328 tbl_operations.php:728
 #, php-format
 msgid "View %s has been dropped"
-msgstr "Вигляд %s знищено"
+msgstr "Подання %s було знищено"
 
 #: db_structure.php:328 tbl_operations.php:728
 #, php-format
@@ -625,13 +625,13 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Вигляд має щонайменше цю кількість рядків. Будь-ласка звернітся до "
-"%sдокументації%s."
+"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до %"
+"sдокументації%s."
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
 msgid "View"
-msgstr "Вигляд"
+msgstr "Подання"
 
 #: db_structure.php:531 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
@@ -746,7 +746,7 @@ msgstr "Відслідковувані таблиці"
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
-msgstr "БД"
+msgstr "База даних"
 
 #: db_tracking.php:87
 msgid "Last version"
@@ -764,7 +764,7 @@ msgstr "Оновлено"
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1255 sql.php:896 tbl_tracking.php:653
 msgid "Status"
-msgstr "Статус"
+msgstr "Стан"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
@@ -776,7 +776,7 @@ msgstr "Дія"
 
 #: db_tracking.php:102 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr "Видалити дані спостереження для цієї таблиці"
+msgstr "Видалити дані відстеження для цієї таблиці"
 
 # активна
 #: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
@@ -802,7 +802,7 @@ msgstr "Знімок структури"
 
 #: db_tracking.php:183
 msgid "Untracked tables"
-msgstr "Невідслідковувані таблиці"
+msgstr "Невідстежувані таблиці"
 
 #: db_tracking.php:201 tbl_structure.php:655
 msgid "Track table"
@@ -840,7 +840,7 @@ msgstr "Вивід"
 
 #: enum_editor.php:100
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr "Скопіювати та вставити об'єднанні значення в \"Довжина/Значення\" поле"
+msgstr "Скопіювати та вставити об'єднанні значення в поле \"Довжина/Значення\""
 
 #: export.php:29
 msgid "Bad type!"
@@ -848,7 +848,7 @@ msgstr "Невірний тип!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr "Обранний тип експорту збережений в файл!"
+msgstr "Обраний тип експорту збережений в файл!"
 
 #: export.php:106
 msgid "Bad parameters!"
@@ -927,7 +927,7 @@ msgstr "Додати точку"
 
 #: gis_data_editor.php:220 js/messages.php:324
 msgid "Linestring"
-msgstr "Linestring"
+msgstr "Відрізок"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
@@ -939,7 +939,7 @@ msgstr "Внутрішнє кільце"
 
 #: gis_data_editor.php:252
 msgid "Add a linestring"
-msgstr "Додати linestring"
+msgstr "Додати відрізок"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
 msgid "Add an inner ring"
@@ -971,7 +971,7 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Ви напевно намагаєтесь завантажити занадто великий файл. Будь ласка "
+"Ви напевно намагаєтесь відвантажити занадто великий файл. Будь ласка "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
 "проблеми."
 
@@ -1085,7 +1085,7 @@ msgstr "Ви збираєтесь здійснити ОБРІЗКУ таблиц
 
 #: js/messages.php:35
 msgid "Deleting tracking data"
-msgstr "Видалення даних трекінгу"
+msgstr "Видалення даних відстеження"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
@@ -1276,7 +1276,7 @@ msgstr "Використання кешу запитів"
 
 #: js/messages.php:99
 msgid "Query cache used"
-msgstr "Використанний кеш запитів"
+msgstr "Використано кеш запитів"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
@@ -1316,7 +1316,7 @@ msgstr "Пам'яті кешовано"
 
 #: js/messages.php:110
 msgid "Buffered memory"
-msgstr "Пам'яті буферезовано"
+msgstr "Пам'яті буферизовано"
 
 #: js/messages.php:111
 msgid "Free memory"
@@ -1367,17 +1367,17 @@ msgstr "ГБ"
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:129 libraries/common.lib.php:1402
 msgid "TiB"
-msgstr "TB"
+msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:130 libraries/common.lib.php:1404
 msgid "PiB"
-msgstr "PB"
+msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:131 libraries/common.lib.php:1406
 msgid "EiB"
-msgstr "EB"
+msgstr "ЕБ"
 
 #: js/messages.php:132
 #, php-format
@@ -1690,8 +1690,7 @@ msgstr "Рядки що зазнали змін:"
 
 #: js/messages.php:214
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
-"Невдале зчитування файлу конфігурації. Схоже що це не валідний JSON код."
+msgstr "Невдале зчитування файлу конфігурації. Схоже на неприпустимий JSON код."
 
 #: js/messages.php:215
 msgid ""
@@ -1918,7 +1917,7 @@ msgstr "Щоб збільшити масштаб, виберіть ділянк�
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
-msgstr "Натисніть кнопку скидання зума, щоб повернутися до вихідного стану."
+msgstr "Натисніть кнопку скидання масштабу, щоб повернутися до вихідного стану."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2005,25 +2004,26 @@ msgstr "Перетягніть для зміни порядку"
 
 #: js/messages.php:350
 msgid "Click to sort"
-msgstr "Клікніть щоб посортувати"
+msgstr "Клацніть для сортування"
 
 #: js/messages.php:351
 msgid "Click to mark/unmark"
-msgstr "Клікніть щоб позначити/зняти позначку"
+msgstr "Клацніть для встановлення/зняття позначки"
 
 #: js/messages.php:352
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
-"Клікніть на стрілку випадаючого меню <br />для перемикання видимості стовпця"
+"Клацніть на стрілку випадаючого меню <br/> для перемикання видимості "
+"стовпчика"
 
 #: js/messages.php:354
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Ця таблиця не містить унікальні колонки. Особливості, пов'язані з сіткою "
-"редагування, Прапорець, Редагувати, Копіювати і Видаляти посилання можуть не "
-"працювати після збереження."
+"Ця таблиця не містить унікальні стовпчики. Особливості, пов'язані з сіткою "
+"редагування, прапорцем, посиланнями Редагувати, Копіювати та Видаляти можуть "
+"не працювати після збереження."
 
 #: js/messages.php:355
 msgid ""
@@ -2352,7 +2352,7 @@ msgstr "за день"
 
 #: libraries/Config.class.php:701
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
-msgstr "Видаліть \"./config\" директорію пред використанням phpMyAdmin!"
+msgstr "Перед використанням phpMyAdmin видаліть каталог \"./config\" !"
 
 #: libraries/Config.class.php:727
 #, php-format
@@ -2375,27 +2375,27 @@ msgstr "Надто багато помилок, деякі не відобраз
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
-msgstr "Файл не був завантаженим файлом."
+msgstr "Файл не був відвантаженим файлом."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
 msgid "Unknown error while uploading."
-msgstr "Невідома помилка при завантаженні."
+msgstr "Невідома помилка при відвантаженні."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "Завантажений файл перевищує директиву upload_max_filesize в php.ini."
+msgstr "Відвантажений файл перевищує директиву upload_max_filesize в php.ini."
 
 #: libraries/File.class.php:281
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Завантажений файл перевищує MAX_FILE_SIZE директиву, яка була вказана в HTML "
-"формі."
+"Відвантажений файл перевищує MAX_FILE_SIZE директиву, яка була вказана в "
+"HTML формі."
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
-msgstr "Завантажуваний файл був завантажений лише частково."
+msgstr "Відвантажений файл був відвантажений лише частково."
 
 #: libraries/File.class.php:287
 msgid "Missing a temporary folder."
@@ -2407,27 +2407,27 @@ msgstr "Неможливо записати файл на диск."
 
 #: libraries/File.class.php:293
 msgid "File upload stopped by extension."
-msgstr "Завантаження зупинено розширенням."
+msgstr "Відвантаження зупинено розширенням."
 
 #: libraries/File.class.php:296
 msgid "Unknown error in file upload."
-msgstr "Невідома помилка при завантаженні файлу."
+msgstr "Невідома помилка при відвантаженні файлу."
 
 #: libraries/File.class.php:496
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Помилка прі переміщенні файлу, дивись [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Помилка при переміщенні відвантаженого файлу, дивись "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr "Помилка при переміщенні файлу."
+msgstr "Помилка при переміщенні відвантаженого файлу."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
-msgstr "Неможливо прочитати (перемістити) завантажений файл."
+msgstr "Неможливо прочитати (перемістити) відвантажений файл."
 
 #: libraries/Index.class.php:419 tbl_relation.php:522
 msgid "No index defined!"
@@ -3074,7 +3074,7 @@ msgstr "Переглянути Ваш комп'ютер:"
 #: libraries/common.lib.php:3296
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Виберіть з каталога веб-сервера для завантаження файлів <b>%s</b>:"
+msgstr "Виберіть з каталога веб-сервера для відвантаження файлів <b>%s</b>:"
 
 #: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
@@ -3083,7 +3083,7 @@ msgstr "Встановлений Вами каталог для завантаж
 
 #: libraries/common.lib.php:3326
 msgid "There are no files to upload"
-msgstr "Немає файлів для завантаження"
+msgstr "Немає файлів для відвантаження"
 
 #: libraries/common.lib.php:3354 libraries/common.lib.php:3355
 msgid "Execute"
@@ -4921,8 +4921,8 @@ msgstr "Signon URL"
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
-"Сокет на якому працює сервер MySQL, Для значення за замовчуванням, залиште "
-"порожнім."
+"Сокет на якому працює сервер MySQL, для значення за замовчуванням, залиште "
+"порожнім"
 
 #: libraries/config/messages.inc.php:426
 msgid "Server socket"
@@ -5094,8 +5094,7 @@ msgid ""
 msgstr ""
 "Будь ласка, зверніть увагу, що включення даного параметра не дасть ефекту "
 "при ідентифікації методом [kbd]config[/kbd] через жорстко прописаного "
-"пароля. Зміна пароля в конфігураційному файлі безпосередньо ніяк не "
-"обмежена."
+"пароля. Зміна пароля в конфігураційному файлі безпосередньо ніяк не обмежена"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
@@ -5356,12 +5355,12 @@ msgstr "Список довірених проксі для IP allow/deny"
 #: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
 msgstr ""
-"Каталог на сервері, в який ви можете завантажувати файли для подальшого "
+"Каталог на сервері, в який ви можете відвантажувати файли для подальшого "
 "імпорту"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
-msgstr "Каталог завантаження"
+msgstr "Каталог відвантаження"
 
 #: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
@@ -5831,16 +5830,17 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "Файл обробляється, будь ласка, будьте терплячими."
 
 #: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Будь ласка, будьте терплячими, файл відвантажується. Докладна інформація про "
+"відвантаження не доступна."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "Імпортування до поточного сервера"
@@ -5859,34 +5859,37 @@ msgstr "Імпортування до таблиці \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
-msgstr ""
+msgstr "Файл для імпорту:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "Файл може бути стиснений (%s) або нестиснений."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Ім'я стисненого файлу повинно закінчуватися на "
+"<b>.[format].[compression]</b>. Приклад: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "Завантаження файлів на цьому сервері не допускаються."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "Часткові тексти"
+msgstr "Частковий імпорт:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"Попередній імпорт прострочений, після повторного надсилання він почнеться з "
+"позиції %d."
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -5894,19 +5897,23 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
+"Дозволити переривання імпорту у випадку, коли скрипт виявить наближення до "
+"вичерпання часу очікування PHP. <i>(Це може бути хороший способом "
+"імпортування великих файлів, однак це можу привести до розриву "
+"пересилань).</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
-msgstr ""
+msgstr "Кількість пропущених рядків, починаючи з першого рядка:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Параметри щодо формату:"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
 msgid "Language"
-msgstr ""
+msgstr "Мова"
 
 #: libraries/display_tbl.lib.php:406
 msgid "Save edited data"
@@ -5980,13 +5987,12 @@ msgstr "Повні тексти"
 
 #: libraries/display_tbl.lib.php:667
 msgid "Relational key"
-msgstr ""
+msgstr "Ключ відношення"
 
 #: libraries/display_tbl.lib.php:668
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Схема зв'язків"
+msgstr "Стовпчик відображення зв'язків"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
@@ -5997,18 +6003,17 @@ msgid "Show BLOB contents"
 msgstr "Показати вміст BLOB-ОБ'ЄКТІВ"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Перетворення МІМЕ-типу бровзером"
+msgstr "Сховати перетворення"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Формат WKT (well known text)"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Формат WKB (well known binary)"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -6038,21 +6043,20 @@ msgstr "Запит виконувався %01.4f сек"
 
 #: libraries/display_tbl.lib.php:2585
 msgid "Query results operations"
-msgstr ""
+msgstr "Операції з результатами запиту"
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
-msgstr "Подання дял друку (з повними текстами)"
+msgstr "Подання для друку (з повними текстами)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Показати PDF схему"
+msgstr "Відобразити діаграму"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Візуалізація даних ГІС"
 
 #: libraries/display_tbl.lib.php:2701
 #| msgid "Create User"
@@ -6061,7 +6065,7 @@ msgstr "Створити подання"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
-msgstr "Лінк не знайдено"
+msgstr "Посилання не знайдено"
 
 #: libraries/engines/bdb.lib.php:20 main.php:236
 msgid "Version information"
@@ -6069,127 +6073,135 @@ msgstr "Відомості про версію"
 
 #: libraries/engines/innodb.lib.php:20
 msgid "Data home directory"
-msgstr ""
+msgstr "Домашній каталог даних"
 
 #: libraries/engines/innodb.lib.php:21
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "Загальна частина шляху до каталогу всіх файлів даних InnoDB."
 
 #: libraries/engines/innodb.lib.php:24
 msgid "Data files"
-msgstr ""
+msgstr "Файли даних"
 
 #: libraries/engines/innodb.lib.php:27
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Приріст авторозширення"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"Розмір приросту, на який розширюється таблиця при авторозширенні, коли вона "
+"заповнюється."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Розмір буферного пулу"
 
 #: libraries/engines/innodb.lib.php:33
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"Розмір буферу пам'яті, що InnoDB використовує для кешування даних та "
+"індексів її таблиць."
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Буферний пул"
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:652
 msgid "InnoDB Status"
-msgstr "Статус InnoDB"
+msgstr "Стан InnoDB"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Використання буферного пулу"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
-msgstr ""
+msgstr "сторінки"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr ""
+msgstr "Чисті сторінки"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr ""
+msgstr "Брудні сторінки"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
-msgstr ""
+msgstr "Сторінки з даними"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Сторінки для очищення"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
-msgstr ""
+msgstr "Зайняті сторінки"
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
-msgstr ""
+msgstr "Фіксовані сторінки"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Активність буферного пулу"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
-msgstr ""
+msgstr "Запити читання"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Write requests"
-msgstr ""
+msgstr "Запити запису"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
-msgstr ""
+msgstr "Пропуски читання"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
-msgstr ""
+msgstr "Очікування запису"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
-msgstr ""
+msgstr "Пропуски читання у %"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Write waits in %"
-msgstr ""
+msgstr "Очікування запису в %"
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
-msgstr ""
+msgstr "Розмір вказівника даних"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"Розмір вказівника за замовчуванням у байтах, що буде використовуватися "
+"командою CREATE TABLE для таблиць MyISAM, якщо не вказано параметр MAX_ROWS."
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Режим автоматичного відновлення"
 
 #: libraries/engines/myisam.lib.php:28
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"Режим автоматичного відновлення пошкоджених таблиць MyISAM, як встановлено "
+"через опцію запуску сервера --myisam-recover."
 
 #: libraries/engines/myisam.lib.php:31
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "Максимальний розмір для тимчасового сортування файлів"
 
 #: libraries/engines/myisam.lib.php:32
 msgid ""
@@ -6197,10 +6209,13 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"Максимальний розмір тимчасового файлу, що MySQL може використовувати під час "
+"відновлення індексу MyISAM (при виконанні команд REPAIR TABLE, ALTER TABLE, "
+"або LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "Максимальний розмір тимчасових файлів при створенні індексу"
 
 #: libraries/engines/myisam.lib.php:37
 msgid ""
@@ -6208,49 +6223,60 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Якщо тимчасовий файл, використаний для швидкого створення індексу MyISAM "
+"буде перевищувати розмір кешу ключа на величину визначену тут, віддавати "
+"перевагу методу кешу ключа."
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
-msgstr ""
+msgstr "Потоки відновлення"
 
 #: libraries/engines/myisam.lib.php:42
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Якщо це значення перевищує 1, індекси таблиць MyISAM під час відновлення за "
+"допомогою процесу сортування створюються в паралельному режимі(кожен індекс "
+"у своєму потоці)."
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Розмір буфера сортування"
 
 #: libraries/engines/myisam.lib.php:47
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"Буфер, що виділяється при сортуванні індексів MyISAM під час виконання "
+"команди  REPAIR TABLE або під час створення індексів командою CREATE INDEX "
+"або ALTER TABLE."
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr ""
+msgstr "Поріг засмічення"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
+msgstr "Відсоток сміття в файлі сховища до його стиснення."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
 "The port for the PBMS stream-based communications. Setting this value to 0 "
 "will disable HTTP communication with the daemon."
 msgstr ""
+"Порт для PBMS потокових з'єднань. Встановлення цього значення рівним 0 "
+"вимкне HTTP з'єднання з демоном."
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr ""
+msgstr "Поріг сховища"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -6258,20 +6284,26 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Максимальний розмір файлу сховища BLOB-об'єктів. В якості одиниці виміру "
+"можна використовувати КБ, Мб або ГБ. Якщо одиниці виміру не вказано значення "
+"вважається у байтах."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr ""
+msgstr "Час існування тимчасових BLOB-об'єктів"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
 "The timeout, in seconds, for temporary BLOBs. Uploaded BLOB data is removed "
 "after this time, unless they are referenced by a record in the database."
 msgstr ""
+"Час існування в секундах тимчасових BLOB-об'єктів. Відвантажені BLOB дані "
+"видаляються після вичерпання цього часу, якщо вони не посилаються на запис у "
+"базі даних."
 
 #: libraries/engines/pbms.lib.php:50
 msgid "Temp Log Threshold"
-msgstr ""
+msgstr "Поріг тимчасового журналу"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -6279,20 +6311,26 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"Максимальний розмір файлу журналу тимчасового BLOB-об'єкту. В якості одиниці "
+"виміру можна використовувати КБ, Мб або ГБ. Якщо одиниці виміру не вказано "
+"значення вважається у байтах."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr ""
+msgstr "Максимальний час життя"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Час очікування для неактивного з'єднання з встановленим прапором keep-alive. "
+"Після вичерпання цього часу з'єднання буде буде закрито. Час очікування "
+"зазначається в мілісекундах (1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Заголовки метаданих"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -6306,34 +6344,38 @@ msgid ""
 "Documentation and further information about PBMS can be found on %sThe "
 "PrimeBase Media Streaming home page%s."
 msgstr ""
+"Документацію і додаткову інформацію про PBMS можна знайти на %sДомашній "
+"сторінці PrimeBase Media Streaming%s."
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Зв'язки"
+msgstr "Додаткові посилання"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr ""
+msgstr "Блог Баррі Леслі про PrimeBase Media Streaming"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Домашня сторінка PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr ""
+msgstr "Розмір кешу індексу"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Це обсяг пам'яті, що виділяється для кешу індекса. Значення за умовчанням – "
+"32 МБ. Виділена тут пам'ять використовується тільки для кешування індексу "
+"сторінок."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr ""
+msgstr "Розмір кешу запису"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
@@ -6344,7 +6386,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
 msgid "Log cache size"
-msgstr ""
+msgstr "Розмір кешу журналу"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
@@ -6354,7 +6396,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
-msgstr ""
+msgstr "Поріг файлу журналу"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid ""
@@ -6449,14 +6491,16 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Документацію і додаткову інформацію про PBXT можна знайти на %sДомашній "
+"сторінці PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "Блоґ Пола МакКулага про PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:130
 msgid "The PrimeBase Media Streaming (PBMS) home page"
-msgstr ""
+msgstr "Домашня сторінка PrimeBase Media Streaming (PBMS)"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 #| msgid "Lines terminated by"
@@ -6464,10 +6508,9 @@ msgid "Columns separated with:"
 msgstr "Стовпці розділені з:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Поля взято в"
+msgstr "Стовпчики взято в:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
@@ -6476,10 +6519,9 @@ msgid "Columns escaped with:"
 msgstr "Поля екрануються"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Рядки розділено"
+msgstr "Рядки закінчуються:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
@@ -6490,11 +6532,11 @@ msgstr "Замінити значення NULL на:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "Видаляти символи повернення каретки/завершення рядка в стовпчиках"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
-msgstr ""
+msgstr "Excel редакція:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
@@ -6515,11 +6557,11 @@ msgstr "Структура таблиці"
 
 #: libraries/export/latex.php:14
 msgid "Content of table @TABLE@"
-msgstr ""
+msgstr "Вміст таблиці @TABLE@"
 
 #: libraries/export/latex.php:15
 msgid "(continued)"
-msgstr ""
+msgstr "(продовження)"
 
 #: libraries/export/latex.php:16
 msgid "Structure of table @TABLE@"
@@ -6539,7 +6581,7 @@ msgstr "Заголовок таблиці (продовження)"
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "Відображати відносини зовнішнього ключа"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
 #| msgid "Displaying Column Comments"
@@ -6580,15 +6622,15 @@ msgstr "Версія PHP"
 
 #: libraries/export/mediawiki.php:15
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Таблиця MediaWiki"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: libraries/export/pdf.php:24
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(Генерує звіт, який містить дані однієї таблиці)"
 
 #: libraries/export/pdf.php:25
 #| msgid "Import files"
@@ -6597,13 +6639,15 @@ msgstr "Заголовок звіту:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
-msgstr ""
+msgstr "Масив PHP"
 
 #: libraries/export/sql.php:40
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Відображати примітки <i>(містить таку інформацію як часова позначка "
+"експорту, версію PHP і версію сервера)</i>"
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
@@ -6640,15 +6684,15 @@ msgstr ""
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Замість виразів <code>INSERT</code> використовуйте:"
 
 #: libraries/export/sql.php:238
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "Вирази <code>INSERT DELAYED</code>"
 
 #: libraries/export/sql.php:245
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "Вирази <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
@@ -6698,11 +6742,11 @@ msgstr ""
 
 #: libraries/export/sql.php:342 libraries/export/xml.php:45
 msgid "Procedures"
-msgstr ""
+msgstr "Процедури"
 
 #: libraries/export/sql.php:359 libraries/export/xml.php:40
 msgid "Functions"
-msgstr ""
+msgstr "Функції"
 
 #: libraries/export/sql.php:855
 msgid "Constraints for dumped tables"
@@ -6743,7 +6787,7 @@ msgstr ""
 
 #: libraries/export/xml.php:62
 msgid "Views"
-msgstr ""
+msgstr "Подання"
 
 #: libraries/export/xml.php:78
 msgid "Export contents"
@@ -6794,32 +6838,32 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Go to database: %s"
-msgstr "БД відсутні"
+msgstr "Перейти до бази даних: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "Редагувати налаштування для %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set value: %s"
 msgid "Go to table: %s"
-msgstr "Встановити значення: %s"
+msgstr "Перейти до таблиці: %s"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Лише структуру"
+msgstr "Структура %s"
 
 #: libraries/import.lib.php:1136
 #, php-format
 msgid "Go to view: %s"
-msgstr ""
+msgstr "Перейти до подання: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -6869,7 +6913,7 @@ msgstr ""
 #: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
 msgid "Table name"
-msgstr ""
+msgstr "Назва таблиці"
 
 #: libraries/import/ldi.php:45 libraries/schema/User_Schema.class.php:351
 #: view_create.php:147
@@ -6925,7 +6969,7 @@ msgstr ""
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Не використовувати <code>AUTO_INCREMENT</code> для нульових значень"
 
 #: libraries/kanji-encoding.lib.php:147
 #, fuzzy
@@ -6946,7 +6990,7 @@ msgstr "Від"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
-msgstr ""
+msgstr "До"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:275
 #: libraries/sql_query_form.lib.php:403
@@ -6955,11 +6999,11 @@ msgstr "Виконати"
 
 #: libraries/mult_submits.inc.php:267
 msgid "Add table prefix"
-msgstr ""
+msgstr "Додати префікс таблиці"
 
 #: libraries/mult_submits.inc.php:270
 msgid "Add prefix"
-msgstr ""
+msgstr "Додати префікс"
 
 #: libraries/mult_submits.inc.php:483 tbl_replace.php:359
 msgid "No change"
@@ -6996,31 +7040,31 @@ msgstr "чутливий до регістру"
 
 #: libraries/mysql_charsets.lib.php:240
 msgid "Croatian"
-msgstr "Кроатське"
+msgstr "Хорватська"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Czech"
-msgstr "Чеське"
+msgstr "Чеська"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Danish"
-msgstr "Данське"
+msgstr "Датська"
 
 #: libraries/mysql_charsets.lib.php:249
 msgid "English"
-msgstr "Англійське"
+msgstr "Англійська"
 
 #: libraries/mysql_charsets.lib.php:252
 msgid "Esperanto"
-msgstr ""
+msgstr "Есперанто"
 
 #: libraries/mysql_charsets.lib.php:255
 msgid "Estonian"
-msgstr "Естонське"
+msgstr "Естонська"
 
 #: libraries/mysql_charsets.lib.php:258 libraries/mysql_charsets.lib.php:261
 msgid "German"
-msgstr "Німецьке"
+msgstr "Німецька"
 
 #: libraries/mysql_charsets.lib.php:258
 msgid "dictionary"
@@ -7032,35 +7076,35 @@ msgstr "телефонна книга"
 
 #: libraries/mysql_charsets.lib.php:264
 msgid "Hungarian"
-msgstr "Мадярське"
+msgstr "Угорська"
 
 #: libraries/mysql_charsets.lib.php:267
 msgid "Icelandic"
-msgstr ""
+msgstr "Ісландська"
 
 #: libraries/mysql_charsets.lib.php:270 libraries/mysql_charsets.lib.php:360
 msgid "Japanese"
-msgstr "Японське"
+msgstr "Японська"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
-msgstr ""
+msgstr "Латвійська"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
-msgstr "Литовське"
+msgstr "Литовська"
 
 #: libraries/mysql_charsets.lib.php:279 libraries/mysql_charsets.lib.php:382
 msgid "Korean"
-msgstr "Корейське"
+msgstr "Корейська"
 
 #: libraries/mysql_charsets.lib.php:282
 msgid "Persian"
-msgstr ""
+msgstr "Перська"
 
 #: libraries/mysql_charsets.lib.php:285
 msgid "Polish"
-msgstr ""
+msgstr "Польська"
 
 #: libraries/mysql_charsets.lib.php:288 libraries/mysql_charsets.lib.php:336
 msgid "West European"
@@ -7068,23 +7112,23 @@ msgstr "Західно Європейське"
 
 #: libraries/mysql_charsets.lib.php:291
 msgid "Romanian"
-msgstr ""
+msgstr "Румунська"
 
 #: libraries/mysql_charsets.lib.php:294
 msgid "Slovak"
-msgstr ""
+msgstr "Словацька"
 
 #: libraries/mysql_charsets.lib.php:297
 msgid "Slovenian"
-msgstr ""
+msgstr "Словенська"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Spanish"
-msgstr ""
+msgstr "Іспанська"
 
 #: libraries/mysql_charsets.lib.php:303
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "Традиційна іспанська"
 
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:403
 msgid "Swedish"
@@ -7096,11 +7140,11 @@ msgstr "Тайське"
 
 #: libraries/mysql_charsets.lib.php:312 libraries/mysql_charsets.lib.php:400
 msgid "Turkish"
-msgstr "Турецьке"
+msgstr "Турецька"
 
 #: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:397
 msgid "Ukrainian"
-msgstr "Українське"
+msgstr "Українська"
 
 #: libraries/mysql_charsets.lib.php:318 libraries/mysql_charsets.lib.php:327
 msgid "Unicode"
@@ -7118,7 +7162,7 @@ msgstr "СхідноЄвропейське"
 
 #: libraries/mysql_charsets.lib.php:348
 msgid "Russian"
-msgstr "Російське"
+msgstr "Російська"
 
 #: libraries/mysql_charsets.lib.php:365
 msgid "Baltic"
@@ -7142,7 +7186,7 @@ msgstr "Іврит"
 
 #: libraries/mysql_charsets.lib.php:388
 msgid "Georgian"
-msgstr ""
+msgstr "Грузинська"
 
 #: libraries/mysql_charsets.lib.php:391
 msgid "Greek"
@@ -7150,7 +7194,7 @@ msgstr "Грецьке"
 
 #: libraries/mysql_charsets.lib.php:394
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "Чехословацька"
 
 #: libraries/navigation_header.inc.php:57
 #: libraries/navigation_header.inc.php:59
@@ -8033,7 +8077,7 @@ msgstr "Лише перегляд"
 
 #: libraries/sql_query_form.lib.php:455 tbl_change.php:907
 msgid "web server upload directory"
-msgstr "каталог веб-сервера для завантаження файлів (upload directory)"
+msgstr "каталог веб-сервера для відвантаження файлів (upload directory)"
 
 #: libraries/sqlparser.lib.php:136
 msgid ""
@@ -8227,10 +8271,9 @@ msgid "Table Search"
 msgstr "Шукати"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Вставити"
+msgstr "Редагувати/Вставити"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -8375,10 +8418,9 @@ msgid "Manage your settings"
 msgstr "Загальні можливості"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "Модифікації було збережено"
+msgstr "Конфігурація була збережена"
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
@@ -8599,17 +8641,15 @@ msgid "No databases"
 msgstr "БД відсутні"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter tables by name"
-msgstr "Змінити порядок таблиці"
+msgstr "Фільтр таблиці за іменем"
 
 #: navigation.php:303 navigation.php:304
-#, fuzzy
 #| msgid "Create a page"
 msgctxt "short form"
 msgid "Create table"
-msgstr "Створити нову сторінку"
+msgstr "Створити таблицю"
 
 #: navigation.php:309 navigation.php:473
 msgid "Please select a database"
@@ -9684,10 +9724,9 @@ msgid "Number of data points: "
 msgstr "Число рядків:"
 
 #: server_status.php:807 server_status.php:833
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate: "
-msgstr "Оновити"
+msgstr "Частота оновлення: "
 
 #: server_status.php:852 server_variables.php:115
 msgid "Filters"
@@ -9719,16 +9758,14 @@ msgid "Related links:"
 msgstr "Зв'язки"
 
 #: server_status.php:914
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Тип запиту"
+msgstr "Запустити аналізатор"
 
 #: server_status.php:915
-#, fuzzy
 #| msgid "Administration"
 msgid "Instructions"
-msgstr "Адміністратор"
+msgstr "Команди"
 
 #: server_status.php:922
 msgid ""
@@ -9778,10 +9815,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1071
-#, fuzzy, php-format
+#, php-format
 #| msgid "This MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Цей MySQL сервер працює %s. Стартував %s."
+msgstr "Цей MySQL сервер працює %1$s. Стартував %2$s."
 
 #: server_status.php:1082
 msgid ""
@@ -10414,16 +10451,14 @@ msgid "Rearrange/edit charts"
 msgstr ""
 
 #: server_status.php:1597
-#, fuzzy
 #| msgid "Refresh"
 msgid "Refresh rate"
-msgstr "Оновити"
+msgstr "Частота оновлення"
 
 #: server_status.php:1602
-#, fuzzy
 #| msgid "Column names"
 msgid "Chart columns"
-msgstr "Назви колонок"
+msgstr "Діаграма стовпців"
 
 #: server_status.php:1618
 msgid "Chart arrangement"
@@ -10512,10 +10547,9 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1690
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "Неправильна назва таблиці"
+msgstr "або введіть назву змінної:"
 
 #: server_status.php:1694
 msgid "Display as differential value"
@@ -10530,10 +10564,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: server_status.php:1709
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add this series"
-msgstr "Додати нового користувача"
+msgstr "Додати ці серії"
 
 #: server_status.php:1711
 msgid "Clear series"
@@ -10550,10 +10583,9 @@ msgid "Log statistics"
 msgstr "Статистика рядка"
 
 #: server_status.php:1728
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Вибрати таблиці"
+msgstr "Обраний проміжок часу:"
 
 #: server_status.php:1733
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -10578,22 +10610,22 @@ msgid "Query analyzer"
 msgstr "Тип запиту"
 
 #: server_status.php:1790 server_status.php:1807
-#, fuzzy, php-format
+#, php-format
 #| msgid "Second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Секунда"
-msgstr[1] "Секунда"
-msgstr[2] "Секунда"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
+msgstr[2] "%d секунд"
 
 #: server_status.php:1792
-#, fuzzy, php-format
+#, php-format
 #| msgid "Minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "Хвилина"
-msgstr[1] "Хвилина"
-msgstr[2] "Хвилина"
+msgstr[0] "%d хвилина"
+msgstr[1] "%d хвилини"
+msgstr[2] "%d хвилин"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
@@ -10678,20 +10710,18 @@ msgid "Target database has been synchronized with source database"
 msgstr ""
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Execute"
 msgid "Executed queries"
-msgstr "Виконати"
+msgstr "Виконані запиті"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
 msgstr ""
 
 #: server_synchronize.php:1210
-#, fuzzy
 #| msgid "Connections"
 msgid "Current connection"
-msgstr "З'єднань"
+msgstr "Поточне з'єднання"
 
 #: server_synchronize.php:1250
 #, php-format
@@ -10761,10 +10791,9 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:94
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "Модифікації було збережено"
+msgstr "Конфігурація збережена."
 
 #: setup/frames/index.inc.php:95
 msgid ""
@@ -11003,10 +11032,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "БД відсутні"
+msgstr "Неправильні дані"
 
 #: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
@@ -11051,10 +11079,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr ""
 
 #: tbl_change.php:699
-#, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Через велику довжину,<br /> це поле не може бути відредаговано "
+msgstr "Через велику довжину,<br /> цей стовпчик не може бути відредаговано"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -11111,14 +11138,12 @@ msgid "Continue insertion with %s rows"
 msgstr ""
 
 #: tbl_chart.php:95
-#, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Бер"
+msgstr "Прямокутник"
 
 #: tbl_chart.php:97
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
@@ -11135,21 +11160,19 @@ msgid "Spline"
 msgstr ""
 
 #: tbl_chart.php:103
-#, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "PB"
+msgstr "Пиріг"
 
 #: tbl_chart.php:106
 msgid "Stacked"
 msgstr ""
 
 #: tbl_chart.php:109
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
-msgstr "Імпорт файлів"
+msgstr "Назва діаграми"
 
 #: tbl_chart.php:115
 msgid "X-Axis:"
@@ -11171,7 +11194,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "Значення"
+msgstr "Значення X"
 
 #: tbl_chart.php:148
 msgid "Y-Axis label:"
@@ -11209,10 +11232,9 @@ msgid "Height"
 msgstr ""
 
 #: tbl_gis_visualization.php:136
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Label column"
-msgstr "Додати коментар"
+msgstr "Мітка стовпчика"
 
 #: tbl_gis_visualization.php:138
 msgid "-- None --"
@@ -11229,16 +11251,14 @@ msgid "Redraw"
 msgstr ""
 
 #: tbl_gis_visualization.php:177
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save to file"
-msgstr "Зберегти як файл"
+msgstr "Зберегти у файл"
 
 #: tbl_gis_visualization.php:178
-#, fuzzy
 #| msgid "User name"
 msgid "File name"
-msgstr "Ім'я користувача"
+msgstr "Назва файлу"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11257,10 +11277,9 @@ msgid "Add index"
 msgstr ""
 
 #: tbl_indexes.php:175
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Режим редагування"
+msgstr "Редагувати індекс"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
@@ -11332,11 +11351,11 @@ msgstr "Перейти до скопійованої таблиці"
 
 #: tbl_operations.php:596
 msgid "Table maintenance"
-msgstr "Обслговування таблиці"
+msgstr "Обслуговування таблиці"
 
 #: tbl_operations.php:624
 msgid "Defragment table"
-msgstr ""
+msgstr "Дефрагментувати таблицю"
 
 #: tbl_operations.php:680
 #, php-format
@@ -11350,18 +11369,17 @@ msgid "Flush the table (FLUSH)"
 msgstr "Очистити кеш таблиці (\"FLUSH\")"
 
 #: tbl_operations.php:697
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "Дамп даних таблиці"
+msgstr "Видалити дані або таблицю"
 
 #: tbl_operations.php:714
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Очистити таблицю (TRUNCATE)"
 
 #: tbl_operations.php:736
 msgid "Delete the table (DROP)"
-msgstr "Видалити таюлицю (DROP)"
+msgstr "Видалити таблицю (DROP)"
 
 #: tbl_operations.php:758
 msgid "Partition maintenance"
@@ -11420,7 +11438,7 @@ msgstr "Статистика рядка"
 
 #: tbl_printview.php:331 tbl_structure.php:849
 msgid "static"
-msgstr ""
+msgstr "статичний"
 
 #: tbl_printview.php:333 tbl_structure.php:851
 msgid "dynamic"
@@ -11444,10 +11462,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:398
-#, fuzzy
 #| msgid "General relation features"
 msgid "Internal relation"
-msgstr "Загальні можливості"
+msgstr "Внутрішні відносини"
 
 #: tbl_relation.php:400
 msgid ""
@@ -11536,24 +11553,22 @@ msgid "Show more actions"
 msgstr "Показати інформацію про PHP"
 
 #: tbl_structure.php:623
-#, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
-msgstr "Версія для друку"
+msgstr "Редагувати подання"
 
 #: tbl_structure.php:640
 msgid "Relation view"
-msgstr "Перегляд залежностей"
+msgstr "Подання зв'язків"
 
 #: tbl_structure.php:648
 msgid "Propose table structure"
 msgstr "Запропонувати структуру таблиці"
 
 #: tbl_structure.php:666
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add column"
-msgstr "Додати коментар"
+msgstr "Додати стовпчик"
 
 #: tbl_structure.php:680
 msgid "At End of Table"
@@ -11600,7 +11615,7 @@ msgstr ""
 
 #: tbl_tracking.php:199
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL вирази виконано."
 
 #: tbl_tracking.php:205
 msgid ""
@@ -11626,10 +11641,9 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
-#, fuzzy
 #| msgid "Query type"
 msgid "Query error"
-msgstr "Тип запиту"
+msgstr "Помилка запиту"
 
 #: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
@@ -11645,16 +11659,15 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:438
-#, fuzzy
 #| msgid "Deleting tracking data"
 msgid "Delete tracking data row from report"
-msgstr "Видалення даних трекінгу"
+msgstr "Видалити рядки даних відстеження із звіту"
 
 #: tbl_tracking.php:449
 #, fuzzy
 #| msgid "No databases"
 msgid "No data"
-msgstr "БД відсутні"
+msgstr "Немає даних"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
 msgid "Date"
@@ -11691,7 +11704,7 @@ msgstr ""
 
 #: tbl_tracking.php:618
 msgid "Show versions"
-msgstr ""
+msgstr "Показати версії"
 
 #: tbl_tracking.php:702
 #, php-format
@@ -11762,7 +11775,7 @@ msgstr "Скидання масштабу"
 
 #: themes.php:28
 msgid "Get more themes!"
-msgstr ""
+msgstr "Ще теми!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
@@ -11864,10 +11877,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query rate"
-msgstr "Показати блок запиту"
+msgstr "Низька частота запитів"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -11882,10 +11894,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:25
-#, fuzzy
 #| msgid "in query"
 msgid "Long query time"
-msgstr "по запиту"
+msgstr "Довгий час запиту"
 
 #: po/advisory_rules.php:26
 msgid ""
@@ -11941,10 +11952,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
-#, fuzzy, php-format
+#, php-format
 #| msgid "General relation features"
 msgid "Current version: %s"
-msgstr "Загальні можливості"
+msgstr "Поточна версія: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
 #, fuzzy
@@ -11971,14 +11982,15 @@ msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr ""
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Опис"
+msgstr "Дистрибутив"
 
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"Версія скомпільована з вихідних кодів, не з офіційного двійкового коду "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -12036,11 +12048,11 @@ msgstr ""
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
-msgstr ""
+msgstr "Кеш запитів вимкнено"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
-msgstr ""
+msgstr "Кеш запитів не увімкнено."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12055,10 +12067,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query caching method"
-msgstr "Простір, що використовується"
+msgstr "Метод кешування запитів"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
@@ -12080,10 +12091,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "Ефективність кешу запитів"
+msgstr "Ефективність кешу запитів (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12099,9 +12110,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: po/advisory_rules.php:85
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Простір, що використовується"
+msgstr "Використання кешу запитів"
 
 #: po/advisory_rules.php:86
 #, php-format
@@ -12123,7 +12133,7 @@ msgstr ""
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
-msgstr ""
+msgstr "Фрагментація кешу запитів"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
@@ -12175,7 +12185,7 @@ msgstr ""
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
-msgstr ""
+msgstr "Максимальний розмір кешу запитів"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12259,10 +12269,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Sort rows"
-msgstr "Показано записи "
+msgstr "Сортувати рядки"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
