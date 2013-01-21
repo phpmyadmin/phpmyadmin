@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 13:40+0200\n"
-"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
+"PO-Revision-Date: 2013-01-21 14:13+0200\n"
+"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -5765,7 +5765,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
-msgstr ""
+msgstr "використовувати для майбутнього експорту"
 
 #: libraries/display_export.lib.php:276 libraries/display_import.lib.php:188
 #: libraries/display_import.lib.php:201 libraries/sql_query_form.lib.php:468
@@ -5789,10 +5789,9 @@ msgid "bzipped"
 msgstr "стиснено в \"bzip\""
 
 #: libraries/display_export.lib.php:323
-#, fuzzy
 #| msgid "Save output to a file"
 msgid "View output as text"
-msgstr "Зберегти вивід у файл"
+msgstr "Відобразити вивід як текст"
 
 #: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
@@ -5809,10 +5808,12 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Заповніть параметри для обраного формату і ігноруйте параметри інших "
+"форматів."
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Зміна кодування:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
