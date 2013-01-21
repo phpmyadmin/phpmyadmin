@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-18 10:56+0200\n"
 "Last-Translator: Seonghwan Bang <sunghwan2789@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -531,7 +532,7 @@ msgstr "잘못된 내보내기 타입"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\"행의 값"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "기본 레이어로 OpenStreetMaps를 사용"
 
@@ -625,7 +626,9 @@ msgstr ""
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
-msgstr "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %s문서%s를 참조하여 주십시오."
+msgstr ""
+"너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 %s문서%s"
+"를 참조하여 주십시오."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -733,7 +736,7 @@ msgid "Database server"
 msgstr "데이터베이스 서버"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "서버"
@@ -1723,7 +1726,7 @@ msgstr "%d는 올바른 행번호가 아닙니다."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "저장"
 
@@ -3751,11 +3754,11 @@ msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 msgid "Check Privileges"
 msgstr "사용권한 검사"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "설정 파일을 읽는데 실패했습니다."
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3763,12 +3766,12 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3779,38 +3782,38 @@ msgid ""
 msgstr ""
 "환경설정 파일에 <code>$cfg['PmaAbsoluteUri']</code> 변수가 정의되어야 합니다!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확인하십시오"
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.: "
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다."
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다."
 
@@ -4240,7 +4243,7 @@ msgid "Character set of the file"
 msgstr "파일 문자셋"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "형식"
@@ -9830,7 +9833,7 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11341,6 +11344,7 @@ msgid "Global value"
 msgstr ""
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "다운로드"
 
@@ -11769,43 +11773,31 @@ msgstr "테이블 %s 을 제거했습니다."
 msgid "View dump (schema) of table"
 msgstr "테이블의 덤프(스키마) 데이터 보기"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "너비"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "높이"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Label column"
 msgstr "컬럼 추가/삭제"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-없음-"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
 msgstr "전체 사용량"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "다시그리기"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "파일로 저장"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "파일명"
 
@@ -13175,6 +13167,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다."
+
+#~ msgid "Width"
+#~ msgstr "너비"
+
+#~ msgid "Height"
+#~ msgstr "높이"
+
+#~ msgid "Save to file"
+#~ msgstr "파일로 저장"
 
 #~ msgid "Total count"
 #~ msgstr "전체 갯수"

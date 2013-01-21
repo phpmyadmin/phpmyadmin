@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2012-11-05 10:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
@@ -540,7 +540,7 @@ msgstr "Seurt ezporzhiadenn direizh"
 msgid "Value for the column \"%s\""
 msgstr "Talvoud evit ar bann \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
 
@@ -750,7 +750,7 @@ msgid "Database server"
 msgstr "Diazoù roadennoù"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Servijer"
@@ -1777,7 +1777,7 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Enrollañ"
 
@@ -3809,11 +3809,11 @@ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Gwiriañ ar gwirioù"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Dibosupl lenn ar restr keluniañ"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3821,12 +3821,12 @@ msgstr ""
 "Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket ur "
 "fazi o tont war wel a-is."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "N'eus ket bet gallet kargañ ar c'hefluniadur dre ziouer adalek %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3838,38 +3838,38 @@ msgstr ""
 "RET eo d'an arventenn <code>$cfg['PmaAbsoluteUri']</code> bezañ resisaet er "
 "restr kefluniañ!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Meneger servijer faziek : %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh."
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr ""
 
@@ -4319,7 +4319,7 @@ msgid "Character set of the file"
 msgstr "Strobad arouezennoù ar restr"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Furmad"
@@ -9790,7 +9790,7 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11268,6 +11268,7 @@ msgid "Global value"
 msgstr ""
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr ""
 
@@ -11682,39 +11683,27 @@ msgstr ""
 msgid "View dump (schema) of table"
 msgstr ""
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr ""
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr ""
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr ""
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr ""
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr ""
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr ""
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr ""
 
