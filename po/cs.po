@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-18 15:16+0200\n"
+"PO-Revision-Date: 2013-01-21 06:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -9960,10 +9960,9 @@ msgid "Error in ZIP archive:"
 msgstr "Chyba v ZIP archívu:"
 
 #: navigation.php:23
-#, fuzzy
 #| msgid "Fatal error: The navigation can only be accessed via ajax"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Chyba: Navigace je přístupná jen přes ajax"
+msgstr "Chyba: Navigace je přístupná jen přes AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
