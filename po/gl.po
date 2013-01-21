@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 19:15+0100\n"
-"Last-Translator: Xosé <xosecalvo@gmail.com>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2013-01-21 19:24+0200\n"
+"Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
+"Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/3-5/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1575,7 +1575,7 @@ msgstr ""
 #: js/messages.php:181
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
-"Cargáronse os datos do rexistro. Consultas executadas neste período de "
+"Os datos do Rexistro foron cargados. Consultas executadas neste período de "
 "tempo:"
 
 #: js/messages.php:183
@@ -1684,8 +1684,8 @@ msgstr "Filas afectadas:"
 #: js/messages.php:214
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Produciuse un erro ao analizar o ficheiro de configuración. Parece non ser "
-"código JSON válido."
+"Fallo analizando o ficheiro de configuración. Non parece ser un código JSON "
+"válido."
 
 #: js/messages.php:215
 msgid ""
@@ -1775,7 +1775,6 @@ msgstr "A engadir unha chave primaria"
 #: js/messages.php:244 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
 #: pmd_general.php:715 pmd_general.php:778
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
@@ -1915,7 +1914,7 @@ msgstr ""
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "Prema un punto de datos para ver e tal vez editar a liña de datos."
+msgstr "Prema nun punto de datos para ver e editar a liña de datos."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -7570,7 +7569,6 @@ msgid "You must provide an event definition."
 msgstr "Debe indicar unha definición do acontecemento."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2413
-#, fuzzy
 msgid "New"
 msgstr "Novo"
 
@@ -9768,10 +9766,9 @@ msgid "Advisor"
 msgstr "Consellos"
 
 #: server_status.php:803 server_status.php:829
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Número de filas:"
+msgstr "Número de puntos de datos: "
 
 #: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
@@ -13126,7 +13123,7 @@ msgstr "Porcentaxe de clientes interrompidos"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr "Demasiadas clientes foron interrompidos"
+msgstr "Demasiados clientes foron interrompidos"
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
