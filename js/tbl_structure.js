@@ -375,14 +375,17 @@ AJAX.registerOnload('tbl_structure.js', function() {
 });
 
 /**
- * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
+ * jQuery coding for 'Change Table' and 'Add Column'.
  * Attach Ajax Event handlers for Change Table
  */
-$(function () {
+AJAX.registerTeardown('tbl_structure.js', function() {
+    $(".append_fields_form.ajax").unbind('submit');
+});
+AJAX.registerOnload('tbl_structure.js', function() {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
-    **/
-    $(".append_fields_form.ajax").live('submit', function(event) {
+     */
+    $(".append_fields_form.ajax").bind('submit', function(event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
