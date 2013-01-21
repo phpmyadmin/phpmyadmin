@@ -192,10 +192,7 @@ function get_script_tabs()
 
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $j = 0;
-        if (PMA_Util::isForeignKeySupported(
-                $GLOBALS['PMD']['TABLE_TYPE'][$i]
-            )
-        ) {
+        if (PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
             $j = 1;
         }
         $retval['j_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = $j;
