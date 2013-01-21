@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 19:15+0200\n"
+"PO-Revision-Date: 2013-01-21 20:13+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -614,7 +614,6 @@ msgid "Output"
 msgstr "Вивід"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -622,8 +621,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Оберіть \"ГеометріюЗТексту\" (\"GeomFromText\") із \"Функції\" стовпчика та "
-"вставте після рядка в поле \"Значення\""
+"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" стовпчика та вставте нижче у "
+"поле \"Значення\""
 
 #: import.php:93
 #, fuzzy, php-format
@@ -6880,17 +6879,20 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "Розмір кешу індексу"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Це обсяг пам'яті, що виділяється для кешу індекса. Значення за умовчанням – "
+"32 МБ. Виділена тут пам'ять використовується тільки для кешування індексу "
+"сторінок."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
-msgstr ""
+msgstr "Розмір кешу запису"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -6901,7 +6903,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr ""
+msgstr "Розмір кешу журналу"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
@@ -6911,7 +6913,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "Поріг файлу журналу"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
@@ -7006,16 +7008,17 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Документацію і додаткову інформацію про PBXT можна знайти на %sДомашній "
+"сторінці PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:133
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Зв'язки"
+msgstr "Додаткові посилання"
 
 #: libraries/engines/pbxt.lib.php:135
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "Блоґ Пола МакКулага про PrimeBase XT"
 
 #: libraries/gis_visualization.lib.php:135
 msgid "No data found for GIS visualization."
@@ -7926,7 +7929,7 @@ msgstr "Заголовок таблиці (продовження)"
 #: libraries/plugins/export/ExportOdt.class.php:103
 #: libraries/plugins/export/ExportSql.class.php:114
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "Відображати відносини зовнішнього ключа"
 
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:108
@@ -7985,7 +7988,7 @@ msgstr "горизонтальному (повернуті заголовки)"
 
 #: libraries/plugins/export/ExportPdf.class.php:97
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(Генерує звіт, який містить дані однієї таблиці)"
 
 #: libraries/plugins/export/ExportPdf.class.php:102
 msgid "Report title:"
@@ -7996,6 +7999,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Відображати примітки <i>(містить таку інформацію як часова позначка "
+"експорту, версію PHP і версію сервера)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
@@ -8497,7 +8502,7 @@ msgstr "Ім'я користувача"
 
 #: libraries/replication_gui.lib.php:72
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
