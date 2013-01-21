@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 13:40+0200\n"
-"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
+"PO-Revision-Date: 2013-01-21 14:12+0200\n"
+"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -6504,7 +6504,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:329
 msgid "use this for future exports"
-msgstr ""
+msgstr "використовувати для майбутнього експорту"
 
 #: libraries/display_export.lib.php:335 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:480
@@ -6528,10 +6528,9 @@ msgid "bzipped"
 msgstr "стиснено в \"bzip\""
 
 #: libraries/display_export.lib.php:408
-#, fuzzy
 #| msgid "Save output to a file"
 msgid "View output as text"
-msgstr "Зберегти вивід у файл"
+msgstr "Відобразити вивід як текст"
 
 #: libraries/display_export.lib.php:413 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
