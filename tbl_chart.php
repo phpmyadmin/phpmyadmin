@@ -29,11 +29,10 @@ if (isset($_REQUEST['ajax_request'])
         exit;
     }
 
-    $sql_limit_to_append = ' LIMIT ' . $_REQUEST['pos'] . ', '
-        . $_REQUEST['session_max_rows'] . " ";
-    $sql_query .= $sql_limit_to_append;
+    $sql_with_limit = 'SELECT * FROM( ' . $sql_query . ' ) AS `temp_res` LIMIT '
+        . $_REQUEST['pos'] . ', ' . $_REQUEST['session_max_rows'];
     $data = array();
-    $result = PMA_DBI_try_query($sql_query);
+    $result = PMA_DBI_try_query($sql_with_limit);
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $data[] = $row;
     }
