@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-18 21:57+0200\n"
+"PO-Revision-Date: 2013-01-21 07:57+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -10124,10 +10124,9 @@ msgid "Error in ZIP archive:"
 msgstr "Σφάλμα στο συμπιεσμένο αρχείο ZIP:"
 
 #: navigation.php:23
-#, fuzzy
 #| msgid "Fatal error: The navigation can only be accessed via ajax"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να προσπελαστεί μέσω ajax"
+msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να προσπελαστεί μέσω AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
