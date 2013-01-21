@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 19:35+0200\n"
+"PO-Revision-Date: 2013-01-21 19:38+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
@@ -3168,7 +3168,7 @@ msgstr "Non foi posíbel atopar a base de datos de orixe «%s»!"
 #, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Non foi posíbel atopar a base de datos de destino «%s»"
+msgstr "Non foi posíbel atopar a base de datos de destino «%s»!"
 
 #: libraries/Table.class.php:1164
 msgid "Invalid database"
@@ -3564,7 +3564,7 @@ msgid ""
 "'' error value"
 msgstr ""
 "Unha enumeración escollida da lista de até 65.535 valores do valor especial "
-"'' "
+"''"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
@@ -6727,7 +6727,7 @@ msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:86
 msgid "Uploading your import file…"
-msgstr "Subindo o ficheiro de importación..."
+msgstr "Subindo o ficheiro de importación…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -8495,7 +8495,7 @@ msgstr ""
 "parámetros do programa. O terceiro parámetro, se for 1, usará "
 "htmlspecialchars() para converter a saída (Por omisión é 1). Un cuarto "
 "parámetro, se for 1, porá un NOWRAP na cela de contidos para que toda a "
-"saída se mostre sen reformatar (por omisión é 1)"
+"saída se mostre sen reformatar (por omisión é 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
