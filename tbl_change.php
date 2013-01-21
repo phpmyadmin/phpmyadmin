@@ -702,8 +702,6 @@ foreach ($rows as $row_id => $vrow) {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
                 foreach ($extracted_fieldspec['enum_set_values'] as $val) {
-                    // Removes automatic MySQL escape format
-                    $val = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $val));
                     $table_fields[$i]['values'][] = array(
                         'plain' => $val,
                         'html'  => htmlspecialchars($val),
