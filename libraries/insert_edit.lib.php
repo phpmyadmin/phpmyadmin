@@ -888,8 +888,6 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
 {
     $column['values'] = array();
     foreach ($extracted_columnspec['enum_set_values'] as $val) {
-        // Removes automatic MySQL escape format
-        $val = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $val));
         $column['values'][] = array(
             'plain' => $val,
             'html'  => htmlspecialchars($val),
