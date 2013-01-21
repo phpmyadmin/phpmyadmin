@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 18:09+0200\n"
+"PO-Revision-Date: 2013-01-21 19:15+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -2604,10 +2604,9 @@ msgid "Show binary contents as HEX"
 msgstr "Показувати двійковий вміст як HEX"
 
 #: libraries/DisplayResults.class.php:1633
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Перетворення МІМЕ-типу бровзером"
+msgstr "Сховати перетворення"
 
 #: libraries/DisplayResults.class.php:1642
 msgid "Well Known Text"
@@ -3107,7 +3106,7 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:243
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
-msgstr "Статус InnoDB"
+msgstr "Стан InnoDB"
 
 #: libraries/ServerStatusData.class.php:345
 msgid "Query statistics"
@@ -6613,7 +6612,6 @@ msgid "About %SEC sec. remaining."
 msgstr ""
 
 #: libraries/display_import.lib.php:135
-#, fuzzy
 msgid "The file is being processed, please be patient."
 msgstr "Файл обробляється, будь ласка, будьте терплячими."
 
@@ -6716,111 +6714,119 @@ msgstr "Файли даних"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
-msgstr ""
+msgstr "Приріст авторозширення"
 
 #: libraries/engines/innodb.lib.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"Розмір приросту, на який розширюється таблиця при авторозширенні, коли вона "
+"заповнюється."
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Розмір буферного пулу"
 
 #: libraries/engines/innodb.lib.php:41
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"Розмір буферу пам'яті, що InnoDB використовує для кешування даних та "
+"індексів її таблиць."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
-msgstr ""
+msgstr "Буферний пул"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Використання буферного пулу"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
-msgstr ""
+msgstr "сторінки"
 
 #: libraries/engines/innodb.lib.php:190
 msgid "Free pages"
-msgstr ""
+msgstr "Чисті сторінки"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Dirty pages"
-msgstr ""
+msgstr "Брудні сторінки"
 
 #: libraries/engines/innodb.lib.php:206
 msgid "Pages containing data"
-msgstr ""
+msgstr "Сторінки з даними"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "Сторінки для очищення"
 
 #: libraries/engines/innodb.lib.php:222
 msgid "Busy pages"
-msgstr ""
+msgstr "Зайняті сторінки"
 
 #: libraries/engines/innodb.lib.php:233
 msgid "Latched pages"
-msgstr ""
+msgstr "Фіксовані сторінки"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Активність буферного пулу"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
-msgstr ""
+msgstr "Запити читання"
 
 #: libraries/engines/innodb.lib.php:258
 msgid "Write requests"
-msgstr ""
+msgstr "Запити запису"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr ""
+msgstr "Пропуски читання"
 
 #: libraries/engines/innodb.lib.php:274
 msgid "Write waits"
-msgstr ""
+msgstr "Очікування запису"
 
 #: libraries/engines/innodb.lib.php:282
 msgid "Read misses in %"
-msgstr ""
+msgstr "Пропуски читання у %"
 
 #: libraries/engines/innodb.lib.php:297
 msgid "Write waits in %"
-msgstr ""
+msgstr "Очікування запису в %"
 
 #: libraries/engines/myisam.lib.php:28
 msgid "Data pointer size"
-msgstr ""
+msgstr "Розмір вказівника даних"
 
 #: libraries/engines/myisam.lib.php:29
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"Розмір вказівника за замовчуванням у байтах, що буде використовуватися "
+"командою CREATE TABLE для таблиць MyISAM, якщо не вказано параметр MAX_ROWS."
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "Режим автоматичного відновлення"
 
 #: libraries/engines/myisam.lib.php:34
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"Режим автоматичного відновлення пошкоджених таблиць MyISAM, як встановлено "
+"через опцію запуску сервера --myisam-recover."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "Максимальний розмір для тимчасового сортування файлів"
 
 #: libraries/engines/myisam.lib.php:38
 msgid ""
@@ -6828,10 +6834,13 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"Максимальний розмір тимчасового файлу, що MySQL може використовувати під час "
+"відновлення індексу MyISAM (при виконанні команд REPAIR TABLE, ALTER TABLE, "
+"або LOAD DATA INFILE)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "Максимальний розмір тимчасових файлів при створенні індексу"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -6839,26 +6848,35 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Якщо тимчасовий файл, використаний для швидкого створення індексу MyISAM "
+"буде перевищувати розмір кешу ключа на величину визначену тут, віддавати "
+"перевагу методу кешу ключа."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
-msgstr ""
+msgstr "Потоки відновлення"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"Якщо це значення перевищує 1, індекси таблиць MyISAM під час відновлення за "
+"допомогою процесу сортування створюються в паралельному режимі(кожен індекс "
+"у своєму потоці)."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Розмір буфера сортування"
 
 #: libraries/engines/myisam.lib.php:53
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"Буфер, що виділяється при сортуванні індексів MyISAM під час виконання "
+"команди  REPAIR TABLE або під час створення індексів командою CREATE INDEX "
+"або ALTER TABLE."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
