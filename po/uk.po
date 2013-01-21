@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 14:12+0200\n"
+"PO-Revision-Date: 2013-01-21 14:13+0200\n"
 "Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -6546,10 +6546,12 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Заповніть параметри для обраного формату і ігноруйте параметри інших "
+"форматів."
 
 #: libraries/display_export.lib.php:429 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Зміна кодування:"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
