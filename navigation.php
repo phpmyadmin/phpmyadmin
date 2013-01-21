@@ -20,7 +20,7 @@ if ($response->isAjax()) {
 } else {
     $response->addHTML(
         PMA_Message::error(
-            __('Fatal error: The navigation can only be accessed via ajax')
+            __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );
 }

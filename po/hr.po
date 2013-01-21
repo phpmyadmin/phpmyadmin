@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
-"PO-Revision-Date: 2013-01-10 13:42+0200\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
+"PO-Revision-Date: 2013-01-21 06:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/master/hr/"
-">\n"
+"Language-Team: Croatian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
@@ -559,7 +559,7 @@ msgstr "Vrsta izvoza"
 msgid "Value for the column \"%s\""
 msgstr "Vrijednost stupca \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
@@ -778,7 +778,7 @@ msgid "Database server"
 msgstr "Baza podataka za korisnika"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Poslužitelj"
@@ -1896,7 +1896,7 @@ msgstr "%d nije valjani broj retka."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Spremi"
 
@@ -3971,7 +3971,7 @@ msgstr ""
 #: libraries/Util.class.php:3405 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
-msgstr "Pretraži računalo"
+msgstr "Pretraži računalo:"
 
 #: libraries/Util.class.php:3430
 #, fuzzy, php-format
@@ -4048,25 +4048,25 @@ msgstr "Provjeri privilegije za bazu podataka \"%s\"."
 msgid "Check Privileges"
 msgstr "Provjeri privilegije"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -4078,41 +4078,41 @@ msgstr ""
 "Direktiva <code>$cfg['PmaAbsoluteUri']</code> MORA BITI postavljena u vašoj "
 "konfiguracijskoj datoteci!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks poslužitelja: \"%s\""
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Neispravan naziv za poslužitelj %1$s. Molimo, pregledajte svoju "
 "konfiguraciju."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan komplet načina provjere vjerodostojnosti u konfiguraciji:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebali biste nadograditi na %s %s ili kasniju."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr ""
 
@@ -4564,7 +4564,7 @@ msgid "Character set of the file"
 msgstr "Tablica znakova za datoteku:"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Oblikovanje"
@@ -8058,7 +8058,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:200
 msgid "Server:"
-msgstr "Poslužitelj"
+msgstr "Poslužitelj:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:212
 msgid "Username:"
@@ -10533,7 +10533,7 @@ msgid "Error in ZIP archive:"
 msgstr "Pogreška u ZIP arhivi:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -12195,6 +12195,7 @@ msgid "Global value"
 msgstr "Opća vrijednost"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Preuzmi"
 
@@ -12597,7 +12598,7 @@ msgstr "SQL upit"
 
 #: tbl_chart.php:210
 msgid "X-Axis label:"
-msgstr "Oznaka X-osi"
+msgstr "Oznaka X-osi:"
 
 #: tbl_chart.php:213
 #, fuzzy
@@ -12628,45 +12629,31 @@ msgstr "Tablica %1$s je izrađena."
 msgid "View dump (schema) of table"
 msgstr "Prikaži ispis (shemu) tablice"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Širina"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Visina"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
 msgstr "Dodaj/Izbriši stupce polja"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr ""
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
 msgstr "Najveći broj datoteka zapisnika"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "Spremi kao datoteku"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -14143,6 +14130,17 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "najv. uzastopnih veza"
+
+#~ msgid "Width"
+#~ msgstr "Širina"
+
+#~ msgid "Height"
+#~ msgstr "Visina"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "Spremi kao datoteku"
 
 #, fuzzy
 #~| msgid "Log file count"

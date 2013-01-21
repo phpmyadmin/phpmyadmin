@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-10 13:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -532,7 +532,7 @@ msgstr "Ugyldig eksport-type"
 msgid "Value for the column \"%s\""
 msgstr "Verdi for kolonnen \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Bruk OpenStreetMaps som baselag"
 
@@ -747,7 +747,7 @@ msgid "Database server"
 msgstr "Brukerdatabase"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Tjener"
@@ -1779,7 +1779,7 @@ msgstr "%d er ikke et gyldig radnummer."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Lagre"
 
@@ -3794,11 +3794,11 @@ msgstr "Kontroller privilegier for databasen &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Kontroller privilegier"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Kunne ikke lese konfigurasjonsfilen"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3806,12 +3806,12 @@ msgstr ""
 "Dette mener vanligvis at det er en syntaksfeil i det, sjekk mulige feil som "
 "vises under."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3819,38 +3819,38 @@ msgstr ""
 "[code]$cfg['PmaAbsoluteUri'][/code] variabelen MÅ være innstilt i din "
 "konfigurasjonsfil!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ugyldig tjenerindeks: \"%s\""
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ugyldig tjenernavn for tjener %1$s. Kontroller din konfigurasjon."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autentiseringsmetode satt opp i konfigureringen:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du burde oppgradere til %s %s eller nyere."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "mulig sikkerhetshull"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "numerisk nøkkel oppdaget"
 
@@ -4297,7 +4297,7 @@ msgid "Character set of the file"
 msgstr "Filas tegnsett"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -10224,7 +10224,7 @@ msgid "Error in ZIP archive:"
 msgstr "Feil i ZIP arkivet:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11913,6 +11913,7 @@ msgid "Global value"
 msgstr "Global verdi"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Last ned"
 
@@ -12437,49 +12438,35 @@ msgstr "Tabellen %1$s har blitt opprettet."
 msgid "View dump (schema) of table"
 msgstr "Vis dump (skjema) av tabell"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 #, fuzzy
 #| msgid "Display servers selection"
 msgid "Display GIS Visualization"
 msgstr "Vis tjenerutvalg"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr ""
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr ""
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Label column"
 msgstr "CHAR textarea kolonner"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 #, fuzzy
 #| msgid "- none -"
 msgid "-- None --"
 msgstr "- ingen -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
 msgstr "Antall loggfiler"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "Lagre som fil"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -13983,6 +13970,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "Lagre som fil"
 
 #~ msgid "Total count"
 #~ msgstr "Totalt antall"

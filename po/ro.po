@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-18 00:58+0200\n"
 "Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
-"Language-Team: Romanian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
+"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
+">\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,9 +37,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"Fereastra de navigare nu a putut fi actualizată. Poate aţi închis "
-"fereastra-părinte sau setările de securitate ale sistemului sunt configurate "
-"să blocheze actualizările dintre ferestre."
+"Fereastra de navigare nu a putut fi actualizată. Poate aţi închis fereastra-"
+"părinte sau setările de securitate ale sistemului sunt configurate să "
+"blocheze actualizările dintre ferestre."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3276
@@ -538,7 +538,7 @@ msgstr "Modul de export este invalid"
 msgid "Value for the column \"%s\""
 msgstr "Valoare pentru coloana \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgid "Database server"
 msgstr "Bază de date pentru utilizatorul"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1839,7 +1839,7 @@ msgstr "%d nu este un număr valid de rînduri."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Salveaza"
 
@@ -3946,25 +3946,25 @@ msgstr "Verifică privilegiile pentru baza de date &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Verifică privilegiile"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
 msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, fuzzy, php-format
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nu s-a putut încărca configurația implicită din: „%1$s”"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3976,41 +3976,41 @@ msgstr ""
 "Directiva <code>$cfg['PmaAbsoluteUri']</code> TREBUIE să fie stabilită în "
 "fișierul de configurare!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Index de server nevalid: „%s”"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Gazdă nevalidă pentru serverul %1$s. Vă rugăm să revizuiți configurația "
 "dumneavoastră."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare nevalidă stabilită în configurație:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Ar trebui sa reactualizati serverul %s %s la o versiune mai noua."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "cheie numerica detectată"
 
@@ -4470,7 +4470,7 @@ msgid "Character set of the file"
 msgstr "Setul de caractere al fișierului"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -10601,7 +10601,7 @@ msgid "Error in ZIP archive:"
 msgstr "Eroare în arhiva ZIP:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -12148,6 +12148,7 @@ msgid "Global value"
 msgstr "Valoare globală"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Descarcă"
 
@@ -12581,45 +12582,31 @@ msgstr "Tabelul %1$s a fost creat."
 msgid "View dump (schema) of table"
 msgstr "Vizualizarea schemei tabelului"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Afișează Vizualizarea GIS"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Lățime"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Înălțime"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
 msgstr "Adaugă/șterge coloane"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr ""
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 #, fuzzy
 #| msgid "Log file count"
 msgid "Spatial column"
 msgstr "Număr de fișiere-jurnal"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Redesenează"
 
-#: tbl_gis_visualization.php:178
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save to file"
-msgstr "Trimite"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 #, fuzzy
 #| msgid "Table name"
 msgid "File name"
@@ -13122,8 +13109,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
-"Documentaţia pentru Percona se găseşte la adresa "
-"http://www.percona.com/docs/wiki/"
+"Documentaţia pentru Percona se găseşte la adresa http://www.percona.com/docs/"
+"wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -13142,7 +13129,6 @@ msgstr ""
 "specifică Drizzle"
 
 #: libraries/advisory_rules.txt:142
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "Arhitectura MySQL"
 
@@ -13167,12 +13153,10 @@ msgid "Available memory on this host: %s"
 msgstr "Memoria disponibilă pe acest server este: %s"
 
 #: libraries/advisory_rules.txt:153
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Pastrarea in memoria cache a interogărilor este dezactivată"
 
 #: libraries/advisory_rules.txt:156
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
 msgstr "Pastrarea in memoria cache a interogărilor nu este activată."
 
@@ -13196,12 +13180,10 @@ msgstr ""
 "query_cache_type este setat cu valoarea 'OFF'"
 
 #: libraries/advisory_rules.txt:160
-#| msgid "Query cache"
 msgid "Query caching method"
 msgstr "Metoda de păstrare în memoria cache a interogarilor"
 
 #: libraries/advisory_rules.txt:163
-#| msgid "Query cache"
 msgid "Suboptimal caching method."
 msgstr "Metoda de folosire a memoriei cache sub nivelul optim."
 
@@ -13214,10 +13196,9 @@ msgid ""
 msgstr ""
 "Folosiți metoda de păstrare în memoria cache a interogărilor MySQL prin "
 "creșterea traficului destul de mult pe baza de date. Ar putea merita sa "
-"aveți în vedere utilizarea opțiunii <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
-"memcached.html\">memcached</a> în locul păstrare în memoria cache a "
-"interogărilor MySQL, mai ales dacă aveți mai multe instanțe."
+"aveți în vedere utilizarea opțiunii <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> în locul păstrare în memoria "
+"cache a interogărilor MySQL, mai ales dacă aveți mai multe instanțe."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -13226,12 +13207,11 @@ msgid ""
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
 "Opțiunea de păstrare în memoria cache a interogărilor MySQL este activata și "
-"serverul primește %d interogări pe secundă. Această regulă se activează "
-"dacă există mai mult de 100 de interogări pe secundă."
+"serverul primește %d interogări pe secundă. Această regulă se activează dacă "
+"există mai mult de 100 de interogări pe secundă."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
-#| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
 msgstr ""
 "Eficiența metodei de păstrare în memoria cache a interogărilor MySQL (%%)"
@@ -13249,7 +13229,6 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:172
 #, php-format
-#| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 "Rata curenta de acțiune a metodei de păstrare în memoria cache a "
@@ -13284,12 +13263,10 @@ msgstr ""
 "totală a interogărilor este %s%%. Ar trebui să fie peste 80%%"
 
 #: libraries/advisory_rules.txt:181
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Fragmentarea memoriei cache a interogărilor"
 
 #: libraries/advisory_rules.txt:184
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
 msgstr ""
 "Memoria cache a interogărilor este fragmentată într-o proporție "
@@ -13308,15 +13285,15 @@ msgid ""
 msgstr ""
 "Fragmentarea severă este probabil (mai degrabă) să necesite creşterea "
 "valorii parametrului Qcache_lowmem_prunes. Acest lucru ar putea fi cauzat de "
-"prea multe stergeri ale memoriei cache a interogărilor din cauza unei "
-"valori prea mici a parametrului {query_cache_size}. Pentru o soluţionare "
-"imediată, dar de scurtă durata puteti goli (şterge) memoria cache a "
-"interogărilor (această acţiune ar putea bloca memoria cache a interogărilor "
-"pentru o perioadă lungă de timp). Ajustarea atentă a valorii parametrului "
+"prea multe stergeri ale memoriei cache a interogărilor din cauza unei valori "
+"prea mici a parametrului {query_cache_size}. Pentru o soluţionare imediată, "
+"dar de scurtă durata puteti goli (şterge) memoria cache a interogărilor "
+"(această acţiune ar putea bloca memoria cache a interogărilor pentru o "
+"perioadă lungă de timp). Ajustarea atentă a valorii parametrului "
 "{query_cache_min_res_unit}, la o valoare inferioară v-ar putea ajuta de "
 "asemenea, de ex. puteţi seta valoarea la dimensiunea medie a interogările "
-"din memoria cache utilizând formula: (query_cache_size - qcache_free_memory) "
-"/ qcache_queries_in_cache"
+"din memoria cache utilizând formula: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -13327,16 +13304,14 @@ msgid ""
 msgstr ""
 "Memoria cache este în prezent fragmentată în procent de %s%%, o fragmentare "
 "în procent de 100%% înseamnă că memoria cache a interogărilor este o alocare "
-"alternativă de blocuri libere și utilizate. Această valoare ar trebui să "
-"fie sub 20%%."
+"alternativă de blocuri libere și utilizate. Această valoare ar trebui să fie "
+"sub 20%%."
 
 #: libraries/advisory_rules.txt:188
-#| msgid "Query cache"
 msgid "Query cache low memory prunes"
 msgstr "Stergeri datorate insuficienţei memoriei cache a interogărilor"
 
 #: libraries/advisory_rules.txt:191
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -13366,7 +13341,6 @@ msgstr ""
 "regulilor este: 0,1%%)"
 
 #: libraries/advisory_rules.txt:195
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Mărimea maximă a memoriei cache alocată interogărilor"
 
@@ -13394,7 +13368,6 @@ msgid "Current query cache size: %s"
 msgstr "Dimensiune curentă a memoriei cache a interogărilor: %s"
 
 #: libraries/advisory_rules.txt:202
-#| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Dimensiunea minimă a rezultatelor în memoria cache a interogărilor"
 
@@ -13423,22 +13396,19 @@ msgstr ""
 "care depășesc dimensiunea de 1 MiB care sunt bune de păstrat în memorie "
 "(multe citiri, puține scrieri), atunci creșterea valorii parametrului "
 "{query_cache_limit} va crește eficiența. Întrucât în cazul în care mai multe "
-"rezultate ale interogărilor depășesc 1 MiB şi nu sunt foarte bune de "
-"păstrat în memorie (de multe ori invalidate de actualizări ale tabelului) "
-"creşterea valorii parametrului {query_cache_limit} ar putea reduce "
-"eficienţa."
+"rezultate ale interogărilor depășesc 1 MiB şi nu sunt foarte bune de păstrat "
+"în memorie (de multe ori invalidate de actualizări ale tabelului) creşterea "
+"valorii parametrului {query_cache_limit} ar putea reduce eficienţa."
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "valoarea parametrului query_cache_limit este setata la 1 MiB"
 
 #: libraries/advisory_rules.txt:211
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Procentul de sortări care provoaca generarea de tabele temporare"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Prea multe sortări cauzează crearea de tabele temporare."
 
@@ -13447,8 +13417,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
-"Luaţi în considerare creşterea valorilor parametrilor sort_buffer_size "
-"şi/sau read_rnd_buffer_size, în funcţie de limitele memoriei sistemului "
+"Luaţi în considerare creşterea valorilor parametrilor sort_buffer_size şi/"
+"sau read_rnd_buffer_size, în funcţie de limitele memoriei sistemului "
 "dumneavoastră"
 
 #: libraries/advisory_rules.txt:216
@@ -13461,13 +13431,11 @@ msgstr ""
 "fie mai mică de 10%%."
 
 #: libraries/advisory_rules.txt:218
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Rata de sortări care au generat tabele temporare"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
-#| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
@@ -13475,7 +13443,6 @@ msgstr ""
 "1 oră."
 
 #: libraries/advisory_rules.txt:225
-#| msgid "Start"
 msgid "Sort rows"
 msgstr "Sortare (ordonare) rânduri"
 
@@ -14165,7 +14132,6 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:459
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "inserări concurente MyISAM"
 
@@ -14186,6 +14152,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#~ msgid "Width"
+#~ msgstr "Lățime"
+
+#~ msgid "Height"
+#~ msgstr "Înălțime"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "Trimite"
 
 #, fuzzy
 #~| msgid "Log file count"

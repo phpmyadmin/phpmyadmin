@@ -101,7 +101,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.0.0-dev');
+        $this->set('PMA_VERSION', '4.0.0-alpha1');
         /**
          * @deprecated
          */
@@ -1755,7 +1755,7 @@ class PMA_Config
         if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
-            if ($validity == null) {
+            if ($validity === null) {
                 $validity = time() + 2592000;
             } elseif ($validity == 0) {
                 $validity = 0;

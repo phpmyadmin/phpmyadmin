@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-19 13:19+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -536,7 +537,7 @@ msgstr "Type d'exportation invalide"
 msgid "Value for the column \"%s\""
 msgstr "Valeur pour la colonne «%s»"
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Utiliser OpenStreetMaps comme couche de base"
 
@@ -737,7 +738,7 @@ msgid "Database server"
 msgstr "Serveur de base de données"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Serveur"
@@ -1750,7 +1751,7 @@ msgstr "%d n'est pas un numéro de ligne valable."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Sauvegarder"
 
@@ -3830,11 +3831,11 @@ msgstr "Vérifier les privilèges pour la base de données &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Vérifier les privilèges"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Impossible de lire le fichier de configuration"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3842,13 +3843,13 @@ msgstr ""
 "Ceci indique habituellement qu'il y a une erreur de syntaxe, veuillez "
 "vérifier si une erreur s'affiche plus bas."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 
 # OK
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3856,41 +3857,41 @@ msgstr ""
 "Le paramètre [code]$cfg['PmaAbsoluteUri'][/code] DOIT être renseigné dans "
 "votre fichier de configuration !"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indice de serveur invalide: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Nom d'hôte invalide pour le serveur %1$s. Veuillez vérifier votre "
 "configuration."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "Le fichier de configuration contient un type d'authentification invalide : "
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Vous devriez utiliser %s en version %s ou plus récente."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Erreur: disparité du jeton"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentative d'écrasement de GLOBALS"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "vulnérabilité possible"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "Clé numérique détectée"
 
@@ -4338,7 +4339,7 @@ msgid "Character set of the file"
 msgstr "Jeu de caractères du fichier"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -10109,7 +10110,9 @@ msgid "Error in ZIP archive:"
 msgstr "Erreur rencontrée dans l'archive ZIP : "
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+#, fuzzy
+#| msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Erreur fatale : la navigation requiert ajax"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11764,6 +11767,7 @@ msgid "Global value"
 msgstr "Valeur globale"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Télécharger"
 
@@ -12167,7 +12171,6 @@ msgid "Pie"
 msgstr "Tarte"
 
 #: tbl_chart.php:148
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Moment"
@@ -12219,39 +12222,27 @@ msgstr "La table %1$s a été créée."
 msgid "View dump (schema) of table"
 msgstr "<b>Afficher le schéma</b> de la table"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Visualiser en GIS"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Largeur"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Hauteur"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Colonne pour étiquette"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "-- Aucun --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Colonne pour donnée spatiale"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Dessiner à nouveau"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Sauvegarder dans un fichier"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Nom du fichier"
 
@@ -12281,7 +12272,6 @@ msgid ""
 msgstr "(«PRIMARY» <b>doit et ne peut être</b> que le nom d'une clé primaire!)"
 
 #: tbl_indexes.php:227
-#| msgid "Comment"
 msgid "Comment:"
 msgstr "Commentaire : "
 
@@ -13807,6 +13797,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Width"
+#~ msgstr "Largeur"
+
+#~ msgid "Height"
+#~ msgstr "Hauteur"
+
+#~ msgid "Save to file"
+#~ msgstr "Sauvegarder dans un fichier"
 
 #~ msgid "Total count"
 #~ msgstr "Nombre total"

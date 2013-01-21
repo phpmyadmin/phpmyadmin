@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-01-18 14:17+0100\n"
+"POT-Creation-Date: 2013-01-21 00:59+0100\n"
 "PO-Revision-Date: 2013-01-15 00:03+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -533,7 +533,7 @@ msgstr "Ogiltig export-typ"
 msgid "Value for the column \"%s\""
 msgstr "Värde för kolumn \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:173
+#: gis_data_editor.php:140 tbl_gis_visualization.php:152
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Använd OpenStreetMaps som baslager"
 
@@ -733,7 +733,7 @@ msgid "Database server"
 msgstr "Databas-server"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:653
+#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1739,7 +1739,7 @@ msgstr "%d är inte ett giltigt radnummer."
 #: libraries/schema/User_Schema.class.php:375
 #: libraries/tbl_columns_definition_form.inc.php:900 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_gis_visualization.php:195 tbl_indexes.php:334 tbl_relation.php:519
+#: tbl_indexes.php:334 tbl_relation.php:519
 msgid "Save"
 msgstr "Spara"
 
@@ -3790,11 +3790,11 @@ msgstr "Kontrollera privilegier för databas &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Kontrollera privilegier"
 
-#: libraries/common.inc.php:577
+#: libraries/common.inc.php:579
 msgid "Failed to read configuration file"
 msgstr "Kunde inte läsa konfigurationsfilen"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:581
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3802,12 +3802,12 @@ msgstr ""
 "Detta betyder oftast att det finns ett syntaxfel i det, kontrollera "
 "eventuella fel som visas nedan."
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:588
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
 
-#: libraries/common.inc.php:593
+#: libraries/common.inc.php:595
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3815,38 +3815,38 @@ msgstr ""
 "Direktivet[code]$cfg['PmaAbsoluteUri'][/code] MÅSTE definieras i "
 "konfigurationsfilen!"
 
-#: libraries/common.inc.php:626
+#: libraries/common.inc.php:628
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: %s"
 
-#: libraries/common.inc.php:637
+#: libraries/common.inc.php:639
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
-#: libraries/common.inc.php:846
+#: libraries/common.inc.php:848
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/common.inc.php:968
+#: libraries/common.inc.php:970
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du bör uppgradera till %s %s eller senare."
 
-#: libraries/common.inc.php:1042
+#: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
-#: libraries/common.inc.php:1086
+#: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
 msgstr "Globals överskrivningsförsök"
 
-#: libraries/common.inc.php:1093
+#: libraries/common.inc.php:1095
 msgid "possible exploit"
 msgstr "möjlig exploatering"
 
-#: libraries/common.inc.php:1102
+#: libraries/common.inc.php:1104
 msgid "numeric key detected"
 msgstr "numerisk tangent upptäckt"
 
@@ -4294,7 +4294,7 @@ msgid "Character set of the file"
 msgstr "Filens teckenuppsättning"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:182
+#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:167
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -10004,7 +10004,7 @@ msgid "Error in ZIP archive:"
 msgstr "Fel i ZIP-arkiv:"
 
 #: navigation.php:23
-msgid "Fatal error: The navigation can only be accessed via ajax"
+msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
@@ -11629,6 +11629,7 @@ msgid "Global value"
 msgstr "Globalt värde"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
+#: tbl_gis_visualization.php:180
 msgid "Download"
 msgstr "Ladda ner"
 
@@ -12083,39 +12084,27 @@ msgstr "Tabell %1$s har skapats."
 msgid "View dump (schema) of table"
 msgstr "Visa SQL-satser för tabellen"
 
-#: tbl_gis_visualization.php:109
+#: tbl_gis_visualization.php:105
 msgid "Display GIS Visualization"
 msgstr "Visa GIS Visualisering"
 
-#: tbl_gis_visualization.php:126
-msgid "Width"
-msgstr "Bredd"
-
-#: tbl_gis_visualization.php:130
-msgid "Height"
-msgstr "Höjd"
-
-#: tbl_gis_visualization.php:134
+#: tbl_gis_visualization.php:110
 msgid "Label column"
 msgstr "Etikett kolumn"
 
-#: tbl_gis_visualization.php:136
+#: tbl_gis_visualization.php:112
 msgid "-- None --"
 msgstr "- Inget -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:126
 msgid "Spatial column"
 msgstr "Spatial kolumn"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:141
 msgid "Redraw"
 msgstr "Rita om"
 
-#: tbl_gis_visualization.php:178
-msgid "Save to file"
-msgstr "Spara till fil"
-
-#: tbl_gis_visualization.php:179
+#: tbl_gis_visualization.php:164
 msgid "File name"
 msgstr "Filnamn"
 
@@ -13638,6 +13627,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert är satt till 0"
+
+#~ msgid "Width"
+#~ msgstr "Bredd"
+
+#~ msgid "Height"
+#~ msgstr "Höjd"
+
+#~ msgid "Save to file"
+#~ msgstr "Spara till fil"
 
 #~ msgid "Total count"
 #~ msgstr "Totalt antal"

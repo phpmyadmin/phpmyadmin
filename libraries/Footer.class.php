@@ -246,7 +246,8 @@ class PMA_Footer
                     $header = PMA_Response::getInstance()->getHeader();
                     $scripts = $header->getScripts()->getFiles();
                     $menuHash = $header->getMenu()->getHash();
-                    $this->_scripts->addCode( // prime the client-side cache
+                    // prime the client-side cache
+                    $this->_scripts->addCode(
                         sprintf(
                             'AJAX.cache.primer = {'
                             . ' url: "%s",'

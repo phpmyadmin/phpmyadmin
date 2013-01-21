@@ -17,6 +17,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * retrieves table info and stores it in $GLOBALS['PMD']
  *
+ * @return array with table info
  */
 function get_tables_info()
 {
@@ -31,17 +32,26 @@ function get_tables_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $i = 0;
     foreach ($tables as $one_table) {
-        $GLOBALS['PMD']['TABLE_NAME'][$i] = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
+        $GLOBALS['PMD']['TABLE_NAME'][$i]
+            = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
         $GLOBALS['PMD']['OWNER'][$i] = $GLOBALS['db'];
         $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = $one_table['TABLE_NAME'];
 
-        $GLOBALS['PMD_URL']['TABLE_NAME'][$i] = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
+        $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
+            = urlencode($GLOBALS['db'] . "." . $one_table['TABLE_NAME']);
         $GLOBALS['PMD_URL']['OWNER'][$i] = urlencode($GLOBALS['db']);
-        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i] = urlencode($one_table['TABLE_NAME']);
+        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
+            = urlencode($one_table['TABLE_NAME']);
 
-        $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars($GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars($GLOBALS['db'], ENT_QUOTES);
-        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars($one_table['TABLE_NAME'], ENT_QUOTES);
+        $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
+            $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
+        );
+        $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars(
+            $GLOBALS['db'], ENT_QUOTES
+        );
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $one_table['TABLE_NAME'], ENT_QUOTES
+        );
 
         $GLOBALS['PMD']['TABLE_TYPE'][$i] = strtoupper($one_table['ENGINE']);
 
@@ -66,13 +76,23 @@ function get_columns_info()
     PMA_DBI_select_db($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
-        $fields_rs   = PMA_DBI_query(PMA_DBI_get_columns_sql($GLOBALS['db'], $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i], null, true), null, PMA_DBI_QUERY_STORE);
+        $fields_rs = PMA_DBI_query(
+            PMA_DBI_get_columns_sql(
+                $GLOBALS['db'],
+                $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i],
+                null,
+                true
+            ),
+            null,
+            PMA_DBI_QUERY_STORE
+        );
+        $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
         while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
-            $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_ID'][$j]   = $j;
-            $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['COLUMN_NAME'][$j] = $row['Field'];
-            $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['TYPE'][$j]        = $row['Type'];
-            $tab_column[$GLOBALS['PMD']['TABLE_NAME'][$i]]['NULLABLE'][$j]    = $row['Null'];
+            $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
+            $tab_column[$tbl_name_i]['COLUMN_NAME'][$j] = $row['Field'];
+            $tab_column[$tbl_name_i]['TYPE'][$j]        = $row['Type'];
+            $tab_column[$tbl_name_i]['NULLABLE'][$j]    = $row['Null'];
             $j++;
         }
     }
@@ -89,7 +109,11 @@ function get_script_contr()
     PMA_DBI_select_db($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
-    $alltab_rs  = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']), null, PMA_DBI_QUERY_STORE);
+    $alltab_rs = PMA_DBI_query(
+        'SHOW TABLES FROM ' . PMA_Util::backquote($GLOBALS['db']),
+        null,
+        PMA_DBI_QUERY_STORE
+    );
     while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
@@ -99,7 +123,9 @@ function get_script_contr()
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
                 $con['DCN'][$i]    = urlencode($field);
-                $con['STN'][$i]    = urlencode($value['foreign_db'] . "." . $value['foreign_table']);
+                $con['STN'][$i]    = urlencode(
+                    $value['foreign_db'] . "." . $value['foreign_table']
+                );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
@@ -112,7 +138,9 @@ function get_script_contr()
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = urlencode($GLOBALS['db'].".".$val[0]);
                 $con['DCN'][$i]    = urlencode($field);
-                $con['STN'][$i]    = urlencode($value['foreign_db'].".".$value['foreign_table']);
+                $con['STN'][$i]    = urlencode(
+                    $value['foreign_db'].".".$value['foreign_table']
+                );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
             }
@@ -122,13 +150,15 @@ function get_script_contr()
     $ti = 0;
     $retval = array();
     for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
+        $c_name_i = $con['C_NAME'][$i];
+        $dtn_i = $con['DTN'][$i];
         $retval[$ti] = array();
-        $retval[$ti][$con['C_NAME'][$i]] = array();
-        if (in_array($con['DTN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+        $retval[$ti][$c_name_i] = array();
+        if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
             && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
         ) {
-            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]] = array();
-            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]][$con['DCN'][$i]] = array(
+            $retval[$ti][$c_name_i][$dtn_i] = array();
+            $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
                 0 => $con['STN'][$i],
                 1 => $con['SCN'][$i]
             );
@@ -139,7 +169,9 @@ function get_script_contr()
 }
 
 /**
- * @return array unique or primary indizes
+ * Returns UNIQUE and PRIMARY indices
+ *
+ * @return array unique or primary indices
  */
 function get_pk_or_unique_keys()
 {
@@ -149,7 +181,7 @@ function get_pk_or_unique_keys()
 /**
  * returns all indices
  *
- * @param boolean whether to include ony unique ones
+ * @param bool $unique_only whether to include only unique ones
  *
  * @return array indices
  */
@@ -192,10 +224,7 @@ function get_script_tabs()
 
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $j = 0;
-        if (PMA_Util::isForeignKeySupported(
-                $GLOBALS['PMD']['TABLE_TYPE'][$i]
-            )
-        ) {
+        if (PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
             $j = 1;
         }
         $retval['j_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = $j;
@@ -205,7 +234,9 @@ function get_script_tabs()
 }
 
 /**
- * @return array   table positions and sizes
+ * Returns table position
+ *
+ * @return array table positions and sizes
  */
 function get_tab_pos()
 {
@@ -221,9 +252,11 @@ function get_tab_pos()
                 `y` AS `Y`,
                 `v` AS `V`,
                 `h` AS `H`
-           FROM " . PMA_Util::backquote($cfgRelation['db']) . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
-    $tab_pos = PMA_DBI_fetch_result($query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE);
+           FROM " . PMA_Util::backquote($cfgRelation['db'])
+        . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
+    $tab_pos = PMA_DBI_fetch_result(
+        $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
+    );
     return count($tab_pos) ? $tab_pos : null;
 }
-
 ?>

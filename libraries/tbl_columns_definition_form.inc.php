@@ -180,7 +180,7 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
         );
 }
 
-//  workaround for field_fulltext, because its submitted indizes contain
+//  workaround for field_fulltext, because its submitted indices contain
 //  the index as a value, not a key. Inserted here for easier maintaineance
 //  and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
