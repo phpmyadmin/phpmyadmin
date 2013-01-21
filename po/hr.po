@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-08 09:18+0200\n"
+"PO-Revision-Date: 2013-01-21 06:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/3-5/hr/>\n"
 "Language: hr\n"
@@ -2896,7 +2896,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "Poslužitelj"
+msgstr "Poslužitelj:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
@@ -3301,7 +3301,7 @@ msgstr "Operacije"
 #: libraries/common.lib.php:3277 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
-msgstr "Pretraži računalo"
+msgstr "Pretraži računalo:"
 
 #: libraries/common.lib.php:3296
 #, fuzzy, php-format
@@ -11796,7 +11796,7 @@ msgstr "Dodaj/Izbriši stupce polja"
 
 #: tbl_chart.php:145
 msgid "X-Axis label:"
-msgstr "Oznaka X-osi"
+msgstr "Oznaka X-osi:"
 
 #: tbl_chart.php:147
 #, fuzzy
