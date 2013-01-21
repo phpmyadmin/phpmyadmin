@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 19:24+0200\n"
+"PO-Revision-Date: 2013-01-21 19:35+0200\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
@@ -3162,7 +3162,7 @@ msgstr "estado da táboa descoñecido: "
 #, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Non foi posíbel atopar a base de datos de orixe «%s»"
+msgstr "Non foi posíbel atopar a base de datos de orixe «%s»!"
 
 #: libraries/Table.class.php:736
 #, php-format
@@ -10231,6 +10231,7 @@ msgstr "Produciuse un erro no ficheiro ZIP:"
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
+"Produciuse un erro fatal: Só é posíbel acceder á navegación mediante AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
