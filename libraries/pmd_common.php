@@ -150,13 +150,15 @@ function get_script_contr()
     $ti = 0;
     $retval = array();
     for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
+        $c_name_i = $con['C_NAME'][$i];
+        $dtn_i = $con['DTN'][$i];
         $retval[$ti] = array();
-        $retval[$ti][$con['C_NAME'][$i]] = array();
-        if (in_array($con['DTN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+        $retval[$ti][$c_name_i] = array();
+        if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
             && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
         ) {
-            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]] = array();
-            $retval[$ti][$con['C_NAME'][$i]][$con['DTN'][$i]][$con['DCN'][$i]] = array(
+            $retval[$ti][$c_name_i][$dtn_i] = array();
+            $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
                 0 => $con['STN'][$i],
                 1 => $con['SCN'][$i]
             );
