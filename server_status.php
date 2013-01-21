@@ -122,7 +122,7 @@ function getServerTrafficHtml($ServerStatusData)
         $retval .= __('Replication status');
         $retval .= '</a></h3>';
         foreach ($GLOBALS['replication_types'] as $type) {
-            if (${"server_{$type}_status"}) {
+            if (isset(${"server_{$type}_status"}) && ${"server_{$type}_status"}) {
                 PMA_replication_print_status_table($type);
             }
         }

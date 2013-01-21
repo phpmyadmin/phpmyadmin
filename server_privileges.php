@@ -423,7 +423,10 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 if (isset($_REQUEST['export'])
     || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')
 ) {
-    list($title, $export) = PMA_getHtmlForExportUserDefinition($username, $hostname);
+    list($title, $export) = PMA_getHtmlForExportUserDefinition(
+        isset($username) ? $username : null,
+        isset($hostname) ? $hostname : null
+    );
 
     unset($username, $hostname, $grants, $one_grant);
 
