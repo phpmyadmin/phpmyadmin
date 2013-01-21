@@ -168,7 +168,7 @@ function get_script_contr()
 /**
  * Returns UNIQUE and PRIMARY indices
  *
- * @return array unique or primary indizes
+ * @return array unique or primary indices
  */
 function get_pk_or_unique_keys()
 {
@@ -178,7 +178,7 @@ function get_pk_or_unique_keys()
 /**
  * returns all indices
  *
- * @param bool $unique_only whether to include ony unique ones
+ * @param bool $unique_only whether to include only unique ones
  *
  * @return array indices
  */
