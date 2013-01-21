@@ -17,6 +17,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * retrieves table info and stores it in $GLOBALS['PMD']
  *
+ * @return array with table info
  */
 function get_tables_info()
 {
@@ -165,6 +166,8 @@ function get_script_contr()
 }
 
 /**
+ * Returns UNIQUE and PRIMARY indices
+ *
  * @return array unique or primary indizes
  */
 function get_pk_or_unique_keys()
@@ -175,7 +178,7 @@ function get_pk_or_unique_keys()
 /**
  * returns all indices
  *
- * @param boolean whether to include ony unique ones
+ * @param bool $unique_only whether to include ony unique ones
  *
  * @return array indices
  */
@@ -228,7 +231,9 @@ function get_script_tabs()
 }
 
 /**
- * @return array   table positions and sizes
+ * Returns table position
+ *
+ * @return array table positions and sizes
  */
 function get_tab_pos()
 {
