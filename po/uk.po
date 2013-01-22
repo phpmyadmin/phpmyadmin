@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-21 22:30+0200\n"
-"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
+"PO-Revision-Date: 2013-01-22 11:19+0200\n"
+"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -3845,7 +3845,7 @@ msgstr ""
 
 #: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "спроба перезапису GLOBALS"
 
 #: libraries/common.inc.php:1095
 msgid "possible exploit"
@@ -6963,6 +6963,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"Максимальний розмір файлу журналу даних. Початкове значення 64MB. PBXT "
+"максимально може створити 32000 журналів даних, використовуваних усіма "
+"таблицями. Таким чином, значення даної змінної може бути збільшено для "
+"збільшення загального обсягу даних, які можуть зберігатися в базі даних."
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
@@ -6973,6 +6977,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"Процентне співвідношення захаращення у файлі журналу даних до його "
+"компонування. Значення між 1 і 99. Початкове значення 50."
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
@@ -6984,6 +6990,9 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Розмір буфера використовуваний для запису журналу даних. За замовчуванням "
+"256MB. Двигун виділяє один буфер на потік, але тільки якщо потік потрібно "
+"для запису даних журналу."
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
@@ -7012,6 +7021,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Кількість файлів журналів транзакцій (pbxt/system/xlog*.Xt) зберігаються "
+"системою. При перевищенні кількості журналів даного значення, старі журнали "
+"будуть вилучені, інакше вони будуть перейменовані і отримають наступний "
+"порядковий номер."
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
@@ -7033,7 +7046,7 @@ msgstr "Блоґ Пола МакКулага про PrimeBase XT"
 
 #: libraries/gis_visualization.lib.php:135
 msgid "No data found for GIS visualization."
-msgstr ""
+msgstr "Дані для візуалізації GIS не знайдені."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1362 sql.php:922 tbl_get_field.php:41
@@ -7043,20 +7056,21 @@ msgstr "MySQL повернула пустий результат (тобто н�
 #: libraries/import.lib.php:1191
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Наступні структури були створені, або змінені. Ви можете:"
 
 #: libraries/import.lib.php:1192
 msgid "View a structure's contents by clicking on its name"
-msgstr ""
+msgstr "Переглянути деталі структури натиснувши на її ім'я"
 
 #: libraries/import.lib.php:1193
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
+"Змінити будь-яку настройку натиснувши на відповідне посилання \"Параметри\""
 
 #: libraries/import.lib.php:1194
 msgid "Edit structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Відредагувати структуру перейшовши за посиланням \"Структура\""
 
 #: libraries/import.lib.php:1198
 #, php-format
@@ -7161,7 +7175,6 @@ msgid "Inserted row id: %1$d"
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7170,7 +7183,7 @@ msgstr "Немає"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Конвертувати в Кану"
 
 #: libraries/mult_submits.inc.php:277 libraries/structure.lib.php:321
 msgid "Replace table prefix"
@@ -7416,7 +7429,7 @@ msgstr "Документація по phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.class.php:242
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Оновити фрейм навігації"
 
 #: libraries/navigation/NavigationTree.class.php:701
 #, php-format
@@ -7903,14 +7916,14 @@ msgstr "Структура таблиці"
 #: libraries/plugins/export/ExportSql.class.php:1483
 #: libraries/plugins/export/ExportTexytext.class.php:511
 msgid "Structure for view"
-msgstr ""
+msgstr "Структура для представлення"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:579
 #: libraries/plugins/export/ExportOdt.class.php:677
 #: libraries/plugins/export/ExportSql.class.php:1500
 #: libraries/plugins/export/ExportTexytext.class.php:518
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Дублююча структура для представлення"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -8046,6 +8059,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Укласти імена таблиць і полів у зворотні лапки <i> (Захищає імена таблиць і "
+"полів, які містять спеціальні символи або зарезервовані слова)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
 #, fuzzy
@@ -8104,40 +8119,50 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"комбінація обох верхніх варіантів <br /> &nbsp; &nbsp; &nbsp; Example: "
+"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:371
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"жоден з вище перерахованих <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:390
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Збереження бінарних полів в шістнадцятковому вигляді <i>(наприклад, \"abc\" "
+"стане 0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Зберігати поля з типом TIMESTAMP в UTC <i>(дозволяє зберегти і перенести "
+"поля з типом TIMESTAMP між серверами, що знаходяться в різних часових "
+"зонах)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1197
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
 #: libraries/plugins/export/ExportSql.class.php:1208
 msgid "Constraints for table"
-msgstr ""
+msgstr "Обмеження зовнішнього ключа таблиці"
 
 #: libraries/plugins/export/ExportSql.class.php:1349
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "MIME-ТИПИ ТАБЛИЦІ"
 
 #: libraries/plugins/export/ExportSql.class.php:1374
 msgid "RELATIONS FOR TABLE"
-msgstr ""
+msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
 #: libraries/plugins/export/ExportSql.class.php:1566
 msgid "Error reading data:"
@@ -8145,11 +8170,11 @@ msgstr "Помилка читання даних:"
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Параметри створення об'єкта (рекомендується вибрати всі)"
 
 #: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
-msgstr ""
+msgstr "Експортувати вміст"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8157,6 +8182,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Перший рядок файлу містить імена полів таблиці <i>(якщо даний параметр не "
+"вибрано, то перший рядок буде частиною даних)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:118
 msgid ""
@@ -8164,6 +8191,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Якщо дані в рядках файлу розташовані не в тому ж порядку, як в базі даних, "
+"введіть тут імена полів у відповідній послідовності. Імена полів "
+"розділяються комами і не повинні бути вкладені в лапки."
 
 #: libraries/plugins/import/ImportCsv.class.php:127
 msgid "Column names: "
@@ -8175,7 +8205,7 @@ msgstr "Назви стовпців: "
 #: libraries/plugins/import/ImportCsv.class.php:206
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Неправильний параметр імпорту CSV: %s"
 
 #: libraries/plugins/import/ImportCsv.class.php:257
 #, php-format
@@ -8183,21 +8213,23 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Зазначено помилкове ім'я стовпця (%s)! Переконайтеся, що назви стовпців "
+"вказані вірно, розділені комами, і не вкладені в лапки."
 
 #: libraries/plugins/import/ImportCsv.class.php:325
 #: libraries/plugins/import/ImportCsv.class.php:600
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Неправильний формат вхідних CSV-даних в рядку %d."
 
 #: libraries/plugins/import/ImportCsv.class.php:481
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "Невідповідність кількості стовпців в CSV даних на рядку %d."
 
 #: libraries/plugins/import/ImportLdi.class.php:125
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Цей модуль не підтримує імпорт стиснених даних!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -8211,10 +8243,12 @@ msgstr ""
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Імпортувати відсотки у вигляді десяткових значень <i>(напр. 12.00% в "
+".12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:94
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Імпортувати грошові одиниці <i>(напр. $ 5.00 в 5.00)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:172
 #: libraries/plugins/import/ImportXml.class.php:131
@@ -8223,34 +8257,37 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"Обраний XML файл некоректний, або неповний. Перевірте можливі помилки і "
+"спробуйте ще раз."
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Файл ESRI"
 
 #: libraries/plugins/import/ImportShp.class.php:154
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "При імпорті файлу ESRI сталася помилка: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:207
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Спроба завантаження некоректного файлу, або файлу містить некоректні дані"
 
 #: libraries/plugins/import/ImportShp.class.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Просторове розширення MySQL не підтримує тип ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:261
 msgid "The imported file does not contain any data"
-msgstr ""
+msgstr "Імпортований файл не містить даних"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "Режим сумісності SQL:"
 
 #: libraries/plugins/import/ImportSql.class.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -8452,15 +8489,15 @@ msgstr "SQL історія"
 
 #: libraries/relation.lib.php:216
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Нещодавно використані таблиці"
 
 #: libraries/relation.lib.php:227
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Налаштування інтерфейсу часто використовуваних таблиць"
 
 #: libraries/relation.lib.php:249
 msgid "User preferences"
-msgstr ""
+msgstr "Користувацькі настройки"
 
 #: libraries/relation.lib.php:255
 msgid "Quick steps to setup advanced features:"
@@ -8482,10 +8519,14 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Підключіть додаткові функції в конфігураційному файлі "
+"(<code>config.inc.php</code>), почніть з прикладу в "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Перезайдіть в phpMyAdmin, щоб завантажити оновлений конфігураційний файл."
 
 #: libraries/relation.lib.php:1380
 msgid "no description"
@@ -8498,7 +8539,7 @@ msgstr "Зняти усі відмітки"
 
 #: libraries/replication_gui.lib.php:56
 msgid "Slave configuration"
-msgstr ""
+msgstr "Налаштування підлеглого сервера"
 
 #: libraries/replication_gui.lib.php:56 server_replication.php:333
 msgid "Change or reconfigure master server"
@@ -8509,6 +8550,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Переконайтеся, що в конфігураційному файлі (my.cnf) є унікальне значення "
+"server-id. При необхідності, додайте наступний рядок в розділ [mysqld]:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
 #: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
@@ -8525,11 +8568,11 @@ msgstr "Порт"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
-msgstr ""
+msgstr "Статус Master"
 
 #: libraries/replication_gui.lib.php:114
 msgid "Slave status"
-msgstr ""
+msgstr "Статус Slave"
 
 #: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:399
 #: server_status_variables.php:232 server_variables.php:166
@@ -8545,10 +8588,12 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Тільки підлеглі сервера запущені з ключем --report-host=host_name видимі в "
+"даному списку."
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Додайте підлеглого користувача реплікації"
 
 #: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1054
@@ -8591,6 +8636,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"При використанні таблиці хостів, дане поле ігнорується і значення беруться з "
+"прописаних при конфігурації."
 
 #: libraries/replication_gui.lib.php:386
 msgid "Generate Password"
