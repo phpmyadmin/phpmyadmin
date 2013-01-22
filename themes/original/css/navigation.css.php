@@ -58,14 +58,15 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation div.pageselector {
     text-align: center;
-    margin: 0 0 0 0.75em;
-    border-left: 1px solid #666;
+    margin: 0 0 0;
+    margin-<?php echo $left; ?>: 0.75em;
+    border-<?php echo $left; ?>: 1px solid #666;
 }
 
 #pma_navigation div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    padding:.3em;
+    padding: .3em;
 }
 
 #pma_navigation div#recentTableList {
@@ -93,7 +94,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* Navigation tree*/
 #pma_navigation_tree {
-    margin: 0.5em 0 0 1em;
+    margin: 0.5em 0 0;
+    margin-<?php echo $left; ?>: 1em;
     color: #444;
 }
 #pma_navigation_tree a {
@@ -153,21 +155,21 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     display: block;
     height: 0.75em;
     bottom: 0;
-    left: 0.75em;
+    <?php echo $left; ?>: 0.75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
 #pma_navigation_tree div.block a,
 #pma_navigation_tree div.block u {
     position: absolute;
-    left: 50%;
+    <?php echo $left; ?>: 50%;
     top: 50%;
     z-index: 10;
 }
 #pma_navigation_tree div.block img {
     position: relative;
     top: -0.6em;
-    left: 0;
-    margin-left: -5px;
+    <?php echo $left; ?>: 0;
+    margin-<?php echo $left; ?>: -5px;
 }
 #pma_navigation_tree li.last > ul {
     background: none;
