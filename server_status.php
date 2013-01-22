@@ -34,7 +34,7 @@ if (! empty($_REQUEST['kill'])) {
     if ($res) {
         $retval = PMA_DBI_fetch_single_row($res);
         
-        if ($info['basedir'] == '/rdsdbbin/mysql/') {
+        if ($retval['basedir'] == '/rdsdbbin/mysql/') {
             $kill_query = sprintf('CALL mysql.rds_kill(%d);', $_REQUEST['kill']);
         }
     }
