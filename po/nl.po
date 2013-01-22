@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-20 22:01+0200\n"
+"PO-Revision-Date: 2013-01-22 21:37+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -10116,7 +10116,6 @@ msgid "Error in ZIP archive:"
 msgstr "Fout in het ZIP-archief:"
 
 #: navigation.php:23
-#, fuzzy
 #| msgid "Fatal error: The navigation can only be accessed via ajax"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
