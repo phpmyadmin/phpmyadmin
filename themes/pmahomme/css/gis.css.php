@@ -30,7 +30,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
  * GIS data editor styles
  */
 a.close_gis_editor {
-    float:  <?php echo $right; ?>;
+    float: <?php echo $right; ?>;
 }
 
 #gis_editor {

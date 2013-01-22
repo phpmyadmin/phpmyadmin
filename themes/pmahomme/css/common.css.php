@@ -64,7 +64,8 @@ h2 {
     font-size: 2em;
     font-weight: normal;
     text-shadow: 0 1px 0 #fff;
-    padding: 10px 0 10px 3px;
+    padding: 10px 0 10px;
+    padding-<?php echo $left; ?>: 3px;
     color: #777;
 }
 
@@ -79,7 +80,7 @@ h2 a img {
 
 .data,
 .data_full_width {
-    margin: 0 0 12px 0;
+    margin: 0 0 12px;
 }
 
 .data_full_width {
@@ -263,10 +264,10 @@ fieldset {
     border: #aaa solid 1px;
     padding: 1.5em;
     background: #eee;
-    text-shadow: 0 1px 0 #fff;
-    -moz-box-shadow: 1px 1px 2px #fff inset;
-    -webkit-box-shadow: 1px 1px 2px #fff inset;
-    box-shadow: 1px 1px 2px #fff inset;
+    text-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
 }
 
 fieldset fieldset {
@@ -286,9 +287,9 @@ fieldset legend {
     -webkit-border-radius: 2px;
     border: 1px solid #aaa;
     background-color: #fff;
-    -moz-box-shadow: 3px 3px 15px #bbb;
-    -webkit-box-shadow: 3px 3px 15px #bbb;
-    box-shadow: 3px 3px 15px #bbb;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
 }
 
 .some-margin {
@@ -695,7 +696,7 @@ div.error h1 {
 div.success,
 div.notice,
 div.error {
-    margin: .5em 0 1.3em 0;
+    margin: .5em 0 1.3em;
     border: 1px solid;
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -950,7 +951,8 @@ ul#topmenu2 li {
 
 ul#topmenu2 a {
     display: block;
-    margin: 7px 6px 7px 0;
+    margin: 7px 6px 7px;
+    margin-<?php echo $left; ?>: 0;
     padding: 4px 10px;
     white-space: nowrap;
     border: 1px solid #ddd;
@@ -980,9 +982,9 @@ fieldset.caution a:hover {
 }
 
 ul#topmenu ul {
-    -moz-box-shadow: 1px 1px 6px #ddd;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 6px #ddd;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
 }
 
 ul#topmenu ul.only {
@@ -1135,7 +1137,7 @@ div#tablestatistics table {
 
 #goto_pagetop {
     position: fixed;
-    padding: .25em .25em .2em .25em;
+    padding: .25em .25em .2em;
     top: 0;
     <?php echo $right; ?>: 0;
     z-index: 900;
@@ -1149,7 +1151,8 @@ div#tablestatistics table {
 }
 
 #serverinfo img {
-    margin: 0 .1em 0 .2em;
+    margin: 0 .1em 0;
+    margin-<?php echo $left; ?>: .2em;
 }
 
 
@@ -1252,7 +1255,7 @@ h3#serverstatusqueries span {
 }
 
 img.sortableIcon {
-    float: right;
+    float: <?php echo $right; ?>;
     background-repeat: no-repeat;
     margin: 0;
 }
@@ -1345,9 +1348,9 @@ div#serverstatus div.tabLinks {
     border: 1px solid #CCC;
     margin: 0;
     padding: 3px;
-    -moz-box-shadow: 1px 1px 6px #ddd;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     background-color: #fff;
     z-index: 2;
 }
@@ -1384,7 +1387,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 
 .smallIndent {
-    padding-left: 7px;
+    padding-<?php echo $left; ?>: 7px;
 }
 
 /* end serverstatus */
@@ -1513,7 +1516,7 @@ div#querywindowcontainer fieldset {
 div#profilingchart {
     width: 550px;
     height: 370px;
-    float: left;
+    float: <?php echo $left; ?>;
 }
 
 /* END profiling */
@@ -1560,7 +1563,7 @@ a.button {
     font-weight: bold;
     text-shadow: 0 1px 0 #fff;
     line-height: 35px;
-    margin-left: 7px;
+    margin-<?php echo $left; ?>: 7px;
     border: 1px solid #aaa;
     padding: 5px 10px;
     color: #111;
@@ -1570,10 +1573,10 @@ a.button {
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
     /*
-    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
-    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px rgba(0,0,0,.5);
     text-shadow: #fff 0 1px 0;
     */
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
@@ -1762,7 +1765,7 @@ li#li_user_preferences {
     margin-top: 1em;
     margin-bottom: 1em;
     width: 98%;
-    margin-left: 1%;
+    margin-<?php echo $left; ?>: 1%;
     border-top: .1em solid silver;
     text-align: <?php echo $right; ?>;
 }
@@ -1809,8 +1812,6 @@ div.sqlvalidate {
     padding: 1em;
     margin-top: 0;
     margin-bottom: 0;
-    border-top: 0;
-    border-bottom: 0;
     max-height: 10em;
     overflow: auto;
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
@@ -1835,9 +1836,9 @@ div.sqlvalidate {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: 2px 2px 5px #ccc;
-    -webkit-box-shadow: 2px 2px 5px #ccc;
-    box-shadow: 3px 3px 10px #ddd;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     margin-bottom: 1em;
     padding-bottom: 1em;
 }
@@ -1850,13 +1851,14 @@ div.sqlvalidate {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px  #999 inset;
-    -webkit-box-shadow: 1px 1px 15px  #999 inset;
-    box-shadow: 1px 1px 15px  #999 inset;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
 }
 
 .group-cnt {
-    padding: 0 0 0 .5em;
+    padding: 0;
+    padding-<?php echo $left; ?>: .5em;
     display: inline-block;
     width: 98%;
 }
@@ -1913,14 +1915,14 @@ div.upload_progress_bar_outer div.percentage
 {
     position: absolute;
     top: 0;
-    left: 0;
+    <?php echo $left; ?>: 0;
     width: 202px;
 }
 
 div.upload_progress_bar_inner div.percentage
 {
     top: -1px;
-    left: -1px;
+    <?php echo $left; ?>: -1px;
 }
 
 div#statustext {
@@ -1931,7 +1933,7 @@ table#serverconnection_src_remote,
 table#serverconnection_trg_remote,
 table#serverconnection_src_local,
 table#serverconnection_trg_local  {
-  float: left;
+  float: <?php echo $left; ?>;
 }
 /**
   *  Validation error message styles
@@ -1950,7 +1952,7 @@ input[type=text].invalid_value,
     margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
-    margin-left: auto;
+    margin-<?php echo $left; ?>: auto;
     padding: 5px;   /** Keep a little space on the sides of the text */
     width: 350px;
 
@@ -1967,7 +1969,8 @@ input[type=text].invalid_value,
 
 /* additional styles */
 .ajax_notification {
-    margin-top: 200px;background: #ffe57e;
+    margin-top: 200px;
+    background: #ffe57e;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -2014,19 +2017,20 @@ input[type=text].invalid_value,
 #ldi_options label.desc,
 #latex_options label.desc,
 #output label.desc {
-    float: left;
+    float: <?php echo $left; ?>;
     width: 15em;
 }
 
 .exportoptions,
 .importoptions {
-    margin: 20px 30px 30px 10px
+    margin: 20px 30px 30px;
+    margin-<?php echo $left; ?>: 10px;
 }
 
 .exportoptions #buttonGo,
 .importoptions #buttonGo {
     font-weight: bold;
-    margin-left: 14px;
+    margin-<?php echo $left; ?>: 14px;
     border: 1px solid #aaa;
     padding: 5px 12px;
     color: #111;
@@ -2047,7 +2051,8 @@ input[type=text].invalid_value,
 }
 
 .format_specific_options h3 {
-    margin: 10px 0 0 10px;
+    margin: 10px 0 0;
+    margin-<?php echo $left; ?>: 10px;
     border: 0;
 }
 
@@ -2070,7 +2075,8 @@ select#table_select {
 }
 
 .export_sub_options {
-    margin: 20px 0 0 30px;
+    margin: 20px 0 0;
+    margin-<?php echo $left; ?>: 30px;
 }
 
 .export_sub_options h4 {
@@ -2114,7 +2120,7 @@ input#input_import_file {
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0;
+    <?php echo $left; ?>: 0;
     background: #000;
     z-index: 1000;
     overflow: hidden;
@@ -2157,7 +2163,7 @@ input#input_import_file {
 }
 
 #index_frm .index_info .label {
-    float: left;
+    float: <?php echo $left; ?>;
     min-width: 12em;
 }
 
@@ -2280,7 +2286,7 @@ table#index_columns select {
 }
 
 .config-form fieldset .errors { /* form error list */
-    margin: 0 -2px 1em -2px;
+    margin: 0 -2px 1em;
     padding: .5em 1.5em;
     background: #FBEAD9;
     border: 0 #C83838 solid;
@@ -2291,7 +2297,8 @@ table#index_columns select {
 }
 
 .config-form fieldset .inline_errors { /* field error list */
-    margin: .3em .3em .3em 0;
+    margin: .3em .3em .3em;
+    margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
     color: #9A0000;
@@ -2299,8 +2306,9 @@ table#index_columns select {
 }
 
 .config-form fieldset th {
-    padding: .3em .3em .3em .5em;
-    text-align: left;
+    padding: .3em .3em .3em;
+    padding-<?php echo $left; ?>: .5em;
+    text-align: <?php echo $left; ?>;
     vertical-align: top;
     width: 40%;
     background: transparent;
@@ -2309,7 +2317,7 @@ table#index_columns select {
 
 .config-form fieldset .doc,
 .config-form fieldset .disabled-notice {
-    margin-left: 1em;
+    margin-<?php echo $left; ?>: 1em;
 }
 
 .config-form fieldset .disabled-notice {
@@ -2336,7 +2344,7 @@ table#index_columns select {
 .config-form fieldset th,
 .config-form fieldset td {
     border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
-    border-right: none;
+    border-<?php echo $right; ?>: none;
 }
 
 fieldset .group-header th {
@@ -2349,16 +2357,16 @@ fieldset .group-header + tr th {
 
 fieldset .group-field-1 th,
 fieldset .group-header-2 th {
-    padding-left: 1.5em;
+    padding-<?php echo $left; ?>: 1.5em;
 }
 
 fieldset .group-field-2 th,
 fieldset .group-header-3 th {
-    padding-left: 3em;
+    padding-<?php echo $left; ?>: 3em;
 }
 
 fieldset .group-field-3 th {
-    padding-left: 4.5em;
+    padding-<?php echo $left; ?>: 4.5em;
 }
 
 fieldset .disabled-field th,
@@ -2432,7 +2440,7 @@ fieldset .disabled-field td {
 
 /* error list */
 .config-form dd {
-    margin-left: .5em;
+    margin-<?php echo $left; ?>: .5em;
 }
 
 .config-form dd:before {
@@ -2533,7 +2541,7 @@ fieldset .disabled-field td {
 #placeholder {
     position: relative;
     border: 1px solid #aaa;
-    float: right;
+    float: <?php echo $right; ?>;
     overflow: hidden;
 }
 
@@ -2583,13 +2591,13 @@ fieldset .disabled-field td {
 .colborder {
     cursor: col-resize;
     height: 100%;
-    margin-left: -6px;
+    margin-<?php echo $left; ?>: -6px;
     position: absolute;
     width: 5px;
 }
 
 .colborder_active {
-    border-right: 2px solid #a44;
+    border-<?php echo $right; ?>: 2px solid #a44;
 }
 
 .pma_table td {
@@ -2633,7 +2641,7 @@ fieldset .disabled-field td {
 .cPointer {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_pointer.png');?>);
     height: 20px;
-    margin-left: -5px;  /* must be minus half of its width */
+    margin-<?php echo $left; ?>: -5px;  /* must be minus half of its width */
     margin-top: -10px;
     position: absolute;
     width: 10px;
@@ -2667,7 +2675,7 @@ fieldset .disabled-field td {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
-    margin-left: .3em;
+    margin-<?php echo $left; ?>: .3em;
     margin-top: .3em;
     position: absolute;
     width: 16px;
@@ -2688,7 +2696,8 @@ fieldset .disabled-field td {
 }
 
 .cList .lDiv div {
-    padding: .2em .5em .2em .2em;
+    padding: .2em .5em .2em;
+    padding-<?php echo $left; ?>: .2em;
 }
 
 .cList .lDiv div:hover {
@@ -2808,7 +2817,7 @@ fieldset .disabled-field td {
 
 .cEdit .edit_box_posting {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
-    padding-right: 1.5em;
+    padding-<?php echo $right; ?>: 1.5em;
 }
 
 .cEdit .edit_area_loading {
@@ -2824,12 +2833,12 @@ fieldset .disabled-field td {
 
 .saving_edited_data {
     background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
-    padding-left: 20px;
+    padding-<?php echo $left; ?>: 20px;
 }
 
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl { text-align: <?php echo $left; ?>; }
 .ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
 .ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }

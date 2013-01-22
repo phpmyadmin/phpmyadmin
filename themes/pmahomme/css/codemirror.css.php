@@ -76,7 +76,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
   z-index: 10;
   position: absolute;
   visibility: hidden;
-  border-left: 1px solid black !important;
+  border-<?php echo $left; ?>: 1px solid black !important;
 }
 
 .CodeMirror-focused .CodeMirror-cursor {
