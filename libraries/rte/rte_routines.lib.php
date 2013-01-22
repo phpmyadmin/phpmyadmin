@@ -1368,7 +1368,7 @@ function PMA_RTN_handleExecute()
                 $message = PMA_message::error(
                     sprintf(
                         __('The following query has failed: "%s"'),
-                        htmlspecialchars($query)
+                        htmlspecialchars($multiple_query)
                     )
                     . '<br /><br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null)
