@@ -194,6 +194,7 @@ li.fast_filter {
     border-<?php echo $left; ?>: 1px solid #666;
 }
 li.fast_filter input {
+    padding-<?php echo $right; ?>: .4em;
     width: 100%;
 }
 li.fast_filter span {
