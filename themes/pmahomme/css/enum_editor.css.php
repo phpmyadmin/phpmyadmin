@@ -34,7 +34,8 @@ p.enum_notice {
 #enum_editor .add td {
     vertical-align: middle;
     width: 50%;
-    padding: 0 0 0 1em;
+    padding: 0 0 0;
+    padding-<?php echo $left; ?>: 1em;
 }
 
 #enum_editor .values td.drop {
@@ -45,7 +46,7 @@ p.enum_notice {
 
 #enum_editor .values input {
     margin: .1em 0;
-    padding-right: 2em;
+    padding-<?php echo $right; ?>: 2em;
     width: 100%;
 }
 
@@ -55,12 +56,13 @@ p.enum_notice {
 }
 
 #enum_editor input.add_value {
-    margin: 0 .4em 0 0;
+    margin: 0;
+    margin-<?php echo $right; ?>: 0.4em;
 }
 
 #enum_editor_output textarea {
     width: 100%;
-    float: right;
+    float: <?php echo $right; ?>;
     margin: 1em 0 0 0;
 }
 
@@ -73,6 +75,6 @@ p.enum_notice {
 
 .enum_hint a {
     position: absolute;
-    left: 81%;
+    <?php echo $left; ?>: 81%;
     bottom: .35em;
 }

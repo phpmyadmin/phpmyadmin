@@ -20,7 +20,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 .content_fullscreen {
-    position : relative;
+    position: relative;
     overflow: auto;
 }
 
@@ -94,7 +94,7 @@ canvas.pmd * {
     position: absolute;
     background-color: #99FF99;
     color: #000;
-    left: 200px;
+    <?php echo $left; ?>: 200px;
     top: 50px;
     z-index: 3;
     border: #00CC66 solid 1px;
@@ -115,7 +115,7 @@ canvas.pmd * {
     text-indent: 3px;
     font-weight: bold;
     margin-left: 2px;
-    text-align: left;
+    text-align: <?php echo $left; ?>;
     background-color: #fff;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/left_panel_butt.png'); ?>);
     border: #ccc solid 1px;
@@ -130,7 +130,7 @@ canvas.pmd * {
     white-space: nowrap;
     text-decoration: none;
     border: #9999FF solid 1px;
-    text-align: left;
+    text-align: <?php echo $left; ?>;
 }
 
 .owner {
@@ -290,15 +290,15 @@ canvas.pmd * {
 
 .pmd_header a {
     display: block;
-    float: left;
-    margin: 3px 1px 4px 1px;
+    float: <?php echo $left; ?>;
+    margin: 3px 1px 4px;
     height: 20px;
     border: 1px dotted #fff;
 }
 
 .pmd_header .M_bord {
     display: block;
-    float: left;
+    float: <?php echo $left; ?>;
     margin: 4px;
     height: 20px;
     width: 2px;
@@ -330,21 +330,21 @@ a.M_butt:hover {
 #layer_menu {
     z-index: 100;
     position: absolute;
-    left: 0;
+    <?php echo $left; ?>: 0;
     background-color: #EAEEF0;
     border: #999 solid 1px;
 }
 
 #layer_upd_relation {
     position: absolute;
-    left: 637px;
+    <?php echo $left; ?>: 637px;
     top: 224px;
     z-index: 100;
 }
 
 #layer_new_relation {
     position: absolute;
-    left: 636px;
+    <?php echo $left; ?>: 636px;
     top: 85px;
     z-index: 100;
     width: 153px;
@@ -352,7 +352,7 @@ a.M_butt:hover {
 
 #pmd_optionse {
     position: absolute;
-    left: 636px;
+    <?php echo $left; ?>: 636px;
     top: 85px;
     z-index: 100;
     width: 153px;
@@ -368,13 +368,14 @@ a.M_butt:hover {
 .panel {
     position: fixed;
     top: 60px;
-    right: 0;
+    <?php echo $right; ?>: 0;
     display: none;
     background: #FFF;
     border: 1px solid gray;
     width: 350 px;
     height: auto;
-    padding: 30px 170px 30px 30px;
+    padding: 30px 170px 30px;
+    padding-<?php echo $left; ?>: 30px;
     color: #FFF;
     z-index: 102;
 }
@@ -382,7 +383,8 @@ a.M_butt:hover {
 a.trigger {
     position: fixed;
     text-decoration: none;
-    top: 60px; right: 0;
+    top: 60px;
+    <?php echo $right; ?>: 0;
     color: #fff;
     padding: 10px 40px 10px 15px;
     background: #333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/plus.png'); ?>) 85% 55% no-repeat;
@@ -410,10 +412,10 @@ h2.tiger {
     background-repeat: repeat-x;
     padding: 1px;
     font-weight: bold;
-    padding: 50 20 50 20px;
+    padding: 50px 20px 50px;
     margin: 0 0 5px 0;
     width: 250px;
-    float: left;
+    float: <?php echo $left; ?>;
     color : #333;
     text-align: center;
 }
@@ -442,7 +444,7 @@ h2.active {
     margin: 0 0 5px;
     padding: 0;
     border-top: 1px solid #d6d6d6;
-    background: #FFF ;
+    background: #FFF;
     width: 250px;
     overflow: hidden;
     font-size: 1.2em;
@@ -451,7 +453,7 @@ h2.active {
 
 .toggle_container .block {
     background-color: #DBE4E8;
-    padding: 40 15 40 15px; /*--Padding of Container--*/
+    padding: 40px 15px 40px 15px; /*--Padding of Container--*/
     border:1px solid #999;
     color: #000;
 }
@@ -483,7 +485,7 @@ h2.active {
     display: none;
     position: absolute;
     top: 20%;
-    left: 30%;
+    <?php echo $left; ?>: 30%;
     width: 500px;
     height: 220px;
     padding: 48px;
@@ -498,31 +500,30 @@ h2.active {
     position: absolute;
     float: center;
     top: 0;
-    left: 0;
+    <?php echo $left; ?>: 0;
     width: 593px;
     height: 20px;
     padding: 0;
     padding-top: 4px;
-    left-padding: 8px;
     margin: 0;
     border-bottom: 4px solid #3CF;
     background-color: #D0DCE0;
     color: black;
     font-weight: bold;
-    padding-left: 2px;
-    text-align: left;
+    padding-<?php echo $left; ?>: 2px;
+    text-align: <?php echo $left; ?>;
 }
 
 #tblfooter {
     background-color: #D3DCE3;
-    float: right;
+    float: <?php echo $right; ?>;
     padding-top: 10px;
     color: black;
     font-weight: normal;
 }
 
 #foreignkeychk {
-    align:left;
-    position:absolute;
-    cursor:pointer;
+    text-align: <?php echo $left; ?>;
+    position: absolute;
+    cursor: pointer;
 }
