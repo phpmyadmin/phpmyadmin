@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 22:30+0200\n"
-"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
+"PO-Revision-Date: 2013-01-22 13:07+0200\n"
+"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -6448,6 +6448,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"Максимальний розмір файлу журналу даних. Початкове значення 64MB. PBXT "
+"максимально може створити 32000 журналів даних, використовуваних усіма "
+"таблицями. Таким чином, значення даної змінної може бути збільшено для "
+"збільшення загального обсягу даних, які можуть зберігатися в базі даних."
 
 #: libraries/engines/pbxt.lib.php:57
 msgid "Garbage threshold"
@@ -6458,6 +6462,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"Процентне співвідношення захаращення у файлі журналу даних до його "
+"компонування. Значення між 1 і 99. Початкове значення 50."
 
 #: libraries/engines/pbxt.lib.php:62
 msgid "Log buffer size"
@@ -6469,6 +6475,9 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Розмір буфера використовуваний для запису журналу даних. За замовчуванням "
+"256MB. Двигун виділяє один буфер на потік, але тільки якщо потік потрібно "
+"для запису даних журналу."
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
@@ -6497,6 +6506,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Кількість файлів журналів транзакцій (pbxt/system/xlog*.Xt) зберігаються "
+"системою. При перевищенні кількості журналів даного значення, старі журнали "
+"будуть вилучені, інакше вони будуть перейменовані і отримають наступний "
+"порядковий номер."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -6696,6 +6709,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Укласти імена таблиць і полів у зворотні лапки <i> (Захищає імена таблиць і "
+"полів, які містять спеціальні символи або зарезервовані слова)</i>"
 
 #: libraries/export/sql.php:231
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -6742,24 +6757,34 @@ msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"комбінація обох верхніх варіантів <br /> &nbsp; &nbsp; &nbsp; Example: "
+"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/export/sql.php:277
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"жоден з вище перерахованих <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/export/sql.php:292
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Збереження бінарних полів в шістнадцятковому вигляді <i>(наприклад, \"abc\" "
+"стане 0x616263)</i>"
 
 #: libraries/export/sql.php:301
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Зберігати поля з типом TIMESTAMP в UTC <i>(дозволяє зберегти і перенести "
+"поля з типом TIMESTAMP між серверами, що знаходяться в різних часових "
+"зонах)</i>"
 
 #: libraries/export/sql.php:342 libraries/export/xml.php:45
 msgid "Procedures"
@@ -6771,27 +6796,27 @@ msgstr "Функції"
 
 #: libraries/export/sql.php:855
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "Обмеження зовнішнього ключа збережених таблиць"
 
 #: libraries/export/sql.php:864
 msgid "Constraints for table"
-msgstr ""
+msgstr "Обмеження зовнішнього ключа таблиці"
 
 #: libraries/export/sql.php:963
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "MIME-ТИПИ ТАБЛИЦІ"
 
 #: libraries/export/sql.php:975
 msgid "RELATIONS FOR TABLE"
-msgstr ""
+msgstr "ЗВ'ЯЗКИ ТАБЛИЦІ"
 
 #: libraries/export/sql.php:1044
 msgid "Structure for view"
-msgstr ""
+msgstr "Структура для представлення"
 
 #: libraries/export/sql.php:1053
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Дублююча структура для представлення"
 
 #: libraries/export/sql.php:1112
 #| msgid "Allows reading data."
@@ -6804,7 +6829,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Параметри створення об'єкта (рекомендується вибрати всі)"
 
 #: libraries/export/xml.php:62
 msgid "Views"
@@ -6812,7 +6837,7 @@ msgstr "Подання"
 
 #: libraries/export/xml.php:78
 msgid "Export contents"
-msgstr ""
+msgstr "Експортувати вміст"
 
 #: libraries/footer.inc.php:163 libraries/footer.inc.php:165
 #: libraries/footer.inc.php:168
@@ -6821,11 +6846,11 @@ msgstr "Відкрити нове вікно phpMyAdmin"
 
 #: libraries/gis_visualization.lib.php:134
 msgid "No data found for GIS visualization."
-msgstr ""
+msgstr "Дані для візуалізації GIS не знайдені."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "спроба перезапису GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
@@ -6843,20 +6868,21 @@ msgstr "MySQL повернула пустий результат (тобто н�
 #: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Наступні структури були створені, або змінені. Ви можете:"
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
-msgstr ""
+msgstr "Переглянути деталі структури натиснувши на її ім'я"
 
 #: libraries/import.lib.php:1102
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
+"Змінити будь-яку настройку натиснувши на відповідне посилання \"Параметри\""
 
 #: libraries/import.lib.php:1103
 msgid "Edit structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Відредагувати структуру перейшовши за посиланням \"Структура\""
 
 #: libraries/import.lib.php:1106
 #, php-format
@@ -6891,6 +6917,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Перший рядок файлу містить імена полів таблиці <i>(якщо даний параметр не "
+"вибрано, то перший рядок буде частиною даних)</i>"
 
 #: libraries/import/csv.php:40
 msgid ""
@@ -6898,6 +6926,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Якщо дані в рядках файлу розташовані не в тому ж порядку, як в базі даних, "
+"введіть тут імена полів у відповідній послідовності. Імена полів "
+"розділяються комами і не повинні бути вкладені в лапки."
 
 #: libraries/import/csv.php:42
 #| msgid "Column names"
@@ -6908,7 +6939,7 @@ msgstr "Назви стовпців: "
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Неправильний параметр імпорту CSV: %s"
 
 #: libraries/import/csv.php:132
 #, php-format
@@ -6916,20 +6947,22 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Зазначено помилкове ім'я стовпця (%s)! Переконайтеся, що назви стовпців "
+"вказані вірно, розділені комами, і не вкладені в лапки."
 
 #: libraries/import/csv.php:191 libraries/import/csv.php:451
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Неправильний формат вхідних CSV-даних в рядку %d."
 
 #: libraries/import/csv.php:337
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "Невідповідність кількості стовпців в CSV даних на рядку %d."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
-msgstr ""
+msgstr "DocSQL"
 
 #: libraries/import/docsql.php:32 libraries/tbl_properties.inc.php:567
 #: server_synchronize.php:441 server_synchronize.php:913
@@ -6943,15 +6976,17 @@ msgstr "Назви колонок"
 
 #: libraries/import/ldi.php:57
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "Цей модуль не підтримує імпорт стиснених даних!"
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Імпортувати відсотки у вигляді десяткових значень <i>(напр. 12.00% в "
+".12)</i>"
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Імпортувати грошові одиниці <i>(напр. $ 5.00 в 5.00)</i>"
 
 #: libraries/import/ods.php:88 libraries/import/xml.php:83
 #: libraries/import/xml.php:139
@@ -6959,41 +6994,43 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"Обраний XML файл некоректний, або неповний. Перевірте можливі помилки і "
+"спробуйте ще раз."
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Файл ESRI"
 
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "При імпорті файлу ESRI сталася помилка: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Спроба завантаження некоректного файлу, або файлу містить некоректні дані"
 
 #: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Просторове розширення MySQL не підтримує тип ESRI \"%s\"."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
-msgstr ""
+msgstr "Імпортований файл не містить даних"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
-msgstr ""
+msgstr "Режим сумісності SQL:"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Не використовувати <code>AUTO_INCREMENT</code> для нульових значень"
 
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
@@ -7002,7 +7039,7 @@ msgstr "Немає"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Конвертувати в Кану"
 
 #: libraries/mult_submits.inc.php:254
 #| msgid "Fr"
@@ -7233,7 +7270,7 @@ msgstr "Вийти з системи"
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Оновити фрейм навігації"
 
 #: libraries/plugin_interface.lib.php:309
 #| msgid "This format has no options"
@@ -7287,15 +7324,15 @@ msgstr "SQL історія"
 
 #: libraries/relation.lib.php:136
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Нещодавно використані таблиці"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Налаштування інтерфейсу часто використовуваних таблиць"
 
 #: libraries/relation.lib.php:148
 msgid "User preferences"
-msgstr ""
+msgstr "Користувацькі настройки"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
@@ -7317,10 +7354,14 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Підключіть додаткові функції в конфігураційному файлі "
+"(<code>config.inc.php</code>), почніть з прикладу в "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:157
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Перезайдіть в phpMyAdmin, щоб завантажити оновлений конфігураційний файл."
 
 #: libraries/relation.lib.php:1130
 msgid "no description"
@@ -7328,7 +7369,7 @@ msgstr "без опису"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
-msgstr ""
+msgstr "Налаштування підлеглого сервера"
 
 #: libraries/replication_gui.lib.php:54 server_replication.php:353
 msgid "Change or reconfigure master server"
@@ -7339,6 +7380,8 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Переконайтеся, що в конфігураційному файлі (my.cnf) є унікальне значення "
+"server-id. При необхідності, додайте наступний рядок в розділ [mysqld]:"
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
@@ -7350,11 +7393,11 @@ msgstr "Ім'я користувача"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Master status"
-msgstr ""
+msgstr "Статус Master"
 
 #: libraries/replication_gui.lib.php:109
 msgid "Slave status"
-msgstr ""
+msgstr "Статус Slave"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
 #: server_status.php:1488 server_variables.php:123
@@ -7378,10 +7421,12 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Тільки підлеглі сервера запущені з ключем --report-host=host_name видимі в "
+"даному списку."
 
 #: libraries/replication_gui.lib.php:246 server_replication.php:192
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Додайте підлеглого користувача реплікації"
 
 #: libraries/replication_gui.lib.php:260 server_privileges.php:799
 msgid "Any user"
@@ -7415,6 +7460,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"При використанні таблиці хостів, дане поле ігнорується і значення беруться з "
+"прописаних при конфігурації."
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
@@ -7433,12 +7480,12 @@ msgstr "Наступний запит не виконався: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:125
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Неможливо відновити видалену подію."
 
 #: libraries/rte/rte_events.lib.php:128 libraries/rte/rte_routines.lib.php:278
 #: libraries/rte/rte_triggers.lib.php:101
 msgid "The backed up query was:"
-msgstr ""
+msgstr "Збережений запит був:"
 
 #: libraries/rte/rte_events.lib.php:134
 #, php-format
@@ -7516,13 +7563,13 @@ msgstr "По завершенні збереження"
 #: libraries/rte/rte_events.lib.php:492 libraries/rte/rte_routines.lib.php:950
 #: libraries/rte/rte_triggers.lib.php:379
 msgid "Definer"
-msgstr ""
+msgstr "Визначник"
 
 #: libraries/rte/rte_events.lib.php:535
 #: libraries/rte/rte_routines.lib.php:1014
 #: libraries/rte/rte_triggers.lib.php:417
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "Визначник повинен бути в форматі \"username@hostname\""
 
 #: libraries/rte/rte_events.lib.php:542
 msgid "You must provide an event name"
@@ -7530,19 +7577,19 @@ msgstr "Ви повинні вказати назву події"
 
 #: libraries/rte/rte_events.lib.php:554
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Необхідно задати коректний інтервал значень для події."
 
 #: libraries/rte/rte_events.lib.php:566
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Необхідно задати коректний час виконання події."
 
 #: libraries/rte/rte_events.lib.php:570
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Необхідно задати коректний тип події."
 
 #: libraries/rte/rte_events.lib.php:594
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Ви повинні задати визначення події."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2413
 msgid "New"
@@ -7558,7 +7605,7 @@ msgstr "Включити"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Статус планувальника подій"
 
 #: libraries/rte/rte_list.lib.php:54
 msgid "Returns"
@@ -7574,6 +7621,10 @@ msgid ""
 "handling multi queries. <b>The execution of some stored routines may fail!</"
 "b> Please use the improved 'mysqli' extension to avoid any problems."
 msgstr ""
+"Ви використовуєте застарілу 'mysql' розширення PHP, яке не дозволяє "
+"виконання множинних запитів. <b> Виконання деяких збережених процедур може "
+"привести до помилки!</b> Будь ласка, для уникнення проблем, використовуйте "
+"покращене 'mysqli' розширення."
 
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1022
@@ -7662,26 +7713,28 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Ви повинні задати довжину/значення для параметрів процедури, що мають тип "
+"ENUM, SET, VARCHAR і VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1083
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Ви повинні задати ім'я і тип для кожного параметра процедури."
 
 #: libraries/rte/rte_routines.lib.php:1093
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Необхідно задати коректний тип, що повертатиму процедуру."
 
 #: libraries/rte/rte_routines.lib.php:1137
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Ви повинні задати визначення процедури."
 
 #: libraries/rte/rte_routines.lib.php:1227
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Останнім виразом у процедурі була задіяно %d рядок"
+msgstr[1] "Останнім виразом у процедурі були задіяні %d рядки"
+msgstr[2] "Останнім виразом у процедурі було задіяно %d рядків"
 
 #: libraries/rte/rte_routines.lib.php:1243
 #, php-format
@@ -7893,10 +7946,9 @@ msgid "Page name"
 msgstr "Назва сторінки"
 
 #: libraries/schema/User_Schema.class.php:126
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Автоматичний layout"
+msgstr "Автоматична розкладка заснована на"
 
 #: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
@@ -7924,7 +7976,7 @@ msgstr "Відобразити схему зв'язків"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Виберіть тип експорту зв'язків"
 
 #: libraries/schema/User_Schema.class.php:413
 msgid "Show grid"
@@ -7944,7 +7996,7 @@ msgstr "Показувати всі таблиці однакової ширин
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
-msgstr ""
+msgstr "Показувати тільки ключі"
 
 #: libraries/schema/User_Schema.class.php:427
 msgid "Landscape"
@@ -7976,7 +8028,6 @@ msgstr "ввімкнути чорновик (scratchboard)"
 
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
-#, fuzzy
 msgid "ltr"
 msgstr "зліва направо"
 
@@ -8024,7 +8075,7 @@ msgstr ""
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 msgid "Source database"
-msgstr ""
+msgstr "Джерело бази даних"
 
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
@@ -8149,7 +8200,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "В кінець запиту була автоматично додана зворотна лапка!"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
@@ -8174,12 +8225,12 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "Таблиця - порожня!"
 
 #: libraries/tbl_links.inc.php:126
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Стеження за %s.%s включено."
 
 #: libraries/tbl_properties.inc.php:98
 msgid ""
@@ -8238,7 +8289,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:327
 msgid "Get more editing space"
-msgstr ""
+msgstr "Відкрити розширений редактор"
 
 #: libraries/tbl_properties.inc.php:351
 #| msgid "None"
@@ -8248,7 +8299,7 @@ msgstr "Немає"
 
 #: libraries/tbl_properties.inc.php:352
 msgid "As defined:"
-msgstr ""
+msgstr "Як визначено:"
 
 #: libraries/tbl_properties.inc.php:466 tbl_structure.php:152
 #: tbl_structure.php:157 tbl_structure.php:591
@@ -8273,11 +8324,11 @@ msgstr "Необхідно додати принаймні один стовпч
 #: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
-msgstr ""
+msgstr "Тип таблиць"
 
 #: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
-msgstr ""
+msgstr "Визначення розділів (PARTITION)"
 
 #: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
@@ -8286,10 +8337,9 @@ msgid "Operator"
 msgstr "Оператор"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Шукати"
+msgstr "Пошук в таблиці"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
 #| msgid "Insert"
@@ -8312,12 +8362,20 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"Відображає посилання для завантаження бінарних даних поля. Можливе "
+"використання першого параметра для вибору імені файлу, або використання "
+"другого параметра, як імені поля, яке містить ім'я файлу. У разі "
+"використання другого параметра, перший необхідно встановити у вигляді "
+"порожнього рядка."
 
 #: libraries/transformations/application_octetstream__hex.inc.php:10
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"Відображає дані у шістнадцятковому представленні. Необов'язковий перший "
+"параметр може бути використаний для вказівки на те, через які проміжки буде "
+"додаватися пробіл (за замовчуванням після двох півбайт)."
 
 #: libraries/transformations/image_jpeg__inline.inc.php:10
 #: libraries/transformations/image_png__inline.inc.php:10
@@ -8343,9 +8401,15 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
+"Відображає поля типу TIME, TIMESTAMP, DATETIME або час у форматі Unix, у "
+"вигляді форматованого виводу. Перший параметр додає зсув, в годиннику (за "
+"замовчуванням: 0). Другий параметр задає інше форматування рядка дати/часу. "
+"Третій параметр визначає установку локального (рядок \"local\") або "
+"всесвітнього (рядок \"utc\") часу. Відповідно до встановленого третім "
+"параметром формат дати повинен мати різні значення - для \"local\" дивіться "
+"опис функції PHP strftime(), для \"utc\" - gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "UX ONLY: Launches an external application and feeds it the field data  "
 #| "standard input. Returns the standard output of the application. The ault "
@@ -8369,16 +8433,16 @@ msgid ""
 "will prevent wrapping and ensure that the output appears all on one line "
 "(Default 1)."
 msgstr ""
-"LINUX ONLY: Запускає зовнішню програму і подає дані через стандартний ввід. "
-"Повертає снаддартний вивід програми. За замовчуванням програмою є Tidy, яка "
-"гарно друкує HTML код. З міркувань безпеки, Вам потрібно самостійно "
-"відредагувати файл libraries/transformations/text_plain__external.inc.php та "
-"вписати програми дозволені для запуску. У такому випадку, перша опція - "
-"кількість програм, які Ви бажаєте використовувати і друга - параметри для "
-"програм. Третя опція, встановлена в 1, буде ковертувати вивід використовуючи "
-"htmlspecialchars() (за замовчуванням: 1). Четверта опція, встановлена в 1, "
-"буде додавати NOWRAP до кожної комірки контенту, так що веси вивід буде "
-"показано без переформатування (за замовчуванням: 1)"
+"ТІЛЬКИ LINUX: Запускає зовнішню програму і подає йому на введення дані поля. "
+"Повертає звичайний вивід додатка. За замовчуванням використовується Tidy "
+"(форматування HTML-коду). З міркувань безпеки, необхідно вручну "
+"відредагувати файл libraries/transformations/text_plain__external.inc.php "
+"вписавши доступні програми. Перший параметр задає номер використовуваної "
+"програми, у другому параметрі передаються параметри власне програми. При "
+"встановленні третього параметра в 1, дані виведення будуть перетворені "
+"функцією PHP htmlspecialchars() (за замовчуванням: 1). Установка четвертого "
+"параметра в 1, запобіжить переноси рядків і виведе дані в один рядок (за "
+"замовчуванням: 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
 msgid ""
@@ -8413,10 +8477,12 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Конвертує мережеву адресу (IPv4) в стандартний рядок з роздільником у "
+"вигляді точки."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "Форматує текст у вигляді SQL запиту з підсвічуванням синтаксису."
 
 #: libraries/transformations/text_plain__substr.inc.php:10
 msgid ""
@@ -8433,10 +8499,9 @@ msgstr ""
 "виведеного текстового сегменту (за замовчуванням: ...) ."
 
 #: libraries/user_preferences.inc.php:33
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Загальні можливості"
+msgstr "Керування налаштуваннями"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
 #| msgid "Modifications have been saved"
@@ -8449,25 +8514,30 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Ваші налаштування будуть збережені тільки для поточної сесії. Для постійного "
+"зберігання потрібне підключення модуля %sзберігання налаштувань phpMyAdmin%"
+"s."
 
 #: libraries/user_preferences.lib.php:116
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Не вдалось зберегти настройки"
 
 #: libraries/user_preferences.lib.php:282
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Ваш браузер містить налаштування phpMyAdmin для даного домену. Хочете "
+"імпортувати їх для поточної сесії?"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "Файлів всередині ZIP-архіву не знайдено!"
 
 #: libraries/zip_extension.lib.php:53 libraries/zip_extension.lib.php:55
 #: libraries/zip_extension.lib.php:70
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "Помилка в ZIP-архіві:"
 
 #: main.php:65
 #| msgid "General relation features"
@@ -8621,7 +8691,7 @@ msgstr ""
 "необхідно видалити."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -8629,8 +8699,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Додаткова можливість роботи із залінкованими таблицями деактивована. Для "
-"того, щоб довідатись чому, натисніть %sтут%s."
+"Додаткові можливості phpMyAdmin не налаштовані повною мірою, деякі функції "
+"були відключені. Для визначення причини натисніть %sтут%s."
 
 #: main.php:336
 msgid ""
@@ -8638,6 +8708,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Підтримка JavaScript у вашому браузері відсутня або відключена, деякі "
+"функції phpMyAdmin буде відсутній. Наприклад, фрейм навігації не буде "
+"оновлюватися автоматично."
 
 #: main.php:355
 #, php-format
@@ -8678,7 +8751,7 @@ msgstr "Прошу вибрати БД"
 
 #: pmd_general.php:64
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "Показати/приховати ліве меню"
 
 #: pmd_general.php:68
 msgid "Save position"
@@ -8726,10 +8799,9 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Імпортувати/Експортувати координати для PDF схеми"
 
 #: pmd_general.php:110
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Виконати запит"
+msgstr "Cкласти запит"
 
 #: pmd_general.php:115
 msgid "Move Menu"
@@ -9099,7 +9171,7 @@ msgstr ""
 #: server_privileges.php:286 server_privileges.php:641
 #: server_privileges.php:645
 msgid "Allows creating new views."
-msgstr ""
+msgstr "Дозволяє створення нових уявлень (CREATE VIEW)."
 
 #: server_privileges.php:43 server_privileges.php:209
 #: server_privileges.php:621
@@ -9250,7 +9322,6 @@ msgid "No privileges."
 msgstr "Немає прав."
 
 #: server_privileges.php:405 server_privileges.php:406
-#, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
@@ -9408,6 +9479,9 @@ msgstr "Додати права для цієї бази даних"
 #: server_privileges.php:2126
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
+"При використанні в імені бази даних символів нижнього підкреслення _ і "
+"відсотка%, необхідно екранувати їх символом зворотної косої межі \\, в іншому "
+"випадку вони будуть інтерпретовані як групові символи"
 
 #: server_privileges.php:2129
 msgid "Add privileges on the following table"
@@ -9446,7 +9520,7 @@ msgstr ""
 
 #: server_privileges.php:2217
 msgid "Database for user"
-msgstr ""
+msgstr "База даних для користувача"
 
 #: server_privileges.php:2221
 #, fuzzy
@@ -9458,15 +9532,19 @@ msgstr "Немає"
 #: server_privileges.php:2222
 msgid "Create database with same name and grant all privileges"
 msgstr ""
+"Створити базу даних з ім'ям користувача в назві та надати на неї повні "
+"привілеї"
 
 #: server_privileges.php:2223
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
+"Надати повні привілеї на бази даних підпадають під шаблон (ім'я "
+"користувача\\_%)"
 
 #: server_privileges.php:2227
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr ""
+msgstr "Виставити повні привілеї на базу даних &quot;%s&quot;"
 
 #: server_privileges.php:2252
 #, php-format
@@ -9492,39 +9570,41 @@ msgstr "Користувача було додано."
 
 #: server_replication.php:49
 msgid "Unknown error"
-msgstr ""
+msgstr "Невідома помилка"
 
 #: server_replication.php:56
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Неможливо з'єднатися з головним сервером %s."
 
 #: server_replication.php:63
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Неможливо прочитати позицію журналу в головного сервера. Ймовірно проблема в "
+"налаштуванні привілеїв головного сервера."
 
 #: server_replication.php:69
 msgid "Unable to change master"
-msgstr ""
+msgstr "Неможливо змінити головной сервер"
 
 #: server_replication.php:72
-#, fuzzy, php-format
+#, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
-msgstr "Права успішно перезавантажено."
+msgstr "Головний сервер успішно змінений на %s"
 
 #: server_replication.php:180
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Даний сервер налаштований головним в процесі реплікації."
 
 #: server_replication.php:182 server_status.php:627
 msgid "Show master status"
-msgstr ""
+msgstr "Показати стан головного сервера"
 
 #: server_replication.php:185
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Показати з'єднані підлеглі сервера"
 
 #: server_replication.php:208
 #, php-format
@@ -9532,10 +9612,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Даний сервер не налаштований в якості головного для процесу реплікації. "
+"Хочете справити <a href=\"%s\">настройку</a>?"
 
 #: server_replication.php:215
 msgid "Master configuration"
-msgstr ""
+msgstr "Налаштування головного сервера"
 
 #: server_replication.php:216
 msgid ""
@@ -9545,24 +9627,31 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Даний сервер не налаштований в якості головного для процесу реплікації. Ви "
+"можете вибрати реплікацію всіх баз даних з ігноруванням певних "
+"(використовуйте, якщо хочете провести реплікацію більшості баз даних), або "
+"вибрати ігнорування всіх баз даних за замовчуванням і дозвіл для реплікації "
+"тільки певних. Будь ласка, виберіть бажаний режим:"
 
 #: server_replication.php:219
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Реплікація всіх баз даних; ігнорувати:"
 
 #: server_replication.php:220
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Ігнорувати всі бази даних; реплікація:"
 
 #: server_replication.php:223
 msgid "Please select databases:"
-msgstr ""
+msgstr "Будь ласка, виберіть бази даних:"
 
 #: server_replication.php:226
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Тепер додайте дані рядка в кінець розділу [mysqld] конфігураційного файлу "
+"my.cnf, після чого перезапустіть сервер MySQL."
 
 #: server_replication.php:228
 msgid ""
@@ -9570,83 +9659,88 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"Відразу після перезапуску MySQL сервера, будь ласка, натисніть кнопку OK, "
+"після чого ви повинні побачити повідомлення, яке вказує, що даний сервер "
+"<b>налаштований</b> як головний"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Підлеглий SQL потік не запущений!"
 
 #: server_replication.php:294
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Підлеглий потік вводу-виводу не запущений!"
 
 #: server_replication.php:303
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"Сервер налаштований в якості підлеглого для процесу реплікації. Провести "
+"дію:"
 
 #: server_replication.php:306
 msgid "See slave status table"
-msgstr ""
+msgstr "Дивіться таблицю стану підлеглого сервера"
 
 #: server_replication.php:309
 msgid "Synchronize databases with master"
-msgstr ""
+msgstr "Синхронізувати бази даних з головним сервером"
 
 #: server_replication.php:320
 msgid "Control slave:"
-msgstr ""
+msgstr "Контролювати підлеглий сервер:"
 
 #: server_replication.php:323
 msgid "Full start"
-msgstr ""
+msgstr "Повний запуск"
 
 #: server_replication.php:323
 msgid "Full stop"
-msgstr ""
+msgstr "Повна зупинка"
 
 #: server_replication.php:324
 msgid "Reset slave"
-msgstr ""
+msgstr "Скинути підлеглий сервер"
 
 #: server_replication.php:326
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Лише структуру"
+msgstr "Запустити тільки SQL потік"
 
 #: server_replication.php:328
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Зупинити тільки SQL потік"
 
 #: server_replication.php:331
-#, fuzzy
 #| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Лише структуру"
+msgstr "Запустити тільки потік вводу-виводу"
 
 #: server_replication.php:333
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Зупинити тільки потік вводу-виводу"
 
 #: server_replication.php:338
 msgid "Error management:"
-msgstr ""
+msgstr "Управління помилками:"
 
 #: server_replication.php:340
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Ігнорування помилок може призвести до розсинхронізації головного і "
+"підлеглого сервера!"
 
 #: server_replication.php:342
 msgid "Skip current error"
-msgstr ""
+msgstr "Ігнорувати поточну помилку"
 
 #: server_replication.php:343
 msgid "Skip next"
-msgstr ""
+msgstr "Пропустити наступну"
 
 #: server_replication.php:346
 msgid "errors."
-msgstr ""
+msgstr "помилки."
 
 #: server_replication.php:361
 #, php-format
@@ -9654,6 +9748,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Даний сервер не налаштований в якості підлеглого для процесу реплікації. "
+"Хочете справити <a href=\"%s\">настройку</a>?"
 
 #: server_status.php:460
 #, php-format
@@ -9676,7 +9772,7 @@ msgstr "Кеш запитів"
 
 #: server_status.php:596
 msgid "Threads"
-msgstr ""
+msgstr "Потоки"
 
 #: server_status.php:598
 msgid "Temporary data"
@@ -9684,15 +9780,15 @@ msgstr "Тимчасові дані"
 
 #: server_status.php:599
 msgid "Delayed inserts"
-msgstr ""
+msgstr "Відкладені вставки"
 
 #: server_status.php:600
 msgid "Key cache"
-msgstr ""
+msgstr "Кеш індексу"
 
 #: server_status.php:601
 msgid "Joins"
-msgstr ""
+msgstr "Об'єднання"
 
 #: server_status.php:603
 msgid "Sorting"
@@ -9708,19 +9804,19 @@ msgstr "Вичистити (закрити) всі таблиці"
 
 #: server_status.php:619
 msgid "Show open tables"
-msgstr ""
+msgstr "Список відкритих таблиць"
 
 #: server_status.php:624
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Інформація про підлеглих серверах"
 
 #: server_status.php:630
 msgid "Show slave status"
-msgstr ""
+msgstr "Інформація про стан сервера реплікації"
 
 #: server_status.php:635
 msgid "Flush query cache"
-msgstr ""
+msgstr "Очистити кеш запитів"
 
 #: server_status.php:784
 msgid "Runtime Information"
@@ -9728,7 +9824,7 @@ msgstr "Інформація про роботу сервера"
 
 #: server_status.php:791
 msgid "All status variables"
-msgstr ""
+msgstr "Всі змінні стану"
 
 #: server_status.php:792
 msgid "Monitor"
@@ -9739,10 +9835,9 @@ msgid "Advisor"
 msgstr "Радник"
 
 #: server_status.php:803 server_status.php:829
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Число рядків:"
+msgstr "Кількість точок даних: "
 
 #: server_status.php:807 server_status.php:833
 #| msgid "Refresh"
@@ -9751,7 +9846,7 @@ msgstr "Частота оновлення: "
 
 #: server_status.php:852 server_variables.php:115
 msgid "Filters"
-msgstr ""
+msgstr "Фільтри"
 
 #: server_status.php:854 server_variables.php:117
 #| msgid "Do not change the password"
@@ -9765,7 +9860,7 @@ msgstr "Показати тільки оповіщення значень"
 
 #: server_status.php:863
 msgid "Filter by category..."
-msgstr ""
+msgstr "Фільтр по категорії ..."
 
 #: server_status.php:877
 #| msgid "Show tables"
@@ -9773,10 +9868,9 @@ msgid "Show unformatted values"
 msgstr "Показати неформатовані значення"
 
 #: server_status.php:881
-#, fuzzy
 #| msgid "Relations"
 msgid "Related links:"
-msgstr "Зв'язки"
+msgstr "Пов'язані посилання:"
 
 #: server_status.php:914
 #| msgid "Query type"
