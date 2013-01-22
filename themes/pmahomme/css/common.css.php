@@ -1122,6 +1122,7 @@ div#tablestatistics table {
     border-bottom: 1px solid #fff;
     background: #888;
     padding: .3em .9em;
+    padding-<?php echo $left; ?>: 2.2em;
     text-shadow: 0 1px 0 #000;
     width: 10000px;
     overflow: hidden;

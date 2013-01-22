@@ -41,10 +41,6 @@ class PMA_NavigationHeader
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= '<div id="pma_navigation_content">';
-        $buffer .= '<div id="pma_navigation_scrollbar">';
-        $buffer .= '<div id="pma_navigation_scrollbar_handle">';
-        $buffer .= '</div>';
-        $buffer .= '</div>';
         $buffer .= sprintf(
             '<a class="hide navigation_url" href="navigation.php%s"></a>',
             $link_url
