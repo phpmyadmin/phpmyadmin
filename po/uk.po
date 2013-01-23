@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-22 13:07+0200\n"
-"Last-Translator: Petro Lesiuk <lesyukpetro@ukr.net>\n"
+"PO-Revision-Date: 2013-01-23 23:57+0200\n"
+"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -8071,7 +8071,7 @@ msgstr "Плагіни"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
-msgstr ""
+msgstr "Типи таблиць"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 msgid "Source database"
@@ -8285,7 +8285,7 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "Багато даних ENUM чи SET?"
 
 #: libraries/tbl_properties.inc.php:327
 msgid "Get more editing space"
@@ -8770,9 +8770,8 @@ msgid "Help"
 msgstr "Допомога"
 
 #: pmd_general.php:87
-#, fuzzy
 msgid "Angular links"
-msgstr "Кутове посилання"
+msgstr "Кутові посилання"
 
 #: pmd_general.php:87
 msgid "Direct links"
@@ -8828,7 +8827,6 @@ msgid "Delete relation"
 msgstr "Видалити зв'язок"
 
 #: pmd_general.php:454 pmd_general.php:513
-#, fuzzy
 #| msgid "Relation view"
 msgid "Relation operator"
 msgstr "Перегляд залежностей"
@@ -9085,7 +9083,7 @@ msgstr ""
 
 #: server_engines.php:45
 msgid "Storage Engines"
-msgstr ""
+msgstr "Типи таблиць"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
@@ -9523,7 +9521,6 @@ msgid "Database for user"
 msgstr "База даних для користувача"
 
 #: server_privileges.php:2221
-#, fuzzy
 #| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
@@ -9887,6 +9884,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"Система порад може надавати рекомендації по змінних серверу, ґрунтуючись на "
+"аналізі їх статусу."
 
 #: server_status.php:924
 msgid ""
@@ -9894,6 +9893,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Однак, дана система надає рекомендації, базуючись на простих розрахунках і "
+"може бути не придатною для використання на вашому сервері."
 
 #: server_status.php:926
 msgid ""
@@ -9901,6 +9902,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Перед зміною, переконайтесь в тому, що розумієте наслідки (почитайте "
+"документацію) і знаєте як відмінити налаштування. Невірна конфігурація може "
+"негативно вплинути на продуктивність."
 
 #: server_status.php:928
 msgid ""
@@ -9908,12 +9912,16 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"Найкращим підходом до налаштувань вашої системи буде зміна тільки однієї "
+"опції за раз, наступне тестування продуктивності бази даних і вертання до "
+"початкових налаштувань, якщо не було помічено позитивного покращення в "
+"роботі."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:950
 #, php-format
 msgid "Questions since startup: %s"
-msgstr ""
+msgstr "Запитань починаючи із запуску %s"
 
 #: server_status.php:986
 msgid "Statements"
@@ -9922,12 +9930,12 @@ msgstr "Параметр"
 #. l10n: # = Amount of queries
 #: server_status.php:989
 msgid "#"
-msgstr ""
+msgstr "Кількість"
 
 #: server_status.php:1062
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "Мережевий трафік з моменту запуску: %s"
 
 #: server_status.php:1071
 #, php-format
