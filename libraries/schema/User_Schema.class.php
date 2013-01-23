@@ -610,7 +610,6 @@ class PMA_User_Schema
                 . PMA_Util::sqlAddSlashes($current_row) . '\'' . "\n"
                 .   ' AND pdf_page_number = \''
                 . PMA_Util::sqlAddSlashes($chpage) . '\'';
-                echo $del_query;
             PMA_queryAsControlUser($del_query, false);
         }
     }
