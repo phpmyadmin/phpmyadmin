@@ -332,7 +332,7 @@ class PMA_User_Schema
                 echo '<td>';
                 echo '<select name="c_table_' . $i . '[name]">';
 
-                foreach ($selectboxall as $key => $value) {
+                foreach ($selectboxall as $value) {
                     echo '<option value="' . htmlspecialchars($value) . '"';
                     if (! empty($_mtab) && $value == $_mtab) {
                         echo ' selected="selected"';
