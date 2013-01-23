@@ -262,9 +262,7 @@ class PMA_User_Schema
          */
         if (isset($this->chosenPage) && $this->chosenPage > 0) {
             echo "\n";
-            ?>
-            <h2><?php echo __('Select Tables'); ?></h2>
-            <?php
+            echo "<h2>" . __('Select Tables') . "</h2>";
             $page_query = 'SELECT * FROM '
                 . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['table_coords'])
