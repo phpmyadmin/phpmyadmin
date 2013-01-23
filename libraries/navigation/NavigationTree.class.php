@@ -587,7 +587,10 @@ class PMA_NavigationTree
                     foreach ($separators as $separator) {
                         // FIXME: this could be more efficient
                         foreach ($node->children as $child) {
-                            if (substr($child->name, 0, strlen($key) + strlen($separator)) == $key . $separator
+                            $name_substring = substr(
+                                $child->name, 0, strlen($key) + strlen($separator)
+                            );
+                            if ($name_substring == $key . $separator
                                 && $child->type == Node::OBJECT
                             ) {
                                 $class = get_class($child);
