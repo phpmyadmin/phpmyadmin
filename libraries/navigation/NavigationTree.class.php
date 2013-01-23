@@ -585,14 +585,18 @@ class PMA_NavigationTree
                     $groups[$key]->pos3 = $node->pos3;
                     $node->addChild($groups[$key]);
                     foreach ($separators as $separator) {
-                        foreach ($node->children as $child) { // FIXME: this could be more efficient
+                        // FIXME: this could be more efficient
+                        foreach ($node->children as $child) {
                             if (substr($child->name, 0, strlen($key) + strlen($separator)) == $key . $separator
                                 && $child->type == Node::OBJECT
                             ) {
                                 $class = get_class($child);
                                 $new_child = PMA_NodeFactory::getInstance(
                                     $class,
-                                    substr($child->name, strlen($key) + strlen($separator))
+                                    substr(
+                                        $child->name,
+                                        strlen($key) + strlen($separator)
+                                    )
                                 );
                                 $new_child->real_name = $child->real_name;
                                 $new_child->icon = $child->icon;
@@ -920,7 +924,8 @@ class PMA_NavigationTree
                     if ($GLOBALS['cfg']['ShowTooltip']) {
                         $title = $node->getComment();
                         if ($title) {
-                            $title = " title='" . htmlentities($title, ENT_QUOTES) . "'";
+                            $title = " title='"
+                                . htmlentities($title, ENT_QUOTES) . "'";
                         }
                     } else {
                         $title = '';
