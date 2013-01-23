@@ -773,7 +773,6 @@ class PMA_NavigationTree
                 $liClass = " class='" . trim($class . ' ' . $node->classes) . "'";
             }
             $retval .= "<li$liClass>";
-            $hasChildren = $node->hasChildren(false);
             $sterile = array(
                 'events',
                 'triggers',
