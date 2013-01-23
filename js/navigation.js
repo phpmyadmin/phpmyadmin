@@ -14,9 +14,8 @@ $(function() {
         return;
     }
 
-    // Fire up the resize and scroll handlers
+    // Fire up the resize handlers
     new ResizeHandler();
-    ScrollHandler.init();
 
     /**
      * opens/closes (hides/shows) tree elements
@@ -31,14 +30,10 @@ $(function() {
         if ($this.hasClass('loaded')) {
             if ($icon.is('.ic_b_plus')) {
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                $children.show('fast', function () {
-                    ScrollHandler.displayScrollbar();
-                });
+                $children.show('fast');
             } else {
                 $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-                $children.hide('fast', function () {
-                    ScrollHandler.displayScrollbar();
-                });
+                $children.hide('fast');
             }
         } else {
             var $destination = $this.closest('li');
@@ -70,12 +65,7 @@ $(function() {
                     $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                     $destination
                         .children('div.list_container')
-                        .show(
-                            'fast',
-                            function () {
-                                ScrollHandler.displayScrollbar();
-                            }
-                        );
+                        .show('fast');
                     if ($destination.find('ul > li').length == 1) {
                         $destination.find('ul > li')
                             .find('a.expander.container')
@@ -352,135 +342,6 @@ function PMA_navigationTreePagination($this)
 };
 
 /**
- * @var ScrollHandler Custom object that manages the scrolling of the navigation
- */
-var ScrollHandler = {
-    /**
-     * Limits the percentage of scrolling within sane values
-     *
-     * @param double The value to be sanitised
-     *
-     * @return double
-     */
-    sanitize: function (value) {
-        if (value < 0) {
-            value = 0;
-        } else if (value > 1) {
-            value = 1;
-        }
-        return value;
-    },
-    /**
-     * Positions the scrollbar at the requested height
-     *
-     * @param double The value to set the positions of the scrollbar to
-     *
-     * @return void
-     */
-    setScrollbar: function (value) {
-        value = ScrollHandler.sanitize(value);
-        var elms = ScrollHandler.elms;
-        var height = elms.$scrollbar.height() - elms.$handle.height() - elms.$scrollbar.offset().top;
-        var offset = Math.floor(
-            value * height
-        );
-        elms.$handle.css('top', offset);
-    },
-    /**
-     * Positions the navigation at the requested height
-     *
-     * @param double The value to set the positions of the navigation to
-     *
-     * @return void
-     */
-    setContent: function (value) {
-        value = ScrollHandler.sanitize(value);
-        var elms = ScrollHandler.elms;
-        var diff = elms.$content.height() - $(window).height();
-        var offset = Math.floor(
-            value * diff
-        );
-        elms.$content.css('top', -offset);
-    },
-    /**
-     * Shows/hides the scrollbar as necessary
-     *
-     * @return void
-     */
-    displayScrollbar: function () {
-        var elms = ScrollHandler.elms;
-        if (elms.$content.height() > $(window).height()) {
-            elms.$scrollbar.show().data('active', 1);
-            var visibleRatio = (
-                $(window).height() - elms.$scrollbar.offset().top
-            ) / elms.$content.height();
-            elms.$handle.height(
-                Math.floor(
-                    visibleRatio * $(window).height()
-                )
-            );
-        } else {
-            elms.$scrollbar.hide().data('active', 0);
-            elms.$content.css('top', 0);
-        }
-    },
-    /**
-     * Initialises the scrollHandler
-     *
-     * @return void
-     */
-    init: function () {
-        this.elms = {
-            $content: $('#pma_navigation_content'),
-            $scrollbar: $('#pma_navigation_scrollbar'),
-            $handle: $('#pma_navigation_scrollbar_handle')
-        };
-        this.displayScrollbar();
-        $(window).bind('resize', this.displayScrollbar);
-        this.elms.$scrollbar.drag(
-            $.throttle(function (event, drag) {
-                var elms = ScrollHandler.elms;
-                var scrollbarOffset = elms.$scrollbar.offset().top;
-                var pos = drag.offsetY - scrollbarOffset;
-                var height = $(window).height() - scrollbarOffset - elms.$handle.height();
-                value = ScrollHandler.sanitize(pos / height);
-                ScrollHandler.setScrollbar(value);
-                ScrollHandler.setContent(value);
-            }, 4),
-            { handle:"#pma_navigation_scrollbar_handle" }
-        );
-        this.elms.$scrollbar.bind('mousedown', function (event) {
-            if ($(event.target).attr('id') === $(this).attr('id')) {
-                var $scrollbar = ScrollHandler.elms.$scrollbar;
-                var $handle = ScrollHandler.elms.$handle;
-                var pos = event.pageY - $scrollbar.offset().top - ($handle.height() / 2);
-                var height = $scrollbar.height() - $scrollbar.offset().top - $handle.height();
-                var target = pos / height;
-                ScrollHandler.setScrollbar(target);
-                ScrollHandler.setContent(target);
-            }
-        });
-        $('#pma_navigation').bind(
-            'mousewheel',
-            function(event, delta, deltaX, deltaY) {
-                event.preventDefault();
-                var elms = ScrollHandler.elms;
-                if (elms.$scrollbar.data('active')) {
-                    var elms = ScrollHandler.elms;
-                    var pixelValue = 1 / (elms.$content.height() - $(window).height());
-                    var offset = -deltaY * 20 * pixelValue;
-                    var pos = Math.abs(elms.$content.offset().top);
-                    var diff = elms.$content.height() - $(window).height();
-                    var target = ScrollHandler.sanitize((pos / diff) + offset);
-                    ScrollHandler.setScrollbar(target);
-                    ScrollHandler.setContent(target);
-                }
-            }
-        );
-    }
-};
-
-/**
  * @var ResizeHandler Custom object that manages the resizing of the navigation
  *
  * XXX: Must only be ever instanciated once
@@ -521,18 +382,12 @@ var ResizeHandler = function () {
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages['strShowPanel']);
-            $('#serverinfo').css('padding-' + this.left, '2.2em');
         } else {
             $collapser
-                .css(this.left, pos - $collapser.width())
+                .css(this.left, pos)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages['strHidePanel']);
-            $('#serverinfo').css('padding-' + this.left, '0.9em');
         }
-        $('#pma_navigation_scrollbar').css(
-            this.left,
-            (pos - $('#pma_navigation_scrollbar').width()) + 'px'
-        );
         setTimeout(function (){
             $(window).trigger('resize');
         }, 4);
@@ -808,7 +663,6 @@ var PMA_fastFilter = {
                 });
             };
             container_filter($obj, str);
-            ScrollHandler.displayScrollbar();
             if ($(this).val() != this.defaultValue && $(this).val() != '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
@@ -923,7 +777,6 @@ PMA_fastFilter.filter.prototype.swap = function (list)
         .find('li.fast_filter input.searchClause')
         .val(this.searchClause);
     this.$this.data('fastFilter', this);
-    ScrollHandler.displayScrollbar();
 };
 /**
  * Restores the navigation to the original state after the fast filter is cleared
@@ -946,5 +799,4 @@ PMA_fastFilter.filter.prototype.restore = function (focus)
     this.$this.find('.moreResults').remove();
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
-    ScrollHandler.displayScrollbar();
 };

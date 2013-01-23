@@ -19,6 +19,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation {
     width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
+    overflow-y: auto;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -219,35 +220,18 @@ li.fast_filter.db_fast_filter {
 }
 #pma_navigation_collapser {
     width: 20px;
-    height: 23px;
-    line-height: 23px;
+    height: 22px;
+    line-height: 22px;
     background: #eee;
     color: #555;
     font-weight: bold;
     position: fixed;
     top: 0;
-    <?php echo $left; ?>: 220px;
+    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     text-align: center;
     cursor: pointer;
     z-index: 800;
     text-shadow: 0px 1px 0px #fff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
     border: 1px solid #888;
-}
-
-/* Scroll handler */
-#pma_navigation_scrollbar {
-    display: none;
-    position: fixed;
-    top: 25px;
-    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 20; ?>px;
-    width: 20px;
-    background: #ddd;
-    height: 100%;
-    z-index: 1;
-}
-#pma_navigation_scrollbar_handle {
-    position: absolute;
-    width: 20px;
-    background: #888;
 }
