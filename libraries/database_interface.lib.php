@@ -193,7 +193,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 
     if ($cache_affected_rows) {
         $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows(
-            $link, $get_from_cache = false
+            $link, false
         );
     }
 
@@ -2024,7 +2024,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
     // Sort results by name
     $name = array();
-    foreach ($result as $key => $value) {
+    foreach ($result as $value) {
         $name[] = $value['name'];
     }
     array_multisort($name, SORT_ASC, $result);
