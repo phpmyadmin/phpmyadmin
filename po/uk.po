@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-24 17:32+0200\n"
+"PO-Revision-Date: 2013-01-24 17:44+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -11324,27 +11324,27 @@ msgstr "Кількість запитів на запис у журнал."
 
 #: server_status_variables.php:527
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "Кількість фізичних записів у файл журналу."
 
 #: server_status_variables.php:530
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "Кількість записів fsync() здійснених до файлу журналу."
 
 #: server_status_variables.php:533
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Кількість незавершених fsyncs до файлу журналу."
 
 #: server_status_variables.php:536
 msgid "Pending log file writes."
-msgstr ""
+msgstr "Відкладені записи у файл журналу."
 
 #: server_status_variables.php:539
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Кількість байт, записаних у файл журналу."
 
 #: server_status_variables.php:542
 msgid "The number of pages created."
-msgstr ""
+msgstr "Кількість створених сторінок."
 
 #: server_status_variables.php:545
 msgid ""
@@ -11354,27 +11354,28 @@ msgstr ""
 
 #: server_status_variables.php:550
 msgid "The number of pages read."
-msgstr ""
+msgstr "Кількість прочитаних сторінок."
 
 #: server_status_variables.php:553
 msgid "The number of pages written."
-msgstr ""
+msgstr "Кількість записаних сторінок."
 
 #: server_status_variables.php:556
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "Кількість блокувань рядків, що наразі в очікуванні."
 
 #: server_status_variables.php:559
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Середній час виконання блокування рядка, в мілісекундах."
 
 #: server_status_variables.php:562
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
+"Загальний час, витрачений на виконання блокувань рядків, в мілісекундах."
 
 #: server_status_variables.php:565
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Максимальний час виконання блокування рядка, в мілісекундах."
 
 #: server_status_variables.php:568
 msgid "The number of times a row lock had to be waited for."
