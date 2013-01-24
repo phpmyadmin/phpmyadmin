@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-20 19:51+0200\n"
-"Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"PO-Revision-Date: 2013-01-24 19:54+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
+"Language-Team: Russian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -11324,12 +11324,14 @@ msgid "The amount of data written so far, in bytes."
 msgstr "Сумма данных (в байтах), записанных на данный момент."
 
 #: server_status_variables.php:513
+#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Количество записей в буфер doublewrite, и количество созданных для этого "
 "страниц."
 
 #: server_status_variables.php:517
+#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Количество записей в буфер doublewrite, и количество созданных для этого "
