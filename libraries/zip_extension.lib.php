@@ -97,7 +97,6 @@ function PMA_getZipContents($file, $specific_entry = null)
 function PMA_findFileFromZipArchive ($file_regexp, $file)
 {
     $zip_handle = zip_open($file);
-    $found = false;
     if (is_resource($zip_handle)) {
         $entry = zip_read($zip_handle);
         while (is_resource($entry)) {
@@ -124,7 +123,6 @@ function PMA_getNoOfFilesInZip($file)
 {
     $count = 0;
     $zip_handle = zip_open($file);
-    $found = false;
     if (is_resource($zip_handle)) {
         $entry = zip_read($zip_handle);
         while (is_resource($entry)) {

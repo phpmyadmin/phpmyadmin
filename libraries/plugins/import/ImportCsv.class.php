@@ -245,7 +245,7 @@ class ImportCsv extends ImportPlugin
                     /* Trim also `, if user already included backquoted fields */
                     $val = trim($val, " \t\r\n\0\x0B`");
                     $found = false;
-                    foreach ($tmp_fields as $id => $field) {
+                    foreach ($tmp_fields as $field) {
                         if ($field['Field'] == $val) {
                             $found = true;
                             break;
@@ -457,7 +457,7 @@ class ImportCsv extends ImportPlugin
                     }
 
                     if ($this->_getAnalyze()) {
-                        foreach ($values as $ley => $val) {
+                        foreach ($values as $val) {
                             $tempRow[] = $val;
                             ++$col_count;
                         }

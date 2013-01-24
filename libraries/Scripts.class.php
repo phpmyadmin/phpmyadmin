@@ -52,7 +52,7 @@ class PMA_Scripts
     {
         $dynamic_scripts = "";
         $params = array();
-        foreach ($files as $key => $value) {
+        foreach ($files as $value) {
             if (strpos($value['filename'], "?") === false) {
                 $include = true;
                 if ($value['conditional_ie'] !== false && PMA_USR_BROWSER_AGENT === 'IE') {

@@ -192,15 +192,12 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
     $result = PMA_DBI_real_query($query, $link, $options);
 
     if ($cache_affected_rows) {
-        $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows(
-            $link, $get_from_cache = false
-        );
+        $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, false);
     }
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
         $time = microtime(true) - $time;
         PMA_DBI_DBG_query($query, $link, $result, $time);
-
     }
     if ($result != false && PMA_Tracker::isActive() == true ) {
         PMA_Tracker::handleQuery($query);
@@ -2024,7 +2021,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 
     // Sort results by name
     $name = array();
-    foreach ($result as $key => $value) {
+    foreach ($result as $value) {
         $name[] = $value['name'];
     }
     array_multisort($name, SORT_ASC, $result);

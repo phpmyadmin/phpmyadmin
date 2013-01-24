@@ -828,7 +828,6 @@ function PMA_analyzeTable(&$table)
 
     /* Temp vars */
     $curr_type = NONE;
-    $curr_size = 0;
 
     /* If the passed array is not of the correct form, do not process it */
     if (is_array($table)

@@ -35,7 +35,7 @@ function PMA_languageCmp($a, $b)
  */
 function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
 {
-    global $cfg, $lang;
+    global $lang;
 
     $retval = '';
 
@@ -66,7 +66,8 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
                 . $language_title . ': </label></bdo>';
         }
 
-        $retval .= '<select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">';
+        $retval .= '<select name="lang" class="autosubmit" lang="en"'
+            . ' dir="ltr" id="sel-lang">';
 
         uasort($GLOBALS['available_languages'], 'PMA_languageCmp');
         foreach ($GLOBALS['available_languages'] as $id => $tmplang) {

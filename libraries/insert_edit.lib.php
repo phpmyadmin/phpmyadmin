@@ -173,7 +173,7 @@ function PMA_loadFirstRow($table, $db)
 function PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause)
 {
     if (isset($where_clause)) {
-        foreach ($where_clause_array as $key_id => $where_clause) {
+        foreach ($where_clause_array as $where_clause) {
             $url_params['where_clause'] = trim($where_clause);
         }
     }
@@ -2102,7 +2102,7 @@ function PMA_transformEditedValues($db, $table,
                 = $transformation_plugin->applyTransformation(
                     $column_data,
                     $transform_options,
-                    $meta = ''
+                    ''
                 );
         }
     }   // end of loop for each transformation cell
