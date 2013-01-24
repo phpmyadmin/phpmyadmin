@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-23 23:57+0200\n"
-"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
+"PO-Revision-Date: 2013-01-24 17:32+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -976,7 +976,7 @@ msgstr "Додати до індексу %s стовпчик(ів)"
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:217
 msgid "Y Values"
-msgstr "Значення y"
+msgstr "Значення Y"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -3267,10 +3267,11 @@ msgid "Additional search criteria"
 msgstr "Додаткові критерії пошуку"
 
 #: libraries/TableSearch.class.php:1109
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Виконати \"запит згідно прикладу\" (символ підставновки: \"%\")"
+msgstr ""
+"Виконати \"запит згідно прикладу\" (символ підставновки: \"%\") для двох різних "
+"стовпчиків"
 
 #: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -7661,10 +7662,9 @@ msgid "Table %s has been flushed"
 msgstr "Було очищено кеш таблиці %s"
 
 #: libraries/operations.lib.php:1190
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Очистити кеш таблиці (\"FLUSH\")"
+msgstr "Очистити кеш таблиці (FLUSH)"
 
 #: libraries/operations.lib.php:1237
 #| msgid "Dumping data for table"
@@ -7693,11 +7693,11 @@ msgstr ""
 
 #: libraries/operations.lib.php:1298
 msgid "Rebuild"
-msgstr ""
+msgstr "Перебудувати"
 
 #: libraries/operations.lib.php:1299
 msgid "Repair"
-msgstr ""
+msgstr "Відремонтувати"
 
 #: libraries/operations.lib.php:1306
 msgid "Partition maintenance"
@@ -9904,10 +9904,10 @@ msgid "After %s"
 msgstr "Після %s"
 
 #: libraries/structure.lib.php:1603
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Створити індекс на&nbsp;%s&nbsp;колонках"
+msgstr "Створити індекс у &nbsp;%s&nbsp;стовпчиках"
 
 #: libraries/structure.lib.php:1700 tbl_printview.php:345
 msgid "Row Statistics"
@@ -9961,7 +9961,7 @@ msgstr ""
 #: libraries/structure.lib.php:2034 libraries/structure.lib.php:2037
 #: tbl_indexes.php:191
 msgid "Add index"
-msgstr ""
+msgstr "Додати індекс"
 
 #: libraries/structure.lib.php:2040 libraries/structure.lib.php:2043
 msgid "Add unique index"
@@ -10725,30 +10725,36 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>master</b> та "
+"<b>slave</b>."
 
 #: server_status.php:98
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>master</b>."
 
 #: server_status.php:103
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>slave</b>."
 
 #: server_status.php:109
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
+"За додатковою інформацією про стан реплікації на сервері звертайтеся у <a "
+"href=\"#replication\">розділ реплікації</a>."
 
 #: server_status.php:122
 msgid "Replication status"
-msgstr ""
+msgstr "Стан реплікації"
 
 #: server_status.php:139
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
+"На зайнятому сервері лічильники байтів можуть переповнитися, тому "
+"статистичні дані серверу MySQL можуть бути хибними."
 
 #: server_status.php:149
 msgid "Received"
@@ -10760,7 +10766,7 @@ msgstr "Відправлено"
 
 #: server_status.php:219
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "Макс. кількість одночасних підключень"
 
 #: server_status.php:229
 msgid "Failed attempts"
@@ -10834,10 +10840,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add chart"
-msgstr "Додати коментар"
+msgstr "Додати діаграму"
 
 #: server_status_monitor.php:492
 msgid "Rearrange/edit charts"
@@ -10970,10 +10975,9 @@ msgid "Series in Chart:"
 msgstr ""
 
 #: server_status_monitor.php:675
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Log statistics"
-msgstr "Статистика рядка"
+msgstr "Статистика журналу"
 
 #: server_status_monitor.php:676
 #| msgid "Select Tables"
@@ -11064,10 +11068,12 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Кількість підключень, що було перервано через відключення клієнта без "
+"належного закриття з'єднання."
 
 #: server_status_variables.php:335
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "Кількість невдалих спроб підключитися до сервера MySQL."
 
 #: server_status_variables.php:338
 msgid ""
@@ -11075,15 +11081,18 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"Кількість транзакцій, що використовували кеш тимчасового двійкового журналу, "
+"але перевищили значення binlog_cache_size і використали тимчасовий файл для "
+"збереження команд транзакції."
 
 #: server_status_variables.php:343
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
+msgstr "Кількість операцій, що використали кеш тимчасового двійкового журналу."
 
 #: server_status_variables.php:346
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Кількість спроб підключення (успішних чи навпаки) до сервера MySQL."
 
 #: server_status_variables.php:350
 msgid ""
@@ -11095,7 +11104,7 @@ msgstr ""
 
 #: server_status_variables.php:357
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Скільки було створено тимчасових файлів mysqld."
 
 #: server_status_variables.php:360
 msgid ""
@@ -11205,8 +11214,9 @@ msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
 #: server_status_variables.php:444
+#, fuzzy
 msgid "The number of free pages."
-msgstr ""
+msgstr "Кількість вільних сторінок."
 
 #: server_status_variables.php:447
 msgid ""
@@ -11225,7 +11235,7 @@ msgstr ""
 
 #: server_status_variables.php:459
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "Загальний розмір пула буфера, у сторінках."
 
 #: server_status_variables.php:462
 msgid ""
@@ -11284,11 +11294,11 @@ msgstr ""
 
 #: server_status_variables.php:504
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Загальна кількість прочитаних даних."
 
 #: server_status_variables.php:507
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Загальна кількість записаних даних."
 
 #: server_status_variables.php:510
 msgid "The amount of data written so far, in bytes."
@@ -11310,7 +11320,7 @@ msgstr ""
 
 #: server_status_variables.php:524
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Кількість запитів на запис у журнал."
 
 #: server_status_variables.php:527
 msgid "The number of physical writes to the log file."
@@ -11947,10 +11957,9 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: sql.php:919
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Перевірити SQL"
+msgstr "Перевірений SQL"
 
 #: sql.php:1086
 msgid "SQL result"
@@ -12034,22 +12043,21 @@ msgstr ""
 
 #: tbl_chart.php:210
 msgid "X-Axis label:"
-msgstr ""
+msgstr "Мітка вісі X:"
 
 #: tbl_chart.php:213
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Значення X"
 
 #: tbl_chart.php:215
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Мітка вісі Y:"
 
 #: tbl_create.php:32
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "Таблиця %s вже існує!"
 
 #: tbl_create.php:56 tbl_get_field.php:23
 #, php-format
@@ -12059,7 +12067,7 @@ msgstr ""
 #: tbl_create.php:246
 #, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "Таблицю %1$s було створено."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
@@ -12086,7 +12094,7 @@ msgstr "Разом"
 
 #: tbl_gis_visualization.php:141
 msgid "Redraw"
-msgstr ""
+msgstr "Перемалювати"
 
 #: tbl_gis_visualization.php:164
 #| msgid "User name"
@@ -12250,7 +12258,6 @@ msgid "Delete tracking data row from report"
 msgstr "Видалити рядки даних відстеження із звіту"
 
 #: tbl_tracking.php:545
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "Немає даних"
@@ -12342,7 +12349,6 @@ msgid "Available transformations"
 msgstr "Доступні перетворення"
 
 #: transformation_overview.php:39
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -12470,10 +12476,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time встановлено на %d секунди(секунд)."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Показати блок запиту"
+msgstr "Журналювання повільних запитів"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 #, fuzzy
@@ -12506,10 +12511,9 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr "long_query_time встановлено на %d секунди(секунд)."
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Вибрати таблиці"
+msgstr "Випуск серії"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -12529,10 +12533,9 @@ msgid "Current version: %s"
 msgstr "Поточна версія: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 #| msgid "PHP Version"
 msgid "Minor Version"
-msgstr "Версія PHP"
+msgstr "Неосновна версія"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12599,10 +12602,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: libraries/advisory_rules.txt:142
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL Charset"
+msgstr "Архітектура MySQL"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12817,16 +12819,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Відсоток сортувань, при якому створюються тимчасові таблиці"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Забагато сортувань викликають створення тимчасових таблиць."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -12842,10 +12842,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Частота сортувань, при якому створюються тимчасові таблиці"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -13147,10 +13146,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Percentage of used open files limit"
-msgstr "Кодування файлу:"
+msgstr "Відсоток використаного ліміту використання відкритих файлів"
 
 #: libraries/advisory_rules.txt:337
 msgid ""
@@ -13171,10 +13169,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Rate of open files"
-msgstr "Кодування файлу:"
+msgstr "Частота відкритих файлів"
 
 #: libraries/advisory_rules.txt:344
 #, fuzzy
@@ -13188,10 +13185,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:348
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Створити нову таблицю в БД %s"
+msgstr "Поточні блокування таблиці %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
 msgid "Too many table locks were not granted immediately."
@@ -13251,7 +13248,7 @@ msgstr "Трекінг не активний."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Збільшити {thread_cache_size}."
 
 #: libraries/advisory_rules.txt:374
 #, php-format
@@ -13281,7 +13278,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
-msgstr ""
+msgstr "Повільний час запуску"
 
 #: libraries/advisory_rules.txt:386
 #, fuzzy
@@ -13302,10 +13299,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "long_query_time встановлено на %d секунди(секунд)."
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of used connections"
-msgstr "З'єднань"
+msgstr "Відсоток використаних з'єднань"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
