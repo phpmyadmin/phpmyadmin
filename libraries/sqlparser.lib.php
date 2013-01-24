@@ -344,7 +344,6 @@ function PMA_SQP_parse($sql)
             $startquotepos   = $count2;
             $quotetype       = $c;
             $count2++;
-            $escaped         = false;
             $pos             = $count2;
             $oldpos          = 0;
             do {
@@ -629,7 +628,6 @@ function PMA_SQP_parse($sql)
             } else {
                 // Bad luck, lets split it up more
                 $first  = $punct_data[0];
-                $first2 = $punct_data[0] . $punct_data[1];
                 $last2  = $punct_data[$l - 2] . $punct_data[$l - 1];
                 $last   = $punct_data[$l - 1];
                 if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
