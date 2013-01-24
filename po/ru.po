@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 12:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-24 19:54+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/3-5/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -10222,12 +10222,14 @@ msgid "The amount of data written so far, in bytes."
 msgstr "Сумма данных (в байтах), записанных на данный момент."
 
 #: server_status.php:1360
+#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Количество записей в буфер doublewrite, и количество созданных для этого "
 "страниц."
 
 #: server_status.php:1361
+#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Количество записей в буфер doublewrite, и количество созданных для этого "
