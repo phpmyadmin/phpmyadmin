@@ -254,7 +254,8 @@ class PMA_NavigationHeader
     {
         $retval = '';
         if ($GLOBALS['cfg']['NavigationDisplayServers']
-            && count($GLOBALS['cfg']['Servers']) > 1) {
+            && count($GLOBALS['cfg']['Servers']) > 1
+        ) {
             include_once './libraries/select_server.lib.php';
             $retval .= '<!-- SERVER CHOICE START -->';
             $retval .= '<div id="serverChoice">';
