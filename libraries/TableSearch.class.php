@@ -127,7 +127,7 @@ class PMA_TableSearch
         // Get details about the geometry fucntions
         $geom_types = PMA_Util::getGISDatatypes();
 
-        foreach ($columns as $key => $row) {
+        foreach ($columns as $row) {
             // set column name
             $this->_columnNames[] = $row['Field'];
 

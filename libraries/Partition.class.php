@@ -63,7 +63,7 @@ class PMA_Partition
                 } else {
                     // see http://dev.mysql.com/doc/refman/5.6/en/partitioning.html
                     $plugins = PMA_DBI_fetch_result("SHOW PLUGINS");
-                    foreach ($plugins as $key => $value) {
+                    foreach ($plugins as $value) {
                         if ($value['Name'] == 'partition') {
                             $have_partitioning = true;
                             break;
