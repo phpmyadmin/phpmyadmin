@@ -35,7 +35,7 @@ function PMA_languageCmp($a, $b)
  */
 function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
 {
-    global $cfg, $lang;
+    global $lang;
 
     $retval = '';
 
