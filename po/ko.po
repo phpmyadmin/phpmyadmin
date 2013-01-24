@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-22 13:22+0200\n"
+"PO-Revision-Date: 2013-01-24 16:05+0200\n"
 "Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -723,7 +723,7 @@ msgstr ""
 
 #: index.php:210 prefs_manage.php:275
 msgid "More settings"
-msgstr ""
+msgstr "자세한 설정"
 
 #: index.php:227
 msgid "Database server"
@@ -801,7 +801,7 @@ msgstr "기여"
 
 #: index.php:356
 msgid "Get support"
-msgstr ""
+msgstr "지원 받기"
 
 #: index.php:363
 msgid "List of changes"
@@ -824,6 +824,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin와 호환되지 않고 일부 데이터가 "
+"손상될 수 있습니다!"
 
 #: index.php:408
 msgid ""
@@ -2723,8 +2725,7 @@ msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
-msgstr ""
-"업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조."
+msgstr "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -2777,7 +2778,7 @@ msgstr ""
 
 #: libraries/Index.class.php:566 tbl_tracking.php:386
 msgid "Cardinality"
-msgstr "Cardinality"
+msgstr "카디낼러티"
 
 #: libraries/Index.class.php:567 libraries/TableSearch.class.php:185
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
@@ -3801,11 +3802,11 @@ msgstr ""
 
 #: libraries/common.inc.php:1095
 msgid "possible exploit"
-msgstr "어떤 공격을 받고있을 가능성이 있습니다."
+msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
 #: libraries/common.inc.php:1104
 msgid "numeric key detected"
-msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다."
+msgstr "전역 변수에서 숫자로 된 키가 발견 되었습니다"
 
 #: libraries/config.values.php:51 libraries/config.values.php:58
 #: libraries/config.values.php:66
@@ -3878,11 +3879,11 @@ msgstr "구조와 데이터 모두"
 
 #: libraries/config.values.php:137
 msgid "Quick - display only the minimal options to configure"
-msgstr "빠른 보기 - 설정할 최소위 옵션만을 보여줍니다."
+msgstr "빠른 보기 - 설정할 최소 옵션만을 보여줍니다"
 
 #: libraries/config.values.php:138
 msgid "Custom - display all possible options to configure"
-msgstr "커스텀 - 설정 가능한 모든 옵션을 보여줍니다."
+msgstr "커스텀 - 설정 가능한 모든 옵션을 보여줍니다"
 
 #: libraries/config.values.php:139
 msgid "Custom - like above, but without the quick/custom choice"
@@ -3963,7 +3964,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
-msgstr "SQL 유효화검증기가 비활성화되어 있습니다."
+msgstr "SQL 유효화검증기가 비활성화되어 있습니다"
 
 #: libraries/config/FormDisplay.class.php:815
 msgid "SOAP extension not found"
@@ -6813,7 +6814,7 @@ msgstr ""
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1362 sql.php:922 tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "결과값이 없습니다. (빈 레코드 리턴.)"
+msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
 #: libraries/import.lib.php:1191
 msgid ""
@@ -6894,11 +6895,11 @@ msgstr "이어서"
 
 #: libraries/insert_edit.lib.php:1465
 msgid "Insert as new row"
-msgstr "새 행을 삽입합니다."
+msgstr "새 행을 삽입합니다"
 
 #: libraries/insert_edit.lib.php:1468
 msgid "Insert as new row and ignore errors"
-msgstr "새 행을 삽입하고 에러를 무시합니다."
+msgstr "새 행을 삽입하고 에러를 무시합니다"
 
 #: libraries/insert_edit.lib.php:1471
 msgid "Show insert query"
@@ -6924,7 +6925,7 @@ msgstr "다음 행 수정"
 #: libraries/insert_edit.lib.php:1543
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
-msgstr "탭 키나 CTRL+화살표로 값 항목을 이동할 수 있습니다."
+msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 
 #: libraries/insert_edit.lib.php:1914 sql.php:917
 msgid "Showing SQL query"
@@ -7541,7 +7542,7 @@ msgstr "서버 선택"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "암호 없이의 로그인이 설정에 의해 차단되어 있습니다(AllowNoLogin 항목을 참조하세요)."
+msgstr "암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세요)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:586
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
@@ -9022,7 +9023,7 @@ msgstr "테이블 구조 변경 허용."
 #: libraries/server_privileges.lib.php:219
 #: libraries/server_privileges.lib.php:946 server_privileges.php:88
 msgid "Gives access to the complete list of databases."
-msgstr "전체 데이터베이스 목록 접근을 허용"
+msgstr "전체 데이터베이스 목록 접근을 허용합니다."
 
 #: libraries/server_privileges.lib.php:223
 #: libraries/server_privileges.lib.php:930 server_privileges.php:91
@@ -9240,7 +9241,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1847
 #: libraries/server_privileges.lib.php:2466
 msgid "Any"
-msgstr "Any"
+msgstr "누구나"
 
 #: libraries/server_privileges.lib.php:1696
 msgid "global"
@@ -9415,15 +9416,14 @@ msgstr "이 질의를 다시 보여줌"
 
 #: libraries/sql_query_form.lib.php:411
 msgid "View only"
-msgstr "View only"
+msgstr "보기만"
 
 #: libraries/sqlparser.lib.php:129
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"SQL 질의문에 에러가 있습니다. MySQL 서버가 다음과 같은 에러를 출력했습니다. "
-"이것이 문제를 진단하는데 도움이 될 것입니다."
+"SQL 질의문에 에러가 있습니다. MySQL 서버가 다음과 같은 에러를 출력했습니다. 이것이 문제를 진단하는데 도움이 될 것입니다"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -11657,7 +11657,7 @@ msgstr ""
 
 #: sql.php:1284
 msgid "Label"
-msgstr "Label"
+msgstr "라벨"
 
 #: tbl_chart.php:43
 #, fuzzy
@@ -12303,7 +12303,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
-msgstr "쿼리 캐시가 비활성화되어 있습니다."
+msgstr "쿼리 캐시가 비활성화되어 있습니다"
 
 #: libraries/advisory_rules.txt:156
 #, fuzzy
@@ -13024,7 +13024,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요."
+msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
@@ -13033,7 +13033,7 @@ msgstr "종료된 클라이언트 비율"
 #: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1이하로 설정해줘야 합니다."
+msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 이하로 설정해줘야 합니다"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
