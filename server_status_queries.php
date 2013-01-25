@@ -93,7 +93,6 @@ function getQueryStatisticsHtml($ServerStatusData)
     arsort($used_queries);
 
     $odd_row        = true;
-    $count_displayed_rows = 0;
     $perc_factor    = 100 / $total_queries; //(- $ServerStatusData->status['Connections']);
 
     $retval .= '<table id="serverstatusqueriesdetails" class="data sortable noclick">';
