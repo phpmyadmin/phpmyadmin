@@ -532,15 +532,14 @@ PMA_Response::getInstance()->addHTML($html_output);
  * @param array  $choices           Choices for dropdown
  * @param string $selected_value    Selected value
  *
- * @return string $html_output The html code for existing value (for selected)
+ * @return string The html code for existing value (for selected)
  *
- * @access  public
+ * @access public
  */
 function PMA_generateDropdown(
     $dropdown_question, $select_name, $choices, $selected_value
 ) {
-    
-    $html_output .= htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
+    $html_output = htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
         . '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
 
     foreach ($choices as $one_value => $one_label) {
@@ -553,7 +552,6 @@ function PMA_generateDropdown(
     $html_output .= '</select>' . "\n";
     
     return $html_output;
-    
 }
 
 /**
@@ -561,9 +559,9 @@ function PMA_generateDropdown(
  *
  * @param string $text original string
  *
- * @return array   containing the elements (and their surrounding backquotes)
+ * @return array containing the elements (and their surrounding backquotes)
  *
- * @access  public
+ * @access public
  */
 function PMA_backquoteSplit($text)
 {
@@ -588,5 +586,4 @@ function PMA_backquoteSplit($text)
     }
     return($elements);
 }
-
 ?>
