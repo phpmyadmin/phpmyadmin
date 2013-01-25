@@ -3870,7 +3870,7 @@ class PMA_DisplayResults
             if (PMA_strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                 && gettype($transformation_plugin) == "object"
-                && ! strpos($transformation_plugin::getName(), 'Link') === true
+                && ! strpos($transformation_plugin->getName(), 'Link') === true
             ) {
                 $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                     . '...';
@@ -5409,7 +5409,7 @@ class PMA_DisplayResults
         $result .= ']';
 
         if (gettype($transformation_plugin) == "object"
-            && strpos($transformation_plugin::getMIMESubtype(), 'Octetstream')
+            && strpos($transformation_plugin->getMIMESubtype(), 'Octetstream')
         ) {
             $result = $content;
         }
