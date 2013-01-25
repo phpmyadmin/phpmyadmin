@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-24 19:58+0200\n"
+"PO-Revision-Date: 2013-01-25 17:58+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -11456,12 +11456,16 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"Кількість індексних блоків в кеші індексу, що змінилися, але ще не були "
+"перенесені на диск. Раніше вона називалася Not_flushed_key_blocks."
 
 #: server_status_variables.php:588
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Кількість невикористаних блоків у кеші індексу. Цим значенням визначається "
+"ступінь використання кешу індексу."
 
 #: server_status_variables.php:592
 msgid ""
@@ -11469,6 +11473,8 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"Кількість використаних блоків в кеші індексу. Це значення сигналізує про "
+"максимальну кількість блоків, що були одночасно використані."
 
 #: server_status_variables.php:597
 #, fuzzy
@@ -11478,7 +11484,7 @@ msgstr "Кодування файлу:"
 
 #: server_status_variables.php:600
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Кількість запитів на читання індексного блоку з кеша."
 
 #: server_status_variables.php:603
 msgid ""
@@ -11486,6 +11492,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Кількість фізичних читань індексного блоку з диска. Якщо Key_reads великий, "
+"то значення key_buffer_size швидше за все  замале. Коефіцієнт невдалих "
+"звернень до кешу може бути обчислений як Key_reads/Key_read_requests."
 
 #: server_status_variables.php:609
 msgid ""
@@ -11495,11 +11504,11 @@ msgstr ""
 
 #: server_status_variables.php:613
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "Кількість запитів запису індексного блоку до кеша."
 
 #: server_status_variables.php:616
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "Кількість фізичних записів індексного блоку на диску."
 
 #: server_status_variables.php:619
 msgid ""
@@ -11512,12 +11521,18 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"Загальна вартість останнього скомпільованого запиту, що обчислено "
+"оптимізатором запитів. Може знадобитися для порівняння вартості різних схем "
+"одного і того ж запиту. Початкове значення 0 означає, що запиту ще "
+"скомпільовано не було."
 
 #: server_status_variables.php:629
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Максимальна кількість підключень, що були одночасно використані з моменту "
+"запуску сервера."
 
 #: server_status_variables.php:633
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
