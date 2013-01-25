@@ -532,7 +532,7 @@ PMA_Response::getInstance()->addHTML($html_output);
  * @param array  $choices           Choices for dropdown
  * @param string $selected_value    Selected value
  *
- * @return string $html_output The html code for existing value (for selected)
+ * @return string The html code for existing value (for selected)
  *
  * @access public
  */
