@@ -335,7 +335,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '\\hline ';
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $buffer .= '\\multicolumn{1}{|c|}{\\textbf{'
-                    . $this::texEscape(stripslashes($columns[$i])) . '}} & ';
+                    . self::texEscape(stripslashes($columns[$i])) . '}} & ';
             }
 
             $buffer = substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
@@ -378,7 +378,7 @@ class ExportLatex extends ExportPlugin
                     || ! is_null($record[$columns[$i]]))
                     && isset($record[$columns[$i]])
                 ) {
-                    $column_value = $this::texEscape(
+                    $column_value = self::texEscape(
                         stripslashes($record[$columns[$i]])
                     );
                 } else {
@@ -610,7 +610,7 @@ class ExportLatex extends ExportPlugin
                     );
                 }
             }
-            $local_buffer = $this::texEscape($local_buffer);
+            $local_buffer = self::texEscape($local_buffer);
             if ($row['Key']=='PRI') {
                 $pos=strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
