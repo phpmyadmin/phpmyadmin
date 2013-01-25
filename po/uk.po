@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-25 17:58+0200\n"
+"PO-Revision-Date: 2013-01-25 18:02+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -11536,7 +11536,7 @@ msgstr ""
 
 #: server_status_variables.php:633
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "Кількість рядків, які чекають запису в запитах INSERT DELAYED."
 
 #: server_status_variables.php:636
 msgid ""
@@ -11566,18 +11566,21 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Кількість вільних блоків пам'яті в кеші запитів. Велике значення може "
+"вказувати на проблеми фрагментації, яку можна виправити виконавши команду "
+"FLUSH QUERY CACHE."
 
 #: server_status_variables.php:654
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Обсяг вільної пам'яті для кешу запитів."
 
 #: server_status_variables.php:657
 msgid "The number of cache hits."
-msgstr ""
+msgstr "Кількість вдалих запитів у кеш."
 
 #: server_status_variables.php:660
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Кількість запитів, доданих до кешу."
 
 #: server_status_variables.php:663
 msgid ""
