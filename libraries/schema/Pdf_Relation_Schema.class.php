@@ -366,7 +366,7 @@ class Table_Stats
     /**
      * Defines properties
      */
-    private $_tables;
+    private $_tables = array();
     private $_tableName;
     private $_showInfo = false;
 
@@ -910,8 +910,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         // Defines the scale factor
         $this->_scale = ceil(
             max(
-                ($this->_xMax - $this->_xMin) / ($pdf->getPageWidth() - $this->_rightMargin - $this->_leftMargin),
-                ($this->_yMax - $this->_yMin) / ($pdf->getPageHeight() - $this->_topMargin - $this->_bottomMargin)
+                ($this->_xMax - $this->_xMin)
+                / ($pdf->getPageWidth() - $this->_rightMargin - $this->_leftMargin),
+                ($this->_yMax - $this->_yMin)
+                / ($pdf->getPageHeight() - $this->_topMargin - $this->_bottomMargin)
             ) * 100
         ) / 100;
 
@@ -1060,7 +1062,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 $pdf->SetXY(0, $l * $gridSize + $topSpace);
                 $label = (string) sprintf(
                     '%.0f',
-                    ($l * $gridSize + $topSpace - $this->_topMargin) * $this->_scale + $this->_yMin
+                    ($l * $gridSize + $topSpace - $this->_topMargin)
+                    * $this->_scale + $this->_yMin
                 );
                 $pdf->Cell($labelWidth, $labelHeight, ' ' . $label);
             } // end if
@@ -1278,18 +1281,22 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     $indexes[] = $row['Key_name'];
                     $lastIndex = $row['Key_name'];
                 }
-                $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
+                $indexes_info[$row['Key_name']]['Sequences'][]
+                    = $row['Seq_in_index'];
                 $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
                 if (isset($row['Cardinality'])) {
-                    $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+                    $indexes_info[$row['Key_name']]['Cardinality']
+                        = $row['Cardinality'];
                 }
                 // I don't know what does following column mean....
                 // $indexes_info[$row['Key_name']]['Packed'] = $row['Packed'];
                 $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
+                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
+                    = $row['Column_name'];
                 if (isset($row['Sub_part'])) {
-                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                        = $row['Sub_part'];
                 }
             } // end while
             if ($result) {
@@ -1366,7 +1373,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 }
                 $pdf->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $pdf->Cell(45, 8, 'MIME', 1, 1, 'C');
-                $pdf->SetWidths(array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45));
+                $pdf->SetWidths(
+                    array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45)
+                );
             } else {
                 $pdf->Cell(20, 8, __('Column'), 1, 0, 'C');
                 $pdf->Cell(20, 8, __('Type'), 1, 0, 'C');
@@ -1400,7 +1409,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     $field_name,
                     $type,
                     $attribute,
-                    ($row['Null'] == '' || $row['Null'] == 'NO') ? __('No') : __('Yes'),
+                    ($row['Null'] == '' || $row['Null'] == 'NO')
+                    ? __('No')
+                    : __('Yes'),
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
                     (isset($res_rel[$field_name])
