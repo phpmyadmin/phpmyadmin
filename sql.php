@@ -1481,9 +1481,7 @@ function getTableHtmlForMultipleQueries(
 
             $analyzed_sql = PMA_SQP_analyze($parsed_sql);
             $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
-            $unlim_num_rows = PMA_Table::countRecords(
-                $db, $table, true
-            );
+            $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
             $url_query = PMA_generate_common_url($db, $table);
 
