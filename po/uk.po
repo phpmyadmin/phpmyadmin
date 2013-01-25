@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-23 23:57+0200\n"
-"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
+"PO-Revision-Date: 2013-01-25 18:15+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1624,12 +1624,12 @@ msgstr "Таблиця"
 #: js/messages.php:194
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Графік"
+msgstr "Діаграма"
 
 #: js/messages.php:195
 #| msgid "Add into comments"
 msgid "Edit chart"
-msgstr "Редагувати графік"
+msgstr "Редагувати діаграму"
 
 #: js/messages.php:196
 #| msgid "Servers"
@@ -9948,30 +9948,36 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>master</b> та "
+"<b>slave</b>."
 
 #: server_status.php:1084
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>master</b>."
 
 #: server_status.php:1086
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Цей сервер MySQL в процесі <b>реплікації</b> працює як <b>slave</b>."
 
 #: server_status.php:1089
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
+"За додатковою інформацією про стан реплікації на сервері звертайтеся у <a "
+"href=\"#replication\">розділ реплікації</a>."
 
 #: server_status.php:1098
 msgid "Replication status"
-msgstr ""
+msgstr "Стан реплікації"
 
 #: server_status.php:1113
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
+"На зайнятому сервері лічильники байтів можуть переповнитися, тому "
+"статистичні дані серверу MySQL можуть бути хибними."
 
 #: server_status.php:1119
 msgid "Received"
@@ -9983,7 +9989,7 @@ msgstr "Відправлено"
 
 #: server_status.php:1165
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "Макс. кількість одночасних підключень"
 
 #: server_status.php:1172
 msgid "Failed attempts"
@@ -10006,10 +10012,12 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"Кількість підключень, що було перервано через відключення клієнта без "
+"належного закриття з'єднання."
 
 #: server_status.php:1316
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "Кількість невдалих спроб підключитися до сервера MySQL."
 
 #: server_status.php:1317
 msgid ""
@@ -10017,15 +10025,18 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"Кількість транзакцій, що використовували кеш тимчасового двійкового журналу, "
+"але перевищили значення binlog_cache_size і використали тимчасовий файл для "
+"збереження команд транзакції."
 
 #: server_status.php:1318
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr ""
+msgstr "Кількість операцій, що використали кеш тимчасового двійкового журналу."
 
 #: server_status.php:1319
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "Кількість спроб підключення (успішних чи навпаки) до сервера MySQL."
 
 #: server_status.php:1320
 msgid ""
@@ -10034,44 +10045,54 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"Кількість тимчасових таблиць на диску автоматично створених сервером під час "
+"виконання команд. Якщо Created_tmp_disk_tables велике, ви можете збільшити "
+"значення tmp_table_size, щоб тимчасові таблиці розміщувалися в пам'яті, а не "
+"на диску."
 
 #: server_status.php:1321
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "Скільки було створено тимчасових файлів mysqld."
 
 #: server_status.php:1322
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"Кількість тимчасових таблиць в пам'яті, автоматично створювані сервером під "
+"час виконання команд."
 
 #: server_status.php:1323
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
+"Кількість рядків, записаних за допомогою команди INSERT DELAYED, при яких "
+"виникла помилка (ймовірно через дублі ключа)."
 
 #: server_status.php:1324
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"Кількість використовуваних потоків обробника команди INSERT DELAYED. Кожній "
+"таблиці, на якій використана команда INSERT DELAYED, надається свій потік."
 
 #: server_status.php:1325
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "Кількість рядків, записаних за допомогою команди INSERT DELAYED."
 
 #: server_status.php:1326
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "Кількість виконаних команд FLUSH."
 
 #: server_status.php:1327
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "Кількість внутрішніх команд COMMIT."
 
 #: server_status.php:1328
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "Кількість разів, коли рядок було видалено з таблиці."
 
 #: server_status.php:1329
 msgid ""
@@ -10079,6 +10100,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"Сервер MySQL може запитати механіхмсховища NDB-кластера, що йому відомо про "
+"таблицю з вказаним іменем. Це називається виявлення. Handler_discover - це "
+"кількість виявлених таблиць."
 
 #: server_status.php:1330
 msgid ""
@@ -10086,12 +10110,17 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"Кількість читань першого запису з індексу. Високе значення означае, що , "
+"можливо, сервер виконує забагато повних сканувань індексу; наприклад, "
+"командою SELECT col1 FROM foo, за умови, що col1 проіндексовано."
 
 #: server_status.php:1331
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"Кількість запитів на читання рядка на основі ключа. Високе значення означає, "
+"що ваші запити та таблиці правильно проіндексовані."
 
 #: server_status.php:1332
 msgid ""
@@ -10099,12 +10128,18 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"Кількість запитів на читання наступного рядка у ключовій послідовності. Це "
+"значення зростає, якщо ви створюєте запит індексу стовпчика з обмеженням "
+"діапазону або виконуєте сканування індексу."
 
 #: server_status.php:1333
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
 msgstr ""
+"Кількість запитів на читання у ключовій послідовності. Цей метод читання в "
+"основному застосовується для оптимізації за допомогою команди ORDER BY... "
+"DESC."
 
 #: server_status.php:1334
 msgid ""
@@ -10113,6 +10148,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"Кількість запитів на читання рядка на основі фіксованої позиції. Це значення "
+"зростає, якщо виконується багато запитів, що вимагають сортування "
+"результатів. Ви, напевно, здійснюєте багато запитів, що вимагають сканування "
+"всієї таблиці, або маєте об'єднання, які неправильно використовують ключі."
 
 #: server_status.php:1335
 msgid ""
@@ -10121,34 +10160,40 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"Кількість запитів на читання наступного рядка у файлі даних. Це значення "
+"зростає, якщо ви виконуєте робите багато сканувань таблиці. Як правило, це "
+"означає, що таблиці належним чином не індексуються, або запити не "
+"використовують переваг наявних індексів."
 
 #: server_status.php:1336
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "Кількість внутрішніх команд ROLLBACK."
 
 #: server_status.php:1337
 msgid "The number of requests to update a row in a table."
-msgstr ""
+msgstr "Кількість запитів на оновлення рядка в таблиці."
 
 #: server_status.php:1338
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "Кількість запитів на додавання рядка в таблицю."
 
 #: server_status.php:1339
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "Кількість сторінок, що містять дані (брудні або чисті)."
 
 #: server_status.php:1340
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "Поточна кількість брудних сторінок."
 
 #: server_status.php:1341
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
+"Кількість сторінок буферного пулу, щодо яких був виконаний запит на очищення "
+"(FLUSH)."
 
 #: server_status.php:1342
 msgid "The number of free pages."
-msgstr ""
+msgstr "Кількість вільних сторінок."
 
 #: server_status.php:1343
 msgid ""
@@ -10156,6 +10201,9 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"Кількість сторінок, заблокованих у буферному пулі InnoDB. Це сторінки, котрі "
+"в даний момент читаються або записуються або не можуть бути очищені або "
+"видалені з іншої причини."
 
 #: server_status.php:1344
 msgid ""
@@ -10164,32 +10212,43 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"Кількість сторінок, зайнятих через їх виділення під адміністративні процеси, "
+"як-от блокування рядка або адаптивне гещування індексу. Це значення також "
+"можна розрахувати за формулою Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: server_status.php:1345
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "Загальний розмір буферного пулу, у сторінках."
 
 #: server_status.php:1346
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"Кількість \"випадкових\" випереджуючих читань, ініційованих InnoDB. Це "
+"відбувається при виконанні запиту на сканування великої частини таблиці, але "
+"у випадковому порядку."
 
 #: server_status.php:1347
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
+"Кількість послідовних випереджуючих читань, ініційованих InnoDB. Це "
+"відбувається, коли InnoDB здійснює послідовне повне сканування таблиці."
 
 #: server_status.php:1348
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "Кількість логічних запитів на читання, виконаних InnoDB."
 
 #: server_status.php:1349
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
+"Кількість логічних читань, що InnoDB не зміг виконати з буферного пулу і був "
+"змушений здійснити посторінкове читання."
 
 #: server_status.php:1350
 msgid ""
@@ -10199,146 +10258,161 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
+"Зазвичай, записи в буферний пул InnoDB відбувається у фоновому режимі. "
+"Однак, якщо необхідно прочитати або створити сторінку, а чистої сторінки "
+"немає, то необхідно почекати, поки сторінки будуть очищені. Цей лічильник "
+"підраховує кількість таких очікувань. Якщо правильно налаштовано розмір "
+"буферного пула, це значення буде невеликим."
 
 #: server_status.php:1351
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "Кількість записів, здійснених в буферний пул InnoDB."
 
 #: server_status.php:1352
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "Кількість операцій fsync() до цього моменту."
 
 #: server_status.php:1353
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "Поточна кількість незавершених операцій fsync()."
 
 #: server_status.php:1354
 msgid "The current number of pending reads."
-msgstr ""
+msgstr "Поточна кількість незавершених операцій читання."
 
 #: server_status.php:1355
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "Поточна кількість незавершених операцій запису."
 
 #: server_status.php:1356
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "Обсяг прочитаних даних до цього моменту, в байтах."
 
 #: server_status.php:1357
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Загальна кількість прочитаних даних."
 
 #: server_status.php:1358
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Загальна кількість записаних даних."
 
 #: server_status.php:1359
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "Обсяг записаних даних до цього моменту, в байтах."
 
 #: server_status.php:1360
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
+msgstr "Кількість сторінок, записаних у операціях подвійного запису."
 
 #: server_status.php:1361
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
+msgstr "Кількість виконаних операцій подвійного запису."
 
 #: server_status.php:1362
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"Кількість затримок, що сталися через малий буфер журналу і очікування його "
+"очищення для продовження."
 
 #: server_status.php:1363
 msgid "The number of log write requests."
-msgstr ""
+msgstr "Кількість запитів на запис у журнал."
 
 #: server_status.php:1364
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "Кількість фізичних записів у файл журналу."
 
 #: server_status.php:1365
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "Кількість записів fsync() здійснених до файлу журналу."
 
 #: server_status.php:1366
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "Кількість незавершених fsyncs до файлу журналу."
 
 #: server_status.php:1367
 msgid "Pending log file writes."
-msgstr ""
+msgstr "Відкладені записи у файл журналу."
 
 #: server_status.php:1368
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "Кількість байт, записаних у файл журналу."
 
 #: server_status.php:1369
 msgid "The number of pages created."
-msgstr ""
+msgstr "Кількість створених сторінок."
 
 #: server_status.php:1370
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"Розмір сторінки, що компілюється в InnoDB (за замовчуванням 16 КБ). Багато "
+"значень наводяться у сторінках, але знаючи розмір сторінки їх легко "
+"перевести у байти."
 
 #: server_status.php:1371
 msgid "The number of pages read."
-msgstr ""
+msgstr "Кількість прочитаних сторінок."
 
 #: server_status.php:1372
 msgid "The number of pages written."
-msgstr ""
+msgstr "Кількість записаних сторінок."
 
 #: server_status.php:1373
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "Кількість наразі очікуваних блокувань рядків."
 
 #: server_status.php:1374
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Середній час виконання блокування рядка, в мілісекундах."
 
 #: server_status.php:1375
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
+"Загальний час, витрачений на виконання блокувань рядків, в мілісекундах."
 
 #: server_status.php:1376
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "Максимальний час виконання блокування рядка, в мілісекундах."
 
 #: server_status.php:1377
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "Кількість разів, коли довелося чекати на блокування рядка."
 
 #: server_status.php:1378
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "Кількість рядків, видалених з таблиць InnoDB."
 
 #: server_status.php:1379
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "Кількість рядків, доданих до таблиць InnoDB."
 
 #: server_status.php:1380
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "Кількість рядків, прочитаних з таблиць InnoDB."
 
 #: server_status.php:1381
 msgid "The number of rows updated in InnoDB tables."
-msgstr ""
+msgstr "Кількість рядків, оновлених з таблиць InnoDB."
 
 #: server_status.php:1382
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"Кількість індексних блоків в кеші індексу, що змінилися, але ще не були "
+"перенесені на диск. Раніше вона називалася Not_flushed_key_blocks."
 
 #: server_status.php:1383
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"Кількість невикористаних блоків у кеші індексу. Цим значенням визначається "
+"ступінь використання кешу індексу."
 
 #: server_status.php:1384
 msgid ""
@@ -10346,10 +10420,12 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"Кількість використаних блоків в кеші індексу. Це значення сигналізує про "
+"максимальну кількість блоків, що були одночасно використані."
 
 #: server_status.php:1385
 msgid "The number of requests to read a key block from the cache."
-msgstr ""
+msgstr "Кількість запитів на читання індексного блоку з кеша."
 
 #: server_status.php:1386
 msgid ""
@@ -10357,14 +10433,17 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"Кількість фізичних читань індексного блоку з диска. Якщо Key_reads великий, "
+"то значення key_buffer_size швидше за все  замале. Коефіцієнт невдалих "
+"звернень до кешу може бути обчислений як Key_reads/Key_read_requests."
 
 #: server_status.php:1387
 msgid "The number of requests to write a key block to the cache."
-msgstr ""
+msgstr "Кількість запитів запису індексного блоку до кеша."
 
 #: server_status.php:1388
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "Кількість фізичних записів індексного блоку на диску."
 
 #: server_status.php:1389
 msgid ""
@@ -10372,34 +10451,44 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"Загальна вартість останнього скомпільованого запиту, що обчислено "
+"оптимізатором запитів. Може знадобитися для порівняння вартості різних схем "
+"одного і того ж запиту. Початкове значення 0 означає, що запиту ще "
+"скомпільовано не було."
 
 #: server_status.php:1390
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"Максимальна кількість підключень, що були одночасно використані з моменту "
+"запуску сервера."
 
 #: server_status.php:1391
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "Кількість рядків, які чекають запису в запитах INSERT DELAYED."
 
 #: server_status.php:1392
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
+"Кількість таблиць, які були відкриті. Якщо відкритих таблиць забагато, кеш "
+"таблиць напевно вичерпується."
 
 #: server_status.php:1393
 msgid "The number of files that are open."
-msgstr ""
+msgstr "Кількість відкритих файлів."
 
 #: server_status.php:1394
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
+"Кількість відкритих потоків (використовуються в основному для ведення "
+"журналу)."
 
 #: server_status.php:1395
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "Кількість відкритих таблиць."
 
 #: server_status.php:1396
 msgid ""
@@ -10407,18 +10496,21 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"Кількість вільних блоків пам'яті в кеші запитів. Велике значення може "
+"вказувати на проблеми фрагментації, яку можна виправити виконавши команду "
+"FLUSH QUERY CACHE."
 
 #: server_status.php:1397
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "Обсяг вільної пам'яті для кешу запитів."
 
 #: server_status.php:1398
 msgid "The number of cache hits."
-msgstr ""
+msgstr "Кількість вдалих запитів у кеш."
 
 #: server_status.php:1399
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "Кількість запитів, доданих до кешу."
 
 #: server_status.php:1400
 msgid ""
@@ -10433,14 +10525,16 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
+"Кількість некешованих запитів (не кешується, або не кешовано через параметр "
+"query_cache_type)."
 
 #: server_status.php:1402
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Кількість запитів зареєстрованих в кеші."
 
 #: server_status.php:1403
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Загальна кількість блоків у кеші запитів."
 
 #: server_status.php:1404
 msgid "The status of failsafe replication (not yet implemented)."
@@ -10564,10 +10658,9 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1591 server_status.php:1662
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Add chart"
-msgstr "Додати коментар"
+msgstr "Додати діаграму"
 
 #: server_status.php:1593
 msgid "Rearrange/edit charts"
@@ -10650,20 +10743,18 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1667
-#, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Видалити базу даних"
+msgstr "Вбудована діаграма"
 
 #: server_status.php:1671
 msgid "Status variable(s)"
-msgstr ""
+msgstr "Статусні змінні"
 
 #: server_status.php:1673
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Вибрати таблиці"
+msgstr "Виберіть серії:"
 
 #: server_status.php:1675
 msgid "Commonly monitored"
@@ -10700,10 +10791,9 @@ msgid "Series in Chart:"
 msgstr ""
 
 #: server_status.php:1727
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Log statistics"
-msgstr "Статистика рядка"
+msgstr "Статистика журналу"
 
 #: server_status.php:1728
 #| msgid "Select Tables"
@@ -11182,10 +11272,9 @@ msgid "Showing SQL query"
 msgstr ""
 
 #: sql.php:724
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Перевірити SQL"
+msgstr "Перевірений SQL"
 
 #: sql.php:946
 #, php-format
@@ -11311,32 +11400,31 @@ msgstr ""
 
 #: tbl_chart.php:145
 msgid "X-Axis label:"
-msgstr ""
+msgstr "Мітка вісі X:"
 
 #: tbl_chart.php:147
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Значення X"
 
 #: tbl_chart.php:148
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Мітка вісі Y:"
 
 #: tbl_chart.php:149
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Значення y"
+msgstr "Значення Y"
 
 #: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "Таблиця %s вже існує!"
 
 #: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
-msgstr ""
+msgstr "Таблицю %1$s було створено."
 
 #: tbl_export.php:26
 msgid "View dump (schema) of table"
@@ -11348,11 +11436,11 @@ msgstr ""
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
-msgstr ""
+msgstr "Ширина"
 
 #: tbl_gis_visualization.php:132
 msgid "Height"
-msgstr ""
+msgstr "Висота"
 
 #: tbl_gis_visualization.php:136
 #| msgid "Add into comments"
@@ -11371,7 +11459,7 @@ msgstr "Разом"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
-msgstr ""
+msgstr "Перемалювати"
 
 #: tbl_gis_visualization.php:177
 #| msgid "Save as file"
@@ -11397,7 +11485,7 @@ msgstr "Не визначено частини індекса!"
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
-msgstr ""
+msgstr "Додати індекс"
 
 #: tbl_indexes.php:175
 #| msgid "Edit mode"
@@ -11486,10 +11574,9 @@ msgid "Table %s has been flushed"
 msgstr "Було очищено кеш таблиці %s"
 
 #: tbl_operations.php:688
-#, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Очистити кеш таблиці (\"FLUSH\")"
+msgstr "Очистити кеш таблиці (FLUSH)"
 
 #: tbl_operations.php:697
 #| msgid "Dumping data for table"
@@ -11527,11 +11614,11 @@ msgstr ""
 
 #: tbl_operations.php:772
 msgid "Rebuild"
-msgstr ""
+msgstr "Перебудувати"
 
 #: tbl_operations.php:773
 msgid "Repair"
-msgstr ""
+msgstr "Відремонтувати"
 
 #: tbl_operations.php:787
 msgid "Remove partitioning"
@@ -11670,10 +11757,9 @@ msgid "An index has been added on %s"
 msgstr "Було додано індекс для %s"
 
 #: tbl_structure.php:480
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show more actions"
-msgstr "Показати інформацію про PHP"
+msgstr "Показати додаткові дії"
 
 #: tbl_structure.php:623
 #| msgid "Print view"
@@ -11707,10 +11793,10 @@ msgid "After %s"
 msgstr "Після %s"
 
 #: tbl_structure.php:719
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Створити індекс на&nbsp;%s&nbsp;колонках"
+msgstr "Створити індекс у &nbsp;%s&nbsp;стовпчиках"
 
 #: tbl_structure.php:865
 msgid "partitioned"
@@ -11787,7 +11873,6 @@ msgid "Delete tracking data row from report"
 msgstr "Видалити рядки даних відстеження із звіту"
 
 #: tbl_tracking.php:449
-#, fuzzy
 #| msgid "No databases"
 msgid "No data"
 msgstr "Немає даних"
@@ -11865,10 +11950,11 @@ msgid "Create version"
 msgstr ""
 
 #: tbl_zoom_select.php:142
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Виконати \"запит згідно прикладу\" (символ підставновки: \"%\")"
+msgstr ""
+"Виконати \"запит згідно прикладу\" (символ підставновки: \"%\") для двох різних "
+"стовпчиків"
 
 #: tbl_zoom_select.php:152
 #| msgid "Hide search criteria"
@@ -11914,7 +12000,6 @@ msgid "Available transformations"
 msgstr "Доступні перетворення"
 
 #: transformation_overview.php:47
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
@@ -12039,10 +12124,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: po/advisory_rules.php:30
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Показати блок запиту"
+msgstr "Журналювання повільних запитів"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
@@ -12059,10 +12143,9 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Вибрати таблиці"
+msgstr "Випуск серії"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
@@ -12081,10 +12164,9 @@ msgid "Current version: %s"
 msgstr "Поточна версія: %s"
 
 #: po/advisory_rules.php:40 po/advisory_rules.php:45
-#, fuzzy
 #| msgid "PHP Version"
 msgid "Minor Version"
-msgstr "Версія PHP"
+msgstr "Неосновна версія"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -12148,10 +12230,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL Charset"
+msgstr "Архітектура MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12355,16 +12436,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Відсоток сортувань, при якому створюються тимчасові таблиці"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Забагато сортувань викликають створення тимчасових таблиць."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
@@ -12380,10 +12459,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:115
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дозволити створювати тимчасові таблиці."
+msgstr "Частота сортувань, при якому створюються тимчасові таблиці"
 
 #: po/advisory_rules.php:118
 #, php-format
@@ -12661,10 +12739,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Percentage of used open files limit"
-msgstr "Кодування файлу:"
+msgstr "Відсоток використаного ліміту використання відкритих файлів"
 
 #: po/advisory_rules.php:186
 msgid ""
@@ -12685,10 +12762,9 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Rate of open files"
-msgstr "Кодування файлу:"
+msgstr "Частота відкритих файлів"
 
 #: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
@@ -12700,10 +12776,10 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:195
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Створити нову таблицю в БД %s"
+msgstr "Поточні блокування таблиці %%"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
@@ -12759,7 +12835,7 @@ msgstr "Трекінг не активний."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Збільшити {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
@@ -12787,7 +12863,7 @@ msgstr ""
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Повільний час запуску"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
@@ -12805,10 +12881,9 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: po/advisory_rules.php:225
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of used connections"
-msgstr "З'єднань"
+msgstr "Відсоток використаних з'єднань"
 
 #: po/advisory_rules.php:226
 msgid ""
