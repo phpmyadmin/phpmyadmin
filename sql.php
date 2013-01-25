@@ -356,7 +356,7 @@ $displayResultsObject->setConfigParamsForDisplayTable();
  * Need to find the real end of rows?
  */
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
     $_SESSION['tmp_user_values']['pos'] = @((ceil(
         $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
     ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
@@ -1481,9 +1481,7 @@ function getTableHtmlForMultipleQueries(
 
             $analyzed_sql = PMA_SQP_analyze($parsed_sql);
             $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
-            $unlim_num_rows = PMA_Table::countRecords(
-                $db, $table, $force_exact = true
-            );
+            $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
             $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
             $url_query = PMA_generate_common_url($db, $table);
 

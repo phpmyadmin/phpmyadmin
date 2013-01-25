@@ -126,7 +126,6 @@ function getServerTrafficHtml($ServerStatusData)
                 PMA_replication_print_status_table($type);
             }
         }
-        unset($types);
     }
 
     $retval .= '<table id="serverstatustraffic" class="data noclick">';
