@@ -366,6 +366,7 @@ class Table_Stats
     /**
      * Defines properties
      */
+    private $_tables;
     private $_tableName;
     private $_showInfo = false;
 
@@ -891,8 +892,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         /* snip */
         foreach ($alltables as $table) {
-            if (! isset($this->tables[$table])) {
-                $this->tables[$table] = new Table_Stats(
+            if (! isset($this->_tables[$table])) {
+                $this->_tables[$table] = new Table_Stats(
                     $table, $this->_ff,
                     $this->pageNumber,
                     $this->_tablewidth,
@@ -901,9 +902,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 );
             }
             if ($this->sameWide) {
-                $this->tables[$table]->width = $this->_tablewidth;
+                $this->_tables[$table]->width = $this->_tablewidth;
             }
-            $this->_setMinMax($this->tables[$table]);
+            $this->_setMinMax($this->_tables[$table]);
         }
 
         // Defines the scale factor
@@ -998,23 +999,23 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private function _addRelation($masterTable, $masterField, $foreignTable,
         $foreignField, $showInfo
     ) {
-        if (! isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats(
+        if (! isset($this->_tables[$masterTable])) {
+            $this->_tables[$masterTable] = new Table_Stats(
                 $masterTable, $this->_ff, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
-            $this->_setMinMax($this->tables[$masterTable]);
+            $this->_setMinMax($this->_tables[$masterTable]);
         }
-        if (! isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats(
+        if (! isset($this->_tables[$foreignTable])) {
+            $this->_tables[$foreignTable] = new Table_Stats(
                 $foreignTable, $this->_ff, $this->pageNumber,
                 $this->_tablewidth, false, $showInfo
             );
-            $this->_setMinMax($this->tables[$foreignTable]);
+            $this->_setMinMax($this->_tables[$foreignTable]);
         }
         $this->relations[] = new Relation_Stats(
-            $this->tables[$masterTable], $masterField,
-            $this->tables[$foreignTable], $foreignField
+            $this->_tables[$masterTable], $masterField,
+            $this->_tables[$foreignTable], $foreignField
         );
     }
 
@@ -1114,7 +1115,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _drawTables($changeColor = 0)
     {
-        foreach ($this->tables as $table) {
+        foreach ($this->_tables as $table) {
             $table->tableDraw($this->_ff, $this->withDoc, $changeColor);
         }
     }
