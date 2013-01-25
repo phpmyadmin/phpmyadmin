@@ -1067,7 +1067,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         $response = PMA_Response::getInstance();
         $header = $response->getHeader();
-        $header->enablePrintView();
 
         $hostname = '';
         if ($cfg['Server']['verbose']) {

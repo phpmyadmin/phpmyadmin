@@ -71,21 +71,4 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-
-    /**
-     * Test for print view
-     *
-     * @return void
-     */
-    public function testPrintView()
-    {
-        $header = new PMA_Header();
-        $header->enablePrintView();
-        $this->assertContains(
-            'Print view',
-            $header->getDisplay()
-        );
-    }
-
-
 }

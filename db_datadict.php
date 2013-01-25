@@ -17,7 +17,6 @@ if (! isset($selected_tbl)) {
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
-$header->enablePrintView();
 
 /**
  * Gets the relations settings

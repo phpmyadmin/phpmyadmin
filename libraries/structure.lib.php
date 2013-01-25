@@ -356,7 +356,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
 function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
-        . '<a href="db_printview.php?' . $url_query . '" target="print_view">'
+        . '<a href="db_printview.php?' . $url_query . '">'
         . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
@@ -373,7 +373,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
  */
 function PMA_getHtmlForDataDictionaryLink($url_query)
 {
-    return '<a href="db_datadict.php?' . $url_query . '" target="print_view">'
+    return '<a href="db_datadict.php?' . $url_query . '">'
         . PMA_Util::getIcon(
             'b_tblanalyse.png',
             __('Data Dictionary'),
@@ -1312,8 +1312,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
             . '<a class="change_column_anchor ajax"'
-            . ' href="tbl_structure.php?' 
-            . $url_query . '&amp;field=' . $field_encoded 
+            . ' href="tbl_structure.php?'
+            . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
@@ -1477,7 +1477,7 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $html_output = '<a href="tbl_printview.php?' . $url_query . '" target="print_view">'
+    $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
@@ -2242,12 +2242,12 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
  * @param string  $db                       database name
  * @param string  $table                    table name
  * @param array   $selected                 the selected columns
- * @param string  $action                   target script to call 
+ * @param string  $action                   target script to call
  *
  * @return boolean $regenerate              true if error occurred
- * 
+ *
  */
-function PMA_displayHtmlForColumnChange($db, $table, $selected, $action) 
+function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
     // $selected comes from multi_submits.inc.php
     if (empty($selected)) {
@@ -2264,12 +2264,12 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
         $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
-    // set these globals because tbl_columns_definition_form.inc.php 
+    // set these globals because tbl_columns_definition_form.inc.php
     // verifies them
-    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses 
+    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
     // function params
     $GLOBALS['action'] = 'tbl_structure.php';
-    $GLOBALS['num_fields'] = $num_fields; 
+    $GLOBALS['num_fields'] = $num_fields;
 
     // Get more complete field information.
     // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
@@ -2434,7 +2434,7 @@ function PMA_updateColumns($db, $table)
         PMA_Util::mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in 
+        // The variable $regenerate will be used to restore data in
         // libraries/tbl_columns_definition_form.inc.php
         // @todo: test this code, now that it's inside a function
         if (isset($_REQUEST['orig_field'])) {
