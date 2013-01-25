@@ -540,7 +540,7 @@ function PMA_generateDropdown(
     $dropdown_question, $select_name, $choices, $selected_value
 ) {
     
-    $html_output .= htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
+    $html_output = htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
         . '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
 
     foreach ($choices as $one_value => $one_label) {
