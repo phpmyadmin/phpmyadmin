@@ -65,8 +65,12 @@ class PMA_VISIO extends XMLWriter
     function startVisioDoc()
     {
         $this->startElement('VisioDocument');
-        $this->writeAttribute('xmlns', 'http://schemas.microsoft.com/visio/2003/core');
-        $this->writeAttribute('xmlns:vx', 'http://schemas.microsoft.com/visio/2006/extension');
+        $this->writeAttribute(
+            'xmlns', 'http://schemas.microsoft.com/visio/2003/core'
+        );
+        $this->writeAttribute(
+            'xmlns:vx', 'http://schemas.microsoft.com/visio/2006/extension'
+        );
         $this->writeAttribute('xml:space', 'preserve');
         $this->_documentProperties();
         $this->_documentSettings();
@@ -115,7 +119,11 @@ class PMA_VISIO extends XMLWriter
         $this->writeRaw('<Subject>'.$this->title.'</Subject>');
         $this->writeRaw('<Creator>'.$this->author.'</Creator>');
         $this->writeRaw('<Company>phpMyAdmin</Company>');
-        $this->writeRaw('<Template>c:\program files\microsoft office\office12\1033\DBMODL_U.VST</Template>');
+        $this->writeRaw(
+            '<Template>'
+            . 'c:\program files\microsoft office\office12\1033\DBMODL_U.VST'
+            . '</Template>'
+        );
         $this->endElement();
     }
 
@@ -210,8 +218,9 @@ class Table_Stats
      * @see PMA_VISIO, Table_Stats::Table_Stats_setWidth,
      *      Table_Stats::Table_Stats_setHeight
      */
-    function __construct($tableName, $pageNumber, &$same_wide_width, $showKeys = false, $showInfo = false)
-    {
+    function __construct($tableName, $pageNumber, &$same_wide_width,
+        $showKeys = false, $showInfo = false
+    ) {
         global $visio, $cfgRelation, $db;
 
         $this->_tableName = $tableName;
@@ -283,7 +292,10 @@ class Table_Stats
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $tableName);
         // index
-        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';', null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_query(
+            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';', null,
+            PMA_DBI_QUERY_STORE
+        );
         if (PMA_DBI_num_rows($result) > 0) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
@@ -303,7 +315,8 @@ class Table_Stats
     private function _getTitle()
     {
         return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
+            ? sprintf('%.0f', $this->width) . 'x'
+                . sprintf('%.0f', $this->heightCell)
             : '') . ' ' . $this->_tableName;
     }
 
@@ -396,8 +409,9 @@ class Relation_Stats
      * @return void
      * @see Relation_Stats::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct($master_table, $master_field, $foreign_table,
+        $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -536,14 +550,19 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
         $this->setExportType($_POST['export_type']);
 
         $visio = new PMA_VISIO();
-        $visio->setTitle(sprintf(__('Schema of the %s database - Page %s'), $db, $this->pageNumber));
+        $visio->setTitle(
+            sprintf(
+                __('Schema of the %s database - Page %s'), $db, $this->pageNumber
+            )
+        );
         $visio->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $visio->startVisioDoc();
         $alltables = $this->getAllTables($db, $this->pageNumber);
 
         foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
-                $this->_tables[$table] = new Table_Stats($table, $this->pageNumber, $this->showKeys);
+                $this->_tables[$table]
+                    = new Table_Stats($table, $this->pageNumber, $this->showKeys);
             }
         }
 
@@ -593,8 +612,9 @@ class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @see Table_Stats::__construct(), Relation_Stats::__construct()
      */
-    private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showKeys)
-    {
+    private function _addRelation($masterTable, $masterField, $foreignTable,
+        $foreignField, $showKeys
+    ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats(
                 $masterTable, $this->pageNumber, $showKeys
