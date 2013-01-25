@@ -73,13 +73,6 @@ class PMA_Header
      */
     private $_warningsEnabled;
     /**
-     * Whether the page is in 'print view' mode
-     *
-     * @access private
-     * @var bool
-     */
-    private $_isPrintView;
-    /**
      * Whether we are servicing an ajax request.
      * We can't simply use $GLOBALS['is_ajax_request']
      * here since it may have not been initialised yet.
@@ -124,7 +117,6 @@ class PMA_Header
         );
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
-        $this->_isPrintView = false;
         $this->_scripts     = new PMA_Scripts();
         $this->_addDefaultScripts();
         $this->_headerIsSent = false;
@@ -325,18 +317,6 @@ class PMA_Header
     }
 
     /**
-     * Turns on 'print view' mode
-     *
-     * @return void
-     */
-    public function enablePrintView()
-    {
-        $this->disableMenu();
-        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
-        $this->_isPrintView = true;
-    }
-
-    /**
      * Generates the header
      *
      * @return string The header
@@ -387,6 +367,9 @@ class PMA_Header
                         PMA_Util::getImage('s_top.png')
                     );
                 }
+                $retval .= '<iframe id="printingFrame" tabIndex="-1" '
+                    . 'style="position: absolute; width: 0; height: 0; border: 0">';
+                $retval .= '</iframe>';
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
                 $retval .= $this->_addRecentTable(
@@ -503,17 +486,12 @@ class PMA_Header
         $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
-        if ($this->_isPrintView) {
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'print.css" media="print" />';
-        } else {
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'phpmyadmin.css.php'
-                . $common_url . '&amp;nocache='
-                . $theme_id . $GLOBALS['text_dir'] . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
-        }
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $basedir . 'phpmyadmin.css.php'
+            . $common_url . '&amp;nocache='
+            . $theme_id . $GLOBALS['text_dir'] . '" />';
+        $retval .= '<link rel="stylesheet" type="text/css" href="'
+            . $theme_path . '/jquery/jquery-ui-1.9.2.custom.css" />';
 
         return $retval;
     }

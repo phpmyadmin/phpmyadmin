@@ -3604,10 +3604,10 @@ function escapeHtml(unsafe) {
  */
 function printPage()
 {
-    // Do print the page
-    if (typeof(window.print) != 'undefined') {
-        window.print();
-    }
+    var frameWindow = $('#printingFrame')[0].contentWindow;
+    $('body', frameWindow.document).html($('#page_content').html());
+    frameWindow.focus();
+    frameWindow.print();
 }
 
 /**
@@ -3620,6 +3620,11 @@ AJAX.registerTeardown('functions.js', function() {
 });
 
 AJAX.registerOnload('functions.js', function() {
+    var doc = $('#printingFrame')[0].contentWindow.document;
+    var $head = $('head', doc);
+    if ($head.find('link').length == 0) {
+        $head.append($('<link rel="stylesheet" type="text/css" href="print.css" media="print">'));
+    }
     $('input#print').click(printPage);
     /**
      * Ajaxification for the "Create View" action

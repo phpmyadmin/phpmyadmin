@@ -2658,7 +2658,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get the values for one data row 
+     * Get the values for one data row
      *
      * @param integer &$dt_result         the link id associated to the query
      *                                    which results have to be displayed
@@ -2698,8 +2698,8 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        for ($currentColumn = 0; 
-                $currentColumn < $this->__get('fields_cnt'); 
+        for ($currentColumn = 0;
+                $currentColumn < $this->__get('fields_cnt');
                 ++$currentColumn) {
 
             // assign $i with appropriate column order
@@ -3464,7 +3464,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get the combined classes for a column 
+     * Get the combined classes for a column
      *
      * @param string  $grid_edit_class  the class for all editable columns
      * @param string  $not_null_class   the class for not null columns
@@ -5201,10 +5201,9 @@ class PMA_DisplayResults
                         PMA_Util::getIcon(
                             'b_print.png', __('Print view'), true
                         ),
-                        array('target' => 'print_view'),
+                        array(),
                         true,
-                        true,
-                        'print_view'
+                        true
                     )
                     . "\n";
 
@@ -5219,10 +5218,9 @@ class PMA_DisplayResults
                                 'b_print.png',
                                 __('Print view (with full texts)'), true
                             ),
-                            array('target' => 'print_view'),
+                            array(),
                             true,
-                            true,
-                            'print_view'
+                            true
                         )
                         . "\n";
                     unset($_url_params['display_text']);
