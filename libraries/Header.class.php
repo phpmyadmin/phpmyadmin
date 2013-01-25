@@ -505,7 +505,7 @@ class PMA_Header
 
         if ($this->_isPrintView) {
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'print.css" media="print" />';
+                . $basedir . 'print.css" />';
         } else {
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php'
