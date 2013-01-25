@@ -722,7 +722,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db, $this->pageNumber);
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
-                $this->tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats(
                     $table, $this->pageNumber, $this->showKeys
                 );
             }
@@ -775,19 +775,19 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
     private function _addRelation($masterTable, $masterField, $foreignTable,
         $foreignField, $showKeys
     ) {
-        if (! isset($this->tables[$masterTable])) {
-            $this->tables[$masterTable] = new Table_Stats(
+        if (! isset($this->_tables[$masterTable])) {
+            $this->_tables[$masterTable] = new Table_Stats(
                 $masterTable, $this->pageNumber, $showKeys
             );
         }
-        if (! isset($this->tables[$foreignTable])) {
-            $this->tables[$foreignTable] = new Table_Stats(
+        if (! isset($this->_tables[$foreignTable])) {
+            $this->_tables[$foreignTable] = new Table_Stats(
                 $foreignTable, $this->pageNumber, $showKeys
             );
         }
         $this->_relations[] = new Relation_Stats(
-            $this->tables[$masterTable], $masterField,
-            $this->tables[$foreignTable], $foreignField
+            $this->_tables[$masterTable], $masterField,
+            $this->_tables[$foreignTable], $foreignField
         );
     }
 
@@ -827,7 +827,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      */
     private function _drawTables($changeColor)
     {
-        foreach ($this->tables as $table) {
+        foreach ($this->_tables as $table) {
             $table->tableDraw($changeColor);
         }
     }
