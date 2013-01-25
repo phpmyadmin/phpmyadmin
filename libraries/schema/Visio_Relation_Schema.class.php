@@ -186,7 +186,6 @@ class Table_Stats
      * Defines properties
      */
 
-    private $_tables = array();
     private $_tableName;
     private $_showInfo = false;
 
@@ -528,6 +527,11 @@ class Relation_Stats
  */
 class PMA_Visio_Relation_Schema extends PMA_Export_Relation_Schema
 {
+    /**
+     * Class properties
+     */
+    private $_tables = array();
+
     /**
      * The "PMA_Visio_Relation_Schema" constructor
      *

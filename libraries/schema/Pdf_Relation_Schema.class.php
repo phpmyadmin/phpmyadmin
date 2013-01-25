@@ -366,7 +366,6 @@ class Table_Stats
     /**
      * Defines properties
      */
-    private $_tables = array();
     private $_tableName;
     private $_showInfo = false;
 
@@ -822,6 +821,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines properties
      */
+    private $_tables = array();
     private $_ff = PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
