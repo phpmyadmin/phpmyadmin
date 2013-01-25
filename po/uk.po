@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-25 18:02+0200\n"
+"PO-Revision-Date: 2013-01-25 18:15+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -1448,11 +1448,11 @@ msgstr "Таблиця"
 
 #: js/messages.php:177
 msgid "Chart"
-msgstr "Графік"
+msgstr "Діаграма"
 
 #: js/messages.php:178
 msgid "Edit chart"
-msgstr "Редагувати графік"
+msgstr "Редагувати діаграму"
 
 #: js/messages.php:179
 msgid "Series"
@@ -10925,20 +10925,18 @@ msgid ""
 msgstr ""
 
 #: server_status_monitor.php:610
-#, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Видалити базу даних"
+msgstr "Вбудована діаграма"
 
 #: server_status_monitor.php:614
 msgid "Status variable(s)"
-msgstr ""
+msgstr "Статусні змінні"
 
 #: server_status_monitor.php:617
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
-msgstr "Вибрати таблиці"
+msgstr "Виберіть серії:"
 
 #: server_status_monitor.php:619
 msgid "Commonly monitored"
@@ -11595,14 +11593,16 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
+"Кількість некешованих запитів (не кешується, або не кешовано через параметр "
+"query_cache_type)."
 
 #: server_status_variables.php:674
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "Кількість запитів зареєстрованих в кеші."
 
 #: server_status_variables.php:677
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "Загальна кількість блоків у кеші запитів."
 
 #: server_status_variables.php:680
 msgid "The status of failsafe replication (not yet implemented)."
