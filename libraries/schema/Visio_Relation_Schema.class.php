@@ -186,7 +186,7 @@ class Table_Stats
      * Defines properties
      */
 
-    private $_tables;
+    private $_tables = array();
     private $_tableName;
     private $_showInfo = false;
 
