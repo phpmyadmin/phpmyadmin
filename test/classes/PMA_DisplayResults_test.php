@@ -629,6 +629,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * Test for _getCheckBoxesForMultipleRowOperations
      *
      * @param string $dir    _left / _right
+     * @param array $is_display display mode
      * @param string $output output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
@@ -636,7 +637,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
     public function testGetCheckBoxesForMultipleRowOperations(
-        $dir, $output
+        $dir, $is_display, $output
     ) {
         $vertical_display = array(
             'row_delete' => array(
@@ -652,7 +653,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
             $output,
             $this->_callPrivateFunction(
                 '_getCheckBoxesForMultipleRowOperations',
-                array($dir)
+                array($dir, $is_display)
             )
         );
     }
