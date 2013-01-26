@@ -58,7 +58,7 @@ function isEmpty(obj) {
  **/
 function getTimeStamp(val, type) {
     if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-        return getDateFromFormat(val, 'yyyy-MM-dd HH:mm:ss', val);
+        return getDateFromFormat(val, 'yyyy-MM-dd HH:mm:ss');
     }
     else if (type.toString().search(/time/i) != -1) {
         return getDateFromFormat('1970-01-01 ' + val, 'yyyy-MM-dd HH:mm:ss');
@@ -87,7 +87,7 @@ function getType(field) {
  ** @param array categorical values array
  **/
 function getCord(arr) {
-    var newCord = new Array();
+    var newCord = [];
     var original = $.extend(true, [], arr);
     var arr = jQuery.unique(arr).sort();
     $.each(original, function(index, value) {
@@ -275,14 +275,15 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
      */
     buttonOptions[PMA_messages['strSave']] = function () {
         //Find changed values by comparing form values with selectedRow Object
-        var newValues = new Object();//Stores the values changed from original
-        var sqlTypes = new Object();
+        var newValues = {};//Stores the values changed from original
+        var sqlTypes = {};
         var it = 0;
         var xChange = false;
         var yChange = false;
+        var key;
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
-            var newVal = ($('#edit_fields_null_id_' + it).attr('checked')) ? null : $('#edit_fieldID_' + it).val();
+            var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal =  $('#edit_fieldID_' + it).map(function(){
                     return $(this).val();
@@ -437,9 +438,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#FF0080', '#800080', '#FFFF00', '#00FF00', '#FF00FF'];
-        var series = new Array();
-        var xCord = new Array();
-        var yCord = new Array();
+        var series = [];
+        var xCord = [];
+        var yCord = [];
         var tempX, tempY;
         var it = 0;
         var xMax; // xAxis extreme max
@@ -479,7 +480,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 zoom: true,
                 showTooltip: false
             }
-        }
+        };
 
         // If data label is not set, do not show tooltips
         if (dataLabel == '') {
@@ -491,10 +492,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         yType = getType(yType);
 
         // could have multiple series but we'll have just one
-        series[0] = new Array();
+        series[0] = [];
 
         if (xType == 'time') {
-            originalXType = $('#types_0').val();
+            var originalXType = $('#types_0').val();
+            var format;
             if (originalXType == 'date') {
                 format = '%Y-%m-%d';
             }
@@ -512,7 +514,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             });
         }
         if (yType == 'time') {
-            originalYType = $('#types_1').val();
+            var originalYType = $('#types_1').val();
+            var format;
             if (originalYType == 'date') {
                 format = '%Y-%m-%d';
             }
@@ -583,14 +586,15 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 $.post('tbl_zoom_select.php', post_params, function(data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
+                    var key;
                     for (key in data.row_info) {
                         $field = $('#edit_fieldID_' + field_id);
                         $field_null = $('#edit_fields_null_id_' + field_id);
                         if (data.row_info[key] == null) {
-                            $field_null.attr('checked', true);
+                            $field_null.prop('checked', true);
                             $field.val('');
                         } else {
-                            $field_null.attr('checked', false);
+                            $field_null.prop('checked', false);
                             if ($field.attr('multiple')) { // when the column is of type SET
                                 $field.val(data.row_info[key].split(','));
                             } else {
@@ -599,7 +603,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                         }
                         field_id++;
                     }
-                    selectedRow = new Object();
+                    selectedRow = {};
                     selectedRow = data.row_info;
                 });
 

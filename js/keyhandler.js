@@ -35,7 +35,7 @@ function onKeyDownArrowsHandler(e)
     var x = pos[2], y=pos[1];
 
     // skip non existent fields
-    for (i=0; i<10; i++)
+    for (var i=0; i<10; i++)
     {
         if (switch_movement) {
             switch(e.keyCode) {
@@ -84,8 +84,8 @@ function onKeyDownArrowsHandler(e)
         var id = "field_" + y + "_" + x;
         var nO = document.getElementById(id);
         if (!nO) {
-            var id = "field_" + y + "_" + x + "_0";
-            var nO = document.getElementById(id);
+            id = "field_" + y + "_" + x + "_0";
+            nO = document.getElementById(id);
         }
         if (nO) {
             break;

@@ -145,7 +145,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                             setTimeout(perform_upload, 1000);
                         }
                     });
-                }
+                };
                 setTimeout(perform_upload, 1000);
 
     <?php

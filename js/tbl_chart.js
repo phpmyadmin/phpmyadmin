@@ -76,16 +76,14 @@ AJAX.registerOnload('tbl_chart.js', function() {
     // handle changes in chart title
     $('input[name="chartTitle"]').focus(function() {
         temp_chart_title = $(this).val();
-    });
-    $('input[name="chartTitle"]').keyup(function() {
+    }).keyup(function() {
         var title = $(this).val();
         if (title.length == 0) {
             title = ' ';
         }
         currentSettings.title = $('input[name="chartTitle"]').val();
         drawChart();
-    });
-    $('input[name="chartTitle"]').blur(function() {
+    }).blur(function() {
         if ($(this).val() != temp_chart_title) {
             drawChart();
         }
@@ -241,7 +239,7 @@ function PMA_queryChart(data, columnNames, settings) {
         return;
     }
 
-    jqPlotSettings = {
+    var jqPlotSettings = {
         title : {
             text : settings.title,
             escapeHtml: true

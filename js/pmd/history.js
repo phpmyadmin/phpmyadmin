@@ -285,7 +285,7 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype)
     };
     this.get_and_or = function() {
         return and_or;
-    }
+    };
     this.get_relation = function() {
         return and_or;
     };
@@ -309,17 +309,17 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype)
     };
     this.set_type = function(ntype) {
         type = ntype;
-    }
+    };
     this.get_type = function() {
         return type;
-    }
+    };
     this.set_obj_no(nobj_no);
     this.set_tab(ntab);
     this.set_and_or(0);
     this.set_obj(nobj);
     this.set_column_name(ncolumn_name);
     this.set_type(ntype);
-};
+}
 
 /**
  * where object closure, makes an object with all information of where
@@ -430,7 +430,7 @@ var aggregate = function(noperator) {
 
 function unique(arrayName)
 {
-    var newArray=new Array();
+    var newArray=[];
     label:for (var i=0; i<arrayName.length; i++ )
     {
         for (var j=0; j<newArray.length; j++ )
@@ -477,7 +477,7 @@ function build_query(formtitle, fadin)
 {
     var q_select = "SELECT ";
     var temp;
-    for (i = 0;i < select_field.length; i++) {
+    for (var i = 0;i < select_field.length; i++) {
         temp = check_aggregate(select_field[i]);
         if (temp != "") {
             q_select += temp;
@@ -531,6 +531,11 @@ function query_from()
     var t_array = [];
     t_array = from_array;
     var K = 0;
+    var k;
+    var key;
+    var key2;
+    var key3;
+    var parts1;
     for (i = 0; i < history_array.length ; i++) {
         from_array.push(history_array[i].get_tab());
     }

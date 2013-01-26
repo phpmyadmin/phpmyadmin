@@ -192,10 +192,10 @@ $(function() {
            return;
        }
        var el = $(this).find('input');
-       if (el.attr('disabled')) {
+       if (el.prop('disabled')) {
            return;
        }
-       el.attr('checked', !el.attr('checked'));
+       el.prop('checked', !el.prop('checked'));
    });
 });
 

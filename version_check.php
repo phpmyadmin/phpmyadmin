@@ -25,7 +25,7 @@ if (isset($_SESSION['cache']['version_check'])
     } else if (function_exists('curl_init')) {
         $curl_handle = curl_init($file);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec();
+        $response = curl_exec($curl_handle);
     }
 }
 
