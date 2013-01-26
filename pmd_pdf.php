@@ -143,7 +143,7 @@ echo '<p>' . __('Export/Import to scale') . ':';
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-        <option value="3" selected>1:3 (<?php echo __('recommended'); ?>)</option>
+        <option value="3" selected="selected">1:3 (<?php echo __('recommended'); ?>)</option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
       </select>
