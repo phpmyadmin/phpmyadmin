@@ -416,7 +416,7 @@ function Swekey_GetFastRndToken()
 {
     $res = Swekey_GetFastHalfRndToken();
     if (strlen($res) == 64) {
-        return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" + mt_rand() + date(DATE_ATOM)));
+        return substr($res, 0, 32).strtoupper(md5("Musbe Authentication Key" . mt_rand() . date(DATE_ATOM)));
     }
     return "";
 }

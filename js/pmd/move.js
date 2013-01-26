@@ -245,7 +245,7 @@ function Rezize_osn_tab()
 {
     var max_X = 0;
     var max_Y = 0;
-    for (key in j_tabs) {
+    for (var key in j_tabs) {
         var k_x = parseInt(document.getElementById(key).style.left) + document.getElementById(key).offsetWidth;
         var k_y = parseInt(document.getElementById(key).style.top) + document.getElementById(key).offsetHeight;
         max_X = max_X < k_x ? k_x : max_X;
@@ -269,7 +269,11 @@ function Re_load()
     var n;
     var x1;
     var x2;
-    var a = new Array();
+    var a = [];
+    var K;
+    var key;
+    var key2;
+    var key3;
     Clear();
     for (K in contr) {
         for (key in contr[K]) {
@@ -508,7 +512,7 @@ function Exit_fullscreen()
 //------------------------------ SAVE ------------------------------------------
 function Save(url) // (del?) no for pdf
 {
-    for (key in j_tabs) {
+    for (var key in j_tabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top);
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1;
@@ -521,7 +525,7 @@ function Save(url) // (del?) no for pdf
 function Get_url_pos()
 {
     var poststr = '';
-    for (key in j_tabs) {
+    for (var key in j_tabs) {
         poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left);
         poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top);
         poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
@@ -667,7 +671,7 @@ function Start_tab_upd(table)
 function Small_tab_all(id_this) // max/min all tables
 {
     if (id_this.alt == "v") {
-        for (key in j_tabs) {
+        for (var key in j_tabs) {
             if (document.getElementById('id_hide_tbody_'+key).innerHTML == "v") {
                 Small_tab(key, 0);
             }
@@ -675,7 +679,7 @@ function Small_tab_all(id_this) // max/min all tables
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
-        for (key in j_tabs) {
+        for (var key in j_tabs) {
             if (document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
                 Small_tab(key, 0);
             }
@@ -688,7 +692,7 @@ function Small_tab_all(id_this) // max/min all tables
 
 function Small_tab_invert() // invert max/min all tables
 {
-    for (key in j_tabs) {
+    for (var key in j_tabs) {
         Small_tab(key, 0);
     }
     Re_load();
@@ -702,7 +706,7 @@ function Relation_lines_invert()
 
 function Small_tab_refresh()
 {
-     for (key in j_tabs) {
+     for (var key in j_tabs) {
          if(document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
              Small_tab(key, 0);
              Small_tab(key, 0);
@@ -749,8 +753,9 @@ function Canvas_click(id)
     var n = 0;
     var relation_name = 0;
     var selected = 0;
-    var a = new Array();
+    var a = [];
     var Key0, Key1, Key2, Key3, Key, x1, x2;
+    var K, key, key2, key3;
     var Local_X = $.FullScreen.isFullScreen() ? Glob_X : Glob_X - document.getElementById("canvas_outer").offsetLeft;
     var Local_Y = Glob_Y - document.getElementById("canvas_outer").offsetTop;
     Clear();
@@ -859,7 +864,7 @@ function Hide_tab_all(id_this) // max/min all tables
         id_this.src = pmaThemeImage + "pmd/downarrow1.png";
     }
     var E = document.form1;
-    for (i = 0; i < E.elements.length; i++) {
+    for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_') {
             if (id_this.alt == 'v') {
                 E.elements[i].checked = true;
@@ -876,7 +881,7 @@ function Hide_tab_all(id_this) // max/min all tables
 function in_array_k(x, m)
 {
     var b = 0;
-    for (u in m) {
+    for (var u in m) {
         if (x == u) {
             b=1;
             break;
@@ -887,7 +892,8 @@ function in_array_k(x, m)
 
 function No_have_constr(id_this)
 {
-    var a = new Array();
+    var a = [];
+    var K, key, key2, key3;
     for (K in contr) {
         for (key in contr[K]) {
             // contr name
@@ -909,7 +915,7 @@ function No_have_constr(id_this)
         id_this.src = pmaThemeImage + "pmd/downarrow2.png";
     }
     var E = document.form1;
-    for (i = 0; i < E.elements.length; i++) {
+    for (var i = 0; i < E.elements.length; i++) {
         if (E.elements[i].type == "checkbox" && E.elements[i].id.substring(0, 10) == 'check_vis_') {
             if (!in_array_k(E.elements[i].value, a)) {
                 if (id_this.alt == 'v') {
@@ -1038,12 +1044,12 @@ function Start_display_field()
     }
 }
 //------------------------------------------------------------------------------
-var TargetColors = new Array();
+var TargetColors = [];
 function getColorByTarget( target )
 {
   var color = '';  //"rgba(0,100,150,1)";
 
-  for (i in TargetColors) {
+  for (var i in TargetColors) {
    if (TargetColors[i][0]==target) {
     color = TargetColors[i][1];
     break;
@@ -1068,7 +1074,7 @@ function getColorByTarget( target )
     var a = color_case[d][0];
     var b = color_case[d][1];
     var c = color_case[d][2];
-    e = (1 - (j - 1) / 6);
+    var e = (1 - (j - 1) / 6);
 
     var r = Math.round(a * 200 * e);
     var g = Math.round(b * 200 * e);
@@ -1105,6 +1111,7 @@ function Select_all(id_this,owner)
     var parent= document.form1;
     downer =owner;
     var i;
+    var k;
     var tab = [];
     for (i = 0; i < parent.elements.length; i++) {
         if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {

@@ -52,7 +52,7 @@ foreach ($sprites as $key => $value) {
  */
 function PMA_getImage(image, alternate, attributes) {
     var in_array = function (needle, haystack) {
-        for (i in haystack) {
+        for (var i in haystack) {
             if (haystack[i] == needle) {
                 return true;
             }
@@ -134,5 +134,5 @@ function PMA_getImage(image, alternate, attributes) {
     }
 
     return retval;
-};
+}
 //

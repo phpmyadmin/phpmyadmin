@@ -224,7 +224,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();
-        $anchor = $(this);
+        var $anchor = $(this);
         /**
          * @var $curr_row    Object containing reference to the current field's row
          */
@@ -466,13 +466,13 @@ function PMA_tbl_structure_menu_resizer_callback() {
     var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
     $columns.not(':last').each(function (){
         columnsWidth += $(this).outerWidth(true)
-    })
+    });
     var totalCellSpacing = $('#tablestructure').width();
     $columns.each(function (){
         totalCellSpacing -= $(this).outerWidth(true);
     });
     return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin
-};
+}
 
 /** Handler for "More" dropdown in structure table rows */
 AJAX.registerOnload('tbl_structure.js', function() {

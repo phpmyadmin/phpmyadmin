@@ -57,7 +57,7 @@ var AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
-        eventName = 'onload_' + AJAX.hash(file);
+        var eventName = 'onload_' + AJAX.hash(file);
         $(document).bind(eventName, func);
         this._debug && console.log(
             // no need to translate
@@ -76,7 +76,7 @@ var AJAX = {
      * @return self For chaining
      */
     registerTeardown: function (file, func) {
-        eventName = 'teardown_' + AJAX.hash(file);
+        var eventName = 'teardown_' + AJAX.hash(file);
         $(document).bind(eventName, func);
         this._debug && console.log(
             // no need to translate
@@ -93,7 +93,7 @@ var AJAX = {
      * @return void
      */
     fireOnload: function (file) {
-        eventName = 'onload_' + AJAX.hash(file);
+        var eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
         this._debug && console.log(
             // no need to translate
@@ -109,7 +109,7 @@ var AJAX = {
      * @return void
      */
     fireTeardown: function (file) {
-        eventName = 'teardown_' + AJAX.hash(file);
+        var eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
         this._debug && console.log(
             // no need to translate

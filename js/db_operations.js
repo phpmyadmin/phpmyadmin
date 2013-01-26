@@ -63,7 +63,7 @@ AJAX.registerOnload('db_operations.js', function() {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            }) // end $.get()
+            }); // end $.get()
         })
     }); // end Rename Database
 
@@ -92,8 +92,8 @@ AJAX.registerOnload('db_operations.js', function() {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }) // end $.get
-    }) // end copy database
+        }); // end $.get
+    }); // end copy database
 
     /**
      * Ajax Event handler for 'Change Charset' of the database
@@ -109,6 +109,6 @@ AJAX.registerOnload('db_operations.js', function() {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }) // end $.get()
-    }) // end change charset
+        }); // end $.get()
+    }); // end change charset
 });

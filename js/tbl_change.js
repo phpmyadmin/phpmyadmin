@@ -100,7 +100,7 @@ function isDate(val,tmstmp)
     }
     val=arrayVal.join("-");
     var pos=2;
-    dtexp=new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
+    var dtexp=new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
     if (val.length == 8) {
         pos=0;
     }
@@ -182,7 +182,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
                     return false;
                 }
             } else if (theType=="datetime"||theType=="timestamp") {
-                tmstmp=false;
+                var tmstmp=false;
                 if (dt_value == "CURRENT_TIMESTAMP") {
                     return true;
                 }
@@ -421,7 +421,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                 .end()
                 .find('.foreign_values_anchor')
                 .each(function() {
-                        $anchor = $(this);
+                        var $anchor = $(this);
                         var new_value = 'rownumber=' + new_row_index;
                         // needs improvement in case something else inside
                         // the href contains this pattern

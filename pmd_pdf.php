@@ -88,7 +88,7 @@ $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 
 ?>
-<br>
+<br/>
 <div>
 <?php
 if (! empty($message)) {
@@ -146,9 +146,9 @@ echo '<p>' . __('Export/Import to scale') . ':';
         <option value="3" selected>1:3 (<?php echo __('recommended'); ?>)</option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
-        </select>
+      </select>
       </p>
-      <input type="submit" value="<?php echo __('Go'); ?>">
+      <input type="submit" value="<?php echo __('Go'); ?>"/>
     </fieldset>
     </div>
   </form>
