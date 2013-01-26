@@ -620,6 +620,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 '_left',
+                array('edit_lnk' => null, 'del_lnk' => null),//array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
                 '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1_left" name="rows_to_delete[1]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    </td>'
             )
         );
