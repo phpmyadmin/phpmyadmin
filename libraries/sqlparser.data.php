@@ -1286,6 +1286,11 @@ $PMA_SQPdata_operators_docs = array(
         'link' => 'bit-functions',
         'anchor' => 'operator_bitwise-xor',
     ),
+   //FIXME:duplicated key "="
+   '=' => array(
+       'link' => 'assignment-operators',
+       'anchor' => 'operator_assign-equal',
+   ),
    ':=' => array(
         'link' => 'assignment-operators',
         'anchor' => 'operator_assign-value',
@@ -1298,6 +1303,7 @@ $PMA_SQPdata_operators_docs = array(
         'link' => 'comparison-operators',
         'anchor' => 'operator_equal-to',
     ),
+   //FIXME:duplicated key "="
    '=' => array(
         'link' => 'comparison-operators',
         'anchor' => 'operator_equal',
