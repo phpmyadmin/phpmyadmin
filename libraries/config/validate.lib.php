@@ -558,7 +558,7 @@ function validate_non_negative_number($path, $values)
  * @param array  $values config values
  * @param string $regex  regullar expression to match
  *
- * @return void
+ * @return array
  */
 function validate_by_regex($path, $values, $regex)
 {

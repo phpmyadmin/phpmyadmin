@@ -3400,13 +3400,13 @@ class PMA_DisplayResults
 
             $_url_params = array(
                     'db'        => 'mysql',
-                    'sql_query' => 'KILL ' . $row[0],
+                    'sql_query' => 'KILL ' . $row[0], //FIXME:variable $row is undefined
                     'goto'      => $lnk_goto,
                 );
 
             $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
-            $del_query = 'KILL ' . $row[0];
-            $js_conf  = 'KILL ' . $row[0];
+            $del_query = 'KILL ' . $row[0]; //FIXME:variable $row is undefined
+            $js_conf  = 'KILL ' . $row[0]; //FIXME:variable $row is undefined
             $del_str = PMA_Util::getIcon(
                 'b_drop.png', __('Kill')
             );
@@ -3966,6 +3966,7 @@ class PMA_DisplayResults
      * Get the resulted table with the vertical direction mode.
      *
      * @param array $analyzed_sql the analyzed query
+     * @param array $is_display display mode
      *
      * @return string       html content
      *
@@ -3973,7 +3974,7 @@ class PMA_DisplayResults
      *
      * @see     _getTable()
      */
-    private function _getVerticalTable($analyzed_sql)
+    private function _getVerticalTable($analyzed_sql, $is_display)
     {
 
         $vertical_table_html = '';
@@ -3994,7 +3995,7 @@ class PMA_DisplayResults
             }
 
             $vertical_table_html .= $vertical_display['textbtn']
-                . $this->_getCheckBoxesForMultipleRowOperations('_left')
+                . $this->_getCheckBoxesForMultipleRowOperations('_left', $is_display)
                 . '</tr>' . "\n";
         } // end if
 
@@ -4075,7 +4076,7 @@ class PMA_DisplayResults
 
             $vertical_table_html .= '<tr>' . "\n"
                 . $vertical_display['textbtn']
-                . $this->_getCheckBoxesForMultipleRowOperations('_right')
+                . $this->_getCheckBoxesForMultipleRowOperations('_right', $is_display)
                 . '</tr>' . "\n";
         } // end if
 
@@ -4165,6 +4166,7 @@ class PMA_DisplayResults
      * Get checkboxes for multiple row data operations
      *
      * @param string $dir _left / _right
+     * @param array $is_display display mode
      *
      * @return  $checkBoxes_html html content
      *
@@ -4172,7 +4174,7 @@ class PMA_DisplayResults
      *
      * @see     _getVerticalTable()
      */
-    private function _getCheckBoxesForMultipleRowOperations($dir)
+    private function _getCheckBoxesForMultipleRowOperations($dir, $is_display)
     {
 
         $checkBoxes_html = '';
@@ -4622,7 +4624,7 @@ class PMA_DisplayResults
 
         // vertical output case
         if ($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL) {
-            $table_html .= $this->_getVerticalTable($analyzed_sql);
+            $table_html .= $this->_getVerticalTable($analyzed_sql, $is_display);
         } // end if
 
         $this->__set('vertical_display', null);
