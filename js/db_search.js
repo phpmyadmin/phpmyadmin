@@ -147,8 +147,9 @@ AJAX.registerOnload('db_search.js', function() {
      * Changing the displayed text according to
      * the hide/show criteria in search form
      */
-    $("#togglequerybox").hide();
-    $("#togglequerybox").bind('click', function() {
+    $("#togglequerybox")
+    .hide()
+    .bind('click', function() {
         var $link = $(this);
         $('#sqlqueryform').slideToggle("medium");
         if ($link.text() == PMA_messages['strHideQueryBox']) {
@@ -187,7 +188,7 @@ AJAX.registerOnload('db_search.js', function() {
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching'], false);
         // jQuery object to reuse
-        $form = $(this);
+        var $form = $(this);
 
         PMA_prepareForAjaxRequest($form);
 
@@ -199,7 +200,7 @@ AJAX.registerOnload('db_search.js', function() {
 
                 $('#togglesearchresultlink')
                 // always start with the Show message
-                .text(PMA_messages['strHideSearchResults'])
+                .text(PMA_messages['strHideSearchResults']);
                 $('#togglesearchresultsdiv')
                 // now it's time to show the div containing the link
                 .show();
@@ -212,7 +213,7 @@ AJAX.registerOnload('db_search.js', function() {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(PMA_messages['strShowSearchCriteria'])
+                    .text(PMA_messages['strShowSearchCriteria']);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();

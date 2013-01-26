@@ -20,6 +20,12 @@ function PMA_urldecode(str)
     return decodeURIComponent(str.replace(/\+/g, '%20'));
 }
 
+/**
+ * endecode a string URL_decoded
+ *
+ * @param string str
+ * @return string the URL-encoded string
+ */
 function PMA_urlencode(str)
 {
     return encodeURIComponent(str).replace(/\%20/g, '+');
@@ -559,7 +565,7 @@ function makeProfilingChart()
         return;
     }
 
-    var data = new Array();
+    var data = [];
     $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
         data.push([key,parseFloat(value)]);
     });

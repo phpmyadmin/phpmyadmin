@@ -17,7 +17,7 @@ var sql_box_locked = false;
 /**
  * @var array holds elements which content should only selected once
  */
-var only_once_elements = new Array();
+var only_once_elements = [];
 
 /**
  * @var   int   ajax_message_count   Number of AJAX messages shown since page load
@@ -37,7 +37,7 @@ var codemirror_inline_editor = false;
 /**
  * @var chart_activeTimeouts object active timeouts that refresh the charts. When disabling a realtime chart, this can be used to stop the continuous ajax requests
  */
-var chart_activeTimeouts = new Object();
+var chart_activeTimeouts = {};
 
 /**
  * Make sure that ajax requests will not be cached
@@ -82,7 +82,7 @@ function suggestPassword(passwd_form)
     var passwd = passwd_form.generated_pw;
     passwd.value = '';
 
-    for ( i = 0; i < passwordlength; i++ ) {
+    for (var i = 0; i < passwordlength; i++ ) {
         passwd.value += pwchars.charAt( Math.floor( Math.random() * pwchars.length ) );
     }
     passwd_form.text_pma_pw.value = passwd.value;
@@ -138,9 +138,9 @@ function PMA_current_version(data)
             );
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
                 /* Security update */
-                klass = 'error';
+                var klass = 'error';
             } else {
-                klass = 'notice';
+                var klass = 'notice';
             }
             $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
         }
@@ -676,7 +676,7 @@ var last_shift_clicked_row = -1;
 /**
  * This array is used to remember mark status of rows in browse mode
  */
-var marked_row = new Array;
+var marked_row = [];
 
 /**
  * marks all rows and selects its first checkbox inside the given element
@@ -830,7 +830,7 @@ function insertValueQuery()
         //IE support
         } else if (document.selection) {
             myQuery.focus();
-            sel = document.selection.createRange();
+            var sel = document.selection.createRange();
             sel.text = chaineAj;
             document.sqlform.insert.focus();
         }
@@ -873,11 +873,11 @@ function refreshLayout()
         var paper = 'A4';
     }
     if (orientation == 'P') {
-        posa = 'x';
-        posb = 'y';
+        var posa = 'x';
+        var posb = 'y';
     } else {
-        posa = 'y';
-        posb = 'x';
+        var posa = 'y';
+        var posb = 'x';
     }
     $elm.css('width', pdfPaperSize(paper, posa) + 'px');
     $elm.css('height', pdfPaperSize(paper, posb) + 'px');
@@ -1356,8 +1356,8 @@ AJAX.registerOnload('functions.js', function() {
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\">\n";
-        new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\">\n";
+        new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\"/>\n";
+        new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\"/>\n";
         var $editor_area = $('div#inline_editor');
         if ($editor_area.length == 0) {
             $editor_area = $('<div id="inline_editor_outer"></div>');
@@ -1377,11 +1377,11 @@ AJAX.registerOnload('functions.js', function() {
             var sql_query = $(this).prev().val();
         }
 
-        $form = $("a.inline_edit_sql").prev('form');
+        var $form = $("a.inline_edit_sql").prev('form');
         var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
                 .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
-                .append($('<input>', {type: 'hidden', name: 'show_query', value: 1}))
-                .append($('<input>', {type: 'hidden', name: 'sql_query', value: sql_query}));
+                .append($('<input/>', {type: 'hidden', name: 'show_query', value: 1}))
+                .append($('<input/>', {type: 'hidden', name: 'sql_query', value: sql_query}));
         $fake_form.appendTo($('body')).submit();
     });
 
@@ -1640,8 +1640,7 @@ $(function() {
     $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseover', function () {
         $(this).parents('span.ajax_notification').tooltip('disable');
-    });
-    $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
+    })
     .live('mouseout', function () {
         $(this).parents('span.ajax_notification').tooltip('enable');
     });
@@ -2498,7 +2497,7 @@ function PMA_hideShowDefaultValue($default_type)
 function PMA_validateDefaultValue($null_checkbox)
 {
     if (! $null_checkbox.prop('checked')) {
-        $default = $null_checkbox.closest('tr').find('.default_type');
+        var $default = $null_checkbox.closest('tr').find('.default_type');
         if ($default.val() == 'NULL') {
             $default.val('NONE');
         }
@@ -2617,7 +2616,7 @@ AJAX.registerOnload('functions.js', function() {
         buttonOptions[PMA_messages['strGo']] = function () {
             // When the submit button is clicked,
             // put the data back into the original form
-            var value_array = new Array();
+            var value_array = [];
             $(this).find(".values input").each(function(index, elm) {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, "''");
                 value_array.push("'" + val + "'");
@@ -2902,7 +2901,7 @@ AJAX.registerOnload('functions.js', function() {
 
 function PMA_mainMenuResizerCallback() {
     // 5 px margin for jumping menu in Chrome
-    return $('body').width() - 5;
+    return $(document.body).width() - 5;
 }
 // This must be fired only once after the inital page load
 $(function() {
@@ -3098,7 +3097,7 @@ AJAX.registerOnload('functions.js', function() {
             // for all td of the same vertical row, toggle hover
             $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
-        );
+    );
 
 
     /**
@@ -3507,7 +3506,7 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
         track: true,
         show: false,
         hide: false 
-    }
+    };
 
     $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
 }

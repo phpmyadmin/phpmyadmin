@@ -319,7 +319,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     }
 
                     // Make the removed table visible in the list of 'Untracked tables'.
-                    $untracked_table = $('table#noversions');
+                    var $untracked_table = $('table#noversions');
 
                     // This won't work if no untracked tables are there.
                     if ($untracked_table.length > 0) {

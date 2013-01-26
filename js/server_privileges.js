@@ -78,7 +78,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
 
     //update the checkall checkbox
     $(checkboxes_sel).trigger("change");
-};
+}
 
 /**
  * AJAX scripts for server_privileges page.
@@ -275,7 +275,7 @@ AJAX.registerOnload('server_privileges.js', function() {
 
         PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
 
-        $form = $("#usersForm");
+        var $form = $("#usersForm");
 
         $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function(data) {
             if (data.success == true) {

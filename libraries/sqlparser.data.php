@@ -1286,10 +1286,6 @@ $PMA_SQPdata_operators_docs = array(
         'link' => 'bit-functions',
         'anchor' => 'operator_bitwise-xor',
     ),
-   '=' => array(
-        'link' => 'assignment-operators',
-        'anchor' => 'operator_assign-equal',
-    ),
    ':=' => array(
         'link' => 'assignment-operators',
         'anchor' => 'operator_assign-value',
@@ -1373,10 +1369,6 @@ $PMA_SQPdata_functions_docs = array(
         'anchor' => 'function_asin',
     ),
    'ATAN2' => array(
-        'link' => 'mathematical-functions',
-        'anchor' => 'function_atan2',
-    ),
-   'ATAN' => array(
         'link' => 'mathematical-functions',
         'anchor' => 'function_atan2',
     ),

@@ -29,10 +29,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         tableCreateTime: null,      // table creation time, used for saving column order and visibility to server, only available in "Browse tab"
 
         // Column reordering variables
-        colOrder: new Array(),      // array of column order
+        colOrder: [],      // array of column order
 
         // Column visibility variables
-        colVisib: new Array(),      // array of column visibility
+        colVisib: [],      // array of column visibility
         showAllColText: '',         // string, text for "show all" button under column visibility list
         visibleHeadersCount: 0,     // number of visible data headers
 
@@ -87,8 +87,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 objLeft: $(obj).position().left,
                 objWidth: $(g.t).find('th.draggable:visible:eq(' + n + ') span').outerWidth()
             };
-            $('body').css('cursor', 'col-resize');
-            $('body').noSelect();
+            $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
             }
@@ -127,8 +126,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 objLeft: objPos.left
             };
 
-            $('body').css('cursor', 'move');
-            $('body').noSelect();
+            $(document.body).css('cursor', 'move').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
             }
@@ -223,8 +221,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                 g.colReorder = false;
             }
-            $('body').css('cursor', 'inherit');
-            $('body').noSelect(false);
+            $(document.body).css('cursor', 'inherit').noSelect(false);
         },
 
         /**
@@ -303,7 +300,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.colOrder.splice(newn, 0, tmp);
             // adjust the colVisib
             if (g.colVisib.length > 0) {
-                var tmp = g.colVisib[oldn];
+                tmp = g.colVisib[oldn];
                 g.colVisib.splice(oldn, 1);
                 g.colVisib.splice(newn, 0, tmp);
             }
@@ -1443,7 +1440,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.colOrder[i] = parseInt(g.colOrder[i]);
                 }
             } else {
-                g.colOrder = new Array();
+                g.colOrder = [];
                 for (var i = 0; i < $firstRowCols.length; i++) {
                     g.colOrder.push(i);
                 }
@@ -1532,7 +1529,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.colVisib[i] = parseInt(g.colVisib[i]);
                 }
             } else {
-                g.colVisib = new Array();
+                g.colVisib = [];
                 for (var i = 0; i < $firstRowCols.length; i++) {
                     g.colVisib.push(1);
                 }
@@ -1716,8 +1713,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($(e.target).parents().index(g.cEdit) == -1) {
                     g.hideEditCell();
                 }
-            });
-            $('html').keydown(function(e) {
+            }).keydown(function(e) {
                 if (e.which == 27 && g.isCellEditActive) {
 
                     // cancel on pressing "Esc"
@@ -1858,5 +1854,4 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     // some adjustment
     $(t).removeClass('data');
     $(g.gDiv).addClass('data');
-};
-
+}

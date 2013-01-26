@@ -270,7 +270,7 @@ function PMA_reloadNavigation(callback) {
             PMA_ajaxShowMessage(data.error);
         }
     });
-};
+}
 
 /**
  * Handles any requests to change the page in a branch of a tree
@@ -339,7 +339,7 @@ function PMA_navigationTreePagination($this)
             PMA_ajaxShowMessage(data.error);
         }
     });
-};
+}
 
 /**
  * @var ResizeHandler Custom object that manages the resizing of the navigation

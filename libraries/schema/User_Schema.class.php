@@ -329,7 +329,7 @@ class PMA_User_Schema
                     echo 'even';
                 }
                 echo '">';
-                $odd_row != $odd_row;
+                $odd_row = !$odd_row;
 
                 echo '<td>';
                 echo '<select name="c_table_' . $i . '[name]">';

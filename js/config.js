@@ -61,9 +61,11 @@ function setFieldValue(field, field_type, value)
     field = $(field);
     switch (field_type) {
         case 'text':
+            //TODO: replace to .val()
             field.attr('value', (value != undefined ? value : field.attr('defaultValue')));
             break;
         case 'checkbox':
+            //TODO: replace to .prop()
             field.attr('checked', (value != undefined ? value : field.attr('defaultChecked')));
             break;
         case 'select':
@@ -642,15 +644,15 @@ AJAX.registerOnload('config.js', function() {
 
     // enable JavaScript dependent fields
     radios
-        .attr('disabled', false)
+        .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
         .click(function(){
             var enable_id = $(this).attr('id');
             var disable_id = enable_id.match(/local_storage$/)
                 ? enable_id.replace(/local_storage$/, 'text_file')
                 : enable_id.replace(/text_file$/, 'local_storage');
-            $('#opts_'+disable_id).addClass('disabled').find('input').attr('disabled', true);
-            $('#opts_'+enable_id).removeClass('disabled').find('input').attr('disabled', false);
+            $('#opts_'+disable_id).addClass('disabled').find('input').prop('disabled', true);
+            $('#opts_'+enable_id).removeClass('disabled').find('input').prop('disabled', false);
         });
 
     // detect localStorage state
@@ -665,12 +667,12 @@ AJAX.registerOnload('config.js', function() {
         var form = $(this);
         var disabled = false;
         if (!ls_supported) {
-            disabled = form.find('input[type=radio][value$=local_storage]').attr('checked');
+            disabled = form.find('input[type=radio][value$=local_storage]').prop('checked');
         } else if (!ls_exists && form.attr('name') == 'prefs_import'
                 && $('#import_local_storage')[0].checked) {
             disabled = true;
         }
-        form.find('input[type=submit]').attr('disabled', disabled);
+        form.find('input[type=submit]').prop('disabled', disabled);
     }).submit(function(e) {
         var form = $(this);
         if (form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
@@ -702,7 +704,7 @@ function savePrefsToLocalStorage(form)
 {
     form = $(form);
     var submit = form.find('input[type=submit]');
-    submit.attr('disabled', true);
+    submit.prop('disabled', true);
     $.ajax({
         url: 'prefs_manage.php',
         cache: false,
@@ -725,7 +727,7 @@ function savePrefsToLocalStorage(form)
             form.prev('.click-hide-message').show('fast');
         },
         complete: function() {
-            submit.attr('disabled', false);
+            submit.prop('disabled', false);
         }
     });
 }
