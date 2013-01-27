@@ -203,7 +203,11 @@ function drawChart() {
     $('select[name="chartXAxis"] option').each(function() {
         columnNames.push($(this).text());
     });
-    currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
+    try {
+        currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
+    } catch(err) {
+        PMA_ajaxShowMessage(err.message, false);
+    }
 }
 
 function getSelectedSeries() {
