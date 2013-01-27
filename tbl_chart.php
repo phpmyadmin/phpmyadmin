@@ -60,9 +60,11 @@ if (isset($_REQUEST['ajax_request'])
 
 $response = PMA_Response::getInstance();
 // Throw error if no sql query is set
-if(! isset($sql_query) || $sql_query == '') {
+if (! isset($sql_query) || $sql_query == '') {
     $response->isSuccess(false);
-    $response->addHTML(PMA_Message::error(__('No SQL query was set to fetch data.')));
+    $response->addHTML(
+        PMA_Message::error(__('No SQL query was set to fetch data.'))
+    );
     exit;
 }
 $header   = $response->getHeader();
@@ -201,7 +203,7 @@ if (count($keys) > 1) {
         }
     }
 
-    if(! $numeric_fields_present) {
+    if (! $numeric_fields_present) {
         $response->isSuccess(false);
         $response->addJSON('message', __('No numeric fields present in the table to plot.'));
         exit;
