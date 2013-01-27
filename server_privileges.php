@@ -379,9 +379,12 @@ if ($GLOBALS['is_ajax_request']
     && ! isset($_REQUEST['db_specific'])
 ) {
     $extra_data = PMA_getExtraDataForAjaxBehavior(
-        (isset ($password) ? $password : ''), $link_export,
+        (isset($password) ? $password : ''),
+        $link_export,
         (isset($sql_query) ? $sql_query : ''),
-        $link_edit, $hostname, $username
+        $link_edit,
+        (isset($hostname) ? $hostname : ''), 
+        (isset($username) ? $username : '') 
     );
 
     if (! empty($message) && $message instanceof PMA_Message) {
