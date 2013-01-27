@@ -16,6 +16,16 @@ $url_params['back'] = 'sql.php';
 // Import visualization functions
 require_once 'libraries/gis_visualization.lib.php';
 
+$response = PMA_Response::getInstance();
+// Throw error if no sql query is set
+if (! isset($sql_query) || $sql_query == '') {
+    $response->isSuccess(false);
+    $response->addHTML(
+        PMA_Message::error(__('No SQL query was set to fetch data.'))
+    );
+    exit;
+}
+
 // Execute the query and return the result
 $result = PMA_DBI_try_query($sql_query);
 // Get the meta data of results
@@ -55,7 +65,6 @@ while ($row = PMA_DBI_fetch_assoc($modified_result)) {
     $data[] = $row;
 }
 
-$response = PMA_Response::getInstance();
 if (isset($_REQUEST['saveToFile'])) {
     $response->disable();
     $file_name = $_REQUEST['fileName'];
