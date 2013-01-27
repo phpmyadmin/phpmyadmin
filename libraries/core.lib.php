@@ -228,8 +228,8 @@ function PMA_fatalError(
             }
         }
 
+        // these variables are used in the included file libraries/error.inc.php
         $error_header = __('Error');
-
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
         $dir = $GLOBALS['text_dir'];
 
