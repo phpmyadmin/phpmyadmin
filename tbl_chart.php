@@ -59,6 +59,12 @@ if (isset($_REQUEST['ajax_request'])
 }
 
 $response = PMA_Response::getInstance();
+// Throw error if no sql query is set
+if(! isset($sql_query) || $sql_query == '') {
+    $response->isSuccess(false);
+    $response->addHTML(PMA_Message::error(__('No SQL query was set to fetch data.')));
+    exit;
+}
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('chart.js');
@@ -159,6 +165,7 @@ $htmlString = '<script type="text/javascript">'
 
 $keys = array_keys($data[0]);
 $yaxis = -1;
+$numeric_fields_present = false;
 if (count($keys) > 1) {
     $htmlString .= '<div style="float:left; padding-left:40px;">'
         . '<label for="select_chartXAxis">' .  __('X-Axis:') . '</label>'
@@ -190,9 +197,15 @@ if (count($keys) > 1) {
                     . '" selected="selected">' . htmlspecialchars($key)
                     . '</option>';
             }
+            $numeric_fields_present = true;
         }
     }
 
+    if(! $numeric_fields_present) {
+        $response->isSuccess(false);
+        $response->addJSON('message', __('No numeric fields present in the table to plot.'));
+        exit;
+    }
     $htmlString .= '</select>'
         . '<input type="hidden" name="dateTimeCols" value="';
 
