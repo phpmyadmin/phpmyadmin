@@ -633,14 +633,18 @@ for ($i = 0; $i < $num_fields; $i++) {
 
         for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++) {
             $content_cells[$i][$ci] .=
-                '<option value="' . $move_columns[$mi]->name . '"'
+                '<option value="' . htmlspecialchars($move_columns[$mi]->name) . '"'
                 . (($current_index == $mi || $current_index == $mi + 1)
                     ? ' disabled="disabled"'
                     : '')
                 .'>'
                 . sprintf(
                     __('after %s'),
-                    PMA_Util::backquote($move_columns[$mi]->name)
+                    PMA_Util::backquote(
+                        htmlspecialchars(
+                            $move_columns[$mi]->name
+                        )
+                    )
                 )
                 . '</option>';
         }
