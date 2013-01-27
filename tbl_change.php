@@ -199,7 +199,6 @@ $html_output = '';
 //Set on key handler for moving using by Ctrl+arrows
 $html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
     . '<script type="text/javascript">'
-    . 'var switch_movement = 0;'
     . 'document.onkeydown = onKeyDownArrowsHandler;'
     . '</script>';
 // Set if we passed the first timestamp field

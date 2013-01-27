@@ -726,7 +726,6 @@ for ($i = 0; $i < $num_fields; $i++) {
 $html .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
     . '<script type="text/javascript">'
     . '// <![CDATA['
-    . 'var switch_movement = 0;'
     . 'document.onkeydown = onKeyDownArrowsHandler;'
     . '// ]]>'
     . '</script>';

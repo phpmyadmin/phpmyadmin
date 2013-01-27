@@ -35,50 +35,27 @@ function onKeyDownArrowsHandler(e)
     var x = pos[2], y=pos[1];
 
     // skip non existent fields
-    for (var i=0; i<10; i++)
+    for (var i=0; i < 10; i++)
     {
-        if (switch_movement) {
-            switch(e.keyCode) {
-                case 38:
-                    // up
-                    x--;
-                    break;
-                case 40:
-                    // down
-                    x++;
-                    break;
-                case 37:
-                    // left
-                    y--;
-                    break;
-                case 39:
-                    // right
-                    y++;
-                    break;
-                default:
-                    return;
-            }
-        } else {
-            switch(e.keyCode) {
-                case 38:
-                    // up
-                    y--;
-                    break;
-                case 40:
-                    // down
-                    y++;
-                    break;
-                case 37:
-                    // left
-                    x--;
-                    break;
-                case 39:
-                    // right
-                    x++;
-                    break;
-                default:
-                    return;
-            }
+        switch(e.keyCode) {
+            case 38:
+                // up
+                y--;
+                break;
+            case 40:
+                // down
+                y++;
+                break;
+            case 37:
+                // left
+                x--;
+                break;
+            case 39:
+                // right
+                x++;
+                break;
+            default:
+                return;
         }
 
         var id = "field_" + y + "_" + x;
