@@ -96,7 +96,7 @@ if (strlen($GLOBALS['table'])) {
 }
 
 $data = array();
-
+$sql_query="SELECT * FROM ".$_GLOBAL['table'];
 $result = PMA_DBI_try_query($sql_query);
 $fields_meta = PMA_DBI_get_fields_meta($result);
 while ($row = PMA_DBI_fetch_assoc($result)) {
