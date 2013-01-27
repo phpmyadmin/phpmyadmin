@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-10 13:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-28 00:52+0200\n"
+"Last-Translator: Rodrigo Severo <rodrigo@fabricadeideias.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -2070,7 +2070,7 @@ msgstr ". última versão estável:"
 
 #: js/messages.php:370
 msgid "up to date"
-msgstr "até à data"
+msgstr "atualizado"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:389
@@ -12328,11 +12328,11 @@ msgstr "Eficiência do cache de consulta (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Cache de consultas ineficiente. A taxa de acertos está baixa."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Considere aumentar {query_cache_limit}."
 
 #: po/advisory_rules.php:83
 #, php-format
@@ -12347,13 +12347,15 @@ msgstr "Usado do Cache de Consulta"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Menos de 80%% do cache de consultas está sendo utilizado."
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Isto pode ser causado porque o {query_cache_limit} está muito baixo. Limpar "
+"o cache de consultas também pode ajudar."
 
 #: po/advisory_rules.php:88
 #, php-format
@@ -12361,6 +12363,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"A relação entre a memória livre do cache de consultas e o tamanho total do "
+"cache de consultas é de %s%%. Deveria ser maior do que 80%%."
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
