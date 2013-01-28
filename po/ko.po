@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-24 16:05+0200\n"
-"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
+"PO-Revision-Date: 2013-01-28 16:40+0200\n"
+"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -715,11 +715,11 @@ msgstr "암호 변경"
 
 #: index.php:155
 msgid "Server connection collation"
-msgstr ""
+msgstr "서버 연결 콜레이션(언어)"
 
 #: index.php:181
 msgid "Appearance Settings"
-msgstr ""
+msgstr "외관 설정"
 
 #: index.php:210 prefs_manage.php:275
 msgid "More settings"
@@ -1768,7 +1768,7 @@ msgstr "두 개의 열 선택"
 
 #: js/messages.php:302
 msgid "Select two different columns"
-msgstr "두 개의다른 열 선택"
+msgstr "두 개의 서로다른 열 선택"
 
 #: js/messages.php:303
 msgid "Query results"
