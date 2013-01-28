@@ -140,7 +140,11 @@ $(document).ready(function() {
             $rows_to_hide = $rows_to_hide.add($last_row);
         }
 
-        var question = $curr_row.children('td').children('.drop_primary_key_index_msg').val();
+        var question = escapeHtml(
+            $curr_row.children('td')
+                .children('.drop_primary_key_index_msg')
+                .val()
+        );
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
 
