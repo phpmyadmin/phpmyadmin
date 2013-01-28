@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-25 18:15+0200\n"
+"PO-Revision-Date: 2013-01-28 18:08+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -10519,6 +10519,11 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
+"Кількість запитів, які були видалені з кешу, щоб звільнити пам'ять для "
+"кешування нових запитів. Ця інформація допоможе вам налаштувати розмір кеша "
+"запитів. Кеш запитів для вирішення питання, які запити видалити з кеша, "
+"використовує стратегію LRU (найдовше невикористовувані сторінки замінюються "
+"новими)."
 
 #: server_status.php:1401
 msgid ""
@@ -10538,58 +10543,75 @@ msgstr "Загальна кількість блоків у кеші запит�
 
 #: server_status.php:1404
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Стан відмовостійкі реплікації (поки не реалізовано)."
 
 #: server_status.php:1405
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
+"Число запитів-об'єднань, які не використовують індекси. Якщо це значення не "
+"дорівнює 0, необхідно уважно перевірити індекси таблиць."
 
 #: server_status.php:1406
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
+"Число запитів-об'єднань, які використовували пошук по діапазону таблиці, на "
+"яку посилаються."
 
 #: server_status.php:1407
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Число запитів-об'єднань без індексів, що перевіряють використання індексу "
+"після кожного рядка. (Якщо це не 0, необхідно уважно перевірити індекси "
+"таблиць.)"
 
 #: server_status.php:1408
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
+"Число запитів-сполук, які використовували діапазони в першій таблиці. "
+"(Значення не є критичним, навіть якщо завелике.)"
 
 #: server_status.php:1409
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "Число запитів-об'єднань, які зробили повне сканування першої таблиці."
 
 #: server_status.php:1410
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
+"Кількість тимчасових таблиць, відкритих в даний момент підпорядкованим SQL "
+"потоком."
 
 #: server_status.php:1411
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
+"Загальна кількість (з моменту запуску) повторних транзакцій реплікації "
+"підпорядкованим SQL потоком."
 
 #: server_status.php:1412
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
+"Надається значення ON, якщо цей сервер підпорядкованим, що підключений "
+"керуючого сервера."
 
 #: server_status.php:1413
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
+"Кількість потоків, на створення яких знадобилося більш ніж slow_launch_time "
+"секунд."
 
 #: server_status.php:1414
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr ""
+msgstr "Кількість запитів, які виконувалися більш ніж long_query_time секунд."
 
 #: server_status.php:1415
 msgid ""
@@ -10597,22 +10619,25 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
+"Число проходів, виконаних алгоритмом сортування. Якщо це значення велике, "
+"слід розглянути питання про збільшення значення системної змінної "
+"sort_buffer_size."
 
 #: server_status.php:1416
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "Кількість сортувань, виконаних з використанням діапазонів."
 
 #: server_status.php:1417
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "Кількість відсортованих рядків."
 
 #: server_status.php:1418
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "Кількість сортувань, виконаних шляхом сканування таблиці."
 
 #: server_status.php:1419
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
+msgstr "Кількість разів, коли блокування таблиці була виконано негайно."
 
 #: server_status.php:1420
 msgid ""
@@ -10621,6 +10646,10 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
+"Кількість разів, коли блокування таблиці не могло бути виконано негайно і "
+"довелося очікувати. Якщо це значення велике і виникають проблеми з "
+"продуктивністю, необхідно спочатку оптимізувати запити і потім, або "
+"розділити таблицю чи таблиці, або використовувати реплікацію."
 
 #: server_status.php:1421
 msgid ""
@@ -10628,10 +10657,13 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
+"Кількість потоків в кеші потоків. Частоту успішних звернень до кешу можна "
+"обчислити за формулою Threads_created/Connections. Якщо це значення червоне, "
+"необхідно збільшити thread_cache_size."
 
 #: server_status.php:1422
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Кількість наразі відкритих з'єднань."
 
 #: server_status.php:1423
 msgid ""
@@ -10640,22 +10672,25 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
+"Кількість потоків, створених для обробки з'єднань. Якщо Threads_created "
+"завелике, можна збільшити значення thread_cache_size. (Зазвичай, це не дає "
+"помітного зростання продуктивності при гарній реалізації потоків.)"
 
 #: server_status.php:1424
 msgid "The number of threads that are not sleeping."
-msgstr ""
+msgstr "Кількість потоків в активному стані."
 
 #: server_status.php:1570
 msgid "Start Monitor"
-msgstr ""
+msgstr "Запустити монітор"
 
 #: server_status.php:1579
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Інструкції/Налаштування"
 
 #: server_status.php:1584
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Впорядкування/редагування діаграм завершено"
 
 #: server_status.php:1591 server_status.php:1662
 #| msgid "Add into comments"
@@ -10664,7 +10699,7 @@ msgstr "Додати діаграму"
 
 #: server_status.php:1593
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Впорядкувати/редагувати діаграми"
 
 #: server_status.php:1597
 #| msgid "Refresh"
@@ -10678,21 +10713,23 @@ msgstr "Діаграма стовпців"
 
 #: server_status.php:1618
 msgid "Chart arrangement"
-msgstr ""
+msgstr "Розташування діаграми"
 
 #: server_status.php:1618
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"Розташування діаграм зберігаються у локальному сховищі браузерів. Його можна "
+"експортувати, якщо при налаштуванні виникають складнощі."
 
 #: server_status.php:1619
 msgid "Reset to default"
-msgstr ""
+msgstr "Скинути до початкових значень"
 
 #: server_status.php:1623
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "Інструкції моніторингу"
 
 #: server_status.php:1624
 msgid ""
