@@ -236,7 +236,13 @@ AJAX.registerOnload('tbl_structure.js', function() {
         for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
             $rows_to_hide = $rows_to_hide.add($last_row);
         }
-        var question = $curr_row.children('td').children('.drop_primary_key_index_msg').val();
+
+        var question = escapeHtml(
+            $curr_row.children('td')
+                .children('.drop_primary_key_index_msg')
+                .val()
+        );
+
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
