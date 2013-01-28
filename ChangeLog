@@ -90,7 +90,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 3.5.7.0 (not yet released)
 - bug #3779 [core] Problem with backslash in enum fields
 
-3.5.6.0 (not yet released)
+3.5.6.0 (2013-01-28)
 - bug #3593604 [status] Erroneous advisor rule
 - bug #3596070 [status] localStorage broken in server status monitor
 - bug #3598736 [routines] Editing a procedure with special characters
