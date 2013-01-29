@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-10 13:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Azerbaijani <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"az/>\n"
+"PO-Revision-Date: 2013-01-29 13:26+0200\n"
+"Last-Translator: Nail BALAYEV <nail.turkabadli@gmail.com>\n"
+"Language-Team: Azerbaijani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -96,7 +96,7 @@ msgstr "Haqqında"
 #: browse_foreigners.php:268 browse_foreigners.php:280
 #: browse_foreigners.php:296 browse_foreigners.php:308
 msgid "Use this value"
-msgstr ""
+msgstr "Bu qiymətdən istifadə et"
 
 #: changelog.php:35 license.php:28
 #, php-format
@@ -104,23 +104,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s fayli systemde yoxdur,zehmet olmasa www.phpmyadmin.net saytini ziyaret "
-"edin"
+"%s faylı sistəmdə yoxdur. Bütün lazımi informasiyanı www.phpmyadmin.net "
+"saytından tapa bilərsiniz."
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s bazası yaradildi."
+msgstr "%1$s verilənlər bazası yaradıldı."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Baza qısa izahatı: "
+msgstr "Verilənlər bazasına şərh: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1323
 #: libraries/tbl_columns_definition_form.inc.php:838 tbl_printview.php:120
 msgid "Table comments"
-msgstr "Cedvel haqqında qısa izahat"
+msgstr "Cədvəl haqqında izahat"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
@@ -138,10 +138,9 @@ msgstr "Cedvel haqqında qısa izahat"
 #: libraries/tbl_columns_definition_form.inc.php:352 tbl_indexes.php:253
 #: tbl_printview.php:130 tbl_relation.php:361 tbl_tracking.php:323
 #: tbl_tracking.php:385
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Sütun adları"
+msgstr "Sütun"
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
@@ -196,7 +195,7 @@ msgstr "Null"
 #: libraries/tbl_columns_definition_form.inc.php:107 tbl_printview.php:133
 #: tbl_tracking.php:327
 msgid "Default"
-msgstr "Başlanğıc deyeri"
+msgstr "Susmaya görə"
 
 #: db_datadict.php:174 libraries/plugins/export/ExportHtmlword.class.php:404
 #: libraries/plugins/export/ExportLatex.class.php:513
@@ -205,7 +204,7 @@ msgstr "Başlanğıc deyeri"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1376 tbl_printview.php:135
 msgid "Links to"
-msgstr "Links to"
+msgstr "Əlaqələr"
 
 #: db_datadict.php:176 db_printview.php:107
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:107
@@ -218,7 +217,7 @@ msgstr "Links to"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1377
 #: libraries/tbl_columns_definition_form.inc.php:136 tbl_printview.php:137
 msgid "Comments"
-msgstr "Qısa İzahatlar"
+msgstr "Şərhlər"
 
 #: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:835
@@ -241,7 +240,7 @@ msgstr "Qısa İzahatlar"
 #: sql.php:507 sql.php:508 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
 msgid "No"
-msgstr "Xeyir"
+msgstr "Xeyr"
 
 #: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:835
@@ -269,16 +268,16 @@ msgstr "Xeyir"
 #: tbl_printview.php:187 tbl_structure.php:83 tbl_tracking.php:344
 #: tbl_tracking.php:396 tbl_tracking.php:401
 msgid "Yes"
-msgstr "Beli"
+msgstr "Bəli"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Me'lumat bazasının sxemini göster"
+msgstr "Verilənlər bazasının sxemini göster"
 
 #: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:413
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "Me'lumat bazasında cedvel yoxdur."
+msgstr "Verilənlər bazasında cədvəl yoxdur."
 
 #: db_export.php:40 libraries/DbSearch.class.php:437 server_export.php:25
 msgid "Select All"
@@ -286,22 +285,21 @@ msgstr "Hamısını Seç"
 
 #: db_export.php:45 libraries/DbSearch.class.php:440 server_export.php:30
 msgid "Unselect All"
-msgstr "Heç birini seçme"
+msgstr "Heç birini seçmə"
 
 #: db_operations.php:45 tbl_create.php:22
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "Cedveli adı boşdur!"
+msgstr "Cədvəlin adı göstərilməyib!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "%s cedveli %s olaraq yeniden adlandırılmışdır"
+msgstr "%1$s verilənlər bazasının adı %2$s adına dəyişdirildi"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s cedveli %s - e kopyalandı."
+msgstr "%1$s verilənlrə bazası %2$s-a köçürüldü"
 
 #: db_operations.php:259
 #, fuzzy, php-format
