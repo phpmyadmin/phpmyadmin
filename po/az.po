@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-10 13:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-01-29 13:24+0200\n"
+"Last-Translator: Nail BALAYEV <nail.turkabadli@gmail.com>\n"
 "Language-Team: Azerbaijani "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/az/>\n"
 "Language: az\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.4\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -94,7 +94,7 @@ msgstr "Haqqında"
 #: browse_foreigners.php:259 browse_foreigners.php:268
 #: browse_foreigners.php:280 browse_foreigners.php:288
 msgid "Use this value"
-msgstr ""
+msgstr "Bu qiymətdən istifadə et"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
@@ -115,23 +115,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s fayli systemde yoxdur,zehmet olmasa www.phpmyadmin.net saytini ziyaret "
-"edin"
+"%s faylı sistəmdə yoxdur. Bütün lazımi informasiyanı www.phpmyadmin.net "
+"saytından tapa bilərsiniz."
 
 #: db_create.php:60
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s bazası yaradildi."
+msgstr "%1$s verilənlər bazası yaradıldı."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "Baza qısa izahatı: "
+msgstr "Verilənlər bazasına şərh: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
 #: tbl_printview.php:124
 msgid "Table comments"
-msgstr "Cedvel haqqında qısa izahat"
+msgstr "Cədvəl haqqında izahat"
 
 #: db_datadict.php:162 db_qbe.php:196 libraries/Index.class.php:444
 #: libraries/export/htmlword.php:249 libraries/export/latex.php:394
@@ -142,10 +142,9 @@ msgstr "Cedvel haqqında qısa izahat"
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:441
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Sütun adları"
+msgstr "Sütun"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -182,7 +181,7 @@ msgstr "Null"
 #: libraries/tbl_properties.inc.php:99 tbl_printview.php:139
 #: tbl_structure.php:207 tbl_tracking.php:261
 msgid "Default"
-msgstr "Başlanğıc deyeri"
+msgstr "Susmaya görə"
 
 #: db_datadict.php:170 libraries/export/htmlword.php:254
 #: libraries/export/latex.php:399 libraries/export/odt.php:313
@@ -190,7 +189,7 @@ msgstr "Başlanğıc deyeri"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:142
 msgid "Links to"
-msgstr "Links to"
+msgstr "Əlaqələr"
 
 #: db_datadict.php:172 db_printview.php:109
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:111
@@ -201,7 +200,7 @@ msgstr "Links to"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
 #: libraries/tbl_properties.inc.php:122 tbl_printview.php:144
 msgid "Comments"
-msgstr "Qısa İzahatlar"
+msgstr "Şərhlər"
 
 #: db_datadict.php:233 js/messages.php:254 libraries/Index.class.php:349
 #: libraries/Index.class.php:376 libraries/Index.class.php:679
@@ -218,7 +217,7 @@ msgstr "Qısa İzahatlar"
 #: tbl_structure.php:359 tbl_tracking.php:281 tbl_tracking.php:336
 #: tbl_tracking.php:341
 msgid "No"
-msgstr "Xeyir"
+msgstr "Xeyr"
 
 #: db_datadict.php:233 js/messages.php:253 libraries/Index.class.php:350
 #: libraries/Index.class.php:375 libraries/Index.class.php:679
@@ -240,16 +239,16 @@ msgstr "Xeyir"
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:359
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
-msgstr "Beli"
+msgstr "Bəli"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr "Me'lumat bazasının sxemini göster"
+msgstr "Verilənlər bazasının sxemini göster"
 
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
 msgid "No tables found in database."
-msgstr "Me'lumat bazasında cedvel yoxdur."
+msgstr "Verilənlər bazasında cədvəl yoxdur."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
@@ -257,12 +256,11 @@ msgstr "Hamısını Seç"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
-msgstr "Heç birini seçme"
+msgstr "Heç birini seçmə"
 
 #: db_operations.php:41 tbl_create.php:22
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "Cedveli adı boşdur!"
+msgstr "Cədvəlin adı göstərilməyib!"
 
 #: db_operations.php:280
 #, fuzzy, php-format
