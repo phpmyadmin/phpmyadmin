@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-28 18:08+0200\n"
-"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
+"PO-Revision-Date: 2013-01-30 14:23+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -9209,7 +9209,7 @@ msgstr "ввімкнути чорновик (scratchboard)"
 #. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:499
 msgid "ltr"
-msgstr "зліва направо"
+msgstr "ltr"
 
 #: libraries/select_lang.lib.php:517 libraries/select_lang.lib.php:526
 #: libraries/select_lang.lib.php:535
