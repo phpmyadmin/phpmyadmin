@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_getColumnMap($sql_query, $view_columns)
 {
-    
+
     $column_map = array();
     // Select query which give results for VIEW
     $real_source_result = PMA_DBI_try_query($sql_query);
@@ -49,9 +49,9 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
     }
     unset($real_source_result);
-    
+
     return $column_map;
-    
+
 }
 
 
@@ -66,9 +66,9 @@ function PMA_getColumnMap($sql_query, $view_columns)
 function PMA_getExistingTranformationData($db)
 {
     $cfgRelation = PMA_getRelationsParam();
-    
+
     // Get the existing transformation details of the same database
-    // from pma_column_info table
+    // from pma__column_info table
     $pma_transformation_sql = 'SELECT * FROM '
         . PMA_Util::backquote($cfgRelation['db']) . '.'
         . PMA_Util::backquote($cfgRelation['column_info'])
@@ -76,7 +76,7 @@ function PMA_getExistingTranformationData($db)
         . PMA_Util::sqlAddSlashes($db) . '\'';
 
     return PMA_DBI_try_query($pma_transformation_sql);
-    
+
 }
 
 
@@ -94,7 +94,7 @@ function PMA_getNewTransformationDataSql(
     $pma_tranformation_data, $column_map, $view_name, $db
 ) {
     $cfgRelation = PMA_getRelationsParam();
-    
+
     // Need to store new transformation details for VIEW
     $new_transformations_sql = 'INSERT INTO '
         . PMA_Util::backquote($cfgRelation['db']) . '.'
@@ -148,9 +148,9 @@ function PMA_getNewTransformationDataSql(
         }
 
     }
-    
+
     return ($column_count > 0) ? $new_transformations_sql : '';
-    
+
 }
 
 
