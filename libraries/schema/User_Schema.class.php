@@ -568,7 +568,9 @@ class PMA_User_Schema
                 . 'data-y="' . $drag_y . '" '
                 . 'class="pdflayout_table"'
                 . '>'
-                . '<u>' . $temp_sh_page['table_name'] . '</u>';
+                . '<u>'
+                . htmlspecialchars($temp_sh_page['table_name']) 
+                . '</u>';
 
             if (isset($with_field_names)) {
                 $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
