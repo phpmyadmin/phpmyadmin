@@ -39,6 +39,7 @@ if (isset($_REQUEST['move_columns'])
  * A click on Change has been made for one column 
  */
 if (isset($_REQUEST['change_column'])) {
+    $scripts->addFile('keyhandler.js');
     PMA_displayHtmlForColumnChange($db, $table, null, 'tbl_structure.php');
     exit;
 }
@@ -62,7 +63,8 @@ if (isset($_REQUEST['do_save_data'])) {
  *
  * submit_mult_*_x comes from IE if <input type="img" ...> is used
  */
-if (isset($_REQUEST['submit_mult_change_x'])) {
+if (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'change') {
+    $scripts->addFile('keyhandler.js');
     $submit_mult = 'change';
 } elseif (isset($_REQUEST['submit_mult_drop_x'])) {
     $submit_mult = 'drop';

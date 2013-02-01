@@ -88,11 +88,14 @@ AJAX.registerOnload('tbl_structure.js', function() {
     $("a.change_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
         $('#page_content').hide();
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request': true, 'ajax_page_request': true}, function(data) {
             if (data.success) {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                if (data._scripts) {
+                    AJAX.scriptHandler.load(data._scripts);
+                }
                 PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
@@ -107,12 +110,15 @@ AJAX.registerOnload('tbl_structure.js', function() {
         event.preventDefault();
         $('#page_content').hide();
         var $form = $(this).closest('form');
-        var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
+        var params = $form.serialize() + "&ajax_request=true&ajax_page_request=true&submit_mult=change";
         $.post($form.prop("action"), params, function (data) {
             if (data.success) {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                if (data._scripts) {
+                    AJAX.scriptHandler.load(data._scripts);
+                }
                 PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);

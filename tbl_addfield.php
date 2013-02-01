@@ -12,7 +12,13 @@ require_once 'libraries/common.inc.php';
 
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table'));
-
+/**
+ * Load JavaScript files
+ */
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('keyhandler.js');
 
 /**
  * Defines the url to return to in case of error in a sql statement
