@@ -114,6 +114,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
+$scripts->addFile('keyhandler.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
 
@@ -196,11 +197,6 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
 // some browsers send wrongly this form to the http server.
 
 $html_output = '';
-//Set on key handler for moving using by Ctrl+arrows
-$html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
-    . '<script type="text/javascript">'
-    . 'document.onkeydown = onKeyDownArrowsHandler;'
-    . '</script>';
 // Set if we passed the first timestamp field
 $timestamp_seen = false;
 $columns_cnt     = count($table_fields);
