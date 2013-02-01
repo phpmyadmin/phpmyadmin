@@ -526,7 +526,7 @@ class PMA_User_Schema
             $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
             $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-            echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
+            echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . htmlspecialchars($temp_sh_page['table_name']) . '</u>';
             if (isset($with_field_names)) {
                 $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
                 // if the table has been dropped from outside phpMyAdmin,
