@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-30 14:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-02 14:08+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -10739,6 +10739,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"phpMyAdmin моніторинг може допомогти вам в оптимізації налаштувань сервера і "
+"відстеженні часово інтенсивних запитів. Для останнього необхідно встановити "
+"log_output у 'TABLE'  і увімкнути або директиву slow_query_log, або "
+"general_log. Зауважимо, однак, що general_log виробляє велику кількість "
+"даних і збільшує навантаження на сервер до 15%"
 
 #: server_status.php:1629
 msgid ""
@@ -10747,10 +10752,14 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Нажаль, ваш сервер бази даних не підтримує журналювання в таблицю, яка є "
+"необхідною умовою для аналізу журналів бази даних за допомогою PhpMyAdmin. "
+"Журналювання в таблицю підтримуються MySQL 5.1.6 і вище. Однак, залишається "
+"можливість використовувати функції графіків сервера."
 
 #: server_status.php:1642
 msgid "Using the monitor:"
-msgstr ""
+msgstr "Використання моніторингу:"
 
 #: server_status.php:1644
 msgid ""
@@ -10758,6 +10767,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
+"часу. В розділі&quot;Налаштування&quot; можна додавати графіки і змінювати "
+"частоту їх оновлення, або видаляти графіки використовуючи відповідну іконку "
+"на кожному з них."
 
 #: server_status.php:1646
 msgid ""
@@ -10766,10 +10779,14 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Для відображення запитів з журналів, виберіть відповідний проміжок часу на "
+"будь-якому графіку, натиснувши ліву кнопку миші і позначивши його. Після "
+"підтвердження, буде завантажена таблиця згрупованих запитів, де можна "
+"клацнути на будь-які вирази SELECT для їх подальшого аналізу."
 
 #: server_status.php:1653
 msgid "Please note:"
-msgstr ""
+msgstr "Зверніть увагу:"
 
 #: server_status.php:1655
 msgid ""
@@ -10778,11 +10795,16 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"Увімкнення директиви general_log може збільшити навантаження на сервер на "
+"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
+"інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
+"вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
+"не має потреби."
 
 #: server_status.php:1667
 #| msgid "Remove database"
 msgid "Preset chart"
-msgstr "Вбудована діаграма"
+msgstr "Вбудований графік"
 
 #: server_status.php:1671
 msgid "Status variable(s)"
@@ -10795,7 +10817,7 @@ msgstr "Виберіть серії:"
 
 #: server_status.php:1675
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Часто застосовуваний моніторинг"
 
 #: server_status.php:1690
 #| msgid "Invalid table name"
@@ -10804,15 +10826,15 @@ msgstr "або введіть назву змінної:"
 
 #: server_status.php:1694
 msgid "Display as differential value"
-msgstr ""
+msgstr "Показати як значення різниці"
 
 #: server_status.php:1696
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Застосувати дільник"
 
 #: server_status.php:1703
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Додати до значень одиниці виміру"
 
 #: server_status.php:1709
 #| msgid "Add a new User"
@@ -10821,11 +10843,11 @@ msgstr "Додати ці серії"
 
 #: server_status.php:1711
 msgid "Clear series"
-msgstr ""
+msgstr "Очистити серії"
 
 #: server_status.php:1714
 msgid "Series in Chart:"
-msgstr ""
+msgstr "Серії в графіку:"
 
 #: server_status.php:1727
 #| msgid "Row Statistics"
@@ -10839,25 +10861,24 @@ msgstr "Обраний проміжок часу:"
 
 #: server_status.php:1733
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Виконувати лише вирази SELECT, INSERT, UPDATE і DELETE"
 
 #: server_status.php:1738
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "Для кращого групування, видалити данні змінної у виразах INSERT"
 
 #: server_status.php:1743
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "Оберіть, з якого журналу має генеруватися статистика."
 
 #: server_status.php:1745
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Результати, згруповані за текстом запиту."
 
 #: server_status.php:1750
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Тип запиту"
+msgstr "Аналіз запиту"
 
 #: server_status.php:1790 server_status.php:1807
 #, php-format
@@ -10879,85 +10900,85 @@ msgstr[2] "%d хвилин"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
-msgstr ""
+msgstr "Неможливо підключитися до джерела"
 
 #: server_synchronize.php:102
 msgid "Could not connect to the target"
-msgstr ""
+msgstr "Неможливо підключитися до цільової бази даних"
 
 #: server_synchronize.php:130 server_synchronize.php:133 tbl_create.php:55
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "Бази даних \"%s\" не існує."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
-msgstr ""
+msgstr "Синхронізація структури"
 
 #: server_synchronize.php:286
 msgid "Data Synchronization"
-msgstr ""
+msgstr "Синхронізація даних"
 
 #: server_synchronize.php:401 server_synchronize.php:852
 msgid "not present"
-msgstr ""
+msgstr "відсутні"
 
 #: server_synchronize.php:437 server_synchronize.php:909
 msgid "Structure Difference"
-msgstr ""
+msgstr "Відмінності структури"
 
 #: server_synchronize.php:438 server_synchronize.php:910
 msgid "Data Difference"
-msgstr ""
+msgstr "Відмінності даних"
 
 #: server_synchronize.php:443 server_synchronize.php:915
 msgid "Add column(s)"
-msgstr ""
+msgstr "Додати стовпчик(и)"
 
 #: server_synchronize.php:444 server_synchronize.php:916
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Видалити стовпчик(и)"
 
 #: server_synchronize.php:445 server_synchronize.php:917
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Змінити стовпчик(и)"
 
 #: server_synchronize.php:446 server_synchronize.php:918
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Видалити індекс(и)"
 
 #: server_synchronize.php:447 server_synchronize.php:919
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Застосувати індекс(и)"
 
 #: server_synchronize.php:448 server_synchronize.php:920
 msgid "Update row(s)"
-msgstr ""
+msgstr "Оновити рядок(рядки)"
 
 #: server_synchronize.php:449 server_synchronize.php:921
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Вставити рядок(рядки)"
 
 #: server_synchronize.php:460 server_synchronize.php:933
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Ви хочете видалити всі попередні рядки з цільових таблиць?"
 
 #: server_synchronize.php:465 server_synchronize.php:938
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Застосувати вибрані зміни"
 
 #: server_synchronize.php:469 server_synchronize.php:941
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Синхронізувати бази даних"
 
 #: server_synchronize.php:483
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Вибрані цільові таблиці синхронізовано з вихідними таблицями."
 
 #: server_synchronize.php:988
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Цільова база даних синхронізована із вихідною базою даних"
 
 #: server_synchronize.php:1046
 #| msgid "Execute"
@@ -10966,7 +10987,7 @@ msgstr "Виконані запиті"
 
 #: server_synchronize.php:1202
 msgid "Enter manually"
-msgstr ""
+msgstr "Введіть вручну"
 
 #: server_synchronize.php:1210
 #| msgid "Connections"
@@ -10976,21 +10997,23 @@ msgstr "Поточне з'єднання"
 #: server_synchronize.php:1250
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Конфігурація: %s"
 
 #: server_synchronize.php:1265
 msgid "Socket"
-msgstr ""
+msgstr "Сокет"
 
 #: server_synchronize.php:1313
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Цільову базу даних буде повністю синхронізовано з вихідною базою даних. "
+"Вихідна база даних залишиться незмінною."
 
 #: server_variables.php:80
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Помилка встановлення змінної"
 
 #: server_variables.php:99
 msgid "Server variables and settings"
@@ -11006,15 +11029,17 @@ msgstr "Загальне значення"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:227
 msgid "Download"
-msgstr ""
+msgstr "Завантажити"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Неправильний набір форм, перевірте масив $formsets у файлі "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:49
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Неможливо завантажити або зберегти конфігурацію"
 
 #: setup/frames/index.inc.php:50
 msgid ""
@@ -11022,12 +11047,19 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
+"Будь-ласка, створіть на веб-сервері в кореневому каталозі phpMyAdmin каталг "
+"[em]config[/em] з можливістю запису у нього, як це описано у "
+"[a@Documentation.html#setup_script]documentation[/a]. Інакше, ви лише будете "
+"здатні його завантажити або переглянути."
 
 #: setup/frames/index.inc.php:57
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Ви використовуєте незахищене з'єднання; всі дані (у тому числі потенційно "
+"чутлива ​​інформація, на кшталт паролей) передаються в незашифрованому "
+"вигляді!"
 
 #: setup/frames/index.inc.php:61
 #, php-format
@@ -11035,10 +11067,12 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
+"Якщо ваш сервер також налаштований на прийом HTTPS запитів, щоб "
+"використовувати захищене з'єднання, перейдіть за [a@%s]цим посиланням[/a], ."
 
 #: setup/frames/index.inc.php:65
 msgid "Insecure connection"
-msgstr ""
+msgstr "Незахищене з'єднання"
 
 #: setup/frames/index.inc.php:94
 #| msgid "Modifications have been saved"
@@ -11050,109 +11084,116 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Конфігурація збережена у файл config/config.inc.php в PHPMyAdmin каталозі "
+"верхнього рівня. Щоб використовувати його скопіюйте цей файл на один рівень "
+"вище і видаліть каталог конфігурації."
 
 #: setup/frames/index.inc.php:102 setup/frames/menu.inc.php:15
 msgid "Overview"
-msgstr ""
+msgstr "Огляд"
 
 #: setup/frames/index.inc.php:110
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Показати приховані повідомлення (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:150
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Налаштовані сервери відсутні"
 
 #: setup/frames/index.inc.php:158
 msgid "New server"
-msgstr ""
+msgstr "Новий сервер"
 
 #: setup/frames/index.inc.php:187
 msgid "Default language"
-msgstr ""
+msgstr "Стандартна мова"
 
 #: setup/frames/index.inc.php:197
 msgid "let the user choose"
-msgstr ""
+msgstr "дозволити вибір користувачеві"
 
 #: setup/frames/index.inc.php:208
 msgid "- none -"
-msgstr ""
+msgstr "- немає -"
 
 #: setup/frames/index.inc.php:211
 msgid "Default server"
-msgstr ""
+msgstr "Сервер за замовчанням"
 
 #: setup/frames/index.inc.php:221
 msgid "End of line"
-msgstr ""
+msgstr "Кінець рядка"
 
 #: setup/frames/index.inc.php:226
 msgid "Display"
-msgstr ""
+msgstr "Відобразити"
 
 #: setup/frames/index.inc.php:230
 msgid "Load"
-msgstr ""
+msgstr "Завантажити"
 
 #: setup/frames/index.inc.php:241
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "Домашня сторінка phpMyAdmin"
 
 #: setup/frames/index.inc.php:242
 msgid "Donate"
-msgstr ""
+msgstr "Пожертва"
 
 #: setup/frames/servers.inc.php:28
 msgid "Edit server"
-msgstr ""
+msgstr "Редагувати сервер"
 
 #: setup/frames/servers.inc.php:37
 msgid "Add a new server"
-msgstr ""
+msgstr "Додати новий сервер"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Неприпустиме значення атрибуту файлу в GET"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
-msgstr ""
+msgstr "Попередження"
 
 #: setup/lib/form_processing.lib.php:44
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Надіслана форма містить помилки"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Спробуйте повернути помилковим поля початкові значення"
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ігнорувати помилки"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Show form"
-msgstr ""
+msgstr "Показати форму"
 
 #: setup/lib/index.lib.php:122
 msgid ""
 "Neither URL wrapper nor CURL is available. Version check is not possible."
 msgstr ""
+"Недоступні ані обробник протоколу URL, ані CURL. Перевірити версію "
+"неможливо."
 
 #: setup/lib/index.lib.php:132
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Не вдалося отримати поточну версію. Можливо, ви від'єднані від мережі або "
+"сервер оновлення не відповідає."
 
 #: setup/lib/index.lib.php:152
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Від сервера отримано неприпустимий рядок версії"
 
 #: setup/lib/index.lib.php:162
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Нечитабельний вміст рядка версії"
 
 #: setup/lib/index.lib.php:180
 #, php-format
@@ -11160,10 +11201,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Якщо використовується Git версія, запустіть [kbd]git pull[/kbd] "
+":-)[br]Остання стабільна версія %s, випущена %s."
 
 #: setup/lib/index.lib.php:186
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Нова стабільна версія відсутня"
 
 #: setup/lib/index.lib.php:274
 #, php-format
@@ -11316,7 +11359,7 @@ msgstr "Перевірений SQL"
 #: sql.php:946
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "Проблеми з індексами таблиці `%s`"
 
 #: sql.php:978
 msgid "Label"
@@ -11350,11 +11393,11 @@ msgstr "Вставити як новий рядок"
 
 #: tbl_change.php:1030
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Вставити як новий рядок і ігнорувати помилки"
 
 #: tbl_change.php:1031
 msgid "Show insert query"
-msgstr ""
+msgstr "Відображати запит вставлення"
 
 #: tbl_change.php:1042
 msgid "and then"
@@ -11374,7 +11417,7 @@ msgstr ""
 
 #: tbl_change.php:1059
 msgid "Edit next row"
-msgstr ""
+msgstr "Редагувати наступний рядок"
 
 #: tbl_change.php:1070
 msgid ""
@@ -11401,12 +11444,12 @@ msgstr "Стовпчик"
 #: tbl_chart.php:99
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Лінія"
 
 #: tbl_chart.php:101
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "Крива"
 
 #: tbl_chart.php:103
 #| msgid "PiB"
@@ -11416,24 +11459,24 @@ msgstr "Пиріг"
 
 #: tbl_chart.php:106
 msgid "Stacked"
-msgstr ""
+msgstr "Кладка"
 
 #: tbl_chart.php:109
 #| msgid "Import files"
 msgid "Chart title"
-msgstr "Назва діаграми"
+msgstr "Назва графіку"
 
 #: tbl_chart.php:115
 msgid "X-Axis:"
-msgstr ""
+msgstr "Вісь X:"
 
 #: tbl_chart.php:130
 msgid "Series:"
-msgstr ""
+msgstr "Серії:"
 
 #: tbl_chart.php:132
 msgid "The remaining columns"
-msgstr ""
+msgstr "Решта стовпчиків"
 
 #: tbl_chart.php:145
 msgid "X-Axis label:"
@@ -11469,7 +11512,7 @@ msgstr "Переглянути дамп (схему) таблиці"
 
 #: tbl_gis_visualization.php:112
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "Показати ГІС візуалізацію"
 
 #: tbl_gis_visualization.php:128
 msgid "Width"
@@ -11486,13 +11529,12 @@ msgstr "Мітка стовпчика"
 
 #: tbl_gis_visualization.php:138
 msgid "-- None --"
-msgstr ""
+msgstr "-- Немає --"
 
 #: tbl_gis_visualization.php:151
-#, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
-msgstr "Разом"
+msgstr "Просторовий стовпчик"
 
 #: tbl_gis_visualization.php:175
 msgid "Redraw"
@@ -11630,24 +11672,24 @@ msgstr "Видалити таблицю (DROP)"
 
 #: tbl_operations.php:758
 msgid "Partition maintenance"
-msgstr ""
+msgstr "Обслуговування розділів"
 
 #: tbl_operations.php:766
 #, php-format
 msgid "Partition %s"
-msgstr ""
+msgstr "Розділ %s"
 
 #: tbl_operations.php:769
 msgid "Analyze"
-msgstr ""
+msgstr "Аналізувати"
 
 #: tbl_operations.php:770
 msgid "Check"
-msgstr ""
+msgstr "Перевірити"
 
 #: tbl_operations.php:771
 msgid "Optimize"
-msgstr ""
+msgstr "Оптимізувати"
 
 #: tbl_operations.php:772
 msgid "Rebuild"
@@ -11659,17 +11701,16 @@ msgstr "Відремонтувати"
 
 #: tbl_operations.php:787
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Видалити розділи"
 
 #: tbl_operations.php:813
 msgid "Check referential integrity:"
 msgstr "Перевір цілісність даних на рівні посилань:"
 
 #: tbl_printview.php:72
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Показати таблиці"
+msgstr "Показ таблиць"
 
 #: tbl_printview.php:269 tbl_structure.php:780
 msgid "Space usage"
@@ -11746,40 +11787,39 @@ msgstr "Порядок перегляду:"
 
 #: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:597
 msgid "Spatial"
-msgstr ""
+msgstr "Просторовий"
 
 #: tbl_structure.php:162 tbl_structure.php:166
 msgid "Browse distinct values"
-msgstr ""
+msgstr "Перегляд унікальних значеннь"
 
 #: tbl_structure.php:167 tbl_structure.php:168
 msgid "Add primary key"
-msgstr ""
+msgstr "Додати первинний ключ"
 
 #: tbl_structure.php:171 tbl_structure.php:172
 msgid "Add unique index"
-msgstr ""
+msgstr "Додати унікальний індекс"
 
 #: tbl_structure.php:173 tbl_structure.php:174
 msgid "Add SPATIAL index"
-msgstr ""
+msgstr "Додати просторовий індекс"
 
 #: tbl_structure.php:175 tbl_structure.php:176
 msgid "Add FULLTEXT index"
-msgstr ""
+msgstr "Додати повнотекстовий індекс"
 
 #: tbl_structure.php:369 tbl_tracking.php:295
-#, fuzzy
 #| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Немає"
 
 #: tbl_structure.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "Таблицю %s було знищено"
+msgstr "Стовпчик %s було знищено"
 
 #: tbl_structure.php:395 tbl_structure.php:492
 #, php-format
@@ -12078,10 +12118,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Relations"
 msgid "Questions below 1,000"
-msgstr "Зв'язки"
+msgstr "Запитів менше 1000"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -12096,14 +12135,14 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Connections"
 msgid "Current amount of Questions: %s"
-msgstr "З'єднань"
+msgstr "Поточна кількість запитів: %s"
 
 #: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
-msgstr ""
+msgstr "Відсоток повільних запитів"
 
 #: po/advisory_rules.php:16
 msgid ""
@@ -12186,13 +12225,15 @@ msgstr "Випуск серії"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Версія MySQL сервера менше 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Необхідно оновитися, оскільки MySQL 5.1 має покращену продуктивність, а "
+"MySQL 5.5 і поготів."
 
 #: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
@@ -12207,21 +12248,23 @@ msgstr "Неосновна версія"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Версія менше, ніж 5.1.30 (перший стабільний випуск у версії 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Необхідно оновитись, оскільки останні версії MySQL 5.1 мають покращену "
+"продуктивність, а MySQL 5.5 і поготів."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Версія менше, ніж 5.5.8 (перший стабільний випуск у версії 5.5)."
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr ""
+msgstr "Необхідно оновитися до стабільної версії MySQL 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 #| msgid "Description"
@@ -12259,7 +12302,7 @@ msgstr ""
 
 #: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Документація по Drizzle знаходиться на http://docs.drizzle.org/"
 
 #: po/advisory_rules.php:63
 #, php-format
@@ -12273,7 +12316,7 @@ msgstr "Архітектура MySQL"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL не скомпільовано як 64-бітний пакет."
 
 #: po/advisory_rules.php:67
 msgid ""
@@ -12281,11 +12324,14 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Ваш об&#39;єм пам'яті понад 3 Гб (за умови, що сервер на локальному хості), "
+"отже MySQL не зможе отримати доступ до всієї пам'яті. Необхідно розглянути "
+"можливість встановлення 64-бітної версії MySQL."
 
 #: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Доступна пам'ять на цьому хості: %s"
 
 #: po/advisory_rules.php:70
 msgid "Query cache disabled"
@@ -12378,7 +12424,7 @@ msgstr "Фрагментація кешу запитів"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "Кеш запитів значно фрагментований."
 
 #: po/advisory_rules.php:92
 msgid ""
@@ -12443,13 +12489,12 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Поточний розмір кешу запитів: %s"
 
 #: po/advisory_rules.php:105
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Результати запиту"
+msgstr "Мінімальний розмір результату кешу запитів"
 
 #: po/advisory_rules.php:106
 msgid ""
@@ -12618,7 +12663,7 @@ msgstr ""
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "tmp_table_size і max_heap_table_size не одне й те саме."
 
 #: po/advisory_rules.php:147
 msgid ""
@@ -12635,7 +12680,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "Відсоток тимчасових таблиць на диску"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
@@ -12662,11 +12707,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s таблиця"
+msgstr "Співвідношення тимчасових таблиць на диску"
 
 #: po/advisory_rules.php:157
 msgid ""
@@ -12702,7 +12746,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size дорівнює 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12755,10 +12799,9 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#, fuzzy
 #| msgid "Create a page"
 msgid "Rate of table open"
-msgstr "Створити нову сторінку"
+msgstr "Співвідношення відкритих таблиць"
 
 #: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
@@ -12842,7 +12885,7 @@ msgstr ""
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
-msgstr ""
+msgstr "Кеш потоку"
 
 #: po/advisory_rules.php:206
 msgid ""
@@ -12856,19 +12899,18 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "Кеш потоку встановлено рівним 0"
 
 #: po/advisory_rules.php:210
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "Трекінг не активний."
+msgstr "%% співвідношень звернень у кеш потоку"
 
 #: po/advisory_rules.php:211
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Трекінг не активний."
+msgstr "Кеш потоку не ефективний."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
@@ -12964,10 +13006,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#, fuzzy
 #| msgid "Connections"
 msgid "Rate of aborted connections"
-msgstr "З'єднань"
+msgstr "Співвідношення перерваних з'єднань"
 
 #: po/advisory_rules.php:238
 #, php-format
@@ -12978,11 +13019,11 @@ msgstr ""
 #: po/advisory_rules.php:240
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "Відсоток перерваних з’єднань"
+msgstr "Відсоток перерваних клієнтських з'єднань"
 
 #: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
-msgstr "Забагато перерваних з’єднань."
+msgstr "Забагато перерваних клієнтських з'єднань."
 
 #: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
@@ -12999,7 +13040,7 @@ msgstr ""
 #: po/advisory_rules.php:245
 #| msgid "Table of contents"
 msgid "Rate of aborted clients"
-msgstr "Кількість перерваних з’єднаннь"
+msgstr "Співвідношення перерваних клієнтських з'єднань"
 
 #: po/advisory_rules.php:248
 #, php-format
