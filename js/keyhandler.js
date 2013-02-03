@@ -4,6 +4,21 @@
   *
   * @param object   event data
   */
+
+AJAX.registerTeardown('keyhandler.js', function() {
+    $('#table_columns').die('keydown');
+    $('table.insertRowTable').die('keydown');
+});
+
+AJAX.registerOnload('keyhandler.js', function() {
+    $('#table_columns').live('keydown', function(event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+    $('table.insertRowTable').live('keydown', function(event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+});
+
 function onKeyDownArrowsHandler(e)
 {
     e = e||window.event;
