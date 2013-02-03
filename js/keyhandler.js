@@ -7,14 +7,14 @@
 
 AJAX.registerTeardown('keyhandler.js', function() {
     $('#table_columns').unbind('keydown');
-    $('#insertRowTable').unbind('keydown');
+    $('table.insertRowTable').unbind('keydown');
 });
 
 AJAX.registerOnload('keyhandler.js', function() {
     $('#table_columns').bind('keydown', function(event) {
         onKeyDownArrowsHandler(event);
     });
-    $('#insertRowTable').bind('keydown', function(event) {
+    $('table.insertRowTable').bind('keydown', function(event) {
         onKeyDownArrowsHandler(event);
     });
 });
