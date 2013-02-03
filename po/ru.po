@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-02-03 09:02+0200\n"
+"PO-Revision-Date: 2013-02-03 09:17+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: Russian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ru/>\n"
@@ -124,7 +124,7 @@ msgstr "Комментарий к базе данных: "
 #: libraries/schema/Pdf_Relation_Schema.class.php:1323
 #: libraries/tbl_columns_definition_form.inc.php:838 tbl_printview.php:120
 msgid "Table comments"
-msgstr "Комментарий к таблице"
+msgstr "Комментарии к таблице"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
@@ -143,7 +143,7 @@ msgstr "Комментарий к таблице"
 #: tbl_printview.php:130 tbl_relation.php:361 tbl_tracking.php:323
 #: tbl_tracking.php:385
 msgid "Column"
-msgstr "Поле"
+msgstr "Столбец"
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
