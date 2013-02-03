@@ -299,7 +299,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetMysqlHelpPage()
     {
         $this->assertEquals(
-            'innodb',
+            'innodb-storage-engine',
             $this->object->getMysqlHelpPage()
         );
 

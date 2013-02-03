@@ -9,14 +9,9 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  *
- */
-require_once './libraries/engines/merge.lib.php';
-
-/**
- *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
+class PMA_StorageEngine_performance_schema extends PMA_StorageEngine
 {
     /**
      * returns string with filename for the MySQL helppage
@@ -26,7 +21,7 @@ class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
      */
     function getMysqlHelpPage()
     {
-        return 'merge-storage-engine';
+        return 'performance-schema';
     }
 }
 

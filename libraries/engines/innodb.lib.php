@@ -353,7 +353,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getMysqlHelpPage()
     {
-        return 'innodb';
+        return 'innodb-storage-engine';
     }
 
     /**
