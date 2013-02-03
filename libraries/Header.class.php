@@ -148,6 +148,7 @@ class PMA_Header
     {
         $this->_scripts->addFile('jquery/jquery-1.8.3.js');
         $this->_scripts->addFile('ajax.js');
+        $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('jquery/jquery-ui-1.9.2.custom.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');

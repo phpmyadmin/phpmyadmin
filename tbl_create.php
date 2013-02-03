@@ -13,15 +13,6 @@ $action = 'tbl_create.php';
 
 $titles = PMA_Util::buildActionTitles();
 
-/**
- * Load JavaScript files
- */
-$response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('keyhandler.js');
-
-
 // Check parameters
 PMA_Util::checkParameters(array('db'));
 
