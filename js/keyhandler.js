@@ -6,15 +6,15 @@
   */
 
 AJAX.registerTeardown('keyhandler.js', function() {
-    $('#table_columns').unbind('keydown');
-    $('table.insertRowTable').unbind('keydown');
+    $('#table_columns').die('keydown');
+    $('table.insertRowTable').die('keydown');
 });
 
 AJAX.registerOnload('keyhandler.js', function() {
-    $('#table_columns').bind('keydown', function(event) {
+    $('#table_columns').live('keydown', function(event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
-    $('table.insertRowTable').bind('keydown', function(event) {
+    $('table.insertRowTable').live('keydown', function(event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
 });
