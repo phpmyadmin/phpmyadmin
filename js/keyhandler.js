@@ -12,10 +12,10 @@ AJAX.registerTeardown('keyhandler.js', function() {
 
 AJAX.registerOnload('keyhandler.js', function() {
     $('#table_columns').bind('keydown', function(event) {
-        onKeyDownArrowsHandler(event);
+        onKeyDownArrowsHandler(event.originalEvent);
     });
     $('table.insertRowTable').bind('keydown', function(event) {
-        onKeyDownArrowsHandler(event);
+        onKeyDownArrowsHandler(event.originalEvent);
     });
 });
 
