@@ -347,7 +347,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
 
     /**
      * returns string with filename for the MySQL helppage
-     * about this storage engne
+     * about this storage engine
      *
      * @return string  mysql helppage filename
      */
