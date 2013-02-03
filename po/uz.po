@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-17 09:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-03 16:14+0200\n"
+"Last-Translator: Murodjon Abduvohidov <maueraa@mail.ru>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/3-5/uz/>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -834,20 +834,19 @@ msgid "Values for a new column"
 msgstr ""
 
 #: enum_editor.php:30 js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
-msgstr "Майдонлар сони "
+msgstr "%s устуни учун қийматлар "
 
 #: enum_editor.php:34 js/messages.php:275
 msgid "Enter each value in a separate field"
 msgstr ""
 
 #: enum_editor.php:93
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add a value"
-msgstr "Янги фойдаланувчи қўшиш"
+msgstr "Қиймат қўшиш"
 
 #: enum_editor.php:99 gis_data_editor.php:317
 msgid "Output"
