@@ -723,13 +723,6 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 } // end for
 
-$html .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
-    . '<script type="text/javascript">'
-    . '// <![CDATA['
-    . 'document.onkeydown = onKeyDownArrowsHandler;'
-    . '// ]]>'
-    . '</script>';
-
 $html .= '<form method="post" action="' . $action  . '" class="'
     . ($action == 'tbl_create.php' ? 'create_table' : 'append_fields')
     . '_form ajax">';
