@@ -3224,11 +3224,12 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
  * @param string  $sql_query      SQL query to be displayed
  * @param string  $username       username
  * @param string  $hostname       host name
+ * @param string  $dbname         database name
  *
  * @return array  $sql_query, $message
  */
 function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
-    $username, $hostname
+    $username, $hostname, $dbname
 ) {
     if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
         $_REQUEST['createdb-1'] = $_REQUEST['createdb-2']
@@ -3346,8 +3347,8 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
         || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
     ) {
         $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-        $real_sql_query .= $with_clause;
-        $sql_query .= $with_clause;
+        $real_sql_query .= ' ' . $with_clause;
+        $sql_query .= ' ' . $with_clause;
     }
 
     if (isset($create_user_real)) {
