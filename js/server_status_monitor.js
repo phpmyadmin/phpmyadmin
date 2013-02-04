@@ -28,8 +28,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     $('<div />')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
-    $('#addChartForm').clone()
-        .attr('id', 'addChartDialog')
+    $('#addChartDialog')
         .appendTo('#page_content');
 
     $('a.popupLink').click( function() {
