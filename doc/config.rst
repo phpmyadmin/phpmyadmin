@@ -45,9 +45,8 @@ Basic settings
 
     Starting with version 2.3.0, it is advisable to try leaving this blank. In
     most cases phpMyAdmin automatically detects the proper setting. Users of
-    port forwarding will need to set PmaAbsoluteUri (`more info
-    <https://sourceforge.net/tracker/index.php?func=detail&aid
-    =1340187&group_id=23067&atid=377409>`_). 
+    port forwarding will need to set :config:option:`$cfg['PmaAbsoluteUri']`
+    (`more info <https://sourceforge.net/p/phpmyadmin/support-requests/795/>`_).
 
     A good test is to browse a table, edit a row and save it. There should be
     an error message if phpMyAdmin is having trouble auto–detecting the correct

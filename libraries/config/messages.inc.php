@@ -388,7 +388,7 @@ $strConfigServers_CountTables_desc = __('Count tables when showing database list
 $strConfigServers_CountTables_name = __('Count tables');
 $strConfigServers_designer_coords_desc = __('Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/kbd]');
 $strConfigServers_designer_coords_name = __('Designer table');
-$strConfigServers_DisableIS_desc = __('More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]');
+$strConfigServers_DisableIS_desc = __('More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]');
 $strConfigServers_DisableIS_name = __('Disable use of INFORMATION_SCHEMA');
 $strConfigServers_extension_desc = __('What PHP extension to use; you should use mysqli if supported');
 $strConfigServers_extension_name = __('PHP extension to use');

@@ -5629,11 +5629,10 @@ msgstr "Tabela trybu projektowania"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
-"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Więcej informacji jest dostępnych pod adresem: [a@http://sf.net/support/"
-"tracker.php?aid=1849494]PMA bug tracker[/a] i [a@http://bugs.mysql.com/19588]"
+"Więcej informacji jest dostępnych pod adresem: [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker[/a] i [a@http://bugs.mysql.com/19588]"
 "MySQL Bugs[/a]"
 
 #: libraries/config/messages.inc.php:392

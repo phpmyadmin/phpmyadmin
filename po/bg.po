@@ -5435,10 +5435,10 @@ msgstr "Таблица за Дизайнера"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
-"More information on [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
+"More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
 "tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Допълнителна информация в [a@http://sf.net/support/tracker.php?aid=1849494]"
+"Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
 "системата за проследяване на дефекти на PMA[/a] и [a@http://bugs.mysql."
 "com/19588]дефекти на MySQL[/a]"
 

@@ -2060,8 +2060,7 @@ class PMA_Util
      * Takes a string and outputs each character on a line for itself. Used
      * mainly for horizontalflipped display mode.
      * Takes care of special html-characters.
-     * Fulfills todo-item
-     * http://sf.net/tracker/?func=detail&aid=544361&group_id=23067&atid=377411
+     * Fulfills https://sourceforge.net/p/phpmyadmin/feature-requests/164/
      *
      * @param string $string    The string
      * @param string $Separator The Separator (defaults to "<br />\n")
@@ -2355,7 +2354,7 @@ class PMA_Util
         /* IE (before version 9) has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
             return '<input type="image" name="' . $image_name
-                . '" class="' . $button_class 
+                . '" class="' . $button_class
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
                 . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'

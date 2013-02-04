@@ -13,8 +13,8 @@
         }
     ],
     "support": {
-        "forum": "https://sourceforge.net/projects/phpmyadmin/forums/forum/72909",
-        "issues": "https://sourceforge.net/tracker/?atid=377408&group_id=23067&func=browse",
+        "forum": "https://sourceforge.net/p/phpmyadmin/discussion/Help",
+        "issues": "https://sourceforge.net/p/phpmyadmin/bugs/",
         "wiki": "http://wiki.phpmyadmin.net/",
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
