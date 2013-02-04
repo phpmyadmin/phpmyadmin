@@ -52,7 +52,7 @@ class PMA_StorageEngine_mrg_myisam_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'merge'
+            'merge-storage-engine'
         );
 
     }
