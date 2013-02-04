@@ -364,8 +364,6 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 /**
  * Displays the privileges form table
  *
- * @param string  $random_n a random number that will be appended
- *                          to the id of the user forms
  * @param string  $db       the database
  * @param string  $table    the table
  * @param boolean $submit   wheather to display the submit button or not
@@ -375,7 +373,7 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  *
  * @return string html snippet
  */
-function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
+function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
     $table = '*', $submit = true
 ) {
     $html_output = '';
@@ -468,9 +466,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
         );
     } else {
         // g l o b a l    o r    d b - s p e c i f i c
-        $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs(
-            $db, $table, $row, $random_n
-        );
+        $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row);
     }
     $html_output .= '</fieldset>' . "\n";
     if ($submit) {
@@ -744,12 +740,10 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
  * @param string $db       the database
  * @param string $table    the table
  * @param string $row      first row from result or boolean false
- * @param string $random_n a random number that will be appended
- *                         to the id of the user forms
  *
  * @return string $html_output
  */
-function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
+function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
 {
     $privTable_names = array(0 => __('Data'),
         1 => __('Structure'),
@@ -771,27 +765,25 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
             + count($privTable[2])
             - (isset($row['Grant_priv']) ? 1 : 0)
         )
-        . '" />' . "\n"
-        . '<fieldset id="fieldset_user_global_rights">' . "\n"
-        . '<legend>' . "\n"
-        . '        '
-        . ($db == '*'
-            ? __('Global privileges')
-            : ($table == '*'
-                ? __('Database-specific privileges')
-                : __('Table-specific privileges'))) . "\n"
-        . '(<a href="#" '
-        . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); '
-        . 'return false;">'
-        . __('Check All') . '</a> /' . "\n"
+        . '" />';
+    $html_output .= '<fieldset id="fieldset_user_global_rights"><legend>';
+    if ($db == '*') {
+        $html_output .= __('Global privileges');
+    } else if ($table == '*') {
+        $html_output .= __('Database-specific privileges');
+    } else {
+        $html_output .= __('Table-specific privileges');
+    }
+    $html_output .= ' (<a href="#" '
+        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', true); '
+        . 'return false;">' . __('Check All') . '</a> /'
         . '<a href="#" '
-        . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); '
-        . 'return false;">'
-        . __('Uncheck All') . '</a>)' . "\n"
-        . '</legend>' . "\n"
-        . '<p><small><i>'
+        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', false); '
+        . 'return false;">' . __('Uncheck All') . '</a>)';
+    $html_output .= '</legend>';
+    $html_output .= '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English')
-        . '</i></small></p>' . "\n";
+        . '</i></small></p>';
 
     // Output the Global privilege tables with checkboxes
     $html_output .= PMA_getHtmlForGlobalPrivTableWithCheckboxes(
@@ -803,7 +795,7 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
         $html_output .= PMA_getHtmlForDisplayResourceLimits($row);
     }
     // for Safari 2.0.2
-    $html_output .= '<div class="clearfloat"></div>' . "\n";
+    $html_output .= '<div class="clearfloat"></div>';
 
     return $html_output;
 }
@@ -1066,8 +1058,8 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '</select>' . "\n"
         . '</span>' . "\n";
 
-    $html_output .= '<input type="text" name="username" maxlength="'
-        . $username_length . '" title="' . __('User name') . '"'
+    $html_output .= '<input type="text" name="username" class="autofocus"'
+        . ' maxlength="' . $username_length . '" title="' . __('User name') . '"'
         . (empty($GLOBALS['username'])
            ? ''
            : ' value="' . htmlspecialchars(
@@ -1076,8 +1068,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\';" '
-        . 'autofocus="autofocus" />' . "\n"
+        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item">' . "\n"
@@ -1431,20 +1422,19 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
 /**
  * Get HTML for addUsersForm, This function call if isset($_REQUEST['adduser'])
  *
- * @param int    $random_n
  * @param string $dbname
  *
  * @return string HTML for addUserForm
  */
-function PMA_getHtmlForAddUser($random_n, $dbname)
+function PMA_getHtmlForAddUser($dbname)
 {
     $GLOBALS['url_query'] .= '&amp;adduser=1';
 
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usradd.png') . __('Add user') . "\n"
        . '</h2>' . "\n"
-       . '<form name="usersForm" id="addUsersForm_' . $random_n
-       . '" action="server_privileges.php" method="post">' . "\n"
+       . '<form name="usersForm" class="ajax" id="addUsersForm"'
+       . ' action="server_privileges.php" method="post">' . "\n"
        . PMA_generate_common_hidden_inputs('', '')
        . PMA_getHtmlForDisplayLoginInformationFields('new');
 
@@ -1477,9 +1467,7 @@ function PMA_getHtmlForAddUser($random_n, $dbname)
     }
 
     $html_output .= '</fieldset>' . "\n";
-    $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
-        $random_n, '*', '*', false
-    );
+    $html_output .= PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
     $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
         . "\n"
         . '<input type="submit" name="adduser_submit" '
@@ -2998,8 +2986,6 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
  *
  * @param boolean $dbname_is_wildcard whether database name is wildcard or not
  * @param type    $url_dbname         url database name that urlencode() string
- * @param integer $random_n           a random number that will be appended
- *                                    to the id of the user forms
  * @param string  $username           username
  * @param string  $hostname           host name
  * @param string  $link_edit          standard link to edit privileges
@@ -3010,7 +2996,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-    $random_n, $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
+    $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
 ) {
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
@@ -3031,8 +3017,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     $class = ' class="ajax"';
-    $html_output .= '<form' . $class . ' name="usersForm"'
-        . ' id="addUsersForm_' . $random_n . '"'
+    $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
         . ' action="server_privileges.php" method="post">' . "\n";
 
     $_params = array(
@@ -3048,7 +3033,6 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     $html_output .= PMA_generate_common_hidden_inputs($_params);
 
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
-        $random_n,
         PMA_ifSetOr($dbname, '*', 'length'),
         PMA_ifSetOr($tablename, '*', 'length')
     );

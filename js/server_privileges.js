@@ -80,6 +80,72 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     $(checkboxes_sel).trigger("change");
 }
 
+function addUser($form)
+{
+    if (! checkAddUser($form.get(0))) {
+        return false;
+    }
+
+    //We also need to post the value of the submit button in order to get this to work correctly
+    $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $("input[name=adduser_submit]").val(), function(data) {
+        if (data.success == true) {
+            // Refresh navigation, if we created a database with the name
+            // that is the same as the username of the new user
+            if ($('#add_user_dialog #createdb-1:checked').length) {
+                PMA_reloadNavigation();
+            }
+
+            $('#page_content').show();
+            $("#add_user_dialog").remove();
+
+            PMA_ajaxShowMessage(data.message);
+            $("#result_query").remove();
+            $('#page_content').prepend(data.sql_query);
+            $("#result_query").css({
+                'margin-top' : '0.5em'
+            });
+
+            //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
+            var $notice_class = $("#result_query").find('.notice');
+            if ($notice_class.text() == '') {
+                $notice_class.remove();
+            }
+            if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
+
+                /*process the fieldset_add_user attribute and get the val of privileges*/
+                var url = $('#fieldset_add_user a.ajax').attr('rel');
+
+                if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
+                    url = url.substring(0, url.length - 23);
+                }
+                url = url + "&ajax_request=true&db_specific=true";
+
+                /* post request for get the updated userForm table */
+                $.post($form.attr('action'), url, function(priv_data) {
+
+                    /*Remove the old userForm table*/
+                    if ($('#userFormDiv').length != 0) {
+                        $('#userFormDiv').remove();
+                    } else {
+                        $("#usersForm").remove();
+                    }
+                    if (priv_data.success == true) {
+                        $('<div id="userFormDiv"></div>')
+                            .html(priv_data.user_form)
+                            .insertAfter('#result_query');
+                    } else {
+                        PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
+                    }
+                });
+            } else {
+                appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
+            }
+        } else {
+            PMA_ajaxShowMessage(data.error, false);
+        }
+    });
+}
+
 /**
  * AJAX scripts for server_privileges page.
  *
@@ -125,113 +191,30 @@ AJAX.registerOnload('server_privileges.js', function() {
     $("#fieldset_add_user a.ajax").live("click", function(event) {
         /** @lends jQuery */
         event.preventDefault();
-
         var $msgbox = PMA_ajaxShowMessage();
-
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var button_options = {};
-        button_options[PMA_messages['strAddUser']] = function() {
-
-            /**
-             * @var $form    stores reference to current form
-             */
-            var $form = $(this).find("form[name=usersForm]").last();
-
-            if (! checkAddUser($form.get(0))) {
-                return false;
-            }
-
-            //We also need to post the value of the submit button in order to get this to work correctly
-            $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $(this).find("input[name=adduser_submit]").val(), function(data) {
-                if (data.success == true) {
-                    // Refresh navigation, if we created a database with the name
-                    // that is the same as the username of the new user
-                    if ($('#add_user_dialog #createdb_1:checked').length) {
-                        PMA_reloadNavigation();
-                    }
-
-                    $("#add_user_dialog").dialog("close");
-                    PMA_ajaxShowMessage(data.message);
-                    $("#result_query").remove();
-                    $('#page_content').prepend(data.sql_query);
-
-                    //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
-                    var $notice_class = $("#result_query").find('.notice');
-                    if ($notice_class.text() == '') {
-                        $notice_class.remove();
-                    }
-                    if ($('#fieldset_add_user a.ajax').attr('name') == 'db_specific') {
-
-                        /*process the fieldset_add_user attribute and get the val of privileges*/
-                        var url = $('#fieldset_add_user a.ajax').attr('rel');
-
-                        if (url.substring(url.length - 23, url.length) == "&goto=db_operations.php") {
-                            url = url.substring(0, url.length - 23);
-                        }
-                        url = url + "&ajax_request=true&db_specific=true";
-
-                        /* post request for get the updated userForm table */
-                        $.post($form.attr('action'), url, function(priv_data) {
-
-                            /*Remove the old userForm table*/
-                            if ($('#userFormDiv').length != 0) {
-                                $('#userFormDiv').remove();
-                            } else {
-                                $("#usersForm").remove();
-                            }
-                            if (priv_data.success == true) {
-                                $('<div id="userFormDiv"></div>')
-                                    .html(priv_data.user_form)
-                                    .insertAfter('#result_query');
-                            } else {
-                                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
-                            }
-                        });
-                    } else {
-                        appendNewUser(data.new_user_string, data.new_user_initial, data.new_user_initial_string);
-                    }
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-            });
-        };
-        button_options[PMA_messages['strCancel']] = function() { $(this).dialog("close"); };
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             if (data.success == true) {
-                var $div = $('<div id="add_user_dialog"></div>')
-                .prepend(data.message)
-                .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
-                .end()
-                .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
-                .end()
-                .dialog({
-                    title: PMA_messages['strAddUser'],
-                    width: 800,
-                    // height is a workaround for this Chrome problem:
-                    // http://bugs.jqueryui.com/ticket/4671
-                    // also it's interesting to be able to scroll this window
-                    height: 600,
-                    modal: true,
-                    buttons: button_options,
-                    close: function () {
-                        $(this).remove();
-                    }
-                }); //dialog options end
+                $('#page_content').hide();
+                var $div = $('#add_user_dialog');
+                if ($div.length == 0) {
+                    $div = $('<div id="add_user_dialog" style="margin: 0.5em;"></div>')
+                        .insertBefore('#page_content');
+                } else {
+                    $div.empty();
+                }
+                $div.html(data.message)
+                    .find("form[name=usersForm]")
+                    .append('<input type="hidden" name="ajax_request" value="true" />')
+                    .end();
                 displayPasswordGenerateButton();
                 PMA_showHints($div);
                 PMA_ajaxRemoveMessage($msgbox);
-                $div.find("input[autofocus]").focus();
+                $div.find("input.autofocus").focus();
 
-                $div.find('form[name=usersForm]').bind('submit', function (e) {
-                    e.preventDefault();
-                    $(this)
-                        .closest('.ui-dialog')
-                        .find('.ui-dialog-buttonpane .ui-button')
-                        .first()
-                        .click();
+                $div.find('form[name=usersForm]').bind('submit', function (event) {
+                    event.preventDefault();
+                    addUser($(this));
                 });
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -332,12 +315,6 @@ AJAX.registerOnload('server_privileges.js', function() {
 
         $(this).parents('tr').addClass('current_row');
 
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var button_options = {};
-        button_options[PMA_messages['strCancel']] = function() {$(this).dialog("close");};
-
         var token = $(this).parents('form').find('input[name="token"]').val();
         $.get(
             $(this).attr('href'),
@@ -348,16 +325,15 @@ AJAX.registerOnload('server_privileges.js', function() {
             },
             function(data) {
                 if (data.success == true) {
-                    var $div = $('<div id="edit_user_dialog"></div>')
-                        .append(data.message)
-                        .dialog({
-                            width: 900,
-                            height: 600,
-                            buttons: button_options,
-                            close: function () {
-                                $(this).remove();
-                            }
-                        }); //dialog options end
+                    $('#page_content').hide();
+                    var $div = $('#edit_user_dialog');
+                    if ($div.length == 0) {
+                        $div = $('<div id="edit_user_dialog" style="margin: 0.5em;"></div>')
+                            .insertBefore('#page_content');
+                    } else {
+                        $div.empty();
+                    }
+                    $div.html(data.message);
                     displayPasswordGenerateButton();
                     PMA_ajaxRemoveMessage($msgbox);
                     PMA_showHints($div);
@@ -401,15 +377,17 @@ AJAX.registerOnload('server_privileges.js', function() {
 
         $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
             if (data.success == true) {
+                $('#page_content').show();
+                $("#edit_user_dialog").remove();
 
                 PMA_ajaxShowMessage(data.message);
-
-                //Close the jQueryUI dialog
-                $("#edit_user_dialog").dialog("close");
 
                 if (data.sql_query) {
                     $("#result_query").remove();
                     $('#page_content').prepend(data.sql_query);
+                    $("#result_query").css({
+                        'margin-top' : '0.5em'
+                    });
                     var $notice_class = $("#result_query").find('.notice');
                     if ($notice_class.text() == '') {
                         $notice_class.remove();
