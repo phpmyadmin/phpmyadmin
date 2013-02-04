@@ -618,12 +618,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             });
             $('#chartStatusVar').click(function () {
                 $('input[name="chartTitle"]').val(
-                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                    $('#chartSeries').find(':selected').text().replace(/_/g, " ")
                 );
             });
             $('#chartSeries').change(function () {
                 $('input[name="chartTitle"]').val(
-                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                    $('#chartSeries').find(':selected').text().replace(/_/g, " ")
                 );
             });
         }
@@ -992,7 +992,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         str += serie.unit ? (', ' + PMA_messages['strUnit'] + ': ' + serie.unit) : '';
 
         var newSeries = {
-            label: $('#variableInput').val().replace(/_/, " ")
+            label: $('#variableInput').val().replace(/_/g, " ")
         };
         newChart.series.push(newSeries);
         $('#seriesPreview').append('- ' + newSeries.label + str + '<br/>');
