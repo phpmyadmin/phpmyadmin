@@ -150,9 +150,6 @@ if (! $is_superuser) {
     exit;
 }
 
-// a random number that will be appended to the id of the user forms
-$random_n = mt_rand(0, 1000000);
-
 /**
  * Changes / copies a user, part I
  */
@@ -228,7 +225,8 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $sql_query = $create_user_show . $sql_query;
             }
             list($sql_query, $message) = PMA_addUserAndCreateDatabase(
-                $_error, $real_sql_query, $sql_query, $username, $hostname, $dbname
+                $_error, $real_sql_query, $sql_query, $username, $hostname,
+                isset($dbname) ? $dbname : null
             );
 
         } else {
@@ -383,8 +381,8 @@ if ($GLOBALS['is_ajax_request']
         $link_export,
         (isset($sql_query) ? $sql_query : ''),
         $link_edit,
-        (isset($hostname) ? $hostname : ''), 
-        (isset($username) ? $username : '') 
+        (isset($hostname) ? $hostname : ''),
+        (isset($username) ? $username : '')
     );
 
     if (! empty($message) && $message instanceof PMA_Message) {
@@ -471,8 +469,7 @@ if (empty($_REQUEST['adduser'])
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
-                $url_dbname, $random_n,
-                $username, $hostname, $link_edit, $link_revoke,
+                $url_dbname, $username, $hostname, $link_edit, $link_revoke,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
@@ -481,7 +478,7 @@ if (empty($_REQUEST['adduser'])
 } elseif (isset($_REQUEST['adduser'])) {
     // Add user
     $response->addHTML(
-        PMA_getHtmlForAddUser($random_n, (isset($dbname) ? $dbname : ''))
+        PMA_getHtmlForAddUser((isset($dbname) ? $dbname : ''))
     );
 } else {
     // check the privileges for a particular database.
