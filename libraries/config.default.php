@@ -430,7 +430,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 /**
  * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
  *
- * @see http://sf.net/support/tracker.php?aid=1849494
+ * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
  * @see http://bugs.mysql.com/19588
  * @global boolean $cfg['Servers'][$i]['DisableIS']
  */
@@ -844,7 +844,7 @@ $cfg['NavigationLogoLink'] = 'index.php';
 $cfg['NavigationLogoLinkWindow'] = 'main';
 
 /**
- * number of recently used tables displayed in the navigation panel 
+ * number of recently used tables displayed in the navigation panel
  *
  * @global integer $cfg['NumRecentTables']
  */

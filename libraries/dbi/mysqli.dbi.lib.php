@@ -591,7 +591,7 @@ function PMA_DBI_get_fields_meta($result)
     // MySQL returns MYSQLI_TYPE_STRING for CHAR
     // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
     // so this would override TINYINT and mark all TINYINT as string
-    // https://sf.net/tracker/?func=detail&aid=1532111&group_id=23067&atid=377408
+    // https://sourceforge.net/p/phpmyadmin/bugs/2205/
     //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
     $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'geometry';
     $typeAr[MYSQLI_TYPE_BIT]         = 'bit';

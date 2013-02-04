@@ -2751,8 +2751,9 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         $sql_query2 .= ';';
     }
     if (! PMA_DBI_try_query($sql_query0)) {
-        // This might fail when the executing user does not have ALL PRIVILEGES himself.
-        // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
+        // This might fail when the executing user does not have
+        // ALL PRIVILEGES himself.
+        // See https://sourceforge.net/p/phpmyadmin/bugs/3270/
         $sql_query0 = '';
     }
     if (isset($sql_query1) && ! PMA_DBI_try_query($sql_query1)) {

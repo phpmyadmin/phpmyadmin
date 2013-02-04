@@ -771,8 +771,8 @@ function PMA_DBI_get_tables_full($database, $table = false,
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
-            // bug #1436171
-            // http://sf.net/support/tracker.php?aid=1436171
+            // bug #2036
+            // https://sourceforge.net/p/phpmyadmin/bugs/2036/
             return $tables[strtolower($database)];
         } else {
             // one database but inexact letter case match

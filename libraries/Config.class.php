@@ -1282,8 +1282,6 @@ class PMA_Config
             // We used to display a warning if PmaAbsoluteUri wasn't set, but now
             // the autodetect code works well enough that we don't display the
             // warning at all. The user can still set PmaAbsoluteUri manually.
-            // See
-            // http://sf.net/tracker/?func=detail&aid=1257134&group_id=23067&atid=377411
 
         } else {
             // The URI is specified, however users do often specify this
