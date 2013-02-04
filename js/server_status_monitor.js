@@ -28,8 +28,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     $('<div />')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
-    $('#addChartForm').clone()
-        .attr('id', 'addChartDialog')
+    $('#addChartDialog')
         .appendTo('#page_content');
 
     $('a.popupLink').click( function() {
@@ -619,12 +618,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             });
             $('#chartStatusVar').click(function () {
                 $('input[name="chartTitle"]').val(
-                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                    $('#chartSeries').find(':selected').text().replace(/_/g, " ")
                 );
             });
             $('#chartSeries').change(function () {
                 $('input[name="chartTitle"]').val(
-                    $('#chartSeries').find(':selected').text().replace(/_/, " ")
+                    $('#chartSeries').find(':selected').text().replace(/_/g, " ")
                 );
             });
         }
@@ -965,18 +964,19 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
             newChart = {
                 title: $('input[name="chartTitle"]').val(),
-                nodes: []
+                nodes: [],
+                series: [],
+                maxYLabel: 0
             };
         }
 
         var serie = {
             dataPoints: [{ type: 'statusvar', name: $('#variableInput').val() }],
-            name: $('#variableInput').val(),
             display: $('input[name="differentialValue"]').prop('checked') ? 'differential' : ''
         };
 
-        if (serie.dataPoint == 'Processes') {
-            serie.dataType='proc';
+        if (serie.dataPoints[0].name == 'Processes') {
+            serie.dataPoints[0].type ='proc';
         }
 
         if ($('input[name="useDivisor"]').prop('checked')) {
@@ -991,10 +991,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         str += serie.valueDivisor ? (', ' + $.sprintf(PMA_messages['strDividedBy'], serie.valueDivisor)) : '';
         str += serie.unit ? (', ' + PMA_messages['strUnit'] + ': ' + serie.unit) : '';
 
-        $('#seriesPreview').append('- ' + serie.name + str + '<br/>');
-
+        var newSeries = {
+            label: $('#variableInput').val().replace(/_/g, " ")
+        };
+        newChart.series.push(newSeries);
+        $('#seriesPreview').append('- ' + newSeries.label + str + '<br/>');
         newChart.nodes.push(serie);
-
         $('#variableInput').val('');
         $('input[name="differentialValue"]').prop('checked', true);
         $('input[name="useDivisor"]').prop('checked', false);
@@ -1505,6 +1507,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         elem.chart.series[j].data.push([chartData.x, value]);
                         if (value > elem.maxYLabel) {
                             elem.maxYLabel = value;
+                        } else if (elem.maxYLabel == 0) {
+                            elem.maxYLabel = 0.5;
                         }
                         // free old data point values and update maxYLabel
                         if (elem.chart.series[j].data.length > runtime.gridMaxPoints
