@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-02 14:08+0200\n"
+"PO-Revision-Date: 2013-02-05 15:31+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -11216,6 +11216,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"Ця %sопція%s має бути відключена, тому що дозволяє зловмисникам виконувати "
+"перебір облікового імені для будь-якого сервера MySQL. Якщо вже необхідно "
+"активувати дану опцію використовувати %sсписок довірених проксі%s. Однак, "
+"захист на IP-основі, не може бути надійним, якщо ваш IP не є виділеним і "
+"належить провайдеру, до якого приєднані тисячі користувачів разом з вами."
 
 #: setup/lib/index.lib.php:276
 msgid ""
@@ -11223,6 +11228,9 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"Ви не встановили ключ Blowfish і увімкнули cookie-автентифікацію, тому ключ "
+"був створений автоматично. Він використовується для шифрування cookie, вам "
+"не потрібно його запам'ятовувати."
 
 #: setup/lib/index.lib.php:277
 #, php-format
@@ -11230,17 +11238,23 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sСтиснення і розпакування в форматі Bzip2%s вимагає наявності функцій (%s), "
+"котрі в цій системі недоступні."
 
 #: setup/lib/index.lib.php:279
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Це значення має бути детально перевірене на предмет того, що цей каталог "
+"недоступний зовні, і не відкритий на читання або запис іншими користувачами "
+"вашого серверу."
 
 #: setup/lib/index.lib.php:280
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
+"Цей %sпараметр%s має бути увімкнений, якщо ваш веб-сервер підтримує його."
 
 #: setup/lib/index.lib.php:282
 #, php-format
@@ -11248,6 +11262,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sСтиснення і розпакування в форматі Gzip%s вимагає наявності функцій (%s), "
+"котрі в цій системі недоступні."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -11296,6 +11312,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sСтиснення в форматі Zip%s вимагає наявності функцій (%s), котрі в цій "
+"системі недоступні."
 
 #: setup/lib/index.lib.php:296
 #, php-format
@@ -11303,26 +11321,31 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sРозпакування з формату Zip%s вимагає наявності функцій (%s), котрі в цій "
+"системі недоступні."
 
 #: setup/lib/index.lib.php:324
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"Необхідно використовувати SSL-з'єднання, якщо ваш сервер бази даних "
+"підтримує його."
 
 #: setup/lib/index.lib.php:337
 msgid "You should use mysqli for performance reasons."
-msgstr ""
+msgstr "З міркувань продуктивності необхідно використовувати MySQLi."
 
 #: setup/lib/index.lib.php:368
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "Ви дозволяєте приєднуватися до сервера без пароля."
 
 #: setup/lib/index.lib.php:390
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Ключ кодування надто короткий, він має містити не менше 8 символів."
 
 #: setup/lib/index.lib.php:397
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
+"Ключ кодування має містити літери, цифри [еm]та[/em] спеціальні символи."
 
 #: setup/validate.php:22
 #| msgid "No databases"
@@ -11331,25 +11354,25 @@ msgstr "Неправильні дані"
 
 #: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Огляд зовнішніх значень"
 
 #: sql.php:214
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
 
 #: sql.php:702 tbl_replace.php:415
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "Ідентифікатор доданого рядка: %1$d"
 
 #: sql.php:719
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "Показ у вигляді коду PHP"
 
 #: sql.php:722 tbl_replace.php:389
 msgid "Showing SQL query"
-msgstr ""
+msgstr "Показ SQL-запиту"
 
 #: sql.php:724
 #| msgid "Validate SQL"
@@ -11368,7 +11391,7 @@ msgstr "Мітка"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr ""
+msgstr "Таблицю %1$s було успішно змінено"
 
 #: tbl_change.php:699
 #| msgid "Because of its length,<br /> this field might not be editable "
@@ -11377,7 +11400,7 @@ msgstr "Через велику довжину,<br /> цей стовпчик н
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
-msgstr ""
+msgstr "Видалити посилання сховища BLOB даних"
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
@@ -11385,7 +11408,7 @@ msgstr "Двійкові дані - не редагуються"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
-msgstr ""
+msgstr "Відвантажити у сховище BLOB даних"
 
 #: tbl_change.php:1029
 msgid "Insert as new row"
@@ -11413,7 +11436,7 @@ msgstr "Вставити новий запис"
 
 #: tbl_change.php:1051
 msgid "Go back to this page"
-msgstr ""
+msgstr "Повернутися на цю сторінку"
 
 #: tbl_change.php:1059
 msgid "Edit next row"
@@ -11423,11 +11446,13 @@ msgstr "Редагувати наступний рядок"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
+"Для переходу від значення до значення використовуйте TAB, або CTRL+стрілки - "
+"для переміщення куди завгодно"
 
 #: tbl_change.php:1108
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "Продовжити вставку з %s рядка"
 
 #: tbl_chart.php:95
 #| msgid "Mar"
