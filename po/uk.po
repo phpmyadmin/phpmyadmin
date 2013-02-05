@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-02-05 17:08+0200\n"
+"PO-Revision-Date: 2013-02-05 18:29+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -3251,11 +3251,11 @@ msgstr "Порядок перегляду:"
 
 #: libraries/TableSearch.class.php:833
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Використовуйте цей стовпчик для позначення кожній точці"
 
 #: libraries/TableSearch.class.php:854
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Максимальна кількість рядків для побудови графіку"
 
 #: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
 #: sql.php:162 tbl_change.php:230
@@ -3279,7 +3279,7 @@ msgstr "Виконати \"запит згідно прикладу\" (симв�
 
 #: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Оглянути/Редагувати точки"
 
 #: libraries/TableSearch.class.php:1170
 msgid "How to use"
@@ -9924,7 +9924,7 @@ msgstr "динамічний"
 
 #: libraries/structure.lib.php:1718
 msgid "partitioned"
-msgstr ""
+msgstr "розділений"
 
 #: libraries/structure.lib.php:1749 tbl_printview.php:376
 msgid "Row length"
@@ -9936,7 +9936,7 @@ msgstr "Розмір рядка"
 
 #: libraries/structure.lib.php:1769 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr ""
+msgstr "Наступний автоіндекс"
 
 #: libraries/structure.lib.php:1894 libraries/structure.lib.php:1975
 #: libraries/structure.lib.php:1983 libraries/structure.lib.php:2000
@@ -12083,6 +12083,12 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"Ви встановили [kbd]конфігураційний[/kbd] тип аутентифікації і ввели ім'я "
+"користувача і пароль для автоматичного входу в систему, що не є бажаним "
+"варіантом для діючого хосту. Будь-хто, хто знає чи має здогадки щодо "
+"URL-адреси вашого PHPMyAdmin може безпосередньо отримати доступ до панелі "
+"PHPMyAdmin. Встановіть %sтип автентифікації%s [kbd]куки[/kbd] або "
+"[kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12355,7 +12361,7 @@ msgstr "Показ таблиць"
 #: tbl_relation.php:225
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
+msgstr "Помилка при створенні зовнішнього ключа на %1$s (перевірте типи даних)"
 
 #: tbl_relation.php:364
 #| msgid "General relation features"
@@ -12367,15 +12373,17 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"Внутрішній зв'язок не вимагається, якщо існує відповідний зв'язок за "
+"допомогою зовнішнього ключа (FOREIGN KEY)."
 
 #: tbl_relation.php:373
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "Обмеження зовнішнього ключа"
 
 #: tbl_tracking.php:135
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "Звіт про відстеження для таблиці `%s`"
 
 #: tbl_tracking.php:205
 #, php-format
@@ -12403,23 +12411,25 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"Ви можете виконати дамп, створивши і використавши для цього тимчасову базу "
+"даних. Будь ласка, переконайтеся, що у вас є достатні привілеї."
 
 #: tbl_tracking.php:262
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Закоментуйте ці два рядка, якщо вони не потрібні."
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL вирази експортовано. Будь ласка, скопіюйте дамп або виконайте його."
 
 #: tbl_tracking.php:309
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Знімок версії %s (SQL код)"
 
 #: tbl_tracking.php:453
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "Дані відстеження визначення успішно видалені"
 
 #: tbl_tracking.php:456 tbl_tracking.php:480
 #| msgid "Query type"
@@ -12428,11 +12438,11 @@ msgstr "Помилка запиту"
 
 #: tbl_tracking.php:477
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "Дані відстеження маніпуляцій успішно видалено"
 
 #: tbl_tracking.php:492
 msgid "Tracking statements"
-msgstr ""
+msgstr "Вирази відстеження"
 
 #: tbl_tracking.php:523 tbl_tracking.php:671
 #, php-format
@@ -12451,36 +12461,36 @@ msgstr "Немає даних"
 
 #: tbl_tracking.php:554 tbl_tracking.php:616
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: tbl_tracking.php:556
 msgid "Data definition statement"
-msgstr ""
+msgstr "Вираз визначення даних"
 
 #: tbl_tracking.php:618
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "Вираз маніпуляції з даними"
 
 #: tbl_tracking.php:676
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "SQL дамп (завантажити файл)"
 
 #: tbl_tracking.php:677
 msgid "SQL dump"
-msgstr ""
+msgstr "SQL дамп"
 
 #: tbl_tracking.php:679
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "Ця опція замінить вашу таблицю і дані в ній."
 
 #: tbl_tracking.php:680
 msgid "SQL execution"
-msgstr ""
+msgstr "Виконання SQL"
 
 #: tbl_tracking.php:698
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Експортувати як %s"
 
 #: tbl_tracking.php:735
 msgid "Show versions"
@@ -12494,7 +12504,7 @@ msgstr "Видалити дані спостереження для цієї т�
 
 #: tbl_tracking.php:829
 msgid "Deactivate now"
-msgstr ""
+msgstr "Деактивувати зараз"
 
 #: tbl_tracking.php:839
 #, php-format
@@ -12503,7 +12513,7 @@ msgstr ""
 
 #: tbl_tracking.php:845
 msgid "Activate now"
-msgstr ""
+msgstr "Активувати зараз"
 
 #: tbl_tracking.php:858
 #, fuzzy, php-format
@@ -12513,15 +12523,15 @@ msgstr "Загальні можливості"
 
 #: tbl_tracking.php:866
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Відстежити наступні вирази визначення даних:"
 
 #: tbl_tracking.php:874
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Відстежити наступні вирази маніпуляцій з даними:"
 
 #: tbl_tracking.php:884
 msgid "Create version"
-msgstr ""
+msgstr "Створити версію"
 
 #: themes.php:24
 msgid "Get more themes!"
@@ -12551,30 +12561,33 @@ msgstr "Профіль було поновлено."
 
 #: view_create.php:177
 msgid "VIEW name"
-msgstr ""
+msgstr "Назва подання"
 
 #: view_operations.php:90
 msgid "Rename view to"
-msgstr ""
+msgstr "Перейменувати подання на"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Сервер працює менше доби"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Сервер працює менше доби, налаштування продуктивності можуть бути неточними."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Для отримання більш точних середніх значень перед запуском аналізатора "
+"бажано дати попрацювати серверу понад одну добу"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Сервер працює лише %s"
 
 #: libraries/advisory_rules.txt:56
 #| msgid "Relations"
@@ -12586,12 +12599,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Цей сервер обробив менше 1000 запитів. Рекомендації можуть бути недостатньо "
+"неточними."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Дайте серверові попрацювати ще деякий час поки не буде виконана достатня "
+"кількість запитів."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -12608,27 +12625,33 @@ msgstr "Відсоток повільних запитів"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Спостерігається велика кількість повільних запитів в порівнянні з загальною "
+"кількістю запитів."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Можна збільшити значення {long_query_time} або оптимізувати запити, внесені "
+"в журнал повільних запитів"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Рівень повільних запитів має бути менше 5%%, ваші значення - %s%%."
 
 #: libraries/advisory_rules.txt:70
 #| msgid "Show query box"
 msgid "Slow query rate"
-msgstr "Низька частота запитів"
+msgstr "Рівень повільних запитів"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Спостерігається високий відсоток повільних запитів по відношенню до часу "
+"роботи сервера."
 
 #: libraries/advisory_rules.txt:75
 #, php-format
@@ -12636,11 +12659,12 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Рівень повільних запитів складає %s на годину, має бути менше 1%% на годину."
 
 #: libraries/advisory_rules.txt:77
 #| msgid "in query"
 msgid "Long query time"
-msgstr "Довгий час запиту"
+msgstr "Час виконання довгих запитів"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -12655,10 +12679,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time встановлено на %d секунди(секунд)."
+msgstr "long_query_time наразі встановлений у %ds."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 #| msgid "Show query box"
