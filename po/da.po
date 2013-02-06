@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-10 13:40+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2013-02-06 23:17+0200\n"
+"Last-Translator: Morten Henrichsen <github@mhex.dk>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -952,10 +951,10 @@ msgid "Edit Index"
 msgstr "Redigér indeks"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Tilføj %d kolonne(r) til indeks"
+msgstr "Tilføj %s kolonne(r) til indeks"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:217
@@ -1848,7 +1847,7 @@ msgstr "Tilføj mulighed for kolonne "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekt(er) oprettet"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1892,23 +1891,20 @@ msgstr ""
 "sletning fungerer måske ikke, efter at data er gemt."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by double-clicking directly on their "
 #| "content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Du kan også redigere de fleste kolonner<br />ved at dobbelt-klikke direkte i "
-"deres indhold."
+"Du kan også redigere de fleste værdier<br />ved at dobbelt-klikke direkte på "
+"dem."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Du kan også redigere de fleste kolonner<br />ved at klikke direkte på deres "
-"indhold."
+"Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -2759,7 +2755,7 @@ msgstr "Åbn nyt phpMyAdmin vindue"
 
 #: libraries/Header.class.php:386
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Klik på bjælken for at rulle til sidens top"
 
 #: libraries/Header.class.php:593
 #: libraries/plugins/auth/AuthenticationCookie.class.php:267
@@ -3858,7 +3854,7 @@ msgstr "Du burde opdatere til %s %s eller senere."
 
 #: libraries/common.inc.php:1044
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Fejl: Token uoverensstemmelse"
 
 #: libraries/common.inc.php:1088
 msgid "GLOBALS overwrite attempt"
@@ -10022,10 +10018,9 @@ msgid "Error in ZIP archive:"
 msgstr "Fejl i ZIP arkiv:"
 
 #: navigation.php:23
-#, fuzzy
 #| msgid "Fatal error: The navigation can only be accessed via ajax"
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Kritisk fejl: Navigationen kan kun tilgås via ajax"
+msgstr "Kritisk fejl: Navigationen kan kun tilgås via AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -10037,11 +10032,11 @@ msgstr "Vis/skjul venstre menu"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Vis i fuldskærmsvisning"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Afslut fuldskærmsvisning"
 
 #: pmd_general.php:95
 msgid "Save position"
@@ -12053,7 +12048,7 @@ msgstr "Spline"
 #: tbl_chart.php:141
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Område"
 
 #: tbl_chart.php:144
 msgctxt "Chart type"
@@ -12061,11 +12056,10 @@ msgid "Pie"
 msgstr "Cirkel"
 
 #: tbl_chart.php:148
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Tid"
+msgstr "Tidslinje"
 
 #: tbl_chart.php:155
 msgid "Stacked"
@@ -12165,10 +12159,9 @@ msgstr ""
 "(\"PRIMARY\" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Kommentar"
+msgstr "Kommentar:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12540,7 +12533,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries er sat til 'OFF'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12548,14 +12540,13 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktiver logning af langsomme forespørgsler ved at sætte  {log_slow_queries}  "
+"Aktiver logning af langsomme forespørgsler ved at sætte  {slow_query_log}  "
 "til 'ON'. Dette vil hjælpe til med at fejlsøge langsomme forespørgsler."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries er sat til 'OFF'"
+msgstr "slow_query_log er sat til 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
