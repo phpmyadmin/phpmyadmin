@@ -147,7 +147,10 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 
     // include and instantiate the class
     include_once 'libraries/plugins/transformations/' . $file;
-    return $class_name->getInfo();
+    /* Temporary workaround for bug #3783 :
+       Calling a method from a variable class is not possible before PHP 5.3. */
+    $functionGetInfo = $class_name . "_getInfo";
+    return $functionGetInfo();
 }
 
 /**
