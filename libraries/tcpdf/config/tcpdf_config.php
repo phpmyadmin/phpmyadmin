@@ -2,7 +2,7 @@
 //============================================================+
 // File name   : tcpdf_config.php
 // Begin       : 2004-06-11
-// Last Update : 2011-04-15
+// Last Update : 2013-01-28
 //
 // Description : Configuration file for TCPDF.
 // Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
@@ -51,6 +51,9 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 			$_SERVER['DOCUMENT_ROOT'] = '/';
 		}
 	}
+
+	// be sure that the end slash is present
+	$_SERVER['DOCUMENT_ROOT'] = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'].'/');
 
 	// Automatic calculation for the following K_PATH_MAIN constant
 	$k_path_main = str_replace( '\\', '/', realpath(substr(dirname(__FILE__), 0, 0-strlen('config'))));
