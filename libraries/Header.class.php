@@ -219,7 +219,8 @@ class PMA_Header
             ),
             'pma_text_left_default_tab' => PMA_Util::getTitleForTarget(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
-            )
+            ),
+            'confirm' => $GLOBALS['cfg']['Confirm']
         );
     }
 
