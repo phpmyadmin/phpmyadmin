@@ -147,8 +147,7 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 
     // include and instantiate the class
     include_once 'libraries/plugins/transformations/' . $file;
-    $class = new $class_name;
-    return $class->getInfo();
+    return $class_name->getInfo();
 }
 
 /**
