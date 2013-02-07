@@ -88,6 +88,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - Upgraded CodeMirror to 2.37
 - bug #2951 [export] Correctly export decimal fields.
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
+- bug #3519 [export] Prevent infinite recursion in PDF export.
 
 3.5.7.0 (not yet released)
 - bug #3779 [core] Problem with backslash in enum fields

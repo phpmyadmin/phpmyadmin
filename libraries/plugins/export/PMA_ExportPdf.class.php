@@ -86,6 +86,11 @@ class PMA_ExportPdf extends PMA_PDF
     function Header()
     {
         global $maxY;
+        // We don't want automatic page breaks while generating header
+        // as this can lead to infinite recursion as auto generated page
+        // will want header as well causing another page break
+        // FIXME: Better approach might be to try to compact the content
+        $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
         if (! isset($this->headerset[$this->page])) {
             $fullwidth = 0;
@@ -152,6 +157,7 @@ class PMA_ExportPdf extends PMA_PDF
         }
 
         $this->dataY = $maxY;
+        $this->SetAutoPageBreak(true);
     }
 
     function morepagestable($lineheight = 8)
