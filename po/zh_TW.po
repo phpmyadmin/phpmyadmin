@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-10 13:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-07 16:22+0200\n"
+"Last-Translator: atitan XD <info@atifans.net>\n"
 "Language-Team: Chinese (Taiwan) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1673,7 +1673,7 @@ msgstr "重新載入"
 
 #: js/messages.php:212
 msgid "Affected rows:"
-msgstr "影響的行數"
+msgstr "受影響的行數："
 
 #: js/messages.php:214
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1930,7 +1930,6 @@ msgid "Select two different columns"
 msgstr "選擇兩個不同的欄位"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
 msgstr "查詢結果"
@@ -2376,7 +2375,7 @@ msgstr "上傳檔案的大小超過 php.ini 檔案中 upload_max_filesize 的限
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "上傳檔案的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值，"
+msgstr "上傳檔案的大小超過 HTML 表單中指定的 MAX_FILE_SIZE 值。"
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
@@ -3523,13 +3522,13 @@ msgstr "首行儲存欄位名稱"
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
 msgid "Columns enclosed by"
-msgstr "「欄位」分隔字元："
+msgstr "「欄位」分隔字元"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
 msgid "Columns escaped by"
-msgstr "跳脫字元使用："
+msgstr "跳脫字元使用"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:85
 #: libraries/config/messages.inc.php:92 libraries/config/messages.inc.php:101
@@ -3547,12 +3546,12 @@ msgstr "刪除欄位中的回車換行符號"
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
 msgid "Columns terminated by"
-msgstr "欄位內容換行使用字元："
+msgstr "欄位內容換行使用字元"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:242
 #: libraries/import/csv.php:86 libraries/import/ldi.php:44
 msgid "Lines terminated by"
-msgstr "資料分行使用字元："
+msgstr "資料分行使用字元"
 
 #: libraries/config/messages.inc.php:84
 msgid "Excel edition"
@@ -4897,7 +4896,7 @@ msgstr "SQL 查詢追蹤表"
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr "設定追蹤系統是否自動爲資料表和 view建立版本"
+msgstr "設定追蹤系統是否自動爲資料表和 view 建立版本。"
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
@@ -4935,7 +4934,7 @@ msgstr "詳細檢查"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "一個好記的名字。留空將顯示主機名"
+msgstr "一個好記的名字。留空將顯示主機名。"
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
@@ -5316,7 +5315,7 @@ msgstr "MS Excel 的 CSV 格式"
 #: libraries/config/user_preferences.forms.php:246
 #: libraries/export/htmlword.php:18
 msgid "Microsoft Word 2000"
-msgstr "Microsoft Word 2000"
+msgstr "微軟 Word 2000"
 
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:22
@@ -5364,7 +5363,7 @@ msgstr "%s 是一個錯誤的 IP 網址"
 #: libraries/core.lib.php:268
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "缺少 %s 外掛。請檢查 PHP 設定"
+msgstr "缺少 %s 外掛。請檢查 PHP 設定。"
 
 #: libraries/core.lib.php:416
 msgid "possible deep recursion attack"
@@ -5438,7 +5437,7 @@ msgstr ""
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:189
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr "使用設定檔案中定義的控制使用者連線失敗"
+msgstr "使用設定檔案中定義的控制使用者連線失敗。"
 
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
@@ -5516,7 +5515,7 @@ msgstr "正在匯出資料表“%s”中的記錄"
 
 #: libraries/display_export.lib.php:92
 msgid "Export Method:"
-msgstr "匯出方式"
+msgstr "匯出方式："
 
 #: libraries/display_export.lib.php:108
 msgid "Quick - display only the minimal options"
@@ -5590,8 +5589,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下"
-"列內容也將被轉換：%3$s。其他文字將保持原樣。參見%4$s常見問題 (FAQ)%5$s"
+"這個值是使用 %1$sstrftime%2$s 來解析的，所以您能用時間格式的字元串。另外，下列內容也將被轉換：%3$s。其他文字將保持原樣。參見%"
+"4$s常見問題 (FAQ)%5$s。"
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -5635,7 +5634,7 @@ msgstr "格式特定選項："
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
-msgstr "請下拉至所選格式並設定選項，其它格式請忽略"
+msgstr "請下拉至所選格式並設定選項，其它格式請忽略。"
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
@@ -5652,13 +5651,13 @@ msgstr ""
 
 #: libraries/display_import.lib.php:76
 msgid "The file is being processed, please be patient."
-msgstr "正在處理，請稍候"
+msgstr "檔案正在處理中，請稍候。"
 
 #: libraries/display_import.lib.php:98
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr "正在上傳，沒有詳細資訊，請稍候"
+msgstr "正在上傳，沒有詳細資訊，請稍候。"
 
 #: libraries/display_import.lib.php:129
 msgid "Importing into the current server"
@@ -5681,7 +5680,7 @@ msgstr "要匯入的檔案："
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "檔案可能已壓縮 (%s) 或未壓縮"
+msgstr "檔案可能已壓縮 (%s) 或未壓縮。"
 
 #: libraries/display_import.lib.php:158
 msgid ""
@@ -5691,7 +5690,7 @@ msgstr "壓縮檔案名稱必須以 <b>.[格式].[壓縮方式]</b> 結尾。如
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr "此伺服器禁止了檔案上傳"
+msgstr "此伺服器禁止了檔案上傳。"
 
 #: libraries/display_import.lib.php:208
 msgid "Partial Import:"
@@ -5701,7 +5700,7 @@ msgstr "部分匯入："
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
-msgstr "上一個匯入操作超時，隨後重新送出將會從 %d 處開始"
+msgstr "上一個匯入操作超時，隨後重新送出將會從 %d 處開始。"
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -5899,7 +5898,7 @@ msgstr "自動增加"
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr "資料表空間不足時自動增加的大小"
+msgstr "資料表空間不足時自動增加的大小。"
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
@@ -5909,7 +5908,7 @@ msgstr "快取池大小"
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
-msgstr "InnoDB 用於快取資料和索引要使用的記憶體快取大小"
+msgstr "InnoDB 用於快取資料和索引要使用的記憶體快取大小。"
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
@@ -5987,9 +5986,7 @@ msgstr "資料指標大小"
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
-msgstr ""
-"預設資料指標的大小 (單位：字元)，用於在沒有指定 MAX_ROWS 選項的情況下建立 "
-"MyISAM 資料表"
+msgstr "預設資料指標的大小 (單位：字元)，用於在沒有指定 MAX_ROWS 選項的情況下建立 MyISAM 資料表。"
 
 #: libraries/engines/myisam.lib.php:27
 msgid "Automatic recovery mode"
@@ -5999,8 +5996,7 @@ msgstr "自動恢復模式"
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
-msgstr ""
-"該模式用於自動恢復崩潰的 MyISAM 表，可在啓動時使用 --myisam-recover 參數"
+msgstr "該模式用於自動恢復崩潰的 MyISAM 表，可在啓動時使用 --myisam-recover 參數。"
 
 #: libraries/engines/myisam.lib.php:31
 msgid "Maximum size for temporary sort files"
@@ -6012,8 +6008,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"重建 MyISAM 索引時 MySQL 最多可以使用的臨時檔案大小 (在 REPAIR TABLE、ALTER "
-"TABLE 或 LOAD DATA INFILE 時)"
+"重建 MyISAM 索引時 MySQL 最多可以使用的臨時檔案大小 (在 REPAIR TABLE、ALTER TABLE 或 LOAD DATA "
+"INFILE 時)。"
 
 #: libraries/engines/myisam.lib.php:36
 msgid "Maximum size for temporary files on index creation"
@@ -6024,8 +6020,7 @@ msgid ""
 "If the temporary file used for fast MyISAM index creation would be larger "
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
-msgstr ""
-"如果用於建立 MyISAM 快速索引的臨時檔案大於在此指定的鍵快取，則建議使用鍵緩存"
+msgstr "如果用於建立 MyISAM 快速索引的臨時檔案大於在此指定的鍵快取，則建議使用鍵快取。"
 
 #: libraries/engines/myisam.lib.php:41
 msgid "Repair threads"
@@ -6035,9 +6030,7 @@ msgstr "修復程序"
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
-msgstr ""
-"如果該值大於 1，在進行排序過程的修復操作時 MyISAM 表的索引將會同時 (每個索引"
-"都有自己的程序) 建立"
+msgstr "如果該值大於 1，在進行排序過程的修復操作時 MyISAM 表的索引將會同時 (每個索引都有自己的程序) 建立。"
 
 #: libraries/engines/myisam.lib.php:46
 msgid "Sort buffer size"
@@ -6048,8 +6041,8 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
-"在修復表 (REPAIR TABLE) 的過程中進行排序 MyISAM 的索引或透過建立索引 (CREATE "
-"INDEX) 和修改表 (ALTER TABLE) 建立索引時所要分配的快取大小"
+"在修復表 (REPAIR TABLE) 的過程中進行排序 MyISAM 的索引或透過建立索引 (CREATE INDEX) 和修改表 (ALTER "
+"TABLE) 建立索引時所要分配的快取大小。"
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
@@ -7836,7 +7829,6 @@ msgid "Current Server"
 msgstr "目前伺服器"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "使用者"
@@ -7863,7 +7855,7 @@ msgstr "字集"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "附加元件"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8118,16 +8110,14 @@ msgid "Operator"
 msgstr "運算符"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "搜尋"
+msgstr "資料表搜尋"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "插入"
+msgstr "修改/插入"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -8303,20 +8293,18 @@ msgid "More settings"
 msgstr "更多設定"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "使用者資料庫"
+msgstr "資料庫伺服器"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "軟體"
 
 #: main.php:173
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "查看版本"
+msgstr "軟體版本"
 
 #: main.php:175
 msgid "Protocol version"
@@ -8329,20 +8317,18 @@ msgid "User"
 msgstr "使用者"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "伺服器套接字 (socket)"
+msgstr "伺服器字元集"
 
 #: main.php:196
 msgid "Web server"
 msgstr "網站伺服器"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "使用輕量級版本"
+msgstr "資料庫用戶端版本"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8375,9 +8361,8 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"您設定檔案中的設定 (空密碼的 root) 與 MySQL 預設管理員帳號對應。您的 MySQL 服"
-"務器使用預設值運行當然沒有問題，不過這樣的話，被入侵的可能性會很大，我們強烈"
-"建議您應該立即給 'root' 使用者設定一個密碼來補上這個安全漏洞"
+"您設定檔案中的設定 (空密碼的 root) 與 MySQL 預設管理員帳號對應。您的 MySQL "
+"服務器使用預設值運行當然沒有問題，不過這樣的話，被入侵的可能性會很大，我們強烈建議您應該立即給 'root' 使用者設定一個密碼來補上這個安全漏洞。"
 
 #: main.php:276
 msgid ""
@@ -8394,11 +8379,10 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"沒有找到 PHP 外掛 mbstring，而您現在好像在使用多字元字集。沒有 mbstring 擴展"
-"的 phpMyAdmin 不能正確分割字元串，可能產生意想不到的結果"
+"沒有找到 PHP 外掛 mbstring，而您現在好像在使用多字元字集。沒有 mbstring 的話， phpMyAdmin "
+"將不能正確分割字元串，且可能產生意想不到的結果。"
 
 #: main.php:292
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -8410,31 +8394,29 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 設定參數 [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime [/a] 短於您在 "
-"phpMyAdmin 中設定的 Cookies 有效期，因此您的登錄連線有效期將會比您在 "
-"phpMyAdmin 中設定的時間要更短"
+"您的 PHP 設定參數 "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime [/a] 短於您在 phpMyAdmin 中設定的 Cookies "
+"有效期，因此您的登錄連線有效期將會比您在 phpMyAdmin 中設定的時間要更短。"
 
 #: main.php:299
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin 中所設定的登錄 cookie 儲存小於 cookie 有效期，因此您的登錄過期時間"
-"將會比您在 phpMyAdmin 中設定的時間要更短"
+"phpMyAdmin 中所設定的登錄 cookie 儲存小於 cookie 有效期，因此您的登錄過期時間將會比您在 phpMyAdmin "
+"中設定的時間要更短。"
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "設定檔案現在需要一個短語密碼"
+msgstr "設定檔案現在需要一個短語密碼。"
 
 #: main.php:315
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
-msgstr ""
-"安裝時所用的 [code]config[/code] 資料夾尚未刪除，如果 phpMyAdmin 已經安裝設定"
-"好，請立即刪除該資料夾"
+msgstr "安裝時所用的 [code]config[/code] 資料夾尚未刪除，如果 phpMyAdmin 已經安裝設定好，請立即刪除該資料夾。"
 
 #: main.php:321
 #, php-format
@@ -8458,16 +8440,14 @@ msgstr ""
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
-msgstr ""
-"您的 PHP MySQL 庫版本 %s 和您的 MySQL 伺服器版本 %s 不同。這可能造成一些未知"
-"的問題"
+msgstr "您的 PHP MySQL 函式庫版本 %s 和您的 MySQL 伺服器版本 %s 不同。這可能造成一些無法預期的問題。"
 
 #: main.php:378
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
-msgstr "伺服器上運行了 Suhosin。請先查看%s檔案%s中是否有類似的情況"
+msgstr "伺服器上運行了 Suhosin。請先查看%s檔案%s中是否有類似的情況。"
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -8784,7 +8764,7 @@ msgstr "字集和排序規則"
 
 #: server_databases.php:69
 msgid "No databases selected."
-msgstr "未選中資料庫"
+msgstr "沒有資料庫被選取。"
 
 #: server_databases.php:80
 #, php-format
@@ -9519,14 +9499,13 @@ msgid "Runtime Information"
 msgstr "運行資訊"
 
 #: server_status.php:791
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "查看從伺服器狀態"
+msgstr "伺服器狀態參數"
 
 #: server_status.php:792
 msgid "Monitor"
-msgstr ""
+msgstr "監測器"
 
 #: server_status.php:793
 msgid "Advisor"
@@ -11131,10 +11110,9 @@ msgid "Y-Axis label:"
 msgstr "豎直軸標籤"
 
 #: tbl_chart.php:149
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "值"
+msgstr "Y軸數值"
 
 #: tbl_create.php:31
 #, php-format
@@ -11704,10 +11682,9 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:424
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "控制使用者"
+msgstr "如何使用"
 
 #: tbl_zoom_select.php:431
 #| msgid "Reset"
