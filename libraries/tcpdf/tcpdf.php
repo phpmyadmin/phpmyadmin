@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 5.9.204
+// Version     : 5.9.205
 // Begin       : 2002-08-03
-// Last Update : 2013-01-30
+// Last Update : 2013-02-06
 // Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
 // License     : http://www.tecnick.com/pagefiles/tcpdf/LICENSE.TXT GNU-LGPLv3
 // -------------------------------------------------------------------
@@ -139,7 +139,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 5.9.204
+ * @version 5.9.205
  */
 
 // Main configuration file. Define the K_TCPDF_EXTERNAL_CONFIG constant to skip this file.
@@ -151,7 +151,7 @@ require_once(dirname(__FILE__).'/config/tcpdf_config.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 5.9.204
+ * @version 5.9.205
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -162,7 +162,7 @@ class TCPDF {
 	 * Current TCPDF version.
 	 * @private
 	 */
-	private $tcpdf_version = '5.9.204';
+	private $tcpdf_version = '5.9.205';
 
 	// Protected properties
 
@@ -3844,7 +3844,7 @@ class TCPDF {
 		$this->_destroy(true);
 		$phpmainver = PHP_VERSION;
 		// exit program and print error
-		if (intval($phpmainver[0]) < 5) {
+		if ((intval($phpmainver[0]) < 5) OR !defined('K_TCPDF_THROW_EXCEPTION_ERROR') OR !K_TCPDF_THROW_EXCEPTION_ERROR) {
 			die('<strong>TCPDF ERROR: </strong>'.$msg);
 		} else {
 			throw new Exception('TCPDF ERROR: '.$msg);

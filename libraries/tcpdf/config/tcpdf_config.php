@@ -2,13 +2,13 @@
 //============================================================+
 // File name   : tcpdf_config.php
 // Begin       : 2004-06-11
-// Last Update : 2013-01-28
+// Last Update : 2013-02-06
 //
 // Description : Configuration file for TCPDF.
 // Author      : Nicola Asuni - Tecnick.com LTD - Manor Coach House, Church Hill, Aldershot, Hants, GU12 4RQ, UK - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
-// Copyright (C) 2004-2012  Nicola Asuni - Tecnick.com LTD
+// Copyright (C) 2004-2013  Nicola Asuni - Tecnick.com LTD
 //
 // This file is part of TCPDF software library.
 //
@@ -246,6 +246,11 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	 * IMPORTANT: For security reason, disable this feature if you are printing user HTML content.
 	 */
 	define('K_TCPDF_CALLS_IN_HTML', true);
+
+	/**
+	 * if true adn PHP version is greater than 5, then the Error() method throw new exception instead of terminating the execution.
+	 */
+	define('K_TCPDF_THROW_EXCEPTION_ERROR', false);
 }
 
 //============================================================+
