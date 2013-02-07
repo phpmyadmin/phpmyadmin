@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-10 13:44+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/nb/>\n"
+"PO-Revision-Date: 2013-02-07 20:31+0200\n"
+"Last-Translator: Sondre Garmo <webuser@garmo.org>\n"
+"Language-Team: Norwegian Bokmål "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -5813,10 +5813,9 @@ msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "Defragmenter tabell"
+msgstr "Tabell for UI preferanser"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
@@ -5902,7 +5901,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabell for lagring av brukerpreferanser"
 
 #: libraries/config/messages.inc.php:450
 msgid "User for config auth"
@@ -6008,7 +6007,7 @@ msgstr "Vis funksjonsfelter"
 
 #: libraries/config/messages.inc.php:470
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Om hint skal vises eller ikke"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show hint"
@@ -6073,7 +6072,7 @@ msgstr "Ignorer låste tabeller"
 
 #: libraries/config/messages.inc.php:488
 msgid "Requires SQL Validator to be enabled"
-msgstr ""
+msgstr "Krever at SQL Validator er aktivert"
 
 #: libraries/config/messages.inc.php:490
 #: libraries/display_change_password.lib.php:61
@@ -6095,13 +6094,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Aktiver SQL Validator"
 
 #: libraries/config/messages.inc.php:493
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
+"Hvis du har et egendefinert brukernavn, angi det her (standard: "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:494 tbl_tracking.php:555
 #: tbl_tracking.php:617
@@ -6110,7 +6111,7 @@ msgstr "Brukernavn"
 
 #: libraries/config/messages.inc.php:495
 msgid "A warning is displayed on the main page if Suhosin is detected"
-msgstr ""
+msgstr "En advarsel vises på hovedsiden dersom Suhosin er oppdaget"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suhosin warning"
