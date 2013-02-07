@@ -116,9 +116,13 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
      */
     public function __construct()
     {
-        // initialize the wmi object
-        $objLocator = new COM('WbemScripting.SWbemLocator');
-        $this->_wmi = $objLocator->ConnectServer();
+        if (!class_exists('COM')) {
+            $this->_wmi = null;
+        } else {
+            // initialize the wmi object
+            $objLocator = new COM('WbemScripting.SWbemLocator');
+            $this->_wmi = $objLocator->ConnectServer();
+        }
     }
 
     /**
