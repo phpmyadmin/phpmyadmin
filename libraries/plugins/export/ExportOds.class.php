@@ -302,9 +302,9 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->numeric
+                } elseif (($fields_meta[$j]->numeric
                     && $fields_meta[$j]->type != 'timestamp'
-                    && ! $fields_meta[$j]->blob
+                    && ! $fields_meta[$j]->blob) || $fields_meta[$j]->type == 'real'
                 ) {
                     $GLOBALS['ods_buffer'] .=
                         '<table:table-cell office:value-type="float"'
