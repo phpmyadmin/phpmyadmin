@@ -658,7 +658,7 @@ do {
         }
         // We export just one table
         // $allrows comes from the form when "Dump all rows" has been selected
-        if ($allrows == '0' && $limit_to > 0 && $limit_from >= 0) {
+        if (isset($allrows) && $allrows == '0' && $limit_to > 0 && $limit_from >= 0) {
             $add_query  = ' LIMIT '
                         . (($limit_from > 0) ? $limit_from . ', ' : '')
                         . $limit_to;
@@ -767,7 +767,7 @@ if (! empty($asfile)) {
         }
     } elseif ($compression == 'gzip') {
         // 3. as a gzipped file
-        if (@function_exists('gzencode') 
+        if (@function_exists('gzencode')
             && ! @ini_get('zlib.output_compression')
             // Here, we detect Apache's mod_deflate so we bet that
             // this module is active for this instance of phpMyAdmin
