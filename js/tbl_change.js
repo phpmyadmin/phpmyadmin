@@ -236,6 +236,7 @@ AJAX.registerTeardown('tbl_change.js', function() {
  * Restart insertion with 'N' rows.
  */
 AJAX.registerOnload('tbl_change.js', function() {
+    $.datepicker.initialized = false;
 
     $('span.open_gis_editor').live('click', function(event) {
         event.preventDefault();
