@@ -106,9 +106,9 @@ class PMA_Error extends PMA_Message
         $this->setLine($errline);
 
         $backtrace = debug_backtrace();
-        // remove last two calls: debug_backtrace() and handleError()
-        unset($backtrace[0]);
-        unset($backtrace[1]);
+        // remove last three calls:
+        // debug_backtrace(), handleError() and addError()
+        $backtrace = array_slice($backtrace, 3);
 
         $this->setBacktrace($backtrace);
     }
