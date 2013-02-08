@@ -12,7 +12,12 @@
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
-class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
+/**
+ * Test for PMA_Error_Handler class.
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -88,13 +93,16 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getDispErrors
+     * Test for getDispErrors when PHP errors are not shown
      *
-     * @param integer $errno   error number
-     * @param string  $errstr  error string
-     * @param string  $errfile error file
-     * @param integer $errline error line
-     * @param string  $output  output from the handleError method
+     * @param integer $errno       error number
+     * @param string  $errstr      error string
+     * @param string  $errfile     error file
+     * @param integer $errline     error line
+     * @param string  $output_show expected output if showing of errors is
+     *                             enabled
+     * @param string  $output_hide expected output if showing of errors is
+     *                             disabled
      *
      * @return void
      *
@@ -117,13 +125,16 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for getDispErrors
+     * Test for getDispErrors when PHP errors are shown
      *
-     * @param integer $errno   error number
-     * @param string  $errstr  error string
-     * @param string  $errfile error file
-     * @param integer $errline error line
-     * @param string  $output  output from the handleError method
+     * @param integer $errno       error number
+     * @param string  $errstr      error string
+     * @param string  $errfile     error file
+     * @param integer $errline     error line
+     * @param string  $output_show expected output if showing of errors is
+     *                             enabled
+     * @param string  $output_hide expected output if showing of errors is
+     *                             disabled
      *
      * @return void
      *
