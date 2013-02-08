@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-08 08:48-0500\n"
-"PO-Revision-Date: 2013-02-08 14:48+0200\n"
+"PO-Revision-Date: 2013-02-08 14:51+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12235,7 +12235,7 @@ msgstr "Series:"
 
 #: tbl_chart.php:208
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Geen numerieke kolommen in de tabel om te weer te geven in een grafiek."
 
 #: tbl_chart.php:224
 msgid "X-Axis label:"
