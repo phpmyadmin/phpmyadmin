@@ -225,8 +225,11 @@ function PMA_addDatepicker($this_element, options)
             $this_element.data('comes_from', '');
         }
     };
-
-    $this_element.datetimepicker($.extend(defaultOptions, options));
+    if ( showTimeOption || (typeof(options) != 'undefined'  && options.showTimepicker) ) {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    } else {
+        $this_element.datepicker($.extend(defaultOptions, options));
+    }
 }
 
 /**
