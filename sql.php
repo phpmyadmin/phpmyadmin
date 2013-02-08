@@ -492,7 +492,7 @@ if ($do_confirm) {
         $input, 'show_query',
         (isset($message_to_show) ? PMA_sanitize($show_query, true) : '')
     );
-    $form .= '%s</form>';
+    $form = str_replace('%', '%%', $form) . '%s</form>';
 
     $output .='<fieldset class="confirmation">'
         .'<legend>'
