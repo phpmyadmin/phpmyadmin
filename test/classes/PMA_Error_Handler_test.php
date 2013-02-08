@@ -61,7 +61,34 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for handleError method
+     * Data provider for testHandleError
+     *
+     * @return array data for testHandleError
+     */
+    public function providerForTestHandleError()
+    {
+        return array(
+            array(
+                E_RECOVERABLE_ERROR,
+                'Compile Error',
+                'error.txt',
+                12,
+                'Compile Error',
+                '',
+            ),
+            array(
+                E_USER_NOTICE,
+                'User notice',
+                'error.txt',
+                12,
+                'User notice',
+                'User notice',
+            )
+        );
+    }
+
+    /**
+     * Test for getDispErrors
      *
      * @param integer $errno   error number
      * @param string  $errstr  error string
@@ -73,92 +100,44 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestHandleError
      */
-    public function testHandleError($errno, $errstr, $errfile, $errline, $output)
+    public function testGetDispErrorsForDisplayFalse($errno, $errstr, $errfile, $errline, $output_show, $output_hide)
     {
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
-
-        $this->assertEquals(
-            $output,
-            $this->object->handleError($errno, $errstr, $errfile, $errline)
-        );
-    }
-
-    /**
-     * Data provider for testHandleError
-     *
-     * @return array data for testHandleError
-     */
-    public function providerForTestHandleError()
-    {
-        return array(
-            array(
-                '1024',
-                'Compile Error',
-                'error.txt',
-                12,
-                ''
-            )
-        );
-    }
-
-    /**
-     * Test for logError
-     */
-//    public function testLogError()
-//    {
-//
-//        $error = new PMA_Error('2', 'Compile Error', 'error.txt', 15);
-//
-//        $this->assertTrue(
-//            $this->_callProtectedFunction(
-//                'logError',
-//                array($error)
-//            )
-//        );
-//    }
-
-    /**
-     * Test for getDispUserErrors
-     *
-     * @return void
-     */
-    
-//    public function testGetDispUserErrors()
-//    {
-//
-//        $this->assertEquals(
-//            '<div class="notice">Compile Error</div>',
-//            $this->object->getDispUserErrors()
-//        );
-//    }
-
-    /**
-     * Test for getDispErrors
-     *
-     * @return void
-     */
-    public function testGetDispErrorsForDisplayFalse()
-    {
-
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
-        $this->assertEquals(
-            '',
-            $this->object->getDispUserErrors()
-        );
+
+        $this->object->handleError($errno, $errstr, $errfile, $errline);
+
+        $output = $this->object->getDispErrors();
+
+        if ($output_hide == '') {
+            $this->assertEquals('', $output);
+        } else {
+            $this->assertContains($output_hide, $output);
+        }
     }
 
     /**
      * Test for getDispErrors
      *
+     * @param integer $errno   error number
+     * @param string  $errstr  error string
+     * @param string  $errfile error file
+     * @param integer $errline error line
+     * @param string  $output  output from the handleError method
+     *
      * @return void
+     *
+     * @dataProvider providerForTestHandleError
      */
-    public function testGetDispErrorsForDisplayTrue()
+    public function testGetDispErrorsForDisplayTrue($errno, $errstr, $errfile, $errline, $output_show, $output_hide)
     {
-
+        $GLOBALS['cfg']['Error_Handler']['gather'] = true;
         $GLOBALS['cfg']['Error_Handler']['display'] = true;
 
-        $this->assertEquals(
-            '',
+        $this->object->handleError($errno, $errstr, $errfile, $errline);
+
+        $this->assertContains(
+            $output_show,
             $this->object->getDispErrors()
         );
 
