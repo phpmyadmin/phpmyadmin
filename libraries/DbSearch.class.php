@@ -306,7 +306,7 @@ class PMA_DbSearch
      * Provides search results row with browse/delete links.
      * (for a table)
      *
-     * @param string  $each_table    Tables on which search is to be performed
+     * @param string  $each_table    One of the tables on which search was performed
      * @param array   $newsearchsqls Contains SQL queries
      * @param bool    $odd_row       For displaying contrasting table rows
      * @param integer $res_cnt       Number of results found
@@ -317,6 +317,7 @@ class PMA_DbSearch
     {
         $this_url_params = array(
             'db'    => $GLOBALS['db'],
+            'table' => $each_table,
             'goto'  => 'db_sql.php',
             'pos'   => 0,
             'is_js_confirmed' => 0,
