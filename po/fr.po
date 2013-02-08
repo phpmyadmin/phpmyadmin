@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-08 08:35-0500\n"
+"POT-Creation-Date: 2013-02-08 08:48-0500\n"
 "PO-Revision-Date: 2013-02-08 14:46+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
@@ -12207,7 +12207,7 @@ msgid "Series:"
 msgstr "Séries : "
 
 #: tbl_chart.php:208
-msgid "No numeric fields present in the table to plot."
+msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 #: tbl_chart.php:224
