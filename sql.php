@@ -1202,6 +1202,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // - if the result set does not contain all the columns of a unique key
     if (PMA_is_system_schema($db) || ! $resultSetContainsUniqueKey) {
         $disp_mode = 'nnnn110111';
+        $msg = PMA_message::notice(__('This table does not contain a unique column. Grid edit, checkbox, Edit, Copy and Delete features are not available.'));
+        $msg->display();
     }
 
     if (isset($label)) {
