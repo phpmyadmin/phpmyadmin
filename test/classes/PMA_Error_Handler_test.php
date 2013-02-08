@@ -108,8 +108,9 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestHandleError
      */
-    public function testGetDispErrorsForDisplayFalse($errno, $errstr, $errfile, $errline, $output_show, $output_hide)
-    {
+    public function testGetDispErrorsForDisplayFalse(
+        $errno, $errstr, $errfile, $errline, $output_show, $output_hide
+    ) {
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
 
@@ -140,8 +141,9 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestHandleError
      */
-    public function testGetDispErrorsForDisplayTrue($errno, $errstr, $errfile, $errline, $output_show, $output_hide)
-    {
+    public function testGetDispErrorsForDisplayTrue(
+        $errno, $errstr, $errfile, $errline, $output_show, $output_hide
+    ) {
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
         $GLOBALS['cfg']['Error_Handler']['display'] = true;
 
