@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-01-21 00:59+0100\n"
-"PO-Revision-Date: 2013-01-28 00:52+0200\n"
-"Last-Translator: Rodrigo Severo <rodrigo@fabricadeideias.com>\n"
+"PO-Revision-Date: 2013-02-08 05:06+0200\n"
+"Last-Translator: Fabio Nunes <fabioaonunes@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 1.4\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -12902,6 +12902,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"O tamanho do cache da consulta está acima de 128 MiB. Caches de consulta "
+"muito grandes podem causar significativa sobrecarga para manter o cache."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -12922,6 +12924,7 @@ msgstr "Tamanho minimo do resultado da Cache de Consultas"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"O tamanho máximo dos resultados no cache de consultas é por padrão de 1 MiB."
 
 #: libraries/advisory_rules.txt:206
 msgid ""
@@ -12937,7 +12940,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit esta definido como 1 MiB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
