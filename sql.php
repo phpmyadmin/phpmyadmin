@@ -1650,7 +1650,8 @@ function PMA_getColumnNameInColumnDropSql($sql)
 }
 
 /**
- * Verify if the result set contains all the columne of at least one unique key
+ * Verify whether the result set contains all the columns 
+ * of at least one unique key
  *
  * @param string $db
  * @param string $table
