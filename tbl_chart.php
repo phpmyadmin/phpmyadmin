@@ -205,7 +205,7 @@ if (count($keys) > 1) {
 
     if (! $numeric_fields_present) {
         $response->isSuccess(false);
-        $response->addJSON('message', __('No numeric fields present in the table to plot.'));
+        $response->addJSON('message', __('No numeric columns present in the table to plot.'));
         exit;
     }
     $htmlString .= '</select>'
