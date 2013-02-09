@@ -50,10 +50,6 @@ if (!$GLOBALS['is_ajax_request']) {
     $tabs['status']['link'] = 'server_status.php';
     $tabs['status']['text'] = __('Status');
 
-    /*$tabs['process']['icon'] = 's_process.png';
-    $tabs['process']['link'] = 'server_processlist.php';
-    $tabs['process']['text'] = __('Processes');*/
-
     if ($is_superuser && !PMA_DRIZZLE) {
         $tabs['rights']['icon'] = 's_rights.png';
         $tabs['rights']['link'] = 'server_privileges.php';

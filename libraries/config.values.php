@@ -54,8 +54,7 @@ $cfg_db['DefaultTabServer'] = array(
     'server_databases.php',    // list of databases
     'server_status.php',       // runtime information
     'server_variables.php',    // MySQL server variables
-    'server_privileges.php',   // user management
-    'server_processlist.php'); // process list
+    'server_privileges.php');   // user management
 $cfg_db['DefaultTabDatabase'] = array(
     'db_structure.php',   // tables list
     'db_sql.php',         // SQL form

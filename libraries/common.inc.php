@@ -417,7 +417,6 @@ $goto_whitelist = array(
     'server_export.php',
     'server_import.php',
     'server_privileges.php',
-    'server_processlist.php',
     'server_sql.php',
     'server_status.php',
     'server_variables.php',

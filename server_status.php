@@ -637,8 +637,6 @@ $links['qcache'][__('Flush query cache')]
         PMA_generate_common_url();
 $links['qcache']['doc'] = 'query_cache';
 
-//$links['threads'][__('Show processes')]
-//    = 'server_processlist.php?' . PMA_generate_common_url();
 $links['threads']['doc'] = 'mysql_threads';
 
 $links['key']['doc'] = 'myisam_key_cache';
