@@ -1711,7 +1711,6 @@ Tabs display settings
     * ``server_status.php``
     * ``server_variables.php``
     * ``server_privileges.php``
-    * ``server_processlist.php``
 
 .. config:option:: $cfg['DefaultTabDatabase']
 
