@@ -1,0 +1,267 @@
+[33mcommit 26c398e1656710132f6ae9321de7cb85970ab1ba[m
+Author: Rouslan Placella <rouslan@placella.com>
+Date:   Fri Feb 8 19:49:50 2013 +0000
+
+    Disable ajax in sql confirmations
+
+[33mcommit 4e297d97709f8d1264ff8e6390f759c95f9e8a66[m
+Author: Rouslan Placella <rouslan@placella.com>
+Date:   Fri Feb 8 18:34:11 2013 +0000
+
+    Fixed PHP error in sql.php
+    Also see: https://github.com/phpmyadmin/phpmyadmin/commit/543fc6231a6d1cb31121489e8b3be79811033734#L0R511
+
+[33mcommit 498bd261de89cc69e22e56230b62cbbe30416595[m
+Merge: 6ae4f1b a92893b
+Author: Atul Pratap Singh <atulpratapsingh05@gmail.com>
+Date:   Fri Feb 8 23:27:21 2013 +0530
+
+    Merge branch 'master' of github.com:phpmyadmin/phpmyadmin
+
+[33mcommit a92893b09e73f1b8fe8563d400e6f215852be060[m
+Merge: e0ff6c0 403bafb
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 09:42:20 2013 -0800
+
+    Merge pull request #155 from ayushchd/master
+    
+    Pull request for bugs:#3802 Datepicker displayed just the first time
+
+[33mcommit e0ff6c0a0e2baf8a4bd7c5541a62b4b2d01d508d[m
+Author: Burak Yavuz <hitowerdigit@hotmail.com>
+Date:   Fri Feb 8 18:39:02 2013 +0100
+
+    Translated using Weblate (Turkish)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit 403bafb99912ea229329d761eb5f2168b938810b[m
+Author: ayushchd <ayushchd@gmail.com>
+Date:   Fri Feb 8 23:08:06 2013 +0530
+
+    Indentation fix
+
+[33mcommit 6ae4f1bd8bfe3a7b4c4a69a88a4f749db7d55a86[m
+Author: Atul Pratap Singh <atulpratapsingh05@gmail.com>
+Date:   Fri Feb 8 22:58:09 2013 +0530
+
+    Fixing bug:3803 'Grid editing a DATE column'
+
+[33mcommit 87b0c7c9f92056a395da07260195f237ac889378[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 10:59:11 2013 -0500
+
+    Forgot to fix the test
+
+[33mcommit 080690a8385edc018c2efaa3b6365569543d8777[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 10:37:42 2013 -0500
+
+    Fix a bug: when doing a db search, then clicking on Browse on a result
+    row, the query generated for (at least) the Delete link was missing the
+    table name.
+
+[33mcommit c506a590f15dd82476b0bada8c06a07dea18255e[m
+Author: ayushchd <ayushchd@gmail.com>
+Date:   Fri Feb 8 20:19:07 2013 +0530
+
+    Fix - Bugs:#3802 Datepicker displayed just the first time
+    
+    Fixed the bug that was preventing the datepicker from displaying after
+    ajax call. datepicker remained initialized while its content was
+    replaced by the ajax response. tbl_change.js now reinitializes
+    datepicker everytime its loaded.
+
+[33mcommit cee0ad4b908256b5c80354e1763c3ccd7df16c16[m
+Author: Panagiotis Papazoglou <papaz_p@yahoo.com>
+Date:   Fri Feb 8 15:30:43 2013 +0100
+
+    Translated using Weblate (Greek)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit b5bb49741c853bba165a8b9466e9eba4d30cb56e[m
+Author: Matías Bellone <matiasbellone+weblate@gmail.com>
+Date:   Fri Feb 8 15:23:45 2013 +0100
+
+    Translated using Weblate (Spanish)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit 6794470f00806298833c524231340e09a8bf4abf[m
+Author: Michal Čihař <michal@cihar.com>
+Date:   Fri Feb 8 15:14:22 2013 +0100
+
+    Translated using Weblate (Czech)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit c60817ea60c73e84431b1b760ccf3eb90e80d4b0[m
+Author: Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Date:   Fri Feb 8 14:51:25 2013 +0100
+
+    Translated using Weblate (Dutch)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit a642086c85b40080b188365f7dc8614ce2690cc3[m
+Merge: 6f9cafe c8b5b2a
+Author: Weblate <noreply@weblate.org>
+Date:   Fri Feb 8 14:49:01 2013 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit c8b5b2a54f3c4d2226b2bb0ec0cd58cb7df06d2c[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 08:48:34 2013 -0500
+
+    Update po files
+
+[33mcommit 6f9cafeff8836e070eadd1a4210ffa07d645705b[m
+Merge: 608f301 dd04178
+Author: Weblate <noreply@weblate.org>
+Date:   Fri Feb 8 14:48:33 2013 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 608f301904a063558631711379a1dcd295932ddd[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 14:46:09 2013 +0100
+
+    Translated using Weblate (French)
+    
+    Currently translated at 100.0% (2601 of 2602)
+
+[33mcommit 4877c3656d983a5fa9e0c6f8145114d106b4d238[m
+Author: Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Date:   Fri Feb 8 14:48:12 2013 +0100
+
+    Translated using Weblate (Dutch)
+    
+    Currently translated at 100.0% (2601 of 2602)
+
+[33mcommit dd04178c776cdb6f21c9a94265b6181fe3bbce89[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 08:47:56 2013 -0500
+
+    When referring to a table, we use the term "column"
+
+[33mcommit ed31b89fc0eb1219f5d986bbc7470a236ef948b8[m
+Author: Michal Čihař <michal@cihar.com>
+Date:   Fri Feb 8 14:43:56 2013 +0100
+
+    Translated using Weblate (Czech)
+    
+    Currently translated at 100.0% (2602 of 2602)
+
+[33mcommit bc0b49e1030a98f2cf71713049d7241a531e066a[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 08:36:04 2013 -0500
+
+    Update po files
+
+[33mcommit 85bb5a88e6556ac37efc1102ff7f677b619ec76a[m
+Merge: b92fbfa 6da336c
+Author: Michal Čihař <michal@cihar.com>
+Date:   Fri Feb 8 05:34:56 2013 -0800
+
+    Merge pull request #154 from lem9/master
+    
+    Notice about missing non-unique column
+
+[33mcommit b92fbfa072ba70874514ea2081c540fee56b3854[m
+Author: Michal Čihař <mcihar@suse.cz>
+Date:   Fri Feb 8 14:24:49 2013 +0100
+
+    Wrap long lines
+
+[33mcommit dd28bf71096ed8116715ae4c85586b37c6f0bfd8[m
+Author: Michal Čihař <mcihar@suse.cz>
+Date:   Fri Feb 8 14:24:28 2013 +0100
+
+    Fix class documentation
+
+[33mcommit 23a602992d6a618ef396ab0164ce6666c335a341[m
+Author: Michal Čihař <mcihar@suse.cz>
+Date:   Fri Feb 8 14:12:21 2013 +0100
+
+    Rewrite testcases for error handler
+    
+    Now they actually test desired behaviour, not random side effects of the
+    code.
+
+[33mcommit 6da336cd60ed94e512b51dd987bc6cffba4d5e09[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 07:49:43 2013 -0500
+
+    Notice about missing non-unique column
+
+[33mcommit 9b048042014139f928958bd5cbcc3ce5e9cd4613[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 07:22:48 2013 -0500
+
+    Fix typo
+
+[33mcommit f138f8b385af28fda1e7cac0730a851624702d61[m
+Author: Marc Delisle <marc@infomarc.info>
+Date:   Fri Feb 8 07:09:49 2013 -0500
+
+    Fix fatal error in PHP 5.2
+
+[33mcommit 526e56d71e595c0fd9c4eeae35cbc8bca8ea164c[m
+Merge: 9972503 563cec3
+Author: Michal Čihař <mcihar@suse.cz>
+Date:   Fri Feb 8 10:06:21 2013 +0100
+
+    Merge remote-tracking branch 'origin/QA_3_5'
+
+[33mcommit 563cec3bf0d6c6c72708a8fe34dd1fc4caa0dbcf[m
+Author: Fabio Nunes <fabioaonunes@gmail.com>
+Date:   Fri Feb 8 05:06:32 2013 +0100
+
+    Translated using Weblate (Portuguese (Brazil))
+    
+    Currently translated at 98.6% (2527 of 2562)
+
+[33mcommit f333ba1c5a36c12a1d27f48d1a939ed78cba4e29[m
+Author: Sondre Garmo <webuser@garmo.org>
+Date:   Thu Feb 7 20:31:13 2013 +0100
+
+    Translated using Weblate (Norwegian Bokmål)
+    
+    Currently translated at 76.8% (1968 of 2562)
+
+[33mcommit e0174a285afa052dc92e4719431db95ad2a20980[m
+Author: Mathieu Terroba <mathieu.terroba@gmail.com>
+Date:   Thu Feb 7 11:07:43 2013 +0100
+
+    Translated using Weblate (French)
+    
+    Currently translated at 100.0% (2562 of 2562)
+
+[33mcommit 1327b2b98dfe1424b92c3902e351f98f4d340bc4[m
+Author: Morten Henrichsen <github@mhex.dk>
+Date:   Wed Feb 6 23:27:27 2013 +0100
+
+    Translated using Weblate (Danish)
+    
+    Currently translated at 100.0% (2562 of 2562)
+
+[33mcommit 5cf21e10a4ac9eb37d2a54ab0de105dab9a4b495[m
+Author: atitan XD <info@atifans.net>
+Date:   Thu Feb 7 16:22:30 2013 +0100
+
+    Translated using Weblate (Chinese (Taiwan))
+    
+    Currently translated at 85.2% (2182 of 2562)
+
+[33mcommit 9972503ce47c0d64e0719c5844cd6916bb13d679[m
+Merge: 4062076 8b26dc5
+Author: Weblate <noreply@weblate.org>
+Date:   Fri Feb 8 09:04:49 2013 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 40620765a6b76d171f4c2e915d64147447d214a4[m
+Author: Rostyslav Gaitkulov <nightfly@kvant.if.ua>
+Date:   Thu Feb 7 17:58:45 2013 +010
