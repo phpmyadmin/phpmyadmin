@@ -126,11 +126,6 @@ $tabs['binlog']['icon'] = 's_tbl.png';
 $tabs['binlog']['link'] = 'server_binlog.php';
 $tabs['binlog']['text'] = __('Binary log');
 
-$tabs['process']['icon'] =  's_process.png';
-$tabs['process']['link'] = 'server_processlist.php';
-$tabs['process']['text'] = 'caution';
-$tabs['process']['class'] = 'caution';
-
 $tabs['export']['icon'] = 'b_export.png';
 $tabs['export']['text'] = 'disabled';
 
