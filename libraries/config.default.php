@@ -1139,7 +1139,6 @@ $cfg['PropertiesNumColumns'] = 1;
  * 'server_status.php' = runtime information
  * 'server_variables.php' = MySQL server variables
  * 'server_privileges.php' = user management
- * 'server_processlist.php' = process list
  *
  * @global string $cfg['DefaultTabServer']
  */

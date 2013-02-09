@@ -123,11 +123,6 @@ $tabs['binlog']['icon'] = 'ic_s_tbl';
 $tabs['binlog']['link'] = 'server_binlog.php';
 $tabs['binlog']['text'] = __('Binary log');
 
-$tabs['process']['icon'] =  'ic_s_process';
-$tabs['process']['link'] = 'server_processlist.php';
-$tabs['process']['text'] = 'caution';
-$tabs['process']['class'] = 'caution';
-
 $tabs['export']['icon'] = 'ic_b_export';
 $tabs['export']['text'] = 'disabled';
 
