@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-08 08:48-0500\n"
-"PO-Revision-Date: 2013-02-07 17:58+0200\n"
-"Last-Translator: Rostyslav Gaitkulov <nightfly@kvant.if.ua>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"PO-Revision-Date: 2013-02-09 18:04+0200\n"
+"Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
@@ -5718,7 +5718,7 @@ msgstr "Ім'я сесії для Signon"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "Signon URL-адреса"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -9170,6 +9170,7 @@ msgstr "ввімкнути чорновик (scratchboard)"
 
 #. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:499
+#, fuzzy
 msgid "ltr"
 msgstr "ltr"
 
@@ -11975,7 +11976,7 @@ msgid ""
 msgstr ""
 "%sТермін придатності куки входу%s взагалі не повинен перевищувати 1800 "
 "секунд (30 хвилин). Значення, що перевищують 1800 можуть нести ризик "
-"небезпеки через можливість використання сеансу іншою особою"
+"небезпеки через можливість використання сеансу іншою особою."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12056,7 +12057,7 @@ msgstr "Ключ кодування надто короткий, він має �
 #: setup/lib/index.lib.php:431
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
-"Ключ кодування має містити літери, цифри [еm]та[/em] спеціальні символи."
+"Ключ кодування має містити літери, цифри [em]та[/em] спеціальні символи."
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -12598,12 +12599,16 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"Змінній long_query_time присвоєно значення 10 секунд або більше, і з цієї "
+"причини в журналі записуються повільні запити понад 10 секунд."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Пропонується присвоїти змінній {long_query_time} менше значення, в "
+"залежності від оточення. Рекомендоване значення 1-5 секунд."
 
 #: libraries/advisory_rules.txt:82
 #, php-format
@@ -12615,22 +12620,22 @@ msgid "Slow query logging"
 msgstr "Журналювання повільних запитів"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log ввімкнений."
+msgstr "Журнал повільних запитів вимкнено."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Увімкніть запис повільних запитів встановивши змінну {log_slow_queries} у "
+"'ON'. Це допоможе в пошуці повільних, недостатньо оптимізованих запитів."
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time встановлено на %d секунди(секунд)."
+msgstr "Змінна log_slow_queries встановлена у &quot;OFF&quot;"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -12706,22 +12711,27 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Якщо ви не компілювали програму з вихідних кодів, можливо ви використовуєте "
+"пакет, що змінено дистрибутивом. Документація MySQL відповідає лише "
+"офіційній збірці MySQL, а не пакетам дистрибутивів (на кшталт RedHat, "
+"Debian/Ubuntu тощо)."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "У version_comment знайдено слово 'source'"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "Документація MySQL відповідає лише офіційній збірці MySQL."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
+"Документація по Percona знаходиться на http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "У version_comment знайдено слово 'percona'"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
@@ -12730,7 +12740,7 @@ msgstr "Документація по Drizzle знаходиться на http:/
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "Рядок версії(%s) відповідає схемі версій Drizzle"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
@@ -12770,20 +12780,25 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Кеш запитів, як відомо, при правильному налаштуванні значно підвищити "
+"продуктивність. Увімкніть його встановивши {query_cache_size} на 2-х значне "
+"значення у MiB і змінишви {query_cache_type} на &quot;ON&quot;. "
+"<b>Примітка:</b> Якщо використовується memcached, цю рекомендацію ігноруйте."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"Змінна query_cache_size встановлена в 0, або змінна query_cache_type "
+"встановлена у &quot;OFF&quot;"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
 msgstr "Метод кешування запитів"
 
 #: libraries/advisory_rules.txt:163
-#, fuzzy
 #| msgid "Space usage"
 msgid "Suboptimal caching method."
-msgstr "Простір, що використовується"
+msgstr "Субоптимальний метод кешування."
 
 #: libraries/advisory_rules.txt:164
 msgid ""
@@ -12792,6 +12807,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Ви використовуєте механізм кешування запитів MySQL з базою даних, що має "
+"досить високий трафік. Можливо замість механізму кешування запитів MySQL "
+"варто використовувати <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">Memcached</a>, особливо, якщо у вас є кілька підпорядкованих "
+"серверів."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -12799,6 +12819,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Кешування запитів увімкнено, і сервер отримує  %d запитів в секунду. Це "
+"правило спрацьовує, якщо є більш ніж 100 запитів в секунду."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
@@ -12808,15 +12830,16 @@ msgstr "Ефективність кешу запитів (%%)"
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"Кешування запитів працює неефективно через низький рівень успішних звернень."
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Розгляньте можливість збільшення {query_cache_limit}."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "Поточний рівень успішних звернень до кешу запитів на %s%% менше 20%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
@@ -12825,13 +12848,15 @@ msgstr "Використання кешу запитів"
 #: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Наразі використовується менше 80%% кешу запитів."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Це може бути викликано низьким значенням змінної {query_cache_limit}. Також "
+"може допомогти очищення кешу запитів."
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -12839,6 +12864,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s%"
 "%. It should be above 80%%"
 msgstr ""
+"Поточне співвідношення вільної пам'яті кешу запитів до загального розміру "
+"кешу запитів складає %s%%. Воно має перевищувати 80%%"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -12859,6 +12886,16 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Через сильну  фрагментацію можливо (в подальшому) збільшення "
+"Qcache_lowmem_prunes. Це може бути викликано великою кількістю очищень "
+"нижньої пам'яті кешу запитів через через занадто мале значення змінної "
+"{query_cache_size}. Для безпосереднього але нетривалого виправлення ситуації "
+"можна очистити кеш запитів (при цьому можливо блокування кешу запитів на "
+"тривалий час). Також допоможе ретельно налаштування змінної "
+"{query_cache_min_res_unit} встановленням її до більш низького значення, "
+"наприклад, надавши їй значення середнього розміру ваших запитів в кеш, що "
+"розраховується за формулою: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -12867,18 +12904,22 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Кеш у наразі фрагментований на %s%%,  100%% фрагментація означає, що в кеші "
+"запитів послідовно чергуються вільні і використовувані блоки. Це значення не "
+"повинно перевищувати 20%%."
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Використанний кеш запитів"
+msgstr "Очищення нижньої пам'яті кешу запитів"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
+"Кешовані запити видалені з кешу запитів, через недостатню кількість пам'яті "
+"в кеші."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12938,7 +12979,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "Змінній query_cache_limit присвоєно значення 1 MiB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -12953,6 +12994,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Розгляньте можливість збільшення sort_buffer_size та/або "
+"read_rnd_buffer_size, в залежності від обмежень системної пам'яті"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -12990,42 +13033,43 @@ msgstr ""
 #: libraries/advisory_rules.txt:230
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Середня кількість відсортованих рядків: %s"
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "Rate of joins without indexes"
-msgstr "Немає порядків для відображення."
+msgstr "Рівень об'єднань без індексів"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many joins without indexes."
-msgstr "Немає порядків для відображення."
+msgstr "Забагато об'єднань без індексів."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Це означає, що об'єднання виконують сканування всіє таблиці.  Додавання "
+"індексів до стовпчиків, що будуть використані в умовах оператора об'єднання "
+"значно підвищать швидкість об'єднання таблиць."
 
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Середнє значення об'єднання таблиць: %s, це значення не повинно перевищувати "
+"1 на годину"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Rate of reading first index entry"
-msgstr "Кодування файлу:"
+msgstr "Рівень читання першого входження індексу"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "The rate of reading the first index entry is high."
-msgstr "Кодування файлу:"
+msgstr "Рівень читання першого входження індексу завеликий."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -13111,7 +13155,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:267
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Поточні значення tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:269
 msgid "Percentage of temp tables on disk"
@@ -13122,6 +13166,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Багато тимчасових таблиць пишуться на диск замість того, щоб зберігатися в "
+"пам'яті."
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -13424,7 +13470,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
-msgstr "Відсоток перерваних підключень"
+msgstr "Відсоток перерваних з'єднань"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
 msgid "Too many connections are aborted."
@@ -13441,7 +13487,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% всіх з'єднань перервано. Це значення має бути нижче 1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -13452,6 +13498,7 @@ msgstr "Співвідношення перерваних з'єднань"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Рівень перерваних з'єднань %s, це значення має бути меншим ніж 1 на годину"
 
 #: libraries/advisory_rules.txt:413
 msgid "Percentage of aborted clients"
@@ -13467,11 +13514,16 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Клієнтське з'єднання, як правило, переривається при некоректному закритті "
+"ними з'єднання з MySQL. Це може бути через проблеми з мережею або "
+"відсутності в коді правильного закриття обробника бази даних. Перевірте вашу "
+"мережу і програмний код."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% всіх клієнтських з'єднань перервано. Це значення має бути менше 2%%"
 
 #: libraries/advisory_rules.txt:420
 msgid "Rate of aborted clients"
@@ -13598,10 +13650,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:459
-#, fuzzy
 #| msgid "concurrent_insert is set to 0"
 msgid "MyISAM concurrent inserts"
-msgstr "concurrent_insert встановлений у 0"
+msgstr "Паралельні вставки MyISAM"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable concurrent_insert by setting it to 1"
