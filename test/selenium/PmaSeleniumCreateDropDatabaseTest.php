@@ -23,19 +23,18 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
     {
         $log = new PmaSeleniumTestCase($this);
         $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->selectFrame("frame_content");
         $this->click("link=Databases");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=text_create_db", "pma");
-        $this->click("id=buttonGo");
-        $this->assertTrue($this->isTextPresent("pma"));
-
-        $this->click("link=pma");
-        $this->waitForPageToLoad("30000");
-        $this->click("link=Operations");
-        $this->waitForPageToLoad("30000");
-        $this->click("id=drop_db_anchor");
-        $this->click("//button[@type='button']");
-
+		sleep(10);
+    	$this->type("id=text_create_db", "pma_testdb");
+    	$this->click("id=buttonGo");
+		sleep(10);
+		$this->assertTrue($this->isTextPresent("pma_testdb"));		
+    	
+    	$this->click("xpath=(//input[@name='selected_dbs[]'])[@value='pma_testdb']");
+    	$this->click("css=button.mult_submit.ajax");
+    	$this->click("//button[@type='button']");
+    	$this->click("css=img.icon.ic_b_home");
+		sleep(10);
+		$this->assertFalse($this->isTextPresent("pma_testdb"));
     }
 }

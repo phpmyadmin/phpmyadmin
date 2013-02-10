@@ -22,9 +22,9 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
     {
         $log = new PmaSeleniumTestCase($this);
         $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->selectFrame("frame_content");
         $this->click("link=Change password");
-        $this->waitForPageToLoad("20000");
+        $this->waitForCondition($this->isElementPresent("id=change_password_anchor")==TRUE,30000);
+		sleep(5);
         try {
             $this->assertEquals("", $this->getValue("text_pma_pw"));
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
@@ -40,16 +40,23 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
-            $this->click("button_generate_password");
-            $this->assertNotEquals("", $this->getValue("text_pma_pw"));
-            $this->assertNotEquals("", $this->getValue("text_pma_pw2"));
-            $this->assertNotEquals("", $this->getValue("generated_pw"));
-            $this->type("text_pma_pw", TESTSUITE_PASSWORD);
-            $this->type("text_pma_pw2", TESTSUITE_PASSWORD);
-            $this->click("//button[@type='button']");
-            $this->waitForPageToLoad("20000");
-            $this->assertTrue($this->isTextPresent(""));
-            $this->assertTrue($this->isTextPresent(""));
-    }
+        $this->click("button_generate_password");
+        $this->assertNotEquals("", $this->getValue("text_pma_pw"));
+        $this->assertNotEquals("", $this->getValue("text_pma_pw2"));
+        $this->assertNotEquals("", $this->getValue("generated_pw"));
+		
+		if(TESTSUITE_PASSWORD!=""){
+			$this->type("text_pma_pw",TESTSUITE_PASSWORD);
+            $this->type("text_pma_pw2",TESTSUITE_PASSWORD);
+			$this->click("xpath=(//button[@type='button'])[1]");
+		}else{
+			$this->click("id=nopass_1");
+    		$this->click("xpath=(//button[@type='button'])[1]");
+		}		 		 
+		
+		sleep(5);
+		$this->assertTrue($this->isTextPresent("The profile has been updated."));
+    } 
 }
+
 ?>
