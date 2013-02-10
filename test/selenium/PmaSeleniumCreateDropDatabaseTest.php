@@ -34,6 +34,6 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
         $this->click("css=button.mult_submit");
         $this->click("css=button:contains('OK')");
         $this->waitForElementPresent("css=span.ajax_notification");
-        $this->assertElementPresent("css=span.ajax_notification div.error");
+        $this->assertElementPresent("css=span.ajax_notification div.success");
     }
 }
