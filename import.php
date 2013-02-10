@@ -62,7 +62,7 @@ if (! empty($sql_query)) {
     $format = 'sql';
 
     // refresh left frame on changes in table or db structure
-    if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+    if (preg_match('/^(CREATE|ALTER|DROP|RENAME)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $GLOBALS['reload'] = true;
     }
 
