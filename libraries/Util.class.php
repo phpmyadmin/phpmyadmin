@@ -2236,7 +2236,7 @@ class PMA_Util
                     . self::backquote($meta->orgname);
             } // end if... else...
             $condition = ($fields_cnt == 1)
-                ? ' CHAR_LENGTH(' . $con_key . ') '
+                ? ' ' . $con_key . ' '
                 : ' ' . $con_key . ' ';
 
             if (! isset($row[$i]) || is_null($row[$i])) {
