@@ -23,19 +23,21 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
         $log = new PmaSeleniumTestCase($this);
         $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->click("link=Change password");
-        $this->waitForCondition($this->isElementPresent("id=change_password_anchor")==TRUE,30000);
-		sleep(5);
+		$this->waitForElementPresent("id=change_password_anchor");
         try {
+        	$this->waitForElementPresent("id=text_pma_pw");
             $this->assertEquals("", $this->getValue("text_pma_pw"));
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
+        	$this->waitForElementPresent("id=text_pma_pw2");
             $this->assertEquals("", $this->getValue("text_pma_pw2"));
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
+        	$this->waitForElementPresent("id=generated_pw");
             $this->assertEquals("", $this->getValue("generated_pw"));
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
@@ -48,13 +50,13 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
 		if(TESTSUITE_PASSWORD!=""){
 			$this->type("text_pma_pw",TESTSUITE_PASSWORD);
             $this->type("text_pma_pw2",TESTSUITE_PASSWORD);
-			$this->click("xpath=(//button[@type='button'])[1]");
+			$this->click("css=button:contains('Go')");
 		}else{
 			$this->click("id=nopass_1");
-    		$this->click("xpath=(//button[@type='button'])[1]");
+    		$this->click("css=button:contains('Go')");
 		}		 		 
 		
-		sleep(5);
+		$this->waitForElementPresent("id=result_query");
 		$this->assertTrue($this->isTextPresent("The profile has been updated."));
     } 
 }
