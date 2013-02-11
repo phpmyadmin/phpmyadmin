@@ -63,7 +63,7 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     public function testDoc()
     {
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23foo&amp;token=token" target="documentation">doclink</a>',
+            '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23foo&amp;token=token" target="documentation">doclink</a>',
             PMA_sanitize('[doc@foo]doclink[/doc]')
         );
     }
