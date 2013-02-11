@@ -26,13 +26,13 @@ class AllSeleniumTests
 
     public static function suite()
     {
-		$suite = new PHPUnit_Extensions_SeleniumTestSuite('phpMyAdmin');
+        $suite = new PHPUnit_Extensions_SeleniumTestSuite('phpMyAdmin');
 
-		$suite->addTestSuite('PmaSeleniumLoginTest');
-		$suite->addTestSuite('PmaSeleniumXssTest');
-		$suite->addTestSuite('PmaSeleniumPrivilegesTest');
-		$suite->addTestSuite('PmaSeleniumCreateDropDatabaseTest');
-		return $suite;
+        $suite->addTestSuite('PmaSeleniumLoginTest');
+        $suite->addTestSuite('PmaSeleniumXssTest');
+        $suite->addTestSuite('PmaSeleniumPrivilegesTest');
+        $suite->addTestSuite('PmaSeleniumCreateDropDatabaseTest');
+        return $suite;
     }
 }
 ?>
