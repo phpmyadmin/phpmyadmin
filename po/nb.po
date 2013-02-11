@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-07 20:31+0200\n"
-"Last-Translator: Sondre Garmo <webuser@garmo.org>\n"
+"PO-Revision-Date: 2013-02-11 11:56+0200\n"
+"Last-Translator: Kai-Ove Finvold <translate@okai.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
 "Language: nb\n"
@@ -8522,10 +8522,9 @@ msgid "Error in ZIP archive:"
 msgstr "Feil i ZIP arkivet:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Generelle relasjonsegenskaper"
+msgstr "Generelle innstillinger"
 
 #: main.php:109
 #, fuzzy
@@ -8534,30 +8533,27 @@ msgid "Server connection collation"
 msgstr "Kollasjon av MySQL-oppkobling"
 
 #: main.php:124
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Andre hovedinnstillinger"
+msgstr "Visningsinnstillinger"
 
 #: main.php:153 prefs_manage.php:272
 msgid "More settings"
 msgstr "Flere innstillinger"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Brukerdatabase"
+msgstr "Database-server"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "Programvare"
 
 #: main.php:173
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Vis versjoner"
+msgstr "Programvareversjon"
 
 #: main.php:175
 msgid "Protocol version"
@@ -8570,20 +8566,18 @@ msgid "User"
 msgstr "Bruker"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Tjenersokkel"
+msgstr "Server-tegnsett"
 
 #: main.php:196
 msgid "Web server"
 msgstr "Webserver"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Bruk hurtigversjon"
+msgstr "Database-versjon"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8602,9 +8596,8 @@ msgid "Contribute"
 msgstr "Bidra"
 
 #: main.php:243
-#, fuzzy
 msgid "Get support"
-msgstr "Eksporter"
+msgstr "Brukerstøtte"
 
 #: main.php:244
 msgid "List of changes"
@@ -8660,7 +8653,6 @@ msgstr ""
 "innlogging utløpe raskere enn konfigurert i phpMyAdmin."
 
 #: main.php:299
-#, fuzzy
 #| msgid ""
 #| "HP parameter http://php.net/manual/en/session.configuration.#ini.session."
 #| "gc-lifetime@]session.gc_maxlifetime[/a] is lower that kie validity "
@@ -8670,10 +8662,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ditt PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] er lavere enn "
-"cookie gyldighet konfigurert i phpMyAdmin, på grunn av dette så vil din "
-"innlogging utløpe raskere enn konfigurert i phpMyAdmin."
+"Levetiden for din innloggings-cookie er kortere enn innstillingen satt i "
+"phpMyAdmin og din brukersesjon vil dermed utløpe tidligere enn konfigurert i "
+"phpMyAdmin."
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
