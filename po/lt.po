@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 12:59+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-11 19:03+0200\n"
+"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
 "Language-Team: Lithuanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -346,8 +346,7 @@ msgstr "Palyginimas"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"phpMyAdmin konfigūracijos talpinimo vieta išjungta. %sIšsiaiškinti kodėl%s."
+msgstr "phpMyAdmin nustatymų saugykla išjungta. %sIšsiaiškinkite kodėl%s."
 
 #: db_operations.php:595
 msgid "Edit or export relational schema"
@@ -922,30 +921,27 @@ msgid "Add a point"
 msgstr "Pridėti tašką"
 
 #: gis_data_editor.php:220 js/messages.php:324
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Eilutės baigiasi"
+msgstr "Atkarpų seka"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "Išorinis žiedas"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "Vidinis žiedas"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Sukurti naują vartotoją"
+msgstr "Sukurti atkarpų seką"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Sukurti naują vartotoją"
+msgstr "Sukurti vidinį žiedą"
 
 #: gis_data_editor.php:266 js/messages.php:325
 msgid "Polygon"
@@ -956,10 +952,9 @@ msgid "Add a polygon"
 msgstr "Pridėti daugiakampį"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add event"
 msgid "Add geometry"
-msgstr "Pridėti įvykį"
+msgstr "Pridėti geometriją"
 
 #: gis_data_editor.php:318
 msgid ""
@@ -1580,10 +1575,9 @@ msgid "Jump to Log table"
 msgstr "Eiti į žurnalo lentelę"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Nėra duomenų"
+msgstr "Duomenys nerasti"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1596,10 +1590,9 @@ msgid "Analyzing..."
 msgstr "Analizuoti"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Paaiškinti SQL"
+msgstr "Paaiškinti išvestį"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1254 sql.php:897
@@ -1611,35 +1604,30 @@ msgid "Total time:"
 msgstr "Iš viso užtruko:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profiliavimas"
+msgstr "Profiliavimo rezultatai"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Lentelė"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Charts"
 msgid "Chart"
-msgstr "Diagramos"
+msgstr "Diagrama"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Pridėti diagramą"
+msgstr "Redaguoti diagramą"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Servers"
 msgid "Series"
-msgstr "Serveriai"
+msgstr "Sekos"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1695,7 +1683,6 @@ msgid "Affected rows:"
 msgstr "Paveiktos eilutės:"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
@@ -2587,7 +2574,7 @@ msgstr "Lentelė %s pervadinta į %s"
 
 #: libraries/Table.class.php:1385
 msgid "Could not save table UI preferences"
-msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų."
+msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų"
 
 #: libraries/Table.class.php:1408
 #, php-format
@@ -2714,7 +2701,7 @@ msgstr "Slapukai turi būti priimami."
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"Prisijungimą be slaptažodžio draudžia nustatymai (žiūrėti AllowNoPassword)."
+"Prisijungimą be slaptažodžio draudžia nustatymai (žiūrėti AllowNoPassword)"
 
 #: libraries/auth/cookie.auth.lib.php:572
 #: libraries/auth/signon.auth.lib.php:239
@@ -3095,7 +3082,7 @@ msgstr "Pasirinkti iš saityno serverio atsisiuntimų katalogą <b>%s</b>:"
 #: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
-msgstr "Nepasiekimas nurodytas www-serverio katalogas atsiuntimams."
+msgstr "Aplankas, kuris nurodytas įkeliamiems failams, nepasiekiamas"
 
 #: libraries/common.lib.php:3326
 msgid "There are no files to upload"
@@ -3949,7 +3936,7 @@ msgstr "Įvesti serverio ryšio nustatymus"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr "Konfigūracijos laikmena"
+msgstr "Nustatymų saugykla"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
@@ -4469,13 +4456,13 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"Išjungti standartinį perspėjimą kuris rodomas duomenų bazės struktūros "
-"puslapyje, kai neįmanoma rasti phpMyAdmin nustatytų saugyklai reikalingų "
+"Išjungti standartinį perspėjimą, kuris rodomas duomenų bazės struktūros "
+"puslapyje, kai neįmanoma rasti phpMyAdmin nustatymų saugyklai reikalingų "
 "lentelių"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Trūksta phpMyAdmin konfigūracijos saugojimo lentelės"
+msgstr "Trūksta phpMyAdmin nustatymų saugyklos lentelių"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -5510,7 +5497,7 @@ msgstr "Duomenų bazė atrodo tuščia!"
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
 msgid "Tracking"
-msgstr ""
+msgstr "Sekimas"
 
 #: libraries/db_links.inc.php:70
 msgid "Query"
@@ -7161,7 +7148,7 @@ msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
 "Informaciją, kaip atnaujinti column_comments lentelę, galite rasti "
-"dokumentacijoje."
+"dokumentacijoje"
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:376
 msgid "Bookmarked SQL query"
@@ -7846,7 +7833,7 @@ msgstr "Rodyti lentelių dydžius"
 
 #: libraries/schema/User_Schema.class.php:420
 msgid "Display all tables with the same width"
-msgstr "rodyti visas lenteles vienodo pločio?"
+msgstr "Rodyti visas lenteles vienodo pločio"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
@@ -7987,7 +7974,7 @@ msgstr "Pakeisti jau egzistuojančią žymę tuo pačiu vardu"
 
 #: libraries/sql_query_form.lib.php:329
 msgid "Do not overwrite this query from outside the window"
-msgstr "Nekeisti šios užklausos už aktyvaus lango ribų."
+msgstr "Nekeisti šios užklausos už aktyvaus lango ribų"
 
 #: libraries/sql_query_form.lib.php:336
 msgid "Delimiter"
@@ -8239,8 +8226,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Parodo aktyvų mažinį; nustatymai: plotis,aukštis pikseliais (išsaugo "
-"originalų santykį)"
+"Parodo aktyvią minitiūrą. Nustatymai: maksimalus plotis ir aukštis "
+"pikseliais. Pradinės proporcijos išlaikomos."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
@@ -8363,7 +8350,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Jūsų nustatymai bus išsaugoti tik šiai sesijai. Saugant juos visam laikui "
-"reikia %sphpMyAdmin konfigūracijos talpinimo%s."
+"reikia %sphpMyAdmin nustatymų saugyklos%s."
 
 #: libraries/user_preferences.lib.php:116
 msgid "Could not save configuration"
@@ -8518,7 +8505,7 @@ msgstr ""
 "sukonfigūruosite phpMyAdmin."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "pMyAdmin configuration storage has been deactivated. To find out  click "
 #| "ere%s."
@@ -8526,7 +8513,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin konfigūracijos talpinimo vieta išjungta. %sIšsiaiškinti kodėl%s."
+"phpMyAdmin nustatymų saugykla nėra visiškai sukonfigūruota, išplėstinės "
+"funkcijos išjungtos. %sIšsiaiškinkite kodėl%s."
 
 #: main.php:336
 msgid ""
@@ -8790,7 +8778,7 @@ msgstr "Jūs neturite išsaugotų nustatymų!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr "Šios galimybės Jūsų interneto naršyklė nepalaiko!"
+msgstr "Šios galimybės Jūsų interneto naršyklė nepalaiko"
 
 #: prefs_manage.php:261
 msgid "Merge with current configuration"
@@ -9059,7 +9047,8 @@ msgstr "Riboti prisijungimų kiekį per valandą."
 #: server_privileges.php:54 server_privileges.php:716
 #: server_privileges.php:718
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Riboti užklausų kiekį per valandą"
+msgstr ""
+"Riboti užklausų, kurias naudotojas gali siųsti į serverį, kiekį per valandą."
 
 #: server_privileges.php:55 server_privileges.php:722
 #: server_privileges.php:724
@@ -9137,7 +9126,7 @@ msgstr ""
 #: server_privileges.php:67 server_privileges.php:281
 #: server_privileges.php:650
 msgid "Allows creating and dropping triggers"
-msgstr "Leisti įterpti ir pašalinti trigerius."
+msgstr "Leisti įterpti ir pašalinti trigerius"
 
 #: server_privileges.php:68 server_privileges.php:205
 #: server_privileges.php:555 server_privileges.php:620
@@ -9478,7 +9467,7 @@ msgid ""
 msgstr ""
 "Kai iš naujo paleisite MySQL serverį, prašome paspausti mygtuką Vykdyti. Po "
 "to turėtumėte pamatyti informacinę žinutę, kad šis serveris <b>yra</b> "
-"sukonfigūruotas kaip pagrindinis (master)."
+"sukonfigūruotas kaip pagrindinis (master)"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
@@ -9564,7 +9553,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Serveris nesukonfigūruotas daugintuvo (replication) procese kaip pavaldusis "
-"(slave). <a href=\"%s\">Konfigūruoti</a>!"
+"(slave). Ar norėtumėte <a href=\"%s\">sukonfigūruoti</a>?"
 
 #: server_status.php:460
 #, php-format
