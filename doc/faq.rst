@@ -1941,6 +1941,8 @@ can check out all the possibilities to contribute in the `contribute
 section on our website
 <http://www.phpmyadmin.net/home_page/improve.php>`_.
 
+.. seealso:: :ref:`developers`
+
 .. _faqsecurity:
 
 Security
