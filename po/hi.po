@@ -1,16 +1,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-08 08:48-0500\n"
+"POT-Creation-Date: 2013-02-12 15:52+0100\n"
 "PO-Revision-Date: 2013-01-20 23:04+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -21,7 +21,7 @@ msgid "Show all"
 msgstr "सभी दिखाएँ"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2543
+#: libraries/Util.class.php:2544
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
 #: libraries/schema/User_Schema.class.php:427
@@ -39,14 +39,14 @@ msgstr ""
 "या अपनी ब्राउसर की सिक्यूरिटी सेट्टिंग को क्रोस-विंडो अद्यतन के लिए कांफिगुर कर रखा है."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3228 libraries/Util.class.php:3433
-#: libraries/Util.class.php:3434
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3222
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3434
+#: libraries/Util.class.php:3435
 msgid "Search"
 msgstr "ढूंढें"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
-#: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -279,11 +279,11 @@ msgstr "डेटाबेस का डंप (स्कीमा) नजार
 msgid "No tables found in database."
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
-#: db_export.php:40 libraries/DbSearch.class.php:437 server_export.php:25
+#: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
 msgstr "सभी का चयन करें"
 
-#: db_export.php:45 libraries/DbSearch.class.php:440 server_export.php:30
+#: db_export.php:45 libraries/DbSearch.class.php:441 server_export.php:30
 msgid "Unselect All"
 msgstr "सभी को रद्द करें"
 
@@ -309,8 +309,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए %"
-"sयहाँ%s पर क्लिक करें."
+"phpMyAdmin विन्यास भंडारण को निष्क्रिय किया गया हैक्यों ये किया गया है, जानने के लिए "
+"%sयहाँ%s पर क्लिक करें."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:508
@@ -341,7 +341,7 @@ msgstr "आकार"
 msgid "in use"
 msgstr "उपयोग में है"
 
-#: db_printview.php:185 libraries/Util.class.php:4071
+#: db_printview.php:185 libraries/Util.class.php:4072
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
@@ -349,7 +349,7 @@ msgstr "उपयोग में है"
 msgid "Creation"
 msgstr "रचना"
 
-#: db_printview.php:194 libraries/Util.class.php:4077
+#: db_printview.php:194 libraries/Util.class.php:4078
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
@@ -357,7 +357,7 @@ msgstr "रचना"
 msgid "Last update"
 msgstr "पिछला नवीनीकरण"
 
-#: db_printview.php:203 libraries/Util.class.php:4083
+#: db_printview.php:203 libraries/Util.class.php:4084
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
@@ -452,7 +452,7 @@ msgid "Delete tracking data for this table"
 msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3438 libraries/Util.class.php:3439
+#: libraries/Util.class.php:3439 libraries/Util.class.php:3440
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
 #: server_databases.php:327
@@ -624,11 +624,11 @@ msgstr ""
 #: import.php:93
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके %s "
 "दोकुमेंताशन%s पढ़ें."
@@ -746,7 +746,7 @@ msgid "Database server"
 msgstr "यूसर के लिए डेटाबेस"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "सर्वर"
@@ -1010,7 +1010,7 @@ msgstr "बंद"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:589
 #: libraries/Util.class.php:696 libraries/Util.class.php:1241
-#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
+#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
 #: libraries/config/messages.inc.php:484
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -2393,19 +2393,19 @@ msgstr "डेटाबेस <b>%s</b> पर SQL क्वरी:"
 msgid "Submit Query"
 msgstr "क्वरी भेजें"
 
-#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:397
+#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
 msgstr "कोई भी एक शब्द"
 
-#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:401
+#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:402
 msgid "all words"
 msgstr "सभी शब्द"
 
-#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:405
+#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:406
 msgid "the exact phrase"
 msgstr "यथार्थ वाक्यांश"
 
-#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:406
+#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:407
 msgid "as regular expression"
 msgstr "नियमित अभिव्यक्ति के रूप में"
 
@@ -2421,7 +2421,7 @@ msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>कुल:</b> <i>%s</i> मैच"
 msgstr[1] "<b>कुल:</b> <i>%s</i> मैच"
 
-#: libraries/DbSearch.class.php:330
+#: libraries/DbSearch.class.php:331
 #, fuzzy, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
@@ -2430,18 +2430,18 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 msgstr[1] "<i>%s</i> टेबल के अंदर %s मैच हैं."
 
-#: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3431
-#: libraries/Util.class.php:3432 libraries/structure.lib.php:1368
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
+#: libraries/Util.class.php:3224 libraries/Util.class.php:3432
+#: libraries/Util.class.php:3433 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "ब्राउज़"
 
-#: libraries/DbSearch.class.php:352
+#: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "इस %s टेबल से मैच हटाएँ"
 
-#: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3384
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5045
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
@@ -2452,27 +2452,27 @@ msgstr "इस %s टेबल से मैच हटाएँ"
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: libraries/DbSearch.class.php:381
+#: libraries/DbSearch.class.php:382
 msgid "Search in database"
 msgstr "डाटाबेस में खोजें"
 
-#: libraries/DbSearch.class.php:385
+#: libraries/DbSearch.class.php:386
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "शब्द अथवा वेल्यु जिसे सर्च करना है (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:394
+#: libraries/DbSearch.class.php:395
 msgid "Find:"
 msgstr "खोजो:"
 
-#: libraries/DbSearch.class.php:399 libraries/DbSearch.class.php:403
+#: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
 msgstr "शब्द स्पेस(\" \") करक्टेर से अलग किये गए हैं."
 
-#: libraries/DbSearch.class.php:418
+#: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
 msgstr "टेबल में:"
 
-#: libraries/DbSearch.class.php:444
+#: libraries/DbSearch.class.php:445
 msgid "Inside column:"
 msgstr "काँलम के अंदर:"
 
@@ -2488,32 +2488,32 @@ msgstr "निर्देशिका बचाना"
 msgid "Restore column order"
 msgstr "पाठ क्षेत्रपाठ क्षेत्र कोलम"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2552
-#: libraries/Util.class.php:2556
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2553
+#: libraries/Util.class.php:2557
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "प्रारंभ"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2557 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2555
+#: libraries/Util.class.php:2558 server_binlog.php:141 server_binlog.php:143
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "पिछला"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2589
-#: libraries/Util.class.php:2592 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2590
+#: libraries/Util.class.php:2593 server_binlog.php:174 server_binlog.php:176
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "अगला"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2590
-#: libraries/Util.class.php:2593
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2591
+#: libraries/Util.class.php:2594
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -2653,8 +2653,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4928 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
 #: libraries/DisplayResults.class.php:4941
@@ -2694,7 +2694,7 @@ msgstr "सभी को चेक करें"
 #: libraries/DisplayResults.class.php:5082
 #: libraries/DisplayResults.class.php:5280 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
+#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
@@ -2796,12 +2796,12 @@ msgstr "phpMyAdmin की नई विंडो खोलें"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:595
+#: libraries/Header.class.php:603
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "कुकीज़ इस बिंदु अतीत सक्षम होना चाहिए."
 
-#: libraries/Header.class.php:600
+#: libraries/Header.class.php:608
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -2879,8 +2879,8 @@ msgid "View"
 msgstr "दृश्य"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3437 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3220 libraries/Util.class.php:3227
+#: libraries/Util.class.php:3438 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2894,20 +2894,20 @@ msgid "Structure"
 msgstr "संरचना"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3221
+#: libraries/Util.class.php:3228 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3435 libraries/Util.class.php:3436
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3223
+#: libraries/Util.class.php:3436 libraries/Util.class.php:3437
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "इनसर्ट"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3230
 #: view_operations.php:86
 msgid "Operations"
 msgstr "कार्रवाई"
@@ -2979,7 +2979,7 @@ msgstr "बाइनरी लोग"
 msgid "Replication"
 msgstr "प्रतिकृति"
 
-#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:241
+#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
 msgid "Variables"
 msgstr "प्रक्रियां"
@@ -3125,24 +3125,24 @@ msgstr ""
 msgid "Flush query cache"
 msgstr "फ्लश क्वेरी कैश"
 
-#: libraries/ServerStatusData.class.php:243
+#: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
 msgstr ""
 
-#: libraries/ServerStatusData.class.php:345
+#: libraries/ServerStatusData.class.php:343
 msgid "Query statistics"
 msgstr "क्वॅरी संबंधी आंकड़े"
 
-#: libraries/ServerStatusData.class.php:349
+#: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
 msgstr ""
 
-#: libraries/ServerStatusData.class.php:353
+#: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
 msgstr ""
 
-#: libraries/ServerStatusData.class.php:357
+#: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
 msgstr ""
 
@@ -3388,14 +3388,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3723,51 +3723,51 @@ msgstr "%s दिन, %s घंटे, %s मिनट and %s सेकंड"
 msgid "Missing parameter:"
 msgstr "नियमित कार्य"
 
-#: libraries/Util.class.php:2662
+#: libraries/Util.class.php:2663
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; डेटाबेस पर जायें"
 
-#: libraries/Util.class.php:2686
+#: libraries/Util.class.php:2687
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s कार्यक्षमताएक एक बग के द्वारा जनि जाती है| %s पर ध्यान दे"
 
-#: libraries/Util.class.php:2862
+#: libraries/Util.class.php:2863
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "चयन करने के लिए क्लिक करें."
 
-#: libraries/Util.class.php:3350 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3351 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "अपने कंप्यूटर ब्राउज़ करें"
 
-#: libraries/Util.class.php:3375
+#: libraries/Util.class.php:3376
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "अपने वेब सर्वर डिरेक्टरी से अपलोड चुने <b>%s</b>;"
 
-#: libraries/Util.class.php:3404 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3405 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
 
-#: libraries/Util.class.php:3415
+#: libraries/Util.class.php:3416
 msgid "There are no files to upload"
 msgstr "अपलोड करने के लिए फाइल उपलब्ध नहीं"
 
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
+#: libraries/Util.class.php:3441 libraries/Util.class.php:3442
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "खाली"
 
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
+#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.class.php:3970
+#: libraries/Util.class.php:3971
 msgid "Print"
 msgstr "छापें"
 
@@ -3815,24 +3815,24 @@ msgstr "डाटाबेस के  प्रिविलेज  चेक क
 msgid "Check Privileges"
 msgstr "प्रिविलेज  चेक करें"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:578
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
 msgstr "विन्यास सहेज नहीं सकते"
 
-#: libraries/common.inc.php:581
+#: libraries/common.inc.php:580
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी |"
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:594
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -3843,38 +3843,38 @@ msgid ""
 msgstr ""
 "<code>$cfg['PmaAbsoluteUri']</code> निर्देश आपकी विन्यास फाइल मैं सेट होना आवश्यक है"
 
-#: libraries/common.inc.php:628
+#: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "अवैध सर्वर सूचकांक: %s"
 
-#: libraries/common.inc.php:639
+#: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "%1$s सर्वर के लिए होस्टनाम अवैध कृपया अपना विन्यास की समीक्षा करें"
 
-#: libraries/common.inc.php:848
+#: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
 msgstr "विन्यास में अवैध प्रमाणीकरण विधि स्थापित"
 
-#: libraries/common.inc.php:970
+#: libraries/common.inc.php:969
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए"
 
-#: libraries/common.inc.php:1044
+#: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1088
+#: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1095
+#: libraries/common.inc.php:1094
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1104
+#: libraries/common.inc.php:1103
 msgid "numeric key detected"
 msgstr ""
 
@@ -3905,21 +3905,21 @@ msgstr ""
 msgid "Double click"
 msgstr ""
 
-#: libraries/config.values.php:71 libraries/config.values.php:103
+#: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
 #: libraries/relation.lib.php:105 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr "अक्षम"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:100
 msgid "Open"
 msgstr "खोले"
 
-#: libraries/config.values.php:102
+#: libraries/config.values.php:101
 msgid "Closed"
 msgstr "बंद"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:131
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3929,7 +3929,7 @@ msgstr "बंद"
 msgid "structure"
 msgstr "संरचना"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3939,7 +3939,7 @@ msgstr "संरचना"
 msgid "data"
 msgstr "डेटा"
 
-#: libraries/config.values.php:134
+#: libraries/config.values.php:133
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3949,31 +3949,31 @@ msgstr "डेटा"
 msgid "structure and data"
 msgstr "संरचना और डेटा"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:136
 msgid "Quick - display only the minimal options to configure"
 msgstr "जल्दी - कॉन्फ़िगर करने के लिए केवल न्यूनतम विकल्पों को प्रदर्शित करें"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:137
 msgid "Custom - display all possible options to configure"
 msgstr "कस्टम - कॉन्फ़िगर करने के लिए सभी विकल्पों को प्रदर्शित करें"
 
-#: libraries/config.values.php:139
+#: libraries/config.values.php:138
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "कस्टम - उपरोक्त की तरह लेकिन जल्दी / कस्टम विकल्प के बिना"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:166
 msgid "complete inserts"
 msgstr "पूरा इनसर्टस"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:167
 msgid "extended inserts"
 msgstr "विस्तृत इनसर्टस"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:168
 msgid "both of the above"
 msgstr "ऊपर के दोनों"
 
-#: libraries/config.values.php:170
+#: libraries/config.values.php:169
 msgid "neither of the above"
 msgstr "उपरोक्त में से कोई भी नहीं"
 
@@ -6473,8 +6473,8 @@ msgstr ", @टेबल@ टेबल का नाम बन जायेगा
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:329
@@ -6944,8 +6944,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7644,11 +7644,11 @@ msgstr "%s मे स्वागत है"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script%2"
-"$s का उपयोग करें."
+"आपने शायद एक विन्यास फाइल नहीं बने थी. विन्यास फाइल बनाने के लिए %1$ssetup script"
+"%2$s का उपयोग करें."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -9557,8 +9557,8 @@ msgstr "यूसर सिंहावलोकन"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3013
@@ -12645,8 +12645,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12779,8 +12779,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -13395,7 +13395,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
-"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
 "note however that you cannot simply change the value of this variable. You "
@@ -13425,13 +13425,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:447
 #, php-format
 msgid ""
-"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\"http://"
-"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
-"files, set the new value in my.cnf, start the server, then check the error "
-"logs if everything went fine. See also <a href=\"http://"
+"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
+"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
+"the recovery time after a database crash considerably. See also <a href="
+"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href=\"http://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""

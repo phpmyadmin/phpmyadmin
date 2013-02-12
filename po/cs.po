@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-08 08:48-0500\n"
+"POT-Creation-Date: 2013-02-12 15:52+0100\n"
 "PO-Revision-Date: 2013-02-08 15:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -23,7 +23,7 @@ msgid "Show all"
 msgstr "Zobrazit vše"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2543
+#: libraries/Util.class.php:2544
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
 #: libraries/schema/User_Schema.class.php:427
@@ -42,14 +42,14 @@ msgstr ""
 "bezpečnostních nastavení."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3228 libraries/Util.class.php:3433
-#: libraries/Util.class.php:3434
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3222
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3434
+#: libraries/Util.class.php:3435
 msgid "Search"
 msgstr "Vyhledávání"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
-#: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -282,11 +282,11 @@ msgstr "Zobrazit výpis (schéma) databáze"
 msgid "No tables found in database."
 msgstr "V databázi nebyla nalezena žádná tabulka."
 
-#: db_export.php:40 libraries/DbSearch.class.php:437 server_export.php:25
+#: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: db_export.php:45 libraries/DbSearch.class.php:440 server_export.php:30
+#: db_export.php:45 libraries/DbSearch.class.php:441 server_export.php:30
 msgid "Unselect All"
 msgstr "Odznačit vše"
 
@@ -342,7 +342,7 @@ msgstr "Velikost"
 msgid "in use"
 msgstr "právě se používá"
 
-#: db_printview.php:185 libraries/Util.class.php:4071
+#: db_printview.php:185 libraries/Util.class.php:4072
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
@@ -350,7 +350,7 @@ msgstr "právě se používá"
 msgid "Creation"
 msgstr "Vytvořeno"
 
-#: db_printview.php:194 libraries/Util.class.php:4077
+#: db_printview.php:194 libraries/Util.class.php:4078
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
@@ -358,7 +358,7 @@ msgstr "Vytvořeno"
 msgid "Last update"
 msgstr "Poslední změna"
 
-#: db_printview.php:203 libraries/Util.class.php:4083
+#: db_printview.php:203 libraries/Util.class.php:4084
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
@@ -453,7 +453,7 @@ msgid "Delete tracking data for this table"
 msgstr "Odstranit všechny informace o sledování této tabulky"
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3438 libraries/Util.class.php:3439
+#: libraries/Util.class.php:3439 libraries/Util.class.php:3440
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
 #: server_databases.php:327
@@ -619,8 +619,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -733,7 +733,7 @@ msgid "Database server"
 msgstr "Databázový server"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1003,7 +1003,7 @@ msgstr "Ukončit"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:589
 #: libraries/Util.class.php:696 libraries/Util.class.php:1241
-#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
+#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
 #: libraries/config/messages.inc.php:484
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -2364,19 +2364,19 @@ msgstr "SQL dotaz na databázi <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Provést dotaz"
 
-#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:397
+#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
 msgstr "alespoň jedno ze slov"
 
-#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:401
+#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:402
 msgid "all words"
 msgstr "všechna slova"
 
-#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:405
+#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:406
 msgid "the exact phrase"
 msgstr "přesnou frázi"
 
-#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:406
+#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:407
 msgid "as regular expression"
 msgstr "jako regulární výraz"
 
@@ -2393,7 +2393,7 @@ msgstr[0] "<b>Celkem:</b> <i>%s</i> odpovídající záznam"
 msgstr[1] "<b>Celkem:</b> <i>%s</i> odpovídající záznamy"
 msgstr[2] "<b>Celkem:</b> <i>%s</i> odpovídajících záznamů"
 
-#: libraries/DbSearch.class.php:330
+#: libraries/DbSearch.class.php:331
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
@@ -2401,18 +2401,18 @@ msgstr[0] "%1$s odpovídající záznam v <strong>%2$s</strong>"
 msgstr[1] "%1$s odpovídající záznamy v <strong>%2$s</strong>"
 msgstr[2] "%1$s odpovídajících záznamů v <strong>%2$s</strong>"
 
-#: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3431
-#: libraries/Util.class.php:3432 libraries/structure.lib.php:1368
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
+#: libraries/Util.class.php:3224 libraries/Util.class.php:3432
+#: libraries/Util.class.php:3433 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Projít"
 
-#: libraries/DbSearch.class.php:352
+#: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Odstranit nalezené záznamy z tabulky %s?"
 
-#: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3384
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5045
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
@@ -2423,27 +2423,27 @@ msgstr "Odstranit nalezené záznamy z tabulky %s?"
 msgid "Delete"
 msgstr "Odstranit"
 
-#: libraries/DbSearch.class.php:381
+#: libraries/DbSearch.class.php:382
 msgid "Search in database"
 msgstr "Vyhledávání v databázi"
 
-#: libraries/DbSearch.class.php:385
+#: libraries/DbSearch.class.php:386
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Slova nebo hodnoty, které si přejete vyhledat (zástupný znak: „%“):"
 
-#: libraries/DbSearch.class.php:394
+#: libraries/DbSearch.class.php:395
 msgid "Find:"
 msgstr "Najít:"
 
-#: libraries/DbSearch.class.php:399 libraries/DbSearch.class.php:403
+#: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
 msgstr "Slova jsou oddělena mezerou („ “)."
 
-#: libraries/DbSearch.class.php:418
+#: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
 msgstr "V tabulkách:"
 
-#: libraries/DbSearch.class.php:444
+#: libraries/DbSearch.class.php:445
 msgid "Inside column:"
 msgstr "Uvnitř pole:"
 
@@ -2455,26 +2455,26 @@ msgstr "Uložit upravovaná data"
 msgid "Restore column order"
 msgstr "Obnovit pořadí sloupců"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2552
-#: libraries/Util.class.php:2556
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2553
+#: libraries/Util.class.php:2557
 msgctxt "First page"
 msgid "Begin"
 msgstr "První"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2557 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2555
+#: libraries/Util.class.php:2558 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Předchozí"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2589
-#: libraries/Util.class.php:2592 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2590
+#: libraries/Util.class.php:2593 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Následující"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2590
-#: libraries/Util.class.php:2593
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2591
+#: libraries/Util.class.php:2594
 msgctxt "Last page"
 msgid "End"
 msgstr "Poslední"
@@ -2604,8 +2604,8 @@ msgstr "v dotazu"
 #: libraries/DisplayResults.class.php:4928 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -2646,7 +2646,7 @@ msgstr "Zaškrtnout vše"
 #: libraries/DisplayResults.class.php:5082
 #: libraries/DisplayResults.class.php:5280 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
+#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
@@ -2748,12 +2748,12 @@ msgstr "Otevřít nové okno phpMyAdmina"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klikněte na pruh pro posunutí stránky nahoru"
 
-#: libraries/Header.class.php:595
+#: libraries/Header.class.php:603
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Přihlášení vyžaduje povolené cookies."
 
-#: libraries/Header.class.php:600
+#: libraries/Header.class.php:608
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript"
@@ -2831,8 +2831,8 @@ msgid "View"
 msgstr "Pohled"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3437 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3220 libraries/Util.class.php:3227
+#: libraries/Util.class.php:3438 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2846,20 +2846,20 @@ msgid "Structure"
 msgstr "Struktura"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3221
+#: libraries/Util.class.php:3228 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3435 libraries/Util.class.php:3436
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3223
+#: libraries/Util.class.php:3436 libraries/Util.class.php:3437
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "Vložit"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3230
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Úpravy"
@@ -2929,7 +2929,7 @@ msgstr "Binární log"
 msgid "Replication"
 msgstr "Replikace"
 
-#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:241
+#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
 msgid "Variables"
 msgstr "Proměnné"
@@ -3070,24 +3070,24 @@ msgstr "Zobrazit stav podřízených serverů"
 msgid "Flush query cache"
 msgstr "Vyprázdnit mezipaměť dotazů"
 
-#: libraries/ServerStatusData.class.php:243
+#: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
 msgstr "Stav InnoDB"
 
-#: libraries/ServerStatusData.class.php:345
+#: libraries/ServerStatusData.class.php:343
 msgid "Query statistics"
 msgstr "Statistika dotazů"
 
-#: libraries/ServerStatusData.class.php:349
+#: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
 msgstr "Všechny stavové proměnné"
 
-#: libraries/ServerStatusData.class.php:353
+#: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
 msgstr "Monitor"
 
-#: libraries/ServerStatusData.class.php:357
+#: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
 msgstr "Poradce"
 
@@ -3332,20 +3332,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -3.402823466E"
 "+38 od -1.175494351E-38, 0, a od 1.175494351E-38 do 3.402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od -"
-"1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
+"Číslo s pohyblivou desetinnou čárkou, podporované rozsahy od "
+"-1.7976931348623157E+308 do -2.2250738585072014E-308, 0, a od "
 "2.2250738585072014E-308 do 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -3692,49 +3692,49 @@ msgstr "%s dnů, %s hodin, %s minut a %s sekund"
 msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
-#: libraries/Util.class.php:2662
+#: libraries/Util.class.php:2663
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Přejít na databázi „%s“."
 
-#: libraries/Util.class.php:2686
+#: libraries/Util.class.php:2687
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
-#: libraries/Util.class.php:2862
+#: libraries/Util.class.php:2863
 msgid "Click to toggle"
 msgstr "Klikněte pro přepnutí"
 
-#: libraries/Util.class.php:3350 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3351 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Procházet váš počítač:"
 
-#: libraries/Util.class.php:3375
+#: libraries/Util.class.php:3376
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvolte soubor z adresáře pro upload na serveru <b>%s</b>:"
 
-#: libraries/Util.class.php:3404 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3405 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Adresář určený pro upload souborů nemohl být otevřen"
 
-#: libraries/Util.class.php:3415
+#: libraries/Util.class.php:3416
 msgid "There are no files to upload"
 msgstr "Nebyl zvolen žádný soubor pro nahrání"
 
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
+#: libraries/Util.class.php:3441 libraries/Util.class.php:3442
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Vyprázdnit"
 
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
+#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 msgid "Execute"
 msgstr "Spustit"
 
-#: libraries/Util.class.php:3970
+#: libraries/Util.class.php:3971
 msgid "Print"
 msgstr "Vytisknout"
 
@@ -3782,11 +3782,11 @@ msgstr "Zkontrolovat oprávnění pro databázi „%s“."
 msgid "Check Privileges"
 msgstr "Zkontrolovat oprávnění"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:578
 msgid "Failed to read configuration file"
 msgstr "Nepodařilo se načíst konfigurační soubor"
 
-#: libraries/common.inc.php:581
+#: libraries/common.inc.php:580
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3794,12 +3794,12 @@ msgstr ""
 "Obvykle to je způsobenou chybou v tomto souboru, prosím opravte jakékoliv "
 "chyby vypsané níže."
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nepodařilo se nahrát výchozí nastavení ze souboru: %1$s"
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:594
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3807,38 +3807,38 @@ msgstr ""
 "V konfiguračním souboru musí být nastaven parametr [code]$cfg"
 "['PmaAbsoluteUri'][/code]!"
 
-#: libraries/common.inc.php:628
+#: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chybné číslo serveru: %s"
 
-#: libraries/common.inc.php:639
+#: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
-#: libraries/common.inc.php:848
+#: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
 msgstr "V nastavení máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:970
+#: libraries/common.inc.php:969
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/common.inc.php:1044
+#: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/common.inc.php:1088
+#: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/common.inc.php:1095
+#: libraries/common.inc.php:1094
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
-#: libraries/common.inc.php:1104
+#: libraries/common.inc.php:1103
 msgid "numeric key detected"
 msgstr "detekován číselný klíč"
 
@@ -3867,21 +3867,21 @@ msgstr "Kliknutí"
 msgid "Double click"
 msgstr "Dvojklik"
 
-#: libraries/config.values.php:71 libraries/config.values.php:103
+#: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
 #: libraries/relation.lib.php:105 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr "Vypnuto"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:100
 msgid "Open"
 msgstr "Otevřené"
 
-#: libraries/config.values.php:102
+#: libraries/config.values.php:101
 msgid "Closed"
 msgstr "Uzavřené"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:131
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3891,7 +3891,7 @@ msgstr "Uzavřené"
 msgid "structure"
 msgstr "struktura"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3901,7 +3901,7 @@ msgstr "struktura"
 msgid "data"
 msgstr "data"
 
-#: libraries/config.values.php:134
+#: libraries/config.values.php:133
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3911,31 +3911,31 @@ msgstr "data"
 msgid "structure and data"
 msgstr "struktura a data"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:136
 msgid "Quick - display only the minimal options to configure"
 msgstr "Rychlý - zobrazí jen minimum možností nastavení"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:137
 msgid "Custom - display all possible options to configure"
 msgstr "Vlastní - zobrazí všechna možná nastavení"
 
-#: libraries/config.values.php:139
+#: libraries/config.values.php:138
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Vlastní - jako výše, ale bez volby rychlý/vlastní"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:166
 msgid "complete inserts"
 msgstr "úplné inserty"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:167
 msgid "extended inserts"
 msgstr "rozšířené inserty"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:168
 msgid "both of the above"
 msgstr "oba výše uvedené"
 
-#: libraries/config.values.php:170
+#: libraries/config.values.php:169
 msgid "neither of the above"
 msgstr "ani jeden z výše uvedených"
 
@@ -6432,8 +6432,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -6948,8 +6948,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7624,8 +7624,8 @@ msgstr "Vítejte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -9498,8 +9498,8 @@ msgstr "Přehled uživatelů"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9864,8 +9864,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:170
 msgid "Transformation options"
@@ -10188,8 +10188,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:302
 msgid "Save to browser's storage"
@@ -11834,8 +11834,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:314
@@ -11846,8 +11846,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -12010,7 +12010,6 @@ msgid "Series:"
 msgstr "Série:"
 
 #: tbl_chart.php:208
-#| msgid "No numeric fields present in the table to plot."
 msgid "No numeric columns present in the table to plot."
 msgstr "Ve zvolené tabulce nejsou žádná číselná pole pro vykreslení do grafu."
 
@@ -12409,8 +12408,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12675,8 +12674,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
 "80%%"
@@ -12824,11 +12823,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
-"%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
+"10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -13441,7 +13440,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
-"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
 "note however that you cannot simply change the value of this variable. You "
@@ -13451,7 +13450,7 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Obzvláště na systémech s hodně zápisy do InnoDB je vhodné nastavit "
-"innodb_log_file_size na 25%% {innodb_buffer_pool_size}. Na druhou stranu, "
+"{innodb_log_file_size} na 25%% {innodb_buffer_pool_size}. Na druhou stranu, "
 "čím větší je hodnota, tím déle bude trvat obnova databáze v případě "
 "problému, takže není vhodné mít tuto hodnotu nastaveno na více než 256 MiB. "
 "Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
@@ -13481,20 +13480,20 @@ msgstr "Velikost záznamového souboru je příliš velká."
 #: libraries/advisory_rules.txt:447
 #, php-format
 msgid ""
-"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\"http://"
-"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
-"files, set the new value in my.cnf, start the server, then check the error "
-"logs if everything went fine. See also <a href=\"http://"
+"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
+"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
+"the recovery time after a database crash considerably. See also <a href="
+"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href=\"http://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"Obvykle je dostačující mít nastavené innodb_log_file_size na 25%% velikosti "
-"{innodb_buffer_pool_size}. Příliš velká innodb_log_file_size zpomaluje "
-"obnovení databáze v případě jejího pádu nebo problémů s hardware. Více "
-"informací naleznete v <a href=\"http://www.mysqlperformanceblog."
+"Obvykle je dostačující mít nastavené {innodb_log_file_size} na 25%% "
+"velikosti {innodb_buffer_pool_size}. Příliš velká {innodb_log_file_size} "
+"zpomaluje obnovení databáze v případě jejího pádu nebo problémů s hardware. "
+"Více informací naleznete v <a href=\"http://www.mysqlperformanceblog."
 "com/2006/07/03/choosing-proper-innodb_log_file_size/\">tomto článku</a>. "
 "Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
 "ukončen server, odstraněny záznamy InnoDB a až poté změněna hodnota v my.cnf "

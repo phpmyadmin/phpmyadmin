@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-08 08:48-0500\n"
+"POT-Creation-Date: 2013-02-12 15:52+0100\n"
 "PO-Revision-Date: 2013-02-09 09:10+0200\n"
 "Last-Translator: Ewald Gemert, van <ewald@vangee.nl>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -21,7 +21,7 @@ msgid "Show all"
 msgstr "Toon alles"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2543
+#: libraries/Util.class.php:2544
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
 #: libraries/schema/User_Schema.class.php:427
@@ -39,14 +39,14 @@ msgstr ""
 "afgesloten of uw browser blokkeert bijwerkingen van uw venster."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3221
-#: libraries/Util.class.php:3228 libraries/Util.class.php:3433
-#: libraries/Util.class.php:3434
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3222
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3434
+#: libraries/Util.class.php:3435
 msgid "Search"
 msgstr "Zoeken"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
-#: libraries/DbSearch.class.php:454 libraries/DisplayResults.class.php:1657
+#: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
@@ -279,11 +279,11 @@ msgstr "Bekijk een dump (schema) van databank"
 msgid "No tables found in database."
 msgstr "Geen tabellen gevonden in de databank."
 
-#: db_export.php:40 libraries/DbSearch.class.php:437 server_export.php:25
+#: db_export.php:40 libraries/DbSearch.class.php:438 server_export.php:25
 msgid "Select All"
 msgstr "Selecteer alles"
 
-#: db_export.php:45 libraries/DbSearch.class.php:440 server_export.php:30
+#: db_export.php:45 libraries/DbSearch.class.php:441 server_export.php:30
 msgid "Unselect All"
 msgstr "Deselecteer alles"
 
@@ -339,7 +339,7 @@ msgstr "Grootte"
 msgid "in use"
 msgstr "in gebruik"
 
-#: db_printview.php:185 libraries/Util.class.php:4071
+#: db_printview.php:185 libraries/Util.class.php:4072
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
@@ -347,7 +347,7 @@ msgstr "in gebruik"
 msgid "Creation"
 msgstr "Gecreëerd"
 
-#: db_printview.php:194 libraries/Util.class.php:4077
+#: db_printview.php:194 libraries/Util.class.php:4078
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
@@ -355,7 +355,7 @@ msgstr "Gecreëerd"
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
-#: db_printview.php:203 libraries/Util.class.php:4083
+#: db_printview.php:203 libraries/Util.class.php:4084
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
@@ -449,7 +449,7 @@ msgid "Delete tracking data for this table"
 msgstr "Verwijder tracking data voor deze tabel"
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3438 libraries/Util.class.php:3439
+#: libraries/Util.class.php:3439 libraries/Util.class.php:3440
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
 #: server_databases.php:327
@@ -620,11 +620,11 @@ msgstr ""
 #: import.php:93
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand up te loaden dat te groot is. Zie %"
-"sdocumentatie%s voor oplossingen voor deze beperking."
+"U probeerde waarschijnlijk een bestand up te loaden dat te groot is. Zie "
+"%sdocumentatie%s voor oplossingen voor deze beperking."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -739,7 +739,7 @@ msgid "Database server"
 msgstr "Databankserver"
 
 #: index.php:230 libraries/Menu.class.php:150
-#: libraries/ServerStatusData.class.php:341 libraries/common.inc.php:655
+#: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
 #: libraries/config/messages.inc.php:506
 msgid "Server"
 msgstr "Server"
@@ -1011,7 +1011,7 @@ msgstr "Sluiten"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:589
 #: libraries/Util.class.php:696 libraries/Util.class.php:1241
-#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
+#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
 #: libraries/config/messages.inc.php:484
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -2387,19 +2387,19 @@ msgstr "SQL-query op databank <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Query uitvoeren"
 
-#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:397
+#: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
 msgstr "ten minste een van de woorden"
 
-#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:401
+#: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:402
 msgid "all words"
 msgstr "alle woorden"
 
-#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:405
+#: libraries/DbSearch.class.php:100 libraries/DbSearch.class.php:406
 msgid "the exact phrase"
 msgstr "de exacte zin"
 
-#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:406
+#: libraries/DbSearch.class.php:101 libraries/DbSearch.class.php:407
 msgid "as regular expression"
 msgstr "als een reguliere expressie"
 
@@ -2415,25 +2415,25 @@ msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst"
 msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomsten"
 
-#: libraries/DbSearch.class.php:330
+#: libraries/DbSearch.class.php:331
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s overeenkomst in <strong>%2$s</strong>"
 msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 
-#: libraries/DbSearch.class.php:345 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3223 libraries/Util.class.php:3431
-#: libraries/Util.class.php:3432 libraries/structure.lib.php:1368
+#: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
+#: libraries/Util.class.php:3224 libraries/Util.class.php:3432
+#: libraries/Util.class.php:3433 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Verkennen"
 
-#: libraries/DbSearch.class.php:352
+#: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Verwijder gevonden rijen voor de tabel %s?"
 
-#: libraries/DbSearch.class.php:356 libraries/DisplayResults.class.php:3384
+#: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5045
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
@@ -2444,27 +2444,27 @@ msgstr "Verwijder gevonden rijen voor de tabel %s?"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: libraries/DbSearch.class.php:381
+#: libraries/DbSearch.class.php:382
 msgid "Search in database"
 msgstr "Zoeken in de databank"
 
-#: libraries/DbSearch.class.php:385
+#: libraries/DbSearch.class.php:386
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Woorden of waarden waarnaar gezocht moet worden (wildcard: \"%\"):"
 
-#: libraries/DbSearch.class.php:394
+#: libraries/DbSearch.class.php:395
 msgid "Find:"
 msgstr "Zoek:"
 
-#: libraries/DbSearch.class.php:399 libraries/DbSearch.class.php:403
+#: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
 msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
 
-#: libraries/DbSearch.class.php:418
+#: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
 msgstr "In de tabellen:"
 
-#: libraries/DbSearch.class.php:444
+#: libraries/DbSearch.class.php:445
 msgid "Inside column:"
 msgstr "In de kolom:"
 
@@ -2476,26 +2476,26 @@ msgstr "Sla aangepaste gegevens op"
 msgid "Restore column order"
 msgstr "Kolomvolgorde herstellen"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2552
-#: libraries/Util.class.php:2556
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2553
+#: libraries/Util.class.php:2557
 msgctxt "First page"
 msgid "Begin"
 msgstr "Begin"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2557 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2555
+#: libraries/Util.class.php:2558 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Vorige"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2589
-#: libraries/Util.class.php:2592 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2590
+#: libraries/Util.class.php:2593 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Volgende"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2590
-#: libraries/Util.class.php:2593
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2591
+#: libraries/Util.class.php:2594
 msgctxt "Last page"
 msgid "End"
 msgstr "Einde"
@@ -2625,8 +2625,8 @@ msgstr "in de query"
 #: libraries/DisplayResults.class.php:4928 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
@@ -2667,7 +2667,7 @@ msgstr "Selecteer alles"
 #: libraries/DisplayResults.class.php:5082
 #: libraries/DisplayResults.class.php:5280 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
+#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
@@ -2771,12 +2771,12 @@ msgstr "Nieuw phpMyAdmin-scherm openen"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik op de balk om te scrollen naar het begin van de pagina"
 
-#: libraries/Header.class.php:595
+#: libraries/Header.class.php:603
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr "Cookies moeten aan staan voorbij dit punt."
 
-#: libraries/Header.class.php:600
+#: libraries/Header.class.php:608
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "Javascript moet ingeschakeld zijn voorbij dit punt"
@@ -2854,8 +2854,8 @@ msgid "View"
 msgstr "View"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3219 libraries/Util.class.php:3226
-#: libraries/Util.class.php:3437 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3220 libraries/Util.class.php:3227
+#: libraries/Util.class.php:3438 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -2869,20 +2869,20 @@ msgid "Structure"
 msgstr "Structuur"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3220
-#: libraries/Util.class.php:3227 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3221
+#: libraries/Util.class.php:3228 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3435 libraries/Util.class.php:3436
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3223
+#: libraries/Util.class.php:3436 libraries/Util.class.php:3437
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "Invoegen"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3229
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3230
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Handelingen"
@@ -2952,7 +2952,7 @@ msgstr "Binaire log"
 msgid "Replication"
 msgstr "Replicatie"
 
-#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:241
+#: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
 msgid "Variables"
 msgstr "Variabelen"
@@ -3090,24 +3090,24 @@ msgstr "Toon slave-status"
 msgid "Flush query cache"
 msgstr "Schoon querycache"
 
-#: libraries/ServerStatusData.class.php:243
+#: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
 msgstr "InnoDB Status"
 
-#: libraries/ServerStatusData.class.php:345
+#: libraries/ServerStatusData.class.php:343
 msgid "Query statistics"
 msgstr "Querystatistieken"
 
-#: libraries/ServerStatusData.class.php:349
+#: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
 msgstr "alle statusvariabelen"
 
-#: libraries/ServerStatusData.class.php:353
+#: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
 msgstr "Opvolgen"
 
-#: libraries/ServerStatusData.class.php:357
+#: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
 msgstr "Raadgever"
 
@@ -3358,17 +3358,17 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Een klein getal met variabele kommapositie, toegelaten waarden zijn -"
-"3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
+"Een klein getal met variabele kommapositie, toegelaten waarden zijn "
+"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
 "+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Een getal met variabele kommapositie met dubbel nauwkeurigheid, toegelaten "
@@ -3740,49 +3740,49 @@ msgstr "%s dagen, %s uren, %s minuten en %s seconden"
 msgid "Missing parameter:"
 msgstr "Ontbrekende parameter:"
 
-#: libraries/Util.class.php:2662
+#: libraries/Util.class.php:2663
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Ga naar databank &quot;%s&quot;."
 
-#: libraries/Util.class.php:2686
+#: libraries/Util.class.php:2687
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "De %s functionaliteit heeft last van een bekend probleem, zie %s"
 
-#: libraries/Util.class.php:2862
+#: libraries/Util.class.php:2863
 msgid "Click to toggle"
 msgstr "Klik om te wisselen"
 
-#: libraries/Util.class.php:3350 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3351 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Blader op uw eigen pc:"
 
-#: libraries/Util.class.php:3375
+#: libraries/Util.class.php:3376
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 
-#: libraries/Util.class.php:3404 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3405 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt"
 
-#: libraries/Util.class.php:3415
+#: libraries/Util.class.php:3416
 msgid "There are no files to upload"
 msgstr "Er zijn geen bestanden om te uploaden"
 
-#: libraries/Util.class.php:3440 libraries/Util.class.php:3441
+#: libraries/Util.class.php:3441 libraries/Util.class.php:3442
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Legen"
 
-#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
+#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 msgid "Execute"
 msgstr "Uitvoeren"
 
-#: libraries/Util.class.php:3970
+#: libraries/Util.class.php:3971
 msgid "Print"
 msgstr "Afdrukken"
 
@@ -3830,11 +3830,11 @@ msgstr "Controleer rechten op databank &quot;%s&quot;."
 msgid "Check Privileges"
 msgstr "Controleer rechten"
 
-#: libraries/common.inc.php:579
+#: libraries/common.inc.php:578
 msgid "Failed to read configuration file"
 msgstr "Lezen van het configuratiebestand is niet gelukt"
 
-#: libraries/common.inc.php:581
+#: libraries/common.inc.php:580
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -3843,12 +3843,12 @@ msgstr ""
 "hieronder te bekijken."
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:587
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Standaard configuratiebestand kon niet geladen worden vanuit: %1$s"
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:594
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -3856,38 +3856,38 @@ msgstr ""
 "De [code]$cfg['PmaAbsoluteUri'][/code] richtlijn MOET ingesteld zijn in het "
 "configuratiebestand!"
 
-#: libraries/common.inc.php:628
+#: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ongeldige serverindex: %s"
 
-#: libraries/common.inc.php:639
+#: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
-#: libraries/common.inc.php:848
+#: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 
-#: libraries/common.inc.php:970
+#: libraries/common.inc.php:969
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "U moet upgraden naar %s %s of hoger."
 
-#: libraries/common.inc.php:1044
+#: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: libraries/common.inc.php:1088
+#: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
 msgstr "poging om GLOBALS te overschrijven"
 
-#: libraries/common.inc.php:1095
+#: libraries/common.inc.php:1094
 msgid "possible exploit"
 msgstr "mogelijk misbruik"
 
-#: libraries/common.inc.php:1104
+#: libraries/common.inc.php:1103
 msgid "numeric key detected"
 msgstr "numerieke toets gedetecteerd"
 
@@ -3916,21 +3916,21 @@ msgstr "Klik"
 msgid "Double click"
 msgstr "Dubbelklik"
 
-#: libraries/config.values.php:71 libraries/config.values.php:103
+#: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
 #: libraries/relation.lib.php:105 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: libraries/config.values.php:101
+#: libraries/config.values.php:100
 msgid "Open"
 msgstr "Geopend"
 
-#: libraries/config.values.php:102
+#: libraries/config.values.php:101
 msgid "Closed"
 msgstr "Gesloten"
 
-#: libraries/config.values.php:132
+#: libraries/config.values.php:131
 #: libraries/plugins/export/ExportHtmlword.class.php:69
 #: libraries/plugins/export/ExportLatex.class.php:103
 #: libraries/plugins/export/ExportMediawiki.class.php:73
@@ -3940,7 +3940,7 @@ msgstr "Gesloten"
 msgid "structure"
 msgstr "structuur"
 
-#: libraries/config.values.php:133
+#: libraries/config.values.php:132
 #: libraries/plugins/export/ExportHtmlword.class.php:70
 #: libraries/plugins/export/ExportLatex.class.php:104
 #: libraries/plugins/export/ExportMediawiki.class.php:74
@@ -3950,7 +3950,7 @@ msgstr "structuur"
 msgid "data"
 msgstr "gegevens"
 
-#: libraries/config.values.php:134
+#: libraries/config.values.php:133
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:105
 #: libraries/plugins/export/ExportMediawiki.class.php:75
@@ -3960,31 +3960,31 @@ msgstr "gegevens"
 msgid "structure and data"
 msgstr "Structuur en gegevens"
 
-#: libraries/config.values.php:137
+#: libraries/config.values.php:136
 msgid "Quick - display only the minimal options to configure"
 msgstr "Snel - toon enkel de belangrijkste opties"
 
-#: libraries/config.values.php:138
+#: libraries/config.values.php:137
 msgid "Custom - display all possible options to configure"
 msgstr "Uitgebreid - toon alle mogelijke opties"
 
-#: libraries/config.values.php:139
+#: libraries/config.values.php:138
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Uitgebreid - zoals bovenstaande maar zonder keuze snel/uitgebreid"
 
-#: libraries/config.values.php:167
+#: libraries/config.values.php:166
 msgid "complete inserts"
 msgstr "volledige invoegingen"
 
-#: libraries/config.values.php:168
+#: libraries/config.values.php:167
 msgid "extended inserts"
 msgstr "uitgebreide invoegingen"
 
-#: libraries/config.values.php:169
+#: libraries/config.values.php:168
 msgid "both of the above"
 msgstr "beide bovenstaande opties"
 
-#: libraries/config.values.php:170
+#: libraries/config.values.php:169
 msgid "neither of the above"
 msgstr "geen van bovenstaande opties"
 
@@ -6530,13 +6530,13 @@ msgstr ", @TABLE@ wordt vervangen door de tabelnaam"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Deze waarde wordt geïnterpreteerd met behulp van %1$sstrftime%2$s, het "
 "gebruik van opmaakcodes is dan ook toegestaan. Daarnaast worden de volgende "
-"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ%5"
-"$s voor meer details."
+"vertalingen toegepast: %3$s. Overige tekst zal gelijk blijven. Zie %4$sFAQ"
+"%5$s voor meer details."
 
 #: libraries/display_export.lib.php:329
 msgid "use this for future exports"
@@ -7062,11 +7062,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Documentatie en meer informatie over PBXT kan gevonden worden op de %"
-"sPrimeBase XT home pagina%s."
+"Documentatie en meer informatie over PBXT kan gevonden worden op de "
+"%sPrimeBase XT home pagina%s."
 
 #: libraries/engines/pbxt.lib.php:133
 msgid "Related Links"
@@ -7740,8 +7740,8 @@ msgstr "Welkom bij %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "U heeft waarschijnlijk geen configuratiebestand aangemaakt. Het beste kunt u "
 "%1$ssetup script%2$s gebruiken om een te maken."
@@ -9650,8 +9650,8 @@ msgstr "Gebruikers overzicht"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL-"
 "privilegestabel. De inhoud van deze tabel kan verschillen met de rechten van "
@@ -9779,8 +9779,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de nodige "
-"PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de %sdocumentatie%"
-"s."
+"PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de %sdocumentatie"
+"%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:309
 #, php-format
@@ -10932,8 +10932,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Het inschakelen van de general_log kan de serverbelasting verhogen met 5-"
-"15%. Wees er ook bewust van dat het genereren van statistieken uit de "
+"Het inschakelen van de general_log kan de serverbelasting verhogen met "
+"5-15%. Wees er ook bewust van dat het genereren van statistieken uit de "
 "logboeken een belastende taak is, daarom is het aan te raden om alleen een "
 "kleine periode te selecteren, en de general_log uit te schakelen en de tabel "
 "te legen zodra het monitoren niet meer nodig is."
@@ -11977,10 +11977,10 @@ msgid ""
 msgstr ""
 "Deze %soptie%s zou uitgeschakeld moeten zijn gezien het de mogelijkheid "
 "geeft aan kwaadwillenden om op grote schaal aanmeldinspogingen uit te voeren "
-"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %"
-"strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is mogelijk "
-"niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt "
-"waar ook vele andere klanten gebruik van maken."
+"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan "
+"%strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is "
+"mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw "
+"provider komt waar ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -12081,8 +12081,8 @@ msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productiesystemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype%"
-"s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype"
+"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12153,9 +12153,6 @@ msgid "Generated by"
 msgstr "Gegenereerd door"
 
 #: sql.php:1205
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
@@ -12235,7 +12232,8 @@ msgstr "Series:"
 
 #: tbl_chart.php:208
 msgid "No numeric columns present in the table to plot."
-msgstr "Geen numerieke kolommen aanwezig om weer te kunnen geven in de grafiek."
+msgstr ""
+"Geen numerieke kolommen aanwezig om weer te kunnen geven in de grafiek."
 
 #: tbl_chart.php:224
 msgid "X-Axis label:"
@@ -12917,8 +12915,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "De huidige verhouding van vrij querycachegeheugen tot de totale "
 "querycachegrootte is %s%%. Dit zou meer dan 80%% moeten zijn"
@@ -13075,8 +13073,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% van alle sorteeracties veroorzaken tijdelijke tabellen, deze waarde zou "
 "lager moeten zijn dan 10%%."
@@ -13721,7 +13719,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
-"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
 "bigger this value, the longer the recovery time will be when database "
 "crashes, so this value should not be set much higher than 256 MiB. Please "
 "note however that you cannot simply change the value of this variable. You "
@@ -13731,7 +13729,7 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Vooral op een systeem met veel schrijfacties naar InnoDB-tabellen, is het "
-"aangewezen om innodb_log_file_size in te stellen op 25%% van "
+"aangewezen om {innodb_log_file_size} in te stellen op 25%% van "
 "{innodb_buffer_pool_size}. Echter, hoe groter deze waarde, hoe langer de "
 "hersteltijd als een databank crasht, dus deze waarde wordt best niet groter "
 "ingesteld dan 256 MiB. Merk op dat de waarde van deze variabele niet zomaar "
@@ -13762,21 +13760,21 @@ msgstr "Het InnoDB-logboek is veel te groot."
 #: libraries/advisory_rules.txt:447
 #, php-format
 msgid ""
-"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\"http://"
-"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
-"files, set the new value in my.cnf, start the server, then check the error "
-"logs if everything went fine. See also <a href=\"http://"
+"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
+"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
+"the recovery time after a database crash considerably. See also <a href="
+"\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href=\"http://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"Doorgaans is het voldoende om innodb_log_file_size in te stellen op 25%% van "
-"{innodb_buffer_pool_size}. \n"
-"Een grote innodb_log_file_size verlengt de hersteltijd na een databankcrash "
-"enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
+"Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25%% "
+"van {innodb_buffer_pool_size}. \n"
+"Een grote {innodb_log_file_size} verlengt de hersteltijd na een "
+"databankcrash enorm. Bekijk ook <a href=\"http://www.mysqlperformanceblog."
+"com/2006/07/03/choosing-proper-innodb_log_file_size/\">dit artikel</a>.\n"
 "De server moet uitgeschakeld worden, de InnoDB-logbestanden moeten worden "
 "verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, de server "
 "herstart en dan moeten de foutenlogboeken bekeken worden om te zien of alles "
