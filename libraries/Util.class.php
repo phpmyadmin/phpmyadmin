@@ -2235,9 +2235,7 @@ class PMA_Util
                 $con_key = self::backquote($meta->table) . '.'
                     . self::backquote($meta->orgname);
             } // end if... else...
-            $condition = ($fields_cnt == 1)
-                ? ' CHAR_LENGTH(' . $con_key . ') '
-                : ' ' . $con_key . ' ';
+            $condition = ' ' . $con_key . ' ';
 
             if (! isset($row[$i]) || is_null($row[$i])) {
                 $con_val = 'IS NULL';
@@ -2259,11 +2257,14 @@ class PMA_Util
                         // use a CAST if possible, to avoid problems
                         // if the field contains wildcard characters % or _
                         $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
+                    } else if ($fields_cnt == 1) {
+                        // when this blob is the only field present
+                        // try settling with length comparison
+                        $condition = ' CHAR_LENGTH(' . $con_key . ') ';
+                        $con_val = ' = ' .  strlen($row[$i]);
                     } else {
                         // this blob won't be part of the final condition
-                        $con_val = ($fields_cnt == 1)
-                            ? ' = '.  strlen($row[$i])
-                            : null;
+                        $con_val = null;
                     }
                 } elseif (in_array($meta->type, self::getGISDatatypes())
                     && ! empty($row[$i])
