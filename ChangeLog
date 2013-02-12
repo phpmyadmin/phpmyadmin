@@ -90,6 +90,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 
+3.5.8.0 (not yet released)
+
 3.5.7.0 (not yet released)
 - bug #3779 [core] Problem with backslash in enum fields
 - bug #3816 Missing server_processlist.php
