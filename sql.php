@@ -560,9 +560,16 @@ if ($GLOBALS['cfg']['RememberSorting']
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
+//To seperate queries with LIMIT key word.If has change it limit change according to input value
+if(stripos($sql_query,"limit")!== false){
+    $strArr=split("limit",strtolower($sql_query));
+    $sql_limit_to_append= ' LIMIT '.$strArr[1];
+}
+//else for user input without LIMIT or auto generated queries
+else{
 $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
         . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
-
+}
 // Do append a "LIMIT" clause?
 if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     && ! ($is_count || $is_export || $is_func || $is_analyse)
