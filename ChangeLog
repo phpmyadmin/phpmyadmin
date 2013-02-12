@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #3779 [core] Problem with backslash in enum fields
 - bug #3816 Missing server_processlist.php
 - bug #3821 Safari: white page
+- Correct detection of the Chrome browser
 
 3.5.6.0 (2013-01-28)
 - bug #3593604 [status] Erroneous advisor rule
