@@ -445,11 +445,19 @@ class PMA_Header
                 . "options inline-script eval-script;"
                 . "img-src 'self' data:; "
             );
-            header(
-                "X-WebKit-CSP: default-src 'self';"
-                . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-                . "style-src 'self' 'unsafe-inline'"
-            );
+            if (PMA_USR_BROWSER_AGENT == 'SAFARI') {
+                header(
+                    "X-WebKit-CSP: allow 'self';"
+                    . "options inline-script eval-script;"
+                    . "img-src 'self' data:; "
+                );
+            } else {
+                header(
+                    "X-WebKit-CSP: default-src 'self';"
+                    . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+                    . "style-src 'self' 'unsafe-inline'"
+                );
+            )
         }
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER') && ! defined('TESTSUITE')) {
