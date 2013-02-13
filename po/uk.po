@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-13 18:51+0200\n"
+"PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/3-5/uk/>\n"
 "Language: uk\n"
@@ -2866,14 +2866,13 @@ msgstr ""
 #: libraries/common.inc.php:667
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Не вірний індекс сервера: %s"
+msgstr "Невірний індекс сервера: %s"
 
 #: libraries/common.inc.php:674
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Не вірна назва хоста для сервера %1$s. Будь ласка перевірте Вашу "
-"конфігурацію."
+"Невірна назва хоста для сервера %1$s. Будь ласка, перевірте конфігурацію."
 
 #: libraries/common.inc.php:683 libraries/config/messages.inc.php:508
 #: libraries/header.inc.php:134 main.php:171 server_status.php:789
@@ -8039,7 +8038,7 @@ msgstr "Невідома мова: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
 msgid "Current Server"
-msgstr "Поточний Сервер"
+msgstr "Поточний сервер"
 
 #: libraries/server_links.inc.php:60
 msgid "Users"
