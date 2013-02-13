@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-13 14:13+0200\n"
+"PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -3787,7 +3787,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Неможливо завантажити стандартну функціональність із: %1$s"
 
 #: libraries/common.inc.php:594
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3795,20 +3794,19 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Змінна <code>$cfg['PmaAbsoluteUri']</code> ПОВИННА бути встановлена у Вашому "
+"Змінна [code]$cfg['PmaAbsoluteUri'][/code] ПОВИННА бути встановлена у "
 "конфігураційному файлі!"
 
 #: libraries/common.inc.php:627
 #, php-format
 msgid "Invalid server index: %s"
-msgstr "Не вірний індекс сервера: %s"
+msgstr "Невірний індекс сервера: %s"
 
 #: libraries/common.inc.php:638
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Не вірна назва хоста для сервера %1$s. Будь ласка перевірте Вашу "
-"конфігурацію."
+"Невірна назва хоста для сервера %1$s. Будь ласка, перевірте конфігурацію."
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -9164,7 +9162,6 @@ msgstr "ввімкнути чорновик (scratchboard)"
 
 #. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:499
-#, fuzzy
 msgid "ltr"
 msgstr "ltr"
 
@@ -9176,7 +9173,7 @@ msgstr "Невідома мова: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
 msgid "Current Server"
-msgstr "Поточний Сервер"
+msgstr "Поточний сервер"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -13134,7 +13131,7 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"Середній рівень читання з фіксованого положення: %s, це значення не повинно "
+"Середній рівень читання з фіксованого положення: %s, це значення повинно "
 "бути меншим 1 на годину"
 
 #: libraries/advisory_rules.txt:254
@@ -13152,16 +13149,20 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Показує, скільки запитів виконує повні сканування таблиць. Додайте індекси, "
+"де це можливо."
 
 #: libraries/advisory_rules.txt:259
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Рівень читань наступного рядка: %s, це значення повинно бути меншим 1 на "
+"годину"
 
 #: libraries/advisory_rules.txt:262
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size проти max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "tmp_table_size and max_heap_table_size are not the same."
@@ -13174,6 +13175,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Якщо ви навмисно змінили одну зі змінних: Для визначення визначення "
+"максимального розміру пам'яті таблиць сервер використовує менше з двох "
+"значень. Тому, якщо ви хочете збільшити межу пам'ять таблиці, потрібно також "
+"збільшити і значення другої змінної."
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -13202,6 +13207,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Може допомогти збільшення змінних {max_heap_table_size} та {tmp_table_size}. "
+"Однак деякі тимчасові таблиці завжди записуються на диск, незалежно від "
+"значення цих змінних. Щоб усунути це потрібно переписати запити таким чином, "
+"щоб уникнути умов (У тимчасовій таблиці: наявність стовпчика BLOB або TEXT "
+"або стовпчика розміром понад 512 байт) згаданих на початку <a href=\"http://w"
+"ww.facebook.com/note.php?note_id=10150111255065841&comments\">Статті групи "
+"Pythian</a>"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -13209,6 +13221,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% всіх тимчасових таблиць, які збережені на диск, це значення повинно "
+"бути нижче 25%%"
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
@@ -13224,6 +13238,13 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Може допомогти збільшення змінних {max_heap_table_size} та {tmp_table_size}. "
+"Однак деякі тимчасові таблиці завжди записуються на диск, незалежно від "
+"значення цих змінних. Щоб усунути це потрібно переписати запити таким чином, "
+"щоб уникнути умов (У тимчасовій таблиці: наявність стовпчика BLOB або TEXT "
+"або стовпчика розміром понад 512 байт) згаданих у <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">Документації MySQL</a>"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -13231,20 +13252,25 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Рівень тимчасових таблиць, що записуються на диск: %s, це значення має бути "
+"меншим  1 на годину"
 
 #: libraries/advisory_rules.txt:296
 msgid "MyISAM key buffer size"
-msgstr ""
+msgstr "Розмір буфера ключів MyISAM"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Буфер ключів не ініціалізовано. Індекси MyISAM не зберігатимуться в кеші."
 
 #: libraries/advisory_rules.txt:300
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Встановіть значення змінної {key_buffer_size}, залежно від розміру індексів "
+"MyISAM. Почніть з 64M."
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
@@ -13253,12 +13279,12 @@ msgstr "key_buffer_size дорівнює 0"
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "Максимальний %% буфера ключів MyISAM, що коли-небудь використовувався"
 
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "Низький %% використання буфера ключів MyISAM (кеш індексу)."
 
 #: libraries/advisory_rules.txt:307 libraries/advisory_rules.txt:315
 msgid ""
@@ -13266,101 +13292,109 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Напевно потрібно зменшити розмір {key_buffer_size}, перегляньте таблиці, щоб "
+"впевнитися у видаленні індексу або перегляньте запити і використовувані "
+"ними індекси."
 
 #: libraries/advisory_rules.txt:308
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"Максимальний %% буфера ключів MyISAM, що був використаний: %s%%, це значення "
+"має бути вище 95%%"
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Зміст"
+msgstr "Відсоток використовуваного буфера ключів MyISAM"
 
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "%% використаного буфера ключів MyISAM: %s%%, має бути вищим 95%%"
 
 #: libraries/advisory_rules.txt:318
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of index reads from memory"
-msgstr "З'єднань"
+msgstr "Відсоток зчитувань індексу з пам'яті"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "%% індексів, які використовують буфер ключів MyISAM є низьким."
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Можливо потрібно збільшити {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:323
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Зчитувань індексу з пам'яті: %s%%, має перевищувати 95%%"
 
 #: libraries/advisory_rules.txt:327
 msgid "Rate of table open"
-msgstr "Співвідношення відкритих таблиць"
+msgstr "Рівень відкритих таблиць"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "The rate of opening tables is high."
-msgstr "Кодування файлу:"
+msgstr "Рівень відкритих таблиць високий."
 
 #: libraries/advisory_rules.txt:331
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Відкриття таблиці вимагає витратних операції введення/виведення з диском. "
+"Збільшення {table_open_cache} може уникнути цього."
 
 #: libraries/advisory_rules.txt:332
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
+msgstr "Рівень відкритих таблиць: %s, це значення має бути меншим 10 на годину"
 
 #: libraries/advisory_rules.txt:334
 msgid "Percentage of used open files limit"
-msgstr "Відсоток використаного ліміту використання відкритих файлів"
+msgstr "Відсоток ліміту використання відкритих файлів"
 
 #: libraries/advisory_rules.txt:337
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Кількість відкритих файлів наближається до максимальної кількості відкритих "
+"файлів.  Можливо виникнення помилки \"Забагато відкритих файлів\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Розгляньте можливість збільшення {open_files_limit} та після зміни "
+"open_files_limit і перезавантаження перегляньте журнал помилок."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Кількість відкритих файлів складає %s%% ліміту. Вона повинна бути нижче 85%%"
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
-msgstr "Частота відкритих файлів"
+msgstr "Рівень відкритих файлів"
 
 #: libraries/advisory_rules.txt:344
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "The rate of opening files is high."
-msgstr "Кодування файлу:"
+msgstr "Рівень відкритих файлів високий."
 
 #: libraries/advisory_rules.txt:346
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "Рівень відкритих файлів: %s, це значення має бути меншим 5 на годину"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -13369,25 +13403,29 @@ msgstr "Поточні блокування таблиці %%"
 
 #: libraries/advisory_rules.txt:351 libraries/advisory_rules.txt:358
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "Занадто багато блокувань таблиць не були надані негайно."
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Для зменшення очікування блокування оптимізуйте запити та/або використовуйте "
+"InnoDB."
 
 #: libraries/advisory_rules.txt:353
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "Негайних блокувань таблиць: %s%%, має перевищувати 95%%"
 
 #: libraries/advisory_rules.txt:355
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Рівень очікувань блокування таблиці"
 
 #: libraries/advisory_rules.txt:360
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Рівень очікувань блокування таблиці: %s, це значення має бути меншим 1 на "
+"годину"
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
@@ -13398,10 +13436,12 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Кеш потоку вимкнуто, через це буде збільшено навантаження від нових "
+"підключень до MySQL."
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Увімкнути кеш потоку, встановивши значення {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:367
 msgid "The thread cache is set to 0"
@@ -13424,49 +13464,54 @@ msgstr "Збільшити {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
+"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати 80"
+"%%"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "Потоки з повільним запуском"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "There are no routines to display."
 msgid "There are too many threads that are slow to launch."
-msgstr "Немає порядків для відображення."
+msgstr "Забагато потоків з повільним запуском."
 
 #: libraries/advisory_rules.txt:380
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Це зазвичай буває при перевантаженнях основної системи, оскільки самі "
+"операції досить прості. Можливо, зверніть увагу на завантаженість системи."
 
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"Запуск %s потоку(потоків) тривав  понад  %s секунд для початку, а має бути 0"
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
 msgstr "Повільний час запуску"
 
 #: libraries/advisory_rules.txt:386
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "long_query_time встановлено на %d секунди(секунд)."
+msgstr "Slow_launch_threads перевищує 2с"
 
 #: libraries/advisory_rules.txt:387
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
 msgstr ""
+"Встановіть значення slow_launch_time у 1с або 2с аби правильно підрахувати "
+"потоки з повільним запуском"
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time встановлено на %d секунди(секунд)."
+msgstr "slow_launch_time встановлено у %s"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of used connections"
@@ -13477,6 +13522,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"Максимальна кількість використаних з'єднань наближається до значення "
+"max_connections."
 
 #: libraries/advisory_rules.txt:396
 msgid ""
@@ -13484,12 +13531,18 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Збільшіть max_connections, або зменшіть wait_timeout таким чином, щоб "
+"з'єднання, що неправильно закривають обробники бази даних, швидше "
+"знешкоджувались. Переконайтеся, що код правильно закриває обробники бази "
+"даних."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections складає %s%% від max_connections, це значення має бути "
+"нижче 80%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -13506,6 +13559,10 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Підключення зазвичай перериваються, коли вони не можуть бути авторизовані. "
+"<a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
+"the-source-of-aborted_connects/\">Ця стаття</a> може допомогти відслідкувати "
+"джерело проблеми."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -13602,7 +13659,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:441
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The InnoDB log file size is not an appropriate size, in relation to the "
 #| "InnoDB buffer pool."
@@ -13610,8 +13667,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"Файл журналу InnoDB не є відповідного розміру, у відношенні до пула буфера "
-"InnoDB."
+"Розмір журналу InnoDB складає %s%% від розміру буферного пулу InnoDB, а він "
+"не повинен бути нижчим 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -13662,6 +13719,16 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"Буферний пул InnoDB дуже впливає на швидкодію таблиць InnoDB. Надайте цьому "
+"буферові всю вільну пам'ять. Для серверів баз даних, що використовують в "
+"якості сховища виключно InnoDB і не призначені для роботи інших служб "
+"(наприклад веб-сервера), можна встановити це значення 80%% наявної пам'яті. "
+"В іншому випадку необхідно ретельно оцінити обсяг використаної пам'яті своїх "
+"служб та не InnoDB таблиць і встановити цю змінну відповідно. Якщо її "
+"значення занадто високе, ваша система почне використовувати файл підкачки, "
+"що значно знизить швидкодію. Дивіться також <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">цю статтю</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -13671,6 +13738,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"В даний час на буферний пул InnoDB використовується %s%% пам'яті. Це правило "
+"виконується, якщо ви призначите менше 60%%, однак, це може бути цілком "
+"достатньо для вашої системи, якщо у вас небагато таблиць InnoDB або інших "
+"виконуваних служб на поточній машині."
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -13686,6 +13757,10 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Встановлення {concurrent_insert} рівним 1 зменшує конкуренцію між читанням і "
+"записом даної таблиці. Дивіться також <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">Документацію MySQL</a>"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
