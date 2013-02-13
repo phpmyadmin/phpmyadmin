@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-02-07 16:22+0200\n"
 "Last-Translator: atitan XD <info@atifans.net>\n"
 "Language-Team: Chinese (Taiwan) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -725,12 +725,16 @@ msgid "Server"
 msgstr "伺服器"
 
 #: index.php:234
-msgid "Software"
-msgstr "軟體"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "伺服器端口"
 
-#: index.php:238
-msgid "Software version"
-msgstr "軟體版本"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "伺服器版本"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2238,20 +2242,20 @@ msgstr "每小時"
 msgid "per day"
 msgstr "每天"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 "設定檔 %s 是唯獨狀態，請開啟該檔案的讀取權限。（如果您沒有相關權限，請聯絡系"
 "統管理員。）"
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "phpMyAdmin 發現您的設定檔允許任何人寫入，為了安全性的考量，請重新設定該設定檔"
 "的權限。"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "字體大小"
 
@@ -7760,12 +7764,6 @@ msgstr "主機"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "產生日期"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "伺服器版本"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -13444,6 +13442,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 已被設置為 0"
+
+#~ msgid "Software"
+#~ msgstr "軟體"
+
+#~ msgid "Software version"
+#~ msgstr "軟體版本"
 
 #~ msgid "Width"
 #~ msgstr "寬"

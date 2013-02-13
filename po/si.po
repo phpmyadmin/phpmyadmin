@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-01-20 17:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -733,12 +733,16 @@ msgid "Server"
 msgstr "සේවාදායකය"
 
 #: index.php:234
-msgid "Software"
-msgstr "මෘදුකාංගය"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "සර්වරයේ පොර්ට්"
 
-#: index.php:238
-msgid "Software version"
-msgstr "මෘදුකාංග අනුවාදය"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "සේවාදායකයේ අනුවාදය"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2252,16 +2256,16 @@ msgstr "පැයකට"
 msgid "per day"
 msgstr "දිනකට"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "වත්මන් වින්‍යාස ගොනුව (%s) කියවිය නොහැක."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "වින්‍යාස ගොනුව සඳහා වැරදි අවසර සිටුවා ඇත. සැමටම ඊට ලිවිය හැකි නොවිය යුතුය!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "ෆොන්ටයෙහි ප්‍රමාණය"
 
@@ -7717,12 +7721,6 @@ msgstr "දායකයා"
 msgid "Generation Time"
 msgstr "උත්පාදන වේලාව"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "සේවාදායකයේ අනුවාදය"
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13110,6 +13108,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "Software"
+#~ msgstr "මෘදුකාංගය"
+
+#~ msgid "Software version"
+#~ msgstr "මෘදුකාංග අනුවාදය"
 
 #~ msgid "Width"
 #~ msgstr "පළල"

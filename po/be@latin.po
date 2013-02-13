@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2012-12-13 13:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -777,13 +777,15 @@ msgid "Server"
 msgstr "Server"
 
 #: index.php:234
-msgid "Software"
-msgstr ""
-
-#: index.php:238
 #, fuzzy
-#| msgid "Server version"
-msgid "Software version"
+#| msgid "Server"
+msgid "Server type"
+msgstr "Server"
+
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
 msgstr "Versija servera"
 
 #: index.php:242
@@ -2521,16 +2523,16 @@ msgstr "u hadzinu"
 msgid "per day"
 msgstr ""
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Pamier šryfta"
 
@@ -8290,12 +8292,6 @@ msgstr "Chost"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "Čas stvareńnia"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Versija servera"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -14163,6 +14159,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maksymum adnačasovych złučeńniaŭ"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Software version"
+#~ msgstr "Versija servera"
 
 #, fuzzy
 #~| msgid "Save as file"

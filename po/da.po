@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-02-06 23:27+0200\n"
 "Last-Translator: Morten Henrichsen <github@mhex.dk>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -738,12 +738,16 @@ msgid "Server"
 msgstr "Server"
 
 #: index.php:234
-msgid "Software"
-msgstr "Programmel"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "Serverport"
 
-#: index.php:238
-msgid "Software version"
-msgstr "Programmelversion"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "Serverversion"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2284,17 +2288,17 @@ msgstr "pr. time"
 msgid "per day"
 msgstr "per dag"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Eksisterende konfigurationsfil (%s) kan ikke læses."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Forkerte rettigheder på konfigurationsfil. Må ikke være skrivbar af alle!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Skriftstørrelse"
 
@@ -7917,12 +7921,6 @@ msgstr "Vært"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "Genereringstid"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Serverversion"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -13670,6 +13668,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Software"
+#~ msgstr "Programmel"
+
+#~ msgid "Software version"
+#~ msgstr "Programmelversion"
 
 #~ msgid "Width"
 #~ msgstr "Bredde"
