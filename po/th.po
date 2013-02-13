@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2012-11-12 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -723,13 +723,14 @@ msgid "Server"
 msgstr "เซิร์ฟเวอร์"
 
 #: index.php:234
-msgid "Software"
-msgstr "ซอฟต์แวร์"
-
-#: index.php:238
 #, fuzzy
-#| msgid "Server version"
-msgid "Software version"
+msgid "Server type"
+msgstr "ตัวเลือกเซิร์ฟเวอร์"
+
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
 msgstr "รุ่นของเซิร์ฟเวอร์"
 
 #: index.php:242
@@ -2254,16 +2255,16 @@ msgstr "ต่อชั่วโมง"
 msgid "per day"
 msgstr "ต่อวัน"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิสำหรับไฟล์ตั้งค่าไม่ถูกต้อง ที่ถูกต้องจะต้องแก้ไขได้เฉพาะ root"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "ขนาดตัวอักษร"
 
@@ -7853,12 +7854,6 @@ msgstr "โฮสต์"
 msgid "Generation Time"
 msgstr "เวลาในการสร้าง"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "รุ่นของเซิร์ฟเวอร์"
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13433,6 +13428,14 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
+
+#~ msgid "Software"
+#~ msgstr "ซอฟต์แวร์"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Software version"
+#~ msgstr "รุ่นของเซิร์ฟเวอร์"
 
 #~ msgid "Save to file"
 #~ msgstr "บันทึกลงเป็นไฟล์"

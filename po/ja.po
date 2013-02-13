@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2012-12-13 13:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -746,12 +746,16 @@ msgid "Server"
 msgstr "サーバ"
 
 #: index.php:234
-msgid "Software"
-msgstr "ソフトウェア"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "サーバのポート"
 
-#: index.php:238
-msgid "Software version"
-msgstr "ソフトウェアバージョン"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "サーバのバージョン"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2301,18 +2305,18 @@ msgstr "/ 時"
 msgid "per day"
 msgstr "/ 日"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "設定ファイル (%s) は存在しますが、読み込むことができません。"
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "設定ファイルのパーミッションが正しくありません。書き込み可能になっていませ"
 "ん！"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "フォントサイズ"
 
@@ -8006,12 +8010,6 @@ msgstr "ホスト"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "生成日時"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "サーバのバージョン"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -13785,6 +13783,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#~ msgid "Software"
+#~ msgstr "ソフトウェア"
+
+#~ msgid "Software version"
+#~ msgstr "ソフトウェアバージョン"
 
 #~ msgid "Width"
 #~ msgstr "幅"

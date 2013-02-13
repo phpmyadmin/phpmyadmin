@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-01-21 06:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/master/hr/"
@@ -784,13 +784,14 @@ msgid "Server"
 msgstr "Poslužitelj"
 
 #: index.php:234
-msgid "Software"
-msgstr "Softver"
-
-#: index.php:238
 #, fuzzy
-#| msgid "Server version"
-msgid "Software version"
+msgid "Server type"
+msgstr "ID poslužitelja"
+
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
 msgstr "Verzija poslužitelja"
 
 #: index.php:242
@@ -2510,16 +2511,16 @@ msgstr "po satu"
 msgid "per day"
 msgstr "po danu"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Veličina fonta"
 
@@ -8291,12 +8292,6 @@ msgstr "Računalo"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "Vrijeme generiranja"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Verzija poslužitelja"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -14145,6 +14140,14 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "najv. uzastopnih veza"
+
+#~ msgid "Software"
+#~ msgstr "Softver"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Software version"
+#~ msgstr "Verzija poslužitelja"
 
 #~ msgid "Width"
 #~ msgstr "Širina"

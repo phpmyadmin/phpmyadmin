@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-02-11 11:56+0200\n"
 "Last-Translator: Kai-Ove Finvold <translate@okai.no>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -744,12 +744,16 @@ msgid "Server"
 msgstr "Tjener"
 
 #: index.php:234
-msgid "Software"
-msgstr "Programvare"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "Tjenerport"
 
-#: index.php:238
-msgid "Software version"
-msgstr "Programvareversjon"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "Tjenerversjon"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2301,16 +2305,16 @@ msgstr "per time"
 msgid "per day"
 msgstr "hver dag"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Fontstørrelse"
 
@@ -7999,12 +8003,6 @@ msgstr "Vert"
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1091
 msgid "Generation Time"
 msgstr "Generert den"
-
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Tjenerversjon"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -13962,6 +13960,12 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
+
+#~ msgid "Software"
+#~ msgstr "Programvare"
+
+#~ msgid "Software version"
+#~ msgstr "Programvareversjon"
 
 #, fuzzy
 #~| msgid "Save as file"

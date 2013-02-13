@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2012-11-05 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -748,12 +748,16 @@ msgid "Server"
 msgstr "Server"
 
 #: index.php:234
-msgid "Software"
-msgstr "Perangkat lunak"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "Porta server"
 
-#: index.php:238
-msgid "Software version"
-msgstr "Versi perangkat lunak"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "Versi Server"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2322,17 +2326,17 @@ msgstr "dalam sejam"
 msgid "per day"
 msgstr "per hari"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File configuration yang ada (%s) tidak dapat di baca."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Perizinan yang salah pada file konfigurasi, sehingga tidak dapat ditulis!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Ukuran huruf"
 
@@ -7870,12 +7874,6 @@ msgstr "Inang"
 msgid "Generation Time"
 msgstr "Waktu pembuatan"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Versi Server"
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13388,6 +13386,12 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Koneksi konkuren maks."
+
+#~ msgid "Software"
+#~ msgstr "Perangkat lunak"
+
+#~ msgid "Software version"
+#~ msgstr "Versi perangkat lunak"
 
 #~ msgid "Width"
 #~ msgstr "Lebar"

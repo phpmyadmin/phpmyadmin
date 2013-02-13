@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-01-20 23:04+0200\n"
 "Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -752,14 +752,16 @@ msgid "Server"
 msgstr "सर्वर"
 
 #: index.php:234
-msgid "Software"
-msgstr ""
-
-#: index.php:238
 #, fuzzy
-#| msgid "Show versions"
-msgid "Software version"
-msgstr "संस्करण दिखाएँ"
+#| msgid "Server port"
+msgid "Server type"
+msgstr "सर्वर"
+
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr ""
 
 #: index.php:242
 msgid "Protocol version"
@@ -2306,16 +2308,16 @@ msgstr "प्रति घंटा"
 msgid "per day"
 msgstr "प्रतिदिन"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "फ़ॉन्ट का आकार"
 
@@ -7908,12 +7910,6 @@ msgstr "होस्ट"
 msgid "Generation Time"
 msgstr "समय पर बनाया"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr ""
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13501,6 +13497,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "अधिकतम वर्तमान कनेक्शन"
+
+#, fuzzy
+#~| msgid "Show versions"
+#~ msgid "Software version"
+#~ msgstr "संस्करण दिखाएँ"
 
 #~ msgid "Width"
 #~ msgstr "चौड़ाई "

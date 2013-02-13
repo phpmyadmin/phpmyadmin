@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2012-11-05 10:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -743,12 +743,16 @@ msgid "Server"
 msgstr "Сървър"
 
 #: index.php:234
-msgid "Software"
-msgstr "Софтуер"
+#, fuzzy
+#| msgid "Server port"
+msgid "Server type"
+msgstr "Порт на сървъра"
 
-#: index.php:238
-msgid "Software version"
-msgstr "Версии"
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
+msgstr "Версия на сървъра"
 
 #: index.php:242
 msgid "Protocol version"
@@ -2282,18 +2286,18 @@ msgstr "на час"
 msgid "per day"
 msgstr "на ден"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Текущия файл с настройки (%s) е недостъпен."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Неподходящи права на файлът с настройки, в него не трябва да може да пише "
 "всеки!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "Размер шрифт"
 
@@ -7729,12 +7733,6 @@ msgstr "Хост"
 msgid "Generation Time"
 msgstr "Време на генериране"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "Версия на сървъра"
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13070,6 +13068,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#~ msgid "Software"
+#~ msgstr "Софтуер"
+
+#~ msgid "Software version"
+#~ msgstr "Версии"
 
 #~ msgid "Width"
 #~ msgstr "Ширина"

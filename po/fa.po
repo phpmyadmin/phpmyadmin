@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-12 15:52+0100\n"
+"POT-Creation-Date: 2013-02-13 14:38+0100\n"
 "PO-Revision-Date: 2013-01-10 13:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -746,13 +746,15 @@ msgid "Server"
 msgstr "سرور"
 
 #: index.php:234
-msgid "Software"
-msgstr ""
-
-#: index.php:238
 #, fuzzy
-#| msgid "Server version"
-msgid "Software version"
+#| msgid "Server port"
+msgid "Server type"
+msgstr "پورت سرور"
+
+#: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
+#: libraries/plugins/export/ExportSql.class.php:612
+#: libraries/plugins/export/ExportXml.class.php:198
+msgid "Server version"
 msgstr "نسخه سرور"
 
 #: index.php:242
@@ -2296,16 +2298,16 @@ msgstr "در ساعت"
 msgid "per day"
 msgstr "هر روز"
 
-#: libraries/Config.class.php:1063
+#: libraries/Config.class.php:1075
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "فایل تنظیمات فعلی (%s) قابل خواندن نیست."
 
-#: libraries/Config.class.php:1093
+#: libraries/Config.class.php:1105
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "تنظمیات دسترسی اشتباه در فایل تنظیمات ، نباید قابل نوشتن جهانی باشد!"
 
-#: libraries/Config.class.php:1667
+#: libraries/Config.class.php:1679
 msgid "Font size"
 msgstr "اندازه فونت"
 
@@ -7752,12 +7754,6 @@ msgstr "ميزبان"
 msgid "Generation Time"
 msgstr "زمان توليد"
 
-#: libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:612
-#: libraries/plugins/export/ExportXml.class.php:198
-msgid "Server version"
-msgstr "نسخه سرور"
-
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
@@ -13166,6 +13162,11 @@ msgstr ""
 #, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert  صفر میباشد"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Software version"
+#~ msgstr "نسخه سرور"
 
 #, fuzzy
 #~| msgid "Save as file"
