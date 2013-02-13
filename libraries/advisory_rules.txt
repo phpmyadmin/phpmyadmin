@@ -77,7 +77,7 @@ rule 'Slow query rate' [Questions > 0]
 rule 'Long query time' [!PMA_DRIZZLE]
 	long_query_time
 	value >= 10
-	long_query_time is set to 10 seconds or more, thus only slow queries that take above 10 seconds are logged.
+	{long_query_time} is set to 10 seconds or more, thus only slow queries that take above 10 seconds are logged.
 	It is suggested to set {long_query_time} to a lower value, depending on your environment. Usually a value of 1-5 seconds is suggested.
 	long_query_time is currently set to %ds. | value
 
@@ -262,7 +262,7 @@ rule 'Rate of reading next table row'
 rule 'tmp_table_size vs. max_heap_table_size'
 	tmp_table_size - max_heap_table_size
 	value !=0
-	tmp_table_size and max_heap_table_size are not the same.
+	{tmp_table_size} and {max_heap_table_size} are not the same.
 	If you have deliberately changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increase the in-memory table limit you will have to increase the other value as well.
 	Current values are tmp_table_size: %s, max_heap_table_size: %s | implode(' ',ADVISOR_formatByteDown(tmp_table_size, 2, 2)), implode(' ',ADVISOR_formatByteDown(max_heap_table_size, 2, 2))
 
@@ -335,14 +335,14 @@ rule 'Percentage of used open files limit' [!PMA_DRIZZLE]
 	Open_files / open_files_limit * 100
 	value > 85
 	The number of open files is approaching the max number of open files.  You may get a "Too many open files" error.
-	Consider increasing {open_files_limit}, and check the error log when restarting after changing open_files_limit.
+	Consider increasing {open_files_limit}, and check the error log when restarting after changing {open_files_limit}.
 	The number of opened files is at %s% of the limit. It should be below 85% | round(value,1)
 
 rule 'Rate of open files' [!PMA_DRIZZLE]
 	Open_files / Uptime
 	value * 60 * 60 > 5
 	The rate of opening files is high.
-	Consider increasing {open_files_limit}, and check the error log when restarting after changing open_files_limit.
+	Consider increasing {open_files_limit}, and check the error log when restarting after changing {open_files_limit}.
 	Opened files rate: %s, this value should be less than 5 per hour | ADVISOR_bytime(value,2)
 
 rule 'Immediate table locks %' [Table_locks_waited + Table_locks_immediate > 0]
@@ -384,7 +384,7 @@ rule 'Slow launch time' [!PMA_DRIZZLE]
 	slow_launch_time
 	value > 2
 	Slow_launch_threads is above 2s
-	Set slow_launch_time to 1s or 2s to correctly count threads that are slow to launch
+	Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow to launch
 	slow_launch_time is set to %s | value
 
 #
@@ -392,8 +392,8 @@ rule 'Slow launch time' [!PMA_DRIZZLE]
 rule 'Percentage of used connections' [!PMA_DRIZZLE]
 	Max_used_connections / max_connections * 100
 	value > 80
-	The maximum amount of used connections is getting close to the value of max_connections.
-	Increase max_connections, or decrease wait_timeout so that connections that do not close database handlers properly get killed sooner. Make sure the code closes database handlers properly.
+	The maximum amount of used connections is getting close to the value of {max_connections}.
+	Increase {max_connections}, or decrease {wait_timeout} so that connections that do not close database handlers properly get killed sooner. Make sure the code closes database handlers properly.
 	Max_used_connections is at %s% of max_connections, it should be below 80% | round(value,1)
 
 rule 'Percentage of aborted connections'
@@ -459,7 +459,7 @@ rule 'InnoDB buffer pool size' [system_memory > 0]
 rule 'MyISAM concurrent inserts' [!PMA_DRIZZLE]
 	concurrent_insert
 	value === 0 || value === 'NEVER'
-	Enable concurrent_insert by setting it to 1
+	Enable {concurrent_insert} by setting it to 1
 	Setting {concurrent_insert} to 1 reduces contention between readers and writers for a given table. See also <a href="http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html">MySQL Documentation</a>
 	concurrent_insert is set to 0
 
