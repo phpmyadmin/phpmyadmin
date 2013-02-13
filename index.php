@@ -231,11 +231,11 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_info'
     );
     PMA_printListItem(
-        __('Software') . ': ' . PMA_Util::getServerType(),
+        __('Server type') . ': ' . PMA_Util::getServerType(),
         'li_server_type'
     );
     PMA_printListItem(
-        __('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
+        __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
         'li_server_version'
     );
     PMA_printListItem(
