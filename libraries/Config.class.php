@@ -98,7 +98,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '3.5.7-dev');
+        $this->set('PMA_VERSION', '3.5.8-dev');
         /**
          * @deprecated
          */
@@ -208,6 +208,15 @@ class PMA_Config
         )) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
+            // must check Chrome before Safari
+        } elseif (preg_match(
+            '@Mozilla/([0-9].[0-9]{1,2})@',
+            $HTTP_USER_AGENT,
+            $log_version)
+            && preg_match('@Chrome/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
+        ) {
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+            $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
         } elseif (preg_match(
             '@Mozilla/([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
