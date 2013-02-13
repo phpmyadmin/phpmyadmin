@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-12 15:52+0100\n"
-"PO-Revision-Date: 2013-02-09 18:04+0200\n"
+"PO-Revision-Date: 2013-02-13 14:13+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
@@ -3505,10 +3505,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Додати полігон"
+msgstr "Багатокутник"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
@@ -3532,25 +3531,22 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Створити новий індекс"
+msgstr "Дата і час"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linestring"
+msgstr "Рядок"
 
 #: libraries/Types.class.php:673
-#, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Разом"
+msgstr "Просторове"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -12923,6 +12919,10 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Можливо, ви захочете збільшити значення {query_cache_size}, але майте на "
+"увазі, що накладні витрати на підтримку кеш-пам'яті, ймовірно, збільшаться "
+"разом з його розміром, тому змінюйте це значення невеликими кроками і стежте "
+"за результатами."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
@@ -12930,6 +12930,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Співвідношення видалених запитів до доданих запитів дорівнює %s%%. Чим нижче "
+"це значення, тим краще (Межа спрацьовування цього правила: 0,1%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -12940,12 +12942,16 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"Розмір кешу запитів перевищує 128 MiB. Великі запити в кеш можуть привести "
+"до помітного навантаження, тому необхідна підтримка стану кешу."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"В залежності від системного оточення для збільшення швидкодії можливо краще "
+"зменшити це значення."
 
 #: libraries/advisory_rules.txt:200
 #, php-format
@@ -12960,6 +12966,8 @@ msgstr "Мінімальний розмір результату кешу зап
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"Максимальний розмір результату, встановлений в кеші запитів, початково "
+"дорівнює 1МіБ."
 
 #: libraries/advisory_rules.txt:206
 msgid ""
@@ -12972,6 +12980,14 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Зміна {query_cache_limit} (зазвичай збільшення) може підвищити ефективність. "
+"Ця змінна визначає максимальний розмір результату запиту, який може бути "
+"доданий в кеш запитів. Якщо є багато результатів запиту вище 1 МБ, які можна "
+"кешувати (велика кількість читань, мало записів), тоді збільшення "
+"{query_cache_limit} буде підвищувати ефективність. Водночас у випадку "
+"великої кількості результатів запиту вище 1 МБ, які погано кешуються (часто "
+"недійсні через оновлення таблиці), підвищення {query_cache_limit} може "
+"знизити ефективність."
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
@@ -12999,6 +13015,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% всіх сортувань викликає створення тимчасових таблиць, це значення має "
+"бути нижчим 10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -13009,6 +13027,8 @@ msgstr "Частота сортувань, при якому створюють�
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Середнє значення створення тимчасових таблиць: %s, це значення має бути "
+"меншим за 1 на годину."
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
@@ -13016,7 +13036,7 @@ msgstr "Сортувати рядки"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Було відсортовано велику кількість рядків."
 
 #: libraries/advisory_rules.txt:229
 msgid ""
@@ -13025,6 +13045,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"У той час у великій кількості сортувань рядків немає нічого поганого, "
+"необхідно переконатися, що запити, які вимагають великої кількості "
+"сортувань, використовують у виразах ORDER BY стовпці індексів, оскільки це "
+"призводить до набагато швидкого сортування"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
@@ -13044,9 +13068,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
-"Це означає, що об'єднання виконують сканування всіє таблиці.  Додавання "
-"індексів до стовпчиків, що будуть використані в умовах оператора об'єднання "
-"значно підвищать швидкість об'єднання таблиць."
+"Це означає, що об'єднання виконують сканування всіє таблиці. Додавання "
+"індексів до стовпчиків, що будуть використані в умовах оператора об'єднання, "
+"значно підвищать швидкість об'єднання таблиць"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
@@ -13072,23 +13096,29 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Це зазвичай вказує на часті повні сканування індексу. Повні сканування "
+"індексу виконуються швидше, ніж сканування таблиці, але на великих таблицях "
+"це забирає багато ресурсів процесора. Якщо для цих таблиць часто виконуються "
+"запити UPDATE та DELETE, запуск команди 'OPTIMIZE TABLE' може зменшити "
+"кількість та/або прискорити повні сканування індексу. Ще зменшити повне "
+"сканування індексу можна тільки шляхом переписування запитів."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Середнє значення сканування індексу: %s, це значення має бути меншим ніж 1 "
+"на годину"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "Rate of reading fixed position"
-msgstr "Кодування файлу:"
+msgstr "Рівень читання фіксованого положення"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "Character set of the file:"
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Кодування файлу:"
+msgstr "Рівень читання даних з фіксованого положення великий."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -13096,6 +13126,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Вказує на те що багато запитів потребують сортування результатів та/або "
+"повного сканування таблиці, включно із запитами об'єднання, що не "
+"використовують індекси. Додайте індекси, де це можливо."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -13103,18 +13136,18 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Середній рівень читання з фіксованого положення: %s, це значення не повинно "
+"бути меншим 1 на годину"
 
 #: libraries/advisory_rules.txt:254
-#, fuzzy
 #| msgid "Create a page"
 msgid "Rate of reading next table row"
-msgstr "Створити нову сторінку"
+msgstr "Рівень читань наступного рядка таблиці"
 
 #: libraries/advisory_rules.txt:257
-#, fuzzy
 #| msgid "Create a page"
 msgid "The rate of reading the next table row is high."
-msgstr "Створити нову сторінку"
+msgstr "Рівень читань наступного рядка таблиці високий."
 
 #: libraries/advisory_rules.txt:258
 msgid ""
