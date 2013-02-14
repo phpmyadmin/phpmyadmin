@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-08 15:23+0200\n"
+"PO-Revision-Date: 2013-02-14 16:15+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -746,10 +746,9 @@ msgid "Server"
 msgstr "Servidor"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Puerto del servidor"
+msgstr "Tipo de servidor"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
