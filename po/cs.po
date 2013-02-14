@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-08 15:14+0200\n"
+"PO-Revision-Date: 2013-02-14 15:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -739,16 +739,15 @@ msgid "Server"
 msgstr "Server"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Port serveru"
+msgstr "Typ serveru"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
-msgstr "Verze MySQL"
+msgstr "Verze serveru"
 
 #: index.php:242
 msgid "Protocol version"
