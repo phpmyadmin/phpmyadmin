@@ -155,7 +155,7 @@ if ($server > 0) {
     $databases = PMA_DBI_get_databases_full(
         null, $dbstats, null, $sort_by, $sort_order, $pos, true
     );
-    $databases_count = count($GLOBALS['pma']->databases);
+    $databases_count = count($databases);
 } else {
     $databases_count = 0;
 }

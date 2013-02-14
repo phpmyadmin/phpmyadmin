@@ -1,4 +1,4 @@
-// CodeMirror version 2.37
+// CodeMirror version 2.38
 //
 // All functions that need access to the editor's state live inside
 // the CodeMirror function. Below that, at the bottom of the file,
@@ -3186,7 +3186,7 @@ window.CodeMirror = (function() {
     for (var i = 1; i <= 12; i++) keyNames[i + 111] = keyNames[i + 63235] = "F" + i;
   })();
 
-  CodeMirror.version = "2.37";
+  CodeMirror.version = "2.38";
 
   return CodeMirror;
 })();
