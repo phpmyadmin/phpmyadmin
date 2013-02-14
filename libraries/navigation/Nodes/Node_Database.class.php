@@ -239,7 +239,7 @@ class Node_Database extends Node
             } else {
                 $query  = " SHOW FULL TABLES FROM ";
                 $query .= PMA_Util::backquote($db);
-                $query .= "WHERE `Table_type`='BASE TABLE' ";
+                $query .= " WHERE `Table_type`='BASE TABLE' ";
                 if (! empty($searchClause)) {
                     $query .= "AND " . PMA_Util::backquote(
                         "Tables_in_" . $db
