@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-28 16:40+0200\n"
-"Last-Translator: Gihun Ham <progh2@gmail.com>\n"
+"PO-Revision-Date: 2013-02-14 13:46+0200\n"
+"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -3128,13 +3128,15 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
+#, fuzzy
 msgid "Not a positive number"
-msgstr ""
+msgstr "양수가 아닙니다."
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:450
+#, fuzzy
 msgid "Not a non-negative number"
-msgstr ""
+msgstr "0 혹은 양수가 아닙니다."
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:426
@@ -3199,7 +3201,7 @@ msgstr "위키"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
+msgstr "이 설정은 비활성화되었습니다. 당신의 환경설정에는 적용되지 않습니다."
 
 #: libraries/config/FormDisplay.tpl.php:274
 #, php-format
