@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.5.7.0 (not yet released)
+3.5.7.0 (2013-02-15)
 - bug #3779 [core] Problem with backslash in enum fields
 - bug #3816 Missing server_processlist.php
 - bug #3821 Safari: white page
