@@ -292,9 +292,16 @@ foreach ($fields as $row) {
 
     $attribute = $extracted_columnspec['attribute'];
 
+    // prepare a common variable to reuse below; however, 
+    // in case of a VIEW, $analyzed_sql[0]['create_table_fields'] is empty
+    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']])) {
+        $tempField = $analyzed_sql[0]['create_table_fields'][$row['Field']];
+    } else {
+        $tempField = array(); 
+    }
+
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
-    $tempField = $analyzed_sql[0]['create_table_fields'][$row['Field']];
     if (isset($tempField['on_update_current_timestamp'])) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
