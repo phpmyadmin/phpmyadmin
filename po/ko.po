@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-14 13:46+0200\n"
-"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
+"PO-Revision-Date: 2013-02-15 07:40+0200\n"
+"Last-Translator: suhyuk kim <kimsuhyuk@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -833,6 +833,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"mbstring PHP extension 을 찾을 수 없거나 multibyte charset 을 사용한 것 같습니다. mbstring "
+"PHP extension 이 없다면 phpMyAdmin 에서 문자열을 정확하게 나눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 "
+"수 있습니다."
 
 #: index.php:419
 msgid ""
@@ -841,6 +844,9 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"PHP 매개변수 [a@http://php.net/manual/en/session.configuration.php#ini.session"
+".gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 가 phpMyAdmin 의 cookie "
+"유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 만료됩니다."
 
 #: index.php:431
 msgid ""
@@ -858,6 +864,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"[code]config[/code] 에 phpMyAdmin 설치시 사용한 설정 스크립트가 여전히 존재합니다. phpMyAdmin 설정을 "
+"완료하면 삭제하십시오."
 
 #: index.php:464
 #, fuzzy, php-format
@@ -877,6 +885,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"PHP MySQL 라이브버리 버전(%s) 과 MySQL server version(%s) 이 다릅니다. 이것은 예상하지 못한 문제를 "
+"야기할 수 있습니다."
 
 #: index.php:519
 #, php-format
@@ -884,6 +894,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 %sdocumentation%s 에서 확인이 "
+"가능합니다."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:337
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -12318,7 +12330,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:147
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "사용할 수 있는 메모리: %s"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
@@ -12340,7 +12352,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size 가 0 으로 설정되어 있거나 query_cache_type 이 'OFF' 로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
