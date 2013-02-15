@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-15 21:09+0200\n"
+"PO-Revision-Date: 2013-02-15 21:10+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/3-5/et/>\n"
 "Language: et\n"
@@ -173,7 +173,7 @@ msgstr "Tüüp"
 #: tbl_printview.php:138 tbl_structure.php:206 tbl_tracking.php:260
 #: tbl_tracking.php:326 tbl_zoom_select.php:442
 msgid "Null"
-msgstr "Null"
+msgstr "Tühi"
 
 #: db_datadict.php:166 db_structure.php:548 libraries/export/htmlword.php:252
 #: libraries/export/latex.php:397 libraries/export/odt.php:309
@@ -7889,7 +7889,7 @@ msgstr "Ava/sulge märkmetahvel"
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
 msgid "ltr"
-msgstr "vasakult paremale"
+msgstr "ltr"
 
 #: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
 #: libraries/select_lang.lib.php:507
