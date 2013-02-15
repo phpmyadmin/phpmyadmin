@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-21 15:53+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-15 21:09+0200\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/3-5/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -450,15 +450,15 @@ msgstr "Kriteerium"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:549 db_qbe.php:580
 msgid "Ins"
-msgstr "Ins"
+msgstr "Lisa"
 
 #: db_qbe.php:379 db_qbe.php:461 db_qbe.php:546 db_qbe.php:577
 msgid "And"
-msgstr "And"
+msgstr "Ja"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
 msgid "Del"
-msgstr "Del"
+msgstr "Kustuta"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
@@ -882,7 +882,7 @@ msgstr "\"%s\" veeru väärtus"
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Use OpenStreetMaps as Base Layer"
+msgstr "Kasuta OpenStreetMaps kaarti põhjana"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -1619,7 +1619,7 @@ msgstr "Muuda diagrammi"
 
 #: js/messages.php:196
 msgid "Series"
-msgstr "Seeria"
+msgstr "Jadad"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1698,7 +1698,7 @@ msgstr "Impordi jälgimise seadistus"
 
 #: js/messages.php:218
 msgid "Please select the file you want to import"
-msgstr "Palun vali fail, mida soovid importida"
+msgstr "Palun vali imporditav fail"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1895,7 +1895,7 @@ msgstr "Kursori üleliigutamisel näitab punkt selle nime."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Vali suumitav ala hiirega."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -2632,7 +2632,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr "Failed to use Blowfish from mcrypt!"
+msgstr "Blowfishi kasutamine mcryptist ebaõnnestus!"
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -3662,7 +3662,7 @@ msgstr "Kasuta BLOBi heksadetsimaalsena"
 
 #: libraries/config/messages.inc.php:132
 msgid "Use ignore inserts"
-msgstr "Use ignore inserts"
+msgstr "Kasuta INSERT IGNORE lauseid"
 
 #: libraries/config/messages.inc.php:134
 msgid "Syntax to use when inserting data"
@@ -4566,11 +4566,11 @@ msgstr "Luba sisse logida 'root' kasutajana"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgstr "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgstr "HTTP lihtsa autentimise ajal kuvatav ligipääsuala nimi"
 
 #: libraries/config/messages.inc.php:369
 msgid "HTTP Realm"
-msgstr "HTTP Realm"
+msgstr "HTTP ligipääsuala"
 
 #: libraries/config/messages.inc.php:370
 msgid ""
@@ -5386,7 +5386,7 @@ msgstr "CSV kasutades LOAD DATA"
 #: libraries/config/user_preferences.forms.php:251 libraries/export/ods.php:18
 #: libraries/import/ods.php:29
 msgid "Open Document Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Open Document tabel"
 
 #: libraries/config/setup.forms.php:267
 #: libraries/config/user_preferences.forms.php:166
@@ -5418,7 +5418,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/config/setup.forms.php:357
 #: libraries/config/user_preferences.forms.php:255 libraries/export/odt.php:22
 msgid "Open Document Text"
-msgstr "Open Document Text"
+msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
@@ -5918,11 +5918,11 @@ msgstr "Peida veebilehitseja transformatsioon"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr "Well Known Text"
+msgstr "Harilik tekst"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "Harilik binaar"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -6254,7 +6254,7 @@ msgstr "Seotud lingid"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
-msgstr "The PrimeBase Media Streaming Blog by Barry Leslie"
+msgstr "Barry Leslie veebipäevik The PrimeBase Media Streaming Blog"
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
@@ -7889,7 +7889,7 @@ msgstr "Ava/sulge märkmetahvel"
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:478
 msgid "ltr"
-msgstr "ltr"
+msgstr "vasakult paremale"
 
 #: libraries/select_lang.lib.php:495 libraries/select_lang.lib.php:501
 #: libraries/select_lang.lib.php:507
@@ -8482,7 +8482,6 @@ msgstr ""
 "korralikult poolitada ja see võib viia ettearvamatute tulemusteni."
 
 #: main.php:292
-#, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
 #| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -8494,10 +8493,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Sinu PHP parameeter [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on väiksem, "
-"kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu sinu sisselogimine "
-"aegub varem, kui phpMyAdminis seadistatud."
+"PHP parameeter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on väiksem, kui "
+"phpMyAdminis seadistatud küpsise kehtivus. Seetõttu aegub sessioon "
+"kiiremini, kui phpMyAdminis seadistatud."
 
 #: main.php:299
 msgid ""
@@ -9251,7 +9251,7 @@ msgstr "Kasutajate ülevaade"
 #: server_privileges.php:1707 server_privileges.php:1901
 #: server_privileges.php:2260
 msgid "Grant"
-msgstr "Grant"
+msgstr "Õigused (GRANT)"
 
 #: server_privileges.php:1780
 msgid "Remove selected users"
@@ -9632,10 +9632,9 @@ msgid "Advisor"
 msgstr "Kontrollsüsteem"
 
 #: server_status.php:803 server_status.php:829
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Ridade hulk:"
+msgstr "Ridade arv: "
 
 #: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
@@ -11816,10 +11815,9 @@ msgid "How to use"
 msgstr "Kuidas kasutada"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Lähtesta"
+msgstr "Lähtesta suum"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -12223,13 +12221,14 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
+"Tõsine fragmenteerumine võib põhjustada Qcache_lowmem_prunes (täiendava) "
+"suurenemise. Selle põhjuseks võib olla mitmekordne päringute vahemälu "
+"alampiiri kärpimine, sest {query_cache_size} väärtus on liiga väike. "
+"Koheseks, kuid lühiajaliseks paranduseks, võib tühjendada päringute "
+"vahemälu, kuid see võib lukustada päringute vahemälu pikaks ajaks. "
+"Parameetri {query_cache_min_res_unit} ettevaatlik väiksemaks muutmine võib "
+"samuti aidata: näiteks võib omistada talle väärtuseks keskmise päringu "
+"suuruse, mille saab leida valemiga (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
@@ -12245,7 +12244,7 @@ msgstr ""
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
-msgstr "Query cache low memory prunes"
+msgstr "Päringute vahemälu alampiiri kärpimine"
 
 #: po/advisory_rules.php:96
 msgid ""
@@ -12812,8 +12811,8 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
+"See juhtub tavaliselt süsteemi ülekoormuse ajal, sest tegemist on üsna "
+"lihtsa operatsiooniga. Sa peaksid jälgima hoolikalt oma süsteemi koormust."
 
 #: po/advisory_rules.php:218
 #, php-format
