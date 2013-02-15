@@ -3752,7 +3752,7 @@ function PMA_getServerType()
     $server_type = 'MySQL';
     if (PMA_DRIZZLE) {
         $server_type = 'Drizzle';
-    } else if (strpos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
+    } else if (stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
         $server_type = 'MariaDB';
     } else if (stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
         $server_type = 'Percona Server';
