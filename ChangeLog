@@ -91,6 +91,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 
 3.5.8.0 (not yet released)
+- bug #3828 MariaDB reported as MySQL
 
 3.5.7.0 (2013-02-15)
 - bug #3779 [core] Problem with backslash in enum fields
