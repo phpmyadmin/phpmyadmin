@@ -46,16 +46,16 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
         $this->assertNotEquals("", $this->getValue("text_pma_pw"));
         $this->assertNotEquals("", $this->getValue("text_pma_pw2"));
         $this->assertNotEquals("", $this->getValue("generated_pw"));
-		
-        if(TESTSUITE_PASSWORD!=""){
-            $this->type("text_pma_pw",TESTSUITE_PASSWORD);
-            $this->type("text_pma_pw2",TESTSUITE_PASSWORD);
+
+        if (TESTSUITE_PASSWORD != "") {
+            $this->type("text_pma_pw", TESTSUITE_PASSWORD);
+            $this->type("text_pma_pw2", TESTSUITE_PASSWORD);
             $this->click("css=button:contains('Go')");
-        }else{
+        } else {
             $this->click("id=nopass_1");
             $this->click("css=button:contains('Go')");
         }		 		 
-		
+
         $this->waitForElementPresent("id=result_query");
         $this->assertTrue($this->isTextPresent("The profile has been updated."));
     } 
