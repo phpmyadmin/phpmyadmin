@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-15 07:40+0200\n"
-"Last-Translator: suhyuk kim <kimsuhyuk@gmail.com>\n"
+"PO-Revision-Date: 2013-02-16 07:31+0200\n"
+"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3290,7 +3290,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -3407,7 +3407,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:57 libraries/display_tbl.lib.php:679
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "2진수 데이터를 HEX형식으로 표시"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show database listing as a list instead of a drop down"
@@ -3842,7 +3842,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:198
 msgid "Security"
-msgstr ""
+msgstr "보안"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
@@ -3945,9 +3945,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 msgid "Startup"
-msgstr "상태"
+msgstr "시작"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize startup page"
@@ -5369,7 +5368,7 @@ msgstr ""
 #: libraries/db_links.inc.php:42 libraries/db_links.inc.php:43
 #: libraries/db_links.inc.php:44
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "데이터베이스가 비어있는 것 같습니다!"
 
 #: libraries/db_links.inc.php:65 libraries/relation.lib.php:144
 #: libraries/tbl_links.inc.php:97
@@ -5743,10 +5742,9 @@ msgid "Number of rows"
 msgstr "행 갯수"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "Mo"
 msgid "Mode"
-msgstr "월"
+msgstr "모드"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -7821,7 +7819,7 @@ msgstr "환경설정값"
 
 #: libraries/server_links.inc.php:99
 msgid "Charsets"
-msgstr ""
+msgstr "문자셋"
 
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
@@ -7977,7 +7975,7 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "테이블이 비어있는 것 같습니다!"
 
 #: libraries/tbl_links.inc.php:126
 #, php-format
@@ -8086,16 +8084,14 @@ msgid "Operator"
 msgstr "테이블 작업"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "검색"
+msgstr "테이블 검색"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "삽입"
+msgstr "편집/삽입"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -9434,12 +9430,11 @@ msgstr "phpMyAdmin이 쓰레드 %s를 종료하는데 실패했습니다. 이미
 
 #: server_status.php:594
 msgid "Handler"
-msgstr ""
+msgstr "핸들러"
 
 #: server_status.php:595
-#, fuzzy
 msgid "Query cache"
-msgstr "질의 종류"
+msgstr "질의(쿼리) 캐시"
 
 #: server_status.php:596
 msgid "Threads"
@@ -9464,7 +9459,7 @@ msgstr ""
 
 #: server_status.php:603
 msgid "Sorting"
-msgstr ""
+msgstr "정렬"
 
 #: server_status.php:605
 msgid "Transaction coordinator"
