@@ -2369,33 +2369,35 @@ function PMA_hasPrimaryKeyOrUniqueKey($db, $table)
 function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, $column_value, $column_meta_data, &$extra_data
 ) {
-    if (stripos($column_meta_data['Type'], 'smallint') !== false) {
+    
+    $extra_data['isNeedToRecheck'] = true;
+    $extra_data['hasUniqueIdentifier'] = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
+        ? true
+        : false;
         
-        $extra_data['isTruncatableField'] = true;
-        $extra_data['hasUniqueIdentifier']
-            = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
-            ? true
-            : false;
-        
-        // If table has unique identifier (primary/unique key), fetch the value
-        // of the field. (Yes, can be just round and return, but better need to
-        // retrieve the value really saved in the database when it is possible)
-        if ($extra_data['hasUniqueIdentifier']) {
-            
-            $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
-                . PMA_Util::backquote($column_name)
-                . ' FROM ' . PMA_Util::backquote($db) . '.'
-                . PMA_Util::backquote($table)
-                . ' WHERE ' . $_REQUEST['where_clause'][0];
-            
-            $extra_data['truncatableFieldValue']
-                = (PMA_DBI_fetch_value($sql_for_real_value) !== false)
-                ? PMA_DBI_fetch_value($sql_for_real_value)
-                : round($column_value);
+    // If table has unique identifier (primary/unique key), fetch the value
+    // of the field.
+    if ($extra_data['hasUniqueIdentifier']) {
+
+        $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
+            . PMA_Util::backquote($column_name)
+            . ' FROM ' . PMA_Util::backquote($db) . '.'
+            . PMA_Util::backquote($table)
+            . ' WHERE ' . $_REQUEST['where_clause'][0];
+
+        if (PMA_DBI_fetch_value($sql_for_real_value) !== false) {
+            $extra_data['truncatableFieldValue'] = PMA_DBI_fetch_value($sql_for_real_value);
         } else {
-            $extra_data['truncatableFieldValue'] = round($column_value);
+            $extra_data['isNeedToRecheck'] = false;
         }
+        
+    } else {
+        // If there is no unique identifier to the table,
+        // it's not a good idea to recheck since there can be
+        // several results matching for where clause
+        $extra_data['isNeedToRecheck'] = false;
     }
+    
 }
 
 ?>

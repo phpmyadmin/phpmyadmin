@@ -619,7 +619,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $this_field.addClass('null');
                     } else {
                         $this_field.removeClass('null');
-                        var new_html = data.isTruncatableField
+                        var new_html = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
                         if ($this_field.is('.truncated')) {
@@ -1216,7 +1216,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             // Generate new where clause again if the column
                             // can be truncated by MySQL and table does not have
                             // primary/unique key
-                            if (data.isTruncatableField && !data.hasUniqueIdentifier) {
+                            if (data.isNeedToRecheck && !data.hasUniqueIdentifier) {
                                 
                                 var $toBeSavedColumn = $('.to_be_saved');
                                 var condition_array = jQuery.parseJSON($toBeSavedColumn.parent().find('.condition_array').val());
