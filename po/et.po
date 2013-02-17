@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-15 21:10+0200\n"
+"PO-Revision-Date: 2013-02-17 21:35+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/3-5/et/>\n"
 "Language: et\n"
@@ -1895,7 +1895,7 @@ msgstr "Kursori üleliigutamisel näitab punkt selle nime."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Vali suumitav ala hiirega."
+msgstr "Vali graafiku suumitav ala hiirega."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
