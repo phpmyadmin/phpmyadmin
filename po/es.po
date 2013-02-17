@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 12:59+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-17 08:26+0200\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/3-5/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -10923,7 +10923,7 @@ msgstr "No pudo conectarse al objetivo"
 #: tbl_get_field.php:19
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "la base de datos '%s' no existe."
+msgstr "la base de datos «%s» no existe."
 
 #: server_synchronize.php:282
 msgid "Structure Synchronization"
@@ -11545,12 +11545,12 @@ msgstr "Valores Y"
 #: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
-msgstr "¡La tabla %s ya existe!"
+msgstr "La tabla %s ya existe."
 
 #: tbl_create.php:227
 #, php-format
 msgid "Table %1$s has been created."
-msgstr "La Tabla %1$s se creó."
+msgstr "Se ha creado la tabla %1$s."
 
 #: tbl_export.php:26
 msgid "View dump (schema) of table"
@@ -11594,15 +11594,15 @@ msgstr "Nombre del archivo"
 
 #: tbl_indexes.php:66
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "¡El nombre de la clave primaria debe ser \"PRIMARY\"!"
+msgstr "El nombre de la clave primaria debe ser «PRIMARY»."
 
 #: tbl_indexes.php:75
 msgid "Can't rename index to PRIMARY!"
-msgstr "No puede cambiar el nombre del índice a ¡PRIMARY!"
+msgstr "No se puede cambiar el nombre del índice a PRIMARY."
 
 #: tbl_indexes.php:91
 msgid "No index parts defined!"
-msgstr "¡No se han definido las partes del índice!"
+msgstr "No se han definido las partes del índice."
 
 #: tbl_indexes.php:173 tbl_structure.php:169 tbl_structure.php:170
 msgid "Add index"
@@ -11614,13 +11614,13 @@ msgstr "Editar índice"
 
 #: tbl_indexes.php:187
 msgid "Index name:"
-msgstr "Nombre del índice&nbsp;:"
+msgstr "Nombre del índice:"
 
 #: tbl_indexes.php:188
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
 msgstr ""
-"(\"PRIMARY\" <b>debe</b> ser el nombre <b>exclusivamente</b> de una clave "
+"(«PRIMARY» <b>debe</b> ser el nombre <b>exclusivamente</b> de una clave "
 "primaria)"
 
 #: tbl_indexes.php:199
@@ -11643,7 +11643,7 @@ msgstr "¡No es posible copiar la tabla a la misma!"
 #: tbl_move_copy.php:54
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr "La tabla %s ha sido movida a %s."
+msgstr "La tabla %s se movió a %s."
 
 #: tbl_move_copy.php:56
 #, php-format
