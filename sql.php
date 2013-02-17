@@ -560,8 +560,7 @@ if ($GLOBALS['cfg']['RememberSorting']
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
-$sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+$sql_limit_to_append = '';
 
 // Do append a "LIMIT" clause?
 if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
@@ -570,6 +569,8 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     && ! isset($analyzed_sql[0]['queryflags']['offset'])
     && empty($analyzed_sql[0]['limit_clause'])
 ) {
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
+        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
         $full_sql_query,
         $analyzed_sql,
