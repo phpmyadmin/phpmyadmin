@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-21 06:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-02-18 10:00+0200\n"
+"Last-Translator: Roby Clai <icyphoenixx@gmail.com>\n"
 "Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/3-5/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -102,17 +102,16 @@ msgstr "Upotrijebi ovu vrijednost"
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
 msgid "No blob streaming server configured!"
-msgstr ""
+msgstr "Nema konfiguriranih blob streaming servera!"
 
 #: bs_disp_as_mime_type.php:35
-#, fuzzy
 #| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
-msgstr "Zapisivanje datoteke na disk nije uspjelo."
+msgstr "Neuspijelo preuzimanje zaglavlja"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
-msgstr ""
+msgstr "Neuspijelo otvaranje udaljene URL adrese"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -120,8 +119,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Datoteka %s nije dostupna, molimo posjetite www.phpmyadmin.net za daljnje "
-"informacije"
+"Datoteka %s nije dostupnana na ovom sistemu, molimo posjetite "
+"www.phpmyadmin.net za više informacija."
 
 #: db_create.php:60
 #, php-format
@@ -147,10 +146,9 @@ msgstr "Komentari tablice"
 #: tbl_change.php:318 tbl_indexes.php:213 tbl_printview.php:136
 #: tbl_relation.php:395 tbl_tracking.php:257 tbl_tracking.php:323
 #: tbl_zoom_select.php:441
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Nazivi stupaca"
+msgstr "Stupac"
 
 #: db_datadict.php:163 db_printview.php:103 libraries/Index.class.php:441
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:250
@@ -283,10 +281,9 @@ msgid "Rename database to"
 msgstr "Preimenuj bazu podataka u"
 
 #: db_operations.php:438
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Preimenuj bazu podataka u"
+msgstr "Ukloni bazu podataka"
 
 #: db_operations.php:450
 #, php-format
@@ -294,9 +291,8 @@ msgid "Database %s has been dropped."
 msgstr "Baza podataka %s je odbačena."
 
 #: db_operations.php:455
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Nema baza podataka"
+msgstr "Ukloni bazu podataka"
 
 #: db_operations.php:484
 msgid "Copy database to"
@@ -349,7 +345,7 @@ msgid "Collation"
 msgstr "Uspoređivanje"
 
 #: db_operations.php:561
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -357,14 +353,13 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Dodatne osobine za rad s relacijski tablicama su isključene. Kako biste "
-"saznali razloge, pritisnite %sovdje%s."
+"Konfiguracija za pohranu phpMyAdmin-a je deaktivirana. Kako biste saznali "
+"razloge, kliknite %sovdje%s."
 
 #: db_operations.php:595
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Shema relacija"
+msgstr "Uredi ili izvozi relacijske šeme"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -415,22 +410,23 @@ msgid "Last check"
 msgstr "Posljednja provjera"
 
 #: db_printview.php:219 db_structure.php:524
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tablica"
+msgstr[0] "%s tablicu"
 msgstr[1] "%s tablica"
+msgstr[2] "%s tablice"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
 msgstr "Morate odabrati najmanje jedan stupac za prikazivanje"
 
 #: db_qbe.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Prebaci se na kopiranu tablicu"
+msgstr "Prebaci se na %svizualnu izradu%s"
 
 #: db_qbe.php:222 libraries/db_structure.lib.php:90
 #: libraries/display_tbl.lib.php:1003
@@ -485,16 +481,14 @@ msgid "Modify"
 msgstr "Uredi"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Dodaj/Izbriši redak kriterija"
+msgstr "Dodaj/Izbriši kriterije redaka"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Dodaj/Izbriši stupce polja"
+msgstr "Dodaj/Izbriši stupce"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -542,12 +536,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Rezultati pretraživanja za \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
-msgstr[0] "%s poklapanja unutar tablice <i>%s</i>"
+msgstr[0] "%s poklapanje unutar tablice <i>%s</i>"
 msgstr[1] "%s poklapanja unutar tablice <i>%s</i>"
+msgstr[2] "%s poklapanja unutar tablice <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3127
 #: libraries/common.lib.php:3339 libraries/common.lib.php:3340
@@ -556,10 +551,10 @@ msgid "Browse"
 msgstr "Pretraživanje"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Izbacivanje podataka za tablicu"
+msgstr "Obriši rezultate pretrage za %s tablicu?"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1426
 #: libraries/display_tbl.lib.php:2473
@@ -574,22 +569,22 @@ msgid "Delete"
 msgstr "Izbriši"
 
 #: db_search.php:252
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Ukupno:</b> <i>%s</i> poklapanja"
+msgstr[0] "<b>Ukupno:</b> <i>%s</i> poklapanje"
 msgstr[1] "<b>Ukupno:</b> <i>%s</i> poklapanja"
+msgstr[2] "<b>Ukupno:</b> <i>%s</i> poklapanja"
 
 #: db_search.php:274
 msgid "Search in database"
 msgstr "Traži u bazi podataka"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Riječi ili vrijednost za pretraživanje (džoker: \"%\"):"
+msgstr "Riječi ili vrijednost za pretraživanje (zamjenski znak: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -600,22 +595,19 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Riječi su razdvojene znakom razmaka (\" \")."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Unutar tablica:"
 
 #: db_search.php:330
-#, fuzzy
 #| msgid "Inside field:"
 msgid "Inside column:"
 msgstr "Unutar polja:"
 
 #: db_structure.php:68
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "U bazi podataka nisu pronađene tablice."
+msgstr "U bazi podataka nisu pronađene tablice"
 
 #: db_structure.php:228 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
@@ -639,11 +631,11 @@ msgstr "Tablica %s je odbačen"
 
 #: db_structure.php:338 tbl_create.php:283
 msgid "Tracking is active."
-msgstr ""
+msgstr "Praćenje je aktivno."
 
 #: db_structure.php:343 tbl_create.php:286
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Praćenje nije aktivno."
 
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
 #, php-format
@@ -741,30 +733,26 @@ msgid "Analyze table"
 msgstr "Analiziraj tablicu"
 
 #: db_structure.php:611
-#, fuzzy
 msgid "Add prefix to table"
-msgstr "Nema baza podataka"
+msgstr "Dodaj prefiks tablici"
 
 #: db_structure.php:613 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Podatke tablice zamijeni datotekom"
+msgstr "Zamijeni prefiks tablice"
 
 #: db_structure.php:615 libraries/mult_submits.inc.php:251
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Podatke tablice zamijeni datotekom"
+msgstr "Kopiraj tablicu sa prefiksom"
 
 #: db_structure.php:652 libraries/schema/User_Schema.class.php:423
 msgid "Data Dictionary"
 msgstr "Rječnik podataka"
 
 #: db_tracking.php:80
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Provjeri tablicu"
+msgstr "Praćene tablice"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
@@ -780,14 +768,12 @@ msgid "Database"
 msgstr "Baza podataka"
 
 #: db_tracking.php:87
-#, fuzzy
 msgid "Last version"
-msgstr "Izradi relaciju"
+msgstr "Zadnja verzija"
 
 #: db_tracking.php:88 tbl_tracking.php:651
-#, fuzzy
 msgid "Created"
-msgstr "Izradi"
+msgstr "Kreirano"
 
 #: db_tracking.php:89 tbl_tracking.php:652
 msgid "Updated"
@@ -809,7 +795,7 @@ msgstr "Aktivnost"
 
 #: db_tracking.php:102 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Obriši podatke o praćenju za ovu tablicu"
 
 #: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
 msgid "active"
@@ -820,71 +806,64 @@ msgid "not active"
 msgstr "neaktivno"
 
 #: db_tracking.php:135
-#, fuzzy
 msgid "Versions"
-msgstr "Perzijski"
+msgstr "Verzije"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
-msgstr ""
+msgstr "Izvještaj o praćenju"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Samo strukturu"
+msgstr "Snimak strukture"
 
 #: db_tracking.php:183
-#, fuzzy
 msgid "Untracked tables"
-msgstr "Provjeri tablicu"
+msgstr "Nepraćene tablice"
 
 #: db_tracking.php:201 tbl_structure.php:655
-#, fuzzy
 msgid "Track table"
-msgstr "Provjeri tablicu"
+msgstr "Prati tablicu"
 
 #: db_tracking.php:227
-#, fuzzy
 msgid "Database Log"
-msgstr "Baza podataka"
+msgstr "Log baze podataka"
 
 #: enum_editor.php:23 js/messages.php:272
 #: libraries/rte/rte_routines.lib.php:707
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET uređivač"
 
 #: enum_editor.php:28 js/messages.php:274
 msgid "Values for a new column"
 msgstr "Vrijednosti za novi stupac"
 
 #: enum_editor.php:30 js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
-msgstr "Broj polja"
+msgstr "Vrijednosti za stupac %s"
 
 #: enum_editor.php:34 js/messages.php:275
 msgid "Enter each value in a separate field"
 msgstr "Unesite svaku vrijednost u drugo polje"
 
 #: enum_editor.php:93
-#, fuzzy
 msgid "Add a value"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj vrijednost"
 
 #: enum_editor.php:99 gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "Izlaz"
 
 #: enum_editor.php:100
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
-msgstr ""
+msgstr "Kopiraj i naljepi spojene vrijednosti u \"Dužina/Vrijednosti\" polje"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Vrsta upita"
+msgstr "Pogrešna vrsta!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -894,7 +873,7 @@ msgstr "Odabrana vrsta izvoza mora biti spremljena u datoteku!"
 #, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
-msgstr "Rutine"
+msgstr "Pogrešni parametri!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -920,9 +899,8 @@ msgid "Dump has been saved to file %s."
 msgstr "Izbacivanje je spremljeno u datoteku %s."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Vrsta izvoza"
+msgstr "Pogrešna vrsta izvoza"
 
 #: gis_data_editor.php:84
 #, php-format
@@ -931,11 +909,12 @@ msgstr "Vrijednost stupca \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Iskoristi OpenStreetMaps kao osnovni sloj"
 
 #: gis_data_editor.php:134
+#, fuzzy
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:326
 #: libraries/display_tbl.lib.php:693
@@ -960,61 +939,57 @@ msgstr "Y"
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Točka %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a point"
-msgstr "Dodaj %s polja"
+msgstr "Dodaj točku"
 
 #: gis_data_editor.php:220 js/messages.php:324
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Redovi završeni s"
+msgstr "Linija teksta"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "Vanjski Prsten"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "Unutarnji Prsten"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj novu liniju niza znakova"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj unutarnji prsten"
 
 #: gis_data_editor.php:266 js/messages.php:325
 msgid "Polygon"
 msgstr "Poligon"
 
 #: gis_data_editor.php:306 js/messages.php:331
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Dodaj %s polja"
+msgstr "Dodaj poligon"
 
 #: gis_data_editor.php:310
-#, fuzzy
 msgid "Add geometry"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj geometriju"
 
 #: gis_data_editor.php:318
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"Odaberi \"GeomFromText\" iz \"Funkcija\" stupca i naljepi ispod teksta u "
+"\"Vrijednost\" polje"
 
 #: import.php:57
 #, php-format
@@ -1065,6 +1040,7 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Nije moguće promijeniti set znakova datoteke bez biblioteke za konverziju"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1129,17 +1105,16 @@ msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
-msgstr "UNIŠTITI ĆETE CJELOKUPNU TABLICU"
+msgstr "Vi ćete OBRISATI kompletnu tablicu!"
 
 #: js/messages.php:33
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "ISPRAZNITI ĆETE CJELOKUPNU TABLICU!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Dopušta umetanje i zamjenu podataka."
+msgstr "Brisanje podataka o praćenju"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
@@ -1151,12 +1126,12 @@ msgstr "Ovaj postupak može potrajati dulje vrijeme. Ipak nastaviti?"
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "Ovime Ćete da ISKLJUČITE BLOB spremište!"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "Jesi li siguran da želiš onemogučiti sve BLOB reference za bazu %s?"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1167,16 +1142,14 @@ msgid "This is not a number!"
 msgstr "Ovo nije brojka!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "Indeks"
+msgstr "Dodaj Indeks"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "Uredi sljedeći redak"
+msgstr "Uredi indeks"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, fuzzy, php-format
@@ -2061,7 +2034,7 @@ msgstr ""
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr "Povlačenje pokazivača miša preko točke će pokazati oznaku"
+msgstr "Ako zadržite pokazivača miša iznad točke biti će prikazan natpis."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -2214,8 +2187,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Nova verzija phpMyAdmina je dostupna i trebali biste je nadograditi. "
-"Najnovija verzija je %s dostupna od %s"
+"Nova verzija phpMyAdmina-a je dostupna i bi da razmislite o nadogradnji. "
+"Najnovija verzija je %s objavljena na %s"
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:369
@@ -2580,7 +2553,7 @@ msgstr "Veličina fonta"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr "Previše poruka o greškama, neke nisu prikazane"
+msgstr "Previše poruka o greškama, neke nisu prikazane."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -2636,7 +2609,7 @@ msgstr ""
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
-msgstr "Greška prilikom premještanja datoteke"
+msgstr "Greška prilikom premještanja učitane datoteke."
 
 #: libraries/File.class.php:516
 msgid "Cannot read (moved) upload file."
@@ -2858,8 +2831,9 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"Vjerojatan razlog je nepostojeća konfiguracijska datoteka. Za izradu možete "
-"upotrijebiti naredbu %1$ssetup script%2$s"
+"Vjerojatan razlog za ovo je da niste napravili konfiguracijsku datoteku. Za "
+"izradu možete upotrijebiti %1$sskriptu za instalaciju%2$s da biste je "
+"napravili."
 
 #: libraries/auth/config.auth.lib.php:111
 msgid ""
@@ -8259,7 +8233,7 @@ msgstr "Prikaži dimenzije tablice"
 
 #: libraries/schema/User_Schema.class.php:420
 msgid "Display all tables with the same width"
-msgstr "Prikazati sve tablice uz istu širinu?"
+msgstr "Prikaz svih tablica sa istom širinom"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
