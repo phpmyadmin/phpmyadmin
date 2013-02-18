@@ -2331,27 +2331,6 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
     return $current_value;
 }
 
-/**
- * Check whether particular table has primary key or unique key
- *
- * @param string $db    Database name
- * @param string $table Table name
- *
- * @return boolean
- */
-function PMA_hasPrimaryKeyOrUniqueKey($db, $table)
-{
-    $table_indexes = PMA_DBI_get_table_indexes($db, $table);
-    
-    foreach ($table_indexes as $index) {
-        if (($index['Key_name'] == 'PRIMARY') || ($index['Non_unique'] == '0')) {
-            return true;
-        }
-    }
-    
-    return false;
-    
-}
 
 /**
  * Check whether inline edited value can be truncated or not,
@@ -2360,41 +2339,25 @@ function PMA_hasPrimaryKeyOrUniqueKey($db, $table)
  * @param string $db               Database name
  * @param string $table            Table name
  * @param string $column_name      Column name
- * @param string $column_value     Edited column value
- * @param array  $column_meta_data Column meta data
  * @param array  &$extra_data      Extra data for ajax response
  *
  * @return void
  */
 function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-    $db, $table, $column_name, $column_value, $column_meta_data, &$extra_data
+    $db, $table, $column_name, &$extra_data
 ) {
     
     $extra_data['isNeedToRecheck'] = true;
-    $extra_data['hasUniqueIdentifier'] = PMA_hasPrimaryKeyOrUniqueKey($db, $table)
-        ? true
-        : false;
-        
-    // If table has unique identifier (primary/unique key), fetch the value
-    // of the field.
-    if ($extra_data['hasUniqueIdentifier']) {
+    
+    $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
+        . PMA_Util::backquote($column_name)
+        . ' FROM ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table)
+        . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-        $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
-            . PMA_Util::backquote($column_name)
-            . ' FROM ' . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($table)
-            . ' WHERE ' . $_REQUEST['where_clause'][0];
-
-        if (PMA_DBI_fetch_value($sql_for_real_value) !== false) {
-            $extra_data['truncatableFieldValue'] = PMA_DBI_fetch_value($sql_for_real_value);
-        } else {
-            $extra_data['isNeedToRecheck'] = false;
-        }
-        
+    if (PMA_DBI_fetch_value($sql_for_real_value) !== false) {
+        $extra_data['truncatableFieldValue'] = PMA_DBI_fetch_value($sql_for_real_value);
     } else {
-        // If there is no unique identifier to the table,
-        // it's not a good idea to recheck since there can be
-        // several results matching for where clause
         $extra_data['isNeedToRecheck'] = false;
     }
     
