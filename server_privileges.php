@@ -470,7 +470,7 @@ if (empty($_REQUEST['adduser'])
             PMA_getHtmlForDisplayUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
                 $url_dbname, $username, $hostname, $link_edit, $link_revoke,
-                (isset($dbname) ? $dbname : ''),
+                (isset($unescaped_db) ? $unescaped_db : ''),
                 (isset($tablename) ? $tablename : '')
             )
         );
