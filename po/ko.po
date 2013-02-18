@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-16 07:31+0200\n"
-"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
+"PO-Revision-Date: 2013-02-18 05:43+0200\n"
+"Last-Translator: suhyuk kim <kimsuhyuk@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -8354,7 +8354,7 @@ msgstr ""
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "이제 설정 파일은 암호화 문자열(blowfish_scret) 을 필요로 합니다."
 
 #: main.php:315
 msgid ""
