@@ -89,6 +89,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #2951 [export] Correctly export decimal fields.
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
 - bug #3519 [export] Prevent infinite recursion in PDF export.
+- bug #3827 Table specific privileges not displayed for db name containing
+underscore 
 
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
