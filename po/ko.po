@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-15 07:40+0200\n"
-"Last-Translator: suhyuk kim <kimsuhyuk@gmail.com>\n"
+"PO-Revision-Date: 2013-02-16 07:32+0200\n"
+"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1572,7 +1572,7 @@ msgstr "요청 처리중 에러가 발생했습니다"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "오류 코드: %s"
 
 #: js/messages.php:226
 #, php-format
@@ -1635,10 +1635,9 @@ msgid "Show indexes"
 msgstr "인덱스 보이기"
 
 #: js/messages.php:246 libraries/mult_submits.inc.php:327
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "외래 키(foreign key) 체크 사용 안함"
+msgstr "외래 키(foreign key) 확인:"
 
 #: js/messages.php:247 libraries/mult_submits.inc.php:331
 msgid "(Enabled)"
@@ -1834,7 +1833,7 @@ msgstr "필드 옵션 추가"
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d 개의 개체가 생성되었습니다"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1892,17 +1891,16 @@ msgstr "링크로 이동합니다."
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "열(칼럼) 이름"
+msgstr "열(칼럼) 이름 복사"
 
 #: js/messages.php:360
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:361
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "행 업데이트"
+msgstr "데이터 행 표시"
 
 #: js/messages.php:364
 msgid "Generate password"
@@ -1921,22 +1919,20 @@ msgid "More"
 msgstr "더보기"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "모두 보기"
+msgstr "패널 표시"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "인덱스 숨기기"
+msgstr "패널 숨기기"
 
 #: js/messages.php:376
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니다."
+msgstr "요청하신 페이지를 기록에서 찾을 수 없습니다. 만기되었을 수 있습니다."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2213,7 +2209,7 @@ msgstr "초"
 #: libraries/Advisor.class.php:77
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP에서 다음과 같은 애러가 발생했습니다: %s"
 
 #: libraries/Advisor.class.php:104
 #, php-format
@@ -2486,10 +2482,9 @@ msgid "Number of rows"
 msgstr "행 갯수"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mo"
 msgid "Mode"
-msgstr "월"
+msgstr "모드"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -2573,7 +2568,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:1622
 #: libraries/config/messages.inc.php:57
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "2진수 데이터를 HEX형식으로 표시"
 
 #: libraries/DisplayResults.class.php:1633
 #, fuzzy
@@ -2889,12 +2884,12 @@ msgstr "트리거"
 
 #: libraries/Menu.class.php:319 libraries/Menu.class.php:320
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "테이블이 비어있는 것 같습니다!"
 
 #: libraries/Menu.class.php:356 libraries/Menu.class.php:363
 #: libraries/Menu.class.php:370
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "데이터베이스가 비어있는 것 같습니다!"
 
 #: libraries/Menu.class.php:359
 msgid "Query"
@@ -2943,7 +2938,7 @@ msgstr "환경설정값"
 
 #: libraries/Menu.class.php:510
 msgid "Charsets"
-msgstr ""
+msgstr "문자셋"
 
 #: libraries/Menu.class.php:515 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
@@ -3001,12 +2996,11 @@ msgstr "SQL 질의"
 
 #: libraries/ServerStatusData.class.php:184
 msgid "Handler"
-msgstr ""
+msgstr "핸들러"
 
 #: libraries/ServerStatusData.class.php:185
-#, fuzzy
 msgid "Query cache"
-msgstr "질의 종류"
+msgstr "질의(쿼리) 캐시"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
@@ -3031,7 +3025,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:193
 msgid "Sorting"
-msgstr ""
+msgstr "정렬"
 
 #: libraries/ServerStatusData.class.php:194
 #: libraries/build_html_for_db.lib.php:26
@@ -3195,16 +3189,14 @@ msgid "Value"
 msgstr "값"
 
 #: libraries/TableSearch.class.php:203
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "검색"
+msgstr "테이블 검색"
 
 #: libraries/TableSearch.class.php:232 libraries/insert_edit.lib.php:1350
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "삽입"
+msgstr "편집/삽입"
 
 #: libraries/TableSearch.class.php:755
 #, fuzzy
@@ -3362,7 +3354,7 @@ msgstr ""
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
-msgstr ""
+msgstr "TINYINT(1)와 동일함. 저장된 값이 0일 경우 거짓으로, 0이 아닐 경우 참값이 저장된 것으로 간주됨"
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
@@ -3385,9 +3377,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
-#, fuzzy, php-format
+#, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "서버 버전"
+msgstr "%1$s 에서 %2$s 사이의 범위를 가진 시간값"
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -3437,7 +3429,7 @@ msgstr ""
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr ""
+msgstr "CHAR형과 비슷하나, 일반 문자열 대신 바이너리값을 저장할 수 있음"
 
 #: libraries/Types.class.php:344
 msgid ""
@@ -3492,10 +3484,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "폴리곤 추가"
+msgstr "폴리곤"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
@@ -3519,18 +3510,16 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "새 인덱스 만들기"
+msgstr "날짜와 시간"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "줄(열) 구분자"
+msgstr "문자열"
 
 #: libraries/Types.class.php:673
 #, fuzzy
@@ -3541,13 +3530,15 @@ msgstr "전체 사용량"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "-2,147,483,648부터 2,147,483,647까지의 값을 저장할 수 있는 4바이트 정수형"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"-9,223,372,036,854,775,808 에서 9,223,372,036,854,775,807까지의 값을 저장할 수 있는 8바이트 "
+"정수형"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
@@ -3555,7 +3546,7 @@ msgstr ""
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "참 혹은 거짓"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
@@ -3838,11 +3829,11 @@ msgstr "오른쪽"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "클릭"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "더블 클릭"
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
@@ -4058,7 +4049,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -4634,7 +4625,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
-msgstr ""
+msgstr "보안"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
@@ -4735,19 +4726,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 msgid "Startup"
-msgstr "상태"
+msgstr "시작"
 
 #: libraries/config/messages.inc.php:221
 msgid "Customize startup page"
 msgstr ""
 
 #: libraries/config/messages.inc.php:222
-#, fuzzy
 #| msgid "Databases"
 msgid "Database structure"
-msgstr "데이터베이스 "
+msgstr "데이터베이스 구조"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
