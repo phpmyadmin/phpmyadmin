@@ -37,8 +37,16 @@ if (! empty($sql_query)) {
     // Need to generate WHERE clause?
     if (isset($where_clause)) {
 
-        $temp_sql_array = explode("where", strtolower($sql_query));
-
+        //$temp_sql_array = explode("where", strtolower($sql_query));
+        if (!empty($analyzed_sql[0]['where_clause'])) {
+                $temp_sql_array = explode("where", strtolower($sql_query));
+        }else if(!empty($analyzed_sql[0]['group_by_clause'])) {
+                $temp_sql_array = explode("group by", strtolower($sql_query));
+        }else if(!empty($analyzed_sql[0]['having_clause'])) {
+                $temp_sql_array = explode("having", strtolower($sql_query));
+        }else{
+                $temp_sql_array = explode("order by", strtolower($sql_query));
+        }
         // The part "SELECT `id`, `name` FROM `customers`"
         // is not modified by the next code segment, when exporting 
         // the result set from a query such as
