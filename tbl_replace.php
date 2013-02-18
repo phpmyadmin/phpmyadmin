@@ -349,11 +349,9 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     // Need to check the inline edited value can be truncated by MySQL
     // without informing while saving
     $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
-    $column_value = $_REQUEST['fields']['multi_edit'][0][0];
-    $column_meta_data = PMA_DBI_get_columns($db, $table, $column_name);
     
     PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-        $db, $table, $column_name, $column_value, $column_meta_data, $extra_data
+        $db, $table, $column_name, $extra_data
     );
     
     /**Get the total row count of the table*/
