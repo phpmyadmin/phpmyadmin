@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-18 05:43+0200\n"
-"Last-Translator: suhyuk kim <kimsuhyuk@gmail.com>\n"
+"PO-Revision-Date: 2013-02-19 09:22+0200\n"
+"Last-Translator: 형진 이 <l10n@waitfor.net>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3170,7 +3170,7 @@ msgstr "사용불가"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "%s 확장을 위해 \"%s\" 가 필요합니다."
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
