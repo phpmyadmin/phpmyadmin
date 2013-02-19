@@ -338,7 +338,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
         }
     }
 
-    $local_query = 'CREATE DATABASE '
+    $local_query = 'CREATE DATABASE IF NOT EXISTS '
         . PMA_Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
         $local_query .= ' DEFAULT'

@@ -91,6 +91,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 - bug #3827 Table specific privileges not displayed for db name containing
 underscore 
+- rfe #1386 Add IF NOT EXISTS clause when copying database
 
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
