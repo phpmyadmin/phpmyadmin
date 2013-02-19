@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-07 11:07+0200\n"
+"PO-Revision-Date: 2013-02-19 14:34+0200\n"
 "Last-Translator: Mathieu Terroba <mathieu.terroba@gmail.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/3-5/fr/>\n"
 "Language: fr\n"
@@ -3753,7 +3753,7 @@ msgstr "Limite pour clé étrangère"
 
 #: libraries/config/messages.inc.php:156
 msgid "Browse mode"
-msgstr "Mode affichage"
+msgstr "Mode de navigation"
 
 #: libraries/config/messages.inc.php:157
 msgid "Customize browse mode"
