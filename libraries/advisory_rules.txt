@@ -212,14 +212,14 @@ rule 'Percentage of sorts that cause temporary tables' [Sort_scan + Sort_range >
 	Sort_merge_passes / (Sort_scan + Sort_range) * 100
 	value > 10
 	Too many sorts are causing temporary tables.
-	Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending on your system memory limits
+	Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, depending on your system memory limits
 	%s% of all sorts cause temporary tables, this value should be lower than 10%. | round(value,1)
 
 rule 'Rate of sorts that cause temporary tables'
 	Sort_merge_passes / Uptime
 	value * 60 * 60 > 1
 	Too many sorts are causing temporary tables.
-	Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending on your system memory limits
+	Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, depending on your system memory limits
 	Temporary tables average: %s, this value should be less than 1 per hour. | ADVISOR_bytime(value,2)
 
 rule 'Sort rows'
