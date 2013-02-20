@@ -37,7 +37,7 @@ if (! empty($sql_query)) {
     // Need to generate WHERE clause?
     if (isset($where_clause)) {
 
-        $temp_sql_array = explode("where", $sql_query);
+        $temp_sql_array = preg_split("/\bwhere\b/i", $sql_query);
 
         // The part "SELECT `id`, `name` FROM `customers`"
         // is not modified by the next code segment, when exporting 
