@@ -49,6 +49,8 @@ function onKeyDownArrowsHandler(e)
 
     var x = pos[2], y=pos[1];
 
+    var nO = null;
+
     // skip non existent fields
     for (var i=0; i < 10; i++)
     {
@@ -74,7 +76,7 @@ function onKeyDownArrowsHandler(e)
         }
 
         var id = "field_" + y + "_" + x;
-        var nO = document.getElementById(id);
+        nO = document.getElementById(id);
         if (!nO) {
             id = "field_" + y + "_" + x + "_0";
             nO = document.getElementById(id);
