@@ -22,9 +22,8 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
     {
         $log = new PmaSeleniumTestCase($this);
         $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->selectFrame("frame_content");
         $this->click("link=SQL");
-        $this->waitForPageToLoad("30000");
+        $this->waitForElementPresent("id=queryboxf");
         $this->click("button_submit_query");
         $this->assertAlert("Missing value in the form!");
     }

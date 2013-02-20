@@ -22,20 +22,18 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
     public function testCreateDropDatabase()
     {
         $log = new PmaSeleniumTestCase($this);
+        $dbname = "pma_testdb".time();
         $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->selectFrame("frame_content");
         $this->click("link=Databases");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=text_create_db", "pma");
+        $this->waitForElementPresent("id=text_create_db");
+        $this->type("id=text_create_db", $dbname);
         $this->click("id=buttonGo");
-        $this->assertTrue($this->isTextPresent("pma"));
-
-        $this->click("link=pma");
-        $this->waitForPageToLoad("30000");
-        $this->click("link=Operations");
-        $this->waitForPageToLoad("30000");
-        $this->click("id=drop_db_anchor");
-        $this->click("//button[@type='button']");
-
+        $this->waitForElementPresent("css=span.ajax_notification");
+        $this->assertElementPresent("css=span.ajax_notification div.success");	    	
+        $this->click("xpath=(//input[@name='selected_dbs[]'])[@value='".$dbname."']");
+        $this->click("css=button.mult_submit.ajax");
+        $this->click("css=button:contains('OK')");
+        $this->waitForElementPresent("css=span.ajax_notification");
+        $this->assertElementPresent("css=span.ajax_notification div.success");
     }
 }
