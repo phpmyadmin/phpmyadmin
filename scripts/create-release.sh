@@ -145,7 +145,7 @@ rm -rf test
 rm -rf PMAStandard
 
 # Testsuite setup
-rm -f build.xml phpunit.xml.dist
+rm -f build.xml phpunit.xml.dist .travis.yml
 
 # Remove readme for github
 rm -f README.rst
