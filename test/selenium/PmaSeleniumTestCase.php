@@ -60,8 +60,7 @@ class PmaSeleniumTestCase
     */
     public function isUnsuccessLogin()
     {
-        $val = $this->_selenium->getValue('input_go');
-        if ($this->_selenium->isElementPresent("//html/body/div/div[@class='error']")) {
+        if ($this->_selenium->isElementPresent("css=div.error")) {
             return true;
         } else {
             return false;

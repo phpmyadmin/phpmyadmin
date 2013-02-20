@@ -26,8 +26,7 @@ class Helper
     public static function logOutIfLoggedIn($selenium)
     {
         if (self::isLoggedIn($selenium)) {
-            $selenium->selectFrame("frame_navigation");
-            $selenium->clickAndWait("css=img.icon.ic_b_home");
+            $selenium->clickAndWait("css=img.icon.ic_s_loggoff");
         }
     }
 
