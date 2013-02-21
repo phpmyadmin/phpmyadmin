@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-19 09:22+0200\n"
-"Last-Translator: 형진 이 <l10n@waitfor.net>\n"
+"PO-Revision-Date: 2013-02-21 08:11+0200\n"
+"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2444,10 +2444,9 @@ msgid "Save edited data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:704
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Restore column order"
-msgstr "컬럼 추가/삭제"
+msgstr "컬럼(열) 순서 복구"
 
 #: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2553
 #: libraries/Util.class.php:2557
@@ -2869,7 +2868,7 @@ msgstr "테이블 작업"
 #: libraries/Menu.class.php:296 libraries/Menu.class.php:413
 #: libraries/relation.lib.php:238
 msgid "Tracking"
-msgstr ""
+msgstr "SQL 명령어 트래킹"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:407
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
@@ -2946,7 +2945,7 @@ msgstr "플러그인"
 
 #: libraries/Menu.class.php:519
 msgid "Engines"
-msgstr ""
+msgstr "엔진"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
@@ -3980,7 +3979,7 @@ msgstr "최대 %s"
 
 #: libraries/config/FormDisplay.tpl.php:223
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr "이 설정은 비활성화되었습니다. 당신의 환경설정에는 적용되지 않습니다."
+msgstr "이 설정은 비활성화되어 있어, 당신의 환경설정에는 적용되지 않습니다"
 
 #: libraries/config/FormDisplay.tpl.php:311
 #, php-format
@@ -11927,7 +11926,7 @@ msgstr ""
 
 #: tbl_tracking.php:262
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "필요치 않을 경우 이 두 줄을 주석처리하시기 바랍니다."
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
@@ -12081,22 +12080,22 @@ msgstr "테이블 이름 바꾸기"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "업타임이 1일 미만임"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "업타임이 1일 미만인 관계로 정보 부족으로 인해 성능 최적화가 부정확할 수 있습니다."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr ""
+msgstr "더 정확한 평균값을 계산하기 위해 서버를 하루 이상 가동하신 후 이 아날라이저를 사용하시는 것을 권장합니다"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "업타임이 %s 밖에 되지 않습니다"
 
 #: libraries/advisory_rules.txt:56
 #, fuzzy
@@ -12250,13 +12249,12 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "버전 5.5.8 미만 (5.5버전의 첫 일반 배포판)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "%s를 %s 이상으로 업그레이드 하십시오"
+msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합니다"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
@@ -12315,6 +12313,8 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"(서버가 localhost에 있다고 간주할 시)시스템의 RAM 용량이 3GiB이상이어서 MySQL이 메모리를 전부 사용하지 못할 수 "
+"있습니다. 64비트 버전의 MySQL을 설치하시는 것을 고려하시기 바랍니다."
 
 #: libraries/advisory_rules.txt:147
 #, php-format
@@ -12326,10 +12326,9 @@ msgid "Query cache disabled"
 msgstr "쿼리 캐시가 비활성화되어 있습니다"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "서버 응답이 없습니다"
+msgstr "질의(쿼리)캐시가 활성화되어 있지 않습니다."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12387,9 +12386,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "질의 종류"
+msgstr "질의(쿼리) 캐시 사용율"
 
 #: libraries/advisory_rules.txt:177
 #, php-format
@@ -12467,9 +12465,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 msgid "Query cache max size"
-msgstr "질의 종류"
+msgstr "쿼리 캐시의 최대 크기"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -12484,9 +12481,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:200
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "서버 버전"
+msgstr "쿼리 캐시의 크기: %s"
 
 #: libraries/advisory_rules.txt:202
 #, fuzzy
@@ -12553,10 +12550,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:225
-#, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
-msgstr "토"
+msgstr "행 정렬"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
@@ -12913,10 +12909,10 @@ msgid "The thread cache is set to 0"
 msgstr "스레드 캐시가 0으로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "트래킹이 활성화되어 있지 않습니다."
+msgstr "쓰레드 캐시 히트율 %%"
 
 #: libraries/advisory_rules.txt:372
 msgid "Thread cache is not efficient."
@@ -12929,7 +12925,7 @@ msgstr "{thread_cache_size}를 증가시켜야합니다."
 #: libraries/advisory_rules.txt:374
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "쓰레드 캐시 히트율이 %s%%이며, 정상적인 경우 80%% 이상입니다"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
