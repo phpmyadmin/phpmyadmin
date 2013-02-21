@@ -560,6 +560,7 @@ if ($GLOBALS['cfg']['RememberSorting']
     PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);
 }
 
+$sql_limit_to_append = '';
 // Do append a "LIMIT" clause?
 if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     && ! ($is_count || $is_export || $is_func || $is_analyse)
