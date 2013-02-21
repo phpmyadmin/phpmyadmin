@@ -214,7 +214,19 @@ $url_params = PMA_urlParamsInEditMode(
 );
 
 //Insert/Edit form
-$html_output .= '<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" ';
+//If table has blob fields we have to disable ajax.
+$has_blob_field = false;
+foreach ($table_fields as $column) {
+    if (PMA_isColumnBlob($column)) {
+        $has_blob_field = true;
+        break;
+    }
+}
+$html_output .='<form id="insertForm" ';
+if ($has_blob_field && $is_upload) {
+    $html_output .='class="disableAjax" ';
+}
+$html_output .='method="post" action="tbl_replace.php" name="insertForm" ';
 if ($is_upload) {
     $html_output .= ' enctype="multipart/form-data"';
 }
