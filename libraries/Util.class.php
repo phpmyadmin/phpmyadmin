@@ -1145,7 +1145,7 @@ class PMA_Util
                  */
 
                 if (isset($analyzed_display_query[0]['queryflags']['select_from'])
-                    && !empty($GLOBALS['sql_limit_to_append'])
+                    && ! empty($GLOBALS['sql_limit_to_append'])
                 ) {
                     $query_base = $analyzed_display_query[0]['section_before_limit']
                         . "\n" . $GLOBALS['sql_limit_to_append']
