@@ -561,17 +561,20 @@ AJAX.registerOnload('sql.js', function() {
  */
 function makeProfilingChart()
 {
-    if ($('#profilingchart').length == 0) {
+    if ($('#profilingchart').length == 0
+        || $('#profilingchart').html().length != 0
+    ) {
         return;
     }
-
+    
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingchart').html()),function(key,value) {
+    $.each(jQuery.parseJSON($('#profilingChartData').html()),function(key,value) {
         data.push([key,parseFloat(value)]);
     });
 
-    // Prevent the user from seeing the JSON code
-    $('div#profilingchart').html('').show();
+    // Remove chart and data divs contents
+    $('#profilingchart').html('').show();
+    $('#profilingChartData').html('');
 
     PMA_createProfilingChartJqplot('profilingchart', data);
 }

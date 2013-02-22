@@ -1150,7 +1150,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '<script type="text/javascript">';
         echo 'pma_token = \'' . $_SESSION[' PMA_token '] . '\';';
         echo 'url_query = \'' . (isset($url_query) ? $url_query : PMA_generate_common_url($db)) . '\';';
-        echo '$(makeProfilingChart);';
+        echo 'AJAX.registerOnload(\'sql.js\',makeProfilingChart);';
         echo '</script>';
 
         echo '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
@@ -1182,8 +1182,10 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '</table>' . "\n";
         echo '</div>';
         //require_once 'libraries/chart.lib.php';
-        echo '<div id="profilingchart" style="display:none;">';
+        echo '<div id="profilingChartData" style="display:none;">';
         echo json_encode($chart_json);
+        echo '</div>';
+        echo '<div id="profilingchart" style="display:none;">';
         echo '</div>';
         echo '</fieldset>' . "\n";
     }
