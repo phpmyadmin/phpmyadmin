@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-21 08:11+0200\n"
+"PO-Revision-Date: 2013-02-22 01:08+0200\n"
 "Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -5808,7 +5808,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:473
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "phpinfo()링크 표시"
 
 #: libraries/config/messages.inc.php:474
 msgid "Show detailed MySQL server information"
