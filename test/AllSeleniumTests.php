@@ -16,6 +16,7 @@ require_once dirname(__FILE__).'/selenium/PmaSeleniumLoginTest.php';
 require_once dirname(__FILE__).'/selenium/PmaSeleniumXssTest.php';
 require_once dirname(__FILE__).'/selenium/PmaSeleniumPrivilegesTest.php';
 require_once dirname(__FILE__).'/selenium/PmaSeleniumCreateDropDatabaseTest.php';
+require_once dirname(__FILE__).'/selenium/PmaSeleniumCreateRemoveUserTest.php';
 class AllSeleniumTests
 {
     public static function main()
@@ -32,6 +33,7 @@ class AllSeleniumTests
         $suite->addTestSuite('PmaSeleniumXssTest');
         $suite->addTestSuite('PmaSeleniumPrivilegesTest');
         $suite->addTestSuite('PmaSeleniumCreateDropDatabaseTest');
+        $suite->addTestSuite('PmaSeleniumCreateRemoveUserTest');
         return $suite;
     }
 }
