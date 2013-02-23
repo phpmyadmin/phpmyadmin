@@ -370,7 +370,17 @@ class Node
         }
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
-        return PMA_DBI_fetch_result($query);
+        $databasesNames = PMA_DBI_fetch_result($query); 
+        // @todo: similar code exists in List_Database.class.php
+        foreach ($databasesNames as $key => $oneDatabaseName) {
+            if (preg_match(
+                '/' . $GLOBALS['cfg']['Server']['hide_db'] . '/',
+                $oneDatabaseName)
+            ) {
+                unset($databasesNames[$key]);
+            }
+        }
+        return $databasesNames;
     }
 
     /**
