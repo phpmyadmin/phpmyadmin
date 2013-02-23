@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-18 10:00+0200\n"
+"PO-Revision-Date: 2013-02-23 10:01+0200\n"
 "Last-Translator: Roby Clai <icyphoenixx@gmail.com>\n"
 "Language-Team: Croatian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hr/>\n"
@@ -511,7 +511,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Odabrana vrsta izvoza mora biti spremljena u datoteku!"
 
 #: export.php:122
-#, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
 msgstr "Pogrešni parametri!"
@@ -1003,7 +1002,7 @@ msgstr "Vrijednost"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
-msgstr "Naziv računala je prazan!"
+msgstr "Ime domaćina je prazno!"
 
 #: js/messages.php:52
 msgid "The user name is empty!"
@@ -1023,19 +1022,16 @@ msgstr "Lozinke se ne podudaraju!"
 #: libraries/server_privileges.lib.php:1624
 #: libraries/server_privileges.lib.php:2519
 #: libraries/server_privileges.lib.php:2821
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Bilo koji korisnik"
+msgstr "Dodaj korisnika"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Ponovno učitavanje privilegija"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Ukloni odabrane korisnike"
@@ -1056,19 +1052,17 @@ msgid "Edit"
 msgstr "Uređivanje"
 
 #: js/messages.php:62
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Odabir poslužitelja"
+msgstr "Grafikon trenutnog prometa"
 
 #: js/messages.php:63
 msgid "Live conn./process chart"
-msgstr ""
+msgstr "Živi grafikon veze/procesi"
 
 #: js/messages.php:64
-#, fuzzy
 msgid "Live query chart"
-msgstr "SQL upit"
+msgstr "Grafikon upita"
 
 #: js/messages.php:66
 msgid "Static data"
@@ -1091,12 +1085,12 @@ msgstr "Ostalo"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1510
 msgid ","
-msgstr "."
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/Util.class.php:1512
 msgid "."
-msgstr ","
+msgstr "."
 
 #: js/messages.php:76
 #, fuzzy
