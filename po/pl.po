@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-01-10 13:42+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
-">\n"
+"PO-Revision-Date: 2013-02-24 13:09+0200\n"
+"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -611,7 +610,6 @@ msgid "Output"
 msgstr "Wyjście"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -619,11 +617,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniższy ciąg znaków "
-"do pola \"Value\""
+"Wybierz \"GeomFromText\" z kolumny \"Function\" i wklej poniższy ciąg znaków do "
+"pola \"Value\""
 
 #: import.php:93
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -631,8 +629,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się "
-"%sdokumentacją%s, aby obejść to ograniczenie."
+"Prawdopodobnie próbował załadować plik, który jest zbyt duży. Proszę "
+"zapoznać się %sdokumentacją%s, aby obejść te ograniczenia."
 
 #: import.php:232 import.php:497
 msgid "Showing bookmark"
@@ -748,10 +746,9 @@ msgid "Server"
 msgstr "Serwer"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Port serwera"
+msgstr "Typ serwera"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -969,10 +966,10 @@ msgid "Edit Index"
 msgstr "Edytuj indeks"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Dodaj %d kolumny do indeksu"
+msgstr "Dodaj %s kolumny do indeksu"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:231
@@ -1602,12 +1599,12 @@ msgstr "Błąd przetwarzania wywołania"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Kod błędu: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Błąd tekstu: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1786,7 +1783,7 @@ msgstr "Najechanie nad punkt pokaże jego etykietę."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Aby powiększyć, wybierz część powierzchni z myszy."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
@@ -1864,7 +1861,7 @@ msgstr "Dodaj opcję do kolumny "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d obiekt(y) utworzony"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1908,22 +1905,20 @@ msgstr ""
 "zapisaniu."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Można także edytować większość kolumn <br /> klikając bezpośrednio na ich "
-"treść."
+"Można również edytować większość wartości <br /> klikając dwukrotnie "
+"bezpośrednio na nich."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Można także edytować większość kolumn, <br /> klikając bezpośrednio na ich "
-"treść."
+"Można również edytować większość wartości <br /> klikając bezpośrednio na "
+"nich."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1959,22 +1954,19 @@ msgid "More"
 msgstr "Więcej"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Pokaż wszystko"
+msgstr "Pokaż Panel"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Ukryj indeksy"
+msgstr "Ukryj Panel"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Wybrany użytkownik nie został znaleziony w tabeli uprawnień."
+msgstr "Żądana strona nie została znaleziona w historii, może wygasła."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2433,14 +2425,14 @@ msgstr[1] "<b>Ogółem:</b> <i>%s</i> dopasowania"
 msgstr[2] "<b>Ogółem:</b> <i>%s</i> dopasowania"
 
 #: libraries/DbSearch.class.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s dopasowaie wewnątrz tabeli <i>%2$s</i>"
-msgstr[1] "%1$s dopasowania wewnątrz tabeli <i>%2$s</i>"
-msgstr[2] "%1$s dopasowań wewnątrz tabeli <i>%2$s</i>"
+msgstr[0] "%1$s dopasowanie w <strong>%2$s</strong>"
+msgstr[1] "%1$s dopasowania w <strong>%2$s</strong>"
+msgstr[2] "%1$s dopasowań w <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
 #: libraries/Util.class.php:3224 libraries/Util.class.php:3432
@@ -2545,7 +2537,7 @@ msgid "vertical"
 msgstr "pionowo"
 
 #: libraries/DisplayResults.class.php:933
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Nagłówki co %s wierszy"
@@ -2790,7 +2782,7 @@ msgstr "Otwórz nowe okno phpMyAdmina"
 
 #: libraries/Header.class.php:388
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Kliknij na pasku, aby przewinąć do góry strony"
 
 #: libraries/Header.class.php:603
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
@@ -3294,10 +3286,9 @@ msgid "How to use"
 msgstr "Jak korzystać"
 
 #: libraries/TableSearch.class.php:1175
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Resetuj"
+msgstr "Reset powiększenia"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3892,7 +3883,7 @@ msgstr "Należy uaktualnić do %s %s lub nowszej."
 
 #: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Błąd: Token niedopasowany"
 
 #: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
@@ -3925,11 +3916,11 @@ msgstr "Prawa"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "Kliknij"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "Podwójnie kliknij"
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
@@ -4149,7 +4140,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4667,16 +4657,14 @@ msgid "Databases display options"
 msgstr "Opcje wyświetlania baz danych"
 
 #: libraries/config/messages.inc.php:177 setup/frames/menu.inc.php:19
-#, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Ramka nawigacji"
+msgstr "Panel nawigacyjny"
 
 #: libraries/config/messages.inc.php:178
-#, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel"
-msgstr "Dostosuj wygląd ramki nawigacji"
+msgstr "Dostosuj wygląd panelu nawigacyjnego"
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
@@ -4692,10 +4680,9 @@ msgid "Tables display options"
 msgstr "Opcje wyświetlania tabel"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
-msgstr "Główna ramka"
+msgstr "Panel główny"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4809,16 +4796,14 @@ msgid "Customize import defaults"
 msgstr "Dostosowanie opcji importu"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
-msgstr "Dostosowanie ramki nawigacyjnej"
+msgstr "Dostosuj panel nawigacji"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
-msgstr "Dostosowanie ramki głównej"
+msgstr "Dostosuj panel główny"
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
@@ -5105,25 +5090,25 @@ msgid "Users cannot set a higher value"
 msgstr "Użytkownicy nie mogą ustawić wyższej wartości"
 
 #: libraries/config/messages.inc.php:284
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list"
-msgstr "Maksymalna liczba tabel pokazywanych na liście tabel"
+msgstr "Maksymalna liczba baz danych wyświetlanych na liście bazy danych"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
 msgstr "Maksimum baz danych"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "Liczba złączeń, które przeszukały w pełni pierwszą tabelę."
+msgstr ""
+"Liczba elementów, które mogą być wyświetlane na każdej stronie drzewa "
+"nawigacji"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maksymalnie pozycji w branży"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5172,20 +5157,18 @@ msgid "Memory limit"
 msgstr "Limit pamięci"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel"
-msgstr "Pokaż logo w lewej ramce"
+msgstr "Pokaż logo w panelu nawigacyjnym"
 
 #: libraries/config/messages.inc.php:298
 msgid "Display logo"
 msgstr "Wyświetl logo"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to"
-msgstr "Adres URL gdzie logo w ramce nawigacji będzie wskazywać na"
+msgstr "URL, gdzie logo w panelu nawigacyjnym będzie wskazywać"
 
 #: libraries/config/messages.inc.php:300
 msgid "Logo link URL"
@@ -5204,10 +5187,9 @@ msgid "Logo link target"
 msgstr "Cel odnośnika logo"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Wyświetla wybór serwera - w lewej ramce, na górze"
+msgstr "Wybór wyświetlacza serwera w górnej części panelu nawigacji"
 
 #: libraries/config/messages.inc.php:304
 msgid "Display servers selection"
@@ -5218,27 +5200,25 @@ msgid "Target for quick access icon"
 msgstr "Cel dla ikony szybkiego dostępu"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "Minimalna liczba tabel, aby wyświetlić okno filtra tabeli"
+msgstr ""
+"Określa minimalną liczbę elementów (tabele, widoki, procedury i wydarzenia), "
+"aby wyświetlić okno filtra."
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "Minimalna liczba tabel, aby wyświetlić okno filtra tabeli"
+msgstr "Minimalna liczba elementów wyświetlanych polu filtr"
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minimalna liczba tabel, aby wyświetlić okno filtra tabeli"
+msgstr "Minimalna liczba baz danych, aby wyświetlić okno bazy danych filtra"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5246,12 +5226,13 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Tylko wersja uproszczona. Wyświetlaj bazy danych w postaci drzewa (określone "
-"przez separator zdefiniowany poniżej)"
+"Elementy grupy w drzewie nawigacji (określana przez separator z definicją "
+"poniżej)"
 
 #: libraries/config/messages.inc.php:310
+#, fuzzy
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Grupowanie elementów w drzewie"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -5358,7 +5339,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Brakuje tabel przechowujących konfigurację phpMyAdmin"
 
 #: libraries/config/messages.inc.php:334
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5366,12 +5346,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Wyłącz domyślne ostrzeżenie rozszerzenia mcrypt, które pojawia się przy "
-"autoryzacji ciasteczkami"
+"Wyłącz ostrzeżenia domyślne, które są wyświetlane, jeśli różnica między "
+"biblioteką a serwerem MySQL jest wykrywana"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Ostrzeżenie różnicy serwera/biblioteki"
 
 #: libraries/config/messages.inc.php:337
 msgid "Iconic table operations"
@@ -5458,13 +5438,12 @@ msgstr "Powtórz nagłówki"
 
 #: libraries/config/messages.inc.php:358
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Montaż siatki: akcja wyzwalania"
 
 #: libraries/config/messages.inc.php:359
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Zapisz wszystkie edytowane komórki naraz"
+msgstr "Edytowanie siatki: zapisanie wszystkich zmodyfikowanych komórek naraz"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
@@ -5529,7 +5508,6 @@ msgid "Authentication type"
 msgstr "Typ uwierzytelniania"
 
 #: libraries/config/messages.inc.php:374
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5537,15 +5515,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać zakładek [a@http://wiki.phpmyadmin.net/"
-"pma/bookmark]bookmark[/a]. Sugerowana nazwa: [kbd]pma_bookmark[/kbd]"
+"Pozostaw puste, aby nie obsługiwać "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]zakładek[/a]. Sugerowana nazwa: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
 msgstr "Tabela zakładek"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5553,8 +5531,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać komentarzy i typów mime. Sugerowana "
-"nazwa: [kbd]pma_column_info[/kbd]"
+"Pozostaw puste bez uwag typu kolumn/mime, zasugerował: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Column information table"
@@ -5616,7 +5594,6 @@ msgid "Count tables"
 msgstr "Zliczaj tabele"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5624,7 +5601,7 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać trybu projektowania. Sugerowana nazwa: "
+"Pozostaw puste, bez żadnego wsparcia projektantów, zaproponował: "
 "[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
@@ -5662,7 +5639,6 @@ msgid "Hide databases"
 msgstr "Ukryj bazy danych"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5670,7 +5646,7 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać historii zapytań SQL. Sugerowana nazwa: "
+"Pozostaw puste, bez zapytania poparcie historii SQL, zasugerował: "
 "[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
@@ -5736,14 +5712,13 @@ msgid "Password for config auth"
 msgstr "Hasło dla uwierzytelniania konfiguracji"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Pozostaw puste, bez żadnego wsparcia PDF schematu, zaproponował: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -5774,7 +5749,6 @@ msgid "Server port"
 msgstr "Port serwera"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5782,15 +5756,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Pozostaw puste, by nie obsługiwać komentarzy i typów mime. Sugerowana nazwa: "
-"[kbd]pma_column_info[/kbd]"
+"Pozostaw puste dla nie \"trwałych\" tabel niedawno używanych w całej sesji, "
+"zasugerował: [kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
 msgstr "Ostatnio używane tabele"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5798,8 +5771,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Pozostaw puste, by nie obsługiwać [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a]. Sugerowana nazwa: [kbd]pma_relation[/kbd]"
+"Pozostaw puste, by nie obsługiwać [a@http://wiki.phpmyadmin.net/pma/relation"
+"]relation-links[/a]. Sugerowana nazwa: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5848,7 +5821,6 @@ msgid "Use SSL"
 msgstr "Użyj SSL"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5856,15 +5828,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Pozostaw puste, aby nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
-"pma_table_coords[/kbd]"
+"Pozostaw puste, aby nie obsługiwać schematu PDF. Sugerowana nazwa: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
 msgstr "Schemat PDF: współrzędne tabeli"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -6461,11 +6432,11 @@ msgstr "Szczegóły…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Nie można szukać w niebuforowanym zestawie wyników"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Nie może liczyć wierszy w zestawie wyników niebuforowanych"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
@@ -6794,7 +6765,6 @@ msgstr ""
 "spowoduje kontynuację od miejsca %d."
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -7529,7 +7499,7 @@ msgstr "nieznany"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Wystąpił błąd podczas ładowania drzewa nawigacyjnego"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7551,39 +7521,36 @@ msgstr "Przeładuj ramki nawigacji"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s zanleziono inny wynik"
+msgstr[1] "%s zanleziono innych wyników"
+msgstr[2] "%s zanleziono inne wyniki"
 
 #: libraries/navigation/NavigationTree.class.php:1034
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter databases by name"
 msgstr "Filtr tabel wg nazwy"
 
 #: libraries/navigation/NavigationTree.class.php:1035
 #: libraries/navigation/NavigationTree.class.php:1061
-#, fuzzy
 #| msgid "Clear series"
 msgid "Clear Fast Filter"
-msgstr "Wyczyść serie"
+msgstr "Wyczyść szybki filtr"
 
 #: libraries/navigation/NavigationTree.class.php:1060
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter items by name"
-msgstr "Filtr tabel wg nazwy"
+msgstr "Filtr elementów wg nazwy"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nieprawidłowa nazwa klasy \"%1$s\", użyj domyślnych z \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Nie zawiera klasy \"%1$s\", pliku \"%2$s\" nie znaleziono"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -7591,14 +7558,12 @@ msgid "Columns"
 msgstr "Kolumny"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Nowy"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7611,14 +7576,12 @@ msgid "Functions"
 msgstr "Funkcje"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Nowy"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7632,21 +7595,18 @@ msgstr "Procedury"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Nowy"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nowy"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7658,7 +7618,6 @@ msgid "Views"
 msgstr "Widoki"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
@@ -7879,7 +7838,7 @@ msgstr "Login"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -8167,10 +8126,9 @@ msgstr ""
 "nazwy tabeli utworzonych ze znakami specjalnymi lub słowami kluczowymi)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opcje tworzenia obiektu"
+msgstr "Opcje tworzenia danych"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
@@ -9616,7 +9574,6 @@ msgid "User has been added."
 msgstr "Użytkownik został dodany."
 
 #: libraries/server_privileges.lib.php:1613
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -10212,7 +10169,7 @@ msgstr "Błąd w archiwum ZIP:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "Błąd krytyczny: Nawigacja może być dostępna tylko za pośrednictwem AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -10224,11 +10181,11 @@ msgstr "Pokaż/ukryj lewe menu"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "Wyświetl w trybie pełnoekranowym"
 
 #: pmd_general.php:90
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "Zamknij pełny ekran"
 
 #: pmd_general.php:95
 msgid "Save position"
