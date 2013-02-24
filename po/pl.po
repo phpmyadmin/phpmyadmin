@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-24 13:09+0200\n"
+"PO-Revision-Date: 2013-02-24 13:23+0200\n"
 "Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
@@ -1509,7 +1509,7 @@ msgstr "Przeładuj stronę"
 
 #: js/messages.php:195
 msgid "Affected rows:"
-msgstr "Zagrożone wiersze:"
+msgstr "Dotyczy wierszy:"
 
 #: js/messages.php:197
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1787,7 +1787,7 @@ msgstr "Aby powiększyć, wybierz część powierzchni z myszy."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
-msgstr "Kliknij przycisk, aby zresetować powiększenie."
+msgstr "Kliknij Resetuj powiększenie, aby wrócić do pierwotnego stanu."
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
@@ -5230,7 +5230,6 @@ msgstr ""
 "poniżej)"
 
 #: libraries/config/messages.inc.php:310
-#, fuzzy
 msgid "Group items in the tree"
 msgstr "Grupowanie elementów w drzewie"
 
@@ -5851,7 +5850,6 @@ msgid "Display columns table"
 msgstr "Wyświetlanie tabeli kolumn"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5859,8 +5857,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Pozostaw puste, by nie obsługiwać schematu PDF. Sugerowana nazwa: [kbd]"
-"pma_table_coords[/kbd]"
+"Pozostaw puste, by nie obsługiwać schematu PDF. Sugerowana nazwa: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5912,7 +5910,6 @@ msgid "Statements to track"
 msgstr "Instrukcje do śledzenia"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5920,8 +5917,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Puste pole oznacza brak wsparcia śledzenia zapytań SQL, zaproponował: [kbd]"
-"pma_tracking[/kbd]"
+"Puste pole oznacza brak wsparcia śledzenia zapytań SQL, zaproponował: "
+"[kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -5939,7 +5936,6 @@ msgid "Automatically create versions"
 msgstr "Automatyczne tworzenie wersji"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -8403,7 +8399,6 @@ msgstr ""
 "należy ustawić pierwszą opcję, jako ciąg pusty."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8430,13 +8425,13 @@ msgstr ""
 "TYLKO LINUX: Uruchamia zewnętrzną aplikację i podaje mu dane kolumn za "
 "pomocą standardowego wejścia. Zwraca standardowe wyjście tej aplikacji. "
 "Domyślnie jest to Tidy, aby całkiem-drukować kod HTML. Ze względów "
-"bezpieczeństwa, trzeba ręcznie edytować plików libraries/transformations/"
-"text_plain__external.inc.php i listę narzędzi, które chcesz udostępnić. "
-"Pierwsza opcja jest następnym numerem programu, który chcesz używać, a druga "
-"opcja to parametr programu. Trzecia opcja, jeśli ustawiony na 1, dokona "
-"konwersji wyjścia używając htmlspecialchars() (domyślnie 1). Czwartą opcją, "
-"jeśli ustawiony na 1, spowoduje, opakowanie i upewnić się, że produkcja "
-"pojawi się w jednym wierszu (domyślnie 1)."
+"bezpieczeństwa, trzeba ręcznie edytować plików "
+"libraries/transformations/text_plain__external.inc.php i listę narzędzi, "
+"które chcesz udostępnić. Pierwsza opcja jest następnym numerem programu, "
+"który chcesz używać, a druga opcja to parametr programu. Trzecia opcja, "
+"jeśli ustawiony na 1, dokona konwersji wyjścia używając htmlspecialchars() "
+"(domyślnie 1). Czwartą opcją, jeśli ustawiony na 1, spowoduje, opakowanie i "
+"upewnić się, że produkcja pojawi się w jednym wierszu (domyślnie 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -12153,10 +12148,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 
 #: sql.php:381
-#, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
-msgstr "Zakładka %s utworzona"
+msgstr "Zakładka nie utworzona"
 
 #: sql.php:914
 msgid "Showing as PHP code"
@@ -12175,7 +12169,6 @@ msgid "Generated by"
 msgstr "Wygenerowany przez"
 
 #: sql.php:1205
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -12184,8 +12177,7 @@ msgid ""
 "and Delete features are not available."
 msgstr ""
 "Tabela ta nie zawiera unikalnej kolumny. Funkcje związane z edycją siatki, "
-"pól wyboru, edycji, kopiowania i usuwania łącza może nie działać po "
-"zapisaniu."
+"pól wyboru, edycji, kopiowania i usuwania łącza może nie działać."
 
 #: sql.php:1250
 #, php-format
@@ -12197,14 +12189,13 @@ msgid "Label"
 msgstr "Nazwa"
 
 #: tbl_chart.php:42
-#, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "Nie znaleziono danych"
+msgstr "Brak danych do wyświetlenia"
 
 #: tbl_chart.php:66 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Brak zapytania SQL został ustawiony, aby pobrać dane."
 
 #: tbl_chart.php:139
 msgctxt "Chart type"
@@ -12229,7 +12220,7 @@ msgstr "Klin"
 #: tbl_chart.php:148
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Obszar"
 
 #: tbl_chart.php:151
 msgctxt "Chart type"
@@ -12237,11 +12228,10 @@ msgid "Pie"
 msgstr "Kołowy"
 
 #: tbl_chart.php:155
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Czas"
+msgstr "Kalendarium"
 
 #: tbl_chart.php:162
 msgid "Stacked"
@@ -12261,7 +12251,7 @@ msgstr "Serie:"
 
 #: tbl_chart.php:208
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Kolumny liczbowe nie występujących w tabeli wykreślić."
 
 #: tbl_chart.php:224
 msgid "X-Axis label:"
@@ -12345,10 +12335,9 @@ msgstr ""
 "(\"PRIMARY\" <b>musi</b> być nazwą <b>jedynie</b> klucza podstawowego!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Komentarz"
+msgstr "Komentarz:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12719,7 +12708,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12732,7 +12720,6 @@ msgstr ""
 "przeprowadzonych zapytań."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
 msgstr "log_slow_queries jest ustawiony na 'WYŁ'"
