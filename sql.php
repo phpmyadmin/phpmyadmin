@@ -223,25 +223,21 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 
     $select = '';
        
-//    foreach ($values as $value) {
-//        $select .= '<option value="' . $value . '"';
-//        if (in_array($value, $selected_values, true)) {
-//            $select .= ' selected="selected"';
-//        }
-//        $select .= '>' . $value . '</option>';
-//    }
-    
-    //converts characters of $_REQUEST['curr_value'] to HTML entities 
+	//converts characters of $_REQUEST['curr_value'] to HTML entities 
     $converted_curr_value=htmlentities($_REQUEST['curr_value'],ENT_COMPAT, "UTF-8");
     
-    foreach ($values as $value) {       
-        
-        $select .= '<option value="' . $value . '" ';
-        if ( $value == $converted_curr_value) {
-            $select .= 'selected';
-        }
-        $select .= ' >' . $value. '</option>';
+    //To prevent from, omiting current selected value. 
+    if ( ! in_array($converted_curr_value, $values, TRUE)) {
+        $values[] = $converted_curr_value;
     }
+    
+    foreach ($values as $value) {       
+        $select .= '<option value="' . $value . '"';
+        if ($value == $converted_curr_value) {
+            $select .= ' selected ';
+        }
+        $select .= '>' . $value. '</option>';
+    }  
 
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
     $select = '<select multiple="multiple" size="' . $select_size . '">'
