@@ -2072,8 +2072,6 @@ class PMA_DisplayResults
             $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
         }
 
-        $order_link_params['title'] = __('Sort');
-
         $order_link_content = (($direction == self::DISP_DIR_HORIZONTAL_FLIPPED)
             && ($GLOBALS['cfg']['HeaderFlipType'] == self::HEADER_FLIP_TYPE_FAKE))
             ? PMA_Util::flipstring(
