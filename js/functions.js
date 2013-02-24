@@ -3810,6 +3810,43 @@ function formatBytes(bytes, subdecimals, pointchar) {
     return bytes + ' ' + units[i];
 }
 
+/**
+ * Check whether Identifier is a reserved word (Keyword defined in mysql.js under libraries/codemirror/mode/)
+ *
+ * @param string   the name
+ *
+ * @return boolean  whether the form field is empty or not
+ */
+function isKeyword(theName)
+{
+    for(var i = 0, l = keywordlist.length; i < l; i++) 
+    { 
+        if(keywordlist[i].toUpperCase() === theName.toUpperCase()) { 
+            alert('WARNING : Using Keywords (Reserved Words) as an Identifier ("' + theName + '") is highly discouraged.');
+            return true; 
+        } 
+    }
+    return false;
+} // end of the 'isKeyword()' function
+
+/**
+ * Check whether field name for columns or table is a reserved word using function isKeyword .
+ *
+ * @param object the form
+ *
+ * @return null
+ */
+function checkForKeyword(theForm)
+{
+    for(var i = 0, l = theForm.elements.length; i < l; i++) 
+    { 
+        if(theForm.elements[i].title == 'Column' || theForm.elements[i].name == 'table') {
+            isKeyword(theForm.elements[i].value);
+        }    
+    }
+    return false;
+} // end of the 'checkForKeyword()' function
+
 AJAX.registerOnload('functions.js', function () {
     /**
      * Opens pma more themes link in themes browser, in new window instead of popup
