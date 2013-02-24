@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-01-30 03:22+0200\n"
-"Last-Translator: Manuel Nicolau <manuel_nicolau_454@hotmail.com>\n"
+"PO-Revision-Date: 2013-02-24 20:02+0200\n"
+"Last-Translator: Tiago Gameiro <tyhaguh@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -4686,7 +4686,6 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr "Como se ligar ao servidor, manter [kbd]tcp[/kbd] se não tiver certeza"
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 msgid "Connection type"
 msgstr "Tipo de ligação"
 
@@ -4699,7 +4698,7 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
-"Um usuário especial MySQL será configurado com permissões limitadas, mais "
+"Um utilizador especial MySQL será configurado com permissões limitadas, mais "
 "informações disponíveis em "
 "[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
@@ -4718,11 +4717,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:386
 #| msgid "Any host"
 msgid "Control host"
-msgstr "Controlar anfitrião"
+msgstr "Controlar host"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
-msgstr "Conta tabelas quando mostra lista de bases de dados"
+msgstr "Contar tabelas quando mostra lista de bases de dados"
 
 #: libraries/config/messages.inc.php:388
 msgid "Count tables"
@@ -4820,6 +4819,11 @@ msgid ""
 "their names in order and use [kbd]*[/kbd] at the end to show the rest in "
 "alphabetical order."
 msgstr ""
+"Você pode usar caracteres curinga MySQL(% e _) evite-os se você quiser usar "
+"suas instâncias literais, ou seja, usar [kbd]'my\\_db'[/ kbd] e não "
+"[kbd]'my_db'[/ kbd]. Usando esta opção, você pode classificar a lista de "
+"banco de dados, basta digitar seus nomes em ordem e uso [kbd]*[/ kbd] no "
+"final para mostrar o resto em ordem alfabética."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -4850,6 +4854,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
+"Base de dados utilizada para as relações, marcadores e as características de "
+"PDF. Veja [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para mais "
+"informações. Deixe em branco para nenhum apoio. Sugerido: [kbd] phpmyadmin "
+"[/ kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"
@@ -4872,25 +4880,25 @@ msgstr ""
 "sessões, sugeriu: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "Analizar tabela"
+msgstr "Tabela utilizada recentemente"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgstr ""
+"Deixe em branco para [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] sem suporte, sugerido: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 msgid "Relation table"
-msgstr "Reparar tabela"
+msgstr "Tabela de relações"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "Comando SQL para procurar bases de dados disponíveis"
 
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
@@ -4901,52 +4909,57 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
+"Consulte [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
+"autenticação[/a] para obter um exemplo"
 
 #: libraries/config/messages.inc.php:423
 msgid "Signon session name"
-msgstr ""
+msgstr "Nome da sessão"
 
 #: libraries/config/messages.inc.php:424
 msgid "Signon URL"
-msgstr ""
+msgstr "URL de Signon"
 
 #: libraries/config/messages.inc.php:425
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
+"O socket no qual MySQL server está escutando, deixe em branco para o padrão"
 
 #: libraries/config/messages.inc.php:426
-#, fuzzy
 msgid "Server socket"
-msgstr "Escolha do Servidor"
+msgstr "Socket do servidor"
 
 #: libraries/config/messages.inc.php:427
 msgid "Enable SSL for connection to MySQL server"
-msgstr ""
+msgstr "Active o SSL para as ligações para o servidor de MySQL"
 
 #: libraries/config/messages.inc.php:428
 msgid "Use SSL"
-msgstr ""
+msgstr "Usar SSL"
 
 #: libraries/config/messages.inc.php:429
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/kbd]"
 msgstr ""
+"Deixe em branco para nenhum suporte de esquema PDF, sugerido: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
-msgstr ""
+msgstr "Esquema PDF: Coordenadas de tabela"
 
 #: libraries/config/messages.inc.php:431
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma_table_info[/kbd]"
 msgstr ""
+"Tabela para descrever as colunas de exibição, deixe em branco para não "
+"suportar; sugerido: [kbd]pma_table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "Mostrando comentários das Colunas"
+msgstr "Mostrando comentários das colunas"
 
 #: libraries/config/messages.inc.php:433
 msgid ""
@@ -4956,7 +4969,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
-msgstr ""
+msgstr "Preferencias UI de tabela"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
@@ -4966,7 +4979,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "Adicionar DROP DATABASE"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
@@ -4976,7 +4989,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Adicionar DROP TABLE"
 
 #: libraries/config/messages.inc.php:439
 msgid ""
