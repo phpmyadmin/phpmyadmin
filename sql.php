@@ -28,7 +28,7 @@ $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
- * Set ajax_reload_nav in the response if it was already set
+ * Set ajax_reload in the response if it was already set
  */
 if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
     $response->addJSON('ajax_reload', $ajax_reload);
