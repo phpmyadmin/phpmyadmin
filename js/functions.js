@@ -3822,7 +3822,7 @@ function isKeyword(theName)
     for(var i = 0, l = keywordlist.length; i < l; i++) 
     { 
         if(keywordlist[i].toUpperCase() === theName.toUpperCase()) { 
-            alert('WARNING : Using Keywords (Reserved Words) as an Identifier ("' + theName + '") is highly discouraged.');
+            alert($.sprintf(PMA_messages['strKeywordAsIdentifier'], theName));
             return true; 
         } 
     }
