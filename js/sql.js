@@ -254,6 +254,17 @@ AJAX.registerOnload('sql.js', function() {
                 // fade out previous messages, if any
                 $('div.success, div.sqlquery_message').fadeOut();
 
+                // If the navigation bar needs to be reloaded
+                if (data._reloadNavigation) {
+                    PMA_reloadNavigation();
+                }
+
+                // If the menu has to be reloaded
+                if (data._menu) {
+                    AJAX.cache.menus.replace(data._menu);
+                    AJAX.cache.menus.add(data._menuHash, data._menu);
+                }
+
                 // show a message that stays on screen
                 if (typeof data.action_bookmark != 'undefined') {
                     // view only
