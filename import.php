@@ -68,8 +68,8 @@ if (! empty($sql_query)) {
 
     //do a dynamic reload if table is RENAMED (by sending the instruction to the AJAX response handler)
     if (preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $sql_query, $rename_table_names)) {
-        $ajax_reload_nav['table_name'] = $rename_table_names[2];
-        $ajax_reload_nav['reload'] = true;
+        $ajax_reload['table_name'] = $rename_table_names[2];
+        $ajax_reload['reload'] = true;
     }
     
     $sql_query = '';

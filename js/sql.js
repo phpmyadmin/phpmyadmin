@@ -281,9 +281,9 @@ AJAX.registerOnload('sql.js', function() {
                      .html(data.message);
                 }
 
-                if (typeof data.ajax_reload_nav != 'undefined') {
-                    if (data.ajax_reload_nav.reload) {
-                        PMA_commonParams.set('table', data.ajax_reload_nav.table_name);
+                if (typeof data.ajax_reload != 'undefined') {
+                    if (data.ajax_reload.reload) {
+                        PMA_commonParams.set('table', data.ajax_reload.table_name);
                         PMA_commonActions.refreshMain();
                     }
                 }
