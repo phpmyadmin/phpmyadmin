@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-13 14:38+0100\n"
-"PO-Revision-Date: 2013-02-23 10:01+0200\n"
+"PO-Revision-Date: 2013-02-25 08:19+0200\n"
 "Last-Translator: Roby Clai <icyphoenixx@gmail.com>\n"
 "Language-Team: Croatian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hr/>\n"
@@ -1093,10 +1093,9 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Veze"
+msgstr "Veze/Procesi"
 
 #: js/messages.php:79
 #, fuzzy
@@ -3334,9 +3333,8 @@ msgid "InnoDB Status"
 msgstr "InnoDB stanje"
 
 #: libraries/ServerStatusData.class.php:343
-#, fuzzy
 msgid "Query statistics"
-msgstr "Statistike redova"
+msgstr "Statistika upita"
 
 #: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
