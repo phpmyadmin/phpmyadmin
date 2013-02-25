@@ -199,6 +199,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $active_page = 'tbl_structure.php';
+        $abort = true;
         include 'tbl_structure.php';
     } else {
         PMA_Util::mysqlDie('', '', '', $err_url, false);
