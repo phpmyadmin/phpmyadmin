@@ -62,8 +62,20 @@ if (! empty($sql_query)) {
     $format = 'sql';
 
     // refresh left frame on changes in table or db structure
-    if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
-        $GLOBALS['reload'] = true;
+    if (preg_match('/^(CREATE|ALTER|DROP|RENAME)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+        $response = PMA_Response::getInstance();
+        $response->addJSON('_reloadNavigation', '1');
+        if(preg_match('/^(DROP|RENAME)\s+(DATABASE)\s+/i', $sql_query)) {
+            $server = ! empty($GLOBALS['server']) ? $GLOBALS['server'] : '';
+            $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+            $menu = new PMA_Menu($server, '', '');
+            $response->addJSON('_menu', $menu->getDisplay());
+        }else if('/^(DROP|RENAME)\s+(TABLE)\s+/i') {
+            $server = ! empty($GLOBALS['server']) ? $GLOBALS['server'] : '';
+            $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
+            $menu = new PMA_Menu($server, $db, '');
+            $response->addJSON('_menu', $menu->getDisplay());
+        }
     }
 
     $sql_query = '';
