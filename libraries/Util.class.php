@@ -3983,7 +3983,7 @@ class PMA_Util
      */
     public static function parseEnumSetValues($definition, $escapeHtml = true)
     {
-        $values_string = htmlentities($definition);
+        $values_string = htmlentities($definition,ENT_COMPAT, "UTF-8");
         // There is a JS port of the below parser in functions.js
         // If you are fixing something here,
         // you need to also update the JS port.
