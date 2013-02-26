@@ -48,10 +48,13 @@ if (isset($_REQUEST['change_column'])) {
 if (isset($_REQUEST['do_save_data'])) {
     $regenerate = PMA_updateColumns($db, $table);
     if ($regenerate) {
+        $message = PMA_Message::error('Error in the update SQL Query');
         // @todo: find in which situation this happens, then 
         // do something appropriate
     } else {
         // continue to show the table's structure
+        $message = PMA_Message::success(__('Table %1$s has been altered successfully '));
+        $message->addParam($table);
         unset($_REQUEST['selected']);
         unset($_REQUEST['true_selected']);
     }
