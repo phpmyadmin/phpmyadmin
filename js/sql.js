@@ -280,6 +280,14 @@ AJAX.registerOnload('sql.js', function() {
                      .show()
                      .html(data.message);
                 }
+
+                if (typeof data.ajax_reload != 'undefined') {
+                    if (data.ajax_reload.reload) {
+                        PMA_commonParams.set('table', data.ajax_reload.table_name);
+                        PMA_commonActions.refreshMain();
+                    }
+                }
+                
                 $sqlqueryresults.show().trigger('makegrid');
                 $('#togglequerybox').show();
                 PMA_init_slider();

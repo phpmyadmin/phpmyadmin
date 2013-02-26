@@ -66,6 +66,13 @@ if (! empty($sql_query)) {
         $GLOBALS['reload'] = true;
     }
 
+    // do a dynamic reload if table is RENAMED
+    // (by sending the instruction to the AJAX response handler)
+    if (preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $sql_query, $rename_table_names)) {
+        $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
+        $ajax_reload['reload'] = true;
+    }
+    
     $sql_query = '';
 } elseif (! empty($sql_localfile)) {
     // run SQL file on server
