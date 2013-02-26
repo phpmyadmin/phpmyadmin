@@ -53,7 +53,8 @@ if (isset($_REQUEST['do_save_data'])) {
         // do something appropriate
     } else {
         // continue to show the table's structure
-        $message = PMA_Message::success(__('Your change has been successfully updated'));
+        $message = PMA_Message::success(__('Table %1$s has been altered successfully '));
+        $message->addParam($table);
         unset($_REQUEST['selected']);
         unset($_REQUEST['true_selected']);
     }
