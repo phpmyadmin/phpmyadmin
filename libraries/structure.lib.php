@@ -2310,13 +2310,15 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 function PMA_updateColumns($db, $table)
 {
     $regenerate = false;
-    $field_cnt = count($_REQUEST['field_orig']);
+    $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();
     $changes = array();
 
     for ($i = 0; $i < $field_cnt; $i++) {
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-            $_REQUEST['field_orig'][$i],
+            isset($_REQUEST['field_orig'][$i])
+                ? $_REQUEST['field_orig'][$i]
+                : '',
             $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
             $_REQUEST['field_length'][$i],
