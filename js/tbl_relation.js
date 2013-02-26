@@ -10,8 +10,12 @@ function show_hide_clauses($thisDropdown)
     //
     if ($thisDropdown.val() != '') {
         $thisDropdown.parent().next('span').show().next('span').show();
+        // disable foreign key name
+        $thisDropdown.parent().parent().next('td').find('input[name^="fk_name"]').removeAttr('disabled', 'disabled');
     } else {
         $thisDropdown.parent().next('span').hide().next('span').hide();
+        // enable foreign key name
+        $thisDropdown.parent().parent().next('td').find('input[name^="fk_name"]').attr('disabled', 'disabled');
     }
 }
 
