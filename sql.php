@@ -28,6 +28,13 @@ $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
+ * Set ajax_reload in the response if it was already set
+ */
+if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
+    $response->addJSON('ajax_reload', $ajax_reload);
+}
+
+/**
  * Sets globals from $_POST
  */
 $post_params = array(
