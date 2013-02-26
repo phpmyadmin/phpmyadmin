@@ -2309,6 +2309,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
  */
 function PMA_updateColumns($db, $table)
 {
+    $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();
