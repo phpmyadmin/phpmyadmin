@@ -193,7 +193,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', ADD ';
+                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . '; ALTER TABLE ' . PMA_Util::backquote($table). ' ADD ';
                 
                 // Add new foreign key with new name
                 $new_fk_name = PMA_Util::backquote($_REQUEST['fk_name'][$master_field_md5]);                
@@ -226,8 +226,11 @@ if (isset($_REQUEST['destination_foreign'])) {
         } // end if... else....
 
         if (! empty($sql_query)) {
-            PMA_DBI_try_query($sql_query);
-            $tmp_error = PMA_DBI_getError();
+            $results = PMA_DBI_try_multi_query($sql_query);   
+            $tmp_error = PMA_DBI_getError();  
+            // Free results to avoid  Commands out of sync error       
+            while (PMA_DBI_next_result()) {;}
+            
             if (! empty($tmp_error)) {
                 $seen_error = true;
             }
