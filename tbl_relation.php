@@ -154,8 +154,16 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // backquotes but MySQL 4.0.16 did not like the syntax
                 // (for example: `base2`.`table1`)
 
-                $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
-                    . ' ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table). ' ADD ';               
+                
+                // Add new foreign key with new name
+                if (!empty($_REQUEST['fk_name'][$master_field_md5])) {
+                    $new_fk_name = PMA_Util::backquote($_REQUEST['fk_name'][$master_field_md5]);                
+                    if(! empty($new_fk_name)) {
+                        $sql_query .= ' CONSTRAINT '. $new_fk_name;
+                    }
+                }
+                $sql_query .= ' FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
                     . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
                     . '(' . $foreign_field . ')';
 
@@ -176,6 +184,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 || PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
                 || ($_REQUEST['on_delete'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
                 || ($_REQUEST['on_update'][$master_field_md5] != (! empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
+                || ((! empty($_REQUEST['fk_name'][$master_field_md5]) ? $_REQUEST['fk_name'][$master_field_md5] : false) != (! empty($existrel_foreign[$master_field]['constraint']) ? $existrel_foreign[$master_field]['constraint'] : false))                
             ) {
                 // another foreign key is already defined for this field
                 // or
@@ -184,8 +193,15 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // remove existing key and add the new one
                 $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . ', '
-                    . 'ADD FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
+                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']) . '; ALTER TABLE ' . PMA_Util::backquote($table). ' ADD ';
+                
+                // Add new foreign key with new name
+                $new_fk_name = PMA_Util::backquote($_REQUEST['fk_name'][$master_field_md5]);                
+                if(! empty($new_fk_name)) {
+                    $sql_query .= ' CONSTRAINT '. $new_fk_name;
+                }
+                        
+                $sql_query .= '  FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
                     . ' REFERENCES ' . $foreign_db . '.' . $foreign_table
                     . '(' . $foreign_field . ')';
 
@@ -210,8 +226,11 @@ if (isset($_REQUEST['destination_foreign'])) {
         } // end if... else....
 
         if (! empty($sql_query)) {
-            PMA_DBI_try_query($sql_query);
-            $tmp_error = PMA_DBI_getError();
+            $results = PMA_DBI_try_multi_query($sql_query);   
+            $tmp_error = PMA_DBI_getError();  
+            // Free results to avoid  Commands out of sync error       
+            while (PMA_DBI_next_result()) {;}
+            
             if (! empty($tmp_error)) {
                 $seen_error = true;
             }
@@ -370,8 +389,10 @@ if (count($columns) > 0) {
     
     if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
-        $html_output .= '<th colspan="2">' . __('Foreign key constraint')
+        $html_output .= '<th colspan="1">' . __('Foreign key constraint')
             . ' (' . $tbl_storage_engine . ')';
+        $html_output .= '</th>';
+        $html_output .= '<th colspan="1">' . __('Foreign key name');       
         $html_output .= '</th>';
     }
     $html_output .= '</tr>';
@@ -483,10 +504,18 @@ if (count($columns) > 0) {
                     $on_update
                 );
                 $html_output .= '</span>' . "\n";
+                $html_output .= '</td>';
+                $html_output .= PMA_generateFKColumn(
+                        false,
+                        $save_row[$i], 
+                        $existrel_foreign ,
+                        'fk_name[' . $myfield_md5 . ']'                       
+                        );
             } else {
                 $html_output .= __('No index defined!');
+                $html_output .= PMA_generateFKColumn(true);
             } // end if (a key exists)
-            $html_output .= '</td>';
+                $html_output .= '</td>';
         } // end if (InnoDB)
         $html_output .= '</tr>';
     } // end for
@@ -585,5 +614,36 @@ function PMA_backquoteSplit($text)
         $pos = $second_backquote + 1;
     }
     return($elements);
+}
+
+/**
+ * Generate the Foreign key name column
+ * 
+ * @param boolean $no_index         whether index is defined for the row or not
+ * @param array   $row              current row 
+ * @param array   $existrel_foreign all the relations for current table
+ * @param string  $fk_field_name    name for the foreign key fireld
+ *  
+ * @return string The html code for foreign key column
+ */
+function PMA_generateFKColumn($no_index , $row = null , $existrel_foreign = null,$fk_field_name = null) {
+    
+    $html_output = '<td>';
+    $html_output .= '<span class="formelement" >' . "\n";
+    if( ! $no_index) {
+        $html_output .= '<input type="text" value=';
+        if (! empty($existrel_foreign[$row['Field']]['constraint'])) {      
+            $html_output .=  $existrel_foreign[$row['Field']]['constraint'];       
+        } else {
+            $html_output .= '"" disabled="disabled" ';
+        }
+        $html_output .=' name="' . htmlspecialchars($fk_field_name) . '">';
+    }
+    $html_output .= '</span>' . "\n";
+    $html_output .= '</td>';
+    
+    return $html_output;
+    
+    
 }
 ?>
