@@ -623,11 +623,11 @@ function PMA_backquoteSplit($text)
  *  
  * @return string The html code for foreign key column
  */
-function PMA_generateFKColumn($no_index , $row =null , $existrel_foreign = null,$fk_field_name =null) {
+function PMA_generateFKColumn($no_index , $row = null , $existrel_foreign = null,$fk_field_name = null) {
     
-    $html_output .= '<td>';
+    $html_output = '<td>';
     $html_output .= '<span class="formelement" >' . "\n";
-    if( !$no_index) {
+    if( ! $no_index) {
         $html_output .= '<input type="text" value=';
         if (! empty($existrel_foreign[$row['Field']]['constraint'])) {      
             $html_output .=  $existrel_foreign[$row['Field']]['constraint'];       
