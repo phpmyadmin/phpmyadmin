@@ -9,9 +9,9 @@ function show_hide_clauses($thisDropdown)
     // and we have one span for ON DELETE and one for ON UPDATE
     //
     if ($thisDropdown.val() != '') {
-        $thisDropdown.parent().next('span').show().next('span').show();
+        $thisDropdown.parent().nextAll('span').show();
     } else {
-        $thisDropdown.parent().next('span').hide().next('span').hide();
+        $thisDropdown.parent().nextAll('span').hide();
     }
 }
 
