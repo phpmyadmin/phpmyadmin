@@ -112,7 +112,8 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
             $this->oldIISvalue = 'non-defined';
 
-            if (defined('PMA_IS_IIS')) {
+            $user_defined_constants = get_defined_constants(true)['user'];
+            if (array_key_exists('PMA_IS_IIS', $user_defined_constants)) {
                 $this->oldIISvalue = PMA_IS_IIS;
                 runkit_constant_redefine('PMA_IS_IIS', null);
             } else {
@@ -122,7 +123,7 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
             $this->oldSIDvalue = 'non-defined';
 
-            if (defined('SID')) {
+            if (array_key_exists('SID', $user_defined_constants)) {
                 $this->oldSIDvalue = SID;
                 runkit_constant_redefine('SID', null);
             } else {
@@ -214,7 +215,7 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
             $testUri = 'http://testurl.com/test.php';
             $separator = PMA_get_arg_separator();
 
-            $header = 'Refresh: 0; ' . $testUri;
+            $header = 'Location: ' . $testUri;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
 
