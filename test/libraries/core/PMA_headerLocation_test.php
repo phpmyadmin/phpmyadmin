@@ -112,7 +112,8 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
             $this->oldIISvalue = 'non-defined';
 
-            $user_defined_constants = get_defined_constants(true)['user'];
+            $defined_constants = get_defined_constants(true);
+            $user_defined_constants = $defined_constants['user'];
             if (array_key_exists('PMA_IS_IIS', $user_defined_constants)) {
                 $this->oldIISvalue = PMA_IS_IIS;
                 runkit_constant_redefine('PMA_IS_IIS', null);
@@ -216,9 +217,14 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
             $separator = PMA_get_arg_separator();
 
             $header = 'Location: ' . $testUri;
-
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+            $this->assertEquals($header, $GLOBALS['header']);
 
+            //reset $GLOBALS['header'] for the next assertion
+            unset($GLOBALS['header']);
+
+            $header = 'Refresh: 0; ' . $testUri;
+            PMA_sendHeaderLocation($testUri, true);            // sets $GLOBALS['header']
             $this->assertEquals($header, $GLOBALS['header']);
 
         } else {
