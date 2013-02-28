@@ -367,7 +367,9 @@ class PMA_DbQbe
             if (isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $html_output .= showColumnSelectCell($new_column_count);
+                $html_output .= $this->_showColumnSelectCell(
+                    $new_column_count
+                );
                 $new_column_count++;
             }
             if (! empty($this->_criteriaColumnDelete)
