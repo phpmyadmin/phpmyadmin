@@ -44,7 +44,11 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
         } else {
 
             if ($runkit) {
-                define('PMA_USR_OS', 'Linux');
+                if (!defined('PMA_USR_OS'))
+                    define('PMA_USR_OS', 'Linux');
+                else
+                    runkit_constant_redefine('PMA_USR_OS', 'Linux');
+                
                 $this->assertEquals(
                     "\n", PMA_Util::whichCrlf()
                 );
