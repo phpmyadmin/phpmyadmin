@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-14 16:10+0200\n"
+"PO-Revision-Date: 2013-02-28 16:25+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -12369,10 +12369,9 @@ msgid "Foreign key constraint"
 msgstr "Beperking voor vreemde sleutel"
 
 #: tbl_relation.php:481
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Beperkingen voor tabel"
+msgstr "Naam van de beperking"
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12652,7 +12651,6 @@ msgid "Long query time"
 msgstr "Tijd trage queries"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12660,7 +12658,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time is ingesteld op 10 seconden of langer, zodat enkel trage "
+"{long_query_time} is ingesteld op 10 seconden of langer, zodat enkel trage "
 "queries die langer duren dan 10 seconden gelogd zullen worden."
 
 #: libraries/advisory_rules.txt:81
@@ -13068,7 +13066,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Te veel sorteringen veroorzaken tijdelijke tabellen."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -13076,7 +13073,7 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Overweeg om sort_buffer_size en/of read_rnd_buffer_size te verheugen, "
+"Overweeg om {sort_buffer_size} en/of {read_rnd_buffer_size} te verhogen, "
 "afhankelijk van de geheugenlimieten op uw systeem"
 
 #: libraries/advisory_rules.txt:216
@@ -13236,10 +13233,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size ten opzichte van max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size en max_heap_table_size zijn verschillend."
+msgstr "{tmp_table_size} en {max_heap_table_size} zijn verschillend."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13446,7 +13442,6 @@ msgstr ""
 "krijgen."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13455,7 +13450,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Overweeg om {open_files_limit} te verhogen, en controleer het foutenlogboek "
-"na herstarten nadat open_files_limit gewijzigd werd."
+"na herstarten nadat {open_files_limit} gewijzigd werd."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13584,7 +13579,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads is hoger dan 2sec"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13592,8 +13586,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Stel slow_launch_time in op 1 of 2 sec om op een goede manier traag "
-"startende threads te tellen"
+"Stel {slow_launch_time} in op 1 of 2 sec om traag startende threads correct "
+"te tellen"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -13605,7 +13599,6 @@ msgid "Percentage of used connections"
 msgstr "Percentage van gebruikte verbindingen"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13614,10 +13607,9 @@ msgid ""
 "{max_connections}."
 msgstr ""
 "Het maximum aantal gebruikte verbindingen is bijna gelijk aan de waarde van "
-"max_connections."
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13627,8 +13619,8 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Verhoog max_connections, of verminder wait_timeout zodat verbindingen die "
-"databank handlers niet netjes sluiten, sneller afgesloten worden. Zorg "
+"Verhoog {max_connections}, of verminder {wait_timeout} zodat verbindingen "
+"die databank handlers niet netjes sluiten, sneller afgesloten worden. Zorg "
 "ervoor dat de code databank handlers netjes afsluit."
 
 #: libraries/advisory_rules.txt:397
@@ -13866,10 +13858,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM gelijktijdige invoeren"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Activeer concurrent_insert door het waarde 1 te geven"
+msgstr "Activeer {concurrent_insert} door het waarde 1 te geven"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
