@@ -478,7 +478,7 @@ if (count($columns) > 0) {
                 $html_output .= '<span class="formelement">';
                 $constraint_name = isset($existrel_foreign[$myfield]['constraint'])
                     ? $existrel_foreign[$myfield]['constraint'] : '';
-                $html_output .= 'Constraint Name';
+                $html_output .= __('Constraint name');
                 $html_output .= '<input type="text" name="constraint_name[' . $myfield_md5 . ']"'
                     . ' value="' . $constraint_name . '"/>';
                 $html_output .= '</span>' . "\n";
