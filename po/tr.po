@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-15 17:43+0200\n"
+"PO-Revision-Date: 2013-02-28 14:37+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -12255,10 +12255,9 @@ msgid "Foreign key constraint"
 msgstr "Dış anahtar kısıtlaması"
 
 #: tbl_relation.php:481
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Tablo kısıtlamaları"
+msgstr "Kısıtlama adı"
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12534,7 +12533,6 @@ msgid "Long query time"
 msgstr "Uzun sorgu süresi"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12542,7 +12540,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time 10 saniyeye ya da daha fazlasına ayarlı, bu nedenle sadece "
+"{long_query_time} 10 saniyeye ya da daha fazlasına ayarlı, bu nedenle sadece "
 "yavaş sorguların günlüklenmesi 10 saniyenin üzerinde bir zaman alır."
 
 #: libraries/advisory_rules.txt:81
@@ -12939,7 +12937,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Çok fazla sıralama geçici tablolara sebep olur."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -12947,8 +12944,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"sort_buffer_size ve/veya read_rnd_buffer_size artışını dikkate alın, sistem "
-"bellek sınırlarınıza bağlıdır"
+"{sort_buffer_size} ve/veya {read_rnd_buffer_size} artışını dikkate alın, "
+"sistem bellek sınırlarınıza bağlıdır"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -13104,10 +13101,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size 'a karşı max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size ve max_heap_table_size aynı değiller."
+msgstr "{tmp_table_size} ve {max_heap_table_size} aynı değiller."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13306,7 +13302,6 @@ msgstr ""
 "fazla dosya açık\" hatası alabilirsiniz."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13314,7 +13309,7 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"{open_files_limit} artışını dikkate alın ve open_files_limit değerini "
+"{open_files_limit} artışını dikkate alın ve {open_files_limit} değerini "
 "değiştirdikten sonra yeniden başlatıldığında hata günlüğünü kontrol edin."
 
 #: libraries/advisory_rules.txt:339
@@ -13433,7 +13428,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads 2s üzerinde"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13441,8 +13435,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Çalıştırması yavaş olan işlemleri doğru olarak saymak için slow_launch_time "
-"değerini 1s veya 2s olarak ayarlayın"
+"Çalıştırması yavaş olan işlemleri doğru olarak saymak için "
+"{slow_launch_time} değerini 1s veya 2s olarak ayarlayın"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -13454,7 +13448,6 @@ msgid "Percentage of used connections"
 msgstr "Kullanılan bağlantıların yüzdesi"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13462,11 +13455,10 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"Kullanılan bağlantıların en fazla miktarı max_connections değerine "
+"Kullanılan bağlantıların en fazla miktarı {max_connections} değerine "
 "yaklaşıyor."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13476,10 +13468,10 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"max_connections değerini arttırmayla veya wait_timeout değerini azaltmayla "
-"daha çabuk sonlandırmak düzgün bir şekilde veritabanı işleyicilerini "
-"kapatmaz. Kodun veritabanı işleyicilerini düzgün bir şekilde kapattığından "
-"emin olun."
+"{max_connections} değerini arttırmayla veya {wait_timeout} değerini "
+"azaltmayla daha çabuk sonlandırmak düzgün bir şekilde veritabanı "
+"işleyicilerini kapatmaz. Kodun veritabanı işleyicilerini düzgün bir şekilde "
+"kapattığından emin olun."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
@@ -13709,10 +13701,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM eşzamanlı eklemeler"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurrent_insert'ü 1'e ayarlayarak bunu etkinleştirin"
+msgstr "{concurrent_insert} değerini 1'e ayarlayarak bunu etkinleştirin"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
