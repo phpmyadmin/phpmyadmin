@@ -439,6 +439,7 @@ class PMA_Header
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
+        
         if (! defined('TESTSUITE')) {
             header(
                 "X-Content-Security-Policy: allow 'self';"
@@ -459,6 +460,7 @@ class PMA_Header
                 );
             }
         }
+        
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER') && ! defined('TESTSUITE')) {
             // Define the charset to be used

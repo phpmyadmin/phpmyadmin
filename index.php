@@ -10,6 +10,7 @@
  */
 require_once 'libraries/common.inc.php';
 
+
 /**
  * display Git revision if requested
  */
@@ -18,6 +19,7 @@ require_once 'libraries/display_git_revision.lib.php';
 /**
  * pass variables to child pages
  */
+
 $drops = array(
     'lang',
     'server',
@@ -602,4 +604,5 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
     }
     echo '</li>';
 }
+
 ?>

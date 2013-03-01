@@ -39,6 +39,8 @@ if (version_compare(PHP_VERSION, '5.2.0', 'lt')) {
     die('PHP 5.2+ is required');
 }
 
+//header("X-Content-Security-Policy: allow 'self'; img-src data:");
+
 /**
   * Backward compatibility for PHP 5.2
   */
@@ -130,6 +132,7 @@ require './libraries/Table.class.php';
 require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
+
     /**
      * common functions
      */
@@ -167,7 +170,6 @@ if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
     }
 }
 $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
-
 
 /**
  * just to be sure there was no import (registering) before here
@@ -817,9 +819,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * Loads the proper database interface for this server
          */
         include_once './libraries/database_interface.lib.php';
-
         include_once './libraries/logging.lib.php';
-
+        
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in PMA_Config::loadUserPreferences()
@@ -831,7 +832,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             unset($value);
         }
         unset($cache_key);
-
+        
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
