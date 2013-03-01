@@ -133,6 +133,18 @@ $url_query .= '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
 
+//Check column names for MYSQL reserved words
+$pma_table = new PMA_Table($table, $db);
+$columns = $pma_table->getColumns(false);
+foreach ($columns as $column) {
+    if(PMA_SQP_isKeyWord($column)) {
+        $msg = PMA_message::notice(__('The column name "%s" is a MYSQL reserved key word.'));
+        $temp = explode('.', $column);
+        $msg->addParam($temp[2]);
+        $response->addHTML($msg);
+    }
+}
+
 /**
  * Prepares the table structure display
  */

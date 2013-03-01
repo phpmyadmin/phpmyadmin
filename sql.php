@@ -1215,6 +1215,18 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $msg->display();
     }
 
+    //Check column names for MYSQL reserved words
+    $pma_table = new PMA_Table($table, $db);
+    $columns = $pma_table->getColumns(false);
+    foreach ($columns as $column) {
+        if(PMA_SQP_isKeyWord($column)) {
+            $msg = PMA_message::notice(__('The column name "%s" is a MYSQL reserved key word.'));
+            $temp = explode('.', $column);
+            $msg->addParam($temp[2]);
+            $msg->display();
+        }
+    }
+
     if (isset($label)) {
         $msg = PMA_message::success(__('Bookmark %s created'));
         $msg->addParam($label);
