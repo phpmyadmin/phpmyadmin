@@ -4086,5 +4086,9 @@ class PMA_Util
                 . PMA_Util::localisedDate(strtotime($table['Check_time']));
         }
     }
+    public static function getImg($file, $mime="image/gif") {
+        $base64 = base64_encode(file_get_contents($file));
+        return "data:" . $mime . ";base64," . $base64;
+    }
 }
 ?>
