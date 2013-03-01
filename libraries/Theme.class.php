@@ -8,7 +8,7 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
+require_once('./libraries/Util.class.php');
 /**
  * handles theme
  *
@@ -319,13 +319,13 @@ class PMA_Theme
      * @access public
      * @return string image path for this theme
      */
-    public function getImgPath($file = null)
+    public function getImgPath($file = null, $mime = "image/gif")
     {
         if (is_null($file)) {
             return $this->img_path;
         } else {
             if (is_readable($this->img_path . $file)) {
-                return $this->img_path . $file;
+                return PMA_Util::getImg($this->img_path . $file, $mime);
             } else {
                 return $GLOBALS['cfg']['ThemePath'] . '/'
                     . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
