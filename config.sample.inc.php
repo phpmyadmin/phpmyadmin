@@ -45,9 +45,9 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['controlpass'] = 'pmapass';
 
 /* Storage database and tables */
-// $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+ $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 // $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
-// $cfg['Servers'][$i]['relation'] = 'pma__relation';
+ $cfg['Servers'][$i]['relation'] = 'pma__relation';
 // $cfg['Servers'][$i]['table_info'] = 'pma__table_info';
 // $cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
 // $cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
