@@ -25,17 +25,24 @@ require_once 'libraries/Response.class.php';
 /**
  * Test function sending headers.
  * Warning - these tests set constants, so it can interfere with other tests
- * If you have runkit extension, then it is possible to back changes made on constants
- * rest of options can be tested only with apd, when functions header and headers_sent are redefined
- * rename_function() of header and headers_sent may cause CLI error report in Windows XP (but tests are done correctly)
- * additional functions which were created during tests must be stored to coverage test e.g.
+ * If you have runkit extension, then it is possible to back changes made on
+ * constants rest of options can be tested only with apd, when functions header
+ * and headers_sent are redefined rename_function() of header and headers_sent
+ * may cause CLI error report in Windows XP (but tests are done correctly)
+ * additional functions which were created during tests must be stored to
+ * coverage test e.g.
  *
- * <code>rename_function('headers_sent', 'headers_sent'.str_replace(array('.', ' '),array('', ''),microtime()));</code>
+ * <code>
+ * rename_function(
+ *     'headers_sent',
+ *     'headers_sent'.str_replace(array('.', ' '),array('', ''),microtime())
+ * );
+ * </code>
  *
  * @package PhpMyAdmin-test
  */
 
-class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
+class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 {
 
     protected $oldIISvalue;
@@ -58,17 +65,32 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
         if ($this->apdExt && !$GLOBALS['test_header']) {
 
-            // using apd extension to overriding header and headers_sent functions for test purposes
+            /*
+             * using apd extension to overriding header and headers_sent
+             * functions for test purposes
+             */
             $GLOBALS['test_header'] = 1;
 
-            // rename_function() of header and headers_sent may cause CLI error report in Windows XP
+            /*
+             * rename_function() of header and headers_sent may cause CLI error
+             * report in Windows XP
+             */
             rename_function('header', 'test_header');
             rename_function('headers_sent', 'test_headers_sent');
 
-            // solution from: http://unixwars.com/2008/11/29/override_function-in-php/ to overriding more than one function
+            /*
+             * solution from:
+             * http://unixwars.com/2008/11/29/override_function-in-php/
+             * to overriding more than one function
+             */
 
             $substs = array(
-                    'header' => 'if (isset($GLOBALS["header"])) $GLOBALS["header"] .= $a; else $GLOBALS["header"] = $a;',
+                    'header' =>
+                        'if (isset($GLOBALS["header"])) {'
+                        . '$GLOBALS["header"] .= $a;'
+                        . '} else {'
+                        . '$GLOBALS["header"] = $a;'
+                        . '}',
                     'headers_sent' => 'return false;'
                 );
 
@@ -79,10 +101,20 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
             foreach ($substs as $func => $ren_func) {
                 if (function_exists("__overridden__")) {
-                    rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
+                    rename_function(
+                        "__overridden__",
+                        str_replace(
+                            array('.', ' '),
+                            array('', ''),
+                            microtime()
+                        )
+                    );
                 }
                 override_function($func, $args[$func], $substs[$func]);
-                rename_function("__overridden__", str_replace(array('.', ' '), array('', ''), microtime()));
+                rename_function(
+                    "__overridden__",
+                    str_replace(array('.', ' '), array('', ''), microtime())
+                );
             }
 
         }
@@ -90,13 +122,26 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
     public function __destruct()
     {
-        // rename_function may causes CLI error report in Windows XP, but nothing more happen
+        /*
+         * rename_function may causes CLI error report in Windows XP, but
+         * nothing more happen
+         */
 
         if ($this->apdExt && $GLOBALS['test_header']) {
             $GLOBALS['test_header'] = 0;
 
-            rename_function('header', 'header'.str_replace(array('.', ' '), array('', ''), microtime()));
-            rename_function('headers_sent', 'headers_sent'.str_replace(array('.', ' '), array('', ''), microtime()));
+            rename_function(
+                'header',
+                'header' . str_replace(
+                    array('.', ' '), array('', ''), microtime()
+                )
+            );
+            rename_function(
+                'headers_sent',
+                'headers_sent' . str_replace(
+                    array('.', ' '), array('', ''), microtime()
+                )
+            );
 
             rename_function('test_header', 'header');
             rename_function('test_headers_sent', 'headers_sent');
@@ -178,11 +223,15 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
 
             $header = 'Location: ' . $testUri . $separator . SID;
 
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+            /* sets $GLOBALS['header'] */
+            PMA_sendHeaderLocation($testUri);
+
             $this->assertEquals($header, $GLOBALS['header']);
 
         } else {
-            $this->markTestSkipped('Cannot redefine constant/function - missing APD or/and runkit extension');
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing APD or/and runkit extension'
+            );
         }
 
     }
