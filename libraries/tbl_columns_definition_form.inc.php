@@ -893,7 +893,7 @@ if ($action == 'tbl_create.php') {
 } // end if ($action == 'tbl_create.php')
 
 $html .= '<fieldset class="tblFooters">'
-    . '<input type="submit" name="do_save_data" value="' . __('Save') . '" />'
+    . '<input type="submit" name="do_save_data" onclick="'.'checkForKeyword(this.form)" value="' . __('Save') . '" />'
     . '</fieldset>'
     . '<div id="properties_message"></div>'
     . '</form>';

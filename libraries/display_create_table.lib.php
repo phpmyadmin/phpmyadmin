@@ -58,6 +58,6 @@ echo __('Create table');
     <div class="clearfloat"></div>
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="submit" value="<?php echo __('Go'); ?>" />
+    <input type="submit" onclick="isKeyword(this.form.table.value)" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>

@@ -35,6 +35,7 @@ $js_messages['strDeleteTrackingData'] = __('Delete tracking data for this table'
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 $js_messages['strOperationTakesLongTime'] = __('This operation could take a long time. Proceed anyway?');
+$js_messages['strKeywordAsIdentifier'] = __('WARNING : Using Keywords (Reserved Words) as an Identifier ("%s") is highly discouraged.');
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
