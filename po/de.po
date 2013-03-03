@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-01-24 19:59+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2013-03-03 18:52+0200\n"
+"Last-Translator: J. M. <me@mynetx.net>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -10397,7 +10396,7 @@ msgstr "Vorhandene Einstellungen werden überschrieben!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
-msgstr "Sie können alle Einstellungen auf die Defaultwerten zurücksetzen."
+msgstr "Sie können alle Einstellungen auf die Standardwerte zurücksetzen."
 
 #: querywindow.php:64
 msgid "Import files"

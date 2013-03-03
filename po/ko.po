@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-22 01:08+0200\n"
-"Last-Translator: Kyeong Su Shin <ksshin@uwaterloo.ca>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2013-03-03 09:46+0200\n"
+"Last-Translator: 수훈 한 <previrtu@isdev.kr>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -735,9 +734,8 @@ msgid "Server"
 msgstr "서버"
 
 #: index.php:234
-#, fuzzy
 msgid "Server type"
-msgstr "서버 선택"
+msgstr "서버 타입"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
