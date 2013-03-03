@@ -14,10 +14,8 @@ require_once 'libraries/common.inc.php';
  * Runs common work
  */
 $response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('makegrid.js');
-$scripts->addFile('sql.js');
+$GLOBALS['js_include'][] = 'makegrid.js';
+$GLOBALS['js_include'][] = 'sql.js';
 
 require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
