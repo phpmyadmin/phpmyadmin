@@ -229,9 +229,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select = '';
        
 	//converts characters of $_REQUEST['curr_value'] to HTML entities 
-    $converted_curr_value=htmlentities($_REQUEST['curr_value'],ENT_COMPAT, "UTF-8");
+    $converted_curr_value = htmlentities($_REQUEST['curr_value'], ENT_COMPAT, "UTF-8");
 	
-	$selected_values = explode (',' , $converted_curr_value);
+	$selected_values = explode(',', $converted_curr_value);
     
     foreach ($values as $value) {       
         $select .= '<option value="' . $value . '"';
