@@ -217,6 +217,7 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     echo '<input type="checkbox" name="quick_export_onserverover" ';
     echo 'value="saveitover" id="checkbox_quick_dump_onserverover" ';
     PMA_exportCheckboxCheck('quick_export_onserver_overwrite');
+    echo '/>';
     echo '<label for="checkbox_quick_dump_onserverover">';
     echo __('Overwrite existing file(s)');
     echo '</label>';
