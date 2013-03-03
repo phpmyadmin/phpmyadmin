@@ -224,18 +224,22 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
     );
 
-    $selected_values = explode(',', $_REQUEST['curr_value']);
-
     $values = PMA_Util::parseEnumSetValues($field_info_result[0]['Type']);
 
     $select = '';
-    foreach ($values as $value) {
+       
+	//converts characters of $_REQUEST['curr_value'] to HTML entities 
+    $converted_curr_value=htmlentities($_REQUEST['curr_value'],ENT_COMPAT, "UTF-8");
+	
+	$selected_values = explode (',' , $converted_curr_value);
+    
+    foreach ($values as $value) {       
         $select .= '<option value="' . $value . '"';
-        if (in_array($value, $selected_values, true)) {
-            $select .= ' selected="selected"';
+        if ($value == $converted_curr_value || in_array($value , $selected_values , true)) {
+            $select .= ' selected ';
         }
         $select .= '>' . $value . '</option>';
-    }
+    }  
 
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
     $select = '<select multiple="multiple" size="' . $select_size . '">'
