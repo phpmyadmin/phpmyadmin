@@ -95,6 +95,7 @@ underscore
 - No longer package .travis.yml configuration file when creating a release.
 - bug #3830 Can't export custom query because it lowercases table names
 - bug #3829 Enabling query profiling crashes javascript based navigation
+- bug #3840 When exporting to gzip format, the data is compressed 2 times
 
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
