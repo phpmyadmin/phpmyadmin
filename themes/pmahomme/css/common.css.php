@@ -1651,20 +1651,26 @@ div#queryboxcontainer div#bookmarkoptions {
 
 
 /* iconic view for ul items */
+
+li.no_bullets {
+    list-style-type:none !important;    
+    margin-left: -25px !important;      //align with other list items which have bullets
+}
+
 li#li_create_database {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_newdb.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_newdb.png');?>);
 }
 
 li#li_select_lang {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_lang.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_lang.png');?>);
 }
 
 li#li_select_mysql_collation {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
 }
 
 li#li_select_theme {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_theme.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_theme.png');?>);
 }
 
 li#li_user_info {
@@ -1708,7 +1714,7 @@ li#li_import {
 }
 
 li#li_change_password {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_passwd.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_passwd.png');?>);
 }
 
 li#li_log_out {
@@ -1728,7 +1734,7 @@ li#li_flush_privileges {
 }
 
 li#li_user_preferences {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_tblops.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_tblops.png');?>);
 }
 /* END iconic view for ul items */
 
@@ -1875,7 +1881,7 @@ textarea#partitiondefinition {
 }
 
 #li_select_server {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_host.png');?>);
+    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_host.png');?>);
 }
 
 #list_server {
