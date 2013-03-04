@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-03-03 09:46+0200\n"
-"Last-Translator: 수훈 한 <previrtu@isdev.kr>\n"
+"PO-Revision-Date: 2013-03-04 17:28+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -10089,7 +10089,7 @@ msgstr "파일 가져오기"
 
 #: querywindow.php:77
 msgid "All"
-msgstr "All"
+msgstr "모두"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
@@ -11520,7 +11520,7 @@ msgstr ""
 #: setup/lib/index.lib.php:304
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr "웹 서버가 지원한다면 이 %s 옵션 %s 허용"
+msgstr "웹서버가 지원한다면 이 %s옵션 %s이 활성화됩니다."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -11602,7 +11602,7 @@ msgstr "키가 너무 짧습니다. 최소 8글자 이상이어야 합니다."
 
 #: setup/lib/index.lib.php:431
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자 포함"
+msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야 합니다."
 
 #: setup/validate.php:22
 #, fuzzy
@@ -12339,9 +12339,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-"query_cache_size 가 0 으로 설정되어 있거나 query_cache_type 이 'OFF' 로 설정"
-"되어 있습니다."
+msgstr "query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되어 있습니다."
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -12379,7 +12377,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "{query_cache_limit}를 증가하는 것이 좋습니다."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
@@ -12487,10 +12485,9 @@ msgid "Current query cache size: %s"
 msgstr "쿼리 캐시의 크기: %s"
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "SQL 결과"
+msgstr "쿼리 캐시 최소 결과 크기"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
@@ -12511,7 +12508,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit가 1Mib로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:211
 #, fuzzy
@@ -12548,7 +12545,7 @@ msgstr "임시테이블 생성 허용."
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "임시 테이블 평균: %s, 이 값은 시간당 1보다 작아야합니다."
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
@@ -12569,15 +12566,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:230
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "행 정렬 평균: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "인덱스 없는 조인 비율"
 
 #: libraries/advisory_rules.txt:236
 msgid "There are too many joins without indexes."
-msgstr ""
+msgstr "인덱스 없는 조인이 너무 많습니다."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -12588,7 +12585,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:238
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:240
 #, fuzzy
@@ -12613,12 +12610,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:245
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "인덱스 스캔 평균: %s, 이 값은 시간당 1미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 msgid "Rate of reading fixed position"
-msgstr "파일 문자셋:"
+msgstr "고정위치 읽기 비율"
 
 #: libraries/advisory_rules.txt:250
 #, fuzzy
@@ -12680,12 +12676,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:267
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "현재 tmp_table_size의 값: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 msgid "Percentage of temp tables on disk"
-msgstr "테이블 설명"
+msgstr "디스크상의 임시 테이블 비율"
 
 #: libraries/advisory_rules.txt:272 libraries/advisory_rules.txt:279
 msgid ""
@@ -12712,11 +12707,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:276
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s개 테이블 "
+msgstr "임시 디스크 비율"
 
 #: libraries/advisory_rules.txt:280
 msgid ""
@@ -12737,19 +12731,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy
 msgid "MyISAM key buffer size"
-msgstr "SQL 질의"
+msgstr "MyISAM 키 버퍼 크기"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
+msgstr "키 버퍼가 초기화되지 않았습니다. MyISAM 인덱스가 캐시되지 않습니다."
 
 #: libraries/advisory_rules.txt:300
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
-msgstr ""
+msgstr "MyISAM 크기에 따라 {key_buffer_size}를 설정하십시오. (초기값은 64M를 권장합니다.)"
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
@@ -12785,12 +12778,11 @@ msgstr "사용된 MyISAM 키 버퍼 비율"
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "%%MyISAM 키 버퍼 사용: %s%%, 이 값은 95%% 이상이어야 합니다."
 
 #: libraries/advisory_rules.txt:318
-#, fuzzy
 msgid "Percentage of index reads from memory"
-msgstr "SQL 질의"
+msgstr "메모리에서 읽은 인덱스 비율"
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -12799,7 +12791,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:322
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "{Key_buffer_size}를 증가시켜야 합니다."
 
 #: libraries/advisory_rules.txt:323
 #, php-format
@@ -12845,7 +12837,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
+msgstr "열린 파일은 한계치의 %s%%입니다. 이 수치는 85%% 미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:341
 msgid "Rate of open files"
@@ -13066,7 +13058,7 @@ msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb가 'value'로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
