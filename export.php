@@ -137,7 +137,27 @@ $dump_buffer_len = 0;
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
 
-
+/**
+ * Detect whether gzencode is needed; it might not be needed if
+ * the server is already compressing by itself 
+ *
+ * @return bool Whether gzencode is needed 
+ */
+function PMA_gzencodeNeeded()
+{
+    if (@function_exists('gzencode')
+        && ! @ini_get('zlib.output_compression')
+        // Here, we detect Apache's mod_deflate so we bet that
+        // this module is active for this instance of phpMyAdmin
+        // and therefore, will gzip encode the content
+        && ! (function_exists('apache_get_modules')
+            && in_array('mod_deflate', apache_get_modules()))
+        ) {
+        return true;
+    } else {
+        return false;
+    }
+}
 /**
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
@@ -180,10 +200,10 @@ function PMA_exportOutputHandler($line)
                 ) {
                     $dump_buffer = bzcompress($dump_buffer);
                 } elseif ($GLOBALS['compression'] == 'gzip'
-                     && @function_exists('gzencode')
+                     && PMA_gzencodeNeeded() 
                 ) {
                     // as a gzipped file
-                    // without the optional parameter level because it bug
+                    // without the optional parameter level because it bugs
                     $dump_buffer = gzencode($dump_buffer);
                 }
                 if ($GLOBALS['save_on_server']) {
@@ -765,19 +785,10 @@ if (! empty($asfile)) {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
         }
-    } elseif ($compression == 'gzip') {
+    } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
         // 3. as a gzipped file
-        if (@function_exists('gzencode')
-            && ! @ini_get('zlib.output_compression')
-            // Here, we detect Apache's mod_deflate so we bet that
-            // this module is active for this instance of phpMyAdmin
-            // and therefore, will gzip encode the content
-            && ! (function_exists('apache_get_modules')
-                && in_array('mod_deflate', apache_get_modules()))
-            ) {
-            // without the optional parameter level because it bug
+        // without the optional parameter level because it bugs
             $dump_buffer = gzencode($dump_buffer);
-        }
     }
 
     /* If we saved on server, we have to close file now */
