@@ -6,11 +6,23 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+
 require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
+/**
+ * PmaSeleniumPrivilegesTest class
+ *
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
+ */
 class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
 {
+    /**
+     * Setup the browser environment to run the selenium test case
+     *
+     * @return void
+     */
     public function setUp()
     {
         $helper = new Helper();
@@ -18,6 +30,11 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_SeleniumTestCase
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
     }
 
+    /**
+     * Tests the changing of the password
+     *
+     * @return void
+     */
     public function testChangePassword()
     {
         $log = new PmaSeleniumTestCase($this);
