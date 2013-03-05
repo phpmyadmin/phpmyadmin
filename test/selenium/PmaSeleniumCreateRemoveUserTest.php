@@ -9,11 +9,35 @@
 require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
+/**
+ * PmaSeleniumCreateRemoveUserTest class
+ *
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
+ */
 class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCase
 {
+    /**
+     * Username for the user
+     *
+     * @access private
+     * @var string
+     */
     private $_txtUsername;
+
+    /**
+     * Password for the user
+     *
+     * @access private
+     * @var string
+     */
     private $_txtPassword;
 
+    /**
+     * Setup the browser environment to run the selenium test case
+     *
+     * @return void
+     */
     public function setUp()
     {
         $helper = new Helper();
@@ -23,6 +47,11 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->_txtPassword = 'abc_123';
     }
 
+    /**
+     * Creates and removes a user
+     *
+     * @return void
+     */
     public function testCreateRemoveUser()
     {
         $log = new PmaSeleniumTestCase($this);
@@ -50,7 +79,9 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_SeleniumTestCas
         $this->assertElementPresent("css=span.ajax_notification div.success");
         $this->waitForElementPresent("usersForm");
         $temp = $this->_txtUsername."&amp;#27;localhost";
-        $this->click("xpath=(//input[@name='selected_usr[]'])[@value='".$temp."']");
+        $this->click(
+            "xpath=(//input[@name='selected_usr[]'])[@value='".$temp."']"
+        );
         $this->click("id=checkbox_drop_users_db");
         $this->getConfirmation();
         $this->click("id=buttonGo");

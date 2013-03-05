@@ -7,14 +7,59 @@
  * @subpackage Selenium
  */
 
+/**
+ * PmaSeleniumTestCase class
+ *
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
+ */
 class PmaSeleniumTestCase
 {
+    /**
+     * Username of the user
+     *
+     * @access private
+     * @var string
+     */
     private $_txtUsername;
+
+    /**
+     * Password for the user
+     *
+     * @access private
+     * @var string
+     */
     private $_txtPassword;
+
+    /**
+     * id of the login button
+     *
+     * @access private
+     * @var string
+     */
     private $_btnLogin;
+
+    /**
+     * Selenium Context
+     *
+     * @access private
+     * @var object
+     */
     private $_selenium;
+
+    /**
+     * Confguration Instance
+     *
+     * @access private
+     * @var object
+     */
     private $_config;
 
+    /**
+     * constructor
+     *
+     * @param object $selenium Selenium Context
+     */
     public function __construct($selenium)
     {
         $this->_txtUsername = 'input_username';
@@ -42,6 +87,7 @@ class PmaSeleniumTestCase
     }
 
     /**
+     * Checks whether the login is successful
      *
      * @return boolean
      */
@@ -55,6 +101,7 @@ class PmaSeleniumTestCase
     }
 
     /**
+    * Checks whether the login is unsuccessful
     *
     * @return boolean
     */

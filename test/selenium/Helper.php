@@ -1,18 +1,39 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Selenium Helper Class
+ * Selenium Helper class for selenium test cases
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
 require_once 'TestConfig.php';
 
+/**
+ * Selenium Helper Class
+ *
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
+ */
 class Helper
 {
+    /**
+     * SeleniumTestSuite instance
+     *
+     * @var object
+     */
     public static $selenium;
+
+    /**
+     * TestConfig instance
+     *
+     * @var object TestConfig
+     */
     public static $config;
 
+    /**
+     * constructor
+     *
+     */
     function __construct()
     {
         self::$config = new TestConfig();
