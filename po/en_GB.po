@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-14 10:34+0200\n"
+"PO-Revision-Date: 2013-03-05 14:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -12155,10 +12155,9 @@ msgid "Foreign key constraint"
 msgstr "Foreign key constraint"
 
 #: tbl_relation.php:481
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Constraints for table"
+msgstr "Constraint name"
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12432,7 +12431,6 @@ msgid "Long query time"
 msgstr "Long query time"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12440,7 +12438,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time is set to 10 seconds or more, thus only slow queries that "
+"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 
 #: libraries/advisory_rules.txt:81
@@ -12836,7 +12834,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Too many sorts are causing temporary tables."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -12844,8 +12841,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
-"on your system memory limits"
+"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
+"depending on your system memory limits"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -12997,10 +12994,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size and max_heap_table_size are not the same."
+msgstr "{tmp_table_size} and {max_heap_table_size} are not the same."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13197,7 +13193,6 @@ msgstr ""
 "may get a \"Too many open files\" error."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13206,7 +13201,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing open_files_limit."
+"restarting after changing {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13323,7 +13318,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads is above 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13331,8 +13325,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
-"launch"
+"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
+"to launch"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -13344,7 +13338,6 @@ msgid "Percentage of used connections"
 msgstr "Percentage of used connections"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13353,10 +13346,9 @@ msgid ""
 "{max_connections}."
 msgstr ""
 "The maximum amount of used connections is getting close to the value of "
-"max_connections."
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13366,9 +13358,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Increase max_connections, or decrease wait_timeout so that connections that "
-"do not close database handlers properly get killed sooner. Make sure the "
-"code closes database handlers properly."
+"Increase {max_connections}, or decrease {wait_timeout} so that connections "
+"that do not close database handlers properly get killed sooner. Make sure "
+"the code closes database handlers properly."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
@@ -13593,10 +13585,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM concurrent inserts"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Enable concurrent_insert by setting it to 1"
+msgstr "Enable {concurrent_insert} by setting it to 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
