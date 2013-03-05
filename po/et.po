@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-17 21:39+0200\n"
+"PO-Revision-Date: 2013-03-05 19:29+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -7345,7 +7345,7 @@ msgid "Reload navigation frame"
 msgstr "Lae navigeerimise raam uuesti"
 
 #: libraries/navigation/NavigationTree.class.php:708
-#, fuzzy, php-format
+#, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s muu tulemus leitud"
@@ -12137,10 +12137,9 @@ msgid "Foreign key constraint"
 msgstr "Võõrvõtme piirang"
 
 #: tbl_relation.php:481
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Piirangud tabelile"
+msgstr "Piirangu nimi"
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12415,7 +12414,6 @@ msgid "Long query time"
 msgstr "Pika päringu aeg"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12423,8 +12421,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time väärtuseks on määratud 10 sekundit või enam, seega logitakse "
-"ainult need aeglased päringud, milleks kulub vähemalt 10 sekundit."
+"{long_query_time} väärtuseks on määratud 10 sekundit või enam, seega "
+"logitakse ainult need aeglased päringud, milleks kulub vähemalt 10 sekundit."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
@@ -12823,7 +12821,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Liiga palju sorteerimisi põhjustab ajutisi tabeleid."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -12831,8 +12828,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Oma süsteemimälu piirangust sõltuvalt kaalu sort_buffer_size ja/või "
-"read_rnd_buffer_size väärtuse suurendamist"
+"Oma süsteemimälu piirangust sõltuvalt kaalu {sort_buffer_size} ja/või "
+"{read_rnd_buffer_size} väärtuse suurendamist"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -12989,10 +12986,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size ja max_heap_table_size ei ole üks ja seesama."
+msgstr "{tmp_table_size} ja {max_heap_table_size} ei ole üks ja seesama."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13190,7 +13186,6 @@ msgstr ""
 "saada \"Liiga palju avatud faile\" vea."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13198,7 +13193,7 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Kaalu {open_files_limit} väärtuse suurendamist ja pärast open_files_limit "
+"Kaalu {open_files_limit} väärtuse suurendamist ja pärast {open_files_limit} "
 "muutmist ning taaskäivitamist kontrolli vea logi."
 
 #: libraries/advisory_rules.txt:339
@@ -13321,7 +13316,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads on üle 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13329,7 +13323,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Aeglase käivitumisega lõimude õigeks loendamiseks määra slow_launch_time "
+"Aeglase käivitumisega lõimude õigeks loendamiseks määra {slow_launch_time} "
 "väärtuseks 1s või 2s"
 
 #: libraries/advisory_rules.txt:388
@@ -13342,7 +13336,6 @@ msgid "Percentage of used connections"
 msgstr "Kasutatud ühenduste protsent"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13350,10 +13343,9 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"Kasutatud ühenduste maksimaalne hulk läheneb max_connections väärtusele."
+"Kasutatud ühenduste maksimaalne hulk läheneb {max_connections} väärtusele."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13363,7 +13355,7 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Suurenda max_connections väärtust või vähenda wait_timeout väärtust, et "
+"Suurenda {max_connections} väärtust või vähenda {wait_timeout} väärtust, et "
 "varem sulgeda need ühendused, mis ei sulge andmebaasikäsitlejaid "
 "korralikult. Veendu, et kood sulgeb andmebaasikäsitlejad korralikult."
 
@@ -13595,10 +13587,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM'i samaaegsed lisamised"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Luba concurrent_insert, määrates väärtuseks 1"
+msgstr "Luba {concurrent_insert}, määrates väärtuseks 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
