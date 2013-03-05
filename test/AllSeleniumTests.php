@@ -3,7 +3,8 @@
 /**
  * runs all defined Selenium tests
  *
- * @package PhpMyAdmin-test
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
  */
 
 require_once 'PHPUnit/TextUI/TestRunner.php';
@@ -19,7 +20,8 @@ require_once dirname(__FILE__).'/selenium/PmaSeleniumCreateRemoveUserTest.php';
  * 
  * Runs all the selenium test cases
  * 
- * @package PhpMyAdmin-test
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
  */
 class AllSeleniumTests
 {
