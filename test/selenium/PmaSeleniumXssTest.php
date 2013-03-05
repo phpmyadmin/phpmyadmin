@@ -27,7 +27,9 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
     {
         $helper = new Helper();
         $this->setBrowser(Helper::getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
+        $this->setBrowserUrl(
+            TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL
+        );
     }
 
     /**
