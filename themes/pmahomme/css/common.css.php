@@ -701,7 +701,7 @@ div.error {
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
-    padding: 10px 10px 10px 25px;
+    padding: 10px 10px 10px 10px;
         <?php } else { ?>
     background-position: 99% 50%;
     padding: 10px 35px 10px 10px;
@@ -729,14 +729,7 @@ div.error {
 
 h1.success,
 div.success {
-    border-color: #a2d246;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_success.png');?>);
-    background-repeat: no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-        <?php } else { ?>
-    background-position: 99% 50%;
-        <?php } ?>
+    border-color: #a2d246;    
 }
 .success h1 {
     border-color: #00FF00;
@@ -750,13 +743,6 @@ div.success {
 h1.notice,
 div.notice {
     border-color: #3a6c7e;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_notice.png');?>);
-    background-repeat: no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-        <?php } else { ?>
-    background-position: 99% 50%;
-        <?php } ?>
 }
 
 .notice h1 {
@@ -771,14 +757,7 @@ div.notice {
 
 h1.error,
 div.error {
-    border-color: #333;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_error.png');?>);
-    background-repeat: no-repeat;
-        <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-    background-position: 5px 50%;
-        <?php } else { ?>
-    background-position: 99% 50%;
-        <?php } ?>
+    border-color: #333; 
 }
 
 div.error h1 {
@@ -1657,87 +1636,7 @@ li.no_bullets {
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
-li#li_create_database {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_newdb.png');?>);
-}
-
-li#li_select_lang {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_lang.png');?>);
-}
-
-li#li_select_mysql_collation {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
-}
-
-li#li_select_theme {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_theme.png');?>);
-}
-
-li#li_user_info {
-    /* list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_rights.png');?>); */
-}
-
-li#li_mysql_status {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_status.png');?>);
-}
-
-li#li_mysql_variables {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_vars.png');?>);
-}
-
-li#li_mysql_processes {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_process.png');?>);
-}
-
-li#li_mysql_collations {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
-}
-
-li#li_mysql_engines {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_engine.png');?>);
-}
-
-li#li_mysql_binlogs {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_tbl.png');?>);
-}
-
-li#li_mysql_databases {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_db.png');?>);
-}
-
-li#li_export {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_export.png');?>);
-}
-
-li#li_import {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_import.png');?>);
-}
-
-li#li_change_password {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_passwd.png');?>);
-}
-
-li#li_log_out {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_loggoff.png');?>);
-}
-
-li#li_mysql_privilegs {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_rights.png');?>);
-}
-
-li#li_switch_dbstats {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_dbstatistics.png');?>);
-}
-
-li#li_flush_privileges {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_reload.png');?>);
-}
-
-li#li_user_preferences {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_tblops.png');?>);
-}
 /* END iconic view for ul items */
-
 
 #body_browse_foreigners {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -1878,10 +1777,6 @@ textarea#partitiondefinition {
 /* for elements that should be revealed only via js */
 .hide {
     display: none;
-}
-
-#li_select_server {
-    //list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_host.png');?>);
 }
 
 #list_server {
