@@ -557,7 +557,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
 
         runtime.xmin = new Date().getTime() - server_time_diff - runtime.gridMaxPoints * monitorSettings.gridRefresh;
-        runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
+        // fixing chart shift towards left on refresh rate change
+        //runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
 
         saveMonitor(); // Save settings
