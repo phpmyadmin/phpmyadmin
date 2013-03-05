@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-03-05 20:44+0200\n"
+"PO-Revision-Date: 2013-03-05 23:14+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -7359,7 +7359,7 @@ msgstr "okänd"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "Ett fel uppstod vid inläsning av navigeringsträdet"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7401,7 +7401,7 @@ msgstr "filtrera tabeller efter namn"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Ogiltigt klassnamn \"%1$s\", använder standard \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
@@ -9999,7 +9999,7 @@ msgstr "Fel i ZIP-arkiv:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "Oåterkalleligt fel: Navigering kan endast nås via AJAX"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
