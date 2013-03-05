@@ -48,7 +48,7 @@ class PmaSeleniumTestCase
     private $_selenium;
 
     /**
-     * Confguration Instance
+     * Configuration Instance
      *
      * @access private
      * @var object

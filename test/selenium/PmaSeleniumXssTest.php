@@ -31,7 +31,7 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
     }
 
     /**
-     * Tests the SQL querry tab with a null query
+     * Tests the SQL query tab with a null query
      *
      * @return void
      */
