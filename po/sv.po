@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-01-22 17:23+0200\n"
-"Last-Translator: Pär-Ola Nilsson <peje66@gmail.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2013-03-05 20:44+0200\n"
+"Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -739,10 +739,9 @@ msgid "Server"
 msgstr "Server"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Serverport"
+msgstr "Servertyp"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -5731,7 +5730,6 @@ msgid "PDF schema: table coordinates"
 msgstr "PDF-schema: tabellkoordinater"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5739,15 +5737,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"Tabell för att beskriva visnings kolumnerna, lämna tomt för avstängt stöd; "
-"förslag: [kbd]pma_table_info[/kbd]"
+"Tabell för att beskriva visningskolumnerna, lämna tomt för avstängt stöd; "
+"förslag: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
 msgstr "Visa tabellkolumner"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5755,8 +5752,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av \"ihållande\" tabellers' UI preferenser som "
-"sparas över sessioner, förslag: [kbd]pma_config[/kbd]"
+"Lämna tomt för att stänga av \"ihållande\" tabellers UI-preferenser som sparas "
+"över sessioner, förslag: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5809,7 +5806,6 @@ msgid "Statements to track"
 msgstr "Kommandon att spåra"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5817,8 +5813,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Lämna tomt för avstängt stöd för SQL-förfrågnings spårning, förslag: [kbd]"
-"pma_history[/kbd]"
+"Lämna tomt för avstängt stöd för SQL-förfrågnings spårning, förslag: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -7385,8 +7381,8 @@ msgstr "Ladda om navigering ram"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s annat resultat hittat"
+msgstr[1] "%s andra resultat hittade"
 
 #: libraries/navigation/NavigationTree.class.php:1034
 msgid "filter databases by name"
@@ -7410,7 +7406,7 @@ msgstr ""
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "Kunde inte inkludera klass \"%1$s\", fil \"%2$s\" inte funnen"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -10018,7 +10014,6 @@ msgid "View in fullscreen"
 msgstr "Visa i helskärmsläge"
 
 #: pmd_general.php:90
-#, fuzzy
 msgid "Exit fullscreen"
 msgstr "Avsluta helskärmsläge"
 
@@ -12047,11 +12042,10 @@ msgid "Pie"
 msgstr "Cirkeldiagram"
 
 #: tbl_chart.php:155
-#, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Tid"
+msgstr "Tidslinje"
 
 #: tbl_chart.php:162
 msgid "Stacked"
@@ -12156,10 +12150,9 @@ msgstr ""
 "primärnyckel!)"
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "Kommentar"
+msgstr "Kommentar:"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -12490,7 +12483,6 @@ msgid "Long query time"
 msgstr "Läng söktid"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12498,7 +12490,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time är satt till 10 sekunder eller längre, alltså endast "
+"{long_query_time} är satt till 10 sekunder eller längre, alltså endast "
 "långsamma frågor som tar över 10 sekunder blir loggade."
 
 #: libraries/advisory_rules.txt:81
@@ -12535,7 +12527,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries är satt till 'OFF'"
 
 #: libraries/advisory_rules.txt:95
-#, fuzzy
 #| msgid ""
 #| "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
 #| "will help troubleshooting badly performing queries."
@@ -12543,14 +12534,13 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktivera långsam frågeloggning genom att sätta {log_slow_queries} till \"ON"
-"\". Detta kommer att förbättra vid  felsökning av dålig prestanda frågor."
+"Aktivera långsam frågeloggning genom att sätta {slow_query_log} till \"ON\". "
+"Detta kommer att underlätta felsökning av frågor med dålig prestanda."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries är satt till 'OFF'"
+msgstr "slow_query_log är satt till 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
@@ -12902,7 +12892,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Alltför många typer orsakar temporära tabeller."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -12910,8 +12899,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Överväg att öka sort_buffer_size och/eller read_rnd_buffer_size, beroende på "
-"ditt systems minnesbegränsning"
+"Överväg att öka {sort_buffer_size} och/eller {read_rnd_buffer_size}, "
+"beroende på ditt systems minnesbegränsning"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -13067,10 +13056,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size jämfört med max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size och max_heap_table_size inte är samma."
+msgstr "{tmp_table_size} och {max_heap_table_size} är inte samma."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13268,7 +13256,6 @@ msgstr ""
 "\"För många öppna filer\" fel."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13277,7 +13264,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Överväg att öka {open_files_limit} och kontrollera felloggen vid omstart "
-"efter att ha ändrat open_files_limit."
+"efter att ha ändrat {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13394,7 +13381,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads är över 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13402,7 +13388,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Sätt slow_launch_time till 1s eller 2s för att korrekt räkna de trådar som "
+"Sätt {slow_launch_time} till 1s eller 2s för att korrekt räkna de trådar som "
 "tar lång tid att starta"
 
 #: libraries/advisory_rules.txt:388
@@ -13415,7 +13401,6 @@ msgid "Percentage of used connections"
 msgstr "Andel använda anslutningar"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13423,11 +13408,10 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"Det maximala antalet av använda anslutningar börjar närma sig antalet "
-"max_connections."
+"Det maximala antalet av använda anslutningar börjar närma sig värdet på "
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13437,9 +13421,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Öka max_connections eller minska wait_timeout så att anslutningar som inte "
-"stänger databashanterare blir dödade tidigare. Se till att koden stänger "
-"databashanteraren ordentligt."
+"Öka {max_connections} eller minska {wait_timeout} så att anslutningar som "
+"inte stänger databashanterare blir dödade tidigare. Se till att koden "
+"stänger databashanteraren ordentligt."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
@@ -13664,10 +13648,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM parallella infogningar"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Aktivera concurrent_insert genom att sätta det till 1"
+msgstr "Aktivera {concurrent_insert} genom att sätta det till 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
