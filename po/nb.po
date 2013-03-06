@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-02-11 11:56+0200\n"
-"Last-Translator: Kai-Ove Finvold <translate@okai.no>\n"
-"Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/nb/>\n"
+"PO-Revision-Date: 2013-03-06 13:26+0200\n"
+"Last-Translator: Axel Sjøstedt <axel-pma@sjostedt.no>\n"
+"Language-Team: Norwegian Bokmål "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -607,7 +607,6 @@ msgid "Output"
 msgstr "Utdata"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -615,8 +614,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Velg \"GeomFromText\" fra kolonnen \"Funksjon\" og lim inn teksten nedenfor "
-"inn i feltet \"Verdi\""
+"Velg \"GeomFromText\" fra kolonnen \"Funksjon\" og lim teksten nedenfor inn i "
+"feltet \"Verdi\""
 
 #: import.php:100
 #, php-format
@@ -720,10 +719,9 @@ msgid "Change password"
 msgstr "Endre passord"
 
 #: index.php:155
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Kollasjon av MySQL-oppkobling"
+msgstr "Kollasjon for SQL-oppkobling"
 
 #: index.php:181
 msgid "Appearance Settings"
@@ -744,10 +742,9 @@ msgid "Server"
 msgstr "Tjener"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Tjenerport"
+msgstr "Tjenertype"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -886,7 +883,7 @@ msgstr ""
 "blitt konfigurert."
 
 #: index.php:464
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "pMyAdmin configuration storage has been deactivated. To find out  click "
 #| "ere%s."
@@ -894,7 +891,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%s."
+"Lagring av phpMyAdmin-oppsett er ikke konfigurert riktig i innstillingene, "
+"og noen tilleggsfunksjoner er deaktivert. Finn ut hvorfor %sher%s."
 
 #: index.php:496
 #, php-format
@@ -964,17 +962,16 @@ msgid "Edit Index"
 msgstr "Rediger indeks"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Legg %d kolonne(r) til index"
+msgstr "Legg %s kolonne(r) til index"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:231
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Verdi"
+msgstr "Y-verdier"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1600,12 +1597,12 @@ msgstr "Feil i prosesseringsforespørsel"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Feilkode: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Feilmelding: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1791,6 +1788,7 @@ msgstr "For å zoome inn, velger en del for plotteområdet med musen."
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
+"Trykk på \"tilbakestill zoom\"-knappen for å gå tilbake til standardvisningen."
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
@@ -1861,7 +1859,7 @@ msgstr "Legg til valg for kolonne "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objekt(er) opprettet"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1902,22 +1900,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr ""
-"Du kan også endre de fleste kolonnene<br /> ved å klikke direkte på "
-"innholdet."
+msgstr "Du kan også endre de fleste verdiene<br /> ved å dobbeltklikke på dem."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr ""
-"Du kan også endre de fleste kolonnene<br /> ved å klikke direkte på "
-"innholdet."
+msgstr "Du kan også endre de fleste verdiene<br />ved å dobbeltklikke på dem."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1952,22 +1944,19 @@ msgid "More"
 msgstr "Mer"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Vis alle"
+msgstr "Vis panel"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Skjul indekser"
+msgstr "Skjul panel"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Den valgte brukeren ble ikke funnet i privilegietabellen."
+msgstr "Den valgte siden ble ikke funnet i historikken. Siden kan ha utløpt."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -3515,7 +3504,7 @@ msgstr ""
 
 #: libraries/Types.class.php:364
 msgid "A polygon"
-msgstr "En polygon"
+msgstr "Et polygon"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
