@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-02-11 11:56+0200\n"
-"Last-Translator: Kai-Ove Finvold <translate@okai.no>\n"
+"PO-Revision-Date: 2013-03-06 13:15+0200\n"
+"Last-Translator: Axel Sjøstedt <axel-pma@sjostedt.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
 "Language: nb\n"
@@ -8527,10 +8527,9 @@ msgid "General Settings"
 msgstr "Generelle innstillinger"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Kollasjon av MySQL-oppkobling"
+msgstr "Kollasjon for SQL-oppkobling"
 
 #: main.php:124
 #| msgid "Other core settings"
@@ -8682,7 +8681,7 @@ msgstr ""
 "blitt konfigurert."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "pMyAdmin configuration storage has been deactivated. To find out  click "
 #| "ere%s."
@@ -8690,7 +8689,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"phpMyAdmin konfigurasjonslager har blitt deaktivert. Finn ut hvorfor %sher%s."
+"Lagring av phpMyAdmin-oppsett er ikke konfigurert riktig i innstillingene, "
+"og noen tilleggsfunksjoner er deaktivert. Finn ut hvorfor %sher%s."
 
 #: main.php:336
 msgid ""
@@ -11594,10 +11594,9 @@ msgid "Y-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:149
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Verdi"
+msgstr "Y-verdier"
 
 #: tbl_create.php:31
 #, php-format
