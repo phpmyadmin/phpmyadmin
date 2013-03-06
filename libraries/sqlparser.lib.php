@@ -2890,4 +2890,16 @@ function PMA_SQP_formatNone($arr)
     return $formatted_sql;
 } // end of the "PMA_SQP_formatNone()" function
 
+/**
+ * Checks whether a given name is MySQL reserved word
+ *
+ * @param string $column The word to be checked
+ *
+ * @return boolean whether true or false
+ */
+function PMA_SQP_isKeyWord($column) {
+    global $PMA_SQPdata_forbidden_word;
+    return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
+}
+
 ?>
