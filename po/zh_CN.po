@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-11-22 15:50+0200\n"
-"Last-Translator: Liang Comver <comver@qq.com>\n"
+"PO-Revision-Date: 2013-03-06 10:17+0200\n"
+"Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -4060,7 +4060,7 @@ msgstr "显示快速搜索框的最少数据表数量"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
-msgstr "将数据库分为不同树的分隔字符串"
+msgstr "将数据库分为不同树级的分割符"
 
 #: libraries/config/messages.inc.php:276
 msgid "Database tree separator"
@@ -4090,7 +4090,7 @@ msgstr "数据表树最大深度"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates tables into different tree levels"
-msgstr "将表分为不同树的分隔符"
+msgstr "将表分为不同树级的分隔符"
 
 #: libraries/config/messages.inc.php:283
 msgid "Table tree separator"
@@ -5629,13 +5629,12 @@ msgid ""
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
 #: libraries/display_import.lib.php:221
+#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
-msgstr ""
-"在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但"
-"在导入大文件时是个很好的方法。)</i>"
+msgstr "在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
