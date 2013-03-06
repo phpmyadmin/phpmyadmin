@@ -30,7 +30,7 @@ function PMA_getSysInfoOs($php_os = PHP_OS)
 {
 
     // look for common UNIX-like systems
-    $unix_like = array('FreeBSD');
+    $unix_like = array('FreeBSD', 'DragonFly');
     if (in_array($php_os, $unix_like)) {
         $php_os = 'Linux';
     }
