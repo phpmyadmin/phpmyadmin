@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-03-06 11:52+0200\n"
-"Last-Translator: likyh <likyh@qq.com>\n"
+"PO-Revision-Date: 2013-03-06 13:24+0200\n"
+"Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -3312,10 +3312,11 @@ msgid ""
 msgstr "DOUBLE 的别名 （除了在 REAL_AS_FLOAT SQL 模式下它是 FLOAT类型的别名）"
 
 #: libraries/Types.class.php:314
+#, fuzzy
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
+msgstr "比特类型（M），每个值保存M个比特（默认是1，最大为64）"
 
 #: libraries/Types.class.php:316
 #, fuzzy
@@ -3355,10 +3356,11 @@ msgid "A time, range is %1$s to %2$s"
 msgstr "从 %1$s 到 %2$s 之间的一个时间"
 
 #: libraries/Types.class.php:328
+#, fuzzy
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
-msgstr ""
+msgstr "四位数（默认）或者两位数的年份，允许的值是70（1970）到69（2069）或者是1901到2155和0000"
 
 #: libraries/Types.class.php:330
 msgid ""
@@ -3367,11 +3369,11 @@ msgid ""
 msgstr "始终会在最后部分用空格填充不足部分的定长字符串（0-255,默认长度为1）"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
-msgstr "可变长（%s）子读传，实际可用最长长度由最长字段长度定义"
+msgstr "可变长（%s）字符串，实际可用最长长度由最长字段长度定义"
 
 #: libraries/Types.class.php:334
 #, fuzzy
@@ -3437,10 +3439,11 @@ msgid ""
 msgstr "一个最长4294967295/4Gb字节的BLOB字段，在字节开始处用四个字节保存当前值的长度"
 
 #: libraries/Types.class.php:354
+#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr ""
+msgstr "枚举类型，从最多65535的列表重选择值，或者特殊的''错误代码"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
@@ -3453,7 +3456,7 @@ msgstr "一种能存储任何几何形状的数据的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "二维空间的点"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
@@ -3466,24 +3469,26 @@ msgstr "多边形"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "点集合"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:370
+#, fuzzy
 msgid "A collection of polygons"
-msgstr ""
+msgstr "多边形的集合"
 
 #: libraries/Types.class.php:372
 msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:624 libraries/Types.class.php:974
+#, fuzzy
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "数字"
 
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
 #| msgid "Create an index"
@@ -3505,35 +3510,39 @@ msgstr "空间"
 
 #: libraries/Types.class.php:708
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "4字节的整形，取值范围是-2,147,483,648 到 2,147,483,647"
 
 #: libraries/Types.class.php:710
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
-msgstr ""
+msgstr "8字节的整形，取值范围是 -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807\t"
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "系统默认的双精度浮点型"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
-msgstr ""
+msgstr "true 或者 false"
 
 #: libraries/Types.class.php:718
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE 的别称"
 
 #: libraries/Types.class.php:720
+#, fuzzy
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "保存全局唯一识别负（UUID）"
 
 #: libraries/Types.class.php:726
+#, fuzzy
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"时间戳，取值范围从 '0001-01-01 00:00:00' UTC 到 '9999-12-31 23:59:59' UTC; "
+"TIMESTAMP(6) 可以保存到微秒"
 
 #: libraries/Types.class.php:734
 msgid ""
@@ -3542,8 +3551,9 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:738
+#, fuzzy
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "从预定义的值列表取值的枚举类型"
 
 #: libraries/Util.class.php:223
 #, php-format
@@ -3765,7 +3775,7 @@ msgstr "您应升级到 %s %s 或更高版本。"
 
 #: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "错误：Token不符"
 
 #: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
@@ -3798,11 +3808,11 @@ msgstr "右侧"
 
 #: libraries/config.values.php:69
 msgid "Click"
-msgstr ""
+msgstr "点击"
 
 #: libraries/config.values.php:70
 msgid "Double click"
-msgstr ""
+msgstr "双击"
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
@@ -4031,14 +4041,16 @@ msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:30
+#, fuzzy
 msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
-msgstr ""
+msgstr "使用包含代码高亮与行号的用户友好的编辑器编辑SQL语句  ([a@http://codemirror.net/]CodeMirror[/a])"
 
 #: libraries/config/messages.inc.php:31
+#, fuzzy
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "开启 CodeMirror"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4140,8 +4152,9 @@ msgid "Default table tab"
 msgstr "默认数据表标签"
 
 #: libraries/config/messages.inc.php:54
+#, fuzzy
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "是否需要隐藏表结构"
 
 #: libraries/config/messages.inc.php:55
 #| msgid "Propose table structure"
@@ -4710,7 +4723,7 @@ msgstr "数据库结构"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
-msgstr ""
+msgstr "选择在数据库结构（表列表）中显示哪些细节"
 
 #: libraries/config/messages.inc.php:224
 #| msgid "Database server"
@@ -4718,8 +4731,9 @@ msgid "Table structure"
 msgstr "表结构"
 
 #: libraries/config/messages.inc.php:225
+#, fuzzy
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "表结构（字段列表）的设置"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4950,8 +4964,9 @@ msgid ""
 msgstr "导航面板上每页能显示的表数量"
 
 #: libraries/config/messages.inc.php:287
+#, fuzzy
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "分支中最大项目数"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5063,8 +5078,9 @@ msgid ""
 msgstr "在导航列表中组合项目(以下述的分隔符来区分)"
 
 #: libraries/config/messages.inc.php:310
+#, fuzzy
 msgid "Group items in the tree"
-msgstr ""
+msgstr "在树列表中组合项目"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
@@ -5175,8 +5191,9 @@ msgid ""
 msgstr "禁止显示检测到MySQL库版本与服务器版本不同时的默认警告"
 
 #: libraries/config/messages.inc.php:335
+#, fuzzy
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "服务器/程序库不同的警告"
 
 #: libraries/config/messages.inc.php:337
 msgid "Iconic table operations"
@@ -5261,7 +5278,7 @@ msgstr "重复表头"
 
 #: libraries/config/messages.inc.php:358
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "单元格编辑：触发操作"
 
 #: libraries/config/messages.inc.php:359
 #| msgid "Save all edited cells at once"
