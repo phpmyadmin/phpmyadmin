@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-02-28 08:29-0500\n"
-"PO-Revision-Date: 2013-03-06 11:09+0200\n"
-"Last-Translator: zz zz <tczzjin@gmail.com>\n"
+"PO-Revision-Date: 2013-03-06 11:52+0200\n"
+"Last-Translator: likyh <likyh@qq.com>\n"
 "Language-Team: Chinese (China) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -1622,7 +1622,7 @@ msgstr "显示索引"
 #: js/messages.php:246 libraries/mult_submits.inc.php:327
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "检查外键"
+msgstr "检查外键："
 
 #: js/messages.php:247 libraries/mult_submits.inc.php:331
 #| msgid "Enabled"
@@ -1861,17 +1861,17 @@ msgstr ""
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "您可以直接通过双击来编辑绝大部分字段。"
+msgstr "您可以直接编辑绝大部分字段<br />仅仅通过双击就可以实现。"
 
 #: js/messages.php:353
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "您可以直接通过双击来编辑绝大部分字段。"
+msgstr "您可以直接编辑绝大部分字段<br />仅仅通过点击就可以实现。"
 
 #: js/messages.php:358
 msgid "Go to link"
-msgstr "转到链接"
+msgstr "转到此链接"
 
 #: js/messages.php:359
 #| msgid "Column names"
