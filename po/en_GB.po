@@ -4948,8 +4948,7 @@ msgstr "Add DROP VIEW"
 
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
-"Defines the list of statements the auto-creation uses for new versions."
+msgstr "Defines the list of statements the auto-creation uses for new versions."
 
 #: libraries/config/messages.inc.php:442
 msgid "Statements to track"
