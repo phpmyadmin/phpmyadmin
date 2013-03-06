@@ -12123,7 +12123,7 @@ msgstr "Généré par"
 #: sql.php:1213 tbl_structure.php:142
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr "Le nom de colonne '%s' est un mot-clé MySQL réservé. "
+msgstr "Le nom de colonne '%s' est un mot-clé MySQL réservé."
 
 #: sql.php:1234
 msgid ""
