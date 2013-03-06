@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-28 08:29-0500\n"
+"POT-Creation-Date: 2013-03-06 08:19-0500\n"
 "PO-Revision-Date: 2013-02-07 23:03+0100\n"
 "Last-Translator: Xosé <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,7 @@ msgstr "Buscar"
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:440 libraries/display_import.lib.php:335
+#: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
 #: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
@@ -78,7 +78,7 @@ msgstr "Buscar"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:246
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -237,8 +237,8 @@ msgstr "Comentarios"
 #: libraries/server_privileges.lib.php:2145
 #: libraries/server_privileges.lib.php:2464
 #: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:419
-#: sql.php:514 sql.php:515 tbl_printview.php:186 tbl_tracking.php:344
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:425
+#: sql.php:520 sql.php:521 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
 msgid "No"
 msgstr "Non"
@@ -265,7 +265,7 @@ msgstr "Non"
 #: libraries/server_privileges.lib.php:2461
 #: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
-#: server_databases.php:103 server_databases.php:110 sql.php:512 sql.php:513
+#: server_databases.php:103 server_databases.php:110 sql.php:518 sql.php:519
 #: tbl_printview.php:187 tbl_structure.php:83 tbl_tracking.php:344
 #: tbl_tracking.php:396 tbl_tracking.php:401
 msgid "Yes"
@@ -275,7 +275,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Ver o envorcado (esquema) da base de datos"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:413
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:433
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
@@ -327,7 +327,7 @@ msgstr "Táboa"
 #: db_printview.php:100 libraries/Table.class.php:283
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1738
-#: libraries/structure.lib.php:1923 sql.php:1105 tbl_printview.php:365
+#: libraries/structure.lib.php:1923 sql.php:1111 tbl_printview.php:365
 msgid "Rows"
 msgstr "Filas"
 
@@ -408,7 +408,7 @@ msgstr "Táboas seguidas"
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2854 server_databases.php:201
-#: server_status.php:324 sql.php:1096 tbl_tracking.php:761
+#: server_status.php:324 sql.php:1102 tbl_tracking.php:761
 msgid "Database"
 msgstr "Base de datos"
 
@@ -426,7 +426,7 @@ msgstr "Actualizada"
 
 #: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1167 tbl_tracking.php:766
+#: server_status.php:336 sql.php:1173 tbl_tracking.php:766
 msgid "Status"
 msgstr "Estado"
 
@@ -439,7 +439,7 @@ msgstr "Estado"
 msgid "Action"
 msgstr "Acción"
 
-#: db_tracking.php:85 libraries/DBQbe.class.php:466
+#: db_tracking.php:85 libraries/DBQbe.class.php:468
 #: libraries/DisplayResults.class.php:903 tbl_change.php:241
 #: tbl_tracking.php:767
 msgid "Show"
@@ -501,12 +501,12 @@ msgstr "Gardouse nun ficheiro o tipo de exportación escollida!"
 msgid "Bad parameters!"
 msgstr "Os parámetros son incorrectos!"
 
-#: export.php:193 export.php:224 export.php:791
+#: export.php:213 export.php:244 export.php:802
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Non hai espazo para gardar o ficheiro %s."
 
-#: export.php:362
+#: export.php:382
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -514,12 +514,12 @@ msgstr ""
 "O ficheiro %s xa existe no servidor - cambie de nome ou escolla a opción de "
 "eliminar."
 
-#: export.php:368 export.php:374
+#: export.php:388 export.php:394
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "O servidor web non ten permiso para gardar o ficheiro %s."
 
-#: export.php:797
+#: export.php:808
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Gardouse o  envorcado no ficheiro %s."
@@ -668,7 +668,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: import.php:507 sql.php:384 sql.php:1219
+#: import.php:507 sql.php:390 sql.php:1239
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Creouse o marcador %s"
@@ -787,7 +787,7 @@ msgstr "Información sobre a versión"
 
 #: index.php:326 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:147
-#: libraries/display_export.lib.php:280 libraries/engines/pbxt.lib.php:112
+#: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
@@ -911,7 +911,7 @@ msgstr ""
 "O servidor estáse a executar con Suhosin. Consulte os posíbeis problemas na %"
 "sdocumentación%s."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:344
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:350
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Non se permiten as ordes «DROP DATABASE»."
 
@@ -920,7 +920,7 @@ msgstr "Non se permiten as ordes «DROP DATABASE»."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Seguro que quere executar \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:466
+#: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:472
 msgid "You are about to DESTROY a complete database!"
 msgstr "Está a piques de eliminar (DESTROY) unha base de datos enteira!"
 
@@ -968,7 +968,7 @@ msgid "Add %s column(s) to index"
 msgstr "Engadir %s columna(s) ao índice"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:231
+#: js/messages.php:48 tbl_chart.php:232
 msgid "Y Values"
 msgstr "Valores Y"
 
@@ -1234,7 +1234,7 @@ msgstr "Engada ao menos unha variábel á serie"
 
 #: js/messages.php:126 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
-#: libraries/display_export.lib.php:370
+#: libraries/display_export.lib.php:371
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2114
 #: libraries/tbl_columns_definition_form.inc.php:685 pmd_general.php:559
@@ -1427,7 +1427,7 @@ msgstr "Explicar a saída"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1172
+#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1178
 msgid "Time"
 msgstr "Tempo"
 
@@ -2329,58 +2329,58 @@ msgstr "Ascendente"
 msgid "Descending"
 msgstr "Descendente"
 
-#: libraries/DBQbe.class.php:404 libraries/structure.lib.php:851
+#: libraries/DBQbe.class.php:406 libraries/structure.lib.php:851
 msgid "Sort"
 msgstr "Ordenar"
 
-#: libraries/DBQbe.class.php:511
+#: libraries/DBQbe.class.php:513
 msgid "Criteria"
 msgstr "Criterio"
 
-#: libraries/DBQbe.class.php:574
+#: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
 msgstr "Engadir/Eliminar filas de criterio"
 
-#: libraries/DBQbe.class.php:574
+#: libraries/DBQbe.class.php:576
 msgid "Add/Delete columns"
 msgstr "Engadir/Eliminar columnas de campo"
 
-#: libraries/DBQbe.class.php:601 libraries/DBQbe.class.php:633
+#: libraries/DBQbe.class.php:603 libraries/DBQbe.class.php:635
 msgid "Update Query"
 msgstr "Actualizar a consulta"
 
-#: libraries/DBQbe.class.php:616
+#: libraries/DBQbe.class.php:618
 msgid "Use Tables"
 msgstr "Usar as táboas"
 
-#: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
+#: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
 #: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:337
 msgid "Or"
 msgstr "ou"
 
-#: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:740
+#: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And"
 msgstr "E"
 
-#: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:735
+#: libraries/DBQbe.class.php:661 libraries/DBQbe.class.php:737
 msgid "Ins"
 msgstr "Inserir"
 
-#: libraries/DBQbe.class.php:662 libraries/DBQbe.class.php:750
+#: libraries/DBQbe.class.php:664 libraries/DBQbe.class.php:752
 msgid "Del"
 msgstr "Eliminar"
 
-#: libraries/DBQbe.class.php:678
+#: libraries/DBQbe.class.php:680
 msgid "Modify"
 msgstr "Modificar"
 
-#: libraries/DBQbe.class.php:1320
+#: libraries/DBQbe.class.php:1322
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Consulta tipo SQL na base de datos <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1270
+#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1270
 msgid "Submit Query"
 msgstr "Enviar esta consulta"
 
@@ -2497,11 +2497,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:236
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
 msgid "Start row"
 msgstr "Fila de comezo"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:240
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
 msgid "Number of rows"
 msgstr "Número de fileiras"
 
@@ -2637,7 +2637,7 @@ msgstr "A mostrar as fileiras"
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4966 sql.php:934
+#: libraries/DisplayResults.class.php:4966 sql.php:940
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a consulta levou %01.4f segundos"
@@ -2689,7 +2689,7 @@ msgstr "Visualización previa da impresión"
 msgid "Print view (with full texts)"
 msgstr "Vista previa da impresión (con textos completos)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:136
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
 msgid "Display chart"
 msgstr "Mostrar a gráfica"
 
@@ -3013,7 +3013,7 @@ msgid "There are no recent tables"
 msgstr "Non hai táboas recentes"
 
 #: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:671
-#: server_status.php:340 sql.php:1101
+#: server_status.php:340 sql.php:1107
 msgid "SQL query"
 msgstr "consulta de SQL"
 
@@ -3711,7 +3711,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Na liña"
 
-#: libraries/Util.class.php:1429 sql.php:1163
+#: libraries/Util.class.php:1429 sql.php:1169
 msgid "Profiling"
 msgstr "Análise do desempeño"
 
@@ -4463,7 +4463,7 @@ msgid "Save on server"
 msgstr "Gravar no servidor"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
-#: libraries/display_export.lib.php:221 libraries/display_export.lib.php:259
+#: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
 msgid "Overwrite existing file(s)"
 msgstr "Eliminar o(s) ficheiro(s) xa existente(s)"
 
@@ -4481,7 +4481,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Encerrar os nomes das táboas e das columnas entre aspas invertidas"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
-#: libraries/display_export.lib.php:437
+#: libraries/display_export.lib.php:438
 msgid "SQL compatibility mode"
 msgstr "Modo de compatiblidade de SQL"
 
@@ -6509,36 +6509,36 @@ msgstr "Comezar na columna:"
 msgid "Dump all rows"
 msgstr "Envorcar todas as fileiras"
 
-#: libraries/display_export.lib.php:202 libraries/display_export.lib.php:229
+#: libraries/display_export.lib.php:202 libraries/display_export.lib.php:230
 msgid "Output:"
 msgstr "Saída:"
 
-#: libraries/display_export.lib.php:211 libraries/display_export.lib.php:248
+#: libraries/display_export.lib.php:211 libraries/display_export.lib.php:249
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Gardar no servidor no directorio  <b>%s</b>"
 
-#: libraries/display_export.lib.php:238
+#: libraries/display_export.lib.php:239
 msgid "Save output to a file"
 msgstr "Gardar a saída nun ficheiro"
 
-#: libraries/display_export.lib.php:265
+#: libraries/display_export.lib.php:266
 msgid "File name template:"
 msgstr "Modelo do nome de ficheiro:"
 
-#: libraries/display_export.lib.php:267
+#: libraries/display_export.lib.php:268
 msgid "@SERVER@ will become the server name"
 msgstr "@SERVER@será o nome do servidor"
 
-#: libraries/display_export.lib.php:269
+#: libraries/display_export.lib.php:270
 msgid ", @DATABASE@ will become the database name"
 msgstr ", @DATABASE@ será o nome da base de datos"
 
-#: libraries/display_export.lib.php:271
+#: libraries/display_export.lib.php:272
 msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ será o nome da táboa"
 
-#: libraries/display_export.lib.php:276
+#: libraries/display_export.lib.php:277
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -6550,45 +6550,45 @@ msgstr ""
 "consecuencia: %3$s. O resto do texto ficará como está. Vexa as %4$sFAQ%5$s "
 "para máis detalles."
 
-#: libraries/display_export.lib.php:329
+#: libraries/display_export.lib.php:330
 msgid "use this for future exports"
 msgstr "usar isto en futuras exportacións"
 
-#: libraries/display_export.lib.php:335 libraries/display_import.lib.php:255
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:480
 msgid "Character set of the file:"
 msgstr "Conxunto de caracteres do ficheiro:"
 
-#: libraries/display_export.lib.php:368
+#: libraries/display_export.lib.php:369
 msgid "Compression:"
 msgstr "Compresión:"
 
-#: libraries/display_export.lib.php:376
+#: libraries/display_export.lib.php:377
 msgid "zipped"
 msgstr "comprimido no formato «zip»"
 
-#: libraries/display_export.lib.php:383
+#: libraries/display_export.lib.php:384
 msgid "gzipped"
 msgstr "comprimido no formato «gzip»"
 
-#: libraries/display_export.lib.php:390
+#: libraries/display_export.lib.php:391
 msgid "bzipped"
 msgstr "comprimido no formato «bzip»"
 
-#: libraries/display_export.lib.php:408
+#: libraries/display_export.lib.php:409
 msgid "View output as text"
 msgstr "Ver a saída como texto"
 
-#: libraries/display_export.lib.php:413 libraries/display_import.lib.php:312
+#: libraries/display_export.lib.php:414 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Formato:"
 
-#: libraries/display_export.lib.php:418
+#: libraries/display_export.lib.php:419
 msgid "Format-specific options:"
 msgstr "Opcións específicas do formato:"
 
-#: libraries/display_export.lib.php:420
+#: libraries/display_export.lib.php:421
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
@@ -6596,7 +6596,7 @@ msgstr ""
 "Baixe para encher as opcións do formato escollido e ignore as opcións do "
 "resto dos formatos."
 
-#: libraries/display_export.lib.php:429 libraries/display_import.lib.php:327
+#: libraries/display_export.lib.php:430 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
 msgstr "Conversión de codificación:"
 
@@ -7090,7 +7090,7 @@ msgid "No data found for GIS visualization."
 msgstr "Non se atoparon datos para a visualización de GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:929 tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:935 tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
 
@@ -7204,11 +7204,11 @@ msgstr ""
 "Use a tecla do tabulador para moverse de valor en valor ou a tecla CONTROL "
 "combinada cunha frecha para moverse a calquera sitio"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:924
+#: libraries/insert_edit.lib.php:1912 sql.php:930
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:904
+#: libraries/insert_edit.lib.php:1937 sql.php:910
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
@@ -7252,7 +7252,7 @@ msgstr "Engadir un prefixo á táboa"
 msgid "Add prefix"
 msgstr "Engadir un prefixo"
 
-#: libraries/mult_submits.inc.php:316 sql.php:506
+#: libraries/mult_submits.inc.php:316 sql.php:512
 msgid "Do you really want to execute the following query?"
 msgstr "Está realmente seguro de executar a seguinte petición?"
 
@@ -7991,13 +7991,13 @@ msgstr "Mostrar os tipos MIME"
 #: libraries/server_privileges.lib.php:1081
 #: libraries/server_privileges.lib.php:1177
 #: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2378 server_status.php:320 sql.php:1095
+#: libraries/server_privileges.lib.php:2378 server_status.php:320 sql.php:1101
 msgid "Host"
 msgstr "Servidor"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1098
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1104
 msgid "Generation Time"
 msgstr "Xerado en"
 
@@ -9663,11 +9663,11 @@ msgstr "Executar a(s) consulta(s) de SQL na base de datos %s"
 msgid "Clear"
 msgstr "Limpar"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:1291 sql.php:1311
+#: libraries/sql_query_form.lib.php:309 sql.php:1311 sql.php:1331
 msgid "Bookmark this SQL query"
 msgstr "Marcar esta busca de SQL"
 
-#: libraries/sql_query_form.lib.php:315 sql.php:1303
+#: libraries/sql_query_form.lib.php:315 sql.php:1323
 msgid "Let every user access this bookmark"
 msgstr "Permitir que calquera usuario poida acceder a este marcador"
 
@@ -12094,32 +12094,37 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Os datos son incorrectos"
 
-#: sql.php:306
+#: sql.php:312
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "A empregar o marcador «%s» como consulta de navegación por omisión."
 
-#: sql.php:388
+#: sql.php:394
 msgid "Bookmark not created"
 msgstr "Non se creou o marcador"
 
-#: sql.php:921
+#: sql.php:927
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: sql.php:926
+#: sql.php:932
 msgid "Validated SQL"
 msgstr "SQL validado"
 
-#: sql.php:1093
+#: sql.php:1099
 msgid "SQL result"
 msgstr "Resultado de SQL"
 
-#: sql.php:1100
+#: sql.php:1106
 msgid "Generated by"
 msgstr "Xerado por"
 
-#: sql.php:1214
+#: sql.php:1213 tbl_structure.php:142
+#, php-format
+msgid "The column name '%s' is a MySQL reserved keyword."
+msgstr ""
+
+#: sql.php:1234
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12132,12 +12137,12 @@ msgstr ""
 "relacionadas coa edición da grecha, caixa de selección, editar, copiar e "
 "eliminar ligazóns poden non funcionar despois de gravar."
 
-#: sql.php:1259
+#: sql.php:1279
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas cos índices da táboa «%s»"
 
-#: sql.php:1295
+#: sql.php:1315
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -12149,70 +12154,70 @@ msgstr "Non hai datos que mostrar"
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:139
+#: tbl_chart.php:140
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Barras"
 
-#: tbl_chart.php:141
+#: tbl_chart.php:142
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Columnas"
 
-#: tbl_chart.php:144
+#: tbl_chart.php:145
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Liñas"
 
-#: tbl_chart.php:146
+#: tbl_chart.php:147
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Curvas spline"
 
-#: tbl_chart.php:148
+#: tbl_chart.php:149
 msgctxt "Chart type"
 msgid "Area"
 msgstr "Áreas"
 
-#: tbl_chart.php:151
+#: tbl_chart.php:152
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Sectores"
 
-#: tbl_chart.php:155
+#: tbl_chart.php:156
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Liña de tempo"
 
-#: tbl_chart.php:162
+#: tbl_chart.php:163
 msgid "Stacked"
 msgstr "Apiladas"
 
-#: tbl_chart.php:165
+#: tbl_chart.php:166
 msgid "Chart title"
 msgstr "Título da gráfica"
 
-#: tbl_chart.php:173
+#: tbl_chart.php:174
 msgid "X-Axis:"
 msgstr "Eixo X:"
 
-#: tbl_chart.php:188
+#: tbl_chart.php:189
 msgid "Series:"
 msgstr "Series:"
 
-#: tbl_chart.php:208
+#: tbl_chart.php:209
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: tbl_chart.php:224
+#: tbl_chart.php:225
 msgid "X-Axis label:"
 msgstr "Etiqueta do eixo X:"
 
-#: tbl_chart.php:227
+#: tbl_chart.php:228
 msgid "X Values"
 msgstr "Valores X"
 
-#: tbl_chart.php:229
+#: tbl_chart.php:230
 msgid "Y-Axis label:"
 msgstr "Eixo Y:"
 

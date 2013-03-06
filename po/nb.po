@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-02-28 08:29-0500\n"
+"POT-Creation-Date: 2013-03-06 08:19-0500\n"
 "PO-Revision-Date: 2013-03-06 13:26+0200\n"
 "Last-Translator: Axel Sjøstedt <axel-pma@sjostedt.no>\n"
-"Language-Team: Norwegian Bokmål "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
-"Language: nb\n"
+"Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
+"master/nb/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -51,7 +51,7 @@ msgstr "Søk"
 #: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:440 libraries/display_import.lib.php:335
+#: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
 #: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
 #: libraries/operations.lib.php:39 libraries/operations.lib.php:82
 #: libraries/operations.lib.php:210 libraries/operations.lib.php:254
@@ -78,7 +78,7 @@ msgstr "Søk"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:246
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -237,8 +237,8 @@ msgstr "Kommentarer"
 #: libraries/server_privileges.lib.php:2145
 #: libraries/server_privileges.lib.php:2464
 #: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:419
-#: sql.php:514 sql.php:515 tbl_printview.php:186 tbl_tracking.php:344
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:131 sql.php:425
+#: sql.php:520 sql.php:521 tbl_printview.php:186 tbl_tracking.php:344
 #: tbl_tracking.php:398 tbl_tracking.php:403
 msgid "No"
 msgstr "Nei"
@@ -265,7 +265,7 @@ msgstr "Nei"
 #: libraries/server_privileges.lib.php:2461
 #: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
-#: server_databases.php:103 server_databases.php:110 sql.php:512 sql.php:513
+#: server_databases.php:103 server_databases.php:110 sql.php:518 sql.php:519
 #: tbl_printview.php:187 tbl_structure.php:83 tbl_tracking.php:344
 #: tbl_tracking.php:396 tbl_tracking.php:401
 msgid "Yes"
@@ -275,7 +275,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Vis dump (skjema) av database"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:413
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:433
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Ingen tabeller i databasen."
@@ -326,7 +326,7 @@ msgstr "Tabell"
 #: db_printview.php:100 libraries/Table.class.php:283
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1738
-#: libraries/structure.lib.php:1923 sql.php:1105 tbl_printview.php:365
+#: libraries/structure.lib.php:1923 sql.php:1111 tbl_printview.php:365
 msgid "Rows"
 msgstr "Rader"
 
@@ -407,7 +407,7 @@ msgstr "Overvåkede tabeller"
 #: libraries/server_privileges.lib.php:1971
 #: libraries/server_privileges.lib.php:2212
 #: libraries/server_privileges.lib.php:2854 server_databases.php:201
-#: server_status.php:324 sql.php:1096 tbl_tracking.php:761
+#: server_status.php:324 sql.php:1102 tbl_tracking.php:761
 msgid "Database"
 msgstr "Database"
 
@@ -425,7 +425,7 @@ msgstr "Oppdatert"
 
 #: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1167 tbl_tracking.php:766
+#: server_status.php:336 sql.php:1173 tbl_tracking.php:766
 msgid "Status"
 msgstr "Status"
 
@@ -438,7 +438,7 @@ msgstr "Status"
 msgid "Action"
 msgstr "Handling"
 
-#: db_tracking.php:85 libraries/DBQbe.class.php:466
+#: db_tracking.php:85 libraries/DBQbe.class.php:468
 #: libraries/DisplayResults.class.php:903 tbl_change.php:241
 #: tbl_tracking.php:767
 msgid "Show"
@@ -500,12 +500,12 @@ msgstr "Valgte eksporteringstype krever lagring til ei fil!"
 msgid "Bad parameters!"
 msgstr "Feil parametere!"
 
-#: export.php:193 export.php:224 export.php:791
+#: export.php:213 export.php:244 export.php:802
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Ikke nok plass til å lagre fila %s."
 
-#: export.php:362
+#: export.php:382
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -513,12 +513,12 @@ msgstr ""
 "Fila %s eksisterer alt på serveren, endre navnet eller merk av for "
 "overskriving av fil."
 
-#: export.php:368 export.php:374
+#: export.php:388 export.php:394
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Webserveren har ikke tillatelse til å lagre fila %s."
 
-#: export.php:797
+#: export.php:808
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump har blitt lagret til fila %s."
@@ -607,15 +607,12 @@ msgid "Output"
 msgstr "Utdata"
 
 #: gis_data_editor.php:402
-#| msgid ""
-#| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
-#| "string into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Velg \"GeomFromText\" fra kolonnen \"Funksjon\" og lim teksten nedenfor inn i "
-"feltet \"Verdi\""
+"Velg \"GeomFromText\" fra kolonnen \"Funksjon\" og lim teksten nedenfor inn "
+"i feltet \"Verdi\""
 
 #: import.php:100
 #, php-format
@@ -670,7 +667,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
 
-#: import.php:507 sql.php:384 sql.php:1219
+#: import.php:507 sql.php:390 sql.php:1239
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmerke %s opprettet"
@@ -719,7 +716,6 @@ msgid "Change password"
 msgstr "Endre passord"
 
 #: index.php:155
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "Kollasjon for SQL-oppkobling"
 
@@ -742,7 +738,6 @@ msgid "Server"
 msgstr "Tjener"
 
 #: index.php:234
-#| msgid "Server port"
 msgid "Server type"
 msgstr "Tjenertype"
 
@@ -789,7 +784,7 @@ msgstr "Versionsinformasjon"
 
 #: index.php:326 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:147
-#: libraries/display_export.lib.php:280 libraries/engines/pbxt.lib.php:112
+#: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
@@ -884,9 +879,6 @@ msgstr ""
 
 #: index.php:464
 #, php-format
-#| msgid ""
-#| "pMyAdmin configuration storage has been deactivated. To find out  click "
-#| "ere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
@@ -912,7 +904,7 @@ msgstr ""
 "Tjeneren kjører med Suhosin. Sjekk %sdokumentasjonen%s for potensielle "
 "problemer."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:344
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:350
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 
@@ -921,7 +913,7 @@ msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Vil du virkelig utføre \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:466
+#: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:472
 msgid "You are about to DESTROY a complete database!"
 msgstr "Du er i ferd med å SLETTE en komplett database!"
 
@@ -963,13 +955,11 @@ msgstr "Rediger indeks"
 
 #: js/messages.php:44 tbl_indexes.php:339 tbl_indexes.php:347
 #, php-format
-#| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
 msgstr "Legg %s kolonne(r) til index"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:231
-#| msgid "Value"
+#: js/messages.php:48 tbl_chart.php:232
 msgid "Y Values"
 msgstr "Y-verdier"
 
@@ -1236,7 +1226,7 @@ msgstr "Legg minst én variabel til serien"
 
 #: js/messages.php:126 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
-#: libraries/display_export.lib.php:370
+#: libraries/display_export.lib.php:371
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2114
 #: libraries/tbl_columns_definition_form.inc.php:685 pmd_general.php:559
@@ -1427,7 +1417,7 @@ msgstr "Forklar utdata"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1172
+#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1178
 msgid "Time"
 msgstr "Tid"
 
@@ -1788,7 +1778,8 @@ msgstr "For å zoome inn, velger en del for plotteområdet med musen."
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Trykk på \"tilbakestill zoom\"-knappen for å gå tilbake til standardvisningen."
+"Trykk på \"tilbakestill zoom\"-knappen for å gå tilbake til "
+"standardvisningen."
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
@@ -1900,14 +1891,10 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:350
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "Du kan også endre de fleste verdiene<br /> ved å dobbeltklikke på dem."
 
 #: js/messages.php:353
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Du kan også endre de fleste verdiene<br />ved å dobbeltklikke på dem."
 
@@ -1944,17 +1931,14 @@ msgid "More"
 msgstr "Mer"
 
 #: js/messages.php:372
-#| msgid "Show all"
 msgid "Show Panel"
 msgstr "Vis panel"
 
 #: js/messages.php:373
-#| msgid "Hide indexes"
 msgid "Hide Panel"
 msgstr "Skjul panel"
 
 #: js/messages.php:376
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Den valgte siden ble ikke funnet i historikken. Siden kan ha utløpt."
 
@@ -2325,58 +2309,58 @@ msgstr "Stigende"
 msgid "Descending"
 msgstr "Synkende"
 
-#: libraries/DBQbe.class.php:404 libraries/structure.lib.php:851
+#: libraries/DBQbe.class.php:406 libraries/structure.lib.php:851
 msgid "Sort"
 msgstr "Sorter"
 
-#: libraries/DBQbe.class.php:511
+#: libraries/DBQbe.class.php:513
 msgid "Criteria"
 msgstr "Kriterier"
 
-#: libraries/DBQbe.class.php:574
+#: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
 msgstr "Legg til/Slett kriterierad"
 
-#: libraries/DBQbe.class.php:574
+#: libraries/DBQbe.class.php:576
 msgid "Add/Delete columns"
 msgstr "Legg til/Slett kolonner"
 
-#: libraries/DBQbe.class.php:601 libraries/DBQbe.class.php:633
+#: libraries/DBQbe.class.php:603 libraries/DBQbe.class.php:635
 msgid "Update Query"
 msgstr "Oppdater spørring"
 
-#: libraries/DBQbe.class.php:616
+#: libraries/DBQbe.class.php:618
 msgid "Use Tables"
 msgstr "Bruk tabeller"
 
-#: libraries/DBQbe.class.php:651 libraries/DBQbe.class.php:755
+#: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
 #: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:337
 msgid "Or"
 msgstr "Eller"
 
-#: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:740
+#: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And"
 msgstr "og"
 
-#: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:735
+#: libraries/DBQbe.class.php:661 libraries/DBQbe.class.php:737
 msgid "Ins"
 msgstr "Sett inn"
 
-#: libraries/DBQbe.class.php:662 libraries/DBQbe.class.php:750
+#: libraries/DBQbe.class.php:664 libraries/DBQbe.class.php:752
 msgid "Del"
 msgstr "Slett"
 
-#: libraries/DBQbe.class.php:678
+#: libraries/DBQbe.class.php:680
 msgid "Modify"
 msgstr "Endre"
 
-#: libraries/DBQbe.class.php:1320
+#: libraries/DBQbe.class.php:1322
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-spørring i database <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1334 libraries/Util.class.php:1270
+#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1270
 msgid "Submit Query"
 msgstr "Kjør spørring"
 
@@ -2493,11 +2477,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Siste"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:236
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
 msgid "Start row"
 msgstr "Startrad"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:240
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
 msgid "Number of rows"
 msgstr "Antall rader"
 
@@ -2634,7 +2618,7 @@ msgstr "Viser rader"
 msgid "total"
 msgstr "totalt"
 
-#: libraries/DisplayResults.class.php:4966 sql.php:934
+#: libraries/DisplayResults.class.php:4966 sql.php:940
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Spørring tok %01.4f sek"
@@ -2686,7 +2670,7 @@ msgstr "Utskriftsvennlig forhåndsvisning"
 msgid "Print view (with full texts)"
 msgstr "Forhåndsvisning (med all tekst)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:136
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
 msgid "Display chart"
 msgstr "Vis diagram"
 
@@ -3010,7 +2994,7 @@ msgid "There are no recent tables"
 msgstr "Det er ikke noen nylig brukte tabeller"
 
 #: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:671
-#: server_status.php:340 sql.php:1101
+#: server_status.php:340 sql.php:1107
 msgid "SQL query"
 msgstr "SQL-spørring"
 
@@ -3648,7 +3632,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Innebygd"
 
-#: libraries/Util.class.php:1429 sql.php:1163
+#: libraries/Util.class.php:1429 sql.php:1169
 msgid "Profiling"
 msgstr "Profilering"
 
@@ -4394,7 +4378,7 @@ msgid "Save on server"
 msgstr "Lagre på tjener"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
-#: libraries/display_export.lib.php:221 libraries/display_export.lib.php:259
+#: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
 msgid "Overwrite existing file(s)"
 msgstr "Skriv over eksisterende filer"
 
@@ -4412,7 +4396,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
-#: libraries/display_export.lib.php:437
+#: libraries/display_export.lib.php:438
 msgid "SQL compatibility mode"
 msgstr "SQL kompatibilitetsmodus"
 
@@ -6452,36 +6436,36 @@ msgstr "Start med rad:"
 msgid "Dump all rows"
 msgstr "Dump alle rader"
 
-#: libraries/display_export.lib.php:202 libraries/display_export.lib.php:229
+#: libraries/display_export.lib.php:202 libraries/display_export.lib.php:230
 msgid "Output:"
 msgstr "Utskrift:"
 
-#: libraries/display_export.lib.php:211 libraries/display_export.lib.php:248
+#: libraries/display_export.lib.php:211 libraries/display_export.lib.php:249
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Lagre på server i <b>%s</b> katalogen"
 
-#: libraries/display_export.lib.php:238
+#: libraries/display_export.lib.php:239
 msgid "Save output to a file"
 msgstr "Lagre utdata til fil"
 
-#: libraries/display_export.lib.php:265
+#: libraries/display_export.lib.php:266
 msgid "File name template:"
 msgstr "Filnavn mal:"
 
-#: libraries/display_export.lib.php:267
+#: libraries/display_export.lib.php:268
 msgid "@SERVER@ will become the server name"
 msgstr "@SERVER@ vil bli tjenernavnet"
 
-#: libraries/display_export.lib.php:269
+#: libraries/display_export.lib.php:270
 msgid ", @DATABASE@ will become the database name"
 msgstr ", @DATABASE@ vil bli databasenavnet"
 
-#: libraries/display_export.lib.php:271
+#: libraries/display_export.lib.php:272
 msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ vil bli tabellnavnet"
 
-#: libraries/display_export.lib.php:276
+#: libraries/display_export.lib.php:277
 #, fuzzy, php-format
 #| msgid ""
 #| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
@@ -6496,47 +6480,47 @@ msgstr ""
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
 "All annen tekst beholdes som den er."
 
-#: libraries/display_export.lib.php:329
+#: libraries/display_export.lib.php:330
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:335 libraries/display_import.lib.php:255
+#: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:480
 msgid "Character set of the file:"
 msgstr "Filens tegnsett:"
 
-#: libraries/display_export.lib.php:368
+#: libraries/display_export.lib.php:369
 msgid "Compression:"
 msgstr "Komprimering:"
 
-#: libraries/display_export.lib.php:376
+#: libraries/display_export.lib.php:377
 msgid "zipped"
 msgstr "Pakket (zip)"
 
-#: libraries/display_export.lib.php:383
+#: libraries/display_export.lib.php:384
 msgid "gzipped"
 msgstr "gzippet"
 
-#: libraries/display_export.lib.php:390
+#: libraries/display_export.lib.php:391
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "Komprimert (bz2)"
 
-#: libraries/display_export.lib.php:408
+#: libraries/display_export.lib.php:409
 msgid "View output as text"
 msgstr "Vis utskrift som tekst"
 
-#: libraries/display_export.lib.php:413 libraries/display_import.lib.php:312
+#: libraries/display_export.lib.php:414 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
 msgid "Format:"
 msgstr "Format:"
 
-#: libraries/display_export.lib.php:418
+#: libraries/display_export.lib.php:419
 msgid "Format-specific options:"
 msgstr "Formatspesifike valg:"
 
-#: libraries/display_export.lib.php:420
+#: libraries/display_export.lib.php:421
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
@@ -6544,7 +6528,7 @@ msgstr ""
 "Bla ned for å fylle ut valgene for det valgte formatet og ignorere valgene "
 "for andre formater."
 
-#: libraries/display_export.lib.php:429 libraries/display_import.lib.php:327
+#: libraries/display_export.lib.php:430 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
 msgstr "Kodingskonvertering:"
 
@@ -7039,7 +7023,7 @@ msgid "No data found for GIS visualization."
 msgstr "Ingen data funnet for graf."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:929 tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:935 tbl_get_field.php:41
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte ett tomt resultat (m.a.o. ingen rader)."
 
@@ -7167,11 +7151,11 @@ msgstr ""
 "Bruk TAB tasten for å flytte fra verdi til verdi, eller CTRL+piltastene for "
 "å bevege deg hvor som helst"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:924
+#: libraries/insert_edit.lib.php:1912 sql.php:930
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:904
+#: libraries/insert_edit.lib.php:1937 sql.php:910
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
@@ -7219,7 +7203,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "Utfør indeks(er)"
 
-#: libraries/mult_submits.inc.php:316 sql.php:506
+#: libraries/mult_submits.inc.php:316 sql.php:512
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -7982,13 +7966,13 @@ msgstr "Vis MIME-typer"
 #: libraries/server_privileges.lib.php:1081
 #: libraries/server_privileges.lib.php:1177
 #: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2378 server_status.php:320 sql.php:1095
+#: libraries/server_privileges.lib.php:2378 server_status.php:320 sql.php:1101
 msgid "Host"
 msgstr "Vert"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1098
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1104
 msgid "Generation Time"
 msgstr "Generert den"
 
@@ -9739,11 +9723,11 @@ msgstr "Kjør SQL spørring/spørringer mot databasen %s"
 msgid "Clear"
 msgstr "Fjern"
 
-#: libraries/sql_query_form.lib.php:309 sql.php:1291 sql.php:1311
+#: libraries/sql_query_form.lib.php:309 sql.php:1311 sql.php:1331
 msgid "Bookmark this SQL query"
 msgstr "Lagre denne SQL-spørringen"
 
-#: libraries/sql_query_form.lib.php:315 sql.php:1303
+#: libraries/sql_query_form.lib.php:315 sql.php:1323
 msgid "Let every user access this bookmark"
 msgstr "La alle brukere ha adgang til dette bokmerket"
 
@@ -12260,45 +12244,50 @@ msgstr "Nøkkelen bør inneholde tall, bokstaver [em]og[/em] spesielle tegn"
 msgid "Wrong data"
 msgstr "Ingen databaser"
 
-#: sql.php:306
+#: sql.php:312
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:388
+#: sql.php:394
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Bokmerke %s opprettet"
 
-#: sql.php:921
+#: sql.php:927
 msgid "Showing as PHP code"
 msgstr "Viser som PHP kode"
 
-#: sql.php:926
+#: sql.php:932
 msgid "Validated SQL"
 msgstr "Validert SQL"
 
-#: sql.php:1093
+#: sql.php:1099
 msgid "SQL result"
 msgstr "SQL-resultat"
 
-#: sql.php:1100
+#: sql.php:1106
 msgid "Generated by"
 msgstr "Generert av"
 
-#: sql.php:1214
+#: sql.php:1213 tbl_structure.php:142
+#, php-format
+msgid "The column name '%s' is a MySQL reserved keyword."
+msgstr ""
+
+#: sql.php:1234
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1259
+#: sql.php:1279
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemer med indeksene i tabellen `%s`"
 
-#: sql.php:1295
+#: sql.php:1315
 msgid "Label"
 msgstr "Navn"
 
@@ -12312,88 +12301,88 @@ msgstr "Ingen data funnet"
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:139
+#: tbl_chart.php:140
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Mar"
 
-#: tbl_chart.php:141
+#: tbl_chart.php:142
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolonne"
 
-#: tbl_chart.php:144
+#: tbl_chart.php:145
 msgctxt "Chart type"
 msgid "Line"
 msgstr ""
 
-#: tbl_chart.php:146
+#: tbl_chart.php:147
 #, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Inline"
 
-#: tbl_chart.php:148
+#: tbl_chart.php:149
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:151
+#: tbl_chart.php:152
 #, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "PiB"
 
-#: tbl_chart.php:155
+#: tbl_chart.php:156
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Tid"
 
-#: tbl_chart.php:162
+#: tbl_chart.php:163
 #, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
 msgstr "Pakket"
 
-#: tbl_chart.php:165
+#: tbl_chart.php:166
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "Rapporttittel"
 
-#: tbl_chart.php:173
+#: tbl_chart.php:174
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:188
+#: tbl_chart.php:189
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "SQL spørringer"
 
-#: tbl_chart.php:208
+#: tbl_chart.php:209
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: tbl_chart.php:224
+#: tbl_chart.php:225
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:227
+#: tbl_chart.php:228
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Verdi"
 
-#: tbl_chart.php:229
+#: tbl_chart.php:230
 msgid "Y-Axis label:"
 msgstr ""
 
