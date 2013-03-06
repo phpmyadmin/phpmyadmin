@@ -1572,5 +1572,25 @@ class PMA_Table
         }
         return true;
     }
+
+    /**
+     * Get all column names which are MySQL reserved words
+     * 
+     * @return array
+     * @access public
+     */
+    public function getReservedColumnNames()
+    {
+        $columns = $this->getColumns($backquoted = false);
+        $return = array();
+        foreach ($columns as $column) {
+            $temp = explode('.', $column);
+            $column_name = $temp[2];
+            if (PMA_SQP_isKeyWord($column_name)) {
+                $return[] = $column_name;
+            }
+        }       
+        return $return;
+    }
 }
 ?>
