@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-06 08:19-0500\n"
-"PO-Revision-Date: 2013-03-07 05:15+0200\n"
-"Last-Translator: hidon sin <micforg@gmail.com>\n"
+"PO-Revision-Date: 2013-03-07 10:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -5971,7 +5971,7 @@ msgstr "사용불가일때, 아래의 선택을 할수 없습니다, 오른쪽�
 
 #: libraries/config/messages.inc.php:516
 msgid "Enable the Developer tab in settings"
-msgstr "설정화면에서 개발자 탭을 가능하게 함.\n"
+msgstr "설정화면에서 개발자 탭을 가능하게 함"
 
 #: libraries/config/messages.inc.php:517 setup/frames/index.inc.php:275
 msgid "Check for latest version"
@@ -12397,7 +12397,7 @@ msgstr "{query_cache_limit}를 증가시키는것을 고려하세요."
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다."
+msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
