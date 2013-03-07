@@ -9,9 +9,19 @@
 require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
+/**
+ * PmaSeleniumCreateDropDatabaseTest class
+ *
+ * @package    PhpMyAdmin-test
+ * @subpackage Selenium
+ */
 class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestCase
 {
-
+    /**
+     * Setup the browser environment to run the selenium test case
+     *
+     * @return void
+     */
     public function setUp()
     {
         $helper = new Helper();
@@ -19,6 +29,11 @@ class PmaSeleniumCreateDropDatabaseTest extends PHPUnit_Extensions_SeleniumTestC
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
     }
 
+    /**
+     * Creates a database and drops it
+     *
+     * @return void
+     */
     public function testCreateDropDatabase()
     {
         $log = new PmaSeleniumTestCase($this);
