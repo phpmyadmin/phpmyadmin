@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-04 17:28+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"PO-Revision-Date: 2013-03-07 05:15+0200\n"
+"Last-Translator: hidon sin <micforg@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "blob streaming 서버 설정이 되지 않았습니다!"
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr "헤더를 가져오는데 실패했습니다."
+msgstr "헤더(들)을 가져오는데 실패했습니다."
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -3348,6 +3348,8 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"많은 메모리가 필요없이 즉시 'gzip/bzip2' 수출(들) 압축; 생성된 'gzip/bzip2' 파일에 문제가 생기면, 기능을 "
+"비활성화 하세요."
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -5167,29 +5169,29 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:513
 msgid "Directory on server where you can upload files for import"
-msgstr ""
+msgstr "수입할 파일을 업로드 할 수 있는 (서버상 의)(on server) 디렉토리"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
-msgstr ""
+msgstr "업로드 디렉토리"
 
 #: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
-msgstr ""
+msgstr "\"전체 데이타베이스\" 안에서 찾기 허락해"
 
 #: libraries/config/messages.inc.php:516
 msgid "Use database search"
-msgstr ""
+msgstr "데이터베이스 찾기 사용"
 
 #: libraries/config/messages.inc.php:517
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
-msgstr ""
+msgstr "사용불가일때, 아래의 선택을 할수 없습니다, 오른쪽에 체크박스에 관계없이."
 
 #: libraries/config/messages.inc.php:518
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "설정화면에서 개발자 탭을 가능하게 함.\n"
 
 #: libraries/config/messages.inc.php:519
 msgid ""
@@ -5204,11 +5206,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:243
 msgid "Check for latest version"
-msgstr ""
+msgstr "마지막 버전을 확인"
 
 #: libraries/config/messages.inc.php:522
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr ""
+msgstr "주 phpMyAdmin 면(쪽)에서 마지막 버전확인 하는것을 가능하게함"
 
 #: libraries/config/messages.inc.php:523 setup/lib/index.lib.php:121
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:151
@@ -5216,33 +5218,33 @@ msgstr ""
 #: setup/lib/index.lib.php:179 setup/lib/index.lib.php:185
 #: setup/lib/index.lib.php:224
 msgid "Version check"
-msgstr ""
+msgstr "버전 확인"
 
 #: libraries/config/messages.inc.php:524
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
+"가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+"compression 가능하게 함"
 
 #: libraries/config/messages.inc.php:525
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Config authentication"
-msgstr "인증중입니다..."
+msgstr "환경설정 입증(인증)"
 
 #: libraries/config/setup.forms.php:45
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Cookie authentication"
-msgstr "인증중입니다..."
+msgstr "쿠키 인증(입증)"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
-msgstr "HTTP 인증"
+msgstr "HTTP 인증(입증)"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
@@ -11865,16 +11867,22 @@ msgid "Query caching method"
 msgstr "쿼리 캐시 방법"
 
 #: po/advisory_rules.php:76
+#, fuzzy
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "차선 캐싱 방법입니다."
 
 #: po/advisory_rules.php:77
+#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"꽤 높은 소통량 데이타베이스에 MySQL Query Cache를 사용중입니다. \n"
+"MySQL Query Cache 대신에 <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> 사용하기를 고려하는게 가치가 있을 수 있습니다, 특히 multiple slaves "
+"가 있으면요.\n"
 
 #: po/advisory_rules.php:78
 #, php-format
@@ -11882,56 +11890,59 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"쿼리 캐시를 사용할 수 있고, 서버가 초당 %d Query를 받습니다. 이 규칙은 초당 100개 이상의 쿼리가 있으면 불에 탑니다."
 
 #: po/advisory_rules.php:80
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "질의 캐시 효율"
+msgstr "질의 캐시 효율 (%%)"
 
 #: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "쿼리 캐시가 능률적으로 실행중이지 않습니다, 낮은 적중률을 가집니다."
 
 #: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
-msgstr "{query_cache_limit}를 증가하는 것이 좋습니다."
+msgstr "{query_cache_limit}를 증가시키는것을 고려하세요."
 
 #: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다."
 
 #: po/advisory_rules.php:85
 msgid "Query Cache usage"
-msgstr "질의(쿼리) 캐시 사용율"
+msgstr "질의(쿼리) 캐시 사용(율)"
 
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "쿼리 캐시의 80%% 미만이 활용되고 있습니다."
 
 #: po/advisory_rules.php:87
+#, fuzzy
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"이것은 {query_cache_limit}이 너무 낮은 것에 의해 발생 될 수 있습니다. 쿼리 캐시를 플러싱하는 것은뿐만 아니라 도움이 "
+"될 수도."
 
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr ""
+msgstr "전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니다. 80%%보다 높아야 됩니다"
 
 #: po/advisory_rules.php:90
-#, fuzzy
 msgid "Query cache fragmentation"
-msgstr "질의 종류"
+msgstr "쿼리 캐시 분열(단편화)"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "쿼리 캐시가 상당히 단편화(분열)되었음."
 
 #: po/advisory_rules.php:92
 msgid ""
