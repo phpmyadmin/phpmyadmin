@@ -359,15 +359,10 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        // @todo obey the DisableIS directive
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        if (! empty($searchClause)) {
-            $query .= "WHERE `SCHEMA_NAME` LIKE '%";
-            $query .= PMA_Util::sqlAddSlashes(
-                $searchClause, true
-            );
-            $query .= "%' ";
-        }
+        $query .= $this->_getWhereClause($searchClause); 
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
         return PMA_DBI_fetch_result($query);
@@ -399,13 +394,7 @@ class Node
         if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            if (! empty($searchClause)) {
-                $query .= "WHERE `SCHEMA_NAME` LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%' ";
-            }
+            $query .= $this->_getWhereClause($searchClause); 
             $retval = (int)PMA_DBI_fetch_value($query);
         } else {
             $query = "SHOW DATABASES ";
@@ -420,5 +409,32 @@ class Node
         }
         return $retval;
     }
+
+    /**
+     * Returns the WHERE clause depending on the $searchClause parameter
+     * and the hide_db directive  
+     *
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return string 
+     */
+    private function _getWhereClause($searchClause = '')
+    {
+        $whereClause = "WHERE TRUE ";
+        if (! empty($searchClause)) {
+            $whereClause .= "AND `SCHEMA_NAME` LIKE '%";
+            $whereClause .= PMA_Util::sqlAddSlashes(
+                $searchClause, true
+            );
+            $whereClause .= "%' ";
+        }
+
+        if (! empty($GLOBALS['cfg']['Server']['hide_db'])) {
+            $whereClause .= "AND `SCHEMA_NAME` NOT REGEXP '"
+                . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
+        }
+        return $whereClause;
+    }
+
 }
 ?>
