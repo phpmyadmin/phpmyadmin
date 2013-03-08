@@ -638,7 +638,7 @@ class PMA_Message
                 $message = $string;
             }
         }
-        
+
         if ($this->isDisplayed()) {
             $message = $this->getMessageWithIcon($message);
         }
@@ -654,7 +654,7 @@ class PMA_Message
 
         return $message;
     }
-    
+
     /**
      * returns PMA_Message::$string
      *
