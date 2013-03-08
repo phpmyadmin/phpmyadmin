@@ -190,9 +190,15 @@ if (count($keys) > 1) {
         . '<select name="chartSeries" id="select_chartSeries" multiple="multiple">';
 
     $numeric_types = array('int', 'real');
+    $numeric_column_count = 0;
     foreach ($keys as $idx => $key) {
         if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-            if ($idx == $yaxis) {
+            $numeric_column_count++;
+        }
+    }
+    foreach ($keys as $idx => $key) {
+        if (in_array($fields_meta[$idx]->type, $numeric_types)) {
+            if ($idx == $yaxis && $numeric_column_count > 1) {
                 $htmlString .= '<option value="' . htmlspecialchars($idx) . '">'
                     . htmlspecialchars($key) . '</option>';
             } else {
