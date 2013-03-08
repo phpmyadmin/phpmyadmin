@@ -122,7 +122,7 @@ if ($server > 0
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
-        echo PMA_Util::getImage('s_host.png')." ".PMA_selectServer(true, true);
+        echo PMA_Util::getImage('s_host.png') . " " . PMA_selectServer(true, true);
         echo '</li>';
     }
 
@@ -137,7 +137,7 @@ if ($server > 0
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA_Util::getImage('s_passwd.png')." ".__('Change password'),
+                    PMA_Util::getImage('s_passwd.png') . " " . __('Change password'),
                     'li_change_password',
                     'user_password.php?' . $common_url_query,
                     null,
@@ -152,7 +152,8 @@ if ($server > 0
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                '.PMA_Util::getImage('s_asci.png')." " . __('Server connection collation') . "\n"
+           . '                '. PMA_Util::getImage('s_asci.png') . " " 
+                               . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu(
                'MySQL_Database_Administration',
@@ -185,7 +186,7 @@ echo '  <ul>';
 if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
     echo '<li id="li_select_lang" class="no_bullets">';
     include_once 'libraries/display_select_lang.lib.php';
-    echo PMA_Util::getImage('s_lang.png')." ".PMA_getLanguageSelectorHtml();
+    echo PMA_Util::getImage('s_lang.png') . " " . PMA_getLanguageSelectorHtml();
     echo '</li>';
 }
 
@@ -193,7 +194,8 @@ if (empty($cfg['Lang']) && count($GLOBALS['available_languages']) > 1) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo PMA_Util::getImage('s_theme.png')." ".$_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
+    echo PMA_Util::getImage('s_theme.png') . " "
+            .  $_SESSION['PMA_Theme_Manager']->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
@@ -210,10 +212,10 @@ if ($server > 0) {
         PMA_Util::getImage('b_tblops.png')." " .__('More settings'),
         'li_user_preferences',
         'prefs_manage.php?' . $common_url_query,
-            null,
-            null,
-            null,
-            "no_bullets"
+        null,
+        null,
+        null,
+        "no_bullets"
     );
     echo '</ul>';
 }

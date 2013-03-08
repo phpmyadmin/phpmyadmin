@@ -78,7 +78,7 @@ class PMA_Message
         PMA_Message::NOTICE  => 'notice',
         PMA_Message::ERROR   => 'error',
     );
-    
+
     /**
      * The message number
      *
@@ -728,18 +728,20 @@ class PMA_Message
      * Returns the message with corresponding image icon
      * 
      * @param string $message the message(s)
+     * 
      * @return string message with icon
      */
-    public function getMessageWithIcon($message){
+    public function getMessageWithIcon($message)
+    {
         $image = '';
-        if('error' == $this->getLevel()){
+        if ('error' == $this->getLevel()) {
             $image = 's_error.png';
-        } elseif('success' == $this->getLevel()){
+        } elseif ('success' == $this->getLevel()) {
             $image = 's_success.png';
         } else {
             $image = 's_notice.png';
         }
-        $message = PMA_Message::notice(PMA_Util::getImage($image))." ".$message;
+        $message = PMA_Message::notice(PMA_Util::getImage($image)) . " " . $message;
         return $message;
         
     }
