@@ -362,7 +362,7 @@ class Node
         // @todo obey the DisableIS directive
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= $this->getWhereClause($searchClause); 
+        $query .= $this->_getWhereClause($searchClause); 
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
         return PMA_DBI_fetch_result($query);
@@ -394,7 +394,7 @@ class Node
         if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= $this->getWhereClause($searchClause); 
+            $query .= $this->_getWhereClause($searchClause); 
             $retval = (int)PMA_DBI_fetch_value($query);
         } else {
             $query = "SHOW DATABASES ";
@@ -418,7 +418,7 @@ class Node
      *
      * @return string 
      */
-    private function getWhereClause($searchClause = '')
+    private function _getWhereClause($searchClause = '')
     {
         $whereClause = "WHERE TRUE ";
         if (! empty($searchClause)) {
