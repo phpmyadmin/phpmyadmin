@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-06 20:02+0200\n"
+"PO-Revision-Date: 2013-03-08 11:54+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/3-5/da/>\n"
 "Language: da\n"
@@ -349,7 +349,7 @@ msgstr ""
 
 #: db_operations.php:595
 msgid "Edit or export relational schema"
-msgstr "Editer eller eksporter relations skema"
+msgstr "Redigér eller eksportér relationsskema"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
@@ -673,7 +673,7 @@ msgstr "Check tabeller der har overhead"
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1619
 #: setup/frames/menu.inc.php:21
 msgid "Export"
-msgstr "Eksporter"
+msgstr "Eksportér"
 
 #: db_structure.php:593 db_structure.php:649
 #: libraries/display_tbl.lib.php:2606 tbl_structure.php:629
@@ -1696,7 +1696,7 @@ msgstr ""
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1619 setup/frames/menu.inc.php:20
 msgid "Import"
-msgstr "Importer"
+msgstr "Importér"
 
 #: js/messages.php:217
 msgid "Import monitor configuration"
@@ -2036,7 +2036,7 @@ msgstr "Generer"
 
 #: js/messages.php:361
 msgid "Change Password"
-msgstr "Ændre adgangskode"
+msgstr "Skift adgangskode"
 
 #: js/messages.php:364 tbl_structure.php:480
 msgid "More"
@@ -4116,15 +4116,15 @@ msgstr "Indsæt feltnavne i første række"
 
 #: libraries/config/messages.inc.php:257 libraries/import/ods.php:34
 msgid "Do not import empty rows"
-msgstr "Importer ikke tomme rækker"
+msgstr "Importér ikke tomme rækker"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importer valutaer ($5.00 til 5.00)"
+msgstr "Importér valutaer ($5.00 til 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importer procenter med korrekte decimaler (12.00% bliver til .12)"
+msgstr "Importér procenter med korrekte decimaler (12.00% bliver til .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -5567,7 +5567,7 @@ msgstr ""
 #: libraries/display_change_password.lib.php:29 main.php:94
 #: user_password.php:105 user_password.php:123
 msgid "Change password"
-msgstr "Ændre adgangskode"
+msgstr "Skift adgangskode"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:351 server_privileges.php:890
@@ -6891,7 +6891,7 @@ msgstr "Denne plugin understøtter ikke komprimeret import!"
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importer procenter som rigtige decimaltal  <i>(ex. 12.00% to .12)</i>"
+msgstr "Importér procenter som rigtige decimaltal  <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -7969,7 +7969,7 @@ msgstr "Udvidelsesmoduler"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
-msgstr "Lagre"
+msgstr "Lagring"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 msgid "Source database"
@@ -8659,7 +8659,7 @@ msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
-msgstr "Importer/Eksporter koordinater for PDF-opstilling"
+msgstr "Importér/eksportér koordinater for PDF-opstilling"
 
 #: pmd_general.php:110
 msgid "Build Query"
@@ -8733,15 +8733,15 @@ msgstr "Side"
 
 #: pmd_pdf.php:95
 msgid "Import from selected page"
-msgstr "Importer fra valgt side"
+msgstr "Importér fra valgt side"
 
 #: pmd_pdf.php:96
 msgid "Export to selected page"
-msgstr "Eksporter til valgt side"
+msgstr "Eksportér til valgte side"
 
 #: pmd_pdf.php:98
 msgid "Create a page and export to it"
-msgstr "Opret en side og eksporter til den"
+msgstr "Opret en side og eksportér til denne"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
@@ -8749,7 +8749,7 @@ msgstr "Nyt sidenavn: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
-msgstr "Eksporter/Importer til skala"
+msgstr "Eksportér/importér til skala"
 
 #: pmd_pdf.php:115
 msgid "recommended"
@@ -8805,7 +8805,7 @@ msgstr "Gemt den @DATE@"
 
 #: prefs_manage.php:237
 msgid "Import from file"
-msgstr "Importer fra fil"
+msgstr "Importér fra fil"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
@@ -8855,7 +8855,7 @@ msgstr ""
 
 #: querywindow.php:69
 msgid "Import files"
-msgstr "Importer filer"
+msgstr "Importér filer"
 
 #: querywindow.php:80
 msgid "All"
@@ -9663,7 +9663,7 @@ msgstr "Runtime-information"
 
 #: server_status.php:791
 msgid "All status variables"
-msgstr "Alle statusvariable"
+msgstr "Alle statusvariabler"
 
 #: server_status.php:792
 msgid "Monitor"
@@ -9768,7 +9768,7 @@ msgstr "#"
 #: server_status.php:1062
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "Netværkstrafik siden startup: %s"
+msgstr "Netværkstrafik siden opstart: %s"
 
 #: server_status.php:1071
 #, php-format
@@ -11812,7 +11812,7 @@ msgstr "SQL-kørsel"
 #: tbl_tracking.php:578
 #, php-format
 msgid "Export as %s"
-msgstr "Eksporter som %s"
+msgstr "Eksportér som %s"
 
 #: tbl_tracking.php:618
 msgid "Show versions"
