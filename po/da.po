@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-06 08:19-0500\n"
-"PO-Revision-Date: 2013-03-06 21:01+0200\n"
+"PO-Revision-Date: 2013-03-08 11:40+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -712,7 +712,7 @@ msgstr "Generelle indstillinger"
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
-msgstr "Ændre adgangskode"
+msgstr "Skift adgangskode"
 
 #: index.php:155
 msgid "Server connection collation"
@@ -1928,7 +1928,7 @@ msgstr "Generer"
 
 #: js/messages.php:366
 msgid "Change Password"
-msgstr "Ændre adgangskode"
+msgstr "Skift adgangskode"
 
 #: js/messages.php:369
 msgid "More"
@@ -2659,7 +2659,7 @@ msgstr "Vælg alle"
 #: prefs_manage.php:289 server_status_monitor.php:534
 #: setup/frames/menu.inc.php:22
 msgid "Export"
-msgstr "Eksporter"
+msgstr "Eksportér"
 
 #: libraries/DisplayResults.class.php:5178
 msgid "Query results operations"
@@ -2948,7 +2948,7 @@ msgstr "Udvidelsesmoduler"
 
 #: libraries/Menu.class.php:519
 msgid "Engines"
-msgstr "Lagre"
+msgstr "Lagring"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
@@ -3082,7 +3082,7 @@ msgstr "Statistik over forespørgsler"
 
 #: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
-msgstr "Alle statusvariable"
+msgstr "Alle statusvariabler"
 
 #: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
@@ -10576,7 +10576,7 @@ msgstr ""
 #: server_status.php:70
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "Netværkstrafik siden startup: %s"
+msgstr "Netværkstrafik siden opstart: %s"
 
 #: server_status.php:83
 #, php-format
