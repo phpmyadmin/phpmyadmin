@@ -6,15 +6,11 @@
  * @package PhpMyAdmin
  */
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 /*
  * Execute the query and return the result
  */
-
 if (isset($_REQUEST['ajax_request'])
     && isset($_REQUEST['pos'])
     && isset($_REQUEST['session_max_rows'])
@@ -112,6 +108,24 @@ while ($row = PMA_DBI_fetch_assoc($result)) {
     $data[] = $row;
 }
 
+$keys = array_keys($data[0]);
+
+$numeric_types = array('int', 'real');
+$numeric_column_count = 0;
+foreach ($keys as $idx => $key) {
+    if (in_array($fields_meta[$idx]->type, $numeric_types)) {
+        $numeric_column_count++;
+    }
+}
+if ($numeric_column_count == 0) {
+    $response->isSuccess(false);
+    $response->addJSON(
+        'message',
+        __('No numeric columns present in the table to plot.')
+    );
+    exit;
+}
+
 // get settings if any posted
 $chartSettings = array();
 if (PMA_isValid($_REQUEST['chartSettings'], 'array')) {
@@ -166,67 +180,51 @@ $htmlString = '<script type="text/javascript">'
     . '<input type="text" name="chartTitle" value="' . __('Chart title') . '">'
     . '</div>';
 
-$keys = array_keys($data[0]);
-$yaxis = -1;
-$numeric_fields_present = false;
-if (count($keys) > 1) {
-    $htmlString .= '<div style="float:left; padding-left:40px;">'
-        . '<label for="select_chartXAxis">' .  __('X-Axis:') . '</label>'
-        . '<select name="chartXAxis" id="select_chartXAxis">';
+$htmlString .= '<div style="float:left; padding-left:40px;">'
+    . '<label for="select_chartXAxis">' .  __('X-Axis:') . '</label>'
+    . '<select name="chartXAxis" id="select_chartXAxis">';
 
-    foreach ($keys as $idx => $key) {
-        if ($yaxis == -1) {
-            $htmlString .= '<option value="' . htmlspecialchars($idx)
-                . '" selected="selected">' . htmlspecialchars($key) . '</option>';
-            $yaxis = $idx;
-        } else {
+$yaxis = null;
+foreach ($keys as $idx => $key) {
+    if ($yaxis == null) {
+        $htmlString .= '<option value="' . htmlspecialchars($idx)
+            . '" selected="selected">' . htmlspecialchars($key) . '</option>';
+        $yaxis = $idx;
+    } else {
+        $htmlString .= '<option value="' . htmlspecialchars($idx) . '">'
+            . htmlspecialchars($key) . '</option>';
+    }
+}
+
+$htmlString .= '</select><br />'
+    . '<label for="select_chartSeries">' . __('Series:') . '</label>'
+    . '<select name="chartSeries" id="select_chartSeries" multiple="multiple">';
+
+foreach ($keys as $idx => $key) {
+    if (in_array($fields_meta[$idx]->type, $numeric_types)) {
+        if ($idx == $yaxis && $numeric_column_count > 1) {
             $htmlString .= '<option value="' . htmlspecialchars($idx) . '">'
                 . htmlspecialchars($key) . '</option>';
+        } else {
+            $htmlString .= '<option value="' . htmlspecialchars($idx)
+                . '" selected="selected">' . htmlspecialchars($key)
+                . '</option>';
         }
     }
-
-    $htmlString .= '</select><br />'
-        . '<label for="select_chartSeries">' . __('Series:') . '</label>'
-        . '<select name="chartSeries" id="select_chartSeries" multiple="multiple">';
-
-    $numeric_types = array('int', 'real');
-    $numeric_column_count = 0;
-    foreach ($keys as $idx => $key) {
-        if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-            $numeric_column_count++;
-        }
-    }
-    foreach ($keys as $idx => $key) {
-        if (in_array($fields_meta[$idx]->type, $numeric_types)) {
-            if ($idx == $yaxis && $numeric_column_count > 1) {
-                $htmlString .= '<option value="' . htmlspecialchars($idx) . '">'
-                    . htmlspecialchars($key) . '</option>';
-            } else {
-                $htmlString .= '<option value="' . htmlspecialchars($idx)
-                    . '" selected="selected">' . htmlspecialchars($key)
-                    . '</option>';
-            }
-            $numeric_fields_present = true;
-        }
-    }
-
-    if (! $numeric_fields_present) {
-        $response->isSuccess(false);
-        $response->addJSON('message', __('No numeric columns present in the table to plot.'));
-        exit;
-    }
-    $htmlString .= '</select>'
-        . '<input type="hidden" name="dateTimeCols" value="';
-
-    $date_time_types = array('date', 'datetime', 'timestamp');
-    foreach ($keys as $idx => $key) {
-        if (in_array($fields_meta[$idx]->type, $date_time_types)) {
-            $htmlString .= $idx . " ";
-        }
-    }
-    $htmlString .= '" />'
-        . '</div>';
 }
+
+$htmlString .= '</select>'
+    . '<input type="hidden" name="dateTimeCols" value="';
+
+$date_time_types = array('date', 'datetime', 'timestamp');
+foreach ($keys as $idx => $key) {
+    if (in_array($fields_meta[$idx]->type, $date_time_types)) {
+        $htmlString .= $idx . " ";
+    }
+}
+$htmlString .= '" />'
+    . '</div>';
+
 $htmlString .= '<div style="float:left; padding-left:40px;">'
     . '<label for="xaxis_label">' . __('X-Axis label:') . '</label>'
     . '<input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label"'
