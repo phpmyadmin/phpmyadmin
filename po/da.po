@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-06 08:19-0500\n"
-"PO-Revision-Date: 2013-03-08 11:40+0200\n"
+"PO-Revision-Date: 2013-03-08 11:54+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -1515,7 +1515,7 @@ msgstr ""
 #: prefs_manage.php:232 server_status_monitor.php:530
 #: setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr "Importer"
+msgstr "Importér"
 
 #: js/messages.php:200
 msgid "Import monitor configuration"
@@ -4936,15 +4936,15 @@ msgstr "Indsæt feltnavne i første række"
 #: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportOds.class.php:82
 msgid "Do not import empty rows"
-msgstr "Importer ikke tomme rækker"
+msgstr "Importér ikke tomme rækker"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Importer valutaer ($5.00 til 5.00)"
+msgstr "Importér valutaer ($5.00 til 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr "Importer procenter med korrekte decimaler (12.00% bliver til .12)"
+msgstr "Importér procenter med korrekte decimaler (12.00% bliver til .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
@@ -7530,7 +7530,7 @@ msgstr "Skift til den kopierede database"
 
 #: libraries/operations.lib.php:277
 msgid "Edit or export relational schema"
-msgstr "Editer eller eksporter relations skema"
+msgstr "Redigér eller eksportér relationsskema"
 
 #: libraries/operations.lib.php:620
 msgid "Alter table order by"
@@ -8162,7 +8162,7 @@ msgstr "Ugyldigt format for mediawiki-input på linje: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importer procenter som rigtige decimaltal  <i>(ex. 12.00% to .12)</i>"
+msgstr "Importér procenter som rigtige decimaltal  <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:94
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -10069,7 +10069,7 @@ msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:147 pmd_pdf.php:102
 msgid "Import/Export coordinates for PDF schema"
-msgstr "Importer/Eksporter koordinater for PDF-opstilling"
+msgstr "Importér/eksportér koordinater for PDF-opstilling"
 
 #: pmd_general.php:154
 msgid "Build Query"
@@ -10139,15 +10139,15 @@ msgstr "Side"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
-msgstr "Importer fra valgt side"
+msgstr "Importér fra valgt side"
 
 #: pmd_pdf.php:124
 msgid "Export to selected page"
-msgstr "Eksporter til valgt side"
+msgstr "Eksportér til valgte side"
 
 #: pmd_pdf.php:126
 msgid "Create a page and export to it"
-msgstr "Opret en side og eksporter til den"
+msgstr "Opret en side og eksportér til denne"
 
 #: pmd_pdf.php:138
 msgid "New page name: "
@@ -10155,7 +10155,7 @@ msgstr "Nyt sidenavn: "
 
 #: pmd_pdf.php:141
 msgid "Export/Import to scale"
-msgstr "Eksporter/Importer til skala"
+msgstr "Eksportér/importér til skala"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10207,7 +10207,7 @@ msgstr "Gemt den @DATE@"
 
 #: prefs_manage.php:240
 msgid "Import from file"
-msgstr "Importer fra fil"
+msgstr "Importér fra fil"
 
 #: prefs_manage.php:246
 msgid "Import from browser's storage"
@@ -10257,7 +10257,7 @@ msgstr ""
 
 #: querywindow.php:64
 msgid "Import files"
-msgstr "Importer filer"
+msgstr "Importér filer"
 
 #: querywindow.php:77
 msgid "All"
@@ -12332,7 +12332,7 @@ msgstr "SQL-kørsel"
 #: tbl_tracking.php:698
 #, php-format
 msgid "Export as %s"
-msgstr "Eksporter som %s"
+msgstr "Eksportér som %s"
 
 #: tbl_tracking.php:735
 msgid "Show versions"
