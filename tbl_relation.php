@@ -58,6 +58,19 @@ $options_array = array(
     'RESTRICT'  => 'RESTRICT',
 );
 
+$index_options_array = array(
+    ''=>'',
+    'UNIQUE'   => 'UNIQUE',
+    'INDEX'  => 'INDEX',
+);
+
+$index_types_array = array(
+    ''=>'',
+    'UNI'   => 'UNIQUE',
+    'PRI'  => 'PRIMARY',
+    'MUL'  => 'INDEX',
+);
+
 /**
  * Gets the relation settings
  */
@@ -129,15 +142,51 @@ if (isset($destination) && $cfgRelation['relwork']) {
     } // end while
 } // end if (updates for internal relations)
 
+$seen_error = false;
+$display_query = "";
+
+// Create index on user request
+if (! empty($_REQUEST['set_index'])) {
+    $tmp_sql_index_query_error = array();
+    foreach ($_REQUEST['set_index'] as $master_field_md5 => $index_type) {
+        $master_field = $multi_edit_columns_name[$master_field_md5];
+        $sql_index_query = "";
+        $tmp_sql_index_query_error[$master_field]= "";
+        if (! empty($index_type)) {            
+            $index_length = "";
+            // set index length
+            if(!empty($_REQUEST['index_length'][$master_field_md5])){
+                $index_length = "(".$_REQUEST['index_length'][$master_field_md5].")";
+            }
+            // Create index with the name format indx_table_fieldname
+            // If query nead to roll back, this name can be used to drop the index
+            $sql_index_query = "ALTER TABLE " . PMA_Util::backquote($table)
+                    . " ADD " . $index_type                     
+                    ." indx_".$table."_".$master_field.
+                    "(" . $master_field . $index_length.");";
+            $display_query = $sql_index_query."\n";
+        }                  
+        if (!empty($sql_index_query)) {
+            PMA_DBI_try_query($sql_index_query);
+            $tmp_sql_index_query_error[$master_field] = PMA_DBI_getError();
+        }
+
+        if (!empty($tmp_sql_index_query_error[$master_field])) {
+            $seen_error = true;
+            $message = PMA_Message::error(__('Error creating index on %1$s (check index type and length)'));
+            $message->addParam($master_field);
+            $message->display();
+        }
+    }
+}
+
 // u p d a t e s    f o r    f o r e i g n    k e y s
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 // I use $sql_query to be able to display directly the query via
 // getMessage()
 
-if (isset($_REQUEST['destination_foreign'])) {
-    $display_query = '';
-    $seen_error = false;
+if (isset($_REQUEST['destination_foreign'])) {   
     foreach ($_REQUEST['destination_foreign'] as $master_field_md5 => $foreign_string) {
 
         // Map the fieldname's md5 back to it's real name
@@ -220,6 +269,12 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $message->display();
                 $html_output .= PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
+            // User created Index must dropped if the foriegn key relation fails
+            if(! empty($tmp_error) && empty($tmp_sql_index_query_error[$master_field])) {
+                $sql_query_remove_index = "DROP INDEX ". $table."_".$master_field." ON ".PMA_Util::backquote($table).";";             
+                PMA_DBI_try_query($sql_query_remove_index);
+                unset($sql_query_remove_index);
+            }
             if(! empty($tmp_error) && empty($tmp_error_drop)) {
                 // constraint might be dropped without creation of a new one
                 // a rollback may be better here
@@ -242,9 +297,10 @@ if (isset($_REQUEST['destination_foreign'])) {
                 unset($sql_query_recreate);
             }
             unset($tmp_error);
-            unset($tmp_error_drop);
+            unset($tmp_error_drop);            
+            unset($tmp_sql_index_query_error[$master_field]);
             $sql_query = '';
-        }
+            }
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
@@ -384,6 +440,8 @@ if (count($columns) > 0) {
     }
     
     if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+        $html_output .= '<th>' . __('Index Type');
+        $html_output .= '</th>';
         // this does not have to be translated, it's part of the MySQL syntax
         $html_output .= '<th colspan="2">' . __('Foreign key constraint')
             . ' (' . $tbl_storage_engine . ')';
@@ -439,8 +497,34 @@ if (count($columns) > 0) {
         } // end if (internal relations)
 
         if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+             if (! empty($save_row[$i]['Key'])) {
+                $html_output .= '<td class="left">';
+                $html_output .= $index_types_array[$save_row[$i]['Key']];
+            } else {
+                $html_output .='<td>';
+                $html_output .= '<span class="formelement">';
+                // Drop down for select a index
+                $html_output .= PMA_generateDropdown(
+                        __('Type'), 'set_index[' . $myfield_md5 . ']', $index_options_array, null, "index_column_dropdown"
+                );             
+                $html_output .= '</span>' . "\n". "\n";
+                
+                // Input box for length
+                $html_output .= '<span class="formelement" >';
+                $html_output .= __('Length');
+                $html_output .= '<input type="text" name="index_length[' . $myfield_md5 . ']"'
+                    . ' value="" style="width: 50px"/>';
+                $html_output .= '</span>' . "\n";
+                
+            }
+            $html_output .= '</td>';
             $html_output .= '<td>';
-            if (!empty($save_row[$i]['Key'])) {
+            // If no key is defined , print "No index defined!" in "Foreign key constraint" column
+            if (empty($save_row[$i]['Key'])) {
+                $html_output .= '<span class="no_index">';
+                $html_output .= __('No index defined!');
+                $html_output .= '</span>' . "\n";
+            }
                 $html_output .= '<span class="formelement">'
                     . '<select name="destination_foreign[' . $myfield_md5 . ']"'
                     . ' class="referenced_column_dropdown">';
@@ -507,9 +591,6 @@ if (count($columns) > 0) {
                     $on_update
                 );
                 $html_output .= '</span>' . "\n";
-            } else {
-                $html_output .= __('No index defined!');
-            } // end if (a key exists)
             $html_output .= '</td>';
         } // end if (InnoDB)
         $html_output .= '</tr>';
@@ -555,20 +636,25 @@ PMA_Response::getInstance()->addHTML($html_output);
  * @param string $select_name       Name of the <select> field
  * @param array  $choices           Choices for dropdown
  * @param string $selected_value    Selected value
+ * @param string $class             HTML class name
  *
  * @return string The html code for existing value (for selected)
  *
  * @access public
  */
 function PMA_generateDropdown(
-    $dropdown_question, $select_name, $choices, $selected_value
+    $dropdown_question, $select_name, $choices, $selected_value =null, $class = null
 ) {
+    $class_html = '';
+    if(! empty($class)){
+      $class_html .=  '" class="'.$class;
+    }
     $html_output = htmlspecialchars($dropdown_question) . '&nbsp;&nbsp;'
-        . '<select name="' . htmlspecialchars($select_name) . '">' . "\n";
+        . '<select name="' . htmlspecialchars($select_name) .$class_html. '">' . "\n";
 
     foreach ($choices as $one_value => $one_label) {
         $html_output .= '<option value="' . htmlspecialchars($one_value) . '"';
-        if ($selected_value == $one_value) {
+        if (!empty($selected_value) && ($selected_value == $one_value)) {
             $html_output .= ' selected="selected" ';
         }
         $html_output .= '>' . htmlspecialchars($one_label) . '</option>' . "\n";
