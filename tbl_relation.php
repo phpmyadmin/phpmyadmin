@@ -20,6 +20,7 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/structure.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
@@ -545,6 +546,24 @@ if (count($columns) > 0) {
         . '</form>';
 } // end if (we have columns in this table)
 
+$index_html = '';
+if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+    // division for add index
+    $index_html .= '<div id="index_div" class="ajax">';
+
+    //index legend
+    $legend  = '<fieldset>';
+    $legend .= '<legend id="index_header">' . __('Indexes');
+    $legend .= PMA_Util::showMySQLDocu(
+        'optimization', 'optimizing-database-structure'
+    );
+    $legend .= '</legend>';
+
+    $index_html .= PMA_getHtmlForDisplayIndexes(false, $legend);
+    $index_html .= '</div>';
+}
+
+$html_output .= $index_html;
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
 
