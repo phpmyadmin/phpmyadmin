@@ -192,14 +192,6 @@ class PMA_List_Database extends PMA_List
         $items = array();
 
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-            if ($each_only_db === '*' && ! $this->show_databases_disabled) {
-                // append all not already listed dbs to the list
-                $items = array_merge(
-                    $items, array_diff($this->retrieve(), $items)
-                );
-                // there can only be one '*', and this can only be last
-                break;
-            }
 
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %

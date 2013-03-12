@@ -364,20 +364,9 @@ Server connection settings
         
         $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
 
-    .. versionchanged:: 2.5.5
-        The order inside the array is used for sorting the
-        databases in the navigation panel, so that you can individually
-        arrange your databases. 
-        
-    If you want to have certain databases at the top, but don't care about the
-    others, you do not need to specify all other databases. Use following code
-    instead to tell phpMyAdmin that it should display db3 and db4 on top, and
-    the rest in alphabetic order:
-    
-    .. code-block:: php
-       
-        $cfg['Servers'][$i]['only_db'] = array('db3', 'db4', '\*');
-        
+    .. versionchanged:: 4.0.0 
+        Previous versions permitted to specify the display order of 
+        the database names via this directive. 
 
 .. config:option:: $cfg['Servers'][$i]['hide_db']
 

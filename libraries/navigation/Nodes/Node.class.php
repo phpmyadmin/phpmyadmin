@@ -433,6 +433,21 @@ class Node
             $whereClause .= "AND `SCHEMA_NAME` NOT REGEXP '"
                 . $GLOBALS['cfg']['Server']['hide_db'] . "' ";
         }
+
+        if (! empty($GLOBALS['cfg']['Server']['only_db'])) {
+            if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
+                $GLOBALS['cfg']['Server']['only_db'] = array(
+                    $GLOBALS['cfg']['Server']['only_db']
+                );
+            }
+            $whereClause .= "AND (";
+            $subClauses = array();
+            foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
+                $subClauses[] = " `SCHEMA_NAME` LIKE '"
+                    . $each_only_db . "' ";
+            }
+            $whereClause .= implode("OR", $subClauses) . ")";
+        }
         return $whereClause;
     }
 

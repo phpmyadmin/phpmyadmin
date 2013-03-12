@@ -251,7 +251,7 @@ $cfg['Servers'][$i]['nopassword'] = false;
 
 /**
  * If set to a db-name, only this db is displayed in navigation panel
- * It may also be an array of db-names, where sorting order is relevant.
+ * It may also be an array of db-names
  *
  * @global string $cfg['Servers'][$i]['only_db']
  */
