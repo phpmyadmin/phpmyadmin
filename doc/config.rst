@@ -364,6 +364,10 @@ Server connection settings
         
         $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
 
+    .. versionchanged:: 4.0.0 
+        Previous versions permitted to specify the display order of 
+        the database names via this directive. 
+
 .. config:option:: $cfg['Servers'][$i]['hide_db']
 
     :type: string
