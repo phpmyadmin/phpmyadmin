@@ -1587,17 +1587,30 @@ function PMA_getHtmlForAddColumn($columns_list)
 
 /**
  * Get HTML for display indexes
- *
- * @return string $html_output
+ * 
+ * @param boolean $is_index_view Use index data
+ * @param string  $legend        HTML legend
+ * 
+ * @return tring $html_output
  */
-function PMA_getHtmlForDisplayIndexes()
+function PMA_getHtmlForDisplayIndexes($is_index_view = true , $legend = null)
 {
     $html_output = PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
-    $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
-    $html_output .= '<fieldset class="tblFooters" style="text-align: left;">'
-        . '<form action="tbl_indexes.php" method="post">';
+    
+    $fieldset_start = '';
+    $fieldset_end = '';
+    if ($is_index_view) {
+        $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
+        $fieldset_start = '<fieldset class="tblFooters" style="text-align: left;">';
+        $fieldset_end =  '</fieldset>';
+    } elseif (! empty($legend)) {
+        $html_output .= $legend;
+    }
+
+    $html_output .= $fieldset_start;
+    $html_output .= '<form action="tbl_indexes.php" method="post">';
     $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
         . sprintf(
             __('Create an index on &nbsp;%s&nbsp;columns'),
@@ -1608,7 +1621,7 @@ function PMA_getHtmlForDisplayIndexes()
         . ' type="submit" value="' . __('Go') . '" />';
 
     $html_output .= '</form>'
-        . '</fieldset>'
+        . $fieldset_end
         . '</div>'
         . '</div>';
 
