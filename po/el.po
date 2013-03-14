@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-08 08:13+0200\n"
+"PO-Revision-Date: 2013-03-14 11:56+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -5660,7 +5660,6 @@ msgid "Connect without password"
 msgstr "Σύνδεση χωρίς κωδικό πρόσβασης"
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5674,10 +5673,7 @@ msgid ""
 msgstr ""
 "Μπορείτε να χρησιμοποιήσετε χαρακτήρες μπαλαντέρ MySQL (% και _), με ανάποδη "
 "κάθετο χρησιμοποιήστε τα ως κανονικούς χαρακτήρες, π.χ. χρησιμοποιήστε "
-"[kbd]'my\\_db[/kbd]' και όχι [kbd]'my_db[/kbd]'. Με χρήση αυτής της επιλογής "
-"μπορείτε να ταξινομήσετε τις βάσεις δεδομένων, απλά εισάγοντας τα ονόματά "
-"τους σε σειρά και χρησιμοποιώντας το [kbd]*[/kbd] στο τέλος για να δείξετε "
-"τις υπόλοιπες σε αλφαβητική σειρά."
+"[kbd]'my\\_db[/kbd]' και όχι [kbd]'my_db[/kbd]'."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
