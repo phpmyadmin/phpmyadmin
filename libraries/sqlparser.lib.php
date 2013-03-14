@@ -2897,7 +2897,8 @@ function PMA_SQP_formatNone($arr)
  *
  * @return boolean whether true or false
  */
-function PMA_SQP_isKeyWord($column) {
+function PMA_SQP_isKeyWord($column)
+{
     global $PMA_SQPdata_forbidden_word;
     return in_array(strtoupper($column), $PMA_SQPdata_forbidden_word);
 }
