@@ -107,7 +107,10 @@ if (! empty($goto)) {
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . PMA_generate_common_url($db)
-        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table)) ? '&amp;table=' . urlencode($table) : '');
+        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
+            ? '&amp;table=' . urlencode($table)
+            : ''
+        );
 } // end if
 
 // Coming from a bookmark dialog
@@ -229,7 +232,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select = '';
        
     //converts characters of $_REQUEST['curr_value'] to HTML entities
-    $converted_curr_value = htmlentities($_REQUEST['curr_value'], ENT_COMPAT, "UTF-8");
+    $converted_curr_value = htmlentities(
+        $_REQUEST['curr_value'], ENT_COMPAT, "UTF-8"
+    );
 
     $selected_values = explode(',', $converted_curr_value);
     
@@ -768,7 +773,8 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             && ! isset($analyzed_sql[0]['queryflags']['union'])
             && ! isset($analyzed_sql[0]['queryflags']['distinct'])
             && ! isset($analyzed_sql[0]['table_ref'][1]['table_name'])
-            && (empty($analyzed_sql[0]['where_clause']) || $analyzed_sql[0]['where_clause'] == '1 ')
+            && (empty($analyzed_sql[0]['where_clause'])
+            || $analyzed_sql[0]['where_clause'] == '1 ')
             && ! isset($find_real_end)
         ) {
             // "j u s t   b r o w s i n g"
@@ -1162,7 +1168,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         // pma_token/url_query needed for chart export
         echo '<script type="text/javascript">';
         echo 'pma_token = \'' . $_SESSION[' PMA_token '] . '\';';
-        echo 'url_query = \'' . (isset($url_query) ? $url_query : PMA_generate_common_url($db)) . '\';';
+        echo 'url_query = \''
+            . (isset($url_query) ? $url_query : PMA_generate_common_url($db))
+            . '\';';
         echo 'AJAX.registerOnload(\'sql.js\',makeProfilingChart);';
         echo '</script>';
 
@@ -1186,9 +1194,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
                 . 's</td>' .  "\n";
             if (isset($chart_json[ucwords($one_result['Status'])])) {
-                $chart_json[ucwords($one_result['Status'])] += $one_result['Duration'];
+                $chart_json[ucwords($one_result['Status'])]
+                    += $one_result['Duration'];
             } else {
-                $chart_json[ucwords($one_result['Status'])] = $one_result['Duration'];
+                $chart_json[ucwords($one_result['Status'])]
+                    = $one_result['Duration'];
             }
         }
 
@@ -1224,14 +1234,22 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $disp_mode = 'urdr111101';
     }
 
-    $resultSetContainsUniqueKey = PMA_resultSetContainsUniqueKey($db, $table, $fields_meta);
+    $resultSetContainsUniqueKey = PMA_resultSetContainsUniqueKey(
+        $db, $table, $fields_meta
+    );
 
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
     if (PMA_is_system_schema($db) || ! $resultSetContainsUniqueKey) {
         $disp_mode = 'nnnn110111';
-        $msg = PMA_message::notice(__('This table does not contain a unique column. Grid edit, checkbox, Edit, Copy and Delete features are not available.'));
+        $msg = PMA_message::notice(
+            __(
+                'This table does not contain a unique column.'
+                . ' Grid edit, checkbox, Edit, Copy and Delete features'
+                . ' are not available.'
+            )
+        );
         $msg->display();
     }
 
@@ -1546,8 +1564,9 @@ function getTableHtmlForMultipleQueries(
                 && ! isset($analyzed_sql[0]['queryflags']['offset'])
                 && empty($analyzed_sql[0]['limit_clause'])
             ) {
-                $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+                $sql_limit_to_append = ' LIMIT '
+                    . $_SESSION['tmp_user_values']['pos']
+                    . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
                 $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
                     $sql_data['valid_sql'][$sql_no],
                     $analyzed_sql,
