@@ -241,7 +241,7 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     foreach ($values as $value) {       
         $select .= '<option value="' . $value . '"';
         if ($value == $converted_curr_value 
-            || in_array($value , $selected_values , true)
+            || in_array($value, $selected_values, true)
         ) {
             $select .= ' selected="selected" ';
         }
