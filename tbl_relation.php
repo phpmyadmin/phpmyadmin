@@ -172,7 +172,9 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // remove existing key 
                 $sql_query_drop  = 'ALTER TABLE ' . PMA_Util::backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
+                    . PMA_Util::backquote(
+                        $existrel_foreign[$master_field]['constraint']
+                    );
                 $sql_query_drop .= ';';
                 $display_query .= $sql_query_drop . "\n";
             } // end if...
@@ -185,7 +187,9 @@ if (isset($_REQUEST['destination_foreign'])) {
             $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
             // if user entered a constraint name
             if (! empty($_REQUEST['constraint_name'][$master_field_md5])) {
-                $sql_query .= ' CONSTRAINT ' . PMA_Util::backquote($_REQUEST['constraint_name'][$master_field_md5]);
+                $sql_query .= ' CONSTRAINT ' . PMA_Util::backquote(
+                    $_REQUEST['constraint_name'][$master_field_md5]
+                );
             }
             $sql_query .= ' FOREIGN KEY ('
                 . PMA_Util::backquote($master_field) . ')'
@@ -205,7 +209,9 @@ if (isset($_REQUEST['destination_foreign'])) {
         } elseif (isset($existrel_foreign[$master_field])) {
             $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table)
                 . ' DROP FOREIGN KEY '
-                . PMA_Util::backquote($existrel_foreign[$master_field]['constraint']);
+                . PMA_Util::backquote(
+                    $existrel_foreign[$master_field]['constraint']
+                );
             $sql_query .= ';';
             $display_query .= $sql_query . "\n";
         } // end if... else....
@@ -244,11 +250,20 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // a rollback may be better here
                 $sql_query_recreate = 'ALTER TABLE ' . PMA_Util::backquote($table)
                     . ' ADD '
-                    . ' CONSTRAINT ' . PMA_Util::backquote($existrel_foreign[$master_field]['constraint'])
+                    . ' CONSTRAINT ' . PMA_Util::backquote(
+                        $existrel_foreign[$master_field]['constraint']
+                    )
                     . ' FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
-                    . ' REFERENCES ' . PMA_Util::backquote($existrel_foreign[$master_field]['foreign_db'])
-                    . '.' . PMA_Util::backquote($existrel_foreign[$master_field]['foreign_table'])
-                    . '(' . PMA_Util::backquote($existrel_foreign[$master_field]['foreign_field']) . ')';
+                    . ' REFERENCES ' . PMA_Util::backquote(
+                        $existrel_foreign[$master_field]['foreign_db']
+                    )
+                    . '.' . PMA_Util::backquote(
+                        $existrel_foreign[$master_field]['foreign_table']
+                    )
+                    . '(' . PMA_Util::backquote(
+                        $existrel_foreign[$master_field]['foreign_field']
+                    )
+                    . ')';
                 if (! empty($existrel_foreign[$master_field]['on_delete'])) {
                     $sql_query_recreate .= ' ON DELETE '
                         . $existrel_foreign[$master_field]['on_delete'];
@@ -481,9 +496,14 @@ if (count($columns) > 0) {
                     // need to PMA_Util::backquote to support a dot character inside
                     // an element
                     $foreign_field = PMA_Util::backquote(
-                        $existrel_foreign[$myfield]['foreign_db']) . '.'
-                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
-                        . PMA_Util::backquote($existrel_foreign[$myfield]['foreign_field']);
+                        $existrel_foreign[$myfield]['foreign_db']
+                    )
+                    . '.' . PMA_Util::backquote(
+                        $existrel_foreign[$myfield]['foreign_table']
+                    )
+                    . '.' . PMA_Util::backquote(
+                        $existrel_foreign[$myfield]['foreign_field']
+                    );
                 } else {
                     $foreign_field    = false;
                 }
