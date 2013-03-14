@@ -1470,16 +1470,20 @@ function PMA_getTableNameBySQL($sql, $tables)
  * Generate table html when SQL statement have multiple queries
  * which return displayable results
  *
- * @param PMA_DisplayResults $displayResultsObject object
- * @param string             $db                   database name
- * @param array              $sql_data             information about SQL statement
- * @param string             $goto                 URL to go back in case of errors
- * @param string             $pmaThemeImage        path for theme images directory
- * @param string             $text_dir             text direction
- * @param string             $printview            whether printview is enabled
- * @param string             $url_query            URL query
- * @param array              $disp_mode            the display mode
- * @param string             $sql_limit_to_append  limit clause
+ * @param PMA_DisplayResults $displayResultsObject       object
+ * @param string             $db                         database name
+ * @param array              $sql_data                   information about
+ *                                                        SQL statement
+ * @param string             $goto                       URL to go back in case
+ *                                                        of errors
+ * @param string             $pmaThemeImage              path for theme images
+ *                                                        directory
+ * @param string             $text_dir                   text direction
+ * @param string             $printview                  whether printview is enabled
+ * @param string             $url_query                  URL query
+ * @param array              $disp_mode                  the display mode
+ * @param string             $sql_limit_to_append        limit clause
+ * @param bool               $resultSetContainsUniqueKey result contains a unique key
  *
  * @return string   $table_html   html content
  */
@@ -1705,9 +1709,9 @@ function PMA_getColumnNameInColumnDropSql($sql)
  * Verify whether the result set contains all the columns 
  * of at least one unique key
  *
- * @param string $db
- * @param string $table
- * @param string $fields_meta
+ * @param string $db          database name
+ * @param string $table       table name
+ * @param string $fields_meta meta fields
  *
  * @return boolean whether the result set contains a unique key
  */
