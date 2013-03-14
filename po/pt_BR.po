@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-07 12:17+0200\n"
-"Last-Translator: Widelan França <widelan.game@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2013-03-14 17:22+0200\n"
+"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5436,7 +5436,6 @@ msgid "Authentication type"
 msgstr "Tipo de autenticação"
 
 #: libraries/config/messages.inc.php:374
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5444,15 +5443,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bookmark[/a] suporte, sugestão: [kbd]pma_bookmark[/kbd]"
+"Deixe em branco quando não há suporte "
+"a[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a], sugestão: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:375
 msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5460,7 +5459,7 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Deixe em branco quando não houver colunas de comentário/mime type, sugestão: "
+"Deixe em branco quando não houver comentário/mime type, sugestão: "
 "[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:377
@@ -5521,7 +5520,6 @@ msgid "Count tables"
 msgstr "Contar tabelas"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5529,8 +5527,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco quando não há de Desenho, sugestão: [kbd]pma_designer_coords"
-"[/kbd]"
+"Deixe em branco quando não houver suporte ao Designer, sugestão: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:390
 msgid "Designer table"
@@ -5566,7 +5564,6 @@ msgid "Hide databases"
 msgstr "Ocultar bancos de dados"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5574,7 +5571,7 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Deixe em branco se não há suporte a histórico de consulta SQL, sugestão: "
+"Deixe em branco se não houver suporte a histórico de consulta SQL, sugestão: "
 "[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:398
@@ -5614,7 +5611,6 @@ msgid "Connect without password"
 msgstr "Conectar sem senha"
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5626,11 +5622,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Voce pode usar coringas MySQL (% e _), use caractere de escape neles se você "
-"deseja caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não [kbd]'meu_db'[/"
-"kbd]. Usando esta opção você pode ordenar a lista de banco de dados, apenas "
-"entre seus nomes em ordem e use  [kbd]*[/kbd] no final para exibir os "
-"restantes em ordem alfabética."
+"Voce pode usar coringas MySQL (% e _), utilise caractere de escape desejar "
+"usar o caractere literal, ex: use [kbd]'meu\\_db'[/kbd] e não "
+"[kbd]'meu_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -5645,13 +5639,13 @@ msgid "Password for config auth"
 msgstr "Senha para config auth"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Deixe em branco se não há suporte a PDF, sugestão: [kbd]pma_pdf_pages[/kbd]"
+"Deixe em branco se não houver suporte a PDF, sugestão: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:411
 msgid "PDF schema: pages table"
@@ -5680,7 +5674,6 @@ msgid "Server port"
 msgstr "Porta do servidor"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma_recent[/kbd]"
@@ -5688,15 +5681,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
-"Deixe em branco se não houver persistência recentemente usada entre as "
-"sessões, sugestão: [kbd]pma_recent[/kbd]"
+"Deixe em branco se não houver tabelas \"persistent\" recentemente usadas entre "
+"as sessões, sugestão: [kbd]pma_recent[/kbd]"
 
 #: libraries/config/messages.inc.php:417
 msgid "Recently used table"
 msgstr "Tabelas recentemente utilizadas"
 
 #: libraries/config/messages.inc.php:418
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
@@ -5704,8 +5696,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deixe em branco se não houver [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a] suporte, sugestão: [kbd]pma_relation[/kbd]"
+"Deixe em branco se não houver suporte a "
+"[a@http://wiki.phpmyadmin.net/pma/relation]relation-links[/a], sugestão: "
+"[kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:419
 msgid "Relation table"
@@ -5752,7 +5745,6 @@ msgid "Use SSL"
 msgstr "Utilizar SSL"
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
@@ -5760,15 +5752,14 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco se não houver suporte a esquema PDF, sugestão: [kbd]"
-"pma_table_coords[/kbd]"
+"Deixe em branco se não houver suporte a esquema PDF, sugestão: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:430
 msgid "PDF schema: table coordinates"
 msgstr "Esquema PDF: tabela coordenadas"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma_table_info[/kbd]"
@@ -5776,15 +5767,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"Tabela que descreve a exibição de colunas, deixe em branco quando houver "
-"suporte; sugestão: [kbd]pma_table_info[/kbd]"
+"Tabela que descreve as colunas de exibição, deixe em branco quando não "
+"houver suporte; sugestão: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
 msgstr "Exibir colunas da tabela"
 
 #: libraries/config/messages.inc.php:433
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma_table_uiprefs[/kbd]"
@@ -5792,8 +5782,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Deixe em branco se não houver tabelas persistentes UI nas preferências entre "
-"sessões, sugestão:  [kbd]pma_table_uiprefs[/kbd]"
+"Deixe em branco se não houver preferencias de UI das tabelas persistentes "
+"entre sessões, sugestão:  [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5844,7 +5834,6 @@ msgid "Statements to track"
 msgstr "Comandos a rastrear"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma_tracking[/kbd]"
@@ -5853,7 +5842,7 @@ msgid ""
 "[/kbd]"
 msgstr ""
 "Deixe em branco se não houver suporte a rastrear consultas SQL, sugestão: "
-"[kbd]pma_tracking[/kbd]"
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
@@ -5872,7 +5861,6 @@ msgid "Automatically create versions"
 msgstr "Criar versões automáticamente"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma_userconfig[/kbd]"
@@ -5880,8 +5868,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
-"Deixe em branco quando não houver preferência armazenamento no banco de "
-"dados, sugestão: [kbd]pma_userconfig[/kbd]"
+"Deixe em branco quando não houver aramzenamento de preferências do usuáriono "
+"banco de dados, sugestão: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
