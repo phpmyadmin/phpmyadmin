@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2013-01-08 20:53+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
 ">\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.4-dev\n"
 
@@ -80,7 +80,7 @@ msgstr "Cerca"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -626,8 +626,8 @@ msgstr ""
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Stai probabilmente cercando di caricare sul server un file troppo grande. "
 "Fai riferimento alla %sdocumentazione%s se desideri aggirare questo limite."
@@ -921,8 +921,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sul server è in esecuzione Suhosin. Controlla la documentazione: %"
-"sdocumentation%s per possibili problemi."
+"Sul server è in esecuzione Suhosin. Controlla la documentazione: "
+"%sdocumentation%s per possibili problemi."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:350
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -979,7 +979,7 @@ msgid "Add %s column(s) to index"
 msgstr "Aggiungi %s campo/i all'indice"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
 msgstr "Valori per asse Y"
 
@@ -2530,11 +2530,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Ultima"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
 msgstr "Riga iniziale"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
 msgstr "Numero di righe"
 
@@ -2655,8 +2655,8 @@ msgstr "nella query"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Questa vista ha, come minimo, questo numero di righe. Per informazioni "
 "controlla la %sdocumentazione%s."
@@ -2721,7 +2721,7 @@ msgstr "Visualizza per stampa"
 msgid "Print view (with full texts)"
 msgstr "Vista stampa (con full text)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Mostra diagramma"
 
@@ -2868,7 +2868,7 @@ msgstr ""
 "Sembra che gli indici %1$s e %2$s sono uguali ed uno di questi potrebbe, "
 "possibilmente, essere rimosso."
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -2998,7 +2998,7 @@ msgstr "Motori"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "Errore"
@@ -3377,14 +3377,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5660,12 +5660,17 @@ msgid "Connect without password"
 msgstr "Effettua connessione senza la parola chiave"
 
 #: libraries/config/messages.inc.php:406
+#, fuzzy
+#| msgid ""
+#| "You can use MySQL wildcard characters (% and _), escape them if you want "
+#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
+#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
+#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 "Puoi utilizzare i caratteri jolly di MySQL (% e _), prefissali con una barra "
 "rovesciata '\\' se vuoi utilizzarli nel loro senso letterale, ad esempio "
@@ -6577,8 +6582,8 @@ msgstr ", @TABLE@ diventerá il nome della tabella"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Questo valore è interpretato usando %1$sstrftime%2$s: in questo modo puoi "
 "usare stringhe di formattazione per le date/tempi. Verranno anche aggiunte "
@@ -7113,8 +7118,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentazione ed ulteriori informazioni a riguardo di PBXT é disponibile "
 "su %sPrimeBase XT Home Page%s."
@@ -7796,8 +7801,8 @@ msgstr "Benvenuto in %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La ragione di questo è che probabilmente non hai creato alcun file di "
 "configurazione. Potresti voler usare %1$ssetup script%2$s per crearne uno."
@@ -9715,8 +9720,8 @@ msgstr "Vista d'insieme degli utenti"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "N.B.: phpMyAdmin legge i privilegi degli utenti direttamente nella tabella "
 "dei privilegi di MySQL. Il contenuto di questa tabella può differire dai "
@@ -12130,10 +12135,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - %"
-"saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia%s. "
-"Comunque, la protezione a base di IP potrebbe non essere affidabile se il "
-"tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
+"Se credi che é necessario, usa delle ulteriori impostazioni di protezione - "
+"%saimpostazioni di autenticazione dei host%s e %slista di proxy di fiducia"
+"%s. Comunque, la protezione a base di IP potrebbe non essere affidabile se "
+"il tuo IP appartiene ad un ISP dove migliaia di utenti, incluso te, sono "
 "connessi."
 
 #: setup/lib/index.lib.php:316
@@ -12148,8 +12153,8 @@ msgstr ""
 "Hai impostato il tipo di autenticazione [kbd]config[/kbd] e hai inclusi il "
 "nome utente e la parola chiave per l'auto-login, questo non è desiderato per "
 "gli host in uso live. Chiunque che conosce o indovina il tuo URL di "
-"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta %"
-"sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta "
+"%sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12246,81 +12251,81 @@ msgstr "Problemi con gli indici della tabella `%s`"
 msgid "Label"
 msgstr "Etichetta"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 msgid "No data to display"
 msgstr "Nessun dato da visualizzare"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:140
+#: tbl_chart.php:124
+msgid "No numeric columns present in the table to plot."
+msgstr ""
+
+#: tbl_chart.php:154
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Barre"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:156
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Campo"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linea"
 
-#: tbl_chart.php:147
+#: tbl_chart.php:161
 #, fuzzy
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
-#: tbl_chart.php:149
+#: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:152
+#: tbl_chart.php:166
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "A torta"
 
-#: tbl_chart.php:156
+#: tbl_chart.php:170
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Tempo"
 
-#: tbl_chart.php:163
+#: tbl_chart.php:177
 msgid "Stacked"
 msgstr "Sovrapposti"
 
-#: tbl_chart.php:166
+#: tbl_chart.php:180
 msgid "Chart title"
 msgstr "Titolo del grafico"
 
-#: tbl_chart.php:174
+#: tbl_chart.php:184
 msgid "X-Axis:"
 msgstr "Asse X:"
 
-#: tbl_chart.php:189
+#: tbl_chart.php:200
 msgid "Series:"
 msgstr "Serie:"
 
-#: tbl_chart.php:209
-msgid "No numeric columns present in the table to plot."
-msgstr ""
-
-#: tbl_chart.php:225
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr "Etichetta per l'asse X:"
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 msgid "X Values"
 msgstr "Valori per asse X"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr "Etichetta per l'asse Y:"
 
@@ -13015,12 +13020,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Il rapporto corrente tra la memoria libera nella cache delle query e la "
-"dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra l'80%"
-"%"
+"dimensione totale della cache delle query è %s%%. Dovrebbe essere sopra "
+"l'80%%"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -13178,8 +13183,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% di tutti gli ordinamenti causano la creazione di tabelle temporanee, "
 "questo valore dovrebbe essere inferiore al 10%%."
@@ -14421,8 +14426,8 @@ msgstr "concurrent_insert è impostato a 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Sei sicuro di voler disabilitare tutte le referenze BLOB per il database %"
-#~ "s?"
+#~ "Sei sicuro di voler disabilitare tutte le referenze BLOB per il database "
+#~ "%s?"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Errore sconosciuto durante il caricamento del file."

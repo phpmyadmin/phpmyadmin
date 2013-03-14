@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2013-03-06 13:26+0200\n"
 "Last-Translator: Axel Sjøstedt <axel-pma@sjostedt.no>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/nb/>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -78,7 +78,7 @@ msgstr "Søk"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -617,11 +617,11 @@ msgstr ""
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Fila du forsøkte å laste opp var sannsynligvis for stor. Sjekk %"
-"sdokumentasjonen%s for å omgå denne begrensningen."
+"Fila du forsøkte å laste opp var sannsynligvis for stor. Sjekk "
+"%sdokumentasjonen%s for å omgå denne begrensningen."
 
 #: import.php:239 import.php:504
 msgid "Showing bookmark"
@@ -959,7 +959,7 @@ msgid "Add %s column(s) to index"
 msgstr "Legg %s kolonne(r) til index"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
 msgstr "Y-verdier"
 
@@ -2477,11 +2477,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Siste"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
 msgstr "Startrad"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
 msgstr "Antall rader"
 
@@ -2606,8 +2606,8 @@ msgstr "i spørring"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4939
@@ -2670,7 +2670,7 @@ msgstr "Utskriftsvennlig forhåndsvisning"
 msgid "Print view (with full texts)"
 msgstr "Forhåndsvisning (med all tekst)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Vis diagram"
 
@@ -2731,8 +2731,8 @@ msgstr "Ukjent feil oppstod under filopplastingen."
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Feil oppstod under forsøk på flytting av den opplastede fila, se [doc@faq1-"
-"11]FAQ 1.11[/doc]"
+"Feil oppstod under forsøk på flytting av den opplastede fila, se "
+"[doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -2821,7 +2821,7 @@ msgstr ""
 "Indeksene %1$s og %2$s ser ut til å være like og en av dem burde kunne "
 "fjernes."
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -2951,7 +2951,7 @@ msgstr "Motorer"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "Feil"
@@ -3329,14 +3329,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5594,12 +5594,17 @@ msgid "Connect without password"
 msgstr "Koble til uten passord"
 
 #: libraries/config/messages.inc.php:406
+#, fuzzy
+#| msgid ""
+#| "You can use MySQL wildcard characters (% and _), escape them if you want "
+#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
+#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
+#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 "Du kan sortere listen ved å legge inn navnene på databasene i rekkefølge, og "
 "bruke [kbd]*[/kbd] til slutt for å vise resten i alfabetisk rekkefølge.\n"
@@ -6473,8 +6478,8 @@ msgstr ", @TABLE@ vil bli tabellnavnet"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -7002,8 +7007,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7710,8 +7715,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -9693,8 +9698,8 @@ msgstr "Brukeroversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -10075,8 +10080,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
-"stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på "
+"%stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:170
 msgid "Transformation options"
@@ -12159,8 +12164,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
-"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
+"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -12291,98 +12296,98 @@ msgstr "Problemer med indeksene i tabellen `%s`"
 msgid "Label"
 msgstr "Navn"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "Ingen data funnet"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:140
+#: tbl_chart.php:124
+msgid "No numeric columns present in the table to plot."
+msgstr ""
+
+#: tbl_chart.php:154
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Mar"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:156
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolonne"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
 msgstr ""
 
-#: tbl_chart.php:147
+#: tbl_chart.php:161
 #, fuzzy
 #| msgid "Inline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Inline"
 
-#: tbl_chart.php:149
+#: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:152
+#: tbl_chart.php:166
 #, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "PiB"
 
-#: tbl_chart.php:156
+#: tbl_chart.php:170
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Tid"
 
-#: tbl_chart.php:163
+#: tbl_chart.php:177
 #, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
 msgstr "Pakket"
 
-#: tbl_chart.php:166
+#: tbl_chart.php:180
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "Rapporttittel"
 
-#: tbl_chart.php:174
+#: tbl_chart.php:184
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:189
+#: tbl_chart.php:200
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series:"
 msgstr "SQL spørringer"
 
-#: tbl_chart.php:209
-msgid "No numeric columns present in the table to plot."
-msgstr ""
-
-#: tbl_chart.php:225
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Verdi"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr ""
 
@@ -13077,8 +13082,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13213,8 +13218,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14352,8 +14357,8 @@ msgstr "maks. samtidige tilkoblinger"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %"
-#~ "s?"
+#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."

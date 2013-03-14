@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2013-01-18 00:58+0200\n"
 "Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
 ">\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Weblate 1.4-dev\n"
@@ -80,7 +80,7 @@ msgstr "Caută"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -633,11 +633,11 @@ msgstr ""
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la %"
-"sdocumentație%s pentru căi de ocolire a acestei limite."
+"Probabil ați încercat să încărcați un fișier prea mare. Faceți referire la "
+"%sdocumentație%s pentru căi de ocolire a acestei limite."
 
 #: import.php:239 import.php:504
 msgid "Showing bookmark"
@@ -984,7 +984,7 @@ msgid "Add %s column(s) to index"
 msgstr "Adaugă %d coloană(e)"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
@@ -2640,13 +2640,13 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Sfîrșit"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 #, fuzzy
 #| msgid "Start"
 msgid "Start row"
 msgstr "Dum"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 #, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
@@ -2779,8 +2779,8 @@ msgstr "în interogarea"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Această vedere are minim acest număr de rânduri. Vedeți %sdocumentation%s."
 
@@ -2844,7 +2844,7 @@ msgstr "Vizualizare imprimare"
 msgid "Print view (with full texts)"
 msgstr "Vizualizare listare (împreună cu text)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
@@ -2996,7 +2996,7 @@ msgid ""
 "removed."
 msgstr "Indecșii %1$s și %2$s par a fi egali și unul din ei poate fi șters."
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -3127,7 +3127,7 @@ msgstr "Motoare"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "Eroare"
@@ -3515,14 +3515,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5898,12 +5898,17 @@ msgid "Connect without password"
 msgstr "Conectează fără parolă"
 
 #: libraries/config/messages.inc.php:406
+#, fuzzy
+#| msgid ""
+#| "You can use MySQL wildcard characters (% and _), escape them if you want "
+#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
+#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
+#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 "Puteți folosi caracterele wildcard MySQL (% și _), faceți escape dacă doriți "
 "să folosiți instanțele lor literale, adică folosiți [kbd]'my\\_db'[/kbd] și "
@@ -6834,17 +6839,17 @@ msgstr ", @TABLE@ va deveni numele tabelei"
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: %3"
-#| "$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Această valoare este interpretată folosind %1$sstrftime%2$s, ca sa puteţi "
 "folosi şiruri de formatare a timpului. În plus, următoarele transformări vor "
-"avea loc: %3$s. Orice alt text va fi păstrat aşa cum este. Vedeţi %4$sFAQ%5"
-"$s pentru detalii."
+"avea loc: %3$s. Orice alt text va fi păstrat aşa cum este. Vedeţi %4$sFAQ"
+"%5$s pentru detalii."
 
 #: libraries/display_export.lib.php:330
 msgid "use this for future exports"
@@ -7380,8 +7385,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -8100,8 +8105,8 @@ msgstr "Bine ați venit la %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Motivul probabil pentru aceasta este că nu ați creat un fișier de "
 "configurare. Puteți folosi %1$s vrăjitorul de setări %2$s pentru a crea un "
@@ -10103,8 +10108,8 @@ msgstr "Descriere utilizator"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Notă: phpMyAdmin folosește privilegiile utilizatorilor direct din tabelul de "
 "privilegii din MySQL. Conținutul acestui tabel poate diferi de cel original. "
@@ -12491,97 +12496,97 @@ msgstr "Probleme cu indexul tabelului `%s`"
 msgid "Label"
 msgstr "Etichetă"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 #, fuzzy
 #| msgid "No databases"
 msgid "No data to display"
 msgstr "Nu sînt baze de date"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:140
+#: tbl_chart.php:124
+msgid "No numeric columns present in the table to plot."
+msgstr ""
+
+#: tbl_chart.php:154
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Mar"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:156
 #, fuzzy
 #| msgid "Column names"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Denumirile coloanelor"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
 msgstr ""
 
-#: tbl_chart.php:147
+#: tbl_chart.php:161
 #, fuzzy
 #| msgid "Engines"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Motoare"
 
-#: tbl_chart.php:149
+#: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:152
+#: tbl_chart.php:166
 #, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "PiO"
 
-#: tbl_chart.php:156
+#: tbl_chart.php:170
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Timp"
 
-#: tbl_chart.php:163
+#: tbl_chart.php:177
 #, fuzzy
 #| msgid "Packed"
 msgid "Stacked"
 msgstr "Împachetat"
 
-#: tbl_chart.php:166
+#: tbl_chart.php:180
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "Titlu raport"
 
-#: tbl_chart.php:174
+#: tbl_chart.php:184
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:189
+#: tbl_chart.php:200
 #, fuzzy
 msgid "Series:"
 msgstr "Comanda SQL"
 
-#: tbl_chart.php:209
-msgid "No numeric columns present in the table to plot."
-msgstr ""
-
-#: tbl_chart.php:225
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "Valoare"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr ""
 
@@ -13284,8 +13289,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Raportul curent dintre memoria cache liberă a interogărilor și memoria cache "
 "totală a interogărilor este %s%%. Ar trebui să fie peste 80%%"
@@ -13456,8 +13461,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% din sortări au generat tabele temporare, această valoare ar trebui să "
 "fie mai mică de 10%%."
@@ -14112,8 +14117,8 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
-"% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
+"De obicei, este suficientă setarea propietății {innodb_log_file_size} la "
+"25%% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
 "distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
 "href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"

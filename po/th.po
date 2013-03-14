@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2012-11-12 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.3-dev\n"
 
@@ -77,7 +77,7 @@ msgstr "ค้นหา"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -608,8 +608,8 @@ msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้ "
@@ -936,7 +936,7 @@ msgid "Add %s column(s) to index"
 msgstr "ทำดัชนีใน สดมส์นี้ %d"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
@@ -2464,13 +2464,13 @@ msgctxt "Last page"
 msgid "End"
 msgstr "ท้ายสุด"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 #, fuzzy
 #| msgid "Start"
 msgid "Start row"
 msgstr "ส."
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows"
@@ -2604,8 +2604,8 @@ msgstr "ในคำค้น"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
 #: libraries/DisplayResults.class.php:4939
@@ -2668,7 +2668,7 @@ msgstr "แสดง"
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
@@ -2816,7 +2816,7 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -2949,7 +2949,7 @@ msgstr ""
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -3332,14 +3332,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5565,9 +5565,7 @@ msgstr ""
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:407
@@ -6401,8 +6399,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:330
@@ -6881,8 +6879,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
@@ -7582,8 +7580,8 @@ msgstr "%s ยินดีต้อนรับ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
 "เพื่อสร้างอย่างใดอย่างหนึ่ง"
@@ -9475,8 +9473,8 @@ msgstr "ข้อมูลทั่วไปของผู้ใช้"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3013
@@ -11824,93 +11822,93 @@ msgstr ""
 msgid "Label"
 msgstr "ป้ายชื่อ"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 #, fuzzy
 #| msgid "No data found"
 msgid "No data to display"
 msgstr "ไม่มีข้อมูล"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:140
+#: tbl_chart.php:124
+msgid "No numeric columns present in the table to plot."
+msgstr ""
+
+#: tbl_chart.php:154
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "มี.ค."
 
-#: tbl_chart.php:142
+#: tbl_chart.php:156
 #, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "สดมภ์"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
 msgstr ""
 
-#: tbl_chart.php:147
+#: tbl_chart.php:161
 msgctxt "Chart type"
 msgid "Spline"
 msgstr ""
 
-#: tbl_chart.php:149
+#: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:152
+#: tbl_chart.php:166
 #, fuzzy
 #| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "เพตตะไบต์"
 
-#: tbl_chart.php:156
+#: tbl_chart.php:170
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "เวลา"
 
-#: tbl_chart.php:163
+#: tbl_chart.php:177
 msgid "Stacked"
 msgstr ""
 
-#: tbl_chart.php:166
+#: tbl_chart.php:180
 #, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
 msgstr "นำเข้าไฟล์"
 
-#: tbl_chart.php:174
+#: tbl_chart.php:184
 msgid "X-Axis:"
 msgstr ""
 
-#: tbl_chart.php:189
+#: tbl_chart.php:200
 #, fuzzy
 msgid "Series:"
 msgstr "คำค้น SQL"
 
-#: tbl_chart.php:209
-msgid "No numeric columns present in the table to plot."
-msgstr ""
-
-#: tbl_chart.php:225
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr ""
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 #, fuzzy
 #| msgid "Value"
 msgid "X Values"
 msgstr "ค่า"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr ""
 
@@ -12571,8 +12569,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -12704,8 +12702,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -13411,8 +13409,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า 60%"
-"% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
+"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า "
+"60%% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
 "มากหรือบริการอื่นๆ ที่ทำงานบนเครื่องเดียวกัน"
 
 #: libraries/advisory_rules.txt:459
@@ -13805,8 +13803,8 @@ msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%"
-#~ "s"
+#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere"
+#~ "%s"
 
 #~ msgid "No tables"
 #~ msgstr "ไม่มีตาราง"

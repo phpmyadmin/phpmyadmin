@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2013-02-13 18:54+0200\n"
 "Last-Translator: Andrey Prokopenko <aprk@ukr.net>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
@@ -80,7 +80,7 @@ msgstr "Шукати"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -624,8 +624,8 @@ msgstr ""
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Імовірно ви намагаєтесь завантажити занадто великий файл. Будь ласка "
 "зверніться до %sдокументації%s для знаходження шляхів вирішення цієї "
@@ -911,8 +911,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до %"
-"sdocumentation%s."
+"Сервер, що працює з Suhosin. Щодо можливих проблем звертайтеся до "
+"%sdocumentation%s."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:350
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -969,7 +969,7 @@ msgid "Add %s column(s) to index"
 msgstr "Додати до індексу %s стовпчик(ів)"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
 msgstr "Значення Y"
 
@@ -1282,8 +1282,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за %"
-"d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
+"slow_query_log ввімкнений, але сервер журналює тільки запити що є довші за "
+"%d секунди. Рекомендовано встановити long_query_time 0-2 секунди, в "
 "залежності від вашої системи."
 
 #: js/messages.php:137
@@ -2498,11 +2498,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Кінець"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
 msgstr "Початковий рядок"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
 msgstr "Кількість рядків"
 
@@ -2623,11 +2623,11 @@ msgstr "по запиту"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до %"
-"sдокументації%s."
+"Подання має щонайменше цю кількість рядків. Будь-ласка звернітся до "
+"%sдокументації%s."
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
@@ -2689,7 +2689,7 @@ msgstr "Версія для друку"
 msgid "Print view (with full texts)"
 msgstr "Подання для друку (з повними текстами)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Відобразити діаграму"
 
@@ -2836,7 +2836,7 @@ msgstr ""
 "Схоже що індекси %1$s та %2$s ідентичні, тому один із них може бути "
 "вилученим."
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -2966,7 +2966,7 @@ msgstr "Типи таблиць"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "Помилка"
@@ -3347,14 +3347,14 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5606,12 +5606,17 @@ msgid "Connect without password"
 msgstr "З’єднуватись без паролю"
 
 #: libraries/config/messages.inc.php:406
+#, fuzzy
+#| msgid ""
+#| "You can use MySQL wildcard characters (% and _), escape them if you want "
+#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
+#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
+#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 "Ви можете використовувати підставні символи (% і _), екрануйте їх, якщо "
 "хочете використовувати, як звичайні літературні символи, тобто "
@@ -6462,13 +6467,13 @@ msgstr ", @TABLE@ буде заміщено ім'ям таблиці"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значення обробляється функцією %1$sstrftime%2$s, завдяки чому можлива "
 "вставка поточної дати і часу. Додатково можуть бути використані наступні "
-"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у %4"
-"$sFAQ%5$s."
+"підстановки: %3$s. Решта тексту залишиться без змін. Подробиці дивіться у "
+"%4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:330
 msgid "use this for future exports"
@@ -6992,8 +6997,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацію і додаткову інформацію про PBXT можна знайти на %sДомашній "
 "сторінці PrimeBase XT%s."
@@ -7691,8 +7696,8 @@ msgstr "Ласкаво просимо до %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Ви, напевно, не створили файл конфігурації. Для його створення Ви можете "
 "використати %1$ssetup script%2$s."
@@ -9594,8 +9599,8 @@ msgstr "Огляд користувачів"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примітка: phpMyAdmin отримує права користувачів безпосередньо з таблиці прав "
 "MySQL. Зміст цієї таблиці може відрізнятися від прав, які використовуються "
@@ -9969,8 +9974,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть %"
-"sописи перетворень%s"
+"Щоб отримати список можливих опцій і їх MIME-type перетворень, натисніть "
+"%sописи перетворень%s"
 
 #: libraries/tbl_columns_definition_form.inc.php:170
 msgid "Transformation options"
@@ -10867,8 +10872,8 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Увімкнення директиви general_log може збільшити навантаження на сервер на 5-"
-"15%. Також пам'ятайте, що генерування статистики з журналів є досить "
+"Увімкнення директиви general_log може збільшити навантаження на сервер на "
+"5-15%. Також пам'ятайте, що генерування статистики з журналів є досить "
 "інтенсивною задачею, тому бажано вибрати лише невеликий проміжок часу і "
 "вимикати директиву general_log і чистити таблицю щойно в моніторингу більше "
 "не має потреби."
@@ -12100,82 +12105,82 @@ msgstr "Проблеми з індексами таблиці `%s`"
 msgid "Label"
 msgstr "Мітка"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 #, fuzzy
 #| msgid "No databases"
 msgid "No data to display"
 msgstr "БД відсутні"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: tbl_chart.php:140
+#: tbl_chart.php:124
+msgid "No numeric columns present in the table to plot."
+msgstr ""
+
+#: tbl_chart.php:154
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Прямокутник"
 
-#: tbl_chart.php:142
+#: tbl_chart.php:156
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Стовпчик"
 
-#: tbl_chart.php:145
+#: tbl_chart.php:159
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Лінія"
 
-#: tbl_chart.php:147
+#: tbl_chart.php:161
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Крива"
 
-#: tbl_chart.php:149
+#: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: tbl_chart.php:152
+#: tbl_chart.php:166
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Пиріг"
 
-#: tbl_chart.php:156
+#: tbl_chart.php:170
 #, fuzzy
 #| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Час"
 
-#: tbl_chart.php:163
+#: tbl_chart.php:177
 msgid "Stacked"
 msgstr "Кладка"
 
-#: tbl_chart.php:166
+#: tbl_chart.php:180
 msgid "Chart title"
 msgstr "Назва графіку"
 
-#: tbl_chart.php:174
+#: tbl_chart.php:184
 msgid "X-Axis:"
 msgstr "Вісь X:"
 
-#: tbl_chart.php:189
+#: tbl_chart.php:200
 msgid "Series:"
 msgstr "Серії:"
 
-#: tbl_chart.php:209
-msgid "No numeric columns present in the table to plot."
-msgstr ""
-
-#: tbl_chart.php:225
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr "Мітка вісі X:"
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 msgid "X Values"
 msgstr "Значення X"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr "Мітка вісі Y:"
 
@@ -12856,8 +12861,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Поточне співвідношення вільної пам'яті кешу запитів до загального розміру "
 "кешу запитів складає %s%%. Воно має перевищувати 80%%"
@@ -13018,8 +13023,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% всіх сортувань викликає створення тимчасових таблиць, це значення має "
 "бути нижчим 10%%."
@@ -13472,8 +13477,8 @@ msgstr "Збільшити {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати 80%"
-"%"
+"Рівень успішних звернень в кеш потоку: %s%%, це значення має перевищувати "
+"80%%"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
@@ -14199,8 +14204,8 @@ msgstr "concurrent_insert встановлений у 0"
 #~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
 #~ "the server."
 #~ msgstr ""
-#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано %"
-#~ "s запитів."
+#~ "<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано "
+#~ "%s запитів."
 
 #~ msgid "Chart generated successfully."
 #~ msgstr "Права успішно перезавантажено."

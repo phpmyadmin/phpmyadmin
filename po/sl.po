@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-06 08:19-0500\n"
+"POT-Creation-Date: 2013-03-14 10:34+0100\n"
 "PO-Revision-Date: 2013-02-15 21:31+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
@@ -79,7 +79,7 @@ msgstr "Iskanje"
 #: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
-#: server_replication.php:224 server_replication.php:327 tbl_chart.php:247
+#: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
 #: tbl_indexes.php:342 tbl_tracking.php:520 tbl_tracking.php:683
 #: view_create.php:224 view_operations.php:98
 msgid "Go"
@@ -621,11 +621,11 @@ msgstr ""
 #: import.php:100
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
-"sdokumentaciji%s ogledate načine, kako obiti omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
+"%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:239 import.php:504
 msgid "Showing bookmark"
@@ -966,7 +966,7 @@ msgid "Add %s column(s) to index"
 msgstr "Dodaj %s stolpec(-cev) k indeksu"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:48 tbl_chart.php:232
+#: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
 msgstr "Vrednosti y"
 
@@ -2492,11 +2492,11 @@ msgctxt "Last page"
 msgid "End"
 msgstr "Konec"
 
-#: libraries/DisplayResults.class.php:904 tbl_chart.php:237
+#: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
 msgstr "Začetna vrstica"
 
-#: libraries/DisplayResults.class.php:908 tbl_chart.php:241
+#: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
 msgstr "Število vrstic"
 
@@ -2617,8 +2617,8 @@ msgstr "v poizvedbi"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:4939
@@ -2681,7 +2681,7 @@ msgstr "Pogled za tiskanje"
 msgid "Print view (with full texts)"
 msgstr "Pogled za tiskanje (s polnimi besedili)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:137
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
@@ -2829,7 +2829,7 @@ msgstr ""
 "Kaže, da sta indeksa %1$s in %2$s enaka, zato se enega od njiju morda lahko "
 "odstrani."
 
-#: libraries/List_Database.class.php:399 libraries/Menu.class.php:450
+#: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
 #: libraries/server_privileges.lib.php:2854 server_databases.php:138
 msgid "Databases"
@@ -2959,7 +2959,7 @@ msgstr "Pogoni"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:658
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
-#: libraries/insert_edit.lib.php:1180 tbl_chart.php:28 tbl_operations.php:184
+#: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:184
 #: tbl_relation.php:251 view_operations.php:57
 msgid "Error"
 msgstr "Napaka"
@@ -3350,20 +3350,20 @@ msgstr ""
 
 #: libraries/Types.class.php:308
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Majhno število z decimalno vejico; dovoljene so vrednosti od -3,402823466E"
 "+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
+"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:312
@@ -5622,12 +5622,17 @@ msgid "Connect without password"
 msgstr "Poveži se brez gesla"
 
 #: libraries/config/messages.inc.php:406
+#, fuzzy
+#| msgid ""
+#| "You can use MySQL wildcard characters (% and _), escape them if you want "
+#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
+#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
+#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]. Using this option you can sort database list, just enter "
-"their names in order and use [kbd]*[/kbd] at the end to show the rest in "
-"alphabetical order."
+"[kbd]'my_db'[/kbd]."
 msgstr ""
 "Uporabite lahko nadomestne znake MySQL (% in _); ubežite jih, če jih želite "
 "uporabiti dobesedno, npr. uporabite [kbd]'my\\_db'[/kbd] in ne [kbd]'my_db'[/"
@@ -6481,8 +6486,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -7005,8 +7010,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -7685,8 +7690,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -9562,8 +9567,8 @@ msgstr "Pregled uporabnikov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -12042,79 +12047,79 @@ msgstr "Težave z indeksi tabele `%s`"
 msgid "Label"
 msgstr "Oznaka"
 
-#: tbl_chart.php:42
+#: tbl_chart.php:38
 msgid "No data to display"
 msgstr "Ni podatkov za prikaz"
 
-#: tbl_chart.php:66 tbl_gis_visualization.php:24
+#: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
 msgstr "Za pridobivanje podatkov ni bil določen noben SQL."
 
-#: tbl_chart.php:140
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Vrstica"
-
-#: tbl_chart.php:142
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Stolpec"
-
-#: tbl_chart.php:145
-msgctxt "Chart type"
-msgid "Line"
-msgstr "Črta"
-
-#: tbl_chart.php:147
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Zlepek"
-
-#: tbl_chart.php:149
-msgctxt "Chart type"
-msgid "Area"
-msgstr "Ploščinski"
-
-#: tbl_chart.php:152
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "Torta"
-
-#: tbl_chart.php:156
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "Časovnica"
-
-#: tbl_chart.php:163
-msgid "Stacked"
-msgstr "Zloženi"
-
-#: tbl_chart.php:166
-msgid "Chart title"
-msgstr "Naslov grafikona"
-
-#: tbl_chart.php:174
-msgid "X-Axis:"
-msgstr "Os x:"
-
-#: tbl_chart.php:189
-msgid "Series:"
-msgstr "Serije:"
-
-#: tbl_chart.php:209
+#: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "V tabeli ni številskih stolpcev, ki bi jih bilo mogoče narisati na graf."
 
-#: tbl_chart.php:225
+#: tbl_chart.php:154
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "Vrstica"
+
+#: tbl_chart.php:156
+msgctxt "Chart type"
+msgid "Column"
+msgstr "Stolpec"
+
+#: tbl_chart.php:159
+msgctxt "Chart type"
+msgid "Line"
+msgstr "Črta"
+
+#: tbl_chart.php:161
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "Zlepek"
+
+#: tbl_chart.php:163
+msgctxt "Chart type"
+msgid "Area"
+msgstr "Ploščinski"
+
+#: tbl_chart.php:166
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "Torta"
+
+#: tbl_chart.php:170
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "Časovnica"
+
+#: tbl_chart.php:177
+msgid "Stacked"
+msgstr "Zloženi"
+
+#: tbl_chart.php:180
+msgid "Chart title"
+msgstr "Naslov grafikona"
+
+#: tbl_chart.php:184
+msgid "X-Axis:"
+msgstr "Os x:"
+
+#: tbl_chart.php:200
+msgid "Series:"
+msgstr "Serije:"
+
+#: tbl_chart.php:229
 msgid "X-Axis label:"
 msgstr "Oznaka osi x:"
 
-#: tbl_chart.php:228
+#: tbl_chart.php:232
 msgid "X Values"
 msgstr "Vrednosti x"
 
-#: tbl_chart.php:230
+#: tbl_chart.php:234
 msgid "Y-Axis label:"
 msgstr "Oznaka osi y:"
 
@@ -12787,8 +12792,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
@@ -12947,8 +12952,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
 "od 10 %%."
