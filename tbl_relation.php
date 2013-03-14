@@ -172,7 +172,7 @@ if (isset($_REQUEST['destination_foreign'])) {
             // (for example: `base2`.`table1`)
             $sql_query  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD ';
             // if user entered a constraint name
-            if(! empty($_REQUEST['constraint_name'][$master_field_md5])) {
+            if (! empty($_REQUEST['constraint_name'][$master_field_md5])) {
                 $sql_query .= ' CONSTRAINT ' . PMA_Util::backquote($_REQUEST['constraint_name'][$master_field_md5]);
             }
             $sql_query .= ' FOREIGN KEY (' . PMA_Util::backquote($master_field) . ')'
@@ -198,7 +198,7 @@ if (isset($_REQUEST['destination_foreign'])) {
         } // end if... else....
 
         if (! empty($sql_query)) {
-            if(! empty($sql_query_drop)) {
+            if (! empty($sql_query_drop)) {
                 PMA_DBI_try_query($sql_query_drop);
                 $tmp_error_drop = PMA_DBI_getError();
             }
@@ -220,7 +220,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $message->display();
                 $html_output .= PMA_Util::showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
-            if(! empty($tmp_error) && empty($tmp_error_drop)) {
+            if (! empty($tmp_error) && empty($tmp_error_drop)) {
                 // constraint might be dropped without creation of a new one
                 // a rollback may be better here
                 $sql_query_recreate  = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ADD '
