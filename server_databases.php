@@ -142,7 +142,7 @@ echo '<h2>' . "\n"
  * Create database.
  */
 if ($cfg['ShowCreateDb']) {
-    echo '<ul><li id="li_create_database">' . "\n";
+    echo '<ul><li id="li_create_database" class="no_bullets">' . "\n";
     include 'libraries/display_create_database.lib.php';
     echo '    </li>' . "\n";
     echo '</ul>' . "\n";
