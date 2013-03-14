@@ -16,14 +16,14 @@ function update_config()
     if ($('#db_select option:selected').size() == 0) {
         $('#rep').text(conf_prefix);
     } else if ($('#db_type option:selected').val() == 'all') {
-		$('#db_select option:selected').each(function() {
-			database_list += conf_ignore + $(this).val() + "\n";
-		});
-		$('#rep').text(conf_prefix + database_list);
+        $('#db_select option:selected').each(function() {
+            database_list += conf_ignore + $(this).val() + "\n";
+        });
+        $('#rep').text(conf_prefix + database_list);
     } else {
-		$('#db_select option:selected').each(function() {
-			database_list += conf_do + $(this).val() + "\n";
-		});
+        $('#db_select option:selected').each(function() {
+            database_list += conf_do + $(this).val() + "\n";
+        });
         $('#rep').text(conf_prefix + database_list);
     }
 }
