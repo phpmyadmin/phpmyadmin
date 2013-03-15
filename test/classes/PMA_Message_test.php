@@ -504,7 +504,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
 
-        $this->expectOutputString('<div class="notice">Test Message</div>');
+        $this->expectOutputString('<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Test Message</div>');
         $this->object->display();
 
         $this->assertTrue($this->object->isDisplayed());
@@ -519,7 +519,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice">Test Message</div>',
+            '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Test Message</div>',
             $this->object->getDisplay()
         );
     }
@@ -539,9 +539,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function providerAffectedRows()
     {
         return array(
-            array(1, '<div class="notice"> 1 row affected.</div>'),
-            array(2, '<div class="notice"> 2 rows affected.</div>'),
-            array(10000, '<div class="notice"> 10000 rows affected.</div>'),
+            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row affected.</div>'),
+            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows affected.</div>'),
+            array(10000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  10000 rows affected.</div>'),
         );
     }
 
@@ -567,9 +567,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function providerInsertedRows()
     {
         return array(
-            array(1, '<div class="notice"> 1 row inserted.</div>'),
-            array(2, '<div class="notice"> 2 rows inserted.</div>'),
-            array(100000, '<div class="notice"> 100000 rows inserted.</div>'),
+            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row inserted.</div>'),
+            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows inserted.</div>'),
+            array(100000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  100000 rows inserted.</div>'),
         );
     }
 
@@ -595,9 +595,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function providerDeletedRows()
     {
         return array(
-            array(1, '<div class="notice"> 1 row deleted.</div>'),
-            array(2, '<div class="notice"> 2 rows deleted.</div>'),
-            array(500000, '<div class="notice"> 500000 rows deleted.</div>'),
+            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row deleted.</div>'),
+            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows deleted.</div>'),
+            array(500000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  500000 rows deleted.</div>'),
         );
     }
 
