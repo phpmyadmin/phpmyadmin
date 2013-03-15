@@ -639,6 +639,9 @@ class PMA_Message
             }
         }
 
+        if ($this->isDisplayed()) {
+            $message = $this->getMessageWithIcon($message);
+        }
         if (count($this->getParams()) > 0) {
             $message = PMA_Message::format($message, $this->getParams());
         }
@@ -719,6 +722,28 @@ class PMA_Message
         }
 
         return $this->isDisplayed;
+    }
+    
+    /**
+     * Returns the message with corresponding image icon
+     * 
+     * @param string $message the message(s)
+     * 
+     * @return string message with icon
+     */
+    public function getMessageWithIcon($message)
+    {
+        $image = '';
+        if ('error' == $this->getLevel()) {
+            $image = 's_error.png';
+        } elseif ('success' == $this->getLevel()) {
+            $image = 's_success.png';
+        } else {
+            $image = 's_notice.png';
+        }
+        $message = PMA_Message::notice(PMA_Util::getImage($image)) . " " . $message;
+        return $message;
+        
     }
 }
 ?>
