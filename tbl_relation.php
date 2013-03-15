@@ -20,10 +20,12 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/structure.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
+$scripts->addFile('tbl_structure.js');
 
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php';
@@ -545,6 +547,13 @@ if (count($columns) > 0) {
         . '</form>';
 } // end if (we have columns in this table)
 
+$index_html = '';
+if (PMA_Util::isForeignKeySupported($tbl_storage_engine)) {
+    //division for add index
+    $index_html = '<div id="index_div" class="ajax">';
+    $index_html .= PMA_getHtmlForDisplayIndexes();
+}
+$html_output .= $index_html;
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
 

@@ -1592,6 +1592,7 @@ function PMA_getHtmlForAddColumn($columns_list)
  */
 function PMA_getHtmlForDisplayIndexes()
 {
+    require_once 'libraries/Index.class.php';
     $html_output = PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );

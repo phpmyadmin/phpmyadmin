@@ -2801,6 +2801,10 @@ function indexEditorDialog(url, title)
                 $("#sqlqueryresults").remove();
             }
             if (data.success == true) {
+                if ($("#edit_index_dialog").length > 0) {
+                    $("#edit_index_dialog").dialog("close");
+                }
+                PMA_commonActions.refreshMain(false, function () {
                 PMA_ajaxShowMessage(data.message);
                 if ($('#result_query').length) {
                     $('#result_query').remove();
@@ -2816,11 +2820,11 @@ function indexEditorDialog(url, title)
                 $("#table_index").remove();
                 var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
                 $temp_div.find("#table_index").insertAfter("#index_header");
-                if ($("#edit_index_dialog").length > 0) {
-                    $("#edit_index_dialog").dialog("close");
-                }
                 $('div.no_indexes_defined').hide();
                 PMA_reloadNavigation();
+                // expand index_div
+                $("a.ajax[href^=#indexes]").click();
+                });
             } else {
                 var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                 if ($temp_div.find(".error code").length != 0) {
