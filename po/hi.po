@@ -4675,7 +4675,7 @@ msgid "Other core settings"
 msgstr "अन्य मुख्य सेटिंग्स"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "सेटिंग्स जो कहीं भी फिट नहीं थी"
 
 #: libraries/config/messages.inc.php:190

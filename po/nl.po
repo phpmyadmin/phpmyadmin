@@ -4693,7 +4693,7 @@ msgid "Other core settings"
 msgstr "Overige instellingen"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Instellingen die onder geen andere categorie pasten"
 
 #: libraries/config/messages.inc.php:190

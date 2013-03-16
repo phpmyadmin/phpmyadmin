@@ -4681,7 +4681,7 @@ msgid "Other core settings"
 msgstr "Arventennoù pouezus all"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Arventennoù a bep seurt"
 
 #: libraries/config/messages.inc.php:190

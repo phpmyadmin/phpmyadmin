@@ -4649,7 +4649,7 @@ msgid "Other core settings"
 msgstr "Andra grundinställningar"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Inställningar som inte passade någon annanstans"
 
 #: libraries/config/messages.inc.php:190

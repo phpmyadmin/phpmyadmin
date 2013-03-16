@@ -4658,7 +4658,7 @@ msgid "Other core settings"
 msgstr "Outras configurações do núcleo"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:190

@@ -4691,7 +4691,7 @@ msgid "Other core settings"
 msgstr "Άλλες ρυθμίσεις πυρήνα"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Ρυθμίσεις που δεν ανήκουν κάπου αλλού"
 
 #: libraries/config/messages.inc.php:190

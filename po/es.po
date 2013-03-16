@@ -4722,7 +4722,7 @@ msgid "Other core settings"
 msgstr "Otros parámetros cruciales"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Parámetros que no encajaban en otra parte"
 
 #: libraries/config/messages.inc.php:190

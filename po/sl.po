@@ -4671,7 +4671,7 @@ msgid "Other core settings"
 msgstr "Druge nastavitve"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Nastavitve, ki se ne uvrščajo nikamor drugam"
 
 #: libraries/config/messages.inc.php:190

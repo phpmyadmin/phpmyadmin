@@ -4665,7 +4665,7 @@ msgid "Other core settings"
 msgstr "Diğer çekirdek ayarlar"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Başka hiçbir yere uymayan ayarlar"
 
 #: libraries/config/messages.inc.php:190

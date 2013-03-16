@@ -4604,7 +4604,7 @@ msgid "Other core settings"
 msgstr "Egyéb alapbeállítások"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "A sehova sem illő beállítások"
 
 #: libraries/config/messages.inc.php:190

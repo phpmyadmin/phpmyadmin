@@ -4559,7 +4559,7 @@ msgid "Other core settings"
 msgstr "الإعدادات الرئيسية الأخرى"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "الإعدادات التي لاتناسب في أي مكان آخر"
 
 #: libraries/config/messages.inc.php:190

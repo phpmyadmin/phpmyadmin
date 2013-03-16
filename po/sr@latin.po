@@ -4639,7 +4639,7 @@ msgid "Other core settings"
 msgstr "Ostale osnovne postavke"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Postavke koje se ne uklapaju nigde drugde"
 
 #: libraries/config/messages.inc.php:190

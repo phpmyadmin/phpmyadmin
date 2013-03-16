@@ -5062,7 +5062,7 @@ msgid "Other core settings"
 msgstr "Boshqa sozlanishlar"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Boshqa joyga sig‘magan sozlanishlar"
 
 #: libraries/config/messages.inc.php:190

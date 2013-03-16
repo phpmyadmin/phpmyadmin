@@ -4670,7 +4670,7 @@ msgid "Other core settings"
 msgstr "Muut ydinasetukset"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Asetukset, jotka eivät sovi muualle"
 
 #: libraries/config/messages.inc.php:190

@@ -4562,7 +4562,7 @@ msgid "Other core settings"
 msgstr "其他核心設定"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "其他設定"
 
 #: libraries/config/messages.inc.php:190

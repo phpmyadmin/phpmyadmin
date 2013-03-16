@@ -4601,7 +4601,7 @@ msgid "Other core settings"
 msgstr "Други основни настройки"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Настройки, които не са за другаде"
 
 #: libraries/config/messages.inc.php:190

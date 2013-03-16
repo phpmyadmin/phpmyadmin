@@ -4668,7 +4668,7 @@ msgid "Other core settings"
 msgstr "Andre kerneindstillinger"
 
 #: libraries/config/messages.inc.php:189
-msgid "Settings that didn't fit enywhere else"
+msgid "Settings that didn't fit anywhere else"
 msgstr "Indstillinger som ikke passer ind andre steder"
 
 #: libraries/config/messages.inc.php:190
