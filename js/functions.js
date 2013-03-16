@@ -2805,25 +2805,25 @@ function indexEditorDialog(url, title)
                     $("#edit_index_dialog").dialog("close");
                 }
                 PMA_commonActions.refreshMain(false, function () {
-                PMA_ajaxShowMessage(data.message);
-                if ($('#result_query').length) {
-                    $('#result_query').remove();
-                }
-                if (data.sql_query) {
-                    $('<div id="result_query"></div>')
+                    PMA_ajaxShowMessage(data.message);
+                    if ($('#result_query').length) {
+                        $('#result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div id="result_query"></div>')
                         .html(data.sql_query)
                         .prependTo('#page_content');
-                }
-                $("#result_query .notice").remove();
-                $("#result_query").prepend(data.message);
-                /*Reload the field form*/
-                $("#table_index").remove();
-                var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
-                $temp_div.find("#table_index").insertAfter("#index_header");
-                $('div.no_indexes_defined').hide();
-                PMA_reloadNavigation();
-                // expand index_div
-                $("a.ajax[href^=#indexes]").click();
+                    }
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend(data.message);
+                    /*Reload the field form*/
+                    $("#table_index").remove();
+                    var $temp_div = $("<div id='temp_div'><div>").append(data.index_table);
+                    $temp_div.find("#table_index").insertAfter("#index_header");
+                    $('div.no_indexes_defined').hide();
+                    PMA_reloadNavigation();
+                    // expand index_div if an index is created or updated
+                    $("a.ajax[href^=#indexes]").click();
                 });
             } else {
                 var $temp_div = $("<div id='temp_div'><div>").append(data.error);

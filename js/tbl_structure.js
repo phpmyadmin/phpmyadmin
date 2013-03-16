@@ -273,7 +273,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                                 .prependTo('#page_content');
                         }
                         PMA_reloadNavigation();
-                        // expand index_div
+                        // expand index_div if an indes is droped
                         $("a.ajax[href^=#indexes]").click();
                     });
                 } else {
