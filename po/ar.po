@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-01-10 13:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"PO-Revision-Date: 2013-03-17 11:34+0200\n"
+"Last-Translator: Hassan San <san@sintoria.com>\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -6237,12 +6236,12 @@ msgstr ""
 
 #: libraries/display_export.lib.php:330
 msgid "use this for future exports"
-msgstr ""
+msgstr "استخدم هذه الإعدادات مجدداً عند تصدير قاعدة البيانات في المستقبل"
 
 #: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:480
 msgid "Character set of the file:"
-msgstr "شيفرة أحرف الملف:"
+msgstr "ترميز الأحرف للملف:"
 
 #: libraries/display_export.lib.php:369
 msgid "Compression:"
@@ -6253,45 +6252,41 @@ msgid "zipped"
 msgstr "مضغوط"
 
 #: libraries/display_export.lib.php:384
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"gzipped\""
+msgstr "مضغوط: gzipped"
 
 #: libraries/display_export.lib.php:391
-#, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"bzipped\""
+msgstr "مضغوط: bzipped"
 
 #: libraries/display_export.lib.php:409
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "حفظ كملف"
+msgstr "عرض الخرج كنص"
 
 #: libraries/display_export.lib.php:414 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "صيغة"
+msgstr "الصيغة:"
 
 #: libraries/display_export.lib.php:419
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "خيارات التحويل"
+msgstr "إعدادات الصيغة المخصصة:"
 
 #: libraries/display_export.lib.php:421
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"اسحب للأسفل لتعيين خيارات الصيغة المختارة و لتجاهل إعدادات الصيغ الأخرى."
 
 #: libraries/display_export.lib.php:430 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "تحويل ترميز النص:"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -6324,6 +6319,8 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"الملف الذي يتم تحميله على الأرجح ذو حجم أكبر من الحد الأقصى المسموح به أو "
+"هذا خطأ معروف في متصفحات (سفاري، جوجل كروم، أرورا. إلخ)."
 
 #: libraries/display_import.lib.php:77
 #, php-format
@@ -6351,31 +6348,30 @@ msgstr ""
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "الملف قيد المعالجة, يرجى الانتظار."
 
 #: libraries/display_import.lib.php:154
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr ""
+msgstr "يتم تحميل الملف. تفاصيل التحميل غير متوفرة. يرجى الانتظار.."
 
 #: libraries/display_import.lib.php:190
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "لا يمكن الدخول إلى خادم MySQL"
+msgstr "يتم التحميل إلى الخادم الحالي"
 
 #: libraries/display_import.lib.php:192
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the database \"%s\""
-msgstr "لايوجد قواعد بيانات"
+msgstr "الاستيراد إلى قاعدة البيانات \"%s\""
 
 #: libraries/display_import.lib.php:194
-#, fuzzy, php-format
+#, php-format
 #| msgid "No databases"
 msgid "Importing into the table \"%s\""
-msgstr "لايوجد قواعد بيانات"
+msgstr "الاستيراد إلى الجدول \"%s\""
 
 #: libraries/display_import.lib.php:200
 msgid "File to Import:"
