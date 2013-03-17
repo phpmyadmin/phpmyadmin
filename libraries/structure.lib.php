@@ -2387,7 +2387,6 @@ function PMA_updateColumns($db, $table)
             __('Table %1$s has been altered successfully')
         );
         $message->addParam($table);
-        $btnDrop = 'Fake';
 
         /**
          * If comments were sent, enable relation stuff
