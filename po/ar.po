@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-17 11:34+0200\n"
+"PO-Revision-Date: 2013-03-17 12:20+0200\n"
 "Last-Translator: Hassan San <san@sintoria.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -6375,12 +6375,12 @@ msgstr "الاستيراد إلى الجدول \"%s\""
 
 #: libraries/display_import.lib.php:200
 msgid "File to Import:"
-msgstr ""
+msgstr "ملف للاستيراد:"
 
 #: libraries/display_import.lib.php:217
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "يمكن للملف أن يكون (%s) أو غير مضغوط."
 
 #: libraries/display_import.lib.php:219
 msgid ""
