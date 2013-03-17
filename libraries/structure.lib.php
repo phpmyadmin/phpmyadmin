@@ -2381,6 +2381,7 @@ function PMA_updateColumns($db, $table)
     $sql_query .= ';';
     $result    = PMA_DBI_try_query($sql_query);
 
+    $response = PMA_Response::getInstance();
     if ($result !== false) {
         $message = PMA_Message::success(
             __('Table %1$s has been altered successfully')
@@ -2424,26 +2425,15 @@ function PMA_updateColumns($db, $table)
             }
         }
 
-        $response = PMA_Response::getInstance();
-        if ($response->isAjax()) {
-            $response->isSuccess($message->isSuccess());
-            $response->addJSON('message', $message);
-            $response->addJSON(
-                'sql_query',
-                PMA_Util::getMessage(null, $sql_query)
-            );
-        }
+        $response->addHTML(
+            PMA_Util::getMessage($message, $sql_query, 'success')
+        );
     } else {
-        PMA_Util::mysqlDie('', '', '', $err_url, false);
-        // An error happened while inserting/updating a table definition.
-        // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in 
-        // libraries/tbl_columns_definition_form.inc.php
-        // @todo: test this code, now that it's inside a function
-        if (isset($_REQUEST['orig_field'])) {
-            $_REQUEST['field'] = $_REQUEST['orig_field'];
-        }
-
+        // An error happened while inserting/updating a table definition
+        $message = PMA_Message::rawError(__('Query error'));
+        $response->addHTML(
+            PMA_Util::getMessage($message, $sql_query, 'error')
+        );
         $regenerate = true;
     }
     return $regenerate;

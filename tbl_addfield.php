@@ -41,6 +41,10 @@ if (isset($_REQUEST['submit_num_fields'])) {
 }
 
 if (isset($_REQUEST['do_save_data'])) {
+    //avoid an incorrect calling of PMA_updateColumns() via 
+    //tbl_structure.php below
+    unset($_REQUEST['do_save_data']);
+
     $query = '';
     $definitions = array();
 

@@ -48,8 +48,8 @@ if (isset($_REQUEST['change_column'])) {
 if (isset($_REQUEST['do_save_data'])) {
     $regenerate = PMA_updateColumns($db, $table);
     if ($regenerate) {
-        // @todo: find in which situation this happens, then 
-        // do something appropriate
+        // This happens when updating failed
+        // @todo: do something appropriate
     } else {
         // continue to show the table's structure
         unset($_REQUEST['selected']);
