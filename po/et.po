@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-05 19:29+0200\n"
+"PO-Revision-Date: 2013-03-18 21:32+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5582,7 +5582,6 @@ msgid "Connect without password"
 msgstr "Ühenda ilma paroolita"
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5596,9 +5595,7 @@ msgid ""
 msgstr ""
 "Sa saad kasutada ka MySQL'i metamärke (% and _), kui asetad vahetult nende "
 "ette kurakaldkriipsu (\\). S.t kasuta [kbd]'my\\_db'[/kbd], aga mitte "
-"[kbd]'my_db'[/kbd]. Seda valikut kasutades saad sorteerida andmebaaside "
-"nimekirja, kui sisestad nende nimed soovitud järjekorda ning asetad lõppu "
-"[kbd]*[/kbd] märgi, et ülejäänud tähestiku järjekorda asetada."
+"[kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:407
 msgid "Show only listed databases"
@@ -11929,7 +11926,7 @@ msgstr "Koostanud"
 #: sql.php:1213 tbl_structure.php:142
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Veeru nimi '%s' on MySQLi reserveeritud võtmesõna."
 
 #: sql.php:1234
 msgid ""
