@@ -137,6 +137,17 @@ $dump_buffer_len = 0;
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
 
+
+/**
+ * Detect ob_gzhandler
+ *
+ * @return bool
+ */
+function PMA_isGzhandlerEnabled()
+{
+    return in_array('ob_gzhandler', ob_list_handlers());
+}
+
 /**
  * Detect whether gzencode is needed; it might not be needed if
  * the server is already compressing by itself 
@@ -152,12 +163,14 @@ function PMA_gzencodeNeeded()
         // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
-        ) {
+        && ! PMA_isGzhandlerEnabled()
+    ) {
         return true;
     } else {
         return false;
     }
 }
+
 /**
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.

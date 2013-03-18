@@ -97,6 +97,7 @@ underscore
 - bug #3829 Enabling query profiling crashes javascript based navigation
 + rfe #879 Reserved word warning
 + Remove the database ordering sub-feature of the only_db directive
+bug #3840 When exporting to gzip format, the data is compressed 2 times
 
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
