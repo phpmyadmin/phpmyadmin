@@ -137,6 +137,20 @@ $dump_buffer_len = 0;
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
 
+
+/**
+ * Disable all handlers
+ *
+ * @return bool
+ */
+function PMA_handlersDisable()
+{
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+    return true;
+}
+
 /**
  * Detect whether gzencode is needed; it might not be needed if
  * the server is already compressing by itself 
@@ -158,6 +172,7 @@ function PMA_gzencodeNeeded()
         return false;
     }
 }
+
 /**
  * Output handler for all exports, if needed buffering, it stores data into
  * $dump_buffer, otherwise it prints thems out.
@@ -823,6 +838,7 @@ if (! empty($asfile)) {
         }
         exit();
     } else {
+        PMA_handlersDisable();
         PMA_Response::getInstance()->disable();
         echo $dump_buffer;
     }
