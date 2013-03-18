@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-17 08:27+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"PO-Revision-Date: 2013-03-18 01:41+0200\n"
+"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -12876,7 +12876,7 @@ msgstr "스레드 캐시"
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
-msgstr ""
+msgstr "스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하가 발생합니다."
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
@@ -13054,7 +13054,7 @@ msgstr "InnoDB 로그 크기"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr ""
+msgstr "InnoDB 로그 파일 크기가 InnoDB 버퍼풀과 비교해서 적합하지 않습니다."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
