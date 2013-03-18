@@ -139,16 +139,13 @@ $time_start = time();
 
 
 /**
- * Disable all handlers
+ * Detect ob_gzhandler
  *
  * @return bool
  */
-function PMA_handlersDisable()
+function PMA_isGzhandlerEnabled()
 {
-    while (ob_get_level() > 0) {
-        ob_end_clean();
-    }
-    return true;
+    return in_array('ob_gzhandler', ob_list_handlers());
 }
 
 /**
@@ -166,7 +163,8 @@ function PMA_gzencodeNeeded()
         // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
-        ) {
+        && ! PMA_isGzhandlerEnabled()
+    ) {
         return true;
     } else {
         return false;
@@ -838,7 +836,6 @@ if (! empty($asfile)) {
         }
         exit();
     } else {
-        PMA_handlersDisable();
         PMA_Response::getInstance()->disable();
         echo $dump_buffer;
     }
