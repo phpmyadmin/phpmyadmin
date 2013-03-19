@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-18 10:26+0200\n"
+"PO-Revision-Date: 2013-03-19 22:28+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/3-5/sv/>\n"
 "Language: sv\n"
@@ -5854,7 +5854,7 @@ msgstr "Återställ ordningen på kolumner"
 
 #: libraries/display_tbl.lib.php:428
 msgid "Start row"
-msgstr "Starta rad"
+msgstr "Startrad"
 
 #: libraries/display_tbl.lib.php:430
 msgid "Number of rows"
@@ -10574,9 +10574,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Din webbläsare kommer uppdatera alla diagram vilka  visas med jämna "
-"mellanrum. Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
-"\"Inställningar\", eller ta bort diagram med cog-ikonen vid respektive "
+"Din webbläsare kommer uppdatera alla diagram som visas med jämna mellanrum. "
+"Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
+"\"Inställningar\", eller ta bort diagram med kugghjulsikonen på respektive "
 "diagram."
 
 #: server_status.php:1646
@@ -10586,10 +10586,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"För att visa sökfrågor från loggarna, Välj önskad tidsperiod på något "
+"För att visa sökfrågor från loggarna, välj önskad tidsperiod på något "
 "diagram genom att hålla ner vänster musknapp och dra över diagrammet. När "
-"bekräftat kommer detta ladda en tabell över grupperade frågor, Där kan du "
-"klicka på de förekommande SELECT-satser för att ytterligare analysera dessa."
+"bekräftat kommer detta ladda en tabell över grupperade frågor, där kan du "
+"klicka på de förekommande SELECT-satserna för att ytterligare analysera "
+"dessa."
 
 #: server_status.php:1653
 msgid "Please note:"
@@ -11257,7 +11258,7 @@ msgstr "Fortsätt inmatning med %s rader"
 #: tbl_chart.php:95
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Blockera"
+msgstr "Stapel"
 
 #: tbl_chart.php:97
 msgctxt "Chart type"
