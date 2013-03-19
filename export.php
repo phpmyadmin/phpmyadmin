@@ -143,7 +143,7 @@ $time_start = time();
  *
  * @return bool
  */
-function PMA_isGzhandlerEnabled()
+function PMA_isGzHandlerEnabled()
 {
     return in_array('ob_gzhandler', ob_list_handlers());
 }
@@ -163,7 +163,7 @@ function PMA_gzencodeNeeded()
         // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
-        && ! PMA_isGzhandlerEnabled()
+        && ! PMA_isGzHandlerEnabled()
     ) {
         return true;
     } else {
