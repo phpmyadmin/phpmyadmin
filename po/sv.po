@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-18 10:26+0200\n"
+"PO-Revision-Date: 2013-03-20 19:30+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -2481,7 +2481,7 @@ msgstr "Slut"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
-msgstr "Starta rad"
+msgstr "Startrad"
 
 #: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
@@ -4229,7 +4229,7 @@ msgstr "Standard tabellflik"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr "Oavsett tabellstruktur bör åtgärderna döljas"
+msgstr "Om tabellstrukturåtgärderna ska döljas eller inte"
 
 #: libraries/config/messages.inc.php:55
 msgid "Hide table structure actions"
@@ -10758,9 +10758,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Din webbläsare kommer uppdatera alla diagram vilka  visas med jämna "
-"mellanrum. Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
-"\"Inställningar\", eller ta bort diagram med cog-ikonen vid respektive "
+"Din webbläsare kommer uppdatera alla diagram som visas med jämna mellanrum. "
+"Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
+"\"Inställningar\", eller ta bort diagram med kugghjulsikonen på respektive "
 "diagram."
 
 #: server_status_monitor.php:582
@@ -10770,10 +10770,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"För att visa sökfrågor från loggarna, Välj önskad tidsperiod på något "
+"För att visa sökfrågor från loggarna, välj önskad tidsperiod på något "
 "diagram genom att hålla ner vänster musknapp och dra över diagrammet. När "
-"bekräftat kommer detta ladda en tabell över grupperade frågor, Där kan du "
-"klicka på de förekommande SELECT-satser för att ytterligare analysera dessa."
+"bekräftat kommer detta ladda en tabell över grupperade frågor, där kan du "
+"klicka på de förekommande SELECT-satserna för att ytterligare analysera "
+"dessa."
 
 #: server_status_monitor.php:592
 msgid "Please note:"
@@ -12011,7 +12012,7 @@ msgstr "Det finns inga numeriska kolumner att plotta i tabellen."
 #: tbl_chart.php:154
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Blockera"
+msgstr "Stapel"
 
 #: tbl_chart.php:156
 msgctxt "Chart type"
