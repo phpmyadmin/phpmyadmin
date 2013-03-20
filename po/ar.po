@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-17 12:20+0200\n"
-"Last-Translator: Hassan San <san@sintoria.com>\n"
+"PO-Revision-Date: 2013-03-20 22:10+0200\n"
+"Last-Translator: mohamed amin boubaker <mohamed.amin.02@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -5591,29 +5591,32 @@ msgstr "ملف للاستيراد:"
 #: libraries/display_import.lib.php:156
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr "يمكن للملف أن يكون (%s) أو غير مضغوط."
+msgstr "يمكن للملف أن يكون مضغوط (%s) أو غير مضغوط."
 
 #: libraries/display_import.lib.php:158
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"يجب على اسم الملف المضغوط أن ينتهي بـ <b>.[format].[compression]</b>. مثال: "
+"<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:178
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "التحميلات إلى هذا المخدّم غير مرخّصة لها."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial Import:"
-msgstr "نصوص جزئية"
+msgstr "مستوردةٌ جزئية :"
 
 #: libraries/display_import.lib.php:214
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"انتهت مُهلة عمليّة الإستراد السابقة, بعد إعادة الإرسال سنستمرُّ من الموقف %"
+"d."
 
 #: libraries/display_import.lib.php:221
 msgid ""
@@ -5621,27 +5624,31 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
+"تسمح بقطع عمليّة استراد معيّنة في حالة كَشفَ الرّمز أنّها قريبة من المهلة "
+"الزّمنيّة لـ PHP.\n"
+"<i>(يمكن أن تكون هذه هي طريقة جيّدة لإستراد ملفات كبيرة, في كلّ الأحوال "
+"يمكنها كسر العمليّات.)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
-msgstr ""
+msgstr "عدد الصّفوف الّتي يجب تجاوزها, ابتداءًا من الصّف الأوّل :"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "خيّارات البنية الخاصّة :"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
 msgid "Language"
-msgstr "اللغة"
+msgstr "لغة"
 
 #: libraries/display_tbl.lib.php:406
 msgid "Save edited data"
-msgstr "إحفظ البيانات المغييرة"
+msgstr "إحفظ البيانات المعدّلة"
 
 #: libraries/display_tbl.lib.php:412
 msgid "Restore column order"
-msgstr "استعادة ترتيب العمود"
+msgstr "استعادة ترتيب الأعمدة"
 
 #: libraries/display_tbl.lib.php:428
 msgid "Start row"
@@ -5649,11 +5656,11 @@ msgstr "صف البداية"
 
 #: libraries/display_tbl.lib.php:430
 msgid "Number of rows"
-msgstr "عدد الصفوف"
+msgstr "عدد الصّفوف"
 
 #: libraries/display_tbl.lib.php:435
 msgid "Mode"
-msgstr "النمط"
+msgstr "النّمط"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -5661,7 +5668,7 @@ msgstr "أفقي"
 
 #: libraries/display_tbl.lib.php:438
 msgid "horizontal (rotated headers)"
-msgstr ")عناوين ملتفة( أفقيا"
+msgstr "أفقي (رؤوس ملتفة)"
 
 #: libraries/display_tbl.lib.php:439
 msgid "vertical"
@@ -5670,11 +5677,11 @@ msgstr "عمودي"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr "رؤوس كل %s أسطر"
+msgstr "رؤوس كلّ %s أسطر"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
-msgstr "رتب حسب المفتاح"
+msgstr "رتّب حسب الْمفتاح"
 
 #: libraries/display_tbl.lib.php:627 libraries/export/codegen.php:41
 #: libraries/export/csv.php:34 libraries/export/excel.php:37
@@ -5695,7 +5702,7 @@ msgstr "خيارات"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
 msgid "Partial texts"
-msgstr "نصوص جزئية"
+msgstr "نصوص جزئيّة"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
 msgid "Full texts"
@@ -5703,11 +5710,11 @@ msgstr "نصوص كاملة"
 
 #: libraries/display_tbl.lib.php:667
 msgid "Relational key"
-msgstr "مفتاح العلائقية"
+msgstr "مفتاح العلائقيّة"
 
 #: libraries/display_tbl.lib.php:668
 msgid "Relational display column"
-msgstr "عمود عرض علائقية"
+msgstr "عمود عرض علائقي"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
@@ -5715,36 +5722,36 @@ msgstr "أظهر المحتويات الثنائية"
 
 #: libraries/display_tbl.lib.php:677
 msgid "Show BLOB contents"
-msgstr "عرض المحتويات BLOB"
+msgstr "عرض محتويات BLOB"
 
 #: libraries/display_tbl.lib.php:687
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "أخفي محتويات المستعرض"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr "نص معروف جيداً"
+msgstr "نصّ معروف جيّداً"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr "ثنائي معروف جيداً"
+msgstr "ثنائي معروف جيّداً"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
-msgstr "لقد تم حذف الصف"
+msgstr "لقد تمّ حذف الصّف"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
 #: server_status.php:1277
 msgid "Kill"
-msgstr "إبطال"
+msgstr "حذف"
 
 #: libraries/display_tbl.lib.php:2332
 msgid "in query"
-msgstr "في الاستعلام"
+msgstr "في الإستعلام"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "مشاهدة الأسطر"
+msgstr "أظهر الصفوف"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -5757,15 +5764,15 @@ msgstr "استغرق الاستعلام %01.4f ثانية"
 
 #: libraries/display_tbl.lib.php:2585
 msgid "Query results operations"
-msgstr ""
+msgstr "عمليّات على نتائج الإستعلام"
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
-msgstr "عرض الطباعة (مع النصوص الكاملة)"
+msgstr "عرض للطّباعة (مع النّصوص الكاملة)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
 msgid "Display chart"
-msgstr "عرض الرسم البياني"
+msgstr "عرض الرّسم البياني"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
@@ -6024,10 +6031,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "الروابط"
+msgstr "روابط ذات صلة"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -6175,16 +6181,14 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "خطوط مفصولة بـ"
+msgstr "روابط ذات صلة"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "حقل مضمن بـ"
+msgstr "حقل محاط بـ"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
