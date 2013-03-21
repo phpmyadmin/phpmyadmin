@@ -3315,15 +3315,20 @@ class PMA_Util
         if (strpos($string, '@COLUMNS@') !== false) {
             $columns_list = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 
-            $column_names = array();
-            foreach ($columns_list as $column) {
-                if (! is_null($escape)) {
-                    $column_names[] = self::$escape($column['Field']);
-                } else {
-                    $column_names[] = $column['Field'];
+            // sometimes the table no longer exists at this point
+            if (! is_null($columns_list)) {
+                $column_names = array();
+                foreach ($columns_list as $column) {
+                    if (! is_null($escape)) {
+                        $column_names[] = self::$escape($column['Field']);
+                    } else {
+                        $column_names[] = $column['Field'];
+                    }
                 }
+                $replace['@COLUMNS@'] = implode(',', $column_names);
+            } else {
+                $replace['@COLUMNS@'] = '*';
             }
-            $replace['@COLUMNS@'] = implode(',', $column_names);
         }
 
         /* Do the replacement */
