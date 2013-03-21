@@ -247,31 +247,35 @@ AJAX.registerOnload('tbl_structure.js', function() {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
                 if (data.success == true) {
-                    PMA_ajaxRemoveMessage($msg);
-                    var $table_ref = $rows_to_hide.closest('table');
-                    if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
-                        // We are about to remove all rows from the table
-                        $table_ref.hide('medium', function() {
-                            $('div.no_indexes_defined').show('medium');
-                            $rows_to_hide.remove();
-                        });
-                        $table_ref.siblings('div.notice').hide('medium');
-                    } else {
-                        // We are removing some of the rows only
-                        toggleRowColors($rows_to_hide.last().next());
-                        $rows_to_hide.hide("medium", function () {
-                            $(this).remove();
-                        });
-                    }
-                    if ($('#result_query').length) {
-                        $('#result_query').remove();
-                    }
-                    if (data.sql_query) {
-                        $('<div id="result_query"></div>')
-                            .html(data.sql_query)
-                            .prependTo('#page_content');
-                    }
-                    PMA_reloadNavigation();
+                    PMA_commonActions.refreshMain(false, function ($msg) {
+                        PMA_ajaxRemoveMessage($msg);                        
+                        var $table_ref = $rows_to_hide.closest('table');
+                        if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
+                            // We are about to remove all rows from the table
+                            $table_ref.hide('medium', function() {
+                                $('div.no_indexes_defined').show('medium');
+                                $rows_to_hide.remove();
+                            });
+                            $table_ref.siblings('div.notice').hide('medium');
+                        } else {
+                            // We are removing some of the rows only
+                            toggleRowColors($rows_to_hide.last().next());
+                            $rows_to_hide.hide("medium", function () {
+                                $(this).remove();
+                            });
+                        }
+                        if ($('#result_query').length) {
+                            $('#result_query').remove();
+                        }
+                        if (data.sql_query) {
+                            $('<div id="result_query"></div>')
+                                .html(data.sql_query)
+                                .prependTo('#page_content');
+                        }
+                        PMA_reloadNavigation();
+                        // expand index_div if an indes is droped
+                        $("a.ajax[href^=#indexes]").click();
+                    });
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
