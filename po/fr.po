@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 12:46-0400\n"
-"PO-Revision-Date: 2013-03-06 14:24+0200\n"
-"Last-Translator: Mathieu Terroba <mathieu.terroba@gmail.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2013-03-21 18:03+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -5331,7 +5330,6 @@ msgid "Server/library difference warning"
 msgstr "Avertissement d'écart Serveur/bibliothèque"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5341,11 +5339,11 @@ msgid ""
 "column names in a table are reserved MySQL words"
 msgstr ""
 "Désactiver l'avertissement affiché sur la page Structure de bases de données "
-"si l'une des tables du stockage de configurations phpMyAdmin est manquante"
+"si une des colonnes utilise un mot réservé MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Avertissement de mot réservé MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5666,7 +5664,6 @@ msgid "Connect without password"
 msgstr "Connexion sans mot de passe"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5680,10 +5677,7 @@ msgid ""
 msgstr ""
 "Vous pouvez utiliser ces caractères passepartout MySQL (% et _), avec un "
 "caractère d'échappement si vous les employez de manière littérale, par "
-"exemple [kbd]'ma\\_base'[/kbd] et non [kbd]'ma_base'[/kbd]. Ainsi vous "
-"pouvez trier la liste des bases de données en entrant leurs noms et en "
-"utilisant [kbd]*[/kbd] en fin de liste pour montrer le reste des noms de "
-"base de données en ordre alphabétique."
+"exemple [kbd]'ma\\_base'[/kbd] et non [kbd]'ma_base'[/kbd]."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
