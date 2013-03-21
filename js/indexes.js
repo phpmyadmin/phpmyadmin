@@ -160,6 +160,9 @@ AJAX.registerOnload('indexes.js', function() {
                             .html(data.sql_query)
                             .prependTo('#page_content');
                     }
+                    PMA_commonActions.refreshMain(false, function() {
+                        $("a.ajax[href^=#indexes]").click();
+                    });
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
@@ -195,9 +198,10 @@ AJAX.registerOnload('indexes.js', function() {
         }
         url += "&ajax_request=true";
         indexEditorDialog(url, title, function() {
-            var location = document.location.href.split("#")[0];
             // refresh the page using ajax
-            $('<a href="'+location+'"></a>').click(AJAX.requestHandler).click(); 
+            PMA_commonActions.refreshMain(false, function() {
+                $("a.ajax[href^=#indexes]").click();
+            });
         });
     });
 });
