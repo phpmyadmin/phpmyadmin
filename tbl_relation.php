@@ -28,8 +28,6 @@ $scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
 $scripts->addFile('indexes.js');
 
-$url_query .= '&amp;goto=tbl_sql.php';
-
 /**
  * Sets globals from $_POST
  */
@@ -569,8 +567,6 @@ if (count($columns) > 0) {
                 $html_output .= '</span>' . "\n";
             } else {
                 $html_output .= __('No index defined! Create one below');
-                //$html_output .= "<a class='create_index' href='#'>".
-                //"create index</a>";
             } // end if (a key exists)
             $html_output .= '</td>';
         } // end if (InnoDB)
@@ -608,6 +604,7 @@ if (count($columns) > 0) {
         . '</fieldset>'
         . '</form>';
 } // end if (we have columns in this table)
+
 $html_output .= '<div id="index_div" class="ajax" >'. PMA_getHtmlForDisplayIndexes();
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
