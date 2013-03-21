@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-20 19:30+0200\n"
+"PO-Revision-Date: 2013-03-21 22:56+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -5276,7 +5276,6 @@ msgid "Server/library difference warning"
 msgstr "Server/bibliotek skillnadsvarning"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5285,13 +5284,12 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Inaktivera standard varningar som visas på databasen detaljstruktur sida om "
-"någon av de nödvändiga tabellerna för phpMyAdmin Configuration Storage inte "
-"kunde hittas"
+"Inaktivera standardvarningen som visas på sidan Struktur om kolumnnamn i en "
+"tabell är reserverade MySQL-ord"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Varning för reserverat MySQL-ord"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -12211,10 +12209,9 @@ msgid "Constraint name"
 msgstr "Begränsningsnamn"
 
 #: tbl_relation.php:569
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Inga index är definierade!"
+msgstr "Inget index definierat! Skapa ett nedan"
 
 #: tbl_structure.php:144
 #, php-format
