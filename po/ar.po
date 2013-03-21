@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-03-21 12:46-0400\n"
+"POT-Creation-Date: 2013-03-21 17:02-0400\n"
 "PO-Revision-Date: 2013-03-20 22:10+0200\n"
 "Last-Translator: mohamed amin boubaker <mohamed.amin.02@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
@@ -42,8 +42,8 @@ msgstr ""
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3229 libraries/Util.class.php:3434
-#: libraries/Util.class.php:3435
+#: libraries/Util.class.php:3229 libraries/Util.class.php:3439
+#: libraries/Util.class.php:3440
 msgid "Search"
 msgstr "إبحث"
 
@@ -53,12 +53,12 @@ msgstr "إبحث"
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
-#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
-#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
-#: libraries/operations.lib.php:210 libraries/operations.lib.php:254
-#: libraries/operations.lib.php:636 libraries/operations.lib.php:689
-#: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
-#: libraries/operations.lib.php:1339
+#: libraries/index.lib.php:35 libraries/insert_edit.lib.php:1547
+#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
+#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
+#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
+#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
+#: libraries/operations.lib.php:1055 libraries/operations.lib.php:1339
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -76,7 +76,6 @@ msgstr "إبحث"
 #: libraries/server_privileges.lib.php:3066
 #: libraries/sql_query_form.lib.php:365 libraries/sql_query_form.lib.php:422
 #: libraries/sql_query_form.lib.php:485 libraries/structure.lib.php:1582
-#: libraries/structure.lib.php:1608
 #: libraries/tbl_columns_definition_form.inc.php:752 pmd_pdf.php:151
 #: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
@@ -267,7 +266,7 @@ msgstr "لا"
 #: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:130
 #: server_databases.php:103 server_databases.php:110 sql.php:523 sql.php:524
-#: tbl_printview.php:187 tbl_structure.php:83 tbl_tracking.php:344
+#: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:344
 #: tbl_tracking.php:396 tbl_tracking.php:401
 msgid "Yes"
 msgstr "نعم"
@@ -327,8 +326,8 @@ msgstr "الجدول"
 
 #: db_printview.php:100 libraries/Table.class.php:283
 #: libraries/build_html_for_db.lib.php:31 libraries/import.lib.php:181
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1738
-#: libraries/structure.lib.php:1923 sql.php:1117 tbl_printview.php:365
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1708
+#: libraries/structure.lib.php:1893 sql.php:1117 tbl_printview.php:365
 msgid "Rows"
 msgstr "صفوف"
 
@@ -341,26 +340,26 @@ msgstr "الحجم"
 msgid "in use"
 msgstr "قيد الإستعمال"
 
-#: db_printview.php:185 libraries/Util.class.php:4072
+#: db_printview.php:185 libraries/Util.class.php:4077
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#: libraries/structure.lib.php:798 libraries/structure.lib.php:1777
+#: libraries/structure.lib.php:798 libraries/structure.lib.php:1747
 #: tbl_printview.php:410
 msgid "Creation"
 msgstr "الإنشاء"
 
-#: db_printview.php:194 libraries/Util.class.php:4078
+#: db_printview.php:194 libraries/Util.class.php:4083
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/structure.lib.php:805 libraries/structure.lib.php:1784
+#: libraries/structure.lib.php:805 libraries/structure.lib.php:1754
 #: tbl_printview.php:421
 msgid "Last update"
 msgstr "آخر تحديث"
 
-#: db_printview.php:203 libraries/Util.class.php:4084
+#: db_printview.php:203 libraries/Util.class.php:4089
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#: libraries/structure.lib.php:812 libraries/structure.lib.php:1792
+#: libraries/structure.lib.php:812 libraries/structure.lib.php:1762
 #: tbl_printview.php:432
 msgid "Last check"
 msgstr "آخر فحص"
@@ -455,9 +454,9 @@ msgid "Delete tracking data for this table"
 msgstr "حذف بيانات التتبع لهذا الجدول"
 
 #: db_tracking.php:103 libraries/Index.class.php:623
-#: libraries/Util.class.php:3439 libraries/Util.class.php:3440
+#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
-#: libraries/structure.lib.php:2072 libraries/structure.lib.php:2074
+#: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
 #: server_databases.php:327
 msgid "Drop"
 msgstr "سقّط"
@@ -996,7 +995,7 @@ msgstr "أغلاق"
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3311 libraries/Index.class.php:589
 #: libraries/Util.class.php:696 libraries/Util.class.php:1241
-#: libraries/Util.class.php:3443 libraries/Util.class.php:3444
+#: libraries/Util.class.php:3448 libraries/Util.class.php:3449
 #: libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1021,7 +1020,7 @@ msgstr "بيانات ثابتة"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2212
+#: libraries/engines/innodb.lib.php:171 libraries/structure.lib.php:2182
 #: server_databases.php:271 server_status.php:186 server_status.php:276
 #: tbl_printview.php:331
 msgid "Total"
@@ -1693,7 +1692,7 @@ msgid "No rows selected"
 msgstr "لايوجد صفوف مختارة"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5067
-#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
 #: querywindow.php:85
 msgid "Change"
 msgstr "تغيير"
@@ -2385,8 +2384,8 @@ msgstr[4] "%s مطابقة في الجدول <i>%s</i>"
 msgstr[5] "%s مطابقة في الجدول <i>%s</i>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3224 libraries/Util.class.php:3432
-#: libraries/Util.class.php:3433 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3224 libraries/Util.class.php:3437
+#: libraries/Util.class.php:3438 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "استعراض"
 
@@ -2519,7 +2518,7 @@ msgstr "رتّب حسب الْمفتاح"
 #: libraries/plugins/import/ImportShp.class.php:56
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
-#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1723
+#: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1693
 msgid "Options"
 msgstr "خيارات"
 
@@ -2630,7 +2629,7 @@ msgstr "تحديد الكل"
 #: libraries/DisplayResults.class.php:5080
 #: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3450 libraries/Util.class.php:3451
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
@@ -2740,19 +2739,19 @@ msgstr "يجب تفعيل دعم الكوكيز في هذه المرحلة."
 msgid "Javascript must be enabled past this point"
 msgstr "يجب تفعيل Javascript بعد هذه النقطة"
 
-#: libraries/Index.class.php:531 tbl_relation.php:569
+#: libraries/Index.class.php:531
 msgid "No index defined!"
 msgstr "لم يتم تعريف الفهرس!"
 
 #: libraries/Index.class.php:536 libraries/Index.class.php:549
-#: libraries/build_html_for_db.lib.php:41
+#: libraries/build_html_for_db.lib.php:41 libraries/index.lib.php:23
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
-#: libraries/structure.lib.php:1596 tbl_tracking.php:377
+#: tbl_tracking.php:377
 msgid "Indexes"
 msgstr "فهارس"
 
 #: libraries/Index.class.php:563 libraries/structure.lib.php:1387
-#: libraries/structure.lib.php:2080 libraries/structure.lib.php:2090
+#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2060
 #: libraries/tbl_columns_definition_form.inc.php:567 tbl_tracking.php:383
 msgid "Unique"
 msgstr "فريد"
@@ -2769,7 +2768,7 @@ msgstr ""
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:130
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:806
 #: libraries/structure.lib.php:780 libraries/structure.lib.php:1181
-#: libraries/structure.lib.php:1731
+#: libraries/structure.lib.php:1701
 #: libraries/tbl_columns_definition_form.inc.php:114
 #: libraries/tbl_columns_definition_form.inc.php:840 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
@@ -2812,7 +2811,7 @@ msgstr "عرض"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
 #: libraries/Util.class.php:3220 libraries/Util.class.php:3227
-#: libraries/Util.class.php:3438 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3443 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
@@ -2833,7 +2832,7 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:273 libraries/Util.class.php:3223
-#: libraries/Util.class.php:3436 libraries/Util.class.php:3437
+#: libraries/Util.class.php:3441 libraries/Util.class.php:3442
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "إدخال"
@@ -3644,35 +3643,35 @@ msgstr "إنّ ال %s الوظيفية هي مصابة بعطل معروف، أ
 msgid "Click to toggle"
 msgstr "إضغط للإختيار"
 
-#: libraries/Util.class.php:3351 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3356 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "تصفح حاسبك:"
 
-#: libraries/Util.class.php:3376
+#: libraries/Util.class.php:3381
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 
-#: libraries/Util.class.php:3405 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3410 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل"
 
-#: libraries/Util.class.php:3416
+#: libraries/Util.class.php:3421
 msgid "There are no files to upload"
 msgstr "لايوجد أي ملفات لرفعها"
 
-#: libraries/Util.class.php:3441 libraries/Util.class.php:3442
+#: libraries/Util.class.php:3446 libraries/Util.class.php:3447
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "إفراغ"
 
-#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
+#: libraries/Util.class.php:3452 libraries/Util.class.php:3453
 msgid "Execute"
 msgstr "تنفيذ"
 
-#: libraries/Util.class.php:3971
+#: libraries/Util.class.php:3976
 msgid "Print"
 msgstr "طباعة"
 
@@ -3689,13 +3688,13 @@ msgstr "مشترك"
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2190
+#: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2160
 #: tbl_printview.php:299
 msgid "Data"
 msgstr "بيانات"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2203 tbl_printview.php:315
+#: libraries/structure.lib.php:2173 tbl_printview.php:315
 msgid "Overhead"
 msgstr "الحمل الزائد"
 
@@ -4201,7 +4200,7 @@ msgid "Character set of the file"
 msgstr "مجموعة الأحرف للملف"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1712 tbl_gis_visualization.php:176
+#: libraries/structure.lib.php:1682 tbl_gis_visualization.php:176
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "صيغة"
@@ -6783,6 +6782,11 @@ msgstr "البنية فقط"
 msgid "Go to view: %s"
 msgstr ""
 
+#: libraries/index.lib.php:30
+#, php-format
+msgid "Create an index on &nbsp;%s&nbsp;columns"
+msgstr "إنشاء فهرس للعمود %s"
+
 #: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
 #: pmd_general.php:197
 msgid "Hide"
@@ -7330,7 +7334,7 @@ msgid "Repair table"
 msgstr "إصلاح الجدول"
 
 #: libraries/operations.lib.php:1171 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1655
+#: libraries/structure.lib.php:1625
 msgid "Optimize table"
 msgstr "تحسين الجدول"
 
@@ -9540,26 +9544,26 @@ msgstr "لا شيء"
 msgid "Column %s has been dropped"
 msgstr "تم حذف العمود %s"
 
-#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2076
-#: libraries/structure.lib.php:2086
+#: libraries/structure.lib.php:1383 libraries/structure.lib.php:2046
+#: libraries/structure.lib.php:2056
 #: libraries/tbl_columns_definition_form.inc.php:560
 msgid "Primary"
 msgstr "أساسي"
 
-#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2078
-#: libraries/structure.lib.php:2088 libraries/structure.lib.php:2196
+#: libraries/structure.lib.php:1391 libraries/structure.lib.php:2048
+#: libraries/structure.lib.php:2058 libraries/structure.lib.php:2166
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:574 tbl_printview.php:306
 msgid "Index"
 msgstr "فهرست"
 
-#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2082
-#: libraries/structure.lib.php:2092
+#: libraries/structure.lib.php:1398 libraries/structure.lib.php:2052
+#: libraries/structure.lib.php:2062
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2084
-#: libraries/structure.lib.php:2094
+#: libraries/structure.lib.php:1408 libraries/structure.lib.php:2054
+#: libraries/structure.lib.php:2064
 #: libraries/tbl_columns_definition_form.inc.php:582
 msgid "Fulltext"
 msgstr "النص كاملا"
@@ -9619,101 +9623,96 @@ msgstr "في بداية الجدول"
 msgid "After %s"
 msgstr "بعد %s"
 
-#: libraries/structure.lib.php:1603
-#, php-format
-msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "إنشاء فهرس للعمود %s"
-
-#: libraries/structure.lib.php:1700 tbl_printview.php:345
+#: libraries/structure.lib.php:1670 tbl_printview.php:345
 msgid "Row Statistics"
 msgstr "إحصائيات"
 
-#: libraries/structure.lib.php:1705 tbl_printview.php:353
+#: libraries/structure.lib.php:1675 tbl_printview.php:353
 msgid "static"
 msgstr ""
 
-#: libraries/structure.lib.php:1707 tbl_printview.php:355
+#: libraries/structure.lib.php:1677 tbl_printview.php:355
 msgid "dynamic"
 msgstr "ديناميكي"
 
-#: libraries/structure.lib.php:1718
+#: libraries/structure.lib.php:1688
 msgid "partitioned"
 msgstr "مقسم"
 
-#: libraries/structure.lib.php:1749 tbl_printview.php:376
+#: libraries/structure.lib.php:1719 tbl_printview.php:376
 msgid "Row length"
 msgstr "طول الصف"
 
-#: libraries/structure.lib.php:1761 tbl_printview.php:390
+#: libraries/structure.lib.php:1731 tbl_printview.php:390
 msgid "Row size"
 msgstr "مقاس الصف"
 
-#: libraries/structure.lib.php:1769 tbl_printview.php:399
+#: libraries/structure.lib.php:1739 tbl_printview.php:399
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1894 libraries/structure.lib.php:1975
-#: libraries/structure.lib.php:1983 libraries/structure.lib.php:2000
+#: libraries/structure.lib.php:1864 libraries/structure.lib.php:1945
+#: libraries/structure.lib.php:1953 libraries/structure.lib.php:1970
 #, php-format
 msgid "An index has been added on %s"
 msgstr "تم إضافة الفهرس في %s"
 
-#: libraries/structure.lib.php:1965
+#: libraries/structure.lib.php:1935
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr "تم إضافة المفتاح الأساسي في %s"
 
-#: libraries/structure.lib.php:2025 libraries/structure.lib.php:2096
+#: libraries/structure.lib.php:1995 libraries/structure.lib.php:2066
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "إستعرض القيم المميزة"
 
-#: libraries/structure.lib.php:2028 libraries/structure.lib.php:2031
+#: libraries/structure.lib.php:1998 libraries/structure.lib.php:2001
 msgid "Add primary key"
 msgstr "إضافة مفتاح رئيسي"
 
-#: libraries/structure.lib.php:2034 libraries/structure.lib.php:2037
+#: libraries/structure.lib.php:2004 libraries/structure.lib.php:2007
 #: tbl_indexes.php:191
 msgid "Add index"
 msgstr "إضافة فهرس"
 
-#: libraries/structure.lib.php:2040 libraries/structure.lib.php:2043
+#: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
 msgid "Add unique index"
 msgstr "إضافة فهرس مميز"
 
-#: libraries/structure.lib.php:2046 libraries/structure.lib.php:2049
+#: libraries/structure.lib.php:2016 libraries/structure.lib.php:2019
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add SPATIAL index"
 msgstr "إضافة حقل جديد"
 
-#: libraries/structure.lib.php:2052 libraries/structure.lib.php:2055
+#: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2181 server_binlog.php:189
+#: libraries/structure.lib.php:2151 server_binlog.php:189
 msgid "Information"
 msgstr "معلومات"
 
-#: libraries/structure.lib.php:2186 tbl_printview.php:296
+#: libraries/structure.lib.php:2156 tbl_printview.php:296
 msgid "Space usage"
 msgstr "المساحة المستخدمة"
 
-#: libraries/structure.lib.php:2206 tbl_printview.php:322
+#: libraries/structure.lib.php:2176 tbl_printview.php:322
 msgid "Effective"
 msgstr "فعال"
 
-#: libraries/structure.lib.php:2387 tbl_addfield.php:192 tbl_indexes.php:108
+#: libraries/structure.lib.php:2357 tbl_addfield.php:192 tbl_indexes.php:108
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
-#: libraries/structure.lib.php:2432 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2402 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
 msgstr "خطأ في الإستعلام"
 
-#: libraries/structure.lib.php:2528
+#: libraries/structure.lib.php:2498
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
@@ -11961,7 +11960,13 @@ msgstr "قيود المفتاح الغريب"
 msgid "Constraint name"
 msgstr "القيود للجدول"
 
-#: tbl_structure.php:143
+#: tbl_relation.php:569
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No index defined! Create one below"
+msgstr "لم يتم تعريف الفهرس!"
+
+#: tbl_structure.php:144
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
