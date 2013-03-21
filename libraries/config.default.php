@@ -70,6 +70,13 @@ $cfg['McryptDisableWarning'] = false;
 $cfg['ServerLibraryDifference_DisableWarning'] = false;
 
 /**
+ * Disable the default warning about MySQL reserved words in column names
+ *
+ * @global boolean $cfg['ReservedWordDisableWarning']
+ */
+$cfg['ReservedWordDisableWarning'] = false;
+
+/**
  * Show warning about incomplete translations on certain threshold.
  *
  * @global boolean $cfg['TranslationWarningThreshold']

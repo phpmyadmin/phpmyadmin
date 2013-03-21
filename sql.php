@@ -1213,20 +1213,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo '</fieldset>' . "\n";
     }
 
-    
-    // Check column names for MySQL reserved words
-    $pma_table = new PMA_Table($table, $db);
-    $columns = $pma_table->getReservedColumnNames();
-    if (! empty($columns)) {
-        foreach ($columns as $column) {
-            $msg = PMA_message::notice(
-                __('The column name \'%s\' is a MySQL reserved keyword.')
-            );
-            $msg->addParam($column);
-            $msg->display();
-        }
-    }
-    
     // Displays the results in a table
     if (empty($disp_mode)) {
         // see the "PMA_setDisplayMode()" function in
