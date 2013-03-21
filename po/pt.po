@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-02-24 20:02+0200\n"
-"Last-Translator: Tiago Gameiro <tyhaguh@hotmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-03-20 02:23+0200\n"
+"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -712,10 +712,9 @@ msgid "Back"
 msgstr "Voltar"
 
 #: index.php:114
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Características gerais de Relação"
+msgstr "Definições gerais"
 
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -724,23 +723,21 @@ msgstr "Alterar a palavra-passe"
 
 #: index.php:155
 msgid "Server connection collation"
-msgstr ""
+msgstr "Ordenação de caracteres da ligação ao servidor"
 
 #: index.php:181
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Definições de aspecto"
 
 #: index.php:210 prefs_manage.php:275
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Características gerais de Relação"
+msgstr "Mais definições"
 
 #: index.php:227
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "Base de Dados"
+msgstr "Servidor de base de dados"
 
 #: index.php:230 libraries/Menu.class.php:150
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
@@ -749,10 +746,9 @@ msgid "Server"
 msgstr "Servidor"
 
 #: index.php:234
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Porta do servidor"
+msgstr "Tipo de servidor"
 
 #: index.php:238 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -762,7 +758,7 @@ msgstr "Versão do servidor"
 
 #: index.php:242
 msgid "Protocol version"
-msgstr ""
+msgstr "Versão do protocolo"
 
 #: index.php:246 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2377
@@ -772,33 +768,29 @@ msgid "User"
 msgstr "Utilizador"
 
 #: index.php:251
-#, fuzzy
 msgid "Server charset"
-msgstr "Escolha do Servidor"
+msgstr "Conjunto de caracteres do servidor"
 
 #: index.php:263
 msgid "Web server"
-msgstr ""
+msgstr "Servidor web"
 
 #: index.php:276
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version"
-msgstr "Comentário da Base de Dados: "
+msgstr "Versão do cliente de base de dados"
 
 #: index.php:280
-#, fuzzy
 msgid "PHP extension"
-msgstr "versão do PHP"
+msgstr "Extensão de PHP"
 
 #: index.php:294
 msgid "Show PHP information"
 msgstr "Mostra informação do PHP"
 
 #: index.php:317 libraries/engines/bdb.lib.php:25
-#, fuzzy
 msgid "Version information"
-msgstr "Informação de Login "
+msgstr "Informação de Versão"
 
 #: index.php:326 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:147
@@ -817,20 +809,18 @@ msgid "Official Homepage"
 msgstr "Página Oficial do phpMyAdmin"
 
 #: index.php:349
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atributos"
+msgstr "Contributo"
 
 #: index.php:356
 msgid "Get support"
-msgstr ""
+msgstr "Obter suporte"
 
 #: index.php:363
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Sem alterações"
+msgstr "Lista de alterações"
 
 #: index.php:386
 msgid ""
@@ -5698,8 +5688,8 @@ msgid ""
 msgstr ""
 "Base de dados utilizada para as relações, marcadores e as características de "
 "PDF. Veja [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para mais "
-"informações. Deixe em branco para nenhum apoio. Sugerido: [kbd] phpmyadmin "
-"[/ kbd]"
+"informações. Deixe em branco para nenhum apoio. Sugerido: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "Database name"

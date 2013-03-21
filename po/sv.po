@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-14 10:34+0100\n"
-"PO-Revision-Date: 2013-03-14 17:26+0200\n"
+"PO-Revision-Date: 2013-03-20 19:30+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -644,7 +644,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Du försökta ladda en fil med en komprimering (%s) som inte stöds. Antingen "
+"Du försökte ladda en fil med en komprimering (%s) som inte stöds. Antingen "
 "är detta inte implementerat, eller inaktiverat i din konfiguration."
 
 #: import.php:416
@@ -850,17 +850,18 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametern [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] är lägre än cookie-"
-"giltighet konfigurerad i phpMyAdmin. på grund av detta, kommer din "
-"inloggning upphöra tidigare än vad som ärkonfigurerat i phpMyAdmin."
+"PHP-parametern "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] är lägre än cookie-giltighet "
+"konfigurerad i phpMyAdmin. på grund av detta, kommer din inloggning upphöra "
+"tidigare än vad som är konfigurerat i phpMyAdmin."
 
 #: index.php:431
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Login cookie  är mindre än cookie giltighet konfigurerad i phpMyAdmin, på "
+"Login cookie är mindre än cookie giltighet konfigurerad i phpMyAdmin, på "
 "grund av detta kommer dina inloggningsuppgifter upphöra att gälla tidigare "
 "än konfigurerat i phpMyAdmin."
 
@@ -1068,7 +1069,7 @@ msgstr ""
 "Diagrammets arrangemang i din webbläsares lokala lagring är inte kompatibelt "
 "längre med den nyare versionen av övervakarens dialogruta. Det är mycket "
 "troligt att din nuvarande konfiguration inte fungerar längre. Återställ "
-"konfigurationen i <i>Inställningar</i> menyn."
+"konfigurationen i <i>Inställningar</i>-menyn."
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -2480,7 +2481,7 @@ msgstr "Slut"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 msgid "Start row"
-msgstr "Starta rad"
+msgstr "Startrad"
 
 #: libraries/DisplayResults.class.php:908 tbl_chart.php:245
 msgid "Number of rows"
@@ -3410,7 +3411,7 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
-"En fast längd (0-255, default 1) sträng som alltid är högerfylld med "
+"En sträng med fast längd (0-255, standard 1) som alltid är högerfylld med "
 "blankslag till den angivna längden vid lagring"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
@@ -4228,7 +4229,7 @@ msgstr "Standard tabellflik"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr "Oavsett tabellstruktur bör åtgärderna döljas"
+msgstr "Om tabellstrukturåtgärderna ska döljas eller inte"
 
 #: libraries/config/messages.inc.php:55
 msgid "Hide table structure actions"
@@ -4416,7 +4417,7 @@ msgstr "Relationer"
 
 #: libraries/config/messages.inc.php:103
 msgid "Export method"
-msgstr "Exportera metod"
+msgstr "Exportmetod"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
@@ -4425,7 +4426,7 @@ msgstr "Spara på server"
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
 msgid "Overwrite existing file(s)"
-msgstr "Skriv över befintlig fil(er)"
+msgstr "Skriv över befintlig(a) fil(er)"
 
 #: libraries/config/messages.inc.php:116
 msgid "Remember file name template"
@@ -4438,7 +4439,7 @@ msgstr "Addera AUTO_INCREMENT värde"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Använd citat-tecken  runt tabell- och fältnamn"
+msgstr "Använd citat-tecken runt tabell- och fältnamn"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:438
@@ -4476,7 +4477,7 @@ msgstr "Använd hexadecimalt för BLOB"
 
 #: libraries/config/messages.inc.php:128
 msgid "Use ignore inserts"
-msgstr "Använd Iignore i inläggningar"
+msgstr "Använd ignore i inläggningar"
 
 #: libraries/config/messages.inc.php:130
 msgid "Syntax to use when inserting data"
@@ -4715,7 +4716,7 @@ msgstr "Ange parametrar för anslutning till server"
 
 #: libraries/config/messages.inc.php:202
 msgid "Configuration storage"
-msgstr "Konfigurations lagring"
+msgstr "Konfigurationslagring"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
@@ -4980,7 +4981,7 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
-"Ange om tidigareinloggningen ska återkallas eller inte vid "
+"Ange om den tidigare inloggningen ska återkallas eller inte vid "
 "autentiseringsläge med cookies"
 
 #: libraries/config/messages.inc.php:274
@@ -5075,12 +5076,12 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
-"Inaktivera standardvarning vilken visas om mcrypt saknas för cookie "
+"Inaktivera standardvarning vilken visas om mcrypt saknas för cookie-"
 "autentisering"
 
 #: libraries/config/messages.inc.php:294
 msgid "mcrypt warning"
-msgstr "mcrypt varning"
+msgstr "mcrypt-varning"
 
 #: libraries/config/messages.inc.php:295
 msgid ""
@@ -5498,7 +5499,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:386
 msgid "Control host"
-msgstr "Kontroll värd"
+msgstr "Kontrollvärd"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -5619,7 +5620,7 @@ msgstr "Lämna tomt om inte config auth används"
 
 #: libraries/config/messages.inc.php:409
 msgid "Password for config auth"
-msgstr "Löseenord för config auth"
+msgstr "Lösenord för config auth"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
@@ -6051,7 +6052,7 @@ msgstr "En varning visas på huvudsidan om Suhosin upptäcks"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suhosin warning"
-msgstr "Suhosin varning"
+msgstr "Suhosin-varning"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
@@ -6175,7 +6176,7 @@ msgstr "Config autentisering"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
-msgstr "Cookie autentisering"
+msgstr "Cookie-autentisering"
 
 #: libraries/config/setup.forms.php:48
 msgid "HTTP authentication"
@@ -6372,12 +6373,12 @@ msgstr "Exportera databaser från den aktuella servern"
 #: libraries/display_export.lib.php:98
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Exportera tabeller från \"%s\" databas"
+msgstr "Exportera tabeller från databasen \"%s\""
 
 #: libraries/display_export.lib.php:100
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exportera rader från \"%s \" tabell"
+msgstr "Exportera rader från tabellen \"%s\""
 
 #: libraries/display_export.lib.php:112
 msgid "Export Method:"
@@ -6478,11 +6479,11 @@ msgstr "zippad"
 
 #: libraries/display_export.lib.php:384
 msgid "gzipped"
-msgstr "gzip"
+msgstr "gzippad"
 
 #: libraries/display_export.lib.php:391
 msgid "bzipped"
-msgstr "bzipped"
+msgstr "bzippad"
 
 #: libraries/display_export.lib.php:409
 msgid "View output as text"
@@ -6525,7 +6526,7 @@ msgstr "Git revision"
 #: libraries/display_git_revision.lib.php:67
 #, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "inlaggd %1$s av %2$s"
+msgstr "inlagd %1$s av %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
@@ -6562,7 +6563,7 @@ msgstr "Ungefär %MIN min. %SEC sek. återstår."
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr "mkring %SEC sek. återstår."
+msgstr "Ungefär %SEC sek. återstår."
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -6609,7 +6610,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:245
 msgid "File uploads are not allowed on this server."
-msgstr "Uppladdning är inte tillåtrn på denna server."
+msgstr "Uppladdning är inte tillåten på denna server."
 
 #: libraries/display_import.lib.php:276
 msgid "Partial Import:"
@@ -10757,9 +10758,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Din webbläsare kommer uppdatera alla diagram vilka  visas med jämna "
-"mellanrum. Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
-"\"Inställningar\", eller ta bort diagram med cog-ikonen vid respektive "
+"Din webbläsare kommer uppdatera alla diagram som visas med jämna mellanrum. "
+"Du kan lägga till diagram och ändra uppdateringsfrekvensen under "
+"\"Inställningar\", eller ta bort diagram med kugghjulsikonen på respektive "
 "diagram."
 
 #: server_status_monitor.php:582
@@ -10769,10 +10770,11 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
-"För att visa sökfrågor från loggarna, Välj önskad tidsperiod på något "
+"För att visa sökfrågor från loggarna, välj önskad tidsperiod på något "
 "diagram genom att hålla ner vänster musknapp och dra över diagrammet. När "
-"bekräftat kommer detta ladda en tabell över grupperade frågor, Där kan du "
-"klicka på de förekommande SELECT-satser för att ytterligare analysera dessa."
+"bekräftat kommer detta ladda en tabell över grupperade frågor, där kan du "
+"klicka på de förekommande SELECT-satserna för att ytterligare analysera "
+"dessa."
 
 #: server_status_monitor.php:592
 msgid "Please note:"
@@ -11844,7 +11846,7 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"%sGZip  komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
+"%sGZip komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
 "tillgängliga på detta system."
 
 #: setup/lib/index.lib.php:308
@@ -11854,8 +11856,8 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"%sLogin cookie validity%s är mer än 1440 sekunder kan orsaka slumpmässit  "
-"ogiltigförklarande av session om %ssession.gc_maxlifetime%s s är mindre än "
+"%sLogin cookie validity%s mer än 1440 sekunder kan orsaka slumpmässigt "
+"ogiltigförklarande av session om %ssession.gc_maxlifetime%s är mindre än "
 "dess värde (för närvarande %d)."
 
 #: setup/lib/index.lib.php:310
@@ -11874,8 +11876,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Om du använder cookie autentisering och% slogin cookie lagra%s inte är 0, "
-"måste%slogin cookie giltighet%s sättas till ett värde mindre eller lika med "
+"Om du använder cookie-autentisering och %sLogin cookie store%s inte är 0, "
+"måste %sLogin cookie validity%s sättas till ett värde mindre eller lika med "
 "den."
 
 #: setup/lib/index.lib.php:314
@@ -11903,7 +11905,7 @@ msgstr ""
 "Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och "
 "lösenord för autoinloggning, vilket inte är en önskvärd inställning för "
 "värdar i skarp drift. Vem som helst som vet eller gissar din phpMyAdmin-URL "
-"kan direkt komma åt ditt phpMyAdmin-verktyg. Sätt   %sauthentication type%s "
+"kan direkt komma åt ditt phpMyAdmin-verktyg. Sätt %sauthentication type%s "
 "till [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
@@ -12010,7 +12012,7 @@ msgstr "Det finns inga numeriska kolumner att plotta i tabellen."
 #: tbl_chart.php:154
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Blockera"
+msgstr "Stapel"
 
 #: tbl_chart.php:156
 msgctxt "Chart type"
@@ -12483,7 +12485,7 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
-"Det rekommendera att  sätta {ong_query_time} till ett lägre värde, beroende "
+"Det rekommenderas att sätta {long_query_time} till ett lägre värde, beroende "
 "på din miljö. Ett värde på 1-5 sekunder är lämpligt."
 
 #: libraries/advisory_rules.txt:82
@@ -12643,7 +12645,7 @@ msgstr "Frågecache inaktiverad"
 
 #: libraries/advisory_rules.txt:156
 msgid "The query cache is not enabled."
-msgstr "Frågaecache är inte aktiverat."
+msgstr "Frågecache är inte aktiverat."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12756,8 +12758,8 @@ msgid ""
 msgstr ""
 "Kraftig fragmentering kommer sannolikt öka Qcache_lowmem_prunes. Detta kan "
 "bero på många låga Query cache prune på grund av att query_cache_size är för "
-"liten. För en omedelbar, men kortlivad fix du kan rensa frågaecache (kan "
-"låsa frågae cache under lång tid). Justera försiktigt "
+"liten. För en omedelbar, men kortlivad fix du kan rensa frågecache (kan "
+"låsa frågecachen under lång tid). Justera försiktigt "
 "{query_cache_min_res_unit} till ett lägre värde kan hjälpa, Du kan t.ex. "
 "sätta den till den genomsnittliga storleken på dina frågor i cachen med "
 "följande formel: (query_cache_size - qcache_free_memory) / "
