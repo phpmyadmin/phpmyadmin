@@ -2820,7 +2820,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                     $("#edit_index_dialog").dialog("close");
                 }
                 $('div.no_indexes_defined').hide();
-                if(callback_success) {
+                if (callback_success) {
                     callback_success();
                 }
                 PMA_reloadNavigation();
@@ -2831,7 +2831,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 } else {
                     var $error = $temp_div;
                 }
-                if(callback_failure) {
+                if (callback_failure) {
                     callback_failure();
                 }
                 PMA_ajaxShowMessage($error, false);
