@@ -2776,7 +2776,7 @@ AJAX.registerOnload('functions.js', function() {
     });
 });
 
-function indexEditorDialog(url, title)
+function indexEditorDialog(url, title, callback_success, callback_failure)
 {
     /*Remove the hidden dialogs if there are*/
     if ($('#edit_index_dialog').length != 0) {
@@ -2820,6 +2820,9 @@ function indexEditorDialog(url, title)
                     $("#edit_index_dialog").dialog("close");
                 }
                 $('div.no_indexes_defined').hide();
+                if (callback_success) {
+                    callback_success();
+                }
                 PMA_reloadNavigation();
             } else {
                 var $temp_div = $("<div id='temp_div'><div>").append(data.error);
@@ -2827,6 +2830,9 @@ function indexEditorDialog(url, title)
                     var $error = $temp_div.find(".error code").addClass("error");
                 } else {
                     var $error = $temp_div;
+                }
+                if (callback_failure) {
+                    callback_failure();
                 }
                 PMA_ajaxShowMessage($error, false);
             }

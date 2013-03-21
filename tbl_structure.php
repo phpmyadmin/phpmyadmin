@@ -17,6 +17,7 @@ require_once 'libraries/mysql_charsets.lib.php';
  * Function implementations for this script
  */
 require_once 'libraries/structure.lib.php';
+require_once 'libraries/index.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
