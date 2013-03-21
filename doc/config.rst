@@ -101,6 +101,17 @@ Basic settings
     
     You can set this parameter to ``true`` to stop this message from appearing.
 
+.. config:option:: $cfg['ReservedWordDisableWarning']
+
+    :type: boolean
+    :default: false
+
+    This warning is displayed on the Structure page of a table if one or more
+    column names match with words which are MySQL reserved.
+
+    If you want to turn off this warning, you can set it to ``true`` and 
+    warning will not longer be displayed 
+
 .. config:option:: $cfg['TranslationWarningThreshold']
 
     :type: integer

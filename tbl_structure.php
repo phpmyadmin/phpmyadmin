@@ -134,7 +134,7 @@ $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
 
 // Check column names for MySQL reserved words
-if ($cfg['ReservedWordWarning'] === true) {
+if ($cfg['ReservedWordDisableWarning'] === false) {
     $pma_table = new PMA_Table($table, $db);
     $columns = $pma_table->getReservedColumnNames();
     if (! empty($columns)) {
