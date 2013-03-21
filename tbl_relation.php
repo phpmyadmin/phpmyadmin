@@ -20,13 +20,13 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/index.lib.php';
+
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
-
-require_once 'libraries/tbl_common.inc.php';
-$url_query .= '&amp;goto=tbl_sql.php';
+$scripts->addFile('indexes.js');
 
 /**
  * Sets globals from $_POST
@@ -566,7 +566,7 @@ if (count($columns) > 0) {
                 );
                 $html_output .= '</span>' . "\n";
             } else {
-                $html_output .= __('No index defined!');
+                $html_output .= __('No index defined! Create one below');
             } // end if (a key exists)
             $html_output .= '</td>';
         } // end if (InnoDB)
@@ -605,6 +605,7 @@ if (count($columns) > 0) {
         . '</form>';
 } // end if (we have columns in this table)
 
+$html_output .= '<div id="index_div" class="ajax" >'. PMA_getHtmlForDisplayIndexes();
 // Render HTML output
 PMA_Response::getInstance()->addHTML($html_output);
 
