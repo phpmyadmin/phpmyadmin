@@ -161,7 +161,6 @@ AJAX.registerOnload('indexes.js', function() {
                             .prependTo('#page_content');
                     }
                     PMA_reloadNavigation();
-                    document.location.reload(true);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
