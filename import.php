@@ -61,9 +61,14 @@ if (! empty($sql_query)) {
     $import_type = 'query';
     $format = 'sql';
 
-    // refresh left frame on changes in table or db structure
-    if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+    // refresh navigation and main panels
+    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
         $GLOBALS['reload'] = true;
+    }
+
+    // refresh navigation panel only
+    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+        $ajax_reload['reload'] = true;
     }
 
     // do a dynamic reload if table is RENAMED
@@ -227,11 +232,15 @@ if (! empty($id_bookmark)) {
             );
         }
 
-        // refresh left frame on changes in table or db structure
-        if (preg_match('/^(CREATE|ALTER|DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+        // refresh navigation and main panels
+        if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
             $GLOBALS['reload'] = true;
         }
 
+        // refresh navigation panel only
+        if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+            $ajax_reload['reload'] = true;
+        }
         break;
     case 1: // bookmarked query that have to be displayed
         $import_text = PMA_Bookmark_get($db, $id_bookmark);

@@ -253,6 +253,9 @@ AJAX.registerOnload('sql.js', function() {
                 //
                 // fade out previous messages, if any
                 $('div.success, div.sqlquery_message').fadeOut();
+                if ($('#result_query').length) {
+                    $('#result_query').remove();
+                }
 
                 // show a message that stays on screen
                 if (typeof data.action_bookmark != 'undefined') {
@@ -283,9 +286,27 @@ AJAX.registerOnload('sql.js', function() {
 
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {
-                        PMA_commonParams.set('table', data.ajax_reload.table_name);
-                        PMA_commonActions.refreshMain();
+                        if (data.ajax_reload.table_name) {
+                            PMA_commonParams.set('table', data.ajax_reload.table_name);
+                            PMA_commonActions.refreshMain();
+                        } else {
+                            PMA_reloadNavigation();
+                        }
                     }
+                } else if (typeof data.reload != 'undefined') {
+                    // this happens if a USE or DROP command was typed
+                    PMA_commonActions.setDb(data.db);
+                    PMA_commonActions.refreshMain(false, function () {
+                        if ($('#result_query').length) {
+                            $('#result_query').remove();
+                        }
+                        if (data.sql_query) {
+                            $('<div id="result_query"></div>')
+                                .html(data.sql_query)
+                                .prependTo('#page_content');
+                        }
+                    });
+                    PMA_reloadNavigation();
                 }
                 
                 $sqlqueryresults.show().trigger('makegrid');
@@ -298,19 +319,6 @@ AJAX.registerOnload('sql.js', function() {
                             $("#togglequerybox").trigger('click');
                         }
                     }
-                }
-
-                // this happens if a USE command was typed
-                if (typeof data.reload != 'undefined') {
-                    // Unbind the submit event before reloading. See bug #3295529
-                    $("#sqlqueryform.ajax").die('submit');
-                    $form.find('input[name=db]').val(data.db);
-                    // need to regenerate the whole upper part
-                    $form.find('input[name=ajax_request]').remove();
-                    $form.append('<input type="hidden" name="reload" value="true" />');
-                    $.post('db_sql.php', $form.serialize(), function(data) {
-                        $('body').html(data);
-                    }); // end inner post
                 }
             } else if (data.success == false ) {
                 // show an error message that stays on screen
