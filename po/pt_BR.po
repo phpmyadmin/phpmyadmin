@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-07 12:17+0200\n"
-"Last-Translator: Widelan França <widelan.game@hotmail.com>\n"
+"PO-Revision-Date: 2013-03-21 18:30+0200\n"
+"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12153,7 +12153,7 @@ msgstr "Série de Lançamento"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
-msgstr "A versão do servidor MySQL é inferior a 5.1"
+msgstr "A versão do servidor MySQL é inferior a 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
@@ -12175,7 +12175,8 @@ msgstr "Versão Menor"
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr ""
-"Versão inferior a 5.1.30 (a primeira versão de disponibilidade geral do 5.1)"
+"Versão inferior a 5.1.30 (a primeira versão de disponibilidade geral do "
+"5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
@@ -12237,7 +12238,7 @@ msgstr "A documentação do Drizzle está em http://docs.drizzle.org/"
 #: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr "A string de versão (%s) corresponde ao esquema de versões do Drizzle."
+msgstr "A string de versão (%s) corresponde ao esquema de versões do Drizzle"
 
 #: po/advisory_rules.php:65
 msgid "MySQL Architecture"
@@ -12289,7 +12290,7 @@ msgstr ""
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "query_cache_size está definido em 0 ou query_cache_type está definido em "
-"'DESLIGADO'."
+"'DESLIGADO'"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
@@ -12364,7 +12365,7 @@ msgid ""
 "%%. It should be above 80%%"
 msgstr ""
 "A relação entre a memória livre do cache de consultas e o tamanho total do "
-"cache de consultas é de %s%%. Deveria ser maior do que 80%%."
+"cache de consultas é de %s%%. Deveria ser maior do que 80%%"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -12489,8 +12490,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% de todos tipos causam tabelas temporárias. Este valor deveria ser menor "
-"do que 10%%"
+"%s%% de todos tipos causam tabelas temporárias, este valor deveria ser menor "
+"do que 10%%."
 
 #: po/advisory_rules.php:115
 #| msgid "Allows creating temporary tables."
@@ -12544,8 +12545,7 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Média de tabelas de join: %s. Este valor deveria ser menor do que 1 por "
-"hora."
+"Média de tabelas de join: %s, esse valor deveria ser menor do que 1 por hora"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
@@ -12569,8 +12569,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Média de pesquisa no índice: %s. Este valor deveria ser menor do que 1 por "
-"hora."
+"Média de pesquisa no índice: %s esse valor deveria ser menor do que 1 por "
+"hora"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
@@ -12694,8 +12694,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"A taxa de tabelas temporárias sendo escritas no disco: %s. Este valor "
-"deveria ser menor do que 1 por hora."
+"A taxa de tabelas temporárias sendo escritas no disco: %s, esse valor "
+"deveria ser menor do que 1 por hora"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12795,8 +12795,7 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
-"Taxa de tabelas abertas: %s. Este valor deveria ser menor do que 10 por "
-"hora."
+"Taxa de tabelas abertas: %s, esse valor deveria ser menor do que 10 por hora"
 
 #: po/advisory_rules.php:185
 #| msgid "Format of imported file"
@@ -12821,7 +12820,7 @@ msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
 "O número de arquivos abertos está em %s%% do limite. Deveria ser menor do "
-"que 85%%."
+"que 85%%"
 
 #: po/advisory_rules.php:190
 #| msgid "Format of imported file"
@@ -12837,8 +12836,7 @@ msgstr "A proporção de arquivos abertos está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por "
-"hora."
+"Taxa de arquivos abertos: %s, esse valor deveria ser menor do que 5 por hora"
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -12869,8 +12867,8 @@ msgstr ""
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Taxa de espera por lock de tabelas: %s. Este valor deveria ser menor do que "
-"1 por hora."
+"Taxa de espera por lock de tabelas: %s, ese valor deveria ser menor do que 1 "
+"por hora"
 
 #: po/advisory_rules.php:205
 #| msgid "Key cache"
@@ -12889,7 +12887,7 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr "O cache de threads está definido como 0."
+msgstr "O cache de threads está definido como 0"
 
 #: po/advisory_rules.php:210
 #, php-format
