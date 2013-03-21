@@ -671,6 +671,16 @@ AJAX.setUrlHash = (function (jQuery, window) {
      */
     var userChange = true;
 
+    // Fix favicon disappearing in Firefox when setting location.hash
+    // See bug #3448485
+    function fix_favicon() {
+        if (jQuery.browser.mozilla) {
+            // Move the link tags for the favicon to the bottom
+            // of the head element to force a reload of the favicon
+            $('head > link[href=favicon\\.ico]').appendTo('head');
+        }
+    }
+
     /**
      * Sets the hash part of the URL
      *
@@ -688,6 +698,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
         userChange = false;
         if (ready) {
             window.location.hash = "PMAURL-" + index + ":" + hash;
+            fix_favicon();
         } else {
             savedHash = "PMAURL-" + index + ":" + hash;
         }
@@ -709,6 +720,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
             if (savedHash != "") {
                 window.location.hash = savedHash;
                 savedHash = "";
+                fix_favicon();
             }
             // Indicate that we're done initialising
             ready = true;
