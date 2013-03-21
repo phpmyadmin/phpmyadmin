@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 12:46-0400\n"
-"PO-Revision-Date: 2013-03-15 15:16+0200\n"
+"PO-Revision-Date: 2013-03-21 14:39+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "MIME-Version: 1.0\n"
@@ -4504,7 +4504,7 @@ msgstr "Gebruik vertraagde inserts"
 #: libraries/config/messages.inc.php:123
 #: libraries/plugins/export/ExportSql.class.php:141
 msgid "Disable foreign key checks"
-msgstr "controle op vreemde sleutels uitschakelen"
+msgstr "Controle op vreemde sleutels uitschakelen"
 
 #: libraries/config/messages.inc.php:124 libraries/config/messages.inc.php:125
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
@@ -4557,12 +4557,13 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel afrolmenu; [kbd]content"
-"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
+"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de "
+"sleutelwaarde"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
-msgstr "Vreemdesleutel afrolmenu sortering"
+msgstr "Vreemdesleutel-afrolmenu sortering"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
