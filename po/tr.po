@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 12:46-0400\n"
-"PO-Revision-Date: 2013-03-14 11:34+0200\n"
+"PO-Revision-Date: 2013-03-21 17:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -5304,7 +5304,6 @@ msgid "Server/library difference warning"
 msgstr "Sunucu/kütüphane farkı uyarısı"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5313,13 +5312,12 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Eğer phpMyAdmin yapılandırma depolaması için gerekli tablolardan herhangi "
-"biri bulunamazsa, veritabanı ayrıntıları Yapı sayfasında görüntülenen "
-"varsayılan uyarıyı etkisizleştir"
+"Eğer bir tablodaki sütun adları MySQL kelimelerine ayrılmışsa, Yapı "
+"sayfasında görüntülenen varsayılan uyarıyı etkisizleştir"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL'e ayrılmış kelime uyarısı"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
