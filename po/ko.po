@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-18 01:41+0200\n"
-"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
+"PO-Revision-Date: 2013-03-23 00:05+0200\n"
+"Last-Translator: Seunghyun Back <nazuna@tistory.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3159,7 +3159,7 @@ msgstr "값은 %s보다 작거나 같아야합니다."
 #: libraries/config/FormDisplay.class.php:511
 #, php-format
 msgid "Missing data for %s"
-msgstr "%s 데이터가 누락됐습니다."
+msgstr "%s 데이터 누락"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
@@ -4368,7 +4368,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -4561,7 +4561,7 @@ msgstr "연결 형식"
 
 #: libraries/config/messages.inc.php:382
 msgid "Control user password"
-msgstr ""
+msgstr "유저 비밀번호 제어"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
