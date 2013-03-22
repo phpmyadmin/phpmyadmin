@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-16 18:47+0200\n"
+"PO-Revision-Date: 2013-03-22 09:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.5-dev\n"
 
@@ -5262,7 +5262,6 @@ msgid "Server/library difference warning"
 msgstr "Varování o rozdílných verzích"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5271,12 +5270,12 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Vypne varování o nekompletních relacích na stránce s detaily databáze pokud "
-"chybí jakákoliv tabulka z úložiště nastavení phpMyAdmina"
+"Vypne varování o použití klíčového slova MySQL v názvu sloupce na stránce se "
+"strukturou tabulky"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Varování o klíčových slovech MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -12163,10 +12162,9 @@ msgid "Constraint name"
 msgstr "Jméno omezení"
 
 #: tbl_relation.php:569
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Není definován žádný klíč!"
+msgstr "Není definován žádný klíč! Vytvořte nový níže"
 
 #: tbl_structure.php:144
 #, php-format
