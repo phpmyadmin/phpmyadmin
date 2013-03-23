@@ -1298,7 +1298,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
               . '&amp;id_bookmark=1';
 
         echo '<form action="sql.php" method="post"'
-            . ' onsubmit="return emptyFormElements(this, \'fields[label]\');"'
+            . ' onsubmit="return ! emptyFormElements(this, \'fields[label]\');"'
             . ' id="bookmarkQueryForm">';
         echo PMA_generate_common_hidden_inputs();
         echo '<input type="hidden" name="goto" value="' . $goto . '" />';
