@@ -122,6 +122,8 @@ if (isset($_REQUEST['submitoptions'])) {
                 : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
         }
+    } else {
+        $new_tbl_storage_engine = '';
     }
 
     $table_alters = PMA_getTableAltersArray(
