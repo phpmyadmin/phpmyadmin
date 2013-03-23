@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 00:47+0200\n"
+"PO-Revision-Date: 2013-03-23 12:09+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -1043,12 +1043,12 @@ msgstr "Annan"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1510
 msgid ","
-msgstr ","
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/Util.class.php:1512
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "Connections / Processes"
@@ -1104,7 +1104,7 @@ msgstr "Totalt minne"
 
 #: js/messages.php:92
 msgid "Cached memory"
-msgstr "cachat minne"
+msgstr "Cachat minne"
 
 #: js/messages.php:93
 msgid "Buffered memory"
@@ -1373,8 +1373,8 @@ msgid ""
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 "Denna kolumn visar antalet identiska frågor som är grupperade tillsammans. "
-"Men endast SQL Text blir jämförd, följaktligen blir frågorna andra attribut "
-"som starttid kan variera."
+"Men endast SQL-frågan själv blir jämförd, så därför kan frågornas andra "
+"attribut som starttid variera."
 
 #: js/messages.php:163
 msgid ""
@@ -1382,12 +1382,12 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Sedan gruppering av INSERT frågor har valts, är INSERT frågor i samma tabell "
-"också grupperas tillsammans, oberoende av de infogade data."
+"Sedan gruppering av INSERT-frågor har valts, är INSERT-frågor till samma "
+"tabell också grupperade tillsammans, oberoende av det data som infogats."
 
 #: js/messages.php:164
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "Loggdata laddad. Frågorna utförda under denna tidsperiod:"
+msgstr "Loggdata laddad. Frågor utförda under denna tidsperiod:"
 
 #: js/messages.php:166
 msgid "Jump to Log table"
@@ -1445,7 +1445,7 @@ msgstr "Serier"
 #. l10n: A collection of available filters
 #: js/messages.php:182
 msgid "Log table filter options"
-msgstr "Logga tabellfilter alternativ"
+msgstr "Filteralternativ för loggtabell"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:184
@@ -1458,7 +1458,7 @@ msgstr "Filtrera frågor med ord/regexp:"
 
 #: js/messages.php:186
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr "Gruppfrågor, ignorera variabeldata i WHERE klausuler"
+msgstr "Gruppfrågor, ignorera variabeldata i WHERE-klausuler"
 
 #: js/messages.php:187
 msgid "Sum of grouped rows:"
@@ -1483,8 +1483,8 @@ msgid ""
 "reentering your credentials should help."
 msgstr ""
 "När ny diagramdata begärdes, returnerade servern ett ett ogiltigt svar. "
-"Detta beror troligen på att din session har upphört. Ladda om sidan och mata "
-"in dina inloggningsuppgifter igen bör lösa problemet."
+"Detta beror troligen på att din session har upphört. Om du laddar om sidan "
+"och matar in dina inloggningsuppgifter igen borde det lösa problemet."
 
 #: js/messages.php:193
 msgid "Reload page"
@@ -1503,7 +1503,7 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
-"Misslyckades skapa diagrammets rutnät med den importerade configurationen. "
+"Misslyckades skapa diagrammets rutnät med den importerade konfigurationen. "
 "Återställer till ursprunglig konfiguration…"
 
 #: js/messages.php:199 libraries/Menu.class.php:288
@@ -1586,7 +1586,7 @@ msgstr "Felkod: %s"
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr "Felmeddelande %s"
+msgstr "Felmeddelande: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1695,7 +1695,7 @@ msgstr "Värden för ny kolumn"
 
 #: js/messages.php:264
 msgid "Enter each value in a separate field"
-msgstr "Mata in varje värde i separata fält"
+msgstr "Mata in varje värde i separat fält"
 
 #: js/messages.php:265
 #, php-format
@@ -1763,11 +1763,11 @@ msgstr "Varje punkt representerar en dataserie."
 
 #: js/messages.php:291
 msgid "Hovering over a point will show its label."
-msgstr "Hovra över en punkt kommer visa etiketten."
+msgstr "Hovring över en punkt kommer visa dess etikett."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "För att zooma in, välja en del av grafen med musen."
+msgstr "För att zooma in, välj en del av grafen med musen."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
@@ -1874,7 +1874,7 @@ msgstr "Dubbelklicka för att kopiera kolumnnamn"
 
 #: js/messages.php:343
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr "Klicka på pilen <br /> för att växla kolumnens synlighet"
+msgstr "Klicka på pilen<br />för att växla kolumnens synlighet"
 
 #: js/messages.php:345
 msgid ""
@@ -1952,7 +1952,7 @@ msgstr ""
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:381
 msgid ", latest stable version:"
-msgstr "senaste stabila version:"
+msgstr ", senaste stabila version:"
 
 #: js/messages.php:382
 msgid "up to date"
@@ -2730,7 +2730,7 @@ msgstr "Fel vid flytt av uppladdad fil, se [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
-msgstr "Fel när du flyttar uppladdad fil."
+msgstr "Fel vid flytt av uppladdad fil."
 
 #: libraries/File.class.php:501
 msgid "Cannot read (moved) upload file."
