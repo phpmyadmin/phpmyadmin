@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 12:05+0200\n"
+"PO-Revision-Date: 2013-03-23 12:10+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -9868,7 +9868,7 @@ msgstr "Vue relationnelle"
 
 #: libraries/structure.lib.php:1505
 msgid "Propose table structure"
-msgstr "Suggérer des optimisations quant à la structure de la table"
+msgstr "Suggérer des optimisations de structure"
 
 #: libraries/structure.lib.php:1541
 #: libraries/tbl_columns_definition_form.inc.php:756
