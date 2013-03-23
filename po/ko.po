@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 08:31+0200\n"
-"Last-Translator: han goo Kang <kgcrom@hotmail.com>\n"
+"PO-Revision-Date: 2013-03-23 15:05+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2180,9 +2180,8 @@ msgstr "주"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:514
-#, fuzzy
 msgid "calendar-month-year"
-msgstr "달력(연/월)"
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:516
@@ -2434,7 +2433,7 @@ msgstr "검색할 컬럼:"
 
 #: libraries/DisplayResults.class.php:698
 msgid "Save edited data"
-msgstr ""
+msgstr "수정한 데이터 저장"
 
 #: libraries/DisplayResults.class.php:704
 msgid "Restore column order"
@@ -3243,10 +3242,9 @@ msgid "How to use"
 msgstr "사용방법"
 
 #: libraries/TableSearch.class.php:1175
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "리세트"
+msgstr "줌 초기화"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3879,7 +3877,7 @@ msgstr "커스텀 - 설정 가능한 모든 옵션을 보여줍니다"
 
 #: libraries/config.values.php:138
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "커스텀 - 위와 같음. 단, 빠른 보기/커스텀 선택 없음"
 
 #: libraries/config.values.php:166
 #, fuzzy
@@ -4217,7 +4215,7 @@ msgstr "오류 수집"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr ""
+msgstr "스크립트가 실행 가능한 시간을 초단위로 설정합니다. ([kbd]0[/kbd] 이면 무제한)"
 
 #: libraries/config/messages.inc.php:67
 msgid "Maximum execution time"
@@ -4803,7 +4801,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
 msgid "Do not abort on INSERT error"
-msgstr "INERT 에러시 종료하지 않습니다."
+msgstr "INERT 에러시 종료하지 않기"
 
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:78
@@ -8483,7 +8481,7 @@ msgstr "열(칼럼) 이름"
 
 #: libraries/rte/rte_routines.lib.php:960
 msgid "Parameters"
-msgstr ""
+msgstr "파라미터"
 
 #: libraries/rte/rte_routines.lib.php:966
 #, fuzzy
@@ -10849,7 +10847,7 @@ msgstr ""
 
 #: server_status_variables.php:437
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "디스크에 저장이 필요한 페이지 수."
 
 #: server_status_variables.php:440
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -11984,20 +11982,20 @@ msgid "Show versions"
 msgstr "버전 보기"
 
 #: tbl_tracking.php:823
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate now"
 msgid "Deactivate tracking for %s"
-msgstr "지금 비활성화"
+msgstr "%s 에 대한 추적을 비활성화하기"
 
 #: tbl_tracking.php:829
 msgid "Deactivate now"
 msgstr "지금 비활성화"
 
 #: tbl_tracking.php:839
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate now"
 msgid "Activate tracking for %s"
-msgstr "지금 활성화"
+msgstr "%s 에 대한 추적을 활성화하기"
 
 #: tbl_tracking.php:845
 msgid "Activate now"
@@ -12176,6 +12174,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"{log_slow_queries}를 'ON' 으로 설정하면 느린 쿼리에 대해 로깅할 수 있습니다. 이는 성능에 악영향을 주는 쿼리 문제를 "
+"해결하는데 도움이 될 겁니다."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
