@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 12:09+0200\n"
+"PO-Revision-Date: 2013-03-23 12:14+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -2913,7 +2913,7 @@ msgstr "Designer"
 
 #: libraries/Menu.class.php:473
 msgid "Users"
-msgstr "Användarna"
+msgstr "Användare"
 
 #: libraries/Menu.class.php:495 libraries/ServerStatusData.class.php:187
 #: server_binlog.php:74
@@ -2973,7 +2973,7 @@ msgstr[1] "%1$d rader infogade."
 
 #: libraries/PDF.class.php:114
 msgid "Error while creating PDF:"
-msgstr "Fel när PDF skapas:"
+msgstr "Fel vid skapande av PDF:"
 
 #: libraries/RecentTable.class.php:114
 msgid "Could not save recent table"
@@ -3042,7 +3042,7 @@ msgstr "Filer"
 
 #: libraries/ServerStatusData.class.php:207
 msgid "Flush (close) all tables"
-msgstr "Flush (stäng) alla tabeller"
+msgstr "Flusha (stäng) alla tabeller"
 
 #: libraries/ServerStatusData.class.php:209
 msgid "Show open tables"
@@ -3089,13 +3089,13 @@ msgstr "Handledare"
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Det finns ingen detaljerad statusinformation  tillgänglig  för denna "
+"Det finns ingen detaljerad statusinformation tillgänglig för denna "
 "lagringsmotor."
 
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:200
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s är standardmotorn för denna MySQL server."
+msgstr "%s är standardmotorn för denna MySQL-server."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
@@ -3114,7 +3114,7 @@ msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
 #: libraries/Table.class.php:327
 msgid "unknown table status: "
-msgstr "Okänd tabellstatus: "
+msgstr "okänd tabellstatus: "
 
 #: libraries/Table.class.php:728
 #, php-format
