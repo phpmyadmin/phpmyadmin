@@ -163,11 +163,11 @@ var AJAX = {
         // Add a list of menu hashes that we have in the cache to the request
         params += AJAX.cache.menus.getRequestParam();
 
-        this._debug && console.log("Loading: " + url); // no need to translate
+        AJAX._debug && console.log("Loading: " + url); // no need to translate
 
         if (isLink) {
             AJAX.active = true;
-            this.$msgbox = PMA_ajaxShowMessage();
+            AJAX.$msgbox = PMA_ajaxShowMessage();
             $.get(url, params, AJAX.responseHandler);
         } else {
             /**
@@ -180,7 +180,7 @@ var AJAX = {
             // or if it returns a value that evaluates to true
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
-                this.$msgbox = PMA_ajaxShowMessage();
+                AJAX.$msgbox = PMA_ajaxShowMessage();
                 $.post(url, params, AJAX.responseHandler);
             }
         }
