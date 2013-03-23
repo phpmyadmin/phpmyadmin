@@ -151,6 +151,7 @@ var AJAX = {
         }
 
         AJAX.source = $(this);
+
         $('html, body').animate({scrollTop: 0}, 'fast');
 
         var isLink = !! href || false;
@@ -175,7 +176,6 @@ var AJAX = {
              * handler defined below. Workaround for bug #3583316
              */
             var onsubmit = $(this).data('onsubmit');
-            alert(onsubmit);
             // Submit the request if there is no onsubmit handler
             // or if it returns a value that evaluates to true
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
