@@ -99,6 +99,7 @@ underscore
 + Remove the database ordering sub-feature of the only_db directive
 - bug #3840 When exporting to gzip format, the data is compressed 2 times
 + rfe #1319 Permit to create index when creating foreign key
+- bug #3703 Incorrect updating of the list of users
 
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
