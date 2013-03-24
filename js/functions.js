@@ -2217,8 +2217,9 @@ AJAX.registerOnload('functions.js', function() {
             $.post($form.attr('action'), $form.serialize(), function(data) {
                 if (data.success == true) {
                     PMA_commonParams.set('table', tbl);
-                    // @todo: somehow show the generated sql query
-                    PMA_commonActions.refreshMain();
+                    PMA_commonActions.refreshMain(false, function() {
+                        $('#page_content').html(data.message);
+                    });
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
