@@ -1937,7 +1937,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . '</legend>' . "\n"
         . PMA_getHtmlForDisplayLoginInformationFields('change');
 
-    $html_output .= '<fieldset>' . "\n"
+    $html_output .= '<fieldset id="fieldset_mode">' . "\n"
         . ' <legend>'
         . __('Create a new user with the same privileges and …')
         . '</legend>' . "\n";

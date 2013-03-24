@@ -375,6 +375,23 @@ AJAX.registerOnload('server_privileges.js', function() {
          */
         var curr_submit_value = $t.find('.tblFooters').find('input:submit').val();
 
+        // If any option other than 'keep the old one'(option 4) is chosen, we need to remove 
+        // the old one from the table.
+        var $row_to_remove;
+        if (curr_submit_name == 'change_copy'
+                && $('input[name=mode]:checked', '#fieldset_mode').val() != '4') {
+            var old_username = $t.find('input[name="old_username"]').val();
+            var old_hostname = $t.find('input[name="old_hostname"]').val();
+            $('#usersForm tbody tr').each(function() {
+                var $tr = $(this);
+                if ($tr.find('td:nth-child(2) label').text() == old_username
+                        && $tr.find('td:nth-child(3)').text() == old_hostname) {
+                    $row_to_remove = $tr;
+                    return false;
+                }
+            });
+        }
+
         $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
             if (data.success == true) {
                 $('#page_content').show();
@@ -393,6 +410,11 @@ AJAX.registerOnload('server_privileges.js', function() {
                         $notice_class.remove();
                     }
                 } //Show SQL Query that was executed
+
+                // Remove the old row if the old user is deleted
+                if ($row_to_remove != null) {
+                    $row_to_remove.remove();
+                }
 
                 //Append new user if necessary
                 if (data.new_user_string) {
