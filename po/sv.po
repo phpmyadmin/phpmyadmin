@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 12:14+0200\n"
+"PO-Revision-Date: 2013-03-24 15:19+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -3293,8 +3293,8 @@ msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Ett 2-bytes heltal, signerad inom intervallet -32.768 till 32.767, osignerad "
-"inomm intervallet 0 till 65.535"
+"Ett 2-bytes heltal, signerat inom intervallet -32.768 till 32.767, osignerat "
+"inom intervallet 0 till 65.535"
 
 #: libraries/Types.class.php:300
 msgid ""
@@ -3309,7 +3309,7 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
-"Ett 4-bitars heltal, signerat inom intervallet -2147483648 till 2147483647, "
+"Ett 4-bytes heltal, signerat inom intervallet -2147483648 till 2147483647, "
 "osignerat inom intervallet 0 till 4294967295."
 
 #: libraries/Types.class.php:304
@@ -3317,7 +3317,7 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Ett 8-bitars heltal, signerat inom intervallet -9.223.372.036.854.775.808 "
+"Ett 8-bytes heltal, signerat inom intervallet -9.223.372.036.854.775.808 "
 "till 9.223.372.036.854.775.807, osignerat inom intervallet 0 till "
 "18.446.744.073.709.551.615"
 
@@ -3427,24 +3427,24 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"En TEXT kolumn med en maximal längd av 255 (2^8-1) tecken, lagrat med en en-"
-"bytes prefix vilken anger längden av värdet i bytes"
+"En TEXT-kolumn med en maximal längd av 255 (2^8-1) tecken, lagrat med ett "
+"en-bytes prefix vilket anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:732
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"En TEXT kolumn med en maximal längd av 65.535 (2^16-1) tecken, lagrat med en "
-"två-bytes prefix viken anger längden av värdet i bytes"
+"En TEXT-kolumn med en maximal längd av 65.535 (2^16-1) tecken, lagrat med "
+"ett två-bytes prefix vilket anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"En TEXT kolumn med en maximal längd av 16.777.215 (2^24-1) tecken, lagrat "
-"med en tre-bytes prefix vilken anger längden av värdet i bytes"
+"En TEXT-kolumn med en maximal längd av 16.777.215 (2^24-1) tecken, lagrat "
+"med ett tre-bytes prefix vilket anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3452,8 +3452,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"En TEXT kolumn med en maximal längd av 4,294,967,295 eller 4GB (2^32-1) "
-"tecken, lagrat med en fyra-bytes prefix vilken anger längden av värdet i "
+"En TEXT-kolumn med en maximal längd av 4,294,967,295 eller 4GB (2^32-1) "
+"tecken, lagrat med ett fyra-bytes prefix vilket anger längden av värdet i "
 "bytes"
 
 #: libraries/Types.class.php:342
@@ -3461,7 +3461,7 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Liknande en CHAR typ, men lagrar binära byte strängar snarare än icke-binära "
+"Liknande typen CHAR, men lagrar binära bytesträngar snarare än icke-binära "
 "teckensträngar"
 
 #: libraries/Types.class.php:344
@@ -3469,7 +3469,7 @@ msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Liknande en VARCHAR typ, men lagrar binära strängar byte snarare än icke-"
+"Liknande typen VARCHAR, men lagrar binära bytesträngar snarare än icke-"
 "binära teckensträngar"
 
 #: libraries/Types.class.php:346
@@ -3477,32 +3477,32 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"En BLOB kolumn med en maximal längd av 255 (2^8-1) bytes, lagrat med en en-"
-"sbyte prefix vilken anger längden av värdet"
+"En BLOB-kolumn med en maximal längd av 255 (2^8-1) bytes, lagrat med ett en-"
+"bytes prefix vilket anger längden av värdet"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"En BLOB kolumn med en maximal längd av 16.777.215 (2^24-1) bytes, lagrat med "
-"en tre-bytes prefix vilken anger längden av värdet"
+"En BLOB-kolumn med en maximal längd av 16.777.215 (2^24-1) bytes, lagrat med "
+"ett tre-bytes prefix vilket anger längden av värdet"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"En BLOB kolumn med en maximal längd av 65.535 (2^16-1) bytes, lagrad med ett "
-"två bytes prefix vilken anger längden på värdet"
+"En BLOB-kolumn med en maximal längd av 65.535 (2^16-1) bytes, lagrad med ett "
+"två bytes prefix vilket anger längden på värdet"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"En BLOB kolumn med en maximal längd av 4,294,967,295 och 4GB (2^32-1) byte, "
-"lagras med en fyra-bytes prefix som anger längden på värdet"
+"En BLOB-kolumn med en maximal längd av 4,294,967,295 och 4GB (2^32-1) byte, "
+"lagrad med ett fyra-bytes prefix som anger längden på värdet"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3510,7 +3510,7 @@ msgid ""
 "'' error value"
 msgstr ""
 "En uppräkning, vald från listan med upp till 65.535 värden eller det "
-"speciella'' felvärdet"
+"speciella felvärdet ''"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
@@ -3522,7 +3522,7 @@ msgstr "En typ som kan lagra en geometri av alla typer"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr "En punkt det i 2-dimensionella rummet"
+msgstr "En punkt i det 2-dimensionella rummet"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
@@ -3582,7 +3582,7 @@ msgstr ""
 
 #: libraries/Types.class.php:714
 msgid "A system's default double-precision floating-point number"
-msgstr "Ett systems förvalda dubbelprecision flyttal"
+msgstr "Ett systems förvalda flyttal med dubbel precision"
 
 #: libraries/Types.class.php:716
 msgid "True or false"
@@ -3609,8 +3609,8 @@ msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
-"En variabel längd (0-65,535) sträng, använder binär kollationering för alla "
-"jämförelser"
+"En sträng av variabel längd (0-65,535), använder binär kollationering för "
+"alla jämförelser"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
@@ -3800,7 +3800,7 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Detta betyder oftast att det finns ett syntaxfel i det, kontrollera "
+"Detta betyder oftast att det finns ett syntaxfel i den, kontrollera "
 "eventuella fel som visas nedan."
 
 #: libraries/common.inc.php:587
@@ -3813,7 +3813,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Direktivet[code]$cfg['PmaAbsoluteUri'][/code] MÅSTE definieras i "
+"Direktivet [code]$cfg['PmaAbsoluteUri'][/code] MÅSTE definieras i "
 "konfigurationsfilen!"
 
 #: libraries/common.inc.php:627
@@ -3841,7 +3841,7 @@ msgstr "Fel: Token matchningsfel"
 
 #: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
-msgstr "Globals överskrivningsförsök"
+msgstr "Överskrivningsförsök av GLOBALS"
 
 #: libraries/common.inc.php:1094
 msgid "possible exploit"
@@ -3926,7 +3926,7 @@ msgstr "Snabb - visa endast få alternativ för konfiguration"
 
 #: libraries/config.values.php:137
 msgid "Custom - display all possible options to configure"
-msgstr "Anpassad - visa alla tillgängliga konfigurations optioner"
+msgstr "Anpassad - visa alla tillgängliga konfigurationsalternativ"
 
 #: libraries/config.values.php:138
 msgid "Custom - like above, but without the quick/custom choice"
@@ -3946,7 +3946,7 @@ msgstr "båda av ovanstående"
 
 #: libraries/config.values.php:169
 msgid "neither of the above"
-msgstr "Ingen av ovanstående"
+msgstr "ingen av ovanstående"
 
 #: libraries/config/FormDisplay.class.php:88
 #: libraries/config/validate.lib.php:526
@@ -3989,17 +3989,17 @@ msgstr "otillgänglig"
 #: libraries/config/FormDisplay.class.php:773
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" kräver %s tillägg"
+msgstr "\"%s\" kräver tillägget %s"
 
 #: libraries/config/FormDisplay.class.php:792
 #, php-format
 msgid "import will not work, missing function (%s)"
-msgstr "Import fungerar inte, saknad funktion (%s)"
+msgstr "import fungerar inte, saknad funktion (%s)"
 
 #: libraries/config/FormDisplay.class.php:798
 #, php-format
 msgid "export will not work, missing function (%s)"
-msgstr "Export fungerar inte, saknad funktion (%s)"
+msgstr "export fungerar inte, saknad funktion (%s)"
 
 #: libraries/config/FormDisplay.class.php:808
 msgid "SQL Validator is disabled"
@@ -4065,7 +4065,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:21
 msgid "Blowfish secret"
-msgstr "Blowfish-säkerhet"
+msgstr "Blowfish-lösenord"
 
 #: libraries/config/messages.inc.php:22
 msgid "Highlight selected rows"
@@ -4088,7 +4088,7 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompression av "
+"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] komprimering av "
 "import- och exportoperationer"
 
 #: libraries/config/messages.inc.php:27
@@ -4102,12 +4102,12 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Anger vilken typ av redigeringskontroll som ska användas för CHAR- och "
-"VARCHAR-fält; [kbd]input[/kbd] - tillåter begränsning avinmatningens längd, "
+"VARCHAR-fält; [kbd]input[/kbd] - tillåter begränsning av inmatningens längd, "
 "[kbd]textarea[/kbd] - tillåter radbrytningar i kolumner"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
-msgstr "Redigera CHAR kolumn"
+msgstr "Redigera CHAR-kolumn"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
@@ -4126,7 +4126,7 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
-"Definierar minsta storlek för inmatningsfält skapade för CHAR och VARCHAR "
+"Definierar minsta storlek för inmatningsfält skapade för CHAR- och VARCHAR-"
 "kolumner"
 
 #: libraries/config/messages.inc.php:33
@@ -4138,8 +4138,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
-"Anger den maximala storleken för inmatningsfält skapade för CHAR och VARCHAR "
-"kolumner"
+"Anger den maximala storleken för inmatningsfält skapade för CHAR- och "
+"VARCHAR-kolumner"
 
 #: libraries/config/messages.inc.php:35
 msgid "Maximum size for input field"
@@ -4208,7 +4208,7 @@ msgstr "Flik som visas när du anger en databas"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default database tab"
-msgstr "Default fliken Databas"
+msgstr "Förvald databasflik"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a server"
@@ -4216,7 +4216,7 @@ msgstr "Flik som visas när du går till en server"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default server tab"
-msgstr "Standardserver fliken"
+msgstr "Förvald serverflik"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a table"
@@ -4224,7 +4224,7 @@ msgstr "Flik som visas när du går till en tabell"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default table tab"
-msgstr "Standard tabellflik"
+msgstr "Förvald tabellflik"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
@@ -4251,12 +4251,12 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Inaktivera tabellen underhåll av en mängd operationer, som att optimera "
-"eller reparera den valda tabeller i en databas."
+"Inaktivera mängdoperationer för tabellunderhåll, som att optimera eller "
+"reparera de valda tabellerna i en databas."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
-msgstr "Inaktivera underhåll av många tabeller"
+msgstr "Inaktivera underhåll av multipla tabeller"
 
 #: libraries/config/messages.inc.php:62
 msgid "Edit SQL queries in popup window"
@@ -4341,7 +4341,7 @@ msgstr "Ersätt NULL med"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
-msgstr "Ta bort CRLF tecken i kolumner"
+msgstr "Ta bort CRLF-tecken i kolumner"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
@@ -4356,15 +4356,15 @@ msgstr "Rader avslutas med"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
-msgstr "Excel utgåva"
+msgstr "Excel-version"
 
 #: libraries/config/messages.inc.php:83
 msgid "Database name template"
-msgstr "Databas namn"
+msgstr "Mall för databasnamn"
 
 #: libraries/config/messages.inc.php:84
 msgid "Server name template"
-msgstr "Servernamn mall"
+msgstr "Mall för servernamn"
 
 #: libraries/config/messages.inc.php:85
 msgid "Table name template"
@@ -4434,11 +4434,11 @@ msgstr "Kom ihåg mall för filnamn"
 #: libraries/config/messages.inc.php:117 libraries/operations.lib.php:195
 #: libraries/operations.lib.php:684 libraries/operations.lib.php:1028
 msgid "Add AUTO_INCREMENT value"
-msgstr "Addera AUTO_INCREMENT värde"
+msgstr "Lägg till AUTO_INCREMENT-värde"
 
 #: libraries/config/messages.inc.php:118
 msgid "Enclose table and column names with backquotes"
-msgstr "Använd citat-tecken runt tabell- och fältnamn"
+msgstr "Använd citattecken runt tabell- och fältnamn"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:438
@@ -4448,7 +4448,7 @@ msgstr "SQL-kompatibilitetsläge"
 #: libraries/config/messages.inc.php:120
 #: libraries/plugins/export/ExportSql.class.php:262
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> alternativ:"
+msgstr "<code>CREATE TABLE</code>-alternativ:"
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -4530,11 +4530,11 @@ msgstr "Begränsning för främmande nyckel"
 
 #: libraries/config/messages.inc.php:152
 msgid "Browse mode"
-msgstr "Webbläsningsläge"
+msgstr "Utforskningsläge"
 
 #: libraries/config/messages.inc.php:153
 msgid "Customize browse mode"
-msgstr "Anpassa webbläsningsläge"
+msgstr "Anpassa utforskningsläge"
 
 #: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:185
@@ -4634,7 +4634,7 @@ msgstr "Visningsalternativ för tabeller"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
 msgid "Main panel"
-msgstr "Huvudpanelen"
+msgstr "Huvudpanel"
 
 #: libraries/config/messages.inc.php:184
 msgid "Microsoft Office"
@@ -4671,7 +4671,7 @@ msgstr "Sökfönster"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
-msgstr "Alternativ för sökfönster"
+msgstr "Anpassa alternativ för sökfönster"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
@@ -4695,7 +4695,7 @@ msgstr "Verifiering"
 
 #: libraries/config/messages.inc.php:198
 msgid "Authentication settings"
-msgstr "Behörighetsinställningar"
+msgstr "Autentiseringsinställningar"
 
 #: libraries/config/messages.inc.php:199
 msgid "Server configuration"
@@ -4706,7 +4706,7 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
-"Advancerad serverkonfiguration, ändra inte dessa alternativ om du inte vet "
+"Avancerad serverkonfiguration, ändra inte dessa alternativ om du inte vet "
 "vad de är till för"
 
 #: libraries/config/messages.inc.php:201
@@ -4744,7 +4744,7 @@ msgstr "Anpassa exportalternativ"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize import defaults"
-msgstr "Anpassa standardvärden för  import"
+msgstr "Anpassa standardvärden för import"
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize navigation panel"
@@ -4765,7 +4765,7 @@ msgstr "SQL-frågeruta"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
-msgstr "Anpassa länkar som visas i SQL-frågeruta"
+msgstr "Anpassa länkar som visas i SQL-frågerutor"
 
 #: libraries/config/messages.inc.php:217
 msgid "SQL queries settings"
@@ -4809,7 +4809,7 @@ msgstr "Tabellstruktur"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
-msgstr "Inställningar för tabell struktur (kolumnlista)"
+msgstr "Inställningar för tabellstrukturen (kolumnlista)"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4958,7 +4958,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:270
 msgid "Limit column characters"
-msgstr "Begränsa antalet kolumn tecken"
+msgstr "Begränsa antalet tecken i kolumn"
 
 #: libraries/config/messages.inc.php:271
 msgid ""
@@ -4966,10 +4966,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Om TRUE, raderas cookies för alla servrar vid utloggning; när satt till "
-"FALSE, sker utloggning endast för aktuell server. Satt till FALSKT gör det "
-"lätt att glömma att logga ut från andra servrar när den är ansluten till "
-"flera servrar."
+"Om TRUE raderas cookies för alla servrar vid utloggning; när satt till FALSE "
+"sker utloggning endast för aktuell server. Satt till FALSE gör det lätt att "
+"glömma att logga ut från andra servrar när du är ansluten till flera "
+"servrar."
 
 #: libraries/config/messages.inc.php:272
 msgid "Delete all cookies on logout"
@@ -5013,7 +5013,7 @@ msgstr "Giltighet för inloggnings-cookie"
 
 #: libraries/config/messages.inc.php:279
 msgid "Double size of textarea for LONGTEXT columns"
-msgstr "Dubbel storlek på textområdet för LONGTEXT kolumner"
+msgstr "Dubbel storlek på textområdet för LONGTEXT-kolumner"
 
 #: libraries/config/messages.inc.php:280
 msgid "Bigger textarea for LONGTEXT"
@@ -5047,7 +5047,7 @@ msgstr "Antalet objekt som kan visas på varje sida i navigationsträdet"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
-msgstr "Maximalt antal poster i branschen"
+msgstr "Maximalt antal poster i gren"
 
 #: libraries/config/messages.inc.php:288
 msgid ""
@@ -5055,8 +5055,8 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
-"Antal rader som visas vid visning av resultatet. Om resultatet innehåller "
-"fler rader, visas länkar för &quot;Föregående&quot; och &quot;Nästa&quot;."
+"Antal rader som visas vid visning av resultat. Om resultatet innehåller fler "
+"rader, visas länkar för &quot;Föregående&quot; och &quot;Nästa&quot;."
 
 #: libraries/config/messages.inc.php:289
 msgid "Maximum number of rows to display"
@@ -5108,7 +5108,7 @@ msgstr "URL som navigationspanelens logotyp pekar mot"
 
 #: libraries/config/messages.inc.php:300
 msgid "Logo link URL"
-msgstr "Logo länkadress"
+msgstr "Länkadress för logo"
 
 #: libraries/config/messages.inc.php:301
 msgid ""
@@ -5120,7 +5120,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link target"
-msgstr "Logo-länk mål"
+msgstr "Mål för logo-länk"
 
 #: libraries/config/messages.inc.php:303
 msgid "Display server choice at the top of the navigation panel"
@@ -5140,7 +5140,7 @@ msgid ""
 "display a filter box."
 msgstr ""
 "Definierar minsta antal objekt (tabeller, vyer, rutiner och händelser) för "
-"att visa filterboxen."
+"att visa en filterbox."
 
 #: libraries/config/messages.inc.php:307
 msgid "Minimum number of items to display the filter box"
@@ -5148,7 +5148,7 @@ msgstr "Minsta antal objekt för att visa filterboxen"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minsta antal databaser för att visa databasens filter box"
+msgstr "Minsta antal databaser för att visa filterboxen för databaser"
 
 #: libraries/config/messages.inc.php:309
 msgid ""
@@ -5192,7 +5192,7 @@ msgstr "Aktivera framhävning"
 
 #: libraries/config/messages.inc.php:318
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maximalt antal nyligen använa tabeller, ange 0 för att avaktivera"
+msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera"
 
 #: libraries/config/messages.inc.php:319
 msgid "Recently used tables"
@@ -5200,7 +5200,7 @@ msgstr "Nyligen använda tabeller"
 
 #: libraries/config/messages.inc.php:320
 msgid "These are Edit, Copy and Delete links"
-msgstr "Dessa är Redigera, Kopiera och Radera länkar"
+msgstr "Dessa är länkar till Redigera, Kopiera och Radera"
 
 #: libraries/config/messages.inc.php:321
 msgid "Where to show the table row links"
@@ -5269,12 +5269,12 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Inaktivera standardvarningen vilken visas om en skillnad mellan MySQL "
+"Inaktivera standardvarningen som visas om en skillnad mellan MySQL-"
 "biblioteket och servern upptäcks"
 
 #: libraries/config/messages.inc.php:335
 msgid "Server/library difference warning"
-msgstr "Server/bibliotek skillnadsvarning"
+msgstr "Varning för skillnad server/bibliotek"
 
 #: libraries/config/messages.inc.php:336
 #| msgid ""
@@ -5294,11 +5294,11 @@ msgstr "Varning för reserverat MySQL-ord"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
-msgstr "Ikoniska tabell transaktioner"
+msgstr "Ikoniska tabelloperationer"
 
 #: libraries/config/messages.inc.php:340
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Hindra BLOB och kolumner BINARY från redigering"
+msgstr "Tillåt ej redigering av BLOB- och BINARY-kolumner"
 
 #: libraries/config/messages.inc.php:341
 msgid "Protect binary columns"
@@ -5332,23 +5332,23 @@ msgstr "Flik som visas när man öppnar ett nytt frågefönster"
 
 #: libraries/config/messages.inc.php:348
 msgid "Default query window tab"
-msgstr "Default frågefönsterflik"
+msgstr "Förvald frågefönsterflik"
 
 #: libraries/config/messages.inc.php:349
 msgid "Query window height (in pixels)"
-msgstr "Höjd på sökfönster (i pixlar)"
+msgstr "Höjd på frågefönster (i pixlar)"
 
 #: libraries/config/messages.inc.php:350
 msgid "Query window height"
-msgstr "Fråga höjd på frågefönster"
+msgstr "Höjd på frågefönster"
 
 #: libraries/config/messages.inc.php:351
 msgid "Query window width (in pixels)"
-msgstr "Sökning fönster bredd (i pixlar)"
+msgstr "Bredd på frågefönster (i pixlar)"
 
 #: libraries/config/messages.inc.php:352
 msgid "Query window width"
-msgstr "Sökning fönsterbredd"
+msgstr "Bredd på frågefönster"
 
 #: libraries/config/messages.inc.php:353
 msgid "Select which functions will be used for character set conversion"
@@ -5362,7 +5362,7 @@ msgstr "Omvandlingsmotor"
 
 #: libraries/config/messages.inc.php:355
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr "Vid  bläddring i tabeller, är sorteringen av varje tabell ihågkommen"
+msgstr "Vid bläddring i tabeller är sorteringen av varje tabell ihågkommen"
 
 #: libraries/config/messages.inc.php:356
 msgid "Remember table's sorting"
@@ -5387,11 +5387,11 @@ msgstr "Rutnäts-redigering: spara alla redigerade celler omedelbart"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
-msgstr "Katalog där exporten kan sparas på servern"
+msgstr "Katalog där exporter kan sparas på servern"
 
 #: libraries/config/messages.inc.php:363
 msgid "Save directory"
-msgstr "Spara katalog"
+msgstr "Sparningskatalog"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank if not used"
@@ -5403,7 +5403,7 @@ msgstr "Host auktorisation för"
 
 #: libraries/config/messages.inc.php:366
 msgid "Leave blank for defaults"
-msgstr "Lämna blankt för defaultvärden"
+msgstr "Lämna blankt för standardvärden"
 
 #: libraries/config/messages.inc.php:367
 msgid "Host authorization rules"
@@ -5570,8 +5570,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Lämna blankt för att stänga av SQL-frågehistoriks stöd, förslag: [kbd]"
-"pma_history[/kbd]"
+"Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:400
 msgid "SQL query history table"
@@ -5594,12 +5594,12 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
-"Begränsar antalet tabell preferenser som lagras i databasen, de äldsta "
+"Begränsar antalet tabellpreferenser som lagras i databasen, de äldsta "
 "posterna tas bort automatiskt"
 
 #: libraries/config/messages.inc.php:405
 msgid "Maximal number of table preferences to store"
-msgstr "Maximalt antal tabell inställningar att spara"
+msgstr "Maximalt antal tabellinställningar att spara"
 
 #: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
@@ -5635,8 +5635,8 @@ msgstr "Lösenord för config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Lämna blankt för att stänga av stöd för PDF-schema, förslag: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Lämna blankt för att stänga av stöd för PDF-schema, förslag: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:413
 msgid "PDF schema: pages table"
@@ -5658,7 +5658,7 @@ msgstr "Databasnamn"
 
 #: libraries/config/messages.inc.php:416
 msgid "Port on which MySQL server is listening, leave empty for default"
-msgstr "Port som MySQL-servern lyssnar på, lämna blankt för default"
+msgstr "Port som MySQL-servern lyssnar på, lämna blankt för standardport"
 
 #: libraries/config/messages.inc.php:417
 msgid "Server port"
@@ -5686,7 +5686,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:421
 msgid "Relation table"
-msgstr "Relations tabell"
+msgstr "Relationstabell"
 
 #: libraries/config/messages.inc.php:422
 msgid "SQL command to fetch available databases"
@@ -5710,7 +5710,7 @@ msgstr "Signon sessionsnamn"
 
 #: libraries/config/messages.inc.php:426
 msgid "Signon URL"
-msgstr "Inloggnings URL"
+msgstr "Inloggnings-URL"
 
 #: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -5769,8 +5769,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Om DROP DATABASE IF EXISTS finns, kommando skall läggas till som första "
-"raden i loggen när man skapar en databas."
+"Om DROP DATABASE IF EXISTS-kommando skall läggas till som första raden i "
+"loggen när man skapar en databas."
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP DATABASE"
@@ -5781,8 +5781,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Om DROP TABLE IF EXISTS kommando finns, kommer läggas till som första raden "
-"i loggen när man skapar en tabell."
+"Om DROP TABLE IF EXISTS-kommando skall läggas till som första raden i loggen "
+"när man skapar en tabell."
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
@@ -5793,8 +5793,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Om DROP VIEW IF EXISTS finns, kommando skall läggas till som första raden i "
-"loggen när man skapar en vy."
+"Om DROP VIEW IF EXISTS-kommando skall läggas till som första raden i loggen "
+"när man skapar en vy."
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
@@ -5815,24 +5815,24 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
-"Lämna tomt för avstängt stöd för SQL-förfrågnings spårning, förslag: [kbd]"
-"pma__tracking[/kbd]"
+"Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
-msgstr "SQL-fråga spårningstabellen"
+msgstr "SQL-frågespårningstabell"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Huruvida spårnings mekanismen skapar versioner för tabeller och vyer "
+"Huruvida spårningsmekanismen skapar versioner för tabeller och vyer "
 "automatiskt."
 
 #: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
-msgstr "Automatiskt skapa versioner"
+msgstr "Skapa versioner automatiskt"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
@@ -5840,11 +5840,11 @@ msgid ""
 "pma__userconfig[/kbd]"
 msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
-"förslag: [kbd]pma_userconfig[/kbd]"
+"förslag: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:450
 msgid "User preferences storage table"
-msgstr "Användarinställningar lagringstabell"
+msgstr "Användarinställningar för lagringstabell"
 
 #: libraries/config/messages.inc.php:452
 msgid "User for config auth"
@@ -5864,7 +5864,7 @@ msgstr "Beskrivande namn för denna server"
 
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "Ifall en användare ska få se en &quot;visa alla(rader)&quot; knapp"
+msgstr "Ifall en användare ska få se en &quot;visa alla (rader)&quot;-knapp"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5896,7 +5896,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Creation timestamp"
-msgstr "Visa tidsstämpel för skapandet"
+msgstr "Visa tidsstämpel för skapande"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5936,7 +5936,7 @@ msgstr "Visa visnings riktning"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr "Anger om typ-fält bör först visas i redigera / infogningsläget"
+msgstr "Anger om typ-fält bör först visas i ändra/infoga-läge"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show field types"
@@ -5963,8 +5963,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Visar länk till [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"resultatet"
+"Visar länk till resultatet av "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
@@ -5985,15 +5985,15 @@ msgstr "Visa SQL-frågor"
 #: libraries/config/messages.inc.php:479
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr "Definierar om frågerutan ska stanna på skärmen efter inskickandet"
+msgstr "Anger om frågerutan ska stanna på skärmen efter den skickats"
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:361
 msgid "Retain query box"
-msgstr "Behåll sökrutan"
+msgstr "Behåll frågerutan"
 
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
-msgstr "Tillåt visning av databas- och tabellstatistik (t.ex.av utrymme)"
+msgstr "Tillåt visning av databas- och tabellstatistik (t.ex. av utrymme)"
 
 #: libraries/config/messages.inc.php:482
 msgid "Show statistics"
@@ -6035,8 +6035,8 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
-"[strong]Varning:[/strong] kräver PHP SOAP tillägg eller installation av PEAR "
-"SOAP"
+"[strong]Varning:[/strong] kräver PHP SOAP-tillägget eller installation av "
+"PEAR SOAP"
 
 #: libraries/config/messages.inc.php:494
 msgid "Enable SQL Validator"
@@ -6047,8 +6047,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Om du har ett eget användarnamn, ange det här (default är [kbd]anonymous[/"
-"kbd])"
+"Om du har ett eget användarnamn, ange det här (standardnamn är "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:496 tbl_tracking.php:555
 #: tbl_tracking.php:617
@@ -6069,7 +6069,7 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 "Textareans storlek (kolumner) i redigeringsläge, detta värde kommer betonas "
-"för SQL-frågans textfält (* 2) och för frågan fönster (* 1,25)"
+"för SQL-frågetextfält (* 2) och för frågefönster (* 1,25)"
 
 #: libraries/config/messages.inc.php:500
 msgid "Textarea columns"
@@ -6081,7 +6081,7 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 "Textareans storlek (rader) i redigeringsläge, detta värde kommer betonas för "
-"SQL-fråga textfält (* 2) och för frågan fönster (* 1,25)"
+"SQL-frågetextfält (* 2) och för frågefönster (* 1,25)"
 
 #: libraries/config/messages.inc.php:502
 msgid "Textarea rows"
@@ -6097,7 +6097,7 @@ msgstr "Titel på webbläsarfönstret när ingenting är markerat"
 
 #: libraries/config/messages.inc.php:506
 msgid "Default title"
-msgstr "Standard titel"
+msgstr "Standardtitel"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
@@ -6114,10 +6114,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"Ange proxy som [kbd]IP: trusted HTTP header[/kbd]. I följande exampel angers "
-"att phpMyAdmin bör lita på ett HTTP_X_FORWARDED_FOR (X-Forwarded-For) huvud "
-"som kommer från proxyservern 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/"
-"kbd]"
+"Ange proxy som [kbd]IP: trusted HTTP header[/kbd]. I följande exempel anges "
+"att phpMyAdmin bör lita på ett HTTP_X_FORWARDED_FOR (X-Forwarded-For)-huvud "
+"som kommer från proxyservern 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:512
 msgid "List of trusted proxies for IP allow/deny"
@@ -6129,7 +6129,7 @@ msgstr "Katalog på servern där du kan ladda upp filer för import"
 
 #: libraries/config/messages.inc.php:514
 msgid "Upload directory"
-msgstr "Uppladdningskatalogen"
+msgstr "Uppladdningskatalog"
 
 #: libraries/config/messages.inc.php:515
 msgid "Allow for searching inside the entire database"
@@ -6157,7 +6157,7 @@ msgstr "Sök efter senaste version"
 
 #: libraries/config/messages.inc.php:520
 msgid "Enables check for latest version on main phpMyAdmin page"
-msgstr "Aktivera kontroll efter senaste version på phpMyAdmin hemsida"
+msgstr "Aktivera kontroll efter senaste version på phpMyAdmins hemsida"
 
 #: libraries/config/messages.inc.php:521 setup/lib/index.lib.php:132
 #: setup/lib/index.lib.php:143 setup/lib/index.lib.php:164
@@ -6181,7 +6181,7 @@ msgstr "ZIP"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
-msgstr "Config autentisering"
+msgstr "Config-autentisering"
 
 #: libraries/config/setup.forms.php:45
 msgid "Cookie authentication"
@@ -6193,7 +6193,7 @@ msgstr "HTTP-autentisering"
 
 #: libraries/config/setup.forms.php:51
 msgid "Signon authentication"
-msgstr "Signon autentisering"
+msgstr "Signon-autentisering"
 
 #: libraries/config/setup.forms.php:247
 #: libraries/config/user_preferences.forms.php:152
@@ -6219,7 +6219,7 @@ msgstr "Anpassad"
 #: libraries/config/setup.forms.php:288
 #: libraries/config/user_preferences.forms.php:191
 msgid "Database export options"
-msgstr "Databas exportalternativ"
+msgstr "Exportalternativ för databas"
 
 #: libraries/config/setup.forms.php:321
 #: libraries/config/user_preferences.forms.php:224
@@ -6276,7 +6276,7 @@ msgstr "Felaktig IP-adress: %s"
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s tillägg saknas. Vänligen kontrollera din PHP konfiguration."
+msgstr "Tillägget %s saknas. Vänligen kontrollera din PHP-konfiguration."
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6313,7 +6313,8 @@ msgstr "Kan inte räkna rader i en obuffrad resultatmängd"
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr "Uppkoppling för controluser enligt din konfiguration misslyckades."
+msgstr ""
+"Uppkoppling för kontrollanvändare enligt din konfiguration misslyckades."
 
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
@@ -6391,15 +6392,15 @@ msgstr "Exportera rader från tabellen \"%s\""
 
 #: libraries/display_export.lib.php:112
 msgid "Export Method:"
-msgstr "Export metod:"
+msgstr "Exportmetod:"
 
 #: libraries/display_export.lib.php:122
 msgid "Quick - display only the minimal options"
-msgstr "Snabbt  - visa endast minimala möjligheter"
+msgstr "Snabb - visa endast minimala alternativ"
 
 #: libraries/display_export.lib.php:134
 msgid "Custom - display all possible options"
-msgstr "Anpassad  - visa alla möjliga alternativ"
+msgstr "Anpassad - visa alla möjliga alternativ"
 
 #: libraries/display_export.lib.php:143
 msgid "Database(s):"
@@ -6431,7 +6432,7 @@ msgstr "Ta bort alla rader"
 
 #: libraries/display_export.lib.php:202 libraries/display_export.lib.php:230
 msgid "Output:"
-msgstr "Output:"
+msgstr "Utdata:"
 
 #: libraries/display_export.lib.php:211 libraries/display_export.lib.php:249
 #, php-format
@@ -6444,11 +6445,11 @@ msgstr "Spara utdata till en fil"
 
 #: libraries/display_export.lib.php:266
 msgid "File name template:"
-msgstr "Filnamn mall:"
+msgstr "Filnamnsmall:"
 
 #: libraries/display_export.lib.php:268
 msgid "@SERVER@ will become the server name"
-msgstr "@Server@ blir servernamnet"
+msgstr "@Server@ kommer bli servernamnet"
 
 #: libraries/display_export.lib.php:270
 msgid ", @DATABASE@ will become the database name"
@@ -6456,7 +6457,7 @@ msgstr ", @DATABASE@ kommer bli databasnamnet"
 
 #: libraries/display_export.lib.php:272
 msgid ", @TABLE@ will become the table name"
-msgstr ", @TABLE@ blir tabellnamnet"
+msgstr ", @TABLE@ kommer bli tabellnamnet"
 
 #: libraries/display_export.lib.php:277
 #, php-format
@@ -6467,11 +6468,11 @@ msgid ""
 msgstr ""
 "Detta värde tolkas med %1$sstrftime%2$s, så du kan använda strängar med "
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
-"text behålls som den är.Se %4$sFAQ%5$s för detaljer.."
+"text behålls som den är.Se %4$sFAQ%5$s för detaljer."
 
 #: libraries/display_export.lib.php:330
 msgid "use this for future exports"
-msgstr "använd detta för framtida export"
+msgstr "använd detta för framtida exporter"
 
 #: libraries/display_export.lib.php:336 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:480
@@ -6522,7 +6523,7 @@ msgstr "Omkodning:"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr "%1$s från %2$s grenen"
+msgstr "%1$s från grenen %2$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
@@ -6540,7 +6541,7 @@ msgstr "inlagd %1$s av %2$s"
 #: libraries/display_git_revision.lib.php:75
 #, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "Skriven den %1$s av %2$s"
+msgstr "skriven den %1$s av %2$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6549,7 +6550,7 @@ msgid ""
 "browsers."
 msgstr ""
 "Filen som laddas upp är förmodligen större än maximalt tillåtna storlek "
-"eller så är detta än känd bugg i webkit-baserade webbläsare (Safari, Google "
+"eller så är detta en känd bugg i webkit-baserade webbläsare (Safari, Google "
 "Chrome, Arora etc.)."
 
 #: libraries/display_import.lib.php:77
@@ -6615,7 +6616,7 @@ msgid ""
 "Example: <b>.sql.zip</b>"
 msgstr ""
 "En komprimerad fils namn måste sluta med <b>.[format].[komprimering]</b>. "
-"Exempel:. <b>.sql.zip</b>"
+"Exempel: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:245
 msgid "File uploads are not allowed on this server."
@@ -6730,7 +6731,7 @@ msgstr "Låsta sidor"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Buffer Pool Activity"
-msgstr "Buffert Pool aktivitet"
+msgstr "Buffertpool-aktivitet"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
@@ -7023,7 +7024,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1193
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Redigera strukturen genom att följa \"Structure\" länken"
+msgstr "Redigera strukturen genom att följa länken \"Struktur\""
 
 #: libraries/import.lib.php:1197
 #, php-format
@@ -7096,7 +7097,7 @@ msgstr "Infoga som ny rad och ignorera fel"
 
 #: libraries/insert_edit.lib.php:1469
 msgid "Show insert query"
-msgstr "Visa insert fråga"
+msgstr "Visa insert-fråga"
 
 #: libraries/insert_edit.lib.php:1489
 msgid "Go back to previous page"
@@ -7128,7 +7129,7 @@ msgstr "Visar SQL-fråga"
 #: libraries/insert_edit.lib.php:1937 sql.php:916
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr "Infogade rad id: %1$d"
+msgstr "Infogade rad-id: %1$d"
 
 #: libraries/kanji-encoding.lib.php:147
 msgctxt "None encoding conversion"
@@ -7378,11 +7379,11 @@ msgstr "Logga ut"
 
 #: libraries/navigation/NavigationHeader.class.php:214
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin dokumentation"
+msgstr "phpMyAdmin-dokumentation"
 
 #: libraries/navigation/NavigationHeader.class.php:238
 msgid "Reload navigation frame"
-msgstr "Ladda om navigering ram"
+msgstr "Ladda om navigeringsram"
 
 #: libraries/navigation/NavigationTree.class.php:708
 #, php-format
@@ -7678,9 +7679,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin försökte skapa en förbindelse till MySQL-servern, men servern "
-"nekade uppkopplingen. Kontrollera värd, användarnamn och lösenord i config."
-"inc.php och förvissa dig om att de stämmer överens med informationen från "
-"administratören av MySQL-servern."
+"nekade uppkopplingen. Kontrollera värd, användarnamn och lösenord i din "
+"konfiguration och förvissa dig om att de stämmer överens med informationen "
+"från administratören av MySQL-servern."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7734,7 +7735,7 @@ msgstr "Ingen aktivitet sedan %s sekunder; var god logga in igen"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:597
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
 msgid "Cannot log in to the MySQL server"
-msgstr "Kan ej logga in på MySQL-server"
+msgstr "Kan ej logga in på MySQL-servern"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:75
 msgid "Wrong username/password. Access denied."
@@ -7844,14 +7845,14 @@ msgstr "Tabellstruktur"
 #: libraries/plugins/export/ExportSql.class.php:1483
 #: libraries/plugins/export/ExportTexytext.class.php:511
 msgid "Structure for view"
-msgstr "Struktur för visning"
+msgstr "Struktur för vy"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:579
 #: libraries/plugins/export/ExportOdt.class.php:677
 #: libraries/plugins/export/ExportSql.class.php:1500
 #: libraries/plugins/export/ExportTexytext.class.php:518
 msgid "Stand-in structure for view"
-msgstr "Ersättningsstruktur för visning"
+msgstr "Ersättningsstruktur för vy"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -7874,7 +7875,7 @@ msgstr "Alternativ för skapande av objekt"
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
 msgid "Table caption (continued)"
-msgstr "Tabell beskrivning (forts)"
+msgstr "Tabellbeskrivning (forts)"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -7933,19 +7934,19 @@ msgstr "(Skapar en rapport som innehåller data från en enstaka tabell)"
 
 #: libraries/plugins/export/ExportPdf.class.php:102
 msgid "Report title:"
-msgstr "Rapport titel:"
+msgstr "Rapporttitel:"
 
 #: libraries/plugins/export/ExportSql.class.php:90
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Visa kommentarer <i>(inkluderar info såsom export tidsstämpel, PHP version, "
-"och server version)</i>"
+"Visa kommentarer <i>(inkluderar info såsom exporttidsstämpel, PHP-version, "
+"och serverversion)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:99
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Ytterligare Anpassa sidhuvud kommentar (\\n delar rader):"
+msgstr "Ytterligare en anpassad sidhuvudkommentar (\\n delar rader):"
 
 #: libraries/plugins/export/ExportSql.class.php:106
 msgid ""
@@ -7958,14 +7959,16 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:163
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr "Maximera kompatibilitet med databassystem eller äldre MySQL-server:"
+msgstr ""
+"Databassystem eller äldre MySQL-server att maximera kompatibilitet av utdata "
+"med:"
 
 #: libraries/plugins/export/ExportSql.class.php:184
 #: libraries/plugins/export/ExportSql.class.php:241
 #: libraries/plugins/export/ExportSql.class.php:249
 #, php-format
 msgid "Add %s statement"
-msgstr "Lägg till %s uppgift"
+msgstr "Lägg till uppgiften %s"
 
 #: libraries/plugins/export/ExportSql.class.php:220
 msgid "Add statements:"
@@ -7990,20 +7993,20 @@ msgstr "Trunkera tabell innan inläggning"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Istället för <code>INSERT</code> kommando, använd:"
+msgstr "Istället för <code>INSERT</code>-kommandon, använd:"
 
 #: libraries/plugins/export/ExportSql.class.php:311
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "<code>INSERT DELAYED</code> kommando"
+msgstr "<code>INSERT DELAYED</code>-kommandon"
 
 #: libraries/plugins/export/ExportSql.class.php:322
 #: libraries/plugins/export/ExportSql.class.php:352
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code>INSERT IGNORE</code> kommando"
+msgstr "<code>INSERT IGNORE</code>-kommandon"
 
 #: libraries/plugins/export/ExportSql.class.php:335
 msgid "Function to use when dumping data:"
-msgstr "Funktion för att använda när data dumpas:"
+msgstr "Funktion att använda när data dumpas:"
 
 #: libraries/plugins/export/ExportSql.class.php:348
 msgid "Syntax to use when inserting data:"
@@ -8015,7 +8018,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inkludera kolumnnamn i varje <code>INSERT</code> kommando <br /> &nbsp; "
+"inkludera kolumnnamn i varje <code>INSERT</code>-kommando <br /> &nbsp; "
 "&nbsp; &nbsp; Exempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
@@ -8025,9 +8028,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"Mata in flera rader i varje <code>INSERT</code> kommando<br /> &nbsp; &nbsp; "
-"&nbsp; Exempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"mata in flera rader i varje <code>INSERT</code>-kommando<br /> &nbsp; &nbsp; "
+"&nbsp; Exempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:366
 msgid ""
@@ -8042,7 +8045,7 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"ingen av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
+"inget av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:390
@@ -8050,16 +8053,16 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\"blir 0x616263)"
-"</i>"
+"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir "
+"0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:403
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Dumpa TIMESTAMP kolumner i UTC <i>(gör TIMESTAMP kolumner som ska dumpas och "
-"laddade mellan servrar i olika tidszoner)</i>"
+"Dumpa TIMESTAMP-kolumner i UTC <i>(gör TIMESTAMP-kolumner som ska dumpas och "
+"laddas mellan servrar i olika tidszoner)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1197
 msgid "Constraints for dumped tables"
@@ -8083,7 +8086,7 @@ msgstr "Fel vid läsning av data:"
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
-msgstr "Skapa objekt alternativ (alla rekommenderas)"
+msgstr "Alternativ vid skapande av objekt (alla rekommenderas)"
 
 #: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
@@ -8095,7 +8098,7 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"Den första raden i filen innehåller tabellens kolumn namne<i>(om detta inte "
+"Den första raden i filen innehåller tabellens kolumnnamn <i>(om detta inte "
 "är markerat, kommer den första raden bli en del av uppgifterna)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:118
@@ -8126,8 +8129,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"Ogiltig kolumn (%s)! Se till att kolumnens namn är rättstavat, åtskilda med "
-"kommatecken och inte omges av citattecken."
+"Ogiltig kolumn (%s)! Se till att kolumnernas namn är rättstavade, åtskilda "
+"med kommatecken och inte omges av citattecken."
 
 #: libraries/plugins/import/ImportCsv.class.php:325
 #: libraries/plugins/import/ImportCsv.class.php:600
@@ -8138,7 +8141,7 @@ msgstr "Ogiltigt format i CSV-indata på rad %d."
 #: libraries/plugins/import/ImportCsv.class.php:481
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Ogiltigt antal fält i CSV indata på rad %d."
+msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
 #: libraries/plugins/import/ImportLdi.class.php:125
 msgid "This plugin does not support compressed imports!"
@@ -8146,21 +8149,21 @@ msgstr "Detta tillägg stöder inte komprimerade importer!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
-msgstr "MediaWiki Tabell"
+msgstr "MediaWiki-tabell"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:303
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Ogiltigt format på mediawiki datat vid rad:<br />%s."
+msgstr "Ogiltigt format på mediawiki-data på rad:<br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Importera procenttal som korrekt antal decimaler <i>(t.ex. 12.00% to .12)</i>"
+"Importera procenttal som vanliga decimaltal <i>(t.ex. 12.00% blir .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:94
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importera valutor <i>(t.ex. $5.00 to 5.00)</i>"
+msgstr "Importera valutor <i>(t.ex. $5.00 blir 5.00)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:172
 #: libraries/plugins/import/ImportXml.class.php:131
@@ -8192,7 +8195,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr "MySQL Spatial Extension stöder inte ESRI typen \"%s\"."
+msgstr "MySQL Spatial Extension stöder inte ESRI-typen \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:261
 msgid "The imported file does not contain any data"
@@ -8213,7 +8216,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr "Geometri typ '%s' stöds inte av MySQL."
+msgstr "Geometritypen '%s' stöds inte av MySQL."
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
 msgid ""
@@ -8234,14 +8237,14 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Visar en TIME, TIMESTAMP, DATETIME eller numerisk unix tidsstämpel som ett "
+"Visar en TIME, TIMESTAMP, DATETIME eller numerisk unixtidsstämpel som ett "
 "formaterat datum. Det första alternativet är förskjutningen (i timmar) som "
-"kommer att läggas till tidsstämpeln (Standard: 0).Använd andra alternativet "
+"kommer att läggas till tidsstämpeln (Standard: 0). Använd andra alternativet "
 "för att ange ett annat datum / tidsformat. Tredje alternativet avgör om du "
-"vill se lokalt datum eller UTC en (använd \"lokal\"eller \"UTC \" strängar) "
-"för det. Enligt detta har datumformat olika värden - för \"lokala\" se "
+"vill se lokalt datum eller UTC (använd strängarna \"local\" eller \"UTC\") för "
+"det. Enligt detta har datumformat olika värden - för \"local\" se "
 "dokumentationen för PHP:s strftime() och för \"UTC\" är det gjort med hjälp "
-"gmdate() funktionen."
+"gmdate()-funktionen."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8250,7 +8253,7 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Visar en länk för att ladda ner binära data i kolumnen.Du kan använda det "
+"Visar en länk för att ladda ner binära data i kolumnen. Du kan använda det "
 "första alternativet för att ange filnamnet eller använda det andra "
 "alternativet som namnet på en kolumn som innehåller filnamn. Om du använder "
 "det andra alternativet, måste du ställa det första alternativet till den "
@@ -8284,7 +8287,7 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Visar innehållet i den kolumn som det är, utan att köra det genom "
+"Visar innehållet i kolumnen som det är, utan att köra det genom "
 "htmlspecialchars(). Det innebär att fältet antas innehålla korrekt HTML-kod."
 
 #: libraries/plugins/transformations/abstract/HexTransformationsPlugin.class.php:31
@@ -8312,8 +8315,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
-"Konverterar en (IPv4) Internetadress till en sträng i Internet-standard (DNS-"
-"format)."
+"Konverterar en (IPv4) internetadress till en sträng i internet-standard "
+"(DNS-format)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8340,7 +8343,7 @@ msgid ""
 "third options are the width and the height in pixels."
 msgstr ""
 "Visar en bild och en länk; kolumnen innehåller filnamn. Det första "
-"alternativet är en URL prefix som \"http://www.example.com/\". Det andra och "
+"alternativet är ett URL-prefix som \"http://www.example.com/\". Det andra och "
 "tredje alternativet är bredden och höjden i pixlar."
 
 #: libraries/plugins/transformations/abstract/TextLinkTransformationsPlugin.class.php:33
@@ -8393,7 +8396,7 @@ msgstr "Webbläsaromvandling"
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
-"Vänligen se dokumentationen om hur du uppdaterar din column_comments tabell"
+"Vänligen se dokumentationen om hur du uppdaterar din column_comments-tabell"
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:387
 msgid "Bookmarked SQL query"
@@ -8409,7 +8412,7 @@ msgstr "Beständiga, nyligen använda tabeller"
 
 #: libraries/relation.lib.php:227
 msgid "Persistent tables' UI preferences"
-msgstr "Bestående tabeller för inställninar av användargränssnittet"
+msgstr "Bestående tabeller för inställningar av användargränssnittet"
 
 #: libraries/relation.lib.php:249
 msgid "User preferences"
@@ -8434,9 +8437,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Aktivera avancerade funktioner i konfigurationsfilen  (<code>config.inc.php</"
-"code>), till exempel genom att starta från <code>config.sample.inc.php</"
-"code>."
+"Aktivera avancerade funktioner i konfigurationsfilen "
+"(<code>config.inc.php</code>), till exempel genom att starta från "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -8446,7 +8449,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:1380
 msgid "no description"
-msgstr "Ingen beskrivning"
+msgstr "ingen beskrivning"
 
 #: libraries/replication_gui.lib.php:35
 #: libraries/server_privileges.lib.php:782
@@ -8504,8 +8507,7 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Endast slavar startade med - report-host = host_name alternativet syns i "
-"denna lista."
+"Endast slavar startade med valet --report-host=host_name syns i denna lista."
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
@@ -8597,7 +8599,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
-msgstr "Editera händelse"
+msgstr "Redigera händelse"
 
 #: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_routines.lib.php:464
 #: libraries/rte/rte_routines.lib.php:1478
@@ -8656,7 +8658,7 @@ msgstr "Definierare"
 #: libraries/rte/rte_routines.lib.php:1109
 #: libraries/rte/rte_triggers.lib.php:445
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr "Defineraren måste vara i formatet: \"användarnamn@hostname\""
+msgstr "Definieraren måste vara i formatet: \"användarnamn@hostname\""
 
 #: libraries/rte/rte_events.lib.php:574
 msgid "You must provide an event name"
@@ -8664,7 +8666,7 @@ msgstr "Du måste ange ett händelsenamn"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid interval value for the event."
-msgstr "Du måste ange ett giltigt intervall värde för händelsen."
+msgstr "Du måste ange ett giltigt intervallvärde för händelsen."
 
 #: libraries/rte/rte_events.lib.php:603
 msgid "You must provide a valid execution time for the event."
@@ -8702,7 +8704,7 @@ msgid ""
 "problems."
 msgstr ""
 "Du använder PHP:s utfasade \"mysql\" utvidgning, vilken inte kan hantera "
-"multi förfrågningar. [strong]Utförandet av vissa sparade rutiner kan "
+"multiförfrågningar. [strong]Utförandet av vissa sparade rutiner kan "
 "misslyckas!![/strong] Använd den förbättrade \"mysqli\" utvidgningen för att "
 "undvika eventuella problem."
 
@@ -8847,11 +8849,11 @@ msgstr "Triggern %1$s har skapats."
 
 #: libraries/rte/rte_triggers.lib.php:204
 msgid "Edit trigger"
-msgstr "Editera trigger"
+msgstr "Redigera trigger"
 
 #: libraries/rte/rte_triggers.lib.php:350
 msgid "Trigger name"
-msgstr "Trigger namn"
+msgstr "Triggernamn"
 
 #: libraries/rte/rte_triggers.lib.php:373
 msgctxt "Trigger action time"
@@ -8876,7 +8878,7 @@ msgstr "Du måste ange ett giltigt tabellnamn"
 
 #: libraries/rte/rte_triggers.lib.php:480
 msgid "You must provide a trigger definition."
-msgstr "Du måste ange en trigger definition."
+msgstr "Du måste ange en triggerdefinition."
 
 #: libraries/rte/rte_words.lib.php:22
 msgid "Add routine"
@@ -8893,7 +8895,7 @@ msgstr "Rutin"
 
 #: libraries/rte/rte_words.lib.php:26
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Du har inte den nödvändiga behörigheent att skapa en rutin"
+msgstr "Du har inte den nödvändiga behörigheten för att skapa en rutin"
 
 #: libraries/rte/rte_words.lib.php:27
 #, php-format
@@ -8988,7 +8990,7 @@ msgstr "Den här sidan innehåller inga tabeller!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:230
 msgid "SCHEMA ERROR: "
-msgstr "SCHEMA FEL: "
+msgstr "SCHEMAFEL: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:887
 #: libraries/schema/Pdf_Relation_Schema.class.php:1212
@@ -9046,7 +9048,7 @@ msgstr "Välj tabeller"
 
 #: libraries/schema/User_Schema.class.php:382 view_create.php:182
 msgid "Column names"
-msgstr "Kolumn-namn"
+msgstr "Kolumnnamn"
 
 #: libraries/schema/User_Schema.class.php:413
 msgid "Display relational schema"
@@ -9330,7 +9332,7 @@ msgstr "Tabellspecifika privilegier"
 #: libraries/server_privileges.lib.php:785
 #: libraries/server_privileges.lib.php:2382
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Notera: MySQL privilegie benämningar uttrycks på engelska"
+msgstr "Obs: privilegienamn i MySQL uttrycks på engelska"
 
 #: libraries/server_privileges.lib.php:750
 msgid "Administration"
@@ -9405,7 +9407,7 @@ msgstr "Användare som har tillgång till &quot;%s&quot;"
 #: libraries/server_privileges.lib.php:2215
 #: libraries/server_privileges.lib.php:2385
 msgid "Grant"
-msgstr "Beviilja"
+msgstr "Bevilja"
 
 #: libraries/server_privileges.lib.php:1605
 msgid "User has been added."
@@ -9459,7 +9461,7 @@ msgstr "… ta bort den gamla från användartabellerna."
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
-"… upphäv alla aktiva privilegier från dan gamla och ta bort den efteråt."
+"… upphäv alla aktiva privilegier från den gamla och ta bort den efteråt."
 
 #: libraries/server_privileges.lib.php:1925
 msgid ""
@@ -9534,7 +9536,7 @@ msgstr "Privilegier för %s"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
-msgstr "Användare översikt"
+msgstr "Användaröversikt"
 
 #: libraries/server_privileges.lib.php:2967
 #, php-format
@@ -9560,7 +9562,7 @@ msgstr "Du har lagt till en ny användare."
 #: libraries/sql_query_form.lib.php:184
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Kör SQL-fråga/frågor på server %s"
+msgstr "Kör SQL-fråga/frågor på servern %s"
 
 #: libraries/sql_query_form.lib.php:205 libraries/sql_query_form.lib.php:229
 #, php-format
@@ -9577,7 +9579,7 @@ msgstr "Skapa bokmärke för den här SQL-frågan"
 
 #: libraries/sql_query_form.lib.php:315 sql.php:1327
 msgid "Let every user access this bookmark"
-msgstr "Låt varje användare få tillgång till detta bokmärke"
+msgstr "Låt alla användare få tillgång till detta bokmärke"
 
 #: libraries/sql_query_form.lib.php:321
 msgid "Replace existing bookmark of same name"
@@ -9648,7 +9650,7 @@ msgstr "SLUT RÅTEXT"
 
 #: libraries/sqlparser.lib.php:378
 msgid "Automatically appended backtick to the end of query!"
-msgstr "Infoga automatiskt ett citattecken till slutet av frågan!"
+msgstr "Infogade automatiskt ett citattecken till slutet av frågan!"
 
 #: libraries/sqlparser.lib.php:381
 msgid "Unclosed quote"
@@ -9814,7 +9816,7 @@ msgstr "Radstorlek"
 
 #: libraries/structure.lib.php:1739 tbl_printview.php:399
 msgid "Next autoindex"
-msgstr "Nästa AutoIndex"
+msgstr "Nästa autoindex"
 
 #: libraries/structure.lib.php:1864 libraries/structure.lib.php:1945
 #: libraries/structure.lib.php:1953 libraries/structure.lib.php:1970
@@ -9846,11 +9848,11 @@ msgstr "Lägg till unikt index"
 
 #: libraries/structure.lib.php:2016 libraries/structure.lib.php:2019
 msgid "Add SPATIAL index"
-msgstr "Lägg till SPATIAL index"
+msgstr "Lägg till SPATIAL-index"
 
 #: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
 msgid "Add FULLTEXT index"
-msgstr "Lägg till FULLTEXT index"
+msgstr "Lägg till FULLTEXT-index"
 
 #: libraries/structure.lib.php:2151 server_binlog.php:189
 msgid "Information"
@@ -9858,7 +9860,7 @@ msgstr "Information"
 
 #: libraries/structure.lib.php:2156 tbl_printview.php:296
 msgid "Space usage"
-msgstr "Visa använt utrymme"
+msgstr "Använt utrymme"
 
 #: libraries/structure.lib.php:2176 tbl_printview.php:322
 msgid "Effective"
@@ -9867,7 +9869,7 @@ msgstr "Effektiv"
 #: libraries/structure.lib.php:2357 tbl_addfield.php:192 tbl_indexes.php:108
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Tabell %1$s har ändrats"
+msgstr "Tabellen %1$s har ändrats"
 
 #: libraries/structure.lib.php:2402 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
@@ -9928,11 +9930,11 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:411
 msgid "ENUM or SET data too long?"
-msgstr "ENUM eller SET data för långt?"
+msgstr "ENUM- eller SET-data för långt?"
 
 #: libraries/tbl_columns_definition_form.inc.php:413
 msgid "Get more editing space"
-msgstr "Få mer redigerings utrymme"
+msgstr "Få mer redigeringsutrymme"
 
 #: libraries/tbl_columns_definition_form.inc.php:429
 msgctxt "for default"
@@ -9991,7 +9993,7 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"Din webbläsare har phpMyAdmin konfigurationen för denna domän. Vill du "
+"Din webbläsare har en phpMyAdmin-konfiguration för denna domän. Vill du "
 "importera den för nuvarande session?"
 
 #: libraries/zip_extension.lib.php:29
@@ -10093,7 +10095,7 @@ msgstr "Ta bort relation"
 
 #: pmd_general.php:509 pmd_general.php:568
 msgid "Relation operator"
-msgstr "Relation aktör"
+msgstr "Relationsoperator"
 
 #: pmd_general.php:519 pmd_general.php:578 pmd_general.php:701
 #: pmd_general.php:818
@@ -10167,7 +10169,7 @@ msgstr "Fel: Relation inte tillagd."
 
 #: pmd_relation_new.php:78
 msgid "FOREIGN KEY relation added"
-msgstr "FOREIGN KEY relation tillagd"
+msgstr "FOREIGN KEY-relation tillagd"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -10183,7 +10185,7 @@ msgstr "Fel vid sparande av koordinater för Designer."
 
 #: prefs_forms.php:85
 msgid "Cannot save settings, submitted form contains errors"
-msgstr "Kan inte spara inställningar, Sänt formulär innehåller fel"
+msgstr "Kan inte spara inställningar, sänt formulär innehåller fel"
 
 #: prefs_manage.php:81
 msgid "Could not import configuration"
@@ -10310,11 +10312,11 @@ msgstr "Databas-statistik"
 #: server_databases.php:226 server_replication.php:167
 #: server_replication.php:198
 msgid "Master replication"
-msgstr "Master replikering"
+msgstr "Master-replikering"
 
 #: server_databases.php:228 server_replication.php:236
 msgid "Slave replication"
-msgstr "Slav replikering"
+msgstr "Slav-replikering"
 
 #: server_databases.php:334 server_databases.php:335
 msgid "Enable Statistics"
@@ -10338,7 +10340,7 @@ msgstr "Lagringsmotorer"
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "Visa dump (schemat) för databaser"
+msgstr "Visa dump (schema) för databaser"
 
 #: server_plugins.php:66
 msgid "Modules"
@@ -10452,11 +10454,11 @@ msgstr ""
 
 #: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
-msgstr "Replikera alla databaser, Ignorera:"
+msgstr "Replikera alla databaser; Ignorera:"
 
 #: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
-msgstr "Ignorera alla databaser, Replikera:"
+msgstr "Ignorera alla databaser; Replikera:"
 
 #: server_replication.php:214
 msgid "Please select databases:"
@@ -10476,9 +10478,9 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"När du startat om MySQL-server, klicka på Go-knappen. Därefter bör du se ett "
-"meddelande som informerar dig, att denna server <b>är</b> konfigurerad som "
-"master"
+"När du startat om MySQL-servern, klicka på Kör-knappen. Därefter bör du se "
+"ett meddelande som informerar dig om att denna server <b>är</b> konfigurerad "
+"som master"
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10491,7 +10493,7 @@ msgstr "Slav IO tråden exekveras inte!"
 #: server_replication.php:293
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr "Servern är konfigurerad som slav i en replikering process. Vill du:"
+msgstr "Servern är konfigurerad som slav i en replikeringsprocess. Vill du:"
 
 #: server_replication.php:296
 msgid "See slave status table"
@@ -10515,19 +10517,19 @@ msgstr "Återställ slav"
 
 #: server_replication.php:306
 msgid "Start SQL Thread only"
-msgstr "Starta endast SQL tråd"
+msgstr "Starta endast SQL-tråd"
 
 #: server_replication.php:308
 msgid "Stop SQL Thread only"
-msgstr "Stoppa endast SQL tråd"
+msgstr "Stoppa endast SQL-tråd"
 
 #: server_replication.php:311
 msgid "Start IO Thread only"
-msgstr "Starta endast IO tråd"
+msgstr "Starta endast IO-tråd"
 
 #: server_replication.php:313
 msgid "Stop IO Thread only"
-msgstr "Stoppa endast IO tråd"
+msgstr "Stoppa endast IO-tråd"
 
 #: server_replication.php:318
 msgid "Error management:"
@@ -10555,7 +10557,7 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Denna server är inte konfigurerad som slav i en replikering process. Vill du "
+"Denna server är inte konfigurerad som slav i en replikeringsprocess. Vill du "
 "<a href=\"%s\">konfigurera</a> den?"
 
 #: server_status.php:31
@@ -10573,7 +10575,7 @@ msgstr ""
 #: server_status.php:70
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "Nätverkstrafik sedan start:%s"
+msgstr "Nätverkstrafik sedan start: %s"
 
 #: server_status.php:83
 #, php-format
@@ -10585,18 +10587,20 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"Denna MySQL-server fungerar som<b>master</b> och<b>slave</b> i "
-"<b>replicerings</b> process."
+"Denna MySQL-server fungerar som <b>master</b> och <b>slave</b> i en "
+"<b>replikerings</b>-process."
 
 #: server_status.php:98
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Denna MySQL server arbetar som <b>master</b> in <b>replication</b> process."
+"Denna MySQL-server arbetar som <b>master</b> i en "
+"<b>replikerings</b>-process."
 
 #: server_status.php:103
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Denna MySQL server arbetar som <b>slave</b> in <b>replication</b> process."
+"Denna MySQL-server arbetar som <b>slave</b> i en "
+"<b>replikerings</b>-process."
 
 #: server_status.php:109
 msgid ""
@@ -10615,7 +10619,7 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"På en upptagen server kan byte-räknare spåra ur,  så statistiken som "
+"På en upptagen server kan byte-räknare spåra ur, så statistiken som "
 "rapporteras av MySQL-servern kan vara fel."
 
 #: server_status.php:148
@@ -10628,7 +10632,7 @@ msgstr "Skickade"
 
 #: server_status.php:218
 msgid "max. concurrent connections"
-msgstr "Max. samtidiga förbindelser"
+msgstr "max. samtidiga förbindelser"
 
 #: server_status.php:228
 msgid "Failed attempts"
@@ -10655,8 +10659,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"Advisor systemet kan ge rekommendationer på server variabler genom att "
-"analysera server status variablerna."
+"Handledningssystemet kan ge rekommendationer på servervariabler genom att "
+"analysera serverstatusvariablerna."
 
 #: server_status_advisor.php:41
 msgid ""
@@ -10684,7 +10688,7 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 "Det bästa sättet att trimma ditt system är att bara ändra en inställning i "
-"taget, iaktta eller benchmarka databasen, och ångra den förändring omdet  "
+"taget, iaktta eller benchmarka databasen, och ångra den förändring om det "
 "inte fanns någon tydligt mätbar förbättring."
 
 #: server_status_monitor.php:472
@@ -10697,7 +10701,7 @@ msgstr "Instruktioner/Setup"
 
 #: server_status_monitor.php:483
 msgid "Done rearranging/editing charts"
-msgstr "Klar ändra/editera diagram"
+msgstr "Klar med ändring/redigering av diagram"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
@@ -10705,7 +10709,7 @@ msgstr "Lägg till diagram"
 
 #: server_status_monitor.php:492
 msgid "Rearrange/edit charts"
-msgstr "Ordna/editera diagram"
+msgstr "Ordna/redigera diagram"
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
@@ -10717,14 +10721,14 @@ msgstr "Visa kolumner"
 
 #: server_status_monitor.php:521
 msgid "Chart arrangement"
-msgstr "Diagram arrangemang"
+msgstr "Diagramarrangemang"
 
 #: server_status_monitor.php:524
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
-"Arrangemanget av diagrammen lagras lokalt i webbläsarens. Du kanske vill "
+"Arrangemanget av diagrammen lagras lokalt i webbläsaren. Du kanske vill "
 "exportera den om du har en komplicerad inställning."
 
 #: server_status_monitor.php:538
@@ -10743,11 +10747,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
-"phpMyAdmin Monitor hjälpa dig optimera server konfigurationen och spåra tid "
-"intensivt \\ icke intensiva frågor. För de senare måste du ställa log_output "
-"till \"TABLE\" och ha antingen slow_query_log eller general_log aktiverat. "
-"Observera att general_log producerar mycket data och ökar lasten på servern "
-"med upp till 15%"
+"phpMyAdmin Monitor hjälpa dig optimera serverkonfigurationen och spåra "
+"tidsintensiva frågor. För det senare måste du ställa log_output till \"TABLE\" "
+"och ha antingen slow_query_log eller general_log aktiverat. Observera att "
+"general_log producerar mycket data och ökar lasten på servern med upp till "
+"15%"
 
 #: server_status_monitor.php:558
 msgid ""
@@ -10758,8 +10762,8 @@ msgid ""
 msgstr ""
 "Tyvärr, din databasserver stöder inte loggning till tabeller vilket är ett "
 "krav för att analysera databasloggar med phpMyAdmin. Loggning till tabeller "
-"stöds av MySQL 5.1.6 och senare. Du kan fortfarande använda "
-"serverfunktionernas diagramfunktioner."
+"stöds av MySQL 5.1.6 och senare. Du kan fortfarande använda serverns "
+"diagramfunktioner."
 
 #: server_status_monitor.php:573
 msgid "Using the monitor:"
@@ -10860,11 +10864,11 @@ msgstr "Välj tidsintervall:"
 
 #: server_status_monitor.php:682
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Hämta endast SELECT, INSERT, UPDATE och DELETE kommandon"
+msgstr "Hämta endast SELECT-, INSERT-, UPDATE- och DELETE-kommandon"
 
 #: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Ta bort variabeldata i INSERT kommandon för bättre gruppering"
+msgstr "Ta bort variabeldata i INSERT-kommandon för bättre gruppering"
 
 #: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
@@ -10899,7 +10903,7 @@ msgstr "Frågor sedan start: %s"
 
 #: server_status_queries.php:102
 msgid "Statements"
-msgstr "Uppgifterna"
+msgstr "Uppgifter"
 
 #. l10n: # = Amount of queries
 #: server_status_queries.php:105
@@ -11430,7 +11434,7 @@ msgid ""
 "statement."
 msgstr ""
 "Antalet fria minnesblock i frågecache. Högt antal kan tyda på fragmentering, "
-"vilket kan lösas genom att köra ett FLUSH QUERY CACHEN kommando."
+"vilket kan lösas genom att köra ett FLUSH QUERY CACHE-kommando."
 
 #: server_status_variables.php:654
 msgid "The amount of free memory for query cache."
@@ -11649,7 +11653,7 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Skapa en skrivbar katalog för webbservern [em]config[/em] i phpMyAdmin:s "
+"Skapa en skrivbar katalog [em]config[/em] för webbservern i phpMyAdmin:s "
 "huvudkatalog som beskrivs i [doc@setup_script]documentationen[/doc]. Annars "
 "kommer du enbart kunna hämta eller visa den."
 
@@ -11749,7 +11753,7 @@ msgstr "Lägg till en ny server"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr "Felaktigt GET-fil attributvärde"
+msgstr "Felaktigt filattributvärde för GET"
 
 #: setup/lib/form_processing.lib.php:45
 msgid "Warning"
@@ -11800,8 +11804,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Du använder Git version, kör [kbd]git pull[/kbd] :-) [br] Den senaste "
-"stabila versionen är%s, släppt den %s."
+"Du använder Git-versionen, kör [kbd]git pull[/kbd] :-) [br] Den senaste "
+"stabila versionen är %s, släppt den %s."
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
@@ -11816,10 +11820,10 @@ msgid ""
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Denna %soption%s bör inaktiveras eftersom de tillåter angripare att genom "
-"bruteforce logga in på en MySQL-server. Om du anser att detta är "
-"nödvändigt,  använd %strusted proxies listan%s. IP-baserat skydd kan dock "
-"inte vara tillförlitligg om din IP tillhör till en ISP där tusentals "
-"användare, inklusive dig, är anslutna till."
+"bruteforce logga in på en MySQL-server. Om du anser att detta är nödvändigt, "
+"använd %strusted proxies listan%s. IP-baserat skydd kan dock vara "
+"otillförlitligt om din IP tillhör till en ISP som tusentals användare, "
+"inklusive dig, är anslutna till."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -11902,8 +11906,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Om du känner att det är nödvändigt, använd extra skyddsinställningar - %"
-"shost autentisering%s inställningar  och %strusted proxies listan%s. Dock "
-"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP där "
+"shost autentisering%s-inställningar  och %strusted proxies listan%s. Dock "
+"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
 "tusentals användare, inklusive dig, är anslutna till."
 
 #: setup/lib/index.lib.php:316
@@ -12109,7 +12113,7 @@ msgstr "Etikett kolumn"
 
 #: tbl_gis_visualization.php:121
 msgid "-- None --"
-msgstr "- Inget -"
+msgstr "-- Inget --"
 
 #: tbl_gis_visualization.php:135
 msgid "Spatial column"
@@ -12303,11 +12307,11 @@ msgstr "Data manipulation redogörelse"
 
 #: tbl_tracking.php:676
 msgid "SQL dump (file download)"
-msgstr "SQL dump (filnedladdning)"
+msgstr "SQL-dump (filnedladdning)"
 
 #: tbl_tracking.php:677
 msgid "SQL dump"
-msgstr "SQL dump"
+msgstr "SQL-dump"
 
 #: tbl_tracking.php:679
 msgid "This option will replace your table and contained data."
@@ -12315,7 +12319,7 @@ msgstr "Denna alternativ kommer att ersätta din tabell och ingående data."
 
 #: tbl_tracking.php:680
 msgid "SQL execution"
-msgstr "SQL exekvering"
+msgstr "SQL-exekvering"
 
 #: tbl_tracking.php:698
 #, php-format
@@ -12355,7 +12359,7 @@ msgstr "Spåra dessa datadefinitioners kommandon:"
 
 #: tbl_tracking.php:874
 msgid "Track these data manipulation statements:"
-msgstr "Spåra dessa datahanterings kommandon:"
+msgstr "Spåra dessa datahanteringskommandon:"
 
 #: tbl_tracking.php:884
 msgid "Create version"
@@ -12388,7 +12392,7 @@ msgstr "Profilen har uppdaterats."
 
 #: view_create.php:177
 msgid "VIEW name"
-msgstr "VIEW namn"
+msgstr "VIEW-namn"
 
 #: view_operations.php:90
 msgid "Rename view to"
@@ -12461,7 +12465,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "Den långsamma frågeraten bör vara under 5%% ditt värde är %s%%."
+msgstr "Andelen långsamma frågor bör vara under 5%%. Ditt värde är %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12541,11 +12545,11 @@ msgstr "slow_query_log är satt till 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 msgid "Release Series"
-msgstr "Releasa serien"
+msgstr "Versionsserie"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr "MySQL server version är mindre än 5.1."
+msgstr "MySQL-serverversionen är mindre än 5.1."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
@@ -12601,8 +12605,8 @@ msgid ""
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 "Om du inte kompilerade från källkod, så kanske du använder ett paket som "
-"modifierats av en distribution. MySQL handboken är endast exakt för "
-"officiella MySQL-binärer, inte någon paket distribution (t.ex. RedHat, "
+"modifierats av en distribution. MySQL-handboken är endast exakt för "
+"officiella MySQL-binärer, inte någon distributions paket (t.ex. RedHat, "
 "Debian/Ubuntu etc)."
 
 #: libraries/advisory_rules.txt:126
@@ -12611,11 +12615,11 @@ msgstr "\"källa\" hittades i version_comment"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL handboken är endast korrekt för officiella MySQL-binärer."
+msgstr "MySQL-handboken är endast korrekt för officiella MySQL-binärer."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Percona dokumentation finns vid http://www.percona.com/docs/wiki/"
+msgstr "Dokumentation för Percona finns vid http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -12623,16 +12627,16 @@ msgstr "\"percona\" hittades i version_comment"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr "Drizzle dokumentation finns vid http://docs.drizzle.org/"
+msgstr "Drizzle-dokumentation finns vid http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr "Versionssträngen (%s) matchar versionshanterings schemat i Drizzle"
+msgstr "Versionssträngen (%s) matchar versionshanteringsschemat i Drizzle"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
-msgstr "MySQL Arkitektur"
+msgstr "MySQL-arkitektur"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12668,10 +12672,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"Frågaecachen är känd för att avsevärt förbättra prestanda när den är korrekt "
-"konfigurerad. Aktivera den genom att ställa {query_cache_size} till ett 2 "
-"siffrigt Mb värde och sätt{query_cache_type} till \"ON\". <b> Notera:</b> Om "
-"du använder memcached, ignorera denna rekommendation."
+"Frågecachen är känd för att avsevärt förbättra prestanda när den är korrekt "
+"konfigurerad. Aktivera den genom att ställa {query_cache_size} till ett "
+"2-siffrigt Mb-värde och sätt {query_cache_type} till \"ON\". <b>Obs:</b> Om du "
+"använder memcached, ignorera denna rekommendation."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12680,11 +12684,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
-msgstr "Frågecache metod"
+msgstr "Frågecache-metod"
 
 #: libraries/advisory_rules.txt:163
 msgid "Suboptimal caching method."
-msgstr "Suboptimal caching metod."
+msgstr "Ej optimal cache-metod."
 
 #: libraries/advisory_rules.txt:164
 msgid ""
@@ -12693,10 +12697,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"Du använder MySQL Querycachen med en ganska högbelastad databas. Det kan "
-"vara värt att överväga att använda <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\"> memcached </a> istället för MySQL "
-"Querycachen, speciellt om du har flera slavar."
+"Du använder MySQL:s frågecache med en ganska högbelastad databas. Det kan "
+"vara värt att överväga att använda <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> istället för frågecachen, speciellt om du har "
+"flera slavar."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -12710,7 +12715,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:167
 #, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "Cache frågeeffektivitet (%%)"
+msgstr "Effektivitet för frågecache (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12727,7 +12732,7 @@ msgstr "Den aktuella frågecachens träffsäkerhet på %s%% är under 20%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
-msgstr "Frågecache användning"
+msgstr "Frågecache-användning"
 
 #: libraries/advisory_rules.txt:177
 #, php-format
@@ -12753,7 +12758,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
-msgstr "Frågecache fragmentering"
+msgstr "Frågecache-fragmentering"
 
 #: libraries/advisory_rules.txt:184
 msgid "The query cache is considerably fragmented."
@@ -12786,7 +12791,7 @@ msgid ""
 "value should be below 20%%."
 msgstr ""
 "Cachen är för närvarande fragmenterad med %s%% , med 100%% fragmentering "
-"vilket innebär att frågaecachen har ett växlande mönster av lediga och "
+"vilket innebär att frågecachen har ett växlande mönster av lediga och "
 "använda block. Detta värde bör vara under 20%%."
 
 #: libraries/advisory_rules.txt:188
@@ -12798,7 +12803,7 @@ msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
-"Cachade frågor tas bort på grund av lågt frågecache minne från frågecache."
+"Cachade frågor tas bort på grund av lågt frågecache-minne från frågecache."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12828,7 +12833,7 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"Frågecache storleken är större än 128 Mb. Stor frågecache kan orsaka "
+"Storleken på frågecache är större än 128 Mb. Stor frågecache kan orsaka "
 "betydande overhead, vilket krävs för att behålla cache."
 
 #: libraries/advisory_rules.txt:199
@@ -12846,13 +12851,14 @@ msgstr "Nuvarande storlek på frågecache: %s"
 
 #: libraries/advisory_rules.txt:202
 msgid "Query cache min result size"
-msgstr "Frågecachen minimum resultat storlek"
+msgstr "Minimal resultatstorlek för frågecache"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
-"Den maximala storleken på resultatet i fråg cachen är standardvärdet på 1 Mb."
+"Den maximala storleken på resultatet i frågecachen är standardvärdet på 1 "
+"Mb."
 
 #: libraries/advisory_rules.txt:206
 msgid ""
@@ -12868,12 +12874,11 @@ msgstr ""
 "Att ändra {query_cache_limit}, vanligtvis genom att öka denna, kan öka "
 "effektiviteten. Denna variabel anger den maximala storleken ett "
 "frågeresultat kan ha för att läggas in i frågecachen. Om det finns många "
-"frågeresultat större än 1 Mb. som är värda att cachas (många läsningar, lite "
+"frågeresultat större än 1 Mb som är värda att cacha (många läsningar, lite "
 "skrivningar) så kommer en ökning av {query_cache_limit} förbättra "
-"effektiviteten. Medan det för många frågeresultat som är är större än 1 Mb. "
-"inte är särskilt välvärda att cachas (ofta ogiltiga på grund av "
-"tabelluppdateringar) kan en ökning av {query_cache_limit} försämra "
-"effektiviteten."
+"effektiviteten. Om det däremot finns många frågeresultat större än 1 Mb som "
+"inte är värda att cacha (ofta ogiltiga på grund av tabelluppdateringar) kan "
+"en ökning av {query_cache_limit} försämra effektiviteten."
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
@@ -12881,11 +12886,11 @@ msgstr "query_cache_limit är satt till 1 Mb"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Andelen av typer som medför temporära tabeller"
+msgstr "Andelen av sorteringar som medför temporära tabeller"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
 msgid "Too many sorts are causing temporary tables."
-msgstr "Alltför många typer orsakar temporära tabeller."
+msgstr "Alltför många sorteringar orsakar temporära tabeller."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
@@ -12901,12 +12906,12 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than 10%"
 "%."
 msgstr ""
-"%s%% av alla sorter orsakar tillfälliga tabeller, detta värde bör vara lägre "
-"än 10%%."
+"%s%% av alla sorteringar orsakar tillfälliga tabeller, detta värde bör vara "
+"lägre än 10%%."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Andelen sorter som orsakar temporära tabeller"
+msgstr "Andelen sorteringar som orsakar temporära tabeller"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -12931,7 +12936,7 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
-"Även om det inte är fel med en hög andel av radsorteringar,bör du se till "
+"Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
 "att frågor som kräver mycket sortering använder de  indexerade fälten i "
 "ORDER BY-satsen, då detta kommer resultera i mycket snabbare sortering"
 
@@ -12954,7 +12959,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "Detta innebär att joins gör fullständiga tabellsökningar. Att lägga till "
-"index för de fält som använder join villkoren kommer avsevärt snabba upp "
+"index för de fält som använder join-villkoren kommer avsevärt snabba upp "
 "tabellkopplingen"
 
 #: libraries/advisory_rules.txt:238
@@ -13059,7 +13064,7 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
-"Om du medvetet ändrat någon av:Servern använder det lägre värdet av endera "
+"Om du medvetet ändrat någondera: Servern använder det lägre värdet av dem "
 "för att bestämma den maximala storleken på in-memory tabeller. Så om du vill "
 "öka iminnets tabellgräns kommer du behöva öka andra värdet också."
 
@@ -13092,10 +13097,10 @@ msgstr ""
 "Att öka {max_heap_table_size:} och {tmp_table_size:} kan hjälpa. Men vissa "
 "temporära tabeller skrivs alltid till disk, oberoende av värdet på dessa "
 "variabler. För att eliminera dessa måste du skriva om dina frågor för att "
-"undvika dessa villkor (Inom en temporär tabell: Förekomst av en BLOB eller "
-"TEXT kolumn eller förekomsten av en kolumn större än 512 byte) som nämns i i "
-"början av en artikel av Pythian group: <a href=\"http://www.facebook.com/"
-"note.php?note_id=10150111255065841&comments\">"
+"undvika dessa villkor (Inom en temporär tabell: Förekomst av en BLOB- eller "
+"TEXT-kolumn eller förekomsten av en kolumn större än 512 byte) som nämns i "
+"början av en artikel av Pythian group: <a "
+"href=\"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -13108,7 +13113,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
-msgstr "Temporär disk användning"
+msgstr "Temporär diskanvändning"
 
 #: libraries/advisory_rules.txt:280
 msgid ""
@@ -13123,8 +13128,8 @@ msgstr ""
 "Att öka {max_heap_table_size} och {tmp_table_size} kan hjälpa. Men vissa "
 "temporära tabeller skrivs alltid till disk, oberoende av vilka värden dessa "
 "variabler har. För att eliminera dessa måste du skriva om dina frågor för "
-"att undvika dessa villkor (Inom en temporär tabell: Förekomst av en BLOB "
-"eller TEXT kolumn eller förekomsten av en kolumn större än 512 byte) som "
+"att undvika dessa villkor (Inom en temporär tabell: Förekomst av en BLOB- "
+"eller TEXT-kolumn eller förekomsten av en kolumn större än 512 byte) som "
 "nämns i <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
 "tables.html\">MySQL-dokumentationen</a>"
 
@@ -13139,19 +13144,18 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:296
 msgid "MyISAM key buffer size"
-msgstr "MyISAM nyckel buffertstorlek"
+msgstr "Nyckelbuffertstorlek för MyISAM"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
-"Nyckel buffert är inte initialiserad. Inget MyISAM index kommer cachas."
+msgstr "Nyckelbuffert är inte initialiserad. Inga MyISAM-index kommer cachas."
 
 #: libraries/advisory_rules.txt:300
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Definiera {key_buffer_size} beroende på storleken på ditt MyISAM index. 64Mb "
+"Definiera {key_buffer_size} beroende på storleken på dina MyISAM-index. 64Mb "
 "är en bra början."
 
 #: libraries/advisory_rules.txt:301
@@ -13161,7 +13165,7 @@ msgstr "key_buffer_size är 0"
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Max %% MyISAM key buffer har någonsin använts"
+msgstr "Max %% MyISAM-nyckelbuffert som någonsin använts"
 
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
 #, php-format
@@ -13193,8 +13197,7 @@ msgstr "Andelen använd MyISAM key buffer"
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"%% MyISAM key buffer användt: %s%%, detta värde bör vara större än 95%%"
+msgstr "%% MyISAM key buffer använt: %s%%, detta värde bör vara större än 95%%"
 
 #: libraries/advisory_rules.txt:318
 msgid "Percentage of index reads from memory"
@@ -13244,8 +13247,8 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"Antalet öppna filer närmar sig maximalt antal öppna filer. Du kan få en "
-"\"För många öppna filer\" fel."
+"Antalet öppna filer närmar sig maximalt antal öppna filer. Du kan få ett "
+"\"För många öppna filer\"-fel."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
@@ -13304,7 +13307,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:362
 msgid "Thread cache"
-msgstr "trådad cache"
+msgstr "Trådad cache"
 
 #: libraries/advisory_rules.txt:365
 msgid ""
@@ -13338,7 +13341,7 @@ msgstr "Öka {thread_cache_size}."
 #: libraries/advisory_rules.txt:374
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Andel trådad cache: %s%%, detta värde bör vara över 80%%"
+msgstr "Träffandel för trådad cache: %s%%, detta värde bör vara över 80%%"
 
 #: libraries/advisory_rules.txt:376
 msgid "Threads that are slow to launch"
@@ -13359,7 +13362,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr "%s tråd(ar) tog längre tid än %s sekunder att starta, bör det vara 0"
+msgstr "%s tråd(ar) tog längre tid än %s sekunder att starta, det bör vara 0"
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
@@ -13490,7 +13493,7 @@ msgstr "Du har inte aktiverat InnoDB."
 
 #: libraries/advisory_rules.txt:433
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "InnoDB är vanligtvis ett bättre val för tabell motorer."
+msgstr "InnoDB är vanligtvis ett bättre val för tabellmotorer."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
@@ -13521,14 +13524,14 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Speciellt i ett system med många skrivningar till InnoDB tabeller bör du "
+"Speciellt i ett system med många skrivningar till InnoDB-tabeller bör du "
 "sätta {innodb_log_file_size} till 25%%, av {innodb_buffer_pool_size}. "
 "Däremot, ju större detta värde är, desto längre återhämtningstid om "
-"databasen kraschar, så detta värde inte bör sättas mycket högre än 256 Mb. "
-"Observera, du kan bara inte ändra värdet på denna variabel. Du måste stänga "
-"av servern, ta bort InnoDB loggfiler, sätta in nytt värde i my.cnf, starta "
-"servern och sedan kontrollera felloggar om allt gick bra. Se också <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"databasen kraschar, så detta värde bör inte sättas mycket högre än 256 Mb. "
+"Observera, du kan inte bara ändra värdet på denna variabel. Du måste stänga "
+"av servern, ta bort loggfilerna för InnoDB, sätta in nytt värde i my.cnf, "
+"starta servern och sedan kontrollera felloggar om allt gick bra. Se också <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">detta blogg-inlägg</a>"
 
 #: libraries/advisory_rules.txt:441
@@ -13537,7 +13540,7 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"Din InnoDB loggstorlek är %s%%, i förhållande till InnoDB buffer pool "
+"Din InnoDB-loggstorlek är %s%%, i förhållande till InnoDB buffer pool "
 "storlek, bör det inte vara under 20%%"
 
 #: libraries/advisory_rules.txt:443
@@ -13562,14 +13565,15 @@ msgid ""
 "proper-way.html\">this blog entry</a>"
 msgstr ""
 "Det är oftast tillräckligt att sätta {innodb_log_file_size} till 25%% av "
-"storleken på {innodb_buffer_pool_size}. En mycket stor  "
+"storleken på {innodb_buffer_pool_size}. En mycket stor "
 "{innodb_log_file_size} reducerar tiden för återhämtning efter en "
-"databaskrasch avsevärt. Se även <a href=\"http://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">denna artikel</a>. Du "
-"måste stänga av servern, ta bort InnoDB loggfiler, ställ in nytt värde i my."
-"cnf, starta servern och sedan kontrollera felloggar om allt gick bra. se "
-"även <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">denna blogpost</a>"
+"databaskrasch avsevärt. Se även <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">denna artikel</a>. Du måste stänga av servern, ta "
+"bort loggfiler för InnoDB, ställ in nytt värde i my.cnf, starta servern och "
+"sedan kontrollera felloggar om allt gick bra. se även <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">detta blogginlägg</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -13598,16 +13602,16 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB buffer poolen har stor inverkan på prestandan för InnoDB tabeller. "
+"InnoDB buffer poolen har stor inverkan på prestandan för InnoDB-tabeller. "
 "Tilldela allt ditt återstående minne till denna buffert. För databasservrar "
-"som uteslutande använder InnoDB som lagrings motor och har inga andra "
-"tjänster (t.ex. en webbserver) som kör, kan du ställa in detta så hög som 80%"
-"% av ditt tillgängliga minne. Om så inte är fallet, måste du noggrant bedöma "
+"som uteslutande använder InnoDB som lagringsmotor och utan andra tjänster "
+"(t.ex. en webbserver) som kör, kan du ställa in detta så högt som 80%% av "
+"ditt tillgängliga minne. Om så inte är fallet, måste du noggrant bedöma "
 "minnesåtgången för dina andra tjänster och icke-InnoDB-tabeller och ställa "
 "in denna variabel därefter. Om den är för hög, kommer ditt system börja "
-"swappa, vilket minskar prestandan avsevärt. se även <a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">denna artikel</a>"
+"swappa, vilket minskar prestandan avsevärt. se även <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">denna artikel</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -13619,7 +13623,7 @@ msgid ""
 msgstr ""
 "Du använder för närvarande %s%% av ditt minne för InnoDB bufferpool. Denna "
 "regel aktiveras om du tilldelar mindre än 60%%, men detta kan vara fullt "
-"tillräckligt för ditt system om du inte har så många InnoDB tabeller eller "
+"tillräckligt för ditt system om du inte har så många InnoDB-tabeller eller "
 "andra tjänster som körs på samma maskin."
 
 #: libraries/advisory_rules.txt:459
