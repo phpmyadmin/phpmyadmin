@@ -378,14 +378,14 @@ AJAX.registerOnload('server_privileges.js', function() {
         // If any option other than 'keep the old one'(option 4) is chosen, we need to remove 
         // the old one from the table.
         var $row_to_remove;
-        if ( curr_submit_name == 'change_copy'
+        if (curr_submit_name == 'change_copy'
                 && $('input[name=mode]:checked', '#fieldset_mode').val() != '4') {
             var old_username = $t.find('input[name="old_username"]').val();
             var old_hostname = $t.find('input[name="old_hostname"]').val();
             $('#usersForm tbody tr').each(function() {
                 var $tr = $(this);
                 if ($tr.find('td:nth-child(2) label').text() == old_username
-                        && $tr.find('td:nth-child(3)').text() == old_hostname ) {
+                        && $tr.find('td:nth-child(3)').text() == old_hostname) {
                     $row_to_remove = $tr;
                     return false;
                 }
