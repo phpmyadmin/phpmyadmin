@@ -99,7 +99,11 @@ if (isset($_REQUEST['do_save_data'])) {
         $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    $sql_query .= "COMMENT '" . PMA_Util::sqlAddSlashes($index->getComment()) . "'";
+    if (PMA_MYSQL_INT_VERSION > 50500) {
+        $sql_query .= "COMMENT '" 
+            . PMA_Util::sqlAddSlashes($index->getComment()) 
+            . "'";
+    }
     $sql_query .= ';';
 
     if (! $error) {
@@ -220,6 +224,9 @@ echo PMA_Util::showHint(
             value="<?php echo htmlspecialchars($index->getName()); ?>"
             onfocus="this.select()" />
     </div>
+<?php
+if (PMA_MYSQL_INT_VERSION > 50500) {
+?>
     <div>
         <div class="label">
             <strong>
@@ -232,6 +239,9 @@ echo PMA_Util::showHint(
             value="<?php echo htmlspecialchars($index->getComment()); ?>"
             onfocus="this.select()" />
     </div>
+<?php
+}
+?>
     <div>
         <div class="label">
             <strong>
