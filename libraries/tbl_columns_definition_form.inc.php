@@ -140,7 +140,8 @@ if (isset($fields_meta)) {
     $move_columns_sql_query    = 'SELECT * FROM ' 
         . PMA_Util::backquote($db)
         . '.'
-        . PMA_Util::backquote($table);
+        . PMA_Util::backquote($table)
+        . ' LIMIT 1';
     $move_columns_sql_result = PMA_DBI_try_query($move_columns_sql_query);
     $move_columns = PMA_DBI_get_fields_meta($move_columns_sql_result);
     unset($move_columns_sql_query, $move_columns_sql_result);
