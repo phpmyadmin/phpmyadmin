@@ -186,7 +186,7 @@ $htmlString .= '<div style="float:left; padding-left:40px;">'
 
 $yaxis = null;
 foreach ($keys as $idx => $key) {
-    if ($yaxis == null) {
+    if ($yaxis === null) {
         $htmlString .= '<option value="' . htmlspecialchars($idx)
             . '" selected="selected">' . htmlspecialchars($key) . '</option>';
         $yaxis = $idx;
