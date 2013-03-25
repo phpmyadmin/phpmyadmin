@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-01-10 13:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-03-25 09:37+0200\n"
+"Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/master/ms/>\n"
+"Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ms\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -106,14 +106,13 @@ msgstr ""
 "untuk maklumat lanjut"
 
 #: db_create.php:74
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "angkalan data %s telah digugurkan."
+msgstr "Pengkalan data %1$s telah dijana."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
-#, fuzzy
 msgid "Database comment: "
-msgstr "Komen jadual"
+msgstr "Komen pangkalan"
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
@@ -137,10 +136,9 @@ msgstr "Komen jadual"
 #: libraries/tbl_columns_definition_form.inc.php:352 tbl_indexes.php:253
 #: tbl_printview.php:130 tbl_relation.php:418 tbl_tracking.php:323
 #: tbl_tracking.php:385
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Nama Kolum"
+msgstr "Pangkalan data %1$s telah dijana."
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
@@ -288,9 +286,8 @@ msgid "Unselect All"
 msgstr "Nyahpilih Semua"
 
 #: db_operations.php:45 tbl_create.php:22
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "Nama jadual  adalah kosong"
+msgstr "Tiada nama pangkalan data!"
 
 #: db_operations.php:129
 #, fuzzy, php-format
@@ -303,7 +300,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "Jadual %s telah disalin ke %s."
 
 #: db_operations.php:259
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -311,8 +308,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang telah "
-"tidak diaktifkan. Untuk mengetahuinya klik %shere%s."
+"Kunfigurasi simpanan phpMyAdmin telah dinyahaktifkan. Untuk mengetahuinya "
+"klik %shere%s."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
@@ -348,9 +345,8 @@ msgstr "sedang digunakan"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1747
 #: tbl_printview.php:410
-#, fuzzy
 msgid "Creation"
-msgstr "Cipta"
+msgstr "Mewujudkan"
 
 #: db_printview.php:194 libraries/Util.class.php:4083
 #: libraries/plugins/export/ExportSql.class.php:959
@@ -358,7 +354,7 @@ msgstr "Cipta"
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1754
 #: tbl_printview.php:421
 msgid "Last update"
-msgstr ""
+msgstr "Kemaskini terakhir"
 
 #: db_printview.php:203 libraries/Util.class.php:4089
 #: libraries/plugins/export/ExportSql.class.php:972
@@ -383,7 +379,7 @@ msgstr "Anda mesti pilih sekurang-kurangnya satu Kolum untuk dipapar"
 #: db_qbe.php:60
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Tukar kepada %svisual builder%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -394,10 +390,9 @@ msgid "Access denied"
 msgstr "Akses dinafikan"
 
 #: db_structure.php:86
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Tiada jadual dijumpai pada pangkalan data."
+msgstr "Tiada jadual dijumpai di dalam pangkalan data."
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -2472,10 +2467,9 @@ msgid "Add/Delete criteria rows"
 msgstr "Tambah/Padam Baris Kriteria"
 
 #: libraries/DBQbe.class.php:576
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Tambah/Padam Kolum Medan"
+msgstr "Tambah/Padam Kolum"
 
 #: libraries/DBQbe.class.php:603 libraries/DBQbe.class.php:635
 msgid "Update Query"
@@ -2538,12 +2532,11 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Hasil carian bagi \"<i>%s</i>\" %s:"
 
 #: libraries/DbSearch.class.php:294
-#, fuzzy, php-format
+#, php-format
 #| msgid "<b>Total:</b> <i>%s</i> match(es)"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Jumlah</b>: <i>%s</i> padanan"
-msgstr[1] "<b>Jumlah</b>: <i>%s</i> padanan"
+msgstr[0] "<b>Jumlah:</b> <i>%s</i> padanan"
 
 #: libraries/DbSearch.class.php:331
 #, fuzzy, php-format
@@ -2560,10 +2553,10 @@ msgid "Browse"
 msgstr "Lungsur"
 
 #: libraries/DbSearch.class.php:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Melonggok data bagi jadual"
+msgstr "Padam padanan untuk jadual %s?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3382
 #: libraries/DisplayResults.class.php:5043
@@ -2601,10 +2594,9 @@ msgid "Inside tables:"
 msgstr "Di dalam jadual:"
 
 #: libraries/DbSearch.class.php:445
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Di dalam jadual:"
+msgstr "Di dalam kolum:"
 
 #: libraries/DisplayResults.class.php:698
 msgid "Save edited data"
@@ -2976,7 +2968,7 @@ msgstr "Kardinaliti"
 #: libraries/tbl_columns_definition_form.inc.php:840 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:325 tbl_tracking.php:387
 msgid "Collation"
-msgstr ""
+msgstr "Pengumpulan"
 
 #: libraries/Index.class.php:569 libraries/rte/rte_events.lib.php:529
 #: libraries/rte/rte_routines.lib.php:1068 tbl_tracking.php:329
@@ -3113,7 +3105,7 @@ msgstr "Binari"
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 #: server_replication.php:32 server_replication.php:148
 msgid "Replication"
-msgstr ""
+msgstr "Replikasi"
 
 #: libraries/Menu.class.php:506 libraries/ServerStatusData.class.php:239
 #: server_engines.php:94 server_engines.php:98
@@ -3288,7 +3280,7 @@ msgstr ""
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:200
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s adalah pelalai untuk enjin simpanan di dalam MySQL server."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
@@ -4595,7 +4587,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:117 libraries/operations.lib.php:195
 #: libraries/operations.lib.php:684 libraries/operations.lib.php:1028
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Tambahkan nilai AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:118
 #, fuzzy
@@ -7428,7 +7420,7 @@ msgstr ""
 #: libraries/mysql_charsets.lib.php:436 libraries/mysql_charsets.lib.php:443
 #: libraries/structure.lib.php:1068
 msgid "unknown"
-msgstr ""
+msgstr "tidak diketahui"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
@@ -7552,9 +7544,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 msgid "Rename database to"
-msgstr "Tukarnama jadual ke"
+msgstr "Tukar nama pangkalan data ke"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7562,14 +7553,12 @@ msgid "Database %s has been dropped."
 msgstr "angkalan data %s telah digugurkan."
 
 #: libraries/operations.lib.php:119
-#, fuzzy
 msgid "Remove database"
-msgstr "Tukarnama jadual ke"
+msgstr "Membuang pangkalan data"
 
 #: libraries/operations.lib.php:125
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Tiada pangkalan data"
+msgstr "Menggugurkan pangkalan data"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1013
 #: tbl_tracking.php:505
@@ -7587,27 +7576,25 @@ msgid "Data only"
 msgstr "Data sahaja"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 msgid "Copy database to"
-msgstr "Tiada pangkalan data"
+msgstr "Salin pangkalan data ke"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "Bina pangkalan data sebelum menyalin"
 
 #: libraries/operations.lib.php:199 libraries/operations.lib.php:1036
 msgid "Add constraints"
-msgstr ""
+msgstr "Tambahkan kekangan"
 
 #: libraries/operations.lib.php:207
 msgid "Switch to copied database"
 msgstr "Tukar kepada pengkalan data yang di salin"
 
 #: libraries/operations.lib.php:277
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Edit or export relational schema"
-msgstr "Skema Hubungan"
+msgstr "Sunting atau eksport skema hubungan"
 
 #: libraries/operations.lib.php:620
 msgid "Alter table order by"
@@ -9744,11 +9731,11 @@ msgstr "Jadual %s telah dikosongkan"
 
 #: libraries/structure.lib.php:91 tbl_create.php:321
 msgid "Tracking is active."
-msgstr ""
+msgstr "Pengesan telah diaktifkan"
 
 #: libraries/structure.lib.php:98 tbl_create.php:327
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Pengesan tidak aktif."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:327
 #, fuzzy, php-format
