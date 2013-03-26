@@ -445,7 +445,9 @@ class PMA_Header
                 . "options inline-script eval-script;"
                 . "img-src 'self' data:; "
             );
-            if (PMA_USR_BROWSER_AGENT == 'SAFARI') {
+            if (PMA_USR_BROWSER_AGENT == 'SAFARI' 
+                && PMA_USR_BROWSER_VER < '6.0.0'
+            ) {
                 header(
                     "X-WebKit-CSP: allow 'self';"
                     . "options inline-script eval-script;"

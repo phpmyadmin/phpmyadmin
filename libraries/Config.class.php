@@ -220,6 +220,18 @@ class PMA_Config
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
+            // newer Safari
+        } elseif (preg_match(
+            '@Mozilla/([0-9].[0-9]{1,2})@',
+            $HTTP_USER_AGENT,
+            $log_version)
+            && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version2)
+        ) {
+            $this->set(
+                'PMA_USR_BROWSER_VER', $log_version2[1]
+            );
+            $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
+            // older Safari
         } elseif (preg_match(
             '@Mozilla/([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
