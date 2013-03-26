@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-06 13:15+0200\n"
-"Last-Translator: Axel Sjøstedt <axel-pma@sjostedt.no>\n"
+"PO-Revision-Date: 2013-03-26 11:59+0200\n"
+"Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/nb/>\n"
 "Language: nb\n"
@@ -8534,7 +8534,7 @@ msgstr "Kollasjon for SQL-oppkobling"
 #: main.php:124
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Visningsinnstillinger"
+msgstr "Innstillinger for visning"
 
 #: main.php:153 prefs_manage.php:272
 msgid "More settings"
@@ -8543,7 +8543,7 @@ msgstr "Flere innstillinger"
 #: main.php:169
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Database-server"
+msgstr "Databaseserver"
 
 #: main.php:172
 msgid "Software"
@@ -8576,7 +8576,7 @@ msgstr "Webserver"
 #: main.php:209
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Database-versjon"
+msgstr "Databaseklientversjon"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8676,8 +8676,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
-"Mappe [code]config[/code], som blir brukt av setupskriptet eksisterer "
-"fortsatt i din phpMyAdmin mappe. Du bør fjerne den så fort phpMyAdming har "
+"Mappen [code]config[/code], som blir brukt av setupskriptet eksisterer "
+"fortsatt i din phpMyAdmin mappe. Du bør fjerne den så fort phpMyAdmin har "
 "blitt konfigurert."
 
 #: main.php:321
@@ -9837,10 +9837,9 @@ msgid "Runtime Information"
 msgstr "Kjøringsinformasjon"
 
 #: server_status.php:791
-#, fuzzy
 #| msgid "See slave status table"
 msgid "All status variables"
-msgstr "Se slavestatustabell"
+msgstr "Alle statusvariabler"
 
 #: server_status.php:792
 msgid "Monitor"
