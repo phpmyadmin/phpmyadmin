@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-25 09:37+0200\n"
+"PO-Revision-Date: 2013-03-27 09:12+0200\n"
 "Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/master/ms/>\n"
 "Language: ms\n"
@@ -35,6 +35,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Tetingkap pelayan induk tidak boleh dikemaskini. Mungkin anda telah menutup "
+"tetingkap utama atau tetapan keselamatan tetingkap anda telah menghalang "
+"pengemaskinian merentas tetingkap."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3222
@@ -365,12 +368,11 @@ msgid "Last check"
 msgstr "Semakan Terakhir"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s jadual"
-msgstr[1] "%s jadual"
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
@@ -2461,10 +2463,9 @@ msgid "Criteria"
 msgstr "Kriteria"
 
 #: libraries/DBQbe.class.php:576
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Tambah/Padam Baris Kriteria"
+msgstr "Tambah/Padam baris kriteria"
 
 #: libraries/DBQbe.class.php:576
 #| msgid "Add/Delete Field Columns"
@@ -2574,10 +2575,9 @@ msgid "Search in database"
 msgstr "Cari di pangkalan data"
 
 #: libraries/DbSearch.class.php:386
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Perkataan atau nilai untuk dicari (wildcard:  \"%\"):"
+msgstr "Perkataan atau nilai yang dicari untuk (wildcard: \"%\"):"
 
 #: libraries/DbSearch.class.php:395
 msgid "Find:"
@@ -2588,7 +2588,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Perkataan dipisahkan oleh aksara ruang (\" \")."
 
 #: libraries/DbSearch.class.php:419
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Di dalam jadual:"
@@ -9738,7 +9737,7 @@ msgid "Tracking is not active."
 msgstr "Pengesan tidak aktif."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:327
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
 msgstr "Medan %s telah digugurkan"
 
