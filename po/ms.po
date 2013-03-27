@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-25 09:37+0200\n"
+"PO-Revision-Date: 2013-03-27 09:12+0200\n"
 "Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/3-5/ms/>\n"
 "Language: ms\n"
@@ -34,6 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"Tetingkap pelayan induk tidak boleh dikemaskini. Mungkin anda telah menutup "
+"tetingkap utama atau tetapan keselamatan tetingkap anda telah menghalang "
+"pengemaskinian merentas tetingkap."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3125
 #: libraries/common.lib.php:3132 libraries/common.lib.php:3341
@@ -102,7 +105,7 @@ msgstr ""
 
 #: bs_disp_as_mime_type.php:35
 msgid "Failed to fetch headers"
-msgstr ""
+msgstr "Gagal untuk mencapai pengepala"
 
 #: bs_disp_as_mime_type.php:41
 msgid "Failed to open remote URL"
@@ -404,12 +407,11 @@ msgid "Last check"
 msgstr "Semakan Terakhir"
 
 #: db_printview.php:219 db_structure.php:524
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s jadual"
-msgstr[1] "%s jadual"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -473,10 +475,9 @@ msgid "Modify"
 msgstr "Ubahsuai"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Tambah/Padam Baris Kriteria"
+msgstr "Tambah/Padam baris kriteria"
 
 #: db_qbe.php:618
 #| msgid "Add/Delete Field Columns"
@@ -529,7 +530,7 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Hasil carian bagi \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
@@ -571,10 +572,9 @@ msgid "Search in database"
 msgstr "Cari di pangkalan data"
 
 #: db_search.php:277
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Perkataan atau nilai untuk dicari (wildcard:  \"%\"):"
+msgstr "Perkataan atau nilai yang dicari untuk (wildcard: \"%\"):"
 
 #: db_search.php:282
 msgid "Find:"
@@ -585,7 +585,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Perkataan dipisahkan oleh aksara ruang (\" \")."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Di dalam jadual:"
@@ -611,7 +610,7 @@ msgid "Table %s has been emptied"
 msgstr "Jadual %s telah dikosongkan"
 
 #: db_structure.php:328 tbl_operations.php:728
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped"
 msgstr "Medan %s telah digugurkan"
 
