@@ -950,8 +950,6 @@ $PMA_SQPdata_forbidden_word = array (
     'MULTIPOINT',
     'MULTIPOLYGON',
     'MUTEX',
-    'NAME',
-    'NAMES',
     'NATIONAL',
     'NATURAL',
     'NCHAR',
