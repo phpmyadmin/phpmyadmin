@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-27 14:44+0200\n"
+"PO-Revision-Date: 2013-03-27 14:45+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/3-5/ca/>\n"
 "Language: ca\n"
@@ -9736,7 +9736,7 @@ msgstr "Assessorament"
 #: server_status.php:803 server_status.php:829
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Nombre de punts de dades:"
+msgstr "Nombre de punts de dades: "
 
 #: server_status.php:807 server_status.php:833
 msgid "Refresh rate: "
