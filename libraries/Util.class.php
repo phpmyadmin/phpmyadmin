@@ -603,7 +603,7 @@ class PMA_Util
     }
 
     /**
-     * Displays a MySQL error message in the right frame.
+     * Displays a MySQL error message in the main panel. 
      *
      * @param string $error_message  the error message
      * @param string $the_query      the sql query that failed
