@@ -191,7 +191,7 @@ Credits, in chronological order
 
 * Mike Cochrane <mike\_at\_graftonhall.co.nz>
 
-  * blowfish library from the Horde project
+  * blowfish library from the Horde project (withdrawn in release 4.0)
 
 * Marcel Tschopp <ne0x\_at\_users.sourceforge.net>
 
@@ -337,6 +337,10 @@ Credits, in chronological order
 * Yasitha Pandithawatta (Google Summer of Code 2012)
   
   * Automated testing
+
+* Jim Wigginton (phpseclib.sourceforge.net)
+
+  * phpseclib for encryption
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
