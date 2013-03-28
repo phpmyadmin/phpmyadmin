@@ -603,7 +603,7 @@ class PMA_Util
     }
 
     /**
-     * Displays a MySQL error message in the right frame when $exit is true.
+     * Displays a MySQL error message in the main panel when $exit is true.
      * Returns the error message otherwise.
      *
      * @param string $error_message  the error message
