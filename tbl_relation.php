@@ -210,12 +210,9 @@ if (isset($_REQUEST['destination_foreign'])) {
             if (substr($tmp_error_create, 1, 4) == '1216'
                 ||  substr($tmp_error_create, 1, 4) == '1452'
             ) {
-                ob_start();
-                PMA_Util::mysqlDie(
+                $html_output .= PMA_Util::mysqlDie(
                     $tmp_error_create, $create_query, false, '', false
                 );
-                $html_output .= ob_get_contents();
-                ob_end_clean();
                 $html_output .= PMA_Util::showMySQLDocu(
                     'manual_Table_types', 'InnoDB_foreign_key_constraints'
                 ) . "\n";

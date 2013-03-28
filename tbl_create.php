@@ -420,7 +420,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $response->isSuccess(false);
             $response->addJSON('message', PMA_DBI_getError());
         } else {
-            PMA_Util::mysqlDie('', '', '', $err_url, false);
+            echo PMA_Util::mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.
             // To prevent total loss of that data, we embed the form once again.
             // The variable $regenerate will be used to restore data in

@@ -126,7 +126,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     ), E_USER_WARNING
                 );
             }
-            PMA_Util::mysqlDie(
+            echo PMA_Util::mysqlDie(
                 $conn_error, '', true, '', false
             );
         }

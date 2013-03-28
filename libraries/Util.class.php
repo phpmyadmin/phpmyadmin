@@ -603,7 +603,8 @@ class PMA_Util
     }
 
     /**
-     * Displays a MySQL error message in the right frame.
+     * Displays a MySQL error message in the right frame when $exit is true.
+     * Returns the error message otherwise.
      *
      * @param string $error_message  the error message
      * @param string $the_query      the sql query that failed
@@ -611,7 +612,7 @@ class PMA_Util
      * @param string $back_url       the "back" link url (full path is not required)
      * @param bool   $exit           EXIT the page?
      *
-     * @return void
+     * @return mixed
      *
      * @global  string    the curent table
      * @global  string    the current db
@@ -765,7 +766,7 @@ class PMA_Util
             echo $error_msg;
             exit;
         } else {
-            echo $error_msg;
+            return $error_msg;
         }
     } // end of the 'mysqlDie()' function
 
