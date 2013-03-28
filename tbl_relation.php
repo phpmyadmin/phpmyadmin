@@ -147,7 +147,6 @@ if (isset($destination) && $cfgRelation['relwork']) {
 if (isset($_REQUEST['destination_foreign'])) {
     $display_query = '';
     $seen_error = false;
-    $shown_error = false;
     foreach ($_REQUEST['destination_foreign'] as $master_field_md5 => $foreign_string) {
         $create = false;
         $drop = false;
@@ -188,6 +187,9 @@ if (isset($_REQUEST['destination_foreign'])) {
 
             if (! empty($tmp_error_drop)) {
                 $seen_error = true;
+                $html_output .= PMA_Util::mysqlDie(
+                    $tmp_error_drop, $drop_query, false, '', false
+                );
                 continue;
             }
         }
@@ -205,30 +207,23 @@ if (isset($_REQUEST['destination_foreign'])) {
             $tmp_error_create = PMA_DBI_getError();
             if (! empty($tmp_error_create)) {
                 $seen_error = true;
+
+                if (substr($tmp_error_create, 1, 4) == '1005') {
+                    $message = PMA_Message::error(
+                        __('Error creating foreign key on %1$s (check data types)')
+                    );
+                    $message->addParam($master_field);
+                    $message->display();
+                } else {
+                    $html_output .= PMA_Util::mysqlDie(
+                        $tmp_error_create, $create_query, false, '', false
+                    );
+                }
+                $html_output .= PMA_Util::showMySQLDocu(
+                    'manual_Table_types', 'InnoDB_foreign_key_constraints'
+                ) . "\n";
             }
 
-            if (substr($tmp_error_create, 1, 4) == '1216'
-                ||  substr($tmp_error_create, 1, 4) == '1452'
-            ) {
-                $html_output .= PMA_Util::mysqlDie(
-                    $tmp_error_create, $create_query, false, '', false
-                );
-                $html_output .= PMA_Util::showMySQLDocu(
-                    'manual_Table_types', 'InnoDB_foreign_key_constraints'
-                ) . "\n";
-                $shown_error = true;
-            }
-            if (substr($tmp_error_create, 1, 4) == '1005') {
-                $message = PMA_Message::error(
-                    __('Error creating foreign key on %1$s (check data types)')
-                );
-                $message->addParam($master_field);
-                $message->display();
-                $html_output .= PMA_Util::showMySQLDocu(
-                    'manual_Table_types', 'InnoDB_foreign_key_constraints'
-                ) . "\n";
-                $shown_error = true;
-            }
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
             if ($drop && $create && empty($tmp_error_drop)
@@ -250,17 +245,11 @@ if (isset($_REQUEST['destination_foreign'])) {
             }
         }
     } // end foreach
-    if (!empty($display_query)) {
-        if ($seen_error) {
-            if (! $shown_error) {
-                $html_output .= PMA_Util::getMessage(__('Error'), null, 'error');
-            }
-        } else {
-            $html_output .= PMA_Util::getMessage(
-                __('Your SQL query has been executed successfully'),
-                null, 'success'
-            );
-        }
+    if (! empty($display_query) && ! $seen_error) {
+        $html_output .= PMA_Util::getMessage(
+            __('Your SQL query has been executed successfully'),
+            null, 'success'
+        );
     }
 } // end if isset($destination_foreign)
 
