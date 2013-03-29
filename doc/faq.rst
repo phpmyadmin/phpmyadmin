@@ -1171,8 +1171,8 @@ Upgrade to at least Internet Explorer 5.5 SP2.
 
 .. _faq5_6:
 
-5.6 In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found") when trying to modify a row in a table with many columns, or with a text column
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.6 In Internet Explorer 5.0, 5.5 or 6.0, I get an error (like "Page not found") when trying to modify a row in a table with many columns, or with a text column.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Your table neither have a primary key nor an unique one, so we must use a long
 :term:`URL` to identify this row. There is a limit on the length of the
