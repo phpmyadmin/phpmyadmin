@@ -296,7 +296,7 @@ function PMA_TRI_getEditorForm($mode, $item)
                        'item_definer'
                    );
     foreach ($need_escape as $key => $index) {
-        $item[$index] = htmlentities($item[$index], ENT_QUOTES);
+        $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
     }
     $original_data = '';
     if ($mode == 'edit') {
