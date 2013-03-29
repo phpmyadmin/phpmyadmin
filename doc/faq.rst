@@ -860,7 +860,7 @@ a # before it:  ``-- -------------------------------------------------------`` o
 .. _faq3_5:
 
 3.5 When using nested folders, multiple hierarchies are displayed in a wrong manner.
-----------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Please note that you should not use the separating string multiple
 times without any characters between them, or at the beginning/end of
@@ -907,8 +907,8 @@ official phpMyAdmin-homepage.
 
 .. _faq3_9:
 
-3.9 I get error messages when using "--sql\_mode=ANSI" for the MySQL server
----------------------------------------------------------------------------
+3.9 I get error messages when using "--sql\_mode=ANSI" for the MySQL server.
+----------------------------------------------------------------------------
 
 When MySQL is running in ANSI-compatibility mode, there are some major
 differences in how :term:`SQL` is structured (see
