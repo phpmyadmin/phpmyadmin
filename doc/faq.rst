@@ -917,7 +917,7 @@ quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
 workaround to this behaviour.  News to this item will be posted in `Bug report
-#1013 <https://sourceforge.net/p/phpmyadmin/bugs/1013/>`_
+#1013 <https://sourceforge.net/p/phpmyadmin/bugs/1013/>`_.
 
 .. _faq3_10:
 
