@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-23 15:05+0200\n"
+"PO-Revision-Date: 2013-03-29 01:12+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -852,6 +852,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정되어 있어, 로그인이 설정한 것보다 일찍 "
+"만료됩니다."
 
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -2209,7 +2211,7 @@ msgstr "PHP에서 다음과 같은 애러가 발생했습니다: %s"
 #: libraries/Advisor.class.php:104
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "규칙 '%s'에 대한 precondition 계산 실패"
 
 #: libraries/Advisor.class.php:121
 #, php-format
@@ -2670,9 +2672,8 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5348 view_create.php:151
-#, fuzzy
 msgid "Create view"
-msgstr "서버 버전"
+msgstr "뷰 생성"
 
 #: libraries/DisplayResults.class.php:5541
 msgid "Link not found"
@@ -4907,7 +4908,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:276
 msgid "Login cookie store"
-msgstr "로그인 쿠기 저장"
+msgstr "로그인 쿠키 저장 시간"
 
 #: libraries/config/messages.inc.php:277
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -4988,7 +4989,7 @@ msgstr "mcrypt 경고"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr ""
+msgstr "스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 무제한)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -5715,7 +5716,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
@@ -7617,9 +7618,8 @@ msgstr "테이블의 덤프 데이터"
 #: libraries/plugins/export/ExportOdt.class.php:565
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
-#, fuzzy
 msgid "Event"
-msgstr "보냄"
+msgstr "이벤트"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:568
@@ -7674,9 +7674,8 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 msgid "Table caption (continued)"
-msgstr "테이블 설명"
+msgstr "테이블 설명 (계속)"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -12971,7 +12970,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
+msgstr "max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
