@@ -206,7 +206,9 @@ if (isset($_REQUEST['do_save_data'])) {
         $abort = true;
         include 'tbl_structure.php';
     } else {
-        PMA_Util::mysqlDie('', '', '', $err_url, false);
+        $response = PMA_Response::getInstance();
+        $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
+        $response->addHTML($error_message_html);
         if ($GLOBALS['is_ajax_request'] == true) {
             exit;
         }
