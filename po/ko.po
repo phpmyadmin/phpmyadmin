@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-23 15:05+0200\n"
+"PO-Revision-Date: 2013-03-29 01:12+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -4226,7 +4226,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:301
 msgid "Login cookie store"
-msgstr "로그인 쿠기 저장"
+msgstr "로그인 쿠키 저장 시간"
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -4302,7 +4302,7 @@ msgstr "mcrypt 경고"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr ""
+msgstr "스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 무제한)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -5846,9 +5846,8 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:2701
-#, fuzzy
 msgid "Create view"
-msgstr "서버 버전"
+msgstr "뷰 생성"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
@@ -6324,9 +6323,8 @@ msgid "Object creation options"
 msgstr ""
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#, fuzzy
 msgid "Table caption (continued)"
-msgstr "테이블 설명"
+msgstr "테이블 설명 (계속)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
@@ -7309,9 +7307,8 @@ msgid "Returns"
 msgstr "데이터베이스 사용량 통계"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:359
-#, fuzzy
 msgid "Event"
-msgstr "보냄"
+msgstr "이벤트"
 
 #: libraries/rte/rte_routines.lib.php:64
 msgid ""
@@ -8326,6 +8323,8 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정되어 있어, 로그인이 설정한 것보다 일찍 "
+"만료됩니다."
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -12474,7 +12473,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
+msgstr "max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
 
 #: po/advisory_rules.php:230
 #| msgid "Connections"
