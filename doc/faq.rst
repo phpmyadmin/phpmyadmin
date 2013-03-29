@@ -1015,7 +1015,7 @@ This requires a properly setup MySQL user management and phpMyAdmin
 
 .. _faq4_2:
 
-4.2 What's the preferred way of making phpMyAdmin secure against evil access.
+4.2 What's the preferred way of making phpMyAdmin secure against evil access?
 -----------------------------------------------------------------------------
 
 This depends on your system. If you're running a server which cannot be
