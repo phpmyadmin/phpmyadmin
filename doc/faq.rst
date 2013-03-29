@@ -1003,7 +1003,7 @@ ISPs, multi-user installations
 
 .. _faq4_1:
 
-4.1 I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer.
+4.1 I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to install it for each customer?
 --------------------------------------------------------------------------------------------------------
 
 Since version 2.0.3, you can setup a central copy of phpMyAdmin for all your
