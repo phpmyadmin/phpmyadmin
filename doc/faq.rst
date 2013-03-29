@@ -859,7 +859,7 @@ a # before it:  ``-- -------------------------------------------------------`` o
 
 .. _faq3_5:
 
-3.5 When using nested folders there are some multiple hierarchies displayed in a wrong manner?
+3.5 When using nested folders, multiple hierarchies are displayed in a wrong manner.
 ----------------------------------------------------------------------------------------------
 
 Please note that you should not use the separating string multiple
