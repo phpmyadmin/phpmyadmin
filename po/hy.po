@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2012-06-18 16:41+0200\n"
+"PO-Revision-Date: 2013-03-30 12:19+0200\n"
 "Last-Translator: Hamlet Muradyan <contact@hamletmuradyan.com>\n"
-"Language-Team: none\n"
+"Language-Team: Armenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hy\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -308,6 +309,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
+"phpMyAdmin-ի որոշ հնարավորություններ անհասանելի են։ Պատճառն իմանալու համար "
+"սեղմեք %sայստեղ%s։"
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:198
 #: libraries/Menu.class.php:190 libraries/config/messages.inc.php:510
@@ -375,7 +378,7 @@ msgstr ""
 #: db_qbe.php:60
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Միացնել հարցումների %sտեսական կառուցողին%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -383,7 +386,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
 msgid "Access denied"
-msgstr ""
+msgstr "Մուտքն արգելված է"
 
 #: db_structure.php:86
 msgid "No tables found in database"
@@ -484,7 +487,7 @@ msgstr ""
 
 #: db_tracking.php:240
 msgid "Database Log"
-msgstr ""
+msgstr "Տվյալների բազայի մատյան"
 
 #: export.php:42
 msgid "Bad type!"
@@ -1849,10 +1852,9 @@ msgid "More"
 msgstr ""
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Ցույց տալ բոլորը"
+msgstr "Ցուցադրել վահանակը"
 
 #: js/messages.php:373
 msgid "Hide Panel"
@@ -11349,10 +11351,9 @@ msgid ""
 msgstr ""
 
 #: tbl_indexes.php:227
-#, fuzzy
 #| msgid "Comments"
 msgid "Comment:"
-msgstr "Մեկնաբանություններ"
+msgstr "Մեկնաբանություն"
 
 #: tbl_indexes.php:239
 msgid "Index type:"
@@ -11404,10 +11405,9 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: tbl_relation.php:538
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Constraint name"
-msgstr "Ավելացնել սահմանափակում"
+msgstr "Սահմանափակման անվանում"
 
 #: tbl_relation.php:569
 msgid "No index defined! Create one below"
