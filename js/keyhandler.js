@@ -47,46 +47,40 @@ function onKeyDownArrowsHandler(e)
         return;
     }
 
-    var x = pos[2], y=pos[1];
+    var x = pos[2], y = pos[1];
 
     var nO = null;
 
-    // skip non existent fields
-    for (var i=0; i < 10; i++)
-    {
-        switch(e.keyCode) {
-            case 38:
-                // up
-                y--;
-                break;
-            case 40:
-                // down
-                y++;
-                break;
-            case 37:
-                // left
-                x--;
-                break;
-            case 39:
-                // right
-                x++;
-                break;
-            default:
-                return;
-        }
-
-        var id = "field_" + y + "_" + x;
-        nO = document.getElementById(id);
-        if (!nO) {
-            id = "field_" + y + "_" + x + "_0";
-            nO = document.getElementById(id);
-        }
-        if (nO) {
+    switch(e.keyCode) {
+        case 38:
+            // up
+            y--;
             break;
-        }
+        case 40:
+            // down
+            y++;
+            break;
+        case 37:
+            // left
+            x--;
+            break;
+        case 39:
+            // right
+            x++;
+            break;
+        default:
+            return;
     }
 
-    if (!nO) {
+    var id = "field_" + y + "_" + x;
+    nO = document.getElementById(id);
+    if (! nO) {
+        id = "field_" + y + "_" + x + "_0";
+        nO = document.getElementById(id);
+    }
+
+    // skip non existent fields
+    if (! nO) {
         return;
     }
     nO.focus();
