@@ -637,17 +637,17 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! function_exists('mcrypt_encrypt')) {
             include_once "HordeCipherBlowfishOperations.class.php";
             return HordeCipherBlowfishOperations::blowfishEncrypt($data, $secret);
+        } else {
+            return base64_encode(
+                mcrypt_encrypt(
+                    MCRYPT_BLOWFISH,
+                    $secret,
+                    $data,
+                    MCRYPT_MODE_CBC,
+                    $iv
+                )
+            );
         }
-
-        return base64_encode(
-            mcrypt_encrypt(
-                MCRYPT_BLOWFISH,
-                $secret,
-                $data,
-                MCRYPT_MODE_CBC,
-                $iv
-            )
-        );
     }
 
     /**
@@ -667,17 +667,17 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $encdata,
                 $secret
             );
+        } else {
+            $data = base64_decode($encdata);
+            $decrypted = mcrypt_decrypt(
+                MCRYPT_BLOWFISH,
+                $secret,
+                $data,
+                MCRYPT_MODE_CBC,
+                $iv
+            );
+            return trim($decrypted);
         }
-
-        $data = base64_decode($encdata);
-        $decrypted = mcrypt_decrypt(
-            MCRYPT_BLOWFISH,
-            $secret,
-            $data,
-            MCRYPT_MODE_CBC,
-            $iv
-        );
-        return trim($decrypted);
     }
 
     /**
