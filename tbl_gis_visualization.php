@@ -108,7 +108,7 @@ $visualization = PMA_GIS_visualizationResults(
  * Displays the page
  */
 ?>
-<!-- Display visulalization options -->
+<!-- Display visualization options -->
 <div id="div_view_options">
 <fieldset>
     <legend><?php echo __('Display GIS Visualization'); ?></legend>
