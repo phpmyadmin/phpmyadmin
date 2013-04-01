@@ -160,6 +160,9 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
         $this->_scripts->addFile('rte.js');
 
+        // Here would not be a good place to add CodeMirror because
+        // the user preferences have not been merged at this point
+
         // Localised strings
         $params = array('lang' => $GLOBALS['lang']);
         if (isset($GLOBALS['db'])) {
@@ -347,6 +350,9 @@ class PMA_Header
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
                 $retval .= $this->getTitleTag();
+
+                // The user preferences have been merged at this point
+                // so we can conditionally add CodeMirror
                 if ($GLOBALS['cfg']['CodemirrorEnable']) {
                     $this->_scripts->addFile('codemirror/lib/codemirror.js');
                     $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
