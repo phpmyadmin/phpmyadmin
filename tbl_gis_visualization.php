@@ -196,7 +196,7 @@ if ($svg_support) {
 
     <div style="clear:both;">&nbsp;</div>
 
-    <div id="placeholder" style="width:<?php echo($visualizationSettings['width']); ?>px;height:<?php echo($visualizationSettings['height']); ?>px;">
+    <div id="placeholder" style="width:<?php echo htmlspecialchars($visualizationSettings['width']); ?>px;height:<?php echo htmlspecialchars($visualizationSettings['height']); ?>px;">
         <?php echo $visualization; ?>
     </div>
     <div id="openlayersmap"></div>
