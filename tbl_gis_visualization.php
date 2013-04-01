@@ -110,7 +110,7 @@ $visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $fo
 <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
 <fieldset>
     <legend><?php echo __('Display GIS Visualization'); ?></legend>
-    <div id="placeholder" style="width:<?php echo($visualizationSettings['width']); ?>px;height:<?php echo($visualizationSettings['height']); ?>px;">
+    <div id="placeholder" style="width:<?php echo htmlspecialchars($visualizationSettings['width']); ?>px;height:<?php echo htmlspecialchars($visualizationSettings['height']); ?>px;">
         <?php echo $visualization; ?>
     </div>
     <div id="openlayersmap"></div>
