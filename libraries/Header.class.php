@@ -158,12 +158,6 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
-
-        if ($GLOBALS['cfg']['CodemirrorEnable']) {
-            $this->_scripts->addFile('codemirror/lib/codemirror.js');
-            $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
-        }
-
         $this->_scripts->addFile('rte.js');
 
         // Localised strings
@@ -353,6 +347,10 @@ class PMA_Header
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
                 $retval .= $this->getTitleTag();
+                if ($GLOBALS['cfg']['CodemirrorEnable']) {
+                    $this->_scripts->addFile('codemirror/lib/codemirror.js');
+                    $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
+                }
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
@@ -445,7 +443,7 @@ class PMA_Header
                 . "options inline-script eval-script;"
                 . "img-src 'self' data:; "
             );
-            if (PMA_USR_BROWSER_AGENT == 'SAFARI' 
+            if (PMA_USR_BROWSER_AGENT == 'SAFARI'
                 && PMA_USR_BROWSER_VER < '6.0.0'
             ) {
                 header(
