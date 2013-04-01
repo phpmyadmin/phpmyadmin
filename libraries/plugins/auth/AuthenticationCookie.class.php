@@ -625,6 +625,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Encryption using blowfish algorithm (mcrypt)
+     * or phpseclib's AES if mcrypt not available
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -635,23 +636,32 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $iv;
         if (! function_exists('mcrypt_encrypt')) {
-            include_once "HordeCipherBlowfishOperations.class.php";
-            return HordeCipherBlowfishOperations::blowfishEncrypt($data, $secret);
+            /**
+             * This library uses mcrypt when available, so
+             * we could always call it instead of having an
+             * if/then/else logic, however the include_once
+             * call is costly
+             */
+            include_once "./libraries/phpseclib/Crypt/AES.php";
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
+            $cipher->setKey($secret);
+            return base64_encode($cipher->encrypt($data));
+        } else {
+            return base64_encode(
+                mcrypt_encrypt(
+                    MCRYPT_BLOWFISH,
+                    $secret,
+                    $data,
+                    MCRYPT_MODE_CBC,
+                    $iv
+                )
+            );
         }
-
-        return base64_encode(
-            mcrypt_encrypt(
-                MCRYPT_BLOWFISH,
-                $secret,
-                $data,
-                MCRYPT_MODE_CBC,
-                $iv
-            )
-        );
     }
 
     /**
      * Decryption using blowfish algorithm (mcrypt)
+     * or phpseclib's AES if mcrypt not available
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
@@ -662,22 +672,21 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $iv;
         if (! function_exists('mcrypt_encrypt')) {
-            include_once "HordeCipherBlowfishOperations.class.php";
-            return HordeCipherBlowfishOperations::blowfishDecrypt(
-                $encdata,
-                $secret
+            include_once "./libraries/phpseclib/Crypt/AES.php";
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
+            $cipher->setKey($secret);
+            return $cipher->decrypt(base64_decode($encdata));
+        } else {
+            $data = base64_decode($encdata);
+            $decrypted = mcrypt_decrypt(
+                MCRYPT_BLOWFISH,
+                $secret,
+                $data,
+                MCRYPT_MODE_CBC,
+                $iv
             );
+            return trim($decrypted);
         }
-
-        $data = base64_decode($encdata);
-        $decrypted = mcrypt_decrypt(
-            MCRYPT_BLOWFISH,
-            $secret,
-            $data,
-            MCRYPT_MODE_CBC,
-            $iv
-        );
-        return trim($decrypted);
     }
 
     /**
