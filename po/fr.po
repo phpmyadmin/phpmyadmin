@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-23 12:10+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2013-04-02 17:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/3-5/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -7067,7 +7067,7 @@ msgstr "Croate"
 
 #: libraries/mysql_charsets.lib.php:243
 msgid "Czech"
-msgstr "Tch&egrave;que"
+msgstr "Tchèque"
 
 #: libraries/mysql_charsets.lib.php:246
 msgid "Danish"
@@ -7143,7 +7143,7 @@ msgstr "Slovaque"
 
 #: libraries/mysql_charsets.lib.php:297
 msgid "Slovenian"
-msgstr "Slov&egrave;ne"
+msgstr "Slovène"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Spanish"
@@ -7155,7 +7155,7 @@ msgstr "Espagnol traditionnel"
 
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:403
 msgid "Swedish"
-msgstr "Su&eacute;dois"
+msgstr "Suédois"
 
 #: libraries/mysql_charsets.lib.php:309 libraries/mysql_charsets.lib.php:406
 msgid "Thai"
