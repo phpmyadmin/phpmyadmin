@@ -365,7 +365,8 @@ for ($i = 0; $i < $num_fields; $i++) {
         $row['DefaultValue'] = PMA_convert_bit_default_value($row['DefaultValue']);
     }
 
-    $content_cells[$i][$ci] = '<select name="field_default_type[' . $i . ']" class="default_type">';
+    $content_cells[$i][$ci] = '<select name="field_default_type[' . $i . ']"'
+        . ' id="field_' . $i . '_' . ($ci - $ci_offset) . '" class="default_type">';
     foreach ($default_options as $key => $value) {
         $content_cells[$i][$ci] .= '<option value="' . $key . '"';
         // is only set when we go back to edit a field's structure
@@ -376,8 +377,8 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
     $content_cells[$i][$ci] .= '</select>';
     $content_cells[$i][$ci] .= '<br />';
-    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '"'
-        . ' type="text" name="field_default_value[' . $i . ']" size="12"'
+    $content_cells[$i][$ci] .= '<input type="text"'
+        . ' name="field_default_value[' . $i . ']" size="12"'
         . ' value="' . (isset($row['DefaultValue']) ? htmlspecialchars($row['DefaultValue']) : '') . '"'
         . ' class="textfield default_value" />';
     $ci++;
