@@ -431,7 +431,7 @@ Following people have contributed to translation of phpMyAdmin:
 
 * Norwegian Bokmål
 
-  * sven.erik.andersen <sven.erik.andersen\_at\_gmail.com>
+  * Sven-Erik Andersen <sven.erik.andersen\_at\_gmail.com>
 
 * Dutch 
 
