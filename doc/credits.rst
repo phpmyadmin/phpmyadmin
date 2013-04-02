@@ -364,85 +364,154 @@ Translators
 Following people have contributed to translation of phpMyAdmin:
 
 * Arabic 
-    * Abdullah Al-Saedi <abdullah.10\_at\_windowslive.com>
+
+  * Abdullah Al-Saedi <abdullah.10\_at\_windowslive.com>
+
 * Bulgarian 
-    * stoyanster <stoyanster\_at\_gmail.com>
-*  Catalan
-    * Xavier Navarro <xvnavarro\_at\_gmail.com>
+
+  * stoyanster <stoyanster\_at\_gmail.com>
+
+* Catalan
+
+  * Xavier Navarro <xvnavarro\_at\_gmail.com>
+
 * Czech 
-    * Michal Čihař <michal\_at\_cihar.com>
+
+  * Michal Čihař <michal\_at\_cihar.com>
+
 * Danish 
-    * opensource <opensource\_at\_jth.net>
-    * Jørgen Thomsen <opensource\_at\_jth.net>
+
+  * opensource <opensource\_at\_jth.net>
+  * Jørgen Thomsen <opensource\_at\_jth.net>
+
 * German 
-    * mrbendig <mrbendig\_at\_mrbendig.com>
-    * torsten.funck <torsten.funck\_at\_googlemail.com>
-    * Sven Strickroth <email\_at\_cs-ware.de>
-    * typo3 <typo3\_at\_dirk-weise.de>
-    * Jo Michael <me\_at\_mynetx.net>
+
+  * mrbendig <mrbendig\_at\_mrbendig.com>
+  * torsten.funck <torsten.funck\_at\_googlemail.com>
+  * Sven Strickroth <email\_at\_cs-ware.de>
+  * typo3 <typo3\_at\_dirk-weise.de>
+  * Jo Michael <me\_at\_mynetx.net>
+
 * Greek 
-    * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+
+  * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+
 * English (United Kingdom)
-    * Robert Readman <robert_readman\_at\_hotmail.com>
+
+  * Robert Readman <robert_readman\_at\_hotmail.com>
+
 * Spanish
-    * Matías Bellone <matiasbellone\_at\_gmail.com>
+
+  * Matías Bellone <matiasbellone\_at\_gmail.com>
+
 * French 
-    * Marc Delisle <marc\_at\_infomarc.info>
+
+  * Marc Delisle <marc\_at\_infomarc.info>
+
 * Hindi 
-    * u4663530 <u4663530\_at\_anu.edu.au>
-    * rsedwardian <rsedwardian\_at\_gmail.com>
+
+  * u4663530 <u4663530\_at\_anu.edu.au>
+  * rsedwardian <rsedwardian\_at\_gmail.com>
+
 * Hungarian 
-    * gergo314 <gergo314\_at\_gmail.com>
+
+  * gergo314 <gergo314\_at\_gmail.com>
+
 * Italian 
-    * Rouslan Placella <rouslan\_at\_placella.com>
+
+  * Rouslan Placella <rouslan\_at\_placella.com>
+
 * Japanese 
-    * Yuichiro <yuichiro\_at\_pop07.odn.ne.jp>
+
+  * Yuichiro <yuichiro\_at\_pop07.odn.ne.jp>
+
 * Lithuanian 
-    * Kęstutis <forkik\_at\_gmail.com>
+
+  * Kęstutis <forkik\_at\_gmail.com>
+
 * Norwegian Bokmål
-    * sven.erik.andersen <sven.erik.andersen\_at\_gmail.com>
+
+  * sven.erik.andersen <sven.erik.andersen\_at\_gmail.com>
+
 * Dutch 
-    * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
-    * Herman van Rink <rink\_at\_initfour.nl>
+
+  * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
+  * Herman van Rink <rink\_at\_initfour.nl>
+
 * Polish 
-    * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
-    * Marcin Kozioł <lord_dark\_at\_wp.pl>
+
+  * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
+  * Marcin Kozioł <lord_dark\_at\_wp.pl>
+
 * Portuguese
-    * JoaoTMDias <contacto\_at\_joaodias.me>
+
+  * JoaoTMDias <contacto\_at\_joaodias.me>
+
 * Portuguese (Brazil) 
-    * wiltave <wiltave\_at\_gmail.com>
-    * emerson4br <emerson4br\_at\_gmail.com>
+
+  * wiltave <wiltave\_at\_gmail.com>
+  * emerson4br <emerson4br\_at\_gmail.com>
+
 * Romanian 
-    * alexukf <alex.ukf\_at\_gmail.com>
+
+  * alexukf <alex.ukf\_at\_gmail.com>
+
 * Russian 
-    * Victor Volkov <hanut\_at\_php-myadmin.ru>
+
+  * Victor Volkov <hanut\_at\_php-myadmin.ru>
+
 * Sinhala 
-    * Madhura Jayaratne <madhura.cj\_at\_gmail.com>
+
+  * Madhura Jayaratne <madhura.cj\_at\_gmail.com>
+
 * Slovak 
-    * Martin Lacina <martin\_at\_whistler.sk>
+
+  * Martin Lacina <martin\_at\_whistler.sk>
+
 * Slovenian 
-    * Domen <dbc334\_at\_gmail.com>
+
+  * Domen <dbc334\_at\_gmail.com>
+
 * Swedish
-    * stefan <stefan\_at\_inkopsforum.se>
+
+  * stefan <stefan\_at\_inkopsforum.se>
+
 * Tamil 
-    * ysajeepan <ysajeepan\_at\_live.com>
+
+  * ysajeepan <ysajeepan\_at\_live.com>
+
 * Telugu 
-    * veeven <veeven\_at\_gmail.com>
+
+  * veeven <veeven\_at\_gmail.com>
+
 * Thai 
-    * kanitchet <kanichet\_at\_hotmail.com>
+
+  * kanitchet <kanichet\_at\_hotmail.com>
+
 * Turkish
-    * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
+
+  * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
+
 * Uighur 
-    * gheni <gheni\_at\_yahoo.cn>
+
+  * gheni <gheni\_at\_yahoo.cn>
+
 * Ukrainian 
-    * typim <duke3d\_at\_ukr.net>
-    * oleg-ilnytskyi <ukraine.oleg\_at\_gmail.com>
+
+  * typim <duke3d\_at\_ukr.net>
+  * oleg-ilnytskyi <ukraine.oleg\_at\_gmail.com>
+
 * Urdu 
-    * Mehbooob Khan <mehboobbugti\_at\_gmail.com>
+
+  * Mehbooob Khan <mehboobbugti\_at\_gmail.com>
+
 * Simplified Chinese
-    * shanyan baishui <Siramizu\_at\_gmail.com>
+
+  * shanyan baishui <Siramizu\_at\_gmail.com>
+
 * Traditional Chinese
-    * star <star\_at\_origin.club.tw>
+
+  * star <star\_at\_origin.club.tw>
 
 Documentation translators
 +++++++++++++++++++++++++
@@ -450,21 +519,36 @@ Documentation translators
 Following people have contributed to translation of phpMyAdmin documentation:
 
 * Czech 
-    * Michal Čihař <michal\_at\_cihar.com>
+
+  * Michal Čihař <michal\_at\_cihar.com>
+
 * Greek 
-    * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+
+  * Panagiotis Papazoglou <papaz_p\_at\_yahoo.com>
+
 * English (United Kingdom) 
-    * Robert Readman <robert_readman\_at\_hotmail.com>
+
+  * Robert Readman <robert_readman\_at\_hotmail.com>
+
 * French 
-    * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+
+  * Cédric Corazza <cedric.corazza\_at\_wanadoo.fr>
+
 * Japanese 
-    * Yuichiro Takahashi <yuichiro\_at\_pop07.odn.ne.jp>
+
+  * Yuichiro Takahashi <yuichiro\_at\_pop07.odn.ne.jp>
+
 * Polish 
-    * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
+
+  * Stanisław Krukowski <stankruk\_at\_neostrada.pl>
+
 * Portuguese (Brazil) 
-    * mjaning <mjaning\_at\_gmail.com>
+
+  * mjaning <mjaning\_at\_gmail.com>
+
 * Slovenian 
-    * Domen <dbc334\_at\_gmail.com>
+
+  * Domen <dbc334\_at\_gmail.com>
 
 Original Credits of Version 2.1.0
 +++++++++++++++++++++++++++++++++
