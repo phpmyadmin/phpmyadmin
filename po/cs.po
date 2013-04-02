@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-22 09:44+0200\n"
+"PO-Revision-Date: 2013-04-02 17:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -7191,7 +7191,7 @@ msgstr "Dánština"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "English"
-msgstr "Anglicky"
+msgstr "Angličtina"
 
 #: libraries/mysql_charsets.lib.php:279
 msgid "Esperanto"
@@ -7203,7 +7203,7 @@ msgstr "Estonština"
 
 #: libraries/mysql_charsets.lib.php:285 libraries/mysql_charsets.lib.php:288
 msgid "German"
-msgstr "Německy"
+msgstr "Němčina"
 
 #: libraries/mysql_charsets.lib.php:285
 msgid "dictionary"
@@ -7279,7 +7279,7 @@ msgstr "Thajština"
 
 #: libraries/mysql_charsets.lib.php:339 libraries/mysql_charsets.lib.php:427
 msgid "Turkish"
-msgstr "Turecky"
+msgstr "Turečtina"
 
 #: libraries/mysql_charsets.lib.php:342 libraries/mysql_charsets.lib.php:424
 msgid "Ukrainian"
