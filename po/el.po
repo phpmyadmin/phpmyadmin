@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-22 08:39+0200\n"
+"PO-Revision-Date: 2013-04-03 07:41+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -7284,11 +7284,11 @@ msgstr "Βουλγαρικά"
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:380
 msgid "Simplified Chinese"
-msgstr "Απλοποιημένα Κινεζικά"
+msgstr "Απλοποιημένα Κινέζικα"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:400
 msgid "Traditional Chinese"
-msgstr "Παραδοσιακά Κινεζικά"
+msgstr "Παραδοσιακά Κινέζικα"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
 msgid "case-insensitive"
