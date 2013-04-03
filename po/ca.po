@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-03-21 17:02-0400\n"
-"PO-Revision-Date: 2013-03-27 17:28+0200\n"
+"PO-Revision-Date: 2013-04-03 08:17+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
@@ -7375,7 +7375,7 @@ msgstr "Xinés Simplificat"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:400
 msgid "Traditional Chinese"
-msgstr "Xinés Tradicional"
+msgstr "Xinès tradicional"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
 msgid "case-insensitive"
