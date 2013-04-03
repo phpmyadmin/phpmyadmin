@@ -102,6 +102,8 @@ underscore
 - bug #3703 Incorrect updating of the list of users
 - bug #3853 Blowfish implementation might be broken (replace with phpseclib)
 
+3.5.9.0 (not yet released)
+
 3.5.8.0 (not yet released)
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
