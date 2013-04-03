@@ -962,6 +962,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $response->isSuccess($message->isSuccess());
         // No need to manually send the message
         // The Response class will handle that automatically
+        if($analyzed_sql[0]['querytype'] == PMA_DisplayResults::QUERY_TYPE_SELECT) {
+            $extra_data['sql_query'] .= $displayResultsObject->getCreateViewResultOperation($analyzed_sql);
+        }
         $response->addJSON(isset($extra_data) ? $extra_data : array());
         if (empty($_REQUEST['ajax_page_request'])) {
             $response->addJSON('message', $message);
