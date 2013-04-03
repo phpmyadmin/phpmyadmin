@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-22 16:28+0200\n"
-"Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
+"PO-Revision-Date: 2013-04-03 09:49+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/3-5/mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
@@ -2898,7 +2898,7 @@ msgstr "MySQL руу нэвтэрч чадсангүй"
 
 #: libraries/auth/http.auth.lib.php:69
 msgid "Wrong username/password. Access denied."
-msgstr "Нэвтрэгч/нууц үг буруу. Хандах боломжгүй"
+msgstr "Нэвтрэгч/нууц үг буруу. Хандах боломжгүй."
 
 #: libraries/auth/signon.auth.lib.php:88
 msgid "Can not find signon authentication script:"
@@ -8528,7 +8528,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Дарагдхуйц эрхийхумс-ыг харуулж байна. сонголт: өргөн,өндөр цэгээр (эх "
-"хэмжээ нь хадгалагдана)"
+"хэмжээ нь хадгалагдана)."
 
 #: libraries/transformations/image_jpeg__link.inc.php:10
 msgid "Displays a link to download this image."
@@ -8786,7 +8786,7 @@ msgid ""
 msgstr ""
 "Таны тохиргооны файл нь MySQL-ын анхдагч онцгой эрхийг (нэвтрэгч root нь "
 "нууц үггүй) агуулжээ. Таны MySQL сервэр энэ анхдагчаар ажиллаж байгаа нь хэн "
-"ч урилгагүй орох боломжийг өгнө. Та хамгаалалтын асуудлаа засах хэрэгтэй"
+"ч урилгагүй орох боломжийг өгнө. Та хамгаалалтын асуудлаа засах хэрэгтэй."
 
 #: main.php:276
 msgid ""
@@ -9343,7 +9343,7 @@ msgstr "Өгөгдөл устгахыг зөвшөөрөх."
 #: server_privileges.php:44 server_privileges.php:217
 #: server_privileges.php:632
 msgid "Allows dropping databases and tables."
-msgstr "ӨС, хүснэгт устгахыг зөвшөөрөх"
+msgstr "ӨС, хүснэгт устгахыг зөвшөөрөх."
 
 #: server_privileges.php:45 server_privileges.php:632
 msgid "Allows dropping tables."
