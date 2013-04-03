@@ -4666,6 +4666,44 @@ class PMA_DisplayResults
 
     } // end of the 'getTable()' function
 
+    /**
+     * Gets html for query results operations
+     * Use when SQL query returns 0 rows, but you still want to create view
+     *
+     * @return html
+     */
+    public function getCreateViewResultOperation($analyzed_sql) 
+    {
+        $html = "";
+    
+        if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
+            $_url_params = array(
+                    'db'        => $this->__get('db'),
+                    'table'     => $this->__get('table'),
+                    'sql_query' => $this->__get('sql_query'),
+                );
+            $url_query = PMA_generate_common_url($_url_params);
+            $header = '<fieldset><legend>' . __('Query results operations')
+                . '</legend>';
+            $html .= $header;
+            $ajax_class = ' ajax';
+
+            $html .= '<span>'
+                . PMA_Util::linkOrButton(
+                    'view_create.php' . $url_query,
+                    PMA_Util::getIcon(
+                        'b_views.png', __('Create view'), true
+                    ),
+                    array('class' => 'create_view' . $ajax_class), true, true, ''
+                )
+                . '</span>' . "\n";
+
+            $html .= '</fieldset><br />';
+        }
+
+        return $html;
+    }
+
 
     /**
      * Get offsets for next page and previous page
