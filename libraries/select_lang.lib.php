@@ -495,8 +495,12 @@ if (! function_exists('__')) {
     PMA_fatalError('Bad invocation!');
 }
 
-/* l10n: Text direction for language, use either "ltr" or "rtl" */
-$GLOBALS['text_dir'] = __('ltr');
+/* Text direction for language */
+if (in_array($GLOBALS['lang'], array('ar', 'fa', 'he', 'ur'))) {
+    $GLOBALS['text_dir'] = 'rtl';
+} else {
+    $GLOBALS['text_dir'] = 'ltr';
+}
 
 /* TCPDF */
 $GLOBALS['l'] = array();
