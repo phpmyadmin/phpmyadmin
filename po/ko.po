@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-03-29 01:12+0200\n"
+"PO-Revision-Date: 2013-04-03 18:11+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5277,7 +5276,7 @@ msgstr "저장 디렉토리"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "사용하지 않으면 빈칸으로 두세요"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization order"
@@ -6198,10 +6197,10 @@ msgid "Exporting databases from the current server"
 msgstr "현재 서버에서 데이터베이스를 내보내기"
 
 #: libraries/display_export.lib.php:98
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
+msgstr "데이터베이스 %s에서 테이블을 추출"
 
 #: libraries/display_export.lib.php:100
 #, fuzzy, php-format
@@ -6481,9 +6480,8 @@ msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:32
-#, fuzzy
 msgid "Data files"
-msgstr "데이터만"
+msgstr "데이터 파일"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
@@ -6675,7 +6673,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "트랜잭션 버퍼 크기"
 
 #: libraries/engines/pbxt.lib.php:49
 msgid ""
@@ -6983,9 +6981,8 @@ msgid "case-sensitive"
 msgstr ""
 
 #: libraries/mysql_charsets.lib.php:267
-#, fuzzy
 msgid "Croatian"
-msgstr "생성"
+msgstr "크로아티아어"
 
 #: libraries/mysql_charsets.lib.php:270
 msgid "Czech"
@@ -7174,10 +7171,9 @@ msgid_plural "%s other results found"
 msgstr[0] ""
 
 #: libraries/navigation/NavigationTree.class.php:1034
-#, fuzzy
 #| msgid "table name"
 msgid "filter databases by name"
-msgstr "테이블명"
+msgstr "이름으로 데이터베이스 필터링"
 
 #: libraries/navigation/NavigationTree.class.php:1035
 #: libraries/navigation/NavigationTree.class.php:1061
@@ -7246,7 +7242,7 @@ msgstr "프로세스 목록"
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
-msgstr ""
+msgstr "새로운"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
 msgctxt "Create new table"
@@ -7914,7 +7910,7 @@ msgstr "열(칼럼) 이름"
 #: libraries/plugins/import/ImportCsv.class.php:206
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
 #: libraries/plugins/import/ImportCsv.class.php:257
 #, php-format
@@ -8499,7 +8495,7 @@ msgstr "길이/값*"
 
 #: libraries/rte/rte_routines.lib.php:984
 msgid "Add parameter"
-msgstr ""
+msgstr "파라미터 추가"
 
 #: libraries/rte/rte_routines.lib.php:988
 #, fuzzy
@@ -8639,9 +8635,8 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 msgid "Add routine"
-msgstr "필드 추가하기"
+msgstr "루틴 추가하기"
 
 #: libraries/rte/rte_words.lib.php:24
 #, php-format
@@ -9401,7 +9396,7 @@ msgstr ""
 
 #: libraries/sqlparser.lib.php:173
 msgid "BEGIN CUT"
-msgstr ""
+msgstr "BEGIN CUT"
 
 #: libraries/sqlparser.lib.php:175
 msgid "END CUT"
@@ -9481,10 +9476,10 @@ msgid "None"
 msgstr "없음"
 
 #: libraries/structure.lib.php:1329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "컬럼 %s을 삭제했습니다"
 
 #: libraries/structure.lib.php:1383 libraries/structure.lib.php:2046
 #: libraries/structure.lib.php:2056
@@ -11907,7 +11902,7 @@ msgstr "필요치 않을 경우 이 두 줄을 주석처리하시기 바랍니�
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "SQL 구문이 추출되었습니다. 덤프된 내용을 복사하거나 실행하세요."
 
 #: tbl_tracking.php:309
 #, php-format
@@ -12478,7 +12473,7 @@ msgstr "쿼리 캐시 최소 결과 크기"
 #: libraries/advisory_rules.txt:205
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "쿼리 캐시의 결과 셋의 최대 크기가 기본값인 1 MiB 입니다."
 
 #: libraries/advisory_rules.txt:206
 msgid ""
@@ -12491,16 +12486,20 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"{query_cache_limit}를 변경(일반적으로 증가)하여 효율을 높일 수 있습니다. 이 값은 쿼리 캐시에 넣을 수 있는 쿼리 "
+"결과의 최댓값을 결정합니다. 만약 1 MiB 이상의 캐시될 가능성이 높은 쿼리 결과(많은 읽기, 적은 쓰기)가 많다면, "
+"{query_cache_limit}를 증가하는 것이 효율을 높일 수 있습니다. 반면, 1 MiB 이상의 캐시될 가능성이 낮은 쿼리 "
+"결과(테이블 업데이트로 캐시가 무효화된다던가)가 많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 "
+"있습니다."
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit가 1Mib로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "임시테이블 생성 허용."
+msgstr "정렬로 인해 임시 테이블을 사용하게 되는 비율"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
 #, fuzzy
@@ -13072,13 +13071,21 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
+"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, {innodb_log_file_size}값을 "
+"크게 할 수록, 데이터베이스가 크러시한 경우의 복구 시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 "
+"설정하는 게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버를 완전히 종료한 후, InnoDB 로그 파일을 "
+"제거하고, my.cnf에 새 값을 설정한 후 서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the proper "
+"way</a> (영어)"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr ""
+msgstr "InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어야 합니다"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
