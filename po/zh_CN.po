@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-02 07:56+0200\n"
-"Last-Translator: zz zz <tczzjin@gmail.com>\n"
-"Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_CN/>\n"
+"PO-Revision-Date: 2013-04-04 10:31+0200\n"
+"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3253,7 +3253,7 @@ msgstr ""
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
-msgstr ""
+msgstr "一个定点数值 (M, D)-数字(M)的最大值是65（默认值是10），十进制数字(D)的最大值是30（默认值是0）"
 
 #: libraries/Types.class.php:308
 msgid ""
@@ -3274,11 +3274,10 @@ msgstr ""
 "1.7976931348623157E+308"
 
 #: libraries/Types.class.php:312
-#, fuzzy
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
-msgstr "DOUBLE 的别名 （除了在 REAL_AS_FLOAT SQL 模式下它是 FLOAT类型的别名）"
+msgstr "DOUBLE 的别名（除了在 REAL_AS_FLOAT SQL 模式下它是 FLOAT类型的别名）"
 
 #: libraries/Types.class.php:314
 #, fuzzy
