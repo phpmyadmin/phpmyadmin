@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-04 05:46+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
+"PO-Revision-Date: 2013-04-04 07:04+0200\n"
+"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1085,7 +1085,7 @@ msgstr "Excluindo os dados de monitoramento"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "Remoção de chave/índice primário"
+msgstr "Eliminando Chave/Índice Primário"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1155,7 +1155,7 @@ msgstr "Recarregando privilégios"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
-msgstr "Remover os usuários selecionados"
+msgstr "Removendo os usuários selecionados"
 
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
@@ -1176,7 +1176,7 @@ msgstr "Gráfico de tráfego em tempo real"
 
 #: js/messages.php:67 server_status.php:815
 msgid "Live conn./process chart"
-msgstr "Quadro conn./process em tempo real"
+msgstr "Gráfico de conexão/processo em tempo real"
 
 #: js/messages.php:68 server_status.php:837
 msgid "Live query chart"
@@ -1258,10 +1258,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"As configurações da tabela de armazenamento local do seu browser não é mais "
-"comtatível com a nova versão do monitor de dialogos. Isso significa que as "
-"configurações atuais não funcionarão mais. Por favor reinicie sua "
-"configurações para as padrão no menu <i>Configurações</i>."
+"As configurações da tabela de armazenamento local do seu navegador não são "
+"mais comtatíveis com a nova versão do monitor de dialogos. É possível que as "
+"suas configurações atuais não funcionem mais. Por favor reconfigure suas "
+"configurações para os padrões no menu <i>Configurações</i>."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
@@ -1404,14 +1404,14 @@ msgstr "Remover Gráfico"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr "Editar rótulos e títulos"
+msgstr "Editar título e rótulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or
 # "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it
 # depends of the context.
 #: js/messages.php:140
 msgid "Add chart to grid"
-msgstr "Adicionar gráfico ajustado na grade"
+msgstr "Adicionar gráfico à grade"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
@@ -8654,8 +8654,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor rodando com 'Suhosin'. Verifique a %sdocumentation%s para possíveis "
-"razões do erro."
+"Servidor rodando com Suhosin. Favor utilizar a %sdocumentação%s para "
+"possíveis problemas."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -10953,8 +10953,9 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Você não está usando conexão segura; todos dados (incluindo possivelmente "
-"informações sensíveis, como senhas) são transferidos sem criptografia!"
+"Você não está usando uma conexão segura; todos os dados (incluindo "
+"informações potencialmente sigilosas, como senhas) são transferidos sem "
+"criptografia!"
 
 #: setup/frames/index.inc.php:61
 #, php-format
@@ -10967,7 +10968,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:65
 msgid "Insecure connection"
-msgstr "Conexão vulnerável"
+msgstr "Conexão insegura"
 
 #: setup/frames/index.inc.php:94
 msgid "Configuration saved."
@@ -11423,7 +11424,7 @@ msgstr "Rótulo do Eixo Y:"
 
 #: tbl_chart.php:149
 msgid "Y Values"
-msgstr "Valor Y"
+msgstr "Valores Y"
 
 #: tbl_create.php:31
 #, php-format
@@ -12128,11 +12129,11 @@ msgstr "\"long_query_time\" está definida para %ds."
 
 #: po/advisory_rules.php:30
 msgid "Slow query logging"
-msgstr "Gravação de Logs de consulta lento"
+msgstr "Registro lento de transações de consulta"
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
-msgstr "O registro de consulta lenta está desativado."
+msgstr "O registro lento de transações de consulta está desativado."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -12183,8 +12184,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Você deve atualizar, uma vez que versões recentes do MySQL 5.1 têm "
-"desempenho aprimorado e as do MySQL 5.5 são ainda melhores."
+"Você deveria atualizar, já que as versões recentes do MySQL 5.1 têm "
+"desempenho aprimorado e ainda mais as do MySQL 5.5."
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -12202,7 +12203,8 @@ msgstr "Distribuição"
 #: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
-"Varsão é compilada a partir das fontes, e não é um binário oficial do MySQL."
+"A versão é uma compilação a partir dos fontes, não um binário oficial do "
+"MySQL."
 
 #: po/advisory_rules.php:52
 msgid ""
@@ -12221,7 +12223,7 @@ msgstr "'source' encontrado em version_coment"
 
 #: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "O manual do MySQL só é preciso para binários oficiais MySQL."
+msgstr "O manual do MySQL é preciso apenas para binários MySQL oficiais."
 
 #: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
@@ -12916,7 +12918,7 @@ msgstr "A proporção de arquivos abertos está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Taxa de arquivos abertos: %s, esse valor deveria ser menor do que 5 por hora"
+"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -13020,7 +13022,7 @@ msgstr ""
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr "Tempo de lançamento lento"
+msgstr "Tempo para lançamento lento"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
