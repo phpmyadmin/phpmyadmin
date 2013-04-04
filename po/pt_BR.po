@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-04 05:46+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
+"PO-Revision-Date: 2013-04-04 07:04+0200\n"
+"Last-Translator: Airton Torres <airton.torres@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -906,8 +906,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Servidor rodando com 'Suhosin'. Verifique a %sdocumentation%s para possíveis "
-"razões do erro."
+"Servidor rodando com Suhosin. Favor utilizar a %sdocumentação%s para "
+"possíveis problemas."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:355
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -936,7 +936,7 @@ msgstr "Excluindo os dados de monitoramento"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr "Remoção de chave/índice primário"
+msgstr "Eliminando Chave/Índice Primário"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -966,7 +966,7 @@ msgstr "Adicionar %s coluna(s) ao índice"
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
 msgid "Y Values"
-msgstr "Valor Y"
+msgstr "Valores Y"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -999,7 +999,7 @@ msgstr "Recarregando privilégios"
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
-msgstr "Remover os usuários selecionados"
+msgstr "Removendo os usuários selecionados"
 
 #: js/messages.php:58 js/messages.php:124 tbl_tracking.php:293
 #: tbl_tracking.php:489
@@ -1022,7 +1022,7 @@ msgstr "Gráfico de tráfego em tempo real"
 
 #: js/messages.php:63
 msgid "Live conn./process chart"
-msgstr "Quadro conn./process em tempo real"
+msgstr "Gráfico de conexão/processo em tempo real"
 
 #: js/messages.php:64
 msgid "Live query chart"
@@ -1071,10 +1071,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"As configurações da tabela de armazenamento local do seu browser não é mais "
-"comtatível com a nova versão do monitor de dialogos. Isso significa que as "
-"configurações atuais não funcionarão mais. Por favor reinicie sua "
-"configurações para as padrão no menu <i>Configurações</i>."
+"As configurações da tabela de armazenamento local do seu navegador não são "
+"mais comtatíveis com a nova versão do monitor de dialogos. É possível que as "
+"suas configurações atuais não funcionem mais. Por favor reconfigure suas "
+"configurações para os padrões no menu <i>Configurações</i>."
 
 #: js/messages.php:82
 msgid "Query cache efficiency"
@@ -1221,14 +1221,14 @@ msgstr "Remover Gráfico"
 
 #: js/messages.php:122
 msgid "Edit title and labels"
-msgstr "Editar rótulos e títulos"
+msgstr "Editar título e rótulos"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or
 # "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it
 # depends of the context.
 #: js/messages.php:123
 msgid "Add chart to grid"
-msgstr "Adicionar gráfico ajustado na grade"
+msgstr "Adicionar gráfico à grade"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
@@ -1606,7 +1606,7 @@ msgstr "Código do erro: %s"
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr "Testo do erro: %s"
+msgstr "Texto do erro: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -3315,57 +3315,58 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Um inteiro de 1 byte, o alcance sinalizado é -128 a 127, o alcance não "
-"sinalizado é 0 a 255"
+"Um inteiro de 1 byte, o limite com sinal vai de -128 a 127, o limite sem "
+"sina vai de 0 a 255"
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Um inteiro de 2 byte, o alcance assinado é -32,768 até 32,767, o alcance não "
-"assinado é de 0 até 65,535"
+"Um inteiro de 2 bytes, o limite com sinal vai de -32.768 até 32.767, o "
+"limite sem sinal vai de 0 até 65.535"
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"Um inteiro de 3 bytes, o alcance assinado é de -8,388,608 até 8,388,607, o "
-"alcance não assinado é de 0 até 16,777,215"
+"Um inteiro de 3 bytes, o limite com sinal vai de -8.388.608 até 8.388.607, o "
+"limite sem sinal vai de 0 até 16.777.215"
 
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
-"Num inteiro de 4 bytes, os limites definidos vão de -2.147.483.648 a "
-"2.147.483.647, e os limites indefinidos vão de 0 a 4.294.967.295."
+"Um inteiro de 4 bytes, o limite com sinal vai de -2.147.483.648 a "
+"2.147.483.647, o limite sem sinal vai de 0 a 4.294.967.295."
 
 #: libraries/Types.class.php:304
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Num inteiro de 8 bytes, os limites definidos vão de "
-"-9.223.372.036.854.775.808 a 9.223.372.036.854.775.808, e os limites "
-"indefinidos vão de 0 a 18.446.744.073.709.551.615"
+"Um inteiro de 8 bytes, o limite com sinal vai de -9.223.372.036.854.775.808 "
+"a 9.223.372.036.854.775.808, o limite sem sinal vai de 0 a "
+"18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:712
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Em um número de ponto fixo (M, D) o número máximo de dígitos (M) é 65 (10 "
-"por padrão), enquanto o número máximo de decimais (D) é de 30 (0 por padrão)"
+"Um número de ponto fixo (M, D) - o número máximo de dígitos (M) é 65 (10 por "
+"padrão), o número máximo de decimais (D) é 30 (0 por padrão)"
 
 #: libraries/Types.class.php:308
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Num número curto de ponto flutuante, os valores permitidos vão de "
-"-3,402823466E+38 a -1,175494351E-38, 0 e 1,175494351E-38 a 3,402823466E+38"
+"Um número curto de ponto flutuante, os valores permitidos são: de "
+"-3,402823466E+38 a -1,175494351E-38, 0 e de 1,175494351E-38 a "
+"3,402823466E+38"
 
 #: libraries/Types.class.php:310
 msgid ""
@@ -3373,9 +3374,9 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Em um número de ponto flutuante de dupla precisão (longo), os valores "
-"permitidos vão de -1,7976931348623157E+308 a  -2,2250738585072014E-308, 0 e "
-"2,2250738585072014E-308 até 1,7976931348623157E+308"
+"Um número de ponto flutuante de dupla precisão (longo), os valores "
+"permitidos são: de -1,7976931348623157E+308 a  -2,2250738585072014E-308, 0 e "
+"de 2,2250738585072014E-308 até 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:312
 msgid ""
@@ -3398,8 +3399,8 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
-"Em um sinônimo para TINYINT(1), um valor de zero é considerado falso, "
-"enquanto valores diferentes de zero são considerados verdadeiros"
+"Um sinônimo para TINYINT(1), o zero é considerado falso, qualquer valor "
+"diferente de zero é considerado verdadeiro"
 
 #: libraries/Types.class.php:318
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
@@ -3413,30 +3414,29 @@ msgstr "Uma data, o limite suportado é de %1$s até %2$s"
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Em uma combinação de data e hora, o limite suportado vai de %1$s a %2$s"
+msgstr "Uma combinação de data e hora, o limite suportado vai de %1$s a %2$s"
 
 #: libraries/Types.class.php:324
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Em uma timestamp, o limite vai de 1970-01-01 00:00:01 UTC a 2038-01-09 "
-"03:14:07 UTC, armazenada como o número de segundos desde a época (1970-01-01 "
+"Um timestamp, o limite vai de 1970-01-01 00:00:01 UTC até 2038-01-09 "
+"03:14:07 UTC, armazenado como o número de segundos desde a época (1970-01-01 "
 "00:00:00 UTC)"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Uma hora, o limite suportado é de %1$s até %2$s"
+msgstr "Um horário, o limite suportado é de %1$s até %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
-"No formato de quatro dígitos (4 por padrão) ou dois dígitos (2) para anos, "
-"os valores permitidos são 70 (1970) a 69 (2069) ou 1901 a 2155, inclusive "
-"0000"
+"Um ano no formato de quatro dígitos (4, padrão) ou dois dígitos (2), os "
+"valores permitidos são: de 70 (1970) a 69 (2069) ou de 1901 a 2155, e 0000"
 
 #: libraries/Types.class.php:330
 msgid ""
@@ -3452,34 +3452,35 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Em uma string de comprimento variável (%s), o comprimento máximo efetivo "
-"está sujeito ao tamanho máximo do campo"
+"Uma string de comprimento variável (%s), o comprimento máximo efetivo está "
+"sujeito ao tamanho máximo da linha"
 
 #: libraries/Types.class.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Uma coluna de tipo TEXTO com um comprimento máximo de 255 caracteres, "
-"armazenada com um prefixo de um byte indicando o tamanho do valor em bytes"
+"Uma coluna do tipo TEXTO com um comprimento máximo de 255 (2^8 - 1) "
+"caracteres, armazenada com um prefixo de um byte indicando o tamanho do "
+"valor em bytes"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:732
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Uma coluna de tipo TEXTO com um comprimento máximo de 65.535 caracteres, "
-"armazenado com um prefixo de dois bytes indicando o tamanho do valor em "
-"bytes"
+"Uma coluna do tipo TEXTO com um comprimento máximo de 65.535 (2^16 - 1) "
+"caracteres, armazenada com um prefixo de dois bytes indicando o comprimento "
+"do valor em bytes"
 
 #: libraries/Types.class.php:338
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
-"Uma coluna de tipo TEXTO com um comprimento máximo de 16.777.215 caracteres, "
-"armazenado com um prefixo de três bytes indicando o tamanho do valor em "
-"bytes"
+"Uma coluna do tipo TEXTO com um comprimento máximo de 16.777.215 (2^24 - 1) "
+"caracteres, armazenada com um prefixo de três bytes indicando o comprimento "
+"do valor em bytes"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3487,9 +3488,9 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Uma coluna de tipo TEXTO com um comprimento máximo de 4.294.967.295 "
-"caracteres, armazenado com um prefixo de quatro bytes indicando o tamanho do "
-"valor em bytes"
+"Uma coluna do tipo TEXTO com um comprimento máximo de 4.294.967.295 (2^32 - "
+"1) caracteres ou 4GiB, armazenada com um prefixo de quatro bytes indicando o "
+"comprimento do valor em bytes"
 
 #: libraries/Types.class.php:342
 msgid ""
@@ -3512,34 +3513,36 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Uma coluna de tipo BLOB com um comprimento máximo de 255 bytes, armazenado "
-"com um prefixo de um byte indicando o tamanho do valor em bytes"
+"Uma coluna do tipo BLOB com um comprimento máximo de 255 (2^8 - 1) bytes, "
+"armazenada com um prefixo de um byte indicando o comprimento do valor em "
+"bytes"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"Uma coluna de tipo BLOB, com um comprimento máximo de 16.777.215 bytes, "
-"armazenada com um prefixo de três bytes indicando o comprimento do valor em "
-"bytes"
+"Uma coluna do tipo BLOB com um comprimento máximo de 16.777.215 (2^24 - 1) "
+"bytes, armazenada com um prefixo de três bytes indicando o comprimento do "
+"valor em bytes"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"Uma cluna de tipo BLOB com um comprimento máximo de 65.535 bytes, armazenada "
-"com um prefixo de dois bytes indicando o tamanho do valor em bytes"
+"Uma cluna do tipo BLOB com um comprimento máximo de 65.535 (2^16 - 1) bytes, "
+"armazenada com um prefixo de dois bytes indicando o comprimento do valor em "
+"bytes"
 
 #: libraries/Types.class.php:352
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Uma coluna de tipo BLOB com um comprimento máximo de 4.294.967.295 bytes, "
-"armazenada com um prefixo de quatro bytes indicando o tamanho do valor em "
-"bytes"
+"Uma coluna do tipo BLOB com um comprimento máximo de 4.294.967.295 (2^32 - "
+"1) bytes ou 4GiB, armazenada com um prefixo de quatro bytes indicando o "
+"comprimento do valor em bytes"
 
 #: libraries/Types.class.php:354
 msgid ""
@@ -3547,7 +3550,7 @@ msgid ""
 "'' error value"
 msgstr ""
 "Uma enumeração, escolhida de uma lista de até 65.535 valores ou o valor "
-"especial de erro \"\""
+"especial de erro ''"
 
 #: libraries/Types.class.php:356
 msgid "A single value chosen from a set of up to 64 members"
@@ -3559,7 +3562,7 @@ msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr "Um ponto em um espaço de 2 dimensões"
+msgstr "Um ponto em um espaço bidimensional"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
@@ -3639,7 +3642,7 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"Em uma timestamp, o limite vai de '0001-01-01 00:00:00' UTC até '9999-12-31 "
+"Uma timestamp, o limite vai de '0001-01-01 00:00:00' UTC até '9999-12-31 "
 "23:59:59' UTC; TIMESTAMP(6) pode armazenar microsegundos"
 
 #: libraries/Types.class.php:734
@@ -3647,7 +3650,7 @@ msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
-"Uma string de comprimento variável (0-65, 535) usa verificação binária para "
+"Uma string de comprimento variável (0-65, 535), usa verificação binária para "
 "todas as comparações"
 
 #: libraries/Types.class.php:738
@@ -3877,7 +3880,7 @@ msgstr "Você deveria atualizar para %s %s ou posterior."
 
 #: libraries/common.inc.php:1043
 msgid "Error: Token mismatch"
-msgstr "Erro: Verificação de token"
+msgstr "Erro: Incompatibilidade de token"
 
 #: libraries/common.inc.php:1087
 msgid "GLOBALS overwrite attempt"
@@ -11761,8 +11764,9 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Você não está usando conexão segura; todos dados (incluindo possivelmente "
-"informações sensíveis, como senhas) são transferidos sem criptografia!"
+"Você não está usando uma conexão segura; todos os dados (incluindo "
+"informações potencialmente sigilosas, como senhas) são transferidos sem "
+"criptografia!"
 
 #: setup/frames/index.inc.php:64
 #, php-format
@@ -11775,7 +11779,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:68
 msgid "Insecure connection"
-msgstr "Conexão vulnerável"
+msgstr "Conexão insegura"
 
 #: setup/frames/index.inc.php:98
 msgid "Configuration saved."
@@ -12619,11 +12623,11 @@ msgstr "\"long_query_time\" está definida para %ds."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
-msgstr "Gravação de Logs de consulta lento"
+msgstr "Registro lento de transações de consulta"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 msgid "The slow query log is disabled."
-msgstr "O registro de consulta lenta está desativado."
+msgstr "O registro lento de transações de consulta está desativado."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -12686,8 +12690,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Você deve atualizar, uma vez que versões recentes do MySQL 5.1 têm "
-"desempenho aprimorado e as do MySQL 5.5 são ainda melhores."
+"Você deveria atualizar, já que as versões recentes do MySQL 5.1 têm "
+"desempenho aprimorado e ainda mais as do MySQL 5.5."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -12706,7 +12710,8 @@ msgstr "Distribuição"
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
-"Varsão é compilada a partir das fontes, e não é um binário oficial do MySQL."
+"A versão é uma compilação a partir dos fontes, não um binário oficial do "
+"MySQL."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
@@ -12725,7 +12730,7 @@ msgstr "'source' encontrado em version_coment"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "O manual do MySQL só é preciso para binários oficiais MySQL."
+msgstr "O manual do MySQL é preciso apenas para binários MySQL oficiais."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
@@ -13409,7 +13414,7 @@ msgstr "A proporção de arquivos abertos está alta."
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Taxa de arquivos abertos: %s, esse valor deveria ser menor do que 5 por hora"
+"Taxa de arquivos abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: libraries/advisory_rules.txt:348
 #, php-format
@@ -13507,7 +13512,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
-msgstr "Tempo de lançamento lento"
+msgstr "Tempo para lançamento lento"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
