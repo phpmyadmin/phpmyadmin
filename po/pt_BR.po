@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-04 05:44+0200\n"
+"PO-Revision-Date: 2013-04-04 05:46+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
@@ -13243,16 +13243,16 @@ msgstr ""
 #: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "O tamanho absoluto do log do InnoDB é %s MiB"
+msgstr "O tamanho absoluto do log do InnoDB é de %s MB"
 
 #: po/advisory_rules.php:265
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamanho do buffer pool InnoDB"
+msgstr "Tamanho do pool de buffer do InnoDB"
 
 #: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Seu Buffer Pool InnoDB é muito pequeno."
+msgstr "Seu pool de buffer InnoDB é bem pequeno."
 
 #: po/advisory_rules.php:267
 #, php-format
