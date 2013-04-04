@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-06 11:52+0200\n"
-"Last-Translator: likyh <likyh@qq.com>\n"
-"Language-Team: Chinese (China) "
+"PO-Revision-Date: 2013-04-04 11:01+0200\n"
+"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
+"Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -282,7 +282,7 @@ msgstr "删除数据库"
 #: db_operations.php:450
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "已被删除数据库 %s 。"
+msgstr "数据库 %s 已被删除。"
 
 #: db_operations.php:455
 msgid "Drop the database (DROP)"
@@ -322,7 +322,7 @@ msgstr "添加自增 (AUTO_INCREMENT) 值"
 
 #: db_operations.php:512 tbl_operations.php:571
 msgid "Add constraints"
-msgstr "强制添加"
+msgstr "添加约束"
 
 #: db_operations.php:525
 msgid "Switch to copied database"
@@ -347,7 +347,7 @@ msgstr "phpMyAdmin 高级功能尚未激活。要查出原因，请点击%s此�
 
 #: db_operations.php:595
 msgid "Edit or export relational schema"
-msgstr "编辑或导出关系大纲"
+msgstr "编辑或导出关系模式"
 
 #: db_printview.php:101 db_tracking.php:86 db_tracking.php:188
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
