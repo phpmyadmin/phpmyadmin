@@ -257,6 +257,8 @@ function PMA_langDetails($lang)
         return array('hu|hungarian', 'hu', 'Magyar');
     case 'hy':
         return array('hy|armenian', 'hy', 'Հայերէն');
+    case 'ia':
+        return array('ia|interlingua', 'ia', 'Interlingua');
     case 'id':
         return array('id|indonesian', 'id', 'Bahasa Indonesia');
     case 'it':
