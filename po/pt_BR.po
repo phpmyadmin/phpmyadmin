@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-04 09:43+0200\n"
+"PO-Revision-Date: 2013-04-04 09:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -13507,7 +13507,7 @@ msgstr ""
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
-"$s thread(s) levaram mais de %s segundos para começar, sendo que deveriam "
+"%s thread(s) levaram mais de %s segundos para começar, sendo que deveriam "
 "ser 0"
 
 #: libraries/advisory_rules.txt:383
