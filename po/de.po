@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-03 18:11+0200\n"
-"Last-Translator: Alexander M. Turek <me@derrabus.de>\n"
+"PO-Revision-Date: 2013-04-04 13:16+0200\n"
+"Last-Translator: Carsten Nielsen <phreaknerd@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1891,7 +1891,7 @@ msgstr "Zur Umsortierung ziehen"
 
 #: js/messages.php:340
 msgid "Click to sort"
-msgstr "Zur Anordnung anklicken"
+msgstr "Zum Sortieren anklicken"
 
 #: js/messages.php:341
 msgid "Click to mark/unmark"
@@ -1899,7 +1899,7 @@ msgstr "Klicken zum aus- bzw. abwählen"
 
 #: js/messages.php:342
 msgid "Double-click to copy column name"
-msgstr "Doppelklicken Sie um den Spaltenname zu kopieren"
+msgstr "Doppelklicken um den Spaltennamen zu kopieren"
 
 #: js/messages.php:343
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
