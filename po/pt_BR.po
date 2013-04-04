@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-04 09:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-04 21:47+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3877,7 +3877,7 @@ msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:194
 msgid "Page titles"
-msgstr "Títulos das páginas"
+msgstr "Títulos de páginas"
 
 #: libraries/config/messages.inc.php:195
 msgid ""
