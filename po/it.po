@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-02 23:14+0200\n"
-"Last-Translator: Luca Rebellato <rebeluca@gmail.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2013-04-04 15:29+0200\n"
+"Last-Translator: LOL DJ <diopralinato@live.it>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1610,12 +1610,12 @@ msgstr "Errore nel processare la richiesta"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Codice errore: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Messaggio errore: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1673,10 +1673,9 @@ msgid "Show indexes"
 msgstr "Mostra gli indici"
 
 #: js/messages.php:246 libraries/mult_submits.inc.php:327
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Controllo delle chiavi straniere:"
+msgstr "Controllo delle chiavi esterne:"
 
 #: js/messages.php:247 libraries/mult_submits.inc.php:331
 msgid "(Enabled)"
@@ -1800,7 +1799,7 @@ msgstr "Passando il mouse su un punto mostrerà la sua etichetta."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Per effettuare lo zoom, scegliere una sezione del plot con il mouse"
 
 #: js/messages.php:295
 #, fuzzy
@@ -1880,7 +1879,7 @@ msgstr "Aggiungi un'opzione al campo "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d oggetto/i creato/i"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1908,7 +1907,7 @@ msgstr "Clicca per selezionare/deselezionare"
 
 #: js/messages.php:342
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Doppio click per copiare il nome della colonna"
 
 #: js/messages.php:343
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1925,22 +1924,20 @@ msgstr ""
 "salvataggio."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"È possibile modificare la maggior parte dei campi<br /> cliccando "
-"direttamente sul loro contenuto."
+"È possibile modificare la maggior parte dei campi<br /> cliccando due volte "
+"direttamente su essi."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "È possibile modificare la maggior parte dei valori<br />cliccando "
-"direttamente sul loro contenuto."
+"direttamente su essi."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1952,13 +1949,12 @@ msgstr "Copia il nome del campo"
 
 #: js/messages.php:360
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Click destro sul nome della colonna per copiarlo negli appunti."
 
 #: js/messages.php:361
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Aggiorna riga/righe"
+msgstr "Mostra riga/righe"
 
 #: js/messages.php:364
 msgid "Generate password"
@@ -1985,11 +1981,10 @@ msgid "Hide Panel"
 msgstr "Nascondi pannello"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
-"La pagina richiesta non é stata trovata nella cronologia, potrebbe essere "
+"La pagina richiesta non è stata trovata nella cronologia, potrebbe essere "
 "scaduta."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
@@ -2268,7 +2263,7 @@ msgstr "Secondo"
 #: libraries/Advisor.class.php:77
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP ha restituito il seguente errore: %s"
 
 #: libraries/Advisor.class.php:104
 #, php-format
@@ -2304,12 +2299,12 @@ msgstr "Formato non valido per l'input CSV alla linea %s"
 #: libraries/Advisor.class.php:403
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Carattere inatteso alla riga %s"
 
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Carattere inatteso alla riga %1$s. Atteso tab, trovato invece \"%2$s\""
 
 #: libraries/Advisor.class.php:450 server_status_queries.php:86
 msgid "per second"
@@ -3410,10 +3405,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Crea versione %1$s di %2$s"
+msgstr "Una data, il rage va da %1$s a %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
