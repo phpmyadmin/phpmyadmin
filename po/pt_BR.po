@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-04 09:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-04 21:47+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -4700,7 +4700,7 @@ msgstr "Configurações que não se encaixavam em nenhum outro lugar"
 
 #: libraries/config/messages.inc.php:190
 msgid "Page titles"
-msgstr "Títulos das páginas"
+msgstr "Títulos de páginas"
 
 #: libraries/config/messages.inc.php:191
 msgid ""
@@ -4846,7 +4846,7 @@ msgstr "Personalizar página inicial"
 
 #: libraries/config/messages.inc.php:222
 msgid "Database structure"
-msgstr "Estrutura do Banco Dados"
+msgstr "Estrutura de banco de dados"
 
 #: libraries/config/messages.inc.php:223
 msgid "Choose which details to show in the database structure (list of tables)"
