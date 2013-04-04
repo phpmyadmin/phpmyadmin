@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-02 21:27+0200\n"
+"PO-Revision-Date: 2013-04-04 05:44+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
@@ -4966,8 +4966,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Quando o comando DROP DATABASE IF EXISTS deve ser adicionado como primeira "
-"linha quando estiver criando o Banco de Dados."
+"Quando o comando DROP DATABASE IF EXISTS deverá ser adicionado como primeira "
+"linha do log quando estiver criando um bando de dados."
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
@@ -4978,8 +4978,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Quando um comando DROP TABLE IF EXISTS deve ser adicionado a primeira linha "
-"quando estiver sendo criada uma tabela."
+"Quando um comando DROP TABLE IF EXISTS deverá ser adicionado a primeira "
+"linha do log quando estiver criando uma tabela."
 
 #: libraries/config/messages.inc.php:438
 msgid "Add DROP TABLE"
@@ -4990,8 +4990,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Quando um comando DROP VIEW IF EXISTS deverá ser adicionado quando criando "
-"uma view."
+"Quando um comando DROP VIEW IF EXISTS deverá ser adicionado como primeira "
+"linha do log quando estiver criando uma view."
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP VIEW"
@@ -4999,7 +4999,7 @@ msgstr "Adicionar DROP VIEW"
 
 #: libraries/config/messages.inc.php:441
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "Define a lista de comandos que a auto-criação use para novas versões."
+msgstr "Define a lista de comandos que a auto-criação usa para novas versões."
 
 #: libraries/config/messages.inc.php:442
 msgid "Statements to track"
@@ -12386,6 +12386,15 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"É esperado que fragmentação severa aumente (ainda mais) "
+"Qcache_lowmem_prunes. Isso pode ser causado por vários esvaziamentos de "
+"pouca memória de cache de query por causa de {query_cache_size} ser pequeno "
+"demais. Para conserto imediato mas de curta duração você pode esvaziar o "
+"cache de query (pode travar o cache de query por um bom tempo). "
+"Cuidadosamente ajustar {query_cache_min_res_unit) para um valor mais baixo "
+"pode ajudar também, por exemplo, você pode defini-lo para o tamanho médio de "
+"suas queries no cache usando essa fórmula: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: po/advisory_rules.php:93
 #, php-format
@@ -12394,6 +12403,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"O cache está atualmente fragmentado em %s%, sendo que 100% de fragmentação "
+"significa que o cache de query é um padrão alternante de blocos livres e "
+"utilizados. Esse valor deveria estar abaixo de 20%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
@@ -12413,6 +12425,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Você pode querer aumentar o {query_cache_size}, embora saiba que é de se "
+"esperar que o consumo geral de manter o cache vá aumentar com seu tamanho, "
+"então aumente ele de pouco em pouco e monitore os resultados."
 
 #: po/advisory_rules.php:98
 #, php-format
@@ -12420,6 +12435,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"A taxa de queries removidas para queries inseridas é de %s%. Quanto mais "
+"baixo esse valor for, melhor (O limite de execução dessa regra é de 0,1%)"
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
@@ -12438,6 +12455,8 @@ msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Dependendo do seu ambiente, pode significar um aumento de desempenho reduzir "
+"este valor."
 
 #: po/advisory_rules.php:103
 #, php-format
@@ -12465,6 +12484,14 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Mudar o {query_cache_limit} (normalmente aumentar) pode aumentar a "
+"eficiência. Essa variável determina o tamanho máximo de resultado de query a "
+"ser inserido no cache de query. Se existir muitos resultados de query acima "
+"de 1 MB que são fáceis de armazenar (muitas leituras, poucas escritas) "
+"então aumentar o {query_cache_limit} irá aumentar a eficiência. Enquanto que "
+"no caso de muitos resultados de query estar acima de 1MB que não são muito "
+"fáceis de armazenar (frequentemente invalidados por causa de atualizações de "
+"tabelas) aumentar o {query_cache_limit} pode reduzir a eficiência."
 
 #: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
@@ -12483,6 +12510,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Considere aumentar o sort_buffer_size e/ou o read_rnd_buffer_size, "
+"dependendo dos limites de memória do seu sistema"
 
 #: po/advisory_rules.php:113
 #, php-format
@@ -12512,7 +12541,7 @@ msgstr "Ordenar linhas"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Muitos campos estão sendo ordenados."
 
 #: po/advisory_rules.php:122
 msgid ""
@@ -12521,11 +12550,15 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Enquanto não houver nada errado com uma grande quantidade de ordenação de "
+"campos, você pode querer garantir que as queries que exigem muita ordenação "
+"usem colunas indexadas na cláusula ORDER BY, já que isso resultará em "
+"ordenação muito mais rápida"
 
 #: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Média de campos ordenados: %s"
 
 #: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
@@ -12540,6 +12573,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Isso significa que JOINs estão fazendo leituras completas de tabela. "
+"Adicionar índices aos campos sendo usados nas condições JOIN irá acelerar "
+"bastante a união das tabelas"
 
 #: po/advisory_rules.php:128
 #, php-format
@@ -12564,6 +12600,12 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Isso normalmente indica leituras completas frequentes de índice. Leituras "
+"completas de índices são mais rápidas que leituras de tabela mas exigem "
+"muitos ciclos de CPU em grandes tabelas, se essas tabelas que tem ou tinham "
+"altos volumes de UPDATEs e DELETEs, rodar \"OTIMIZAR TABELA\" pode reduzir a "
+"quantidade de e/ou acelerar as leituras completas de índice. Tirando isso, "
+"leituras completas de índice só podem ser reduzidas reescrevendo as queries."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12586,6 +12628,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Isso indica que muitas queries precisam ordenar resultados e/ou fazer uma "
+"leitura completa de tabela, incluindo queries JOIN que não usam índices. "
+"Adicione índices onde puderem ser aplicados."
 
 #: po/advisory_rules.php:138
 #, php-format
@@ -12635,11 +12680,17 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Se você mudou deliberadamente um deles: o servidor usa o valor mais baixo "
+"dos dois para determinar o tamanho máximo de tabelas em memória. Então, se "
+"você quiser aumentar o limite de tabela em memória, você terá que aumentar o "
+"outro valor também."
 
 #: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
+"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: "
+"%s"
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
@@ -12663,6 +12714,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Aumentar o {max_heap_table_size} e {tmp_table_size} pode ajudar. Embora "
+"algumas tabelas temporárias estejam sempre sendo escritas para o disco, "
+"independente do valor dessas variáveis. Para eliminá-las, você terá que "
+"reescrever suas queries para evitar essas condições (dentro de uma tabela "
+"temporária: presença de um campo BLOB ou TEXTO ou presença de um campo maior "
+"que 512 bytes) como mencionado no começo de um <a href=\"http://www.facebook"
+".com/note.php?note_id=10150111255065841&comments\">artigo do Pythian "
+"Group</a>"
 
 #: po/advisory_rules.php:153
 #, php-format
@@ -12687,6 +12746,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Aumentar o {max_heap_table_size} e o {tmp_table_size} pode ajudar. Embora "
+"algumas tabelas temporárias estejam sempre sendo escritas para o disco, "
+"independente do valor dessas variáveis. Para eliminá-las, você terá que "
+"reescrever suas queries para evitar essas condições (dentro de uma tabela "
+"temporária: presença de um campo BLOB ou TEXTO ou a presença de um campo "
+"maior que 512 bytes) como mencionado na <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">Documentação MySQL</a>"
 
 #: po/advisory_rules.php:158
 #, php-format
@@ -12704,12 +12771,16 @@ msgstr "MyISAM chave tamanho da memória intermédia"
 #: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Buffer de chaves não está inicializado. Nenhum índice MyISAM será "
+"armazenado."
 
 #: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Defina o {key_buffer_size} dependendo do tamanho dos seus índices MyISAM. 64 "
+"MB é um bom começo."
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
@@ -12733,6 +12804,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Você pode precisar diminuir o tamanho do {key_buffer_size}, re-examine suas "
+"tabelas para ver se os índices foram removidos, ou examine as queries e "
+"expectativas a respeito de quais índices estão sendo usados."
 
 #: po/advisory_rules.php:168
 #, php-format
@@ -12762,11 +12836,11 @@ msgstr "Porcentagem de leituras de índice da memória"
 #: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "A porcentagem de índices que usam o buffer de chaves MyISAM é baixa."
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Você pode precisar aumentar o {key_buffer_size}."
 
 #: po/advisory_rules.php:178
 #, php-format
@@ -12790,6 +12864,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Abrir tabelas exige I/O, o que é pesado. Aumentar o {table_open_cache} pode "
+"evitar isso."
 
 #: po/advisory_rules.php:183
 #, php-format
@@ -12807,12 +12883,16 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"O número de arquivos abertos está aproximando o número máximo de arquivos "
+"abertos. Você pode acabar tendo um erro \"Arquivos demais abertos\"."
 
 #: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Considere aumentar o (open_files_limit), e verifique o log de erros quando "
+"reiniciar após ter mudado o open_files_limit."
 
 #: po/advisory_rules.php:188
 #, php-format
@@ -12851,7 +12931,7 @@ msgstr "Muitos bloqueios de tabela não foram concedidos imediatamente."
 
 #: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "Otimize as queries e/ou use InnoDB para reduzir a espera de trava."
 
 #: po/advisory_rules.php:198
 #, php-format
@@ -12861,7 +12941,7 @@ msgstr ""
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Taxa de espera de trava de tabela"
 
 #: po/advisory_rules.php:203
 #, php-format
@@ -12880,10 +12960,12 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"O cache de threads está desativado, o que resulta em peso extra nas novas "
+"conexões ao MySQL."
 
 #: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Ative o cache de threads configurando o {thread_cache_size} > 0."
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
@@ -12902,7 +12984,7 @@ msgstr "Cache de threads não é eficiente."
 
 #: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Aumente o {thread_cache_size}."
 
 #: po/advisory_rules.php:213
 #, php-format
@@ -12925,15 +13007,20 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Isso geralmente acontece em caso de sobrecarga geral do sistema já que isso "
+"é uma operação bem simples. Você poderá querer monitorar o carregamento do "
+"seu sistema com cuidado."
 
 #: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"$s thread(s) levaram mais de %s segundos para começar, sendo que deveriam "
+"ser 0"
 
 #: po/advisory_rules.php:220
 msgid "Slow launch time"
-msgstr ""
+msgstr "Tempo de lançamento lento"
 
 #: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
@@ -13100,6 +13187,17 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Você deveria configurar, especialmente em um sistema com muitas escritas nas "
+"tabelas InnoDB, o innodb_log_file_size para 25%% do "
+"{innodb_buffer_pool_size}. Embora quanto maior o valor, maior será o tempo "
+"de recuperação quando o banco de dados cair, então esse valor não deveria "
+"ser colocado muito acima que 256 MB. Favor observar, no entanto, que você "
+"não pode simplesmente mudar o valor dessa variável. Você precisa desligar o "
+"servidor, remover os arquivos de log do InnoDB, configurar o novo valor no "
+"my.cnf, iniciar o servidor, então verificar os logs de erro se tudo der "
+"certo. Veja também <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este post</a>"
 
 #: po/advisory_rules.php:258
 #, php-format
@@ -13131,6 +13229,16 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Normalmente basta configurar o innodb_log_file_size para 25%% do tamanho do "
+"{innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande atrasa "
+"consideravelmente o tempo de recuperação após a queda de um banco de dados. "
+"Veja também <a href=\"http://www.mysqlperformanceblog.com/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">este artigo</a>. Você pode precisar "
+"desligar o servidor, remover os arquivos de log do InnoDB, configurar o novo "
+"valor em my.cnf, iniciar o servidor, e então verificar o log de erros se "
+"tudo der certo. Veja também <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este post</a>"
 
 #: po/advisory_rules.php:263
 #, php-format
