@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-02 23:14+0200\n"
-"Last-Translator: Luca Rebellato <rebeluca@gmail.com>\n"
+"PO-Revision-Date: 2013-04-04 13:08+0200\n"
+"Last-Translator: LOL DJ <diopralinato@live.it>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/3-5/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1918,7 +1918,7 @@ msgstr "Passando il mouse su un punto mostrerà la sua etichetta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Per effettuare lo zoom, scegliere una sezione del plot con il mouse"
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
