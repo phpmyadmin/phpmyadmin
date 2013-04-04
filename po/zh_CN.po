@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-04 10:31+0200\n"
+"PO-Revision-Date: 2013-04-04 11:10+0200\n"
 "Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -3280,11 +3280,10 @@ msgid ""
 msgstr "DOUBLE 的别名（除了在 REAL_AS_FLOAT SQL 模式下它是 FLOAT类型的别名）"
 
 #: libraries/Types.class.php:314
-#, fuzzy
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr "一个位类型（M），每个值保存M位（默认是1，最大为64）"
+msgstr "一个位域类型（M），每个值保存M位（默认是1，最大为64）"
 
 #: libraries/Types.class.php:316
 msgid ""
@@ -3508,7 +3507,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr ""
+msgstr "一个可变长度（0-65,535）字符串，对所有对比采用二进制排序规则"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
@@ -4997,10 +4996,9 @@ msgid ""
 msgstr "显示快速搜索框的最少项目（表，视图，例程和事件）数量。"
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
-msgstr "搜索框显示的最小项目数量"
+msgstr "过滤框显示的最小条目数量"
 
 #: libraries/config/messages.inc.php:308
 msgid "Minimum number of databases to display the database filter box"
@@ -5127,7 +5125,6 @@ msgid "Server/library difference warning"
 msgstr "服务器/程序库不同的警告"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5135,11 +5132,11 @@ msgstr "服务器/程序库不同的警告"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
-msgstr "禁止在缺少 phpMyAdmin 高级功能所需数据表时在数据库结构页中显示默认警告"
+msgstr "禁止在列名包含 MySQL 保留字时在数据库结构页中显示默认警告"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL 保留字警告"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5447,7 +5444,6 @@ msgid "Connect without password"
 msgstr "用空密码连接"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5459,9 +5455,8 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my"
-"\\_db'[/kbd] 而不是 [kbd]'my_db'[/kbd]。通过该选项你可以对数据库列表排序，只"
-"需按顺序输入它们的名称并加上 [kbd]*[/kbd]，剩下的数据库将按字母顺序排在最后。"
+"可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my\\_db'[/kbd] 而不是 "
+"[kbd]'my_db'[/kbd]。"
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -5706,7 +5701,7 @@ msgstr "显示创建数据库表单"
 
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
-msgstr ""
+msgstr "显示或者隐藏在所有表格中，列显示创建时间戳"
 
 #: libraries/config/messages.inc.php:461
 #, fuzzy
@@ -5717,16 +5712,16 @@ msgstr "显示创建时间戳"
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "显示或者隐藏在所有表格中列显示最后更新时间戳"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "显示最后更新时间戳"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
-msgstr ""
+msgstr "显示或者隐藏所有表格中，列显示最后检查时间戳"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
@@ -6103,11 +6098,11 @@ msgstr "详细…"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:387
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "无法检索未缓存的结果集"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:408
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "无法计算未缓存结果集的数目"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:159
 #: libraries/dbi/mysqli.dbi.lib.php:206
@@ -6318,21 +6313,21 @@ msgstr "编码转换："
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s 来自 %2$s 分支"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "没有分支"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision"
-msgstr ""
+msgstr "GIT 修改版本"
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "由 %2$ 提交的 %1$s"
+msgstr "由 %2$ 提交于 %1$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, fuzzy, php-format
@@ -6352,26 +6347,25 @@ msgstr ""
 #: libraries/display_import.lib.php:77
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s 之 %s"
 
 #: libraries/display_import.lib.php:86
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "上传要导入的文件…"
+msgstr "正在上传要导入的文件…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/秒"
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "大约 %MIN 分钟. 还剩下 %SEC 秒."
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "约还需 %SEC 秒。"
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -7133,7 +7127,7 @@ msgstr "未知"
 
 #: libraries/navigation/Navigation.class.php:61
 msgid "An error has occured while loading the navigation tree"
-msgstr ""
+msgstr "载入导航树是出现错误"
 
 #: libraries/navigation/NavigationHeader.class.php:178
 msgid "Home"
@@ -7155,13 +7149,12 @@ msgstr "刷新导航框架"
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
+msgstr[0] "找到 %s 条其他结果"
 
 #: libraries/navigation/NavigationTree.class.php:1034
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "filter databases by name"
-msgstr "根据数据库筛选"
+msgstr "根据名称筛选数据库"
 
 #: libraries/navigation/NavigationTree.class.php:1035
 #: libraries/navigation/NavigationTree.class.php:1061
@@ -7176,12 +7169,12 @@ msgstr "根据表名筛选"
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "无效的类名 \"%1$s\"， 使用默认值 \"Node\""
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "无法包含类 \"%1$s\"， 文件\"%2$s\" 没有找到"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
@@ -7267,7 +7260,7 @@ msgstr "将数据库改名为"
 #: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "已被删除数据库 %s 。"
+msgstr "数据库 %s 已被删除。"
 
 #: libraries/operations.lib.php:119
 msgid "Remove database"
@@ -7302,7 +7295,7 @@ msgstr "复制前创建数据库 (CREATE DATABASE)"
 
 #: libraries/operations.lib.php:199 libraries/operations.lib.php:1036
 msgid "Add constraints"
-msgstr "强制添加"
+msgstr "添加约束"
 
 #: libraries/operations.lib.php:207
 msgid "Switch to copied database"
@@ -7310,7 +7303,7 @@ msgstr "切换到复制的数据库"
 
 #: libraries/operations.lib.php:277
 msgid "Edit or export relational schema"
-msgstr "编辑或导出关系大纲"
+msgstr "编辑或导出关系模式"
 
 #: libraries/operations.lib.php:620
 msgid "Alter table order by"
@@ -11600,11 +11593,11 @@ msgstr "没有可显示数据"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "没有设置SQL 查询来检索数据"
 
 #: tbl_chart.php:124
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "在将表格转为图标是没有找到数字类型的列"
 
 #: tbl_chart.php:154
 msgctxt "Chart type"
@@ -11629,7 +11622,7 @@ msgstr "曲线图"
 #: tbl_chart.php:163
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "图标类型"
 
 #: tbl_chart.php:166
 msgctxt "Chart type"
@@ -11791,10 +11784,9 @@ msgid "Foreign key constraint"
 msgstr "外键约束"
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "限制表"
+msgstr "限制名称"
 
 #: tbl_relation.php:529
 #, fuzzy
@@ -11805,7 +11797,7 @@ msgstr "没有已定义的索引！"
 #: tbl_structure.php:144
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "列名 '%s' 是一个MySQL 保留关键字。"
 
 #: tbl_tracking.php:135
 #, php-format
