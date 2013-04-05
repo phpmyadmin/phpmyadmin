@@ -269,7 +269,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->checkWebServerOs();
 
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win')) {
+            if (stristr(PHP_OS, 'darwin')) {
+                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+            } elseif (stristr(PHP_OS, 'win')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
