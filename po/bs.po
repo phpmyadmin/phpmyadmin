@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-05 00:10+0200\n"
-"Last-Translator: Bilal Ćatić <bilal.the.best@hotmail.com>\n"
+"PO-Revision-Date: 2013-04-05 12:08+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bs/>\n"
 "Language: bs\n"
@@ -111,7 +111,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "Baza %1%s je kreirana."
+msgstr "Baza %1$s je kreirana."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
