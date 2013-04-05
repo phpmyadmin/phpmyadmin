@@ -13,6 +13,7 @@
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/Theme.class.php';
 
 class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 {
@@ -732,10 +733,27 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testGetThemeUniqueValue()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+
+        $partial_sum = (
+            PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
+            PHPUnit_Framework_Assert::readAttribute($this->object, 'default_source_mtime') +
+            $this->object->get('user_preferences_mtime') +
+            $_SESSION['PMA_Theme']->mtime_info +
+            $_SESSION['PMA_Theme']->filesize_info
         );
+
+        $this->object->set('fontsize', 10);
+        $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
+        $this->object->set('fontsize', NULL);
+        
+        $_COOKIE['pma_fontsize'] = 20;
+        $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
+        unset($_COOKIE['pma_fontsize']);
+
+        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
+
     }
 
     /**
