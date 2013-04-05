@@ -92,20 +92,20 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
               return checkSqlQuery(this)">
         <?php
     } else {
-        echo '<form method="post" action="import.php" ' . $enctype;
-        echo ' class="ajax"';
-        echo ' id="sqlqueryform" name="sqlform">' . "\n";
+        $form_html = '<form method="post" action="import.php" ' . $enctype;
+        $form_html .= ' class="ajax"';
+        $form_html .= ' id="sqlqueryform" name="sqlform">' . "\n";
     }
 
     if ($is_querywindow) {
-        echo '<input type="hidden" name="focus_querywindow" value="true" />'
+        $form_html .= '<input type="hidden" name="focus_querywindow" value="true" />'
             ."\n";
         if ($display_tab != 'sql' && $display_tab != 'full') {
-            echo '<input type="hidden" name="sql_query" value="" />' . "\n";
-            echo '<input type="hidden" name="show_query" value="1" />' . "\n";
+            $form_html .= '<input type="hidden" name="sql_query" value="" />' . "\n";
+            $form_html .= '<input type="hidden" name="show_query" value="1" />' . "\n";
         }
     }
-    echo '<input type="hidden" name="is_js_confirmed" value="0" />' . "\n"
+    $form_html .= '<input type="hidden" name="is_js_confirmed" value="0" />' . "\n"
         .PMA_generate_common_hidden_inputs($db, $table) . "\n"
         .'<input type="hidden" name="pos" value="0" />' . "\n"
         .'<input type="hidden" name="goto" value="'
@@ -114,6 +114,8 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         . __('Your SQL query has been executed successfully') . '" />' . "\n"
         .'<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
+        
+    echo $form_html;
 
     // display querybox
     if ($display_tab === 'full' || $display_tab === 'sql') {
@@ -137,11 +139,12 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         echo PMA_set_enc_form('    ');
     }
 
-    echo '</form>' . "\n";
+    $form_html = '</form>' . "\n";
 
     // print an empty div, which will be later filled with
     // the sql query results by ajax
-    echo '<div id="sqlqueryresults"></div>';
+    $form_html .= '<div id="sqlqueryresults"></div>';
+    echo $form_html;
 }
 
 /**
