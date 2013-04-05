@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-04 11:10+0200\n"
-"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
+"PO-Revision-Date: 2013-04-05 12:08+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -6327,7 +6327,7 @@ msgstr "GIT 修改版本"
 #, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "由 %2$ 提交于 %1$s"
+msgstr "由 %2$s 提交于 %1$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, fuzzy, php-format
