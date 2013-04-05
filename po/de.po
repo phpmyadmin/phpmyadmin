@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-05 14:00+0200\n"
+"PO-Revision-Date: 2013-04-05 14:02+0200\n"
 "Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-0/de/>\n"
 "Language: de\n"
@@ -1891,7 +1891,7 @@ msgstr "Zur Umsortierung ziehen"
 
 #: js/messages.php:340
 msgid "Click to sort"
-msgstr "Zum Sortieren anklicken"
+msgstr "Zum Sortieren klicken"
 
 #: js/messages.php:341
 msgid "Click to mark/unmark"
