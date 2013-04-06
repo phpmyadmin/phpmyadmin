@@ -164,8 +164,9 @@ if ($server > 0) {
 /**
  * Displays the page
  */
+$html = "";
 if ($databases_count > 0) {
-    echo '<div id="tableslistcontainer">';
+    $html .= '<div id="tableslistcontainer">';
     reset($databases);
     $first_database = current($databases);
     // table col order
@@ -178,7 +179,7 @@ if ($databases_count > 0) {
         'sort_order' => $sort_order,
     );
 
-    echo PMA_Util::getListNavigator(
+    $html .= PMA_Util::getListNavigator(
         $databases_count, $pos, $_url_params, 'server_databases.php',
         'frame_content', $GLOBALS['cfg']['MaxDbList']
     );
@@ -186,14 +187,14 @@ if ($databases_count > 0) {
     $_url_params['pos'] = $pos;
     $_url_params['drop_selected_dbs'] = 1;
 
-    echo '<form class="ajax" action="server_databases.php" ';
-    echo 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-    echo PMA_generate_common_hidden_inputs($_url_params);
+    $html .= '<form class="ajax" action="server_databases.php" ';
+    $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
+    $html .= PMA_generate_common_hidden_inputs($_url_params);
 
     $_url_params['sort_by'] = 'SCHEMA_NAME';
     $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
 
-    echo '<table id="tabledatabases" class="data">' . "\n"
+    $html .= '<table id="tabledatabases" class="data">' . "\n"
        . '<thead>' . "\n"
        . '<tr>' . "\n"
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
@@ -213,7 +214,7 @@ if ($databases_count > 0) {
             }
             $_url_params['sort_by'] = $stat_name;
             $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
-            echo '    <th' . $colspan . '>'
+            $html .= '    <th' . $colspan . '>'
                 . '<a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 . '            ' . $stat['disp_name'] . "\n"
                 . ($sort_by == $stat_name ? '            ' . PMA_Util::getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
@@ -228,15 +229,15 @@ if ($databases_count > 0) {
             $name = __('Slave replication');
         }
         if (${"server_{$type}_status"}) {
-            echo '    <th>'. $name .'</th>' . "\n";
+            $html .= '    <th>'. $name .'</th>' . "\n";
         }
     }
 
     if ($is_superuser && ! PMA_DRIZZLE) {
-        echo '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
+        $html .= '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
            . '    </th>' . "\n";
     }
-    echo '</tr>' . "\n"
+    $html .= '</tr>' . "\n"
        . '</thead>' . "\n"
        . '<tbody>' . "\n";
 
@@ -246,7 +247,7 @@ if ($databases_count > 0) {
         if (PMA_is_system_schema($current['SCHEMA_NAME'], true)) {
             $tr_class .= ' noclick';
         }
-        echo '<tr class="' . $tr_class . '">' . "\n";
+        $html .= '<tr class="' . $tr_class . '">' . "\n";
         $odd_row = ! $odd_row;
 
         list($column_order, $generated_html) = PMA_buildHtmlForDb(
@@ -258,17 +259,17 @@ if ($databases_count > 0) {
             $replication_info
         );
 
-        echo $generated_html;
+        $html .= $generated_html;
 
-        echo '</tr>' . "\n";
+        $html .= '</tr>' . "\n";
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
 
-    echo '</tbody><tfoot><tr>' . "\n";
+    $html .= '</tbody><tfoot><tr>' . "\n";
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        echo '    <th></th>' . "\n";
+        $html .= '    <th></th>' . "\n";
     }
-    echo '    <th>' . __('Total') . ': <span id="databases_count">' . $databases_count . '</span></th>' . "\n";
+    $html .= '    <th>' . __('Total') . ': <span id="databases_count">' . $databases_count . '</span></th>' . "\n";
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
@@ -278,32 +279,32 @@ if ($databases_count > 0) {
             } else {
                 $value = htmlentities($stat['footer'], 0);
             }
-            echo '    <th class="value">';
+            $html .= '    <th class="value">';
             if (isset($stat['description_function'])) {
                 echo '<dfn title="' . $stat['description_function']($stat['footer']) . '">';
             }
-            echo $value;
+            $html .= $value;
             if (isset($stat['description_function'])) {
                 echo '</dfn>';
             }
-            echo '</th>' . "\n";
+            $html .= '</th>' . "\n";
             if ($stat['format'] === 'byte') {
-                echo '    <th class="unit">' . $unit . '</th>' . "\n";
+                $html .= '    <th class="unit">' . $unit . '</th>' . "\n";
             }
         }
     }
 
     foreach ($replication_types as $type) {
         if (${"server_{$type}_status"}) {
-            echo '    <th></th>' . "\n";
+            $html .= '    <th></th>' . "\n";
         }
     }
 
     if ($is_superuser) {
-        echo '    <th></th>' . "\n";
+        $html .= '    <th></th>' . "\n";
     }
-    echo '</tr>' . "\n";
-    echo '</tfoot>' . "\n"
+    $html .= '</tr>' . "\n";
+    $html .= '</tfoot>' . "\n"
         .'</table>' . "\n";
     unset($column_order, $stat_name, $stat, $databases, $table_columns);
 
@@ -315,12 +316,12 @@ if ($databases_count > 0) {
                 'dbstats' => $dbstats
             )
         );
-        echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
+        $html .= '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
            . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
            . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
            . '<label for="checkall">' . __('Check All') . '</label> '
            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
-        echo PMA_Util::getButtonOrImage(
+        $html .= PMA_Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',
             'drop_selected_dbs',
@@ -329,21 +330,23 @@ if ($databases_count > 0) {
     }
 
     if (empty($dbstats)) {
-        echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-            echo '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
-                . ' title="' . __('Enable Statistics') . '">' . "\n"
-                . '            ' . __('Enable Statistics');
-        echo '</a></strong><br />' . "\n";
+        $html .= '<ul><li id="li_switch_dbstats"><strong>' . "\n";
+        $html .= '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
+            . ' title="' . __('Enable Statistics') . '">' . "\n"
+            . '            ' . __('Enable Statistics');
+        $html .= '</a></strong><br />' . "\n";
         PMA_Message::notice(
             __('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.')
         )->display();
-        echo '</li>' . "\n" . '</ul>' . "\n";
+        $html .= '</li>' . "\n" . '</ul>' . "\n";
     }
-    echo '</form>';
-    echo '</div>';
+    $html .= '</form>';
+    $html .= '</div>';
 } else {
-    echo __('No databases');
+    $html .= __('No databases');
 }
 unset($databases_count);
+
+echo $html;
 
 ?>
