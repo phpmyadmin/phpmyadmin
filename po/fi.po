@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:04+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-06 13:51+0200\n"
+"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/3-5/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -3978,6 +3978,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Jos haluat käyttää SQL Validator -palvelua, sinun tulisi tietää, että "
+"[strong]kaikki SQL-lauseet tallennetaan nimettömästi tilastointia "
+"varten[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:224
 msgid "Startup"
@@ -8507,34 +8512,29 @@ msgid "Error in ZIP archive:"
 msgstr "Virhe ZIP-paketissa:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Yleiset relaatio-ominaisuudet"
+msgstr "Yleiset asetukset"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL-yhteyden aakkosjärjestys"
+msgstr "Palvelinyhteyden aakkosjärjestys"
 
 #: main.php:124
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Muut ydinasetukset"
+msgstr "Näkymäasetukset"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "asetukset"
+msgstr "Lisäasetukset"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Tietokanta käyttäjälle"
+msgstr "Tietokantapalvelin"
 
 #: main.php:172
 msgid "Software"
@@ -8557,20 +8557,18 @@ msgid "User"
 msgstr "Käyttäjä"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Palvelinpistoke"
+msgstr "Palvelimen merkistö"
 
 #: main.php:196
 msgid "Web server"
 msgstr "Verkkopalvelin"
 
 #: main.php:209
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Käytä kevyttä versiota"
+msgstr "Tietokannan asiakasohjelman versio"
 
 #: main.php:213
 msgid "PHP extension"
