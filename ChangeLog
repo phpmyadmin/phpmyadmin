@@ -103,6 +103,7 @@ underscore
 + rfe #1319 Permit to create index when creating foreign key
 - bug #3703 Incorrect updating of the list of users
 - bug #3853 Blowfish implementation might be broken (replace with phpseclib)
+- bug #3865 Using like operator on each backslash needs 4 backslash protection
 
 3.5.9.0 (not yet released)
 
