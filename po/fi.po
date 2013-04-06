@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-03 09:44+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-06 13:51+0200\n"
+"Last-Translator: Jouni Kähkönen <asdfsdf@asdfasdfasdf.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/4-0/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -607,7 +607,6 @@ msgid "Output"
 msgstr "Tulos"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -615,11 +614,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Valitse \"Toiminto\"-sarakkeesta \"GeomFromText\" ja liitä alla oleva "
-"merkkijono \"Arvo\"-kenttään"
+"Valitse \"Toiminto\"-sarakkeesta \"GeomFromText\" ja liitä alla oleva merkkijono "
+"\"Arvo\"-kenttään"
 
 #: import.php:105
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -627,8 +626,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Yritit todennäköisesti lähettää palvelimelle liian suurta tiedostoa. Katso "
-"tämän rajoituksen muuttamisesta lisätietoja %sohjeista%s."
+"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista%"
+"s, kuinka tämän rajoituksen voi poistaa."
 
 #: import.php:248 import.php:513
 msgid "Showing bookmark"
@@ -713,10 +712,9 @@ msgid "Back"
 msgstr "Takaisin"
 
 #: index.php:114
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Yleiset relaatio-ominaisuudet"
+msgstr "Yleiset asetukset"
 
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -724,28 +722,24 @@ msgid "Change password"
 msgstr "Vaihda salasana"
 
 #: index.php:156
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL-yhteyden aakkosjärjestys"
+msgstr "Palvelinyhteyden aakkosjärjestys"
 
 #: index.php:182
-#, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
-msgstr "Muut ydinasetukset"
+msgstr "Näkymäasetukset"
 
 #: index.php:212 prefs_manage.php:275
-#, fuzzy
 #| msgid "settings"
 msgid "More settings"
-msgstr "asetukset"
+msgstr "Lisäasetukset"
 
 #: index.php:233
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Tietokanta käyttäjälle"
+msgstr "Tietokantapalvelin"
 
 #: index.php:236 libraries/Menu.class.php:150
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
@@ -754,10 +748,9 @@ msgid "Server"
 msgstr "Palvelin"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type"
-msgstr "Palvelinportti"
+msgstr "Palvelintyyppi"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
@@ -777,20 +770,18 @@ msgid "User"
 msgstr "Käyttäjä"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Palvelinpistoke"
+msgstr "Palvelimen merkistö"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Verkkopalvelin"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Use light version"
 msgid "Database client version"
-msgstr "Käytä kevyttä versiota"
+msgstr "Tietokannan asiakasohjelman versio"
 
 #: index.php:286
 msgid "PHP extension"
@@ -4801,6 +4792,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Jos haluat käyttää SQL Validator -palvelua, sinun tulisi tietää, että "
+"[strong]kaikki SQL-lauseet tallennetaan nimettömästi tilastointia "
+"varten[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:220
 msgid "Startup"
@@ -6573,10 +6569,10 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "Luo versio %s kohteesta %s.%s"
+msgstr "Lisännyt %2$s %1$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, fuzzy, php-format
