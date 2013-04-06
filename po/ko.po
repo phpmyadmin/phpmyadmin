@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-03 18:11+0200\n"
+"PO-Revision-Date: 2013-04-06 16:30+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -3439,6 +3439,8 @@ msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"최대 크기가 16,777,215 (2^24 - 1) 바이트인 BLOB 컬럼은, 데이터의 현재 크기를 나타내는 3바이트의 값이 데이터 앞에 "
+"붙습니다"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
@@ -5078,7 +5080,7 @@ msgstr "테이블 트리 구분자"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "테이블 트리의 최대 깊이(depth)"
 
 #: libraries/config/messages.inc.php:316
 msgid "Highlight server under the mouse cursor"
@@ -5922,7 +5924,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:509
 msgid "Title of browser window when a table is selected"
-msgstr ""
+msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목"
 
 #: libraries/config/messages.inc.php:511
 msgid ""
@@ -7418,9 +7420,8 @@ msgid "Repair"
 msgstr "복구"
 
 #: libraries/operations.lib.php:1306
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "테이블 유지보수"
+msgstr "파티션 유지 보수"
 
 #: libraries/operations.lib.php:1315
 #, php-format
@@ -8244,7 +8245,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
-msgstr ""
+msgstr "슬레이브 리플리케이션 사용자 추가"
 
 #: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1046
@@ -8813,9 +8814,8 @@ msgid "Please choose a page to edit"
 msgstr "편집할 페이지를 선택하세요"
 
 #: libraries/schema/User_Schema.class.php:198
-#, fuzzy
 msgid "Select page"
-msgstr "모두 선택"
+msgstr "페이지를 선택하세요"
 
 #: libraries/schema/User_Schema.class.php:265
 #, fuzzy
@@ -10211,10 +10211,10 @@ msgid "Unable to change master"
 msgstr ""
 
 #: server_replication.php:108
-#, fuzzy, php-format
+#, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
-msgstr "권한을 다시 로딩했습니다."
+msgstr "마스터 서버가 성공적으로 %s로 변경되었습니다"
 
 #: server_replication.php:168
 msgid "This server is configured as master in a replication process."
@@ -12155,10 +12155,9 @@ msgid "Slow query logging"
 msgstr "지연 쿼리 로깅"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "서버 응답이 없습니다"
+msgstr "느린 쿼리에 대한 로깅이 비활성화 상태입니다."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
