@@ -591,8 +591,13 @@ EOT;
                         . ' (' . implode(',', $values) . ')';
                 }
             } else {
-                $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                    . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
+                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                        . PMA_Util::sqlAddSlashes($criteriaValues, true) . $quot;
+                } else {
+                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                        . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                }
             }
         } // end if
 
