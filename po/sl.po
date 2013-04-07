@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-02-15 21:31+0200\n"
+"PO-Revision-Date: 2013-04-07 15:09+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5308,7 +5307,6 @@ msgid "Server/library difference warning"
 msgstr "Opozorilo razlike med strežnikom in knjižnico"
 
 #: libraries/config/messages.inc.php:336
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5317,13 +5315,12 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Onemogoči privzeto opozorilo, ki se prikaže na strani o podrobnostih zbirke "
-"podatkov Struktura, če katera od tabel, potrebnih za hrambo konfiguracije "
-"phpMyAdmin, ni bila najdena"
+"Onemogoči privzeto opozorilo, ki se prikaže na strani Struktura, če so imena "
+"stolpcev v tabeli rezervirane besede MySQL"
 
 #: libraries/config/messages.inc.php:337
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Opozorilo rezerviranih besed MySQL"
 
 #: libraries/config/messages.inc.php:339
 msgid "Iconic table operations"
@@ -5639,7 +5636,6 @@ msgid "Connect without password"
 msgstr "Poveži se brez gesla"
 
 #: libraries/config/messages.inc.php:408
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5652,10 +5648,8 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Uporabite lahko nadomestne znake MySQL (% in _); ubežite jih, če jih želite "
-"uporabiti dobesedno, npr. uporabite [kbd]'my\\_db'[/kbd] in ne [kbd]'my_db'[/"
-"kbd]. Z uporabo te možnosti lahko razvrstite seznam zbirk podatkov; samo "
-"vnesite njihova imena v vrstnem redu in na koncu uporabite [kbd]*[/kbd] za "
-"prikaz preostalih v abecednem vrstnem redu."
+"uporabiti dobesedno, npr. uporabite [kbd]'my\\_db'[/kbd] in ne "
+"[kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -12257,21 +12251,19 @@ msgid "Foreign key constraint"
 msgstr "Omejitev tujih ključev"
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Omejitve za tabelo"
+msgstr "Ime omejitve"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "Ni definiranega indeksa!"
+msgstr "Ni definiranega indeksa! Ustvarite ga spodaj"
 
 #: tbl_structure.php:144
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "Ime stolpca '%s' je rezervirana beseda MySQL."
 
 #: tbl_tracking.php:135
 #, php-format
@@ -12545,7 +12537,6 @@ msgid "Long query time"
 msgstr "Čas dolgih poizvedb"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12553,8 +12544,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time je nastavljen na 10 sekund ali več, zato so zabeležene samo "
-"počasne poizvedbe, ki trajajo več kot 10 sekund."
+"{long_query_time} je nastavljen na 10 sekund ali več, zato so zabeležene "
+"samo počasne poizvedbe, ki trajajo več kot 10 sekund."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
@@ -12956,7 +12947,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Preveč razvrščanj povzroča začasne tabele."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -12964,8 +12954,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Razmislite o povečanju sort_buffer_size in/ali read_rnd_buffer_size, odvisno "
-"od omejitev vašega sistemskega pomnilnika"
+"Razmislite o povečanju {sort_buffer_size} in/ali {read_rnd_buffer_size}, "
+"odvisno od omejitev vašega sistemskega pomnilnika"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
@@ -13120,10 +13110,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size proti max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size in max_heap_table_size nista enaki."
+msgstr "{tmp_table_size} in {max_heap_table_size} nista enaki."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13325,7 +13314,6 @@ msgstr ""
 "Morda boste prejeli napako \"Preveč odprtih datotek\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13334,7 +13322,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Razmislite o povečanju {open_files_limit} in preverite dnevnik napak po "
-"ponovnem zagonu, ko spremenite open_files_limit."
+"ponovnem zagonu, ko spremenite {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13457,7 +13445,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads je nad 2 s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13465,7 +13452,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Nastavite slow_launch_time na 1 s ali 2 s za pravilno preštevanje niti, ki "
+"Nastavite {slow_launch_time} na 1 s ali 2 s za pravilno preštevanje niti, ki "
 "se zaganjajo počasi"
 
 #: libraries/advisory_rules.txt:388
@@ -13478,7 +13465,6 @@ msgid "Percentage of used connections"
 msgstr "Odstotek uporabljenih povezav"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13486,10 +13472,9 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"Največje število uporabljenih povezav se bliža vrednosti max_connections."
+"Največje število uporabljenih povezav se bliža vrednosti {max_connections}."
 
 #: libraries/advisory_rules.txt:396
-#, fuzzy
 #| msgid ""
 #| "Increase max_connections, or decrease wait_timeout so that connections "
 #| "that do not close database handlers properly get killed sooner. Make sure "
@@ -13499,8 +13484,8 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
-"Povečajte max_connections ali zmanjšajte wait_timeout, da bodo povezave, ki "
-"ne zaprejo upravljavca zbirk podatkov pravilno, hitreje prekinjene. "
+"Povečajte {max_connections} ali zmanjšajte {wait_timeout}, da bodo povezave, "
+"ki ne zaprejo upravljavca zbirk podatkov pravilno, prekinjene hitreje. "
 "Prepričajte se, da koda pravilno zapira upravljavce zbirk podatkov."
 
 #: libraries/advisory_rules.txt:397
@@ -13728,10 +13713,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "Sočasna vstavljanja MyISAM"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Omogočite concurrent_insert z nastavitvijo na 1"
+msgstr "Omogočite {concurrent_insert} z nastavitvijo na 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
