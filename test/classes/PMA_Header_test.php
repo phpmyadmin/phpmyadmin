@@ -86,6 +86,33 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-
+    
+    /**
+     * Test for Get JsParams
+     *
+     * @return void
+     */
+    public function testGetJsParams()
+    {
+        $header = new PMA_Header();
+        $this->assertArrayHasKey(
+            'common_query',
+            $header->getJsParams()
+        );
+    }
+        
+    /**
+     * Test for Get JsParamsCode
+     *
+     * @return void
+     */
+    public function testGetJsParamsCode()
+    {
+        $header = new PMA_Header();
+        $this->assertContains(
+            'PMA_commonParams.setAll',
+            $header->getJsParamsCode()
+        );
+    }
 
 }
