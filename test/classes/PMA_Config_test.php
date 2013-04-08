@@ -128,6 +128,30 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '8.0',
             ),
             array(
+                'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+                'Win',
+                'IE',
+                '9.0',
+            ),
+            array(
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
+                'Win',
+                'IE',
+                '10.0',
+            ),
+            array(
+                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
+                'Win',
+                'IE',
+                '11.0',
+            ),
+            array(
+                'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22',
+                'Win',
+                'CHROME',
+                '25.0.1364.172',
+            ),
+            array(
                 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
                 'Unix',
                 'SAFARI',
@@ -147,18 +171,18 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             array(
                 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
                 'Linux',
-                'MOZILLA',
+                'FIREFOX',
                 '5.0',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
+                'Linux',
+                'FIREFOX',
+                '12.0',
             ),
             /**
              * @todo Is this version really expected?
              */
-            array(
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
-                'Linux',
-                'MOZILLA',
-                '5.0',
-            ),
             array(
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
                 'Linux',
