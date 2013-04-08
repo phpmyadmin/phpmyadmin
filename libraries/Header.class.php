@@ -484,7 +484,9 @@ class PMA_Header
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
-        $retval .= "<html lang='$lang' dir='$dir'>";
+        $retval .= "<html lang='$lang' dir='$dir' class='";
+        $retval .= strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= strtolower(PMA_USR_BROWSER_AGENT) . intval(PMA_USR_BROWSER_VER) . "'>";
 
         return $retval;
     }
