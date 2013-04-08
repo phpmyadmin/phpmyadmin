@@ -207,6 +207,14 @@ li.fast_filter span {
     font-weight: bold;
     color: #800;
 }
+/* IE10+ has its own reset X */
+html.ie li.fast_filter span {
+    display: none;
+}
+html.ie.ie9 li.fast_filter span,
+html.ie.ie8 li.fast_filter span {
+    display: auto;
+}
 li.fast_filter.db_fast_filter {
     border: 0;
 }
