@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-06 16:30+0200\n"
+"PO-Revision-Date: 2013-04-09 19:27+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -869,7 +869,7 @@ msgstr ""
 "니다. phpMyAdmin 설정을 완료하면 삭제하십시오."
 
 #: index.php:470
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -877,8 +877,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
-"%s여기를 클릭%s하십시오."
+"phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 된 상태입니다. 원인을 확인하려면 %s여기%s를 "
+"클릭하세요."
 
 #: index.php:502
 #, php-format
@@ -3470,7 +3470,7 @@ msgstr ""
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2차원 공간의 점"
 
 #: libraries/Types.class.php:362
 msgid "A curve with linear interpolation between points"
@@ -4738,7 +4738,7 @@ msgstr "데이터베이스 "
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "테이블 구조(컬럼 목록) 설정"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4927,7 +4927,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:280
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "LONGTEXT의 경우 더 큰 textarea를 사용"
 
 #: libraries/config/messages.inc.php:281
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -5413,7 +5413,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "INFORMATION_SCHEMA를 사용할 수 없도록 함"
 
 #: libraries/config/messages.inc.php:395
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -6006,10 +6006,9 @@ msgid "HTTP authentication"
 msgstr "HTTP 인증"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Authenticating…"
 msgid "Signon authentication"
-msgstr "인증중입니다…"
+msgstr "Signon 인증"
 
 #: libraries/config/setup.forms.php:247
 #: libraries/config/user_preferences.forms.php:152
@@ -7919,6 +7918,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 "
+"묶지 않도록 하세요."
 
 #: libraries/plugins/import/ImportCsv.class.php:325
 #: libraries/plugins/import/ImportCsv.class.php:600
@@ -8260,7 +8261,7 @@ msgstr "아무나"
 #: libraries/server_privileges.lib.php:2274
 #: libraries/server_privileges.lib.php:2330
 msgid "Use text field"
-msgstr ""
+msgstr "텍스트 입력 필드를 사용"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -9649,10 +9650,9 @@ msgid "Query error"
 msgstr "질의 오류"
 
 #: libraries/structure.lib.php:2498
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "선택한 사용자들을 삭제했습니다."
+msgstr "컬럼을 이동했습니다."
 
 #: libraries/tbl_columns_definition_form.inc.php:101
 msgid ""
@@ -11937,9 +11937,8 @@ msgid "No data"
 msgstr "데이터 없음"
 
 #: tbl_tracking.php:554 tbl_tracking.php:616
-#, fuzzy
 msgid "Date"
-msgstr "데이터"
+msgstr "날짜"
 
 #: tbl_tracking.php:556
 msgid "Data definition statement"
