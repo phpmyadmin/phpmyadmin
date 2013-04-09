@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-06 16:30+0200\n"
+"PO-Revision-Date: 2013-04-09 19:27+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -4242,7 +4242,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:305
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "LONGTEXT의 경우 더 큰 textarea를 사용"
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
@@ -4611,7 +4611,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "INFORMATION_SCHEMA를 사용할 수 없도록 함"
 
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -5231,10 +5231,9 @@ msgid "HTTP authentication"
 msgstr "HTTP 인증"
 
 #: libraries/config/setup.forms.php:51
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Signon authentication"
-msgstr "인증중입니다..."
+msgstr "Signon 인증"
 
 #: libraries/config/setup.forms.php:251
 #: libraries/config/user_preferences.forms.php:151 libraries/import/ldi.php:35
@@ -6645,6 +6644,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 "
+"묶지 않도록 하세요."
 
 #: libraries/import/csv.php:191 libraries/import/csv.php:451
 #, php-format
@@ -7119,7 +7120,7 @@ msgstr "아무나"
 #: server_privileges.php:867 server_privileges.php:891
 #: server_privileges.php:2111 server_privileges.php:2141
 msgid "Use text field"
-msgstr ""
+msgstr "텍스트 입력 필드를 사용"
 
 #: libraries/replication_gui.lib.php:308 server_privileges.php:847
 msgid "Any host"
@@ -8336,7 +8337,7 @@ msgstr ""
 "완료하면 삭제하십시오."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -8344,8 +8345,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"링크 테이블을 처리하는 추가 기능이 비활성화되어 있습니다. 원인을 확인하려면 "
-"%s여기를 클릭%s하십시오."
+"phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 된 상태입니다. 원인을 확인하려면 %s여기%s를 "
+"클릭하세요."
 
 #: main.php:336
 msgid ""
@@ -11438,9 +11439,8 @@ msgid "No data"
 msgstr "데이터 없음"
 
 #: tbl_tracking.php:459 tbl_tracking.php:516
-#, fuzzy
 msgid "Date"
-msgstr "데이터"
+msgstr "날짜"
 
 #: tbl_tracking.php:461
 msgid "Data definition statement"
