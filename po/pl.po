@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-02-24 13:23+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
-"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
-">\n"
+"PO-Revision-Date: 2013-04-10 00:41+0200\n"
+"Last-Translator: Jakub S <jakub.st@gmail.com>\n"
+"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/4-0/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12591,7 +12590,6 @@ msgid "Long query time"
 msgstr "Długi czas zapytania"
 
 #: libraries/advisory_rules.txt:80
-#, fuzzy
 #| msgid ""
 #| "long_query_time is set to 10 seconds or more, thus only slow queries that "
 #| "take above 10 seconds are logged."
@@ -12599,7 +12597,7 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"long_query_time jest ustawiony na 10 sekund lub więcej, a więc tylko "
+"{long_query_time} jest ustawiony na 10 sekund lub więcej, a więc tylko "
 "powolnych zapytań, które biorą ponad 10 sekund są rejestrowane."
 
 #: libraries/advisory_rules.txt:81
@@ -13006,7 +13004,6 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Zbyt wiele rodzajów jest przyczyną tabel tymczasowych."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
 #| "depending on your system memory limits"
@@ -13014,7 +13011,7 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
-"Rozważyć zwiększenie sort_buffer_size i/lub read_rnd_buffer_size, w "
+"Rozważyć zwiększenie {sort_buffer_size} i/lub {read_rnd_buffer_size}, w "
 "zależności od ograniczeń pamięci systemowej"
 
 #: libraries/advisory_rules.txt:216
@@ -13172,10 +13169,9 @@ msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
-#, fuzzy
 #| msgid "tmp_table_size and max_heap_table_size are not the same."
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "tmp_table_size i max_heap_table_size nie są takie same."
+msgstr "{tmp_table_size} i {max_heap_table_size} nie są takie same."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13377,7 +13373,6 @@ msgstr ""
 "dostać błąd \"Zbyt wiele otwartych plików\"."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
-#, fuzzy
 #| msgid ""
 #| "Consider increasing {open_files_limit}, and check the error log when "
 #| "restarting after changing open_files_limit."
@@ -13386,7 +13381,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Rozważ zwiększenie {open_files_limit} i sprawdź dziennik błędów po restarcie "
-"po zmianie open_files_limit."
+"po zmianie {open_files_limit}."
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -13510,7 +13505,6 @@ msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads jest ponad 2s"
 
 #: libraries/advisory_rules.txt:387
-#, fuzzy
 #| msgid ""
 #| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
 #| "to launch"
@@ -13518,8 +13512,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch"
 msgstr ""
-"Ustaw slow_launch_time na 1s lub 2s do poprawnego policzenia wątku, które są "
-"wolne, aby uruchomić"
+"Ustaw {slow_launch_time} na 1s lub 2s do poprawnego policzenia wątku, które "
+"są wolne, aby uruchomić"
 
 #: libraries/advisory_rules.txt:388
 #, php-format
@@ -13531,7 +13525,6 @@ msgid "Percentage of used connections"
 msgstr "Procent używanych połączeń"
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
 #| msgid ""
 #| "The maximum amount of used connections is getting close to the value of "
 #| "max_connections."
@@ -13539,7 +13532,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
-"Maksymalna ilość zużytych połączeń jest zbliżona do wartości max_connections."
+"Maksymalna ilość zużytych połączeń jest zbliżona do wartości "
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
 #, fuzzy
