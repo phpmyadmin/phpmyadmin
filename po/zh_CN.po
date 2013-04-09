@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-05 12:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-09 07:58+0200\n"
+"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -3415,9 +3415,8 @@ msgid "A single value chosen from a set of up to 64 members"
 msgstr "从一组最多64个成员的集合中选择的单个值"
 
 #: libraries/Types.class.php:358
-#, fuzzy
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何几何形状的数据的类型"
+msgstr "一个能存储任何几何形状数据的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -4677,7 +4676,6 @@ msgid "Table structure"
 msgstr "表结构"
 
 #: libraries/config/messages.inc.php:225
-#, fuzzy
 msgid "Settings for the table structure (list of columns)"
 msgstr "表结构（字段列表）的设置"
 
@@ -5289,7 +5287,6 @@ msgid "Authentication type"
 msgstr "认证方式"
 
 #: libraries/config/messages.inc.php:376
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5297,8 +5294,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请"
-"留空，推荐: [kbd]pma__bookmark[/kbd]"
+"不使用[a@http://wiki.phpmyadmin.net/pma/bookmark]书签 (外链，英文)[/a]功能请留空，推荐: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:377
 msgid "Bookmark table"
@@ -5704,7 +5701,6 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr "显示或者隐藏在所有表格中，列显示创建时间戳"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
 msgstr "显示创建时间戳"
@@ -6330,10 +6326,10 @@ msgid "committed on %1$s by %2$s"
 msgstr "由 %2$s 提交于 %1$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
-msgstr "为 %2$s.%3$s 创建版本 %1$s"
+msgstr "%2$s 基于版本 %1$s 进行修改创作"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6421,7 +6417,6 @@ msgid ""
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6431,8 +6426,7 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但"
-"在导入大文件时是个很好的方法。)</i>"
+"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
@@ -7187,7 +7181,6 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new event"
 msgid "New"
@@ -7200,14 +7193,12 @@ msgid "Functions"
 msgstr "函数"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:38
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new index"
 msgid "New"
@@ -7221,21 +7212,18 @@ msgstr "存储过程"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:40
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "新建"
 
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
@@ -7247,7 +7235,6 @@ msgid "Views"
 msgstr "视图"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new view"
 msgid "New"
@@ -7907,10 +7894,10 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:303
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "mediawiki 输入的第 %s 行格式有错。"
+msgstr "第 %s 行mediawiki输入格式有错。"
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8431,7 +8418,6 @@ msgid "Returns"
 msgstr "返回"
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8442,8 +8428,8 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。[strong]运行部分排"
-"序操作时可能会失败！[/strong]请使用改进的 'mysqli' 扩展避免此类问题发生。"
+"你正在使用 PHP 所不推荐的 'mysql' 扩展，不支持多语句查询。[strong]运行部分存储过程操作时可能会失败！[/strong]请使用改进的 "
+"'mysqli' 扩展避免此类问题发生。"
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -9134,7 +9120,6 @@ msgid "User has been added."
 msgstr "用户已添加。"
 
 #: libraries/server_privileges.lib.php:1613
-#, fuzzy
 #| msgid "New"
 msgctxt "Create new user"
 msgid "New"
@@ -9453,7 +9438,6 @@ msgid "Fulltext"
 msgstr "全文搜索"
 
 #: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
 msgstr "移动字段"
@@ -9542,7 +9526,6 @@ msgid "A primary key has been added on %s"
 msgstr "已将 %s 设为主键"
 
 #: libraries/structure.lib.php:1995 libraries/structure.lib.php:2066
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "非重复值 (DISTINCT)"
@@ -11789,10 +11772,9 @@ msgid "Constraint name"
 msgstr "限制名称"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "没有已定义的索引！"
+msgstr "没有已定义的索引！在下面创建一个"
 
 #: tbl_structure.php:144
 #, php-format
@@ -11810,16 +11792,16 @@ msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "已创建版本 %1$s，%2$s 的追踪已启用。"
 
 #: tbl_tracking.php:222
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "对版本 %2$s的 %1$s 的追踪已启用。"
+msgstr "对%1$s 的追踪从版本 %2$s 已停用。"
 
 #: tbl_tracking.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "版本 %2$s 的 %1$s 的追踪已启用。"
+msgstr "对%1$s 的追踪从版本 %2$s 已启用。"
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
