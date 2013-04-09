@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-04 11:01+0200\n"
+"PO-Revision-Date: 2013-04-09 07:48+0200\n"
 "Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
@@ -5629,12 +5629,12 @@ msgid ""
 msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
-msgstr "在导入时脚本若检测到可能需要花费很长时间则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
+msgstr ""
+"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:228
 msgid "Number of rows to skip, starting from the first row:"
