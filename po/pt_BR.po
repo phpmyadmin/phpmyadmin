@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-10 19:04+0200\n"
+"PO-Revision-Date: 2013-04-10 19:14+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -6877,9 +6877,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
-"Se os arquivos temporários usados para rápida criação de índices MyISAM "
-"forem maiores do que usando a chave do cache pela quantidade especificada "
-"aqui, prefira o método chave do cache."
+"Se os arquivos temporários usados para criação rápida de índices MyISAM "
+"forem maiores do que o tamanho do uso de cache de chaves especificado aqui, "
+"prefira o método de cache de chaves."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
@@ -6890,8 +6890,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"Se este valor for maior que 1, índices das tabelas MyISAM são criados em "
-"paralelo (cada índice tem seu próprio processo) durante o Reparo pelo "
+"Se este valor for maior que 1, os índices das tabelas MyISAM são criados em "
+"paralelo (cada índice tem seu próprio processo) durante o reparo pelo "
 "processo de ordenação."
 
 #: libraries/engines/myisam.lib.php:52
@@ -6908,7 +6908,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr "Tamanho do indice de cache"
+msgstr "Tamanho do cache de índices"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
