@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-09 07:58+0200\n"
-"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
+"PO-Revision-Date: 2013-04-10 04:51+0200\n"
+"Last-Translator: likyh <likyh@qq.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:809
 #: libraries/server_privileges.lib.php:2604
 msgid "Show all"
-msgstr "全部显示"
+msgstr "显示所有"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
 #: libraries/Util.class.php:2545
@@ -1509,10 +1509,9 @@ msgid "Rule details"
 msgstr "规则详细"
 
 #: js/messages.php:212
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "认证"
+msgstr "校正"
 
 #: js/messages.php:213
 msgid "Used variable / formula"
@@ -2193,7 +2192,7 @@ msgstr "格式化字符串 '%s' 失败。"
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
-msgstr "第 %1$s 行的规则声明无效，第 %2$s 行应该是上一条规则"
+msgstr "第%1$s行的规则声明无效，上一条规则应在第%2$s行"
 
 #: libraries/Advisor.class.php:395
 #, php-format
@@ -5118,9 +5117,8 @@ msgid ""
 msgstr "禁止显示检测到MySQL库版本与服务器版本不同时的默认警告"
 
 #: libraries/config/messages.inc.php:335
-#, fuzzy
 msgid "Server/library difference warning"
-msgstr "服务器/程序库不同的警告"
+msgstr "服务器/程序库版本不同警告"
 
 #: libraries/config/messages.inc.php:336
 #| msgid ""
@@ -7452,7 +7450,7 @@ msgstr "登录"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "您的Session已过期，请再次登录。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -9443,8 +9441,9 @@ msgid "Move columns"
 msgstr "移动字段"
 
 #: libraries/structure.lib.php:1426
+#, fuzzy
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "请通过拖拽来移动字段的位置。"
 
 #: libraries/structure.lib.php:1460
 msgid "Edit view"
@@ -9692,7 +9691,7 @@ msgstr "ZIP 包中有错误:"
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "致命错误：导航只能通过AJAX访问"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:81
 msgid "Modifications have been saved"
@@ -9704,11 +9703,12 @@ msgstr "显示/隐藏左侧菜单"
 
 #: pmd_general.php:86
 msgid "View in fullscreen"
-msgstr ""
+msgstr "全屏查看"
 
 #: pmd_general.php:90
+#, fuzzy
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "退出全屏"
 
 #: pmd_general.php:95
 msgid "Save position"
