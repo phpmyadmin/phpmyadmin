@@ -55,6 +55,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['message'] = "phpmyadmin";
     }
 
     /**
@@ -114,5 +115,18 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getJsParamsCode()
         );
     }
-
+    
+    /**
+     * Test for Get Message 
+     *
+     * @return void
+     */
+    public function testGetMessage()
+    {
+        $header = new PMA_Header();
+        $this->assertContains(
+            'phpmyadmin',
+            $header->getMessage()
+        );
+    }
 }
