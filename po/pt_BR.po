@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-10 23:04+0200\n"
+"PO-Revision-Date: 2013-04-10 23:07+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -10527,10 +10527,10 @@ msgid ""
 "replicated. Please select the mode:"
 msgstr ""
 "Este servidor não está configurado como servidor mestre em um processo de "
-"replicação. Você pode escolher por replicar todos os bancos de dados,  e "
-"ignorar alguns (útil, se você quiser replicar a maioria dos bancos de "
-"dados), ou por ignorar todos os bancos de dados por padrão, replicando "
-"somente bancos de dados especificados. Por favor selecione o modo:"
+"replicação. Você pode escolher ou replicar todos os bancos de dados e "
+"ignorar alguns (útil se você quiser replicar a maioria dos bancos de dados), "
+"ou ignorar todos os bancos de dados por padrão e permitir somente certos "
+"bancos de dados serem replicados. Favor selecionar o modo:"
 
 #: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
@@ -10542,7 +10542,7 @@ msgstr "Ignorar todos bancos de dados; Replicar:"
 
 #: server_replication.php:214
 msgid "Please select databases:"
-msgstr "Por favor, selecione bancos de dados:"
+msgstr "Favor selecionar os bancos de dados:"
 
 #: server_replication.php:217
 msgid ""
