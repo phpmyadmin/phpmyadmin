@@ -194,13 +194,13 @@ if ($databases_count > 0) {
     $_url_params['sort_order'] = ($sort_by == 'SCHEMA_NAME' && $sort_order == 'asc') ? 'desc' : 'asc';
 
     $html .= '<table id="tabledatabases" class="data">' . "\n"
-       . '<thead>' . "\n"
-       . '<tr>' . "\n"
-       . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
-       . '    <th><a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
-       . '            ' . __('Database') . "\n"
-       . ($sort_by == 'SCHEMA_NAME' ? '                ' . PMA_Util::getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
-       . '        </a></th>' . "\n";
+        . '<thead>' . "\n"
+        . '<tr>' . "\n"
+        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
+        . '    <th><a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
+        . '            ' . __('Database') . "\n"
+        . ($sort_by == 'SCHEMA_NAME' ? '                ' . PMA_Util::getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
+        . '        </a></th>' . "\n";
     $table_columns = 3;
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
@@ -234,11 +234,11 @@ if ($databases_count > 0) {
 
     if ($is_superuser && ! PMA_DRIZZLE) {
         $html .= '    <th>' . ($cfg['PropertiesIconic'] ? '' : __('Action')) . "\n"
-           . '    </th>' . "\n";
+            . '    </th>' . "\n";
     }
     $html .= '</tr>' . "\n"
-       . '</thead>' . "\n"
-       . '<tbody>' . "\n";
+        . '</thead>' . "\n"
+        . '<tbody>' . "\n";
 
     $odd_row = true;
     foreach ($databases as $current) {
@@ -319,10 +319,10 @@ if ($databases_count > 0) {
         );
         $html .= '<img class="selectallarrow" src="' 
             . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-           . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-           . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
-           . '<label for="checkall">' . __('Check All') . '</label> '
-           . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+            . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
+            . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+            . '<label for="checkall">' . __('Check All') . '</label> '
+            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         $html .= PMA_Util::getButtonOrImage(
             '',
             'mult_submit' . ' ajax',
