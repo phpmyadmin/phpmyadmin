@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-10 01:53+0200\n"
+"PO-Revision-Date: 2013-04-10 19:04+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -6317,19 +6317,20 @@ msgstr ""
 
 #: libraries/config/validate.lib.php:289
 msgid "Empty signon session name while using signon authentication method"
-msgstr "Nome da sessão signon vazio quando usaa o método de autenticação signon"
+msgstr ""
+"Nome da sessão de signon vazio quando usado o método de autenticação signon"
 
 #: libraries/config/validate.lib.php:298
 msgid "Empty signon URL while using signon authentication method"
-msgstr "URL signon vazia ao usar o método de autenticação signon"
+msgstr "URL de signon vazia ao usar o método de autenticação signon"
 
 #: libraries/config/validate.lib.php:346
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr "Controle de usuário phpMyAdmin vazio ao usar pmadb"
+msgstr "Controle de usuário phpMyAdmin vazio ao usar o pmadb"
 
 #: libraries/config/validate.lib.php:351
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr "Controle de senha do usuário phpMyAdmin vazio ao usar pmadb"
+msgstr "Controle de senha do usuário phpMyAdmin vazio ao usar o pmadb"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6340,7 +6341,7 @@ msgstr "Endereço de IP incorreto: %s"
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
-"A extensão %s não está presente. Por favor, verifique a configuração do PHP"
+"A extensão %s não está presente. Por favor, verifique a configuração do PHP."
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6380,7 +6381,8 @@ msgstr ""
 #: libraries/dbi/mysqli.dbi.lib.php:206
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"Conexão para controle do usuário como definido nas configurações falhou."
+"A conexão para o controle do usuário, como definida nas configurações, "
+"falhou."
 
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
@@ -6440,21 +6442,21 @@ msgstr "Número de colunas"
 
 #: libraries/display_export.lib.php:49
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Não pode carregar exportação dos plugins, verifique sua instalação!"
+msgstr "Não pôde carregar os plugins de exportação, verifique sua instalação!"
 
 #: libraries/display_export.lib.php:96
 msgid "Exporting databases from the current server"
-msgstr "Exportar bancos de dados do servidor atual"
+msgstr "Exportando os bancos de dados do servidor atual"
 
 #: libraries/display_export.lib.php:98
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Exportar tabelas do banco de dados \"%s\""
+msgstr "Exportando as tabelas do banco de dados \"%s\""
 
 #: libraries/display_export.lib.php:100
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Exportar linhas da tabela \"%s\""
+msgstr "Exportando as linhas da tabela \"%s\""
 
 #: libraries/display_export.lib.php:112
 msgid "Export Method:"
@@ -6466,7 +6468,7 @@ msgstr "Rápida - mostrar apenas as opções mínimas"
 
 #: libraries/display_export.lib.php:134
 msgid "Custom - display all possible options"
-msgstr "Customizar - exibir todas as opções possíveis"
+msgstr "Personalizada - exibir todas as opções possíveis"
 
 #: libraries/display_export.lib.php:143
 msgid "Database(s):"
@@ -6482,7 +6484,7 @@ msgstr "Registros:"
 
 #: libraries/display_export.lib.php:162
 msgid "Dump some row(s)"
-msgstr "Dumpar alguma(s) linha(s)"
+msgstr "Fazer dump de alguma(s) linha(s)"
 
 #: libraries/display_export.lib.php:165
 msgid "Number of rows:"
@@ -6494,7 +6496,7 @@ msgstr "Começar na linha:"
 
 #: libraries/display_export.lib.php:194
 msgid "Dump all rows"
-msgstr "Dumpar todas as linhas"
+msgstr "Fazer dump de todas as linhas"
 
 #: libraries/display_export.lib.php:202 libraries/display_export.lib.php:230
 msgid "Output:"
@@ -6503,7 +6505,7 @@ msgstr "Saída:"
 #: libraries/display_export.lib.php:211 libraries/display_export.lib.php:249
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Salvar no do servidor, no diretório <b>%s</b>"
+msgstr "Salvar em servidor no diretório <b>%s</b>"
 
 #: libraries/display_export.lib.php:239
 msgid "Save output to a file"
@@ -6573,7 +6575,7 @@ msgstr "Formato:"
 
 #: libraries/display_export.lib.php:419
 msgid "Format-specific options:"
-msgstr "Opções de formato especifico:"
+msgstr "Opções específicas de formato:"
 
 #: libraries/display_export.lib.php:421
 msgid ""
@@ -6603,12 +6605,12 @@ msgstr "revisão do Git"
 #: libraries/display_git_revision.lib.php:67
 #, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "Alteração efetuada em %1$s por %2$s"
+msgstr "modificado em %1$s por %2$s"
 
 #: libraries/display_git_revision.lib.php:75
 #, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "Criado em %1$s por %2$s"
+msgstr "criado em %1$s por %2$s"
 
 #: libraries/display_import.lib.php:69
 msgid ""
@@ -6616,9 +6618,9 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"O arquivo a ser carregado é provavelmente maior do que o tamanho máximo "
-"permitido, ou este é um bug conhecido em alguns browsers (Safari, Google "
-"Chrome, Arora etc.)."
+"O arquivo a ser subido é provavelmente maior do que o tamanho máximo "
+"permitido, ou este é um bug conhecido em alguns browsers webkit (Safari, "
+"Google Chrome, Arora etc)."
 
 #: libraries/display_import.lib.php:77
 #, php-format
@@ -6627,7 +6629,7 @@ msgstr "%s de %s"
 
 #: libraries/display_import.lib.php:86
 msgid "Uploading your import file…"
-msgstr "Fazendo upload do arquivo importado…"
+msgstr "Subindo seu arquivo de importação…"
 
 #: libraries/display_import.lib.php:94
 #, php-format
@@ -6636,11 +6638,11 @@ msgstr "%s/s."
 
 #: libraries/display_import.lib.php:101
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Cerca de %MIN min. %SEC s. restantes."
+msgstr "Cerca de %MIN minuto(s) e %SEC segundo(s) restante(s)."
 
 #: libraries/display_import.lib.php:105
 msgid "About %SEC sec. remaining."
-msgstr "Cerca de %SEC s restantes."
+msgstr "Cerca de %SEC segundo(s) restante(s)."
 
 #: libraries/display_import.lib.php:135
 msgid "The file is being processed, please be patient."
@@ -6651,12 +6653,12 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Por favor, tenha paciência, o arquivo esta sendo enviado. Detalhes sobre o "
-"upload não estão disponíveis."
+"Por favor aguarde, o arquivo está sendo subido. Detalhes sobre o upload não "
+"estão disponíveis."
 
 #: libraries/display_import.lib.php:190
 msgid "Importing into the current server"
-msgstr "Importar para o servidor atual"
+msgstr "Importando para o servidor atual"
 
 #: libraries/display_import.lib.php:192
 #, php-format
@@ -6670,7 +6672,7 @@ msgstr "Importando para a tabela \"%s\""
 
 #: libraries/display_import.lib.php:200
 msgid "File to Import:"
-msgstr "Arquivo para importar:"
+msgstr "Arquivo a importar:"
 
 #: libraries/display_import.lib.php:217
 #, php-format
@@ -6708,16 +6710,16 @@ msgid ""
 "files, however it can break transactions.)</i>"
 msgstr ""
 "Permitir a interrupção da importação caso o script detecte que está perto do "
-"tempo limite do PHP. <i>(Isso pode ser um bom caminho para importar arquivos "
+"tempo limite do PHP. <i>(Isso pode ser um bom jeito de importar arquivos "
 "grandes, entretanto isso pode interromper as transações.)</i>"
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Número de registros para pular, iniciando da primeira linha:"
+msgstr "Número de registros a pular, a partir da primeira linha:"
 
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
-msgstr "Opções específicas do formato:"
+msgstr "Opções específicas de formato:"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
@@ -6740,35 +6742,35 @@ msgstr "Arquivos de dados"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
-msgstr "Incremento autoextendido"
+msgstr "Incremento de auto-extensão"
 
 #: libraries/engines/innodb.lib.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"O tamanho do incremento para extender o tamanho de um tamanho de tabela "
-"autoextendida quando ela começar à ficar cheia."
+"O tamanho do incremento a usar na extensão de um tablespace auto-extensivo "
+"quando ele ficar cheio."
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
-msgstr "Tamanho do Buffer Pool"
+msgstr "Tamanho da pool de buffer"
 
 #: libraries/engines/innodb.lib.php:41
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"O tamanho do buffer de memória que o InnoDB usa para dados do cache e "
-"índices nas suas tabelas."
+"O tamanho da memória buffer que o InnoDB usa para cache de dados e índices "
+"de suas tabelas."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
-msgstr "\"Buffer Pool\""
+msgstr "Pool de buffer"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
-msgstr "Uso do Buffer Pool"
+msgstr "Uso da pool de buffer"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
@@ -6800,19 +6802,19 @@ msgstr "Páginas trancadas"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Buffer Pool Activity"
-msgstr "Atividade do Buffer Pool"
+msgstr "Atividade da pool de buffer"
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
-msgstr "Leitura requisitada"
+msgstr "Requests de leitura"
 
 #: libraries/engines/innodb.lib.php:258
 msgid "Write requests"
-msgstr "Escrita requisitada"
+msgstr "Requests de escrita"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
-msgstr "Leitura falhou"
+msgstr "Falhas de leitura"
 
 #: libraries/engines/innodb.lib.php:274
 msgid "Write waits"
@@ -6820,11 +6822,11 @@ msgstr "Escrever as esperas"
 
 #: libraries/engines/innodb.lib.php:282
 msgid "Read misses in %"
-msgstr "Leitura falhou em %"
+msgstr "Falhas de leitura em %"
 
 #: libraries/engines/innodb.lib.php:297
 msgid "Write waits in %"
-msgstr "Escrita esperada em %"
+msgstr "Esperas de escrita em %"
 
 #: libraries/engines/myisam.lib.php:28
 msgid "Data pointer size"
@@ -6836,7 +6838,7 @@ msgid ""
 "tables when no MAX_ROWS option is specified."
 msgstr ""
 "O tamanho padrão do ponteiro em bytes, para ser usado por CREATE TABLE para "
-"tabelas MyISAM quando a opção MAX_ROWS não é especificada."
+"tabelas MyISAM quando a opção MAX_ROWS não estiver especificada."
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
@@ -6847,8 +6849,9 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
-"O modo para recuperação automática de tabelas MyISAM danificadas, como "
-"configurado pela opção de inicialização do servidor --myisam-recover."
+"O modo para recuperação automático de tabelas MyISAM danificadas, como "
+"configurado pela opção de recuperação de início do servidor --myisam-"
+"recover."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
