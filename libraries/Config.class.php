@@ -462,22 +462,31 @@ class PMA_Config
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             } else {
+                $pack_names = array();
                 // work with packed data
-                if (! $packs = @file_get_contents($git_folder . '/objects/info/packs')) {
-                    return;
+                if ($packs = @file_get_contents($git_folder . '/objects/info/packs')) {
+                    foreach (explode("\n", $packs) as $line) {
+                        // skip blank lines
+                        if (strlen(trim($line)) == 0) {
+                            continue;
+                        }
+                        // skip non pack lines
+                        if ($line[0] != 'P') {
+                            continue;
+                        }
+                        $pack_names[] = substr($line, 2);
+                    }
+                } else {
+                    $it = new DirectoryIterator($git_folder . '/objects/pack');
+                    foreach ($it as $file_info) {
+                        $file_name = $file_info->getFilename();
+                        if ($file_info->isFile() && substr($file_name, -5) == '.pack') {
+                            $pack_names[] = $file_name;
+                        }
+                    }
                 }
                 $hash = strtolower($hash);
-                foreach (explode("\n", $packs) as $line) {
-                    // skip blank lines
-                    if (strlen(trim($line)) == 0) {
-                        continue;
-                    }
-                    // skip non pack lines
-                    if ($line[0] != 'P') {
-                        continue;
-                    }
-                    // parse names
-                    $pack_name = substr($line, 2);
+                foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
                     // load index
