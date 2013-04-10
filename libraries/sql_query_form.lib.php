@@ -241,19 +241,19 @@ function PMA_sqlQueryFormInsert(
         $sqlquerycontainer_id = 'sqlquerycontainerfull';
     }
 
-    $html = '<a id="querybox"></a>' . "\n"
-        .'<div id="queryboxcontainer">' . "\n"
-        .'<fieldset id="queryboxf">' . "\n";
-    $html .= '<legend>' . $legend . '</legend>' . "\n";
-    $html .= '<div id="queryfieldscontainer">' . "\n";
-    $html .= '<div id="' . $sqlquerycontainer_id . '">' . "\n"
-        .'<textarea tabindex="100" name="sql_query" id="sqlquery"'
-        .'  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
-        .'  rows="' . $height . '"'
-        .'  dir="' . $GLOBALS['text_dir'] . '"'
-        .$auto_sel . $locking . '>'
+    $html = '<a id="querybox"></a>'
+        . '<div id="queryboxcontainer">'
+        . '<fieldset id="queryboxf">';
+    $html .= '<legend>' . $legend . '</legend>';
+    $html .= '<div id="queryfieldscontainer">';
+    $html .= '<div id="' . $sqlquerycontainer_id . '">'
+        . '<textarea tabindex="100" name="sql_query" id="sqlquery"'
+        . '  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
+        . '  rows="' . $height . '"'
+        . '  dir="' . $GLOBALS['text_dir'] . '"'
+        . $auto_sel . $locking . '>'
         . htmlspecialchars($query)
-        . '</textarea>' . "\n";
+        . '</textarea>';
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
     if (count($fields_list)) {
@@ -273,14 +273,14 @@ function PMA_sqlQueryFormInsert(
     $html .= '</div>' . "\n";
 
     if (count($fields_list)) {
-        $html .= '<div id="tablefieldscontainer">' . "\n"
-            .'<label>' . __('Columns') . '</label>' . "\n"
-            .'<select id="tablefields" name="dummy" '
-            .'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
-            .'multiple="multiple" ondblclick="insertValueQuery()">' . "\n";
+        $html .= '<div id="tablefieldscontainer">'
+            . '<label>' . __('Columns') . '</label>'
+            . '<select id="tablefields" name="dummy" '
+            . 'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
+            . 'multiple="multiple" ondblclick="insertValueQuery()">';
         foreach ($fields_list as $field) {
             $html .= '<option value="'
-                .PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
+                . PMA_Util::backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field'])
                 && strlen($field['Field'])
                 && isset($field['Comment'])
@@ -289,16 +289,16 @@ function PMA_sqlQueryFormInsert(
             }
             $html .= '>' . htmlspecialchars($field['Field']) . '</option>' . "\n";
         }
-        $html .= '</select>' . "\n"
-            .'<div id="tablefieldinsertbuttoncontainer">' . "\n";
+        $html .= '</select>'
+            . '<div id="tablefieldinsertbuttoncontainer">';
         if ($GLOBALS['cfg']['PropertiesIconic']) {
             $html .= '<input type="button" class="button" name="insert"'
-                .' value="&lt;&lt;" onclick="insertValueQuery()"'
-                .' title="' . __('Insert') . '" />' . "\n";
+                . ' value="&lt;&lt;" onclick="insertValueQuery()"'
+                . ' title="' . __('Insert') . '" />';
         } else {
             $html .= '<input type="button" class="button" name="insert"'
-                .' value="' . __('Insert') . '"'
-                .' onclick="insertValueQuery()" />' . "\n";
+                . ' value="' . __('Insert') . '"'
+                . ' onclick="insertValueQuery()" />';
         }
         $html .= '</div>' . "\n"
             .'</div>' . "\n";
@@ -352,13 +352,13 @@ function PMA_sqlQueryFormInsert(
     $html .= '<label for="id_sql_delimiter">[ ' . __('Delimiter')
         .'</label>' . "\n";
     $html .= '<input type="text" name="sql_delimiter" tabindex="131" size="3" '
-        .'value="' . $delimiter . '" '
-        .'id="id_sql_delimiter" /> ]' . "\n";
+        . 'value="' . $delimiter . '" '
+        . 'id="id_sql_delimiter" /> ]';
 
     $html .= '<input type="checkbox" name="show_query" value="1" '
-        .'id="checkbox_show_query" tabindex="132" checked="checked" />' . "\n"
-        .'<label for="checkbox_show_query">' . __('Show this query here again')
-        .'</label>' . "\n";
+        . 'id="checkbox_show_query" tabindex="132" checked="checked" />'
+        . '<label for="checkbox_show_query">' . __('Show this query here again')
+        . '</label>';
 
     if (! $is_querywindow) {
         $html .= '<input type="checkbox" name="retain_query_box" value="1" '
