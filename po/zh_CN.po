@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-09 07:48+0200\n"
-"Last-Translator: xmujay xmujay <xmujay@gmail.com>\n"
+"PO-Revision-Date: 2013-04-10 04:43+0200\n"
+"Last-Translator: likyh <likyh@qq.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
 msgid "Show all"
-msgstr "全部显示"
+msgstr "显示所有"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
 #: libraries/common.lib.php:2444
@@ -1688,10 +1688,9 @@ msgid "Rule details"
 msgstr "规则详细"
 
 #: js/messages.php:229
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "认证"
+msgstr "校正"
 
 #: js/messages.php:230
 msgid "Used variable / formula"
