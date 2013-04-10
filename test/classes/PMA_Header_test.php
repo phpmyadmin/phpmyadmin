@@ -114,21 +114,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getJsParamsCode()
         );
     }
-
-    /**
-     * Test for _menuEnabled & PMA_Navigation 
-     *
-     * @return void
-     */
-    public function testMenu()
-    {
-        $GLOBALS['server'] = 1;
-        $header = new PMA_Header();
-        $this->assertContains(
-            'goto_pagetop',
-            $header->getDisplay()
-        );
-    }
     
     /**
      * Test for Get Message 
@@ -137,7 +122,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetMessage()
     {
-        $GLOBALS['message'] = "phpmyadmin";
         $header = new PMA_Header();
         $this->assertContains(
             'phpmyadmin',
