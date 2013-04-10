@@ -1151,7 +1151,7 @@ class PMA_Config
      * sets configuration variable
      *
      * @param string $setting configuration option
-     * @param string $value   new value for configuration option
+     * @param mixed  $value   new value for configuration option
      *
      * @return void
      */
