@@ -55,6 +55,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['message'] = "phpmyadmin";
     }
 
     /**
