@@ -42,7 +42,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;
-        $GLOBALS['lang'] = 'en';     
+        $GLOBALS['lang'] = 'en';
         $GLOBALS['message'] = 'phpmyadminmessage';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
@@ -130,7 +130,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getJsParamsCode()
         );
     }
-    
+
     /**
      * Test for Get Message 
      *
