@@ -465,6 +465,8 @@ class PMA_Config
                 $pack_names = array();
                 // work with packed data
                 if ($packs = @file_get_contents($git_folder . '/objects/info/packs')) {
+                    // File exists. Read it, parse the file to get the names of the
+                    // packs. (to look for them in .git/object/pack directory later)
                     foreach (explode("\n", $packs) as $line) {
                         // skip blank lines
                         if (strlen(trim($line)) == 0) {
@@ -474,13 +476,22 @@ class PMA_Config
                         if ($line[0] != 'P') {
                             continue;
                         }
+                        // parse names
                         $pack_names[] = substr($line, 2);
                     }
                 } else {
+                    // '.git/objects/info/packs' file can be missing
+                    // (atlease in mysGit)
+                    // File missing. May be we can look in the .git/object/pack
+                    // directory for all the .pack files and use that list of
+                    // files instead
                     $it = new DirectoryIterator($git_folder . '/objects/pack');
                     foreach ($it as $file_info) {
                         $file_name = $file_info->getFilename();
-                        if ($file_info->isFile() && substr($file_name, -5) == '.pack') {
+                        // if this is a .pack file
+                        if ($file_info->isFile()
+                            && substr($file_name, -5) == '.pack'
+                        ) {
                             $pack_names[] = $file_name;
                         }
                     }
