@@ -462,22 +462,42 @@ class PMA_Config
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             } else {
+                $pack_names = array();
                 // work with packed data
-                if (! $packs = @file_get_contents($git_folder . '/objects/info/packs')) {
-                    return;
+                if ($packs = @file_get_contents($git_folder . '/objects/info/packs')) {
+                    // File exists. Read it, parse the file to get the names of the
+                    // packs. (to look for them in .git/object/pack directory later)
+                    foreach (explode("\n", $packs) as $line) {
+                        // skip blank lines
+                        if (strlen(trim($line)) == 0) {
+                            continue;
+                        }
+                        // skip non pack lines
+                        if ($line[0] != 'P') {
+                            continue;
+                        }
+                        // parse names
+                        $pack_names[] = substr($line, 2);
+                    }
+                } else {
+                    // '.git/objects/info/packs' file can be missing
+                    // (atlease in mysGit)
+                    // File missing. May be we can look in the .git/object/pack
+                    // directory for all the .pack files and use that list of
+                    // files instead
+                    $it = new DirectoryIterator($git_folder . '/objects/pack');
+                    foreach ($it as $file_info) {
+                        $file_name = $file_info->getFilename();
+                        // if this is a .pack file
+                        if ($file_info->isFile()
+                            && substr($file_name, -5) == '.pack'
+                        ) {
+                            $pack_names[] = $file_name;
+                        }
+                    }
                 }
                 $hash = strtolower($hash);
-                foreach (explode("\n", $packs) as $line) {
-                    // skip blank lines
-                    if (strlen(trim($line)) == 0) {
-                        continue;
-                    }
-                    // skip non pack lines
-                    if ($line[0] != 'P') {
-                        continue;
-                    }
-                    // parse names
-                    $pack_name = substr($line, 2);
+                foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
                     // load index
