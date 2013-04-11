@@ -164,6 +164,7 @@ if ($server > 0) {
 /**
  * Displays the page
  */
+$html = '';
 if ($databases_count > 0) {
     $html .= '<div id="tableslistcontainer">';
     reset($databases);
