@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-10 23:07+0200\n"
+"PO-Revision-Date: 2013-04-11 23:01+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -10559,7 +10559,7 @@ msgid ""
 "master"
 msgstr ""
 "Assim que tiver reiniciado o servidor MySQL, por favor clique no botão Ir. "
-"Em seguida, você deveria ver uma mensagem informação você que este servidor "
+"Em seguida, você deveria ver uma mensagem informando você que este servidor "
 "<b>está</b> configurado como master"
 
 #: server_replication.php:281
@@ -10574,12 +10574,12 @@ msgstr "Processo IO escravo não está em execução!"
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Servidor está configurado como escravo em um processo de replicação. Você "
+"O servidor está configurado como escravo em um processo de replicação. Você "
 "deseja:"
 
 #: server_replication.php:296
 msgid "See slave status table"
-msgstr "Ver status da tabela de escravo"
+msgstr "Ver a tabela de status dos escravos"
 
 #: server_replication.php:300
 msgid "Control slave:"
@@ -10599,23 +10599,23 @@ msgstr "Reiniciar escravo"
 
 #: server_replication.php:306
 msgid "Start SQL Thread only"
-msgstr "Iniciar somente processo SQL"
+msgstr "Somente iniciar o processo SQL"
 
 #: server_replication.php:308
 msgid "Stop SQL Thread only"
-msgstr "Parar processo SQL somente"
+msgstr "Somente parar o processo SQL"
 
 #: server_replication.php:311
 msgid "Start IO Thread only"
-msgstr "Iniciar somente processo IO"
+msgstr "Somente iniciar o processo IO"
 
 #: server_replication.php:313
 msgid "Stop IO Thread only"
-msgstr "Parar processo IO somente"
+msgstr "Somente parar o processo IO"
 
 #: server_replication.php:318
 msgid "Error management:"
-msgstr "Administração de erro:"
+msgstr "Administração de erros:"
 
 #: server_replication.php:320
 msgid "Skipping errors might lead into unsynchronized master and slave!"
@@ -10627,11 +10627,11 @@ msgstr "Pular erro atual"
 
 #: server_replication.php:323
 msgid "Skip next"
-msgstr "Pular próximos"
+msgstr "Pular próximo"
 
 #: server_replication.php:326
 msgid "errors."
-msgstr "erro."
+msgstr "erros."
 
 #: server_replication.php:342
 #, php-format
@@ -10645,14 +10645,14 @@ msgstr ""
 #: server_status.php:31
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "Processo %s foi morto com sucesso."
+msgstr "O processo %s foi finalizado com sucesso."
 
 #: server_status.php:35
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
-"phpMyAdmin não foi capaz de matar o processo %s. É possível que ele já "
+"O phpMyAdmin não foi capaz de matar o processo %s. É possível que ele já "
 "esteja fechado."
 
 #: server_status.php:70
@@ -10703,7 +10703,8 @@ msgid ""
 "reported by the MySQL server may be incorrect."
 msgstr ""
 "Em servidores ocupados, os contadores de byte podem sobrecarregar, então as "
-"estatísticas como relatadas pelo servidor MySQL podem estar incorretas."
+"estatísticas relatadas pelo servidor MySQL como estão podem estar "
+"incorretas."
 
 #: server_status.php:148
 msgid "Received"
@@ -10719,7 +10720,7 @@ msgstr "máx. de conexões concorrentes"
 
 #: server_status.php:228
 msgid "Failed attempts"
-msgstr "Tentativas falharam"
+msgstr "Tentativas falhadas"
 
 #: server_status.php:252
 msgid "Aborted"
@@ -10785,7 +10786,7 @@ msgstr "Instruções/Configurações"
 
 #: server_status_monitor.php:483
 msgid "Done rearranging/editing charts"
-msgstr "Concluiu reorganização/edição de graficos"
+msgstr "Terminou a reorganização/edição de gráficos"
 
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
