@@ -103,6 +103,7 @@ underscore
 - bug #3853 Blowfish implementation might be broken (replace with phpseclib)
 - bug #3865 Using like operator on each backslash needs 4 backslash protection
 - bug #3860 Displayed git revision info is not set
+- bug #3871 Check referential integrity broken across databases
 
 3.5.9.0 (not yet released)
 
