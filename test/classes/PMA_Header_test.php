@@ -42,7 +42,8 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;
-        $GLOBALS['lang'] = 'en';
+        $GLOBALS['lang'] = 'en';     
+        $GLOBALS['message'] = 'phpmyadminmessage';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
@@ -55,7 +56,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['message'] = "phpmyadmin";
     }
 
     /**
@@ -69,6 +69,21 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $header->disable();
         $this->assertEquals(
             '',
+            $header->getDisplay()
+        );
+    }
+    
+    /**
+     * Test for Set BodyId
+     *
+     * @return void
+     */
+    public function testSetBodyId()
+    {
+        $header = new PMA_Header();
+        $header->setBodyId('PMA_header');
+        $this->assertContains(
+            'PMA_header',
             $header->getDisplay()
         );
     }
@@ -125,7 +140,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
     {
         $header = new PMA_Header();
         $this->assertContains(
-            'phpmyadmin',
+            'phpmyadminmessage',
             $header->getMessage()
         );
     }
