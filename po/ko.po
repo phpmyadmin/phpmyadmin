@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-12 07:21+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"PO-Revision-Date: 2013-04-13 00:19+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1891,7 +1891,6 @@ msgid "Click reset zoom link to come back to original state."
 msgstr "원래 상태로 돌아오려면 줌 다시 설정 링크를 클릭합니다."
 
 #: js/messages.php:308
-#, fuzzy
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "데이터 포인트(플롯 지점)를 클릭하면 행의 열람과 편집이 가능합니다."
 
@@ -1912,9 +1911,8 @@ msgid "Query results"
 msgstr "쿼리 결과"
 
 #: js/messages.php:315
-#, fuzzy
 msgid "Data point content"
-msgstr "테이블 설명"
+msgstr "데이터 포인트 내용"
 
 #: js/messages.php:318 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -3256,7 +3254,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "일반 사용자에게 &quot;데이터베이스 삭제(drop)&quot; 링크를 제공"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
@@ -4008,6 +4006,8 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"임포트 중 시간 제한에 근접할 것을 스크립트가 발견할 경우, 임포트를 중지하는 것을 허용합니다. 이는, 크기가 큰 파일을 임포트할 때 "
+"유용합니다. 하지만, 트랜잭션이 끊어질 수 있습니다."
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
@@ -4091,7 +4091,7 @@ msgstr "좌측 프레임에 로고 출력"
 
 #: libraries/config/messages.inc.php:271
 msgid "Display logo"
-msgstr "로보 출력"
+msgstr "로고 출력"
 
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
@@ -4254,7 +4254,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "최대한 표시될 SQL 길이"
 
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
@@ -4358,7 +4358,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
-msgstr ""
+msgstr "영속적인 연결"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
@@ -4745,7 +4745,7 @@ msgstr "테이블 복구"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
-msgstr ""
+msgstr "사용 가능한 데이터베이스를 조회하는 SQL 명령"
 
 #: libraries/config/messages.inc.php:421
 msgid "SHOW DATABASES command"
@@ -4820,7 +4820,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:436
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "DROP DATABASE 추가"
 
 #: libraries/config/messages.inc.php:437
 msgid ""
@@ -5555,6 +5555,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
+"이 값은 %1$sstrftime%2$s에 의해 생성되었습니다. 따라서, 시간 포맷 문자열을 써서 변경할 수 있습니다. 또한, 다음과 같은 "
+"변환도 일어납니다: %3$s. 그 외의 문자는 그대로 유지됩니다. 자세한 정보는 %4$sFAQ%5$s를 참고하세요."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -5916,9 +5918,8 @@ msgid "Pages containing data"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:188
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "테이블 %s 을 닫았습니다(캐시 삭제)"
+msgstr "플러시될 페이지 수"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
@@ -6121,7 +6122,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
-msgstr ""
+msgstr "레코드 캐시 크기"
 
 #: libraries/engines/pbxt.lib.php:28
 msgid ""
@@ -6236,7 +6237,7 @@ msgstr ""
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
-msgstr ""
+msgstr "PBXT에 관한 문서나 추가 정보는 %sPrimeBase XT 홈페이지%s에 있습니다."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6509,9 +6510,8 @@ msgid "RELATIONS FOR TABLE"
 msgstr ""
 
 #: libraries/export/sql.php:1044
-#, fuzzy
 msgid "Structure for view"
-msgstr "구조만"
+msgstr "뷰 구조"
 
 #: libraries/export/sql.php:1053
 msgid "Stand-in structure for view"
@@ -6688,7 +6688,7 @@ msgstr ""
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Shapefile"
 
 #: libraries/import/shp.php:280
 #, php-format
@@ -6708,7 +6708,7 @@ msgstr ""
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
-msgstr ""
+msgstr "입력한 파일에 아무 데이터도 없음"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -6731,14 +6731,13 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:254
-#, fuzzy
 #| msgid "Fr"
 msgid "From"
-msgstr "금"
+msgstr "From"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
-msgstr ""
+msgstr "To"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:275
 #: libraries/sql_query_form.lib.php:403
@@ -7077,7 +7076,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:109
 msgid "Slave status"
-msgstr ""
+msgstr "슬레이브 스테이터스"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
 #: server_status.php:1488 server_variables.php:123
@@ -7093,9 +7092,8 @@ msgid "Value"
 msgstr "값"
 
 #: libraries/replication_gui.lib.php:178 server_binlog.php:183
-#, fuzzy
 msgid "Server ID"
-msgstr "서버"
+msgstr "서버 아이디"
 
 #: libraries/replication_gui.lib.php:197
 msgid ""
@@ -7128,7 +7126,7 @@ msgstr "로컬"
 
 #: libraries/replication_gui.lib.php:318 server_privileges.php:856
 msgid "This Host"
-msgstr ""
+msgstr "현재 호스트"
 
 #: libraries/replication_gui.lib.php:324 server_privileges.php:862
 msgid "Use Host Table"
@@ -7153,7 +7151,7 @@ msgstr ""
 #: libraries/rte/rte_triggers.lib.php:117
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "쿼리 실행 실패: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:125
 msgid "Sorry, we failed to restore the dropped event."
@@ -7197,7 +7195,7 @@ msgstr "프로세스 목록"
 #: libraries/rte/rte_events.lib.php:388 libraries/rte/rte_routines.lib.php:845
 #: libraries/rte/rte_triggers.lib.php:319
 msgid "Details"
-msgstr ""
+msgstr "자세한 내용"
 
 #: libraries/rte/rte_events.lib.php:391
 #, fuzzy
@@ -7397,7 +7395,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1027
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "루틴 이름이 필요함"
 
 #: libraries/rte/rte_routines.lib.php:1053
 #, php-format
@@ -7465,9 +7463,8 @@ msgid "Trigger %1$s has been created."
 msgstr "테이블 %s 을 제거했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:178
-#, fuzzy
 msgid "Edit trigger"
-msgstr "새 사용자 추가"
+msgstr "트리거 수정"
 
 #: libraries/rte/rte_triggers.lib.php:322
 #, fuzzy
@@ -7624,7 +7621,7 @@ msgstr "\"%s\" 데이터베이스의 스킴(윤곽) - 페이지 %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "이 페이지에는 테이블이 없습니다!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
@@ -7901,15 +7898,15 @@ msgstr "BEGIN CUT"
 
 #: libraries/sqlparser.lib.php:179
 msgid "END CUT"
-msgstr ""
+msgstr "END CUT"
 
 #: libraries/sqlparser.lib.php:181
 msgid "BEGIN RAW"
-msgstr ""
+msgstr "BEGIN RAW"
 
 #: libraries/sqlparser.lib.php:185
 msgid "END RAW"
-msgstr ""
+msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
@@ -8389,7 +8386,7 @@ msgstr "데이터베이스를 선택하세요"
 
 #: pmd_general.php:64
 msgid "Show/Hide left menu"
-msgstr ""
+msgstr "왼쪽 메뉴 보이기/숨기기"
 
 #: pmd_general.php:68
 msgid "Save position"
@@ -8413,7 +8410,7 @@ msgstr ""
 
 #: pmd_general.php:87
 msgid "Direct links"
-msgstr ""
+msgstr "다이렉트 링크"
 
 #: pmd_general.php:91
 msgid "Snap to grid"
@@ -8464,7 +8461,7 @@ msgstr ""
 
 #: pmd_general.php:412
 msgid "Delete relation"
-msgstr ""
+msgstr "관계(relation) 삭제"
 
 #: pmd_general.php:454 pmd_general.php:513
 #, fuzzy
@@ -8825,7 +8822,7 @@ msgstr "임시테이블 생성 허용."
 #: server_privileges.php:41 server_privileges.php:307
 #: server_privileges.php:669
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "사용자 계정을 생성, 삭제 및 계정명 변경하는 것을 허용."
 
 #: server_privileges.php:42 server_privileges.php:273
 #: server_privileges.php:286 server_privileges.php:641
@@ -8993,7 +8990,7 @@ msgstr "주의: MySQL 권한 이름은 영어로 표기되어야 합니다."
 
 #: server_privileges.php:614
 msgid "Administration"
-msgstr ""
+msgstr "관리"
 
 #: server_privileges.php:678 server_privileges.php:1705
 msgid "Global privileges"
@@ -9084,7 +9081,6 @@ msgid "Any"
 msgstr "누구나"
 
 #: server_privileges.php:1567
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "사용자 개요"
@@ -9415,11 +9411,11 @@ msgstr "확장된 inserts"
 
 #: server_status.php:600
 msgid "Key cache"
-msgstr ""
+msgstr "키 캐시"
 
 #: server_status.php:601
 msgid "Joins"
-msgstr ""
+msgstr "조인 수"
 
 #: server_status.php:603
 msgid "Sorting"
@@ -10132,7 +10128,7 @@ msgstr ""
 
 #: server_status.php:1416
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "지정된 범위에 완료된 정렬 수."
 
 #: server_status.php:1417
 msgid "The number of sorted rows."
@@ -10345,7 +10341,7 @@ msgstr ""
 
 #: server_status.php:1743
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "통계가 생성될 로그를 선택하세요."
 
 #: server_status.php:1745
 msgid "Results are grouped by query text."
@@ -10747,7 +10743,7 @@ msgstr ""
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip 압축%s을 하기 위한 함수 %s가 현재 시스템에서 사용할 수 없습니다."
 
 #: setup/lib/index.lib.php:296
 #, php-format
@@ -10826,10 +10822,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "선택한 사용자들을 삭제했습니다."
 
 #: tbl_change.php:699
-#, fuzzy
 #| msgid "ause of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "필드의 길이 때문에,<br />이 필드를 편집할 수 없습니다 "
+msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수도 있습니다"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -11394,7 +11389,7 @@ msgstr "SQL 구문이 추출되었습니다. 덤프된 내용을 복사하거나
 #: tbl_tracking.php:246
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "버전 %s 스냅샷 (SQL 코드)"
 
 #: tbl_tracking.php:388
 msgid "Tracking data definition successfully deleted"
@@ -11508,9 +11503,8 @@ msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL 질의"
+msgstr "추가적인 검색 조건"
 
 #: tbl_zoom_select.php:283
 msgid "Use this column to label each point"
@@ -12003,10 +11997,9 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "정렬로 인해 임시 테이블을 사용하게 되는 비율"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "임시테이블 생성 허용."
+msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합니다."
 
 #: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
