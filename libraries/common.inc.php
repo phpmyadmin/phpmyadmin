@@ -907,14 +907,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         } // end if
 
         // is root allowed?
-        if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'root-denied');
             $auth_plugin->authFails();
         }
 
         // is a login without password allowed?
-        if (!$cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
+        if (! $cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
             $login_without_password_is_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'empty-denied');
             $auth_plugin->authFails();

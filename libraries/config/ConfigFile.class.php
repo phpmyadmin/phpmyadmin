@@ -423,7 +423,7 @@ class ConfigFile
         $dsn = $this->getValue("$path/extension") . '://';
         if ($this->getValue("$path/auth_type") == 'config') {
             $dsn .= $this->getValue("$path/user");
-            if (!$this->getValue("$path/nopassword")) {
+            if (! $this->getValue("$path/nopassword")) {
                 $dsn .= ':***';
             }
             $dsn .= '@';

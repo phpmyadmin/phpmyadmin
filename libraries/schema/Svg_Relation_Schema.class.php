@@ -435,7 +435,7 @@ class Table_Stats
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
 
-        if (!$result || !PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_num_rows($result)) {
             $svg->dieSchema(
                 $pageNumber,
                 "SVG",
