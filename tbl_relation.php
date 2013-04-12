@@ -545,7 +545,7 @@ if (count($columns) > 0) {
             . '<select name="display_field">'
             . '<option value="">---</option>';
 
-        foreach ($save_row AS $row) {
+        foreach ($save_row as $row) {
             $html_output .= '<option value="'
                 . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {

@@ -1350,7 +1350,7 @@ class ExportSql extends ExportPlugin
                 . PMA_Util::backquote($table, $sql_backquotes) . ':'
             );
             @reset($mime_map);
-            foreach ($mime_map AS $mime_field => $mime) {
+            foreach ($mime_map as $mime_field => $mime) {
                 $schema_create .=
                     $this->_exportComment(
                         '  '
@@ -1375,7 +1375,7 @@ class ExportSql extends ExportPlugin
                     . PMA_Util::backquote($table, $sql_backquotes)
                     . ':'
                 );
-            foreach ($res_rel AS $rel_field => $rel) {
+            foreach ($res_rel as $rel_field => $rel) {
                 $schema_create .=
                     $this->_exportComment(
                         '  '

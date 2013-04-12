@@ -374,7 +374,7 @@ class PMA_Theme
         global $cfg;
 
         $css_string     = '';
-        foreach ($cfg['SQP']['fmtColor'] AS $key => $col) {
+        foreach ($cfg['SQP']['fmtColor'] as $key => $col) {
             $css_string .= $this->buildSQPCssRule('syntax_' . $key, 'color', $col);
         }
 

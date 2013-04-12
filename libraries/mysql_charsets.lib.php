@@ -80,7 +80,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     }
 
     sort($mysql_collations_flat, SORT_STRING);
-    foreach ($mysql_collations AS $key => $value) {
+    foreach ($mysql_collations as $key => $value) {
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }

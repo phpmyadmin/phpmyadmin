@@ -811,7 +811,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         $svg->startSvgDoc('1000px', '1000px');
         $alltables = $this->getAllTables($db, $this->pageNumber);
 
-        foreach ($alltables AS $table) {
+        foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats(
                     $table, $svg->getFont(), $svg->getFontSize(), $this->pageNumber,
