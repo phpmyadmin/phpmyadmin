@@ -248,6 +248,7 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
             PMA_getHtmlForReferentialIntegrityCheck(
                 array(
                     array(
+                        'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
                         'foreign_field' => "foreign2"
                     )
