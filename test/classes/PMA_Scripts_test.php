@@ -66,9 +66,6 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _includeFile
      *
-     * @param array  $files  A list of files to include
-     * @param string $output output from the _includeFile method
-     *
      * @return void
      */
     public function testIncludeFile()
