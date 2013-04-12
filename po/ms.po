@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-11 05:36+0200\n"
+"PO-Revision-Date: 2013-04-12 12:16+0200\n"
 "Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/master/ms/>\n"
 "Language: ms\n"
@@ -297,9 +297,9 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "Pangkalan data %1$s telah ditukarnama ke %2$s"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Jadual %s telah disalin ke %s."
+msgstr "Pengkalan data %1$s telah disalin ke %2$s"
 
 #: db_operations.php:259
 #, php-format
@@ -391,8 +391,9 @@ msgid "No tables found in database"
 msgstr "Tiada jadual dijumpai di dalam pangkalan data."
 
 #: db_tracking.php:73
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "Jadual dikesan"
 
 #: db_tracking.php:78 libraries/Menu.class.php:167
 #: libraries/config/messages.inc.php:504
@@ -412,16 +413,15 @@ msgstr "Pangkalan Data"
 
 #: db_tracking.php:80
 msgid "Last version"
-msgstr ""
+msgstr "Versi terakhir"
 
 #: db_tracking.php:81 tbl_tracking.php:764
-#, fuzzy
 msgid "Created"
-msgstr "Cipta"
+msgstr "Dibina"
 
 #: db_tracking.php:82 tbl_tracking.php:765
 msgid "Updated"
-msgstr ""
+msgstr "dikemaskini"
 
 #: db_tracking.php:83 js/messages.php:172 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
@@ -445,8 +445,9 @@ msgid "Show"
 msgstr "Papar"
 
 #: db_tracking.php:97 js/messages.php:34
+#, fuzzy
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Padam mengesan data untuk jadual ini"
 
 #: db_tracking.php:103 libraries/Index.class.php:625
 #: libraries/Util.class.php:3445 libraries/Util.class.php:3446
@@ -458,175 +459,168 @@ msgstr "Gugur"
 
 #: db_tracking.php:120 tbl_tracking.php:722 tbl_tracking.php:776
 msgid "active"
-msgstr ""
+msgstr "aktif"
 
 #: db_tracking.php:122 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "not active"
-msgstr ""
+msgstr "tidak aktif"
 
 #: db_tracking.php:138
-#, fuzzy
 msgid "Versions"
-msgstr "Operasi"
+msgstr "Versi"
 
 #: db_tracking.php:139 tbl_tracking.php:488 tbl_tracking.php:798
 msgid "Tracking report"
-msgstr ""
+msgstr "Laporan penjejak"
 
 #: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:803
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Struktur sahaja"
+msgstr "Paparan struktur"
 
 #: db_tracking.php:193
+#, fuzzy
 msgid "Untracked tables"
-msgstr ""
+msgstr "Jadual terlacak"
 
 #: db_tracking.php:212 libraries/structure.lib.php:1515
-#, fuzzy
 msgid "Track table"
-msgstr "Periksa Jadual"
+msgstr "Kesan jadual"
 
 #: db_tracking.php:240
-#, fuzzy
 msgid "Database Log"
-msgstr "Pangkalan Data"
+msgstr "Log Pangkalan Data"
 
 #: export.php:42
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Jenis Kueri"
+msgstr "Jenis tidak sesuai!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Pilihan jenis eksport haruslah disimpan di dalam fail!"
 
 #: export.php:122
-#, fuzzy
 msgid "Bad parameters!"
-msgstr "Tukarnama jadual ke"
+msgstr "Parameter tidak sesuai!"
 
 #: export.php:226 export.php:257 export.php:815
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Kekurangan ruang untuk menyimpan fail %s."
 
 #: export.php:395
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Fail %s telah wujud di pelayan, sila tukar nama fail atau menyemak pilihan "
+"menulis semula."
 
 #: export.php:401 export.php:407
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "Pelayan web tidak mempunyai kebenaran untuk menyipan fail %s."
 
 #: export.php:821
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Longgokan telah disimpan ke fail %s."
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export"
 msgid "Invalid export type"
-msgstr "Eksport"
+msgstr "Jenis eksport tidak sah"
 
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Nilai pada kolum \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:161
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Menggunakan OpenStreetMaps sebagai Base Layer"
 
 #: gis_data_editor.php:161
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:315
 #: libraries/DisplayResults.class.php:1641
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: gis_data_editor.php:206 js/messages.php:311
 msgid "Point"
-msgstr ""
+msgstr "Titik"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:309
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:310
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:312
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Titik %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:318
-#, fuzzy
 msgid "Add a point"
-msgstr "Tambah medan baru"
+msgstr "Tambah titik"
 
 #: gis_data_editor.php:262 js/messages.php:313
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Baris ditamatkan oleh"
+msgstr "Rentetan talian"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:317
 msgid "Outer Ring"
-msgstr ""
+msgstr "Lingkaran Luar"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:316
 msgid "Inner Ring"
-msgstr ""
+msgstr "Lingkaran Dalaman"
 
 #: gis_data_editor.php:303
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Tambah Pengguna Baru"
+msgstr "Tambah Rentetan Talian"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:319
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Tambah Pengguna Baru"
+msgstr "Tambah lingkaran dalaman"
 
 #: gis_data_editor.php:325 js/messages.php:314
 msgid "Polygon"
-msgstr ""
+msgstr "Poligon"
 
 #: gis_data_editor.php:384 js/messages.php:320
-#, fuzzy
 msgid "Add a polygon"
-msgstr "Tambah medan baru"
+msgstr "Tambah poligon baru"
 
 #: gis_data_editor.php:390
-#, fuzzy
 msgid "Add geometry"
-msgstr "Tambah Pengguna Baru"
+msgstr "Tambah geometri"
 
 #: gis_data_editor.php:399
 msgid "Output"
-msgstr ""
+msgstr "Hasil"
 
 #: gis_data_editor.php:402
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"Pilih \"GeomFromText\" dari kolum \"Fungsi\" dan salin rentetan di bawah ke "
+"dalam ruang \"Value\""
 
 #: import.php:105
 #, php-format
