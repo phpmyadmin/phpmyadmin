@@ -828,7 +828,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
       $this->assertContains(
             'form_fontsize_selection',
-            $this->object->getFontsizeForm()
+            PMA_Config::getFontsizeForm()
       );
     }
 
