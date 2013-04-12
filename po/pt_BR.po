@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-11 23:01+0200\n"
+"PO-Revision-Date: 2013-04-12 19:27+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -10818,7 +10818,7 @@ msgstr ""
 
 #: server_status_monitor.php:538
 msgid "Reset to default"
-msgstr "Restaurar valor padrão"
+msgstr "Resetar para o padrão"
 
 #: server_status_monitor.php:544
 msgid "Monitor Instructions"
@@ -10835,7 +10835,7 @@ msgstr ""
 "O Monitor do phpMyAdmin pode auxiliá-lo na otimização da configuração do "
 "servidor e rastrear consultas com tempos intensos. Para este último, você "
 "precisará definir log_output na 'TABLE', e ter slow_query_log ou general_log "
-"habilitado. Note, porém, que general_log produz muitos dados e aumentar a "
+"habilitado. Note, porém, que general_log produz muitos dados e aumenta a "
 "carga do servidor em até 15%"
 
 #: server_status_monitor.php:558
@@ -10845,9 +10845,9 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
-"Infelizmente seu servidor de Banco de Dados não suporta gravação de logs "
-"para tabela, o que é um requisito para análise de logs do banco de dados com "
-"phpMyAdmin. Gravação de logs para tabela é suportado pelo MySQL 5.1.6 e "
+"Infelizmente seu servidor de banco de dados não suporta gravação de logs em "
+"tabela, o que é um requisito para análise de logs do banco de dados com "
+"phpMyAdmin. A gravação de logs para tabela é suportada pelo MySQL 5.1.6 e "
 "posteriores. Apesar disso, você ainda pode utilizar as funcionalidades de "
 "gráficos no servidor."
 
@@ -10862,9 +10862,9 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
-"Você pode adicionar gráficos e alterar a taxe de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone de roda "
-"dentada em cada gráfico."
+"Você pode adicionar gráficos e alterar a taxa de atualização em "
+"\"Configurações\", ou remover qualquer gráfico usando o ícone da engrenagem em "
+"cada gráfico."
 
 #: server_status_monitor.php:582
 msgid ""
@@ -10881,7 +10881,7 @@ msgstr ""
 
 #: server_status_monitor.php:592
 msgid "Please note:"
-msgstr "Por favor, note:"
+msgstr "Favor perceber que:"
 
 #: server_status_monitor.php:595
 msgid ""
@@ -10957,11 +10957,11 @@ msgstr "Somente obter os comandos SELECT, INSERT, UPDATE e DELETE"
 
 #: server_status_monitor.php:687
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr "Remova dados de variável de comandos INSERT para melhor agrupamento"
+msgstr "Remova dados de variável em comandos INSERT para melhor agrupamento"
 
 #: server_status_monitor.php:690
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr "Escolha de qual log você deseja que as estatísticas seja geradas."
+msgstr "Escolha de qual log você deseja que as estatísticas sejam geradas."
 
 #: server_status_monitor.php:693
 msgid "Results are grouped by query text."
@@ -11136,8 +11136,8 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
-"O número de requisições para ler uma linha baseada em uma chave. Se isto for "
-"alto, é uma boa indicação de que suas consultas e tabelas estejam "
+"O número de requisições para ler uma linha baseada em uma chave. Se ele for "
+"grande, é uma boa indicação de que suas consultas e tabelas estão "
 "corretamente indexadas."
 
 #: server_status_variables.php:402
@@ -11165,9 +11165,9 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"O número de requisições pra ler uma linha baseada em uma posição fixa. Isto "
-"é alto se você estiver fazendo muitas consultas que requerem a ordenação do "
-"resultado. Você tem provavelmente muitas consultas que requerem que o MySQL "
+"O número de requisições pra ler uma linha baseada em uma posição fixa. Ele é "
+"grande se você estiver fazendo muitas consultas que requerem a ordenação do "
+"resultado. Você provavelmente tem muitas consultas que requerem que o MySQL "
 "faça a varredura de tabelas inteiras ou você tem junções que não usam as "
 "chaves corretamente."
 
@@ -11178,8 +11178,8 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"O número de requisições para ler a linha seguinte no arquivo de dados. Isto "
-"é alto se você estiver fazendo muitas varreduras da tabela. Geralmente isto "
+"O número de requisições para ler a linha seguinte no arquivo de dados. Ele é "
+"grande se você estiver fazendo muitas varreduras de tabela. Geralmente isto "
 "sugere que suas tabelas não estão corretamente indexadas ou que suas "
 "consultas não estão escritas para tomar vantagem dos índices que você têm."
 
@@ -11220,8 +11220,8 @@ msgid ""
 "reason."
 msgstr ""
 "O número de páginas trancadas no buffer pool do InnoDB. Estas são páginas "
-"que estão sendo lidas ou escritas atualmente ou aquela não pode ser nivelada "
-"ou removido por alguma outra razão."
+"que estão sendo lidas ou escritas atualmente ou que não podem ser niveladas "
+"ou removidas por alguma outra razão."
 
 #: server_status_variables.php:452
 msgid ""
@@ -11232,7 +11232,7 @@ msgid ""
 msgstr ""
 "O número de páginas ocupadas porque foram alocados para rotinas "
 "administrativas tais como trancamento de linhas ou índice hash adaptável. "
-"Este valor pode também ser calculado como Innodb_buffer_pool_pages_total - "
+"Este valor também pode ser calculado como Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: server_status_variables.php:459
@@ -11244,8 +11244,8 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"O número de ler-adiante \"aleatórios\" InnoDB iniciado. Isto acontece quando "
-"uma consulta faz a varredura de uma parcela grande de uma tabela mas na "
+"O número de read-aheads \"aleatórios\" InnoDB iniciados. Isto acontece quando "
+"uma consulta faz a varredura de uma parcela grande de uma tabela mas em "
 "ordem aleatória."
 
 #: server_status_variables.php:467
@@ -11253,20 +11253,20 @@ msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
-"O número de ler-adiante sequenciais InnoDB iniciado. Isto acontece quando o "
+"O número de read-aheads sequenciais InnoDB iniciados. Isto acontece quando o "
 "InnoDB faz uma varredura sequencial completa da tabela."
 
 #: server_status_variables.php:471
 msgid "The number of logical read requests InnoDB has done."
-msgstr "O número de requisições de leitura lógica InnoDB que foram feitas."
+msgstr "O número de requisições de leitura lógica feitas pelo InnoDB."
 
 #: server_status_variables.php:474
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
-"O número de leituras lógicas que o InnoDB não pode satisfer do buffer pool e "
-"teria que fazer uma leitura de página simples."
+"O número de leituras lógicas que o InnoDB não pôde satisfazer com buffer "
+"pool e teve que fazer uma leitura de página simples."
 
 #: server_status_variables.php:478
 msgid ""
@@ -11276,11 +11276,12 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"Normalmente, escreve para o buffer pool do InnoDB rodando em segundo plano. "
-"Entretanto, se for necessário ler ou criar uma página e nenhuma página limpa "
-"estiver disponível, é necessário esperar as páginas serem niveladas "
-"primeiramente. Este contador conta instâncias dessas esperas. Se o tamanho "
-"do buffer pool for ajustado corretamente, este valor deve ser pequeno."
+"Normalmente, escritas para o buffer pool do InnoDB acontecem em segundo "
+"plano. Entretanto, se for necessário ler ou criar uma página e nenhuma "
+"página limpa estiver disponível, é necessário esperar as páginas serem "
+"niveladas primeiro. Este contador conta instâncias dessas esperas. Se o "
+"tamanho do buffer pool for ajustado corretamente, este valor deve ser "
+"pequeno."
 
 #: server_status_variables.php:486
 msgid "The number writes done to the InnoDB buffer pool."
@@ -11288,7 +11289,7 @@ msgstr "O número de escritas feitas para o buffer pool do InnoDB."
 
 #: server_status_variables.php:489
 msgid "The number of fsync() operations so far."
-msgstr "O número de operações fsync() à fazer."
+msgstr "O número de operações fsync() até agora."
 
 #: server_status_variables.php:492
 msgid "The current number of pending fsync() operations."
@@ -11304,39 +11305,37 @@ msgstr "O número atual de escritas pendentes."
 
 #: server_status_variables.php:501
 msgid "The amount of data read so far, in bytes."
-msgstr "O montante de leitura de dados à fazer, em bytes."
+msgstr "A quantidade de dados lidos até agora, em bytes."
 
 #: server_status_variables.php:504
 msgid "The total number of data reads."
-msgstr "O número total de dados lidos."
+msgstr "O número total de leituras de dados."
 
 #: server_status_variables.php:507
 msgid "The total number of data writes."
-msgstr "O número total de dados escritos."
+msgstr "O número total de escritas de dados."
 
 #: server_status_variables.php:510
 msgid "The amount of data written so far, in bytes."
-msgstr "O montante de escrita de dados à fazer, em bytes."
+msgstr "A quantidade de dados escritos até agora, em bytes."
 
 #: server_status_variables.php:513
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
-"O número de escritas doublewrite que foram executadas e o número de páginas "
-"que foram escritas para esta finalidade."
+"O número de páginas que foram escritas para operações doublewrite (dupla-"
+"escrita)."
 
 #: server_status_variables.php:517
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"O número de escritas doublewrite que foram executadas e o número de páginas "
-"que foram escritas para esta finalidade."
+msgstr "O número de operações doublewrite (dupla-escrita) que foi executado."
 
 #: server_status_variables.php:520
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
-"O número de esperas geradas porque o buffer do log era muito pequeno e teve "
-"que esperar que fosse nivelada antes de continuar."
+"O número de esperas ocorridas porque o buffer de log era muito pequeno e "
+"teve que esperar seu nivelamento antes de continuar."
 
 #: server_status_variables.php:524
 msgid "The number of log write requests."
@@ -11389,20 +11388,19 @@ msgstr "O número de linhas trancadas que estão esperando atualmente."
 
 #: server_status_variables.php:559
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "O tempo médio para recuperar uma linha trancada, em milísegundo."
+msgstr "O tempo médio para recuperar uma linha trancada, em milisegundos."
 
 #: server_status_variables.php:562
 msgid "The total time spent in acquiring row locks, in milliseconds."
-msgstr "O tempo total gasto para recuperar linhas trancadas, em milísegundo."
+msgstr "O tempo total gasto para recuperar linhas trancadas, em milisegundos."
 
 #: server_status_variables.php:565
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "O máximo de tempo para recuperar uma linha trancada, em milísegundo."
+msgstr "O tempo máximo para recuperar uma linha trancada, em milisegundos."
 
 #: server_status_variables.php:568
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
-"O número de vezes que uma linhas trancada teve que esperar para ser escrita."
+msgstr "O número de vezes que uma trava de linha teve que esperar."
 
 #: server_status_variables.php:571
 msgid "The number of rows deleted from InnoDB tables."
@@ -11425,16 +11423,16 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"O número de blocos chave no cache chave que mudaram mas não foram nivelados "
-"ainda ao disco. Antes era chamado de Not_flushed_key_blocks."
+"O número de blocos chave no key cache que mudaram mas que não foram "
+"nivelados ainda para disco. Costumava ser chamado de Not_flushed_key_blocks."
 
 #: server_status_variables.php:588
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"O número de blocos não usados no cache chave. Você pode usar este valor para "
-"determinar quanto do cache chave está no uso."
+"O número de blocos não usados no key cache. Você pode usar este valor para "
+"determinar quanto do key cache está em uso."
 
 #: server_status_variables.php:592
 msgid ""
@@ -11442,13 +11440,12 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"O número de blocos usados no cache chave. Este valor é uma marca d'água que "
-"indica o número máximo de blocos que estiveram sempre em uso em algum "
-"momento."
+"O número de blocos usados no key cache. Este valor é uma marca d'água que "
+"indica o número máximo de blocos que já estiveram em uso em algum momento."
 
 #: server_status_variables.php:597
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Porcentagem utilizada do cache de chaves (valor calculado)"
+msgstr "Porcentagem utilizada do key cache (valor calculado)"
 
 #: server_status_variables.php:600
 msgid "The number of requests to read a key block from the cache."
@@ -11461,15 +11458,15 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "O número de leituras físicas de um bloco chave do disco. Se Key_reads for "
-"alto, então seu valor do key_buffer_size é provavelmente muito baixo. A taxa "
-"de falta de cache pode ser calculada como Key_reads/Key_read_requests."
+"alto, então seu valor do key_buffer_size provavelmente está muito baixo. A "
+"taxa de falta de cache pode ser calculada como Key_reads/Key_read_requests."
 
 #: server_status_variables.php:609
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
-"Cache de chaves mal calculado quanto a taxa de leitura física comparada aos "
+"Key cache mal calculado quanto a taxa de leitura física comparada aos "
 "pedidos de leitura (valor calculado)"
 
 #: server_status_variables.php:613
@@ -11493,17 +11490,17 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
-"O custo total da última consulta compilada como computado pelo otimizador de "
-"consultas. Útil para comparar o custo de diferentes planos de consulta para "
-"a mesma consulta. O valor padrão 0 significa que nenhuma consulta foi "
-"compilada ainda."
+"O custo total da última consulta compilada conforme computada pelo "
+"otimizador de consultas. Útil para comparar o custo de diferentes planos de "
+"consulta para a mesma consulta. O valor padrão 0 significa que nenhuma "
+"consulta foi compilada ainda."
 
 #: server_status_variables.php:629
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
-"O número máximo de conexões que estavam em uso simultaneamente desde a "
+"O número máximo de conexões que estiveram em uso simultaneamente desde a "
 "inicialização do servidor."
 
 #: server_status_variables.php:633
@@ -11516,8 +11513,8 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
-"O número de tabelas que devem estar abertas. Se aberta, as tabelas são "
-"grandes, o valor do cache de suas tabelas é provavelmente muito pequeno."
+"O número de tabelas que foram abertas. Se este número for grande, o valor do "
+"cache de tabelas provavelmente está muito pequeno."
 
 #: server_status_variables.php:640
 msgid "The number of files that are open."
@@ -11544,7 +11541,7 @@ msgstr ""
 
 #: server_status_variables.php:654
 msgid "The amount of free memory for query cache."
-msgstr "O montante de memória livre para a consulta do cache."
+msgstr "O montante de memória livre para o cache de consultas."
 
 #: server_status_variables.php:657
 msgid "The number of cache hits."
@@ -11562,10 +11559,9 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 "O número de consultas que foram removidas do cache para liberar memória para "
-"novas consultas. Essa informação pode ajudar você a ajustar o tamanho da "
-"consulta do cache. A consulta do cache usa a estratégia do \"usado menos "
-"recentemente\" (LRU - least recently used) para decidir qual consulta "
-"remover do cache."
+"novas consultas. Essa informação pode ajudar você a ajustar o tamanho do "
+"cache de consultas. O cache de consultas usa a estratégia LRU (menos usadas "
+"recentemente) para decidir quais consultas remover do cache."
 
 #: server_status_variables.php:670
 msgid ""
@@ -11581,24 +11577,24 @@ msgstr "O número de consultas registradas no cache."
 
 #: server_status_variables.php:677
 msgid "The total number of blocks in the query cache."
-msgstr "O número total de blocos na consulta do cache."
+msgstr "O número total de blocos no cache de consultas."
 
 #: server_status_variables.php:680
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "O status da replicação à prova de falhas (não implementado)."
+msgstr "O status da replicação à prova de falhas (não implementado ainda)."
 
 #: server_status_variables.php:683
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"O número de junções que não usaram índices. Se este valor não for 0, você "
-"deve cuidadosamente verificar os índices de suas tabelas."
+"O número de junções que não usam índices. Se este valor não for 0, você deve "
+"verificar com cuidado os índices de suas tabelas."
 
 #: server_status_variables.php:687
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
-"O número de junções que usaram uma pesquisa de escala na tabela de "
+"O número de junções que usaram uma pesquisa de escala em uma tabela de "
 "referência."
 
 #: server_status_variables.php:690
@@ -11606,17 +11602,17 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"O número de junções sem chaves que verificam para ver se há o uso da chave "
-"após cada linha. (Se este não for 0, você deve cuidadosamente verificar os "
-"índices de suas tabelas.)"
+"O número de junções sem chaves que procuram por uso de chaves após cada "
+"linha. (Se isto não for 0, você deve verificar com cuidado os índices de "
+"suas tabelas.)"
 
 #: server_status_variables.php:695
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"O número de junções que usaram escalas na primeira tabela. (Não é "
-"normalmente crítico mesmo se este for grande.)"
+"O número de junções que usaram escalas na primeira tabela. (Isso normalmente "
+"não é crítico mesmo se for grande.)"
 
 #: server_status_variables.php:699
 msgid "The number of joins that did a full scan of the first table."
@@ -11632,12 +11628,12 @@ msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
-"Número total (desde o início) de vezes que o processo SQL escravo de "
-"replicação teve que tentar transações."
+"Número total (desde o início) de vezes que o processo de replicação SQL "
+"escravo tentou refazer transações."
 
 #: server_status_variables.php:710
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "Isto é ON se este servidor é um escravo conectado à um mestre."
+msgstr "Isto é ON se este servidor é um escravo que está conectado a um mestre."
 
 #: server_status_variables.php:713
 msgid ""
@@ -11672,7 +11668,7 @@ msgstr "O número de linhas ordenadas."
 
 #: server_status_variables.php:732
 msgid "The number of sorts that were done by scanning the table."
-msgstr "O número de ordenações que foram feitas scaneando a tabela."
+msgstr "O número de ordenações que foram feitas por leituras da tabela."
 
 #: server_status_variables.php:735
 msgid "The number of times that a table lock was acquired immediately."
@@ -11687,9 +11683,9 @@ msgid ""
 "tables or use replication."
 msgstr ""
 "O número de vezes que uma tabela trancada não foi recuperada imediatamente e "
-"uma espera foi necessária. Se isso foi alto e você tem problemas de "
-"performance, você precisa primeiramente otimizar suas consultas e então, ou "
-"dividir sua tabela ou usar replicação."
+"uma espera foi necessária. Se isso for alto e você tiver problemas de "
+"performance, você precisa otimizar suas consultas primeiro e então, ou "
+"dividir sua(s) tabela(s) ou usar replicação."
 
 #: server_status_variables.php:744
 msgid ""
@@ -11712,14 +11708,14 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"O número de processos criadas para manipular conexões. Se Threads_created é "
-"grande, você deveria aumentar o valor de thread_cache_size. (Normalmente "
-"isso não da um aumento notável de performance se você tem uma boa "
+"O número de processos criados para manipular conexões. Se Threads_created "
+"for grande, você deve aumentar o valor do thread_cache_size. (Normalmente "
+"isso não dá um aumento notável de performance se você tiver uma boa "
 "implementação de processos.)"
 
 #: server_status_variables.php:759
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Taxa de acessos a threads (valor calculado)"
+msgstr "Taxa de acesso a cache de threads (valor calculado)"
 
 #: server_status_variables.php:762
 msgid "The number of threads that are not sleeping."
@@ -11749,7 +11745,7 @@ msgstr "Download"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"formset incorreto, verifique o vetor $formsets em setup/frames/form.inc.php"
+"Formset incorreto, verifique o vetor $formsets em setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -11913,8 +11909,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Se você estiver usando versão do Gir, execute [kbd]git pull[/kbd] :-)[br]A "
-"versão estável mais nova é %s, lançada em %s."
+"Você está usando o Git, execute [kbd]git pull[/kbd] :-)[br]A versão estável "
+"mais nova é %s, lançada em %s."
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
@@ -11928,11 +11924,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"É aconselhável que esta %soption%s seja desabilitada pois ela permite que um "
-"atacante logue-se em qualquer servidor MySQL utilizando força bruta. Se você "
-"acha que ela é necessária, utilize %strusted proxies list%s. Entretanto, "
-"proteções baseadas no protocolo IP podem não ser confiáveis se seu endereço "
-"IP pertence a um ISP onde centenas de usuários, incluindo você, estão "
+"Esta %sopção%s deveria ser desabilitada pois ela permite que invasores fazer "
+"login por força bruta em qualquer servidor MySQL. Se você acha que ela é "
+"necessária, use a %slista de proxies confiáveis%s. Entretanto, proteções "
+"baseadas no protocolo IP podem não ser confiáveis se seu endereço IP "
+"pertence a um ISP onde centenas de usuários, incluindo você, estão "
 "conectados."
 
 #: setup/lib/index.lib.php:300
@@ -11941,10 +11937,9 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
-"Você não tinha blowfish secret configurado e possui habilitada a "
-"autenticação de cookies, então uma chave foi automaticamente gerada para "
-"você. Ela é utilizada para encriptar cookies; você não precisa se lembrar "
-"dela."
+"Você não tinha um segredo blowfish configurado e habilitou a autenticação "
+"por cookies, então uma chave foi gerada automaticamente para você. Ela é "
+"usada para encriptar cookies; você não precisa se lembrar dela."
 
 #: setup/lib/index.lib.php:301
 #, php-format
@@ -11952,23 +11947,23 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A compactação e descompactação%s %sBzip2 requerem funções (%s) que não estão "
-"disponíveis neste sistema."
+"A %scompactação e descompactação Bzip2%s requer funções (%s) que não estão "
+"indisponíveis neste sistema."
 
 #: setup/lib/index.lib.php:303
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
-"Este valor deve ser verificado com atenção para garantir que este diretório "
-"não seja acessado ou alterado por outros usuários no seu servidor."
+"Este valor deve ser duplamente verificado para garantir que este diretório "
+"não seja acessado globalmente ou alterado por outros usuários no seu "
+"servidor."
 
 #: setup/lib/index.lib.php:304
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"É aconselhável que esta %sopção%s esteja habilitada se seu servidor web tem "
-"suporte a ela."
+"Esta %sopção%s deve ser habilitada se seu servidor web tem suporte a ela."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -11976,7 +11971,7 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A compactação e descompactação%s %sGZip requerem funções (%s) que não estão "
+"A %scompactação e descompactação GZip%s requer funções (%s) que não estão "
 "disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:308
@@ -11986,9 +11981,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"O Cookie de validação%s do %sLogin configurado com mais de 1440 segundos "
-"pode causar invalidação de sessão aleatoriamente caso %ssession."
-"gc_maxlifetime%s seja menor que seu valor atual (Configuração atual %d)."
+"A %svalidação dos cookies de login%s com mais de 1440 segundos pode causar "
+"invalidação aleatória de sessão caso a %ssession.gc_maxlifetime%s seja menor "
+"que seu valor (atualmente %d)."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -11996,9 +11991,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"É aconselhável que o cookie de validação%s do %sLogin seja configurado com, "
-"no máximo, 1800 segundos (30 minutos). Valores maiores que 1800 podem causar "
-"um risco de segurança como o roubo de identidade."
+"Você deveria configurar a %svalidação dos cookies de login%s 1800 segundos "
+"(30 minutos) no máximo. Valores maiores que 1800 podem causar um risco de "
+"segurança como o roubo de identidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12006,9 +12001,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Se estiver usando autenticação por cookies e o %sLogin cookie store%s não é "
-"igual a 0, %sLogin cookie validity%s precisa ser configurado para um valor "
-"menor ou igual a 0."
+"Se estiver usando a autenticação por cookies e o %sarmazenamento dos cookies "
+"de login%s não for de valor 0, a %svalidação dos cookies de login%s precisa "
+"ser configurado para um valor menor ou igual a ele."
 
 #: setup/lib/index.lib.php:314
 #, php-format
@@ -12018,11 +12013,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se você acha que ela é necessária, utilize configurações adicionais de "
-"segurança - configurações de %shost authentication%s e %strusted proxies list"
-"%s. Entretanto, proteções baseadas no protocolo IP podem não ser confiáveis "
-"se seu endereço IP pertence a um ISP onde centenas de usuários, incluindo "
-"você, estão conectados."
+"Se você achar necessário, utilize as configurações adicionais de segurança - "
+"configurações de %sautenticação de host%s e %slista de proxies confiáveis%"
+"s. Entretanto, proteções baseadas em IP podem não ser confiáveis se seu "
+"endereço IP pertence a um ISP onde centenas de usuários, incluindo você, "
+"estão conectados."
 
 #: setup/lib/index.lib.php:316
 #, php-format
@@ -12033,11 +12028,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu usuário e senha "
-"para auto-login, o que não é uma opção desejável para live hosts. Qualquer "
-"um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso direto ao "
-"painel de controle. Configure o %stipo de autenticaçãoe%s para [kbd]cookie[/"
-"kbd] ou [kbd]http[/kbd]."
+"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu o usuário e "
+"senha para auto-login, o que não é uma opção desejável para live hosts. "
+"Qualquer um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso "
+"direto ao painel de controle. Configure o %stipo de autenticação%s para "
+"[kbd]cookie[/kbd] ou [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12045,7 +12040,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sA compactação em Zip%s requer funções (%s) que não estão disponíveis neste "
+"%sA compactação Zip%s requer funções (%s) que não estão disponíveis neste "
 "sistema."
 
 #: setup/lib/index.lib.php:320
@@ -12084,7 +12079,7 @@ msgstr "Dados incorretos"
 #: sql.php:317
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Usando marcador \"%s\" como padrão."
+msgstr "Usando marcador \"%s\" como query padrão de navegação."
 
 #: sql.php:399
 msgid "Bookmark not created"
@@ -12111,17 +12106,17 @@ msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Esta tabela não contem uma coluna única. As opções editar no Grid, caixa de "
+"Esta tabela não contém uma coluna única. As opções editar no Grid, caixa de "
 "seleção, Editar, Copiar e Apagar não estão disponíveis."
 
 #: sql.php:1283
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problemas com o índice da tabela `%s`"
+msgstr "Problemas com os índices da tabela `%s`"
 
 #: sql.php:1319
 msgid "Label"
-msgstr "Nome"
+msgstr "Rótulo"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12192,7 +12187,7 @@ msgstr "Rótulo do Eixo X:"
 
 #: tbl_chart.php:232
 msgid "X Values"
-msgstr "Valor X"
+msgstr "Valores X"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
@@ -12215,7 +12210,7 @@ msgstr "A tabela %1$s foi criada."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "Ver o esquema da tabela"
+msgstr "Ver o dump (esquema) da tabela"
 
 #: tbl_gis_visualization.php:114
 msgid "Display GIS Visualization"
@@ -12247,7 +12242,7 @@ msgstr "O nome da chave primária deve ser \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
-msgstr "Não foi possível renomear o índice para \"PRIMARY\"!"
+msgstr "Não foi possível renomear o índice para PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
