@@ -114,10 +114,10 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
             if (is_array($r)) {
                 foreach ($r as $key => $error_list) {
                     // skip empty values if $isPostSource is false
-                    if (!$isPostSource && empty($error_list)) {
+                    if (! $isPostSource && empty($error_list)) {
                         continue;
                     }
-                    if (!isset($result[$key])) {
+                    if (! isset($result[$key])) {
                         $result[$key] = array();
                     }
                     $result[$key] = array_merge($result[$key], (array)$error_list);
@@ -210,7 +210,7 @@ function test_db_connection(
     if ($extension == 'drizzle') {
         while (1) {
             $drizzle = @drizzle_create();
-            if (!$drizzle) {
+            if (! $drizzle) {
                 $error = __('Could not initialize Drizzle connection library');
                 break;
             }
@@ -219,7 +219,7 @@ function test_db_connection(
                 : @drizzle_con_add_tcp(
                     $drizzle, $host, $port, $user, $pass, null, 0
                 );
-            if (!$conn) {
+            if (! $conn) {
                 $error = __('Could not connect to Drizzle server');
                 drizzle_free($drizzle);
                 break;
@@ -227,7 +227,7 @@ function test_db_connection(
             // connection object is set up but we have to send some query
             // to actually connect
             $res = @drizzle_query($conn, 'SELECT 1');
-            if (!$res) {
+            if (! $res) {
                 $error = __('Could not connect to Drizzle server');
             } else {
                 drizzle_result_free($res);
@@ -238,14 +238,14 @@ function test_db_connection(
         }
     } else if ($extension == 'mysql') {
         $conn = @mysql_connect($host . $socket . $port, $user, $pass);
-        if (!$conn) {
+        if (! $conn) {
             $error = __('Could not connect to MySQL server');
         } else {
             mysql_close($conn);
         }
     } else {
         $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
-        if (!$conn) {
+        if (! $conn) {
             $error = __('Could not connect to MySQL server');
         } else {
             mysqli_close($conn);
@@ -299,7 +299,7 @@ function validate_server($path, $values)
         $error = true;
     }
 
-    if (!$error && $values['Servers/1/auth_type'] == 'config') {
+    if (! $error && $values['Servers/1/auth_type'] == 'config') {
         $password = $values['Servers/1/nopassword'] ? null
             : $values['Servers/1/password'];
         $test = test_db_connection(
@@ -351,7 +351,7 @@ function validate_pmadb($path, $values)
             = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
     }
-    if (!$error) {
+    if (! $error) {
         $test = test_db_connection(
             $values['Servers/1/extension'], $values['Servers/1/connect_type'],
             $values['Servers/1/host'], $values['Servers/1/port'],
@@ -474,8 +474,8 @@ function test_number(
     }
 
     if (intval($values[$path]) != $values[$path]
-        || (!$allow_neg && $values[$path] < 0)
-        || (!$allow_zero && $values[$path] == 0)
+        || (! $allow_neg && $values[$path] < 0)
+        || (! $allow_zero && $values[$path] == 0)
         || $values[$path] > $max_value
     ) {
         return $error_string;

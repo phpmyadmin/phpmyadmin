@@ -612,7 +612,7 @@ class PMA_Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, !$commit);
+            $is_found = $this->checkHTTP($link, ! $commit);
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -721,7 +721,7 @@ class PMA_Config
         }
         $ch = curl_init($link);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_NOBODY, !$get_body);
+        curl_setopt($ch, CURLOPT_NOBODY, ! $get_body);
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);

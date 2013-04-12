@@ -30,7 +30,7 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
     echo '<input type="hidden" name="tab_hash" value="" />';
     // we do validation on page refresh when browser remembers field values,
     // add a field with known value which will be used for checks
-    if (!$has_check_page_refresh) {
+    if (! $has_check_page_refresh) {
         $has_check_page_refresh = true;
         echo '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
@@ -352,7 +352,7 @@ function PMA_displayGroupHeader($header_text)
     global $_FormDisplayGroup;
 
     $_FormDisplayGroup++;
-    if (!$header_text) {
+    if (! $header_text) {
         return;
     }
     $colspan = defined('PMA_SETUP')

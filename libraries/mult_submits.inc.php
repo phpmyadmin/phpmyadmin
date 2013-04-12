@@ -127,7 +127,7 @@ if (! empty($submit_mult)
         case 'change':
             PMA_displayHtmlForColumnChange($db, $table, $selected, $action);
             // execution stops here but PMA_Response correctly finishes
-            // the rendering 
+            // the rendering
             exit;
         case 'browse':
             // this should already be handled by tbl_structure.php
@@ -165,7 +165,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     $selected_cnt   = count($selected);
     $i = 0;
-    foreach ($selected AS $idx => $sval) {
+    foreach ($selected as $idx => $sval) {
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
@@ -503,7 +503,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 PMA_DBI_select_db($db);
             }
             $result = PMA_DBI_query($a_query);
-            
+
             if ($query_type == 'drop_db') {
                 PMA_clearTransformations($selected[$i]);
             } elseif ($query_type == 'drop_tbl') {
@@ -511,7 +511,7 @@ if (!empty($submit_mult) && !empty($what)) {
             } else if ($query_type == 'drop_fld') {
                 PMA_clearTransformations($db, $table, $selected[$i]);
             }
-            
+
         } // end if
     } // end for
 

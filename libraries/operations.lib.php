@@ -1361,11 +1361,11 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
     $html_output .= '<ul>';
 
-    foreach ($foreign AS $master => $arr) {
+    foreach ($foreign as $master => $arr) {
         $join_query  = 'SELECT '
             . PMA_Util::backquote($GLOBALS['table']) . '.*'
             . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
-            . ' LEFT JOIN ' 
+            . ' LEFT JOIN '
             . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($arr['foreign_table']);
@@ -1378,13 +1378,13 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         $join_query .= ' ON '
             . PMA_Util::backquote($GLOBALS['table']) . '.'
             . PMA_Util::backquote($master)
-            . ' = ' 
-            . PMA_Util::backquote($arr['foreign_db']) 
+            . ' = '
+            . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])
             . ' WHERE '
-            . PMA_Util::backquote($arr['foreign_db']) 
+            . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])

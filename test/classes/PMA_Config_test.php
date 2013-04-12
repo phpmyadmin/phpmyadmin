@@ -770,8 +770,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->object->set('fontsize', 10);
         $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('fontsize', NULL);
-        
+        $this->object->set('fontsize', null);
+
         $_COOKIE['pma_fontsize'] = 20;
         $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
         unset($_COOKIE['pma_fontsize']);

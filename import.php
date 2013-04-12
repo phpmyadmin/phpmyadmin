@@ -77,7 +77,7 @@ if (! empty($sql_query)) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
-    
+
     $sql_query = '';
 } elseif (! empty($sql_localfile)) {
     // run SQL file on server
@@ -565,7 +565,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 
 // There was an error?
 if (isset($my_die)) {
-    foreach ($my_die AS $key => $die) {
+    foreach ($my_die as $key => $die) {
         PMA_Util::mysqlDie(
             $die['error'], $die['sql'], '', $err_url, $error
         );

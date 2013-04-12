@@ -172,7 +172,7 @@ class FormDisplay
             foreach ($errors as $path => $error_list) {
                 $work_path = array_search($path, $this->_systemPaths);
                 // field error
-                if (!$work_path) {
+                if (! $work_path) {
                     // form error, fix path
                     $work_path = $path;
                 }
@@ -219,7 +219,7 @@ class FormDisplay
                 break;
             }
         }
-        if (!$is_new_server) {
+        if (! $is_new_server) {
             $this->_validate();
         }
 
@@ -274,7 +274,7 @@ class FormDisplay
         PMA_displayFormBottom();
 
         // if not already done, send strings used for valdiation to JavaScript
-        if (!$js_lang_sent) {
+        if (! $js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();
             foreach ($this->_jsLangStrings as $strName => $strValue) {
