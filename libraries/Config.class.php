@@ -1178,7 +1178,7 @@ class PMA_Config
     function set($setting, $value)
     {
         if (! isset($this->settings[$setting])
-            || $this->settings[$setting] != $value
+            || $this->settings[$setting] !== $value
         ) {
             $this->settings[$setting] = $value;
             $this->set_mtime = time();
