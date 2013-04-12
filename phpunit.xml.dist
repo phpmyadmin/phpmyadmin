@@ -51,6 +51,7 @@
     </logging>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">.</directory>
             <exclude>
                 <!-- we don't care about coverage of embedded libraries -->
                 <directory suffix=".php">libraries/tcpdf</directory>
