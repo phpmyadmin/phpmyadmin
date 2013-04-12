@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-09 19:27+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2013-04-12 07:22+0200\n"
+"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -954,10 +954,9 @@ msgstr "인덱스에 %s 열 추가"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "값"
+msgstr "Y값"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1761,7 +1760,7 @@ msgstr "확대하려면 마우스로 플롯의 한 영역을 선택하세요."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "줌 원래대로 보기 버튼을 클릭하면 원본 상태로 돌아갑니다."
 
 #: js/messages.php:297
 #, fuzzy
@@ -1888,14 +1887,13 @@ msgid "Go to link"
 msgstr "링크로 이동합니다."
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "열(칼럼) 이름 복사"
+msgstr "열(컬럼) 이름 복사"
 
 #: js/messages.php:360
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "마우스 오른쪽버튼을 클릭하여 클립보드에 컬럼 이름을 복사할 수 있습니다."
 
 #: js/messages.php:361
 msgid "Show data row(s)"
@@ -2243,7 +2241,7 @@ msgstr "잘못된 서버 인덱스: %s"
 #: libraries/Advisor.class.php:403
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
 #: libraries/Advisor.class.php:417
 #, php-format
@@ -2496,7 +2494,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
-msgstr ""
+msgstr "키로 정렬"
 
 #: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:748
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
@@ -2542,7 +2540,7 @@ msgstr "Full Texts"
 
 #: libraries/DisplayResults.class.php:1599
 msgid "Relational key"
-msgstr ""
+msgstr "관계키"
 
 #: libraries/DisplayResults.class.php:1600
 msgid "Relational display column"
@@ -2554,7 +2552,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1617
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "BLOB 내용 보기"
 
 #: libraries/DisplayResults.class.php:1622
 #: libraries/config/messages.inc.php:57
@@ -2677,7 +2675,7 @@ msgstr "뷰 생성"
 
 #: libraries/DisplayResults.class.php:5541
 msgid "Link not found"
-msgstr ""
+msgstr "링크를 찾을 수 없습니다."
 
 #: libraries/Error_Handler.class.php:77
 msgid "Too many error messages, some are not displayed."
@@ -3038,9 +3036,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: libraries/ServerStatusData.class.php:209
-#, fuzzy
 msgid "Show open tables"
-msgstr "테이블 보기"
+msgstr "열려있는 테이블 보기"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Show slave hosts"
@@ -3048,7 +3045,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:218 server_replication.php:170
 msgid "Show master status"
-msgstr ""
+msgstr "마스터 상태 보기"
 
 #: libraries/ServerStatusData.class.php:221
 msgid "Show slave status"
@@ -3061,7 +3058,7 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
-msgstr ""
+msgstr "InnoDB 상태"
 
 #: libraries/ServerStatusData.class.php:343
 msgid "Query statistics"
@@ -3069,15 +3066,15 @@ msgstr "질의 통계"
 
 #: libraries/ServerStatusData.class.php:347
 msgid "All status variables"
-msgstr ""
+msgstr "모든 상태 변수"
 
 #: libraries/ServerStatusData.class.php:351
 msgid "Monitor"
-msgstr ""
+msgstr "사용 현황"
 
 #: libraries/ServerStatusData.class.php:355
 msgid "Advisor"
-msgstr ""
+msgstr "시스템 분석 / 조언"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3109,14 +3106,14 @@ msgid "unknown table status: "
 msgstr "알 수 없는 테이블 상태: "
 
 #: libraries/Table.class.php:728
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "데이터베이스 검색"
+msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다."
 
 #: libraries/Table.class.php:736
-#, fuzzy, php-format
+#, php-format
 msgid "Target database `%s` was not found!"
-msgstr "데이터베이스 검색"
+msgstr "목표 데이터베이스 '%s'를 찾을 수 없습니다."
 
 #: libraries/Table.class.php:1164
 msgid "Invalid database"
@@ -6406,24 +6403,23 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:190
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL 서버에 로그인할 수 없습니다"
+msgstr "현재 서버로 가져오기"
 
 #: libraries/display_import.lib.php:192
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "데이터베이스가 없습니다"
+msgstr "\"%s\" 데이터베이스로 가져오기"
 
 #: libraries/display_import.lib.php:194
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "데이터베이스가 없습니다"
+msgstr "\"%s\" 테이블로 가져오기"
 
 #: libraries/display_import.lib.php:200
 msgid "File to Import:"
-msgstr ""
+msgstr "가져올 파일:"
 
 #: libraries/display_import.lib.php:217
 #, php-format
@@ -6438,7 +6434,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:245
 msgid "File uploads are not allowed on this server."
-msgstr ""
+msgstr "이 서버에서는 파일 업로드가 허용되지 않습니다."
 
 #: libraries/display_import.lib.php:276
 #, fuzzy
@@ -6496,7 +6492,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
-msgstr ""
+msgstr "버퍼풀 크기"
 
 #: libraries/engines/innodb.lib.php:41
 msgid ""
@@ -6506,11 +6502,11 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
-msgstr ""
+msgstr "버퍼풀"
 
 #: libraries/engines/innodb.lib.php:166
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "버퍼풀 사용량"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "pages"
@@ -6547,11 +6543,11 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:250
 msgid "Read requests"
-msgstr ""
+msgstr "읽기 요청"
 
 #: libraries/engines/innodb.lib.php:258
 msgid "Write requests"
-msgstr ""
+msgstr "쓰기 요청"
 
 #: libraries/engines/innodb.lib.php:266
 msgid "Read misses"
@@ -6633,7 +6629,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "인덱스 캐시 크기"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
@@ -6654,7 +6650,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
-msgstr ""
+msgstr "로그 캐시 크기"
 
 #: libraries/engines/pbxt.lib.php:39
 msgid ""
@@ -6761,9 +6757,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:133
-#, fuzzy
 msgid "Related Links"
-msgstr "테이블 작업"
+msgstr "연관 링크"
 
 #: libraries/engines/pbxt.lib.php:135
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6771,7 +6766,7 @@ msgstr ""
 
 #: libraries/gis_visualization.lib.php:135
 msgid "No data found for GIS visualization."
-msgstr ""
+msgstr "GIS 시각화를 위한 데이터를 찾을 수 없습니다."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:41
@@ -6797,9 +6792,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1197
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "데이터베이스가 없습니다"
+msgstr "데이터베이스 이동: %s"
 
 #: libraries/import.lib.php:1200 libraries/import.lib.php:1228
 #, php-format
@@ -6807,9 +6802,9 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/import.lib.php:1223
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "데이터베이스가 없습니다"
+msgstr "테이블 이동: %s"
 
 #: libraries/import.lib.php:1226
 #, fuzzy, php-format
@@ -6820,7 +6815,7 @@ msgstr "구조만"
 #: libraries/import.lib.php:1234
 #, php-format
 msgid "Go to view: %s"
-msgstr ""
+msgstr "뷰로 이동: %s"
 
 #: libraries/index.lib.php:30
 #, fuzzy, php-format
@@ -6831,7 +6826,7 @@ msgstr "%s 개 열(칼럼)에 인덱스 만들기 "
 #: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
 #: pmd_general.php:197
 msgid "Hide"
-msgstr ""
+msgstr "숨기기"
 
 #: libraries/insert_edit.lib.php:458 libraries/mysql_charsets.lib.php:239
 #: libraries/mysql_charsets.lib.php:440
@@ -6948,10 +6943,9 @@ msgid "Add prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:316 sql.php:517
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "정말로 다음을 실행하시겠습니까? "
+msgstr "정말로 다음 쿼리를 실행하시겠습니까? "
 
 #: libraries/mult_submits.inc.php:559 tbl_replace.php:247
 msgid "No change"
@@ -6963,7 +6957,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:251
 msgid "Bulgarian"
-msgstr ""
+msgstr "불가리아어"
 
 #: libraries/mysql_charsets.lib.php:255 libraries/mysql_charsets.lib.php:380
 msgid "Simplified Chinese"
@@ -6975,11 +6969,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
 msgid "case-insensitive"
-msgstr ""
+msgstr "대소문자 구분안함"
 
 #: libraries/mysql_charsets.lib.php:264 libraries/mysql_charsets.lib.php:449
 msgid "case-sensitive"
-msgstr ""
+msgstr "대소문자 구분"
 
 #: libraries/mysql_charsets.lib.php:267
 msgid "Croatian"
@@ -6987,7 +6981,7 @@ msgstr "크로아티아어"
 
 #: libraries/mysql_charsets.lib.php:270
 msgid "Czech"
-msgstr ""
+msgstr "체코어"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Danish"
@@ -6995,7 +6989,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "English"
-msgstr ""
+msgstr "영어"
 
 #: libraries/mysql_charsets.lib.php:279
 msgid "Esperanto"
@@ -7007,7 +7001,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:285 libraries/mysql_charsets.lib.php:288
 msgid "German"
-msgstr ""
+msgstr "독일어"
 
 #: libraries/mysql_charsets.lib.php:285
 #, fuzzy
@@ -7020,7 +7014,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:291
 msgid "Hungarian"
-msgstr ""
+msgstr "헝가리어"
 
 #: libraries/mysql_charsets.lib.php:294
 msgid "Icelandic"
@@ -7028,7 +7022,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:297 libraries/mysql_charsets.lib.php:387
 msgid "Japanese"
-msgstr ""
+msgstr "일본어"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Latvian"
@@ -7040,19 +7034,19 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:306 libraries/mysql_charsets.lib.php:409
 msgid "Korean"
-msgstr ""
+msgstr "한국어"
 
 #: libraries/mysql_charsets.lib.php:309
 msgid "Persian"
-msgstr ""
+msgstr "페르시아어"
 
 #: libraries/mysql_charsets.lib.php:312
 msgid "Polish"
-msgstr ""
+msgstr "폴란드어"
 
 #: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:363
 msgid "West European"
-msgstr ""
+msgstr "서유럽어"
 
 #: libraries/mysql_charsets.lib.php:318
 msgid "Romanian"
@@ -7076,7 +7070,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:333 libraries/mysql_charsets.lib.php:430
 msgid "Swedish"
-msgstr ""
+msgstr "스웨덴어"
 
 #: libraries/mysql_charsets.lib.php:336 libraries/mysql_charsets.lib.php:433
 msgid "Thai"
@@ -7084,15 +7078,15 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:339 libraries/mysql_charsets.lib.php:427
 msgid "Turkish"
-msgstr ""
+msgstr "터키어"
 
 #: libraries/mysql_charsets.lib.php:342 libraries/mysql_charsets.lib.php:424
 msgid "Ukrainian"
-msgstr ""
+msgstr "우크라이나어"
 
 #: libraries/mysql_charsets.lib.php:345 libraries/mysql_charsets.lib.php:354
 msgid "Unicode"
-msgstr ""
+msgstr "유니코드"
 
 #: libraries/mysql_charsets.lib.php:345 libraries/mysql_charsets.lib.php:354
 #: libraries/mysql_charsets.lib.php:363 libraries/mysql_charsets.lib.php:370
@@ -7106,7 +7100,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:375
 msgid "Russian"
-msgstr ""
+msgstr "러시아어"
 
 #: libraries/mysql_charsets.lib.php:392
 msgid "Baltic"
@@ -7122,11 +7116,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:406
 msgid "Arabic"
-msgstr ""
+msgstr "아라비아어"
 
 #: libraries/mysql_charsets.lib.php:412
 msgid "Hebrew"
-msgstr ""
+msgstr "히브리어"
 
 #: libraries/mysql_charsets.lib.php:415
 msgid "Georgian"
@@ -7134,7 +7128,7 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:418
 msgid "Greek"
-msgstr ""
+msgstr "그리스어"
 
 #: libraries/mysql_charsets.lib.php:421
 msgid "Czech-Slovak"
@@ -7200,10 +7194,9 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:271
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "열(칼럼) 이름"
+msgstr "열(컬럼)"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
@@ -7237,7 +7230,7 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:111
 #, fuzzy
 msgid "Procedures"
-msgstr "프로세스 목록"
+msgstr "프로시져"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:36
 #: libraries/rte/rte_footer.lib.php:29
@@ -7258,7 +7251,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
 msgid "Views"
-msgstr ""
+msgstr "뷰"
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:36
 msgctxt "Create new view"
@@ -7340,7 +7333,7 @@ msgstr "테이블 이름 바꾸기"
 #: libraries/operations.lib.php:793
 #: libraries/tbl_columns_definition_form.inc.php:838 server_engines.php:41
 msgid "Storage Engine"
-msgstr ""
+msgstr "스토리지 엔진"
 
 #: libraries/operations.lib.php:996
 msgid "Copy table to (database<b>.</b>table):"
@@ -7385,10 +7378,9 @@ msgid "Flush the table (FLUSH)"
 msgstr "테이블 갱신 (캐시 삭제)"
 
 #: libraries/operations.lib.php:1237
-#, fuzzy
 #| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "테이블의 덤프 데이터"
+msgstr "데이터나 테이블 삭제"
 
 #: libraries/operations.lib.php:1245
 msgid "Empty the table (TRUNCATE)"
@@ -7429,7 +7421,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1334
 msgid "Remove partitioning"
-msgstr ""
+msgstr "파티셔닝 삭제"
 
 #: libraries/operations.lib.php:1360
 msgid "Check referential integrity:"
@@ -7437,7 +7429,7 @@ msgstr "referential 무결성 검사:"
 
 #: libraries/plugin_interface.lib.php:503
 msgid "This format has no options"
-msgstr ""
+msgstr "이 형식은 옵션이 없습니다."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:73
 msgid "Cannot connect: invalid settings."
@@ -7481,7 +7473,7 @@ msgstr "로그인"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "세션유효기간이 만료되었습니다. 다시 로그인하세요."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -7603,9 +7595,8 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:123
 #: libraries/plugins/export/ExportTexytext.class.php:80
 #: libraries/plugins/export/ExportXml.class.php:133
-#, fuzzy
 msgid "Data dump options"
-msgstr "데이터베이스 사용량 통계"
+msgstr "데이터 덤프 옵션"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:258
@@ -7627,10 +7618,9 @@ msgstr "이벤트"
 #: libraries/rte/rte_events.lib.php:513
 #: libraries/rte/rte_routines.lib.php:1031
 #: libraries/rte/rte_triggers.lib.php:401
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "설명"
+msgstr "정의"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:551
 #: libraries/plugins/export/ExportOdt.class.php:641
@@ -7670,7 +7660,7 @@ msgstr "@TABLE@ 테이블 구조"
 #: libraries/plugins/export/ExportOdt.class.php:97
 #: libraries/plugins/export/ExportSql.class.php:213
 msgid "Object creation options"
-msgstr ""
+msgstr "객체 생성 옵션"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
@@ -7694,7 +7684,7 @@ msgstr "열(칼럼) 설명(코멘트) 출력하기"
 #: libraries/plugins/export/ExportOdt.class.php:113
 #: libraries/plugins/export/ExportSql.class.php:120
 msgid "Display MIME types"
-msgstr ""
+msgstr "MIME 타입 출력"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
@@ -7739,10 +7729,9 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
 #: libraries/plugins/export/ExportPdf.class.php:102
-#, fuzzy
 #| msgid "Import files"
 msgid "Report title:"
-msgstr "파일 가져오기"
+msgstr "보고서 제목:"
 
 #: libraries/plugins/export/ExportSql.class.php:90
 msgid ""
@@ -10042,7 +10031,7 @@ msgstr ""
 
 #: prefs_manage.php:308
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "기존 설정에 덮여쓰여집니다!"
 
 #: prefs_manage.php:323
 msgid "You can reset all your settings and restore them to default values."
@@ -10062,10 +10051,9 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr ""
 
 #: schema_export.php:62
-#, fuzzy
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
-msgstr "\"%s\" 테이블이 존재하지 않습니다!"
+msgstr "파일이 존재하지 않습니다."
 
 #: server_binlog.php:84
 msgid "Select binary log to view"
@@ -10077,7 +10065,7 @@ msgstr ""
 
 #: server_binlog.php:158 server_status.php:436
 msgid "Show Full Queries"
-msgstr ""
+msgstr "전체 쿼리 보기"
 
 #: server_binlog.php:184
 msgid "Log name"
@@ -12110,9 +12098,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 msgid "Slow query rate"
-msgstr "SQL 질의"
+msgstr "속도저하 쿼리 비율"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -12144,10 +12131,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time이 %d초로 설정되였습니다."
+msgstr "long_query_time이 %d초로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 msgid "Slow query logging"
@@ -12177,10 +12164,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time이 %d초로 설정되였습니다."
+msgstr "slow_query_log가 OFF로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:100
 #, fuzzy
@@ -12227,10 +12213,9 @@ msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합�
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "설명"
+msgstr "배포"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -12253,7 +12238,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona에 관한 문서는 http://www.percona.com/docs/wiki/ 에서 찾을 수 있습니다."
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -13149,10 +13134,9 @@ msgid "MyISAM concurrent inserts"
 msgstr ""
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurrent_insert를 1로 활성화합니다."
+msgstr "{concurrent_insert}를 1로 활성화합니다."
 
 #: libraries/advisory_rules.txt:463
 msgid ""
