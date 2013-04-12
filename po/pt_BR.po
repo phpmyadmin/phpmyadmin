@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-12 18:48+0200\n"
+"PO-Revision-Date: 2013-04-12 19:17+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -11963,8 +11963,7 @@ msgstr ""
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
-"É aconselhável que esta %sopção%s esteja habilitada se seu servidor web tem "
-"suporte a ela."
+"Esta %sopção%s deve ser habilitada se seu servidor web tem suporte a ela."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -11972,7 +11971,7 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"A compactação e descompactação%s %sGZip requerem funções (%s) que não estão "
+"A %scompactação e descompactação GZip%s requer funções (%s) que não estão "
 "disponíveis neste sistema."
 
 #: setup/lib/index.lib.php:308
@@ -11982,9 +11981,9 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"O Cookie de validação%s do %sLogin configurado com mais de 1440 segundos "
-"pode causar invalidação de sessão aleatoriamente caso %ssession."
-"gc_maxlifetime%s seja menor que seu valor atual (Configuração atual %d)."
+"A %svalidação dos cookies de login%s com mais de 1440 segundos pode causar "
+"invalidação aleatória de sessão caso a %ssession.gc_maxlifetime%s seja menor "
+"que seu valor (atualmente %d)."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -11992,9 +11991,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"É aconselhável que o cookie de validação%s do %sLogin seja configurado com, "
-"no máximo, 1800 segundos (30 minutos). Valores maiores que 1800 podem causar "
-"um risco de segurança como o roubo de identidade."
+"Você deveria configurar a %svalidação dos cookies de login%s 1800 segundos "
+"(30 minutos) no máximo. Valores maiores que 1800 podem causar um risco de "
+"segurança como o roubo de identidade."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12002,9 +12001,9 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Se estiver usando autenticação por cookies e o %sLogin cookie store%s não é "
-"igual a 0, %sLogin cookie validity%s precisa ser configurado para um valor "
-"menor ou igual a 0."
+"Se estiver usando a autenticação por cookies e o %sarmazenamento dos cookies "
+"de login%s não for de valor 0, a %svalidação dos cookies de login%s precisa "
+"ser configurado para um valor menor ou igual a ele."
 
 #: setup/lib/index.lib.php:314
 #, php-format
@@ -12014,11 +12013,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Se você acha que ela é necessária, utilize configurações adicionais de "
-"segurança - configurações de %shost authentication%s e %strusted proxies list"
-"%s. Entretanto, proteções baseadas no protocolo IP podem não ser confiáveis "
-"se seu endereço IP pertence a um ISP onde centenas de usuários, incluindo "
-"você, estão conectados."
+"Se você achar necessário, utilize as configurações adicionais de segurança - "
+"configurações de %sautenticação de host%s e %slista de proxies confiáveis%"
+"s. Entretanto, proteções baseadas em IP podem não ser confiáveis se seu "
+"endereço IP pertence a um ISP onde centenas de usuários, incluindo você, "
+"estão conectados."
 
 #: setup/lib/index.lib.php:316
 #, php-format
