@@ -301,10 +301,8 @@ class PMA_GIS_Visualization
             . 'var layerNone = new OpenLayers.Layer.Boxes('
             . '"None", {isBaseLayer: true});'
             . 'var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");'
-            . 'var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender('
-            . '"Osmarender");'
             . 'var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");'
-            . 'map.addLayers([layerMapnik,layerOsmarender,layerCycleMap,layerNone]);'
+            . 'map.addLayers([layerMapnik,layerCycleMap,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
         $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');
