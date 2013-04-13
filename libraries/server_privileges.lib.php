@@ -1035,6 +1035,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '        onchange="'
         . 'if (this.value == \'any\') {'
         . '    username.value = \'\'; '
+        . '    user_exists_warning.style.display = \'none\'; '
         . '} else if (this.value == \'userdefined\') {'
         . '    username.focus(); username.select(); '
         . '}">' . "\n";
@@ -1068,8 +1069,15 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
-        . '</div>' . "\n";
+        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n";
+
+    $html_output .= '<div id="user_exists_warning"'
+        . ' name="user_exists_warning" style="display:none;">'
+        . PMA_Message::notice(
+            __('Another account with the same username already exists, maybe you would like to check that.')
+        )->getDisplay()
+        . '</div>';
+    $html_output .= '</div>';
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_hostname">' . "\n"
@@ -1905,6 +1913,19 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
         $extra_data['new_privileges'] = $new_privileges;
     }
+
+    if (isset($_REQUEST['validate_username'])) {
+        $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
+            . $_REQUEST['username'] . "';";
+        $res = PMA_DBI_query($sql_query);
+        $row = PMA_DBI_fetch_row($res);
+        if (empty($row)) {
+            $extra_data['user_exists'] = false;
+        } else {
+            $extra_data['user_exists'] = true;
+        }
+    }
+
     return $extra_data;
 }
 
