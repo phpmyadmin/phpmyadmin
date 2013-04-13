@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-12 19:17+0200\n"
+"PO-Revision-Date: 2013-04-12 19:27+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -12028,11 +12028,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
-"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu usuário e senha "
-"para auto-login, o que não é uma opção desejável para live hosts. Qualquer "
-"um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso direto ao "
-"painel de controle. Configure o %stipo de autenticaçãoe%s para [kbd]cookie[/"
-"kbd] ou [kbd]http[/kbd]."
+"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu o usuário e "
+"senha para auto-login, o que não é uma opção desejável para live hosts. "
+"Qualquer um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso "
+"direto ao painel de controle. Configure o %stipo de autenticação%s para "
+"[kbd]cookie[/kbd] ou [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:318
 #, php-format
@@ -12040,7 +12040,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sA compactação em Zip%s requer funções (%s) que não estão disponíveis neste "
+"%sA compactação Zip%s requer funções (%s) que não estão disponíveis neste "
 "sistema."
 
 #: setup/lib/index.lib.php:320
@@ -12079,7 +12079,7 @@ msgstr "Dados incorretos"
 #: sql.php:317
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Usando marcador \"%s\" como padrão."
+msgstr "Usando marcador \"%s\" como query padrão de navegação."
 
 #: sql.php:399
 msgid "Bookmark not created"
@@ -12106,17 +12106,17 @@ msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
-"Esta tabela não contem uma coluna única. As opções editar no Grid, caixa de "
+"Esta tabela não contém uma coluna única. As opções editar no Grid, caixa de "
 "seleção, Editar, Copiar e Apagar não estão disponíveis."
 
 #: sql.php:1283
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problemas com o índice da tabela `%s`"
+msgstr "Problemas com os índices da tabela `%s`"
 
 #: sql.php:1319
 msgid "Label"
-msgstr "Nome"
+msgstr "Rótulo"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12187,7 +12187,7 @@ msgstr "Rótulo do Eixo X:"
 
 #: tbl_chart.php:232
 msgid "X Values"
-msgstr "Valor X"
+msgstr "Valores X"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
@@ -12210,7 +12210,7 @@ msgstr "A tabela %1$s foi criada."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "Ver o esquema da tabela"
+msgstr "Ver o dump (esquema) da tabela"
 
 #: tbl_gis_visualization.php:114
 msgid "Display GIS Visualization"
@@ -12242,7 +12242,7 @@ msgstr "O nome da chave primária deve ser \"PRIMARY\"!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
-msgstr "Não foi possível renomear o índice para \"PRIMARY\"!"
+msgstr "Não foi possível renomear o índice para PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
