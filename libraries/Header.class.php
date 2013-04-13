@@ -439,9 +439,6 @@ class PMA_Header
      */
     public function sendHttpHeaders()
     {
-        $https = $GLOBALS['PMA_Config']->isHttps();
-        $mapTilesUrls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
-
         /**
          * Sends http headers
          */
@@ -450,9 +447,7 @@ class PMA_Header
             header(
                 "X-Content-Security-Policy: allow 'self';"
                 . "options inline-script eval-script;"
-                . "img-src 'self' data:"
-                . ($https ? "" : $mapTilesUrls)
-                . ";"
+                . "img-src 'self' data:; "
             );
             if (PMA_USR_BROWSER_AGENT == 'SAFARI'
                 && PMA_USR_BROWSER_VER < '6.0.0'
@@ -460,18 +455,13 @@ class PMA_Header
                 header(
                     "X-WebKit-CSP: allow 'self';"
                     . "options inline-script eval-script;"
-                    . "img-src 'self' data:"
-                    . ($https ? "" : $mapTilesUrls)
-                    . ";"
+                    . "img-src 'self' data:; "
                 );
             } else {
                 header(
                     "X-WebKit-CSP: default-src 'self';"
                     . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-                    . "style-src 'self' 'unsafe-inline';"
-                    . "img-src 'self' data:"
-                    . ($https ? "" : $mapTilesUrls)
-                    . ";"
+                    . "style-src 'self' 'unsafe-inline'"
                 );
             }
         }
