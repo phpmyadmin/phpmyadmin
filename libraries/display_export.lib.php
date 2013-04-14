@@ -187,7 +187,7 @@ if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table))
     echo '</li>';
     echo '<li>';
     echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1"';
-    if (isset($_GET['allrows']) && $_GET['allrows'] == 1) {
+    if (! isset($_GET['allrows']) || $_GET['allrows'] == 1) {
         echo ' checked="checked"';
     }
     echo '/>';
