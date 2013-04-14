@@ -840,8 +840,8 @@ class PMA_Table
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
-            if (isset($GLOBALS['drop_if_exists'])
-                && $GLOBALS['drop_if_exists'] == 'true'
+            if (isset($_REQUEST['drop_if_exists'])
+                && $_REQUEST['drop_if_exists'] == 'true'
             ) {
                 if (PMA_Table::isView($target_db, $target_table)) {
                     $drop_query = 'DROP VIEW';
