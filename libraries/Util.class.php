@@ -3959,10 +3959,18 @@ class PMA_Util
     public static function analyzeLimitClause($limit_clause)
     {
         $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
-        return array(
-            'start'  => trim($start_and_length[0]),
-            'length' => trim($start_and_length[1])
-        );
+        $size = count($start_and_length);
+        if ($size == 1) {
+            return array(
+                'start'  => '0',
+                'length' => trim($start_and_length[0])
+            );
+        } elseif ($size == 2) {
+            return array(
+                'start'  => trim($start_and_length[0]),
+                'length' => trim($start_and_length[1])
+            );
+        }
     }
 
     /**
