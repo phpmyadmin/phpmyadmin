@@ -106,6 +106,8 @@ underscore
 - bug #3865 Using like operator on each backslash needs 4 backslash protection
 - bug #3860 Displayed git revision info is not set
 - bug #3871 Check referential integrity broken across databases
+- bug #3874 [export] No preselected option when exporting table
+- bug #3873 Can't copy table to target database if table exists there
 
 3.5.9.0 (not yet released)
 
