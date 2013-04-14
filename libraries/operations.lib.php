@@ -625,7 +625,7 @@ function PMA_getHtmlForOrderTheTable($columns)
             . 'value="' . htmlspecialchars($fieldname['Field']) . '">'
             . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
     }
-    $html_output .= '</select> ' . __('(singly)')
+    $html_output .= '</select> ' . __('(singly)') . ' '
         . '<select name="order_order">'
         . '<option value="asc">' . __('Ascending') . '</option>'
         . '<option value="desc">' . __('Descending') . '</option>'
