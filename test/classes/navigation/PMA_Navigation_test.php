@@ -18,6 +18,7 @@ class PMA_Navigation_test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['token'] = 'token';
         $GLOBALS['cfg']['Servers'] = 1;
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
     /**
