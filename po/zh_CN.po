@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-10 04:51+0200\n"
-"Last-Translator: likyh <likyh@qq.com>\n"
+"PO-Revision-Date: 2013-04-14 15:17+0200\n"
+"Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -6944,7 +6944,7 @@ msgstr "简体中文"
 
 #: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:400
 msgid "Traditional Chinese"
-msgstr "正体中文"
+msgstr "繁体中文"
 
 #: libraries/mysql_charsets.lib.php:261 libraries/mysql_charsets.lib.php:447
 msgid "case-insensitive"
@@ -7895,7 +7895,7 @@ msgstr "MediaWiki 表"
 #, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "第 %s 行mediawiki输入格式有错。"
+msgstr "第 %s 行mediawiki输入格式有错."
 
 #: libraries/plugins/import/ImportOds.class.php:88
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -7952,7 +7952,7 @@ msgstr "XML"
 #: libraries/plugins/import/ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "不被MySQL支持的几何类型 '%s'."
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
 msgid ""
@@ -9441,7 +9441,6 @@ msgid "Move columns"
 msgstr "移动字段"
 
 #: libraries/structure.lib.php:1426
-#, fuzzy
 msgid "Move the columns by dragging them up and down."
 msgstr "请通过拖拽来移动字段的位置。"
 
@@ -9634,8 +9633,9 @@ msgid "As defined:"
 msgstr "定义："
 
 #: libraries/tbl_columns_definition_form.inc.php:634
+#, fuzzy
 msgid "first"
-msgstr ""
+msgstr "第一"
 
 #: libraries/tbl_columns_definition_form.inc.php:644
 #, php-format
@@ -9706,7 +9706,6 @@ msgid "View in fullscreen"
 msgstr "全屏查看"
 
 #: pmd_general.php:90
-#, fuzzy
 msgid "Exit fullscreen"
 msgstr "退出全屏"
 
@@ -10979,10 +10978,11 @@ msgstr ""
 "可能设置得太小了。缓存缺失率可以由 Key_reads/Key_read_requests 计算得出。"
 
 #: server_status_variables.php:609
+#, fuzzy
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr ""
+msgstr "由物理读取数与读取请求数相比计算出的键缓存未命中率(计算值)"
 
 #: server_status_variables.php:613
 msgid "The number of requests to write a key block to the cache."
@@ -10995,7 +10995,7 @@ msgstr "将键块物理写入到磁盘的次数。"
 #: server_status_variables.php:619
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr ""
+msgstr "物理写入数与写入请求数的百分比比值(计算值)"
 
 #: server_status_variables.php:623
 msgid ""
