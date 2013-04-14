@@ -541,11 +541,11 @@ function PMA_handleTheViews($views, $move, $db)
     $_error = false;
     // temporarily force to add DROP IF EXIST to CREATE VIEW query,
     // to remove stand-in VIEW that was created earlier
-    // ( $GLOBALS['drop_if_exists'] is used in moveCopy() )
-    if (isset($GLOBALS['drop_if_exists'])) {
-        $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+    // ( $_REQUEST['drop_if_exists'] is used in moveCopy() )
+    if (isset($_REQUEST['drop_if_exists'])) {
+        $temp_drop_if_exists = $_REQUEST['drop_if_exists'];
     }
-    $GLOBALS['drop_if_exists'] = 'true';
+    $_REQUEST['drop_if_exists'] = 'true';
 
     foreach ($views as $view) {
         $copying_succeeded = PMA_Table::moveCopy(
@@ -556,10 +556,10 @@ function PMA_handleTheViews($views, $move, $db)
             break;
         }
     }
-    unset($GLOBALS['drop_if_exists']);
+    unset($_REQUEST['drop_if_exists']);
     if (isset($temp_drop_if_exists)) {
         // restore previous value
-        $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+        $_REQUEST['drop_if_exists'] = $temp_drop_if_exists;
     }
     return $_error;
 }
