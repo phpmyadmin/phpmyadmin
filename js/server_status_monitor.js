@@ -459,7 +459,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                                 keys.sort();
 
                                 // Rebuilds all ids, with the dragged chart correctly inserted
-                                for (var i = 0; i<keys.length; i++) {
+                                for (var i = 0; i < keys.length; i++) {
                                     if (keys[i] == insertBefore) {
                                         newChartList['c' + (c++)] = runtime.charts[dropKey];
                                         insertBefore = -1; // Insert ok
