@@ -101,11 +101,11 @@ function parseVersionString (str)
     var state = str.split('-');
     if (state.length >= 2) {
         if (state[1].substr(0, 2) == 'rc') {
-            add = - 20 - parseInt(state[1].substr(2));
+            add = - 20 - parseInt(state[1].substr(2), 10);
         } else if (state[1].substr(0, 4) == 'beta') {
-            add =  - 40 - parseInt(state[1].substr(4));
+            add =  - 40 - parseInt(state[1].substr(4), 10);
         } else if (state[1].substr(0, 5) == 'alpha') {
-            add =  - 60 - parseInt(state[1].substr(5));
+            add =  - 60 - parseInt(state[1].substr(5), 10);
         } else if (state[1].substr(0, 3) == 'dev') {
             /* We don't handle dev, it's git snapshot */
             add = 0;
@@ -114,10 +114,10 @@ function parseVersionString (str)
     // Parse version
     var x = str.split('.');
     // Use 0 for non existing parts
-    var maj = parseInt(x[0]) || 0;
-    var min = parseInt(x[1]) || 0;
-    var pat = parseInt(x[2]) || 0;
-    var hotfix = parseInt(x[3]) || 0;
+    var maj = parseInt(x[0], 10) || 0;
+    var min = parseInt(x[1], 10) || 0;
+    var pat = parseInt(x[2], 10) || 0;
+    var hotfix = parseInt(x[3], 10) || 0;
     return  maj * 100000000 + min * 1000000 + pat * 10000 + hotfix * 100 + add;
 }
 
@@ -467,7 +467,7 @@ function emptyFormElements(theForm, theFieldName)
 function checkFormElementInRange(theForm, theFieldName, message, min, max)
 {
     var theField         = theForm.elements[theFieldName];
-    var val              = parseInt(theField.value);
+    var val              = parseInt(theField.value, 10);
 
     if (typeof(min) == 'undefined') {
         min = 0;
@@ -514,7 +514,7 @@ function checkTableEditForm(theForm, fieldsCnt)
         val = elm.val();
         if (val == 'VARCHAR' || val == 'CHAR' || val == 'BIT' || val == 'VARBINARY' || val == 'BINARY') {
             elm2 = $("#field_" + i + "_3");
-            val = parseInt(elm2.val());
+            val = parseInt(elm2.val(), 10);
             elm3 = $("#field_" + i + "_1");
             if (isNaN(val) && elm3.val() != "") {
                 elm2.select();
@@ -902,8 +902,8 @@ function TableDragInit() {
             containment: "parent",
             drag: function (evt, ui) {
                 var number = $this.data('number');
-                $('#c_table_' + number + '_x').val(parseInt(ui.position.left));
-                $('#c_table_' + number + '_y').val(parseInt(ui.position.top));
+                $('#c_table_' + number + '_x').val(parseInt(ui.position.left, 10));
+                $('#c_table_' + number + '_y').val(parseInt(ui.position.top, 10));
             }
         });
     });
@@ -1655,7 +1655,7 @@ $(function() {
 function PMA_showNoticeForEnum(selectElement)
 {
     var enum_notice_id = selectElement.attr("id").split("_")[1];
-    enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2]) + 1);
+    enum_notice_id += "_" + (parseInt(selectElement.attr("id").split("_")[2], 10) + 1);
     var selectedType = selectElement.val();
     if (selectedType == "ENUM" || selectedType == "SET") {
         $("p#enum_notice_" + enum_notice_id).show();
@@ -1894,8 +1894,8 @@ function PMA_SQLPrettyPrint(string)
 
 jQuery.fn.PMA_confirm = function(question, url, callbackFn) {
     var confirmState = PMA_commonParams.get('confirm');
-    // when the Confirm directive is set to false in config.inc.php 
-    // and not changed in user prefs, confirmState is "" 
+    // when the Confirm directive is set to false in config.inc.php
+    // and not changed in user prefs, confirmState is ""
     // when it's unticked in user prefs, confirmState is 1
     if (confirmState === "" || confirmState === "1") {
         // user does not want to confirm
@@ -2939,7 +2939,7 @@ $(function() {
  */
 function PMA_getRowNumber(classlist)
 {
-    return parseInt(classlist.split(/\s+row_/)[1]);
+    return parseInt(classlist.split(/\s+row_/)[1], 10);
 }
 
 /**
@@ -3526,7 +3526,7 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
         tooltipClass: "tooltip",
         track: true,
         show: false,
-        hide: false 
+        hide: false
     };
 
     $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
