@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-13 00:19+0200\n"
+"PO-Revision-Date: 2013-04-15 14:03+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -1924,7 +1924,7 @@ msgstr "패널 숨기기"
 #: js/messages.php:376
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "요청하신 페이지를 기록에서 찾을 수 없습니다. 만기되었을 수도 있습니다."
+msgstr "요청하신 페이지를 기록에서 찾을 수 없습니다. 만기 되었을 수도 있습니다."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -2211,12 +2211,12 @@ msgstr "규칙 '%s'에 대한 precondition 계산 실패"
 #: libraries/Advisor.class.php:121
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "규칙 '%s'에 대한 값 계산 실패"
 
 #: libraries/Advisor.class.php:140
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "규칙 '%s'에 대한 테스트를 실행 못 함"
 
 #: libraries/Advisor.class.php:222
 #, php-format
@@ -2545,7 +2545,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:1612
 msgid "Show binary contents"
-msgstr ""
+msgstr "바이너리 항목 보이기"
 
 #: libraries/DisplayResults.class.php:1617
 msgid "Show BLOB contents"
@@ -5476,6 +5476,8 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"MySQL 와일드카드 문자 (%와 _)를 쓸 수 있습니다. 원래 의미로 쓰기 위해서는 이스케이프 "
+"하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -5629,17 +5631,17 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:440
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "DROP TABLE 추가"
 
 #: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr ""
+msgstr "뷰를 생성할 때 로그의 첫 번째 줄에 DROP VIEW IF EXISTS 구문을 추가할지 여부."
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "DROP VIEW 추가"
 
 #: libraries/config/messages.inc.php:443
 msgid "Defines the list of statements the auto-creation uses for new versions."
@@ -5716,26 +5718,25 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:459
 msgid "Show create database form"
-msgstr ""
+msgstr "데이터베이스 생성 폼 보이기"
 
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
-msgstr "PHP 정보 보기"
+msgstr "생성 시간 보이기"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
-msgstr ""
+msgstr "모든 테이블에 대해 최종 업데이트 시간을 표시하는 컬럼을 보이기/숨기기"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "최종 업데이트 시간 표시"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
@@ -5761,7 +5762,7 @@ msgstr "데이터베이스 사용량 통계"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
-msgstr ""
+msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 여부 정의"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show field types"
@@ -5769,27 +5770,26 @@ msgstr "필드 타입 출력"
 
 #: libraries/config/messages.inc.php:470
 msgid "Display the function fields in edit/insert mode"
-msgstr ""
+msgstr "편집/삽입 모드에서 함수 필드 보이기"
 
 #: libraries/config/messages.inc.php:471
 msgid "Show function fields"
-msgstr ""
+msgstr "함수 필드 보이기"
 
 #: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "힌트 보여주기 여부"
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "grid 보기"
+msgstr "힌트 보여주기"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
-msgstr ""
+msgstr "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시"
 
 #: libraries/config/messages.inc.php:475
 msgid "Show phpinfo() link"
@@ -5797,11 +5797,11 @@ msgstr "phpinfo()링크 표시"
 
 #: libraries/config/messages.inc.php:476
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "MYSQL 서버 정보 자세하게 표시"
 
 #: libraries/config/messages.inc.php:477
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
-msgstr ""
+msgstr "phpMyAdmin이 생성한 SQL 쿼리를 표시할지 여부를 정의"
 
 #: libraries/config/messages.inc.php:478
 msgid "Show SQL queries"
@@ -9672,7 +9672,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
-msgstr ""
+msgstr "변환 옵션"
 
 #: libraries/tbl_columns_definition_form.inc.php:174
 msgid ""
@@ -9687,14 +9687,13 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:412
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "ENUM 또는 SET 데이터가 너무 긴 것 같음"
 
 #: libraries/tbl_columns_definition_form.inc.php:414
 msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:430
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -9702,31 +9701,31 @@ msgstr "없음"
 
 #: libraries/tbl_columns_definition_form.inc.php:431
 msgid "As defined:"
-msgstr ""
+msgstr "사용자 정의:"
 
 #: libraries/tbl_columns_definition_form.inc.php:634
 msgid "first"
-msgstr ""
+msgstr "맨 처음"
 
 #: libraries/tbl_columns_definition_form.inc.php:644
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "%s 다음에"
 
 #: libraries/tbl_columns_definition_form.inc.php:737
 msgid "Table name"
-msgstr ""
+msgstr "테이블 이름"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
 msgid "PARTITION definition"
-msgstr ""
+msgstr "PARTITION 정의"
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "트래킹이 활성화되었습니다."
+msgstr "%s의 트래킹이 활성화되었습니다."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -10409,26 +10408,25 @@ msgstr "실패한 시도"
 
 #: server_status.php:252
 msgid "Aborted"
-msgstr ""
+msgstr "중지됨"
 
 #: server_status.php:312
 msgid "ID"
-msgstr ""
+msgstr "아이디"
 
 #: server_status.php:328
 msgid "Command"
 msgstr "커맨드"
 
 #: server_status_advisor.php:29
-#, fuzzy
 msgid "Instructions"
-msgstr "함수"
+msgstr "안내 설명"
 
 #: server_status_advisor.php:35
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr ""
+msgstr "어드바이저 시스템은 서버의 상태 변수를 분석하고, 변수 값을 추천해줍니다."
 
 #: server_status_advisor.php:41
 msgid ""
@@ -11587,7 +11585,7 @@ msgstr "SQL 결과"
 
 #: sql.php:1112
 msgid "Generated by"
-msgstr ""
+msgstr "생성자"
 
 #: sql.php:1234
 #, fuzzy
@@ -12439,7 +12437,7 @@ msgstr ""
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "이 값을 감소시켜 성능을 향상할 수 있음(환경에 따라 다름)."
 
 #: libraries/advisory_rules.txt:200
 #, php-format
@@ -12490,20 +12488,19 @@ msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합�
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
-msgstr ""
+msgstr "시스템의 메모리 한계값에 따라 {sort_buffer_size} 나 {read_rnd_buffer_size} 값을 증가시키세요"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr ""
+msgstr "정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니다."
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "임시테이블 생성 허용."
+msgstr "임시 테이블을 생성하는 정렬의 비율"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -12517,7 +12514,7 @@ msgstr "행 정렬"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "정렬중인 로우가 많습니다."
 
 #: libraries/advisory_rules.txt:229
 msgid ""
