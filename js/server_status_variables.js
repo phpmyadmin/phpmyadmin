@@ -89,7 +89,7 @@ AJAX.registerOnload('server_status_variables.js', function() {
 
         odd_row = false;
         $('#serverstatusvariables th.name').each(function() {
-            if ((textFilter == null || textFilter.exec($(this).text()))
+            if ((textFilter === null || textFilter.exec($(this).text()))
                 && (! alertFilter || $(this).next().find('span.attention').length>0)
                 && (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))
             ) {

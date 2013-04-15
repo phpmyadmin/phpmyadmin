@@ -85,7 +85,7 @@ AJAX.registerOnload('tbl_select.js', function() {
                 continue;
             }
 
-            if (values['criteriaValues[' + a + ']'] === '' || values['criteriaValues[' + a + ']'] == null) {
+            if (values['criteriaValues[' + a + ']'] === '' || values['criteriaValues[' + a + ']'] === null) {
                 delete values['criteriaValues[' + a + ']'];
                 delete values['criteriaColumnOperators[' + a + ']'];
                 delete values['criteriaColumnNames[' + a + ']'];
@@ -94,7 +94,7 @@ AJAX.registerOnload('tbl_select.js', function() {
             }
         }
         // If all columns are selected, use a single parameter to indicate that
-        if (values['columnsToDisplay[]'] != null) {
+        if (values['columnsToDisplay[]'] !== null) {
             if (values['columnsToDisplay[]'].length == columnCount) {
                 delete values['columnsToDisplay[]'];
                 values['displayAllColumns'] = true;
@@ -106,7 +106,7 @@ AJAX.registerOnload('tbl_select.js', function() {
         $.post($search_form.attr('action'), values, function(data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success === true) {
-                if (data.sql_query != null) { // zero rows
+                if (data.sql_query !== null) { // zero rows
                     $("#sqlqueryresults").html(data.sql_query);
                 } else { // results found
                     $("#sqlqueryresults").html(data.message);

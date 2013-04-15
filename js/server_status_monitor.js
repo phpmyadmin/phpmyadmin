@@ -960,7 +960,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             return false;
         }
 
-        if (newChart == null) {
+        if (newChart === null) {
             $('#seriesPreview').html('');
 
             newChart = {
@@ -1027,9 +1027,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 monitorSettings = $.parseJSON(window.localStorage['monitorSettings']);
             }
 
-            $('a[href="#clearMonitorConfig"]').toggle(runtime.charts != null);
+            $('a[href="#clearMonitorConfig"]').toggle(runtime.charts !== null);
 
-            if (runtime.charts != null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
+            if (runtime.charts !== null && monitorProtocolVersion != window.localStorage['monitorVersion']) {
                 $('#emptyDialog').dialog({title: PMA_messages['strIncompatibleMonitorConfig']});
                 $('#emptyDialog').html(PMA_messages['strIncompatibleMonitorConfigDescription']);
 
@@ -1043,10 +1043,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
         }
 
-        if (runtime.charts == null) {
+        if (runtime.charts === null) {
             runtime.charts = defaultChartGrid;
         }
-        if (monitorSettings == null) {
+        if (monitorSettings === null) {
             monitorSettings = defaultMonitorSettings;
         }
 
@@ -1331,7 +1331,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             }
         });
 
-        if (chart == null) {
+        if (chart === null) {
             return;
         }
 
@@ -1464,7 +1464,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 for (var j = 0; j < elem.nodes.length; j++) {
                     // Update x-axis
                     if (i === 0 && j === 0) {
-                        if (oldChartData == null) {
+                        if (oldChartData === null) {
                             diff = chartData.x - runtime.xmax;
                         } else {
                             diff = parseInt(chartData.x - oldChartData.x, 10);
@@ -1483,7 +1483,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                             elem.nodes[j].transformFn,
                             chartData[key][j],
                             // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
-                            (oldChartData == null || oldChartData[key] == null ? null : oldChartData[key][j])
+                            (oldChartData === null || oldChartData[key] === null ? null : oldChartData[key][j])
                         );
 
                     // Otherwise use original value and apply differential and divisor if given,
@@ -1492,7 +1492,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         value = parseFloat(chartData[key][j][0].value);
 
                         if (elem.nodes[j].display == 'differential') {
-                            if (oldChartData == null || oldChartData[key] == null) {
+                            if (oldChartData === null || oldChartData[key] === null) {
                                 continue;
                             }
                             value -= oldChartData[key][j][0].value;
@@ -1576,7 +1576,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     function chartValueTransform(name, cur, prev) {
         switch(name) {
         case 'cpu-linux':
-            if (prev == null) {
+            if (prev === null) {
                 return undefined;
             }
             // cur and prev are datapoint arrays, but containing
@@ -1590,7 +1590,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         // Query cache efficiency (%)
         case 'qce':
-            if (prev == null) {
+            if (prev === null) {
                 return undefined;
             }
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
@@ -1651,7 +1651,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         var dlgBtns = {};
 
         dlgBtns[PMA_messages['strCancelRequest']] = function() {
-            if (logRequest != null) {
+            if (logRequest !== null) {
                 logRequest.abort();
             }
 
@@ -1838,7 +1838,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
                 // If not required to be hidden, do we need
                 // to hide because of a not matching text filter?
-                if (! hide && (textFilter != null && ! textFilter.exec($t.text()))) {
+                if (! hide && (textFilter !== null && ! textFilter.exec($t.text()))) {
                     hide = true;
                 }
 
@@ -2036,7 +2036,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             resizable: false,
             buttons: dlgBtns,
             close: function() {
-                if (profilingChart != null) {
+                if (profilingChart !== null) {
                     profilingChart.destroy();
                 }
                 $('#queryAnalyzerDialog div.placeHolder').html('');
@@ -2089,7 +2089,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             for (var i = 0, l = data.explain.length; i < l; i++) {
                 explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
                 $.each(data.explain[i], function(key, value) {
-                    value = (value == null)?'null':value;
+                    value = (value === null)?'null':value;
 
                     if (key == 'type' && value.toLowerCase() == 'all') {
                         value = '<span class="attention">' + value + '</span>';

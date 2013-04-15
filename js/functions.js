@@ -392,7 +392,7 @@ function checkSqlQuery(theForm)
         return true;
     }
     if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
-            (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value !== '') &&
+            (theForm.elements['id_bookmark'].value !== null || theForm.elements['id_bookmark'].value !== '') &&
             theForm.elements['id_bookmark'].selectedIndex !== 0
             ) {
         return true;
@@ -515,7 +515,7 @@ function checkTableEditForm(theForm, fieldsCnt)
             elm2 = $("#field_" + i + "_3");
             val = parseInt(elm2.val(), 10);
             elm3 = $("#field_" + i + "_1");
-            if (isNaN(val) && elm3.val() != "") {
+            if (isNaN(val) && elm3.val() !== "") {
                 elm2.select();
                 alert(PMA_messages['strNotNumber']);
                 elm2.focus();
@@ -538,7 +538,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     }
 
     // at least this section is under jQuery
-    if ($("input.textfield[name='table']").val() == "") {
+    if ($("input.textfield[name='table']").val() === "") {
         alert(PMA_messages['strFormEmpty']);
         $("input.textfield[name='table']").focus();
         return false;
@@ -1770,7 +1770,7 @@ function PMA_SQLPrettyPrint(string)
     while (! stream.eol()) {
         stream.start = stream.pos;
         token = mode.token(stream, state);
-        if (token != null) {
+        if (token !== null) {
             tokens.push([token, stream.current().toLowerCase()]);
         }
     }
@@ -3455,7 +3455,7 @@ AJAX.registerTeardown('functions.js', function() {
  */
 (function ($) {
     $.fn.noSelect = function (p) { //no select plugin by Paulo P.Marinas
-        var prevent = (p == null) ? true : p;
+        var prevent = (p === null) ? true : p;
         if (prevent) {
             return this.each(function () {
                 if ($.browser.msie || $.browser.safari) {

@@ -245,7 +245,7 @@ var validators = {
         }
         // convert PCRE regexp
         var parts = regexp.match(validators._regexp_pcre_extract);
-        var valid = this.value.match(new RegExp(parts[2], parts[3])) != null;
+        var valid = this.value.match(new RegExp(parts[2], parts[3])) !== null;
         return valid ? true : PMA_messages['error_invalid_value'];
     },
     /**
@@ -411,7 +411,7 @@ function validate_field(field, isKeyUp, errors)
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        var args = functions[i][1] != null
+        var args = functions[i][1] !== null
             ? functions[i][1].slice(0)
             : [];
         args.unshift(isKeyUp);
