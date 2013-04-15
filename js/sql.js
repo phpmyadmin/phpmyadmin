@@ -117,7 +117,7 @@ AJAX.registerOnload('sql.js', function() {
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
-            })
+            });
         });
     });
 

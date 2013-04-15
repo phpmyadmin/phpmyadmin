@@ -606,8 +606,8 @@ function restoreField(field_id)
 
 AJAX.registerOnload('config.js', function() {
     $('div.tabs_contents')
-        .delegate('.restore-default, .set-value', 'mouseenter', function(){$(this).css('opacity', 1)})
-        .delegate('.restore-default, .set-value', 'mouseleave', function(){$(this).css('opacity', 0.25)})
+        .delegate('.restore-default, .set-value', 'mouseenter', function(){$(this).css('opacity', 1);})
+        .delegate('.restore-default, .set-value', 'mouseleave', function(){$(this).css('opacity', 0.25);})
         .delegate('.restore-default, .set-value', 'click', function(e) {
             e.preventDefault();
             var href = $(this).attr('href');

@@ -143,41 +143,41 @@ $(function() {
     $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
     $('li.new_trigger a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
     $('li.new_event a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
 
     /** Edit Routines, Triggers and Events */
     $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
     $('li.trigger > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
     $('li.event > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
 
     /** Export Routines, Triggers and Events */
     $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
-        dialog.exportDialog($(this).parent())
+        dialog.exportDialog($(this).parent());
     });
 
     /** New index */

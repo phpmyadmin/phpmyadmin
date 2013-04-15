@@ -73,7 +73,7 @@ function nullify(theType, urlField, md5Field, multi_edit)
 //function checks the number of days in febuary
 function daysInFebruary (year)
 {
-    return (((year % 4 === 0) && ( (!(year % 100 === 0)) || (year % 400 === 0))) ? 29 : 28 );
+    return (((year % 4 === 0) && ( ((year % 100 !== 0)) || (year % 400 === 0))) ? 29 : 28 );
 }
 //function to convert single digit to double digit
 function fractionReplace(num)
@@ -491,5 +491,5 @@ AJAX.registerOnload('tbl_change.js', function() {
                 curr_rows--;
             }
         }
-    })
+    });
 });
