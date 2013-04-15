@@ -8,7 +8,7 @@ function show_hide_clauses($thisDropdown)
     // here, one span contains the label and the clause dropdown
     // and we have one span for ON DELETE and one for ON UPDATE
     //
-    if ($thisDropdown.val() != '') {
+    if ($thisDropdown.val() !== '') {
         $thisDropdown.parent().nextAll('span').show();
     } else {
         $thisDropdown.parent().nextAll('span').hide();

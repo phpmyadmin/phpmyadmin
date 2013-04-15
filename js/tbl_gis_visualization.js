@@ -205,7 +205,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
     }
 
     $('#choice').live('click', function() {
-        if ($(this).prop('checked') == false) {
+        if ($(this).prop('checked') === false) {
             $('#placeholder').show();
             $('#openlayersmap').hide();
         } else {

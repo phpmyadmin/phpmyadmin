@@ -64,7 +64,7 @@ AJAX.registerOnload('db_operations.js', function() {
                     PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.get()
-        })
+        });
     }); // end Rename Database
 
     /**

@@ -1057,7 +1057,7 @@ function getColorByTarget( target )
   }
 
 
-  if (color.length==0) {
+  if (color.length === 0) {
    var i = TargetColors.length+1;
    var d = i % 6;
    var j = (i - d) / 6;
@@ -1216,7 +1216,7 @@ function add_object()
         rel.value = '--';
         p.value = "";
     }
-    if (document.getElementById('new_name').value !="") {
+    if (document.getElementById('new_name').value !== "") {
         var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
         history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[downer + '.' + tab_name],"Rename"));
         sum = sum + 1;

@@ -247,7 +247,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
             }
 
             $.post($form.prop("action"), serialized + "&ajax_request=true", function (data) {
-                if (data.success == false) {
+                if (data.success === false) {
                     PMA_ajaxRemoveMessage($msgbox);
                     $this
                     .clone()

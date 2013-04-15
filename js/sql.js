@@ -320,7 +320,7 @@ AJAX.registerOnload('sql.js', function() {
                         }
                     }
                 }
-            } else if (data.success == false ) {
+            } else if (data.success === false ) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
                 $sqlqueryresults.hide();
@@ -386,7 +386,7 @@ AJAX.registerOnload('sql.js', function() {
 
             $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
                 //in the case of an error, show the error message returned.
-                if (data.success != undefined && data.success == false) {
+                if (data.success !== undefined && data.success === false) {
                     $div
                     .append(data.error)
                     .dialog({
@@ -536,7 +536,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
         th_index--;
     }
     var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
-    if (isAddClass == undefined) {
+    if (isAddClass === undefined) {
         $tds.toggleClass(newclass);
     } else {
         $tds.toggleClass(newclass, isAddClass);

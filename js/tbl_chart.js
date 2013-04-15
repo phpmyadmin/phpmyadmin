@@ -195,7 +195,7 @@ function drawChart() {
     currentSettings.height = $('#resizer').height() - 20;
 
     // todo: a better way using .redraw() ?
-    if (currentChart != null) {
+    if (currentChart !== null) {
         currentChart.destroy();
     }
 
@@ -225,12 +225,12 @@ function extractDate(dateString) {
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
 
     matches = dateTimeRegExp.exec(dateString);
-    if (matches != null && matches.length > 0) {
+    if (matches !== null && matches.length > 0) {
         match = matches[0];
         return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
     } else {
         matches = dateRegExp.exec(dateString);
-        if (matches != null && matches.length > 0) {
+        if (matches !== null && matches.length > 0) {
             match = matches[0];
             return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
         }

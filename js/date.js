@@ -69,7 +69,7 @@ function LZ(x) {return(x<0||x>9?"":"0")+x}
 // ------------------------------------------------------------------
 function isDate(val,format) {
     var date=getDateFromFormat(val,format);
-    if (date==0) { return false; }
+    if (date === 0) { return false; }
     return true;
     }
 
@@ -84,7 +84,7 @@ function isDate(val,format) {
 function compareDates(date1,dateformat1,date2,dateformat2) {
     var d1=getDateFromFormat(date1,dateformat1);
     var d2=getDateFromFormat(date2,dateformat2);
-    if (d1==0 || d2==0) {
+    if (d1 === 0 || d2 === 0) {
         return -1;
         }
     else if (d1 > d2) {
@@ -128,7 +128,7 @@ function formatDate(date,format) {
     value["EE"]=DAY_NAMES[E];
     value["H"]=H;
     value["HH"]=LZ(H);
-    if (H==0){value["h"]=12;}
+    if (H === 0){value["h"]=12;}
     else if (H>12){value["h"]=H-12;}
     else {value["h"]=H;}
     value["hh"]=LZ(value["h"]);
@@ -148,7 +148,7 @@ function formatDate(date,format) {
         while ((format.charAt(i_format)==c) && (i_format < format.length)) {
             token += format.charAt(i_format++);
             }
-        if (value[token] != null) { result=result + value[token]; }
+        if (value[token] !== null) { result=result + value[token]; }
         else { result=result + token; }
         }
     return result;
@@ -211,7 +211,7 @@ function getDateFromFormat(val,format) {
             if (token=="yy")   { x=2;y=2; }
             if (token=="y")    { x=2;y=4; }
             year=_getInt(val,i_val,x,y);
-            if (year==null) { return 0; }
+            if (year === null) { return 0; }
             i_val += year.length;
             if (year.length==2) {
                 if (year > 70) { year=1900+(year-0); }
@@ -244,35 +244,35 @@ function getDateFromFormat(val,format) {
             }
         else if (token=="MM"||token=="M") {
             month=_getInt(val,i_val,token.length,2);
-            if (month==null||(month<1)||(month>12)){return 0;}
+            if (month === null||(month<1)||(month>12)){return 0;}
             i_val+=month.length;}
         else if (token=="dd"||token=="d") {
             date=_getInt(val,i_val,token.length,2);
-            if (date==null||(date<1)||(date>31)){return 0;}
+            if (date === null||(date<1)||(date>31)){return 0;}
             i_val+=date.length;}
         else if (token=="hh"||token=="h") {
             hh=_getInt(val,i_val,token.length,2);
-            if (hh==null||(hh<1)||(hh>12)){return 0;}
+            if (hh === null||(hh<1)||(hh>12)){return 0;}
             i_val+=hh.length;}
         else if (token=="HH"||token=="H") {
             hh=_getInt(val,i_val,token.length,2);
-            if (hh==null||(hh<0)||(hh>23)){return 0;}
+            if (hh === null||(hh<0)||(hh>23)){return 0;}
             i_val+=hh.length;}
         else if (token=="KK"||token=="K") {
             hh=_getInt(val,i_val,token.length,2);
-            if (hh==null||(hh<0)||(hh>11)){return 0;}
+            if (hh === null||(hh<0)||(hh>11)){return 0;}
             i_val+=hh.length;}
         else if (token=="kk"||token=="k") {
             hh=_getInt(val,i_val,token.length,2);
-            if (hh==null||(hh<1)||(hh>24)){return 0;}
+            if (hh === null||(hh<1)||(hh>24)){return 0;}
             i_val+=hh.length;hh--;}
         else if (token=="mm"||token=="m") {
             mm=_getInt(val,i_val,token.length,2);
-            if (mm==null||(mm<0)||(mm>59)){return 0;}
+            if (mm === null||(mm<0)||(mm>59)){return 0;}
             i_val+=mm.length;}
         else if (token=="ss"||token=="s") {
             ss=_getInt(val,i_val,token.length,2);
-            if (ss==null||(ss<0)||(ss>59)){return 0;}
+            if (ss === null||(ss<0)||(ss>59)){return 0;}
             i_val+=ss.length;}
         else if (token=="a") {
             if (val.substring(i_val,i_val+2).toLowerCase()=="am") {ampm="AM";}
@@ -289,7 +289,7 @@ function getDateFromFormat(val,format) {
     // Is date valid for month?
     if (month==2) {
         // Check for leap year
-        if ( ( (year%4==0)&&(year%100 != 0) ) || (year%400==0) ) { // leap year
+        if ( ( (year%4 === 0)&&(year%100 !== 0) ) || (year%400 === 0) ) { // leap year
             if (date > 29){ return 0; }
             }
         else { if (date > 28) { return 0; } }
@@ -328,7 +328,7 @@ function parseDate(val) {
         var l=window[checkList[i]];
         for (var j=0; j<l.length; j++) {
             d=getDateFromFormat(val,l[j]);
-            if (d!=0) { return new Date(d); }
+            if (d !== 0) { return new Date(d); }
             }
         }
     return null;

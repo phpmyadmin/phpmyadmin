@@ -361,7 +361,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * Send column preferences (column order and visibility) to the server.
          */
         sendColPrefs: function() {
-            if ($(g.t).is('.ajax')) {   // only send preferences if ajax class 
+            if ($(g.t).is('.ajax')) {   // only send preferences if ajax class
                 var post_params = {
                     ajax_request: true,
                     db: g.db,
@@ -378,7 +378,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $.extend(post_params, {col_visib: g.colVisib.toString()});
                 }
                 $.post('sql.php', post_params, function(data) {
-                    if (data.success != true) {
+                    if (data.success !== true) {
                         var $temp_div = $(document.createElement('div'));
                         $temp_div.html(data.error);
                         $temp_div.addClass("error");
@@ -604,7 +604,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             }
 
             // cancel any previous request
-            if (g.lastXHR != null) {
+            if (g.lastXHR !== null) {
                 g.lastXHR.abort();
                 g.lastXHR = null;
             }
@@ -613,7 +613,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if (g.currentEditCell) {    // save value of currently edited cell
                     // replace current edited field with the new value
                     var $this_field = $(g.currentEditCell);
-                    var is_null = $this_field.data('value') == null;
+                    var is_null = $this_field.data('value') === null;
                     if (is_null) {
                         $this_field.find('span').html('NULL');
                         $this_field.addClass('null');
@@ -630,13 +630,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $this_field.find('span').text(new_html);
                     }
                 }
-                if (data.transformations != undefined) {
+                if (data.transformations !== undefined) {
                     $.each(data.transformations, function(cell_index, value) {
                         var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
                         $this_field.find('span').html(value);
                     });
                 }
-                if (data.relations != undefined) {
+                if (data.relations !== undefined) {
                     $.each(data.relations, function(cell_index, value) {
                         var $this_field = $(g.t).find('.to_be_saved:eq(' + cell_index + ')');
                         $this_field.find('span').html(value);
@@ -931,7 +931,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }, function(data) {
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
-                            if (data.success == true) {
+                            if (data.success === true) {
                                 if ($td.is('.truncated')) {
                                     // get the truncated data length
                                     g.maxTruncatedLen = $(g.currentEditCell).text().length - 3;
@@ -983,13 +983,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // force to restore modified $input_field value after adding datepicker
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    if (is_null 
-                        || current_datetime_value == '0000-00-00' 
+                    if (is_null
+                        || current_datetime_value == '0000-00-00'
                         || current_datetime_value == '0000-00-00 00:00:00'
                     ) {
                         $input_field.val(current_datetime_value);
                     } else {
-                        $editArea.datetimepicker('setDate', current_datetime_value);                        
+                        $editArea.datetimepicker('setDate', current_datetime_value);
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
 
@@ -1210,9 +1210,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             $('div.save_edited').removeClass('saving_edited_data')
                                 .find('input').removeProp('disabled');  // enable the save button back
                         }
-                        if (data.success == true) {
+                        if (data.success === true) {
                             PMA_ajaxShowMessage(data.message);
-                            
+
                             // update where_clause related data in each edited row
                             $('td.to_be_saved').parents('tr').each(function() {
                                 var new_clause = $(this).data('new_clause');
@@ -1589,7 +1589,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             function startGridEditing(e, cell) {
                 if (g.isCellEditActive) {
-                    g.saveOrPostEditedCell();                    
+                    g.saveOrPostEditedCell();
                 } else {
                     g.showEditCell(cell);
                 }
@@ -1627,17 +1627,17 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(t).find('td.data.click2')
                 .click(function(e) {
                     $cell = $(this);
-                    // In the case of relational link, We want single click on the link 
+                    // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
                     var $link = $(e.target);
                     if ($link.is('.grid_edit.relation a')) {
                         e.preventDefault();
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
-                        clicks = (clicks == null) ? 1 : clicks + 1;
+                        clicks = (clicks === null) ? 1 : clicks + 1;
 
                         if (clicks == 1) {
-                            // if there are no previous clicks, 
+                            // if there are no previous clicks,
                             // start the single click timer
                             timer = setTimeout(function() {
                                 // temporarily remove ajax class so the page loader will not handle it,
@@ -1709,7 +1709,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.gDiv).append(g.cEdit);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
-            if (PMA_messages['strGridEditFeatureHint'] != undefined) {
+            if (PMA_messages['strGridEditFeatureHint'] !== undefined) {
                 PMA_tooltip(
                     $(g.t).find('.edit_row_anchor a'),
                     'a',
@@ -1773,10 +1773,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     $(g.gDiv).append(t);
 
     // FEATURES
-    enableResize    = enableResize == undefined ? true : enableResize;
-    enableReorder   = enableReorder == undefined ? true : enableReorder;
-    enableVisib     = enableVisib == undefined ? true : enableVisib;
-    enableGridEdit  = enableGridEdit == undefined ? true : enableGridEdit;
+    enableResize    = enableResize === undefined ? true : enableResize;
+    enableReorder   = enableReorder === undefined ? true : enableReorder;
+    enableVisib     = enableVisib === undefined ? true : enableVisib;
+    enableGridEdit  = enableGridEdit === undefined ? true : enableGridEdit;
     if (enableResize) {
         g.initColResize();
     }
@@ -1807,13 +1807,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.showSortHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
-            }); 
+            });
         })
         .mouseleave(function(e) {
             g.showSortHint = false;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
-            }); 
+            });
         });
 
     // register events for dragging-related feature
