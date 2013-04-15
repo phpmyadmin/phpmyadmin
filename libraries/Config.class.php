@@ -91,7 +91,7 @@ class PMA_Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->checkIsHttps();
+        $this->isHttps();
     }
 
     /**
@@ -1178,7 +1178,7 @@ class PMA_Config
     function set($setting, $value)
     {
         if (! isset($this->settings[$setting])
-            || $this->settings[$setting] != $value
+            || $this->settings[$setting] !== $value
         ) {
             $this->settings[$setting] = $value;
             $this->set_mtime = time();
@@ -1474,16 +1474,6 @@ class PMA_Config
     }
 
     /**
-     * check for https
-     *
-     * @return void
-     */
-    function checkIsHttps()
-    {
-        $this->set('is_https', $this->isHttps());
-    }
-
-    /**
      * Checks if protocol is https
      *
      * This function checks if the https protocol is used in the PmaAbsoluteUri
@@ -1494,19 +1484,21 @@ class PMA_Config
      */
     public function isHttps()
     {
-        static $is_https = null;
 
-        if (null !== $is_https) {
-            return $is_https;
+        if (null !== $this->get('is_https')) {
+            return $this->get('is_https');
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
+        $is_https = null;
 
         if (isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
         }
+
+        $this->set('is_https', $is_https);
 
         return $is_https;
     }
