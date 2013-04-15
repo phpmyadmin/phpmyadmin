@@ -10,6 +10,11 @@
  */
 require_once 'libraries/common.inc.php';
 
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_structure.js');
+
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table'));
 
@@ -41,7 +46,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
 }
 
 if (isset($_REQUEST['do_save_data'])) {
-    //avoid an incorrect calling of PMA_updateColumns() via 
+    //avoid an incorrect calling of PMA_updateColumns() via
     //tbl_structure.php below
     unset($_REQUEST['do_save_data']);
 
@@ -193,7 +198,6 @@ if (isset($_REQUEST['do_save_data'])) {
         $message->addParam($table);
 
         if ($GLOBALS['is_ajax_request'] == true) {
-            $response = PMA_Response::getInstance();
             $response->addJSON('message', $message);
             $response->addJSON(
                 'sql_query',
@@ -206,7 +210,6 @@ if (isset($_REQUEST['do_save_data'])) {
         $abort = true;
         include 'tbl_structure.php';
     } else {
-        $response = PMA_Response::getInstance();
         $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
         $response->addHTML($error_message_html);
         if ($GLOBALS['is_ajax_request'] == true) {
