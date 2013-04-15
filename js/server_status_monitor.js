@@ -323,32 +323,40 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     // Default setting for the chart grid
     var defaultChartGrid = {
-        'c0': {  title: PMA_messages['strQuestions'],
-                 series: [{label: PMA_messages['strQuestions']}],
-                 nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }],
-                maxYLabel: 0
+        'c0': {
+            title: PMA_messages['strQuestions'],
+            series: [
+                {label: PMA_messages['strQuestions']}
+            ],
+            nodes: [
+                {dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }
+            ],
+            maxYLabel: 0
         },
         'c1': {
-                 title: PMA_messages['strChartConnectionsTitle'],
-                 series: [ { label: PMA_messages['strConnections']},
-                          { label: PMA_messages['strProcesses']} ],
-                 nodes: [ { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
-                          { dataPoints: [{ type: 'proc', name: 'processes' }] }
-                ],
-                maxYLabel: 0
+            title: PMA_messages['strChartConnectionsTitle'],
+            series: [
+                {label: PMA_messages['strConnections']},
+                {label: PMA_messages['strProcesses']}
+            ],
+            nodes: [
+                {dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
+                {dataPoints: [{ type: 'proc', name: 'processes' }] }
+            ],
+            maxYLabel: 0
         },
         'c2': {
-                 title: PMA_messages['strTraffic'],
-                 series: [
-                    { label: PMA_messages['strBytesSent']},
-                    { label: PMA_messages['strBytesReceived']}
-                 ],
-                 nodes: [
-                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
-                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
-                ],
-                maxYLabel: 0
-         }
+            title: PMA_messages['strTraffic'],
+            series: [
+                {label: PMA_messages['strBytesSent']},
+                {label: PMA_messages['strBytesReceived']}
+            ],
+            nodes: [
+                {dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
+                {dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
+            ],
+            maxYLabel: 0
+        }
     };
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
