@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-15 18:26+0200\n"
+"PO-Revision-Date: 2013-04-15 18:36+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -13513,7 +13513,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
-msgstr "Tempo para lançamento lento"
+msgstr "Tempo de inícios lentos"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
@@ -13615,10 +13615,10 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"Clientes são normalmente abortados quando não fecham a conexão com o MySQL "
-"corretamente. Isso pode ser causado por problemas de rede ou o código do "
-"programa não fechar corretamente o manipulador de banco de dados. Verifique "
-"a rede e o código."
+"Clientes normalmente são abortados quando não fecham a conexão com o MySQL "
+"corretamente. Isso pode ser causado por problemas de rede ou códigos que não "
+"fecham corretamente o manipulador do banco de dados. Verifique sua rede e "
+"códigos."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -13651,19 +13651,19 @@ msgstr "InnoDB é normalmente a melhor escolha para engines de tabelas."
 
 #: libraries/advisory_rules.txt:434
 msgid "have_innodb is set to 'value'"
-msgstr "have_innodb é definido como 'value'"
+msgstr "have_innodb está definido como 'value'"
 
 #: libraries/advisory_rules.txt:436
 msgid "InnoDB log size"
-msgstr "Tamanho do log do InnoDB"
+msgstr "Tamanho de log do InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"O tamanho do arquivo de log do InnoDB não é apropriado em relação ao Buffer "
-"Pool do InnoDB."
+"O tamanho do arquivo de log do InnoDB não é apropriado em relação ao buffer "
+"pool do InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13696,8 +13696,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"O tamanho do seu log do InnoDB é %s%% o tamanho do Buffer Pool do InnoDB, "
-"ele não deve ser menor do que 20%%"
+"O tamanho do seu log do InnoDB está %s%% em relação ao tamanho do buffer "
+"pool do InnoDB, ele não deve ser menor do que 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
@@ -13705,7 +13705,7 @@ msgstr "Tamanho máximo do log InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr "O tamanho do log do InnoDB é inadequadamente grande."
+msgstr "O tamanho do log do InnoDB está inadequadamente grande."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13724,7 +13724,7 @@ msgstr ""
 "do {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande atrasa "
 "consideravelmente o tempo de recuperação após a queda de um banco de dados. "
 "Veja também <a href=\"http://www.mysqlperformanceblog.com/2006/07/03"
-"/choosing-proper-innodb_log_file_size/\">este artigo</a>. Você pode precisar "
+"/choosing-proper-innodb_log_file_size/\">este artigo</a>. Você precisa "
 "desligar o servidor, remover os arquivos de log do InnoDB, configurar o novo "
 "valor em my.cnf, iniciar o servidor, e então verificar o log de erros se "
 "tudo der certo. Veja também <a "
@@ -13758,12 +13758,12 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"O Buffer Pool do InnoDB possui um profundo impacto na performance de tabelas "
+"O buffer pool do InnoDB possui um profundo impacto na performance de tabelas "
 "InnoDB. Atribua toda a sua memória restante a este buffer. Para servidores "
 "de bancos de dados que usam somente o InnoDB como engine de armazenamento e "
-"não possui nenhum outro serviço executando (por exemplo, servidor Web), você "
-"deve atribuir até 80%% da memória disponível. Se este não for o caso, você "
-"deve avaliar cuidadosamente o consumo de memória dos outros serviços e "
+"não possuem nenhum outro serviço executando (por exemplo, servidor Web), "
+"você deve atribuir até 80%% da memória disponível. Se este não for o caso, "
+"você deve avaliar cuidadosamente o consumo de memória dos outros serviços e "
 "tabelas não-InnoDB e atribuir o valor desta variável de acordo com este "
 "consumo. Tenha cuidado, pois ao atribuir valores muito altos, seu sistema "
 "começará a fazer swap, o que diminuirá o desempenho significativamente. Veja "
@@ -13785,7 +13785,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr "Inserções concorrentes no MyISAM"
+msgstr "Inserções MyISAM concorrentes"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
