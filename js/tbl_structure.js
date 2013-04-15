@@ -158,7 +158,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     toggleRowColors($curr_row.next());
                     // Adjust the row numbers
                     for (var $row = $curr_row.next(); $row.length > 0; $row = $row.next()) {
-                        var new_val = parseInt($row.find('td:nth-child(2)').text()) - 1;
+                        var new_val = parseInt($row.find('td:nth-child(2)').text(), 10) - 1;
                         $row.find('td:nth-child(2)').text(new_val);
                     }
                     $after_field_item.remove();

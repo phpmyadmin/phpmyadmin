@@ -71,7 +71,7 @@ AJAX.registerOnload('server_databases.js', function() {
 
                         var $rowsToRemove = $form.find('tr.removeMe');
                         var $databasesCount = $('#databases_count');
-                        var newCount = parseInt($databasesCount.text()) - $rowsToRemove.length;
+                        var newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
                         $databasesCount.text(newCount);
 
                         $rowsToRemove.remove();
@@ -114,7 +114,7 @@ AJAX.registerOnload('server_databases.js', function() {
                 .PMA_sort_table('.name');
 
                 var $databases_count_object = $('#databases_count');
-                var databases_count = parseInt($databases_count_object.text()) + 1;
+                var databases_count = parseInt($databases_count_object.text(), 10) + 1;
                 $databases_count_object.text(databases_count);
                 PMA_reloadNavigation();
             } else {

@@ -78,7 +78,7 @@ function daysInFebruary (year)
 //function to convert single digit to double digit
 function fractionReplace(num)
 {
-    num = parseInt(num);
+    num = parseInt(num, 10);
     return num >= 1 && num <= 9 ? '0' + num : '00';
 }
 
@@ -105,14 +105,14 @@ function isDate(val,tmstmp)
         pos=0;
     }
     if (dtexp.test(val)) {
-        var month=parseInt(val.substring(pos+3,pos+5));
-        var day=parseInt(val.substring(pos+6,pos+8));
-        var year=parseInt(val.substring(0,pos+2));
+        var month=parseInt(val.substring(pos+3,pos+5), 10);
+        var day=parseInt(val.substring(pos+6,pos+8), 10);
+        var year=parseInt(val.substring(0,pos+2), 10);
         if (month == 2 && day > daysInFebruary(year)) {
             return false;
         }
         if (val.substring(0, pos + 2).length == 2) {
-            year = parseInt("20" + val.substring(0,pos+2));
+            year = parseInt("20" + val.substring(0,pos+2), 10);
         }
         if (tmstmp === true) {
             if (year < 1978) {
@@ -365,7 +365,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                     /** extract the [10] from  {@link name_parts} */
                     var old_row_index_string = this_name.match(/\[\d+\]/)[0];
                     /** extract 10 - had to split into two steps to accomodate double digits */
-                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0]);
+                    var old_row_index = parseInt(old_row_index_string.match(/\d+/)[0], 10);
 
                     /** calculate next index i.e. 11 */
                     new_row_index = old_row_index + 1;
@@ -446,7 +446,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                     /** name of {@link $last_checkbox} */
                     var last_checkbox_name = $last_checkbox.attr('name');
                     /** index of {@link $last_checkbox} */
-                    var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/));
+                    var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/), 10);
                     /** name of new {@link $last_checkbox} */
                     var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
 

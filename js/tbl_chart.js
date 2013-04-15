@@ -46,7 +46,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
         yaxisLabel : $('input[name="yaxis_label"]').val(),
         title : $('input[name="chartTitle"]').val(),
         stackSeries : false,
-        mainAxis : parseInt($('select[name="chartXAxis"]').val()),
+        mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
         selectedSeries : getSelectedSeries()
     };
 
@@ -92,12 +92,12 @@ AJAX.registerOnload('tbl_chart.js', function() {
     var dateTimeCols = [];
     var vals = $('input[name="dateTimeCols"]').val().split(' ');
     $.each(vals, function(i, v) {
-        dateTimeCols.push(parseInt(v));
+        dateTimeCols.push(parseInt(v, 10));
     });
 
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function() {
-        currentSettings.mainAxis = parseInt($(this).val());
+        currentSettings.mainAxis = parseInt($(this).val(), 10);
         if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
             $('span.span_timeline').show();
         } else {
@@ -214,7 +214,7 @@ function getSelectedSeries() {
     var val = $('select[name="chartSeries"]').val() || [];
     var ret = [];
     $.each(val, function(i, v) {
-        ret.push(parseInt(v));
+        ret.push(parseInt(v, 10));
     });
     return ret;
 }

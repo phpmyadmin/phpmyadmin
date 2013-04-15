@@ -436,7 +436,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                             } else {
                                 // Case 2: drop is a empty cell => just completely rebuild the ids
                                 var keys = [];
-                                var dropKeyNum = parseInt(dropKey.substr(1));
+                                var dropKeyNum = parseInt(dropKey.substr(1), 10);
                                 var insertBefore = pos.col + pos.row * monitorSettings.columns;
                                 var values = [];
                                 var newChartList = {};
@@ -483,7 +483,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     // global settings
     $('div.popupContent select[name="chartColumns"]').change(function() {
-        monitorSettings.columns = parseInt(this.value);
+        monitorSettings.columns = parseInt(this.value, 10);
 
         var newSize = chartSize();
 
@@ -549,7 +549,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     });
 
     $('div.popupContent select[name="gridChartRefresh"]').change(function() {
-        monitorSettings.gridRefresh = parseInt(this.value) * 1000;
+        monitorSettings.gridRefresh = parseInt(this.value, 10) * 1000;
         clearTimeout(runtime.refreshTimeout);
 
         if (runtime.refreshRequest) {
@@ -981,7 +981,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         }
 
         if ($('input[name="useDivisor"]').prop('checked')) {
-            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').val());
+            serie.valueDivisor = parseInt($('input[name="valueDivisor"]').val(), 10);
         }
 
         if ($('input[name="useUnit"]').prop('checked')) {
@@ -1467,7 +1467,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         if (oldChartData == null) {
                             diff = chartData.x - runtime.xmax;
                         } else {
-                            diff = parseInt(chartData.x - oldChartData.x);
+                            diff = parseInt(chartData.x - oldChartData.x, 10);
                         }
 
                         runtime.xmin += diff;
@@ -1786,8 +1786,8 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 columnSums[query][0] += timeToSec(cells[2].replace(/(<td>|<\/td>)/gi, ''));
                 columnSums[query][1] += timeToSec(cells[3].replace(/(<td>|<\/td>)/gi, ''));
                 // rows_examind and rows_sent are just numbers
-                columnSums[query][2] += parseInt(cells[4].replace(/(<td>|<\/td>)/gi, ''));
-                columnSums[query][3] += parseInt(cells[5].replace(/(<td>|<\/td>)/gi, ''));
+                columnSums[query][2] += parseInt(cells[4].replace(/(<td>|<\/td>)/gi, ''), 10);
+                columnSums[query][3] += parseInt(cells[5].replace(/(<td>|<\/td>)/gi, ''), 10);
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
@@ -1806,11 +1806,11 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         // Js does not specify a limit on property name length,
                         // so we can abuse it as index :-)
                         if (filteredQueries[q]) {
-                            filteredQueries[q] += parseInt($t.next().text());
-                            totalSum += parseInt($t.next().text());
+                            filteredQueries[q] += parseInt($t.next().text(), 10);
+                            totalSum += parseInt($t.next().text(), 10);
                             hide = true;
                         } else {
-                            filteredQueries[q] = parseInt($t.next().text());
+                            filteredQueries[q] = parseInt($t.next().text(), 10);
                             filteredQueriesLines[q] = i;
                             $t.text(q);
                         }
@@ -1846,7 +1846,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 if (hide) {
                     $t.parent().css('display', 'none');
                 } else {
-                    totalSum += parseInt($t.next().text());
+                    totalSum += parseInt($t.next().text(), );
                     rowSum++;
 
                     odd_row = ! odd_row;

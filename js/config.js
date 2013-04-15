@@ -255,7 +255,7 @@ var validators = {
      * @param {int} max_value
      */
     validate_upper_bound: function(isKeyUp, max_value) {
-        var val = parseInt(this.value);
+        var val = parseInt(this.value, 10);
         if (isNaN(val)) {
             return true;
         }
