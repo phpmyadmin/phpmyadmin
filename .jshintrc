@@ -16,7 +16,7 @@
     "trailing" : true,
 
     // Relaxing rules
-    "sub" : true,
-    "funcscope" : true,
+    "sub" : false,
+    "funcscope" : false,
     "laxbreak" : false
 }
