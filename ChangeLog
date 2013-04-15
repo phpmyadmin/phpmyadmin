@@ -109,6 +109,7 @@ underscore
 - bug #3874 [export] No preselected option when exporting table
 - bug #3873 Can't copy table to target database if table exists there
 - bug #3683 Incorrect listing of records from to count
+- bug #3876 [import] PHP 5.2 - unexpected T_PAAMAYIM_NEKUDOTAYIM
 
 3.5.9.0 (not yet released)
 
