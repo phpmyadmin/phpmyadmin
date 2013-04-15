@@ -223,6 +223,6 @@ AJAX.registerOnload('db_search.js', function() {
             }
 
             PMA_ajaxRemoveMessage($msgbox);
-        })
-    })
+        });
+    });
 }); // end $()

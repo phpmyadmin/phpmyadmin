@@ -1199,7 +1199,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         if ($('#' + 'gridchart' + runtime.chartAI).length === 0) {
             var numCharts = $('#chartGrid .monitorChart').length;
 
-            if (numCharts === 0 || !( numCharts % monitorSettings.columns)) {
+            if (numCharts === 0 || (numCharts % monitorSettings.columns === 0)) {
                 $('#chartGrid').append('<tr></tr>');
             }
 
@@ -1568,7 +1568,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
      */
     function getMaxYLabel(dataValues) {
         var maxY = dataValues[0][1];
-        $.each(dataValues,function(k,v){maxY = (v[1]>maxY) ? v[1] : maxY});
+        $.each(dataValues,function(k,v){
+            maxY = (v[1]>maxY) ? v[1] : maxY;
+        });
         return maxY;
     }
 
@@ -1846,7 +1848,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 if (hide) {
                     $t.parent().css('display', 'none');
                 } else {
-                    totalSum += parseInt($t.next().text(), );
+                    totalSum += parseInt($t.next().text(), 10);
                     rowSum++;
 
                     odd_row = ! odd_row;
@@ -1903,7 +1905,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     /* Turns a timespan (12:12:12) into a number */
     function timeToSec(timeStr) {
         var time = timeStr.split(':');
-        return parseInt(time[0]*3600) + parseInt(time[1]*60) + parseInt(time[2]);
+        return (parseInt(time[0], 10) * 3600) + (parseInt(time[1], 10) * 60) + parseInt(time[2], 10);
     }
 
     /* Turns a number into a timespan (100 into 00:01:40) */

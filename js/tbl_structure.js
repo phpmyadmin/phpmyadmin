@@ -379,7 +379,7 @@ function PMA_tbl_structure_menu_resizer_callback() {
     var columnsWidth = 0;
     var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
     $columns.not(':last').each(function (){
-        columnsWidth += $(this).outerWidth(true)
+        columnsWidth += $(this).outerWidth(true);
     });
     var totalCellSpacing = $('#tablestructure').width();
     $columns.each(function (){

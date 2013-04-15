@@ -33,7 +33,7 @@ $(function () {
     $.tablesorter.addParser({
         id: "fancyNumber",
         is: function(s) {
-            return /^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/.test(s);
+            return (/^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function(s) {
             var num = jQuery.tablesorter.formatFloat(
@@ -59,7 +59,7 @@ $(function () {
     $.tablesorter.addParser({
         id: "withinSpanNumber",
         is: function(s) {
-            return /<span class="original"/.test(s);
+            return (/<span class="original"/).test(s);
         },
         format: function(s, table, html) {
             var res = html.innerHTML.match(/<span(\s*style="display:none;"\s*)?\s*class="original">(.*)?<\/span>/);

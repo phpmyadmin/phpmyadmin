@@ -567,7 +567,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
-            currentChart.replot( {resetAxes: true})
+            currentChart.replot( {resetAxes: true});
         });
 
         $('div#querychart').bind('jqplotDataClick',
