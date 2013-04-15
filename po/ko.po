@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-15 12:56+0200\n"
+"PO-Revision-Date: 2013-04-15 14:03+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -2211,12 +2211,12 @@ msgstr "규칙 '%s'에 대한 precondition 계산 실패"
 #: libraries/Advisor.class.php:121
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "규칙 '%s'에 대한 값 계산 실패"
 
 #: libraries/Advisor.class.php:140
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "규칙 '%s'에 대한 테스트를 실행 못 함"
 
 #: libraries/Advisor.class.php:222
 #, php-format
@@ -5476,6 +5476,8 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"MySQL 와일드카드 문자 (%와 _)를 쓸 수 있습니다. 원래 의미로 쓰기 위해서는 이스케이프 "
+"하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -9670,7 +9672,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:171
 msgid "Transformation options"
-msgstr ""
+msgstr "변환 옵션"
 
 #: libraries/tbl_columns_definition_form.inc.php:174
 msgid ""
@@ -9685,14 +9687,13 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:412
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "ENUM 또는 SET 데이터가 너무 긴 것 같음"
 
 #: libraries/tbl_columns_definition_form.inc.php:414
 msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:430
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
@@ -9700,31 +9701,31 @@ msgstr "없음"
 
 #: libraries/tbl_columns_definition_form.inc.php:431
 msgid "As defined:"
-msgstr ""
+msgstr "사용자 정의:"
 
 #: libraries/tbl_columns_definition_form.inc.php:634
 msgid "first"
-msgstr ""
+msgstr "맨 처음"
 
 #: libraries/tbl_columns_definition_form.inc.php:644
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "%s 다음에"
 
 #: libraries/tbl_columns_definition_form.inc.php:737
 msgid "Table name"
-msgstr ""
+msgstr "테이블 이름"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
 msgid "PARTITION definition"
-msgstr ""
+msgstr "PARTITION 정의"
 
 #: libraries/tbl_common.inc.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
-msgstr "트래킹이 활성화되었습니다."
+msgstr "%s의 트래킹이 활성화되었습니다."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -12436,7 +12437,7 @@ msgstr ""
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "이 값을 감소시켜 성능을 향상할 수 있음(환경에 따라 다름)."
 
 #: libraries/advisory_rules.txt:200
 #, php-format
@@ -12487,20 +12488,19 @@ msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합�
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
-msgstr ""
+msgstr "시스템의 메모리 한계값에 따라 {sort_buffer_size} 나 {read_rnd_buffer_size} 값을 증가시키세요"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr ""
+msgstr "정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니다."
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "임시테이블 생성 허용."
+msgstr "임시 테이블을 생성하는 정렬의 비율"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -12514,7 +12514,7 @@ msgstr "행 정렬"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "정렬중인 로우가 많습니다."
 
 #: libraries/advisory_rules.txt:229
 msgid ""
