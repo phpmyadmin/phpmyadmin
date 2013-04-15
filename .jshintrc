@@ -1,4 +1,7 @@
 {
+    // Show more errors
+    "maxerr" : 200,
+
     // Globals
     "jquery" : true,
 
@@ -9,11 +12,11 @@
     "latedef" : true,
     "noarg" : true,
     "noempty" : true,
-    "unused" : true,
+    "unused" : false,
     "trailing" : true,
 
     // Relaxing rules
-    "sub" : false,
-    "funcscope" : false,
+    "sub" : true,
+    "funcscope" : true,
     "laxbreak" : false
 }
