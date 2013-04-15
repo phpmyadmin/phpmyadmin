@@ -23,7 +23,7 @@ function makeRequest(url, parameters)
 function PrintXML(data)
 {
     var $root = $(data).find('root');
-    if ($root.length == 0) {
+    if ($root.length === 0) {
         // error
         var myWin=window.open('','Report','width=400, height=250, resizable=1, scrollbars=1, status=1');
         var tmp = myWin.document;

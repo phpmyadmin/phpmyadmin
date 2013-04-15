@@ -222,7 +222,7 @@ function history_edit(index)
 function edit(type)
 {
     if (type == "Rename") {
-        if (document.getElementById('e_rename').value != "") {
+        if (document.getElementById('e_rename').value !== "") {
             history_array[g_index].get_obj().setrename_to(document.getElementById('e_rename').value);
             document.getElementById('e_rename').value = "";
         }
@@ -479,7 +479,7 @@ function build_query(formtitle, fadin)
     var temp;
     for (var i = 0;i < select_field.length; i++) {
         temp = check_aggregate(select_field[i]);
-        if (temp != "") {
+        if (temp !== "") {
             q_select += temp;
             temp = check_rename(select_field[i]);
             q_select += temp + ",";
@@ -490,13 +490,13 @@ function build_query(formtitle, fadin)
     }
     q_select = q_select.substring(0,q_select.length - 1);
     q_select += " FROM " + query_from();
-    if (query_where() != "") {
+    if (query_where() !== "") {
         q_select +="\n WHERE";
         q_select += query_where();
     }
-    if (query_groupby() != "") { q_select += "\nGROUP BY " + query_groupby(); }
-    if (query_having() != "") { q_select += "\nHAVING " + query_having(); }
-    if (query_orderby() != "") { q_select += "\nORDER BY " + query_orderby(); }
+    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
+    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
+    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
     var box = document.getElementById('box');
     document.getElementById('filter').style.display='block';
     var btitle = document.getElementById('boxtitle');
@@ -708,7 +708,7 @@ function query_where()
     var or = "(";
     for (i = 0; i < history_array.length;i++) {
         if (history_array[i].get_type() == "Where") {
-            if (history_array[i].get_and_or() == 0) {
+            if (history_array[i].get_and_or() === 0) {
                 and += "( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() +" " + history_array[i].get_obj().getquery() + ")";                and += " AND ";
             } else {
                 or +="( " + history_array[i].get_column_name() + " " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() +")";
@@ -726,7 +726,7 @@ function query_where()
     } else {
         and = "" ;
     }
-    if (or != "" ) {
+    if (or !== "" ) {
         and = and + " OR " + or + " )";
     }
     return and;
