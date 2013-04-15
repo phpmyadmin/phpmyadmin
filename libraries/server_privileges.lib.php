@@ -2280,7 +2280,7 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
             // contrary to the output of SHOW DATABASES
             if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
                 $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
-                    . htmlspecialchars($current_db) . '</option>' . "\n";
+                    . htmlspecialchars(PMA_Util::unescapeMysqlWildcards($current_db)) . '</option>' . "\n";
             }
         }
         $html_output .= '</select>' . "\n";
