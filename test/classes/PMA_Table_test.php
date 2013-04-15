@@ -78,8 +78,8 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     public function testSetAndGet()
     {
         $table = new PMA_Table('table1', 'pma_test');
-        $table->set("production","Phpmyadmin");
-        $table->set("db","mysql");
+        $table->set('production', 'Phpmyadmin');
+        $table->set('db', 'mysql');
         $this->assertEquals(
             "Phpmyadmin",
             $table->get("production")
