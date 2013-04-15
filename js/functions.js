@@ -136,11 +136,10 @@ function PMA_current_version(data)
                 escapeHtml(data['version']),
                 escapeHtml(data['date'])
             );
+            var klass = 'notice';
             if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
                 /* Security update */
-                var klass = 'error';
-            } else {
-                var klass = 'notice';
+                klass = 'error';
             }
             $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
         }
