@@ -869,17 +869,15 @@ function refreshLayout()
 {
     var $elm = $('#pdflayout');
     var orientation = $('#orientation_opt').val();
+    var paper = 'A4';
     if ($('#paper_opt').length==1) {
-        var paper = $('#paper_opt').val();
-    }else{
-        var paper = 'A4';
+        paper = $('#paper_opt').val();
     }
+    var posa = 'y';
+    var posb = 'x';
     if (orientation == 'P') {
-        var posa = 'x';
-        var posb = 'y';
-    } else {
-        var posa = 'y';
-        var posb = 'x';
+        posa = 'x';
+        posb = 'y';
     }
     $elm.css('width', pdfPaperSize(paper, posa) + 'px');
     $elm.css('height', pdfPaperSize(paper, posb) + 'px');
