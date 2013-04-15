@@ -35,7 +35,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").bind('submit', function(event) {
+    $(".append_fields_form.ajax").live('submit', function(event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
