@@ -346,8 +346,8 @@ AJAX.registerOnload('gis_data_editor.js', function() {
 
         // Add the new polygon
         var html = PMA_messages['strPolygon'] + ' ' + (noOfPolygons + 1) + ':<br/>';
-        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1"/>';
-            + '<br/>' + PMA_messages['strOuterRing'] + ':';
+        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1"/>'
+            + '<br/>' + PMA_messages['strOuterRing'] + ':'
             + '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4"/>';
         for (var i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
