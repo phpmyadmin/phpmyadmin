@@ -9,7 +9,7 @@ var currentSettings = null;
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_chart.js', function() {
+AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="chartType"]').unbind('click');
     $('input[name="barStacked"]').unbind('click');
     $('input[name="chartTitle"]').unbind('focus').unbind('keyup').unbind('blur');
@@ -20,7 +20,7 @@ AJAX.registerTeardown('tbl_chart.js', function() {
     $('#resizer').unbind('resizestop');
 });
 
-AJAX.registerOnload('tbl_chart.js', function() {
+AJAX.registerOnload('tbl_chart.js', function () {
 
     // from jQuery UI
     $('#resizer').resizable({
@@ -29,7 +29,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     })
     .width($('#div_view_options').width() - 50);
 
-    $('#resizer').bind('resizestop', function(event, ui) {
+    $('#resizer').bind('resizestop', function (event, ui) {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);
@@ -51,7 +51,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     };
 
     // handle chart type changes
-    $('input[name="chartType"]').click(function() {
+    $('input[name="chartType"]').click(function () {
         currentSettings.type = $(this).val();
         drawChart();
         if ($(this).val() == 'bar' || $(this).val() == 'column'
@@ -64,7 +64,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle stacking for bar, column and area charts
-    $('input[name="barStacked"]').click(function() {
+    $('input[name="barStacked"]').click(function () {
         if (this.checked) {
             $.extend(true, currentSettings, {stackSeries : true});
         } else {
@@ -74,16 +74,16 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle changes in chart title
-    $('input[name="chartTitle"]').focus(function() {
+    $('input[name="chartTitle"]').focus(function () {
         temp_chart_title = $(this).val();
-    }).keyup(function() {
+    }).keyup(function () {
         var title = $(this).val();
         if (title.length === 0) {
             title = ' ';
         }
         currentSettings.title = $('input[name="chartTitle"]').val();
         drawChart();
-    }).blur(function() {
+    }).blur(function () {
         if ($(this).val() != temp_chart_title) {
             drawChart();
         }
@@ -91,12 +91,12 @@ AJAX.registerOnload('tbl_chart.js', function() {
 
     var dateTimeCols = [];
     var vals = $('input[name="dateTimeCols"]').val().split(' ');
-    $.each(vals, function(i, v) {
+    $.each(vals, function (i, v) {
         dateTimeCols.push(parseInt(v, 10));
     });
 
     // handle changing the x-axis
-    $('select[name="chartXAxis"]').change(function() {
+    $('select[name="chartXAxis"]').change(function () {
         currentSettings.mainAxis = parseInt($(this).val(), 10);
         if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
             $('span.span_timeline').show();
@@ -114,7 +114,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle changing the selected data series
-    $('select[name="chartSeries"]').change(function() {
+    $('select[name="chartSeries"]').change(function () {
         currentSettings.selectedSeries = getSelectedSeries();
         var yaxis_title;
         if (currentSettings.selectedSeries.length == 1) {
@@ -134,11 +134,11 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle manual changes to the chart axis labels
-    $('input[name="xaxis_label"]').keyup(function() {
+    $('input[name="xaxis_label"]').keyup(function () {
         currentSettings.xaxisLabel = $(this).val();
         drawChart();
     });
-    $('input[name="yaxis_label"]').keyup(function() {
+    $('input[name="yaxis_label"]').keyup(function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });
@@ -150,7 +150,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
  * Ajax Event handler for 'Go' button click
  *
  */
-$("#tblchartform").live('submit', function(event) {
+$("#tblchartform").live('submit', function (event) {
     if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
         || !checkFormElementInRange(this, 'pos', PMA_messages['strNotValidRowNumber'], 0 - 1)) {
         return false;
@@ -165,7 +165,7 @@ $("#tblchartform").live('submit', function(event) {
     var $msgbox = PMA_ajaxShowMessage();
     PMA_prepareForAjaxRequest($form);
 
-    $.post($form.attr('action'), $form.serialize(), function(data) {
+    $.post($form.attr('action'), $form.serialize(), function (data) {
         if (data.success === true) {
             $('.success').fadeOut();
             if (typeof data.chartData != 'undefined') {
@@ -200,7 +200,7 @@ function drawChart() {
     }
 
     var columnNames = [];
-    $('select[name="chartXAxis"] option').each(function() {
+    $('select[name="chartXAxis"] option').each(function () {
         columnNames.push($(this).text());
     });
     try {
@@ -213,7 +213,7 @@ function drawChart() {
 function getSelectedSeries() {
     var val = $('select[name="chartSeries"]').val() || [];
     var ret = [];
-    $.each(val, function(i, v) {
+    $.each(val, function (i, v) {
         ret.push(parseInt(v, 10));
     });
     return ret;
@@ -285,13 +285,13 @@ function PMA_queryChart(data, columnNames, settings) {
     } else {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
-    $.each(settings.selectedSeries, function(index, element) {
+    $.each(settings.selectedSeries, function (index, element) {
         dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
     });
 
     // set data to the data table
     var columnsToExtract = [ settings.mainAxis ];
-    $.each(settings.selectedSeries, function(index, element) {
+    $.each(settings.selectedSeries, function (index, element) {
         columnsToExtract.push(element);
     });
     var values = [], newRow, row, col;

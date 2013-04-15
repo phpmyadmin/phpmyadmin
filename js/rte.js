@@ -16,17 +16,17 @@ var RTE = {
     object: function (type) {
         $.extend(this, RTE.COMMON);
         switch (type) {
-            case 'routine':
-                $.extend(this, RTE.ROUTINE);
-                break;
-            case 'trigger':
-                // nothing extra yet for triggers
-                break;
-            case 'event':
-                $.extend(this, RTE.EVENT);
-                break;
-            default:
-                break;
+        case 'routine':
+            $.extend(this, RTE.ROUTINE);
+            break;
+        case 'trigger':
+            // nothing extra yet for triggers
+            break;
+        case 'event':
+            $.extend(this, RTE.EVENT);
+            break;
+        default:
+            break;
         }
     },
     /**
@@ -126,10 +126,10 @@ RTE.COMMON = {
                  * Display the dialog to the user
                  */
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                      width: 500,
-                                      buttons: button_options,
-                                      title: data.title
-                                  });
+                    width: 500,
+                    buttons: button_options,
+                    title: data.title
+                });
                 // Attach syntax highlited editor to export dialog
                 /**
                  * @var $elm jQuery object containing the reference
@@ -297,15 +297,15 @@ RTE.COMMON = {
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                width: 700,
-                                minWidth: 500,
-                                buttons: that.buttonOptions,
-                                title: data.title,
-                                modal: true,
-                                close: function () {
-                                    $(this).remove();
-                                }
-                        });
+                    width: 700,
+                    minWidth: 500,
+                    buttons: that.buttonOptions,
+                    title: data.title,
+                    modal: true,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
                 that.$ajaxDialog.find('input[name=item_name]').focus();
                 that.$ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                     PMA_addDatepicker($(this).css('width', '95%'));
@@ -766,7 +766,7 @@ $(function () {
      */
     $('a.ajax.drop_anchor').live('click', function (event) {
         event.preventDefault();
-         var dialog = new RTE.object();
+        var dialog = new RTE.object();
         dialog.dropDialog($(this));
     }); // end $.live()
 

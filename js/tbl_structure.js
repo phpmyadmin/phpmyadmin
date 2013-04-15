@@ -21,7 +21,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_structure.js', function() {
+AJAX.registerTeardown('tbl_structure.js', function () {
     $("a.change_column_anchor.ajax").die('click');
     $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").die('click');
     $("a.drop_column_anchor.ajax").die('click');
@@ -30,12 +30,12 @@ AJAX.registerTeardown('tbl_structure.js', function() {
     $(".append_fields_form.ajax").unbind('submit');
 });
 
-AJAX.registerOnload('tbl_structure.js', function() {
+AJAX.registerOnload('tbl_structure.js', function () {
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").bind('submit', function(event) {
+    $(".append_fields_form.ajax").bind('submit', function (event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
@@ -54,7 +54,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
             PMA_prepareForAjaxRequest($form);
             //User wants to submit the form
             PMA_ajaxShowMessage();
-            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function(data) {
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
                 if ($("#sqlqueryresults").length !== 0) {
                     $("#sqlqueryresults").remove();
                 } else if ($(".error").length !== 0) {
@@ -82,10 +82,10 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Change Column'
      */
-    $("a.change_column_anchor.ajax").live('click', function(event) {
+    $("a.change_column_anchor.ajax").live('click', function (event) {
         event.preventDefault();
         $('#page_content').hide();
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success) {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
@@ -100,7 +100,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Change multiple columns'
      */
-    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function(event) {
+    $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function (event) {
         event.preventDefault();
         $('#page_content').hide();
         var $form = $(this).closest('form');
@@ -120,7 +120,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Drop Column'
      */
-    $("a.drop_column_anchor.ajax").live('click', function(event) {
+    $("a.drop_column_anchor.ajax").live('click', function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -142,9 +142,9 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
@@ -176,7 +176,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Ajax Event handler for 'Add Primary Key'
      */
-    $("a.add_primary_key_anchor.ajax").live('click', function(event) {
+    $("a.add_primary_key_anchor.ajax").live('click', function (event) {
         event.preventDefault();
         /**
          * @var curr_table_name String containing the name of the current table
@@ -190,9 +190,9 @@ AJAX.registerOnload('tbl_structure.js', function() {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
-        $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
+        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
@@ -219,7 +219,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Inline move columns
     **/
-    $("#move_columns_anchor").live('click', function(e) {
+    $("#move_columns_anchor").live('click', function (e) {
         e.preventDefault();
 
         if ($(this).hasClass("move-active")) {
@@ -232,7 +232,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
          */
         var button_options = {};
 
-        button_options[PMA_messages['strGo']] = function(event) {
+        button_options[PMA_messages['strGo']] = function (event) {
             event.preventDefault();
             var $msgbox = PMA_ajaxShowMessage();
             var $this = $(this);
@@ -290,12 +290,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
                 }
             });
         };
-        button_options[PMA_messages['strCancel']] = function() {
+        button_options[PMA_messages['strCancel']] = function () {
             $(this).dialog('close');
         };
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function() {
+        button_options_error[PMA_messages['strOK']] = function () {
             $(this).dialog('close').remove();
         };
 
@@ -341,7 +341,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
  * Reload fields table
  */
 function reloadFieldForm(message) {
-    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
+    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function (form_data) {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
@@ -349,7 +349,7 @@ function reloadFieldForm(message) {
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
         $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-        setTimeout(function() {
+        setTimeout(function () {
             PMA_ajaxShowMessage(message);
         }, 500);
     });
@@ -389,12 +389,12 @@ function PMA_tbl_structure_menu_resizer_callback() {
 }
 
 /** Handler for "More" dropdown in structure table rows */
-AJAX.registerOnload('tbl_structure.js', function() {
+AJAX.registerOnload('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {
         $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
     }
 });
-AJAX.registerTeardown('tbl_structure.js', function() {
+AJAX.registerTeardown('tbl_structure.js', function () {
     $('#fieldsForm ul.table-structure-actions').menuResizer('destroy');
 });
 $(function () {

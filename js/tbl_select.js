@@ -16,14 +16,14 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_select.js', function() {
+AJAX.registerTeardown('tbl_select.js', function () {
     $('#togglesearchformlink').unbind('click');
     $("#tbl_search_form.ajax").die('submit');
     $('select.geom_func').unbind('change');
     $('span.open_search_gis_editor').die('click');
 });
 
-AJAX.registerOnload('tbl_select.js', function() {
+AJAX.registerOnload('tbl_select.js', function () {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks
@@ -35,7 +35,7 @@ AJAX.registerOnload('tbl_select.js', function() {
 
     $('#togglesearchformlink')
         .html(PMA_messages['strShowSearchCriteria'])
-        .bind('click', function() {
+        .bind('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
             if ($link.text() == PMA_messages['strHideSearchCriteria']) {
@@ -50,12 +50,13 @@ AJAX.registerOnload('tbl_select.js', function() {
     /**
      * Ajax event handler for Table Search
      */
-    $("#tbl_search_form.ajax").live('submit', function(event) {
+    $("#tbl_search_form.ajax").live('submit', function (event) {
         var unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
             "= ''",
-            "!= ''"];
+            "!= ''"
+        ];
 
         // jQuery object to reuse
         $search_form = $(this);
@@ -68,7 +69,7 @@ AJAX.registerOnload('tbl_select.js', function() {
         PMA_prepareForAjaxRequest($search_form);
 
         var values = {};
-        $search_form.find(':input').each(function() {
+        $search_form.find(':input').each(function () {
             var $input = $(this);
             if ($input.attr('type') == 'checkbox' || $input.attr('type') == 'radio') {
                 if ($input.is(':checked')) {
@@ -103,7 +104,7 @@ AJAX.registerOnload('tbl_select.js', function() {
             values['displayAllColumns'] = true;
         }
 
-        $.post($search_form.attr('action'), values, function(data) {
+        $.post($search_form.attr('action'), values, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success === true) {
                 if (data.sql_query !== null) { // zero rows
@@ -123,7 +124,7 @@ AJAX.registerOnload('tbl_select.js', function() {
                  // now it's time to show the div containing the link
                  .show();
                  // needed for the display options slider in the results
-                 PMA_init_slider();
+                PMA_init_slider();
             } else {
                 $("#sqlqueryresults").html(data.error);
             }
@@ -134,42 +135,42 @@ AJAX.registerOnload('tbl_select.js', function() {
     // Initialy hide all the open_gis_editor spans
     $('span.open_search_gis_editor').hide();
 
-    $('select.geom_func').bind('change', function() {
+    $('select.geom_func').bind('change', function () {
         var $geomFuncSelector = $(this);
 
         var binaryFunctions = [
-          'Contains',
-          'Crosses',
-          'Disjoint',
-          'Equals',
-          'Intersects',
-          'Overlaps',
-          'Touches',
-          'Within',
-          'MBRContains',
-          'MBRDisjoint',
-          'MBREquals',
-          'MBRIntersects',
-          'MBROverlaps',
-          'MBRTouches',
-          'MBRWithin',
-          'ST_Contains',
-          'ST_Crosses',
-          'ST_Disjoint',
-          'ST_Equals',
-          'ST_Intersects',
-          'ST_Overlaps',
-          'ST_Touches',
-          'ST_Within'
+            'Contains',
+            'Crosses',
+            'Disjoint',
+            'Equals',
+            'Intersects',
+            'Overlaps',
+            'Touches',
+            'Within',
+            'MBRContains',
+            'MBRDisjoint',
+            'MBREquals',
+            'MBRIntersects',
+            'MBROverlaps',
+            'MBRTouches',
+            'MBRWithin',
+            'ST_Contains',
+            'ST_Crosses',
+            'ST_Disjoint',
+            'ST_Equals',
+            'ST_Intersects',
+            'ST_Overlaps',
+            'ST_Touches',
+            'ST_Within'
         ];
 
         var tempArray = [
-           'Envelope',
-           'EndPoint',
-           'StartPoint',
-           'ExteriorRing',
-           'Centroid',
-           'PointOnSurface'
+            'Envelope',
+            'EndPoint',
+            'StartPoint',
+            'ExteriorRing',
+            'Centroid',
+            'PointOnSurface'
         ];
         var outputGeomFunctions = binaryFunctions.concat(tempArray);
 
@@ -191,7 +192,7 @@ AJAX.registerOnload('tbl_select.js', function() {
 
     });
 
-    $('span.open_search_gis_editor').live('click', function(event) {
+    $('span.open_search_gis_editor').live('click', function (event) {
         event.preventDefault();
 
         var $span = $(this);

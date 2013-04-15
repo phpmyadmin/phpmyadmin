@@ -8,23 +8,23 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_advisor.js', function() {
+AJAX.registerTeardown('server_status_advisor.js', function () {
     $('a[href="#openAdvisorInstructions"]').unbind('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
     $('#instructionsDialog').remove();
 });
 
-AJAX.registerOnload('server_status_advisor.js', function() {
+AJAX.registerOnload('server_status_advisor.js', function () {
     /**** Server config advisor ****/
     var $dialog = $('<div />').attr('id', 'advisorDialog');
     var $instructionsDialog = $('<div />')
         .attr('id', 'instructionsDialog')
         .html($('#advisorInstructionsDialog').html());
 
-    $('a[href="#openAdvisorInstructions"]').click(function() {
+    $('a[href="#openAdvisorInstructions"]').click(function () {
         var dlgBtns = {};
-        dlgBtns[PMA_messages['strClose']] = function() {
+        dlgBtns[PMA_messages['strClose']] = function () {
             $(this).dialog('close');
         };
         $instructionsDialog.dialog({
@@ -61,7 +61,7 @@ AJAX.registerOnload('server_status_advisor.js', function() {
 
         var rc_stripped;
 
-        $.each(data.run.fired, function(key, value) {
+        $.each(data.run.fired, function (key, value) {
             // recommendation may contain links, don't show those in overview table (clicking on them redirects the user)
             rc_stripped = $.trim($('<div>').html(value.recommendation).text());
             $tbody.append($tr = $('<tr class="linkElem noclick ' + (even ? 'even' : 'odd') + '"><td>' +
@@ -69,7 +69,7 @@ AJAX.registerOnload('server_status_advisor.js', function() {
             even = !even;
             $tr.data('rule', value);
 
-            $tr.click(function() {
+            $tr.click(function () {
                 var rule = $(this).data('rule');
                 $dialog
                 .dialog({title: PMA_messages['strRuleDetails']})
@@ -82,7 +82,7 @@ AJAX.registerOnload('server_status_advisor.js', function() {
                 );
 
                 var dlgBtns = {};
-                dlgBtns[PMA_messages['strClose']] = function() {
+                dlgBtns[PMA_messages['strClose']] = function () {
                     $(this).dialog('close');
                 };
 

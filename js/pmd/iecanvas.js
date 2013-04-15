@@ -48,28 +48,28 @@ if (!window.all)  // if IE
     this.fillStyle;
     this.lineWidth;
 
-    this.closePath = function() {
+    this.closePath = function () {
       this.pmd_arr.push({type: "close"});
     };
 
-    this.clearRect = function() {
+    this.clearRect = function () {
       this.element_.innerHTML = "";
       this.pmd_arr = [];
     };
 
-    this.beginPath = function() {
+    this.beginPath = function () {
       this.pmd_arr = [];
     };
 
-    this.moveTo = function(aX, aY) {
+    this.moveTo = function (aX, aY) {
       this.pmd_arr.push({type: "moveTo", x: aX, y: aY});
     };
 
-    this.lineTo = function(aX, aY) {
+    this.lineTo = function (aX, aY) {
       this.pmd_arr.push({type: "lineTo", x: aX, y: aY});
     };
 
-    this.arc = function(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise) {
+    this.arc = function (aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise) {
       if (!aClockwise) {
         var t = aStartAngle;
         aStartAngle = aEndAngle;
@@ -86,7 +86,7 @@ if (!window.all)  // if IE
                              radius: aRadius, xStart: xStart, yStart: yStart, xEnd: xEnd, yEnd: yEnd});
     };
 
-    this.rect = function(aX, aY, aW, aH) {
+    this.rect = function (aX, aY, aW, aH) {
       this.moveTo(aX, aY);
       this.lineTo(aX + aW, aY);
       this.lineTo(aX + aW, aY + aH);
@@ -94,7 +94,7 @@ if (!window.all)  // if IE
       this.closePath();
     };
 
-    this.fillRect = function(aX, aY, aW, aH) {
+    this.fillRect = function (aX, aY, aW, aH) {
       this.beginPath();
       this.moveTo(aX, aY);
       this.lineTo(aX + aW, aY);
@@ -104,7 +104,7 @@ if (!window.all)  // if IE
       this.stroke(true);
     };
 
-    this.stroke = function(aFill) {
+    this.stroke = function (aFill) {
       var Str = [];
       var a = convert_style(aFill ? this.fillStyle : this.strokeStyle);
       var color = a[0];

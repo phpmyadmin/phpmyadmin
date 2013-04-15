@@ -8,21 +8,21 @@
  */
 
 
- var _change = 0; // variable to track any change in designer layout.
- var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
- var show_relation_lines = true;
+var _change = 0; // variable to track any change in designer layout.
+var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
+var show_relation_lines = true;
 
-AJAX.registerTeardown('pmd/move.js', function() {
+AJAX.registerTeardown('pmd/move.js', function () {
     if ($.FullScreen.supported) {
         $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
     }
 });
 
-AJAX.registerOnload('pmd/move.js', function() {
+AJAX.registerOnload('pmd/move.js', function () {
     $('#page_content').css({'margin-left': '3px'});
     $('#exitFullscreen').hide();
     if ($.FullScreen.supported) {
-        $(document).fullScreenChange(function() {
+        $(document).fullScreenChange(function () {
             if (! $.FullScreen.isFullScreen()) {
                 $('#page_content').removeClass('content_fullscreen')
                     .css({'width': 'auto', 'height': 'auto'});
@@ -41,18 +41,18 @@ AJAX.registerOnload('pmd/move.js', function() {
 /*
 FIXME: we can't register the beforeonload event because it will persist between pageloads
 
-AJAX.registerOnload('pmd/move.js', function(){
-    $(window).bind('beforeunload', function() {        // onbeforeunload for the frame window.
+AJAX.registerOnload('pmd/move.js', function (){
+    $(window).bind('beforeunload', function () {        // onbeforeunload for the frame window.
         if (_change == 1 && _staying === 0) {
             return PMA_messages['strLeavingDesigner'];
         } else if (_change == 1 && _staying == 1) {
             _staying = 0;
         }
     });
-    $(window).unload(function() {
+    $(window).unload(function () {
         _change = 0;
     });
-    window.top.onbeforeunload = function() {     // onbeforeunload for the browser main window.
+    window.top.onbeforeunload = function () {     // onbeforeunload for the browser main window.
         if (_change == 1 && _staying === 0) {
             _staying = 1;                                                   //  Helps if the user stays on the page  as there
             setTimeout('make_zero();', 100);                    //   is no other way of knowing whether the user stayed or not.
@@ -115,7 +115,7 @@ if (isIE) {
     document.onselectstart = function () {return false;};
 }
 
-//document.onmouseup = function(){General_scroll_end();}
+//document.onmouseup = function (){General_scroll_end();}
 function MouseDown(e)
 {
     var offsetx, offsety;
@@ -706,12 +706,12 @@ function Relation_lines_invert()
 
 function Small_tab_refresh()
 {
-     for (var key in j_tabs) {
-         if(document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
-             Small_tab(key, 0);
-             Small_tab(key, 0);
-         }
-     }
+    for (var key in j_tabs) {
+        if(document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
+            Small_tab(key, 0);
+            Small_tab(key, 0);
+        }
+    }
 }
 
 function Small_tab(t, re_load)
@@ -744,7 +744,7 @@ function Select_tab(t)
     //----------
     var id_t = document.getElementById(t);
     window.scrollTo(parseInt(id_t.style.left, 10) - 300, parseInt(id_t.style.top, 10) - 300);
-    setTimeout(function(){document.getElementById('id_zag_' + t).className = 'tab_zag';}, 800);
+    setTimeout(function (){document.getElementById('id_zag_' + t).className = 'tab_zag';}, 800);
 }
 //------------------------------------------------------------------------------
 
@@ -950,7 +950,7 @@ function General_scroll()
     clearTimeout(timeoutID);
     timeoutID = setTimeout
     (
-        function()
+        function ()
         {
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
             document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';

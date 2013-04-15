@@ -18,7 +18,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_search.js', function() {
+AJAX.registerTeardown('db_search.js', function () {
     $('#buttonGo').unbind('click');
     $('#togglesearchresultlink').unbind('click');
     $("#togglequerybox").unbind('click');
@@ -36,7 +36,7 @@ AJAX.registerTeardown('db_search.js', function() {
  */
 function loadResult(result_path, table_name, link)
 {
-    $(function() {
+    $(function () {
         /**   Hides the results shown by the delete criteria */
         var $msg = PMA_ajaxShowMessage(PMA_messages['strBrowsing'], false);
         $('#sqlqueryform').hide();
@@ -45,7 +45,7 @@ function loadResult(result_path, table_name, link)
         $("#table-info").show();
         $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
         var url = result_path + " #sqlqueryresults";
-        $('#browse-results').load(url, null, function() {
+        $('#browse-results').load(url, null, function () {
             $('html, body')
                 .animate({
                     scrollTop: $("#browse-results").offset().top
@@ -66,7 +66,7 @@ function loadResult(result_path, table_name, link)
  */
 function deleteResult(result_path, msg)
 {
-    $(function() {
+    $(function () {
         /**  Hides the results shown by the browse criteria */
         $("#table-info").hide();
         $('#browse-results').hide();
@@ -92,17 +92,17 @@ function deleteResult(result_path, msg)
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
             });
-       }
+        }
     });
 }
 
-AJAX.registerOnload('db_search.js', function() {
+AJAX.registerOnload('db_search.js', function () {
     /** Hide the table link in the initial search result */
     var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
     $("#table-info").prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
-    $('#buttonGo').click(function(){
+    $('#buttonGo').click(function (){
         $("#table-info").hide();
         $('#browse-results').hide();
         $('#sqlqueryform').hide();
@@ -123,16 +123,16 @@ AJAX.registerOnload('db_search.js', function() {
      */
     $('#togglesearchresultlink')
     .html(PMA_messages['strHideSearchResults'])
-    .bind('click', function() {
-         var $link = $(this);
-         $('#searchresults').slideToggle();
-         if ($link.text() == PMA_messages['strHideSearchResults']) {
-             $link.text(PMA_messages['strShowSearchResults']);
-         } else {
-             $link.text(PMA_messages['strHideSearchResults']);
-         }
-         /** avoid default click action */
-         return false;
+    .bind('click', function () {
+        var $link = $(this);
+        $('#searchresults').slideToggle();
+        if ($link.text() == PMA_messages['strHideSearchResults']) {
+            $link.text(PMA_messages['strShowSearchResults']);
+        } else {
+            $link.text(PMA_messages['strHideSearchResults']);
+        }
+        /** avoid default click action */
+        return false;
     });
 
     /**
@@ -149,7 +149,7 @@ AJAX.registerOnload('db_search.js', function() {
      */
     $("#togglequerybox")
     .hide()
-    .bind('click', function() {
+    .bind('click', function () {
         var $link = $(this);
         $('#sqlqueryform').slideToggle("medium");
         if ($link.text() == PMA_messages['strHideQueryBox']) {
@@ -163,13 +163,13 @@ AJAX.registerOnload('db_search.js', function() {
 
     /** don't show it until we have results on-screen */
 
-   /**
-    * Changing the displayed text according to
-    * the hide/show criteria in search criteria form
-    */
-   $('#togglesearchformlink')
+    /**
+     * Changing the displayed text according to
+     * the hide/show criteria in search criteria form
+     */
+    $('#togglesearchformlink')
        .html(PMA_messages['strShowSearchCriteria'])
-       .bind('click', function() {
+       .bind('click', function () {
             var $link = $(this);
             $('#db_search_form').slideToggle();
             if ($link.text() == PMA_messages['strHideSearchCriteria']) {
@@ -179,11 +179,11 @@ AJAX.registerOnload('db_search.js', function() {
             }
             /** avoid default click action */
             return false;
-       });
+        });
     /**
      * Ajax Event handler for retrieving the result of an SQL Query
      */
-    $("#db_search_form.ajax").live('submit', function(event) {
+    $("#db_search_form.ajax").live('submit', function (event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching'], false);
@@ -193,7 +193,7 @@ AJAX.registerOnload('db_search.js', function() {
         PMA_prepareForAjaxRequest($form);
 
         var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
-        $.post($form.attr('action'), url, function(data) {
+        $.post($form.attr('action'), url, function (data) {
             if (data.success === true) {
                 // found results
                 $("#searchresults").html(data.message);

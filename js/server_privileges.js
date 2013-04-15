@@ -60,7 +60,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
         .insertAfter($curr_last_row)
         .find('input:checkbox')
         .attr('id', new_last_row_id)
-        .val(function() {
+        .val(function () {
             //the insert messes up the &amp;27; part. let's fix it
             return $(this).val().replace(/&/,'&amp;');
         })
@@ -87,7 +87,7 @@ function addUser($form)
     }
 
     //We also need to post the value of the submit button in order to get this to work correctly
-    $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $("input[name=adduser_submit]").val(), function(data) {
+    $.post($form.attr('action'), $form.serialize() + "&adduser_submit=" + $("input[name=adduser_submit]").val(), function (data) {
         if (data.success === true) {
             // Refresh navigation, if we created a database with the name
             // that is the same as the username of the new user
@@ -121,7 +121,7 @@ function addUser($form)
                 url = url + "&ajax_request=true&db_specific=true";
 
                 /* post request for get the updated userForm table */
-                $.post($form.attr('action'), url, function(priv_data) {
+                $.post($form.attr('action'), url, function (priv_data) {
 
                     /*Remove the old userForm table*/
                     if ($('#userFormDiv').length !== 0) {
@@ -165,7 +165,7 @@ function addUser($form)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_privileges.js', function() {
+AJAX.registerTeardown('server_privileges.js', function () {
     $("#fieldset_add_user a.ajax").die("click");
     $('form[name=usersForm]').unbind('submit');
     $("#reload_privileges_anchor.ajax").die("click");
@@ -178,7 +178,7 @@ AJAX.registerTeardown('server_privileges.js', function() {
     $('#checkbox_drop_users_db').unbind('click');
 });
 
-AJAX.registerOnload('server_privileges.js', function() {
+AJAX.registerOnload('server_privileges.js', function () {
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -188,12 +188,12 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @name        add_user_click
      *
      */
-    $("#fieldset_add_user a.ajax").live("click", function(event) {
+    $("#fieldset_add_user a.ajax").live("click", function (event) {
         /** @lends jQuery */
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
+        $.get($(this).attr("href"), {'ajax_request':true}, function (data) {
             if (data.success === true) {
                 $('#page_content').hide();
                 var $div = $('#add_user_dialog');
@@ -231,12 +231,12 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        reload_privileges_click
      */
-    $("#reload_privileges_anchor.ajax").live("click", function(event) {
+    $("#reload_privileges_anchor.ajax").live("click", function (event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
 
-        $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
+        $.get($(this).attr("href"), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msgbox);
             } else {
@@ -253,14 +253,14 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        revoke_user_click
      */
-    $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function(event) {
+    $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function (event) {
         event.preventDefault();
 
         PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
 
         var $form = $("#usersForm");
 
-        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function(data) {
+        $.post($form.attr('action'), $form.serialize() + "&delete=" + $(this).val() + "&ajax_request=true", function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
@@ -269,7 +269,7 @@ AJAX.registerOnload('server_privileges.js', function() {
                     PMA_reloadNavigation();
                 }
                 //Remove the revoked user from the users list
-                $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function() {
+                $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function () {
                     var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
                     $(this).remove();
 
@@ -307,7 +307,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        edit_user_click
      */
-    $("a.edit_user_anchor.ajax").live('click', function(event) {
+    $("a.edit_user_anchor.ajax").live('click', function (event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -323,7 +323,7 @@ AJAX.registerOnload('server_privileges.js', function() {
                 'edit_user_dialog': true,
                 'token': token
             },
-            function(data) {
+            function (data) {
                 if (data.success === true) {
                     $('#page_content').hide();
                     var $div = $('#edit_user_dialog');
@@ -351,7 +351,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
-    $("#edit_user_dialog").find("form.ajax").live('submit', function(event) {
+    $("#edit_user_dialog").find("form.ajax").live('submit', function (event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -382,7 +382,7 @@ AJAX.registerOnload('server_privileges.js', function() {
                 && $('input[name=mode]:checked', '#fieldset_mode').val() != '4') {
             var old_username = $t.find('input[name="old_username"]').val();
             var old_hostname = $t.find('input[name="old_hostname"]').val();
-            $('#usersForm tbody tr').each(function() {
+            $('#usersForm tbody tr').each(function () {
                 var $tr = $(this);
                 if ($tr.find('td:nth-child(2) label').text() == old_username
                         && $tr.find('td:nth-child(3)').text() == old_hostname) {
@@ -392,7 +392,7 @@ AJAX.registerOnload('server_privileges.js', function() {
             });
         }
 
-        $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function(data) {
+        $.post($t.attr('action'), $t.serialize() + '&' + curr_submit_name + '=' + curr_submit_value, function (data) {
             if (data.success === true) {
                 $('#page_content').show();
                 $("#edit_user_dialog").remove();
@@ -459,7 +459,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        export_user_click
      */
-    $("button.mult_submit[value=export]").live('click', function(event) {
+    $("button.mult_submit[value=export]").live('click', function (event) {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find("input:checked").length === 0) {
@@ -467,13 +467,13 @@ AJAX.registerOnload('server_privileges.js', function() {
         }
         var $msgbox = PMA_ajaxShowMessage();
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function() {
+        button_options[PMA_messages['strClose']] = function () {
             $(this).dialog("close");
         };
         $.post(
             $(this.form).prop('action'),
             $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
-            function(data) {
+            function (data) {
                 if (data.success === true) {
                     var $ajaxDialog = $('<div />')
                     .append(data.message)
@@ -519,17 +519,17 @@ AJAX.registerOnload('server_privileges.js', function() {
         );
     }
 
-    $("a.export_user_anchor.ajax").live('click', function(event) {
+    $("a.export_user_anchor.ajax").live('click', function (event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function() {
+        button_options[PMA_messages['strClose']] = function () {
             $(this).dialog("close");
         };
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 var $ajaxDialog = $('<div />')
                 .append(data.message)
@@ -567,10 +567,10 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table").find("a.ajax").live('click', function(event) {
+    $("#initials_table").find("a.ajax").live('click', function (event) {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
-        $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
+        $.get($(this).attr('href'), {'ajax_request' : true}, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msgbox);
                 // This form is not on screen when first entering Privileges
@@ -591,7 +591,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * Additional confirmation dialog after clicking
      * 'Drop the databases...'
      */
-    $('#checkbox_drop_users_db').click(function() {
+    $('#checkbox_drop_users_db').click(function () {
         var $this_checkbox = $(this);
         if ($this_checkbox.is(':checked')) {
             var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + $.sprintf(PMA_messages['strDoYouReally'], 'DROP DATABASE'));

@@ -553,7 +553,7 @@ AJAX.cache = {
          *
          * @return int
          */
-        size: function(obj) {
+        size: function (obj) {
             var size = 0, key;
             for (key in obj) {
                 if (obj.hasOwnProperty(key)) {
@@ -714,7 +714,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
     } else {
         // We don't have a valid hash, so we'll set it up
         // when the page finishes loading
-        jQuery(function(){
+        jQuery(function (){
             /* Check if we should set URL */
             if (savedHash !== "") {
                 window.location.hash = savedHash;
@@ -728,7 +728,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
     /**
      * Register an event handler for when the url hash changes
      */
-    jQuery(function(){
+    jQuery(function (){
         jQuery(window).hashchange(function () {
             if (userChange === false) {
                 // Ignore internally triggered hash changes
@@ -788,7 +788,7 @@ $('form').live('submit', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function(event, request, settings){
+$(document).ajaxError(function (event, request, settings){
     if (request.status !== 0) { // Don't handle aborted requests
         var errorCode = $.sprintf(PMA_messages['strErrorCode'], request.status);
         var errorText = $.sprintf(PMA_messages['strErrorText'], request.statusText);

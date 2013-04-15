@@ -12,7 +12,7 @@ var pma_token,
     server_db_isLocal;
 
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
-AJAX.registerOnload('server_status.js', function() {
+AJAX.registerOnload('server_status.js', function () {
 
     var $js_data_form = $('#js_data');
     pma_token =         $js_data_form.find("input[name=pma_token]").val();

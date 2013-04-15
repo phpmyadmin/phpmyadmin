@@ -207,7 +207,7 @@ var PMA_querywindow = (function ($, window) {
                 );
             }
             if (! querywindow.opener) {
-               querywindow.opener = window.window;
+                querywindow.opener = window.window;
             }
             if (window.focus) {
                 querywindow.focus();

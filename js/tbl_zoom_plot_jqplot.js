@@ -90,7 +90,7 @@ function getCord(arr) {
     var newCord = [];
     var original = $.extend(true, [], arr);
     var arr = jQuery.unique(arr).sort();
-    $.each(original, function(index, value) {
+    $.each(original, function (index, value) {
         newCord.push(jQuery.inArray(value, arr));
     });
     return [newCord, arr, original];
@@ -100,14 +100,14 @@ function getCord(arr) {
  ** Scrolls the view to the display section
  **/
 function scrollToChart() {
-   var x = $('#dataDisplay').offset().top - 100; // 100 provides buffer in viewport
-   $('html,body').animate({scrollTop: x}, 500);
+    var x = $('#dataDisplay').offset().top - 100; // 100 provides buffer in viewport
+    $('html,body').animate({scrollTop: x}, 500);
 }
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function() {
+AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('#tableid_0').unbind('change');
     $('#tableid_1').unbind('change');
     $('#tableid_2').unbind('change');
@@ -120,7 +120,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function() {
     $('div#querychart').unbind('jqplotDataClick');
 });
 
-AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
+AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var searchedDataKey = null;
@@ -143,7 +143,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
      **/
 
     // first column choice corresponds to the X axis
-    $('#tableid_0').change(function() {
+    $('#tableid_0').change(function () {
         //AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
@@ -153,23 +153,23 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             'field' : $('#tableid_0').val(),
             'it' : 0,
             'token' : PMA_commonParams.get('token')
-        },function(data) {
+        },function (data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(1) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(1) td:eq(3)').html(data.field_value);
-        xLabel = $('#tableid_0').val();
-        $('#types_0').val(data.field_type);
-        xType = data.field_type;
-        $('#collations_0').val(data.field_collations);
-        addDateTimePicker();
+            xLabel = $('#tableid_0').val();
+            $('#types_0').val(data.field_type);
+            xType = data.field_type;
+            $('#collations_0').val(data.field_collations);
+            addDateTimePicker();
         });
     });
 
     // second column choice corresponds to the Y axis
-    $('#tableid_1').change(function() {
+    $('#tableid_1').change(function () {
         //AJAX request for field type, collation, operators, and value field
-    $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -177,22 +177,22 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             'field' : $('#tableid_1').val(),
             'it' : 1,
             'token' : PMA_commonParams.get('token')
-        },function(data) {
+        },function (data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(3) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(3) td:eq(3)').html(data.field_value);
-        yLabel = $('#tableid_1').val();
-        $('#types_1').val(data.field_type);
-        yType = data.field_type;
-        $('#collations_1').val(data.field_collations);
-        addDateTimePicker();
+            yLabel = $('#tableid_1').val();
+            $('#types_1').val(data.field_type);
+            yType = data.field_type;
+            $('#collations_1').val(data.field_collations);
+            addDateTimePicker();
         });
     });
 
-    $('#tableid_2').change(function() {
+    $('#tableid_2').change(function () {
         //AJAX request for field type, collation, operators, and value field
-    $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -200,20 +200,20 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             'field' : $('#tableid_2').val(),
             'it' : 2,
             'token' : PMA_commonParams.get('token')
-        },function(data) {
+        },function (data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(6) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(6) td:eq(3)').html(data.field_value);
-        $('#types_2').val(data.field_type);
-        $('#collations_2').val(data.field_collations);
-        addDateTimePicker();
+            $('#types_2').val(data.field_type);
+            $('#collations_2').val(data.field_collations);
+            addDateTimePicker();
         });
     });
 
-    $('#tableid_3').change(function() {
+    $('#tableid_3').change(function () {
         //AJAX request for field type, collation, operators, and value field
-    $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -221,21 +221,21 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             'field' : $('#tableid_3').val(),
             'it' : 3,
             'token' : PMA_commonParams.get('token')
-        },function(data) {
+        },function (data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(8) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(8) td:eq(3)').html(data.field_value);
-        $('#types_3').val(data.field_type);
-        $('#collations_3').val(data.field_collations);
-        addDateTimePicker();
+            $('#types_3').val(data.field_type);
+            $('#collations_3').val(data.field_collations);
+            addDateTimePicker();
         });
     });
 
     /**
      * Input form validation
      **/
-    $('#inputFormSubmitId').click(function() {
+    $('#inputFormSubmitId').click(function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             PMA_ajaxShowMessage(PMA_messages['strInputNull']);
         } else if (xLabel == yLabel) {
@@ -254,7 +254,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
     $('#togglesearchformlink')
         .html(PMA_messages['strShowSearchCriteria'])
-        .bind('click', function() {
+        .bind('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
             if ($link.text() == PMA_messages['strHideSearchCriteria']) {
@@ -262,9 +262,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             } else {
                 $link.text(PMA_messages['strHideSearchCriteria']);
             }
-         // avoid default click action
-        return false;
-     });
+            // avoid default click action
+            return false;
+        });
 
     /**
      ** Set dialog properties for the data display form
@@ -285,7 +285,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             var oldVal = selectedRow[key];
             var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
-                newVal =  $('#edit_fieldID_' + it).map(function(){
+                newVal =  $('#edit_fieldID_' + it).map(function (){
                     return $(this).val();
                 }).get().join(",");
             }
@@ -386,14 +386,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                     'ajax_request' : true,
                     'sql_query' : sql_query,
                     'inline_edit' : false
-                }, function(data) {
+                }, function (data) {
                     if (data.success === true) {
                         $('#sqlqueryresults').html(data.sql_query);
                         $("#sqlqueryresults").trigger('appendAnchor');
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                     }
-            }); //End $.post
+                }); //End $.post
         }//End database update
         $("#dataDisplay").dialog('close');
     };
@@ -527,7 +527,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             });
         }
 
-        $.each(searchedData, function(key, value) {
+        $.each(searchedData, function (key, value) {
             if (xType == 'numeric') {
                 var xVal = parseFloat(value[xLabel]);
             }
@@ -557,13 +557,13 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         currentChart = $.jqplot('querychart', series, options);
         currentChart.resetZoom();
 
-        $('button.button-reset').click(function(event) {
+        $('button.button-reset').click(function (event) {
             event.preventDefault();
             currentChart.resetZoom();
         });
 
         $('div#resizer').resizable();
-        $('div#resizer').bind('resizestop', function(event, ui) {
+        $('div#resizer').bind('resizestop', function (event, ui) {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
@@ -571,7 +571,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         });
 
         $('div#querychart').bind('jqplotDataClick',
-            function(event, seriesIndex, pointIndex, data) {
+            function (event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
                 var field_id = 0;
                 var post_params = {
@@ -583,7 +583,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                     'token' : PMA_commonParams.get('token')
                 };
 
-                $.post('tbl_zoom_select.php', post_params, function(data) {
+                $.post('tbl_zoom_select.php', post_params, function (data) {
                     // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     var key;

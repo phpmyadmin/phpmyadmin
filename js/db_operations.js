@@ -21,18 +21,18 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_operations.js', function() {
+AJAX.registerTeardown('db_operations.js', function () {
     $("#rename_db_form.ajax").die('submit');
     $("#copy_db_form.ajax").die('submit');
     $("#change_db_charset_form.ajax").die('submit');
 });
 
-AJAX.registerOnload('db_operations.js', function() {
+AJAX.registerOnload('db_operations.js', function () {
 
     /**
      * Ajax event handlers for 'Rename Database'
      */
-    $("#rename_db_form.ajax").live('submit', function(event) {
+    $("#rename_db_form.ajax").live('submit', function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -41,17 +41,17 @@ AJAX.registerOnload('db_operations.js', function() {
 
         PMA_prepareForAjaxRequest($form);
 
-        $form.PMA_confirm(question, $form.attr('action'), function(url) {
+        $form.PMA_confirm(question, $form.attr('action'), function (url) {
             PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases'], false);
-            $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
+            $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function (data) {
                 if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
 
-                    PMA_reloadNavigation(function() {
+                    PMA_reloadNavigation(function () {
                         $('#pma_navigation_tree')
                             .find("a:not('.expander')")
-                            .each(function(index) {
+                            .each(function (index) {
                                 var $thisAnchor = $(this);
                                 if ($thisAnchor.text() == data.newname) {
                                     // simulate a click on the new db name
@@ -70,12 +70,12 @@ AJAX.registerOnload('db_operations.js', function() {
     /**
      * Ajax Event Handler for 'Copy Database'
      */
-    $("#copy_db_form.ajax").live('submit', function(event) {
+    $("#copy_db_form.ajax").live('submit', function (event) {
         event.preventDefault();
         PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase'], false);
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        $.get($form.attr('action'), $form.serialize(), function(data) {
+        $.get($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
             if (data.success === true) {
@@ -98,12 +98,12 @@ AJAX.registerOnload('db_operations.js', function() {
     /**
      * Ajax Event handler for 'Change Charset' of the database
      */
-    $("#change_db_charset_form.ajax").live('submit', function(event) {
+    $("#change_db_charset_form.ajax").live('submit', function (event) {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
-        $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function(data) {
+        $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
             } else {

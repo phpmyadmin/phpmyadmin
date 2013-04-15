@@ -8,7 +8,7 @@
 /**
  * Executed on page load
  */
-$(function() {
+$(function () {
     if (! $('#pma_navigation').length) {
         // Don't bother running any code if the navigation is not even on the page
         return;
@@ -21,7 +21,7 @@ $(function() {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
-    $('#pma_navigation_tree a.expander').live('click', function(event) {
+    $('#pma_navigation_tree a.expander').live('click', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
         var $this = $(this);
@@ -129,7 +129,7 @@ $(function() {
     /**
      * Jump to recent table
      */
-    $('#recentTable').live('change', function() {
+    $('#recentTable').live('change', function () {
         if (this.value !== '') {
             var arr = jQuery.parseJSON(this.value);
             var $form = $(this).closest('form');

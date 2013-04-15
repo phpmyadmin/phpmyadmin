@@ -11,7 +11,7 @@
  */
 function changePluginOpts()
 {
-    $("#format_specific_opts div.format_specific_options").each(function() {
+    $("#format_specific_opts div.format_specific_options").each(function () {
         $(this).hide();
     });
     var selected_plugin_name = $("#plugins option:selected").val();
@@ -47,7 +47,7 @@ function matchFile(fname)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('import.js', function() {
+AJAX.registerTeardown('import.js', function () {
     $("#plugins").unbind('change');
     $("#input_import_file").unbind('change');
     $("#select_local_import_file").unbind('change');
@@ -55,20 +55,20 @@ AJAX.registerTeardown('import.js', function() {
     $("#select_local_import_file").unbind('focus');
 });
 
-AJAX.registerOnload('import.js', function() {
+AJAX.registerOnload('import.js', function () {
     // Initially display the options for the selected plugin
     changePluginOpts();
 
    // Whenever the selected plugin changes, change the options displayed
-   $("#plugins").change(function() {
+    $("#plugins").change(function () {
         changePluginOpts();
     });
 
-    $("#input_import_file").change(function() {
+    $("#input_import_file").change(function () {
         matchFile($(this).val());
     });
 
-    $("#select_local_import_file").change(function() {
+    $("#select_local_import_file").change(function () {
         matchFile($(this).val());
     });
 
@@ -76,13 +76,13 @@ AJAX.registerOnload('import.js', function() {
      * When the "Browse the server" form is clicked or the "Select from the web server upload directory"
      * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
      */
-    $("#input_import_file").bind("focus change", function() {
-         $("#radio_import_file").prop('checked', true);
-         $("#radio_local_import_file").prop('checked', false);
+    $("#input_import_file").bind("focus change", function () {
+        $("#radio_import_file").prop('checked', true);
+        $("#radio_local_import_file").prop('checked', false);
     });
-    $("#select_local_import_file").focus(function() {
-         $("#radio_local_import_file").prop('checked', true);
-         $("#radio_import_file").prop('checked', false);
+    $("#select_local_import_file").focus(function () {
+        $("#radio_local_import_file").prop('checked', true);
+        $("#radio_import_file").prop('checked', false);
     });
 
     /**

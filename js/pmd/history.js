@@ -22,8 +22,8 @@ function panel(index)
     if (!index) {
         $(".toggle_container").hide();
     }
-    $("h2.tiger").click(function() {
-    $(this).toggleClass("active").next().slideToggle("slow");
+    $("h2.tiger").click(function () {
+        $(this).toggleClass("active").next().slideToggle("slow");
     });
 }
 
@@ -67,19 +67,19 @@ function display(init,finit)
             if (history_array[i].get_and_or()) {
                 str +='<img src="' + pmaThemeImage + 'pmd/or_icon.png" onclick="and_or('+i+')" title="OR"/></td>';
             } else {
-               str +='<img src="' + pmaThemeImage + 'pmd/and_icon.png" onclick="and_or('+i+')" title="AND"/></td>';
+                str +='<img src="' + pmaThemeImage + 'pmd/and_icon.png" onclick="and_or('+i+')" title="AND"/></td>';
             }
             str +='<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td><td width="175" style="padding-left: 5px">' + history_array[i].get_column_name();
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
                 str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '<td title="' + detail(i) +'">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete('+ i +')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
-           } else {
-               str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '</td><td title="' + detail(i) +'">' + history_array[i].               get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit('+ i +')>' + PMA_getImage('b_edit.png', PMA_messages['strEdit']) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete('+ i +')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
-           }
-           i++;
-           if (i >= history_array.length) {
-               break;
-           }
-           str += '</table></div><br/>';
+            } else {
+                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '</td><td title="' + detail(i) +'">' + history_array[i].               get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit('+ i +')>' + PMA_getImage('b_edit.png', PMA_messages['strEdit']) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete('+ i +')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
+            }
+            i++;
+            if (i >= history_array.length) {
+                break;
+            }
+            str += '</table></div><br/>';
         }
         i--;
         str += '</div><br/>';
@@ -237,8 +237,8 @@ function edit(type)
     }
     if (type == "Where") {
         if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !== "") {
-        history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
-        history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
+            history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
+            history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
         }
         document.getElementById('query_where').style.visibility = 'hidden';
     }
@@ -277,40 +277,40 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype)
     this.set_column_name = function (ncolumn_name) {
         column_name = ncolumn_name;
     };
-    this.get_column_name = function() {
+    this.get_column_name = function () {
         return column_name;
     };
-    this.set_and_or = function(nand_or) {
+    this.set_and_or = function (nand_or) {
         and_or = nand_or;
     };
-    this.get_and_or = function() {
+    this.get_and_or = function () {
         return and_or;
     };
-    this.get_relation = function() {
+    this.get_relation = function () {
         return and_or;
     };
-    this.set_obj = function(nobj) {
+    this.set_obj = function (nobj) {
         obj = nobj;
     };
-    this.get_obj = function() {
+    this.get_obj = function () {
         return obj;
     };
-    this.set_tab = function(ntab) {
+    this.set_tab = function (ntab) {
         tab = ntab;
     };
-    this.get_tab = function() {
+    this.get_tab = function () {
         return tab;
     };
-    this.set_obj_no = function(nobj_no) {
+    this.set_obj_no = function (nobj_no) {
         obj_no = nobj_no;
      };
-    this.get_obj_no = function() {
+    this.get_obj_no = function () {
         return obj_no;
     };
-    this.set_type = function(ntype) {
+    this.set_type = function (ntype) {
         type = ntype;
     };
-    this.get_type = function() {
+    this.get_type = function () {
         return type;
     };
     this.set_obj_no(nobj_no);
@@ -333,16 +333,16 @@ function history(ncolumn_name,nobj,ntab,nobj_no,ntype)
 var where = function (nrelation_operator,nquery) {
     var relation_operator;
     var query;
-    this.setrelation_operator = function(nrelation_operator) {
+    this.setrelation_operator = function (nrelation_operator) {
         relation_operator = nrelation_operator;
     };
-    this.setquery = function(nquery) {
+    this.setquery = function (nquery) {
         query = nquery;
     };
-    this.getquery = function() {
+    this.getquery = function () {
         return query;
     };
-    this.getrelation_operator = function() {
+    this.getrelation_operator = function () {
         return relation_operator;
     };
     this.setquery(nquery);
@@ -362,22 +362,22 @@ var having = function (nrelation_operator,nquery,noperator) {
     var relation_operator;
     var query;
     var operator;
-    this.set_operator = function(noperator) {
+    this.set_operator = function (noperator) {
         operator = noperator;
     };
-    this.setrelation_operator = function(nrelation_operator) {
+    this.setrelation_operator = function (nrelation_operator) {
         relation_operator = nrelation_operator;
     };
-    this.setquery = function(nquery) {
+    this.setquery = function (nquery) {
         query = nquery;
     };
-    this.getquery = function() {
+    this.getquery = function () {
         return query;
     };
-    this.getrelation_operator = function() {
+    this.getrelation_operator = function () {
         return relation_operator;
     };
-    this.get_operator = function() {
+    this.get_operator = function () {
         return operator;
     };
     this.setquery(nquery);
@@ -392,12 +392,12 @@ var having = function (nrelation_operator,nquery,noperator) {
  *
 **/
 
-var rename = function(nrename_to) {
+var rename = function (nrename_to) {
     var rename_to;
-    this.setrename_to = function(nrename_to) {
+    this.setrename_to = function (nrename_to) {
         rename_to = nrename_to;
     };
-    this.getrename_to =function() {
+    this.getrename_to =function () {
         return rename_to;
     };
     this.setrename_to(nrename_to);
@@ -410,12 +410,12 @@ var rename = function(nrename_to) {
  *
 **/
 
-var aggregate = function(noperator) {
+var aggregate = function (noperator) {
     var operator;
-    this.set_operator = function(noperator) {
+    this.set_operator = function (noperator) {
         operator = noperator;
     };
-    this.get_operator = function() {
+    this.get_operator = function () {
         return operator;
     };
     this.set_operator(noperator);

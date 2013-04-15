@@ -93,9 +93,9 @@ function isDate(val,tmstmp)
 {
     val = val.replace(/[.|*|^|+|//|@]/g,'-');
     var arrayVal = val.split("-");
-    for (var a=0;a<arrayVal.length;a++) {
-        if (arrayVal[a].length==1) {
-            arrayVal[a]=fractionReplace(arrayVal[a]);
+    for (var a = 0; a < arrayVal.length; a++) {
+        if (arrayVal[a].length == 1) {
+            arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
     val=arrayVal.join("-");
@@ -220,7 +220,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_change.js', function() {
+AJAX.registerTeardown('tbl_change.js', function () {
     $('span.open_gis_editor').die('click');
     $("input[name='gis_data[save]']").die('click');
     $('input.checkbox_null').unbind('click');
@@ -235,10 +235,10 @@ AJAX.registerTeardown('tbl_change.js', function() {
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-AJAX.registerOnload('tbl_change.js', function() {
+AJAX.registerOnload('tbl_change.js', function () {
     $.datepicker.initialized = false;
 
-    $('span.open_gis_editor').live('click', function(event) {
+    $('span.open_gis_editor').live('click', function (event) {
         event.preventDefault();
 
         var $span = $(this);
@@ -264,7 +264,7 @@ AJAX.registerOnload('tbl_change.js', function() {
     /**
      * Uncheck the null checkbox as geometry data is placed on the input field
      */
-    $("input[name='gis_data[save]']").live('click', function(event) {
+    $("input[name='gis_data[save]']").live('click', function (event) {
         var input_name = $('form#gis_data_editor_form').find("input[name='input_name']").val();
         var $null_checkbox = $("input[name='" + input_name + "']").parents('tr').find('.checkbox_null');
         $null_checkbox.prop('checked', false);
@@ -276,7 +276,7 @@ AJAX.registerOnload('tbl_change.js', function() {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').bind('click', function(e) {
+    $('input.checkbox_null').bind('click', function (e) {
             nullify(
                 // use hidden fields populated by tbl_change.php
                 $(this).siblings('.nullify_code').val(),
@@ -313,7 +313,7 @@ AJAX.registerOnload('tbl_change.js', function() {
     /**
      * Continue Insertion form
      */
-    $("#insert_rows").live('change', function(event) {
+    $("#insert_rows").live('change', function (event) {
         event.preventDefault();
 
         /**
@@ -326,7 +326,7 @@ AJAX.registerOnload('tbl_change.js', function() {
         var target_rows = $("#insert_rows").val();
 
         // remove all datepickers
-        $('input.datefield, input.datetimefield').each(function(){
+        $('input.datefield, input.datetimefield').each(function (){
             $(this).datepicker('destroy');
         });
 
@@ -348,7 +348,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                 .clone()
                 .insertBefore("#actions_panel")
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
-                .each(function() {
+                .each(function () {
 
                     var $this_element = $(this);
                     /**
@@ -389,7 +389,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                         // will change
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('change', function(e) {
+                        .bind('change', function (e) {
                             var $changed_element = $(this);
                             verificationsAfterFieldChange(
                                 $changed_element.data('hashed_field'),
@@ -408,7 +408,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                         // will be clicked
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('click', function(e) {
+                        .bind('click', function (e) {
                                 var $changed_element = $(this);
                                 nullify(
                                     $changed_element.siblings('.nullify_code').val(),
@@ -421,7 +421,7 @@ AJAX.registerOnload('tbl_change.js', function() {
                 }) // end each
                 .end()
                 .find('.foreign_values_anchor')
-                .each(function() {
+                .each(function () {
                         var $anchor = $(this);
                         var new_value = 'rownumber=' + new_row_index;
                         // needs improvement in case something else inside
@@ -467,19 +467,19 @@ AJAX.registerOnload('tbl_change.js', function() {
         // function and Null
         var tabindex = 0;
         $('.textfield')
-        .each(function() {
+        .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
         $('select.control_at_footer')
-        .each(function() {
+        .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
             });
         // Add all the required datepickers back
-        $('input.datefield, input.datetimefield').each(function(){
+        $('input.datefield, input.datetimefield').each(function (){
             PMA_addDatepicker($(this));
             });
         } else if ( curr_rows > target_rows) {

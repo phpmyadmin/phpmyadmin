@@ -11,7 +11,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_databases.js', function() {
+AJAX.registerTeardown('server_databases.js', function () {
     $("#dbStatsForm").die('submit');
     $('#create_database_form.ajax').die('submit');
 });
@@ -23,11 +23,11 @@ AJAX.registerTeardown('server_databases.js', function() {
  * Drop Databases
  *
  */
-AJAX.registerOnload('server_databases.js', function() {
+AJAX.registerOnload('server_databases.js', function () {
     /**
      * Attach Event Handler for 'Drop Databases'
      */
-    $("#dbStatsForm").live('submit', function(event) {
+    $("#dbStatsForm").live('submit', function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -62,10 +62,10 @@ AJAX.registerOnload('server_databases.js', function() {
             $form.prop('action')
                 + '?' + $(this).serialize()
                 + '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
-            function(url) {
+            function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
-                $.post(url, function(data) {
+                $.post(url, function (data) {
                     if (data.success === true) {
                         PMA_ajaxShowMessage(data.message);
 
@@ -82,13 +82,14 @@ AJAX.registerOnload('server_databases.js', function() {
                         PMA_ajaxShowMessage(data.error, false);
                     }
                 }); // end $.post()
-        }); // end $.PMA_confirm()
+            }
+        ); // end $.PMA_confirm()
     }) ; //end of Drop Database action
 
     /**
      * Attach Ajax event handlers for 'Create Database'.
      */
-    $('#create_database_form.ajax').live('submit', function(event) {
+    $('#create_database_form.ajax').live('submit', function (event) {
         event.preventDefault();
 
         $form = $(this);
@@ -103,7 +104,7 @@ AJAX.registerOnload('server_databases.js', function() {
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize(), function(data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
 

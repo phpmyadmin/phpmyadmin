@@ -19,7 +19,7 @@ OpenLayers.Util.OSM.originalOnImageLoadError = OpenLayers.Util.onImageLoadError;
 /**
  * Function: onImageLoadError
  */
-OpenLayers.Util.onImageLoadError = function() {
+OpenLayers.Util.onImageLoadError = function () {
     if (this.src.match(/^http:\/\/[abc]\.[a-z]+\.openstreetmap\.org\//)) {
         this.src = OpenLayers.Util.OSM.MISSING_TILE_URL;
     } else if (this.src.match(/^http:\/\/[def]\.tah\.openstreetmap\.org\//)) {
@@ -43,7 +43,7 @@ OpenLayers.Layer.OSM.Mapnik = OpenLayers.Class(OpenLayers.Layer.OSM, {
      * name - {String}
      * options - {Object} Hashtable of extra options to tag onto the layer
      */
-    initialize: function(name, options) {
+    initialize: function (name, options) {
         var url = [
             "http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
             "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
@@ -75,7 +75,7 @@ OpenLayers.Layer.OSM.Osmarender = OpenLayers.Class(OpenLayers.Layer.OSM, {
      * name - {String}
      * options - {Object} Hashtable of extra options to tag onto the layer
      */
-    initialize: function(name, options) {
+    initialize: function (name, options) {
         var url = [
             "http://a.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
             "http://b.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
@@ -107,7 +107,7 @@ OpenLayers.Layer.OSM.CycleMap = OpenLayers.Class(OpenLayers.Layer.OSM, {
      * name - {String}
      * options - {Object} Hashtable of extra options to tag onto the layer
      */
-    initialize: function(name, options) {
+    initialize: function (name, options) {
         var url = [
             "http://a.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png",
             "http://b.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png",

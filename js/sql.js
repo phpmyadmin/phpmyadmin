@@ -65,7 +65,7 @@ function getFieldName($this_field)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('sql.js', function() {
+AJAX.registerTeardown('sql.js', function () {
     $('a.delete_row.ajax').unbind('click');
     $('#bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
@@ -102,7 +102,7 @@ AJAX.registerTeardown('sql.js', function() {
  * @name        document.ready
  * @memberOf    jQuery
  */
-AJAX.registerOnload('sql.js', function() {
+AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $('a.delete_row.ajax').click(function (e) {
         e.preventDefault();
@@ -135,7 +135,7 @@ AJAX.registerOnload('sql.js', function() {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').keyup(function() {
+    $('input#bkm_label').keyup(function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);
@@ -146,7 +146,7 @@ AJAX.registerOnload('sql.js', function() {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $("#sqlqueryresults").live('makegrid', function() {
+    $("#sqlqueryresults").live('makegrid', function () {
         PMA_makegrid($('#table_results')[0]);
     });
 
@@ -166,7 +166,7 @@ AJAX.registerOnload('sql.js', function() {
         .hide();
 
         // Attach the toggling of the query box visibility to a click
-        $("#togglequerybox").bind('click', function() {
+        $("#togglequerybox").bind('click', function () {
             var $link = $(this);
             $link.siblings().slideToggle("fast");
             if ($link.text() == PMA_messages['strHideQueryBox']) {
@@ -189,7 +189,7 @@ AJAX.registerOnload('sql.js', function() {
      *
      * @memberOf    jQuery
      */
-    $("#button_submit_query").live('click', function(event) {
+    $("#button_submit_query").live('click', function (event) {
         var $form = $(this).closest("form");
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
@@ -205,7 +205,7 @@ AJAX.registerOnload('sql.js', function() {
      *
      * @memberOf    jQuery
      */
-    $("input[name=bookmark_variable]").bind("keypress", function(event) {
+    $("input[name=bookmark_variable]").bind("keypress", function (event) {
         // force the 'Enter Key' to implicitly click the #button_submit_bookmark
         var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
         if (keycode == 13) { // keycode for enter key
@@ -218,9 +218,9 @@ AJAX.registerOnload('sql.js', function() {
             // section and hit enter, you expect it to do the
             // same action as the Go button in that section.
             $("#button_submit_bookmark").click();
-           return false;
+            return false;
         } else  {
-           return true;
+            return true;
         }
     });
 
@@ -231,7 +231,7 @@ AJAX.registerOnload('sql.js', function() {
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
-    $("#sqlqueryform.ajax").live('submit', function(event) {
+    $("#sqlqueryform.ajax").live('submit', function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -247,7 +247,7 @@ AJAX.registerOnload('sql.js', function() {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize() , function(data) {
+        $.post($form.attr('action'), $form.serialize() , function (data) {
             if (data.success === true) {
                 // success happens if the query returns rows or not
                 //
@@ -334,7 +334,7 @@ AJAX.registerOnload('sql.js', function() {
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
      */
-    $("#pageselector").live('change', function(event) {
+    $("#pageselector").live('change', function (event) {
         var $form = $(this).parent("form");
         $form.submit();
     }); // end Paginate results with Page Selector
@@ -344,12 +344,12 @@ AJAX.registerOnload('sql.js', function() {
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
      */
-    $("#displayOptionsForm.ajax").live('submit', function(event) {
+    $("#displayOptionsForm.ajax").live('submit', function (event) {
         event.preventDefault();
 
         $form = $(this);
 
-        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function(data) {
+        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function (data) {
             $("#sqlqueryresults")
              .html(data.message)
              .trigger('makegrid');
@@ -360,7 +360,7 @@ AJAX.registerOnload('sql.js', function() {
 /**
  * Ajax Event for table row change
  * */
-    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function(event){
+    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event){
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
@@ -373,18 +373,18 @@ AJAX.registerOnload('sql.js', function() {
              */
             var button_options = {};
             // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function() {
+            button_options[PMA_messages['strCancel']] = function () {
                 $(this).dialog('close');
             };
 
             var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function() {
+            button_options_error[PMA_messages['strOK']] = function () {
                 $(this).dialog('close');
             };
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
+            $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function (data) {
                 //in the case of an error, show the error message returned.
                 if (data.success !== undefined && data.success === false) {
                     $div
@@ -394,7 +394,7 @@ AJAX.registerOnload('sql.js', function() {
                         height: 230,
                         width: 900,
                         open: PMA_verifyColumnsProperties,
-                        close: function(event, ui) {
+                        close: function (event, ui) {
                             $(this).remove();
                         },
                         buttons : button_options_error
@@ -407,7 +407,7 @@ AJAX.registerOnload('sql.js', function() {
                         height: 600,
                         width: 900,
                         open: PMA_verifyColumnsProperties,
-                        close: function(event, ui) {
+                        close: function (event, ui) {
                             $(this).remove();
                         },
                         buttons : button_options
@@ -428,7 +428,7 @@ AJAX.registerOnload('sql.js', function() {
 /**
  * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
  */
-    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
+    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function (event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the insert form
@@ -436,7 +436,7 @@ AJAX.registerOnload('sql.js', function() {
         var $form = $("#insertForm");
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize(), function(data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
                 if ($("#pageselector").length !== 0) {
@@ -469,7 +469,7 @@ AJAX.registerOnload('sql.js', function() {
  * Click action for #buttonYes button in ajax dialog insertForm
  */
 
-    $("#buttonYes.ajax").live('click', function(event){
+    $("#buttonYes.ajax").live('click', function (event){
         event.preventDefault();
         /**
          * @var    the_form    object referring to the insert form
@@ -480,7 +480,7 @@ AJAX.registerOnload('sql.js', function() {
         $("#result_query").remove();
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() , function(data) {
+        $.post($form.attr('action'), $form.serialize() , function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
                 if (selected_submit_type == "showinsert") {
@@ -543,9 +543,9 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-AJAX.registerOnload('sql.js', function() {
+AJAX.registerOnload('sql.js', function () {
 
-    $('a.browse_foreign').live('click', function(e) {
+    $('a.browse_foreign').live('click', function (e) {
         e.preventDefault();
         window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes');
         $anchor = $(this);
@@ -555,16 +555,16 @@ AJAX.registerOnload('sql.js', function() {
     /**
      * vertical column highlighting in horizontal mode when hovering over the column header
      */
-    $('th.column_heading.pointer').live('hover', function(e) {
+    $('th.column_heading.pointer').live('hover', function (e) {
         PMA_changeClassForColumn($(this), 'hover', e.type == 'mouseenter');
-        });
+    });
 
     /**
      * vertical column marking in horizontal mode when clicking the column header
      */
-    $('th.column_heading.marker').live('click', function() {
+    $('th.column_heading.marker').live('click', function () {
         PMA_changeClassForColumn($(this), 'marked');
-        });
+    });
 
     /**
      * create resizable table
@@ -584,7 +584,7 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()),function(key,value) {
+    $.each(jQuery.parseJSON($('#profilingChartData').html()),function (key,value) {
         data.push([key,parseFloat(value)]);
     });
 

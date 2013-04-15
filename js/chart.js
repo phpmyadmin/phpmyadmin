@@ -14,10 +14,10 @@ var ChartType = {
 /**
  * Abstract chart factory which defines the contract for chart factories
  */
-var ChartFactory = function() {
+var ChartFactory = function () {
 };
 ChartFactory.prototype = {
-    createChart : function(type, options) {
+    createChart : function (type, options) {
         throw new Error("createChart must be implemented by a subclass");
     }
 };
@@ -28,17 +28,17 @@ ChartFactory.prototype = {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var Chart = function(elementId) {
+var Chart = function (elementId) {
     this.elementId = elementId;
 };
 Chart.prototype = {
-    draw : function(data, options) {
+    draw : function (data, options) {
         throw new Error("draw must be implemented by a subclass");
     },
-    redraw : function(options) {
+    redraw : function (options) {
         throw new Error("redraw must be implemented by a subclass");
     },
-    destroy : function() {
+    destroy : function () {
         throw new Error("destroy must be implemented by a subclass");
     }
 };
@@ -55,12 +55,12 @@ Chart.prototype = {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var BaseChart = function(elementId) {
+var BaseChart = function (elementId) {
     Chart.call(this, elementId);
 };
 BaseChart.prototype = new Chart();
 BaseChart.prototype.constructor = BaseChart;
-BaseChart.prototype.validateColumns = function(dataTable) {
+BaseChart.prototype.validateColumns = function (dataTable) {
     var columns = dataTable.getColumns();
     if (columns.length < 2) {
         throw new Error("Minimum of two columns are required for this chart");
@@ -79,12 +79,12 @@ BaseChart.prototype.validateColumns = function(dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var PieChart = function(elementId) {
+var PieChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
 PieChart.prototype = new BaseChart();
 PieChart.prototype.constructor = PieChart;
-PieChart.prototype.validateColumns = function(dataTable) {
+PieChart.prototype.validateColumns = function (dataTable) {
     var columns = dataTable.getColumns();
     if (columns.length > 2) {
         throw new Error("Pie charts can draw only one series");
@@ -98,12 +98,12 @@ PieChart.prototype.validateColumns = function(dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var TimelineChart = function(elementId) {
+var TimelineChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
 TimelineChart.prototype = new BaseChart();
 TimelineChart.prototype.constructor = TimelineChart;
-TimelineChart.prototype.validateColumns = function(dataTable) {
+TimelineChart.prototype.validateColumns = function (dataTable) {
     var result = BaseChart.prototype.validateColumns.call(this, dataTable);
     if (result) {
         var columns = dataTable.getColumns();
@@ -117,31 +117,31 @@ TimelineChart.prototype.validateColumns = function(dataTable) {
 /**
  * The data table contains column information and data for the chart.
  */
-var DataTable = function() {
+var DataTable = function () {
     var columns = [];
     var data;
 
-    this.addColumn = function(type, name) {
+    this.addColumn = function (type, name) {
         columns.push({
             'type' : type,
             'name' : name
         });
     };
 
-    this.getColumns = function() {
+    this.getColumns = function () {
         return columns;
     };
 
-    this.setData = function(rows) {
+    this.setData = function (rows) {
         data = rows;
         fillMissingValues();
     };
 
-    this.getData = function() {
+    this.getData = function () {
         return data;
     };
 
-    var fillMissingValues = function() {
+    var fillMissingValues = function () {
         if (columns.length === 0) {
             throw new Error("Set columns first");
         }
@@ -176,10 +176,10 @@ var ColumnType = {
 /**
  * Chart factory that returns JQPlotCharts
  */
-var JQPlotChartFactory = function() {
+var JQPlotChartFactory = function () {
 };
 JQPlotChartFactory.prototype = new ChartFactory();
-JQPlotChartFactory.prototype.createChart = function(type, elementId) {
+JQPlotChartFactory.prototype.createChart = function (type, elementId) {
     var chart;
     switch (type) {
     case ChartType.LINE:
@@ -214,33 +214,33 @@ JQPlotChartFactory.prototype.createChart = function(type, elementId) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotChart = function(elementId) {
+var JQPlotChart = function (elementId) {
     Chart.call(this, elementId);
     this.plot;
     this.validator;
 };
 JQPlotChart.prototype = new Chart();
 JQPlotChart.prototype.constructor = JQPlotChart;
-JQPlotChart.prototype.draw = function(data, options) {
+JQPlotChart.prototype.draw = function (data, options) {
     if (this.validator.validateColumns(data)) {
         this.plot = $.jqplot(this.elementId, this.prepareData(data), this
                 .populateOptions(data, options));
     }
 };
-JQPlotChart.prototype.destroy = function() {
+JQPlotChart.prototype.destroy = function () {
     if (this.plot !== null) {
         this.plot.destroy();
     }
 };
-JQPlotChart.prototype.redraw = function(options) {
+JQPlotChart.prototype.redraw = function (options) {
     if (this.plot !== null) {
         this.plot.replot(options);
     }
 };
-JQPlotChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotChart.prototype.populateOptions = function (dataTable, options) {
     throw new Error("populateOptions must be implemented by a subclass");
 };
-JQPlotChart.prototype.prepareData = function(dataTable) {
+JQPlotChart.prototype.prepareData = function (dataTable) {
     throw new Error("prepareData must be implemented by a subclass");
 };
 
@@ -250,14 +250,14 @@ JQPlotChart.prototype.prepareData = function(dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotLineChart = function(elementId) {
+var JQPlotLineChart = function (elementId) {
     JQPlotChart.call(this, elementId);
     this.validator = BaseChart.prototype;
 };
 JQPlotLineChart.prototype = new JQPlotChart();
 JQPlotLineChart.prototype.constructor = JQPlotLineChart;
 
-JQPlotLineChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
     var columns = dataTable.getColumns();
     var optional = {
         axes : {
@@ -291,7 +291,7 @@ JQPlotLineChart.prototype.populateOptions = function(dataTable, options) {
     return optional;
 };
 
-JQPlotLineChart.prototype.prepareData = function(dataTable) {
+JQPlotLineChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row;
     var retData = [], retRow;
     for ( var i = 0; i < data.length; i++) {
@@ -314,13 +314,13 @@ JQPlotLineChart.prototype.prepareData = function(dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotSplineChart = function(elementId) {
+var JQPlotSplineChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
 JQPlotSplineChart.prototype = new JQPlotLineChart();
 JQPlotSplineChart.prototype.constructor = JQPlotSplineChart;
 
-JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotSplineChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {};
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
@@ -341,14 +341,14 @@ JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotTimelineChart = function(elementId) {
+var JQPlotTimelineChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
     this.validator = TimelineChart.prototype;
 };
 JQPlotTimelineChart.prototype = new JQPlotLineChart();
 JQPlotTimelineChart.prototype.constructor = JQPlotAreaChart;
 
-JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {
         axes : {
             xaxis : {
@@ -370,7 +370,7 @@ JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {
     return optional;
 };
 
-JQPlotTimelineChart.prototype.prepareData = function(dataTable) {
+JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row, d;
     var retData = [], retRow;
     for ( var i = 0; i < data.length; i++) {
@@ -396,13 +396,13 @@ JQPlotTimelineChart.prototype.prepareData = function(dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotAreaChart = function(elementId) {
+var JQPlotAreaChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
 JQPlotAreaChart.prototype = new JQPlotLineChart();
 JQPlotAreaChart.prototype.constructor = JQPlotAreaChart;
 
-JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotAreaChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {
         seriesDefaults : {
             fillToZero : true
@@ -425,13 +425,13 @@ JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotColumnChart = function(elementId) {
+var JQPlotColumnChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
 JQPlotColumnChart.prototype = new JQPlotLineChart();
 JQPlotColumnChart.prototype.constructor = JQPlotColumnChart;
 
-JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotColumnChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {
         seriesDefaults : {
             fillToZero : true
@@ -454,13 +454,13 @@ JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotBarChart = function(elementId) {
+var JQPlotBarChart = function (elementId) {
     JQPlotLineChart.call(this, elementId);
 };
 JQPlotBarChart.prototype = new JQPlotLineChart();
 JQPlotBarChart.prototype.constructor = JQPlotBarChart;
 
-JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
     var columns = dataTable.getColumns();
     var optional = {
         axes : {
@@ -512,14 +512,14 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var JQPlotPieChart = function(elementId) {
+var JQPlotPieChart = function (elementId) {
     JQPlotChart.call(this, elementId);
     this.validator = PieChart.prototype;
 };
 JQPlotPieChart.prototype = new JQPlotChart();
 JQPlotPieChart.prototype.constructor = JQPlotPieChart;
 
-JQPlotPieChart.prototype.populateOptions = function(dataTable, options) {
+JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {};
     var compulsory = {
         seriesDefaults : {
@@ -530,7 +530,7 @@ JQPlotPieChart.prototype.populateOptions = function(dataTable, options) {
     return optional;
 };
 
-JQPlotPieChart.prototype.prepareData = function(dataTable) {
+JQPlotPieChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row;
     var retData = [];
     for ( var i = 0; i < data.length; i++) {
