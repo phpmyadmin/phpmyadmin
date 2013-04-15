@@ -159,7 +159,7 @@ AJAX.registerOnload('db_structure.js', function () {
      * Event handler for 'Foreign Key Checks' disabling option
      * in the drop table confirmation form
      */
-    $("span.fkc_switch").click(function (event){
+    $("span.fkc_switch").click(function (event) {
         if ($("#fkc_checkbox").prop('checked')) {
             $("#fkc_checkbox").prop('checked', false);
             $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);

@@ -233,7 +233,7 @@ var PMA_querywindow = (function ($, window) {
                 var hiddenqueryform = querywindow
                     .document
                     .getElementById('hiddenqueryform');
-                if (hiddenqueryform.querydisplay_tab != 'sql' ) {
+                if (hiddenqueryform.querydisplay_tab != 'sql') {
                     hiddenqueryform.querydisplay_tab.value = "sql";
                     hiddenqueryform.sql_query.value = sql_query;
                     $(hiddenqueryform).addClass('disableAjax');

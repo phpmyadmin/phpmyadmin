@@ -46,10 +46,10 @@ function getFieldName($this_field)
     var left_action_exist = !$('#table_results').find('th:first').hasClass('draggable');
     // number of column span for checkbox and Actions
     var left_action_skip = left_action_exist ? $('#table_results').find('th:first').attr('colspan') - 1 : 0;
-    var field_name = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ') a').text();
+    var field_name = $('#table_results').find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ') a').text();
     // happens when just one row (headings contain no a)
     if (field_name === '') {
-        var $heading = $('#table_results').find('thead').find('th:eq('+ (this_field_index - left_action_skip) + ')').children('span');
+        var $heading = $('#table_results').find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ')').children('span');
         // may contain column comment enclosed in a span - detach it temporarily to read the column name
         var $tempColComment = $heading.children().detach();
         field_name = $heading.text();
@@ -110,7 +110,7 @@ AJAX.registerOnload('sql.js', function () {
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
-            $.get(url, {'ajax_request':true, 'is_js_confirmed': true}, function (data) {
+            $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
                 if (data.success) {
                     PMA_ajaxShowMessage(data.message);
                     $link.closest('tr').remove();
@@ -247,7 +247,7 @@ AJAX.registerOnload('sql.js', function () {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize() , function (data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 // success happens if the query returns rows or not
                 //
@@ -314,13 +314,13 @@ AJAX.registerOnload('sql.js', function () {
                 PMA_init_slider();
 
                 if (typeof data.action_bookmark == 'undefined') {
-                    if ( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') !== true ) {
+                    if ($('#sqlqueryform input[name="retain_query_box"]').is(':checked') !== true) {
                         if ($("#togglequerybox").siblings(":visible").length > 0) {
                             $("#togglequerybox").trigger('click');
                         }
                     }
                 }
-            } else if (data.success === false ) {
+            } else if (data.success === false) {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
                 $sqlqueryresults.hide();
@@ -349,7 +349,7 @@ AJAX.registerOnload('sql.js', function () {
 
         $form = $(this);
 
-        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function (data) {
+        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
             $("#sqlqueryresults")
              .html(data.message)
              .trigger('makegrid');
@@ -360,7 +360,7 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Ajax Event for table row change
  * */
-    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event){
+    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event) {
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
@@ -384,7 +384,7 @@ AJAX.registerOnload('sql.js', function () {
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
-            $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function (data) {
+            $.get($form.attr('action'), $form.serialize() + "&ajax_request=true&submit_mult=row_edit", function (data) {
                 //in the case of an error, show the error message returned.
                 if (data.success !== undefined && data.success === false) {
                     $div
@@ -469,7 +469,7 @@ AJAX.registerOnload('sql.js', function () {
  * Click action for #buttonYes button in ajax dialog insertForm
  */
 
-    $("#buttonYes.ajax").live('click', function (event){
+    $("#buttonYes.ajax").live('click', function (event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the insert form
@@ -480,7 +480,7 @@ AJAX.registerOnload('sql.js', function () {
         $("#result_query").remove();
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() , function (data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);
                 if (selected_submit_type == "showinsert") {
@@ -535,7 +535,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     if (has_big_t) {
         th_index--;
     }
-    var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq('+th_index+')');
+    var $tds = $this_th.closest('table').find('tbody tr').find('td.data:eq(' + th_index + ')');
     if (isAddClass === undefined) {
         $tds.toggleClass(newclass);
     } else {
@@ -584,8 +584,8 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()),function (key,value) {
-        data.push([key,parseFloat(value)]);
+    $.each(jQuery.parseJSON($('#profilingChartData').html()), function (key, value) {
+        data.push([key, parseFloat(value)]);
     });
 
     // Remove chart and data divs contents

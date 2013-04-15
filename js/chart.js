@@ -65,7 +65,7 @@ BaseChart.prototype.validateColumns = function (dataTable) {
     if (columns.length < 2) {
         throw new Error("Minimum of two columns are required for this chart");
     }
-    for ( var i = 1; i < columns.length; i++) {
+    for (var i = 1; i < columns.length; i++) {
         if (columns[i].type != ColumnType.NUMBER) {
             throw new Error("Column " + (i + 1) + " should be of type 'Number'");
         }
@@ -146,12 +146,12 @@ var DataTable = function () {
             throw new Error("Set columns first");
         }
         var row, column;
-        for ( var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             row = data[i];
             if (row.length > columns.length) {
                 row.splice(columns.length - 1, row.length - columns.length);
             } else if (row.length < columns.length) {
-                for ( var j = row.length; j < columns.length; j++) {
+                for (var j = row.length; j < columns.length; j++) {
                     row.push(null);
                 }
             }
@@ -276,7 +276,7 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
     $.extend(true, optional, options);
 
     if (optional.series.length === 0) {
-        for ( var i = 1; i < columns.length; i++) {
+        for (var i = 1; i < columns.length; i++) {
             optional.series.push({
                 label : columns[i].name.toString()
             });
@@ -284,7 +284,7 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
     }
     if (optional.axes.xaxis.ticks.length === 0) {
         var data = dataTable.getData();
-        for ( var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             optional.axes.xaxis.ticks.push(data[i][0].toString());
         }
     }
@@ -294,9 +294,9 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
 JQPlotLineChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row;
     var retData = [], retRow;
-    for ( var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         row = data[i];
-        for ( var j = 1; j < row.length; j++) {
+        for (var j = 1; j < row.length; j++) {
             retRow = retData[j - 1];
             if (retRow === null) {
                 retRow = [];
@@ -353,7 +353,7 @@ JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
         axes : {
             xaxis : {
                 tickOptions : {
-                    formatString:'%b %#d, %y'
+                    formatString: '%b %#d, %y'
                 }
             }
         }
@@ -373,10 +373,10 @@ JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
 JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row, d;
     var retData = [], retRow;
-    for ( var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         row = data[i];
         d = row[0];
-        for ( var j = 1; j < row.length; j++) {
+        for (var j = 1; j < row.length; j++) {
             retRow = retData[j - 1];
             if (retRow === null) {
                 retRow = [];
@@ -492,12 +492,12 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
 
     if (optional.axes.yaxis.ticks.length === 0) {
         var data = dataTable.getData();
-        for ( var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             optional.axes.yaxis.ticks.push(data[i][0].toString());
         }
     }
     if (optional.series.length === 0) {
-        for ( var i = 1; i < columns.length; i++) {
+        for (var i = 1; i < columns.length; i++) {
             optional.series.push({
                 label : columns[i].name.toString()
             });
@@ -533,7 +533,7 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
 JQPlotPieChart.prototype.prepareData = function (dataTable) {
     var data = dataTable.getData(), row;
     var retData = [];
-    for ( var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         row = data[i];
         retData.push([ row[0], row[1] ]);
     }

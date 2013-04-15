@@ -62,7 +62,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
         .attr('id', new_last_row_id)
         .val(function () {
             //the insert messes up the &amp;27; part. let's fix it
-            return $(this).val().replace(/&/,'&amp;');
+            return $(this).val().replace(/&/, '&amp;');
         })
         .end()
         .find('label')
@@ -73,7 +73,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     //Let us sort the table alphabetically
     $("#usersForm").find('tbody').PMA_sort_table('label');
 
-    $("#initials_table").find('td:contains('+new_user_initial+')')
+    $("#initials_table").find('td:contains(' + new_user_initial + ')')
     .html(new_user_initial_string);
 
     //update the checkall checkbox
@@ -193,7 +193,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
 
-        $.get($(this).attr("href"), {'ajax_request':true}, function (data) {
+        $.get($(this).attr("href"), {'ajax_request': true}, function (data) {
             if (data.success === true) {
                 $('#page_content').hide();
                 var $div = $('#add_user_dialog');
@@ -319,7 +319,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         $.get(
             $(this).attr('href'),
             {
-                'ajax_request':true,
+                'ajax_request': true,
                 'edit_user_dialog': true,
                 'token': token
             },

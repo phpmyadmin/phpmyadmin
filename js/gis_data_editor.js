@@ -11,7 +11,7 @@ var gisEditorLoaded = false;
 /**
  * Closes the GIS data editor and perform necessary clean up work.
  */
-function closeGISEditor(){
+function closeGISEditor() {
     $("#popup_background").fadeOut("fast");
     $("#gis_editor").fadeOut("fast", function () {
         $(this).empty();
@@ -172,7 +172,7 @@ function openGISEditor() {
     var $backgrouond = $("#popup_background");
 
     $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
-    $backgrouond.css({"opacity":"0.7"});
+    $backgrouond.css({"opacity" : "0.7"});
 
     $gis_editor.append('<div id="gis_data_editor"><img class="ajaxIcon" id="loadingMonitorIcon" src="'
             + pmaThemeImage + 'ajax_clock_small.gif" alt=""/></div>'

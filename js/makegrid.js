@@ -253,7 +253,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($col.hasClass('condition')) {
                     $($resizeHandles[n]).addClass('condition');
                     if (n > 0) {
-                        $($resizeHandles[n-1]).addClass('condition');
+                        $($resizeHandles[n - 1]).addClass('condition');
                     }
                 }
             }
@@ -1137,7 +1137,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         var field_str = '`' + g.table + '`.' + '`' + field_name + '`';
                         for (var field in condition_array) {
                             if (field.indexOf(field_str) > -1) {
-                                condition_array[field] = is_null ? 'IS NULL' : "= '" + this_field_params[field_name].replace(/'/g,"''") + "'";
+                                condition_array[field] = is_null ? 'IS NULL' : "= '" + this_field_params[field_name].replace(/'/g, "''") + "'";
                                 break;
                             }
                         }
@@ -1312,7 +1312,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     this_field_params[field_name] = '0b' + $(g.cEdit).find('.edit_box').val();
                 } else if ($this_field.is('.set')) {
                     $test_element = $(g.cEdit).find('select');
-                    this_field_params[field_name] = $test_element.map(function (){
+                    this_field_params[field_name] = $test_element.map(function () {
                         return $(this).val();
                     }).get().join(",");
                 } else if ($this_field.is('.relation, .enum')) {
@@ -1439,7 +1439,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     g.showReorderHint = false;
                     $(this).tooltip("option", {
                         content: g.updateHint()
-                    }) ;
+                    });
                 })
                 .dblclick(function (e) {
                     e.preventDefault();
@@ -1546,7 +1546,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $listDiv.append(listElmt);
                     // add event on click
                     $(listElmt).click(function () {
-                        if ( g.toggleCol($(this).index()) ) {
+                        if (g.toggleCol($(this).index())) {
                             g.afterToggleCol();
                         }
                     });

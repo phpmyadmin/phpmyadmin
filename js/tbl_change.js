@@ -38,7 +38,7 @@ function nullify(theType, urlField, md5Field, multi_edit)
             elts.checked = false;
         } else {
             var elts_cnt = elts.length;
-            for (var i = 0; i < elts_cnt; i++ ) {
+            for (var i = 0; i < elts_cnt; i++) {
                 elts[i].checked = false;
             } // end for
 
@@ -71,9 +71,9 @@ function nullify(theType, urlField, md5Field, multi_edit)
  * Start of validation part
  */
 //function checks the number of days in febuary
-function daysInFebruary (year)
+function daysInFebruary(year)
 {
-    return (((year % 4 === 0) && ( ((year % 100 !== 0)) || (year % 400 === 0))) ? 29 : 28 );
+    return (((year % 4 === 0) && (((year % 100 !== 0)) || (year % 400 === 0))) ? 29 : 28);
 }
 //function to convert single digit to double digit
 function fractionReplace(num)
@@ -89,30 +89,30 @@ function fractionReplace(num)
 * 3) 02-12-23
 * 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
 */
-function isDate(val,tmstmp)
+function isDate(val, tmstmp)
 {
-    val = val.replace(/[.|*|^|+|//|@]/g,'-');
+    val = val.replace(/[.|*|^|+|//|@]/g, '-');
     var arrayVal = val.split("-");
     for (var a = 0; a < arrayVal.length; a++) {
         if (arrayVal[a].length == 1) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
-    val=arrayVal.join("-");
-    var pos=2;
-    var dtexp=new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
+    val = arrayVal.join("-");
+    var pos = 2;
+    var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30)))$/);
     if (val.length == 8) {
-        pos=0;
+        pos = 0;
     }
     if (dtexp.test(val)) {
-        var month=parseInt(val.substring(pos+3,pos+5), 10);
-        var day=parseInt(val.substring(pos+6,pos+8), 10);
-        var year=parseInt(val.substring(0,pos+2), 10);
+        var month = parseInt(val.substring(pos + 3, pos + 5), 10);
+        var day = parseInt(val.substring(pos + 6, pos + 8), 10);
+        var year = parseInt(val.substring(0, pos + 2), 10);
         if (month == 2 && day > daysInFebruary(year)) {
             return false;
         }
         if (val.substring(0, pos + 2).length == 2) {
-            year = parseInt("20" + val.substring(0,pos+2), 10);
+            year = parseInt("20" + val.substring(0, pos + 2), 10);
         }
         if (tmstmp === true) {
             if (year < 1978) {
@@ -166,38 +166,38 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
         return true;
     }
 
-    if (target.name.substring(0,6)=="fields") {
+    if (target.name.substring(0, 6) == "fields") {
         // validate for date time
-        if (theType=="datetime"||theType=="time"||theType=="date"||theType=="timestamp") {
+        if (theType == "datetime" || theType == "time" || theType == "date" || theType == "timestamp") {
             $this_input.removeClass("invalid_value");
             var dt_value = $this_input.val();
-            if (theType=="date"){
+            if (theType == "date") {
                 if (! isDate(dt_value)) {
                     $this_input.addClass("invalid_value");
                     return false;
                 }
-            } else if (theType=="time") {
+            } else if (theType == "time") {
                 if (! isTime(dt_value)) {
                     $this_input.addClass("invalid_value");
                     return false;
                 }
-            } else if (theType=="datetime"||theType=="timestamp") {
-                var tmstmp=false;
+            } else if (theType == "datetime" || theType == "timestamp") {
+                var tmstmp = false;
                 if (dt_value == "CURRENT_TIMESTAMP") {
                     return true;
                 }
-                if (theType=="timestamp") {
-                    tmstmp=true;
+                if (theType == "timestamp") {
+                    tmstmp = true;
                 }
-                if (dt_value=="0000-00-00 00:00:00") {
+                if (dt_value == "0000-00-00 00:00:00") {
                     return true;
                 }
-                var dv=dt_value.indexOf(" ");
-                if (dv==-1) {
+                var dv = dt_value.indexOf(" ");
+                if (dv == -1) {
                     $this_input.addClass("invalid_value");
                     return false;
                 } else {
-                    if (! (isDate(dt_value.substring(0,dv),tmstmp) && isTime(dt_value.substring(dv+1)))) {
+                    if (! (isDate(dt_value.substring(0, dv), tmstmp) && isTime(dt_value.substring(dv + 1)))) {
                         $this_input.addClass("invalid_value");
                         return false;
                     }
@@ -205,9 +205,9 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
             }
         }
         //validate for integer type
-        if (theType.substring(0,3) == "int"){
+        if (theType.substring(0, 3) == "int") {
             $this_input.removeClass("invalid_value");
-            if (isNaN($this_input.val())){
+            if (isNaN($this_input.val())) {
                 $this_input.addClass("invalid_value");
                 return false;
             }
@@ -301,7 +301,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             var value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
             var previous_value = $(prev_value_field).val();
             if (previous_value !== undefined) {
-                if ($(this).val() == 'insert' || $(this).val() == 'insertignore' || $(this).val() == 'showinsert' ) {
+                if ($(this).val() == 'insert' || $(this).val() == 'insertignore' || $(this).val() == 'showinsert') {
                     $(value_field).val(0);
                 } else {
                     $(value_field).val(previous_value);
@@ -326,12 +326,12 @@ AJAX.registerOnload('tbl_change.js', function () {
         var target_rows = $("#insert_rows").val();
 
         // remove all datepickers
-        $('input.datefield, input.datetimefield').each(function (){
+        $('input.datefield, input.datetimefield').each(function () {
             $(this).datepicker('destroy');
         });
 
-        if (curr_rows < target_rows ) {
-            while( curr_rows < target_rows ) {
+        if (curr_rows < target_rows) {
+            while (curr_rows < target_rows) {
 
                 /**
                  * @var $last_row    Object referring to the last row
@@ -427,16 +427,15 @@ AJAX.registerOnload('tbl_change.js', function () {
                         // needs improvement in case something else inside
                         // the href contains this pattern
                         var new_href = $anchor.attr('href').replace(/rownumber=\d+/, new_value);
-                        $anchor.attr('href', new_href );
+                        $anchor.attr('href', new_href);
                     });
 
                 //Insert/Clone the ignore checkboxes
-                if (curr_rows == 1 ) {
+                if (curr_rows == 1) {
                     $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
                     .insertBefore("table.insertRowTable:last")
                     .after('<label for="insert_ignore_1">' + PMA_messages['strIgnore'] + '</label>');
-                }
-                else {
+                } else {
 
                     /**
                      * @var $last_checkbox   Object reference to the last checkbox in #insertForm
@@ -448,11 +447,11 @@ AJAX.registerOnload('tbl_change.js', function () {
                     /** index of {@link $last_checkbox} */
                     var last_checkbox_index = parseInt(last_checkbox_name.match(/\d+/), 10);
                     /** name of new {@link $last_checkbox} */
-                    var new_name = last_checkbox_name.replace(/\d+/,last_checkbox_index+1);
+                    var new_name = last_checkbox_name.replace(/\d+/, last_checkbox_index + 1);
 
                     $last_checkbox
                     .clone()
-                    .attr({'id':new_name, 'name': new_name})
+                    .attr({'id': new_name, 'name': new_name})
                     .prop('checked', true)
                     .add('label[for^=insert_ignore]:last')
                     .clone()
@@ -479,11 +478,11 @@ AJAX.registerOnload('tbl_change.js', function () {
                 $(this).attr('tabindex', tabindex);
             });
         // Add all the required datepickers back
-        $('input.datefield, input.datetimefield').each(function (){
+        $('input.datefield, input.datetimefield').each(function () {
             PMA_addDatepicker($(this));
             });
-        } else if ( curr_rows > target_rows) {
-            while(curr_rows > target_rows) {
+        } else if (curr_rows > target_rows) {
+            while (curr_rows > target_rows) {
                 $("input[id^=insert_ignore]:last")
                 .nextUntil("fieldset")
                 .andSelf()

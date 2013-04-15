@@ -80,7 +80,7 @@ AJAX.registerOnload('db_operations.js', function () {
             $('div.success, div.error').fadeOut();
             if (data.success === true) {
                 PMA_commonParams.set('db', data.newname);
-                if ( $("#checkbox_switch").is(":checked")) {
+                if ($("#checkbox_switch").is(":checked")) {
                     PMA_commonParams.set('db', data.newname);
                     PMA_commonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);

@@ -205,7 +205,7 @@ function drawChart() {
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
-    } catch(err) {
+    } catch (err) {
         PMA_ajaxShowMessage(err.message, false);
     }
 }
@@ -295,10 +295,10 @@ function PMA_queryChart(data, columnNames, settings) {
         columnsToExtract.push(element);
     });
     var values = [], newRow, row, col;
-    for ( var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         row = data[i];
         newRow = [];
-        for ( var j = 0; j < columnsToExtract.length; j++) {
+        for (var j = 0; j < columnsToExtract.length; j++) {
             col = columnNames[columnsToExtract[j]];
             if (j === 0) {
                 if (settings.type == 'timeline') { // first column is date type

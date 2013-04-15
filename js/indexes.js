@@ -38,7 +38,7 @@ function checkIndexType()
     if ($select_index_type.val() == 'SPATIAL') {
         // Disable and hide the size column
         $size_header.hide();
-        $size_inputs.each(function (){
+        $size_inputs.each(function () {
             $(this)
                 .prop('disabled', true)
                 .parent('td').hide();
@@ -102,7 +102,7 @@ AJAX.registerTeardown('indexes.js', function () {
 AJAX.registerOnload('indexes.js', function () {
     checkIndexType();
     checkIndexName("index_frm");
-    $('#select_index_type').live('change', function (event){
+    $('#select_index_type').live('change', function (event) {
         event.preventDefault();
         checkIndexType();
         checkIndexName("index_frm");

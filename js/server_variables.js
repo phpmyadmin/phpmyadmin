@@ -41,7 +41,7 @@ AJAX.registerOnload('server_variables.js', function () {
     $filterField.keyup(function () {
         var textFilter = null, val = $(this).val();
         if (val.length !== 0) {
-            textFilter = new RegExp("(^| )"+val.replace(/_/g,' '),'i');
+            textFilter = new RegExp("(^| )" + val.replace(/_/g, ' '), 'i');
         }
         filterVariables(textFilter);
     });
@@ -56,7 +56,7 @@ AJAX.registerOnload('server_variables.js', function () {
         var mark_next = false, $row, odd_row = false;
         $('#serverVariables .var-row').not('.var-header').each(function () {
             $row = $(this);
-            if (   mark_next
+            if (mark_next
                 || textFilter === null
                 || textFilter.exec($row.find('.var-name').text())
             ) {
@@ -80,7 +80,7 @@ AJAX.registerOnload('server_variables.js', function () {
     /* Allows the user to edit a server variable */
     function editVariable(link) {
         var $cell = $(link).parent();
-        var varName = $cell.parent().find('.var-name').text().replace(/ /g,'_');
+        var varName = $cell.parent().find('.var-name').text().replace(/ /g, '_');
         var $mySaveLink = $saveLink.clone().show();
         var $myCancelLink = $cancelLink.clone().show();
         var $msgbox = PMA_ajaxShowMessage();
@@ -125,7 +125,7 @@ AJAX.registerOnload('server_variables.js', function () {
                 varName: varName
             }, function (data) {
                 if (data.success === true) {
-                    var $editor = $('<div />', {'class':'serverVariableEditor'})
+                    var $editor = $('<div />', {'class': 'serverVariableEditor'})
                         .append($myCancelLink)
                         .append(' ')
                         .append($mySaveLink)

@@ -34,11 +34,11 @@ var AJAX = {
      *
      * @return int
      */
-    hash: function (key){
+    hash: function (key) {
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += "";
-        var len = key.length, hash=0, i=0;
-        for (; i<len; ++i) {
+        var len = key.length, hash = 0, i = 0;
+        for (; i < len; ++i) {
             hash += key.charCodeAt(i);
             hash += (hash << 10);
             hash ^= (hash >> 6);
@@ -277,7 +277,7 @@ var AJAX = {
 
                 $('#pma_errors').remove();
                 if (data._errors) {
-                    $('<div/>', {id:'pma_errors'})
+                    $('<div/>', {id : 'pma_errors'})
                         .insertAfter('#selflink')
                         .append(data._errors);
                 }
@@ -475,7 +475,7 @@ AJAX.cache = {
         if (this.pages.length > AJAX.cache.MAX) {
             // Trim the cache, to the maximum number of allowed entries
             // This way we will have a cached menu for every page
-            for (var i=0; i<this.pages.length-this.MAX; i++) {
+            for (var i = 0; i < this.pages.length - this.MAX; i++) {
                 delete this.pages[i];
             }
         }
@@ -714,7 +714,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
     } else {
         // We don't have a valid hash, so we'll set it up
         // when the page finishes loading
-        jQuery(function (){
+        jQuery(function () {
             /* Check if we should set URL */
             if (savedHash !== "") {
                 window.location.hash = savedHash;
@@ -728,7 +728,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
     /**
      * Register an event handler for when the url hash changes
      */
-    jQuery(function (){
+    jQuery(function () {
         jQuery(window).hashchange(function () {
             if (userChange === false) {
                 // Ignore internally triggered hash changes
@@ -788,7 +788,7 @@ $('form').live('submit', AJAX.requestHandler);
  * Gracefully handle fatal server errors
  * (e.g: 500 - Internal server error)
  */
-$(document).ajaxError(function (event, request, settings){
+$(document).ajaxError(function (event, request, settings) {
     if (request.status !== 0) { // Don't handle aborted requests
         var errorCode = $.sprintf(PMA_messages['strErrorCode'], request.status);
         var errorText = $.sprintf(PMA_messages['strErrorText'], request.statusText);

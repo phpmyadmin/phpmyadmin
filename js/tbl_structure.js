@@ -171,7 +171,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
-    }) ; //end of Drop Column Anchor action
+    }); //end of Drop Column Anchor action
 
     /**
      * Ajax Event handler for 'Add Primary Key'
@@ -341,7 +341,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
  * Reload fields table
  */
 function reloadFieldForm(message) {
-    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function (form_data) {
+    $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize() + "&ajax_request=true", function (form_data) {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
@@ -378,11 +378,11 @@ function PMA_tbl_structure_menu_resizer_callback() {
     pagewidth -= $page.outerWidth(true) - $page.outerWidth();
     var columnsWidth = 0;
     var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
-    $columns.not(':last').each(function (){
+    $columns.not(':last').each(function () {
         columnsWidth += $(this).outerWidth(true);
     });
     var totalCellSpacing = $('#tablestructure').width();
-    $columns.each(function (){
+    $columns.each(function () {
         totalCellSpacing -= $(this).outerWidth(true);
     });
     return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin

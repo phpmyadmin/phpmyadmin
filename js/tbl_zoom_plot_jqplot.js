@@ -20,7 +20,7 @@ function displayHelp() {
  ** @param array
  **/
 Array.max = function (array) {
-    return Math.max.apply( Math, array );
+    return Math.max.apply(Math, array);
 };
 
 /**
@@ -28,7 +28,7 @@ Array.max = function (array) {
  ** @param array
  **/
 Array.min = function (array) {
-    return Math.min.apply( Math, array );
+    return Math.min.apply(Math, array);
 };
 
 /**
@@ -145,7 +145,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     // first column choice corresponds to the X axis
     $('#tableid_0').change(function () {
         //AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -153,7 +153,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_0').val(),
             'it' : 0,
             'token' : PMA_commonParams.get('token')
-        },function (data) {
+        }, function (data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(1) td:eq(2)').html(data.field_operators);
@@ -169,7 +169,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     // second column choice corresponds to the Y axis
     $('#tableid_1').change(function () {
         //AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -177,7 +177,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_1').val(),
             'it' : 1,
             'token' : PMA_commonParams.get('token')
-        },function (data) {
+        }, function (data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(3) td:eq(2)').html(data.field_operators);
@@ -192,7 +192,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     $('#tableid_2').change(function () {
         //AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -200,7 +200,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_2').val(),
             'it' : 2,
             'token' : PMA_commonParams.get('token')
-        },function (data) {
+        }, function (data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(6) td:eq(2)').html(data.field_operators);
@@ -213,7 +213,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     $('#tableid_3').change(function () {
         //AJAX request for field type, collation, operators, and value field
-        $.post('tbl_zoom_select.php',{
+        $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : PMA_commonParams.get('db'),
@@ -221,7 +221,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'field' : $('#tableid_3').val(),
             'it' : 3,
             'token' : PMA_commonParams.get('token')
-        },function (data) {
+        }, function (data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(8) td:eq(2)').html(data.field_operators);
@@ -285,7 +285,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             var oldVal = selectedRow[key];
             var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
-                newVal =  $('#edit_fieldID_' + it).map(function (){
+                newVal =  $('#edit_fieldID_' + it).map(function () {
                     return $(this).val();
                 }).get().join(",");
             }
@@ -348,7 +348,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + PMA_commonParams.get('table') + '` SET ';
             for (key in newValues) {
-                sql_query += '`' + key + '`=' ;
+                sql_query += '`' + key + '`=';
                 var value = newValues[key];
 
                 // null
@@ -507,7 +507,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             //    format = '%Y-%m-%d %H:%M';
             //}
             $.extend(options.axes.xaxis, {
-                renderer:$.jqplot.DateAxisRenderer,
+                renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
                     formatString: format
                 }
@@ -520,7 +520,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 format = '%Y-%m-%d';
             }
             $.extend(options.axes.yaxis, {
-                renderer:$.jqplot.DateAxisRenderer,
+                renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
                     formatString: format
                 }
@@ -567,7 +567,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
-            currentChart.replot( {resetAxes: true});
+            currentChart.replot({resetAxes: true});
         });
 
         $('div#querychart').bind('jqplotDataClick',

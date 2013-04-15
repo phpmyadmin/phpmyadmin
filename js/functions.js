@@ -48,7 +48,7 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
     if (typeof options.data == "string") {
         options.data += "&_nocache=" + nocache;
     } else if (typeof options.data == "object") {
-        options.data = $.extend(originalOptions.data, {'_nocache':nocache});
+        options.data = $.extend(originalOptions.data, {'_nocache' : nocache});
     }
 });
 
@@ -82,8 +82,8 @@ function suggestPassword(passwd_form)
     var passwd = passwd_form.generated_pw;
     passwd.value = '';
 
-    for (var i = 0; i < passwordlength; i++ ) {
-        passwd.value += pwchars.charAt( Math.floor( Math.random() * pwchars.length ) );
+    for (var i = 0; i < passwordlength; i++) {
+        passwd.value += pwchars.charAt(Math.floor(Math.random() * pwchars.length));
     }
     passwd_form.text_pma_pw.value = passwd.value;
     passwd_form.text_pma_pw2.value = passwd.value;
@@ -93,7 +93,7 @@ function suggestPassword(passwd_form)
 /**
  * Version string to integer conversion.
  */
-function parseVersionString (str)
+function parseVersionString(str)
 {
     if (typeof(str) != 'string') { return false; }
     var add = 0;
@@ -216,7 +216,7 @@ function PMA_addDatepicker($this_element, options)
 
             // Fix wrong timepicker z-index, doesn't work without timeout
             setTimeout(function () {
-                $('#ui-timepicker-div').css('z-index',$('#ui-datepicker-div').css('z-index'));
+                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
             }, 0);
         },
         onClose: function (dateText, dp_inst) {
@@ -224,7 +224,7 @@ function PMA_addDatepicker($this_element, options)
             $this_element.data('comes_from', '');
         }
     };
-    if ( showTimeOption || (typeof(options) != 'undefined'  && options.showTimepicker) ) {
+    if (showTimeOption || (typeof(options) != 'undefined'  && options.showTimepicker)) {
         $this_element.datetimepicker($.extend(defaultOptions, options));
     } else {
         $this_element.datepicker($.extend(defaultOptions, options));
@@ -240,15 +240,15 @@ function PMA_addDatepicker($this_element, options)
  * @param boolean only_once   if true this is only done once
  *                              f.e. only on first focus
  */
-function selectContent( element, lock, only_once )
+function selectContent(element, lock, only_once)
 {
-    if ( only_once && only_once_elements[element.name] ) {
+    if (only_once && only_once_elements[element.name]) {
         return;
     }
 
     only_once_elements[element.name] = true;
 
-    if ( lock  ) {
+    if (lock) {
         return;
     }
 
@@ -274,16 +274,16 @@ function confirmLink(theLink, theSqlQuery)
 
     var is_confirmed = confirm($.sprintf(PMA_messages['strDoYouReally'], theSqlQuery));
     if (is_confirmed) {
-        if ( $(theLink).hasClass('formLinkSubmit') ) {
+        if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
             if ($(theLink).attr('href').indexOf('usesubform') != -1) {
                 name = 'subform[' + $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i)[1] + '][is_js_confirmed]';
             }
 
             $(theLink).parents('form').append('<input type="hidden" name="' + name + '" value="1" />');
-        } else if ( typeof(theLink.href) != 'undefined' ) {
+        } else if (typeof(theLink.href) != 'undefined') {
             theLink.href += '&is_js_confirmed=1';
-        } else if ( typeof(theLink.form) != 'undefined' ) {
+        } else if (typeof(theLink.form) != 'undefined') {
             theLink.form.action += '?is_js_confirmed=1';
         }
     }

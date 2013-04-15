@@ -388,7 +388,7 @@ var ResizeHandler = function () {
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages['strHidePanel']);
         }
-        setTimeout(function (){
+        setTimeout(function () {
             $(window).trigger('resize');
         }, 4);
     };
@@ -505,12 +505,12 @@ var ResizeHandler = function () {
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')
-        .live('mousedown', {'resize_handler':this}, this.mousedown);
+        .live('mousedown', {'resize_handler': this}, this.mousedown);
     $(document)
-        .bind('mouseup', {'resize_handler':this}, this.mouseup)
-        .bind('mousemove', {'resize_handler':this}, $.throttle(this.mousemove, 4));
+        .bind('mouseup', {'resize_handler': this}, this.mouseup)
+        .bind('mousemove', {'resize_handler': this}, $.throttle(this.mousemove, 4));
     var $collapser = $('#pma_navigation_collapser');
-    $collapser.live('click', {'resize_handler':this}, this.collapse);
+    $collapser.live('click', {'resize_handler': this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
@@ -559,7 +559,7 @@ var PMA_fastFilter = {
         this.timeout = null;
 
         var $filterInput = $this.find('li.fast_filter input.searchClause');
-        if (   $filterInput.length !== 0
+        if ($filterInput.length !== 0
             && $filterInput.val() !== ''
             && $filterInput.val() != $filterInput[0].defaultValue
         ) {
@@ -745,9 +745,9 @@ PMA_fastFilter.filter.prototype.request = function ()
                 var data = $.parseJSON(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
-                    var $listItem = $('<li />', {'class':'moreResults'})
+                    var $listItem = $('<li />', {'class': 'moreResults'})
                         .appendTo(self.$this.find('li.fast_filter'));
-                    var $link = $('<a />', {href:'#'})
+                    var $link = $('<a />', {href: '#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {

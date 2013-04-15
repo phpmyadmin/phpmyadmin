@@ -43,7 +43,7 @@ function loadResult(result_path, table_name, link)
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $("#table-info").show();
-        $('#table-link').attr({"href" : 'sql.php?'+link }).text(table_name);
+        $('#table-link').attr({"href" : 'sql.php?' + link }).text(table_name);
         var url = result_path + " #sqlqueryresults";
         $('#browse-results').load(url, null, function () {
             $('html, body')
@@ -102,7 +102,7 @@ AJAX.registerOnload('db_search.js', function () {
     $("#table-info").prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
-    $('#buttonGo').click(function (){
+    $('#buttonGo').click(function () {
         $("#table-info").hide();
         $('#browse-results').hide();
         $('#sqlqueryform').hide();

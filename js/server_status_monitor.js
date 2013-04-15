@@ -31,7 +31,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('#addChartDialog')
         .appendTo('#page_content');
 
-    $('a.popupLink').click( function () {
+    $('a.popupLink').click(function () {
         var $link = $(this);
         $('div.' + $link.attr('href').substr(1))
             .show()
@@ -40,7 +40,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         return false;
     });
-    $('body').click( function (event) {
+    $('body').click(function (event) {
         $('div.openedPopup').each(function () {
             var $cnt = $(this);
             var pos = $cnt.offset();
@@ -191,7 +191,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     var tooltipBox;
 
     /* Add OS specific system info charts to the preset chart list */
-    switch(server_os) {
+    switch (server_os) {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
@@ -209,11 +209,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 title: PMA_messages['strSystemMemory'],
                 series: [ {
                     label: PMA_messages['strTotalMemory'],
-                    fill:true
+                    fill: true
                 }, {
                     dataType: 'memory',
                     label: PMA_messages['strUsedMemory'],
-                    fill:true
+                    fill: true
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
                         { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
@@ -225,10 +225,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 title: PMA_messages['strSystemSwap'],
                 series: [ {
                     label: PMA_messages['strTotalSwap'],
-                    fill:true
+                    fill: true
                 }, {
                     label: PMA_messages['strUsedSwap'],
-                    fill:true
+                    fill: true
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
                         { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
@@ -251,10 +251,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 series: [
-                    { label: PMA_messages['strBufferedMemory'], fill:true},
-                    { label: PMA_messages['strUsedMemory'], fill:true},
-                    { label: PMA_messages['strCachedMemory'], fill:true},
-                    { label: PMA_messages['strFreeMemory'], fill:true}
+                    { label: PMA_messages['strBufferedMemory'], fill: true},
+                    { label: PMA_messages['strUsedMemory'], fill: true},
+                    { label: PMA_messages['strCachedMemory'], fill: true},
+                    { label: PMA_messages['strFreeMemory'], fill: true}
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
@@ -267,9 +267,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 series: [
-                    { label: PMA_messages['strCachedSwap'], fill:true},
-                    { label: PMA_messages['strUsedSwap'], fill:true},
-                    { label: PMA_messages['strFreeSwap'], fill:true}
+                    { label: PMA_messages['strCachedSwap'], fill: true},
+                    { label: PMA_messages['strUsedSwap'], fill: true},
+                    { label: PMA_messages['strFreeSwap'], fill: true}
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
@@ -296,8 +296,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             'memory': {
                 title: PMA_messages['strSystemMemory'],
                 series: [
-                    { label: PMA_messages['strUsedMemory'], fill:true },
-                    { label: PMA_messages['strFreeMemory'], fill:true }
+                    { label: PMA_messages['strUsedMemory'], fill: true },
+                    { label: PMA_messages['strFreeMemory'], fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -308,8 +308,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             'swap': {
                 title: PMA_messages['strSystemSwap'],
                 series: [
-                    { label: PMA_messages['strUsedSwap'], fill:true },
-                    { label: PMA_messages['strFreeSwap'], fill:true }
+                    { label: PMA_messages['strUsedSwap'], fill: true },
+                    { label: PMA_messages['strFreeSwap'], fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
@@ -1568,7 +1568,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
      */
     function getMaxYLabel(dataValues) {
         var maxY = dataValues[0][1];
-        $.each(dataValues,function (k,v){
+        $.each(dataValues,function (k,v) {
             maxY = (v[1]>maxY) ? v[1] : maxY;
         });
         return maxY;

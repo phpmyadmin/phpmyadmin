@@ -1,7 +1,7 @@
 // TODO: tablesorter shouldn't sort already sorted columns
 function initTableSorter(tabid) {
     var $table, opts;
-    switch(tabid) {
+    switch (tabid) {
     case 'statustabs_queries':
         $table = $('#serverstatusqueriesdetails');
         opts = {

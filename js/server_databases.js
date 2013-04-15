@@ -84,7 +84,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 }); // end $.post()
             }
         ); // end $.PMA_confirm()
-    }) ; //end of Drop Database action
+    }); //end of Drop Database action
 
     /**
      * Attach Ajax event handlers for 'Create Database'.

@@ -176,7 +176,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         // If the chosen function takes two geomerty objects as parameters
         var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
-        if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0){
+        if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0) {
             $operator.prop('readonly', true);
         } else {
             $operator.prop('readonly', false);
@@ -184,7 +184,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         // if the chosen function's output is a geometry, enable GIS editor
         var $editorSpan = $geomFuncSelector.parents('tr').find('span.open_search_gis_editor');
-        if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0){
+        if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0) {
             $editorSpan.show();
         } else {
             $editorSpan.hide();

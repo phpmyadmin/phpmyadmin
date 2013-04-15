@@ -21,8 +21,8 @@ AJAX.registerOnload('keyhandler.js', function () {
 
 function onKeyDownArrowsHandler(e)
 {
-    e = e||window.event;
-    var o = (e.srcElement||e.target);
+    e = e || window.event;
+    var o = (e.srcElement || e.target);
     if (!o) {
         return;
     }
@@ -51,7 +51,7 @@ function onKeyDownArrowsHandler(e)
 
     var nO = null;
 
-    switch(e.keyCode) {
+    switch (e.keyCode) {
     case 38:
         // up
         y--;

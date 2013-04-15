@@ -112,7 +112,9 @@ var isN4 = document.layers;
 
 if (isIE) {
     window.onscroll = General_scroll;
-    document.onselectstart = function () {return false;};
+    document.onselectstart = function () {
+        return false;
+    };
 }
 
 //document.onmouseup = function (){General_scroll_end();}
@@ -209,8 +211,8 @@ function Canvas_pos()
     canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
 
     if (isIE) {
-        document.getElementById('canvas').style.width  = ((osn_tab_width  - 3)?(osn_tab_width  - 3):0) + 'px';
-        document.getElementById('canvas').style.height = ((osn_tab_height - 3)?(osn_tab_height - 3):0) + 'px';
+        document.getElementById('canvas').style.width  = ((osn_tab_width  - 3) ? (osn_tab_width  - 3) : 0) + 'px';
+        document.getElementById('canvas').style.height = ((osn_tab_height - 3) ? (osn_tab_height - 3) : 0) + 'px';
     }
 }
 
@@ -287,7 +289,7 @@ function Re_load()
                         // if hide
                         continue;
                     }
-                    var x1_left  = document.getElementById(key2).offsetLeft+1;
+                    var x1_left  = document.getElementById(key2).offsetLeft + 1;
                     var x1_right = x1_left + document.getElementById(key2).offsetWidth;
                     var x2_left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
                     var x2_right = x2_left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
@@ -355,7 +357,13 @@ function Re_load()
                         + height_field;
 
                     //alert(y1 + ' - ' + key2 + "." + key3);
-                    Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ) );
+                    Line0(
+                        x1 - sm_x,
+                        y1 - sm_y,
+                        x2 - sm_x,
+                        y2 - sm_y,
+                        getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
+                    );
                 }
             }
         }
@@ -537,7 +545,7 @@ function Get_url_pos()
 function Save2()
 {
     _change = 0;
-    var poststr = 'IS_AJAX=1&server='+server+'&db=' + db + '&token=' + token + '&die_save_pos=1';
+    var poststr = 'IS_AJAX=1&server=' + server + '&db=' + db + '&token=' + token + '&die_save_pos=1';
     poststr += Get_url_pos();
     makeRequest('pmd_save_pos.php', poststr);
 }
@@ -672,7 +680,7 @@ function Small_tab_all(id_this) // max/min all tables
 {
     if (id_this.alt == "v") {
         for (var key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_'+key).innerHTML == "v") {
+            if (document.getElementById('id_hide_tbody_' + key).innerHTML == "v") {
                 Small_tab(key, 0);
             }
         }
@@ -680,7 +688,7 @@ function Small_tab_all(id_this) // max/min all tables
         id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
         for (var key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
+            if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
                 Small_tab(key, 0);
             }
         }
@@ -707,7 +715,7 @@ function Relation_lines_invert()
 function Small_tab_refresh()
 {
     for (var key in j_tabs) {
-        if(document.getElementById('id_hide_tbody_'+key).innerHTML != "v") {
+        if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
             Small_tab(key, 0);
             Small_tab(key, 0);
         }
@@ -744,7 +752,12 @@ function Select_tab(t)
     //----------
     var id_t = document.getElementById(t);
     window.scrollTo(parseInt(id_t.style.left, 10) - 300, parseInt(id_t.style.top, 10) - 300);
-    setTimeout(function (){document.getElementById('id_zag_' + t).className = 'tab_zag';}, 800);
+    setTimeout(
+        function () {
+            document.getElementById('id_zag_' + t).className = 'tab_zag';
+        },
+        800
+    );
 }
 //------------------------------------------------------------------------------
 
@@ -763,8 +776,8 @@ function Canvas_click(id)
         for (key in contr[K]) {
             for (key2 in contr[K][key]) {
                 for (key3 in contr[K][key][key2]) {
-                    if (!document.getElementById("check_vis_"+key2).checked
-                        || !document.getElementById("check_vis_"+contr[K][key][key2][key3][0]).checked) {
+                    if (!document.getElementById("check_vis_" + key2).checked
+                        || !document.getElementById("check_vis_" + contr[K][key][key2][key3][0]).checked) {
                         continue; // if hide
                     }
                     var x1_left  = document.getElementById(key2).offsetLeft + 1;//document.getElementById(key2+"."+key3).offsetLeft;
@@ -806,9 +819,9 @@ function Canvas_click(id)
                         s_left    = 1;
                     }
 
-                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2+"."+key3).offsetTop + height_field;
+                    var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + "." + key3).offsetTop + height_field;
                     var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                                     document.getElementById(contr[K][key][key2][key3][0]+"."+contr[K][key][key2][key3][1]).offsetTop + height_field;
+                                     document.getElementById(contr[K][key][key2][key3][0] + "." + contr[K][key][key2][key3][1]).offsetTop + height_field;
                     if (!selected && Local_X > x1 - 10 && Local_X < x1 + 10 && Local_Y > y1 - 7 && Local_Y < y1 + 7) {
                         Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, "rgba(255,0,0,1)");
                         selected = 1; // Rect(x1-sm_x,y1-sm_y,10,10,"rgba(0,255,0,1)");
@@ -818,7 +831,13 @@ function Canvas_click(id)
                         Key2 = key2; Key3 = key3;
                         Key = K;
                     } else {
-                        Line0(x1 - sm_x, y1 - sm_y, x2 - sm_x, y2 - sm_y, getColorByTarget( contr[K][key][key2][key3][0]+'.'+contr[K][key][key2][key3][1] ));
+                        Line0(
+                            x1 - sm_x,
+                            y1 - sm_y,
+                            x2 - sm_x,
+                            y2 - sm_y,
+                            getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
+                        );
                     }
                 }
             }
@@ -883,7 +902,7 @@ function in_array_k(x, m)
     var b = 0;
     for (var u in m) {
         if (x == u) {
-            b=1;
+            b = 1;
             break;
         }
     }
@@ -948,14 +967,12 @@ function General_scroll()
     */
     //if (timeoutID)
     clearTimeout(timeoutID);
-    timeoutID = setTimeout
-    (
-        function ()
-        {
+    timeoutID = setTimeout(
+        function () {
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
             document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
-        }
-        ,200
+        },
+        200
     );
 }
 
@@ -1045,58 +1062,55 @@ function Start_display_field()
 }
 //------------------------------------------------------------------------------
 var TargetColors = [];
-function getColorByTarget( target )
+function getColorByTarget(target)
 {
-  var color = '';  //"rgba(0,100,150,1)";
+    var color = '';  //"rgba(0,100,150,1)";
 
-  for (var i in TargetColors) {
-   if (TargetColors[i][0]==target) {
-    color = TargetColors[i][1];
-    break;
-   }
-  }
+    for (var i in TargetColors) {
+        if (TargetColors[i][0] == target) {
+            color = TargetColors[i][1];
+            break;
+        }
+    }
 
+    if (color.length === 0) {
+        var i = TargetColors.length + 1;
+        var d = i % 6;
+        var j = (i - d) / 6;
+        j = j % 4;
+        j++;
+        var color_case = new Array(
+            new Array(1, 0, 0),
+            new Array(0, 1, 0),
+            new Array(0, 0, 1),
+            new Array(1, 1, 0),
+            new Array(1, 0, 1),
+            new Array(0, 1, 1)
+        );
+        var a = color_case[d][0];
+        var b = color_case[d][1];
+        var c = color_case[d][2];
+        var e = (1 - (j - 1) / 6);
 
-  if (color.length === 0) {
-   var i = TargetColors.length+1;
-   var d = i % 6;
-   var j = (i - d) / 6;
-   j = j % 4;
-   j++;
-   var color_case = new Array(
-                        new Array(1, 0, 0),
-                        new Array(0, 1, 0),
-                        new Array(0, 0, 1),
-                        new Array(1, 1, 0),
-                        new Array(1, 0, 1),
-                        new Array(0, 1, 1)
-                        );
-    var a = color_case[d][0];
-    var b = color_case[d][1];
-    var c = color_case[d][2];
-    var e = (1 - (j - 1) / 6);
+        var r = Math.round(a * 200 * e);
+        var g = Math.round(b * 200 * e);
+        var b = Math.round(c * 200 * e);
+        var color = "rgba(" + r + "," + g + "," + b + ",1)";
 
-    var r = Math.round(a * 200 * e);
-    var g = Math.round(b * 200 * e);
-    var b = Math.round(c * 200 * e);
-    var color = "rgba("+r+","+g+","+b+",1)";
+        TargetColors.push(new Array(target, color));
+    }
 
-    TargetColors.push( new Array(target, color) );
-
-
-  }
-
-  return color;
+    return color;
 }
 
-function Click_option(id_this,column_name,table_name)
+function Click_option(id_this, column_name, table_name)
 {
     var left = Glob_X - (document.getElementById(id_this).offsetWidth>>1);
     document.getElementById(id_this).style.left = left + 'px';
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] +'"' +column_name+ '"</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] + '"' + column_name + '"</strong>';
     col_name = column_name;
     tab_name = table_name;
 }
@@ -1106,40 +1120,38 @@ function Close_option()
     document.getElementById('pmd_optionse').style.display = 'none';
 }
 
-function Select_all(id_this,owner)
+function Select_all(id_this, owner)
 {
-    var parent= document.form1;
-    downer =owner;
+    var parent = document.form1;
+    downer = owner;
     var i;
     var k;
     var tab = [];
     for (i = 0; i < parent.elements.length; i++) {
-        if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0,(9 + id_this.length)) == 'select_' + id_this + '._') {
-            if(document.getElementById('select_all_' + id_this).checked === true) {
+        if (parent.elements[i].type == "checkbox" && parent.elements[i].id.substring(0, (9 + id_this.length)) == 'select_' + id_this + '._') {
+            if (document.getElementById('select_all_' + id_this).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
-                var temp = '`' + id_this.substring(owner.length +1) + '`.*';
-           }
-           else {
-               parent.elements[i].checked = false;
-               parent.elements[i].disabled = false;
-           }
+                var temp = '`' + id_this.substring(owner.length + 1) + '`.*';
+            } else {
+                parent.elements[i].checked = false;
+                parent.elements[i].disabled = false;
+            }
         }
     }
     if (document.getElementById('select_all_' + id_this).checked === true) {
-        select_field.push('`' + id_this.substring(owner.length +1) + '`.*');
+        select_field.push('`' + id_this.substring(owner.length + 1) + '`.*');
         tab = id_this.split(".");
         from_array.push(tab[1]);
-    }
-    else {
-        for (i =0; i < select_field.length; i++) {
-            if (select_field[i] == ('`' + id_this.substring(owner.length +1) + '`.*')) {
-                select_field.splice(i,1);
+    } else {
+        for (i = 0; i < select_field.length; i++) {
+            if (select_field[i] == ('`' + id_this.substring(owner.length + 1) + '`.*')) {
+                select_field.splice(i, 1);
             }
         }
-        for (k =0 ;k < from_array.length; k++){
-            if (from_array[k] == id_this){
-                from_array.splice(k,1);
+        for (k = 0; k < from_array.length; k++) {
+            if (from_array[k] == id_this) {
+                from_array.splice(k, 1);
                 break;
             }
         }
@@ -1147,18 +1159,17 @@ function Select_all(id_this,owner)
     Re_load();
 }
 
-function Table_onover(id_this,val,buil)
+function Table_onover(id_this, val, buil)
 {
-    if(!val) {
-        document.getElementById("id_zag_" + id_this).className="tab_zag_2";
-        if(buil) {
-            document.getElementById("id_zag_" + id_this + "_2").className="tab_zag_2";
+    if (!val) {
+        document.getElementById("id_zag_" + id_this).className = "tab_zag_2";
+        if (buil) {
+            document.getElementById("id_zag_" + id_this + "_2").className = "tab_zag_2";
         }
-    }
-    else {
-        document.getElementById("id_zag_" + id_this).className="tab_zag";
-        if(buil) {
-            document.getElementById("id_zag_" + id_this + "_2").className="tab_zag";
+    } else {
+        document.getElementById("id_zag_" + id_this).className = "tab_zag";
+        if (buil) {
+            document.getElementById("id_zag_" + id_this + "_2").className = "tab_zag";
         }
     }
 }
@@ -1167,28 +1178,27 @@ function Table_onover(id_this,val,buil)
  * In case column is checked it add else it deletes
  *
  */
-function store_column(id_this,owner,col)
+function store_column(id_this, owner, col)
 {
     var i;
     var k;
     if (document.getElementById('select_' + owner + '.' + id_this + '._' + col).checked === true) {
-        select_field.push('`' + id_this + '`.`' + col +'`');
+        select_field.push('`' + id_this + '`.`' + col + '`');
         from_array.push(id_this);
+    } else {
+        for (i = 0; i < select_field.length; i++) {
+            if (select_field[i] == ('`' + id_this + '`.`' + col + '`')) {
+                select_field.splice(i, 1);
+                break;
+            }
+        }
+        for (k = 0; k < from_array.length; k++) {
+            if (from_array[k] == id_this) {
+                from_array.splice(k, 1);
+                break;
+            }
+        }
     }
-    else {
-        for (i = 0; i < select_field.length ;i++) {
-            if (select_field[i] == ('`' + id_this + '`.`' + col +'`')) {
-                select_field.splice(i,1);
-                break;
-            }
-        }
-        for (k = 0 ;k < from_array.length;k++){
-            if(from_array[k] == id_this){
-                from_array.splice(k,1);
-                break;
-            }
-        }
-     }
 }
 
 /**
@@ -1205,52 +1215,56 @@ function add_object()
     var init = history_array.length;
     if (rel.value != '--') {
         if (document.getElementById('Query').value === "") {
-            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty";
             document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
         var p = document.getElementById('Query');
-        var where_obj = new where(rel.value,p.value);//make where object
-        history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Where"));
+        var where_obj = new where(rel.value, p.value);//make where object
+        history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Where"));
         sum = sum + 1;
         rel.value = '--';
         p.value = "";
     }
     if (document.getElementById('new_name').value !== "") {
         var rename_obj = new rename(document.getElementById('new_name').value);//make Rename object
-        history_array.push(new history(col_name,rename_obj,tab_name,h_tabs[downer + '.' + tab_name],"Rename"));
+        history_array.push(new history(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], "Rename"));
         sum = sum + 1;
-        document.getElementById('new_name').value = "" ;
+        document.getElementById('new_name').value = "";
     }
     if (document.getElementById('operator').value != '---') {
-        var aggregate_obj = new aggregate(document.getElementById('operator').value) ;
-        history_array.push(new history(col_name,aggregate_obj,tab_name,h_tabs[downer + '.' + tab_name],"Aggregate"));
+        var aggregate_obj = new aggregate(document.getElementById('operator').value);
+        history_array.push(new history(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], "Aggregate"));
         sum = sum + 1;
         document.getElementById('operator').value = '---';
         //make aggregate operator
     }
-    if (document.getElementById('groupby').checked === true ) {
-        history_array.push(new history(col_name,'GroupBy',tab_name,h_tabs[downer + '.' +tab_name],"GroupBy"));
+    if (document.getElementById('groupby').checked === true) {
+        history_array.push(new history(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], "GroupBy"));
         sum = sum + 1;
         document.getElementById('groupby').checked = false;
         //make groupby
     }
     if (document.getElementById('h_rel_opt').value != '--') {
         if (document.getElementById('having').value === "") {
-            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty" ;
+            document.getElementById('pmd_hint').innerHTML = "value/subQuery is empty";
             document.getElementById('pmd_hint').style.display = 'block';
-           return;
+            return;
         }
         var p = document.getElementById('having');
-        var where_obj = new having(document.getElementById('h_rel_opt').value,p.value,document.getElementById('h_operator').value);//make where object
-        history_array.push(new history(col_name,where_obj,tab_name,h_tabs[downer + '.' + tab_name],"Having"));
+        var where_obj = new having(
+            document.getElementById('h_rel_opt').value,
+            p.value,
+            document.getElementById('h_operator').value
+        );//make where object
+        history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Having"));
         sum = sum + 1;
         document.getElementById('h_rel_opt').value = '--';
         document.getElementById('h_operator').value = '---';
         p.value = ""; //make having
     }
     if (document.getElementById('orderby').checked === true) {
-        history_array.push(new history(col_name,'OrderBy',tab_name,h_tabs[downer + '.' + tab_name],"OrderBy"));
+        history_array.push(new history(col_name, 'OrderBy', tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));
         sum = sum + 1;
         document.getElementById('orderby').checked = false;
         //make orderby
@@ -1258,7 +1272,7 @@ function add_object()
     PMA_ajaxShowMessage($.sprintf(PMA_messages['strObjectsCreated'], sum));
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = display(init,history_array.length);
+    existingDiv.innerHTML = display(init, history_array.length);
     Close_option();
     panel(0);
 }

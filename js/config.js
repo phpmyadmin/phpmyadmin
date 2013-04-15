@@ -331,7 +331,7 @@ function displayErrors(error_list)
 {
     for (var field_id in error_list) {
         var errors = error_list[field_id];
-        var field = $('#'+field_id);
+        var field = $('#' + field_id);
         var isFieldset = field.attr('tagName') == 'FIELDSET';
         var errorCnt = isFieldset
             ? field.find('dl.errors')
@@ -472,7 +472,7 @@ function setRestoreDefaultBtn(field, display)
 AJAX.registerOnload('config.js', function () {
     // register validators and mark custom values
     var elements = $('input[id], select[id], textarea[id]');
-    $('input[id], select[id], textarea[id]').each(function (){
+    $('input[id], select[id], textarea[id]').each(function () {
         markField(this);
         var el = $(this);
         el.bind('change', function () {
@@ -503,7 +503,7 @@ AJAX.registerOnload('config.js', function () {
             validate_field(elements[i], false, errors);
         }
         // run all fieldset validators
-        $('fieldset').each(function (){
+        $('fieldset').each(function () {
             validate_fieldset(this, false, errors);
         });
 
@@ -597,7 +597,7 @@ AJAX.registerOnload('config.js', function () {
  */
 function restoreField(field_id)
 {
-    var field = $('#'+field_id);
+    var field = $('#' + field_id);
     if (field.length === 0 || defaultValues[field_id] === undefined) {
         return;
     }
@@ -606,8 +606,12 @@ function restoreField(field_id)
 
 AJAX.registerOnload('config.js', function () {
     $('div.tabs_contents')
-        .delegate('.restore-default, .set-value', 'mouseenter', function (){$(this).css('opacity', 1);})
-        .delegate('.restore-default, .set-value', 'mouseleave', function (){$(this).css('opacity', 0.25);})
+        .delegate('.restore-default, .set-value', 'mouseenter', function () {
+            $(this).css('opacity', 1);
+        })
+        .delegate('.restore-default, .set-value', 'mouseleave', function () {
+            $(this).css('opacity', 0.25);
+        })
         .delegate('.restore-default, .set-value', 'click', function (e) {
             e.preventDefault();
             var href = $(this).attr('href');
@@ -646,24 +650,24 @@ AJAX.registerOnload('config.js', function () {
     radios
         .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
-        .click(function (){
+        .click(function () {
             var enable_id = $(this).attr('id');
             var disable_id = enable_id.match(/local_storage$/)
                 ? enable_id.replace(/local_storage$/, 'text_file')
                 : enable_id.replace(/text_file$/, 'local_storage');
-            $('#opts_'+disable_id).addClass('disabled').find('input').prop('disabled', true);
-            $('#opts_'+enable_id).removeClass('disabled').find('input').prop('disabled', false);
+            $('#opts_' + disable_id).addClass('disabled').find('input').prop('disabled', true);
+            $('#opts_' + enable_id).removeClass('disabled').find('input').prop('disabled', false);
         });
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
     var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
-    $('div.localStorage-'+(ls_supported ? 'un' : '')+'supported').hide();
-    $('div.localStorage-'+(ls_exists ? 'empty' : 'exists')).hide();
+    $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
+    $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
         updatePrefsDate();
     }
-    $('form.prefs-form').change(function (){
+    $('form.prefs-form').change(function () {
         var form = $(this);
         var disabled = false;
         if (!ls_supported) {
@@ -685,7 +689,7 @@ AJAX.registerOnload('config.js', function () {
         }
     });
 
-    $('div.click-hide-message').live('click', function (){
+    $('div.click-hide-message').live('click', function () {
         $(this)
         .hide()
         .parent('.group')
@@ -750,10 +754,10 @@ function updatePrefsDate()
 function formatDate(d)
 {
     return d.getFullYear() + '-'
-        + (d.getMonth() < 10 ? '0'+d.getMonth() : d.getMonth())
-        + '-' + (d.getDate() < 10 ? '0'+d.getDate() : d.getDate())
-        + ' ' + (d.getHours() < 10 ? '0'+d.getHours() : d.getHours())
-        + ':' + (d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes());
+        + (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth())
+        + '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
+        + ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours())
+        + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
 }
 
 /**
