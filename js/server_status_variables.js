@@ -52,7 +52,7 @@ AJAX.registerOnload('server_status_variables.js', function() {
 
     $('#filterText').keyup(function(e) {
         var word = $(this).val().replace(/_/g, ' ');
-        if (word.length == 0) {
+        if (word.length === 0) {
             textFilter = null;
         } else {
             textFilter = new RegExp("(^| )" + word, 'i');
@@ -91,7 +91,7 @@ AJAX.registerOnload('server_status_variables.js', function() {
         $('#serverstatusvariables th.name').each(function() {
             if ((textFilter == null || textFilter.exec($(this).text()))
                 && (! alertFilter || $(this).next().find('span.attention').length>0)
-                && (categoryFilter.length == 0 || $(this).parent().hasClass('s_' + categoryFilter))
+                && (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))
             ) {
                 odd_row = ! odd_row;
                 $(this).parent().css('display', '');

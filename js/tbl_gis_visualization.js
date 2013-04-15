@@ -62,7 +62,7 @@ function zoomAndPan()
  * Initially loads either SVG or OSM visualization based on the choice.
  */
 function selectVisualization() {
-    if ($('#choice').prop('checked') != true) {
+    if ($('#choice').prop('checked') !== true) {
         $('#openlayersmap').hide();
     } else {
         $('#placeholder').hide();
@@ -219,7 +219,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
         if (delta > 0) {
             //zoom in
             scale *= zoomFactor;
-            // zooming in keeping the position under mouse pointer unmoved.            
+            // zooming in keeping the position under mouse pointer unmoved.
             x = relCoords.x - (relCoords.x - x) * zoomFactor;
             y = relCoords.y - (relCoords.y - y) * zoomFactor;
             zoomAndPan();
@@ -321,14 +321,14 @@ AJAX.registerOnload('tbl_gis_visualization.js', function() {
         y -= 100;
         zoomAndPan();
     });
-    
+
     /**
      * Detect the mousemove event and show tooltips.
      */
     $('.vector').bind('mousemove', function(event) {
         var contents = $.trim(escapeHtml($(this).attr('name')));
         $("#tooltip").remove();
-        if (contents != '') {
+        if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({
                 position : 'absolute',
                 top : event.pageY + 10,

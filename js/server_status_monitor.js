@@ -494,12 +494,12 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         var numColumns;
         var $tr = $('#chartGrid tr:first');
         var row = 0;
-        while($tr.length != 0) {
+        while($tr.length !== 0) {
             numColumns = 1;
             // To many cells in one row => put into next row
             $tr.find('td').each(function() {
                 if (numColumns > monitorSettings.columns) {
-                    if ($tr.next().length == 0) {
+                    if ($tr.next().length === 0) {
                         $tr.after('<tr></tr>');
                     }
                     $tr.next().prepend($(this));
@@ -514,7 +514,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 for (var i = 0; i < cnt; i++) {
                     $tr.append($tr.next().find('td:first'));
                     $tr.nextAll().each(function() {
-                        if ($(this).next().length != 0) {
+                        if ($(this).next().length !== 0) {
                             $(this).append($(this).next().find('td:first'));
                         }
                     });
@@ -577,7 +577,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 // If user builds his own chart, it's being set/updated
                 // each time he adds a series
                 // So here we only warn if he didn't add a series yet
-                if (! newChart || ! newChart.nodes || newChart.nodes.length == 0) {
+                if (! newChart || ! newChart.nodes || newChart.nodes.length === 0) {
                     alert(PMA_messages['strAddOneSeriesWarning']);
                     return;
                 }
@@ -602,7 +602,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         };
 
         var $presetList = $('#addChartDialog select[name="presetCharts"]');
-        if ($presetList.html().length == 0) {
+        if ($presetList.html().length === 0) {
             $.each(presetCharts, function(key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
             });
@@ -783,7 +783,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             $.get('server_status_monitor.php?' + PMA_commonParams.get('common_query'), vars,
                 function(data) {
                     var logVars;
-                    if (data.success == true) {
+                    if (data.success === true) {
                         logVars = data.message;
                     } else {
                         return serverResponseError();
@@ -798,11 +798,11 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         }
                     }
 
-                    if (msg.length == 0 && logVars['slow_query_log'] == 'ON') {
+                    if (msg.length === 0 && logVars['slow_query_log'] == 'ON') {
                         msg = PMA_messages['strSlowLogOn'];
                     }
 
-                    if (msg.length == 0) {
+                    if (msg.length === 0) {
                         icon = PMA_getImage('s_error.png');
                         msg = PMA_messages['strBothLogOff'];
                     }
@@ -924,7 +924,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
     });
 
     $('select[name="varChartList"]').change(function () {
-        if (this.selectedIndex != 0) {
+        if (this.selectedIndex !== 0) {
             $('#variableInput').val(this.value);
         }
     });
@@ -956,7 +956,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     $('a[href="#submitAddSeries"]').click(function(event) {
         event.preventDefault();
-        if ($('#variableInput').val() == "") {
+        if ($('#variableInput').val() === "") {
             return false;
         }
 
@@ -1196,10 +1196,10 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         settings.series = chartObj.series;
 
-        if ($('#' + 'gridchart' + runtime.chartAI).length == 0) {
+        if ($('#' + 'gridchart' + runtime.chartAI).length === 0) {
             var numCharts = $('#chartGrid .monitorChart').length;
 
-            if (numCharts == 0 || !( numCharts % monitorSettings.columns)) {
+            if (numCharts === 0 || !( numCharts % monitorSettings.columns)) {
                 $('#chartGrid').append('<tr></tr>');
             }
 
@@ -1241,7 +1241,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             .parent()
             .append($legend);
 
-        if (initialize != true) {
+        if (initialize !== true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
         }
@@ -1443,7 +1443,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             requiredData: $.toJSON(runtime.dataList)
         }, function(data) {
             var chartData;
-            if (data.success == true) {
+            if (data.success === true) {
                 chartData = data.message;
             } else {
                 return serverResponseError();
@@ -1463,7 +1463,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 total = 0;
                 for (var j = 0; j < elem.nodes.length; j++) {
                     // Update x-axis
-                    if (i == 0 && j == 0) {
+                    if (i === 0 && j === 0) {
                         if (oldChartData == null) {
                             diff = chartData.x - runtime.xmax;
                         } else {
@@ -1508,7 +1508,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                         elem.chart.series[j].data.push([chartData.x, value]);
                         if (value > elem.maxYLabel) {
                             elem.maxYLabel = value;
-                        } else if (elem.maxYLabel == 0) {
+                        } else if (elem.maxYLabel === 0) {
                             elem.maxYLabel = 0.5;
                         }
                         // free old data point values and update maxYLabel
@@ -1596,7 +1596,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             // cur[0].value is Qcache_hits, cur[1].value is Com_select
             var diffQHits = cur[0].value - prev[0].value;
             // No NaN please :-)
-            if (cur[1].value - prev[1].value == 0) {
+            if (cur[1].value - prev[1].value === 0) {
                 return 0;
             }
 
@@ -1604,7 +1604,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
         // Query cache usage (%)
         case 'qcu':
-            if (cur[1].value == 0) {
+            if (cur[1].value === 0) {
                 return 0;
             }
             // cur[0].value is Qcache_free_memory, cur[1].value is query_cache_size
@@ -1676,13 +1676,13 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             },
             function(data) {
                 var logData;
-                if (data.success == true) {
+                if (data.success === true) {
                     logData = data.message;
                 } else {
                     return serverResponseError();
                 }
 
-                if (logData.rows.length != 0) {
+                if (logData.rows.length !== 0) {
                     runtime.logDataCols = buildLogTable(logData);
 
                     /* Show some stats in the dialog */
@@ -1758,7 +1758,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             var odd_row = false, cell, textFilter;
             var val = $('#logTable #filterQueryText').val();
 
-            if (val.length == 0) {
+            if (val.length === 0) {
                 textFilter = null;
             } else {
                 textFilter = new RegExp(val, 'i');
@@ -1944,7 +1944,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
-            if (i == 0) {
+            if (i === 0) {
                 $.each(rows[0], function(key, value) {
                     cols.push(key);
                 });
@@ -2063,7 +2063,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function(data) {
-            if (data.success == true) {
+            if (data.success === true) {
                 data = data.message;
             } else {
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');

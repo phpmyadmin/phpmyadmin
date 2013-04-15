@@ -31,7 +31,7 @@ function matchFile(fname)
 {
     var fname_array = fname.toLowerCase().split(".");
     var len = fname_array.length;
-    if (len != 0) {
+    if (len !== 0) {
         var extension = fname_array[len - 1];
         if (extension == "gz" || extension == "bz2" || extension == "zip") {
             len--;

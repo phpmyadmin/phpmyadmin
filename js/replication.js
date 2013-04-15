@@ -13,7 +13,7 @@ function update_config()
     var conf_do = "binlog_do_db=";
     var database_list = '';
 
-    if ($('#db_select option:selected').size() == 0) {
+    if ($('#db_select option:selected').size() === 0) {
         $('#rep').text(conf_prefix);
     } else if ($('#db_type option:selected').val() == 'all') {
         $('#db_select option:selected').each(function() {

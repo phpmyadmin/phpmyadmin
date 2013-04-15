@@ -60,7 +60,7 @@ function PMA_adjustTotals() {
         // Get the number of rows for this SQL table
         var strRows = $this.find('.tbl_rows').text();
         // If the value is approximated
-        if (strRows.indexOf('~') == 0) {
+        if (strRows.indexOf('~') === 0) {
             rowSumApproximated = true;
             // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
             strRows = strRows.substring(1, strRows.length - 1);
@@ -205,7 +205,7 @@ AJAX.registerOnload('db_structure.js', function() {
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Adjust table statistics
                     var $tr = $this_anchor.closest('tr');
@@ -266,7 +266,7 @@ AJAX.registerOnload('db_structure.js', function() {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
@@ -302,7 +302,7 @@ AJAX.registerOnload('db_structure.js', function() {
             PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     var $tracked_table = $curr_tracking_row.parents('table');
                     var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
 

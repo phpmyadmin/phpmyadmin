@@ -194,7 +194,7 @@ AJAX.registerOnload('db_search.js', function() {
 
         var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
         $.post($form.attr('action'), url, function(data) {
-            if (data.success == true) {
+            if (data.success === true) {
                 // found results
                 $("#searchresults").html(data.message);
 

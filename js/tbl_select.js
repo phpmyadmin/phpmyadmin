@@ -52,11 +52,11 @@ AJAX.registerOnload('tbl_select.js', function() {
      */
     $("#tbl_search_form.ajax").live('submit', function(event) {
         var unaryFunctions = [
-            'IS NULL', 
+            'IS NULL',
             'IS NOT NULL',
             "= ''",
             "!= ''"];
-            
+
         // jQuery object to reuse
         $search_form = $(this);
         event.preventDefault();
@@ -79,13 +79,13 @@ AJAX.registerOnload('tbl_select.js', function() {
             }
         });
         var columnCount = $('select[name="columnsToDisplay[]"] option').length;
-        // Submit values only for the columns that have unary column operator or a search criteria 
+        // Submit values only for the columns that have unary column operator or a search criteria
         for (var a = 0; a < columnCount; a++) {
             if ($.inArray(values['criteriaColumnOperators[' + a + ']'], unaryFunctions) >= 0) {
                 continue;
             }
-            
-            if (values['criteriaValues[' + a + ']'] == '' || values['criteriaValues[' + a + ']'] == null) {
+
+            if (values['criteriaValues[' + a + ']'] === '' || values['criteriaValues[' + a + ']'] == null) {
                 delete values['criteriaValues[' + a + ']'];
                 delete values['criteriaColumnOperators[' + a + ']'];
                 delete values['criteriaColumnNames[' + a + ']'];
@@ -105,7 +105,7 @@ AJAX.registerOnload('tbl_select.js', function() {
 
         $.post($search_form.attr('action'), values, function(data) {
             PMA_ajaxRemoveMessage($msgbox);
-            if (data.success == true) {
+            if (data.success === true) {
                 if (data.sql_query != null) { // zero rows
                     $("#sqlqueryresults").html(data.sql_query);
                 } else { // results found

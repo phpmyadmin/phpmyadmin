@@ -24,7 +24,7 @@ ChartFactory.prototype = {
 
 /**
  * Abstract chart which defines the contract for charts
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -51,7 +51,7 @@ Chart.prototype = {
  * <code>ColumnType.NUMBER<code> and represents a data series.</li>
  * </ul>
  * Line chart, area chart, bar chart, column chart are typical examples.
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -75,7 +75,7 @@ BaseChart.prototype.validateColumns = function(dataTable) {
 
 /**
  * Abstract pie chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -94,7 +94,7 @@ PieChart.prototype.validateColumns = function(dataTable) {
 
 /**
  * Abstract timeline chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -103,7 +103,7 @@ var TimelineChart = function(elementId) {
 };
 TimelineChart.prototype = new BaseChart();
 TimelineChart.prototype.constructor = TimelineChart;
-TimelineChart.prototype.validateColumns = function(dataTable) {    
+TimelineChart.prototype.validateColumns = function(dataTable) {
     var result = BaseChart.prototype.validateColumns.call(this, dataTable);
     if (result) {
         var columns = dataTable.getColumns();
@@ -142,7 +142,7 @@ var DataTable = function() {
     };
 
     var fillMissingValues = function() {
-        if (columns.length == 0) {
+        if (columns.length === 0) {
             throw new Error("Set columns first");
         }
         var row, column;
@@ -210,7 +210,7 @@ JQPlotChartFactory.prototype.createChart = function(type, elementId) {
 
 /**
  * Abstract JQplot chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -246,7 +246,7 @@ JQPlotChart.prototype.prepareData = function(dataTable) {
 
 /**
  * JQPlot line chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -274,15 +274,15 @@ JQPlotLineChart.prototype.populateOptions = function(dataTable, options) {
         series : []
     };
     $.extend(true, optional, options);
-    
-    if (optional.series.length == 0) {
+
+    if (optional.series.length === 0) {
         for ( var i = 1; i < columns.length; i++) {
             optional.series.push({
                 label : columns[i].name.toString()
             });
         }
     }
-    if (optional.axes.xaxis.ticks.length == 0) {
+    if (optional.axes.xaxis.ticks.length === 0) {
         var data = dataTable.getData();
         for ( var i = 0; i < data.length; i++) {
             optional.axes.xaxis.ticks.push(data[i][0].toString());
@@ -310,7 +310,7 @@ JQPlotLineChart.prototype.prepareData = function(dataTable) {
 
 /**
  * JQPlot spline chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -337,7 +337,7 @@ JQPlotSplineChart.prototype.populateOptions = function(dataTable, options) {
 
 /**
  * JQPlot timeline chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -348,7 +348,7 @@ var JQPlotTimelineChart = function(elementId) {
 JQPlotTimelineChart.prototype = new JQPlotLineChart();
 JQPlotTimelineChart.prototype.constructor = JQPlotAreaChart;
 
-JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {    
+JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {
     var optional = {
         axes : {
             xaxis : {
@@ -356,7 +356,7 @@ JQPlotTimelineChart.prototype.populateOptions = function(dataTable, options) {
                     formatString:'%b %#d, %y'
                 }
             }
-        }    
+        }
     };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable, options);
     var compulsory = {
@@ -392,7 +392,7 @@ JQPlotTimelineChart.prototype.prepareData = function(dataTable) {
 
 /**
  * JQPlot area chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -406,14 +406,14 @@ JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
     var optional = {
         seriesDefaults : {
             fillToZero : true
-        } 
+        }
     };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
     var compulsory = {
         seriesDefaults : {
             fill : true
-        }    
+        }
     };
     $.extend(true, optional, opt, compulsory);
     return optional;
@@ -421,7 +421,7 @@ JQPlotAreaChart.prototype.populateOptions = function(dataTable, options) {
 
 /**
  * JQPlot column chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -435,7 +435,7 @@ JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
     var optional = {
         seriesDefaults : {
             fillToZero : true
-        } 
+        }
     };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
             options);
@@ -450,7 +450,7 @@ JQPlotColumnChart.prototype.populateOptions = function(dataTable, options) {
 
 /**
  * JQPlot bar chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */
@@ -465,7 +465,7 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
     var optional = {
         axes : {
             yaxis : {
-                label : columns[0].name,                
+                label : columns[0].name,
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer,
                 renderer : $.jqplot.CategoryAxisRenderer,
                 ticks : []
@@ -479,7 +479,7 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
         seriesDefaults : {
             fillToZero : true
         }
-    };      
+    };
     var compulsory = {
         seriesDefaults : {
             renderer : $.jqplot.BarRenderer,
@@ -489,14 +489,14 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
         }
     };
     $.extend(true, optional, options, compulsory);
-    
-    if (optional.axes.yaxis.ticks.length == 0) {
+
+    if (optional.axes.yaxis.ticks.length === 0) {
         var data = dataTable.getData();
         for ( var i = 0; i < data.length; i++) {
             optional.axes.yaxis.ticks.push(data[i][0].toString());
         }
     }
-    if (optional.series.length == 0) {
+    if (optional.series.length === 0) {
         for ( var i = 1; i < columns.length; i++) {
             optional.series.push({
                 label : columns[i].name.toString()
@@ -508,7 +508,7 @@ JQPlotBarChart.prototype.populateOptions = function(dataTable, options) {
 
 /**
  * JQPlot pie chart
- * 
+ *
  * @param elementId
  *            id of the div element the chart is drawn in
  */

@@ -142,7 +142,7 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-        if (AJAX.active == true) {
+        if (AJAX.active === true) {
             // Silently bail out, there is already a request in progress.
             // TODO: save a reference to the request and cancel the old request
             // when the user requests something else. Something like this is
@@ -716,7 +716,7 @@ AJAX.setUrlHash = (function (jQuery, window) {
         // when the page finishes loading
         jQuery(function(){
             /* Check if we should set URL */
-            if (savedHash != "") {
+            if (savedHash !== "") {
                 window.location.hash = savedHash;
                 savedHash = "";
                 resetFavicon();

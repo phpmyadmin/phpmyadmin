@@ -55,12 +55,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
             //User wants to submit the form
             PMA_ajaxShowMessage();
             $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function(data) {
-                if ($("#sqlqueryresults").length != 0) {
+                if ($("#sqlqueryresults").length !== 0) {
                     $("#sqlqueryresults").remove();
-                } else if ($(".error").length != 0) {
+                } else if ($(".error").length !== 0) {
                     $(".error").remove();
                 }
-                if (data.success == true) {
+                if (data.success === true) {
                     $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
@@ -145,7 +145,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     if ($('#result_query').length) {
                         $('#result_query').remove();
@@ -193,7 +193,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
@@ -282,7 +282,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                         .text($row.index() + 1)
                         .end()
                         .removeClass("odd even")
-                        .addClass($row.index() % 2 == 0 ? "odd" : "even");
+                        .addClass($row.index() % 2 === 0 ? "odd" : "even");
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');

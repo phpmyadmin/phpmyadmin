@@ -78,7 +78,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
         temp_chart_title = $(this).val();
     }).keyup(function() {
         var title = $(this).val();
-        if (title.length == 0) {
+        if (title.length === 0) {
             title = ' ';
         }
         currentSettings.title = $('input[name="chartTitle"]').val();
@@ -166,7 +166,7 @@ $("#tblchartform").live('submit', function(event) {
     PMA_prepareForAjaxRequest($form);
 
     $.post($form.attr('action'), $form.serialize(), function(data) {
-        if (data.success == true) {
+        if (data.success === true) {
             $('.success').fadeOut();
             if (typeof data.chartData != 'undefined') {
                 chart_data = jQuery.parseJSON(data.chartData);
@@ -223,7 +223,7 @@ function extractDate(dateString) {
     var matches, match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
-    
+
     matches = dateTimeRegExp.exec(dateString);
     if (matches != null && matches.length > 0) {
         match = matches[0];
@@ -239,7 +239,7 @@ function extractDate(dateString) {
 }
 
 function PMA_queryChart(data, columnNames, settings) {
-    if ($('#querychart').length == 0) {
+    if ($('#querychart').length === 0) {
         return;
     }
 
@@ -300,7 +300,7 @@ function PMA_queryChart(data, columnNames, settings) {
         newRow = [];
         for ( var j = 0; j < columnsToExtract.length; j++) {
             col = columnNames[columnsToExtract[j]];
-            if (j == 0) {
+            if (j === 0) {
                 if (settings.type == 'timeline') { // first column is date type
                     newRow.push(extractDate(row[col]));
                 } else { // first column is string type

@@ -135,7 +135,7 @@ AJAX.registerOnload('indexes.js', function() {
         $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if (data.success == true) {
+                if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
@@ -176,7 +176,7 @@ AJAX.registerOnload('indexes.js', function() {
     **/
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event) {
         event.preventDefault();
-        if ($(this).find("a").length == 0) {
+        if ($(this).find("a").length === 0) {
             // Add index
             var valid = checkFormElementInRange(
                 $(this).closest('form')[0],

@@ -203,7 +203,7 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_positive_number: function (isKeyUp) {
-        if (isKeyUp && this.value == '') {
+        if (isKeyUp && this.value === '') {
             return true;
         }
         var result = this.value != '0' && validators._regexp_numeric.test(this.value);
@@ -215,7 +215,7 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_non_negative_number: function (isKeyUp) {
-        if (isKeyUp && this.value == '') {
+        if (isKeyUp && this.value === '') {
             return true;
         }
         var result = validators._regexp_numeric.test(this.value);
@@ -227,7 +227,7 @@ var validators = {
      * @param {boolean} isKeyUp
      */
     validate_port_number: function(isKeyUp) {
-        if (this.value == '') {
+        if (this.value === '') {
             return true;
         }
         var result = validators._regexp_numeric.test(this.value) && this.value != '0';
@@ -240,7 +240,7 @@ var validators = {
      * @param {string}  regexp
      */
     validate_by_regex: function(isKeyUp, regexp) {
-        if (isKeyUp && this.value == '') {
+        if (isKeyUp && this.value === '') {
             return true;
         }
         // convert PCRE regexp
@@ -339,7 +339,7 @@ function displayErrors(error_list)
 
         // remove empty errors (used to clear error list)
         errors = $.grep(errors, function(item) {
-            return item != '';
+            return item !== '';
         });
 
         // CSS error class
@@ -351,7 +351,7 @@ function displayErrors(error_list)
 
         if (errors.length) {
             // if error container doesn't exist, create it
-            if (errorCnt.length == 0) {
+            if (errorCnt.length === 0) {
                 if (isFieldset) {
                     errorCnt = $('<dl class="errors" />');
                     field.find('table').before(errorCnt);
@@ -496,7 +496,7 @@ AJAX.registerOnload('config.js', function() {
     // check whether we've refreshed a page and browser remembered modified
     // form values
     var check_page_refresh = $('#check_page_refresh');
-    if (check_page_refresh.length == 0 || check_page_refresh.val() == '1') {
+    if (check_page_refresh.length === 0 || check_page_refresh.val() == '1') {
         // run all field validators
         var errors = {};
         for (var i = 0; i < elements.length; i++) {
@@ -598,7 +598,7 @@ AJAX.registerOnload('config.js', function() {
 function restoreField(field_id)
 {
     var field = $('#'+field_id);
-    if (field.length == 0 || defaultValues[field_id] == undefined) {
+    if (field.length === 0 || defaultValues[field_id] == undefined) {
         return;
     }
     setFieldValue(field, getFieldType(field), defaultValues[field_id]);

@@ -73,7 +73,7 @@ function nullify(theType, urlField, md5Field, multi_edit)
 //function checks the number of days in febuary
 function daysInFebruary (year)
 {
-    return (((year % 4 == 0) && ( (!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28 );
+    return (((year % 4 === 0) && ( (!(year % 100 === 0)) || (year % 400 === 0))) ? 29 : 28 );
 }
 //function to convert single digit to double digit
 function fractionReplace(num)
@@ -114,7 +114,7 @@ function isDate(val,tmstmp)
         if (val.substring(0, pos + 2).length == 2) {
             year = parseInt("20" + val.substring(0,pos+2));
         }
-        if (tmstmp == true) {
+        if (tmstmp === true) {
             if (year < 1978) {
                 return false;
             }
