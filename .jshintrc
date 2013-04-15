@@ -1,0 +1,19 @@
+{
+    // Globals
+    "jquery" : true,
+
+    // Stricter checking
+    "curly" : true,
+    "immed" : true,
+    "indent" : 4,
+    "latedef" : true,
+    "noarg" : true,
+    "noempty" : true,
+    "unused" : true,
+    "trailing" : true,
+
+    // Relaxing rules
+    "sub" : false,
+    "funcscope" : false,
+    "laxbreak" : false
+}
