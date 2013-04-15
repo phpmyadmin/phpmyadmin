@@ -62,16 +62,16 @@ function setFieldValue(field, field_type, value)
     switch (field_type) {
         case 'text':
             //TODO: replace to .val()
-            field.attr('value', (value != undefined ? value : field.attr('defaultValue')));
+            field.attr('value', (value !== undefined ? value : field.attr('defaultValue')));
             break;
         case 'checkbox':
             //TODO: replace to .prop()
-            field.attr('checked', (value != undefined ? value : field.attr('defaultChecked')));
+            field.attr('checked', (value !== undefined ? value : field.attr('defaultChecked')));
             break;
         case 'select':
             var options = field.prop('options');
             var i, imax = options.length;
-            if (value == undefined) {
+            if (value === undefined) {
                 for (i = 0; i < imax; i++) {
                     options[i].selected = options[i].defaultSelected;
                 }
@@ -598,7 +598,7 @@ AJAX.registerOnload('config.js', function() {
 function restoreField(field_id)
 {
     var field = $('#'+field_id);
-    if (field.length === 0 || defaultValues[field_id] == undefined) {
+    if (field.length === 0 || defaultValues[field_id] === undefined) {
         return;
     }
     setFieldValue(field, getFieldType(field), defaultValues[field_id]);

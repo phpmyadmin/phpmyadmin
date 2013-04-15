@@ -236,7 +236,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
      * Input form validation
      **/
     $('#inputFormSubmitId').click(function() {
-        if ($('#tableid_0').get(0).selectedIndex == 0 || $('#tableid_1').get(0).selectedIndex == 0) {
+        if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             PMA_ajaxShowMessage(PMA_messages['strInputNull']);
         } else if (xLabel == yLabel) {
             PMA_ajaxShowMessage(PMA_messages['strSameInputs']);
@@ -352,17 +352,17 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 var value = newValues[key];
 
                 // null
-                if (value == null) {
+                if (value === null) {
                     sql_query += 'NULL, ';
 
                 // empty
-                } else if ($.trim(value) == '') {
+                } else if ($.trim(value) === '') {
                     sql_query += "'', ";
 
                 // other
                 } else {
                     // type explicitly identified
-                    if (sqlTypes[key] != null) {
+                    if (sqlTypes[key] !== null) {
                         if (sqlTypes[key] == 'bit') {
                             sql_query += "b'" + value + "', ";
                         }
@@ -387,7 +387,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                     'sql_query' : sql_query,
                     'inline_edit' : false
                 }, function(data) {
-                    if (data.success == true) {
+                    if (data.success === true) {
                         $('#sqlqueryresults').html(data.sql_query);
                         $("#sqlqueryresults").trigger('appendAnchor');
                     } else {
@@ -429,7 +429,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
      * Generate plot using jqplot
      */
 
-    if (searchedData != null) {
+    if (searchedData !== null) {
         $('#zoom_search_form')
          .slideToggle()
          .hide();
@@ -483,7 +483,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         };
 
         // If data label is not set, do not show tooltips
-        if (dataLabel == '') {
+        if (dataLabel === '') {
             options.highlighter.show = false;
         }
 
@@ -590,7 +590,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                     for (key in data.row_info) {
                         $field = $('#edit_fieldID_' + field_id);
                         $field_null = $('#edit_fields_null_id_' + field_id);
-                        if (data.row_info[key] == null) {
+                        if (data.row_info[key] === null) {
                             $field_null.prop('checked', true);
                             $field.val('');
                         } else {

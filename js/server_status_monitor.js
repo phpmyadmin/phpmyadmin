@@ -1289,7 +1289,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
             if (! drawTimeSpan) {
                 return;
             }
-            if (selectionStartX != undefined) {
+            if (selectionStartX !== undefined) {
                 $('#selection_box')
                     .css({
                         width: Math.ceil(ev.pageX - selectionStartX)
@@ -1504,7 +1504,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                     }
 
                     // Set y value, if defined
-                    if (value != undefined) {
+                    if (value !== undefined) {
                         elem.chart.series[j].data.push([chartData.x, value]);
                         if (value > elem.maxYLabel) {
                             elem.maxYLabel = value;

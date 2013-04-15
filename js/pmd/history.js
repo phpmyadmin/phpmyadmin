@@ -236,14 +236,14 @@ function edit(type)
         document.getElementById('query_Aggregate').style.visibility = 'hidden';
     }
     if (type == "Where") {
-        if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !="") {
+        if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !== "") {
         history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
         history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
         }
         document.getElementById('query_where').style.visibility = 'hidden';
     }
     if (type == "Having") {
-        if (document.getElementById('hrel_opt').value != '--' && document.getElementById('hQuery').value !="") {
+        if (document.getElementById('hrel_opt').value != '--' && document.getElementById('hQuery').value !== "") {
             history_array[g_index].get_obj().setquery(document.getElementById('hQuery').value);
             history_array[g_index].get_obj().setrelation_operator(document.getElementById('hrel_opt').value);
             history_array[g_index].get_obj().set_operator(document.getElementById('hoperator').value);

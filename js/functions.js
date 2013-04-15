@@ -855,7 +855,7 @@ function insertValueQuery()
  * (only when jquery-ui-timepicker-addon.js is loaded)
  */
 function addDateTimePicker() {
-    if ($.timepicker != undefined) {
+    if ($.timepicker !== undefined) {
         $('input.datefield, input.datetimefield').each(function() {
             PMA_addDatepicker($(this));
         });
@@ -1544,7 +1544,7 @@ function PMA_ajaxShowMessage(message, timeout)
         self_closing = false;
     }
     // Figure out whether (or after how long) to remove the notification
-    if (timeout == undefined) {
+    if (timeout === undefined) {
         timeout = 5000;
     } else if (timeout === false) {
         self_closing = false;
@@ -1610,7 +1610,7 @@ function PMA_ajaxShowMessage(message, timeout)
  */
 function PMA_ajaxRemoveMessage($this_msgbox)
 {
-    if ($this_msgbox != undefined && $this_msgbox instanceof jQuery) {
+    if ($this_msgbox !== undefined && $this_msgbox instanceof jQuery) {
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
@@ -2242,7 +2242,7 @@ AJAX.registerOnload('functions.js', function() {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
-            if (data.success === true && data.sql_query != undefined) {
+            if (data.success === true && data.sql_query !== undefined) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
                 $("#sqlqueryresults").html(data.sql_query);
@@ -2841,7 +2841,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
     };
     var $msgbox = PMA_ajaxShowMessage();
     $.get("tbl_indexes.php", url, function(data) {
-        if (data.success == false) {
+        if (data.success === false) {
             //in the case of an error, show the error message returned.
             PMA_ajaxShowMessage(data.error, false);
         } else {
@@ -2901,7 +2901,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
  **/
 function PMA_showHints($div)
 {
-    if ($div == undefined || ! $div instanceof jQuery || $div.length === 0) {
+    if ($div === undefined || ! $div instanceof jQuery || $div.length === 0) {
         $div = $("body");
     }
     $div.find('.pma_hint').each(function () {
@@ -3276,11 +3276,11 @@ AJAX.registerTeardown('functions.js', function() {
  */
 function PMA_slidingMessage(msg, $obj)
 {
-    if (msg == undefined || msg.length === 0) {
+    if (msg === undefined || msg.length === 0) {
         // Don't show an empty message
         return false;
     }
-    if ($obj == undefined || ! $obj instanceof jQuery || $obj.length === 0) {
+    if ($obj === undefined || ! $obj instanceof jQuery || $obj.length === 0) {
         // If the second argument was not supplied,
         // we might have to create a new DOM node.
         if ($('#PMA_slidingMessage').length === 0) {
