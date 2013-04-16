@@ -114,7 +114,6 @@ function formatDate(date, format) {
     var H = date.getHours();
     var m = date.getMinutes();
     var s = date.getSeconds();
-    var yyyy, yy, MMM, MM, dd, hh, h, mm, ss, ampm, HH, H, KK, K, kk, k;
     // Convert real date parts into formatted versions
     var value = new Object();
     if (y.length < 4) {
