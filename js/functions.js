@@ -506,8 +506,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     var atLeastOneField = 0;
     var i, elm, elm2, elm3, val, id;
 
-    for (i=0; i<fieldsCnt; i++)
-    {
+    for (i = 0; i < fieldsCnt; i++) {
         id = "#field_" + i + "_2";
         elm = $(id);
         val = elm.val();
@@ -643,7 +642,7 @@ AJAX.registerOnload('functions.js', function () {
      * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
      */
     if (navigator.userAgent.match(/(iphone|ipod|ipad)/i)) {
-        $('input[type=text]').attr('autocapitalize','off').attr('autocorrect','off');
+        $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
     }
 });
 
@@ -735,7 +734,7 @@ function setCheckboxes(container_id, state)
   */
 function setSelectOptions(the_form, the_select, do_check)
 {
-    $("form[name='"+ the_form +"'] select[name='"+the_select+"']").find("option").prop('selected', do_check);
+    $("form[name='" + the_form + "'] select[name='" + the_select + "']").find("option").prop('selected', do_check);
     return true;
 } // end of the 'setSelectOptions()' function
 
@@ -775,7 +774,7 @@ function insertQuery(queryType)
         var valDis = "";
         var editDis = "";
         var NbSelect = 0;
-        for (var i=0; i < myListBox.options.length; i++) {
+        for (var i = 0; i < myListBox.options.length; i++) {
             NbSelect++;
             if (NbSelect > 1) {
                 chaineAj += ", ";
@@ -816,7 +815,7 @@ function insertValueQuery()
         sql_box_locked = true;
         var chaineAj = "";
         var NbSelect = 0;
-        for (var i=0; i<myListBox.options.length; i++) {
+        for (var i = 0; i < myListBox.options.length; i++) {
             if (myListBox.options[i].selected) {
                 NbSelect++;
                 if (NbSelect > 1) {
@@ -870,7 +869,7 @@ function refreshLayout()
     var $elm = $('#pdflayout');
     var orientation = $('#orientation_opt').val();
     var paper = 'A4';
-    if ($('#paper_opt').length==1) {
+    if ($('#paper_opt').length == 1) {
         paper = $('#paper_opt').val();
     }
     var posa = 'y';
@@ -1397,32 +1396,32 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $("#export_type").change(function () {
-        if ($("#export_type").val()=='svg') {
-            $("#show_grid_opt").prop("disabled",true);
-            $("#orientation_opt").prop("disabled",true);
-            $("#with_doc").prop("disabled",true);
+        if ($("#export_type").val() == 'svg') {
+            $("#show_grid_opt").prop("disabled", true);
+            $("#orientation_opt").prop("disabled", true);
+            $("#with_doc").prop("disabled", true);
             $("#show_table_dim_opt").removeProp("disabled");
             $("#all_tables_same_width").removeProp("disabled");
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
             //$(this).css("background-color","yellow");
-        } else if ($("#export_type").val()=='dia') {
-            $("#show_grid_opt").prop("disabled",true);
-            $("#with_doc").prop("disabled",true);
-            $("#show_table_dim_opt").prop("disabled",true);
-            $("#all_tables_same_width").prop("disabled",true);
+        } else if ($("#export_type").val() == 'dia') {
+            $("#show_grid_opt").prop("disabled", true);
+            $("#with_doc").prop("disabled", true);
+            $("#show_table_dim_opt").prop("disabled", true);
+            $("#all_tables_same_width").prop("disabled", true);
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
             $("#orientation_opt").removeProp("disabled");
-        } else if ($("#export_type").val()=='eps') {
-            $("#show_grid_opt").prop("disabled",true);
+        } else if ($("#export_type").val() == 'eps') {
+            $("#show_grid_opt").prop("disabled", true);
             $("#orientation_opt").removeProp("disabled");
-            $("#with_doc").prop("disabled",true);
-            $("#show_table_dim_opt").prop("disabled",true);
-            $("#all_tables_same_width").prop("disabled",true);
-            $("#paper_opt").prop("disabled",true);
-            $("#show_color_opt").prop("disabled",true);
-        } else if ($("#export_type").val()=='pdf') {
+            $("#with_doc").prop("disabled", true);
+            $("#show_table_dim_opt").prop("disabled", true);
+            $("#all_tables_same_width").prop("disabled", true);
+            $("#paper_opt").prop("disabled", true);
+            $("#show_color_opt").prop("disabled", true);
+        } else if ($("#export_type").val() == 'pdf') {
             $("#show_grid_opt").removeProp("disabled");
             $("#orientation_opt").removeProp("disabled");
             $("#with_doc").removeProp("disabled");
@@ -1741,14 +1740,14 @@ function PMA_SQLPrettyPrint(string)
         return string;
     }
 
-    var mode = CodeMirror.getMode({},"text/x-mysql");
+    var mode = CodeMirror.getMode({}, "text/x-mysql");
     var stream = new CodeMirror.StringStream(string);
     var state = mode.startState();
     var token, tokens = [];
     var output = '';
     var tabs = function (cnt) {
         var ret = '';
-        for (var i=0; i<4*cnt; i++) {
+        for (var i = 0; i < 4 * cnt; i++) {
             ret += " ";
         }
         return ret;
@@ -1756,17 +1755,17 @@ function PMA_SQLPrettyPrint(string)
 
     // "root-level" statements
     var statements = {
-        'select': ['select', 'from','on','where','having','limit','order by','group by'],
-        'update': ['update', 'set','where'],
+        'select': ['select', 'from', 'on', 'where', 'having', 'limit', 'order by', 'group by'],
+        'update': ['update', 'set', 'where'],
         'insert into': ['insert into', 'values']
     };
     // don't put spaces before these tokens
-    var spaceExceptionsBefore = { ';':true, ',': true, '.': true, '(': true };
+    var spaceExceptionsBefore = {';': true, ',': true, '.': true, '(': true};
     // don't put spaces after these tokens
-    var spaceExceptionsAfter = { '.': true };
+    var spaceExceptionsAfter = {'.': true};
 
     // Populate tokens array
-    var str='';
+    var str = '';
     while (! stream.eol()) {
         stream.start = stream.pos;
         token = mode.token(stream, state);
@@ -1799,9 +1798,9 @@ function PMA_SQLPrettyPrint(string)
 
         // New block => push to stack
         if (tokens[i][1] == '(') {
-            if (i < tokens.length - 1 && tokens[i+1][0] == 'statement-verb') {
+            if (i < tokens.length - 1 && tokens[i + 1][0] == 'statement-verb') {
                 blockStack.unshift(newBlock = 'statement');
-            } else if (i > 0 && tokens[i-1][0] == 'builtin') {
+            } else if (i > 0 && tokens[i - 1][0] == 'builtin') {
                 blockStack.unshift(newBlock = 'function');
             } else {
                 blockStack.unshift(newBlock = 'generic');
@@ -1821,8 +1820,8 @@ function PMA_SQLPrettyPrint(string)
         // A subquery is starting
         if (i > 0 && newBlock == 'statement') {
             indentLevel++;
-            output += "\n" + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i+1][1].toUpperCase() + "\n" + tabs(indentLevel + 1);
-            currentStatement = tokens[i+1][1];
+            output += "\n" + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i + 1][1].toUpperCase() + "\n" + tabs(indentLevel + 1);
+            currentStatement = tokens[i + 1][1];
             i++;
             continue;
         }
@@ -1846,8 +1845,8 @@ function PMA_SQLPrettyPrint(string)
         // Normal indentatin and spaces for everything else
         else {
             if (! spaceExceptionsBefore[tokens[i][1]]
-               && ! (i > 0 && spaceExceptionsAfter[tokens[i-1][1]])
-               && output.charAt(output.length -1) != ' ' ) {
+               && ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]])
+               && output.charAt(output.length - 1) != ' ' ) {
                 output += " ";
             }
             if (tokens[i][0] == 'keyword') {
@@ -1859,14 +1858,14 @@ function PMA_SQLPrettyPrint(string)
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
         if (( lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
-            && tokens[i][1]==',' && blockStack[0] == 'statement') {
+            && tokens[i][1] == ',' && blockStack[0] == 'statement') {
 
             output += "\n" + tabs(indentLevel + 1);
         }
 
         // split conditions in where clauses, but only inside statements blocks
         if (lastStatementPart == 'where'
-            && (tokens[i][1]=='and' || tokens[i][1]=='or' || tokens[i][1]=='xor')) {
+            && (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
 
             if (blockStack[0] == 'statement') {
                 output += "\n" + tabs(indentLevel + 1);
@@ -1921,7 +1920,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
         $(this).dialog("close");
     };
 
-    $('<div/>', {'id':'confirm_dialog'})
+    $('<div/>', {'id': 'confirm_dialog'})
     .prepend(question)
     .dialog({
         buttons: button_options,
@@ -2150,7 +2149,7 @@ AJAX.registerOnload('functions.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&submit_copy=Go", function (data) {
             if (data.success === true) {
                 if ($form.find("input[name='switch_to_new']").prop('checked')) {
                     PMA_commonParams.set(
@@ -2184,7 +2183,7 @@ AJAX.registerOnload('functions.js', function () {
         var db = $form.find('select[name=target_db]').val();
         var tbl = $form.find('input[name=new_name]').val();
         PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize()+"&submit_move=1", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&submit_move=1", function (data) {
             if (data.success === true) {
                 PMA_commonParams.set('db', db);
                 PMA_commonParams.set('table', tbl);
@@ -2395,7 +2394,7 @@ AJAX.registerOnload('functions.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-            $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function (data) {
+            $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw=' + this_value, function (data) {
                 if (data.success === true) {
                     $("#page_content").prepend(data.message);
                     $("#change_password_dialog").hide().remove();
@@ -2560,9 +2559,9 @@ AJAX.registerOnload('functions.js', function () {
         var values = [];
         var in_string = false;
         var curr, next, buffer = '';
-        for (var i=0; i<inputstring.length; i++) {
+        for (var i = 0; i < inputstring.length; i++) {
             curr = inputstring.charAt(i);
-            next = i == inputstring.length ? '' : inputstring.charAt(i+1);
+            next = i == inputstring.length ? '' : inputstring.charAt(i + 1);
             if (! in_string && curr == "'") {
                 in_string = true;
             } else if (in_string && curr == "\\" && next == "\\") {
@@ -2587,11 +2586,11 @@ AJAX.registerOnload('functions.js', function () {
         // If there are no values, maybe the user is about to make a
         // new list so we add a few for him/her to get started with.
         if (values.length === 0) {
-            values.push('','','','');
+            values.push('', '', '', '');
         }
         // Add the parsed values to the editor
         var drop_icon = PMA_getImage('b_drop.png');
-        for (var i=0; i<values.length; i++) {
+        for (var i = 0; i < values.length; i++) {
             fields += "<tr><td>"
                    + "<input type='text' value='" + values[i] + "'/>"
                    + "</td><td class='drop'>"
@@ -2643,7 +2642,7 @@ AJAX.registerOnload('functions.js', function () {
         };
         // Show the dialog
         var width = parseInt(
-            (parseInt($('html').css('font-size'), 10)/13)*340,
+            (parseInt($('html').css('font-size'), 10) / 13) * 340,
             10
         );
         if (! width) {
@@ -2715,7 +2714,7 @@ AJAX.registerOnload('functions.js', function () {
  */
 function checkIndexName(form_id)
 {
-    if ($("#"+form_id).length === 0) {
+    if ($("#" + form_id).length === 0) {
         return false;
     }
 
@@ -2794,7 +2793,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
         var $form = $("#index_frm");
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize()+"&do_save_data=1", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
             if ($("#sqlqueryresults").length !== 0) {
                 $("#sqlqueryresults").remove();
             }
@@ -2926,7 +2925,7 @@ $(function () {
     // Initialise the menu resize plugin
     $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
     // register resize event
-    $(window).resize(function (){
+    $(window).resize(function () {
         $('#topmenu').menuResizer('resize');
     });
 });
@@ -2969,7 +2968,7 @@ var toggleButton = function ($obj) {
      */
     var h = $obj.height();
     $('img', $obj).height(h);
-    $('table', $obj).css('bottom', h-1);
+    $('table', $obj).css('bottom', h - 1);
     /**
      *  var  on   Width of the "ON" part of the toggle switch
      *  var  off  Width of the "OFF" part of the toggle switch
@@ -3188,7 +3187,7 @@ AJAX.registerOnload('functions.js', function () {
     $('a.formLinkSubmit').live('click', function (e) {
 
         if ($(this).attr('href').indexOf('=') != -1) {
-            var data = $(this).attr('href').substr($(this).attr('href').indexOf('#')+1).split('=', 2);
+            var data = $(this).attr('href').substr($(this).attr('href').indexOf('#') + 1).split('=', 2);
             $(this).parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
         }
         $(this).parents('form').submit();
@@ -3221,7 +3220,7 @@ function PMA_init_slider()
         }
         var $wrapper = $('<div>', {'class': 'slide-wrapper'});
         $wrapper.toggle($this.is(':visible'));
-        $('<a>', {href: '#'+this.id, "class":'ajax'})
+        $('<a>', {href: '#' + this.id, "class": 'ajax'})
             .text(this.title)
             .prepend($('<span>'))
             .insertBefore($this)
