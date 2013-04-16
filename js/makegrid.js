@@ -1412,7 +1412,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if ($col_order.length > 0) {
                 g.colOrder = $col_order.val().split(',');
                 for (var i = 0; i < g.colOrder.length; i++) {
-                    g.colOrder[i] = parseInt(g.colOrder[i]);
+                    g.colOrder[i] = parseInt(g.colOrder[i], 10);
                 }
             } else {
                 g.colOrder = [];
@@ -1501,7 +1501,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if ($col_visib.length > 0) {
                 g.colVisib = $col_visib.val().split(',');
                 for (var i = 0; i < g.colVisib.length; i++) {
-                    g.colVisib[i] = parseInt(g.colVisib[i]);
+                    g.colVisib[i] = parseInt(g.colVisib[i], 10);
                 }
             } else {
                 g.colVisib = [];
