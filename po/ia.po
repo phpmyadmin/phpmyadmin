@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-04 12:19+0200\n"
+"PO-Revision-Date: 2013-04-16 10:13+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -459,161 +459,165 @@ msgstr "Dele datos traciante pro iste tabula"
 #: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
 #: server_databases.php:327
 msgid "Drop"
-msgstr ""
+msgstr "Lassa cader"
 
 #: db_tracking.php:120 tbl_tracking.php:722 tbl_tracking.php:776
 msgid "active"
-msgstr ""
+msgstr "active"
 
 #: db_tracking.php:122 tbl_tracking.php:724 tbl_tracking.php:778
 msgid "not active"
-msgstr ""
+msgstr "non active"
 
 #: db_tracking.php:138
 msgid "Versions"
-msgstr ""
+msgstr "Versiones"
 
 #: db_tracking.php:139 tbl_tracking.php:488 tbl_tracking.php:798
 msgid "Tracking report"
-msgstr ""
+msgstr "Reporto de tracia"
 
 #: db_tracking.php:140 tbl_tracking.php:292 tbl_tracking.php:803
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Fragmento de structura"
 
 #: db_tracking.php:193
 msgid "Untracked tables"
-msgstr ""
+msgstr "Tabulas non traciate"
 
 #: db_tracking.php:212 libraries/structure.lib.php:1515
 msgid "Track table"
-msgstr ""
+msgstr "Tracia tabula"
 
 #: db_tracking.php:240
 msgid "Database Log"
-msgstr ""
+msgstr "Registro de base de datos"
 
 #: export.php:42
 msgid "Bad type!"
-msgstr ""
+msgstr "Mal typo!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Typo seligite de exportar debe esser salveguardate in un file!"
 
 #: export.php:122
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Mal parametros!"
 
 #: export.php:226 export.php:257 export.php:815
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Spatio insufficiente pro salveguardar le file %s."
 
 #: export.php:395
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Le file %s ja existe sur le servitor, cambia le nomine de file o marca le "
+"option de superscriber."
 
 #: export.php:401 export.php:407
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "Le servitor web non ha permission de salveguardar le file %s."
 
 #: export.php:821
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "Le discargamento (dump) ha essite salveguardate in file %s."
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "Typo de exportar invalide"
 
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Valor pro le columna \"%s\""
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:161
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Usa OpenStreetMaps como disposition o nivello basic"
 
 #: gis_data_editor.php:161
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:315
 #: libraries/DisplayResults.class.php:1641
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: gis_data_editor.php:206 js/messages.php:311
 msgid "Point"
-msgstr ""
+msgstr "Puncto"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:309
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:310
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:312
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Puncto %d"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:318
 msgid "Add a point"
-msgstr ""
+msgstr "Adde un puncto"
 
 #: gis_data_editor.php:262 js/messages.php:313
 msgid "Linestring"
-msgstr ""
+msgstr "Linestring (catena de linea)"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:317
 msgid "Outer Ring"
-msgstr ""
+msgstr "Circulo externe"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:316
 msgid "Inner Ring"
-msgstr ""
+msgstr "Circulo interne"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
-msgstr ""
+msgstr "Adde un linestring"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:319
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Adde un circulo interne"
 
 #: gis_data_editor.php:325 js/messages.php:314
 msgid "Polygon"
-msgstr ""
+msgstr "Polygono"
 
 #: gis_data_editor.php:384 js/messages.php:320
 msgid "Add a polygon"
-msgstr ""
+msgstr "Adde un polygono"
 
 #: gis_data_editor.php:390
 msgid "Add geometry"
-msgstr ""
+msgstr "Adde un geometria"
 
 #: gis_data_editor.php:399
 msgid "Output"
-msgstr ""
+msgstr "Exito"
 
 #: gis_data_editor.php:402
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"Selige \"GeomFromText\" (GeomExText) ex le columna \"Function\" e colla le "
+"catena a basso in le campo \"Value\" (Valor)"
 
 #: import.php:105
 #, php-format
@@ -621,19 +625,21 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Probabilemente tu es essayante incargar un file troppo grande. Pro favor tu "
+"refere al %documentation% pro eluder iste limite."
 
 #: import.php:248 import.php:513
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Monstrante marcator de libro"
 
 #: import.php:263 import.php:509
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "Le marcator de libro ha essite delite."
 
 #: import.php:358 import.php:419 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
-msgstr ""
+msgstr "Le file non pote esser legite"
 
 #: import.php:367 import.php:378 import.php:399 import.php:410
 #: libraries/File.class.php:604
@@ -662,7 +668,7 @@ msgstr ""
 #: import.php:516 sql.php:395 sql.php:1243
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "Marcator de libro %s create"
 
 #: import.php:525 import.php:533
 #, php-format
@@ -691,16 +697,16 @@ msgstr ""
 #: import_status.php:101 libraries/Util.class.php:763
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
 msgid "Back"
-msgstr ""
+msgstr "Retro"
 
 #: index.php:114
 msgid "General Settings"
-msgstr ""
+msgstr "Preferentias general"
 
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
-msgstr ""
+msgstr "Modifica contrasigno"
 
 #: index.php:156
 msgid "Server connection collation"
@@ -708,66 +714,66 @@ msgstr ""
 
 #: index.php:182
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Preferentias de apparentia"
 
 #: index.php:212 prefs_manage.php:275
 msgid "More settings"
-msgstr ""
+msgstr "Altere preferentias"
 
 #: index.php:233
 msgid "Database server"
-msgstr ""
+msgstr "Servitor de base de datos"
 
 #: index.php:236 libraries/Menu.class.php:150
 #: libraries/ServerStatusData.class.php:339 libraries/common.inc.php:654
 #: libraries/config/messages.inc.php:508
 msgid "Server"
-msgstr ""
+msgstr "Servitor"
 
 #: index.php:240
 msgid "Server type"
-msgstr ""
+msgstr "Typo de servitor"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version"
-msgstr ""
+msgstr "Version de servitor"
 
 #: index.php:248
 msgid "Protocol version"
-msgstr ""
+msgstr "Version de protocollo"
 
 #: index.php:252 libraries/server_privileges.lib.php:1566
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2795
 #: libraries/server_privileges.lib.php:2843 server_status.php:316
 msgid "User"
-msgstr ""
+msgstr "Usator"
 
 #: index.php:257
 msgid "Server charset"
-msgstr ""
+msgstr "Insimul de characteres del servitor"
 
 #: index.php:269
 msgid "Web server"
-msgstr ""
+msgstr "Servitor web"
 
 #: index.php:282
 msgid "Database client version"
-msgstr ""
+msgstr "Version del cliente de base de datos"
 
 #: index.php:286
 msgid "PHP extension"
-msgstr ""
+msgstr "Extension de PHP"
 
 #: index.php:300
 msgid "Show PHP information"
-msgstr ""
+msgstr "Monstra information de PHP"
 
 #: index.php:323 libraries/engines/bdb.lib.php:25
 msgid "Version information"
-msgstr ""
+msgstr "Information de version"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:147
@@ -775,27 +781,27 @@ msgstr ""
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
 #: index.php:339 libraries/config/FormDisplay.tpl.php:148
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: index.php:348
 msgid "Official Homepage"
-msgstr ""
+msgstr "Pagina initial o domo official"
 
 #: index.php:355
 msgid "Contribute"
-msgstr ""
+msgstr "Contribue"
 
 #: index.php:362
 msgid "Get support"
-msgstr ""
+msgstr "Obtene supporto"
 
 #: index.php:369
 msgid "List of changes"
-msgstr ""
+msgstr "Lista de modificationes"
 
 #: index.php:392
 msgid ""
