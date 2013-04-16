@@ -36,6 +36,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->object = new PMA_Config;
         $GLOBALS['server'] = 0;
+        $_SESSION['is_git_revision'] = true;
     }
 
     /**
@@ -792,6 +793,37 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             )
         );
 
+    }
+
+    /**
+     * Test for isGitRevision
+     *
+     * @return void
+     */
+    public function testIsGitRevision()
+    {
+      $this->assertTrue(
+            $this->object->isGitRevision()
+        );
+    }
+
+    /**
+     * Test for Check HTTP
+     *
+     * @return void
+     */
+    public function testCheckHTTP()
+    {
+      $this->assertTrue(
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
+      );
+      $this->assertContains(
+            "TEST DATA",
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data",true)
+      );
+      $this->assertFalse(
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
+      );
     }
 
     /**
