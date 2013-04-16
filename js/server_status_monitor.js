@@ -502,7 +502,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var numColumns;
         var $tr = $('#chartGrid tr:first');
         var row = 0;
-        while($tr.length !== 0) {
+        while ($tr.length !== 0) {
             numColumns = 1;
             // To many cells in one row => put into next row
             $tr.find('td').each(function () {
@@ -721,7 +721,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
                     window.localStorage['monitorSettings'] = $.toJSON(json.monitorSettings);
                     rebuildGrid();
-                } catch(err) {
+                } catch (err) {
                     alert(PMA_messages['strFailedBuildingGrid']);
                     // If an exception is thrown, load default again
                     window.localStorage.removeItem('monitorCharts');
@@ -797,7 +797,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     } else {
                         return serverResponseError();
                     }
-                    var icon = PMA_getImage('s_success.png'), msg='', str='';
+                    var icon = PMA_getImage('s_success.png'), msg = '', str = '';
 
                     if (logVars['general_log'] == 'ON') {
                         if (logVars['slow_query_log'] == 'ON') {
@@ -949,7 +949,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     $('a[href="#mibDivisor"]').click(function (event) {
         event.preventDefault();
-        $('input[name="valueDivisor"]').val(1024*1024);
+        $('input[name="valueDivisor"]').val(1024 * 1024);
         $('input[name="valueUnit"]').val(PMA_messages['strMiB']);
         $('span.unitInput').toggle(true);
         $('input[name="useUnit"]').prop('checked', true);
@@ -986,7 +986,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         };
 
         if (serie.dataPoints[0].name == 'Processes') {
-            serie.dataPoints[0].type ='proc';
+            serie.dataPoints[0].type = 'proc';
         }
 
         if ($('input[name="useDivisor"]').prop('checked')) {
@@ -1165,8 +1165,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     max: runtime.xmax
                 },
                 yaxis: {
-                    min:0,
-                    max:100,
+                    min: 0,
+                    max: 100,
                     tickInterval: 20
                 }
             },
@@ -1219,7 +1219,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         // also chart won't plot initially with no data and data comes on refreshChartGrid()
         var series = [];
         for (i in chartObj.series) {
-            series.push([[0,0]]);
+            series.push([[0, 0]]);
         }
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         // remove [0,0] after plotting
@@ -1269,7 +1269,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             selectionBox
                 .attr({id: 'selection_box'})
                 .css({
-                    top: selectionStartY-gridpos.y,
+                    top: selectionStartY - gridpos.y,
                     left: selectionStartX
                 })
                 .fadeIn();
@@ -1346,7 +1346,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         var htmlStr = '<p><b>' + PMA_messages['strChartTitle'] + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
         htmlStr += '</p><p><b>' + PMA_messages['strSeries'] + ':</b> </p><ol>';
-        for (var i = 0; i<chart.nodes.length; i++) {
+        for (var i = 0; i < chart.nodes.length; i++) {
             htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
         }
 
@@ -1541,9 +1541,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 // update chart options
                 // keep ticks number/positioning consistent while refreshrate changes
-                var tickInterval = (runtime.xmax - runtime.xmin)/5;
-                elem.chart['axes']['xaxis'].ticks = [(runtime.xmax - tickInterval*4),
-                    (runtime.xmax - tickInterval*3), (runtime.xmax - tickInterval*2),
+                var tickInterval = (runtime.xmax - runtime.xmin) / 5;
+                elem.chart['axes']['xaxis'].ticks = [(runtime.xmax - tickInterval * 4),
+                    (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
                     (runtime.xmax - tickInterval), runtime.xmax];
 
                 if (elem.title !== PMA_messages['strSystemCPUUsage']
@@ -1551,8 +1551,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     && elem.title !== PMA_messages['strSystemMemory']
                     && elem.title !== PMA_messages['strSystemSwap']
                 ) {
-                    elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel*1.1);
-                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel*1.1/5);
+                    elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel * 1.1);
+                    elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel * 1.1 / 5);
                 } else if (elem.title === PMA_messages['strSystemMemory']
                     || elem.title === PMA_messages['strSystemSwap']
                 ) {
@@ -1577,15 +1577,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
      */
     function getMaxYLabel(dataValues) {
         var maxY = dataValues[0][1];
-        $.each(dataValues,function (k,v) {
-            maxY = (v[1]>maxY) ? v[1] : maxY;
+        $.each(dataValues, function (k, v) {
+            maxY = (v[1] > maxY) ? v[1] : maxY;
         });
         return maxY;
     }
 
     /* Function that supplies special value transform functions for chart values */
     function chartValueTransform(name, cur, prev) {
-        switch(name) {
+        switch (name) {
         case 'cpu-linux':
             if (prev === null) {
                 return undefined;
@@ -1635,7 +1635,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var chartID = 0;
         $.each(runtime.charts, function (key, chart) {
             runtime.dataList[chartID] = [];
-            for (var i=0, l=chart.nodes.length; i < l; i++) {
+            for (var i = 0, l = chart.nodes.length; i < l; i++) {
                 runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
             runtime.charts[key].chartID = chartID;
