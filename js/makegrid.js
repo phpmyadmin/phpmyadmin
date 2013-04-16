@@ -1402,7 +1402,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cPointer).css('visibility', 'hidden');  // set visibility to hidden instead of calling hide() to force browsers to cache the image in cPointer class
 
             // assign column reordering hint
-            g.reorderHint = PMA_messages['strColOrderHint'];
+            g.reorderHint = PMA_messages.strColOrderHint;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
@@ -1491,7 +1491,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cList).hide();
 
             // assign column visibility related hints
-            g.showAllColText = PMA_messages['strShowAllCol'];
+            g.showAllColText = PMA_messages.strShowAllCol;
 
             // get data columns in the first row of the table
             var $firstRowCols = $(g.t).find('tr:first th.draggable');
@@ -1516,7 +1516,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 PMA_tooltip(
                     $colVisibTh,
                     'th',
-                    PMA_messages['strColVisibHint']
+                    PMA_messages.strColVisibHint
                 );
 
                 // create column visibility drop-down arrow(s)
@@ -1605,11 +1605,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.cEdit).hide();
 
             // assign cell editing hint
-            g.cellEditHint = PMA_messages['strCellEditHint'];
-            g.saveCellWarning = PMA_messages['strSaveCellWarning'];
-            g.alertNonUnique = PMA_messages['strAlertNonUnique'];
-            g.gotoLinkText = PMA_messages['strGoToLink'];
-            g.showDataRowLinkText = PMA_messages['strShowDataRowLink'];
+            g.cellEditHint = PMA_messages.strCellEditHint;
+            g.saveCellWarning = PMA_messages.strSaveCellWarning;
+            g.alertNonUnique = PMA_messages.strAlertNonUnique;
+            g.gotoLinkText = PMA_messages.strGoToLink;
+            g.showDataRowLinkText = PMA_messages.strShowDataRowLink;
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $('#save_cells_at_once').val();
@@ -1709,11 +1709,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.gDiv).append(g.cEdit);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
-            if (PMA_messages['strGridEditFeatureHint'] !== undefined) {
+            if (PMA_messages.strGridEditFeatureHint !== undefined) {
                 PMA_tooltip(
                     $(g.t).find('.edit_row_anchor a'),
                     'a',
-                    PMA_messages['strGridEditFeatureHint']
+                    PMA_messages.strGridEditFeatureHint
                 );
             }
         }
@@ -1751,9 +1751,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     g.tableCreateTime = $('#table_create_time').val();
 
     // assign the hints
-    g.sortHint = PMA_messages['strSortHint'];
-    g.markHint = PMA_messages['strColMarkHint'];
-    g.copyHint = PMA_messages['strColNameCopyHint'];
+    g.sortHint = PMA_messages.strSortHint;
+    g.markHint = PMA_messages.strColMarkHint;
+    g.copyHint = PMA_messages.strColNameCopyHint;
 
     // assign common hidden inputs
     var $common_hidden_inputs = $('div.common_hidden_inputs');

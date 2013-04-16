@@ -207,7 +207,7 @@ var validators = {
             return true;
         }
         var result = this.value != '0' && validators._regexp_numeric.test(this.value);
-        return result ? true : PMA_messages['error_nan_p'];
+        return result ? true : PMA_messages.error_nan_p;
     },
     /**
      * Validates non-negative number
@@ -219,7 +219,7 @@ var validators = {
             return true;
         }
         var result = validators._regexp_numeric.test(this.value);
-        return result ? true : PMA_messages['error_nan_nneg'];
+        return result ? true : PMA_messages.error_nan_nneg;
     },
     /**
      * Validates port number
@@ -231,7 +231,7 @@ var validators = {
             return true;
         }
         var result = validators._regexp_numeric.test(this.value) && this.value != '0';
-        return result && this.value <= 65535 ? true : PMA_messages['error_incorrect_port'];
+        return result && this.value <= 65535 ? true : PMA_messages.error_incorrect_port;
     },
     /**
      * Validates value according to given regular expression
@@ -246,7 +246,7 @@ var validators = {
         // convert PCRE regexp
         var parts = regexp.match(validators._regexp_pcre_extract);
         var valid = this.value.match(new RegExp(parts[2], parts[3])) !== null;
-        return valid ? true : PMA_messages['error_invalid_value'];
+        return valid ? true : PMA_messages.error_invalid_value;
     },
     /**
      * Validates upper bound for numeric inputs
@@ -259,7 +259,7 @@ var validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= max_value ? true : $.sprintf(PMA_messages['error_value_lte'], max_value);
+        return val <= max_value ? true : $.sprintf(PMA_messages.error_value_lte, max_value);
     },
     // field validators
     _field: {
@@ -742,7 +742,7 @@ function savePrefsToLocalStorage(form)
 function updatePrefsDate()
 {
     var d = new Date(window.localStorage['config_mtime_local']);
-    var msg = PMA_messages['strSavedOn'].replace('@DATE@', formatDate(d));
+    var msg = PMA_messages.strSavedOn.replace('@DATE@', formatDate(d));
     $('#opts_import_local_storage div.localStorage-exists').html(msg);
 }
 

@@ -133,7 +133,7 @@ AJAX.registerOnload('indexes.js', function () {
         );
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
@@ -165,7 +165,7 @@ AJAX.registerOnload('indexes.js', function () {
                     });
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -187,14 +187,14 @@ AJAX.registerOnload('indexes.js', function () {
                 return;
             }
             var url = $(this).closest('form').serialize();
-            var title = PMA_messages['strAddIndex'];
+            var title = PMA_messages.strAddIndex;
         } else {
             // Edit index
             var url = $(this).find("a").attr("href");
             if (url.substring(0, 16) == "tbl_indexes.php?") {
                 url = url.substring(16, url.length);
             }
-            var title = PMA_messages['strEditIndex'];
+            var title = PMA_messages.strEditIndex;
         }
         url += "&ajax_request=true";
         indexEditorDialog(url, title, function () {

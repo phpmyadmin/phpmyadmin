@@ -36,13 +36,13 @@ AJAX.registerTeardown('db_structure.js', function () {
  */
 function PMA_adjustTotals() {
     var byteUnits = new Array(
-        PMA_messages['strB'],
-        PMA_messages['strKiB'],
-        PMA_messages['strMiB'],
-        PMA_messages['strGiB'],
-        PMA_messages['strTiB'],
-        PMA_messages['strPiB'],
-        PMA_messages['strEiB']
+        PMA_messages.strB,
+        PMA_messages.strKiB,
+        PMA_messages.strMiB,
+        PMA_messages.strGiB,
+        PMA_messages.strTiB,
+        PMA_messages.strPiB,
+        PMA_messages.strEiB
     );
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -123,7 +123,7 @@ function PMA_adjustTotals() {
 
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
-    $summary.find('.tbl_num').text($.sprintf(PMA_messages['strTables'], tableSum));
+    $summary.find('.tbl_num').text($.sprintf(PMA_messages.strTables, tableSum));
     $summary.find('.tbl_rows').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
@@ -162,19 +162,19 @@ AJAX.registerOnload('db_structure.js', function () {
     $("span.fkc_switch").click(function (event) {
         if ($("#fkc_checkbox").prop('checked')) {
             $("#fkc_checkbox").prop('checked', false);
-            $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
             return;
         }
         $("#fkc_checkbox").prop('checked', true);
-        $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+        $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
     });
 
     $('#fkc_checkbox').change(function () {
         if ($(this).prop("checked")) {
-            $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
             return;
         }
-        $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
+        $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
     }); // End of event handler for 'Foreign Key Check'
 
     /**
@@ -202,7 +202,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
@@ -221,7 +221,7 @@ AJAX.registerOnload('db_structure.js', function () {
                         .removeClass('truncate_table_anchor');
                     PMA_adjustTotals();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); //end $.PMA_confirm()
@@ -263,7 +263,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
@@ -274,7 +274,7 @@ AJAX.registerOnload('db_structure.js', function () {
                     PMA_reloadNavigation();
                     PMA_ajaxRemoveMessage($msg);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -295,11 +295,11 @@ AJAX.registerOnload('db_structure.js', function () {
          /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDeleteTrackingData'];
+        var question = PMA_messages.strDeleteTrackingData;
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
+            PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
 
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (data.success === true) {
@@ -358,7 +358,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
                     PMA_ajaxShowMessage(data.message);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -375,7 +375,7 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strOperationTakesLongTime'];
+        var question = PMA_messages.strOperationTakesLongTime;
 
         $(this).PMA_confirm(question, '', function () {
             return true;

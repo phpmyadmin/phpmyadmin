@@ -516,7 +516,7 @@ AJAX.cache = {
     navigate: function (index) {
         if (typeof this.pages[index] === 'undefined') {
             PMA_ajaxShowMessage(
-                '<div class="error">' + PMA_messages['strInvalidPage'] + '</div>',
+                '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
                 false
             );
         } else {
@@ -790,11 +790,11 @@ $('form').live('submit', AJAX.requestHandler);
  */
 $(document).ajaxError(function (event, request, settings) {
     if (request.status !== 0) { // Don't handle aborted requests
-        var errorCode = $.sprintf(PMA_messages['strErrorCode'], request.status);
-        var errorText = $.sprintf(PMA_messages['strErrorText'], request.statusText);
+        var errorCode = $.sprintf(PMA_messages.strErrorCode, request.status);
+        var errorText = $.sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
             '<div class="error">'
-            + PMA_messages['strErrorProcessingRequest']
+            + PMA_messages.strErrorProcessingRequest
             + '<div>' + errorCode + '</div>'
             + '<div>' + errorText + '</div>'
             + '</div>',
