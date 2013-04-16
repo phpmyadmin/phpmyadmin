@@ -1704,7 +1704,8 @@ function PMA_createProfilingChartJqplot(target, data)
 }
 
 /**
- * Formats a profiling duration nicely (in us and ms time). Used in server_status.js
+ * Formats a profiling duration nicely (in us and ms time).
+ * Used in server_status_monitor.js
  *
  * @param  integer    Number to be formatted, should be in the range of microsecond to second
  * @param  integer    Accuracy, how many numbers right to the comma should be
