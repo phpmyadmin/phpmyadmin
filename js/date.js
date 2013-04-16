@@ -58,7 +58,7 @@
 
 var MONTH_NAMES=new Array('January','February','March','April','May','June','July','August','September','October','November','December','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 var DAY_NAMES=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sun','Mon','Tue','Wed','Thu','Fri','Sat');
-function LZ(x) {return(x<0||x>9?"":"0")+x}
+function LZ(x) {return(x<0||x>9?"":"0")+x;}
 
 // ------------------------------------------------------------------
 // isDate ( date_string, format_string )
@@ -111,7 +111,7 @@ function formatDate(date,format) {
     var H=date.getHours();
     var m=date.getMinutes();
     var s=date.getSeconds();
-    var yyyy,yy,MMM,MM,dd,hh,h,mm,ss,ampm,HH,H,KK,K,kk,k;
+    var yyyy,yy,MMM,MM,dd,hh,h,mm,ss,ampm,HH,KK,K,kk,k;
     // Convert real date parts into formatted versions
     var value=new Object();
     if (y.length < 4) {y=""+(y-0+1900);}
