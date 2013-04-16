@@ -151,7 +151,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree div.block i.first { /* Removes top segment */
     border-<?php echo $left; ?>: 0;
 }
-#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
+/* Bottom segment for the tree element connections */
+#pma_navigation_tree div.block b {
     display: block;
     height: 0.75em;
     bottom: 0;

@@ -105,7 +105,7 @@ if (empty($_REQUEST['engine'])
                 $html .= '    <a href="server_engines.php'
                     . PMA_generate_common_url(
                         array('engine' => $_REQUEST['engine'], 'page' => $current)
-                      )
+                    )
                     . '">' . htmlspecialchars($label) . '</a>' . "\n";
             }
         }
