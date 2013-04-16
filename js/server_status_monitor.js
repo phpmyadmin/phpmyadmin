@@ -1920,9 +1920,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Turns a number into a timespan (100 into 00:01:40) */
     function secToTime(timeInt) {
         var hours = Math.floor(timeInt / 3600);
-        timeInt -= hours*3600;
+        timeInt -= hours * 3600;
         var minutes = Math.floor(timeInt / 60);
-        timeInt -= minutes*60;
+        timeInt -= minutes * 60;
 
         if (hours < 10) {
             hours = '0' + hours;
@@ -1947,9 +1947,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         $('#logTable').html($table);
 
         var formatValue = function (name, value) {
-            switch(name) {
-                case 'user_host':
-                    return value.replace(/(\[.*?\])+/g, '');
+            if (name == 'user_host') {
+                return value.replace(/(\[.*?\])+/g, '');
             }
             return value;
         };
@@ -1959,9 +1958,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $.each(rows[0], function (key, value) {
                     cols.push(key);
                 });
-                $table.append( '<thead>' +
-                               '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>' +
-                               '</thead>');
+                $table.append('<thead>' +
+                              '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>' +
+                              '</thead>'
+                );
 
                 $table.append($tBody = $('<tbody></tbody>'));
             }
@@ -2025,7 +2025,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // Following lines seem to fix that
             setTimeout(function () {
                 codemirror_editor.refresh();
-            },50);
+            }, 50);
         }
         else {
             $('#sqlquery').val(query);
@@ -2098,9 +2098,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
             explain += '<p></p>';
             for (var i = 0, l = data.explain.length; i < l; i++) {
-                explain += '<div class="explain-' + i + '"' + (i>0? 'style="display:none;"' : '' ) + '>';
+                explain += '<div class="explain-' + i + '"' + (i > 0 ?  'style="display:none;"' : '') + '>';
                 $.each(data.explain[i], function (key, value) {
-                    value = (value === null)?'null':value;
+                    value = (value === null) ? 'null' : value;
 
                     if (key == 'type' && value.toLowerCase() == 'all') {
                         value = '<span class="attention">' + value + '</span>';
@@ -2229,16 +2229,16 @@ function destroyGrid() {
         $.each(runtime.charts, function (key, value) {
             try {
                 value.chart.destroy();
-            } catch(err) {}
+            } catch (err) {}
         });
     }
 
     try {
         runtime.refreshRequest.abort();
-    } catch(err) {}
+    } catch (err) {}
     try {
         clearTimeout(runtime.refreshTimeout);
-    } catch(err) {}
+    } catch (err) {}
     $('#chartGrid').html('');
     runtime.charts = null;
     runtime.chartAI = 0;
