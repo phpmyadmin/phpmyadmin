@@ -17,7 +17,7 @@ function changePluginOpts()
     var selected_plugin_name = $("#plugins option:selected").val();
     $("#" + selected_plugin_name + "_options").fadeIn('slow');
     if (selected_plugin_name == "csv") {
-        $("#import_notification").text(PMA_messages['strImportCSV']);
+        $("#import_notification").text(PMA_messages.strImportCSV);
     } else {
         $("#import_notification").text("");
     }

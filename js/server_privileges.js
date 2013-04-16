@@ -17,13 +17,13 @@
 function checkAddUser(the_form)
 {
     if (the_form.elements['pred_hostname'].value == 'userdefined' && the_form.elements['hostname'].value === '') {
-        alert(PMA_messages['strHostEmpty']);
+        alert(PMA_messages.strHostEmpty);
         the_form.elements['hostname'].focus();
         return false;
     }
 
     if (the_form.elements['pred_username'].value == 'userdefined' && the_form.elements['username'].value === '') {
-        alert(PMA_messages['strUserEmpty']);
+        alert(PMA_messages.strUserEmpty);
         the_form.elements['username'].focus();
         return false;
     }
@@ -134,7 +134,7 @@ function addUser($form)
                             .html(priv_data.user_form)
                             .insertAfter('#result_query');
                     } else {
-                        PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
+                        PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + priv_data.error, false);
                     }
                 });
             } else {
@@ -234,7 +234,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $("#reload_privileges_anchor.ajax").live("click", function (event) {
         event.preventDefault();
 
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strReloadingPrivileges']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strReloadingPrivileges);
 
         $.get($(this).attr("href"), {'ajax_request': true}, function (data) {
             if (data.success === true) {
@@ -256,7 +256,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $("#fieldset_delete_user_footer #buttonGo.ajax").live('click', function (event) {
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages['strRemovingSelectedUsers']);
+        PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
 
         var $form = $("#usersForm");
 
@@ -361,7 +361,7 @@ AJAX.registerOnload('server_privileges.js', function () {
             return false;
         }
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
         $t.append('<input type="hidden" name="ajax_request" value="true" />');
 
@@ -467,7 +467,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         }
         var $msgbox = PMA_ajaxShowMessage();
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function () {
+        button_options[PMA_messages.strClose] = function () {
             $(this).dialog("close");
         };
         $.post(
@@ -526,7 +526,7 @@ AJAX.registerOnload('server_privileges.js', function () {
          * @var button_options  Object containing options for jQueryUI dialog buttons
          */
         var button_options = {};
-        button_options[PMA_messages['strClose']] = function () {
+        button_options[PMA_messages.strClose] = function () {
             $(this).dialog("close");
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
@@ -594,7 +594,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $('#checkbox_drop_users_db').click(function () {
         var $this_checkbox = $(this);
         if ($this_checkbox.is(':checked')) {
-            var is_confirmed = confirm(PMA_messages['strDropDatabaseStrongWarning'] + '\n' + $.sprintf(PMA_messages['strDoYouReally'], 'DROP DATABASE'));
+            var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + $.sprintf(PMA_messages['strDoYouReally'], 'DROP DATABASE'));
             if (! is_confirmed) {
                 $this_checkbox.prop('checked', false);
             }

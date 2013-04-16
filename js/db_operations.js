@@ -42,7 +42,7 @@ AJAX.registerOnload('db_operations.js', function () {
         PMA_prepareForAjaxRequest($form);
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases'], false);
+            PMA_ajaxShowMessage(PMA_messages.strRenamingDatabases, false);
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function (data) {
                 if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
@@ -72,7 +72,7 @@ AJAX.registerOnload('db_operations.js', function () {
      */
     $("#copy_db_form.ajax").live('submit', function (event) {
         event.preventDefault();
-        PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase'], false);
+        PMA_ajaxShowMessage(PMA_messages.strCopyingDatabase, false);
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         $.get($form.attr('action'), $form.serialize(), function (data) {
@@ -102,7 +102,7 @@ AJAX.registerOnload('db_operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
+        PMA_ajaxShowMessage(PMA_messages.strChangingCharset);
         $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function (data) {
             if (data.success === true) {
                 PMA_ajaxShowMessage(data.message);

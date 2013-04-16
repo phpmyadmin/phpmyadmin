@@ -44,7 +44,7 @@ FIXME: we can't register the beforeonload event because it will persist between 
 AJAX.registerOnload('pmd/move.js', function (){
     $(window).bind('beforeunload', function () {        // onbeforeunload for the frame window.
         if (_change == 1 && _staying === 0) {
-            return PMA_messages['strLeavingDesigner'];
+            return PMA_messages.strLeavingDesigner;
         } else if (_change == 1 && _staying == 1) {
             _staying = 0;
         }
@@ -56,7 +56,7 @@ AJAX.registerOnload('pmd/move.js', function (){
         if (_change == 1 && _staying === 0) {
             _staying = 1;                                                   //  Helps if the user stays on the page  as there
             setTimeout('make_zero();', 100);                    //   is no other way of knowing whether the user stayed or not.
-            return PMA_messages['strLeavingDesigner'];
+            return PMA_messages.strLeavingDesigner;
         }
     };
 });*/
@@ -582,7 +582,7 @@ function Start_relation()
     if (!ON_relation) {
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
-        document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectReferencedKey'];
+        document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectReferencedKey;
         document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
@@ -600,7 +600,7 @@ function Click_field(T, f, PK) // table field
         if (!click_field) {
             //.style.display=='none'        .style.display = 'none'
             if (!PK) {
-                alert(PMA_messages['strPleaseSelectPrimaryOrUniqueKey']);
+                alert(PMA_messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }//PK
             if (j_tabs[db + '.' + T] != '1') {
@@ -608,7 +608,7 @@ function Click_field(T, f, PK) // table field
             }
             click_field = 1;
             link_relation = "T1=" + T + "&F1=" + f;
-            document.getElementById('pmd_hint').innerHTML = PMA_messages['strSelectForeignKey'];
+            document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
             if (j_tabs[db + '.' + T] != '1' || !PK) {
@@ -1047,7 +1047,7 @@ function Start_display_field()
     }
     if (!ON_display_field) {
         ON_display_field = 1;
-        document.getElementById('pmd_hint').innerHTML = PMA_messages['strChangeDisplay'];
+        document.getElementById('pmd_hint').innerHTML = PMA_messages.strChangeDisplay;
         document.getElementById('pmd_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';//'#FFEE99';gray #AAAAAA
 
@@ -1111,7 +1111,7 @@ function Click_option(id_this, column_name, table_name)
     // var top = Glob_Y - document.getElementById(id_this).offsetHeight - 10;
     document.getElementById(id_this).style.top  = (screen.height / 4) + 'px';
     document.getElementById(id_this).style.display = 'block';
-    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages['strAddOption'] + '"' + column_name + '"</strong>';
+    document.getElementById('option_col_name').innerHTML = '<strong>' + PMA_messages.strAddOption + '"' + column_name + '"</strong>';
     col_name = column_name;
     tab_name = table_name;
 }
@@ -1270,7 +1270,7 @@ function add_object()
         document.getElementById('orderby').checked = false;
         //make orderby
     }
-    PMA_ajaxShowMessage($.sprintf(PMA_messages['strObjectsCreated'], sum));
+    PMA_ajaxShowMessage($.sprintf(PMA_messages.strObjectsCreated, sum));
     //output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(init, history_array.length);

@@ -434,7 +434,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 if (curr_rows == 1) {
                     $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
                     .insertBefore("table.insertRowTable:last")
-                    .after('<label for="insert_ignore_1">' + PMA_messages['strIgnore'] + '</label>');
+                    .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
                 } else {
 
                     /**

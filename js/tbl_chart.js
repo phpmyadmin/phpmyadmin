@@ -126,7 +126,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
                 $('input#radio_line').prop('checked', true);
                 currentSettings.type = 'line';
             }
-            yaxis_title = PMA_messages['strYValues'];
+            yaxis_title = PMA_messages.strYValues;
         }
         $('input[name="yaxis_label"]').val(yaxis_title);
         currentSettings.yaxisLabel = yaxis_title;
@@ -151,8 +151,8 @@ AJAX.registerOnload('tbl_chart.js', function () {
  *
  */
 $("#tblchartform").live('submit', function (event) {
-    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
-        || !checkFormElementInRange(this, 'pos', PMA_messages['strNotValidRowNumber'], 0 - 1)) {
+    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1)
+        || !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)) {
         return false;
     }
 

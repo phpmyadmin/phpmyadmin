@@ -12,7 +12,7 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-    PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'], 10000);
+    PMA_ajaxShowMessage(PMA_messages.strDisplayHelp, 10000);
 }
 
 /**
@@ -237,9 +237,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      **/
     $('#inputFormSubmitId').click(function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
-            PMA_ajaxShowMessage(PMA_messages['strInputNull']);
+            PMA_ajaxShowMessage(PMA_messages.strInputNull);
         } else if (xLabel == yLabel) {
-            PMA_ajaxShowMessage(PMA_messages['strSameInputs']);
+            PMA_ajaxShowMessage(PMA_messages.strSameInputs);
         }
     });
 
@@ -253,14 +253,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(PMA_messages['strShowSearchCriteria'])
+        .html(PMA_messages.strShowSearchCriteria)
         .bind('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
-            if ($link.text() == PMA_messages['strHideSearchCriteria']) {
-                $link.text(PMA_messages['strShowSearchCriteria']);
+            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+                $link.text(PMA_messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages['strHideSearchCriteria']);
+                $link.text(PMA_messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -273,7 +273,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     /*
      * Handle saving of a row in the editor
      */
-    buttonOptions[PMA_messages['strSave']] = function () {
+    buttonOptions[PMA_messages.strSave] = function () {
         //Find changed values by comparing form values with selectedRow Object
         var newValues = {};//Stores the values changed from original
         var sqlTypes = {};
@@ -397,12 +397,12 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         }//End database update
         $("#dataDisplay").dialog('close');
     };
-    buttonOptions[PMA_messages['strCancel']] = function () {
+    buttonOptions[PMA_messages.strCancel] = function () {
         $(this).dialog('close');
     };
     $("#dataDisplay").dialog({
         autoOpen: false,
-        title: PMA_messages['strDataPointContent'],
+        title: PMA_messages.strDataPointContent,
         modal: true,
         buttons: buttonOptions,
         width: $('#dataDisplay').width() + 80,
@@ -418,8 +418,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     $("#dataDisplay").find(':input').live('keydown', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
-            if (typeof buttonOptions[PMA_messages['strSave']] === 'function') {
-                buttonOptions[PMA_messages['strSave']].call();
+            if (typeof buttonOptions[PMA_messages.strSave] === 'function') {
+                buttonOptions[PMA_messages.strSave].call();
             }
         }
     });
@@ -434,7 +434,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
          .slideToggle()
          .hide();
         $('#togglesearchformlink')
-         .text(PMA_messages['strShowSearchCriteria']);
+         .text(PMA_messages.strShowSearchCriteria);
         $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#FF0080', '#800080', '#FFFF00', '#00FF00', '#FF00FF'];

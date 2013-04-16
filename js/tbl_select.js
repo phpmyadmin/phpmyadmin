@@ -34,14 +34,14 @@ AJAX.registerOnload('tbl_select.js', function () {
      .hide();
 
     $('#togglesearchformlink')
-        .html(PMA_messages['strShowSearchCriteria'])
+        .html(PMA_messages.strShowSearchCriteria)
         .bind('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() == PMA_messages['strHideSearchCriteria']) {
-                $link.text(PMA_messages['strShowSearchCriteria']);
+            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+                $link.text(PMA_messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages['strHideSearchCriteria']);
+                $link.text(PMA_messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -64,7 +64,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $("#sqlqueryresults").empty();
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strSearching'], false);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
 
@@ -119,7 +119,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                  .hide();
                 $('#togglesearchformlink')
                  // always start with the Show message
-                 .text(PMA_messages['strShowSearchCriteria']);
+                 .text(PMA_messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                  // now it's time to show the div containing the link
                  .show();
