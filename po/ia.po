@@ -626,7 +626,7 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Probabilemente tu es essayante incargar un file troppo grande. Pro favor tu "
-"refere al %documentation% pro eluder iste limite."
+"refere al %sdocumentation%s pro eluder iste limite."
 
 #: import.php:248 import.php:513
 msgid "Showing bookmark"
