@@ -3328,14 +3328,14 @@ function PMA_slidingMessage(msg, $obj)
             }, function () {
             // Set the height of the parent
             // to the height of the child
-            $obj
-            .height(
                 $obj
-                .find('div')
-                .first()
-                .height()
-            );
-        });
+                .height(
+                    $obj
+                    .find('div')
+                    .first()
+                    .height()
+                );
+            });
     }
     return true;
 } // end PMA_slidingMessage()
