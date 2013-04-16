@@ -738,10 +738,10 @@ function query_where()
 function check_aggregate(id_this)
 {
     var i;
-    for (i = 0;i < history_array.length;i++) {
-        var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
+    for (i = 0; i < history_array.length; i++) {
+        var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp == id_this && history_array[i].get_type() == "Aggregate") {
-            return history_array[i].get_obj().get_operator() + '(' + id_this +')';
+            return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
         }
     }
     return "";
@@ -750,10 +750,10 @@ function check_aggregate(id_this)
 function check_rename(id_this)
 {
     var i;
-    for (i = 0;i < history_array.length;i++) {
-        var temp = '`' + history_array[i].get_tab() + '`.`' +history_array[i].get_column_name() +'`';
+    for (i = 0; i < history_array.length; i++) {
+        var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
         if (temp == id_this && history_array[i].get_type() == "Rename") {
-            return  " AS `" + history_array[i].get_obj().getrename_to() +"`";
+            return " AS `" + history_array[i].get_obj().getrename_to() + "`";
         }
     }
     return "";
@@ -766,7 +766,7 @@ function gradient(id, level)
     box.style.MozOpacity = level;
     box.style.KhtmlOpacity = level;
     box.style.filter = "alpha(opacity=" + level * 100 + ")";
-    box.style.display="block";
+    box.style.display = "block";
     return;
 }
 
@@ -775,13 +775,13 @@ function fadein(id)
 {
     var level = 0;
     while (level <= 1) {
-        setTimeout("gradient('" + id + "'," + level + ")", (level* 1000) + 10);
+        setTimeout("gradient('" + id + "'," + level + ")", (level * 1000) + 10);
         level += 0.01;
     }
 }
 
 function closebox()
 {
-    document.getElementById('box').style.display='none';
-    document.getElementById('filter').style.display='none';
+    document.getElementById('box').style.display = 'none';
+    document.getElementById('filter').style.display = 'none';
 }
