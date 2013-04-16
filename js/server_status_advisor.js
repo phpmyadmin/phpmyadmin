@@ -55,7 +55,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     if (data.run.fired.length > 0) {
         $cnt.append('<p><b>' + PMA_messages.strPerformanceIssues + '</b></p>');
         $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
-                    '<th>' + PMA_messages.strIssuse + '</th><th>' + PMA_messages['strRecommendation'] +
+                    '<th>' + PMA_messages.strIssuse + '</th><th>' + PMA_messages.strRecommendation +
                     '</th></tr></thead><tbody></tbody></table>');
         $tbody = $cnt.find('table#rulesFired');
 

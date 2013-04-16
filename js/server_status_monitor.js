@@ -2125,7 +2125,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages.strStatus + '</th><th>' + PMA_messages['strTime'] + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="queryNums"><thead><tr><th>' + PMA_messages.strStatus + '</th><th>' + PMA_messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 
@@ -2157,7 +2157,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 $('#queryAnalyzerDialog div.placeHolder td.chart').append(
                     '<b>' + PMA_messages.strProfilingResults + ' ' + $('#profiling_docu').html() + '</b> ' +
-                    '(<a href="#showNums">' + PMA_messages.strTable + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
+                    '(<a href="#showNums">' + PMA_messages.strTable + '</a>, <a href="#showChart">' + PMA_messages.strChart + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
                 $('#queryAnalyzerDialog div.placeHolder a[href="#showNums"]').click(function () {
