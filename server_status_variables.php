@@ -76,7 +76,8 @@ function getFilterHtml($ServerStatusData)
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_variables.php?' . PMA_generate_common_url() . '">';
+    $retval .= '<form action="server_status_variables.php?' 
+        . PMA_generate_common_url() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
@@ -84,7 +85,8 @@ function getFilterHtml($ServerStatusData)
         . 'style="vertical-align: baseline;" value="' . $filterText . '" />';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
-    $retval .= '<input' . $filterAlert . ' type="checkbox" name="filterAlert" id="filterAlert" />';
+    $retval .= '<input' . $filterAlert . ' type="checkbox" '
+        . ' name="filterAlert" id="filterAlert" />';
     $retval .= '<label for="filterAlert">';
     $retval .= __('Show only alert values');
     $retval .= '</label>';
