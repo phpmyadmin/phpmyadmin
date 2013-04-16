@@ -1,6 +1,6 @@
 {
     // Show more errors
-    "maxerr" : 200,
+    "maxerr" : 1000,
 
     // Globals
     "jquery" : true,
