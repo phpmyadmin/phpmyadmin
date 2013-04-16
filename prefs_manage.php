@@ -120,7 +120,7 @@ if (isset($_POST['submit_export'])
             echo '<input type="hidden" name="json" value="' . htmlspecialchars($json) . '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
             if (! empty($_POST['import_merge'])) {
-                echo '<input type="hidden" name="import_merge" value="1" />'
+                echo '<input type="hidden" name="import_merge" value="1" />';
             }
             if ($return_url) {
                 echo '<input type="hidden" name="return_url" value="' . htmlspecialchars($return_url) . '" />';
