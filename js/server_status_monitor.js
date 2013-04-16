@@ -691,7 +691,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var $iframe, $form;
             $('body').append($iframe = $('<iframe id="monitorConfigUpload" style="display:none;"></iframe>'));
             var d = $iframe[0].contentWindow.document;
-            d.open(); d.close();
+            d.open();
+            d.close();
             mew = d;
 
             $iframe.load(function () {

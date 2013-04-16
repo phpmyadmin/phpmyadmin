@@ -828,7 +828,8 @@ function Canvas_click(id)
                         relation_name = key; //
                         Key0 = contr[K][key][key2][key3][0];
                         Key1 = contr[K][key][key2][key3][1];
-                        Key2 = key2; Key3 = key3;
+                        Key2 = key2;
+                        Key3 = key3;
                         Key = K;
                     } else {
                         Line0(

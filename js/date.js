@@ -180,7 +180,7 @@ function _isInteger(val) {
     var digits = "1234567890";
     for (var i = 0; i < val.length; i++) {
         if (digits.indexOf(val.charAt(i)) == -1) { return false; }
-        }
+    }
     return true;
 }
 function _getInt(str, i, minlength, maxlength) {
@@ -227,7 +227,7 @@ function getDateFromFormat(val, format) {
         token = "";
         while ((format.charAt(i_format) == c) && (i_format < format.length)) {
             token += format.charAt(i_format++);
-            }
+        }
         // Extract contents of value based on format token
         if (token == "yyyy" || token == "yy" || token == "y") {
             if (token == "yyyy") {

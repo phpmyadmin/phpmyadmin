@@ -303,7 +303,7 @@ function history(ncolumn_name, nobj, ntab, nobj_no, ntype)
     };
     this.set_obj_no = function (nobj_no) {
         obj_no = nobj_no;
-     };
+    };
     this.get_obj_no = function () {
         return obj_no;
     };
@@ -431,17 +431,15 @@ var aggregate = function (noperator) {
 function unique(arrayName)
 {
     var newArray = [];
-    label: for (var i = 0; i < arrayName.length; i++)
-    {
-        for (var j = 0; j < newArray.length; j++)
-        {
+    label: for (var i = 0; i < arrayName.length; i++) {
+        for (var j = 0; j < newArray.length; j++) {
             if (newArray[j] == arrayName[i]) {
                 continue label;
             }
         }
         newArray[newArray.length] = arrayName[i];
     }
-   return newArray;
+    return newArray;
 }
 
 /**
@@ -551,9 +549,9 @@ function query_from()
     for (i = 0; i < 2; i++) {
         for (K in contr) {
             for (key in contr[K]) {// contr name
-                 for (key2 in contr[K][key]) {// table name
+                for (key2 in contr[K][key]) {// table name
                     parts = key2.split(".");
-                    if (found(tab_used, parts[1]) > 0)  {
+                    if (found(tab_used, parts[1]) > 0) {
                         for (key3 in contr[K][key][key2]) {
                             parts1 = contr[K][key][key2][key3][0].split(".");
                             if (found(tab_left, parts1[1]) > 0) {
@@ -574,22 +572,22 @@ function query_from()
         tab_left = remove_array(t_tab_left, tab_left);
         t_tab_left = [];
         for (K in contr) {
-             for (key in contr[K]) {
-                 for (key2 in contr[K][key]) {// table name
-                     parts = key2.split(".");
-                         if (found(tab_left, parts[1]) > 0) {
-                           for (key3 in contr[K][key][key2]) {
-                               parts1 = contr[K][key][key2][key3][0].split(".");
-                               if (found(tab_used, parts1[1]) > 0) {
-                                   query += "\n" + 'LEFT JOIN ';
-                                   query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
-                                   query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                   query += '`' + parts[1] + '`.`' + key3 + '` ';
-                                   t_tab_left.push(parts[1]);
-                               }
-                           }
-                     }
-                 }
+            for (key in contr[K]) {
+                for (key2 in contr[K][key]) {// table name
+                    parts = key2.split(".");
+                    if (found(tab_left, parts[1]) > 0) {
+                        for (key3 in contr[K][key][key2]) {
+                            parts1 = contr[K][key][key2][key3][0].split(".");
+                            if (found(tab_used, parts1[1]) > 0) {
+                                query += "\n" + 'LEFT JOIN ';
+                                query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
+                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                query += '`' + parts[1] + '`.`' + key3 + '` ';
+                                t_tab_left.push(parts[1]);
+                            }
+                        }
+                    }
+                }
             }
         }
         t_tab_left = unique(t_tab_left);
@@ -600,9 +598,9 @@ function query_from()
     for (k in tab_left) {
         quer += " , `" + tab_left[k] + "`";
     }
-        query = quer + query;
-        from_array = t_array;
-        return query;
+    query = quer + query;
+    from_array = t_array;
+    return query;
 }
 
 /**

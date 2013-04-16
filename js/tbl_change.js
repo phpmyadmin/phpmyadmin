@@ -213,7 +213,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
             }
         }
     }
- }
+}
  /* End of datetime validation*/
 
 
@@ -277,13 +277,13 @@ AJAX.registerOnload('tbl_change.js', function () {
      *
      */
     $('input.checkbox_null').bind('click', function (e) {
-            nullify(
-                // use hidden fields populated by tbl_change.php
-                $(this).siblings('.nullify_code').val(),
-                $(this).closest('tr').find('input:hidden').first().val(),
-                $(this).siblings('.hashed_field').val(),
-                $(this).siblings('.multi_edit').val()
-            );
+        nullify(
+            // use hidden fields populated by tbl_change.php
+            $(this).siblings('.nullify_code').val(),
+            $(this).closest('tr').find('input:hidden').first().val(),
+            $(this).siblings('.hashed_field').val(),
+            $(this).siblings('.multi_edit').val()
+        );
     });
 
 
@@ -409,13 +409,13 @@ AJAX.registerOnload('tbl_change.js', function () {
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
                         .bind('click', function (e) {
-                                var $changed_element = $(this);
-                                nullify(
-                                    $changed_element.siblings('.nullify_code').val(),
-                                    $this_element.closest('tr').find('input:hidden').first().val(),
-                                    $changed_element.data('hashed_field'),
-                                    '[multi_edit][' + $changed_element.data('new_row_index') + ']'
-                                );
+                            var $changed_element = $(this);
+                            nullify(
+                                $changed_element.siblings('.nullify_code').val(),
+                                $this_element.closest('tr').find('input:hidden').first().val(),
+                                $changed_element.data('hashed_field'),
+                                '[multi_edit][' + $changed_element.data('new_row_index') + ']'
+                            );
                         });
                     }
                 }) // end each
@@ -461,25 +461,25 @@ AJAX.registerOnload('tbl_change.js', function () {
                 }
                 curr_rows++;
             }
-        // recompute tabindex for text fields and other controls at footer;
-        // IMO it's not really important to handle the tabindex for
-        // function and Null
-        var tabindex = 0;
-        $('.textfield')
-        .each(function () {
+            // recompute tabindex for text fields and other controls at footer;
+            // IMO it's not really important to handle the tabindex for
+            // function and Null
+            var tabindex = 0;
+            $('.textfield')
+            .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
-        $('select.control_at_footer')
-        .each(function () {
+            $('select.control_at_footer')
+            .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
             });
-        // Add all the required datepickers back
-        $('input.datefield, input.datetimefield').each(function () {
-            PMA_addDatepicker($(this));
+            // Add all the required datepickers back
+            $('input.datefield, input.datetimefield').each(function () {
+                PMA_addDatepicker($(this));
             });
         } else if (curr_rows > target_rows) {
             while (curr_rows > target_rows) {
