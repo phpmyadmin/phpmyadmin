@@ -201,6 +201,20 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
             $footer->getDisplay()
         );
     }
+    
+    /**
+     * Test for footer get Scripts
+     *
+     * @return void
+     */
+    public function testGetScripts()
+    {
+        $footer = new PMA_Footer();
+        $this->assertContains(
+            '<script type="text/javascript">',
+            $footer->getScripts()->getDisplay()
+        );
+    }
 
     /**
      * Test for displaying footer
