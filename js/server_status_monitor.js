@@ -1326,7 +1326,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Opens a dialog that allows one to edit the title and series labels of the supplied chart */
     function editChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode ) {
+        if (! htmlnode) {
             return;
         }
 
@@ -1419,7 +1419,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Removes a chart from the grid */
     function removeChart(chartObj) {
         var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode ) {
+        if (! htmlnode) {
             return;
         }
 
@@ -1742,7 +1742,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         $(document).scrollTop($('#logTable').offset().top);
                     };
 
-                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns);
+                    $('#emptyDialog').dialog("option", "buttons", dlgBtns);
 
                 } else {
                     $('#emptyDialog').dialog({title: PMA_messages['strNoDataFoundTitle']});
@@ -1753,7 +1753,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         $(this).dialog("close");
                     };
 
-                    $('#emptyDialog').dialog( "option", "buttons", dlgBtns );
+                    $('#emptyDialog').dialog("option", "buttons", dlgBtns);
                 }
             }
         );

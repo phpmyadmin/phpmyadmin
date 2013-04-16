@@ -73,7 +73,7 @@ function display(init, finit)
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
                 str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
             } else {
-                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '</td><td title="' + detail(i) + '">' + history_array[i].               get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages['strEdit']) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + i + ')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
+                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '</td><td title="' + detail(i) + '">' + history_array[i].get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages['strEdit']) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + i + ')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
             }
             i++;
             if (i >= history_array.length) {
@@ -567,7 +567,7 @@ function query_from()
             }
         }
         K = 0;
-        t_tab_left = unique (t_tab_left);
+        t_tab_left = unique(t_tab_left);
         tab_used = add_array(t_tab_left, tab_used);
         tab_left = remove_array(t_tab_left, tab_left);
         t_tab_left = [];

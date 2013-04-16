@@ -1846,7 +1846,7 @@ function PMA_SQLPrettyPrint(string)
         else {
             if (! spaceExceptionsBefore[tokens[i][1]]
                && ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]])
-               && output.charAt(output.length - 1) != ' ' ) {
+               && output.charAt(output.length - 1) != ' ') {
                 output += " ";
             }
             if (tokens[i][0] == 'keyword') {
@@ -1857,7 +1857,7 @@ function PMA_SQLPrettyPrint(string)
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
-        if (( lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
+        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set')
             && tokens[i][1] == ',' && blockStack[0] == 'statement') {
 
             output += "\n" + tabs(indentLevel + 1);
@@ -2668,7 +2668,7 @@ AJAX.registerOnload('functions.js', function () {
             value: 1,
             min: 1,
             max: 9,
-            slide: function ( event, ui ) {
+            slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
                     $.sprintf(PMA_messages['enum_addValue'], ui.value)
                 );
@@ -2867,7 +2867,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 value: 1,
                 min: 1,
                 max: 16,
-                slide: function ( event, ui ) {
+                slide: function (event, ui) {
                     $(this).closest('fieldset').find('input[type=submit]').val(
                         $.sprintf(PMA_messages['strAddToIndex'], ui.value)
                     );
