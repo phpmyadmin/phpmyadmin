@@ -182,7 +182,8 @@ foreach ($serverVars as $name => $value) {
 
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
-        $output .= '<span title="' . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
+        $output .= '<span title="' 
+            . htmlspecialchars(str_replace('_', ' ', $name)) . '">';
         $output .= PMA_Util::showMySQLDocu(
             $VARIABLE_DOC_LINKS[$name][1],
             $VARIABLE_DOC_LINKS[$name][1],
@@ -197,7 +198,8 @@ foreach ($serverVars as $name => $value) {
         $output .= htmlspecialchars(str_replace('_', ' ', $name));
     }
     $output .= '</div>'
-        . '<div class="var-value value' . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
+        . '<div class="var-value value' 
+        . (PMA_isSuperuser() ? ' editable' : '') . '">&nbsp;'
         . formatVariable($name, $value)
         . '</div>'
         . '<div style="clear:both"></div>'
@@ -206,7 +208,8 @@ foreach ($serverVars as $name => $value) {
     if ($has_session_value) {
         $output .= '<div class="var-row' . ($odd_row ? ' odd' : ' even') . '">'
             . '<div class="var-name session">(' . __('Session value') . ')</div>'
-            . '<div class="var-value value">&nbsp;' . formatVariable($name, $serverVarsSession[$name]) . '</div>'
+            . '<div class="var-value value">&nbsp;' 
+            . formatVariable($name, $serverVarsSession[$name]) . '</div>'
             . '<div style="clear:both"></div>'
             . '</div>';
     }
