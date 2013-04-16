@@ -40,7 +40,8 @@ $(function () {
             var $throbber = $('#pma_navigation .throbber')
                 .first()
                 .clone()
-                .css('visibility', 'visible');
+                .css('visibility', 'visible')
+                .click(false);
             $icon.hide();
             $throbber.insertBefore($icon);
 
