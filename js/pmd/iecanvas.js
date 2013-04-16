@@ -35,8 +35,8 @@ if (!window.all) { // if IE
     function convert_style(str) {
         var m = [];
         m = str.match(/.*\((\d*),(\d*),(\d*),(\d*)\)/);
-        for (var i = 1; i<=3; i++) {
-            m[i] = (m[i]*1).toString(16).length < 2 ? '0' + (m[i]*1).toString(16) : (m[i]*1).toString(16);
+        for (var i = 1; i <= 3; i++) {
+            m[i] = (m[i] * 1).toString(16).length < 2 ? '0' + (m[i] * 1).toString(16) : (m[i] * 1).toString(16);
         }
         return ['#' + m[1] + m[2] + m[3], 1];
     }
@@ -124,10 +124,10 @@ if (!window.all) { // if IE
 
                 if (p.type == "moveTo") {
                     Str.push(" m ");
-                    Str.push(Math.floor(p.x), ",",Math.floor(p.y));
+                    Str.push(Math.floor(p.x), ",", Math.floor(p.y));
                 } else if (p.type == "lineTo") {
                     Str.push(" l ");
-                    Str.push(Math.floor(p.x), ",",Math.floor(p.y));
+                    Str.push(Math.floor(p.x), ",", Math.floor(p.y));
                 } else if (p.type == "close") {
                     Str.push(" x ");
                 } else if (p.type == "arc") {
@@ -146,6 +146,6 @@ if (!window.all) { // if IE
 
             this.element_.insertAdjacentHTML("beforeEnd", Str.join(""));
             this.pmd_arr = [];
-        }
+        };
     }
 }
