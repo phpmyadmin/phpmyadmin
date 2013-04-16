@@ -72,8 +72,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
-        // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i]) && $_REQUEST['field_name'][$i] != '0') {
+        if (!isset($_REQUEST['field_name'][$i])) {
             continue;
         }
 
