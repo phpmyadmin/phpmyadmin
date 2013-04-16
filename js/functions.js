@@ -2617,7 +2617,7 @@ AJAX.registerOnload('functions.js', function () {
                    + "<input type='hidden' value='" // So we know which column's data is being edited
                    + $(this).closest('td').find("input").attr("id")
                    + "' />"
-                   + "</fieldset>";
+                   + "</fieldset>"
                    + "</div>";
         /**
          * @var  Defines functions to be called when the buttons in
