@@ -106,7 +106,7 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $('a.delete_row.ajax').click(function (e) {
         e.preventDefault();
-        var question = $.sprintf(PMA_messages['strDoYouReally'], $(this).closest('td').find('div').text());
+        var question = $.sprintf(PMA_messages.strDoYouReally, $(this).closest('td').find('div').text());
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
@@ -159,7 +159,7 @@ AJAX.registerOnload('sql.js', function () {
     // do not add this link more than once
     if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
         $('<a id="togglequerybox"></a>')
-        .html(PMA_messages['strHideQueryBox'])
+        .html(PMA_messages.strHideQueryBox)
         .appendTo("#sqlqueryform")
         // initially hidden because at this point, nothing else
         // appears under the link
@@ -169,14 +169,14 @@ AJAX.registerOnload('sql.js', function () {
         $("#togglequerybox").bind('click', function () {
             var $link = $(this);
             $link.siblings().slideToggle("fast");
-            if ($link.text() == PMA_messages['strHideQueryBox']) {
-                $link.text(PMA_messages['strShowQueryBox']);
+            if ($link.text() == PMA_messages.strHideQueryBox) {
+                $link.text(PMA_messages.strShowQueryBox);
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
                 $('#togglequerybox_spacer').remove();
                 $link.before('<br id="togglequerybox_spacer" />');
             } else {
-                $link.text(PMA_messages['strHideQueryBox']);
+                $link.text(PMA_messages.strHideQueryBox);
             }
             // avoid default click action
             return false;
@@ -373,12 +373,12 @@ AJAX.registerOnload('sql.js', function () {
              */
             var button_options = {};
             // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function () {
+            button_options[PMA_messages.strCancel] = function () {
                 $(this).dialog('close');
             };
 
             var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function () {
+            button_options_error[PMA_messages.strOK] = function () {
                 $(this).dialog('close');
             };
             var $form = $("#resultsForm");
@@ -390,7 +390,7 @@ AJAX.registerOnload('sql.js', function () {
                     $div
                     .append(data.error)
                     .dialog({
-                        title: PMA_messages['strChangeTbl'],
+                        title: PMA_messages.strChangeTbl,
                         height: 230,
                         width: 900,
                         open: PMA_verifyColumnsProperties,
@@ -403,7 +403,7 @@ AJAX.registerOnload('sql.js', function () {
                     $div
                     .append(data.message)
                     .dialog({
-                        title: PMA_messages['strChangeTbl'],
+                        title: PMA_messages.strChangeTbl,
                         height: 600,
                         width: 900,
                         open: PMA_verifyColumnsProperties,
@@ -421,7 +421,7 @@ AJAX.registerOnload('sql.js', function () {
                 PMA_ajaxRemoveMessage($msgbox);
             }); // end $.get()
         } else {
-            PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
+            PMA_ajaxShowMessage(PMA_messages.strNoRowSelected);
         }
     });
 

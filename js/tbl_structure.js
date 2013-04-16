@@ -111,7 +111,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     .insertBefore('#page_content');
                 PMA_verifyColumnsProperties();
             } else {
-                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
             }
         });
     });
@@ -131,7 +131,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     .insertBefore('#page_content');
                 PMA_verifyColumnsProperties();
             } else {
-                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
             }
         });
     });
@@ -160,9 +160,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
+        var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingColumn'], false);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
@@ -186,7 +186,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $('#indexes').html(data.indexes_list);
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -208,9 +208,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = $.sprintf(PMA_messages['strDoYouReally'], 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
+        var question = $.sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` ADD PRIMARY KEY(`' + escapeHtml(curr_column_name) + '`);');
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strAddingPrimaryKey'], false);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strAddingPrimaryKey, false);
             $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
@@ -229,7 +229,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         PMA_reloadNavigation();
                     }
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -251,7 +251,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
          */
         var button_options = {};
 
-        button_options[PMA_messages['strGo']] = function (event) {
+        button_options[PMA_messages.strGo] = function (event) {
             event.preventDefault();
             var $msgbox = PMA_ajaxShowMessage();
             var $this = $(this);
@@ -309,12 +309,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
                 }
             });
         };
-        button_options[PMA_messages['strCancel']] = function () {
+        button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
         };
 
         var button_options_error = {};
-        button_options_error[PMA_messages['strOK']] = function () {
+        button_options_error[PMA_messages.strOK] = function () {
             $(this).dialog('close').remove();
         };
 

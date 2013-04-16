@@ -97,11 +97,11 @@ AJAX.registerOnload('server_databases.js', function () {
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.focus();
-            alert(PMA_messages['strFormEmpty']);
+            alert(PMA_messages.strFormEmpty);
             return;
         }
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {

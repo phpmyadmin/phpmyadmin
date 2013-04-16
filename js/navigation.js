@@ -186,7 +186,7 @@ $(function () {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + '&ajax_request=true';
-        var title = PMA_messages['strAddIndex'];
+        var title = PMA_messages.strAddIndex;
         indexEditorDialog(url, title);
     });
 
@@ -196,7 +196,7 @@ $(function () {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + '&ajax_request=true';
-        var title = PMA_messages['strEditIndex'];
+        var title = PMA_messages.strEditIndex;
         indexEditorDialog(url, title);
     });
 
@@ -381,12 +381,12 @@ var ResizeHandler = function () {
             $collapser
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages['strShowPanel']);
+                .prop('title', PMA_messages.strShowPanel);
         } else {
             $collapser
                 .css(this.left, pos)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages['strHidePanel']);
+                .prop('title', PMA_messages.strHidePanel);
         }
         setTimeout(function () {
             $(window).trigger('resize');

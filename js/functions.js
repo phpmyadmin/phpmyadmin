@@ -129,10 +129,10 @@ function PMA_current_version(data)
     if (data && data.version && data.date) {
         var current = parseVersionString(pmaversion);
         var latest = parseVersionString(data['version']);
-        var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
+        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data['version']);
         if (latest > current) {
             var message = $.sprintf(
-                PMA_messages['strNewerVersion'],
+                PMA_messages.strNewerVersion,
                 escapeHtml(data['version']),
                 escapeHtml(data['date'])
             );
@@ -144,7 +144,7 @@ function PMA_current_version(data)
             $('#maincontainer').after('<div class="' + klass + '">' + message + '</div>');
         }
         if (latest === current) {
-            version_information_message = ' (' + PMA_messages['strUpToDate'] + ')';
+            version_information_message = ' (' + PMA_messages.strUpToDate + ')';
         }
         $('#li_pma_version').append(version_information_message);
     }
@@ -180,8 +180,8 @@ function PMA_display_git_revision()
 
 function displayPasswordGenerateButton()
 {
-    $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages['strGeneratePassword'] + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
-    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages['strGeneratePassword'] + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
+    $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages.strGeneratePassword + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
+    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages.strGeneratePassword + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages['strGenerate'] + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
 }
 
 /*
@@ -268,11 +268,11 @@ function confirmLink(theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
-    if (PMA_messages['strDoYouReally'] === '' || typeof(window.opera) != 'undefined') {
+    if (PMA_messages.strDoYouReally === '' || typeof(window.opera) != 'undefined') {
         return true;
     }
 
-    var is_confirmed = confirm($.sprintf(PMA_messages['strDoYouReally'], theSqlQuery));
+    var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, theSqlQuery));
     if (is_confirmed) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
@@ -307,15 +307,15 @@ function confirmLink(theLink, theSqlQuery)
 function confirmQuery(theForm1, sqlQuery1)
 {
     // Confirmation is not required in the configuration file
-    if (PMA_messages['strDoYouReally'] === '') {
+    if (PMA_messages.strDoYouReally === '') {
         return true;
     }
 
     // "DROP DATABASE" statement isn't allowed
-    if (PMA_messages['strNoDropDatabases'] !== '') {
+    if (PMA_messages.strNoDropDatabases !== '') {
         var drop_re = new RegExp('(^|;)\\s*DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
         if (drop_re.test(sqlQuery1.value)) {
-            alert(PMA_messages['strNoDropDatabases']);
+            alert(PMA_messages.strNoDropDatabases);
             theForm1.reset();
             sqlQuery1.focus();
             return false;
@@ -341,7 +341,7 @@ function confirmQuery(theForm1, sqlQuery1)
         var message      = (sqlQuery1.value.length > 100)
                          ? sqlQuery1.value.substr(0, 100) + '\n    ...'
                          : sqlQuery1.value;
-        var is_confirmed = confirm($.sprintf(PMA_messages['strDoYouReally'], message));
+        var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -410,7 +410,7 @@ function checkSqlQuery(theForm)
 
     if (isEmpty) {
         sqlQuery.select();
-        alert(PMA_messages['strFormEmpty']);
+        alert(PMA_messages.strFormEmpty);
         sqlQuery.focus();
         return false;
     }
@@ -478,7 +478,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
     // It's not a number
     if (isNaN(val)) {
         theField.select();
-        alert(PMA_messages['strNotNumber']);
+        alert(PMA_messages.strNotNumber);
         theField.focus();
         return false;
     }
@@ -516,7 +516,7 @@ function checkTableEditForm(theForm, fieldsCnt)
             elm3 = $("#field_" + i + "_1");
             if (isNaN(val) && elm3.val() !== "") {
                 elm2.select();
-                alert(PMA_messages['strNotNumber']);
+                alert(PMA_messages.strNotNumber);
                 elm2.focus();
                 return false;
             }
@@ -531,14 +531,14 @@ function checkTableEditForm(theForm, fieldsCnt)
     }
     if (atLeastOneField === 0) {
         var theField = theForm.elements["field_0_1"];
-        alert(PMA_messages['strFormEmpty']);
+        alert(PMA_messages.strFormEmpty);
         theField.focus();
         return false;
     }
 
     // at least this section is under jQuery
     if ($("input.textfield[name='table']").val() === "") {
-        alert(PMA_messages['strFormEmpty']);
+        alert(PMA_messages.strFormEmpty);
         $("input.textfield[name='table']").focus();
         return false;
     }
@@ -1355,8 +1355,8 @@ AJAX.registerOnload('functions.js', function () {
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
-        new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages['strGo'] + "\"/>\n";
-        new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages['strCancel'] + "\"/>\n";
+        new_content    += "<input type=\"submit\" id=\"sql_query_edit_save\" class=\"button btnSave\" value=\"" + PMA_messages.strGo + "\"/>\n";
+        new_content    += "<input type=\"button\" id=\"sql_query_edit_discard\" class=\"button btnDiscard\" value=\"" + PMA_messages.strCancel + "\"/>\n";
         var $editor_area = $('div#inline_editor');
         if ($editor_area.length === 0) {
             $editor_area = $('<div id="inline_editor_outer"></div>');
@@ -1496,7 +1496,7 @@ function catchKeypressesFromSqlTextboxes(event) {
  * message either the PMA_ajaxRemoveMessage($msg) function must be called or
  * another message must be show with PMA_ajaxShowMessage() function.
  *
- * 2) var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+ * 2) var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
  * This is a special case. The behaviour is same as above,
  * just with a different message
  *
@@ -1534,10 +1534,10 @@ function PMA_ajaxShowMessage(message, timeout)
         return true;
     } else if (! message) {
         // If the message is undefined, show the default
-        message = PMA_messages['strLoading'];
+        message = PMA_messages.strLoading;
         dismissable = false;
         self_closing = false;
-    } else if (message == PMA_messages['strProcessingRequest']) {
+    } else if (message == PMA_messages.strProcessingRequest) {
         // This is another case where the message should not disappear
         dismissable = false;
         self_closing = false;
@@ -1593,7 +1593,7 @@ function PMA_ajaxShowMessage(message, timeout)
         PMA_tooltip(
             $retval,
             'span',
-            PMA_messages['strDismiss']
+            PMA_messages.strDismiss
         );
     }
 
@@ -1901,7 +1901,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
             return true;
         }
     }
-    if (PMA_messages['strDoYouReally'] === '') {
+    if (PMA_messages.strDoYouReally === '') {
         return true;
     }
 
@@ -1910,14 +1910,14 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn) {
      *                          dialog
      */
     var button_options = {};
-    button_options[PMA_messages['strOK']] = function () {
+    button_options[PMA_messages.strOK] = function () {
         $(this).dialog("close");
 
         if ($.isFunction(callbackFn)) {
             callbackFn.call(this, url);
         }
     };
-    button_options[PMA_messages['strCancel']] = function () {
+    button_options[PMA_messages.strCancel] = function () {
         $(this).dialog("close");
     };
 
@@ -2021,7 +2021,7 @@ AJAX.registerOnload('functions.js', function () {
          */
 
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             PMA_prepareForAjaxRequest($form);
             //User wants to submit the form
             $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
@@ -2101,7 +2101,7 @@ AJAX.registerOnload('functions.js', function () {
          */
         var $form = $(this).closest('form');
 
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
         //User wants to add more fields to the table
@@ -2289,7 +2289,7 @@ AJAX.registerOnload('functions.js', function () {
             'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if (data.success) {
                     //Database deleted successfully, refresh both the frames
@@ -2312,8 +2312,8 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Validates the password field in a form
  *
- * @see    PMA_messages['strPasswordEmpty']
- * @see    PMA_messages['strPasswordNotSame']
+ * @see    PMA_messages.strPasswordEmpty
+ * @see    PMA_messages.strPasswordNotSame
  * @param  object $the_form The form to be validated
  * @return bool
  */
@@ -2334,9 +2334,9 @@ function PMA_checkPassword($the_form)
     var alert_msg = false;
 
     if ($password.val() === '') {
-        alert_msg = PMA_messages['strPasswordEmpty'];
+        alert_msg = PMA_messages.strPasswordEmpty;
     } else if ($password.val() != $password_repeat.val()) {
-        alert_msg = PMA_messages['strPasswordNotSame'];
+        alert_msg = PMA_messages.strPasswordNotSame;
     }
 
     if (alert_msg) {
@@ -2372,7 +2372,7 @@ AJAX.registerOnload('functions.js', function () {
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
          */
         var button_options = {};
-        button_options[PMA_messages['strGo']] = function () {
+        button_options[PMA_messages.strGo] = function () {
 
             event.preventDefault();
 
@@ -2392,7 +2392,7 @@ AJAX.registerOnload('functions.js', function () {
              */
             var this_value = $(this).val();
 
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw=' + this_value, function (data) {
@@ -2408,14 +2408,14 @@ AJAX.registerOnload('functions.js', function () {
             }); // end $.post()
         };
 
-        button_options[PMA_messages['strCancel']] = function () {
+        button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
             if (data.success) {
                 $('<div id="change_password_dialog"></div>')
                 .dialog({
-                    title: PMA_messages['strChangePassword'],
+                    title: PMA_messages.strChangePassword,
                     width: 600,
                     close: function (ev, ui) {
                         $(this).remove();
@@ -2539,9 +2539,9 @@ AJAX.registerOnload('functions.js', function () {
         var colname = $(this).closest('tr').find('input:first').val();
         // And use it to make up a title for the page
         if (colname.length < 1) {
-            var title = PMA_messages['enum_newColumnVals'];
+            var title = PMA_messages.enum_newColumnVals;
         } else {
-            var title = PMA_messages['enum_columnVals'].replace(
+            var title = PMA_messages.enum_columnVals.replace(
                 /%s/,
                 '"' + decodeURIComponent(colname) + '"'
             );
@@ -2605,14 +2605,14 @@ AJAX.registerOnload('functions.js', function () {
                    + "<fieldset>"
                    + "<legend>" + title + "</legend>"
                    + "<p>" + PMA_getImage('s_notice.png')
-                   + PMA_messages['enum_hint'] + "</p>"
+                   + PMA_messages.enum_hint + "</p>"
                    + "<table class='values'>" + fields + "</table>"
                    + "</fieldset><fieldset class='tblFooters'>"
                    + "<table class='add'><tr><td>"
                    + "<div class='slider'></div>"
                    + "</td><td>"
                    + "<form><div><input type='submit' class='add_value' value='"
-                   + $.sprintf(PMA_messages['enum_addValue'], 1)
+                   + $.sprintf(PMA_messages.enum_addValue, 1)
                    + "'/></div></form>"
                    + "</td></tr></table>"
                    + "<input type='hidden' value='" // So we know which column's data is being edited
@@ -2625,7 +2625,7 @@ AJAX.registerOnload('functions.js', function () {
          * the buttonOptions jQuery dialog bar are pressed
          */
         var buttonOptions = {};
-        buttonOptions[PMA_messages['strGo']] = function () {
+        buttonOptions[PMA_messages.strGo] = function () {
             // When the submit button is clicked,
             // put the data back into the original form
             var value_array = [];
@@ -2638,7 +2638,7 @@ AJAX.registerOnload('functions.js', function () {
             $("input#" + values_id).val(value_array.join(","));
             $(this).dialog("close");
         };
-        buttonOptions[PMA_messages['strClose']] = function () {
+        buttonOptions[PMA_messages.strClose] = function () {
             $(this).dialog("close");
         };
         // Show the dialog
@@ -2652,7 +2652,7 @@ AJAX.registerOnload('functions.js', function () {
         $enum_editor_dialog = $(dialog).dialog({
             minWidth: width,
             modal: true,
-            title: PMA_messages['enum_editor'],
+            title: PMA_messages.enum_editor,
             buttons: buttonOptions,
             open: function () {
                 // Focus the "Go" button after opening the dialog
@@ -2671,7 +2671,7 @@ AJAX.registerOnload('functions.js', function () {
             max: 9,
             slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    $.sprintf(PMA_messages['enum_addValue'], ui.value)
+                    $.sprintf(PMA_messages.enum_addValue, ui.value)
                 );
             }
         });
@@ -2787,7 +2787,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
      *                     passed to jQueryUI dialog
      */
     var button_options = {};
-    button_options[PMA_messages['strGo']] = function () {
+    button_options[PMA_messages.strGo] = function () {
         /**
          * @var    the_form    object referring to the export form
          */
@@ -2836,7 +2836,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             }
         }); // end $.post()
     };
-    button_options[PMA_messages['strCancel']] = function () {
+    button_options[PMA_messages.strCancel] = function () {
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
@@ -2870,7 +2870,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 max: 16,
                 slide: function (event, ui) {
                     $(this).closest('fieldset').find('input[type=submit]').val(
-                        $.sprintf(PMA_messages['strAddToIndex'], ui.value)
+                        $.sprintf(PMA_messages.strAddToIndex, ui.value)
                     );
                 }
             });
@@ -3365,7 +3365,7 @@ AJAX.registerOnload('functions.js', function () {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
 
-            var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);
@@ -3396,7 +3396,7 @@ AJAX.registerOnload('functions.js', function () {
             'TRUNCATE ' + PMA_commonParams.get('table')
         );
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function (data) {
                 if ($("#sqlqueryresults").length !== 0) {
                     $("#sqlqueryresults").remove();
@@ -3665,7 +3665,7 @@ function PMA_createViewDialog($this)
         if (data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
-            buttonOptions[PMA_messages['strGo']] = function () {
+            buttonOptions[PMA_messages.strGo] = function () {
                 if (typeof CodeMirror !== 'undefined') {
                     syntaxHighlighter.save();
                 }
@@ -3681,7 +3681,7 @@ function PMA_createViewDialog($this)
                     }
                 });
             };
-            buttonOptions[PMA_messages['strClose']] = function () {
+            buttonOptions[PMA_messages.strClose] = function () {
                 $(this).dialog("close");
             };
             var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({

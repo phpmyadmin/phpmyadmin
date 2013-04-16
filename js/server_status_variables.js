@@ -20,7 +20,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
     PMA_tooltip(
         $('table.sortable>thead>tr:first').find('th'),
         'th',
-        PMA_messages['strSortHint']
+        PMA_messages.strSortHint
     );
     initTableSorter('statustabs_allvars');
 
