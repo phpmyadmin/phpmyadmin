@@ -202,12 +202,13 @@ AJAX.registerOnload('tbl_select.js', function () {
         var field = 'Parameter';
         // Column type
         var geom_func = $span.parents('tr').find('.geom_func').val();
+        var type;
         if (geom_func == 'Envelope') {
-            var type = 'polygon';
+            type = 'polygon';
         } else if (geom_func == 'ExteriorRing') {
-            var type = 'linestring';
+            type = 'linestring';
         } else {
-            var type = 'point';
+            type = 'point';
         }
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');

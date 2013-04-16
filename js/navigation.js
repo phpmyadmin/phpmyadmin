@@ -286,12 +286,13 @@ function PMA_navigationTreePagination($this)
 {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    var url, params;
     if ($this[0].tagName == 'A') {
-        var url = $this.attr('href');
-        var params = 'ajax_request=true';
+        url = $this.attr('href');
+        params = 'ajax_request=true';
     } else { // tagName == 'SELECT'
-        var url = 'navigation.php';
-        var params = $this.closest("form").serialize() + '&ajax_request=true';
+        url = 'navigation.php';
+        params = $this.closest("form").serialize() + '&ajax_request=true';
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {

@@ -176,6 +176,7 @@ AJAX.registerOnload('indexes.js', function () {
     **/
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function (event) {
         event.preventDefault();
+        var url, title;
         if ($(this).find("a").length === 0) {
             // Add index
             var valid = checkFormElementInRange(
@@ -186,15 +187,15 @@ AJAX.registerOnload('indexes.js', function () {
             if (! valid) {
                 return;
             }
-            var url = $(this).closest('form').serialize();
-            var title = PMA_messages.strAddIndex;
+            url = $(this).closest('form').serialize();
+            title = PMA_messages.strAddIndex;
         } else {
             // Edit index
-            var url = $(this).find("a").attr("href");
+            url = $(this).find("a").attr("href");
             if (url.substring(0, 16) == "tbl_indexes.php?") {
                 url = url.substring(16, url.length);
             }
-            var title = PMA_messages.strEditIndex;
+            title = PMA_messages.strEditIndex;
         }
         url += "&ajax_request=true";
         indexEditorDialog(url, title, function () {

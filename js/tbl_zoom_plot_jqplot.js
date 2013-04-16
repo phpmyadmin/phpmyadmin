@@ -89,7 +89,7 @@ function getType(field) {
 function getCord(arr) {
     var newCord = [];
     var original = $.extend(true, [], arr);
-    var arr = jQuery.unique(arr).sort();
+    arr = jQuery.unique(arr).sort();
     $.each(original, function (index, value) {
         newCord.push(jQuery.inArray(value, arr));
     });

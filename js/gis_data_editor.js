@@ -314,12 +314,13 @@ AJAX.registerOnload('gis_data_editor.js', function () {
 
         // Add the new linesting of inner ring based on the type
         var html = '<br/>';
+        var noOfPoints;
         if (type == 'MULTILINESTRING') {
             html += PMA_messages.strLineString + ' ' + (noOfLines + 1) + ':';
-            var noOfPoints = 2;
+            noOfPoints = 2;
         } else {
             html += PMA_messages.strInnerRing + ' ' + noOfLines + ':';
-            var noOfPoints = 4;
+            noOfPoints = 4;
         }
         html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '"/>';
         for (var i = 0; i < noOfPoints; i++) {

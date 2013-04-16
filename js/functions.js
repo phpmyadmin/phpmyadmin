@@ -1370,10 +1370,11 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $("input#sql_query_edit_save").live('click', function () {
+        var sql_query;
         if (codemirror_inline_editor) {
-            var sql_query = codemirror_inline_editor.getValue();
+            sql_query = codemirror_inline_editor.getValue();
         } else {
-            var sql_query = $(this).prev().val();
+            sql_query = $(this).prev().val();
         }
 
         var $form = $("a.inline_edit_sql").prev('form');
@@ -2537,11 +2538,12 @@ AJAX.registerOnload('functions.js', function () {
     $("a.open_enum_editor").live('click', function () {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input:first').val();
+        var title;
         // And use it to make up a title for the page
         if (colname.length < 1) {
-            var title = PMA_messages.enum_newColumnVals;
+            title = PMA_messages.enum_newColumnVals;
         } else {
-            var title = PMA_messages.enum_columnVals.replace(
+            title = PMA_messages.enum_columnVals.replace(
                 /%s/,
                 '"' + decodeURIComponent(colname) + '"'
             );
@@ -2824,10 +2826,11 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
                 PMA_reloadNavigation();
             } else {
                 var $temp_div = $("<div id='temp_div'><div>").append(data.error);
+                var $error;
                 if ($temp_div.find(".error code").length !== 0) {
-                    var $error = $temp_div.find(".error code").addClass("error");
+                    $error = $temp_div.find(".error code").addClass("error");
                 } else {
-                    var $error = $temp_div;
+                    $error = $temp_div;
                 }
                 if (callback_failure) {
                     callback_failure();
@@ -2958,10 +2961,11 @@ function PMA_set_status_label($element)
 var toggleButton = function ($obj) {
     // In rtl mode the toggle switch is flipped horizontally
     // so we need to take that into account
+    var right;
     if ($('span.text_direction', $obj).text() == 'ltr') {
-        var right = 'right';
+        right = 'right';
     } else {
-        var right = 'left';
+        right = 'left';
     }
     /**
      *  var  h  Height of the button, used to scale the
@@ -3031,25 +3035,26 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage();
         var $container = $(this);
         var callback = $('span.callback', this).text();
+        var operator, url, removeClass, addClass;
         // Perform the actual toggle
         if ($(this).hasClass('on')) {
             if (right == 'right') {
-                var operator = '-=';
+                operator = '-=';
             } else {
-                var operator = '+=';
+                operator = '+=';
             }
-            var url = $(this).find('td.toggleOff > span').text();
-            var removeClass = 'on';
-            var addClass = 'off';
+            url = $(this).find('td.toggleOff > span').text();
+            removeClass = 'on';
+            addClass = 'off';
         } else {
             if (right == 'right') {
-                var operator = '+=';
+                operator = '+=';
             } else {
-                var operator = '-=';
+                operator = '-=';
             }
-            var url = $(this).find('td.toggleOn > span').text();
-            var removeClass = 'off';
-            var addClass = 'on';
+            url = $(this).find('td.toggleOn > span').text();
+            removeClass = 'off';
+            addClass = 'on';
         }
         $.post(url, {'ajax_request': true}, function (data) {
             if (data.success === true) {
@@ -3799,10 +3804,10 @@ function toggleRowColors($start)
  */
 function formatBytes(bytes, subdecimals, pointchar) {
     if (!subdecimals) {
-        var subdecimals = 0;
+        subdecimals = 0;
     }
     if (!pointchar) {
-        var pointchar = '.';
+        pointchar = '.';
     }
     var units = ['B', 'KiB', 'MiB', 'GiB'];
     for (var i = 0; bytes > 1024 && i < units.length; i++) {
