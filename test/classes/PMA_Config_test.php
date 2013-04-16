@@ -815,7 +815,14 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testCheckHTTP()
     {
       $this->assertTrue(
-            $this->object->checkHTTP("http://ci.phpmyadmin.net/job/phpMyAdmin/")
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
+      );
+      $this->assertContains(
+            "TEST DATA",
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data",true)
+      );
+      $this->assertFalse(
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
       );
     }
 
