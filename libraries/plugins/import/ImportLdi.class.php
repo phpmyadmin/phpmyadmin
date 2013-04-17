@@ -112,7 +112,7 @@ class ImportLdi extends ImportPlugin
      */
     public function doImport()
     {
-        global $finished, $error, $import_file, $compression, $charset_conversion;
+        global $finished, $error, $import_file, $compression, $charset_conversion, $table;
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
             $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
