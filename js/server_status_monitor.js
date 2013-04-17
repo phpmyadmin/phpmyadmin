@@ -353,9 +353,9 @@ AJAX.registerOnload('server_status_monitor.js', function() {
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
     if (server_db_isLocal) {
-        defaultChartGrid['c3'] = presetCharts['cpu'];
-        defaultChartGrid['c4'] = presetCharts['memory'];
-        defaultChartGrid['c5'] = presetCharts['swap'];
+        defaultChartGrid.c3 = presetCharts.cpu;
+        defaultChartGrid.c4 = presetCharts.memory;
+        defaultChartGrid.c5 = presetCharts.swap;
     }
 
     /* Buttons that are on the top right corner of each chart */

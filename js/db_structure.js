@@ -65,7 +65,7 @@ function PMA_adjustTotals() {
             // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
             strRows = strRows.substring(1, strRows.length - 1);
         }
-        strRows = strRows.replace(/[,.]/g , '');
+        strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
