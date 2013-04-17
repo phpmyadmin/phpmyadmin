@@ -21,9 +21,19 @@ $(function() {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
+   var click=0;
     $('#pma_navigation_tree a.expander').live('click', function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
+        //small workaround to solve double click problem
+        click++;
+        if(click==1)
+            setTimeout(function(){click=0;},300);
+        if(click==2){
+             click=0;
+             return false;
+         }
+        //Remaining code continues 
         var $this = $(this);
         var $children = $this.closest('li').children('div.list_container');
         var $icon = $this.find('img');
