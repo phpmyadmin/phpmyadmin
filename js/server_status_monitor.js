@@ -1169,10 +1169,7 @@ AJAX.registerOnload('server_status_monitor.js', function() {
                 lineWidth: 2
             },
             highlighter: {
-                show: true,
-                showTooltip: true,
-                tooltipAxes: 'y',
-                useAxesFormatters: true
+                show: true
             }
         };
 
@@ -1214,6 +1211,46 @@ AJAX.registerOnload('server_status_monitor.js', function() {
         for (i in chartObj.series) {
             series.push([[0,0]]);
         }
+        
+        // set Tooltip for each series
+        for(i in settings.series) {
+            settings.series[i].highlighter = {
+                show: true,
+                tooltipContentEditor: function (str, seriesIndex, pointIndex, plot) {
+                    var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;'
+                        + 'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+                    // x value i.e. time
+                    var timeValue = str.split(",")[0];
+                    tooltipHtml += 'Time: ' + timeValue;
+                    tooltipHtml += '<span style="font-weight:bold;">';
+                    // Add y values to the tooltip per series
+                    for (j in plot.series) {
+                        // get y value if present
+                        if (plot.series[j].data.length > pointIndex) {
+                            var seriesValue = plot.series[j].data[pointIndex][1];
+                        }
+                        else {
+                            return;
+                        }
+                        var seriesLabel = plot.series[j].label;
+                        var seriesColor = plot.series[j].color;
+                        // format y value
+                        if (plot.series[0]._yaxis.tickOptions.formatter) {
+                            // using formatter function
+                            seriesValue = plot.series[0]._yaxis.tickOptions.formatter('%s', seriesValue);
+                        } else if (plot.series[0]._yaxis.tickOptions.formatString) {
+                            // using format string
+                            seriesValue = $.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
+                        }
+                        tooltipHtml += '<br /><span style="color:' + seriesColor + '">'
+                            + seriesLabel + ': ' + seriesValue + '</span>';
+                    }
+                    tooltipHtml += '</span></div>';
+                    return tooltipHtml;
+                }
+            };
+        }
+
         chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         // remove [0,0] after plotting
         for (i in chartObj.chart.series) {
