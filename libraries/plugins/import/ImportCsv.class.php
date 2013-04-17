@@ -158,7 +158,7 @@ class ImportCsv extends ImportPlugin
      */
     public function doImport()
     {
-        global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
+        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
         global $error, $timeout_passed, $finished;
 
         $replacements = array(
