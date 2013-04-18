@@ -124,7 +124,6 @@ $forms['Features']['Developer'] = array(
     'Error_Handler/gather',
     'DBG/sql');
 $forms['Features']['Other_core_settings'] = array(
-    'VersionCheck',
     'NaturalOrder',
     'InitialSlidersState',
     'MaxDbList',
@@ -137,7 +136,12 @@ $forms['Features']['Other_core_settings'] = array(
     'MemoryLimit',
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
-    'UseDbSearch');
+    'UseDbSearch',
+    'VersionCheck',
+    'VersionCheckProxyUrl',
+    'VersionCheckProxyUser',
+    'VersionCheckProxyPass'
+);
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
