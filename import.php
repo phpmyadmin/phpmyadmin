@@ -36,15 +36,18 @@ $post_params = array(
     'skip_queries'
 );
 
+//put all the imorted variables defined in $cfg in $GLOBAL
+foreach($cfg['Import'] as $key => $value){
+    if(!isset($GLOBALS[$key])){
+        $GLOBALS[$key] = $value;
+     }
+}
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
     }
 }
-// set rest of the $_POST in $GLOBAL
-foreach ($_POST as $key=>$value){
-    $GLOBALS[$key]=$_POST[$key];
-}
+
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
@@ -312,7 +315,6 @@ $read_limit = $memory_limit / 8;
 
 // handle filenames
 if (isset($_FILES['import_file'])) {
-    $GLOBALS['csv_local_option']=true;
     $import_file = $_FILES['import_file']['tmp_name'];    
 }
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
