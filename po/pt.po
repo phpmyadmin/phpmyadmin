@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-22 01:31+0200\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
+"PO-Revision-Date: 2013-04-18 10:03+0200\n"
+"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
@@ -8277,7 +8277,6 @@ msgstr ""
 #: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
-#, fuzzy
 msgid "Operator"
 msgstr "Operador"
 
@@ -8534,6 +8533,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
+"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: main.php:284
 msgid ""
@@ -8541,6 +8542,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"A extensão mbstring do PHP não foi encontrada e parece que está a utilizar "
+"um charset multibyte. Sem a extensão mbstring, o phpMyAdmin não é capaz de "
+"separar correctamente as strings e pode resultar em resultados inesperados."
 
 #: main.php:292
 msgid ""
@@ -8549,6 +8553,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"O seu parâmetro PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor que o valor válido "
+"para o cookie configurado no phpMyAdmin, e por isso, a sua autenticação "
+"expirará mais cedo que o configurado no phpMyAdmin."
 
 #: main.php:299
 msgid ""
@@ -8568,9 +8577,12 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"A pasta [code]config[/code], que é usado pelo script de instalação, ainda "
+"existe na sua pasta phpMyAdmin. Deverá remover esta pasta depois de ter "
+"configurado o phpMyAdmin."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -8578,8 +8590,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"As Características adicionais para trabalhar com ligações entre Tabelas "
-"foram desactivadas. Para saber porquê carregue %saqui%s."
+"A configuração de armazenamento phpMyAdmin não está completamente "
+"configurada, algumas funcionalidades adicionais foram desactivadas. Para "
+"perceber porquê clique %saqui%s."
 
 #: main.php:336
 msgid ""
@@ -8912,9 +8925,8 @@ msgid "Select binary log to view"
 msgstr ""
 
 #: server_binlog.php:103 server_status.php:606
-#, fuzzy
 msgid "Files"
-msgstr "Qtd Campos"
+msgstr "Ficheiros"
 
 #: server_binlog.php:150 server_binlog.php:152 server_status.php:1261
 #: server_status.php:1263
@@ -9640,13 +9652,14 @@ msgid ""
 msgstr ""
 
 #: server_status.php:594
+#, fuzzy
 msgid "Handler"
-msgstr ""
+msgstr "Handler"
 
 #: server_status.php:595
 #, fuzzy
 msgid "Query cache"
-msgstr "Tipo de Query"
+msgstr "Query cache"
 
 #: server_status.php:596
 msgid "Threads"
@@ -9659,12 +9672,11 @@ msgstr ""
 #: server_status.php:599
 #, fuzzy
 msgid "Delayed inserts"
-msgstr "Instrucções de inserção múltiplas"
+msgstr "Delayed inserts"
 
 #: server_status.php:600
-#, fuzzy
 msgid "Key cache"
-msgstr "Tipo de Query"
+msgstr "Chave da cache"
 
 #: server_status.php:601
 msgid "Joins"
@@ -9672,7 +9684,7 @@ msgstr ""
 
 #: server_status.php:603
 msgid "Sorting"
-msgstr ""
+msgstr "Ordem"
 
 #: server_status.php:605
 msgid "Transaction coordinator"
@@ -9683,9 +9695,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: server_status.php:619
-#, fuzzy
 msgid "Show open tables"
-msgstr "Mostra tabelas"
+msgstr "Ver tabelas abertas"
 
 #: server_status.php:624
 msgid "Show slave hosts"
@@ -11782,7 +11793,9 @@ msgstr "Criar versão"
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
+msgstr ""
+"Faça uma \"pesquisa por formulário\" (caractere universal: \"%\") para duas "
+"colunas diferentes"
 
 #: tbl_zoom_select.php:152
 #| msgid "Hide search criteria"
@@ -11798,13 +11811,13 @@ msgid "Maximum rows to plot"
 msgstr "Número máximo de linhas para traçar"
 
 #: tbl_zoom_select.php:417
+#, fuzzy
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Listar/Editar os pontos"
 
 #: tbl_zoom_select.php:424
-#, fuzzy
 msgid "How to use"
-msgstr "versão do PHP"
+msgstr "Como usar"
 
 #: tbl_zoom_select.php:431
 #, fuzzy
