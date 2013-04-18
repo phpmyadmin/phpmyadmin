@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-03-22 01:31+0200\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-04-18 10:34+0200\n"
+"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -832,6 +832,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
+"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: index.php:414
 msgid ""
@@ -839,6 +841,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"A extensão mbstring do PHP não foi encontrada e parece que está a utilizar "
+"um charset multibyte. Sem a extensão mbstring, o phpMyAdmin não é capaz de "
+"separar correctamente as strings e pode resultar em resultados inesperados."
 
 #: index.php:425
 msgid ""
@@ -847,6 +852,11 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"O seu parâmetro PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor que o valor válido "
+"para o cookie configurado no phpMyAdmin, e por isso, a sua autenticação "
+"expirará mais cedo que o configurado no phpMyAdmin."
 
 #: index.php:437
 msgid ""
@@ -866,9 +876,12 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"A pasta [code]config[/code], que é usado pelo script de instalação, ainda "
+"existe na sua pasta phpMyAdmin. Deverá remover esta pasta depois de ter "
+"configurado o phpMyAdmin."
 
 #: index.php:470
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -876,8 +889,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"As Características adicionais para trabalhar com ligações entre Tabelas "
-"foram desactivadas. Para saber porquê carregue %saqui%s."
+"A configuração de armazenamento phpMyAdmin não está completamente "
+"configurada, algumas funcionalidades adicionais foram desactivadas. Para "
+"perceber porquê clique %saqui%s."
 
 #: index.php:502
 #, php-format
@@ -1576,12 +1590,12 @@ msgstr "Erro a Processar Pedido"
 #: js/messages.php:225
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Código de erro: %s"
 
 #: js/messages.php:226
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Texto do erro: %s"
 
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
@@ -1837,7 +1851,7 @@ msgstr "Adicionar uma opção para a coluna "
 #: js/messages.php:334
 #, php-format
 msgid "%d object(s) created"
-msgstr ""
+msgstr "%d objecto(s) criado(s)"
 
 #: js/messages.php:337
 msgid "Press escape to cancel editing"
@@ -1881,20 +1895,20 @@ msgstr ""
 "funcionar depois de guardar."
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
-"Também pode editar algumas colunas<br/>clicando directamente no seu conteúdo."
+"Também pode editar a maioria dos valores<br />com um duplo clique no valor a "
+"alterar."
 
 #: js/messages.php:353
-#, fuzzy
 #| msgid ""
 #| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
-"Também pode editar algumas colunas<br/>clicando directamente no seu conteúdo."
+"Pode editar a maioria dos valores<br />com um duplo clique no valor a "
+"editar."
 
 #: js/messages.php:358
 msgid "Go to link"
@@ -1930,22 +1944,20 @@ msgid "More"
 msgstr "Mais"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "Mostrar tudo"
+msgstr "Ver Painel"
 
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "Esconder índices"
+msgstr "Esconder Painel"
 
 #: js/messages.php:376
-#, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "O utilizador selecionado não se encontra na tabela de privilégios."
+msgstr ""
+"A página requisitada não foi encontrada no histórico, pode ter expirado."
 
 #: js/messages.php:379 setup/lib/index.lib.php:188
 #, php-format
@@ -3005,13 +3017,14 @@ msgid "SQL query"
 msgstr "Comando SQL"
 
 #: libraries/ServerStatusData.class.php:184
+#, fuzzy
 msgid "Handler"
-msgstr ""
+msgstr "Handler"
 
 #: libraries/ServerStatusData.class.php:185
 #, fuzzy
 msgid "Query cache"
-msgstr "Tipo de Query"
+msgstr "Query cache"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
@@ -3024,12 +3037,11 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:189
 #, fuzzy
 msgid "Delayed inserts"
-msgstr "Instrucções de inserção múltiplas"
+msgstr "Delayed inserts"
 
 #: libraries/ServerStatusData.class.php:190
-#, fuzzy
 msgid "Key cache"
-msgstr "Tipo de Query"
+msgstr "Chave da cache"
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Joins"
@@ -3037,7 +3049,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:193
 msgid "Sorting"
-msgstr ""
+msgstr "Ordem"
 
 #: libraries/ServerStatusData.class.php:194
 #: libraries/build_html_for_db.lib.php:26
@@ -3052,18 +3064,16 @@ msgid "Transaction coordinator"
 msgstr ""
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
-#, fuzzy
 msgid "Files"
-msgstr "Qtd Campos"
+msgstr "Ficheiros"
 
 #: libraries/ServerStatusData.class.php:207
 msgid "Flush (close) all tables"
 msgstr ""
 
 #: libraries/ServerStatusData.class.php:209
-#, fuzzy
 msgid "Show open tables"
-msgstr "Mostra tabelas"
+msgstr "Ver tabelas abertas"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Show slave hosts"
@@ -3193,7 +3203,6 @@ msgstr "Funções"
 #: libraries/TableSearch.class.php:186 pmd_general.php:536 pmd_general.php:556
 #: pmd_general.php:678 pmd_general.php:691 pmd_general.php:754
 #: pmd_general.php:808
-#, fuzzy
 msgid "Operator"
 msgstr "Operador"
 
@@ -3250,20 +3259,22 @@ msgstr "Critérios de pesquisa adicionais"
 #, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
+msgstr ""
+"Faça uma \"pesquisa por formulário\" (caractere universal: \"%\") para duas "
+"colunas diferentes"
 
 #: libraries/TableSearch.class.php:1119
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"pesquisa por formulário\" (caractere universal: \"%\")"
 
 #: libraries/TableSearch.class.php:1163
+#, fuzzy
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Listar/Editar os pontos"
 
 #: libraries/TableSearch.class.php:1170
-#, fuzzy
 msgid "How to use"
-msgstr "versão do PHP"
+msgstr "Como usar"
 
 #: libraries/TableSearch.class.php:1175
 #, fuzzy
@@ -3356,6 +3367,8 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Sinónimo para DOUBLE (excepção: no modo SQL REAL_AS_FLOAT é sinónimo para "
+"FLOAT)"
 
 #: libraries/Types.class.php:314
 msgid ""
@@ -3368,16 +3381,19 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Um sinónimo para TINYINT(1), um valor de zero é considerado falso, valores "
+"diferentes de zero são considerados verdadeiros"
 
 #: libraries/Types.class.php:318
+#, fuzzy
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Um alias para BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Criar versão"
+msgstr "Uma data, intervalo suportado é %1$s até %2$s"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
@@ -3389,18 +3405,23 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Um carimbo temporal, intervalo é desde 1970-01-01 00:00:01 UTC até "
+"2038-01-09 03:14:07 UTC, guardado como um número de segundos desde a época "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:326 libraries/Types.class.php:728
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Erro ao mudar o nome da tabela %1$s para %2$s"
+msgstr "Uma hora, intervalo é %1$s até %2$s"
 
 #: libraries/Types.class.php:328
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Um ano no formato de quatro dígitos (4, padrão) ou de dois dígitos (2), os "
+"valores permitidos são de 70 (1970) até 69 (2069) ou 1901 até 2155 e 0000"
 
 #: libraries/Types.class.php:330
 msgid ""
@@ -3457,18 +3478,25 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Uma coluna tipo BLOB com um comprimento máximo de 255 (2^8 - 1) bytes, "
+"armazenada com um prefixo de um byte indicando o comprimento do valor"
 
 #: libraries/Types.class.php:348
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Uma coluna do tipo BLOB com um comprimento máximo de 16.777.215 (2^24 - 1) "
+"bytes, armazenada com um prefixo de três bytes que indica o comprimento do "
+"valor"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Uma coluna tipo BLOB com um comprimento máximo de 65.535 (2^16 - 1) bytes, "
+"armazenada com um prefixo de dois byte indicando o comprimento do valor"
 
 #: libraries/Types.class.php:352
 msgid ""
@@ -3487,26 +3515,28 @@ msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 
 #: libraries/Types.class.php:358
+#, fuzzy
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
 #: libraries/Types.class.php:360
+#, fuzzy
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Um ponto no espaço de 2 dimensões"
 
 #: libraries/Types.class.php:362
+#, fuzzy
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Uma curva com uma interpolação linear entre os pontos"
 
 #: libraries/Types.class.php:364
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Adicionar um polígono"
+msgstr "Um polígono"
 
 #: libraries/Types.class.php:366
 msgid "A collection of points"
-msgstr ""
+msgstr "Uma coleção de pontos"
 
 #: libraries/Types.class.php:368
 msgid "A collection of curves with linear interpolation between points"
