@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+require_once 'libraries/plugins/import/AbstractImportCsv.class.php';
 
 /**
  * Handles the import for the CSV format
@@ -20,7 +20,7 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
-class ImportCsv extends ImportPlugin
+class ImportCsv extends AbstractImportCsv
 {
     /**
      * Whether to analyze tables
@@ -72,34 +72,7 @@ class ImportCsv extends ImportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
-        // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("replace");
-        $leaf->setText(__('Replace table data with file'));
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("terminated");
-        $leaf->setText(__('Columns separated with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("enclosed");
-        $leaf->setText(__('Columns enclosed with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("escaped");
-        $leaf->setText(__('Columns escaped with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("new_line");
-        $leaf->setText(__('Lines terminated with:'));
-        $leaf->setSize(2);
-        $generalOptions->addProperty($leaf);
+        $generalOptions = $this->populateCommonOptions($generalOptions);
 
         if ($GLOBALS['plugin_param'] !== 'table') {
             $leaf = new BoolPropertyItem();

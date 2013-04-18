@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+require_once 'libraries/plugins/import/AbstractImportCsv.class.php';
 
 // We need relations enabled and we work only on database
 if ($GLOBALS['plugin_param'] !== 'table') {
@@ -25,7 +25,7 @@ if ($GLOBALS['plugin_param'] !== 'table') {
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
-class ImportLdi extends ImportPlugin
+class ImportLdi extends AbstractImportCsv
 {
     /**
      * Constructor
@@ -78,10 +78,22 @@ class ImportLdi extends ImportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
-        // create primary items and add them to the group
+
         $leaf = new BoolPropertyItem();
-        $leaf->setName("replace");
-        $leaf->setText(__('Replace table data with file'));
+        $leaf->setName("ignore");
+        $leaf->setText(__('Do not abort on INSERT error'));
+        $generalOptions->addProperty($leaf);
+
+        $generalOptions = $this->populateCommonOptions($generalOptions);
+
+        $leaf = new TextPropertyItem();
+        $leaf->setName("columns");
+        $leaf->setText(__('Column names: '));
+        $generalOptions->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("local_option");
+        $leaf->setText(__('Use LOCAL keyword'));
         $generalOptions->addProperty($leaf);
 
         // add the main group to the root group
