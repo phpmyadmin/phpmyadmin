@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-14 15:17+0200\n"
+"PO-Revision-Date: 2013-04-18 14:07+0200\n"
 "Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -3415,7 +3415,7 @@ msgstr "从一组最多64个成员的集合中选择的单个值"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何几何形状数据的类型"
+msgstr "一个能存储任何类型几何形状的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -3505,7 +3505,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr "一个可变长度（0-65,535）字符串，对所有对比采用二进制排序规则"
+msgstr "一个长度不定（0-65,535）的字符串，对所有对比采用二进制排序规则"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
