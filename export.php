@@ -122,6 +122,9 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+// sanitize this parameter which will be used below in a file inclusion
+$what = PMA_securePath($what);
+
 PMA_Util::checkParameters(array('what', 'export_type'));
 
 // export class instance, not array of properties, as before
