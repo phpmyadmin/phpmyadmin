@@ -941,6 +941,9 @@ class PMA_Tracker
         if (empty($dbname)) {
             return;
         }
+        // Remove null bytes (preg_replace() is vulnerable in some
+        // PHP versions)
+        $dbname = str_replace("\0", "", $dbname);
 
         // If we found a valid statement
         if (isset($result['identifier'])) {
