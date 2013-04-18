@@ -14,11 +14,112 @@ require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**
- * Sets globals from all $_POST (in export.php only)
- * Would it not be tiresome to list all export-plugin options here?
+ * Sets globals from $_POST
+ *
+ * - Please keep the parameters in order of their appearance in the form
+ * - Some of these parameters are not used, as the code below directly
+ *   verifies from the superglobal $_POST or $_REQUEST
  */
-foreach ($_POST as $one_post_param => $one_post_value) {
-    $GLOBALS[$one_post_param] = $one_post_value;
+$post_params = array(
+        'db',
+        'table',
+        'single_table',
+        'export_type',
+        'export_method',
+        'quick_or_custom',
+        'limit_to',
+        'limit_from',
+        'allrows',
+        'output_format',
+        'filename_template',
+        'remember_template',
+        'charset_of_file',
+        'compression',
+        'what',
+        'htmlword_structure_or_data',
+        'htmlword_null',
+        'htmlword_columns',
+        'mediawiki_structure_or_data',
+        'mediawiki_caption',
+        'pdf_report_title',
+        'pdf_structure_or_data',
+        'odt_structure_or_data',
+        'odt_relation',
+        'odt_comments',
+        'odt_mime',
+        'odt_columns',
+        'odt_null',
+        'codegen_structure_or_data',
+        'codegen_format',
+        'excel_null',
+        'excel_columns',
+        'excel_edition',
+        'excel_structure_or_data',
+        'yaml_structure_or_data',
+        'ods_null',
+        'ods_structure_or_data',
+        'ods_columns',
+        'json_structure_or_data',
+        'xml_structure_or_data',
+        'xml_export_functions',
+        'xml_export_procedures',
+        'xml_export_tables',
+        'xml_export_triggers',
+        'xml_export_views',
+        'xml_export_contents',
+        'texytext_structure_or_data',
+        'texytext_columns',
+        'texytext_null',
+        'phparray_structure_or_data',
+        'sql_include_comments',
+        'sql_header_comment',
+        'sql_dates',
+        'sql_relation',
+        'sql_mime',
+        'sql_use_transaction',
+        'sql_disable_fk',
+        'sql_compatibility',
+        'sql_structure_or_data',
+        'sql_drop_table',
+        'sql_procedure_function',
+        'sql_create_table_statements',
+        'sql_if_not_exists',
+        'sql_auto_increment',
+        'sql_backquotes',
+        'sql_truncate',
+        'sql_delayed',
+        'sql_ignore',
+        'sql_type',
+        'sql_insert_syntax',
+        'sql_max_query_size',
+        'sql_hex_for_blob',
+        'sql_utc_time',
+        'csv_separator',
+        'csv_enclosed',
+        'csv_escaped',
+        'csv_terminated',
+        'csv_null',
+        'csv_columns',
+        'csv_structure_or_data',
+        'latex_caption',
+        'latex_structure_or_data',
+        'latex_structure_caption',
+        'latex_structure_continued_caption',
+        'latex_structure_label',
+        'latex_relation',
+        'latex_comments',
+        'latex_mime',
+        'latex_columns',
+        'latex_data_caption',
+        'latex_data_continued_caption',
+        'latex_data_label',
+        'latex_null'
+);
+
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
 }
 
 PMA_Util::checkParameters(array('what', 'export_type'));
