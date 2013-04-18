@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-18 10:03+0200\n"
-"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
+"PO-Revision-Date: 2013-04-18 17:24+0200\n"
+"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
 "Language: pt\n"
@@ -8607,6 +8607,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"A versão %s da biblioteca MySQL do PHP difere da versão %s do servidor "
+"MySQL. Isto pode causar comportamento imprevisível."
 
 #: main.php:378
 #, php-format
@@ -8614,6 +8616,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Servidor a correr com Suhosin. Por favor verifique a %sdocumentação%s para "
+"eventuais problemas."
 
 #: navigation.php:182 server_databases.php:284 server_synchronize.php:1294
 msgid "No databases"
@@ -9663,11 +9667,11 @@ msgstr "Query cache"
 
 #: server_status.php:596
 msgid "Threads"
-msgstr ""
+msgstr "Tópicos"
 
 #: server_status.php:598
 msgid "Temporary data"
-msgstr ""
+msgstr "Dados temporários"
 
 #: server_status.php:599
 #, fuzzy
@@ -9688,11 +9692,11 @@ msgstr "Ordem"
 
 #: server_status.php:605
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Coordenador de Transacção"
 
 #: server_status.php:617
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Flush (fechar) todas as tabelas"
 
 #: server_status.php:619
 msgid "Show open tables"
