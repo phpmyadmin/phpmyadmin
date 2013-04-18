@@ -6,10 +6,10 @@
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
 /* Get the import interface */
 require_once 'libraries/plugins/ImportPlugin.class.php';
 
@@ -18,7 +18,7 @@ if ($GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
     return;
 }
-
+ 
 /**
  * Handles the import for the CSV format using load data
  *
@@ -113,10 +113,9 @@ class ImportLdi extends ImportPlugin
     public function doImport()
     {
         global $finished, $error, $import_file, $compression, $charset_conversion;
-        global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
-            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
-
-        if ($import_file == 'none'
+        global $csv_local_option, $csv_replace, $csv_terminated, $csv_enclosed,
+            $csv_escaped, $csv_new_line, $skip_queries, $csv_columns,$db,$table;
+         if ($import_file == 'none'
             || $compression != 'none'
             || $charset_conversion
         ) {
@@ -129,44 +128,45 @@ class ImportLdi extends ImportPlugin
         }
 
         $sql = 'LOAD DATA';
-        if (isset($ldi_local_option)) {
+        if (isset($csv_local_option)) 
+        {
             $sql .= ' LOCAL';
         }
         $sql .= ' INFILE \'' . PMA_Util::sqlAddSlashes($import_file) . '\'';
-        if (isset($ldi_replace)) {
+        if (isset($csv_replace)) {
             $sql .= ' REPLACE';
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
         $sql .= ' INTO TABLE ' . PMA_Util::backquote($table);
-
-        if (strlen($ldi_terminated) > 0) {
-            $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
+ 
+         if (strlen($csv_terminated) > 0) {
+            $sql .= ' FIELDS TERMINATED BY \'' . $csv_terminated . '\'';
         }
-        if (strlen($ldi_enclosed) > 0) {
+        if (strlen($csv_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
-                . PMA_Util::sqlAddSlashes($ldi_enclosed) . '\'';
+                . PMA_Util::sqlAddSlashes($csv_enclosed) . '\'';
         }
-        if (strlen($ldi_escaped) > 0) {
+        if (strlen($csv_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
-                . PMA_Util::sqlAddSlashes($ldi_escaped) . '\'';
+                . PMA_Util::sqlAddSlashes($csv_escaped) . '\'';
         }
-        if (strlen($ldi_new_line) > 0) {
-            if ($ldi_new_line == 'auto') {
-                $ldi_new_line
+        if (strlen($csv_new_line) > 0) {
+            if ($csv_new_line == 'auto') {
+                $csv_new_line
                     = (PMA_Util::whichCrlf() == "\n")
                         ? '\n'
                         : '\r\n';
             }
-            $sql .= ' LINES TERMINATED BY \'' . $ldi_new_line . '\'';
+            $sql .= ' LINES TERMINATED BY \'' . $csv_new_line . '\'';
         }
         if ($skip_queries > 0) {
             $sql .= ' IGNORE ' . $skip_queries . ' LINES';
             $skip_queries = 0;
         }
-        if (strlen($ldi_columns) > 0) {
+        if (strlen($csv_columns) > 0) {
             $sql .= ' (';
-            $tmp   = preg_split('/,( ?)/', $ldi_columns);
+            $tmp   = preg_split('/,( ?)/', $csv_columns);
             $cnt_tmp = count($tmp);
             for ($i = 0; $i < $cnt_tmp; $i++) {
                 if ($i > 0) {

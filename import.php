@@ -19,6 +19,7 @@ if (isset($_REQUEST['show_as_php'])) {
 /**
  * Sets globals from $_POST
  */
+  
 $post_params = array(
     'action_bookmark',
     'allow_interrupt',
@@ -40,7 +41,10 @@ foreach ($post_params as $one_post_param) {
         $GLOBALS[$one_post_param] = $_POST[$one_post_param];
     }
 }
-
+// set rest of the $_POST in $GLOBAL
+foreach ($_POST as $key=>$value){
+    $GLOBALS[$key]=$_POST[$key];
+}
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
@@ -77,7 +81,7 @@ if (! empty($sql_query)) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
-    
+
     $sql_query = '';
 } elseif (! empty($sql_localfile)) {
     // run SQL file on server
@@ -308,7 +312,8 @@ $read_limit = $memory_limit / 8;
 
 // handle filenames
 if (isset($_FILES['import_file'])) {
-    $import_file = $_FILES['import_file']['tmp_name'];
+    $GLOBALS['csv_local_option']=true;
+    $import_file = $_FILES['import_file']['tmp_name'];    
 }
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
@@ -317,6 +322,7 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     $import_file = PMA_Util::userDir($cfg['UploadDir'])
         . $local_import_file;
+       
 
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
@@ -333,8 +339,7 @@ if ($import_file != 'none' && ! $error) {
     // directory
 
     if (! empty($open_basedir)) {
-
-        $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
+         $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
 
         if (is_writable($tmp_subdir)) {
 
@@ -357,7 +362,7 @@ if ($import_file != 'none' && ! $error) {
     if ($compression === false) {
         $message = PMA_Message::error(__('File could not be read'));
         $error = true;
-    } else {
+     } else {
         switch ($compression) {
         case 'application/bzip2':
             if ($cfg['BZipDump'] && @function_exists('bzopen')) {
@@ -474,7 +479,8 @@ if (! $error) {
     $import_plugin = PMA_getPlugin(
         "import",
         $format,
-        'libraries/plugins/import/'
+        'libraries/plugins/import/',
+        $import_type
     );
     if ($import_plugin == null) {
         $error = true;
@@ -483,7 +489,7 @@ if (! $error) {
         );
     } else {
         // Do the real import
-        $import_plugin->doImport($sql_data);
+              $import_plugin->doImport($sql_data);
     }
 }
 
@@ -565,7 +571,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 
 // There was an error?
 if (isset($my_die)) {
-    foreach ($my_die AS $key => $die) {
+    foreach ($my_die as $key => $die) {
         PMA_Util::mysqlDie(
             $die['error'], $die['sql'], '', $err_url, $error
         );
