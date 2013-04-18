@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-18 12:54+0200\n"
+"PO-Revision-Date: 2013-04-18 17:24+0200\n"
 "Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -3065,7 +3065,7 @@ msgstr "Tabelas"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Coordenador de Transacção"
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
 msgid "Files"
@@ -3073,7 +3073,7 @@ msgstr "Ficheiros"
 
 #: libraries/ServerStatusData.class.php:207
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Flush (fechar) todas as tabelas"
 
 #: libraries/ServerStatusData.class.php:209
 msgid "Show open tables"
