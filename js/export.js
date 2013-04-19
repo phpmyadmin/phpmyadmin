@@ -218,19 +218,40 @@ AJAX.registerOnload('export.js', function () {
     toggle_sql_include_comments();
 
     /**
+     * Initially disables the "Dump some row(s)" sub-options
+     */
+    disable_dump_some_rows_sub_options();
+    
+    /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
     $("input[type='radio'][name='allrows']").change(function () {
         if ($("input[type='radio'][name='allrows']").prop("checked")) {
-            $("label[for='limit_to']").fadeTo('fast', 0.4);
-            $("label[for='limit_from']").fadeTo('fast', 0.4);
-            $("input[type='text'][name='limit_to']").prop('disabled', true);
-            $("input[type='text'][name='limit_from']").prop('disabled', true);
+            enable_dump_some_rows_sub_options();
         } else {
-            $("label[for='limit_to']").fadeTo('fast', 1);
-            $("label[for='limit_from']").fadeTo('fast', 1);
-            $("input[type='text'][name='limit_to']").removeProp('disabled');
-            $("input[type='text'][name='limit_from']").removeProp('disabled');
+            disable_dump_some_rows_sub_options();
         }
     });
 });
+
+/**
+ * Disables the "Dump some row(s)" sub-options
+ */
+function disable_dump_some_rows_sub_options()
+{
+    $("label[for='limit_to']").fadeTo('fast', 0.4);
+    $("label[for='limit_from']").fadeTo('fast', 0.4);
+    $("input[type='text'][name='limit_to']").prop('disabled', true);
+    $("input[type='text'][name='limit_from']").prop('disabled', true);
+}
+
+/**
+ * Enables the "Dump some row(s)" sub-options
+ */
+function enable_dump_some_rows_sub_options()
+{
+    $("label[for='limit_to']").fadeTo('fast', 1);
+    $("label[for='limit_from']").fadeTo('fast', 1);
+    $("input[type='text'][name='limit_to']").removeProp('disabled');
+    $("input[type='text'][name='limit_from']").removeProp('disabled');
+}
