@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-15 14:02+0200\n"
+"PO-Revision-Date: 2013-04-19 16:53+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -3272,7 +3272,7 @@ msgstr "선택된 행을 하이라이트"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "열(row) 마커"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
@@ -3299,6 +3299,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제한 가능, "
+"[kbd]textarea[/kbd] - 줄 바꿈 허용"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
@@ -3354,7 +3356,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
-msgstr ""
+msgstr "즉시 압축"
 
 #: libraries/config/messages.inc.php:45 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:167
@@ -3421,7 +3423,7 @@ msgstr "데이터베이스들을 목록으로 표시"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
@@ -3431,7 +3433,7 @@ msgstr "서버들을 목록으로 표시"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "선택한 테이블을 최적화 하거나 복구하는 등의 대규모 유지 보수 작업을 해제합니다."
 
 #: libraries/config/messages.inc.php:63
 #| msgid "Table maintenance"
@@ -3672,7 +3674,7 @@ msgstr "강제적인 SSL 연결"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
+msgstr "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/kbd]: 키 값"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
@@ -4267,7 +4269,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
-msgstr ""
+msgstr "데이터베이스의 최대 갯수"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
@@ -4860,13 +4862,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:444
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL 쿼리 추적 테이블"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr ""
+msgstr "SQL 쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
 
 #: libraries/config/messages.inc.php:446
 msgid "Automatically create versions"
@@ -12065,11 +12067,11 @@ msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합�
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "첫 번째 인덱스 항목을 읽는 비율"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "첫 번째 인덱스 항목을 읽는 비율이 높습니다."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -12080,6 +12082,10 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 "
+"씁니다. 이런 테이블들이 대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 전체 "
+"인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 "
+"있습니다."
 
 #: po/advisory_rules.php:133
 #, php-format
@@ -12092,7 +12098,7 @@ msgstr "고정위치 읽기 비율"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "고정된 위치에서 데이터를 읽는 비율이 높습니다."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -12100,6 +12106,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 "
+"추가하세요."
 
 #: po/advisory_rules.php:138
 #, php-format
