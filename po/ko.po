@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-15 14:03+0200\n"
+"PO-Revision-Date: 2013-04-19 16:53+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -4021,7 +4021,7 @@ msgstr "선택된 행을 하이라이트"
 
 #: libraries/config/messages.inc.php:23
 msgid "Row marker"
-msgstr ""
+msgstr "열(row) 마커"
 
 #: libraries/config/messages.inc.php:24
 msgid "Highlight row pointed by the mouse cursor"
@@ -4049,6 +4049,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제한 가능, "
+"[kbd]textarea[/kbd] - 줄 바꿈 허용"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4059,10 +4061,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 줄 번호 지원)로 SQL "
+"쿼리를 편집"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror 활성화"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4114,7 +4118,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:42
 msgid "Compress on the fly"
-msgstr ""
+msgstr "즉시 압축"
 
 #: libraries/config/messages.inc.php:43 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
@@ -4125,7 +4129,7 @@ msgstr "설정 파일"
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
-msgstr ""
+msgstr "데이터가 사라지기 전에 경고 메시지(&quot;정말 확실합니까&quot;) 출력 여부"
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
@@ -4165,13 +4169,12 @@ msgstr "기본 테이블 탭"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "테이블 구조 관련 기능을 숨겨 놓을지 말지 여부"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "제안하는 테이블 구조"
+msgstr "테이블 구조 관련 기능 숨기기"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -4179,7 +4182,7 @@ msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
@@ -4189,7 +4192,7 @@ msgstr "서버들을 목록으로 표시"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "선택한 테이블을 최적화 하거나 복구하는 등의 대규모 유지 보수 작업을 해제합니다."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
@@ -4448,7 +4451,7 @@ msgstr "강제적인 SSL 연결"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
+msgstr "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/kbd]: 키 값"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4947,12 +4950,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
-msgstr ""
+msgstr "데이터베이스의 최대 갯수"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr ""
+msgstr "탐색 트리에서 페이지 당 보여질 아이템 수"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
@@ -5657,17 +5660,17 @@ msgstr "명세"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
-msgstr ""
+msgstr "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL 쿼리 추적 테이블"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr ""
+msgstr "SQL 쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
 
 #: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
@@ -12549,14 +12552,12 @@ msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 msgid "Rate of reading first index entry"
-msgstr "파일 문자셋:"
+msgstr "첫 번째 인덱스 항목을 읽는 비율"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 msgid "The rate of reading the first index entry is high."
-msgstr "파일 문자셋:"
+msgstr "첫 번째 인덱스 항목을 읽는 비율이 높습니다."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -12567,6 +12568,10 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 "
+"씁니다. 이런 테이블들이 대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 전체 "
+"인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 "
+"있습니다."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -12578,9 +12583,8 @@ msgid "Rate of reading fixed position"
 msgstr "고정위치 읽기 비율"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 msgid "The rate of reading data from a fixed position is high."
-msgstr "파일 문자셋:"
+msgstr "고정된 위치에서 데이터를 읽는 비율이 높습니다."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -12588,6 +12592,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 "
+"추가하세요."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
