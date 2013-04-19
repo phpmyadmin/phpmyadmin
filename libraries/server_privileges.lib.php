@@ -1607,9 +1607,8 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         $response->addJSON('message', $message);
         $response->addJSON('user_form', $html_output);
         exit;
-    } else {
+    } elseif (PMA_Util::currentUserHasPrivilege('CREATE USER')) {
         // Offer to create a new user for the current database
-//todo check  user privileges
         $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
            . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
 
