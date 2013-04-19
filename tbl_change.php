@@ -116,6 +116,7 @@ $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
+$scripts->addFile('on_replace.js');
 
 /**
  * Displays the query submitted and its result
@@ -438,6 +439,51 @@ if ($insert_mode) {
         $table, $db, $where_clause_array, $err_url
     );
 }
+
+
+/**
+*form for "find and replace" feature
+*when a user edit a row or change multiple rows this form will apear at the bottom
+*
+*
+*/
+
+if (!$insert_mode){
+    $html_output .="<form id='replaceForm' method='post' action='tbl_find_replace.php' name='replaceForm' enctype='multipart/form-data'>
+	<input type='hidden' name='goto' value='tbl_sql.php'>";
+	
+	$html_output .=PMA_generate_common_hidden_inputs($_form_params);
+	
+	
+	$fields_cnt = count($table_fields);
+	$choices=array();
+	$html_output .= "<br><br><br><h3>select a column</h3>";
+	for ($i = 0; $i < $fields_cnt; $i++) {
+		$column=$table_fields[$i]['Field'];
+		$html_output .="<input type='radio' name='column' value='".$column."' id='".$column."'/>".$column."&nbsp&nbsp";
+	}
+	$replaceOption = array('selected'=>'selected /', 'all'=>'all ');
+	
+	
+	
+	$html_output .="<br>
+	<h3>Find What?</h3><input type='text' name='find' value='' size='20' class='textfield'>
+	<br>
+	<h3>Replace &nbsp&nbsp ";
+	
+	$html_output .="<input type='radio' name='option' value='select' id='option_selected' checked/>selected /";
+	$html_output .="<input type='radio' name='option' value='all' id='option_all'/>all ";
+	$html_output .= "&nbsp&nbsp rows With?</h3><input type='text' name='replace' value='' size='20' class='textfield'/>
+
+
+	<td colspan='3' align='right' valign='middle'>
+           <input type='submit' class='control_at_footer' value='".__('Go')."'  id='buttonReplace' />
+           <input type='reset' class='control_at_footer' value='".__('Reset')."' />
+     </td>
+	 </form>";
+
+}
+
 $response->addHTML($html_output);
 
 ?>
