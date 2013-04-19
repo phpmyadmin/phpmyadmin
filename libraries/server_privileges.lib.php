@@ -1634,14 +1634,14 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 /**
  * Get HTML snippet for table body of specific database privileges
  *
- * @param boolean $found            whether user found or not
- * @param array   $row              array of rows from mysql,
- *                                  db table with list of privileges
- * @param boolean $odd_row          whether odd or not
- * @param string  $link_edit        standard link for edit
- * @param string  $res              ran sql query
- * @param boolean $can_edit_users calling user has privilege to,
- *                                  create users
+ * @param boolean $found          whether user found or not
+ * @param array   $row            array of rows from mysql,
+ *                                db table with list of privileges
+ * @param boolean $odd_row        whether odd or not
+ * @param string  $link_edit      standard link for edit
+ * @param string  $res            ran sql query
+ * @param boolean $can_edit_users whether calling user has privilege,
+ *                                to create users
  *
  * @return string $html_output
  */
