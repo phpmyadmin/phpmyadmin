@@ -1560,7 +1560,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         )
         . "\n"
         . '</legend>' . "\n";
-
+    //check whether user has 'CREATE USER' privilege
     $can_create_users = PMA_Util::currentUserHasPrivilege('CREATE USER');
 
     $html_output .= '<table id="dbspecificuserrights" class="data">' . "\n"
@@ -1570,9 +1570,8 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         . '<th>' . __('Type') . '</th>' . "\n"
         . '<th>' . __('Privileges') . '</th>' . "\n"
         . '<th>' . __('Grant') . '</th>' . "\n"
-        . ($can_create_users ? 
-            '<th>' . __('Action') . '</th>' . "\n" : 
-            '') //todo removed column when create user privilege not granted
+        //if user has 'CREATE USER' privilege add table head for edit_user column
+        . ($can_create_users ? '<th>' . __('Action') . '</th>' . "\n" : '') 
         . '</tr>' . "\n"
         . '</thead>' . "\n";
     $odd_row = true;
@@ -1611,7 +1610,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         $response->addJSON('message', $message);
         $response->addJSON('user_form', $html_output);
         exit;
-    } elseif ($can_create_users) {
+    } elseif ($can_create_users) { //if user has 'CREATE USER' privilege
         // Offer to create a new user for the current database
         $html_output .= '<fieldset id="fieldset_add_user">' . "\n"
            . '<legend>' . _pgettext('Create new user', 'New') . '</legend>' . "\n";
@@ -1716,9 +1715,8 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . '' . ($current['Grant_priv'] == 'Y' ? __('Yes') : __('No'))
                     . "\n"
                     . '</td>' . "\n";
-//todo remove edit user links
-//begin user edit link creation
-                if ($can_edit_users) {
+                if ($can_edit_users) {//if user has privilege to edit user information
+                //create edit_user link and add it to table
                     $html_output .= '<td>' . "\n"
                         . sprintf(
                         $link_edit,
@@ -1732,7 +1730,6 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     . '</td>' . "\n";
                 }
                 $html_output .= '    </tr>' . "\n";
-//end user edit link creation
                 if (($i + 1) < count($current_privileges)) {
                     $html_output .= '<tr '
                         . 'class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
@@ -1746,7 +1743,9 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
         }
     } else {
         $html_output .= '<tr class="odd">' . "\n"
-//todo change colspan to 5 when user can't edit users
+            //if user has privilege to edit user information
+            //span row for 6 columns
+            //else span row for 5 columns
            . '<td colspan=' . ($can_edit_users ? '6' : '5') . '>' . "\n"
            . '            ' . __('No user found.') . "\n"
            . '</td>' . "\n"
