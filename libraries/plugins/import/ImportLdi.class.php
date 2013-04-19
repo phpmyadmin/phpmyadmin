@@ -57,34 +57,9 @@ class ImportLdi extends AbstractImportCsv
             unset($result);
         }
 
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
-
-        $importPluginProperties = new ImportPluginProperties();
-        $importPluginProperties->setText('CSV using LOAD DATA');
-        $importPluginProperties->setExtension('ldi');
-        $importPluginProperties->setOptionsText(__('Options'));
-
-        // create the root group that will be the options field for
-        // $importPluginProperties
-        // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
-
-        // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
-
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("ignore");
-        $leaf->setText(__('Do not abort on INSERT error'));
-        $generalOptions->addProperty($leaf);
-
-        $generalOptions = $this->populateCommonOptions($generalOptions);
+        $generalOptions = parent::setProperties();
+        $this->properties->setText('CSV using LOAD DATA');
+        $this->properties->setExtension('ldi');
 
         $leaf = new TextPropertyItem();
         $leaf->setName("columns");
@@ -92,16 +67,14 @@ class ImportLdi extends AbstractImportCsv
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem();
+        $leaf->setName("ignore");
+        $leaf->setText(__('Do not abort on INSERT error'));
+        $generalOptions->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem();
         $leaf->setName("local_option");
         $leaf->setText(__('Use LOCAL keyword'));
         $generalOptions->addProperty($leaf);
-
-        // add the main group to the root group
-        $importSpecificOptions->addProperty($generalOptions);
-
-        // set the options for the import plugin property item
-        $importPluginProperties->setOptions($importSpecificOptions);
-        $this->properties = $importPluginProperties;
     }
 
     /**

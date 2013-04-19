@@ -22,16 +22,33 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
 abstract class AbstractImportCsv extends ImportPlugin
 {
     /**
-     * Populates the passed OptionsPropertyMainGroup object with options common to
-     * CSV type imports.
+     * Sets the import plugin properties.
+     * Called in the constructor.
      *
-     * @param object $generalOptions main group of format specific options
-     *
-     * @return object main group of format specific options populated
-     *                with common options
+     * @return object OptionsPropertyMainGroup object of the plugin
      */
-    protected function populateCommonOptions($generalOptions)
+    protected function setProperties()
     {
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+
         // create common items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("replace");
@@ -60,6 +77,13 @@ abstract class AbstractImportCsv extends ImportPlugin
         $leaf->setText(__('Lines terminated with:'));
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
 
         return $generalOptions;
     }
