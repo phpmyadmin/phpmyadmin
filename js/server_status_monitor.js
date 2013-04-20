@@ -1529,7 +1529,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             elem.nodes[j].transformFn,
                             chartData[key][j],
                             // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
-                            (oldChartData === null || oldChartData[key] === null ? null : oldChartData[key][j])
+                            (oldChartData === null
+                             || oldChartData[key] === null
+                             || oldChartData[key] === undefined ? null : oldChartData[key][j])
                         );
 
                     // Otherwise use original value and apply differential and divisor if given,
@@ -1538,7 +1540,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         value = parseFloat(chartData[key][j][0].value);
 
                         if (elem.nodes[j].display == 'differential') {
-                            if (oldChartData === null || oldChartData[key] === null) {
+                            if (oldChartData === null
+                             || oldChartData[key] === null
+                             || oldChartData[key] === undefined
+                            ) {
                                 continue;
                             }
                             value -= oldChartData[key][j][0].value;
