@@ -1,10 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @fileoverview    functions used on the table structure page
- * @name            Table Structure
+ * @fileoverview    Javascript Handler for user_info.php
+ * @name            User_info
  *
  * @requires    jQuery
- * @requires    jQueryUI
  * @required    js/functions.js
  */
 
@@ -13,7 +12,6 @@
  *
  * Actions ajaxified here:
  * Making edit form appear
- * Submission of edit form
  *
  */
 
