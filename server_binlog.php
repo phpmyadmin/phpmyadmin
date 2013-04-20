@@ -160,7 +160,7 @@ if ($dontlimitchars) {
 }
 echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
     . '" title="' . $tempTitle . '">'
-    . '<img src="' .$pmaThemeImage . 's_' . $tmpImgMode . 'text.png"'
+    . '<img src="' .$pmaThemeImage . 's_' . $tempImgMode . 'text.png"'
     . 'alt="' . $tempTitle . '" /></a>';
 
 // we do not now how much rows are in the binlog
