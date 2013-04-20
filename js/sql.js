@@ -360,11 +360,12 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Ajax Event for table row change
  * */
+ //code for this part was changed becouse of the functionality of change button was changed to implement find and replace feature
     $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function (event) {
         event.preventDefault();
 
         /*Check whether atleast one row is selected for change*/
-        if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
+        
             var $div = $('<div id="change_row_dialog"></div>');
 
             /**
@@ -384,6 +385,7 @@ AJAX.registerOnload('sql.js', function () {
             var $form = $("#resultsForm");
             var $msgbox = PMA_ajaxShowMessage();
 
+    		
             $.get($form.attr('action'), $form.serialize() + "&ajax_request=true&submit_mult=row_edit", function (data) {
                 //in the case of an error, show the error message returned.
                 if (data.success !== undefined && data.success === false) {
@@ -399,7 +401,9 @@ AJAX.registerOnload('sql.js', function () {
                         },
                         buttons : button_options_error
                     }); // end dialog options
-                } else {
+					
+					//if both "change form" and "find and replace form" are to be shown
+                } else if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
                     $div
                     .append(data.message)
                     .dialog({
@@ -418,11 +422,31 @@ AJAX.registerOnload('sql.js', function () {
                     $("table.insertRowTable").addClass("ajax");
                     $("#buttonYes").addClass("ajax");
                 }
+				
+				//if only "find and replace form" is to be shown
+				 else{
+					$div
+                    .append(data.message)
+                    .dialog({
+                        title: PMA_messages.strChangeTbl,
+                        height: 400,
+                        width: 400,
+                        open: PMA_verifyColumnsProperties,
+                        close: function (event, ui) {
+                            $(this).remove();
+                        },
+                        buttons : button_options
+                    })
+                    //Remove the top menu container from the dialog
+                    .find("#topmenucontainer").hide()
+                    ; // end dialog options
+                    $("table.insertRowTable").addClass("ajax");
+                    $("#buttonYes").addClass("ajax");
+				
+				}
                 PMA_ajaxRemoveMessage($msgbox);
             }); // end $.get()
-        } else {
-            PMA_ajaxShowMessage(PMA_messages.strNoRowSelected);
-        }
+        
     });
 
 /**
@@ -465,6 +489,7 @@ AJAX.registerOnload('sql.js', function () {
         }); // end $.post()
     }); // end insert table button "Go"
 
+	
 /**$("#buttonYes.ajax").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
  */
