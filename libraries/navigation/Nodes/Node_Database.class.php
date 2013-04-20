@@ -236,7 +236,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $query  = " SHOW FULL TABLES FROM ";
@@ -279,7 +279,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $query  = "SHOW FULL TABLES FROM ";
@@ -322,7 +322,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
@@ -362,7 +362,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
@@ -401,7 +401,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `EVENT_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = PMA_Util::backquote($db);
