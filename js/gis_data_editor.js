@@ -79,6 +79,37 @@ function initGISEditorVisualization() {
 }
 
 /**
+ * Loads the GIS editor via AJAX
+ *
+ * @param value      current value of the geometry field
+ * @param field      field name
+ * @param type       geometry type
+ * @param input_name name of the input field
+ * @param token      token
+ */
+function loadGISEditor(value, field, type, input_name, token) {
+
+    var $gis_editor = $("#gis_editor");
+    $.post('gis_data_editor.php', {
+        'field' : field,
+        'value' : value,
+        'type' : type,
+        'input_name' : input_name,
+        'get_gis_editor' : true,
+        'token' : token,
+        'ajax_request': true
+    }, function (data) {
+        if (data.success === true) {
+            $gis_editor.html(data.gis_editor);
+            initGISEditorVisualization();
+            prepareJSVersion();
+        } else {
+            PMA_ajaxShowMessage(data.error, false);
+        }
+    }, 'json');
+}
+
+/**
  * Loads JavaScript files and the GIS editor.
  *
  * @param value      current value of the geometry field
@@ -122,37 +153,6 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
     head.appendChild(script);
 
     gisEditorLoaded = true;
-}
-
-/**
- * Loads the GIS editor via AJAX
- *
- * @param value      current value of the geometry field
- * @param field      field name
- * @param type       geometry type
- * @param input_name name of the input field
- * @param token      token
- */
-function loadGISEditor(value, field, type, input_name, token) {
-
-    var $gis_editor = $("#gis_editor");
-    $.post('gis_data_editor.php', {
-        'field' : field,
-        'value' : value,
-        'type' : type,
-        'input_name' : input_name,
-        'get_gis_editor' : true,
-        'token' : token,
-        'ajax_request': true
-    }, function (data) {
-        if (data.success === true) {
-            $gis_editor.html(data.gis_editor);
-            initGISEditorVisualization();
-            prepareJSVersion();
-        } else {
-            PMA_ajaxShowMessage(data.error, false);
-        }
-    }, 'json');
 }
 
 /**

@@ -28,86 +28,6 @@ function panel(index)
 }
 
 /**
- * Sorts history_array[] first,using table name as the key and then generates the HTML code for history tab,
- * clubbing all objects of same tables together
- * This function is called whenever changes are made in history_array[]
- *
- *
- * @param {int}  init starting index of unsorted array
- * @param {int} finit   last index of unsorted array
- *
-**/
-
-function display(init, finit)
-{
-    var str, i, j, k, sto;
-    // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
-    for (i = init; i < finit; i++) {
-        sto = history_array[i];
-        var temp = history_array[i].get_tab();//+ '.' + history_array[i].get_obj_no(); for Self JOINS
-        for (j = 0; j < i; j++) {
-            if (temp > (history_array[j].get_tab())) {//+ '.' + history_array[j].get_obj_no())) { //for Self JOINS
-                for (k = i; k > j; k--) {
-                    history_array[k] = history_array[k - 1];
-                }
-                history_array[j] = sto;
-                break;
-            }
-        }
-    }
-    // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
-    str = ''; // string to store Html code for history tab
-    for (var i = 0; i < history_array.length; i++) {
-        var temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
-        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
-        str += '<div class="toggle_container">\n';
-        while ((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
-            str += '<div class="block"> <table width ="250">';
-            str += '<thead><tr><td>';
-            if (history_array[i].get_and_or()) {
-                str += '<img src="' + pmaThemeImage + 'pmd/or_icon.png" onclick="and_or(' + i + ')" title="OR"/></td>';
-            } else {
-                str += '<img src="' + pmaThemeImage + 'pmd/and_icon.png" onclick="and_or(' + i + ')" title="AND"/></td>';
-            }
-            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td><td width="175" style="padding-left: 5px">' + history_array[i].get_column_name();
-            if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
-                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
-            } else {
-                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(i)) + '</td><td title="' + detail(i) + '">' + history_array[i].get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + i + ')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
-            }
-            i++;
-            if (i >= history_array.length) {
-                break;
-            }
-            str += '</table></div><br/>';
-        }
-        i--;
-        str += '</div><br/>';
-    }
-    return str;
-}
-
-/**
- * To change And/Or relation in history tab
- *
- *
- * @param {int} index of history_array where change is to be made
- *
-**/
-
-function and_or(index)
-{
-    if (history_array[index].get_and_or()) {
-        history_array[index].set_and_or(0);
-    } else {
-        history_array[index].set_and_or(1);
-    }
-    var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = display(0, 0);
-    panel(1);
-}
-
-/**
  * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
  *
  * @param index index of history_array where change is to be made
@@ -143,6 +63,86 @@ function detail(index)
         }
     }
     return str;
+}
+
+/**
+ * Sorts history_array[] first,using table name as the key and then generates the HTML code for history tab,
+ * clubbing all objects of same tables together
+ * This function is called whenever changes are made in history_array[]
+ *
+ *
+ * @param {int}  init starting index of unsorted array
+ * @param {int} finit   last index of unsorted array
+ *
+**/
+
+function display(init, finit)
+{
+    var str, i, j, k, sto;
+    // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
+    for (i = init; i < finit; i++) {
+        sto = history_array[i];
+        var temp = history_array[i].get_tab();//+ '.' + history_array[i].get_obj_no(); for Self JOINS
+        for (j = 0; j < i; j++) {
+            if (temp > (history_array[j].get_tab())) {//+ '.' + history_array[j].get_obj_no())) { //for Self JOINS
+                for (k = i; k > j; k--) {
+                    history_array[k] = history_array[k - 1];
+                }
+                history_array[j] = sto;
+                break;
+            }
+        }
+    }
+    // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
+    str = ''; // string to store Html code for history tab
+    for (var n = 0; n < history_array.length; n++) {
+        var temp = history_array[n].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
+        str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
+        str += '<div class="toggle_container">\n';
+        while ((history_array[n].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
+            str += '<div class="block"> <table width ="250">';
+            str += '<thead><tr><td>';
+            if (history_array[n].get_and_or()) {
+                str += '<img src="' + pmaThemeImage + 'pmd/or_icon.png" onclick="and_or(' + n + ')" title="OR"/></td>';
+            } else {
+                str += '<img src="' + pmaThemeImage + 'pmd/and_icon.png" onclick="and_or(' + n + ')" title="AND"/></td>';
+            }
+            str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td><td width="175" style="padding-left: 5px">' + history_array[n].get_column_name();
+            if (history_array[n].get_type() == "GroupBy" || history_array[n].get_type() == "OrderBy") {
+                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(n)) + '<td title="' + detail(n) + '">' + history_array[n].get_type() + '</td></td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + n + ')>' + PMA_getImage('b_drop.png', 'Delete') + '</td></tr></thead>';
+            } else {
+                str += '</td><td class="center">' + PMA_getImage('b_info.png', detail(n)) + '</td><td title="' + detail(n) + '">' + history_array[n].get_type() + '</td><td <td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + n + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td><td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'"               onclick=history_delete(' + n + ')><img src="themes/original/img/b_drop.png" title="Delete"></td></tr></thead>';
+            }
+            n++;
+            if (n >= history_array.length) {
+                break;
+            }
+            str += '</table></div><br/>';
+        }
+        n--;
+        str += '</div><br/>';
+    }
+    return str;
+}
+
+/**
+ * To change And/Or relation in history tab
+ *
+ *
+ * @param {int} index of history_array where change is to be made
+ *
+**/
+
+function and_or(index)
+{
+    if (history_array[index].get_and_or()) {
+        history_array[index].set_and_or(0);
+    } else {
+        history_array[index].set_and_or(1);
+    }
+    var existingDiv = document.getElementById('ab');
+    existingDiv.innerHTML = display(0, 0);
+    panel(1);
 }
 
 /**
@@ -461,61 +461,43 @@ function found(arrayName, value)
 }
 
 /**
- * This function is the main function for query building.
- * uses history object details for this.
+ * This function concatenates two array
  *
- * @ uses query_where()
- * @ uses query_groupby()
- * @ uses query_having()
- * @ uses query_orderby()
- *
- * @param formtitle title for the form
- * @param fadin
+ * @params add array elements of which are pushed in
+ * @params arr array in which elemnets are added
  */
-
-function build_query(formtitle, fadin)
+function add_array(add, arr)
 {
-    var q_select = "SELECT ";
-    var temp;
-    for (var i = 0;i < select_field.length; i++) {
-        temp = check_aggregate(select_field[i]);
-        if (temp !== "") {
-            q_select += temp;
-            temp = check_rename(select_field[i]);
-            q_select += temp + ",";
-        } else {
-            temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp + ",";
+    for (var i = 0; i < add.length; i++) {
+        arr.push(add[i]);
+    }
+    return arr;
+}
+
+/* This fucntion removes all elements present in one array from the other.
+ *
+ * @params rem array from which each element is removed from other array.
+ * @params arr array from which elements are removed.
+ *
+ */
+function remove_array(rem, arr)
+{
+    for (var i = 0; i < rem.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+            if (rem[i] == arr[j]) {
+                arr.splice(j, 1);
+            }
         }
     }
-    q_select = q_select.substring(0, q_select.length - 1);
-    q_select += " FROM " + query_from();
-    if (query_where() !== "") {
-        q_select += "\n WHERE";
-        q_select += query_where();
-    }
-    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
-    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
-    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
-    var box = document.getElementById('box');
-    document.getElementById('filter').style.display = 'block';
-    var btitle = document.getElementById('boxtitle');
-    btitle.innerHTML = 'SELECT';//formtitle;
-    if (fadin) {
-        gradient("box", 0);
-        fadein("box");
-    } else {
-        box.style.display = 'block';
-    }
-    document.getElementById('textSqlquery').innerHTML = q_select;
+    return arr;
 }
+
  /**
   * This function builds from clause of query
   * makes automatic joins.
   *
   *
   */
-
 
 function query_from()
 {
@@ -604,38 +586,6 @@ function query_from()
 }
 
 /**
- * This function concatenates two array
- *
- * @params add array elements of which are pushed in
- * @params arr array in which elemnets are added
- */
-function add_array(add, arr)
-{
-    for (var i = 0; i < add.length; i++) {
-        arr.push(add[i]);
-    }
-    return arr;
-}
-
-/* This fucntion removes all elements present in one array from the other.
- *
- * @params rem array from which each element is removed from other array.
- * @params arr array from which elements are removed.
- *
- */
-function remove_array(rem, arr)
-{
-    for (var i = 0; i < rem.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
-            if (rem[i] == arr[j]) {
-                arr.splice(j, 1);
-            }
-        }
-    }
-    return arr;
-}
-
-/**
  * This function builds the groupby clause from history object
  *
  */
@@ -680,7 +630,6 @@ function query_having()
     return and;
 }
 
-
 /**
  * This function builds the orderby clause from the history object.
  *
@@ -696,7 +645,6 @@ function query_orderby()
     str = str.substr(0, str.length - 1);
     return str;
 }
-
 
 /**
  * This function builds the Where clause from the history object.
@@ -778,6 +726,56 @@ function fadein(id)
         setTimeout("gradient('" + id + "'," + level + ")", (level * 1000) + 10);
         level += 0.01;
     }
+}
+
+/**
+ * This function is the main function for query building.
+ * uses history object details for this.
+ *
+ * @ uses query_where()
+ * @ uses query_groupby()
+ * @ uses query_having()
+ * @ uses query_orderby()
+ *
+ * @param formtitle title for the form
+ * @param fadin
+ */
+
+function build_query(formtitle, fadin)
+{
+    var q_select = "SELECT ";
+    var temp;
+    for (var i = 0;i < select_field.length; i++) {
+        temp = check_aggregate(select_field[i]);
+        if (temp !== "") {
+            q_select += temp;
+            temp = check_rename(select_field[i]);
+            q_select += temp + ",";
+        } else {
+            temp = check_rename(select_field[i]);
+            q_select += select_field[i] + temp + ",";
+        }
+    }
+    q_select = q_select.substring(0, q_select.length - 1);
+    q_select += " FROM " + query_from();
+    if (query_where() !== "") {
+        q_select += "\n WHERE";
+        q_select += query_where();
+    }
+    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
+    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
+    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
+    var box = document.getElementById('box');
+    document.getElementById('filter').style.display = 'block';
+    var btitle = document.getElementById('boxtitle');
+    btitle.innerHTML = 'SELECT';//formtitle;
+    if (fadin) {
+        gradient("box", 0);
+        fadein("box");
+    } else {
+        box.style.display = 'block';
+    }
+    document.getElementById('textSqlquery').innerHTML = q_select;
 }
 
 function closebox()

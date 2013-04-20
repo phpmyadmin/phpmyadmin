@@ -82,8 +82,9 @@ $(function () {
     $.tablesorter.addWidget({
         id: "fast-zebra",
         format: function (table) {
+            var time;
             if (table.config.debug) {
-                var time = new Date();
+                time = new Date();
             }
             $("tr:even", table.tBodies[0])
                 .removeClass(table.config.widgetZebra.css[0])

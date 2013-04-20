@@ -12,6 +12,24 @@ var _change = 0; // variable to track any change in designer layout.
 var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 var show_relation_lines = true;
 
+
+function moveTopMenuToRight(id_this)
+{
+    var top_menu_width = 10;
+    $('#top_menu').children().each(function () {
+        top_menu_width += $(this).outerWidth(true);
+    });
+    var offset = parseInt(document.getElementById('canvas_outer').offsetWidth - top_menu_width, 10);
+    document.getElementById('top_menu').style.paddingLeft = offset + 'px';
+}
+
+function Top_menu_reposition(id_this)
+{
+    if (id_this.alt == "<") {
+        moveTopMenuToRight(id_this);
+    }
+}
+
 AJAX.registerTeardown('pmd/move.js', function () {
     if ($.FullScreen.supported) {
         $(document).unbind($.FullScreen.prefix + 'fullscreenchange');
@@ -99,168 +117,175 @@ var downer;
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 
-
-//window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
-//---CROSS
-document.onmousedown = MouseDown;
-document.onmouseup   = MouseUp;
-document.onmousemove = MouseMove;
-
-var isIE = document.all && !window.opera;
-var isNN = !document.all && document.getElementById;
-var isN4 = document.layers;
-
-if (isIE) {
-    window.onscroll = General_scroll;
-    document.onselectstart = function () {
-        return false;
-    };
+function Circle(x, y, r, w, color)
+{
+    var ctx = document.getElementById('canvas').getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineWidth = w;
+    ctx.strokeStyle = color;
+    ctx.arc(x, y, r, 0, 2 * Math.PI, true);
+    ctx.stroke();
 }
 
-//document.onmouseup = function (){General_scroll_end();}
-function MouseDown(e)
+function Clear()
 {
-    var offsetx, offsety;
-    if (cur_click !== null) {
-        offsetx = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
-        offsety = isIE ? event.clientY + document.body.scrollTop : e.pageY;
-        dx = offsetx - parseInt(cur_click.style.left, 10);
-        dy = offsety - parseInt(cur_click.style.top, 10);
-        //alert(" dx = " + dx + " dy = " +dy);
-        document.getElementById("canvas").style.display = 'none';
-        /*
-        var left = parseInt(cur_click.style.left, 10);
-        var top  = parseInt(cur_click.style.top, 10);
-        dx = e.pageX - left;
-        dy = e.pageY - top;
-
-        alert(" dx = " + dx + " dy = " +dy);
-        */
-        cur_click.style.zIndex = 2;
-    }
-    if (layer_menu_cur_click) {
-        offsetx = e.pageX;
-        dx = offsetx - parseInt(document.getElementById("layer_menu").style.width, 10);
-    }
+    var canvas = document.getElementById("canvas");
+    var ctx    = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas_width, canvas_height);
 }
 
-function MouseMove(e)
+function Rect(x1, y1, w, h, color)
 {
-    //Glob_X = e.pageX;
-    //Glob_Y = e.pageY;
-    Glob_X = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
-    Glob_Y = isIE ? event.clientY + document.body.scrollTop : e.pageY;
+    var ctx = document.getElementById('canvas').getContext('2d');
+    ctx.fillStyle = color;
+    ctx.fillRect(x1, y1, w, h);
+}
 
-    //mouseX = (bw.ns4||bw.ns6)? e.pageX: bw.ie&&bw.win&&!bw.ie4? (event.clientX-2)+document.body.scrollLeft : event.clientX+document.body.scrollLeft;
-    //mouseY = (bw.ns4||bw.ns6)? e.pageY: bw.ie&&bw.win&&!bw.ie4? (event.clientY-2)+document.body.scrollTop : event.clientY+document.body.scrollTop;
+/**
+ * draws a line from x1:y1 to x2:y2 with color
+ */
+function Line(x1, y1, x2, y2, color_line)
+{
+    var canvas = document.getElementById("canvas");
+    var ctx    = canvas.getContext("2d");
+    ctx.strokeStyle = color_line;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+}
 
-    //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
+/**
+ * draws a angualr relation/constraint line
+ */
+function Line2(x1, y1, x2, y2, color_line)
+{
+    var x1_ = x1;
+    var x2_ = x2;
 
-    if (cur_click !== null) {
-        _change = 1;
-        var mGx = Glob_X - dx;
-        var mGy = Glob_Y - dy;
-        mGx = mGx > 0 ? mGx : 0;
-        mGy = mGy > 0 ? mGy : 0;
+    if (s_right) {
+        x1_ += sm_add;
+        x2_ += sm_add;
+    } else if (s_left) {
+        x1_ -= sm_add;
+        x2_ -= sm_add;
+    } else if (x1 < x2) {
+        x1_ += sm_add;
+        x2_ -= sm_add;
+    } else {
+        x1_ -= sm_add;
+        x2_ += sm_add;
+    }
 
-        if (ON_grid) {
-            mGx = mGx % step < step / 2 ? mGx - mGx % step : mGx - mGx % step + step;
-            mGy = mGy % step < step / 2 ? mGy - mGy % step : mGy - mGy % step + step;
+    Line(x1, y1, x1_, y1, color_line);
+    Line(x2, y2, x2_, y2, color_line);
+    Line(x1_, y1, x2_, y2, color_line);
+}
+
+/**
+ * draws a relation/constraint line
+ */
+function Line3(x1, y1, x2, y2, color_line)
+{
+    var x1_ = x1;
+    var x2_ = x2;
+
+    if (s_right) {
+        if (x1 < x2) {
+            x1_ += x2 - x1 + sm_add;
+            x2_ += sm_add;
+        } else {
+            x2_ += x1 - x2 + sm_add;
+            x1_ += sm_add;
         }
 
-        cur_click.style.left = mGx + 'px';
-        cur_click.style.top  = mGy + 'px';
+        Line(x1, y1, x1_, y1, color_line);
+        Line(x2, y2, x2_, y2, color_line);
+        Line(x1_, y1, x2_, y2, color_line);
+        return;
+    }
+    if (s_left) {
+        if (x1 < x2) {
+            x2_ -= x2 - x1 + sm_add;
+            x1_ -= sm_add;
+        } else {
+            x1_ -= x1 - x2 + sm_add;
+            x2_ -= sm_add;
+        }
+
+        Line(x1, y1, x1_, y1, color_line);
+        Line(x2, y2, x2_, y2, color_line);
+        Line(x1_, y1, x2_, y2, color_line);
+        return;
     }
 
-    if (ON_relation || ON_display_field) {
-        document.getElementById('pmd_hint').style.left = (Glob_X + 20) + 'px';
-        document.getElementById('pmd_hint').style.top  = (Glob_Y + 20) + 'px';
-    }
-
-    if (layer_menu_cur_click) {
-        document.getElementById("layer_menu").style.width = ((Glob_X - dx) >= 150 ? Glob_X - dx : 150) + 'px';
-        //document.getElementById("layer_menu").style.height = Glob_Y - dy>=200?Glob_Y - dy:200;
-        //document.getElementById("id_scroll_tab").style.height = Glob_Y - dy2;
-    }
+    var x_s = (x1 + x2) / 2;
+    Line(x1, y1, x_s, y1, color_line);
+    Line(x_s, y2, x2, y2, color_line);
+    Line(x_s, y1, x_s, y2, color_line);
 }
 
-function MouseUp(e)
+/**
+ * draws a relation/constraint line, whether angular or not
+ */
+function Line0(x1, y1, x2, y2, color_line)
 {
-    if (cur_click !== null) {
-        document.getElementById("canvas").style.display = 'inline-block';
-        Re_load();
-        cur_click.style.zIndex = 1;
-        cur_click = null;
+    if (! show_relation_lines) {
+        return;
     }
-    layer_menu_cur_click = 0;
-    //window.releaseEvents(Event.MOUSEMOVE);
-}
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
+    Circle(x1, y1, 3, 3, color_line);
+    Rect(x2 - 1, y2 - 2, 4, 4, color_line);
 
-
-//function ToInt(s)
-//{
-//    return s.substring(0,s.length-2)*1; //re = /(\d+)\w*/; newstr = str.replace(re, "$1");
-//}
-
-function Canvas_pos()
-{
-    canvas_width  = document.getElementById('canvas').width  = osn_tab_width  - 3;
-    canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
-
-    if (isIE) {
-        document.getElementById('canvas').style.width  = ((osn_tab_width  - 3) ? (osn_tab_width  - 3) : 0) + 'px';
-        document.getElementById('canvas').style.height = ((osn_tab_height - 3) ? (osn_tab_height - 3) : 0) + 'px';
+    if (ON_angular_direct) {
+        Line2(x1, y1, x2, y2, color_line);
+    } else {
+        Line3(x1, y1, x2, y2, color_line);
     }
 }
 
-function Osn_tab_pos()
+var TargetColors = [];
+function getColorByTarget(target)
 {
-    osn_tab_width  = parseInt(document.getElementById('osn_tab').style.width, 10);
-    osn_tab_height = parseInt(document.getElementById('osn_tab').style.height, 10);
-}
+    var color = '';  //"rgba(0,100,150,1)";
 
-
-function Main()
-{
-    //alert( document.getElementById('osn_tab').offsetTop);
-    //---CROSS
-
-    document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
-    sm_x += document.getElementById('osn_tab').offsetLeft;
-    sm_y += document.getElementById('osn_tab').offsetTop;
-    Osn_tab_pos();
-    Canvas_pos();
-    Small_tab_refresh();
-    Re_load();
-    id_hint = document.getElementById('pmd_hint');
-    if (isIE) {
-        General_scroll();
-    }
-}
-
-
-//-------------------------------- new -----------------------------------------
-function Rezize_osn_tab()
-{
-    var max_X = 0;
-    var max_Y = 0;
-    for (var key in j_tabs) {
-        var k_x = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
-        var k_y = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
-        max_X = max_X < k_x ? k_x : max_X;
-        max_Y = max_Y < k_y ? k_y : max_Y;
+    for (var i in TargetColors) {
+        if (TargetColors[i][0] == target) {
+            color = TargetColors[i][1];
+            break;
+        }
     }
 
-    osn_tab_width  = max_X + 50;
-    osn_tab_height = max_Y + 50;
-    Canvas_pos();
-    document.getElementById('osn_tab').style.width = osn_tab_width + 'px';
-    document.getElementById('osn_tab').style.height = osn_tab_height + 'px';
+    if (color.length === 0) {
+        var n = TargetColors.length + 1;
+        var d = n % 6;
+        var j = (n - d) / 6;
+        j = j % 4;
+        j++;
+        var color_case = new Array(
+            new Array(1, 0, 0),
+            new Array(0, 1, 0),
+            new Array(0, 0, 1),
+            new Array(1, 1, 0),
+            new Array(1, 0, 1),
+            new Array(0, 1, 1)
+        );
+        var a = color_case[d][0];
+        var f = color_case[d][1];
+        var c = color_case[d][2];
+        var e = (1 - (j - 1) / 6);
+
+        var r = Math.round(a * 200 * e);
+        var g = Math.round(f * 200 * e);
+        var b = Math.round(c * 200 * e);
+        color = "rgba(" + r + "," + g + "," + b + ",1)";
+
+        TargetColors.push(new Array(target, color));
+    }
+
+    return color;
 }
-//------------------------------------------------------------------------------
 
 /**
  * refreshes display, must be called after state changes
@@ -345,7 +370,7 @@ function Re_load()
                     //alert(1);
 
                     row_offset_top = 0;
-                    var tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
                     if (tab_hide_button.innerHTML == 'v') {
                         row_offset_top = document.getElementById(contr[K][key][key2][key3][0]
                             + '.' + contr[K][key][key2][key3][1]).offsetTop;
@@ -370,133 +395,217 @@ function Re_load()
     }
 }
 
-/**
- * draws a line from x1:y1 to x2:y2 with color
- */
-function Line(x1, y1, x2, y2, color_line)
+//document.onmouseup = function (){General_scroll_end();}
+function MouseDown(e)
 {
-    var canvas = document.getElementById("canvas");
-    var ctx    = canvas.getContext("2d");
-    ctx.strokeStyle = color_line;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
-}
+    var offsetx, offsety;
+    if (cur_click !== null) {
+        offsetx = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
+        offsety = isIE ? event.clientY + document.body.scrollTop : e.pageY;
+        dx = offsetx - parseInt(cur_click.style.left, 10);
+        dy = offsety - parseInt(cur_click.style.top, 10);
+        //alert(" dx = " + dx + " dy = " +dy);
+        document.getElementById("canvas").style.display = 'none';
+        /*
+        var left = parseInt(cur_click.style.left, 10);
+        var top  = parseInt(cur_click.style.top, 10);
+        dx = e.pageX - left;
+        dy = e.pageY - top;
 
-/**
- * draws a relation/constraint line, whether angular or not
- */
-function Line0(x1, y1, x2, y2, color_line)
-{
-    if (! show_relation_lines) {
-        return;
+        alert(" dx = " + dx + " dy = " +dy);
+        */
+        cur_click.style.zIndex = 2;
     }
-    Circle(x1, y1, 3, 3, color_line);
-    Rect(x2 - 1, y2 - 2, 4, 4, color_line);
-
-    if (ON_angular_direct) {
-        Line2(x1, y1, x2, y2, color_line);
-    } else {
-        Line3(x1, y1, x2, y2, color_line);
+    if (layer_menu_cur_click) {
+        offsetx = e.pageX;
+        dx = offsetx - parseInt(document.getElementById("layer_menu").style.width, 10);
     }
 }
 
-/**
- * draws a angualr relation/constraint line
- */
-function Line2(x1, y1, x2, y2, color_line)
+function MouseMove(e)
 {
-    var x1_ = x1;
-    var x2_ = x2;
+    //Glob_X = e.pageX;
+    //Glob_Y = e.pageY;
+    Glob_X = isIE ? event.clientX + document.body.scrollLeft : e.pageX;
+    Glob_Y = isIE ? event.clientY + document.body.scrollTop : e.pageY;
 
-    if (s_right) {
-        x1_ += sm_add;
-        x2_ += sm_add;
-    } else if (s_left) {
-        x1_ -= sm_add;
-        x2_ -= sm_add;
-    } else if (x1 < x2) {
-        x1_ += sm_add;
-        x2_ -= sm_add;
-    } else {
-        x1_ -= sm_add;
-        x2_ += sm_add;
-    }
+    //mouseX = (bw.ns4||bw.ns6)? e.pageX: bw.ie&&bw.win&&!bw.ie4? (event.clientX-2)+document.body.scrollLeft : event.clientX+document.body.scrollLeft;
+    //mouseY = (bw.ns4||bw.ns6)? e.pageY: bw.ie&&bw.win&&!bw.ie4? (event.clientY-2)+document.body.scrollTop : event.clientY+document.body.scrollTop;
 
-    Line(x1, y1, x1_, y1, color_line);
-    Line(x2, y2, x2_, y2, color_line);
-    Line(x1_, y1, x2_, y2, color_line);
-}
+    //window.status = "X = "+ Glob_X + " Y = "+ Glob_Y;
 
-/**
- * draws a relation/constraint line
- */
-function Line3(x1, y1, x2, y2, color_line)
-{
-    var x1_ = x1;
-    var x2_ = x2;
+    if (cur_click !== null) {
+        _change = 1;
+        var mGx = Glob_X - dx;
+        var mGy = Glob_Y - dy;
+        mGx = mGx > 0 ? mGx : 0;
+        mGy = mGy > 0 ? mGy : 0;
 
-    if (s_right) {
-        if (x1 < x2) {
-            x1_ += x2 - x1 + sm_add;
-            x2_ += sm_add;
-        } else {
-            x2_ += x1 - x2 + sm_add;
-            x1_ += sm_add;
+        if (ON_grid) {
+            mGx = mGx % step < step / 2 ? mGx - mGx % step : mGx - mGx % step + step;
+            mGy = mGy % step < step / 2 ? mGy - mGy % step : mGy - mGy % step + step;
         }
 
-        Line(x1, y1, x1_, y1, color_line);
-        Line(x2, y2, x2_, y2, color_line);
-        Line(x1_, y1, x2_, y2, color_line);
-        return;
+        cur_click.style.left = mGx + 'px';
+        cur_click.style.top  = mGy + 'px';
     }
-    if (s_left) {
-        if (x1 < x2) {
-            x2_ -= x2 - x1 + sm_add;
-            x1_ -= sm_add;
-        } else {
-            x1_ -= x1 - x2 + sm_add;
-            x2_ -= sm_add;
+
+    if (ON_relation || ON_display_field) {
+        document.getElementById('pmd_hint').style.left = (Glob_X + 20) + 'px';
+        document.getElementById('pmd_hint').style.top  = (Glob_Y + 20) + 'px';
+    }
+
+    if (layer_menu_cur_click) {
+        document.getElementById("layer_menu").style.width = ((Glob_X - dx) >= 150 ? Glob_X - dx : 150) + 'px';
+        //document.getElementById("layer_menu").style.height = Glob_Y - dy>=200?Glob_Y - dy:200;
+        //document.getElementById("id_scroll_tab").style.height = Glob_Y - dy2;
+    }
+}
+
+function MouseUp(e)
+{
+    if (cur_click !== null) {
+        document.getElementById("canvas").style.display = 'inline-block';
+        Re_load();
+        cur_click.style.zIndex = 1;
+        cur_click = null;
+    }
+    layer_menu_cur_click = 0;
+    //window.releaseEvents(Event.MOUSEMOVE);
+}
+
+function General_scroll()
+{
+    /*
+    if (!document.getElementById('show_relation_olways').checked) {
+        document.getElementById("canvas").style.display = 'none';
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(General_scroll_end, 500);
+    }
+    */
+    //if (timeoutID)
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(
+        function () {
+            document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
+            document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
+        },
+        200
+    );
+}
+
+//window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
+//---CROSS
+document.onmousedown = MouseDown;
+document.onmouseup   = MouseUp;
+document.onmousemove = MouseMove;
+
+var isIE = document.all && !window.opera;
+var isNN = !document.all && document.getElementById;
+var isN4 = document.layers;
+
+if (isIE) {
+    window.onscroll = General_scroll;
+    document.onselectstart = function () {
+        return false;
+    };
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+
+//function ToInt(s)
+//{
+//    return s.substring(0,s.length-2)*1; //re = /(\d+)\w*/; newstr = str.replace(re, "$1");
+//}
+
+function Canvas_pos()
+{
+    canvas_width  = document.getElementById('canvas').width  = osn_tab_width  - 3;
+    canvas_height = document.getElementById('canvas').height = osn_tab_height - 3;
+
+    if (isIE) {
+        document.getElementById('canvas').style.width  = ((osn_tab_width  - 3) ? (osn_tab_width  - 3) : 0) + 'px';
+        document.getElementById('canvas').style.height = ((osn_tab_height - 3) ? (osn_tab_height - 3) : 0) + 'px';
+    }
+}
+
+function Osn_tab_pos()
+{
+    osn_tab_width  = parseInt(document.getElementById('osn_tab').style.width, 10);
+    osn_tab_height = parseInt(document.getElementById('osn_tab').style.height, 10);
+}
+
+function Small_tab(t, re_load)
+{
+    var id      = document.getElementById('id_tbody_' + t);
+    var id_this = document.getElementById('id_hide_tbody_' + t);
+    var id_t    = document.getElementById(t);
+    id_t.style.width = id_t.offsetWidth + 'px';
+    if (id_this.innerHTML == "v") {
+        //---CROSS
+        id.style.display = 'none';
+        id_this.innerHTML = '>';
+    } else {
+        id.style.display = '';
+        id_this.innerHTML = 'v';
+    }
+    if (re_load) {
+        Re_load();
+    }
+}
+
+function Small_tab_refresh()
+{
+    for (var key in j_tabs) {
+        if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
+            Small_tab(key, 0);
+            Small_tab(key, 0);
         }
+    }
+}
 
-        Line(x1, y1, x1_, y1, color_line);
-        Line(x2, y2, x2_, y2, color_line);
-        Line(x1_, y1, x2_, y2, color_line);
-        return;
+function Main()
+{
+    //alert( document.getElementById('osn_tab').offsetTop);
+    //---CROSS
+
+    document.getElementById("layer_menu").style.top = -1000 + 'px'; //fast scroll
+    sm_x += document.getElementById('osn_tab').offsetLeft;
+    sm_y += document.getElementById('osn_tab').offsetTop;
+    Osn_tab_pos();
+    Canvas_pos();
+    Small_tab_refresh();
+    Re_load();
+    id_hint = document.getElementById('pmd_hint');
+    if (isIE) {
+        General_scroll();
+    }
+}
+
+
+//-------------------------------- new -----------------------------------------
+function Rezize_osn_tab()
+{
+    var max_X = 0;
+    var max_Y = 0;
+    for (var key in j_tabs) {
+        var k_x = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
+        var k_y = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
+        max_X = max_X < k_x ? k_x : max_X;
+        max_Y = max_Y < k_y ? k_y : max_Y;
     }
 
-    var x_s = (x1 + x2) / 2;
-    Line(x1, y1, x_s, y1, color_line);
-    Line(x_s, y2, x2, y2, color_line);
-    Line(x_s, y1, x_s, y2, color_line);
+    osn_tab_width  = max_X + 50;
+    osn_tab_height = max_Y + 50;
+    Canvas_pos();
+    document.getElementById('osn_tab').style.width = osn_tab_width + 'px';
+    document.getElementById('osn_tab').style.height = osn_tab_height + 'px';
 }
+//------------------------------------------------------------------------------
 
-function Circle(x, y, r, w, color)
-{
-    var ctx = document.getElementById('canvas').getContext('2d');
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineWidth = w;
-    ctx.strokeStyle = color;
-    ctx.arc(x, y, r, 0, 2 * Math.PI, true);
-    ctx.stroke();
-}
-
-function Clear()
-{
-    var canvas = document.getElementById("canvas");
-    var ctx    = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas_width, canvas_height);
-}
-
-function Rect(x1, y1, w, h, color)
-{
-    var ctx = document.getElementById('canvas').getContext('2d');
-    ctx.fillStyle = color;
-    ctx.fillRect(x1, y1, w, h);
-}
 //--------------------------- FULLSCREEN -------------------------------------
 function Enter_fullscreen()
 {
@@ -687,9 +796,9 @@ function Small_tab_all(id_this) // max/min all tables
         id_this.alt = ">";
         id_this.src = pmaThemeImage + "pmd/rightarrow1.png";
     } else {
-        for (var key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
-                Small_tab(key, 0);
+        for (var keyVal in j_tabs) {
+            if (document.getElementById('id_hide_tbody_' + keyVal).innerHTML != "v") {
+                Small_tab(keyVal, 0);
             }
         }
         id_this.alt = "v";
@@ -712,34 +821,6 @@ function Relation_lines_invert()
     Re_load();
 }
 
-function Small_tab_refresh()
-{
-    for (var key in j_tabs) {
-        if (document.getElementById('id_hide_tbody_' + key).innerHTML != "v") {
-            Small_tab(key, 0);
-            Small_tab(key, 0);
-        }
-    }
-}
-
-function Small_tab(t, re_load)
-{
-    var id      = document.getElementById('id_tbody_' + t);
-    var id_this = document.getElementById('id_hide_tbody_' + t);
-    var id_t    = document.getElementById(t);
-    id_t.style.width = id_t.offsetWidth + 'px';
-    if (id_this.innerHTML == "v") {
-        //---CROSS
-        id.style.display = 'none';
-        id_this.innerHTML = '>';
-    } else {
-        id.style.display = '';
-        id_this.innerHTML = 'v';
-    }
-    if (re_load) {
-        Re_load();
-    }
-}
 //------------------------------------------------------------------------------
 function Select_tab(t)
 {
@@ -957,26 +1038,6 @@ function PDF_save()
     Save('pmd_pdf.php?server=' + server + '&token=' + token + '&db=' + db);
 }
 
-function General_scroll()
-{
-    /*
-    if (!document.getElementById('show_relation_olways').checked) {
-        document.getElementById("canvas").style.display = 'none';
-        clearTimeout(timeoutID);
-        timeoutID = setTimeout(General_scroll_end, 500);
-    }
-    */
-    //if (timeoutID)
-    clearTimeout(timeoutID);
-    timeoutID = setTimeout(
-        function () {
-            document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
-            document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
-        },
-        200
-    );
-}
-
 /*
 function General_scroll_end()
 {
@@ -1023,22 +1084,6 @@ function Top_menu_right(id_this)
     }
 }
 
-function Top_menu_reposition(id_this)
-{
-    if (id_this.alt == "<") {
-        moveTopMenuToRight(id_this);
-    }
-}
-
-function moveTopMenuToRight(id_this)
-{
-    var top_menu_width = 10;
-    $('#top_menu').children().each(function () {
-        top_menu_width += $(this).outerWidth(true);
-    });
-    var offset = parseInt(document.getElementById('canvas_outer').offsetWidth - top_menu_width, 10);
-    document.getElementById('top_menu').style.paddingLeft = offset + 'px';
-}
 //------------------------------------------------------------------------------
 function Start_display_field()
 {
@@ -1062,47 +1107,6 @@ function Start_display_field()
     }
 }
 //------------------------------------------------------------------------------
-var TargetColors = [];
-function getColorByTarget(target)
-{
-    var color = '';  //"rgba(0,100,150,1)";
-
-    for (var i in TargetColors) {
-        if (TargetColors[i][0] == target) {
-            color = TargetColors[i][1];
-            break;
-        }
-    }
-
-    if (color.length === 0) {
-        var i = TargetColors.length + 1;
-        var d = i % 6;
-        var j = (i - d) / 6;
-        j = j % 4;
-        j++;
-        var color_case = new Array(
-            new Array(1, 0, 0),
-            new Array(0, 1, 0),
-            new Array(0, 0, 1),
-            new Array(1, 1, 0),
-            new Array(1, 0, 1),
-            new Array(0, 1, 1)
-        );
-        var a = color_case[d][0];
-        var b = color_case[d][1];
-        var c = color_case[d][2];
-        var e = (1 - (j - 1) / 6);
-
-        var r = Math.round(a * 200 * e);
-        var g = Math.round(b * 200 * e);
-        var b = Math.round(c * 200 * e);
-        var color = "rgba(" + r + "," + g + "," + b + ",1)";
-
-        TargetColors.push(new Array(target, color));
-    }
-
-    return color;
-}
 
 function Click_option(id_this, column_name, table_name)
 {
@@ -1252,17 +1256,17 @@ function add_object()
             document.getElementById('pmd_hint').style.display = 'block';
             return;
         }
-        var p = document.getElementById('having');
-        var where_obj = new having(
+        var h = document.getElementById('having');
+        var where_object = new having(
             document.getElementById('h_rel_opt').value,
-            p.value,
+            h.value,
             document.getElementById('h_operator').value
         );//make where object
-        history_array.push(new history(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], "Having"));
+        history_array.push(new history(col_name, where_object, tab_name, h_tabs[downer + '.' + tab_name], "Having"));
         sum = sum + 1;
         document.getElementById('h_rel_opt').value = '--';
         document.getElementById('h_operator').value = '---';
-        p.value = ""; //make having
+        h.value = ""; //make having
     }
     if (document.getElementById('orderby').checked === true) {
         history_array.push(new history(col_name, 'OrderBy', tab_name, h_tabs[downer + '.' + tab_name], "OrderBy"));

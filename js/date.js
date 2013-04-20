@@ -63,139 +63,6 @@ function LZ(x) {
 }
 
 // ------------------------------------------------------------------
-// isDate ( date_string, format_string )
-// Returns true if date string matches format of format string and
-// is a valid date. Else returns false.
-// It is recommended that you trim whitespace around the value before
-// passing it to this function, as whitespace is NOT ignored!
-// ------------------------------------------------------------------
-function isDate(val, format) {
-    var date = getDateFromFormat(val, format);
-    if (date === 0) {
-        return false;
-    }
-    return true;
-}
-
-// -------------------------------------------------------------------
-// compareDates(date1,date1format,date2,date2format)
-//   Compare two date strings to see which is greater.
-//   Returns:
-//   1 if date1 is greater than date2
-//   0 if date2 is greater than date1 of if they are the same
-//  -1 if either of the dates is in an invalid format
-// -------------------------------------------------------------------
-function compareDates(date1, dateformat1, date2, dateformat2) {
-    var d1 = getDateFromFormat(date1, dateformat1);
-    var d2 = getDateFromFormat(date2, dateformat2);
-    if (d1 === 0 || d2 === 0) {
-        return -1;
-    } else if (d1 > d2) {
-        return 1;
-    }
-    return 0;
-}
-
-// ------------------------------------------------------------------
-// formatDate (date_object, format)
-// Returns a date in the output format specified.
-// The format string uses the same abbreviations as in getDateFromFormat()
-// ------------------------------------------------------------------
-function formatDate(date, format) {
-    format = format + "";
-    var result = "";
-    var i_format = 0;
-    var c = "";
-    var token = "";
-    var y = date.getYear() + "";
-    var M = date.getMonth() + 1;
-    var d = date.getDate();
-    var E = date.getDay();
-    var H = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
-    // Convert real date parts into formatted versions
-    var value = new Object();
-    if (y.length < 4) {
-        y = "" + (y - 0 + 1900);
-    }
-    value["y"] = "" + y;
-    value["yyyy"] = y;
-    value["yy"] = y.substring(2, 4);
-    value["M"] = M;
-    value["MM"] = LZ(M);
-    value["MMM"] = MONTH_NAMES[M - 1];
-    value["NNN"] = MONTH_NAMES[M + 11];
-    value["d"] = d;
-    value["dd"] = LZ(d);
-    value["E"] = DAY_NAMES[E + 7];
-    value["EE"] = DAY_NAMES[E];
-    value["H"] = H;
-    value["HH"] = LZ(H);
-    if (H === 0) {
-        value["h"] = 12;
-    } else if (H > 12) {
-        value["h"] = H - 12;
-    } else {
-        value["h"] = H;
-    }
-    value["hh"] = LZ(value["h"]);
-    if (H > 11) {
-        value["K"] = H - 12;
-    } else {
-        value["K"] = H;
-    }
-    value["k"] = H + 1;
-    value["KK"] = LZ(value["K"]);
-    value["kk"] = LZ(value["k"]);
-    if (H > 11) {
-        value["a"] = "PM";
-    } else {
-        value["a"] = "AM";
-    }
-    value["m"] = m;
-    value["mm"] = LZ(m);
-    value["s"] = s;
-    value["ss"] = LZ(s);
-    while (i_format < format.length) {
-        c = format.charAt(i_format);
-        token = "";
-        while ((format.charAt(i_format) == c) && (i_format < format.length)) {
-            token += format.charAt(i_format++);
-        }
-        if (value[token] !== null) {
-            result = result + value[token];
-        } else {
-            result = result + token;
-        }
-    }
-    return result;
-}
-
-// ------------------------------------------------------------------
-// Utility functions for parsing in getDateFromFormat()
-// ------------------------------------------------------------------
-function _isInteger(val) {
-    var digits = "1234567890";
-    for (var i = 0; i < val.length; i++) {
-        if (digits.indexOf(val.charAt(i)) == -1) { return false; }
-    }
-    return true;
-}
-function _getInt(str, i, minlength, maxlength) {
-    for (var x = maxlength; x >= minlength; x--) {
-        var token = str.substring(i, i + x);
-        if (token.length < minlength) {
-            return null;
-        }
-        if (_isInteger(token)) {
-            return token;
-        }
-    }
-    return null;
-}
-
-// ------------------------------------------------------------------
 // getDateFromFormat( date_string , format_string )
 //
 // This function takes a date string and a format string. It matches
@@ -270,8 +137,8 @@ function getDateFromFormat(val, format) {
                 return 0;
             }
         } else if (token == "EE" || token == "E") {
-            for (var i = 0; i < DAY_NAMES.length; i++) {
-                var day_name = DAY_NAMES[i];
+            for (var j = 0; j < DAY_NAMES.length; j++) {
+                var day_name = DAY_NAMES[j];
                 if (val.substring(i_val, i_val + day_name.length).toLowerCase() == day_name.toLowerCase()) {
                     i_val += day_name.length;
                     break;
@@ -374,6 +241,141 @@ function getDateFromFormat(val, format) {
     var newdate = new Date(year, month - 1, date, hh, mm, ss);
     return newdate.getTime();
 }
+
+// ------------------------------------------------------------------
+// isDate ( date_string, format_string )
+// Returns true if date string matches format of format string and
+// is a valid date. Else returns false.
+// It is recommended that you trim whitespace around the value before
+// passing it to this function, as whitespace is NOT ignored!
+// ------------------------------------------------------------------
+function isDate(val, format) {
+    var date = getDateFromFormat(val, format);
+    if (date === 0) {
+        return false;
+    }
+    return true;
+}
+
+// -------------------------------------------------------------------
+// compareDates(date1,date1format,date2,date2format)
+//   Compare two date strings to see which is greater.
+//   Returns:
+//   1 if date1 is greater than date2
+//   0 if date2 is greater than date1 of if they are the same
+//  -1 if either of the dates is in an invalid format
+// -------------------------------------------------------------------
+function compareDates(date1, dateformat1, date2, dateformat2) {
+    var d1 = getDateFromFormat(date1, dateformat1);
+    var d2 = getDateFromFormat(date2, dateformat2);
+    if (d1 === 0 || d2 === 0) {
+        return -1;
+    } else if (d1 > d2) {
+        return 1;
+    }
+    return 0;
+}
+
+// ------------------------------------------------------------------
+// formatDate (date_object, format)
+// Returns a date in the output format specified.
+// The format string uses the same abbreviations as in getDateFromFormat()
+// ------------------------------------------------------------------
+function formatDate(date, format) {
+    format = format + "";
+    var result = "";
+    var i_format = 0;
+    var c = "";
+    var token = "";
+    var y = date.getYear() + "";
+    var M = date.getMonth() + 1;
+    var d = date.getDate();
+    var E = date.getDay();
+    var H = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    
+    if (y.length < 4) {
+        y = "" + (y - 0 + 1900);
+    }
+    
+    var h;
+    if (H === 0) {
+        h = 12;
+    } else if (H > 12) {
+        h = H - 12;
+    } else {
+        h = H;
+    }
+    
+    // Convert real date parts into formatted versions
+    var value = {
+        'y'     : "" + y,
+        'yyyy'  : y,
+        'yy'    : y.substring(2, 4),
+        'M'     : M,
+        'MM'    : LZ(M),
+        'MMM'   : MONTH_NAMES[M - 1],
+        'NNN'   : MONTH_NAMES[M + 11],
+        'd'     : d,
+        'dd'    : LZ(d),
+        'E'     : DAY_NAMES[E + 7],
+        'EE'    : DAY_NAMES[E],
+        'H'     : H,
+        'HH'    : LZ(H),
+        'h'     : h,
+        'K'     : (H > 11) ? (H - 12) : H,
+        'k'     : H + 1,
+        'a'     : (H > 11) ? "PM" : "AM",
+        'm'     : m,
+        'mm'    : LZ(m),
+        's'     : s,
+        'ss'    : LZ(s)
+    };
+    
+    value.hh = LZ(value.h);
+    value.KK = LZ(value.K);
+    value.kk = LZ(value.k);
+    
+    while (i_format < format.length) {
+        c = format.charAt(i_format);
+        token = "";
+        while ((format.charAt(i_format) == c) && (i_format < format.length)) {
+            token += format.charAt(i_format++);
+        }
+        if (value[token] !== null) {
+            result = result + value[token];
+        } else {
+            result = result + token;
+        }
+    }
+    return result;
+}
+
+// ------------------------------------------------------------------
+// Utility functions for parsing in getDateFromFormat()
+// ------------------------------------------------------------------
+function _isInteger(val) {
+    var digits = "1234567890";
+    for (var i = 0; i < val.length; i++) {
+        if (digits.indexOf(val.charAt(i)) == -1) { return false; }
+    }
+    return true;
+}
+function _getInt(str, i, minlength, maxlength) {
+    for (var x = maxlength; x >= minlength; x--) {
+        var token = str.substring(i, i + x);
+        if (token.length < minlength) {
+            return null;
+        }
+        if (_isInteger(token)) {
+            return token;
+        }
+    }
+    return null;
+}
+
+
 
 // ------------------------------------------------------------------
 // parseDate( date_string [, prefer_euro_format] )

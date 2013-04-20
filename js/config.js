@@ -44,6 +44,35 @@ function getFieldType(field)
 }
 
 /**
+ * Enables or disables the "restore default value" button
+ *
+ * @param {Element} field
+ * @param {boolean} display
+ */
+function setRestoreDefaultBtn(field, display)
+{
+    var el = $(field).closest('td').find('.restore-default img');
+    el[display ? 'show' : 'hide']();
+}
+
+/**
+ * Marks field depending on its value (system default or custom)
+ *
+ * @param {Element} field
+ */
+function markField(field)
+{
+    field = $(field);
+    var type = getFieldType(field);
+    var isDefault = checkFieldDefault(field, type);
+
+    // checkboxes uses parent <span> for marking
+    var fieldMarker = (type == 'checkbox') ? field.parent() : field;
+    setRestoreDefaultBtn(field, !isDefault);
+    fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
+}
+
+/**
  * Sets field value
  *
  * value must be of type:
@@ -440,35 +469,6 @@ function validate_field_and_fieldset(field, isKeyUp)
     displayErrors(errors);
 }
 
-/**
- * Marks field depending on its value (system default or custom)
- *
- * @param {Element} field
- */
-function markField(field)
-{
-    field = $(field);
-    var type = getFieldType(field);
-    var isDefault = checkFieldDefault(field, type);
-
-    // checkboxes uses parent <span> for marking
-    var fieldMarker = (type == 'checkbox') ? field.parent() : field;
-    setRestoreDefaultBtn(field, !isDefault);
-    fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
-}
-
-/**
- * Enables or disables the "restore default value" button
- *
- * @param {Element} field
- * @param {boolean} display
- */
-function setRestoreDefaultBtn(field, display)
-{
-    var el = $(field).closest('td').find('.restore-default img');
-    el[display ? 'show' : 'hide']();
-}
-
 AJAX.registerOnload('config.js', function () {
     // register validators and mark custom values
     var elements = $('input[id], select[id], textarea[id]');
@@ -604,6 +604,67 @@ function restoreField(field_id)
     setFieldValue(field, getFieldType(field), defaultValues[field_id]);
 }
 
+/**
+ * Returns date formatted as YYYY-MM-DD HH:II
+ *
+ * @param {Date} d
+ */
+function formatDate(d)
+{
+    return d.getFullYear() + '-'
+        + (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth())
+        + '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
+        + ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours())
+        + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
+}
+
+/**
+ * Updates preferences timestamp in Import form
+ */
+function updatePrefsDate()
+{
+    var d = new Date(window.localStorage.config_mtime_local);
+    var msg = PMA_messages.strSavedOn.replace('@DATE@', formatDate(d));
+    $('#opts_import_local_storage div.localStorage-exists').html(msg);
+}
+
+/**
+ * Saves user preferences to localStorage
+ *
+ * @param {Element} form
+ */
+function savePrefsToLocalStorage(form)
+{
+    form = $(form);
+    var submit = form.find('input[type=submit]');
+    submit.prop('disabled', true);
+    $.ajax({
+        url: 'prefs_manage.php',
+        cache: false,
+        type: 'POST',
+        data: {
+            ajax_request: true,
+            token: form.find('input[name=token]').val(),
+            submit_get_json: true
+        },
+        success: function (response) {
+            window.localStorage.config = response.prefs;
+            window.localStorage.config_mtime = response.mtime;
+            window.localStorage.config_mtime_local = (new Date()).toUTCString();
+            updatePrefsDate();
+            $('div.localStorage-empty').hide();
+            $('div.localStorage-exists').show();
+            var group = form.parent('.group');
+            group.css('height', group.height() + 'px');
+            form.hide('fast');
+            form.prev('.click-hide-message').show('fast');
+        },
+        complete: function () {
+            submit.prop('disabled', false);
+        }
+    });
+}
+
 AJAX.registerOnload('config.js', function () {
     $('div.tabs_contents')
         .delegate('.restore-default, .set-value', 'mouseenter', function () {
@@ -635,6 +696,33 @@ AJAX.registerOnload('config.js', function () {
 // END: "Restore default" and "set value" buttons
 // ------------------------------------------------------------------
 
+/**
+ * Prepares message which informs that localStorage preferences are available and can be imported
+ */
+function offerPrefsAutoimport()
+{
+    var has_config = (window.localStorage || false) && (window.localStorage.config || false);
+    var cnt = $('#prefs_autoload');
+    if (!cnt.length || !has_config) {
+        return;
+    }
+    cnt.find('a').click(function (e) {
+        e.preventDefault();
+        var a = $(this);
+        if (a.attr('href') == '#no') {
+            cnt.remove();
+            $.post('index.php', {
+                token: cnt.find('input[name=token]').val(),
+                prefs_autoload: 'hide'
+            });
+            return;
+        }
+        cnt.find('input[name=json]').val(window.localStorage.config);
+        cnt.find('form').submit();
+    });
+    cnt.show();
+}
+
 // ------------------------------------------------------------------
 // User preferences import/export
 //
@@ -661,7 +749,7 @@ AJAX.registerOnload('config.js', function () {
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
-    var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
+    var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
@@ -685,7 +773,7 @@ AJAX.registerOnload('config.js', function () {
             savePrefsToLocalStorage(form);
         } else if (form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
-            form.find('input[name=json]').val(window.localStorage['config']);
+            form.find('input[name=json]').val(window.localStorage.config);
         }
     });
 
@@ -698,94 +786,6 @@ AJAX.registerOnload('config.js', function () {
         .show();
     });
 });
-
-/**
- * Saves user preferences to localStorage
- *
- * @param {Element} form
- */
-function savePrefsToLocalStorage(form)
-{
-    form = $(form);
-    var submit = form.find('input[type=submit]');
-    submit.prop('disabled', true);
-    $.ajax({
-        url: 'prefs_manage.php',
-        cache: false,
-        type: 'POST',
-        data: {
-            ajax_request: true,
-            token: form.find('input[name=token]').val(),
-            submit_get_json: true
-        },
-        success: function (response) {
-            window.localStorage['config'] = response.prefs;
-            window.localStorage['config_mtime'] = response.mtime;
-            window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
-            updatePrefsDate();
-            $('div.localStorage-empty').hide();
-            $('div.localStorage-exists').show();
-            var group = form.parent('.group');
-            group.css('height', group.height() + 'px');
-            form.hide('fast');
-            form.prev('.click-hide-message').show('fast');
-        },
-        complete: function () {
-            submit.prop('disabled', false);
-        }
-    });
-}
-
-/**
- * Updates preferences timestamp in Import form
- */
-function updatePrefsDate()
-{
-    var d = new Date(window.localStorage['config_mtime_local']);
-    var msg = PMA_messages.strSavedOn.replace('@DATE@', formatDate(d));
-    $('#opts_import_local_storage div.localStorage-exists').html(msg);
-}
-
-/**
- * Returns date formatted as YYYY-MM-DD HH:II
- *
- * @param {Date} d
- */
-function formatDate(d)
-{
-    return d.getFullYear() + '-'
-        + (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth())
-        + '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
-        + ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours())
-        + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
-}
-
-/**
- * Prepares message which informs that localStorage preferences are available and can be imported
- */
-function offerPrefsAutoimport()
-{
-    var has_config = (window.localStorage || false) && (window.localStorage['config'] || false);
-    var cnt = $('#prefs_autoload');
-    if (!cnt.length || !has_config) {
-        return;
-    }
-    cnt.find('a').click(function (e) {
-        e.preventDefault();
-        var a = $(this);
-        if (a.attr('href') == '#no') {
-            cnt.remove();
-            $.post('index.php', {
-                token: cnt.find('input[name=token]').val(),
-                prefs_autoload: 'hide'
-            });
-            return;
-        }
-        cnt.find('input[name=json]').val(window.localStorage['config']);
-        cnt.find('form').submit();
-    });
-    cnt.show();
-}
 
 //
 // END: User preferences import/export

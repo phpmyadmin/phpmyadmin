@@ -377,7 +377,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 }
             }
             sql_query = sql_query.substring(0, sql_query.length - 2);
-            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey]['where_clause']);
+            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 
             //Post SQL query to sql.php
             $.post('sql.php', {
@@ -515,38 +515,43 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         }
         if (yType == 'time') {
             var originalYType = $('#types_1').val();
-            var format;
+            var yFormat;
             if (originalYType == 'date') {
-                format = '%Y-%m-%d';
+                yFormat = '%Y-%m-%d';
             }
             $.extend(options.axes.yaxis, {
                 renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
-                    formatString: format
+                    formatString: yFormat
                 }
             });
         }
 
         $.each(searchedData, function (key, value) {
+            
+            var xVal;
+            var yVal;
+            
             if (xType == 'numeric') {
-                var xVal = parseFloat(value[xLabel]);
+                xVal = parseFloat(value[xLabel]);
             }
             if (xType == 'time') {
-                var xVal = getTimeStamp(value[xLabel], originalXType);
+                xVal = getTimeStamp(value[xLabel], originalXType);
             }
             if (yType == 'numeric') {
-                var yVal = parseFloat(value[yLabel]);
+                yVal = parseFloat(value[yLabel]);
             }
             if (yType == 'time') {
-                var yVal = getTimeStamp(value[yLabel], originalYType);
+                yVal = getTimeStamp(value[yLabel], originalYType);
             }
+            
             series[0].push([
                 xVal,
                 yVal,
                 // extra Y values
                 value[dataLabel], // for highlighter
                                   // (may set an undefined value)
-                value['where_clause'], // for click on point
+                value.where_clause, // for click on point
                 key               // key from searchedData
             ]);
         });

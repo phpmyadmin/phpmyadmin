@@ -98,10 +98,10 @@ AJAX.registerOnload('tbl_select.js', function () {
         if (values['columnsToDisplay[]'] !== null) {
             if (values['columnsToDisplay[]'].length == columnCount) {
                 delete values['columnsToDisplay[]'];
-                values['displayAllColumns'] = true;
+                values.displayAllColumns = true;
             }
         } else {
-            values['displayAllColumns'] = true;
+            values.displayAllColumns = true;
         }
 
         $.post($search_form.attr('action'), values, function (data) {
