@@ -19,20 +19,19 @@ require_once 'libraries/insert_edit.lib.php';
 *
 */
 
-$table_fields = array_values(PMA_DBI_get_columns($db, $table));
+
 if (isset($_REQUEST['find']) and isset($_REQUEST['replace']) ){
 
-
+$table_fields = array_values(PMA_DBI_get_columns($db, $table));
 
   $findWhat=$_REQUEST['find'];
 	$replaceWith=$_REQUEST['replace'];
-	
 	//if one column is checked at the radio buttons for columns in the form
 	if (isset($_REQUEST['column'])){
 		$column=$_REQUEST['column'];
 		$s_query="UPDATE ".$table." SET ".$table.".".$column."='".$replaceWith."' WHERE ".$table.".".$column."='".$findWhat."'";
 		
-		if (isset($_REQUEST['option']) and isset($_REQUEST['where_clause']) and $_REQUEST['option']=='selected'){
+		if (isset($_REQUEST['option']) and isset($_REQUEST['where_clause']) and $_REQUEST['option']=='select'){
 			$where=$_REQUEST['where_clause'];
 			for ($i=0; $i<count($where); $i++){
 				if ($i==0)
@@ -53,10 +52,6 @@ if (isset($_REQUEST['find']) and isset($_REQUEST['replace']) ){
 		require 'sql.php';
 		exit;
 	}
-}
-
-
-	
 
 
 
@@ -91,7 +86,9 @@ if (! empty($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 	
+
+}
+
 require 'sql.php';
 exit;
-
 ?>
