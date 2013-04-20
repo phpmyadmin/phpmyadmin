@@ -8,15 +8,20 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('user_info.js');
-
+ 
+//Test whether Database phpmyadmin exist or not
 $is_db_exist = PMA_DBI_select_db("phpmyadmin");
+
 //If database doen't exist then create it
 if(!($is_db_exist)){
 	$query = "CREATE DATABASE IF NOT EXISTS `phpmyadmin`"
   	."DEFAULT CHARACTER SET utf8 COLLATE utf8_bin";
   	$result = PMA_DBI_try_query($query);
   }
+
+//Test if Table Exist or not  
 $is_table_exist = PMA_DBI_try_query("select 1 from phpmyadmin.pma_user_info");
+
 //If table doesn't  exist then create it
 if(!($is_table_exist))
 {
@@ -31,7 +36,7 @@ if(!($is_table_exist))
 	. ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Information Regarding Users of Database'";
 	$result = PMA_DBI_try_query($query);
 }
-	
+
 //if form for updation was submitted
 if(isset($_POST['editform'])){
 
@@ -41,15 +46,17 @@ if(isset($_POST['editform'])){
 	$ext = $cfg['Server']['extension'];
 	
 	//process the data and update the table  
-	$newname = $_POST['new_name'];
-	$newcontact = $_POST['new_contact'];
+	$newname = PMA_Util::sqlAddSlashes($_POST['new_name']);
+	$newcontact = PMA_Util::sqlAddSlashes($_POST['new_contact']);
+	
 	//sanitizing Telephone numbers. Currently of the type "+<isd code><numbers separated with ->"
 	if(!(preg_match("/^\+?([0-9]-?)+$/",$newcontact))){
 		PMA_Message::error('Check your Telephone Number again. It will not be saved.')->display();
 		unset($newcontact);
 	}
 	
-	$newmail = $_POST['new_email'];
+	$newmail = PMA_Util::sqlAddSlashes($_POST['new_email']);
+	
 	//sanitizing email address
 	$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
 	if(!(preg_match($regex, $newmail))){
@@ -57,23 +64,32 @@ if(isset($_POST['editform'])){
 		unset($newmail);
 	}
 	
-	$newdesc = nl2br($_POST['new_description']);
-	if(($_FILES['new_img']['size']/1024)<64){
-		if((substr($_FILES['new_img']['type'],0,5) == "image"))
+	//sanitizing Description
+	$newdesc = htmlspecialchars(PMA_Util::sqlAddSlashes($_POST['new_description']));
+	$newdesc=nl2br($newdesc);
+	
+	if(($_FILES['new_img']['size']/1024)<64){ //if uploaded image is of less than 64KB
+		if((substr($_FILES['new_img']['type'],0,5) == "image")) //if uploaded image is of image type
 			$newimg = $_FILES['new_img']['tmp_name'];
-		$result = doInsert_Update($host, $user, $newname, $newcontact, $newmail, $newdesc, $newimg, $ext);
+		else
+			PMA_Message::error('Selected File is not of Image Type')->display();
 	}
 	else{
 		PMA_Message::error('File Size was greater than 64KB')->display();
-		$response->isSuccess(false);
-		$response->addJSON('message', PMA_Message::error(__('File Size was greater than 64KB')));
-		PMA_Message::error('Details Couldn\'t be updated')->display();
 	}
-				
+	
+	//Send The Parameters to the function for Insertion/Updation
+	$result = doInsert_Update($host, $user, $newname, $newcontact,
+				$newmail, $newdesc, $newimg, $ext);			
 }
+
+$html='';
+
 //usual display of details
 $user=$_GET['user'];
 $host=$_GET['host'];
+
+//If No information comes via GET then Display User Information. Helps in redirecting after Updation
 if(!isset($user) && (!isset($host))){
 	$user = $cfg['Server']['user'];
 	$host = $cfg['Server']['host'];
@@ -84,31 +100,30 @@ if(!isset($user) && (!isset($host))){
 if($user == $cfg['Server']['user'] && $host == $cfg['Server']['host'])
 	$edit=true;
 	
-$userdetails=doFetch($host,$user);
+$userdetails=showFetchedInfo($host,$user);
 
-$html='';
+//return the Fetched Html via array. Let's Keep all the output part of code in same place
+$html.= $userdetails[4];
+
 //only the user can change his information and no other
 if($edit){
-	echo '<input type = \'button\' id = \'buttonGo\' value = \'Edit\' name=\'submit_reset\'>';
+	$html.= '<input type = \'button\' id = \'buttonGo\' value = \'Edit\' name=\'submit_reset\'>';
 }
+
 $html.=   '<div id = \'user_info\' class = \'user_info\'>'
 	. '<h2> Update User Information</h2>'
-	. '<form method=post class=disableAjax id=edituser action=user_info.php enctype=multipart/form-data>'
+	. '<form method = post class = disableAjax id = edituser action = user_info.php enctype = \'multipart/form-data\'>'
+	. '<input type = hidden name = token value ='. $_SESSION[' PMA_token '] . '>'
+	. '<input type = hidden name = editform value = 1>'
 	. '<table>'
-	. '<input type=hidden name = token value='. $_SESSION[' PMA_token '] . '>'
-	. '<input type=hidden name=editform value=1>'
-	. '<tr><td>Name :</td><td><input type = text name = new_name value="' . $userdetails[0] . '"></td></tr>'
-	. '<tr><td>Contact :</td><td><input type = text name = new_contact value="' . $userdetails[1] . '"></td></tr>'
-	. '<tr><td>E-mail : </td><td><input type = text name = new_email value="' . $userdetails[3] . '"></td></tr>'
+	. '<tr><td>Name :</td><td><input type = text name = new_name value="' . htmlspecialchars($userdetails[0]) . '"></td></tr>'
+	. '<tr><td>Contact :</td><td><input type = text name = new_contact value="' . htmlspecialchars($userdetails[1]) . '"></td></tr>'
+	. '<tr><td>E-mail : </td><td><input type = text name = new_email value="' . htmlspecialchars($userdetails[3]) . '"></td></tr>'
 	. '<tr><td>Description : </td><td><textarea name = new_description rows=20 cols=30>' 
-	. str_replace('<br />',"\n",($userdetails[2])) .'</textarea></td></tr>'
+	. htmlspecialchars(str_replace('<br />',"",($userdetails[2]))) .'</textarea></td></tr>'
 	. '<tr><td>Icon : </td><td><input type = file name = new_img id = new_img>(max 64KB)</td></tr></table>'
-	. '<input type = submit value = update id=btn_submitform>'
+	. '<input type = submit value = update id = btn_submitform>'
 	. '</form></div>';
 	
-//$response->addHTML($html);   //Don't know why but this is not working, so for time being lets echo
-
-echo $html;
-
-
+$response->addHTML($html);
 ?>
