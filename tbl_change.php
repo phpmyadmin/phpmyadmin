@@ -116,6 +116,9 @@ $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
+$scripts->addFile('on_replace.js');
+
+
 
 /**
  * Displays the query submitted and its result
@@ -181,6 +184,10 @@ $_form_params = PMA_getFormParametersForInsertForm(
     $db, $table, $where_clauses, $where_clause_array, $err_url
 );
 
+
+//if only "find and replace form" to be shown
+//when a user clicks on "change" button without selecting any row code inside if below wont run
+if (!isset($_REQUEST['only_find_replace'])){
 /**
  * Displays the form
  */
@@ -438,6 +445,62 @@ if ($insert_mode) {
         $table, $db, $where_clause_array, $err_url
     );
 }
+
+}
+//end of code which not to be executed when only "find and replace form" to be shown 
+
+
+/**
+*form for "find and replace" feature
+*when a user edit a row or change multiple rows this form will apear at the bottom
+*
+*
+*/
+
+if (!$insert_mode and $_REQUEST['default_action']!='update'){
+	$html_output .="<form id='replaceForm' method='post' action='tbl_find_replace.php' name='replaceForm' enctype='multipart/form-data'>";
+	
+	$html_output .=PMA_generate_common_hidden_inputs($_form_params);
+	
+	
+	$fields_cnt = count($table_fields);
+	$choices=array();
+	$html_output .= "<br><br><br><h3>select a column</h3>";
+	for ($i = 0; $i < $fields_cnt; $i++) {
+		$column=$table_fields[$i]['Field'];
+		$html_output .="<input type='radio' name='column' value='".$column."' id='".$column."'/>".$column."&nbsp&nbsp";
+	}
+	
+	
+	
+	$html_output .="<br>
+	<h3>Find What?<br><input type='text' name='find' value='' size='20' class='textfield'/>
+	<br>
+	Replace  ";
+	
+	//when both SELECTED and ALL options are shown
+	if (!isset($_REQUEST['only_find_replace'])){
+	$html_output .="&nbsp&nbsp<input type='radio' name='option' value='select' id='option_selected' checked/>SELECTED /";
+	$html_output .="<input type='radio' name='option' value='all' id='option_all'/>ALL &nbsp&nbsp";
+	}
+	
+	//when only SELECTED option is shown
+	else{
+		$html_output .="<input type='hidden' name='option' value='all'/> ALL ";
+	}
+	
+	
+	$html_output .= " rows With?</h3><input type='text' name='replace' value='' size='20' class='textfield'/>
+
+
+	<td colspan='3' align='right' valign='middle'>
+           <input type='submit' class='control_at_footer' value='".__('Go')."'  id='buttonReplace' />
+           <input type='reset' class='control_at_footer' value='".__('Reset')."' />
+     </td>
+	 </form>";
+
+}
+
 $response->addHTML($html_output);
 
 ?>

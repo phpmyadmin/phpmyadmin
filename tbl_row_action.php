@@ -15,8 +15,13 @@ require_once 'libraries/mysql_charsets.lib.php';
 /**
  * No rows were selected => show again the query and tell that user.
  */
+
+
+//$_REQUEST['submit_mult']!='row_edit' part was added to stop showing "no row sellected"
+// message when click on "Change" button
+
 if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
-    && ! isset($_REQUEST['mult_btn'])
+    && ! isset($_REQUEST['mult_btn']) && $_REQUEST['submit_mult']!='row_edit'
 ) {
     $disp_message = __('No rows selected');
     $disp_query = '';
@@ -73,6 +78,13 @@ if (!empty($submit_mult)) {
         foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
             $where_clause[] = urldecode($i_where_clause);
         }
+    	
+		//Setting this variable stops loading edit form when someone clicks on "change" button
+		//without checking any row. see "tbl_change.php".
+		if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
+		&& ! isset($_REQUEST['mult_btn'])){
+			$_REQUEST['only_find_replace']=1;
+		}
 
         $active_page = 'tbl_change.php';
         include 'tbl_change.php';
@@ -90,7 +102,6 @@ if (!empty($submit_mult)) {
         foreach ($_REQUEST['rows_to_delete'] as $i => $i_where_clause) {
             $where_clause[] = urldecode($i_where_clause);
         }
-
         $active_page = 'tbl_export.php';
         include 'tbl_export.php';
         break;
