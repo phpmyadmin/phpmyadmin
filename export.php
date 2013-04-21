@@ -272,10 +272,10 @@ if ($asfile) {
                 'Export/file_template_table', $filename_template);
         }
     }
-    // remove dots in template to avoid a remote code execution vulnerability
-    $filename_template = str_replace('.', '', $filename_template);
     $filename = PMA_expandUserString($filename_template);
-    $filename = PMA_sanitize_filename($filename);
+    // remove dots in filename (coming from either the template or already
+    // part of the filename) to avoid a remote code execution vulnerability
+    $filename = PMA_sanitize_filename($filename, $replaceDots = true);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
