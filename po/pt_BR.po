@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-19 23:18+0200\n"
+"PO-Revision-Date: 2013-04-22 21:44+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
@@ -7042,11 +7042,11 @@ msgstr "Búlgaro"
 
 #: libraries/mysql_charsets.lib.php:228 libraries/mysql_charsets.lib.php:353
 msgid "Simplified Chinese"
-msgstr "Chinês Simplificado"
+msgstr "Chinês simplificado"
 
 #: libraries/mysql_charsets.lib.php:230 libraries/mysql_charsets.lib.php:373
 msgid "Traditional Chinese"
-msgstr "Chinês Tradicional"
+msgstr "Chinês tradicional"
 
 #: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:420
 msgid "case-insensitive"
@@ -11759,7 +11759,7 @@ msgstr "Editar view"
 
 #: tbl_structure.php:640
 msgid "Relation view"
-msgstr "View de relações"
+msgstr "View de relacionamentos"
 
 #: tbl_structure.php:648
 msgid "Propose table structure"
