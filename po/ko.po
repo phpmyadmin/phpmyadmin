@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-19 16:53+0200\n"
+"PO-Revision-Date: 2013-04-22 16:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -5240,7 +5240,7 @@ msgstr "질의 창 폭"
 
 #: libraries/config/messages.inc.php:353
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "문자열 변환을 위한 함수를 선택하세요"
 
 #: libraries/config/messages.inc.php:354
 msgid "Recoding engine"
@@ -5248,7 +5248,7 @@ msgstr "기록 엔진"
 
 #: libraries/config/messages.inc.php:355
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "조회한 테이블의 정렬 순서를 기억함"
 
 #: libraries/config/messages.inc.php:356
 msgid "Remember table's sorting"
@@ -5256,7 +5256,7 @@ msgstr "테이블의 정렬 순서 기억하기"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat headers"
@@ -6604,7 +6604,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "인덱스 생성시 사용할 임시 파일의 최대 크기"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -8562,42 +8562,41 @@ msgstr ""
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "프로시저 수행 중 가장 최근의 구문에 의해 %d개의 로우가 영향을 받음"
 
 #: libraries/rte/rte_routines.lib.php:1505
 #: libraries/rte/rte_routines.lib.php:1513
 msgid "Execute routine"
-msgstr ""
+msgstr "루틴 실행"
 
 #: libraries/rte/rte_routines.lib.php:1569
 #: libraries/rte/rte_routines.lib.php:1572
 msgid "Routine parameters"
-msgstr ""
+msgstr "루틴 파라미터"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "죄송합니다만, 삭제한 트리거를 복구하지 못했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "트리거 %1$s가 수정되었습니다."
 
 #: libraries/rte/rte_triggers.lib.php:136
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "트리거 %1$s를 생성했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:204
 msgid "Edit trigger"
 msgstr "트리거 수정"
 
 #: libraries/rte/rte_triggers.lib.php:350
-#, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
-msgstr "서버명"
+msgstr "트리거 이름"
 
 #: libraries/rte/rte_triggers.lib.php:373
 #, fuzzy
@@ -8688,45 +8687,42 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 msgid "Add event"
-msgstr "새 사용자 추가"
+msgstr "이벤트 추가"
 
 #: libraries/rte/rte_words.lib.php:48
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "이벤트 %s 추출"
 
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 msgid "event"
-msgstr "보냄"
+msgstr "이벤트"
 
 #: libraries/rte/rte_words.lib.php:50
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
+msgstr "이벤트를 생성할 권한이 부족함"
 
 #: libraries/rte/rte_words.lib.php:51
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
-msgstr "데이터베이스에 테이블이 없습니다."
+msgstr "데이터베이스 %2$s에 %1$s라는 이름의 이벤트가 없음"
 
 #: libraries/rte/rte_words.lib.php:52
 msgid "There are no events to display."
-msgstr ""
+msgstr "표시할 이벤트가 없습니다."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:236
 #: libraries/schema/Eps_Relation_Schema.class.php:425
 #: libraries/schema/Pdf_Relation_Schema.class.php:410
 #: libraries/schema/Svg_Relation_Schema.class.php:392
 #: libraries/schema/Visio_Relation_Schema.class.php:232
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "\"%s\" 테이블이 존재하지 않습니다!"
+msgstr "%s 테이블이 존재하지 않습니다!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:272
 #: libraries/schema/Eps_Relation_Schema.class.php:474
@@ -9349,11 +9345,11 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:337
 msgid "Do not overwrite this query from outside the window"
-msgstr ""
+msgstr "다른 창에서 현재 창의 쿼리를 덮어쓰지 못하게 함"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Delimiter"
-msgstr ""
+msgstr "구분자"
 
 #: libraries/sql_query_form.lib.php:352
 msgid "Show this query here again"
@@ -9383,6 +9379,10 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
+"SQL 파서에 버그가 있을 가능성이 있습니다. 꼼꼼하게 쿼리를 확인하시고, 따옴표를 맞게 썼는지 확인해보세요. 다른 가능성으로, 업로드한 "
+"파일에서 따옴표 밖에 바이너리 데이터가 있을 수 있습니다. 또한 MySQL CLI에서 쿼리를 테스트 해보세요. 아래에 나오는 MySQL "
+"서버 에러는 문제 해결에 도움이 될 수 있습니다. 문제가 해결되지 않거나, 파서에 에러가 있다고 판단될 경우, SQL 쿼리를 같은 "
+"에러를 발생시키는 단일 쿼리로 수정한 후, 버그 리포트에 제출해주세요. CUT 섹션 밑에 있는 데이터 청크도 같이 말입니다:"
 
 #: libraries/sqlparser.lib.php:173
 msgid "BEGIN CUT"
@@ -9402,7 +9402,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:378
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "쿼리 마지막에 역따옴표가 자동으로 붙었습니다!"
 
 #: libraries/sqlparser.lib.php:381
 msgid "Unclosed quote"
@@ -9961,7 +9961,7 @@ msgstr ""
 
 #: pmd_relation_upd.php:66
 msgid "Relation deleted"
-msgstr ""
+msgstr "릴레이션 제거됨"
 
 #: pmd_save_pos.php:73
 msgid "Error saving coordinates for Designer."
@@ -10256,14 +10256,15 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 설정되었다는 안내 메시지를 볼 수 있을겁니다"
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "슬레이브 SQL 쓰레드가 동작하지 않습니다!"
 
 #: server_replication.php:284
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "슬레이브 IO 쓰레드가 동작하지 않습니다!"
 
 #: server_replication.php:293
 msgid ""
@@ -11697,29 +11698,28 @@ msgid "X-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:232
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "값"
+msgstr "X 값"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Y축 레이블:"
 
 #: tbl_create.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "사용자 %s 가 이미 존재합니다!"
+msgstr "테이블 %s 가 이미 존재합니다!"
 
 #: tbl_create.php:56 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s'라는 데이터베이스가 존재하지 않습니다."
 
 #: tbl_create.php:246
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been created."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "테이블 %1$s이 생성되었습니다."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
@@ -12228,7 +12228,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "버전 코멘트에 'source'라는 문자가 있음"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
