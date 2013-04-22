@@ -540,9 +540,11 @@ class PMA_Util
             /* Provide consistent URL for testsuite */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
         } else if (file_exists('doc/html/index.html')) {
-            return './doc/html/' . $url;
-        } else if (defined('PMA_SETUP') && file_exists('../doc/html/index.html')) {
-            return '../doc/html/' . $url;
+            if (defined('PMA_SETUP')) {
+                return '../doc/html/' . $url;
+            } else {
+                return './doc/html/' . $url;
+            }
         } else {
             /* TODO: Should link to correct branch for released versions */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
