@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-27 12:03+0200\n"
+"PO-Revision-Date: 2013-04-27 12:04+0200\n"
 "Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -5761,10 +5761,9 @@ msgid "Options"
 msgstr "옵션"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Partial Texts"
+msgstr "텍스트의 일부분"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
 #, fuzzy
