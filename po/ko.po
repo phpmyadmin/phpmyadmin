@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-22 16:52+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2013-04-27 12:03+0200\n"
+"Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -5737,7 +5737,7 @@ msgstr "수직(세로)"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "%s 행마다 헤더 반복"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
