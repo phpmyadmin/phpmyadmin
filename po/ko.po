@@ -5766,10 +5766,9 @@ msgid "Partial texts"
 msgstr "텍스트의 일부분"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Full Texts"
+msgstr "전체 텍스트"
 
 #: libraries/display_tbl.lib.php:667
 msgid "Relational key"
