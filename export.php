@@ -456,7 +456,9 @@ if ($asfile) {
         }
     }
     $filename = PMA_Util::expandUserString($filename_template);
-    $filename = PMA_sanitizeFilename($filename);
+    // remove dots in filename (coming from either the template or already
+    // part of the filename) to avoid a remote code execution vulnerability
+    $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
