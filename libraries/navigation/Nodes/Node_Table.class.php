@@ -127,7 +127,7 @@ class Node_Table extends Node
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db' ";
                 $query .= "ORDER BY `COLUMN_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = PMA_Util::backquote($db);
@@ -173,7 +173,7 @@ class Node_Table extends Node
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
-                $query .= "LIMIT $pos, $maxItems";
+                $query .= "LIMIT " . intval($pos) . ", $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = PMA_Util::backquote($db);
