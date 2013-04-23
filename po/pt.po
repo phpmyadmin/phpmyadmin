@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:26+0200\n"
-"PO-Revision-Date: 2013-04-19 12:59+0200\n"
+"PO-Revision-Date: 2013-04-24 00:39+0200\n"
 "Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -10356,15 +10356,17 @@ msgstr "Relação apagada"
 
 #: pmd_save_pos.php:73
 msgid "Error saving coordinates for Designer."
-msgstr "Erro gravando as coordenadas para o Designer."
+msgstr "Erro ao gravar as coordenadas para o Designer."
 
 #: prefs_forms.php:85
 msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
+"Não foi possível guardar as configurações, o formulário submetido contém "
+"erros"
 
 #: prefs_manage.php:81
 msgid "Could not import configuration"
-msgstr ""
+msgstr "Não foi possível importar a configuração"
 
 #: prefs_manage.php:113
 msgid "Configuration contains incorrect data for some fields."
