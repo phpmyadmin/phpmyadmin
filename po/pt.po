@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-18 10:34+0200\n"
-"Last-Translator: Jonadabe PT <jonadabe@hotmail.com>\n"
+"PO-Revision-Date: 2013-04-19 12:59+0200\n"
+"Last-Translator: Filipe Batista <geral@filipebatista.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -899,6 +899,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"A versão %s da biblioteca MySQL do PHP difere da versão %s do servidor "
+"MySQL. Isto pode causar comportamento imprevisível."
 
 #: index.php:525
 #, php-format
@@ -906,6 +908,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"Servidor a correr com Suhosin. Por favor verifique a %sdocumentação%s para "
+"eventuais problemas."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:355
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2768,7 +2772,7 @@ msgstr "Abrir nova janela do phpMyAdmin"
 
 #: libraries/Header.class.php:392
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Clique na barra para deslizar para o topo da página"
 
 #: libraries/Header.class.php:609
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
@@ -3028,11 +3032,11 @@ msgstr "Query cache"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
-msgstr ""
+msgstr "Tópicos"
 
 #: libraries/ServerStatusData.class.php:188
 msgid "Temporary data"
-msgstr ""
+msgstr "Dados temporários"
 
 #: libraries/ServerStatusData.class.php:189
 #, fuzzy
@@ -3061,7 +3065,7 @@ msgstr "Tabelas"
 
 #: libraries/ServerStatusData.class.php:195
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "Coordenador de Transacção"
 
 #: libraries/ServerStatusData.class.php:196 server_binlog.php:107
 msgid "Files"
@@ -3069,7 +3073,7 @@ msgstr "Ficheiros"
 
 #: libraries/ServerStatusData.class.php:207
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Flush (fechar) todas as tabelas"
 
 #: libraries/ServerStatusData.class.php:209
 msgid "Show open tables"
@@ -6763,7 +6767,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 #: libraries/engines/innodb.lib.php:28
 msgid "Data home directory"

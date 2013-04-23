@@ -131,12 +131,10 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
 ) {
     global $_FormDisplayGroup;
-    static $base_dir; // Relative path to the root phpMyAdmin folder
     static $icons;    // An array of IMG tags used further below in the function
 
     $is_setup_script = defined('PMA_SETUP');
-    if ($base_dir === null) { // if the static variables have not been initialised
-        $base_dir = $is_setup_script ? '../' : '';
+    if ($icons === null) { // if the static variables have not been initialised
         $icons = array();
         // Icon definitions:
         // The same indexes will be used in the $icons array.
@@ -205,7 +203,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     if (! empty($opts['doc']) || ! empty($opts['wiki'])) {
         echo '<span class="doc">';
         if (! empty($opts['doc'])) {
-            echo '<a href="' . $base_dir . $opts['doc']
+            echo '<a href="' . $opts['doc']
                 . '" target="documentation">' . $icons['help'] . '</a>';
             echo "\n";
         }

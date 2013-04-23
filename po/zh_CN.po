@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-14 15:17+0200\n"
-"Last-Translator: zz zz <tczzjin@gmail.com>\n"
+"PO-Revision-Date: 2013-04-20 18:43+0200\n"
+"Last-Translator: greensea g <gs@bbxy.net>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -3415,7 +3415,7 @@ msgstr "从一组最多64个成员的集合中选择的单个值"
 
 #: libraries/Types.class.php:358
 msgid "A type that can store a geometry of any type"
-msgstr "一个能存储任何几何形状数据的类型"
+msgstr "一个能存储任何类型几何形状的类型"
 
 #: libraries/Types.class.php:360
 msgid "A point in 2-dimensional space"
@@ -3505,7 +3505,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr "一个可变长度（0-65,535）字符串，对所有对比采用二进制排序规则"
+msgstr "一个长度不定（0-65,535）的字符串，对所有对比采用二进制排序规则"
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
@@ -7736,7 +7736,7 @@ msgstr "数据创建选项"
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1649
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "插入之前先把表清空（truncate）"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"

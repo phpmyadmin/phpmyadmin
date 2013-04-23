@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-15 14:03+0200\n"
+"PO-Revision-Date: 2013-04-22 16:52+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -4021,7 +4021,7 @@ msgstr "선택된 행을 하이라이트"
 
 #: libraries/config/messages.inc.php:23
 msgid "Row marker"
-msgstr ""
+msgstr "열(row) 마커"
 
 #: libraries/config/messages.inc.php:24
 msgid "Highlight row pointed by the mouse cursor"
@@ -4049,6 +4049,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제한 가능, "
+"[kbd]textarea[/kbd] - 줄 바꿈 허용"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4059,10 +4061,12 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 줄 번호 지원)로 SQL "
+"쿼리를 편집"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "CodeMirror 활성화"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -4114,7 +4118,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:42
 msgid "Compress on the fly"
-msgstr ""
+msgstr "즉시 압축"
 
 #: libraries/config/messages.inc.php:43 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
@@ -4125,7 +4129,7 @@ msgstr "설정 파일"
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
-msgstr ""
+msgstr "데이터가 사라지기 전에 경고 메시지(&quot;정말 확실합니까&quot;) 출력 여부"
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
@@ -4165,13 +4169,12 @@ msgstr "기본 테이블 탭"
 
 #: libraries/config/messages.inc.php:54
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "테이블 구조 관련 기능을 숨겨 놓을지 말지 여부"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "제안하는 테이블 구조"
+msgstr "테이블 구조 관련 기능 숨기기"
 
 #: libraries/config/messages.inc.php:56
 msgid "Show binary contents as HEX by default"
@@ -4179,7 +4182,7 @@ msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)"
 
 #: libraries/config/messages.inc.php:59
 msgid "Display servers as a list"
@@ -4189,7 +4192,7 @@ msgstr "서버들을 목록으로 표시"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr ""
+msgstr "선택한 테이블을 최적화 하거나 복구하는 등의 대규모 유지 보수 작업을 해제합니다."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
@@ -4448,7 +4451,7 @@ msgstr "강제적인 SSL 연결"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
-msgstr ""
+msgstr "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/kbd]: 키 값"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4947,12 +4950,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
-msgstr ""
+msgstr "데이터베이스의 최대 갯수"
 
 #: libraries/config/messages.inc.php:286
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr ""
+msgstr "탐색 트리에서 페이지 당 보여질 아이템 수"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
@@ -5237,7 +5240,7 @@ msgstr "질의 창 폭"
 
 #: libraries/config/messages.inc.php:353
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "문자열 변환을 위한 함수를 선택하세요"
 
 #: libraries/config/messages.inc.php:354
 msgid "Recoding engine"
@@ -5245,7 +5248,7 @@ msgstr "기록 엔진"
 
 #: libraries/config/messages.inc.php:355
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "조회한 테이블의 정렬 순서를 기억함"
 
 #: libraries/config/messages.inc.php:356
 msgid "Remember table's sorting"
@@ -5253,7 +5256,7 @@ msgstr "테이블의 정렬 순서 기억하기"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat headers"
@@ -5657,17 +5660,17 @@ msgstr "명세"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
-msgstr ""
+msgstr "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:446
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "SQL 쿼리 추적 테이블"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr ""
+msgstr "SQL 쿼리 추적 기능이 테이블과 뷰에 대한 버전을 자동으로 생성할지 여부."
 
 #: libraries/config/messages.inc.php:448
 msgid "Automatically create versions"
@@ -6601,7 +6604,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "인덱스 생성시 사용할 임시 파일의 최대 크기"
 
 #: libraries/engines/myisam.lib.php:43
 msgid ""
@@ -8559,42 +8562,41 @@ msgstr ""
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
+msgstr[0] "프로시저 수행 중 가장 최근의 구문에 의해 %d개의 로우가 영향을 받음"
 
 #: libraries/rte/rte_routines.lib.php:1505
 #: libraries/rte/rte_routines.lib.php:1513
 msgid "Execute routine"
-msgstr ""
+msgstr "루틴 실행"
 
 #: libraries/rte/rte_routines.lib.php:1569
 #: libraries/rte/rte_routines.lib.php:1572
 msgid "Routine parameters"
-msgstr ""
+msgstr "루틴 파라미터"
 
 #: libraries/rte/rte_triggers.lib.php:106
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "죄송합니다만, 삭제한 트리거를 복구하지 못했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been modified."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "트리거 %1$s가 수정되었습니다."
 
 #: libraries/rte/rte_triggers.lib.php:136
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "트리거 %1$s를 생성했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:204
 msgid "Edit trigger"
 msgstr "트리거 수정"
 
 #: libraries/rte/rte_triggers.lib.php:350
-#, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
-msgstr "서버명"
+msgstr "트리거 이름"
 
 #: libraries/rte/rte_triggers.lib.php:373
 #, fuzzy
@@ -8685,45 +8687,42 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 msgid "Add event"
-msgstr "새 사용자 추가"
+msgstr "이벤트 추가"
 
 #: libraries/rte/rte_words.lib.php:48
 #, php-format
 msgid "Export of event %s"
-msgstr ""
+msgstr "이벤트 %s 추출"
 
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 msgid "event"
-msgstr "보냄"
+msgstr "이벤트"
 
 #: libraries/rte/rte_words.lib.php:50
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
+msgstr "이벤트를 생성할 권한이 부족함"
 
 #: libraries/rte/rte_words.lib.php:51
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
-msgstr "데이터베이스에 테이블이 없습니다."
+msgstr "데이터베이스 %2$s에 %1$s라는 이름의 이벤트가 없음"
 
 #: libraries/rte/rte_words.lib.php:52
 msgid "There are no events to display."
-msgstr ""
+msgstr "표시할 이벤트가 없습니다."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:236
 #: libraries/schema/Eps_Relation_Schema.class.php:425
 #: libraries/schema/Pdf_Relation_Schema.class.php:410
 #: libraries/schema/Svg_Relation_Schema.class.php:392
 #: libraries/schema/Visio_Relation_Schema.class.php:232
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
-msgstr "\"%s\" 테이블이 존재하지 않습니다!"
+msgstr "%s 테이블이 존재하지 않습니다!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:272
 #: libraries/schema/Eps_Relation_Schema.class.php:474
@@ -9346,11 +9345,11 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:337
 msgid "Do not overwrite this query from outside the window"
-msgstr ""
+msgstr "다른 창에서 현재 창의 쿼리를 덮어쓰지 못하게 함"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Delimiter"
-msgstr ""
+msgstr "구분자"
 
 #: libraries/sql_query_form.lib.php:352
 msgid "Show this query here again"
@@ -9380,6 +9379,10 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
+"SQL 파서에 버그가 있을 가능성이 있습니다. 꼼꼼하게 쿼리를 확인하시고, 따옴표를 맞게 썼는지 확인해보세요. 다른 가능성으로, 업로드한 "
+"파일에서 따옴표 밖에 바이너리 데이터가 있을 수 있습니다. 또한 MySQL CLI에서 쿼리를 테스트 해보세요. 아래에 나오는 MySQL "
+"서버 에러는 문제 해결에 도움이 될 수 있습니다. 문제가 해결되지 않거나, 파서에 에러가 있다고 판단될 경우, SQL 쿼리를 같은 "
+"에러를 발생시키는 단일 쿼리로 수정한 후, 버그 리포트에 제출해주세요. CUT 섹션 밑에 있는 데이터 청크도 같이 말입니다:"
 
 #: libraries/sqlparser.lib.php:173
 msgid "BEGIN CUT"
@@ -9399,7 +9402,7 @@ msgstr "END RAW"
 
 #: libraries/sqlparser.lib.php:378
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "쿼리 마지막에 역따옴표가 자동으로 붙었습니다!"
 
 #: libraries/sqlparser.lib.php:381
 msgid "Unclosed quote"
@@ -9958,7 +9961,7 @@ msgstr ""
 
 #: pmd_relation_upd.php:66
 msgid "Relation deleted"
-msgstr ""
+msgstr "릴레이션 제거됨"
 
 #: pmd_save_pos.php:73
 msgid "Error saving coordinates for Designer."
@@ -10253,14 +10256,15 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 설정되었다는 안내 메시지를 볼 수 있을겁니다"
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "슬레이브 SQL 쓰레드가 동작하지 않습니다!"
 
 #: server_replication.php:284
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "슬레이브 IO 쓰레드가 동작하지 않습니다!"
 
 #: server_replication.php:293
 msgid ""
@@ -11694,29 +11698,28 @@ msgid "X-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:232
-#, fuzzy
 #| msgid "Value"
 msgid "X Values"
-msgstr "값"
+msgstr "X 값"
 
 #: tbl_chart.php:234
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Y축 레이블:"
 
 #: tbl_create.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "사용자 %s 가 이미 존재합니다!"
+msgstr "테이블 %s 가 이미 존재합니다!"
 
 #: tbl_create.php:56 tbl_get_field.php:23
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s'라는 데이터베이스가 존재하지 않습니다."
 
 #: tbl_create.php:246
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been created."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "테이블 %1$s이 생성되었습니다."
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
@@ -12225,7 +12228,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "버전 코멘트에 'source'라는 문자가 있음"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -12549,14 +12552,12 @@ msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 msgid "Rate of reading first index entry"
-msgstr "파일 문자셋:"
+msgstr "첫 번째 인덱스 항목을 읽는 비율"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 msgid "The rate of reading the first index entry is high."
-msgstr "파일 문자셋:"
+msgstr "첫 번째 인덱스 항목을 읽는 비율이 높습니다."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -12567,6 +12568,10 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 "
+"씁니다. 이런 테이블들이 대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 전체 "
+"인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 "
+"있습니다."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -12578,9 +12583,8 @@ msgid "Rate of reading fixed position"
 msgstr "고정위치 읽기 비율"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 msgid "The rate of reading data from a fixed position is high."
-msgstr "파일 문자셋:"
+msgstr "고정된 위치에서 데이터를 읽는 비율이 높습니다."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -12588,6 +12592,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 "
+"추가하세요."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
