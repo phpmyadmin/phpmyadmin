@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:07+0200\n"
+"PO-Revision-Date: 2013-04-24 09:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/uz@latin/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -9736,7 +9736,7 @@ msgstr "Barcha"
 #: schema_edit.php:38 schema_edit.php:44 schema_edit.php:50 schema_edit.php:55
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "<b>\"%s\"</b> jadvali topilmadi yoki <b>\"%s\"</b>da o‘rnatilmagan"
+msgstr "<b>\"%s\"</b> jadvali topilmadi yoki \"%s\" da o‘rnatilmagan"
 
 #: schema_export.php:39
 #, fuzzy
