@@ -425,14 +425,23 @@ if (!empty($submit_mult) && !empty($what)) {
 
             case 'replace_prefix_tbl':
                 $current = $selected[$i];
-                $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+                if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
+                    $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+                } else {
+                    $newtablename = $current;
+                }
                 $a_query = 'ALTER TABLE ' . PMA_backquote($selected[$i]) . ' RENAME ' . PMA_backquote($newtablename) ; // CHANGE PREFIX PATTERN
                 $run_parts = true;
                 break;
 
             case 'copy_tbl_change_prefix':
                 $current = $selected[$i];
-                $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+                if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
+                    $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+                } else {
+                    $newtablename = $current;
+                }
+                $newtablename = $to_prefix . substr($current, strlen($from_prefix));
                 $a_query = 'CREATE TABLE ' . PMA_backquote($newtablename) . ' SELECT * FROM ' . PMA_backquote($selected[$i]) ; // COPY TABLE AND CHANGE PREFIX PATTERN
                 $run_parts = true;
                 break;
