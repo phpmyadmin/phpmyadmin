@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-23 18:46+0200\n"
+"PO-Revision-Date: 2013-04-24 19:07+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -116,7 +116,7 @@ msgstr "O banco de dados %1$s foi criado."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Comentário do banco de dados: "
+msgstr "Comentário do banco de dados:"
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
@@ -495,7 +495,7 @@ msgstr "Tipo incorreto!"
 
 #: export.php:93
 msgid "Selected export type has to be saved in file!"
-msgstr "Tipo de exportação selecionado tem que ser salvo no arquivo!"
+msgstr "Tipo de exportação selecionado tem que ser salvo em arquivo!"
 
 #: export.php:122
 msgid "Bad parameters!"
@@ -822,7 +822,7 @@ msgstr ""
 "O seu arquivo de configuração contém configurações (root sem senha) que "
 "correspondem à conta privilegiada padrão do MySQL. O servidor MySQL rodando "
 "com esse padrão estará aberto a invasões, você realmente deveria corrigir "
-"este furo de segurança."
+"esta brecha de segurança."
 
 #: index.php:403
 msgid ""
@@ -841,7 +841,7 @@ msgid ""
 msgstr ""
 "A extensão mbstring do PHP não foi encontrada e você parece estar usando "
 "conjuntos de caracteres multibyte. Sem a extensão mbstring o phpMyAdmin não "
-"será capaz de dividir as strings corretamente isso pode causar resultados "
+"será capaz de dividir as strings corretamente e isso pode causar resultados "
 "inesperados."
 
 #: index.php:425
@@ -862,9 +862,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"A validade dos cookies de login armazenados está menor que a validade dos "
-"cookies configurados no phpMyAdmin, por isso, o seu login expirará mais cedo "
-"do que o configurado no phpMyAdmin."
+"A validade dos cookies de login armazenados está menor que a configurada no "
+"phpMyAdmin, por isso, o seu login expirará mais cedo do que o configurado no "
+"phpMyAdmin."
 
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -1727,7 +1727,8 @@ msgstr "Adicionar %d valor(es)"
 #: js/messages.php:268
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma"
+msgstr ""
+"Nota: Se o arquivo contém várias tabelas, elas serão combinadas em uma só"
 
 #: js/messages.php:271
 msgid "Hide query box"
@@ -1926,7 +1927,7 @@ msgstr "Ir para o link"
 
 #: js/messages.php:359
 msgid "Copy column name"
-msgstr "Copiar nome coluna"
+msgstr "Copiar o nome da coluna"
 
 #: js/messages.php:360
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2263,19 +2264,20 @@ msgstr "Falha ao testar a regra '%s'"
 #: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "Falha ao formatar linha para a regra '%s'."
+msgstr "Falha ao formatar string para a regra '%s'."
 
 #: libraries/Advisor.class.php:378
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
-"Declaração de regra inválida %1$s, é esperado a linha %2$s da regra anterior"
+"Declaração de regra inválida na linha %1$s, é esperado a linha %2$s da regra "
+"anterior"
 
 #: libraries/Advisor.class.php:395
 #, php-format
 msgid "Invalid rule declaration on line %s"
-msgstr "Formato inválido na linha %s;"
+msgstr "Declaração de regra inválida na linha %s"
 
 #: libraries/Advisor.class.php:403
 #, php-format
@@ -2313,8 +2315,8 @@ msgstr "Arquivo de configuração existente (%s) não pode ser lido."
 #: libraries/Config.class.php:1117
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Permissões incorretas no arquivo de configuração, não deve ser gravável por "
-"todos!"
+"Permissões incorretas no arquivo de configuração, não deveria permitir "
+"escrita por qualquer um!"
 
 #: libraries/Config.class.php:1691
 msgid "Font size"
@@ -2356,7 +2358,7 @@ msgstr "Adicionar/Remover colunas"
 
 #: libraries/DBQbe.class.php:603 libraries/DBQbe.class.php:635
 msgid "Update Query"
-msgstr "Atualizar a consulta SQL"
+msgstr "Atualizar query"
 
 #: libraries/DBQbe.class.php:618
 msgid "Use Tables"
@@ -2391,7 +2393,7 @@ msgstr "Consulta SQL ao banco de dados <b>%s</b>:"
 
 #: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1271
 msgid "Submit Query"
-msgstr "Enviar consulta SQL"
+msgstr "Enviar query"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:398
 msgid "at least one of the words"
@@ -2460,11 +2462,11 @@ msgstr "Palavra(s) ou valor(es) para procurar (coringa: \"%\"):"
 
 #: libraries/DbSearch.class.php:395
 msgid "Find:"
-msgstr "Encontrar:"
+msgstr "Procurar:"
 
 #: libraries/DbSearch.class.php:400 libraries/DbSearch.class.php:404
 msgid "Words are separated by a space character (\" \")."
-msgstr "Palavras são separadas por um caracter de espaço (\" \")."
+msgstr "Palavras são separadas por um caractere de espaço (\" \")."
 
 #: libraries/DbSearch.class.php:419
 msgid "Inside tables:"
@@ -2618,7 +2620,7 @@ msgstr "Registro eliminado"
 #: libraries/DisplayResults.class.php:3409
 #: libraries/DisplayResults.class.php:5043 server_status.php:467
 msgid "Kill"
-msgstr "Matar"
+msgstr "Finalizar"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
@@ -2856,7 +2858,7 @@ msgstr "Bancos de dados"
 #: libraries/structure.lib.php:707 libraries/structure.lib.php:1188
 #: libraries/tbl_info.inc.php:59
 msgid "View"
-msgstr "Visão"
+msgstr "Visualizar"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
 #: libraries/Util.class.php:3221 libraries/Util.class.php:3228
@@ -2895,7 +2897,7 @@ msgstr "Operações"
 #: libraries/Menu.class.php:296 libraries/Menu.class.php:413
 #: libraries/relation.lib.php:238
 msgid "Tracking"
-msgstr "Rastreando"
+msgstr "Monitoramento"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:407
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
@@ -2964,7 +2966,7 @@ msgstr "Variáveis"
 
 #: libraries/Menu.class.php:510
 msgid "Charsets"
-msgstr "Conjuntos de caracteres"
+msgstr "Charsets"
 
 #: libraries/Menu.class.php:515 server_plugins.php:32 server_plugins.php:65
 msgid "Plugins"
@@ -3021,7 +3023,7 @@ msgstr "Não existem tabelas recentes"
 #: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:672
 #: server_status.php:340 sql.php:1113
 msgid "SQL query"
-msgstr "Consulta SQL"
+msgstr "Query SQL"
 
 #: libraries/ServerStatusData.class.php:184
 msgid "Handler"
@@ -3029,7 +3031,7 @@ msgstr "Manipulador"
 
 #: libraries/ServerStatusData.class.php:185
 msgid "Query cache"
-msgstr "Consulta do cache"
+msgstr "Cache de query"
 
 #: libraries/ServerStatusData.class.php:186
 msgid "Threads"
@@ -3053,7 +3055,7 @@ msgstr "Junções"
 
 #: libraries/ServerStatusData.class.php:193
 msgid "Sorting"
-msgstr "Ordenando"
+msgstr "Ordenação"
 
 #: libraries/ServerStatusData.class.php:194
 #: libraries/build_html_for_db.lib.php:26
@@ -3271,7 +3273,7 @@ msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
 #: libraries/TableSearch.class.php:1163
 msgid "Browse/Edit the points"
-msgstr "Visualzar/Editar pontos"
+msgstr "Visualizar/Editar os pontos"
 
 #: libraries/TableSearch.class.php:1170
 msgid "How to use"
@@ -3598,7 +3600,7 @@ msgstr "Numérico"
 #: libraries/Types.class.php:643 libraries/Types.class.php:977
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Conjuntos de data e hora"
+msgstr "Data e Tempo"
 
 #: libraries/Types.class.php:652 libraries/Types.class.php:980
 msgctxt "string types"
@@ -3674,7 +3676,7 @@ msgstr "Tamanho máximo: %s%s"
 #: libraries/rte/rte_triggers.lib.php:112
 #: libraries/rte/rte_triggers.lib.php:133
 msgid "MySQL said: "
-msgstr "Mensagens do MySQL : "
+msgstr "Mensagem do MySQL: "
 
 #: libraries/Util.class.php:1166
 msgid "Failed to connect to SQL validator!"
@@ -3682,11 +3684,11 @@ msgstr "Falha ao conectar ao validador SQL!"
 
 #: libraries/Util.class.php:1208 libraries/config/messages.inc.php:487
 msgid "Explain SQL"
-msgstr "Explicar SQL"
+msgstr "Demonstrar SQL"
 
 #: libraries/Util.class.php:1216
 msgid "Skip Explain SQL"
-msgstr "Pular explicação do SQL"
+msgstr "Pular demonstração do SQL"
 
 #: libraries/Util.class.php:1256
 msgid "Without PHP Code"
@@ -3703,7 +3705,7 @@ msgstr "Atualizar"
 
 #: libraries/Util.class.php:1295
 msgid "Skip Validate SQL"
-msgstr "Pular validação SQL"
+msgstr "Pular validação do SQL"
 
 #: libraries/Util.class.php:1298 libraries/config/messages.inc.php:491
 msgid "Validate SQL"
@@ -3732,7 +3734,7 @@ msgstr "Dom"
 #: libraries/Util.class.php:1709
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d/%m/%Y às %T"
+msgstr "%d/%m/%Y às %H:%M"
 
 #: libraries/Util.class.php:2055
 #, php-format
@@ -3741,7 +3743,7 @@ msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
 #: libraries/Util.class.php:2144
 msgid "Missing parameter:"
-msgstr "Parâmetros ausentes:"
+msgstr "Parâmetro ausente:"
 
 #: libraries/Util.class.php:2664
 #, php-format
@@ -3856,7 +3858,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"A diretriz [code]$cfg['PmaAbsoluteUri'][/code] DEVE ser estabelecida no seu "
+"A diretriz [code]$cfg['PmaAbsoluteUrl'][/code] DEVE ser estabelecida no seu "
 "arquivo de configuração!"
 
 #: libraries/common.inc.php:627
@@ -4061,8 +4063,7 @@ msgstr "máximo %s"
 
 #: libraries/config/FormDisplay.tpl.php:223
 msgid "This setting is disabled, it will not be applied to your configuration"
-msgstr ""
-"Essa configuração está desativada, não será aplicado à sua configuração"
+msgstr "Essa configuração está desativada, não será aplicada à sua configuração"
 
 #: libraries/config/FormDisplay.tpl.php:311
 #, php-format
@@ -4076,13 +4077,13 @@ msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:330
 msgid "Allow users to customize this value"
-msgstr "Permitir a todos os usuários alterar esse valor"
+msgstr "Permitir usuários customizar esse valor"
 
 #: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
 #: libraries/schema/User_Schema.class.php:555 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
-msgstr "Restaurar"
+msgstr "Resetar"
 
 #: libraries/config/messages.inc.php:17
 msgid ""
@@ -4236,7 +4237,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
-msgstr "Confirma consultas DROP"
+msgstr "Confirma queries DROP"
 
 #: libraries/config/messages.inc.php:46
 msgid "Debug SQL"
