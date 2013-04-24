@@ -1,6 +1,12 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.5.8.1 (2013-04-24)
+- [security] Remote code execution (preg_replace), reported by Janek Vind
+  (see PMASA-2013-2)
+- [security] Locally Saved SQL Dump File Multiple File Extension Remote Code
+  Execution, reported by Janek Vind (see PMASA-2013-3)
+
 3.5.8.0 (2013-04-08)
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
