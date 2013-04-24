@@ -41,6 +41,13 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+//lets check if this page has been redirected from index
+//if redirected then load the lastpage stored in SESSION
+if($_SESSION['redirected']){
+    include $_SESSION['last_import_url'];
+    $_SESSION['redirected'] = false; //Reset session value for redirected
+    exit;
+}
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
@@ -586,5 +593,7 @@ if ($go_sql) {
 } else {
     $active_page = $goto;
     include '' . $goto;
+    //To remember the last URL, put it into session
+    $_SESSION['last_import_url'] = $goto; 
 }
 ?>

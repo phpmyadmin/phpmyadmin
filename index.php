@@ -38,6 +38,8 @@ if (! empty($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
+    if($_REQUEST['target'] == "import.php")
+         $_SESSION['redirected'] = true;  //let's store that we have redirected from index
     include $_REQUEST['target'];
     exit;
 }
