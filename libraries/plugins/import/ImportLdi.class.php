@@ -6,10 +6,10 @@
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
 /* Get the import interface */
 require_once 'libraries/plugins/ImportPlugin.class.php';
 
@@ -18,7 +18,7 @@ if ($GLOBALS['plugin_param'] !== 'table') {
     $GLOBALS['skip_import'] = true;
     return;
 }
-
+ 
 /**
  * Handles the import for the CSV format using load data
  *
@@ -114,9 +114,8 @@ class ImportLdi extends ImportPlugin
     {
         global $finished, $error, $import_file, $compression, $charset_conversion;
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
-            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
-
-        if ($import_file == 'none'
+            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns, $db, $table;
+         if ($import_file == 'none'
             || $compression != 'none'
             || $charset_conversion
         ) {
@@ -129,18 +128,20 @@ class ImportLdi extends ImportPlugin
         }
 
         $sql = 'LOAD DATA';
-        if (isset($ldi_local_option)) {
+        if (isset($ldi_local_option)) 
+        {
             $sql .= ' LOCAL';
         }
         $sql .= ' INFILE \'' . PMA_Util::sqlAddSlashes($import_file) . '\'';
+        
         if (isset($ldi_replace)) {
             $sql .= ' REPLACE';
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
         $sql .= ' INTO TABLE ' . PMA_Util::backquote($table);
-
-        if (strlen($ldi_terminated) > 0) {
+ 
+         if (strlen($ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
         if (strlen($ldi_enclosed) > 0) {
