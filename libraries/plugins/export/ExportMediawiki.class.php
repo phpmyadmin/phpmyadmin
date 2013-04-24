@@ -86,7 +86,7 @@ class ExportMediawiki extends ExportPlugin
 
         // export table headers
         $leaf = new BoolPropertyItem();
-        $leaf->setName("caption");
+        $leaf->setName("headers");
         $leaf->setText(__('Export table headers'));
         $generalOptions->addProperty($leaf);
         //add the main group to the root group
