@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-24 19:07+0200\n"
+"PO-Revision-Date: 2013-04-24 23:04+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -853,9 +853,9 @@ msgid ""
 msgstr ""
 "Seu parâmetro PHP "
 "[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] está com a validade menor que "
-"a configurada para cookies no phpMyAdmin, por isso, o seu login expirará "
-"mais cedo do que o configurado no phpMyAdmin."
+"maxlifetime@_blank]session.gc_maxlifetime[/a] está menor que a validade de "
+"cookies configurada no phpMyAdmin, por isso, o seu login expirará mais cedo "
+"do que o configurado no phpMyAdmin."
 
 #: index.php:437
 msgid ""
@@ -4369,7 +4369,7 @@ msgstr "Colocar os nomes das colunas na primeira linha"
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
 msgid "Columns enclosed by"
-msgstr "Campos delimitados por"
+msgstr "Colunas englobadas por"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
@@ -4425,7 +4425,7 @@ msgstr "Modelo de nome da tabela"
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
-msgstr "Exportar estrutura da tabela"
+msgstr "Despejar tabela"
 
 #: libraries/config/messages.inc.php:90
 #: libraries/plugins/export/ExportLatex.class.php:89
@@ -4436,7 +4436,7 @@ msgstr "Incluir legenda da tabela"
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption"
-msgstr "Legenda da Tabela"
+msgstr "Legenda de tabela"
 
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:100
 msgid "Continued table caption"
@@ -4466,7 +4466,7 @@ msgstr "Método de exportação"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
 msgid "Save on server"
-msgstr "Salvar no servidor"
+msgstr "Salvar em servidor"
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
 #: libraries/display_export.lib.php:222 libraries/display_export.lib.php:260
@@ -4531,7 +4531,7 @@ msgstr "Sintaxe a utilizar ao inserir dados"
 #: libraries/config/messages.inc.php:131
 #: libraries/plugins/export/ExportSql.class.php:382
 msgid "Maximal length of created query"
-msgstr "Tamanho máximo da consulta gerada"
+msgstr "Comprimento máximo de query criada"
 
 #: libraries/config/messages.inc.php:136
 msgid "Export type"
@@ -4544,7 +4544,7 @@ msgstr "Encapsular exportação numa transação"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export time in UTC"
-msgstr "Hora de exportação em UTC"
+msgstr "Exportar horário em UTC"
 
 #: libraries/config/messages.inc.php:146
 msgid "Force secured connection while using phpMyAdmin"
@@ -4559,18 +4559,17 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Ordem de classificação para itens em um caixa de seleção de chave "
+"Ordem de classificação para itens em um caixa drop-down de chave "
 "estrangeira; [kbd]conteúdo[/kbd] é o dado referenciado, [kbd]id[/kbd] é o "
-"valor da chave"
+"valor chave"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
-msgstr "Ordem da caixa de seleção de chave estrangeira"
+msgstr "Ordem da caixa drop-down de chave estrangeira"
 
 #: libraries/config/messages.inc.php:150
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
-"Uma caixa de seleção será utilizada se poucos itens estiverem presentes"
+msgstr "Uma caixa drop-down será utilizada se poucos itens estiverem presentes"
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key limit"
@@ -4625,7 +4624,7 @@ msgstr "Personalizar opções de exportação padrão"
 #: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:207
 #: setup/frames/menu.inc.php:17
 msgid "Features"
-msgstr "Funcionalidades"
+msgstr "Funções"
 
 #: libraries/config/messages.inc.php:166
 msgid "General"
@@ -4694,7 +4693,7 @@ msgstr "Open Document"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
-msgstr "Outras configurações do núcleo"
+msgstr "Outras configurações principais"
 
 #: libraries/config/messages.inc.php:189
 msgid "Settings that didn't fit anywhere else"
@@ -4711,16 +4710,16 @@ msgid ""
 msgstr ""
 "Especifica o texto da barra de título do browser. Veja a "
 "[doc@cfg_TitleTable]documentação[/doc] para strings mágicas que podem ser "
-"usados para conseguir valores especiais."
+"usadas para conseguir valores especiais."
 
 #: libraries/config/messages.inc.php:192
 #: libraries/navigation/NavigationHeader.class.php:204
 msgid "Query window"
-msgstr "Janela de consulta"
+msgstr "Janela de query"
 
 #: libraries/config/messages.inc.php:193
 msgid "Customize query window options"
-msgstr "Opções de personalização da janela de consulta"
+msgstr "Opções de personalização da janela de query"
 
 #: libraries/config/messages.inc.php:194
 msgid "Security"
@@ -4731,7 +4730,7 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
-"Favor note que o phpMyAdmin é uma interface de usuário e suas "
+"Favor saiba que o phpMyAdmin é uma interface de usuário e suas "
 "funcionalidades não limitam o MySQL"
 
 #: libraries/config/messages.inc.php:196
@@ -4772,21 +4771,21 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"Configure o armazenamento das configurações do phpMyAdmin para ter acesso às "
-"funcionalidades adicionais, veja [doc@linked-tables]Armazenamento de "
-"configuralçies do phpMyAdmin[/doc] na documentação"
+"Configure o armazenamento de configurações do phpMyAdmin para ter acesso às "
+"funções adicionais, veja [doc@linked-tables]armazenamento de configurações "
+"do phpMyAdmin[/doc] na documentação"
 
 #: libraries/config/messages.inc.php:204
 msgid "Changes tracking"
-msgstr "Rastreamento de mudanças"
+msgstr "Monitoramento de mudanças"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Rastreamento das mudanças feitas no banco de dados. Requer o armazenamento "
-"das configurações do phpMyAdmin."
+"Monitoramento de mudanças feitas em banco de dados. Requer o armazenamento "
+"de configurações do phpMyAdmin."
 
 #: libraries/config/messages.inc.php:206
 msgid "Customize export options"
@@ -4807,11 +4806,11 @@ msgstr "Personalizar painel principal"
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
 msgid "SQL queries"
-msgstr "Consultas SQL"
+msgstr "Queries SQL"
 
 #: libraries/config/messages.inc.php:213
 msgid "SQL Query box"
-msgstr "Caixa de consulta SQL"
+msgstr "Caixa de query SQL"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize links shown in SQL Query boxes"
@@ -4890,7 +4889,7 @@ msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr "Desative alguns dos avisos mostrados pelo phpMyAdmin"
+msgstr "Desativa alguns dos avisos mostrados pelo phpMyAdmin"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
@@ -4927,8 +4926,8 @@ msgid ""
 "transactions."
 msgstr ""
 "Permitir interromper a importação caso se detecte que a execução do script "
-"está perto do tempo limite. Isso pode ser uma boa maneira para importar "
-"arquivos grandes, entretanto isso pode interromper as transações."
+"está perto do tempo limite. Isso pode ser uma boa maneira de importar "
+"arquivos grandes, no entanto isso pode quebrar as transações."
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
@@ -4942,7 +4941,7 @@ msgstr "Não aborta em erro de INSERT"
 #: libraries/plugins/import/ImportCsv.class.php:78
 #: libraries/plugins/import/ImportLdi.class.php:84
 msgid "Replace table data with file"
-msgstr "Substituir os dados da tabela pelos do arquivo"
+msgstr "Substituir dados de tabela por arquivo"
 
 #: libraries/config/messages.inc.php:248
 msgid ""
@@ -4968,7 +4967,7 @@ msgstr "Nome das colunas na primeira linha"
 #: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportOds.class.php:82
 msgid "Do not import empty rows"
-msgstr "Não importe linhas vazias"
+msgstr "Não importar linhas vazias"
 
 #: libraries/config/messages.inc.php:258
 msgid "Import currencies ($5.00 to 5.00)"
@@ -4980,11 +4979,11 @@ msgstr "Importa porcentagem como decimal (12.00% para .12)"
 
 #: libraries/config/messages.inc.php:260
 msgid "Number of queries to skip from start"
-msgstr "Número de registros (consultas) ignoradas no início"
+msgstr "Número de queries a pular do começo"
 
 #: libraries/config/messages.inc.php:261
 msgid "Partial import: skip queries"
-msgstr "Importação parcial: pula consultas"
+msgstr "Importação parcial: queries puladas"
 
 #: libraries/config/messages.inc.php:263
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -5006,12 +5005,12 @@ msgstr "Número de linhas inseridas"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
-"Número máximo de caracteres apresentados em qualquer coluna não-numérica à "
-"mostra"
+"Número máximo de caracteres apresentados em qualquer coluna não-numérica em "
+"modo de navegação"
 
 #: libraries/config/messages.inc.php:270
 msgid "Limit column characters"
-msgstr "Limite de caracteres por coluna"
+msgstr "Limite de caracteres por campo"
 
 #: libraries/config/messages.inc.php:271
 msgid ""
@@ -5019,14 +5018,14 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Se VERDADEIRO, o logout deleta os cookies de todos os servidores; quando "
-"definido para FALSO, o logout somente ocorrerá no servidor atual. "
-"Definindo-o para FALSO torna fácil esquecer de sair dos outros servidores "
-"quando conectado à vários servidores."
+"Se TRUE, o logout deleta os cookies de todos os servidores; quando definido "
+"para FALSE, o logout somente ocorrerá no servidor atual. Definindo-o para "
+"FALSE torna fácil esquecer de sair dos outros servidores quando conectado à "
+"vários servidores."
 
 #: libraries/config/messages.inc.php:272
 msgid "Delete all cookies on logout"
-msgstr "Remover todos os cookies quando sair"
+msgstr "Remover todos os cookies ao sair"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
@@ -5034,11 +5033,11 @@ msgid ""
 "authentication mode"
 msgstr ""
 "Define se o login anterior deve ser lembrado ou não no modo de autenticação "
-"em cookie"
+"por cookie"
 
 #: libraries/config/messages.inc.php:274
 msgid "Recall user name"
-msgstr "Lembrar do nome do usuário"
+msgstr "Lembrar do nome de usuário"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
@@ -5047,14 +5046,14 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"Define a duração (em segundos) que um cookie deve ser guardado no navegador. "
-"O valor 0 padrão determina que este existirá somente na sessão atual e será "
-"apagado quando você fechar a janela do navegador. Isso é recomendado para "
-"ambientes não confiáveis."
+"Define quanto tempo (em segundos) que um cookie deve ser guardado no "
+"navegador. O valor 0 padrão determina que este existirá somente na sessão "
+"atual e será apagado quando você fechar a janela do navegador. Isso é "
+"recomendado para ambientes não confiáveis."
 
 #: libraries/config/messages.inc.php:276
 msgid "Login cookie store"
-msgstr "Armazena cookie de login"
+msgstr "Armazenamento de cookie de login"
 
 #: libraries/config/messages.inc.php:277
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -5080,7 +5079,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:282
 msgid "Maximum displayed SQL length"
-msgstr "Largura máxima do SQL exibido"
+msgstr "Comprimento máximo do SQL exibido"
 
 #: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:290
 #: libraries/config/messages.inc.php:344
@@ -5089,7 +5088,7 @@ msgstr "Usuários não podem definir um valor maior"
 
 #: libraries/config/messages.inc.php:284
 msgid "Maximum number of databases displayed in database list"
-msgstr "Número máximo de bancos de dados exibidas na lista de bancos de dados"
+msgstr "Número máximo de bancos de dados exibidos na lista de bancos de dados"
 
 #: libraries/config/messages.inc.php:285
 msgid "Maximum databases"
@@ -5098,7 +5097,9 @@ msgstr "Número máximo de bancos de dados"
 #: libraries/config/messages.inc.php:286
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
-msgstr "O número de itens que podem ser mostrados em cada página de navegação"
+msgstr ""
+"O número de itens que podem ser mostrados em cada página da árvore de "
+"navegação"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum items in branch"
@@ -5144,7 +5145,7 @@ msgid ""
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
 "O número de bytes permitidos que um script pode alocar, ex. [kbd]32MB[/kbd] "
-"([kbd]0[/kbd] para sem limite)"
+"([kbd]0[/kbd] para não haver limite)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -5171,8 +5172,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
-"Abre a página lincada na janela principal ([kbd]principal[/kbd]) ou em uma "
-"nova janela ([kbd]nova[/kbd])"
+"Abre o link da página na janela principal ([kbd]main[/kbd]) ou em uma nova "
+"janela ([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:302
 msgid "Logo link target"
@@ -5180,7 +5181,7 @@ msgstr "Alvo do link da logo"
 
 #: libraries/config/messages.inc.php:303
 msgid "Display server choice at the top of the navigation panel"
-msgstr "Exibir o servidor escolhido no topo do painel de navegação"
+msgstr "Exibir a escolha de servidor no topo do painel de navegação"
 
 #: libraries/config/messages.inc.php:304
 msgid "Display servers selection"
@@ -5188,7 +5189,7 @@ msgstr "Exibe seleção de servidores"
 
 #: libraries/config/messages.inc.php:305
 msgid "Target for quick access icon"
-msgstr "Alvo para ícone de rápido acesso"
+msgstr "Alvo para ícone de acesso rápido"
 
 #: libraries/config/messages.inc.php:306
 msgid ""
@@ -5221,19 +5222,19 @@ msgstr "Agrupar itens na árvore"
 
 #: libraries/config/messages.inc.php:311
 msgid "String that separates databases into different tree levels"
-msgstr "String que separa bancos de dados em diferentes níveis na árvore"
+msgstr "String que separa bancos de dados em diferentes níveis de árvore"
 
 #: libraries/config/messages.inc.php:312
 msgid "Database tree separator"
-msgstr "Divisor de árvore dos bancos de dados"
+msgstr "Divisor de árvore de banco de dados"
 
 #: libraries/config/messages.inc.php:313
 msgid "String that separates tables into different tree levels"
-msgstr "String que separa tabelas em diferentes níveis na árvore"
+msgstr "String que separa tabelas em diferentes níveis de árvore"
 
 #: libraries/config/messages.inc.php:314
 msgid "Table tree separator"
-msgstr "Divisor de árvore na tabela"
+msgstr "Divisor de árvore de tabela"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum table tree depth"
@@ -5258,15 +5259,15 @@ msgstr "Tabelas recentemente utilizadas"
 
 #: libraries/config/messages.inc.php:320
 msgid "These are Edit, Copy and Delete links"
-msgstr "Usar os links de Editar, Copiar e Apagar"
+msgstr "Estes são os links de Editar, Copiar e Apagar"
 
 #: libraries/config/messages.inc.php:321
 msgid "Where to show the table row links"
-msgstr "Onde mostra os links da linha da tabela"
+msgstr "Onde mostrar os links de linha de tabela"
 
 #: libraries/config/messages.inc.php:322
 msgid "Use natural order for sorting table and database names"
-msgstr "Use ordem natural para ordenar nomes de tabelas e bancos de dados"
+msgstr "Usar ordem natural para ordenar nomes de tabelas e bancos de dados"
 
 #: libraries/config/messages.inc.php:323
 msgid "Natural order"
@@ -9831,15 +9832,15 @@ msgstr "Mover o(s) campo(s) arrastando ele(s) para cima e para baixo."
 
 #: libraries/structure.lib.php:1460
 msgid "Edit view"
-msgstr "Editar view"
+msgstr "Tela de edição"
 
 #: libraries/structure.lib.php:1493
 msgid "Relation view"
-msgstr "View de relacionamentos"
+msgstr "Tela de relacionamentos"
 
 #: libraries/structure.lib.php:1505
 msgid "Propose table structure"
-msgstr "Propor estrutura da tabela"
+msgstr "Propor estrutura de tabela"
 
 #: libraries/structure.lib.php:1541
 #: libraries/tbl_columns_definition_form.inc.php:758
