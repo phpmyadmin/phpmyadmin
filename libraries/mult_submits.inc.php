@@ -12,6 +12,7 @@ require_once 'libraries/transformations.lib.php';
 
 $request_params = array(
     'clause_is_unique',
+    'from_prefix',
     'goto',
     'mult_btn',
     'original_sql_query',
@@ -24,6 +25,7 @@ $request_params = array(
     'sql_query',
     'submit_mult',
     'table_type',
+    'to_prefix',
     'url_query'
 );
 
@@ -481,15 +483,30 @@ if (!empty($submit_mult) && !empty($what)) {
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
-            $a_query = 'ALTER TABLE ' . PMA_Util::backquote($selected[$i]) . ' RENAME ' . PMA_Util::backquote($newtablename); // CHANGE PREFIX PATTERN
+            if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
+                $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+            } else {
+                $newtablename = $current;
+            }
+            $a_query = 'ALTER TABLE ' 
+                . PMA_Util::backquote($selected[$i]) 
+                . ' RENAME ' 
+                . PMA_Util::backquote($newtablename) ; // CHANGE PREFIX PATTERN
             $run_parts = true;
             break;
 
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
-            $a_query = 'CREATE TABLE ' . PMA_Util::backquote($newtablename) . ' SELECT * FROM ' . PMA_Util::backquote($selected[$i]); // COPY TABLE AND CHANGE PREFIX PATTERN
+            if (substr($current, 0, strlen($from_prefix)) == $from_prefix) {
+                $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+            } else {
+                $newtablename = $current;
+            }
+            $newtablename = $to_prefix . substr($current, strlen($from_prefix));
+            $a_query = 'CREATE TABLE ' 
+                . PMA_Util::backquote($newtablename) 
+                . ' SELECT * FROM ' 
+                . PMA_Util::backquote($selected[$i]) ; // COPY TABLE AND CHANGE PREFIX PATTERN
             $run_parts = true;
             break;
 
