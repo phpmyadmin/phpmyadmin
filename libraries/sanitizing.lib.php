@@ -134,18 +134,29 @@ function PMA_sanitize($message, $escape = false, $safe = false)
 
 
 /**
- * Sanitize a filename by removing anything besides A-Za-z0-9_.-
+ * Sanitize a filename by removing anything besides legit characters 
  *
  * Intended usecase:
- *    When using a filename in a Content-Disposition header the value should not contain ; or "
+ *    When using a filename in a Content-Disposition header the value
+ *    should not contain ; or "
+ *
+ *    When exporting, avoiding generation of an unexpected double-extension file
  *
  * @param   string  The filename
+ * @param   boolean Whether to also replace dots 
  *
  * @return  string  the sanitized filename
  *
  */
-function PMA_sanitize_filename($filename) {
-    $filename = preg_replace('/[^A-Za-z0-9_.-]/', '_', $filename);
+function PMA_sanitize_filename($filename, $replaceDots = false) {
+    $pattern = '/[^A-Za-z0-9_';
+    // if we don't have to replace dots
+    if (! $replaceDots) {
+        // then add the dot to the list of legit characters
+        $pattern .= '.';
+    }
+    $pattern .= '-]/';
+    $filename = preg_replace($pattern, '_', $filename);
     return $filename;
 }
 
