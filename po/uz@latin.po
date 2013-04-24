@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2012-12-13 13:07+0200\n"
+"PO-Revision-Date: 2013-04-24 09:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/uz@latin/>\n"
+"Language-Team: Uzbek (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -11241,7 +11241,7 @@ msgstr "Barcha"
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
 msgid "<b>%s</b> table not found or not set in %s"
-msgstr "<b>\"%s\"</b> jadvali topilmadi yoki <b>\"%s\"</b>da o‘rnatilmagan"
+msgstr "<b>\"%s\"</b> jadvali topilmadi yoki \"%s\" da o‘rnatilmagan"
 
 #: schema_export.php:62
 #, fuzzy
