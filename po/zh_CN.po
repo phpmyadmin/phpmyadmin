@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-25 16:06+0200\n"
+"PO-Revision-Date: 2013-04-25 16:12+0200\n"
 "Last-Translator: greensea g <gs@bbxy.net>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -529,10 +529,9 @@ msgid "Geometry %d:"
 msgstr "几何体"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "点"
+msgstr "点："
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -718,30 +717,26 @@ msgid "Server:"
 msgstr "服务器："
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "服务器类型"
+msgstr "服务器类型："
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "服务器版本"
+msgstr "服务器版本："
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "协议版本"
+msgstr "协议版本："
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "用户"
+msgstr "用户："
 
 #: index.php:257
 #, fuzzy
