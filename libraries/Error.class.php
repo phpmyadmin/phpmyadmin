@@ -312,7 +312,8 @@ class PMA_Error extends PMA_Message
         if (in_array($function, $include_functions)) {
             $retval .= PMA_Error::relPath($arg);
         } elseif (in_array($function, $connect_functions)
-            && getType($arg) === 'string') {
+            && getType($arg) === 'string'
+        ) {
             $retval .= getType($arg) . ' ********';
         } elseif (is_scalar($arg)) {
             $retval .= getType($arg) . ' ' . htmlspecialchars($arg);
