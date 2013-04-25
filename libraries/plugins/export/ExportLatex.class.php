@@ -118,17 +118,17 @@ class ExportLatex extends ExportPlugin
             // create primary items and add them to the group
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_caption");
-            $leaf->setText(__('Table caption'));
+            $leaf->setText(__('Table caption:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_continued_caption");
-            $leaf->setText(__('Table caption (continued)'));
+            $leaf->setText(__('Table caption (continued):'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_label");
-            $leaf->setText(__('Label key'));
+            $leaf->setText(__('Label key:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
@@ -159,21 +159,21 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("columns");
-        $leaf->setText(__('Put columns names in the first row'));
+        $leaf->setText(__('Put columns names in the first row:'));
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_caption");
-        $leaf->setText(__('Table caption'));
+        $leaf->setText(__('Table caption:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_continued_caption");
-        $leaf->setText(__('Table caption (continued)'));
+        $leaf->setText(__('Table caption (continued):'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_label");
-        $leaf->setText(__('Label key'));
+        $leaf->setText(__('Label key:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
