@@ -238,11 +238,11 @@ $htmlString .= '<div style="float:left; padding-left:40px;">'
     . '<p style="clear:both;">&nbsp;</p>'
     . '<fieldset>'
     . '<div>'
-    . '<label for="pos">' . __('Start row') . ': ' . "\n" . '</label>'
+    . '<label for="pos">' . __('Start row:') . '</label>'
     . '<input type="text" name="pos" size="3" value="'
     . $_SESSION['tmp_user_values']['pos'] . '" />'
     . '<label for="session_max_rows">'
-    . __('Number of rows') . ': ' . "\n" . '</label>'
+    . __('Number of rows:') . '</label>'
     . '<input type="text" name="session_max_rows" size="3" value="'
     . (($_SESSION['tmp_user_values']['max_rows'] != 'all')
         ? $_SESSION['tmp_user_values']['max_rows']

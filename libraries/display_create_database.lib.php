@@ -18,7 +18,7 @@ if ($is_create_db_priv) {
     // The user is allowed to create a db
     ?>
         <form method="post" action="db_create.php" id="create_database_form" class="ajax"><strong>
-            <?php echo '<label for="text_create_db">' 
+            <?php echo '<label for="text_create_db">'
                        . PMA_Util::getImage('b_newdb.png')
                        . " " . __('Create database')
                        . '</label>&nbsp;'
@@ -40,7 +40,7 @@ if ($is_create_db_priv) {
 } else {
     ?>
     <!-- db creation no privileges message -->
-        <strong><?php echo __('Create database') . ':&nbsp;' . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></strong><br />
+        <strong><?php echo __('Create database:') . '&nbsp;' . PMA_Util::showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></strong><br />
         <?php
               echo '<span class="noPrivileges">'
                  . PMA_Util::getImage('s_error2.png', '', array('hspace' => 2, 'border' => 0, 'align' => 'middle'))

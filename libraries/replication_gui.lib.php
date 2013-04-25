@@ -57,19 +57,19 @@ function PMA_replication_gui_changemaster($submitname)
     echo __('Make sure, you have unique server-id in your configuration file (my.cnf). If not, please add the following line into [mysqld] section:') . '<br />';
     echo '<pre>server-id=' . time() . '</pre>';
     echo '  <div class="item">';
-    echo '    <label for="text_username">' . __('User name') . ':</label>';
+    echo '    <label for="text_username">' . __('User name:') . '</label>';
     echo '    <input type="text" name="username" id="text_username" maxlength="'. $username_length . '" title="' . __('User name') . '" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '    <label for="text_pma_pw">' . __('Password') .' :</label>';
+    echo '    <label for="text_pma_pw">' . __('Password:') .'</label>';
     echo '    <input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '    <label for="text_hostname">' . __('Host') . ' :</label>';
+    echo '    <label for="text_hostname">' . __('Host:') . '</label>';
     echo '    <input type="text" id="text_hostname" name="hostname" maxlength="' . $hostname_length . '" value="" />';
     echo '  </div>';
     echo '  <div class="item">';
-    echo '     <label for="text_port">' . __('Port') . ':</label>';
+    echo '     <label for="text_port">' . __('Port:') . '</label>';
     echo '     <input type="text" id="text_port" name="port" maxlength="6" value="3306"  />';
     echo '  </div>';
     echo ' </fieldset>';
@@ -270,13 +270,13 @@ function PMA_replication_gui_master_addslaveuser()
         . '<input type="hidden" name="sr_take_action" value="true" />'
         . '<div class="item">'
         . '<label for="select_pred_username">'
-        . '    ' . __('User name') . ':'
+        . '    ' . __('User name:')
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_username" id="select_pred_username" title="' . __('User name') . '"'
         . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">'
         . '        <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . __('Any user') . '</option>'
-        . '        <option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field') . ':</option>'
+        . '        <option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
         . '<input type="text" name="username" maxlength="'
@@ -290,7 +290,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '</div>'
         . '<div class="item">'
         . '<label for="select_pred_hostname">'
-        . '    ' . __('Host') . ':'
+        . '    ' . __('Host:')
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_hostname" id="select_pred_hostname" title="' . __('Host') . '"';
@@ -344,7 +344,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '        <option value="userdefined"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined')
         ? ' selected="selected"' : '')
-        . '>' . __('Use text field') . ':</option>'
+        . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
         . '<input type="text" name="hostname" maxlength="'
@@ -358,7 +358,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '</div>'
         . '<div class="item">'
         . '<label for="select_pred_password">'
-        . '    ' . __('Password') . ':'
+        . '    ' . __('Password:')
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_password" id="select_pred_password" title="'
@@ -369,21 +369,21 @@ function PMA_replication_gui_master_addslaveuser()
         echo '  selected="selected"';
     }
     echo '>' . __('No Password') . '</option>'
-        . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . __('Use text field') . ':</option>'
+        . '        <option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . __('Use text field:') . '</option>'
         . '    </select>'
         . '</span>'
         . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="text_pma_pw2">'
-        . '    ' . __('Re-type') . ':'
+        . '    ' . __('Re-type:')
         . '</label>'
         . '<span class="options">&nbsp;</span>'
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />'
         . '</div>'
         . '<div class="item">'
         . '<label for="button_generate_password">'
-        . '    ' . __('Generate Password') . ':'
+        . '    ' . __('Generate Password:')
         . '</label>'
         . '<span class="options">'
         . '    <input type="button" class="button" id="button_generate_password" value="' . __('Generate') . '" onclick="suggestPassword(this.form)" />'
