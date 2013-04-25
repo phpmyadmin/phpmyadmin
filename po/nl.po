@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-03-25 09:48+0200\n"
+"PO-Revision-Date: 2013-04-25 17:00+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -39,10 +39,9 @@ msgstr ""
 "afgesloten of uw browser blokkeert bijwerkingen van uw venster."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Zoeken"
+msgstr "Zoeken:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -117,10 +116,9 @@ msgstr "Databankopmerking: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tabelopmerkingen"
+msgstr "Tabelopmerkingen:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -339,24 +337,21 @@ msgstr "in gebruik"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Gecreëerd"
+msgstr "Aangemaakt:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Laatst bijgewerkt"
+msgstr "Laatst bijgewerkt:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Laatst gecontroleerd"
+msgstr "Laatst gecontroleerd:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -527,22 +522,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Gebruik OpenStreetMaps als basislayer"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometrie"
+msgstr "Geometrie %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Punt"
+msgstr "Punt:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -566,24 +559,23 @@ msgid "Add a point"
 msgstr "Voeg een punt toe"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Lijnstuk definitie"
+msgstr "Lijnstuk definitie %d:"
 
 # https://nl.wikipedia.org/wiki/Aangeschreven_cirkel
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Aangeschreven cirkel"
+msgstr "Aangeschreven cirkel:"
 
 # https://nl.wikipedia.org/wiki/Ingeschreven_cirkel
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Ingeschreven cirkel"
+msgstr "Ingeschreven cirkel %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -594,10 +586,10 @@ msgid "Add an inner ring"
 msgstr "Voeg een ingeschreven cirkel toe"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polygoon"
+msgstr "Polygoon %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -745,62 +737,54 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Servertype"
+msgstr "Servertype:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Serverversie"
+msgstr "Serverversie:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Protocolversie"
+msgstr "Protocolversie:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Gebruiker"
+msgstr "Gebruiker:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Karakterset van server"
+msgstr "Karakterset van server:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Webserver"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Client-versie van databank"
+msgstr "Client-versie van databank:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP-uitbreiding"
+msgstr "PHP-uitbreiding:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Informatie over PHP weergeven"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Versie-informatie"
+msgstr "Versie-informatie:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
