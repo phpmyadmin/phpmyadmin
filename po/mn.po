@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-03 09:49+0200\n"
+"PO-Revision-Date: 2013-04-25 15:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/4-0/mn/"
-">\n"
+"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/4-0/mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -2836,7 +2835,7 @@ msgstr "Алах"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgstr "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr ""
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -4640,7 +4639,7 @@ msgstr "Үргэлжилсэн хүснэгтийн гарчиг"
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key"
-msgstr "Label key"
+msgstr ""
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:108
 #: libraries/config/messages.inc.php:132
