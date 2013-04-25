@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-03 19:04+0200\n"
+"PO-Revision-Date: 2013-04-25 21:49+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -41,10 +41,9 @@ msgstr ""
 "för att blockera flerfönster uppdateringar."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Sök"
+msgstr "Sök:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -119,10 +118,9 @@ msgstr "Databaskommentar: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tabellkommentarer"
+msgstr "Tabellkommentarer:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -347,17 +345,15 @@ msgstr "Skapande"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Senaste uppdatering"
+msgstr "Senaste uppdatering:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Senaste kontroll"
+msgstr "Senaste kontroll:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -527,22 +523,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Använd OpenStreetMaps som baslager"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometri"
+msgstr "Geometri %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Punkt"
+msgstr "Punkt:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -572,16 +566,15 @@ msgid "Linestring %d:"
 msgstr "Linestring"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Yttre ringen"
+msgstr "Yttre ring:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Inre ringen"
+msgstr "Inre ring %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -592,10 +585,10 @@ msgid "Add an inner ring"
 msgstr "Lägg till ny inre ring"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polygon"
+msgstr "Polygon %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -739,30 +732,26 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Servertyp"
+msgstr "Servertyp:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Serverversion"
+msgstr "Serverversion:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Protokollversion"
+msgstr "Protokollversion:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Användare"
+msgstr "Användare:"
 
 #: index.php:257
 #, fuzzy
@@ -781,20 +770,18 @@ msgid "Database client version:"
 msgstr "Databas klientversion"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP-tillägg"
+msgstr "PHP-tillägg:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Visa PHP-information"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Versionsinformation"
+msgstr "Versionsinformation:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -2323,28 +2310,24 @@ msgid "Descending"
 msgstr "Fallande"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kolumn"
+msgstr "Kolumn:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Sortera"
+msgstr "Sortera:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Visa"
+msgstr "Visa:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Kriterier"
+msgstr "Kriterier:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2381,10 +2364,9 @@ msgid "Del"
 msgstr "Ta bort"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Ändra"
+msgstr "Ändra:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
@@ -3177,16 +3159,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Måldatabas `%s` hittades inte!"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Ogiltig databas"
+msgstr "Ogiltig databas:"
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Ogiltigt tabellnamn"
+msgstr "Ogiltigt tabellnamn:"
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3337,10 +3317,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Temats sökväg för tema %s hittades inte!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3683,10 +3662,9 @@ msgid "Max: %s%s"
 msgstr "Max: %s%s"
 
 #: libraries/Util.class.php:674 sql.php:1113
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL-fråga"
+msgstr "SQL-fråga:"
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3913,10 +3891,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ogiltigt värdnamn för server %1$s. Var god granska din konfiguration."
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -4413,28 +4391,25 @@ msgstr "Sätt kolumnnamn på första raden"
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Kolumner omges av:"
+msgstr "Kolumner omges av"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
 #: libraries/plugins/import/ImportCsv.class.php:201
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Specialtecken i fält föregås av:"
+msgstr "Specialtecken i fält föregås av"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Ersätt NULL med:"
+msgstr "Ersätt NULL med"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
@@ -4443,17 +4418,15 @@ msgstr "Ta bort CRLF-tecken i kolumner"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:179
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Kolumner avslutas med"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
 #: libraries/plugins/import/ImportCsv.class.php:208
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Rader avslutas med:"
+msgstr "Rader avslutas med"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -6357,10 +6330,9 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Tomt lösenord för phpMyAdmin kontrollanvändare vid användning av pmadb"
 
 #: libraries/config/validate.lib.php:435
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Felaktigt värde"
+msgstr "Felaktigt värde:"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6432,10 +6404,9 @@ msgid "Re-type:"
 msgstr "Skriv igen"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Hashning av lösenord"
+msgstr "Hashning av lösenord:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -6450,10 +6421,9 @@ msgid "Create"
 msgstr "Skapa"
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Skapa databas"
+msgstr "Skapa databas:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2920 server_privileges.php:149
@@ -7186,10 +7156,9 @@ msgid "Binary - do not edit"
 msgstr "Binär - ändra inte"
 
 #: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:480
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "Uppladdningskatalog på webbserver"
+msgstr "Uppladdningskatalog på webbserver:"
 
 #: libraries/insert_edit.lib.php:1400
 #, php-format
@@ -7593,10 +7562,9 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Byt namn på databasen till"
+msgstr "Byt namn på databasen till:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7627,10 +7595,9 @@ msgid "Data only"
 msgstr "Enbart data"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Kopiera databasen till"
+msgstr "Kopiera databasen till:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7988,17 +7955,15 @@ msgstr "Alternativ för skapande av objekt"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Tabellrubrik"
+msgstr "Tabellrubrik:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Tabellbeskrivning (forts)"
+msgstr "Tabellbeskrivning (forts):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
@@ -8025,20 +7990,18 @@ msgid "Display MIME types"
 msgstr "Visa MIME-typer"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Sätt kolumnnamn på första raden"
+msgstr "Sätt kolumnnamn på första raden:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
 #: libraries/server_privileges.lib.php:1076 sql.php:1107
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Värd"
+msgstr "Värd:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
@@ -8051,32 +8014,28 @@ msgstr "Skapad"
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP-version"
+msgstr "PHP-version:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Databas"
+msgstr "Databas:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Data"
+msgstr "Data:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktur"
+msgstr "Struktur:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -8251,10 +8210,9 @@ msgid "Export contents"
 msgstr "Exportera innehåll"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabell"
+msgstr "Tabell:"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8637,10 +8595,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
 #: libraries/server_privileges.lib.php:1027
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Användarnamn"
+msgstr "Användarnamn:"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
@@ -8650,10 +8607,9 @@ msgid "User name"
 msgstr "Användarnamn"
 
 #: libraries/replication_gui.lib.php:72
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Port"
+msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8741,10 +8697,9 @@ msgid "Re-type"
 msgstr "Skriv igen"
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Generera lösenord"
+msgstr "Generera lösenord:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -9305,10 +9260,9 @@ msgid "Unknown language: %1$s."
 msgstr "Okänt språk: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Nuvarande Server"
+msgstr "Nuvarande server:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9681,10 +9635,9 @@ msgid "Column-specific privileges"
 msgstr "Kolumnspecifika privilegier"
 
 #: libraries/server_privileges.lib.php:2270
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Lägg till privilegier till följande databas"
+msgstr "Lägg till privilegier till följande databas:"
 
 #: libraries/server_privileges.lib.php:2290
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9693,10 +9646,9 @@ msgstr ""
 "betydelse"
 
 #: libraries/server_privileges.lib.php:2308
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Lägg till privilegier till följande tabell"
+msgstr "Lägg till privilegier till följande tabell:"
 
 #: libraries/server_privileges.lib.php:2525
 msgid "Remove selected users"
@@ -9736,10 +9688,9 @@ msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Ändra privilegier"
+msgstr "Ändra privilegier:"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
@@ -9781,10 +9732,9 @@ msgid "Clear"
 msgstr "Rensa"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Skapa bokmärke för den här SQL-frågan"
+msgstr "Skapa bokmärke för den här SQL-frågan:"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1327
 msgid "Let every user access this bookmark"
@@ -10172,10 +10122,9 @@ msgid "Table name"
 msgstr "Tabellnamn"
 
 #: libraries/tbl_columns_definition_form.inc.php:838
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Lagringsmotor"
+msgstr "Lagringsmotor:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
 #, fuzzy
@@ -10313,10 +10262,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Dölj/visa tabeller utan relationer"
 
 #: pmd_general.php:218
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Antal tabeller"
+msgstr "Antal tabeller:"
 
 #: pmd_general.php:467
 msgid "Delete relation"
@@ -10361,10 +10309,9 @@ msgid "Page creation failed"
 msgstr "Sidan gick inte att skapa"
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Sida"
+msgstr "Sida:"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
@@ -10501,10 +10448,9 @@ msgid "All"
 msgstr "Alla"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL-historik"
+msgstr "SQL-historik:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
@@ -11142,22 +11088,19 @@ msgid "Questions since startup: %s"
 msgstr "Frågor sedan start: %s"
 
 #: server_status_queries.php:79
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "per timme"
+msgstr "per timme:"
 
 #: server_status_queries.php:82
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "per minut"
+msgstr "per minut:"
 
 #: server_status_queries.php:86
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "per sekund"
+msgstr "per sekund:"
 
 #: server_status_queries.php:102
 msgid "Statements"
@@ -12247,10 +12190,9 @@ msgid "SQL result"
 msgstr "SQL-resultat"
 
 #: sql.php:1112
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Genererad av"
+msgstr "Genererad av:"
 
 #: sql.php:1234
 msgid ""
@@ -12455,10 +12397,9 @@ msgid "The table name is empty!"
 msgstr "Tabellnamnet är tomt!"
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Visar tabeller"
+msgstr "Visar tabeller:"
 
 #: tbl_printview.php:296
 #, fuzzy
@@ -12467,10 +12408,9 @@ msgid "Space usage:"
 msgstr "Använt utrymme"
 
 #: tbl_printview.php:345
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Radstatistik"
+msgstr "Radstatistik:"
 
 #: tbl_relation.php:213
 #, php-format
@@ -12502,10 +12442,9 @@ msgid "No index defined! Create one below"
 msgstr "Inget index definierat! Skapa ett nedan"
 
 #: tbl_relation.php:544
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Välj kolumn att visa"
+msgstr "Välj kolumn att visa:"
 
 #: tbl_structure.php:144
 #, php-format
