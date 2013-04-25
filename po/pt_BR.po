@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-24 23:04+0200\n"
+"PO-Revision-Date: 2013-04-25 17:25+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
@@ -933,7 +933,7 @@ msgstr "Anel interno"
 
 #: gis_data_editor.php:252
 msgid "Add a linestring"
-msgstr "Adicionar uma linha"
+msgstr "Adicionar uma cadeia de linha"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
 msgid "Add an inner ring"
