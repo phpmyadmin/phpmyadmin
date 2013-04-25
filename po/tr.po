@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-04 17:44+0200\n"
+"PO-Revision-Date: 2013-04-25 15:20+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -41,10 +41,9 @@ msgstr ""
 "güncellemeleri engellemek için yapılandırılmıştır."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Ara"
+msgstr "Arama:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -119,10 +118,9 @@ msgstr "Veritabanı yorumu: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tablo yorumları"
+msgstr "Tablo yorumları:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -341,24 +339,21 @@ msgstr "kullanımda"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Oluşturma"
+msgstr "Oluşturma:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Son güncellenme"
+msgstr "Son güncelleme:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Son kontrol"
+msgstr "Son kontrol:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -527,22 +522,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometri"
+msgstr "Geometri %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Nokta"
+msgstr "Nokta:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -566,22 +559,21 @@ msgid "Add a point"
 msgstr "Nokta ekle"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Satır dizgisi"
+msgstr "Satır dizgisi %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring:"
 msgid "Outer ring:"
-msgstr "Dış Halka:"
+msgstr "Dış halka:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "İç Halka"
+msgstr "İç halka %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -592,10 +584,10 @@ msgid "Add an inner ring"
 msgstr "İç halka ekle"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -739,62 +731,54 @@ msgid "Server:"
 msgstr "Sunucu:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Sunucu türü"
+msgstr "Sunucu türü:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Sunucu sürümü"
+msgstr "Sunucu sürümü:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Protokol sürümü"
+msgstr "Protokol sürümü:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Kullanıcı"
+msgstr "Kullanıcı:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Sunucu karakter grubu"
+msgstr "Sunucu karakter grubu:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Web sunucusu"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Veritabanı istemcisi sürümü"
+msgstr "Veritabanı istemcisi sürümü:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP uzantısı"
+msgstr "PHP uzantısı:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "PHP bilgisini göster"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Sürüm bilgisi"
+msgstr "Sürüm bilgisi:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -2337,28 +2321,24 @@ msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Sütun"
+msgstr "Sütun:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Sırala"
+msgstr "Sıralama:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Göster"
+msgstr "Göster:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Kriter"
+msgstr "Kriter:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2377,14 +2357,13 @@ msgid "Use Tables"
 msgstr "Tabloları kullan"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Veya"
+msgstr "Veya:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "Ve:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2395,18 +2374,17 @@ msgid "Del"
 msgstr "Del"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Değiştir"
+msgstr "Değiştir:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Ins:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Del:"
 
 #: libraries/DBQbe.class.php:1322
 #, php-format
@@ -2529,10 +2507,9 @@ msgid "End"
 msgstr "Son"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Başlangıç satırı"
+msgstr "Başlangıç satırı:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
 #: tbl_chart.php:245
@@ -2540,10 +2517,9 @@ msgid "Number of rows:"
 msgstr "Satır sayısı:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Kip"
+msgstr "Kip:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -3187,16 +3163,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Hedef veritabanı `%s` bulunamadı!"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Geçersiz veritabanı"
+msgstr "Geçersiz veritabanı:"
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Geçersiz tablo adı"
+msgstr "Geçersiz tablo adı:"
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3346,10 +3320,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "%s teması için tema yolu bulunamadı!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3696,10 +3669,9 @@ msgid "Max: %s%s"
 msgstr "En fazla: %s%s"
 
 #: libraries/Util.class.php:674 sql.php:1113
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL sorgusu"
+msgstr "SQL sorgusu:"
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3835,7 +3807,7 @@ msgstr "Oluşturma"
 #: libraries/Util.class.php:4094 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1754 tbl_printview.php:421
 msgid "Last update"
-msgstr "Son güncellenme"
+msgstr "Son güncelleme"
 
 #: libraries/Util.class.php:4100 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1762 tbl_printview.php:432
@@ -3928,10 +3900,10 @@ msgstr ""
 "geçirin."
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Sunucu"
+msgstr "Sunucu %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -4429,28 +4401,25 @@ msgstr "İlk satır içine sütun adlarını koy"
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Sütunlar şununla kapatılmış:"
+msgstr "Sütunlar şununla kapatılmış"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
 #: libraries/plugins/import/ImportCsv.class.php:201
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Sütunlar şununla atlatılmış:"
+msgstr "Sütunlar şununla atlatılmış"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "NULL'u şununla değiştir:"
+msgstr "NULL'u şununla değiştir"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
@@ -4459,17 +4428,15 @@ msgstr "Sütunlardaki CRLF karakterlerini kaldır"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:179
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Sütunu sonlandıran"
+msgstr "Sütunlar şununla sonlandırılmış"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
 #: libraries/plugins/import/ImportCsv.class.php:208
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Satırlar şununla sonlandırılmış:"
+msgstr "Satırlar şununla sonlandırılmış"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -6401,10 +6368,9 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "pmadb kullanan boş phpMyAdmin denetim kullanıcısı parolası"
 
 #: libraries/config/validate.lib.php:435
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Yanlış değer"
+msgstr "Yanlış değer:"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6471,16 +6437,14 @@ msgstr "Parola:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
 #: libraries/server_privileges.lib.php:1221
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Parola tekrarı"
+msgstr "Parola tekrarı:"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Parola Adreslemesi"
+msgstr "Parola Adreslemesi:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -6495,10 +6459,9 @@ msgid "Create"
 msgstr "Oluştur"
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Veritabanı oluştur"
+msgstr "Veritabanı oluştur:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2920 server_privileges.php:149
@@ -6682,10 +6645,9 @@ msgid "no branch"
 msgstr "dal yok"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Git gözden geçirme"
+msgstr "Git gözden geçirme:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7139,8 +7101,9 @@ msgid ""
 "number."
 msgstr ""
 "Bu, sistemin bakacağı işlem günlük dosyalarının (pbxt/system/xlog*.xt) "
-"sayısıdır. Eğer günlük sayısı bu değeri geçerse eski günlükler silinecektir, "
-"diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek numara verilir."
+"sayısıdır. Eğer günlük sayısı bu değeri geçerse ondan sonra eski günlükler "
+"silinecektir, diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek "
+"numara verilir."
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
@@ -7237,10 +7200,9 @@ msgid "Binary - do not edit"
 msgstr "Binari - düzenlemeyiniz"
 
 #: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:480
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "web sunucusu gönderme dizini"
+msgstr "web sunucusu gönderme dizini:"
 
 #: libraries/insert_edit.lib.php:1400
 #, php-format
@@ -7249,7 +7211,7 @@ msgstr "%s satırla eklemeye devam et"
 
 #: libraries/insert_edit.lib.php:1430
 msgid "and then"
-msgstr "ve sonra"
+msgstr "ve ondan sonra"
 
 #: libraries/insert_edit.lib.php:1463
 msgid "Insert as new row"
@@ -7643,10 +7605,9 @@ msgid "New"
 msgstr "Yeni"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Veritabanını şuna yeniden adlandır"
+msgstr "Veritabanını şuna yeniden adlandır:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7677,10 +7638,9 @@ msgid "Data only"
 msgstr "Sadece veri"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Veritabanını şuraya kopyala"
+msgstr "Veritabanını şuraya kopyala:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7878,10 +7838,9 @@ msgid "Username:"
 msgstr "Kullanıcı Adı:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Sunucu Seçimi"
+msgstr "Sunucu Seçimi:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8040,24 +7999,21 @@ msgstr "Nesne oluşturma seçenekleri"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Tablo başlığı"
+msgstr "Tablo başlığı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Tablo başlığı (devamı)"
+msgstr "Tablo başlığı (devamı):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Etiket anahtarı"
+msgstr "Etiket anahtarı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8077,58 +8033,51 @@ msgid "Display MIME types"
 msgstr "MIME türlerini göster"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "İlk satır içine sütun adlarını koy"
+msgstr "İlk satır içine sütun adlarını koy:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
 #: libraries/server_privileges.lib.php:1076 sql.php:1107
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Anamakine"
+msgstr "Anamakine:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Üretim Zamanı"
+msgstr "Üretim Zamanı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP Sürümü"
+msgstr "PHP Sürümü:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Veritabanı"
+msgstr "Veritabanı:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Veri"
+msgstr "Veri:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Yapı"
+msgstr "Yapı:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -8304,10 +8253,9 @@ msgid "Export contents"
 msgstr "İçerikleri dışa aktar"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tablo"
+msgstr "Tablo:"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8691,10 +8639,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
 #: libraries/server_privileges.lib.php:1027
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı:"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
@@ -8704,10 +8651,9 @@ msgid "User name"
 msgstr "Kullanıcı Adı"
 
 #: libraries/replication_gui.lib.php:72
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "B.Noktası"
+msgstr "B.Noktası:"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8756,10 +8702,9 @@ msgstr "Herhangi kullanıcı"
 #: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1170
 #: libraries/server_privileges.lib.php:2274
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Metin alanını kullan"
+msgstr "Metin alanını kullan:"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -8796,10 +8741,9 @@ msgid "Re-type"
 msgstr "Parola tekrarı"
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Parola Üret"
+msgstr "Parola Üret:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -8845,10 +8789,9 @@ msgstr "Olay düzenle"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "İstek işlemede hata"
+msgstr "İstek işlemede hata:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -9358,10 +9301,9 @@ msgid "Unknown language: %1$s."
 msgstr "Bilinmeyen dil: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Şu Anki Sunucu"
+msgstr "Şu Anki Sunucu:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9736,20 +9678,18 @@ msgid "Column-specific privileges"
 msgstr "Sütuna özgü yetkiler"
 
 #: libraries/server_privileges.lib.php:2270
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Aşağıdaki veritabanına yetkileri ekle"
+msgstr "Aşağıdaki veritabanına yetkileri ekle:"
 
 #: libraries/server_privileges.lib.php:2290
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr "_ ve % jokerleri harfi harfine kullanılmak için \\ ile doldurun"
 
 #: libraries/server_privileges.lib.php:2308
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Aşağıdaki tabloya yetkileri ekle"
+msgstr "Aşağıdaki tabloya yetkileri ekle:"
 
 #: libraries/server_privileges.lib.php:2525
 msgid "Remove selected users"
@@ -9788,10 +9728,9 @@ msgid "Privileges for %s"
 msgstr "%s için yetkiler"
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Yetkileri düzenle"
+msgstr "Yetkileri düzenle:"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
@@ -9833,10 +9772,9 @@ msgid "Clear"
 msgstr "Temizle"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Bu SQL sorgusunu işaretle"
+msgstr "Bu SQL sorgusunu işaretle:"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1327
 msgid "Let every user access this bookmark"
@@ -10224,22 +10162,19 @@ msgid "Table name"
 msgstr "Tablo adı"
 
 #: libraries/tbl_columns_definition_form.inc.php:838
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Depolama Motoru"
+msgstr "Depolama Motoru:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Karşılaştırma"
+msgstr "Karşılaştırma:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "PARTITION tanımı"
+msgstr "PARTITION tanımı:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -10365,10 +10300,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Bağlantılı olmayan Tabloları Gizle/Göster"
 
 #: pmd_general.php:218
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Tablo sayısı"
+msgstr "Tablo sayısı:"
 
 #: pmd_general.php:467
 msgid "Delete relation"
@@ -10413,10 +10347,9 @@ msgid "Page creation failed"
 msgstr "Sayfa oluşturma başarısız"
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Sayfa"
+msgstr "Sayfa:"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
@@ -10435,10 +10368,9 @@ msgid "New page name: "
 msgstr "Yeni sayfa adı: "
 
 #: pmd_pdf.php:141
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Ölçeklemek için içe/dışa aktar"
+msgstr "Ölçeklemek için içe/dışa aktar:"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10457,10 +10389,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY bağlantısı eklendi"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Genel bağlantı özellikleri"
+msgstr "Genel bağlantı özellikleri:"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -10554,10 +10485,9 @@ msgid "All"
 msgstr "Tümü"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL geçmişi"
+msgstr "SQL geçmişi:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
@@ -11195,22 +11125,19 @@ msgid "Questions since startup: %s"
 msgstr "Başlangıçtan bu yana sorular: %s"
 
 #: server_status_queries.php:79
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "saat başına"
+msgstr "saat başına:"
 
 #: server_status_queries.php:82
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "dakika başına"
+msgstr "dakika başına:"
 
 #: server_status_queries.php:86
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "saniye başına"
+msgstr "saniye başına:"
 
 #: server_status_queries.php:102
 msgid "Statements"
@@ -11678,8 +11605,8 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Diskten anahtar bloğunun fiziksel okunma sayısıdır. Eğer Key_reads değeri "
-"büyükse, key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik önbellek "
-"oranı Key_reads/Key_read_requests olarak hesaplanabilir."
+"büyükse, o zaman key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik "
+"önbellek oranı Key_reads/Key_read_requests olarak hesaplanabilir."
 
 #: server_status_variables.php:609
 msgid ""
@@ -11897,8 +11824,8 @@ msgid ""
 msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
-"uyarlamalısınız ve sonra ya tablonuzu ya da tablolarınızı bölün veya kopya "
-"etmeyi kullanın."
+"uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
+"kopya etmeyi kullanın."
 
 #: server_status_variables.php:744
 msgid ""
@@ -12308,10 +12235,9 @@ msgid "SQL result"
 msgstr "SQL sonucu"
 
 #: sql.php:1112
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Üreten"
+msgstr "Üreten:"
 
 #: sql.php:1234
 msgid ""
@@ -12331,10 +12257,9 @@ msgid "Bookmark this SQL query"
 msgstr "Bu SQL sorgusunu işaretle"
 
 #: sql.php:1319
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Etiket"
+msgstr "Etiket:"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12516,22 +12441,19 @@ msgid "The table name is empty!"
 msgstr "Tablo adı boş!"
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Tablolar gösteriliyor"
+msgstr "Gösterilen tablolar:"
 
 #: tbl_printview.php:296
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Alan kullanımı"
+msgstr "Alan kullanımı:"
 
 #: tbl_printview.php:345
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Satır İstatistikleri"
+msgstr "Satır İstatistikleri:"
 
 #: tbl_relation.php:213
 #, php-format
@@ -12564,10 +12486,9 @@ msgid "No index defined! Create one below"
 msgstr "Tanımlı indeks yok! Aşağıdan bir tane oluşturun"
 
 #: tbl_relation.php:544
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Göstermek için sütun seçin"
+msgstr "Görüntülemek için sütun seçin:"
 
 #: tbl_structure.php:144
 #, php-format
@@ -13231,7 +13152,7 @@ msgstr ""
 "{query_cache_limit} değiştirmek (genelde artarak) verimi arttırabilir. Bu "
 "değişken en fazla boyutu belirler sorgu sonucu sorgu önbelleği içine "
 "eklenebilmek zorundadır. Eğer 1 MiB'ın üstünde iyi önbelleklenebilir (çok "
-"okuma, az yazma) birçok sorgu sonucu varsa sonrasında {query_cache_limit} "
+"okuma, az yazma) birçok sorgu sonucu varsa ondan sonra {query_cache_limit} "
 "arttırmak etkiyi arttıracaktır. Halbuki çoğu sonucun iyi önbelleklenemeyen "
 "(tablo güncellemelerinden dolayı sıkça geçersiz kılınan) 1 MiB'ın üzerinde "
 "olması durumunda {query_cache_limit} arttırmak verimi azaltacaktır."
@@ -13894,10 +13815,10 @@ msgstr ""
 "yükseğe ayarlanmamalıdır. Lütfen unutmayın yine de bununla birlikte bu "
 "değişkenin değerini basitçe değiştiremezsiniz. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
-"sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini anlamak için "
-"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
+"için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13935,9 +13856,9 @@ msgstr ""
 "zamanda <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
 "proper-innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, "
 "InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri "
-"ayarlamanız, sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini "
-"anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
+"gittiğini anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda "
+"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:448
