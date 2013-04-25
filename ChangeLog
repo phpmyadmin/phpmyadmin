@@ -3,6 +3,9 @@ phpMyAdmin - ChangeLog
 
 4.1.0.0 (not yet released)
 
+4.0.1.0 (not yet released)
+- bug #3879 Import broken for CSV using LOAD DATA
+
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
 + Patch #3480999 Activate codemirror in the query window
