@@ -66,11 +66,11 @@ if ($export_type == 'server') {
 // just to keep this value for possible next display of this form after saving
 // on server
 if (isset($single_table)) {
-    $html .= '<input type="hidden" name="single_table" value="TRUE" />' 
+    $html .= '<input type="hidden" name="single_table" value="TRUE" />'
         . "\n";
 }
 
-$html .= '<input type="hidden" name="export_type" value="' 
+$html .= '<input type="hidden" name="export_type" value="'
     . $export_type . '" />';
 $html .= "\n";
 
@@ -99,9 +99,9 @@ $html .= PMA_Util::getImage('b_export.png', __('Export'));
 if ($export_type == 'server') {
     $html .= __('Exporting databases from the current server');
 } elseif ($export_type == 'database') {
-    printf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
+    $html .= sprintf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
 } else {
-    printf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
+    $html .= sprintf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
 }
 $html .= '</h2>';
 $html .= '</div>';
@@ -211,7 +211,7 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     $html .= PMA_exportCheckboxCheck('quick_export_onserver');
     $html .= '/>';
     $html .= '<label for="checkbox_quick_dump_onserver">';
-    printf(
+    $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
         htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
     );
@@ -240,7 +240,7 @@ if (!isset($_GET['repopulate'])) {
     $html .= PMA_exportCheckboxCheck('asfile');
 }
 $html .= '/>';
-$html .= '<label for="radio_dump_asfile">' 
+$html .= '<label for="radio_dump_asfile">'
     . __('Save output to a file') . '</label>';
 $html .= '<ul id="ul_save_asfile">';
 if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
@@ -250,7 +250,7 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     $html .= PMA_exportCheckboxCheck('onserver');
     $html .= '/>';
     $html .= '<label for="checkbox_dump_onserver">';
-    printf(
+    $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
         htmlspecialchars(PMA_Util::userDir($cfg['SaveDir']))
     );
@@ -371,7 +371,7 @@ $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
 $is_bzip2 = ($cfg['BZipDump'] && @function_exists('bzcompress'));
 if ($is_zip || $is_gzip || $is_bzip2) {
     $html .= '<li>';
-    $html .= '<label for="compression" class="desc">' 
+    $html .= '<label for="compression" class="desc">'
         . __('Compression:') . '</label>';
     $html .= '<select id="compression" name="compression">';
     $html .= '<option value="none">' . __('None') . '</option>';
@@ -405,7 +405,7 @@ if ($is_zip || $is_gzip || $is_bzip2) {
 $html .= '</ul>';
 $html .= '</li>';
 $html .= '<li>';
-$html .= '<input type="radio" id="radio_view_as_text" ' 
+$html .= '<input type="radio" id="radio_view_as_text" '
     . ' name="output_format" value="astext" ';
 if (isset($_GET['repopulate']) || $GLOBALS['cfg']['Export']['asfile'] == false) {
     $html .= 'checked="checked"';
