@@ -62,7 +62,7 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_Util::backquote($table);
     }
-    echo '<strong>'.  __('Showing tables') . ': '
+    echo '<strong>'.  __('Showing tables:') . ' '
         . htmlspecialchars($tbl_list) . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
@@ -117,7 +117,7 @@ foreach ($the_tables as $key => $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo __('Table comments') . ': '
+        echo __('Table comments:') . ' '
             . htmlspecialchars($show_comment) . '<br /><br />';
     }
 
@@ -293,7 +293,7 @@ foreach ($the_tables as $key => $table) {
 
                 // Space usage
                 echo '<td class="vtop">';
-                echo '<big>' . __('Space usage') . ':</big>';
+                echo '<big>' . __('Space usage:') . '</big>';
                 echo '<table width="100%">';
                 echo '<tr>';
                 echo '<td style="padding-right: 10px">' . __('Data') . '</td>';
@@ -342,7 +342,7 @@ foreach ($the_tables as $key => $table) {
                 // Rows Statistic
                 echo "\n";
                 echo '<td class="vtop">';
-                echo '<big>' . __('Row Statistics') . ':</big>';
+                echo '<big>' . __('Row Statistics:') . '</big>';
                 echo '<table width="100%">';
                 if (isset($showtable['Row_format'])) {
                     echo "\n";

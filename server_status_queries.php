@@ -76,14 +76,14 @@ function getQueryStatisticsHtml($ServerStatusData)
     );
     $retval .= '<br />';
     $retval .= '<span>';
-    $retval .= '&oslash; ' . __('per hour') . ': ';
+    $retval .= '&oslash; ' . __('per hour:') . ' ';
     $retval .= PMA_Util::formatNumber($total_queries * $hour_factor, 0);
     $retval .= '<br />';
-    $retval .= '&oslash; ' . __('per minute') . ': ';
+    $retval .= '&oslash; ' . __('per minute:') . ' ';
     $retval .= PMA_Util::formatNumber($total_queries * 60 / $ServerStatusData->status['Uptime'], 0);
     $retval .= '<br />';
     if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
-        $retval .= '&oslash; ' . __('per second') . ': ';
+        $retval .= '&oslash; ' . __('per second:') . ' ';
         $retval .= PMA_Util::formatNumber($total_queries / $ServerStatusData->status['Uptime'], 0);
     }
     $retval .= '</span>';

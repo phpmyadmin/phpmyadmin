@@ -98,16 +98,16 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
     }
 
     if ($is_querywindow) {
-        $html .= '<input type="hidden" name="focus_querywindow"' 
+        $html .= '<input type="hidden" name="focus_querywindow"'
             .' value="true" />' . "\n";
         if ($display_tab != 'sql' && $display_tab != 'full') {
-            $html .= '<input type="hidden" name="sql_query"' 
+            $html .= '<input type="hidden" name="sql_query"'
                 .' value="" />' . "\n";
-            $html .= '<input type="hidden" name="show_query"' 
+            $html .= '<input type="hidden" name="show_query"'
                 .' value="1" />' . "\n";
         }
     }
-    $html .= '<input type="hidden" name="is_js_confirmed" value="0" />' 
+    $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
         . "\n" . PMA_generate_common_hidden_inputs($db, $table) . "\n"
         .'<input type="hidden" name="pos" value="0" />' . "\n"
         .'<input type="hidden" name="goto" value="'
@@ -116,7 +116,7 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         . __('Your SQL query has been executed successfully') . '" />'
         . "\n" .'<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
-        
+
     echo $html;
 
     // display querybox
@@ -315,7 +315,7 @@ function PMA_sqlQueryFormInsert(
         $html .= '<div id="bookmarkoptions">';
         $html .= '<div class="formelement">';
         $html .= '<label for="bkm_label">'
-            . __('Bookmark this SQL query') . ':</label>';
+            . __('Bookmark this SQL query:') . '</label>';
         $html .= '<input type="text" name="bkm_label" id="bkm_label"'
             . ' tabindex="110" value="" />';
         $html .= '</div>';
@@ -341,7 +341,7 @@ function PMA_sqlQueryFormInsert(
     $html .= '<fieldset id="queryboxfooter" class="tblFooters">' . "\n";
     $html .= '<div class="formelement">' . "\n";
     echo $html;
-    
+
     if ($is_querywindow) {
         ?>
         <script type="text/javascript">
@@ -477,7 +477,7 @@ function PMA_sqlQueryFormUpload()
         $errors[] = PMA_Message::error(__('The directory you set for upload work cannot be reached'));
     } elseif (!empty($files)) {
         echo '<div class="formelement">';
-        echo '<strong>' . __('web server upload directory') .':</strong>' . "\n";
+        echo '<strong>' . __('web server upload directory:') .'</strong>' . "\n";
         echo '<select size="1" name="sql_localfile">' . "\n";
         echo '<option value="" selected="selected"></option>' . "\n";
         echo $files;
