@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-12-13 13:02+0200\n"
+"PO-Revision-Date: 2013-04-25 15:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/3-5/ja/>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.4-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1057,7 +1057,7 @@ msgstr "DROP DATABASE 文は無効にされています。"
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
-msgstr "本当に実行しますか?"
+msgstr "本当に実行しますか "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
