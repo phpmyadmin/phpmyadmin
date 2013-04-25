@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-02 17:12+0200\n"
+"PO-Revision-Date: 2013-04-25 15:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -42,10 +42,9 @@ msgstr ""
 "bezpečnostních nastavení."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Vyhledávání"
+msgstr "Vyhledat:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -120,10 +119,9 @@ msgstr "Komentář k databázi: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Komentář k tabulce"
+msgstr "Komentář k tabulce:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -342,24 +340,21 @@ msgstr "právě se používá"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Vytvořeno"
+msgstr "Vytvořeno:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Poslední změna"
+msgstr "Poslední změna:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Poslední kontrola"
+msgstr "Poslední kontrola:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -530,22 +525,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Použít OpenStreetMap jako základní vrstvu"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometrie"
+msgstr "Geometrie %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Bod"
+msgstr "Bod:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -569,22 +562,21 @@ msgid "Add a point"
 msgstr "Přidat bod"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linka"
+msgstr "Linka %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring:"
 msgid "Outer ring:"
 msgstr "Vnější obrys:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Vnitřní obrys"
+msgstr "Vnitřní obrys %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -595,10 +587,10 @@ msgid "Add an inner ring"
 msgstr "Přidat vnitřní obrys"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Mnohoúhelník"
+msgstr "Mnohoúhelník %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -739,62 +731,54 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Typ serveru"
+msgstr "Typ serveru:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Verze serveru"
+msgstr "Verze serveru:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Verze protokolu"
+msgstr "Verze protokolu:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Uživatel"
+msgstr "Uživatel:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Znaková sada"
+msgstr "Znaková sada:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Webový server"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Verze databázového klienta"
+msgstr "Verze databázového klienta:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Rozšíření PHP"
+msgstr "Rozšíření PHP:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Zobrazit informace o PHP"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informace o verzi"
+msgstr "Informace o verzi:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -2323,28 +2307,24 @@ msgid "Descending"
 msgstr "Sestupně"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Pole"
+msgstr "Pole:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Řadit"
+msgstr "Řazení:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Zobrazit"
+msgstr "Zobrazit:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Podmínka"
+msgstr "Podmínka:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2363,14 +2343,13 @@ msgid "Use Tables"
 msgstr "Použít tabulky"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Nebo"
+msgstr "Nebo:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "A:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2381,18 +2360,17 @@ msgid "Del"
 msgstr "Smazat"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Úpravy"
+msgstr "Možnosti:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Přidat:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Smazat:"
 
 #: libraries/DBQbe.class.php:1322
 #, php-format
@@ -2519,10 +2497,9 @@ msgid "End"
 msgstr "Poslední"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Počáteční řádek"
+msgstr "Počáteční řádek:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
 #: tbl_chart.php:245
@@ -2530,10 +2507,9 @@ msgid "Number of rows:"
 msgstr "Počet řádků:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Režim"
+msgstr "Režim:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -3182,16 +3158,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Cílová databáze „%s“ nebyla nalezena!"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Chybná databáze"
+msgstr "Chybné jméno databáze:"
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Chybné jméno tabulky"
+msgstr "Chybné jméno tabulky:"
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3341,10 +3315,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Nebyla nalezena platná cesta k vzhledu %s!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Vzhled"
+msgstr "Vzhled:"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3675,10 +3648,9 @@ msgid "Max: %s%s"
 msgstr "Maximální velikost: %s%s"
 
 #: libraries/Util.class.php:674 sql.php:1113
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL-dotaz"
+msgstr "SQL dotaz:"
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3905,10 +3877,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Chybné jméno serveru pro server %1$s. Prosím zkontrolujte nastavení."
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -4399,28 +4371,25 @@ msgstr "Přidat jména polí na první řádek"
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Pole uzavřené do:"
+msgstr "Pole uzavřené do"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
 #: libraries/plugins/import/ImportCsv.class.php:201
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Pole escapována:"
+msgstr "Pole escapována"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Nahradit NULL hodnoty:"
+msgstr "Nahradit NULL hodnoty"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
@@ -4429,17 +4398,15 @@ msgstr "Odstranit znaky konců řádek z polí"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:179
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Pole oddělené"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
 #: libraries/plugins/import/ImportCsv.class.php:208
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Řádky ukončené:"
+msgstr "Řádky ukončené"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -6339,10 +6306,9 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití pmadb"
 
 #: libraries/config/validate.lib.php:435
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Nesprávná hodnota"
+msgstr "Nesprávná hodnota:"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6408,16 +6374,14 @@ msgstr "Heslo:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
 #: libraries/server_privileges.lib.php:1221
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Heslo znovu"
+msgstr "Heslo znovu:"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Hašovací funkce pro heslo"
+msgstr "Hašovací funkce pro heslo:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -6432,10 +6396,9 @@ msgid "Create"
 msgstr "Vytvořit"
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Vytvořit databázi"
+msgstr "Vytvořit databázi:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2920 server_privileges.php:149
@@ -6619,10 +6582,9 @@ msgid "no branch"
 msgstr "žádná větev"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Revize Gitu"
+msgstr "Revize Gitu:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7163,10 +7125,9 @@ msgid "Binary - do not edit"
 msgstr "Binární - neupravujte"
 
 #: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:480
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "soubor z adresáře pro upload"
+msgstr "soubor z adresáře pro upload:"
 
 #: libraries/insert_edit.lib.php:1400
 #, php-format
@@ -7571,10 +7532,9 @@ msgid "New"
 msgstr "Nový"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Přejmenovat databázi na"
+msgstr "Přejmenovat databázi na:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7605,10 +7565,9 @@ msgid "Data only"
 msgstr "Jen data"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Zkopírovat databázi na"
+msgstr "Zkopírovat databázi na:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7804,10 +7763,9 @@ msgid "Username:"
 msgstr "Jméno:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Server"
+msgstr "Volba serveru:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -7966,24 +7924,21 @@ msgstr "Nastavení vytváření objektů"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Titulek tabulky"
+msgstr "Titulek tabulky:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Titulek tabulky (pokračování)"
+msgstr "Titulek tabulky (pokračování):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Návěstí"
+msgstr "Návěstí:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8003,58 +7958,51 @@ msgid "Display MIME types"
 msgstr "Zobrazit MIME typy"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Přidat jména polí na první řádek"
+msgstr "Přidat jména polí na první řádek:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
 #: libraries/server_privileges.lib.php:1076 sql.php:1107
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Počítač"
+msgstr "Počítač:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Vygenerováno"
+msgstr "Vytvořeno:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Verze PHP"
+msgstr "Verze PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Databáze"
+msgstr "Databáze:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Data"
+msgstr "Data:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktura"
+msgstr "Struktura:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -8227,10 +8175,9 @@ msgid "Export contents"
 msgstr "Exportovat obsah"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabulka"
+msgstr "Tabulka:"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8607,10 +8554,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
 #: libraries/server_privileges.lib.php:1027
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Jméno uživatele"
+msgstr "Jméno uživatele:"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
@@ -8620,10 +8566,9 @@ msgid "User name"
 msgstr "Jméno uživatele"
 
 #: libraries/replication_gui.lib.php:72
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Port"
+msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8672,10 +8617,9 @@ msgstr "Jakýkoliv uživatel"
 #: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1170
 #: libraries/server_privileges.lib.php:2274
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Použít textové pole"
+msgstr "Použít textové pole:"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -8712,10 +8656,9 @@ msgid "Re-type"
 msgstr "Heslo znovu"
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Vytvořit heslo"
+msgstr "Vytvořit heslo:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -8761,10 +8704,9 @@ msgstr "Upravit událost"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Chyba při zpracování požadavku"
+msgstr "Chyba při zpracování požadavku:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -9276,10 +9218,9 @@ msgid "Unknown language: %1$s."
 msgstr "Neznámý jazyk: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Aktuální server"
+msgstr "Aktuální server:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9650,10 +9591,9 @@ msgid "Column-specific privileges"
 msgstr "Oprávnění pro jednotlivá pole"
 
 #: libraries/server_privileges.lib.php:2270
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Přidat oprávnění pro databázi"
+msgstr "Přidat oprávnění pro databázi:"
 
 #: libraries/server_privileges.lib.php:2290
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9662,10 +9602,9 @@ msgstr ""
 "použít jako znak"
 
 #: libraries/server_privileges.lib.php:2308
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Přidat oprávnění pro tabulku"
+msgstr "Přidat oprávnění pro tabulku:"
 
 #: libraries/server_privileges.lib.php:2525
 msgid "Remove selected users"
@@ -9704,10 +9643,9 @@ msgid "Privileges for %s"
 msgstr "Oprávnění pro %s"
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Upravit oprávnění"
+msgstr "Upravit oprávnění:"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
@@ -9749,10 +9687,9 @@ msgid "Clear"
 msgstr "Vyčistit"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Přidat tento SQL dotaz do oblíbených"
+msgstr "Přidat tento SQL dotaz do oblíbených:"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1327
 msgid "Let every user access this bookmark"
@@ -10139,22 +10076,19 @@ msgid "Table name"
 msgstr "Jméno tabulky"
 
 #: libraries/tbl_columns_definition_form.inc.php:838
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Úložiště"
+msgstr "Úložiště:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Porovnávání"
+msgstr "Porovnávání:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Definice PARTITION"
+msgstr "Definice PARTITION:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -10280,10 +10214,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Skrýt/Zobrazit tabulky bez relací"
 
 #: pmd_general.php:218
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Počet tabulek"
+msgstr "Počet tabulek:"
 
 #: pmd_general.php:467
 msgid "Delete relation"
@@ -10328,10 +10261,9 @@ msgid "Page creation failed"
 msgstr "Vytvoření stránky selhalo"
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Stránka"
+msgstr "Stránka:"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
@@ -10350,10 +10282,9 @@ msgid "New page name: "
 msgstr "Název nové stránky: "
 
 #: pmd_pdf.php:141
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Exportovat/Importovat v měřítku"
+msgstr "Exportovat/Importovat v měřítku:"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10372,10 +10303,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relace FOREIGN KEY byla vytvořena"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Obecné funkce relací"
+msgstr "Obecné funkce relací:"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -10467,10 +10397,9 @@ msgid "All"
 msgstr "Všechno"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL historie"
+msgstr "SQL historie:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
@@ -11108,22 +11037,19 @@ msgid "Questions since startup: %s"
 msgstr "Dotazů od spuštění: %s"
 
 #: server_status_queries.php:79
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "za hodinu"
+msgstr "za hodinu:"
 
 #: server_status_queries.php:82
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "za minutu"
+msgstr "za minutu:"
 
 #: server_status_queries.php:86
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "za sekundu"
+msgstr "za sekundu:"
 
 #: server_status_queries.php:102
 msgid "Statements"
@@ -12201,10 +12127,9 @@ msgid "SQL result"
 msgstr "Výsledek SQL dotazu"
 
 #: sql.php:1112
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Vygeneroval"
+msgstr "Vytvořil:"
 
 #: sql.php:1234
 msgid ""
@@ -12224,10 +12149,9 @@ msgid "Bookmark this SQL query"
 msgstr "Přidat tento SQL dotaz do oblíbených"
 
 #: sql.php:1319
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Název"
+msgstr "Název:"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12407,22 +12331,19 @@ msgid "The table name is empty!"
 msgstr "Jméno tabulky je prázdné!"
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Zobrazuji tabulky"
+msgstr "Zobrazuji tabulky:"
 
 #: tbl_printview.php:296
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Využití místa"
+msgstr "Využití místa:"
 
 #: tbl_printview.php:345
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Statistika řádků"
+msgstr "Statistika řádků:"
 
 #: tbl_relation.php:213
 #, php-format
@@ -12453,10 +12374,9 @@ msgid "No index defined! Create one below"
 msgstr "Není definován žádný klíč! Vytvořte nový níže"
 
 #: tbl_relation.php:544
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Zvolte která pole zobrazit"
+msgstr "Zvolte která pole zobrazit:"
 
 #: tbl_structure.php:144
 #, php-format
