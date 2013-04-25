@@ -79,7 +79,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     }
 } else { // internal (pmadb) relation
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
-        PMD_return_new(0, __('Relation features are disabled!'));
+        PMD_return_new(0, __('Error: Relational features are disabled!'));
     } else {
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
