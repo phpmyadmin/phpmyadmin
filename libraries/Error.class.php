@@ -300,9 +300,21 @@ class PMA_Error extends PMA_Message
             'require',
             'require_once',
         );
+        $connect_functions = array(
+            'mysql_connect',
+            'mysql_pconnect',
+            'mysqli_connect',
+            'mysqli_real_connect',
+            'PMA_DBI_connect',
+            'PMA_DBI_real_connect',
+        );
 
         if (in_array($function, $include_functions)) {
             $retval .= PMA_Error::relPath($arg);
+        } elseif (in_array($function, $connect_functions)
+            && getType($arg) === 'string'
+        ) {
+            $retval .= getType($arg) . ' ********';
         } elseif (is_scalar($arg)) {
             $retval .= getType($arg) . ' ' . htmlspecialchars($arg);
         } else {
