@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-04 17:45+0200\n"
+"PO-Revision-Date: 2013-04-25 15:12+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -392,7 +392,7 @@ msgstr "Oluşturma"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:395
 #: tbl_structure.php:926
 msgid "Last update"
-msgstr "Son güncellenme"
+msgstr "Son güncelleme"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
@@ -6469,8 +6469,9 @@ msgid ""
 "number."
 msgstr ""
 "Bu, sistemin bakacağı işlem günlük dosyalarının (pbxt/system/xlog*.xt) "
-"sayısıdır. Eğer günlük sayısı bu değeri geçerse eski günlükler silinecektir, "
-"diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek numara verilir."
+"sayısıdır. Eğer günlük sayısı bu değeri geçerse ondan sonra eski günlükler "
+"silinecektir, diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek "
+"numara verilir."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -10316,8 +10317,8 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Diskten anahtar bloğunun fiziksel okunma sayısıdır. Eğer Key_reads değeri "
-"büyükse, key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik önbellek "
-"oranı Key_reads/Key_read_requests olarak hesaplanabilir."
+"büyükse, o zaman key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik "
+"önbellek oranı Key_reads/Key_read_requests olarak hesaplanabilir."
 
 #: server_status.php:1387
 msgid "The number of requests to write a key block to the cache."
@@ -10521,8 +10522,8 @@ msgid ""
 msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
-"uyarlamalısınız ve sonra ya tablonuzu ya da tablolarınızı bölün veya kopya "
-"etmeyi kullanın."
+"uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
+"kopya etmeyi kullanın."
 
 #: server_status.php:1421
 msgid ""
@@ -11289,7 +11290,7 @@ msgstr "Ekleme sorgusunu göster"
 
 #: tbl_change.php:1042
 msgid "and then"
-msgstr "ve sonra"
+msgstr "ve ondan sonra"
 
 #: tbl_change.php:1046
 msgid "Go back to previous page"
@@ -12428,7 +12429,7 @@ msgstr ""
 "{query_cache_limit} değiştirmek (genelde artarak) verimi arttırabilir. Bu "
 "değişken en fazla boyutu belirler sorgu sonucu sorgu önbelleği içine "
 "eklenebilmek zorundadır. Eğer 1 MiB'ın üstünde iyi önbelleklenebilir (çok "
-"okuma, az yazma) birçok sorgu sonucu varsa sonrasında {query_cache_limit} "
+"okuma, az yazma) birçok sorgu sonucu varsa ondan sonra {query_cache_limit} "
 "arttırmak etkiyi arttıracaktır. Halbuki çoğu sonucun iyi önbelleklenemeyen "
 "(tablo güncellemelerinden dolayı sıkça geçersiz kılınan) 1 MiB'ın üzerinde "
 "olması durumunda {query_cache_limit} arttırmak verimi azaltacaktır."
