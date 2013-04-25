@@ -2347,10 +2347,9 @@ msgid "Sort:"
 msgstr "Ordenar:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Mostrar"
+msgstr "Mostrar:"
 
 #: libraries/DBQbe.class.php:513
 #, fuzzy
