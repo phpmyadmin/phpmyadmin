@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-12 12:16+0200\n"
-"Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
+"PO-Revision-Date: 2013-04-25 15:39+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/4-0/ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -115,7 +115,7 @@ msgstr "Pengkalan data %1$s telah dijana."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Komen pangkalan"
+msgstr "Komen pangkalan: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
