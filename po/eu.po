@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-01-10 13:44+0200\n"
+"PO-Revision-Date: 2013-04-25 15:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/master/eu/"
-">\n"
+"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/4-0/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -2552,7 +2551,7 @@ msgstr "Arakatu"
 #: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "%s taulako aukeratuak ezabatu"
+msgstr "%s taulako aukeratuak ezabatu?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3382
 #: libraries/DisplayResults.class.php:5043
