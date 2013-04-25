@@ -77,7 +77,7 @@ if (! empty($sql_query)) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
-    
+
     $sql_query = '';
 } elseif (! empty($sql_localfile)) {
     // run SQL file on server
@@ -474,7 +474,8 @@ if (! $error) {
     $import_plugin = PMA_getPlugin(
         "import",
         $format,
-        'libraries/plugins/import/'
+        'libraries/plugins/import/',
+        $import_type
     );
     if ($import_plugin == null) {
         $error = true;
