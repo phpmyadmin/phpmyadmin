@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-04 17:46+0200\n"
+"PO-Revision-Date: 2013-04-25 15:13+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/4-0/tr/>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -353,7 +353,7 @@ msgstr "Oluşturma"
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1754
 #: tbl_printview.php:421
 msgid "Last update"
-msgstr "Son güncellenme"
+msgstr "Son güncelleme"
 
 #: db_printview.php:203 libraries/Util.class.php:4090
 #: libraries/plugins/export/ExportSql.class.php:972
@@ -7021,8 +7021,9 @@ msgid ""
 "number."
 msgstr ""
 "Bu, sistemin bakacağı işlem günlük dosyalarının (pbxt/system/xlog*.xt) "
-"sayısıdır. Eğer günlük sayısı bu değeri geçerse eski günlükler silinecektir, "
-"diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek numara verilir."
+"sayısıdır. Eğer günlük sayısı bu değeri geçerse ondan sonra eski günlükler "
+"silinecektir, diğer taraftan yeniden adlandırılır ve bir sonraki en yüksek "
+"numara verilir."
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
@@ -7129,7 +7130,7 @@ msgstr "%s satırla eklemeye devam et"
 
 #: libraries/insert_edit.lib.php:1430
 msgid "and then"
-msgstr "ve sonra"
+msgstr "ve ondan sonra"
 
 #: libraries/insert_edit.lib.php:1463
 msgid "Insert as new row"
@@ -11407,8 +11408,8 @@ msgid ""
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 "Diskten anahtar bloğunun fiziksel okunma sayısıdır. Eğer Key_reads değeri "
-"büyükse, key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik önbellek "
-"oranı Key_reads/Key_read_requests olarak hesaplanabilir."
+"büyükse, o zaman key_buffer_size değeriniz muhtemelen çok küçüktür. Eksik "
+"önbellek oranı Key_reads/Key_read_requests olarak hesaplanabilir."
 
 #: server_status_variables.php:609
 msgid ""
@@ -11626,8 +11627,8 @@ msgid ""
 msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
-"uyarlamalısınız ve sonra ya tablonuzu ya da tablolarınızı bölün veya kopya "
-"etmeyi kullanın."
+"uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
+"kopya etmeyi kullanın."
 
 #: server_status_variables.php:744
 msgid ""
@@ -12924,7 +12925,7 @@ msgstr ""
 "{query_cache_limit} değiştirmek (genelde artarak) verimi arttırabilir. Bu "
 "değişken en fazla boyutu belirler sorgu sonucu sorgu önbelleği içine "
 "eklenebilmek zorundadır. Eğer 1 MiB'ın üstünde iyi önbelleklenebilir (çok "
-"okuma, az yazma) birçok sorgu sonucu varsa sonrasında {query_cache_limit} "
+"okuma, az yazma) birçok sorgu sonucu varsa ondan sonra {query_cache_limit} "
 "arttırmak etkiyi arttıracaktır. Halbuki çoğu sonucun iyi önbelleklenemeyen "
 "(tablo güncellemelerinden dolayı sıkça geçersiz kılınan) 1 MiB'ın üzerinde "
 "olması durumunda {query_cache_limit} arttırmak verimi azaltacaktır."
@@ -13587,10 +13588,10 @@ msgstr ""
 "yükseğe ayarlanmamalıdır. Lütfen unutmayın yine de bununla birlikte bu "
 "değişkenin değerini basitçe değiştiremezsiniz. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
-"sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini anlamak için "
-"hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
+"için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
@@ -13628,9 +13629,9 @@ msgstr ""
 "zamanda <a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-"
 "proper-innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, "
 "InnoDB günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri "
-"ayarlamanız, sunucuyu başlatmanız gerekir, sonrada herşeyin iyi gittiğini "
-"anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href="
-"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"ayarlamanız, sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi "
+"gittiğini anlamak için hata günlüklerini kontrol etmelisiniz. Aynı zamanda "
+"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:448
