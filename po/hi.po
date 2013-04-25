@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-01-20 23:04+0200\n"
-"Last-Translator: Yogendra Singh Shekhawat <dynamicarea@gmail.com>\n"
+"PO-Revision-Date: 2013-04-25 16:02+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -113,7 +113,7 @@ msgstr "%1$s डेटाबेस बनाया गया है."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "डॅटाबेस टिप्पणीः"
+msgstr "डॅटाबेस टिप्पणीः "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
@@ -2468,7 +2468,7 @@ msgstr "ब्राउज़"
 #: libraries/DbSearch.class.php:353
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "इस %s टेबल से मैच हटाएँ"
+msgstr "इस %s टेबल से मैच हटाएँ?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3382
 #: libraries/DisplayResults.class.php:5043
@@ -6195,7 +6195,7 @@ msgstr "क्षेत्र रोयाँ"
 
 #: libraries/config/messages.inc.php:503
 msgid "Title of browser window when a database is selected"
-msgstr "ब्राउज़र विंडो का शीर्षक है जब एक डेटाबेस का चयन किया "
+msgstr "ब्राउज़र विंडो का शीर्षक है जब एक डेटाबेस का चयन किया"
 
 #: libraries/config/messages.inc.php:505
 msgid "Title of browser window when nothing is selected"
@@ -6530,7 +6530,7 @@ msgstr "डाटाबेस(s)"
 
 #: libraries/display_export.lib.php:149
 msgid "Table(s):"
-msgstr "टेबल(s) "
+msgstr "टेबल(s) :"
 
 #: libraries/display_export.lib.php:158 sql.php:1117
 msgid "Rows:"
@@ -6743,7 +6743,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:289
-#, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
 #| "close to the PHP timeout limit. <i>(This might be good way to import "
@@ -6753,8 +6752,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आयात की "
-"अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन तोड़ सकता है. "
+"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के "
+"आयात की अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह "
+"लेनदेन तोड़ सकता है."
 
 #: libraries/display_import.lib.php:296
 msgid "Number of rows to skip, starting from the first row:"
@@ -7136,7 +7136,7 @@ msgstr "दृश्य पर जायें"
 #: libraries/index.lib.php:30
 #, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "&nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं "
+msgstr "&nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं"
 
 #: libraries/insert_edit.lib.php:214 libraries/insert_edit.lib.php:245
 #: pmd_general.php:197
@@ -7173,7 +7173,7 @@ msgstr "और फिर"
 
 #: libraries/insert_edit.lib.php:1463
 msgid "Insert as new row"
-msgstr "इसको नया रौ में जोडे "
+msgstr "इसको नया रौ में जोडे"
 
 #: libraries/insert_edit.lib.php:1466
 msgid "Insert as new row and ignore errors"
@@ -7594,7 +7594,7 @@ msgstr "डेटाबेस को हटा दे"
 
 #: libraries/operations.lib.php:125
 msgid "Drop the database (DROP)"
-msgstr "डेटाबेस को ड्रप करे "
+msgstr "डेटाबेस को ड्रप करे"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1013
 #: tbl_tracking.php:506
@@ -7631,11 +7631,11 @@ msgstr "नक़ल किये गए डाटाबेस पर जाय�
 
 #: libraries/operations.lib.php:277
 msgid "Edit or export relational schema"
-msgstr "संबंधपरक स्कीमा को संपादित या निर्यात करें "
+msgstr "संबंधपरक स्कीमा को संपादित या निर्यात करें"
 
 #: libraries/operations.lib.php:620
 msgid "Alter table order by"
-msgstr "टेबल क्रमांक को बदलिये "
+msgstr "टेबल क्रमांक को बदलिये"
 
 #: libraries/operations.lib.php:628
 msgid "(singly)"
@@ -7713,7 +7713,7 @@ msgstr "टेबल को खाली करें"
 
 #: libraries/operations.lib.php:1253
 msgid "Delete the table (DROP)"
-msgstr "डेटाबेस को ______  छोड़ें "
+msgstr "डेटाबेस को ______  छोड़ें"
 
 #: libraries/operations.lib.php:1295
 msgid "Analyze"
@@ -8749,7 +8749,7 @@ msgstr "इवेंट प्रकार "
 
 #: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
 msgid "Event type"
-msgstr "इवेंट प्रकार "
+msgstr "इवेंट प्रकार"
 
 #: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:954
 #, fuzzy, php-format
@@ -9188,7 +9188,7 @@ msgstr "%s फाइल में कोई भी प्रमुख आईड�
 
 #: libraries/schema/Export_Relation_Schema.class.php:230
 msgid "SCHEMA ERROR: "
-msgstr "स्कीमा त्रुटि"
+msgstr "स्कीमा त्रुटि: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:887
 #: libraries/schema/Pdf_Relation_Schema.class.php:1212
@@ -9278,7 +9278,7 @@ msgstr "टेबल के परिमाण दिखाओ"
 
 #: libraries/schema/User_Schema.class.php:458
 msgid "Display all tables with the same width"
-msgstr "समान चौड़ाई के सभी टेबल को प्रदर्शित करें. "
+msgstr "समान चौड़ाई के सभी टेबल को प्रदर्शित करें."
 
 #: libraries/schema/User_Schema.class.php:461 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9530,7 +9530,7 @@ msgstr "केवल टेबल के प्रिविलेज"
 #: libraries/server_privileges.lib.php:785
 #: libraries/server_privileges.lib.php:2382
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "नोट: MySQL प्रिविलेज नामों को अंग्रेजी  मे लिखा गया है "
+msgstr "नोट: MySQL प्रिविलेज नामों को अंग्रेजी  मे लिखा गया है"
 
 #: libraries/server_privileges.lib.php:750
 msgid "Administration"
@@ -9581,7 +9581,7 @@ msgstr "%s का पासवर्ड सफलतापूर्वक बद
 #: libraries/server_privileges.lib.php:1382
 #, php-format
 msgid "You have revoked the privileges for %s"
-msgstr "आपने %s के privileges वापस ले लिया "
+msgstr "आपने %s के privileges वापस ले लिया"
 
 #: libraries/server_privileges.lib.php:1442
 msgid "Database for user"
@@ -9593,7 +9593,7 @@ msgstr "एक ही नाम के साथ डेटाबेस बना
 
 #: libraries/server_privileges.lib.php:1452
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr "वाइल्डकार्ड नाम (यूसरनाम\\_%) पर सभी विशेषाधिकार अनुदान "
+msgstr "वाइल्डकार्ड नाम (यूसरनाम\\_%) पर सभी विशेषाधिकार अनुदान"
 
 #: libraries/server_privileges.lib.php:1460
 #, php-format
@@ -9782,7 +9782,7 @@ msgstr "%s सर्वर पर SQL प्रशन चलेयें"
 #: libraries/sql_query_form.lib.php:209 libraries/sql_query_form.lib.php:233
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "डाटाबेस %s में SQL प्रशन चलाइये "
+msgstr "डाटाबेस %s में SQL प्रशन चलाइये"
 
 #: libraries/sql_query_form.lib.php:275 setup/frames/index.inc.php:260
 msgid "Clear"
@@ -9812,7 +9812,7 @@ msgstr "सीमांकक"
 
 #: libraries/sql_query_form.lib.php:364
 msgid "Show this query here again"
-msgstr "यह query वापस यहीं दिखायें "
+msgstr "यह query वापस यहीं दिखायें"
 
 #: libraries/sql_query_form.lib.php:424
 msgid "View only"
@@ -10070,7 +10070,7 @@ msgstr "अनुक्रमणिका जोड़"
 
 #: libraries/structure.lib.php:2022 libraries/structure.lib.php:2025
 msgid "Add FULLTEXT index"
-msgstr "FULLTEXT सूचकांक जोड़ें "
+msgstr "FULLTEXT सूचकांक जोड़ें"
 
 #: libraries/structure.lib.php:2151 server_binlog.php:189
 msgid "Information"
@@ -10142,7 +10142,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:412
 msgid "ENUM or SET data too long?"
-msgstr "ENUM या SET डेटा बहुत लंबा है"
+msgstr "ENUM या SET डेटा बहुत लंबा है?"
 
 #: libraries/tbl_columns_definition_form.inc.php:414
 msgid "Get more editing space"
@@ -10417,7 +10417,7 @@ msgstr "सिफारिश"
 
 #: pmd_relation_new.php:35
 msgid "Error: relation already exists."
-msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है. "
+msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है."
 
 #: pmd_relation_new.php:77 pmd_relation_new.php:100
 msgid "Error: Relation not added."
@@ -10595,8 +10595,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"नोट: यहां डाटाबेस के आँकडे Enable करने से webserver और MySQL के बीच में ट्रेफिक बडने की "
-"संभावना है। "
+"नोट: यहां डाटाबेस के आँकडे Enable करने से webserver और MySQL के बीच में "
+"ट्रेफिक बडने की संभावना है।"
 
 #: server_databases.php:349
 msgid "No databases"
@@ -12125,7 +12125,7 @@ msgstr "`%s` टेबल के अनुक्रमित के साथ �
 
 #: sql.php:1315 sql.php:1335
 msgid "Bookmark this SQL query"
-msgstr "इस SQL-क्वरी को बुकमार्क कीजिये "
+msgstr "इस SQL-क्वरी को बुकमार्क कीजिये"
 
 #: sql.php:1319
 #, fuzzy
@@ -12299,7 +12299,7 @@ msgstr "इन्डेक्स को PRIMARY नाम मे नहीं �
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
-msgstr "सूचकांक परिभाषित हिस्सा नहीं "
+msgstr "सूचकांक परिभाषित हिस्सा नहीं"
 
 #: tbl_indexes.php:197
 #, fuzzy
@@ -12314,7 +12314,7 @@ msgstr "इन्डेक्स नाम"
 #: tbl_indexes.php:214
 msgid ""
 "(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "\"PRIMARY\" नाम हो सकता है  केवल एक प्राथमिक कुंजी का "
+msgstr "\"PRIMARY\" नाम हो सकता है  केवल एक प्राथमिक कुंजी का"
 
 #: tbl_indexes.php:234
 #, fuzzy
@@ -12411,7 +12411,7 @@ msgstr ""
 #: tbl_tracking.php:135
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "टेबल `%s` की ट्रैकिंग रिपोर्ट "
+msgstr "टेबल `%s` की ट्रैकिंग रिपोर्ट"
 
 #: tbl_tracking.php:205
 #, fuzzy, php-format
