@@ -114,7 +114,7 @@ msgstr "La base de données %1$s a été créée."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Commentaire sur la base de données: "
+msgstr "Commentaire sur la base de données : "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
