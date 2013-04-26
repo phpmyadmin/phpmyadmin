@@ -32,7 +32,8 @@ $post_params = array(
     'MAX_FILE_SIZE',
     'message_to_show',
     'noplugin',
-    'skip_queries'
+    'skip_queries',
+    'local_import_file'
 );
 
 foreach ($post_params as $one_post_param) {

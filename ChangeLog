@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
+- bug #3890 [import] Web server upload directory import fails
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
