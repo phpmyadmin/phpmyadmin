@@ -431,10 +431,11 @@ var aggregate = function (noperator) {
 function unique(arrayName)
 {
     var newArray = [];
-    label: for (var i = 0; i < arrayName.length; i++) {
+uniquetop:
+    for (var i = 0; i < arrayName.length; i++) {
         for (var j = 0; j < newArray.length; j++) {
             if (newArray[j] == arrayName[i]) {
-                continue label;
+                continue uniquetop;
             }
         }
         newArray[newArray.length] = arrayName[i];
