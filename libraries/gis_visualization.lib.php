@@ -97,8 +97,14 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
     return $modified_query;
 }
 
-// Local function to sanitize the expression taken
-// from the results of PMA_SQP_analyze function.
+/**
+ * Local function to sanitize the expression taken
+ * from the results of PMA_SQP_analyze function.
+ *
+ * @param aray $select Select to sanitize.
+ *
+ * @return Sanitized string.
+ */
 function sanitize($select)
 {
     $table_col = $select['table_name'] . "." . $select['column'];
