@@ -333,9 +333,12 @@ function displayErrors(error_list)
         var errors = error_list[field_id];
         var field = $('#' + field_id);
         var isFieldset = field.attr('tagName') == 'FIELDSET';
-        var errorCnt = isFieldset
-            ? field.find('dl.errors')
-            : field.siblings('.inline_errors');
+        var errorCnt;
+        if (isFieldset) {
+            errorCnt = field.find('dl.errors');
+        } else {
+            errorCnt = field.siblings('.inline_errors');
+        }
 
         // remove empty errors (used to clear error list)
         errors = $.grep(errors, function (item) {
@@ -406,16 +409,19 @@ function validate_fieldset(fieldset, isKeyUp, errors)
  */
 function validate_field(field, isKeyUp, errors)
 {
+    var args, result;
     field = $(field);
     var field_id = field.attr('id');
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        var args = functions[i][1] !== null
-            ? functions[i][1].slice(0)
-            : [];
+        if (functions[i][1] !== null) {
+            args = functions[i][1].slice(0);
+        } else {
+            args = [];
+        }
         args.unshift(isKeyUp);
-        var result = functions[i][0].apply(field[0], args);
+        result = functions[i][0].apply(field[0], args);
         if (result !== true) {
             if (typeof result == 'string') {
                 result = [result];
@@ -621,7 +627,7 @@ AJAX.registerOnload('config.js', function () {
                 restoreField(field_sel.substr(1));
             } else {
                 field_sel = href.match(/^[^=]+/)[0];
-                var value = href.match(/=(.+)$/)[1];
+                var value = href.match(/\=(.+)$/)[1];
                 setFieldValue($(field_sel), 'text', value);
             }
             $(field_sel).trigger('change');
@@ -652,9 +658,12 @@ AJAX.registerOnload('config.js', function () {
         .add('#export_text_file, #import_text_file')
         .click(function () {
             var enable_id = $(this).attr('id');
-            var disable_id = enable_id.match(/local_storage$/)
-                ? enable_id.replace(/local_storage$/, 'text_file')
-                : enable_id.replace(/text_file$/, 'local_storage');
+            var disable_id;
+            if (enable_id.match(/local_storage$/)) {
+                disable_id = enable_id.replace(/local_storage$/, 'text_file');
+            } else {
+                disable_id = enable_id.replace(/text_file$/, 'local_storage');
+            }
             $('#opts_' + disable_id).addClass('disabled').find('input').prop('disabled', true);
             $('#opts_' + enable_id).removeClass('disabled').find('input').prop('disabled', false);
         });
@@ -753,11 +762,11 @@ function updatePrefsDate()
  */
 function formatDate(d)
 {
-    return d.getFullYear() + '-'
-        + (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth())
-        + '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
-        + ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours())
-        + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
+    return d.getFullYear() + '-' +
+        (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth()) +
+        '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate()) +
+        ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours()) +
+        ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
 }
 
 /**
