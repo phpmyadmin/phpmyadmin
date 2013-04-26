@@ -105,8 +105,8 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport()
     {
-        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
-        global $error, $timeout_passed, $finished;
+        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped;
+        global $error, $timeout_passed, $finished, $csv_new_line;
 
         $replacements = array(
             '\\n'   => "\n",
