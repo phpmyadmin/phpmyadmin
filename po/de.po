@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-05 14:02+0200\n"
+"PO-Revision-Date: 2013-04-26 09:30+0200\n"
 "Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/3-5/de/>\n"
 "Language: de\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -3967,7 +3967,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
-msgstr "Ändert die Verfolgung"
+msgstr "Änderungen verfolgen"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
