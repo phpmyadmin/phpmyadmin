@@ -20,7 +20,7 @@
  */
 function nullify(theType, urlField, md5Field, multi_edit)
 {
-    var rowForm = document.forms['insertForm'];
+    var rowForm = document.forms.insertForm;
 
     if (typeof(rowForm.elements['funcs' + multi_edit + '[' + md5Field + ']']) != 'undefined') {
         rowForm.elements['funcs' + multi_edit + '[' + md5Field + ']'].selectedIndex = -1;

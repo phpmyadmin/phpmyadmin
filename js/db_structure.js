@@ -65,7 +65,7 @@ function PMA_adjustTotals() {
             // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
             strRows = strRows.substring(1, strRows.length - 1);
         }
-        strRows = strRows.replace(/[,.]/g , '');
+        strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
@@ -86,10 +86,10 @@ function PMA_adjustTotals() {
                 break;
             }
         }
-        for (var i = 0; i < byteUnits.length; i++) {
-            if (strOverheadUnit == byteUnits[i]) {
-                var tmpVal = parseFloat(strOverhead);
-                valOverhead = tmpVal * Math.pow(1024, i);
+        for (var j = 0; j < byteUnits.length; j++) {
+            if (strOverheadUnit == byteUnits[j]) {
+                var tmpValue = parseFloat(strOverhead);
+                valOverhead = tmpValue * Math.pow(1024, j);
                 break;
             }
         }

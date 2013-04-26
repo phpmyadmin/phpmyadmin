@@ -6,209 +6,6 @@
  */
 
 /**
- * Executed on page load
- */
-$(function () {
-    if (! $('#pma_navigation').length) {
-        // Don't bother running any code if the navigation is not even on the page
-        return;
-    }
-
-    // Fire up the resize handlers
-    new ResizeHandler();
-
-    /**
-     * opens/closes (hides/shows) tree elements
-     * loads data via ajax
-     */
-    $('#pma_navigation_tree a.expander').live('click', function (event) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        var $this = $(this);
-        var $children = $this.closest('li').children('div.list_container');
-        var $icon = $this.find('img');
-        if ($this.hasClass('loaded')) {
-            if ($icon.is('.ic_b_plus')) {
-                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                $children.show('fast');
-            } else {
-                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-                $children.hide('fast');
-            }
-        } else {
-            var $destination = $this.closest('li');
-            var $throbber = $('#pma_navigation .throbber')
-                .first()
-                .clone()
-                .css('visibility', 'visible')
-                .click(false);
-            $icon.hide();
-            $throbber.insertBefore($icon);
-
-            var searchClause = PMA_fastFilter.getSearchClause();
-            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
-
-            var params = {
-                aPath: $(this).find('span.aPath').text(),
-                vPath: $(this).find('span.vPath').text(),
-                pos: $(this).find('span.pos').text(),
-                pos2_name: $(this).find('span.pos2_name').text(),
-                pos2_value: $(this).find('span.pos2_value').text(),
-                searchClause: searchClause,
-                searchClause2: searchClause2
-            };
-            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-            $.get(url, params, function (data) {
-                if (data.success === true) {
-                    $this.addClass('loaded');
-                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-                    $destination.append(data.message);
-                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                    $destination
-                        .children('div.list_container')
-                        .show('fast');
-                    if ($destination.find('ul > li').length == 1) {
-                        $destination.find('ul > li')
-                            .find('a.expander.container')
-                            .click();
-                    }
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-                $icon.show();
-                $throbber.remove();
-            });
-        }
-        $(this).blur();
-    });
-
-    /**
-     * Register event handler for click on the reload
-     * navigation icon at the top of the panel
-     */
-    $('#pma_navigation_reload').live('click', function (event) {
-        event.preventDefault();
-        PMA_reloadNavigation();
-    });
-
-    /**
-     * Bind all "fast filter" events
-     */
-    $('#pma_navigation_tree li.fast_filter span')
-        .live('click', PMA_fastFilter.events.clear);
-    $('#pma_navigation_tree li.fast_filter input.searchClause')
-        .live('focus', PMA_fastFilter.events.focus)
-        .live('blur', PMA_fastFilter.events.blur)
-        .live('keyup', PMA_fastFilter.events.keyup);
-
-    /**
-     * Ajax handler for pagination
-     */
-    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
-        event.preventDefault();
-        PMA_navigationTreePagination($(this));
-    });
-
-    /**
-     * Node highlighting
-     */
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
-        'mouseover',
-        function () {
-            if ($('li:visible', this).length === 0) {
-                $(this).addClass('activePointer');
-            }
-        }
-    );
-    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
-        'mouseout',
-        function () {
-            $(this).removeClass('activePointer');
-        }
-    );
-
-    /**
-     * Jump to recent table
-     */
-    $('#recentTable').live('change', function () {
-        if (this.value !== '') {
-            var arr = jQuery.parseJSON(this.value);
-            var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr['db']);
-            $form.find('input[name=table]').val(arr['table']);
-            $form.submit();
-        }
-    });
-
-    /** Create a Routine, Trigger or Event */
-    $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('routine');
-        dialog.editorDialog(1, $(this));
-    });
-    $('li.new_trigger a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('trigger');
-        dialog.editorDialog(1, $(this));
-    });
-    $('li.new_event a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('event');
-        dialog.editorDialog(1, $(this));
-    });
-
-    /** Edit Routines, Triggers and Events */
-    $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this));
-    });
-    $('li.trigger > a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('trigger');
-        dialog.editorDialog(0, $(this));
-    });
-    $('li.event > a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object('event');
-        dialog.editorDialog(0, $(this));
-    });
-
-    /** Export Routines, Triggers and Events */
-    $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.object();
-        dialog.exportDialog($(this).parent());
-    });
-
-    /** New index */
-    $('li.new_index a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + '&ajax_request=true';
-        var title = PMA_messages.strAddIndex;
-        indexEditorDialog(url, title);
-    });
-
-    /** Edit index */
-    $('li.index a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + '&ajax_request=true';
-        var title = PMA_messages.strEditIndex;
-        indexEditorDialog(url, title);
-    });
-
-    /** New view */
-    $('li.new_view a.ajax').live('click', function (event) {
-        event.preventDefault();
-        PMA_createViewDialog($(this));
-    });
-});
-
-/**
  * Reloads the whole navigation tree while preserving its state
  *
  * @param  function     the callback function
@@ -274,6 +71,180 @@ function PMA_reloadNavigation(callback) {
 }
 
 /**
+ * @var object PMA_fastFilter Handles the functionality that allows filtering
+ *                            of the items in a branch of the navigation tree
+ */
+var PMA_fastFilter = {
+    /**
+     * Construct for the asynchronous fast filter functionality
+     *
+     * @param object $this        A jQuery object pointing to the list container
+     *                            which is the nearest parent of the fast filter
+     * @param string searchClause The query string for the filter
+     *
+     * @return new PMA_fastFilter.filter object
+     */
+    filter: function ($this, searchClause) {
+        /**
+         * @var object $this A jQuery object pointing to the list container
+         *                   which is the nearest parent of the fast filter
+         */
+        this.$this = $this;
+        /**
+         * @var bool searchClause The query string for the filter
+         */
+        this.searchClause = searchClause;
+        /**
+         * @var object $clone A clone of the original contents
+         *                    of the navigation branch before
+         *                    the fast filter was applied
+         */
+        this.$clone = $this.clone();
+        /**
+         * @var bool swapped Whether the user clicked on the "N other results" link
+         */
+        this.swapped = false;
+        /**
+         * @var object xhr A reference to the ajax request that is currently running
+         */
+        this.xhr = null;
+        /**
+         * @var int timeout Used to delay the request for asynchronous search
+         */
+        this.timeout = null;
+
+        var $filterInput = $this.find('li.fast_filter input.searchClause');
+        if ($filterInput.length !== 0
+            && $filterInput.val() !== ''
+            && $filterInput.val() != $filterInput[0].defaultValue
+        ) {
+            this.request();
+        }
+    },
+    /**
+     * Gets the query string from the database fast filter form
+     *
+     * @return string
+     */
+    getSearchClause: function () {
+        var retval = '';
+        var $input = $('#pma_navigation_tree')
+            .find('li.fast_filter.db_fast_filter input.searchClause');
+        if ($input.length && $input.val() != $input[0].defaultValue) {
+            retval = $input.val();
+        }
+        return retval;
+    },
+    /**
+     * Gets the query string from a second level item's fast filter form
+     * The retrieval is done by trasversing the navigation tree backwards
+     *
+     * @return string
+     */
+    getSearchClause2: function ($this) {
+        var $filterContainer = $this.closest('div.list_container');
+        var $filterInput = $([]);
+        while (1) {
+            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length !== 0) {
+                $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
+                break;
+            } else if (! $filterContainer.is('div.list_container')) {
+                break;
+            }
+            $filterContainer = $filterContainer
+                .parent()
+                .closest('div.list_container');
+        }
+        var searchClause2 = '';
+        if ($filterInput.length !== 0
+            && $filterInput.first().val() != $filterInput[0].defaultValue
+        ) {
+            searchClause2 = $filterInput.val();
+        }
+        return searchClause2;
+    },
+    /**
+     * @var hash events A list of functions that are bound to DOM events
+     *                  at the top of this file
+     */
+    events: {
+        focus: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            if (! $obj.data('fastFilter')) {
+                $obj.data(
+                    'fastFilter',
+                    new PMA_fastFilter.filter($obj, $(this).val())
+                );
+            }
+            if ($(this).val() == this.defaultValue) {
+                $(this).val('');
+            } else {
+                $(this).select();
+            }
+        },
+        blur: function (event) {
+            if ($(this).val() === '') {
+                $(this).val(this.defaultValue);
+            }
+            var $obj = $(this).closest('div.list_container');
+            if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore();
+            }
+        },
+        keyup: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            var str = '';
+            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
+                $obj.find('div.pageselector').hide();
+                str = $(this).val().toLowerCase();
+            }
+            $obj.find('li > a').not('.container').each(function () {
+                if ($(this).text().toLowerCase().indexOf(str) != -1) {
+                    $(this).parent().show().removeClass('hidden');
+                } else {
+                    $(this).parent().hide().addClass('hidden');
+                }
+            });
+            var container_filter = function ($curr, str) {
+                $curr.children('li').children('a.container').each(function () {
+                    var $group = $(this).parent().children('ul');
+                    if ($group.children('li').children('a.container').length > 0) {
+                        container_filter($group); // recursive
+                    }
+                    $group.parent().show().removeClass('hidden');
+                    if ($group.children().not('.hidden').length === 0) {
+                        $group.parent().hide().addClass('hidden');
+                    }
+                });
+            };
+            container_filter($obj, str);
+            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
+                if (! $obj.data('fastFilter')) {
+                    $obj.data(
+                        'fastFilter',
+                        new PMA_fastFilter.filter($obj, $(this).val())
+                    );
+                } else {
+                    $obj.data('fastFilter').update($(this).val());
+                }
+            } else if ($obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore(true);
+            }
+        },
+        clear: function (event) {
+            event.stopPropagation();
+            // Clear the input and apply the fast filter with empty input
+            var filter = $(this).closest('div.list_container').data('fastFilter');
+            if (filter) {
+                filter.restore();
+            }
+            var value = $(this).prev()[0].defaultValue;
+            $(this).prev().val(value).trigger('keyup');
+        }
+    }
+};
+
+/**
  * Handles any requests to change the page in a branch of a tree
  *
  * This can be called from link click or select change event handlers
@@ -310,8 +281,9 @@ function PMA_navigationTreePagination($this)
     $.post(url, params, function (data) {
         PMA_ajaxRemoveMessage($msgbox);
         if (data.success) {
+            var val;
             if (isDbSelector) {
-                var val = PMA_fastFilter.getSearchClause();
+                val = PMA_fastFilter.getSearchClause();
                 $('#pma_navigation_tree')
                     .html(data.message)
                     .children('div')
@@ -323,7 +295,7 @@ function PMA_navigationTreePagination($this)
                 }
             } else {
                 var $parent = $this.closest('div.list_container').parent();
-                var val = PMA_fastFilter.getSearchClause2($this);
+                val = PMA_fastFilter.getSearchClause2($this);
                 $this.closest('div.list_container').html(
                     $(data.message).children().show()
                 );
@@ -518,178 +490,209 @@ var ResizeHandler = function () {
 }; // End of ResizeHandler
 
 /**
- * @var object PMA_fastFilter Handles the functionality that allows filtering
- *                            of the items in a branch of the navigation tree
+ * Executed on page load
  */
-var PMA_fastFilter = {
-    /**
-     * Construct for the asynchronous fast filter functionality
-     *
-     * @param object $this        A jQuery object pointing to the list container
-     *                            which is the nearest parent of the fast filter
-     * @param string searchClause The query string for the filter
-     *
-     * @return new PMA_fastFilter.filter object
-     */
-    filter: function ($this, searchClause) {
-        /**
-         * @var object $this A jQuery object pointing to the list container
-         *                   which is the nearest parent of the fast filter
-         */
-        this.$this = $this;
-        /**
-         * @var bool searchClause The query string for the filter
-         */
-        this.searchClause = searchClause;
-        /**
-         * @var object $clone A clone of the original contents
-         *                    of the navigation branch before
-         *                    the fast filter was applied
-         */
-        this.$clone = $this.clone();
-        /**
-         * @var bool swapped Whether the user clicked on the "N other results" link
-         */
-        this.swapped = false;
-        /**
-         * @var object xhr A reference to the ajax request that is currently running
-         */
-        this.xhr = null;
-        /**
-         * @var int timeout Used to delay the request for asynchronous search
-         */
-        this.timeout = null;
-
-        var $filterInput = $this.find('li.fast_filter input.searchClause');
-        if ($filterInput.length !== 0
-            && $filterInput.val() !== ''
-            && $filterInput.val() != $filterInput[0].defaultValue
-        ) {
-            this.request();
-        }
-    },
-    /**
-     * Gets the query string from the database fast filter form
-     *
-     * @return string
-     */
-    getSearchClause: function () {
-        var retval = '';
-        var $input = $('#pma_navigation_tree')
-            .find('li.fast_filter.db_fast_filter input.searchClause');
-        if ($input.length && $input.val() != $input[0].defaultValue) {
-            retval = $input.val();
-        }
-        return retval;
-    },
-    /**
-     * Gets the query string from a second level item's fast filter form
-     * The retrieval is done by trasversing the navigation tree backwards
-     *
-     * @return string
-     */
-    getSearchClause2: function ($this) {
-        var $filterContainer = $this.closest('div.list_container');
-        var $filterInput = $([]);
-        while (1) {
-            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length !== 0) {
-                $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
-                break;
-            } else if (! $filterContainer.is('div.list_container')) {
-                break;
-            }
-            $filterContainer = $filterContainer
-                .parent()
-                .closest('div.list_container');
-        }
-        var searchClause2 = '';
-        if ($filterInput.length !== 0
-            && $filterInput.first().val() != $filterInput[0].defaultValue
-        ) {
-            searchClause2 = $filterInput.val();
-        }
-        return searchClause2;
-    },
-    /**
-     * @var hash events A list of functions that are bound to DOM events
-     *                  at the top of this file
-     */
-    events: {
-        focus: function (event) {
-            var $obj = $(this).closest('div.list_container');
-            if (! $obj.data('fastFilter')) {
-                $obj.data(
-                    'fastFilter',
-                    new PMA_fastFilter.filter($obj, $(this).val())
-                );
-            }
-            if ($(this).val() == this.defaultValue) {
-                $(this).val('');
-            } else {
-                $(this).select();
-            }
-        },
-        blur: function (event) {
-            if ($(this).val() === '') {
-                $(this).val(this.defaultValue);
-            }
-            var $obj = $(this).closest('div.list_container');
-            if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
-                $obj.data('fastFilter').restore();
-            }
-        },
-        keyup: function (event) {
-            var $obj = $(this).closest('div.list_container');
-            var str = '';
-            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
-                $obj.find('div.pageselector').hide();
-                str = $(this).val().toLowerCase();
-            }
-            $obj.find('li > a').not('.container').each(function () {
-                if ($(this).text().toLowerCase().indexOf(str) != -1) {
-                    $(this).parent().show().removeClass('hidden');
-                } else {
-                    $(this).parent().hide().addClass('hidden');
-                }
-            });
-            var container_filter = function ($curr, str) {
-                $curr.children('li').children('a.container').each(function () {
-                    var $group = $(this).parent().children('ul');
-                    if ($group.children('li').children('a.container').length > 0) {
-                        container_filter($group); // recursive
-                    }
-                    $group.parent().show().removeClass('hidden');
-                    if ($group.children().not('.hidden').length === 0) {
-                        $group.parent().hide().addClass('hidden');
-                    }
-                });
-            };
-            container_filter($obj, str);
-            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
-                if (! $obj.data('fastFilter')) {
-                    $obj.data(
-                        'fastFilter',
-                        new PMA_fastFilter.filter($obj, $(this).val())
-                    );
-                } else {
-                    $obj.data('fastFilter').update($(this).val());
-                }
-            } else if ($obj.data('fastFilter')) {
-                $obj.data('fastFilter').restore(true);
-            }
-        },
-        clear: function (event) {
-            event.stopPropagation();
-            // Clear the input and apply the fast filter with empty input
-            var filter = $(this).closest('div.list_container').data('fastFilter');
-            if (filter) {
-                filter.restore();
-            }
-            var value = $(this).prev()[0].defaultValue;
-            $(this).prev().val(value).trigger('keyup');
-        }
+$(function () {
+    if (! $('#pma_navigation').length) {
+        // Don't bother running any code if the navigation is not even on the page
+        return;
     }
-};
+
+    // Fire up the resize handlers
+    new ResizeHandler();
+
+    /**
+     * opens/closes (hides/shows) tree elements
+     * loads data via ajax
+     */
+    $('#pma_navigation_tree a.expander').live('click', function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var $this = $(this);
+        var $children = $this.closest('li').children('div.list_container');
+        var $icon = $this.find('img');
+        if ($this.hasClass('loaded')) {
+            if ($icon.is('.ic_b_plus')) {
+                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                $children.show('fast');
+            } else {
+                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+                $children.hide('fast');
+            }
+        } else {
+            var $destination = $this.closest('li');
+            var $throbber = $('#pma_navigation .throbber')
+                .first()
+                .clone()
+                .css('visibility', 'visible')
+                .click(false);
+            $icon.hide();
+            $throbber.insertBefore($icon);
+
+            var searchClause = PMA_fastFilter.getSearchClause();
+            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
+
+            var params = {
+                aPath: $(this).find('span.aPath').text(),
+                vPath: $(this).find('span.vPath').text(),
+                pos: $(this).find('span.pos').text(),
+                pos2_name: $(this).find('span.pos2_name').text(),
+                pos2_value: $(this).find('span.pos2_value').text(),
+                searchClause: searchClause,
+                searchClause2: searchClause2
+            };
+            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+            $.get(url, params, function (data) {
+                if (data.success === true) {
+                    $this.addClass('loaded');
+                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+                    $destination.append(data.message);
+                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                    $destination
+                        .children('div.list_container')
+                        .show('fast');
+                    if ($destination.find('ul > li').length == 1) {
+                        $destination.find('ul > li')
+                            .find('a.expander.container')
+                            .click();
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+                $icon.show();
+                $throbber.remove();
+            });
+        }
+        $(this).blur();
+    });
+
+    /**
+     * Register event handler for click on the reload
+     * navigation icon at the top of the panel
+     */
+    $('#pma_navigation_reload').live('click', function (event) {
+        event.preventDefault();
+        PMA_reloadNavigation();
+    });
+
+    /**
+     * Bind all "fast filter" events
+     */
+    $('#pma_navigation_tree li.fast_filter span')
+        .live('click', PMA_fastFilter.events.clear);
+    $('#pma_navigation_tree li.fast_filter input.searchClause')
+        .live('focus', PMA_fastFilter.events.focus)
+        .live('blur', PMA_fastFilter.events.blur)
+        .live('keyup', PMA_fastFilter.events.keyup);
+
+    /**
+     * Ajax handler for pagination
+     */
+    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+        event.preventDefault();
+        PMA_navigationTreePagination($(this));
+    });
+
+    /**
+     * Node highlighting
+     */
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseover',
+        function () {
+            if ($('li:visible', this).length === 0) {
+                $(this).addClass('activePointer');
+            }
+        }
+    );
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseout',
+        function () {
+            $(this).removeClass('activePointer');
+        }
+    );
+
+    /**
+     * Jump to recent table
+     */
+    $('#recentTable').live('change', function () {
+        if (this.value !== '') {
+            var arr = jQuery.parseJSON(this.value);
+            var $form = $(this).closest('form');
+            $form.find('input[name=db]').val(arr.db);
+            $form.find('input[name=table]').val(arr.table);
+            $form.submit();
+        }
+    });
+
+    /** Create a Routine, Trigger or Event */
+    $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(1, $(this));
+    });
+    $('li.new_trigger a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('trigger');
+        dialog.editorDialog(1, $(this));
+    });
+    $('li.new_event a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('event');
+        dialog.editorDialog(1, $(this));
+    });
+
+    /** Edit Routines, Triggers and Events */
+    $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(0, $(this));
+    });
+    $('li.trigger > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('trigger');
+        dialog.editorDialog(0, $(this));
+    });
+    $('li.event > a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('event');
+        dialog.editorDialog(0, $(this));
+    });
+
+    /** Export Routines, Triggers and Events */
+    $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object();
+        dialog.exportDialog($(this).parent());
+    });
+
+    /** New index */
+    $('li.new_index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages.strAddIndex;
+        indexEditorDialog(url, title);
+    });
+
+    /** Edit index */
+    $('li.index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages.strEditIndex;
+        indexEditorDialog(url, title);
+    });
+
+    /** New view */
+    $('li.new_view a.ajax').live('click', function (event) {
+        event.preventDefault();
+        PMA_createViewDialog($(this));
+    });
+});
+
+
 /**
  * Handles a change in the search clause
  *

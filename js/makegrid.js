@@ -138,14 +138,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
          * @param e event
          */
         dragMove: function (e) {
+            var dx;
             if (g.colRsz) {
-                var dx = e.pageX - g.colRsz.x0;
+                dx = e.pageX - g.colRsz.x0;
                 if (g.colRsz.objWidth + dx > g.minColWidth) {
                     $(g.colRsz.obj).css('left', g.colRsz.objLeft + dx + 'px');
                 }
             } else if (g.colReorder) {
                 // dragged column animation
-                var dx = e.pageX - g.colReorder.x0;
+                dx = e.pageX - g.colReorder.x0;
                 $(g.cCpy)
                     .css('left', g.colReorder.objLeft + dx)
                     .show();
@@ -784,6 +785,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     });
                 }
 
+                var post_params;
                 if ($td.is('.relation')) {
                     //handle relations
                     $editArea.addClass('edit_area_loading');
@@ -794,7 +796,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     /**
                      * @var post_params Object containing parameters for the POST request
                      */
-                    var post_params = {
+                    post_params = {
                         'ajax_request' : true,
                         'get_relational_values' : true,
                         'server' : g.server,
@@ -842,7 +844,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     /**
                      * @var post_params Object containing parameters for the POST request
                      */
-                    var post_params = {
+                    post_params = {
                         'ajax_request' : true,
                         'get_enum_values' : true,
                         'server' : g.server,
@@ -871,7 +873,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     /**
                      * @var post_params Object containing parameters for the POST request
                      */
-                    var post_params = {
+                    post_params = {
                         'ajax_request' : true,
                         'get_set_values' : true,
                         'server' : g.server,
@@ -1416,8 +1418,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             } else {
                 g.colOrder = [];
-                for (var i = 0; i < $firstRowCols.length; i++) {
-                    g.colOrder.push(i);
+                for (var j = 0; j < $firstRowCols.length; j++) {
+                    g.colOrder.push(j);
                 }
             }
 
@@ -1444,9 +1446,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 .dblclick(function (e) {
                     e.preventDefault();
                     $("<div/>")
-                    .prop("title", PMA_messages["strColNameCopyTitle"])
+                    .prop("title", PMA_messages.strColNameCopyTitle)
                     .addClass("modal-copy")
-                    .text(PMA_messages["strColNameCopyText"])
+                    .text(PMA_messages.strColNameCopyText)
                     .append(
                         $("<input/>")
                         .prop("readonly", true)
@@ -1505,7 +1507,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             } else {
                 g.colVisib = [];
-                for (var i = 0; i < $firstRowCols.length; i++) {
+                for (var j = 0; j < $firstRowCols.length; j++) {
                     g.colVisib.push(1);
                 }
             }
@@ -1538,11 +1540,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 // add column visibility control
                 g.cList.innerHTML = '<div class="lDiv"></div>';
                 var $listDiv = $(g.cList).find('div');
-                for (var i = 0; i < $firstRowCols.length; i++) {
-                    var currHeader = $firstRowCols[i];
+                for (var k = 0; k < $firstRowCols.length; k++) {
+                    var currHeader = $firstRowCols[k];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
-                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
+                        .prepend('<input type="checkbox" ' + (g.colVisib[k] ? 'checked="checked" ' : '') + '/>');
                     $listDiv.append(listElmt);
                     // add event on click
                     $(listElmt).click(function () {
