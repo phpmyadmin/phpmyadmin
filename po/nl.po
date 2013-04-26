@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-25 17:00+0200\n"
+"PO-Revision-Date: 2013-04-26 10:42+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -2332,28 +2332,24 @@ msgid "Descending"
 msgstr "Aflopend"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kolom"
+msgstr "Kolom:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Sorteren"
+msgstr "Sorteren:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Toon"
+msgstr "Toon:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Criterium"
+msgstr "Criteria:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2372,10 +2368,9 @@ msgid "Use Tables"
 msgstr "Tabellen gebruiken"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Of"
+msgstr "Of:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
@@ -2390,10 +2385,9 @@ msgid "Del"
 msgstr "Verwijder"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Aanpassen"
+msgstr "Aanpassen:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
@@ -2526,10 +2520,9 @@ msgid "End"
 msgstr "Einde"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Eerste regel"
+msgstr "Startregel:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
 #: tbl_chart.php:245
@@ -2537,10 +2530,9 @@ msgid "Number of rows:"
 msgstr "Aantal rijen:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Modus"
+msgstr "Modus:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -3190,16 +3182,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Doeldatabank `%s` niet gevonden!"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Ongeldige databank"
+msgstr "Ongeldige databank:"
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Ongeldige tabelnaam"
+msgstr "Ongeldige tabelnaam:"
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3351,10 +3341,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Themapad niet gevonden voor thema %s!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Thema"
+msgstr "Thema:"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3707,10 +3696,9 @@ msgid "Max: %s%s"
 msgstr "Maximale grootte: %s%s"
 
 #: libraries/Util.class.php:674 sql.php:1113
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL-query"
+msgstr "SQL-query:"
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3940,10 +3928,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "Ongeldige machinenaam voor server %1$s. Controleer uw configuratie."
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -4442,10 +4430,9 @@ msgstr "Veldnamen in de eerste rij plaatsen"
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Velden ingesloten door:"
+msgstr "Kolommen ingesloten door"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
@@ -4460,10 +4447,9 @@ msgstr "Velden ontweken door:"
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Vervang NULL door:"
+msgstr "Vervang NULL door"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
@@ -4472,17 +4458,15 @@ msgstr "Verwijder CRLF-tekens uit veld-waarden"
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:179
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Velden beëindigd door"
+msgstr "Kolommen beëindigd met"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
 #: libraries/plugins/import/ImportCsv.class.php:208
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Regels beëindigd door:"
+msgstr "Regels beëindigd door"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -6421,10 +6405,9 @@ msgstr ""
 "gebruikt"
 
 #: libraries/config/validate.lib.php:435
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Foutieve waarde"
+msgstr "Foutieve waarde:"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6490,10 +6473,9 @@ msgstr "Wachtwoord:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
 #: libraries/server_privileges.lib.php:1221
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Type opnieuw"
+msgstr "Tik opnieuw in:"
 
 #: libraries/display_change_password.lib.php:74
 #, fuzzy
