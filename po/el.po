@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-03 07:41+0200\n"
+"PO-Revision-Date: 2013-04-26 08:23+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -40,10 +40,9 @@ msgstr ""
 "ανανεώσεις μεταξύ παραθύρων λόγω ρυθμίσεων ασφαλείας."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Αναζήτηση"
+msgstr "Αναζήτηση:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -118,10 +117,9 @@ msgstr "Σχόλιο βάσης: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Σχόλια πίνακα"
+msgstr "Σχόλια πίνακα:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -340,24 +338,21 @@ msgstr "σε χρήση"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Δημιουργία"
+msgstr "Δημιουργία:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Τελευταία ενημέρωση"
+msgstr "Τελευταία ενημέρωση:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Tελευταίος έλεγχος"
+msgstr "Tελευταίος έλεγχος:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -527,22 +522,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Γεωμετρία"
+msgstr "Γεωμετρία %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Σημείο"
+msgstr "Σημείο:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -566,22 +559,21 @@ msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Κείμενο γραμμής"
+msgstr "Κείμενο γραμμής %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring:"
 msgid "Outer ring:"
-msgstr "Εξωτερικός δακτύλιος"
+msgstr "Εξωτερικός δακτύλιος:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Εσωτερικός δακτύλιος"
+msgstr "Εσωτερικός δακτύλιος %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -592,10 +584,10 @@ msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Πολύγωνο"
+msgstr "Πολύγωνο %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -741,62 +733,54 @@ msgid "Server:"
 msgstr "Διακομιστής:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Τύπος διακομιστή"
+msgstr "Τύπος διακομιστή:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Έκδοση διακομιστή"
+msgstr "Έκδοση διακομιστή:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Έκδοση πρωτοκόλλου"
+msgstr "Έκδοση πρωτοκόλλου:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Χρήστης"
+msgstr "Χρήστης:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Κωδικοποιήση διακομιστή"
+msgstr "Κωδικοποιήση διακομιστή:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Έκδοση πελάτη βάσης δεδομένων"
+msgstr "Έκδοση πελάτη βάσης δεδομένων:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Επέκταση PHP"
+msgstr "Επέκταση PHP:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Εμφάνιση πληροφοριών της PHP"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Πληροφορίες έκδοσης"
+msgstr "Πληροφορίες έκδοσης:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -2347,28 +2331,24 @@ msgid "Descending"
 msgstr "Φθίνουσα"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Στήλη"
+msgstr "Στήλη:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Ταξινόμηση"
+msgstr "Ταξινόμηση:"
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Εμφάνιση"
+msgstr "Εμφάνιση:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Κριτήρια"
+msgstr "Κριτήρια:"
 
 #: libraries/DBQbe.class.php:576
 msgid "Add/Delete criteria rows"
@@ -2387,14 +2367,13 @@ msgid "Use Tables"
 msgstr "Χρήση Πινάκων"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Ενωση"
+msgstr "Ενωση:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "Και:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2405,18 +2384,17 @@ msgid "Del"
 msgstr "Διαγραφή"
 
 #: libraries/DBQbe.class.php:680
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Τροποποίηση"
+msgstr "Τροποποίηση:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Προσθήκη:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Διαγραφή:"
 
 #: libraries/DBQbe.class.php:1322
 #, php-format
@@ -2541,10 +2519,9 @@ msgid "End"
 msgstr "Τέλος"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Εγγραφή έναρξης"
+msgstr "Εγγραφή έναρξης:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
 #: tbl_chart.php:245
@@ -2552,10 +2529,9 @@ msgid "Number of rows:"
 msgstr "Αριθμός εγγραφών:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Μορφή"
+msgstr "Μορφή:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -3207,16 +3183,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Η βάση δεδομένων προορισμού «%s» δεν βρέθηκε!"
 
 #: libraries/Table.class.php:1164
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Μη έγκυρη βάση δεδομένων"
+msgstr "Μη έγκυρη βάση δεδομένων:"
 
 #: libraries/Table.class.php:1178
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Μη έγκυρο όνομα πίνακα"
+msgstr "Μη έγκυρο όνομα πίνακα:"
 
 #: libraries/Table.class.php:1210
 #, php-format
@@ -3368,10 +3342,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Η διαδρομή θέματος δεν βρέθηκε για το θέμα %s!"
 
 #: libraries/Theme_Manager.class.php:363
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Θέμα"
+msgstr "Θέμα:"
 
 #: libraries/Types.class.php:296
 msgid ""
@@ -3720,10 +3693,9 @@ msgid "Max: %s%s"
 msgstr "Μέγιστο μέγεθος: %s%s"
 
 #: libraries/Util.class.php:674 sql.php:1113
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Εντολή SQL"
+msgstr "Εντολή SQL:"
 
 #: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3954,10 +3926,10 @@ msgstr ""
 "σας."
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Διακομιστής"
+msgstr "Διακομιστής %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -4455,28 +4427,25 @@ msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γρ�
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Στήλες που περικλείονται με:"
+msgstr "Στήλες που περικλείονται με"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
 #: libraries/plugins/import/ImportCsv.class.php:201
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής:"
+msgstr "Τα πεδία χρησιμοποιούν το χαρακτήρα διαφυγής"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:88 libraries/config/messages.inc.php:97
 #: libraries/config/messages.inc.php:105 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:143
 #: libraries/config/messages.inc.php:145
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Αντικατάσταση τιμής NULL με:"
+msgstr "Αντικατάσταση τιμής NULL με"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 msgid "Remove CRLF characters within columns"
@@ -4485,17 +4454,15 @@ msgstr "Απομάκρυνση χαρακτήρων CRLF μέσα στις στ�
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
 #: libraries/plugins/import/ImportCsv.class.php:179
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Στήλες που τελειώνουν με"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
 #: libraries/plugins/import/ImportCsv.class.php:208
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Γραμμές που τελειώνουν με:"
+msgstr "Γραμμές που τελειώνουν με"
 
 #: libraries/config/messages.inc.php:80
 msgid "Excel edition"
@@ -6447,10 +6414,9 @@ msgstr ""
 "Άδειασμα ελέγχου κωδικού πρόσβασης του phpMyAdmin ενώ χρησιμοποιείτε pmadb"
 
 #: libraries/config/validate.lib.php:435
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Εσφαλμένη τιμή"
+msgstr "Εσφαλμένη τιμή:"
 
 #: libraries/config/validate.lib.php:443
 #, php-format
@@ -6516,16 +6482,14 @@ msgstr "Κωδικός πρόσβασης:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
 #: libraries/server_privileges.lib.php:1221
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Επαναεισαγωγή"
+msgstr "Επαναεισαγωγή:"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Μείγμα κωδικού πρόσβασης"
+msgstr "Μείγμα κωδικού πρόσβασης:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -6540,10 +6504,9 @@ msgid "Create"
 msgstr "Δημιουργία"
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Δημιουργία βάσης δεδομένων"
+msgstr "Δημιουργία βάσης δεδομένων:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2920 server_privileges.php:149
@@ -6727,10 +6690,9 @@ msgid "no branch"
 msgstr "κανένας κλάδος"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Αναθεώρηση git"
+msgstr "Αναθεώρηση git:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7288,10 +7250,9 @@ msgid "Binary - do not edit"
 msgstr "Δυαδικό - χωρίς δυνατότητα επεξεργασίας"
 
 #: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:480
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή"
+msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
 #: libraries/insert_edit.lib.php:1400
 #, php-format
@@ -7695,10 +7656,9 @@ msgid "New"
 msgstr "Νέα"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Μετονομασία βάσης δεδομένων σε"
+msgstr "Μετονομασία βάσης δεδομένων σε:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7729,10 +7689,9 @@ msgid "Data only"
 msgstr "Μόνο τα δεδομένα"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Αντιγραφή βάσης δεδομένων σε"
+msgstr "Αντιγραφή βάσης δεδομένων σε:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7931,10 +7890,9 @@ msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Επιλογή Διακομιστή"
+msgstr "Επιλογή Διακομιστή:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8095,24 +8053,21 @@ msgstr "Επιλογές μετατροπής αντικειμένου"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Λεζάντα πίνακα"
+msgstr "Λεζάντα πίνακα:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Λεζάντα πίνακα (συνεχίζει)"
+msgstr "Λεζάντα πίνακα (συνέχεια):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Κλειδί ετικέτας"
+msgstr "Κλειδί ετικέτας:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8132,58 +8087,51 @@ msgid "Display MIME types"
 msgstr "Διαθέσιμοι τύποι MIME"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή"
+msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γραμμή:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
 #: libraries/server_privileges.lib.php:1076 sql.php:1107
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Φιλοξενητής"
+msgstr "Φιλοξενητής:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Χρόνος δημιουργίας"
+msgstr "Χρόνος δημιουργίας:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Έκδοση PHP"
+msgstr "Έκδοση PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Βάση"
+msgstr "Βάση δεδομένων:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Δεδομένα"
+msgstr "Δεδομένα:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Δομή"
+msgstr "Δομή:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -8361,10 +8309,9 @@ msgid "Export contents"
 msgstr "Εξαγωγή περιεχομένων"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Πίνακας"
+msgstr "Πίνακας:"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8753,10 +8700,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
 #: libraries/server_privileges.lib.php:1027
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Όνομα χρήστη"
+msgstr "Όνομα χρήστη:"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
@@ -8766,10 +8712,9 @@ msgid "User name"
 msgstr "Όνομα χρήστη"
 
 #: libraries/replication_gui.lib.php:72
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Θύρα"
+msgstr "Θύρα:"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8818,10 +8763,9 @@ msgstr "Οποιοσδήποτε χρήστης"
 #: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1170
 #: libraries/server_privileges.lib.php:2274
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
+msgstr "Χρήση πεδίου κειμένου:"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -8858,10 +8802,9 @@ msgid "Re-type"
 msgstr "Επαναεισαγωγή"
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Παραγωγή Κωδικού Πρόσβασης"
+msgstr "Παραγωγή Κωδικού Πρόσβασης:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -8909,10 +8852,9 @@ msgstr "Επεξεργασία συμβάντος"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Σφάλμα στην προώθηση αιτημάτος"
+msgstr "Σφάλμα στην προώθηση αιτημάτος:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -9426,10 +9368,9 @@ msgid "Unknown language: %1$s."
 msgstr "Άγνωστη γλώσσα: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Τρέχων διακομιστής"
+msgstr "Τρέχων διακομιστής:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9810,10 +9751,9 @@ msgid "Column-specific privileges"
 msgstr "Δικαιώματα πεδίων"
 
 #: libraries/server_privileges.lib.php:2270
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη βάση δεδομένων"
+msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη βάση δεδομένων:"
 
 #: libraries/server_privileges.lib.php:2290
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9822,10 +9762,9 @@ msgstr ""
 "χρησιμοποιηθούν"
 
 #: libraries/server_privileges.lib.php:2308
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα"
+msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακα:"
 
 #: libraries/server_privileges.lib.php:2525
 msgid "Remove selected users"
@@ -9865,10 +9804,9 @@ msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Επεξεργασία Δικαιωμάτων"
+msgstr "Επεξεργασία Δικαιωμάτων:"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
@@ -9911,10 +9849,9 @@ msgid "Clear"
 msgstr "Καθάρισμα"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
+msgstr "Αποθήκευση αυτού του ερωτήματος SQL:"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1327
 msgid "Let every user access this bookmark"
@@ -10302,22 +10239,19 @@ msgid "Table name"
 msgstr "Ονομασία πίνακας"
 
 #: libraries/tbl_columns_definition_form.inc.php:838
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Μηχανή αποθήκευσης"
+msgstr "Μηχανή αποθήκευσης:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Σύνθεση"
+msgstr "Σύνθεση:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Ορισμός PARTITION"
+msgstr "Ορισμός PARTITION:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -10443,10 +10377,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Απόκρυψη/Εμφάνιση Πινάκων χωρίς συσχέτιση"
 
 #: pmd_general.php:218
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Αριθμός πινάκων"
+msgstr "Αριθμός πινάκων:"
 
 #: pmd_general.php:467
 msgid "Delete relation"
@@ -10491,10 +10424,9 @@ msgid "Page creation failed"
 msgstr "Η δημιουργία σελίδας απέτυχε"
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Σελίδα"
+msgstr "Σελίδα:"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
@@ -10513,10 +10445,9 @@ msgid "New page name: "
 msgstr "Νέο όνομα σελίδα: "
 
 #: pmd_pdf.php:141
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Εξαγωγή/Εισαγωγή σε κλίμακα"
+msgstr "Εξαγωγή/Εισαγωγή σε κλίμακα:"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10535,10 +10466,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση FOREIGN KEY"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Γενικές λειτουργίες συσχέτισης"
+msgstr "Γενικές λειτουργίες συσχέτισης:"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -10634,10 +10564,9 @@ msgid "All"
 msgstr "Όλα"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "Ιστορικό SQL"
+msgstr "Ιστορικό SQL:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
@@ -11290,22 +11219,19 @@ msgid "Questions since startup: %s"
 msgstr "Ερωτήσεις από την εκκίνηση: %s"
 
 #: server_status_queries.php:79
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "ανά ώρα"
+msgstr "ανά ώρα:"
 
 #: server_status_queries.php:82
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "ανά λεπτό"
+msgstr "ανά λεπτό:"
 
 #: server_status_queries.php:86
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "ανά δευτερόλεπτο"
+msgstr "ανά δευτερόλεπτο:"
 
 #: server_status_queries.php:102
 msgid "Statements"
@@ -12449,10 +12375,9 @@ msgid "SQL result"
 msgstr "αποτέλεσμα SQL"
 
 #: sql.php:1112
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Δημιουργήθηκε από"
+msgstr "Δημιουργήθηκε από:"
 
 #: sql.php:1234
 msgid ""
@@ -12473,10 +12398,9 @@ msgid "Bookmark this SQL query"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
 
 #: sql.php:1319
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Ετικέτα"
+msgstr "Ετικέτα:"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12658,22 +12582,19 @@ msgid "The table name is empty!"
 msgstr "Το όνομα του πίνακα είναι κενό!"
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Εμφάνιση πινάκων"
+msgstr "Εμφάνιση πινάκων:"
 
 #: tbl_printview.php:296
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Χρήση χώρου"
+msgstr "Χρήση χώρου:"
 
 #: tbl_printview.php:345
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Στατιστικά Εγγραφών"
+msgstr "Στατιστικά Εγγραφών:"
 
 #: tbl_relation.php:213
 #, php-format
@@ -12707,10 +12628,9 @@ msgid "No index defined! Create one below"
 msgstr "Δεν ορίστηκε ευρετήριο! Δημιουργήστε ένα παρακάτω"
 
 #: tbl_relation.php:544
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Επιλέξτε στήλη για εμφάνιση"
+msgstr "Επιλέξτε στήλη για εμφάνιση:"
 
 #: tbl_structure.php:144
 #, php-format
