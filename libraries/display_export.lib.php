@@ -99,9 +99,15 @@ $html .= PMA_Util::getImage('b_export.png', __('Export'));
 if ($export_type == 'server') {
     $html .= __('Exporting databases from the current server');
 } elseif ($export_type == 'database') {
-    $html .= sprintf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
+    $html .= sprintf(
+        __('Exporting tables from "%s" database'),
+        htmlspecialchars($db)
+    );
 } else {
-    $html .= sprintf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
+    $html .= sprintf(
+        __('Exporting rows from "%s" table'),
+        htmlspecialchars($table)
+    );
 }
 $html .= '</h2>';
 $html .= '</div>';
