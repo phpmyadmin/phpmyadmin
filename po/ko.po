@@ -3230,6 +3230,7 @@ msgstr "테이블 검색"
 msgid "Edit/Insert"
 msgstr "편집/삽입"
 
+<<<<<<< HEAD
 #: libraries/TableSearch.class.php:760
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
@@ -3239,6 +3240,12 @@ msgstr "컬럼 선택 (하나 이상):"
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:347
 msgid "Or"
 msgstr "또는"
+=======
+#: libraries/TableSearch.class.php:755
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
+msgstr "컬럼 선택 (하나 이상):"
+>>>>>>> QA_4_0
 
 #: libraries/TableSearch.class.php:780
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -6360,7 +6367,11 @@ msgstr ""
 msgid "Output:"
 msgstr "출력:"
 
+<<<<<<< HEAD
 #: libraries/display_export.lib.php:215 libraries/display_export.lib.php:254
+=======
+#: libraries/display_export.lib.php:211 libraries/display_export.lib.php:249
+>>>>>>> QA_4_0
 #, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
@@ -6426,7 +6437,11 @@ msgstr "gz 압축"
 msgid "bzipped"
 msgstr "bzip 압축"
 
+<<<<<<< HEAD
 #: libraries/display_export.lib.php:415
+=======
+#: libraries/display_export.lib.php:409
+>>>>>>> QA_4_0
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "출력를 텍스트로 표시"
@@ -7285,7 +7300,11 @@ msgstr "이름으로 데이터베이스 필터링"
 msgid "Clear Fast Filter"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/navigation/NavigationTree.class.php:1074
+=======
+#: libraries/navigation/NavigationTree.class.php:1060
+>>>>>>> QA_4_0
 #| msgid "table name"
 msgid "filter items by name"
 msgstr "이름으로 필터링"
@@ -7853,12 +7872,15 @@ msgstr "데이터베이스"
 msgid "Data:"
 msgstr "데이터"
 
+<<<<<<< HEAD
 #: libraries/plugins/export/ExportLatex.class.php:485
 #, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
 msgstr "구조"
 
+=======
+>>>>>>> QA_4_0
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 #| msgid "Export"
 msgid "Export table names"
@@ -8357,9 +8379,14 @@ msgid "User name"
 msgstr "사용자명"
 
 #: libraries/replication_gui.lib.php:72
+<<<<<<< HEAD
 #, fuzzy
 msgid "Port:"
 msgstr "정렬"
+=======
+msgid "Port"
+msgstr "포트"
+>>>>>>> QA_4_0
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8494,10 +8521,14 @@ msgstr "이벤트 수정"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Processes"
+<<<<<<< HEAD
 msgid "Error in processing request:"
 msgstr "프로세스 목록"
+=======
+msgid "Error in processing request"
+msgstr "요청 처리 중 오류"
+>>>>>>> QA_4_0
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -8796,7 +8827,11 @@ msgstr ""
 msgid "routine"
 msgstr "필드 추가하기"
 
+<<<<<<< HEAD
 #: libraries/rte/rte_words.lib.php:31
+=======
+#: libraries/rte/rte_words.lib.php:26
+>>>>>>> QA_4_0
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "루틴(routine)을 작성하는데 필요한 권한을 가지고 있지 않습니다."
@@ -8811,7 +8846,11 @@ msgstr "데이터베이스에 테이블이 없습니다."
 msgid "There are no routines to display."
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/rte/rte_words.lib.php:39
+=======
+#: libraries/rte/rte_words.lib.php:34
+>>>>>>> QA_4_0
 msgid "Add trigger"
 msgstr "트리거 추가"
 
@@ -8820,11 +8859,19 @@ msgstr "트리거 추가"
 msgid "Export of trigger %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: libraries/rte/rte_words.lib.php:42
 msgid "trigger"
 msgstr "트리거"
 
 #: libraries/rte/rte_words.lib.php:43
+=======
+#: libraries/rte/rte_words.lib.php:37
+msgid "trigger"
+msgstr "트리거"
+
+#: libraries/rte/rte_words.lib.php:38
+>>>>>>> QA_4_0
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다."
@@ -9029,10 +9076,14 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Server"
+<<<<<<< HEAD
 msgid "Current Server:"
 msgstr "서버"
+=======
+msgid "Current Server"
+msgstr "현재 서버"
+>>>>>>> QA_4_0
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9485,7 +9536,11 @@ msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니�
 msgid "You have added a new user."
 msgstr "새 사용자를 추가했습니다."
 
+<<<<<<< HEAD
 #: libraries/sql_query_form.lib.php:188
+=======
+#: libraries/sql_query_form.lib.php:184
+>>>>>>> QA_4_0
 #, php-format
 msgid "Run SQL query/queries on server %s"
 msgstr "서버 %s에 SQL 질의를 실행"
@@ -10090,10 +10145,14 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Usage"
+<<<<<<< HEAD
 msgid "Page:"
 msgstr "사용법(량)"
+=======
+msgid "Page"
+msgstr "페이지"
+>>>>>>> QA_4_0
 
 #: pmd_pdf.php:123
 #| msgid "Import files"
@@ -10336,7 +10395,11 @@ msgstr ""
 msgid "Library"
 msgstr ""
 
+<<<<<<< HEAD
 #: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:764
+=======
+#: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:763
+>>>>>>> QA_4_0
 msgid "Version"
 msgstr "버전"
 
@@ -10657,6 +10720,13 @@ msgstr ""
 #: server_status_monitor.php:489 server_status_monitor.php:606
 msgid "Add chart"
 msgstr "차트 추가"
+<<<<<<< HEAD
+=======
+
+#: server_status_monitor.php:492
+msgid "Rearrange/edit charts"
+msgstr ""
+>>>>>>> QA_4_0
 
 #: server_status_monitor.php:496
 msgid "Refresh rate"
@@ -11575,7 +11645,11 @@ msgstr "기부"
 msgid "Edit server"
 msgstr "서버 수정"
 
+<<<<<<< HEAD
 #: setup/frames/servers.inc.php:39
+=======
+#: setup/frames/servers.inc.php:38
+>>>>>>> QA_4_0
 msgid "Add a new server"
 msgstr "새 서버 추가"
 

@@ -27,6 +27,7 @@ $post_params = array(
         'export_type',
         'export_method',
         'quick_or_custom',
+        'table_select',
         'limit_to',
         'limit_from',
         'allrows',

@@ -5,7 +5,9 @@ phpMyAdmin - ChangeLog
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
-- bug When login fails and error display is active, login data is displayed
+- bug #3889 When login fails and error display is active, login data is displayed
+- bug #3890 [import] Web server upload directory import fails
+- bug #3891 [import] Server upload folder import file name missing in success message 
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
@@ -118,6 +120,7 @@ underscore
   (see PMASA-2013-4)
 - [security] Global variables overwrite in export.php, reported by Janek Vind
   (see PMASA-2013-5)
+- bug #3892 [export] SQL Export files are empty
 
 3.5.9.0 (not yet released)
 
