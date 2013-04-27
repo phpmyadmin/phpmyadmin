@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-27 12:04+0200\n"
+"PO-Revision-Date: 2013-04-27 13:07+0200\n"
 "Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -1415,15 +1415,15 @@ msgstr "모니터링 정지"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log 와 slow_query_log 가 활성화 되었습니다."
+msgstr "일반 로그와 슬로우 쿼리 로그가 활성화 되었습니다."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
-msgstr "general_log 가 활성화 되었습니다."
+msgstr "일반 로그가 활성화 되었습니다."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log 가 활성화 되었습니다."
+msgstr "슬로우 쿼리 로그가 활성화 되었습니다."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
@@ -3128,15 +3128,13 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:83
 #: libraries/config/validate.lib.php:438
-#, fuzzy
 msgid "Not a positive number"
 msgstr "양수가 아닙니다."
 
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:450
-#, fuzzy
 msgid "Not a non-negative number"
-msgstr "0 혹은 양수가 아닙니다."
+msgstr "음수가 아닙니다."
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:426
@@ -3802,10 +3800,9 @@ msgid "Microsoft Office"
 msgstr "마이크로소프트 오피스"
 
 #: libraries/config/messages.inc.php:190
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "문서"
+msgstr "Open Document 형식"
 
 #: libraries/config/messages.inc.php:192
 msgid "Other core settings"
@@ -4066,10 +4063,9 @@ msgid "Partial import: skip queries"
 msgstr ""
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "AUTO_INCREMENT 값 추가"
+msgstr "값이 없는 경우(zero value) AUTO_INCREMENT 사용 금지"
 
 #: libraries/config/messages.inc.php:266
 msgid "Initial state for sliders"
@@ -4718,9 +4714,8 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 msgid "Server port"
-msgstr "서버 선택"
+msgstr "서버 포트"
 
 #: libraries/config/messages.inc.php:416
 msgid ""
@@ -4729,10 +4724,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "테이블 분석"
+msgstr "최근에 사용한 테이블"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -4741,9 +4735,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 msgid "Relation table"
-msgstr "테이블 복구"
+msgstr "연관된 테이블"
 
 #: libraries/config/messages.inc.php:420
 msgid "SQL command to fetch available databases"
@@ -4852,7 +4845,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "명세"
+msgstr "문장 추적"
 
 #: libraries/config/messages.inc.php:443
 msgid ""
@@ -5255,10 +5248,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:170
-#, fuzzy
 #| msgid "Custom color"
 msgid "Custom"
-msgstr "사용자 지정 색상"
+msgstr "사용자 지정"
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
@@ -5522,10 +5514,10 @@ msgid "Output:"
 msgstr "출력:"
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "서버의 %s 디렉토리에 저장"
+msgstr "서버의 <b>%s</b> 디렉토리에 저장"
 
 #: libraries/display_export.lib.php:201
 #| msgid "Save as file"
@@ -5591,10 +5583,9 @@ msgid "bzipped"
 msgstr "bzip 압축"
 
 #: libraries/display_export.lib.php:323
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "파일로 저장"
+msgstr "출력를 텍스트로 표시"
 
 #: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
@@ -5776,7 +5767,7 @@ msgstr "관계키"
 
 #: libraries/display_tbl.lib.php:668
 msgid "Relational display column"
-msgstr ""
+msgstr "연관된 행 표시"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
@@ -5794,11 +5785,11 @@ msgstr "버전 정보"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "잘 알려진 텍스트"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "잘 알려진 바이너리"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -5832,17 +5823,16 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "인쇄용 보기 (전체 텍스트)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:92
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
-msgstr "열(칼럼) 설명(코멘트) 출력하기"
+msgstr "차트 표시"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS 데이터를 시각화"
 
 #: libraries/display_tbl.lib.php:2701
 msgid "Create view"
@@ -6028,9 +6018,8 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
-#, fuzzy
 msgid "Port"
-msgstr "정렬"
+msgstr "포트"
 
 #: libraries/engines/pbms.lib.php:36
 msgid ""
@@ -6247,22 +6236,20 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "줄(열) 구분자"
+msgstr "열(컬럼) 구분자:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "필드 감싸기"
+msgstr "열(컬럼) 감싸기"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "필드 특수문자(escape) 처리"
+msgstr "열(컬럼) 특수문자(escape) 처리"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 #, fuzzy
@@ -6483,9 +6470,8 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:342 libraries/export/xml.php:45
-#, fuzzy
 msgid "Procedures"
-msgstr "프로시져"
+msgstr "프로시저"
 
 #: libraries/export/sql.php:359 libraries/export/xml.php:40
 #, fuzzy
@@ -6517,10 +6503,9 @@ msgid "Stand-in structure for view"
 msgstr ""
 
 #: libraries/export/sql.php:1112
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "데이터 읽기 허용."
+msgstr "데이터 읽기 오류:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
@@ -6622,10 +6607,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:42
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "열(칼럼) 이름"
+msgstr "열(컬럼) 이름: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7162,15 +7146,15 @@ msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:134
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Event %1$s has been modified."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "이벤트 %1$s 를 변경했습니다."
 
 #: libraries/rte/rte_events.lib.php:150
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "테이블 %s 을 제거했습니다."
+msgstr "이벤트 %1$s 를 생성했습니다."
 
 #: libraries/rte/rte_events.lib.php:158 libraries/rte/rte_routines.lib.php:309
 #: libraries/rte/rte_triggers.lib.php:131
@@ -7178,18 +7162,16 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:202
-#, fuzzy
 msgid "Edit event"
-msgstr "보냄"
+msgstr "이벤트 수정"
 
 #: libraries/rte/rte_events.lib.php:229 libraries/rte/rte_routines.lib.php:387
 #: libraries/rte/rte_routines.lib.php:1299
 #: libraries/rte/rte_routines.lib.php:1335
 #: libraries/rte/rte_triggers.lib.php:204
-#, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request"
-msgstr "프로세스 목록"
+msgstr "요청 처리 중 오류"
 
 #: libraries/rte/rte_events.lib.php:388 libraries/rte/rte_routines.lib.php:845
 #: libraries/rte/rte_triggers.lib.php:319
@@ -7197,20 +7179,18 @@ msgid "Details"
 msgstr "자세한 내용"
 
 #: libraries/rte/rte_events.lib.php:391
-#, fuzzy
 msgid "Event name"
-msgstr "질의 종류"
+msgstr "이벤트 이름"
 
 #: libraries/rte/rte_events.lib.php:412 server_binlog.php:182
-#, fuzzy
 msgid "Event type"
-msgstr "질의 종류"
+msgstr "이벤트 종류"
 
 #: libraries/rte/rte_events.lib.php:433 libraries/rte/rte_routines.lib.php:866
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "변경"
+msgstr "%s 로 변경"
 
 #: libraries/rte/rte_events.lib.php:439
 msgid "Execute at"
@@ -7358,20 +7338,18 @@ msgid "Add parameter"
 msgstr "파라미터 추가"
 
 #: libraries/rte/rte_routines.lib.php:898
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Remove last parameter"
-msgstr "데이터베이스 이름 변경"
+msgstr "마지막 파라미터 제거"
 
 #: libraries/rte/rte_routines.lib.php:903
 msgid "Return type"
-msgstr ""
+msgstr "반환(return) 종류"
 
 #: libraries/rte/rte_routines.lib.php:909
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "길이/값*"
+msgstr "반환(return) 길이/값"
 
 #: libraries/rte/rte_routines.lib.php:915
 #, fuzzy
@@ -7471,7 +7449,6 @@ msgid "Trigger name"
 msgstr "트리거 이름"
 
 #: libraries/rte/rte_triggers.lib.php:345
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -7512,10 +7489,9 @@ msgid "routine"
 msgstr "필드 추가하기"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
+msgstr "루틴(routine)을 작성하는데 필요한 권한을 가지고 있지 않습니다."
 
 #: libraries/rte/rte_words.lib.php:23
 #, fuzzy, php-format
@@ -7528,9 +7504,8 @@ msgid "There are no routines to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 msgid "Add trigger"
-msgstr "새 사용자 추가"
+msgstr "트리거 추가"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
@@ -7538,15 +7513,13 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 msgid "trigger"
-msgstr "새 사용자 추가"
+msgstr "트리거"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
+msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다."
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
@@ -7628,9 +7601,8 @@ msgid "Relational schema"
 msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1134
-#, fuzzy
 msgid "Table of contents"
-msgstr "테이블 설명"
+msgstr "목차(차례)"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1307
 #: libraries/schema/Pdf_Relation_Schema.class.php:1328
@@ -7748,10 +7720,9 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "서버"
+msgstr "현재 서버"
 
 #: libraries/server_links.inc.php:60
 #| msgid "User"
@@ -7816,9 +7787,9 @@ msgid "Click to select"
 msgstr "선택하려면 클릭하세요"
 
 #: libraries/sql_query_form.lib.php:189
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "데이터베이스 %s에 SQL 질의를 실행"
+msgstr "서버 %s에 SQL 질의를 실행"
 
 #: libraries/sql_query_form.lib.php:206 libraries/sql_query_form.lib.php:228
 #, php-format
@@ -8020,10 +7991,9 @@ msgid "Add %s column(s)"
 msgstr "필드 추가하기"
 
 #: libraries/tbl_properties.inc.php:575 tbl_structure.php:662
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
-msgstr "출력하려면 적어도 1개 이상의 열(칼럼)을 선택해야 합니다."
+msgstr "적어도 한 개 이상의 컬럼을 추가해야 합니다."
 
 #: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
@@ -8153,10 +8123,9 @@ msgid "Manage your settings"
 msgstr ""
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "수정된 내용이 저장되었습니다."
+msgstr "구성이 저장되었습니다."
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
@@ -8471,14 +8440,13 @@ msgstr "테이블 복구"
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "내보내기"
+msgstr "예외"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#, fuzzy
 #| msgid "in query"
 msgid "subquery"
-msgstr "질의(in query)"
+msgstr "서브쿼리"
 
 #: pmd_general.php:474 pmd_general.php:570
 #, fuzzy
@@ -8512,16 +8480,14 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:85
-#, fuzzy
 #| msgid "Usage"
 msgid "Page"
-msgstr "사용법(량)"
+msgstr "페이지"
 
 #: pmd_pdf.php:95
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from selected page"
-msgstr "파일 가져오기"
+msgstr "선택된 페이지 내보내기"
 
 #: pmd_pdf.php:96
 msgid "Export to selected page"
@@ -8596,10 +8562,9 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:237
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "파일 가져오기"
+msgstr "파일에서 가져오기"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
@@ -8764,9 +8729,8 @@ msgid "Library"
 msgstr ""
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
-#, fuzzy
 msgid "Version"
-msgstr "PHP 버전"
+msgstr "버전"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
@@ -8777,7 +8741,6 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#, fuzzy
 #| msgid "Disabled"
 msgid "disabled"
 msgstr "사용불가"
@@ -9015,7 +8978,6 @@ msgid "Do not change the password"
 msgstr "암호를 변경하지 않음"
 
 #: server_privileges.php:917 server_privileges.php:2399
-#, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "사용자가 없습니다."
@@ -9203,10 +9165,9 @@ msgid "wildcard"
 msgstr ""
 
 #: server_privileges.php:2408
-#, fuzzy
 #| msgid "View %s has been dropped"
 msgid "User has been added."
-msgstr "뷰 %s가 제거되었습니다."
+msgstr "사용자가 추가되었습니다."
 
 #: server_replication.php:49
 msgid "Unknown error"
@@ -9404,9 +9365,8 @@ msgid "Temporary data"
 msgstr "임시 데이터"
 
 #: server_status.php:599
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "확장된 inserts"
+msgstr "지연된 삽입"
 
 #: server_status.php:600
 msgid "Key cache"
@@ -9434,15 +9394,15 @@ msgstr "열려있는 테이블 보기"
 
 #: server_status.php:624
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Slave 호스트 보기"
 
 #: server_status.php:630
 msgid "Show slave status"
-msgstr ""
+msgstr "Slave 상태 보기"
 
 #: server_status.php:635
 msgid "Flush query cache"
-msgstr ""
+msgstr "쿼리 캐시를 비움"
 
 #: server_status.php:784
 msgid "Runtime Information"
@@ -9475,10 +9435,9 @@ msgid "Filters"
 msgstr ""
 
 #: server_status.php:854 server_variables.php:117
-#, fuzzy
 #| msgid "Do not change the password"
 msgid "Containing the word:"
-msgstr "암호를 변경하지 않음"
+msgstr "포함하고 있는 단어:"
 
 #: server_status.php:859
 #, fuzzy
@@ -9490,14 +9449,12 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:877
-#, fuzzy
 msgid "Show unformatted values"
-msgstr "테이블 보기"
+msgstr "원본 값 보기"
 
 #: server_status.php:881
-#, fuzzy
 msgid "Related links:"
-msgstr "테이블 작업"
+msgstr "추천 링크:"
 
 #: server_status.php:914
 #, fuzzy
@@ -9557,11 +9514,10 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: server_status.php:1071
-#, fuzzy, php-format
+#, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
-"이 MySQL 서버는 %s 동안 구동되었습니다. <br/>구동 시작날짜는 %s 입니다."
+msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날짜는 %2$s 입니다."
 
 #: server_status.php:1082
 msgid ""
@@ -10172,10 +10128,9 @@ msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: server_status.php:1570
-#, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
-msgstr "토"
+msgstr "모니터링 시작"
 
 #: server_status.php:1579
 msgid "Instructions/Setup"
@@ -10186,9 +10141,8 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1591 server_status.php:1662
-#, fuzzy
 msgid "Add chart"
-msgstr "필드 추가하기"
+msgstr "차트 추가"
 
 #: server_status.php:1593
 msgid "Rearrange/edit charts"
@@ -10320,9 +10274,8 @@ msgid "Series in Chart:"
 msgstr "SQL 질의"
 
 #: server_status.php:1727
-#, fuzzy
 msgid "Log statistics"
-msgstr "행(레코드) 통계"
+msgstr "로그 통계"
 
 #: server_status.php:1728
 #, fuzzy
@@ -10346,10 +10299,9 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1750
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "질의 종류"
+msgstr "질의 분석기"
 
 #: server_status.php:1790 server_status.php:1807
 #, php-format
@@ -10596,9 +10548,8 @@ msgid "Edit server"
 msgstr "서버 수정"
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "새 사용자 추가"
+msgstr "새 서버 추가"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -10772,10 +10723,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야 합니다."
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "데이터베이스가 없습니다"
+msgstr "잘못된 데이터"
 
 #: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
@@ -10800,7 +10750,6 @@ msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
 #: sql.php:724
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "SQL 검사"
@@ -10863,7 +10812,7 @@ msgstr "새 행(레코드) 삽입하기"
 #: tbl_change.php:1051
 #, fuzzy
 msgid "Go back to this page"
-msgstr "되돌아가기"
+msgstr "이 페이지로 돌아가기"
 
 #: tbl_change.php:1059
 msgid "Edit next row"
@@ -10920,10 +10869,9 @@ msgid "Stacked"
 msgstr ""
 
 #: tbl_chart.php:109
-#, fuzzy
 #| msgid "Import files"
 msgid "Chart title"
-msgstr "파일 가져오기"
+msgstr "차트 제목"
 
 #: tbl_chart.php:115
 msgid "X-Axis:"
@@ -11232,10 +11180,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "다음으로 질의를 만들기 (와일드카드: \"%\")"
 
 #: tbl_select.php:180
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "필드 선택 (하나 이상):"
+msgstr "컬럼 선택 (하나 이상):"
 
 #: tbl_select.php:198
 msgid "Add search conditions (body of the \"where\" clause):"
