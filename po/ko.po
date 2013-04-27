@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-27 12:08+0200\n"
+"PO-Revision-Date: 2013-04-27 12:18+0200\n"
 "Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -3034,7 +3034,7 @@ msgstr "열려있는 테이블 보기"
 
 #: libraries/ServerStatusData.class.php:214
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Slave 호스트 보기"
 
 #: libraries/ServerStatusData.class.php:218 server_replication.php:170
 msgid "Show master status"
@@ -3042,11 +3042,11 @@ msgstr "마스터 상태 보기"
 
 #: libraries/ServerStatusData.class.php:221
 msgid "Show slave status"
-msgstr ""
+msgstr "Slave 상태 보기"
 
 #: libraries/ServerStatusData.class.php:226
 msgid "Flush query cache"
-msgstr ""
+msgstr "쿼리 캐시를 비움"
 
 #: libraries/ServerStatusData.class.php:241
 #: libraries/engines/innodb.lib.php:144
@@ -3122,10 +3122,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s 에서 %2$s 로 테이블 이름을 바꾸는데 오류가 발생하였습니다."
 
 #: libraries/Table.class.php:1229
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "테이블 %s을(를) %s(으)로 이름을 변경하였습니다."
+msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1373
 msgid "Could not save table UI preferences"
@@ -3180,10 +3180,9 @@ msgid "Edit/Insert"
 msgstr "편집/삽입"
 
 #: libraries/TableSearch.class.php:755
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "필드 선택 (하나 이상):"
+msgstr "컬럼 선택 (하나 이상):"
 
 #: libraries/TableSearch.class.php:775
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -3271,31 +3270,37 @@ msgstr "테마"
 #: libraries/Types.class.php:296
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
-msgstr ""
+msgstr "1바이트 정수형의 범위는 부호가 있는 경우 -128 에서 127, 부호가 없는 경우 0 에서 255 입니다."
 
 #: libraries/Types.class.php:298
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
-msgstr ""
+msgstr "2바이트 정수형의 범위는 부호가 있는 경우 -32,768 에서 32,767, 부호가 없는 경우 0 에서 65,355 입니다."
 
 #: libraries/Types.class.php:300
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3바이트 정수형의 범위는 부호가 있는 경우 -8,388,608 에서 8,388,607, 부호가 없는 경우 0 에서 16,777,215 "
+"입니다."
 
 #: libraries/Types.class.php:302
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"4바이트 정수형의 범위는 부호가 있는 경우 -2,147,483,648 에서 2,147,483,647, 부호가 없는 경우 0 에서 "
+"4,294,967,295 입니다."
 
 #: libraries/Types.class.php:304
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"8바이트 정수형의 범위는 부호가 있는 경우 -9,223,372,036,854,775,808 에서 "
+"9,223,372,036,854,775,807, 부호가 없는 경우 0 에서 18,446,744,073,709,551,615 입니다."
 
 #: libraries/Types.class.php:306 libraries/Types.class.php:712
 msgid ""
