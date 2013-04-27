@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2012-09-05 10:33+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/"
-">\n"
+"PO-Revision-Date: 2013-04-27 21:15+0200\n"
+"Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
+"Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -705,10 +704,9 @@ msgid "Back"
 msgstr "חזרה"
 
 #: index.php:114
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "תכונות קשר כלליות"
+msgstr "תכונות כלליות"
 
 #: index.php:140 libraries/display_change_password.lib.php:46
 #: user_password.php:233
