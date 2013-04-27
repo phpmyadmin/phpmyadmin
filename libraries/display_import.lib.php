@@ -57,7 +57,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 
                 var perform_upload = function () {
                     new $.getJSON(
-                    'import_status.php?id=<?php echo $upload_id ; ?>&<?php echo PMA_generate_common_url(); ?>',
+                    'import_status.php?id=<?php echo $upload_id ; ?>&<?php echo PMA_generate_common_url(array('import_status'=>1), '&'); ?>',
                     {},
                     function(response) {
                         finished = response.finished;
@@ -134,7 +134,7 @@ if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
                             $('#import_form_status')
                                 .html('<img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> <?php echo PMA_jsFormat(__('The file is being processed, please be patient.'), false); ?> ')
                                 .show();
-                            $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(); ?>'); // loads the message, either success or mysql error
+                            $('#import_form_status').load('import_status.php?message=true&<?php echo PMA_generate_common_url(array('import_status'=>1), '&'); ?>'); // loads the message, either success or mysql error
                             <?php
                             // reload the left sidebar when the import is finished
                             $GLOBALS['reload'] = true;
