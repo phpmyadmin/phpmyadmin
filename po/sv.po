@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-25 21:49+0200\n"
-"Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
+"PO-Revision-Date: 2013-04-27 11:34+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
@@ -338,10 +338,9 @@ msgstr "används"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Skapande"
+msgstr "Skapat:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
@@ -560,10 +559,10 @@ msgid "Add a point"
 msgstr "Lägg till en punkt"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linestring"
+msgstr "Linjesträng %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
 #| msgid "Outer Ring"
@@ -754,20 +753,18 @@ msgid "User:"
 msgstr "Användare:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Server teckenuppsättning"
+msgstr "Serverns teckenuppsättning:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Webbserver"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Databas klientversion"
+msgstr "Databasens klientversion:"
 
 #: index.php:286
 #| msgid "PHP extension"
@@ -2346,14 +2343,13 @@ msgid "Use Tables"
 msgstr "Använd tabeller"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Eller"
+msgstr "Eller:"
 
 #: libraries/DBQbe.class.php:657 libraries/DBQbe.class.php:742
 msgid "And:"
-msgstr ""
+msgstr "Och:"
 
 #: libraries/DBQbe.class.php:661
 msgid "Ins"
@@ -2370,11 +2366,11 @@ msgstr "Ändra:"
 
 #: libraries/DBQbe.class.php:737
 msgid "Ins:"
-msgstr ""
+msgstr "Infoga:"
 
 #: libraries/DBQbe.class.php:752
 msgid "Del:"
-msgstr ""
+msgstr "Radera:"
 
 #: libraries/DBQbe.class.php:1322
 #, php-format
@@ -2499,10 +2495,9 @@ msgid "End"
 msgstr "Slut"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Startrad"
+msgstr "Startrad:"
 
 #: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
 #: tbl_chart.php:245
@@ -2510,10 +2505,9 @@ msgid "Number of rows:"
 msgstr "Antal rader:"
 
 #: libraries/DisplayResults.class.php:917
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Läge"
+msgstr "Läge:"
 
 #: libraries/DisplayResults.class.php:919
 msgid "horizontal"
@@ -6398,10 +6392,9 @@ msgstr "Lösenord:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
 #: libraries/server_privileges.lib.php:1221
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Skriv igen"
+msgstr "Skriv igen:"
 
 #: libraries/display_change_password.lib.php:74
 #| msgid "Password Hashing"
@@ -6605,10 +6598,9 @@ msgid "no branch"
 msgstr "ingen gren"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Git revision"
+msgstr "Git version:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7793,10 +7785,9 @@ msgid "Username:"
 msgstr "Användarnamn:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Välj server"
+msgstr "Serverval:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -7967,10 +7958,9 @@ msgstr "Tabellbeskrivning (forts):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Märk nyckel"
+msgstr "Märk nyckeln:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8006,10 +7996,9 @@ msgstr "Värd:"
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Skapad"
+msgstr "Tid vid skapande:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
@@ -8657,10 +8646,9 @@ msgstr "Vilken användare som helst"
 #: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1170
 #: libraries/server_privileges.lib.php:2274
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Använd textfältet"
+msgstr "Använd textfältet:"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -8746,10 +8734,9 @@ msgstr "Redigera händelse"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Fel i utförandebegäran"
+msgstr "Fel i processbegäran:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -10127,16 +10114,14 @@ msgid "Storage Engine:"
 msgstr "Lagringsmotor:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Kollationering"
+msgstr "Kollationering:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "Partitionsdefinition"
+msgstr "Partitionsdefinition:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -10330,10 +10315,9 @@ msgid "New page name: "
 msgstr "Nytt sidnamn: "
 
 #: pmd_pdf.php:141
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Exportera/Importera till skala"
+msgstr "Exportera /Importera till skala:"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10352,10 +10336,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY-relation tillagd"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Allmänna relationsfunktionaliteter"
+msgstr "Vanliga relationsfunktioner:"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12212,10 +12195,9 @@ msgid "Bookmark this SQL query"
 msgstr "Skapa bokmärke för den här SQL-frågan"
 
 #: sql.php:1319
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Etikett"
+msgstr "Etikett:"
 
 #: tbl_chart.php:38
 msgid "No data to display"
@@ -12402,10 +12384,9 @@ msgid "Showing tables:"
 msgstr "Visar tabeller:"
 
 #: tbl_printview.php:296
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Använt utrymme"
+msgstr "Använt utrymme:"
 
 #: tbl_printview.php:345
 #| msgid "Row Statistics"
