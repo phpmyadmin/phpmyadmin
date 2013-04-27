@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-22 16:52+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2013-04-27 12:08+0200\n"
+"Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2221,7 +2221,7 @@ msgstr "규칙 '%s'에 대한 테스트를 실행 못 함"
 #: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2230,10 +2230,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:395
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid rule declaration on line %s"
-msgstr "잘못된 서버 인덱스: %s"
+msgstr "%s 행에 잘못된 규칙 선언"
 
 #: libraries/Advisor.class.php:403
 #, php-format
@@ -2487,7 +2487,7 @@ msgstr "수직(세로)"
 #: libraries/DisplayResults.class.php:933
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "%s 행마다 헤더 반복"
 
 #: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
@@ -2523,17 +2523,15 @@ msgstr "옵션"
 
 #: libraries/DisplayResults.class.php:1584
 #: libraries/DisplayResults.class.php:1690
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Partial Texts"
+msgstr "텍스트의 일부분"
 
 #: libraries/DisplayResults.class.php:1585
 #: libraries/DisplayResults.class.php:1694
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Full Texts"
+msgstr "전체 텍스트"
 
 #: libraries/DisplayResults.class.php:1599
 msgid "Relational key"
@@ -2541,7 +2539,7 @@ msgstr "관계키"
 
 #: libraries/DisplayResults.class.php:1600
 msgid "Relational display column"
-msgstr ""
+msgstr "연관된 행 표시"
 
 #: libraries/DisplayResults.class.php:1612
 msgid "Show binary contents"
@@ -2564,11 +2562,11 @@ msgstr "버전 정보"
 
 #: libraries/DisplayResults.class.php:1642
 msgid "Well Known Text"
-msgstr ""
+msgstr "잘 알려진 텍스트"
 
 #: libraries/DisplayResults.class.php:1643
 msgid "Well Known Binary"
-msgstr ""
+msgstr "잘 알려진 바이너리"
 
 #: libraries/DisplayResults.class.php:3355
 #: libraries/DisplayResults.class.php:3371
@@ -2582,7 +2580,7 @@ msgstr "Kill"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgstr ""
+msgstr "근사값입니다. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2654,17 +2652,16 @@ msgstr "인쇄용 보기"
 
 #: libraries/DisplayResults.class.php:5220
 msgid "Print view (with full texts)"
-msgstr ""
+msgstr "인쇄용 보기 (전체 텍스트)"
 
 #: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display chart"
-msgstr "열(칼럼) 설명(코멘트) 출력하기"
+msgstr "차트 표시"
 
 #: libraries/DisplayResults.class.php:5316
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "GIS 데이터를 시각화"
 
 #: libraries/DisplayResults.class.php:5348 view_create.php:151
 msgid "Create view"
@@ -2734,7 +2731,7 @@ msgstr "새 창으로 phpMyAdmin 열기"
 
 #: libraries/Header.class.php:392
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "클릭하여 페이지 상단으로 이동"
 
 #: libraries/Header.class.php:609
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
@@ -2996,9 +2993,8 @@ msgid "Temporary data"
 msgstr "임시 데이터"
 
 #: libraries/ServerStatusData.class.php:189
-#, fuzzy
 msgid "Delayed inserts"
-msgstr "확장된 inserts"
+msgstr "지연된 삽입"
 
 #: libraries/ServerStatusData.class.php:190
 msgid "Key cache"
