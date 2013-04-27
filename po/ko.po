@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-27 12:27+0200\n"
+"PO-Revision-Date: 2013-04-27 12:28+0200\n"
 "Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -4577,10 +4577,9 @@ msgid "Microsoft Office"
 msgstr "마이크로소프트 오피스"
 
 #: libraries/config/messages.inc.php:186
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "문서"
+msgstr "Open Document 형식"
 
 #: libraries/config/messages.inc.php:188
 msgid "Other core settings"
@@ -4728,10 +4727,9 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
-msgstr "데이터베이스 "
+msgstr "테이블 구조"
 
 #: libraries/config/messages.inc.php:225
 msgid "Settings for the table structure (list of columns)"
