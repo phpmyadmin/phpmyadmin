@@ -77,6 +77,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
+        $header->setBodyId('loginform');
         $header->setTitle(__('Access denied'));
         $header->disableMenu();
         echo '<br /><br />
@@ -132,7 +133,16 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
         $GLOBALS['error_handler']->dispUserErrors();
         echo '</td>
-        </tr>';
+        </tr>
+        <tr>
+            <td>' . "\n";
+        echo '<a href="' 
+            . $GLOBALS['cfg']['DefaultTabServer']
+            . PMA_generate_common_url(array()) . '" class="button disableAjax">'
+            . __('Retry to connect')
+            . '</a>' . "\n";
+        echo '</td>
+        </tr>' . "\n";
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             // offer a chance to login to other servers if the current one failed
             include_once './libraries/select_server.lib.php';
