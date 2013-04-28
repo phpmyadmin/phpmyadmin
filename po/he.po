@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-27 21:21+0200\n"
+"PO-Revision-Date: 2013-04-28 12:28+0200\n"
 "Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
@@ -596,7 +596,6 @@ msgid "Output"
 msgstr "פלט"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -604,11 +603,10 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"יש לבחור ב„גאומטריה מטקסט” מהעמודה „פונקציה“ ולהדביק את המחרוזת שלהלן לשדה "
-"„ערך“"
+"בוחר \"GeomFromText\" מהעמודה \"פונקציה\" ולהדביק את המחרוזת מלמטה לשדה \"ערך\""
 
 #: import.php:105
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -616,8 +614,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"כפי הנראה ניסית להוריד קובץ גדול מדי. נא לפנות ל%sתיעוד%s לקבלת דרכים לעקיפת "
-"הגבלה זו."
+"כפי הנראה ניסית להעלות קובץ גדול מדי. נא לפנות ל%s תיעוד %s למצוא דרך לעקיפת "
+"מגבלה זו."
 
 #: import.php:248 import.php:513
 msgid "Showing bookmark"
@@ -716,77 +714,67 @@ msgstr "קידוד חיבור MySQL"
 
 #: index.php:182
 msgid "Appearance Settings"
-msgstr ""
+msgstr "הגדרות מראה"
 
 #: index.php:212 prefs_manage.php:275
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "תכונות קשר כלליות"
+msgstr "הגדרות נוספות"
 
 #: index.php:233
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "מאגרי נתונים"
+msgstr "שרת מסד נתונים"
 
 #: index.php:236 libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
 msgstr "שרת"
 
 #: index.php:240
-#, fuzzy
 msgid "Server type:"
-msgstr "קוד שרת (ID)"
+msgstr "סוג שרת:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "גרסת שרת"
+msgstr "גרסת שרת:"
 
 #: index.php:248
-#, fuzzy
 msgid "Protocol version:"
-msgstr "גרסת שרת"
+msgstr "גירסת פרוטוקול:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "משתמש"
+msgstr "משתמש:"
 
 #: index.php:257
-#, fuzzy
 msgid "Server charset:"
-msgstr "בחירת שרת"
+msgstr "ערכת תווים לשרת:"
 
 #: index.php:269
 msgid "Web server"
-msgstr ""
+msgstr "שרת אינטרנט"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version:"
-msgstr "הערה על מאגר הנתונים: "
+msgstr "גרסת לקוח מאגר הנתונים:"
 
 #: index.php:286
-#, fuzzy
 msgid "PHP extension:"
-msgstr "גרסת PHP"
+msgstr "הרחבות PHP:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "ראיית מידע PHP"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "מידע גרסאות"
+msgstr "מידע גרסאות:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -798,27 +786,25 @@ msgstr "תיעוד"
 
 #: index.php:339 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
-msgstr ""
+msgstr "ויקי"
 
 #: index.php:348
 msgid "Official Homepage"
 msgstr "דף הבית phpMyAdmin הרשמי"
 
 #: index.php:355
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "תכונות"
+msgstr "תורם"
 
 #: index.php:362
 msgid "Get support"
-msgstr ""
+msgstr "קבל תמיכה"
 
 #: index.php:369
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "ללא שינוי"
+msgstr "רשימת שינויים"
 
 #: index.php:392
 msgid ""
@@ -832,11 +818,14 @@ msgstr ""
 "ואתה ממש צריך לתקן את חור אבטחה זה."
 
 #: index.php:403
+#, fuzzy
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"הפכת mbstring.func_overload בתצורת ה-PHP שלך. אפשרות זו אינו תואם ל- "
+"phpMyAdmin, עלול לגרום לנתונים פגומים!"
 
 #: index.php:414
 msgid ""
@@ -849,12 +838,18 @@ msgstr ""
 "לתוצאות לא רצויות."
 
 #: index.php:425
+#, fuzzy
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"פרמטר PHP שלך "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] הוא נמוך יותר מאשר עוגיה תוקפו "
+"נקבעה ב phpMyAdmin, בגלל זה, הכניסה שלך יפוג מוקדם יותר מאשר נקבעה ב "
+"phpMyAdmin."
 
 #: index.php:437
 msgid ""
@@ -864,7 +859,7 @@ msgstr ""
 
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "קובץ התצורה צריכה ביטוי סיסמה סודית (blowfish_secret)."
 
 #: index.php:460
 msgid ""
