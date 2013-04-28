@@ -5159,8 +5159,8 @@ class PMA_DisplayResults
     /**
      * Generates HTML to display the Create view in span tag
      *
-     * @param array $analyzed_sql the analyzed Query
-     * @param string String with URL Parameters
+     * @param array  $analyzed_sql the analyzed Query
+     * @param string $url_query    String with URL Parameters
      *
      * @return string
      *
@@ -5168,7 +5168,7 @@ class PMA_DisplayResults
      *
      * @see _getResultsOperations()
      */   
-    private function getLinkForCreateView($analyzed_sql, $url_query)
+    private function _getLinkForCreateView($analyzed_sql, $url_query)
     {
         $results_operations_html = '';
         if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
@@ -5203,7 +5203,7 @@ class PMA_DisplayResults
     {
         
         $results_operations_html = '';
-        $fake_display_mode = array();
+        $fake_display_mode       = array();
         //calling to _getResultOperations with a fake display mode
         //and setting only_view parameter to be true to generate just view
         $results_operations_html .= $this->_getResultsOperations(
@@ -5212,13 +5212,14 @@ class PMA_DisplayResults
                                             true
                                             );
         return $results_operations_html;
-   }
+    }
 
     /**
      * Get operations that are available on results.
      *
-     * @param array $the_disp_mode the display mode
-     * @param array $analyzed_sql  the analyzed query
+     * @param array   $the_disp_mode the display mode
+     * @param array   $analyzed_sql  the analyzed query
+     * @param boolean $only_view     Whether to show only view
      *
      * @return string $results_operations_html  html content
      *
@@ -5226,9 +5227,10 @@ class PMA_DisplayResults
      *
      * @see     getTable()
      */
-    private function _getResultsOperations($the_disp_mode, $analyzed_sql, $only_view = false)
+    private function _getResultsOperations(
+        $the_disp_mode, $analyzed_sql, $only_view = false
+    )
     {
-
         $results_operations_html = '';
         $fields_meta = $this->__get('fields_meta'); // To safe use in foreach
         $header_shown = false;
@@ -5250,7 +5252,7 @@ class PMA_DisplayResults
         // if empty result set was produced we need to 
         // show only view and not other options
         if ($only_view == true) {
-            $results_operations_html .= $this->getLinkForCreateView($analyzed_sql,$url_query);
+            $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
 
             if ($header_shown) {
                 $results_operations_html .= '</fieldset><br />';
@@ -5404,7 +5406,7 @@ class PMA_DisplayResults
             $header_shown = true;
         }
 
-        $results_operations_html .= $this->getLinkForCreateView($analyzed_sql,$url_query);
+        $results_operations_html .= $this->_getLinkForCreateView($analyzed_sql,$url_query);
 
         if ($header_shown) {
             $results_operations_html .= '</fieldset><br />';

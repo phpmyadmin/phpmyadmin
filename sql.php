@@ -963,7 +963,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         // No need to manually send the message
         // The Response class will handle that automatically
         $query__type = PMA_DisplayResults::QUERY_TYPE_SELECT;
-        if($analyzed_sql[0]['querytype'] == $query__type) {
+        if ($analyzed_sql[0]['querytype'] == $query__type) {
             $createViewHTML = $displayResultsObject->getCreateViewQueryResultOp(
                                                          $analyzed_sql
                                                      );
