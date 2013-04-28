@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2012-09-05 10:33+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-28 20:50+0200\n"
+"Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/3-5/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1252,14 +1252,12 @@ msgid "Query cache efficiency"
 msgstr "סוג שאילתה"
 
 #: js/messages.php:98
-#, fuzzy
 msgid "Query cache usage"
-msgstr "סוג שאילתה"
+msgstr "בודק כמות זיכרון מטמון בשימוש"
 
 #: js/messages.php:99
-#, fuzzy
 msgid "Query cache used"
-msgstr "סוג שאילתה"
+msgstr "בודק איזה זיכרון מטמון בשימוש"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
@@ -1384,7 +1382,7 @@ msgstr "Persian"
 
 #: js/messages.php:136 server_status.php:1113
 msgid "Traffic"
-msgstr "Traffic"
+msgstr "תעבורה"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1574
@@ -2770,7 +2768,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:211
 msgid "Server:"
-msgstr "שרת"
+msgstr "שרת:"
 
 #: libraries/auth/cookie.auth.lib.php:216
 msgid "Username:"
@@ -3070,7 +3068,7 @@ msgstr "יום ראשון"
 #: libraries/common.lib.php:1646
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y בזמן %I:%M %p"
 
 #: libraries/common.lib.php:1979
 #, php-format
@@ -3347,7 +3345,7 @@ msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:141 main.php:238
 msgid "Wiki"
-msgstr ""
+msgstr "ויקי"
 
 #: libraries/config/FormDisplay.tpl.php:199
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -7084,7 +7082,7 @@ msgstr "מילון"
 
 #: libraries/mysql_charsets.lib.php:261
 msgid "phone book"
-msgstr "phone book"
+msgstr "ספר טלפונים"
 
 #: libraries/mysql_charsets.lib.php:264
 msgid "Hungarian"
@@ -7100,7 +7098,7 @@ msgstr "יפנית"
 
 #: libraries/mysql_charsets.lib.php:273
 msgid "Latvian"
-msgstr "Latvian"
+msgstr "לטבית"
 
 #: libraries/mysql_charsets.lib.php:276
 msgid "Lithuanian"
@@ -7112,11 +7110,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:282
 msgid "Persian"
-msgstr "Persian"
+msgstr "פרסית"
 
 #: libraries/mysql_charsets.lib.php:285
 msgid "Polish"
-msgstr "Polish"
+msgstr "פולנית"
 
 #: libraries/mysql_charsets.lib.php:288 libraries/mysql_charsets.lib.php:336
 msgid "West European"
@@ -7990,7 +7988,7 @@ msgstr "ראיית ממדים של טבלאות"
 
 #: libraries/schema/User_Schema.class.php:420
 msgid "Display all tables with the same width"
-msgstr "הצגת כל הטבלאות ברוחב דומה?"
+msgstr "הצגת כל הטבלאות ברוחב זהה"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
@@ -8002,7 +8000,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:428
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "אנכי"
 
 #: libraries/schema/User_Schema.class.php:430
 #, fuzzy
@@ -8490,32 +8488,28 @@ msgid "Error in ZIP archive:"
 msgstr ""
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "תכונות קשר כלליות"
+msgstr "תכונות כלליות"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "קידוד חיבור MySQL"
+msgstr "איסוף חיבור שרת"
 
 #: main.php:124
 msgid "Appearance Settings"
-msgstr ""
+msgstr "הגדרות מראה"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "תכונות קשר כלליות"
+msgstr "הגדרות נוספות"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "מאגרי נתונים"
+msgstr "שרת מסד נתונים"
 
 #: main.php:172
 msgid "Software"
@@ -8544,7 +8538,7 @@ msgstr "בחירת שרת"
 
 #: main.php:196
 msgid "Web server"
-msgstr ""
+msgstr "שרת אינטרנט"
 
 #: main.php:209
 #, fuzzy
@@ -8566,20 +8560,18 @@ msgid "Official Homepage"
 msgstr "דף הבית phpMyAdmin הרשמי"
 
 #: main.php:242
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "תכונות"
+msgstr "תורם"
 
 #: main.php:243
 msgid "Get support"
-msgstr ""
+msgstr "קבל תמיכה"
 
 #: main.php:244
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "ללא שינוי"
+msgstr "רשימת שינויים"
 
 #: main.php:268
 msgid ""
@@ -8593,11 +8585,14 @@ msgstr ""
 "ואתה ממש צריך לתקן את חור אבטחה זה."
 
 #: main.php:276
+#, fuzzy
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"הפכת mbstring.func_overload בתצורת ה-PHP שלך. אפשרות זו אינו תואם ל- "
+"phpMyAdmin, עלול לגרום לנתונים פגומים!"
 
 #: main.php:284
 msgid ""
@@ -8610,12 +8605,18 @@ msgstr ""
 "לתוצאות לא רצויות."
 
 #: main.php:292
+#, fuzzy
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"פרמטר PHP שלך "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] הוא נמוך יותר מאשר עוגיה תוקפו "
+"נקבעה ב phpMyAdmin, בגלל זה, הכניסה שלך יפוג מוקדם יותר מאשר נקבעה ב "
+"phpMyAdmin."
 
 #: main.php:299
 msgid ""
@@ -8625,7 +8626,7 @@ msgstr ""
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "קובץ התצורה צריכה ביטוי סיסמה סודית (blowfish_secret)."
 
 #: main.php:315
 msgid ""
@@ -8633,6 +8634,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"מדריך [code]תצורה[/code], שהשתמש על ידי התקנת סקריפט, עוד קיים במדריך "
+"הphpMyAdmin שלך. עדיף לך להסיר אותו בסוף מהתצורה phpMyAdmin."
 
 #: main.php:321
 #, fuzzy, php-format
@@ -11414,7 +11417,7 @@ msgstr "שינוי סדר הטבלה לפי"
 
 #: tbl_operations.php:277
 msgid "(singly)"
-msgstr "(singly)"
+msgstr "(בודד)"
 
 #: tbl_operations.php:297
 msgid "Move table to (database<b>.</b>table):"
@@ -11876,7 +11879,7 @@ msgstr "איפוס"
 
 #: themes.php:28
 msgid "Get more themes!"
-msgstr "השג סגנונות נוספים."
+msgstr "השג סגנונות נוספים!"
 
 #: transformation_overview.php:24
 msgid "Available MIME types"
