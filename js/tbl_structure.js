@@ -84,8 +84,10 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $("a.change_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
         $('#page_content').hide();
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            PMA_ajaxRemoveMessage($msg);
             if (data.success) {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
@@ -102,10 +104,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
      */
     $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function(event) {
         event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
         $('#page_content').hide();
         var $form = $(this).closest('form');
         var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
         $.post($form.prop("action"), params, function (data) {
+            PMA_ajaxRemoveMessage($msg);
             if (data.success) {
                 $('<div id="change_column_dialog"></div>')
                     .html(data.message)
