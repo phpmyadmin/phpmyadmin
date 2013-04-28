@@ -80,26 +80,6 @@ AJAX.registerOnload('tbl_structure.js', function() {
     }); // end change table button "do_save_data"
 
     /**
-     * Attach Event Handler for 'Change Column'
-     */
-    $("a.change_column_anchor.ajax").live('click', function(event) {
-        event.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        $('#page_content').hide();
-        $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            PMA_ajaxRemoveMessage($msg);
-            if (data.success) {
-                $('<div id="change_column_dialog"></div>')
-                    .html(data.message)
-                    .insertBefore('#page_content');
-                PMA_verifyColumnsProperties();
-            } else {
-                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
-            }
-        });
-    });
-
-    /**
      * Attach Event Handler for 'Change multiple columns'
      */
     $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function(event) {
@@ -111,12 +91,16 @@ AJAX.registerOnload('tbl_structure.js', function() {
         $.post($form.prop("action"), params, function (data) {
             PMA_ajaxRemoveMessage($msg);
             if (data.success) {
-                $('<div id="change_column_dialog"></div>')
-                    .html(data.message)
-                    .insertBefore('#page_content');
-                PMA_verifyColumnsProperties();
+                $('#page_content')
+                    .empty()
+                    .append(
+                        $('<div id="change_column_dialog"></div>')
+                            .html(data.message)
+                    )
+                    .show();
             } else {
-                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                $('#page_content').show();
+                PMA_ajaxShowMessage(data.error);
             }
         });
     });

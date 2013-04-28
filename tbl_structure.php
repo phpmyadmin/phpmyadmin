@@ -87,37 +87,42 @@ if (isset($_REQUEST['submit_mult_change_x'])) {
         $_REQUEST['selected_fld'] = $_REQUEST['selected'];
     }
 }
+if (! empty($submit_mult)) {
+    if (isset($_REQUEST['selected_fld'])) {
+        $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+        if ($submit_mult == 'browse') {
+            // browsing the table displaying only selected fields/columns
+            $GLOBALS['active_page'] = 'sql.php';
+            $sql_query = '';
+            foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
+                if ($sql_query == '') {
+                    $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
+                } else {
+                    $sql_query .=  ', ' . PMA_Util::backquote($sval);
+                }
+            }
+            $sql_query .= ' FROM ' . PMA_Util::backquote($db)
+            . '.' . PMA_Util::backquote($table);
+            include 'sql.php';
+            exit;
+        } else {
+            // handle multiple field commands
+            // handle confirmation of deleting multiple fields/columns
+            $action = 'tbl_structure.php';
+            include 'libraries/mult_submits.inc.php';
+            /**
+             * if $submit_mult == 'change', execution will have stopped
+             * at this point
+             */
 
-if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
-    $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
-    if ($submit_mult == 'browse') {
-        // browsing the table displaying only selected fields/columns
-        $GLOBALS['active_page'] = 'sql.php';
-        $sql_query = '';
-        foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
-            if ($sql_query == '') {
-                $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
-            } else {
-                $sql_query .=  ', ' . PMA_Util::backquote($sval);
+            if (empty($message)) {
+                $message = PMA_Message::success();
             }
         }
-        $sql_query .= ' FROM ' . PMA_Util::backquote($db)
-        . '.' . PMA_Util::backquote($table);
-        include 'sql.php';
-        exit;
     } else {
-        // handle multiple field commands
-        // handle confirmation of deleting multiple fields/columns
-        $action = 'tbl_structure.php';
-        include 'libraries/mult_submits.inc.php';
-        /**
-         * if $submit_mult == 'change', execution will have stopped
-         * at this point
-         */
-
-        if (empty($message)) {
-            $message = PMA_Message::success();
-        }
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', __('No column selected.'));
     }
 }
 
