@@ -3771,11 +3771,17 @@ class PMA_DisplayResults
                     ) {
                         $wkbval = PMA_substr(bin2hex($column), 8);
                     } else {
-                        $wkbval = htmlspecialchars(
-                            PMA_Util::replaceBinaryContents(
-                                $column
-                            )
-                        );
+                        // force hex display for PHP < 5.4, no ENT_SUBSTITUTE
+                        if (PMA_PHP_INT_VERSION < 50400) {
+                            $wkbval = bin2hex($column);
+                        } else {
+                            $wkbval = htmlspecialchars(
+                                PMA_Util::replaceBinaryContents(
+                                    $column
+                                ),
+                                ENT_SUBSTITUTE
+                            );
+                        }
                     }
 
                     if ((PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
@@ -3899,11 +3905,17 @@ class PMA_DisplayResults
                     ) {
                         $column = bin2hex($column);
                     } else {
-                        $column = htmlspecialchars(
-                            PMA_Util::replaceBinaryContents(
-                                $column
-                            )
-                        );
+                        // force hex display for PHP < 5.4, no ENT_SUBSTITUTE
+                        if (PMA_PHP_INT_VERSION < 50400) {
+                            $column = bin2hex($column);
+                        } else {
+                            $column = htmlspecialchars(
+                                PMA_Util::replaceBinaryContents(
+                                    $column
+                                ),
+                                ENT_SUBSTITUTE
+                            );
+                        }
                     }
 
                 } else {
@@ -5429,11 +5441,17 @@ class PMA_DisplayResults
                     && $_SESSION['tmp_user_values']['display_blob']
                 ) {
                     // in this case, restart from the original $content
-                    $result = htmlspecialchars(
-                        PMA_Util::replaceBinaryContents(
-                            $content
-                        )
-                    );
+                    // force hex display for PHP < 5.4, no ENT_SUBSTITUTE
+                    if (PMA_PHP_INT_VERSION < 50400) {
+                        $result = bin2hex($content);
+                    } else {
+                        $result = htmlspecialchars(
+                            PMA_Util::replaceBinaryContents(
+                                $content
+                            ),
+                            ENT_SUBSTITUTE
+                        );
+                    }
                 }
 
                 /* Create link to download */
