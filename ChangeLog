@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #3889 When login fails and error display is active, login data is displayed
 - bug #3890 [import] Web server upload directory import fails
 - bug #3891 [import] Server upload folder import file name missing in success message 
++ rfe #1421 [auth] Add retry button on connection failure with config auth
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
