@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-28 19:59+0200\n"
+"PO-Revision-Date: 2013-04-28 20:50+0200\n"
 "Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
 "Language: he\n"
@@ -712,10 +712,9 @@ msgid "Change password"
 msgstr "שינוי סיסמא"
 
 #: index.php:156
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "קידוד חיבור MySQL"
+msgstr "איסוף חיבור שרת"
 
 #: index.php:182
 msgid "Appearance Settings"
@@ -878,6 +877,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"מדריך [code]תצורה[/code], שהשתמש על ידי התקנת סקריפט, עוד קיים במדריך "
+"הphpMyAdmin שלך. עדיף לך להסיר אותו בסוף מהתצורה phpMyAdmin."
 
 #: index.php:470
 #, fuzzy, php-format
@@ -1076,14 +1077,12 @@ msgid "Query cache efficiency"
 msgstr "סוג שאילתה"
 
 #: js/messages.php:83
-#, fuzzy
 msgid "Query cache usage"
-msgstr "סוג שאילתה"
+msgstr "בודק כמות זיכרון מטמון בשימוש"
 
 #: js/messages.php:84
-#, fuzzy
 msgid "Query cache used"
-msgstr "סוג שאילתה"
+msgstr "בודק איזה זיכרון מטמון בשימוש"
 
 #: js/messages.php:86
 msgid "System CPU Usage"
@@ -7627,7 +7626,7 @@ msgstr "שינוי סדר הטבלה לפי"
 
 #: libraries/operations.lib.php:628
 msgid "(singly)"
-msgstr "(singly)"
+msgstr "(בודד)"
 
 #: libraries/operations.lib.php:661
 msgid "Move table to (database<b>.</b>table):"
@@ -9184,7 +9183,7 @@ msgstr "ראיית ממדים של טבלאות"
 
 #: libraries/schema/User_Schema.class.php:458
 msgid "Display all tables with the same width"
-msgstr "הצגת כל הטבלאות ברוחב דומה?"
+msgstr "הצגת כל הטבלאות ברוחב זהה"
 
 #: libraries/schema/User_Schema.class.php:461 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9200,7 +9199,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:466
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "אנכי"
 
 #: libraries/schema/User_Schema.class.php:468
 #, fuzzy
@@ -12382,7 +12381,7 @@ msgstr "גרסת שרת"
 
 #: themes.php:24
 msgid "Get more themes!"
-msgstr "השג סגנונות נוספים."
+msgstr "השג סגנונות נוספים!"
 
 #: transformation_overview.php:21
 msgid "Available MIME types"
