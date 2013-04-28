@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-28 11:35+0200\n"
+"PO-Revision-Date: 2013-04-28 12:28+0200\n"
 "Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
 "Language: he\n"
@@ -797,27 +797,25 @@ msgstr "תיעוד"
 
 #: index.php:339 libraries/config/FormDisplay.tpl.php:148
 msgid "Wiki"
-msgstr ""
+msgstr "ויקי"
 
 #: index.php:348
 msgid "Official Homepage"
 msgstr "דף הבית phpMyAdmin הרשמי"
 
 #: index.php:355
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "תכונות"
+msgstr "תורם"
 
 #: index.php:362
 msgid "Get support"
-msgstr ""
+msgstr "קבל תמיכה"
 
 #: index.php:369
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "ללא שינוי"
+msgstr "רשימת שינויים"
 
 #: index.php:392
 msgid ""
@@ -831,11 +829,14 @@ msgstr ""
 "ואתה ממש צריך לתקן את חור אבטחה זה."
 
 #: index.php:403
+#, fuzzy
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"הפכת mbstring.func_overload בתצורת ה-PHP שלך. אפשרות זו אינו תואם ל- "
+"phpMyAdmin, עלול לגרום לנתונים פגומים!"
 
 #: index.php:414
 msgid ""
@@ -848,12 +849,18 @@ msgstr ""
 "לתוצאות לא רצויות."
 
 #: index.php:425
+#, fuzzy
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"פרמטר PHP שלך "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] הוא נמוך יותר מאשר עוגיה תוקפו "
+"נקבעה ב phpMyAdmin, בגלל זה, הכניסה שלך יפוג מוקדם יותר מאשר נקבעה ב "
+"phpMyAdmin."
 
 #: index.php:437
 msgid ""
@@ -863,7 +870,7 @@ msgstr ""
 
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "קובץ התצורה צריכה ביטוי סיסמה סודית (blowfish_secret)."
 
 #: index.php:460
 msgid ""
