@@ -77,6 +77,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
+        $header->setBodyId('loginform');
         $header->setTitle(__('Access denied'));
         $header->disableMenu();
         echo '<br /><br />
