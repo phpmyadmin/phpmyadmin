@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-28 12:28+0200\n"
+"PO-Revision-Date: 2013-04-28 20:50+0200\n"
 "Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/>\n"
 "Language: he\n"
@@ -707,10 +707,9 @@ msgid "Change password"
 msgstr "שינוי סיסמא"
 
 #: index.php:156
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "קידוד חיבור MySQL"
+msgstr "איסוף חיבור שרת"
 
 #: index.php:182
 msgid "Appearance Settings"
@@ -728,7 +727,7 @@ msgstr "שרת מסד נתונים"
 
 #: index.php:236 libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr "שרת"
+msgstr "שרת:"
 
 #: index.php:240
 msgid "Server type:"
@@ -867,6 +866,8 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"מדריך [code]תצורה[/code], שהשתמש על ידי התקנת סקריפט, עוד קיים במדריך "
+"הphpMyAdmin שלך. עדיף לך להסיר אותו בסוף מהתצורה phpMyAdmin."
 
 #: index.php:470
 #, fuzzy, php-format
@@ -1031,14 +1032,12 @@ msgid "Query cache efficiency"
 msgstr "סוג שאילתה"
 
 #: js/messages.php:74
-#, fuzzy
 msgid "Query cache usage"
-msgstr "סוג שאילתה"
+msgstr "בודק כמות זיכרון מטמון בשימוש"
 
 #: js/messages.php:75
-#, fuzzy
 msgid "Query cache used"
-msgstr "סוג שאילתה"
+msgstr "בודק איזה זיכרון מטמון בשימוש"
 
 #: js/messages.php:77
 msgid "System CPU Usage"
@@ -1167,7 +1166,7 @@ msgstr "Persian"
 
 #: js/messages.php:110 server_status.php:135
 msgid "Traffic"
-msgstr "Traffic"
+msgstr "תעבורה"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
 #: server_status_monitor.php:475
@@ -3866,7 +3865,7 @@ msgstr "יום ראשון"
 #: libraries/Util.class.php:1711
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y בזמן %I:%M %p"
 
 #: libraries/Util.class.php:2057
 #, php-format
@@ -7391,7 +7390,7 @@ msgstr "מילון"
 
 #: libraries/mysql_charsets.lib.php:288
 msgid "phone book"
-msgstr "phone book"
+msgstr "ספר טלפונים"
 
 #: libraries/mysql_charsets.lib.php:291
 msgid "Hungarian"
@@ -7407,7 +7406,7 @@ msgstr "יפנית"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Latvian"
-msgstr "Latvian"
+msgstr "לטבית"
 
 #: libraries/mysql_charsets.lib.php:303
 msgid "Lithuanian"
@@ -7419,11 +7418,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:309
 msgid "Persian"
-msgstr "Persian"
+msgstr "פרסית"
 
 #: libraries/mysql_charsets.lib.php:312
 msgid "Polish"
-msgstr "Polish"
+msgstr "פולנית"
 
 #: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:363
 msgid "West European"
@@ -7704,7 +7703,7 @@ msgstr "שינוי סדר הטבלה לפי"
 
 #: libraries/operations.lib.php:628
 msgid "(singly)"
-msgstr "(singly)"
+msgstr "(בודד)"
 
 #: libraries/operations.lib.php:661
 msgid "Move table to (database<b>.</b>table):"
@@ -9326,7 +9325,7 @@ msgstr "ראיית ממדים של טבלאות"
 
 #: libraries/schema/User_Schema.class.php:458
 msgid "Display all tables with the same width"
-msgstr "הצגת כל הטבלאות ברוחב דומה?"
+msgstr "הצגת כל הטבלאות ברוחב זהה"
 
 #: libraries/schema/User_Schema.class.php:461 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -9342,7 +9341,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:466
 msgid "Portrait"
-msgstr "Portrait"
+msgstr "אנכי"
 
 #: libraries/schema/User_Schema.class.php:468
 #, fuzzy
@@ -12626,7 +12625,7 @@ msgstr ""
 
 #: themes.php:24
 msgid "Get more themes!"
-msgstr "השג סגנונות נוספים."
+msgstr "השג סגנונות נוספים!"
 
 #: transformation_overview.php:21
 msgid "Available MIME types"
