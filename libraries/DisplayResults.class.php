@@ -5156,6 +5156,50 @@ class PMA_DisplayResults
 
     } // end of the '_getPlacedTableNavigatoins()' function
 
+    //A function which generates <span> tag for view
+    //called by _getResultsOperation and getCreateViewQueryResultOp
+    private function getViewLinkForQuery($analyzed_sql,$url_query){
+        $results_operations_html = '';
+        if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
+
+            $ajax_class = ' ajax';
+
+            $results_operations_html .= '<span>'
+                . PMA_Util::linkOrButton(
+                    'view_create.php' . $url_query,
+                    PMA_Util::getIcon(
+                        'b_views.png', __('Create view'), true
+                    ),
+                    array('class' => 'create_view' . $ajax_class), true, true, ''
+                )
+                . '</span>' . "\n";
+        }
+        return $results_operations_html;
+    
+    }
+    
+    /**
+        A function used to generate the DOM's for query result operation
+        if query return 0 rows
+        gets called from sql.php 
+    */
+    public function getCreateViewQueryResultOp($analyzed_sql){
+    
+        $results_operations_html = '';
+        $_url_params = array(
+                    'db'        => $this->__get('db'),
+                    'table'     => $this->__get('table'),
+                    'printview' => '1',
+                    'sql_query' => $this->__get('sql_query'),
+                );
+        $url_query = PMA_generate_common_url($_url_params);
+        
+        $results_operations_html .= '<fieldset><legend>' . __('Query results operations')
+                        . '</legend>';
+        $results_operations_html .= $this->getViewLinkForQuery($analyzed_sql,$url_query);
+        $results_operations_html .= '</fieldset>';
+        return $results_operations_html;
+   }
 
     /**
      * Get operations that are available on results.
@@ -5337,20 +5381,7 @@ class PMA_DisplayResults
             $header_shown = true;
         }
 
-        if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
-
-            $ajax_class = ' ajax';
-
-            $results_operations_html .= '<span>'
-                . PMA_Util::linkOrButton(
-                    'view_create.php' . $url_query,
-                    PMA_Util::getIcon(
-                        'b_views.png', __('Create view'), true
-                    ),
-                    array('class' => 'create_view' . $ajax_class), true, true, ''
-                )
-                . '</span>' . "\n";
-        }
+        $results_operations_html .= $this->getViewLinkForQuery($analyzed_sql,$url_query);
 
         if ($header_shown) {
             $results_operations_html .= '</fieldset><br />';
