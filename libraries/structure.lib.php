@@ -1311,7 +1311,7 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
-            . '<a class="change_column_anchor"'
+            . '<a class="change_column_anchor ajax"'
             . ' href="tbl_structure.php?' 
             . $url_query . '&amp;field=' . $field_encoded 
             . '&amp;change_column=1">'
