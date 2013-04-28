@@ -35,7 +35,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").live('submit', function(event) {
+    $(".append_fields_form.ajax").die().live('submit', function(event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
@@ -89,6 +89,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                 $('<div id="change_column_dialog" class="margin"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
+                PMA_verifyColumnsProperties();
             } else {
                 PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
             }
@@ -114,6 +115,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                             .html(data.message)
                     )
                     .show();
+                PMA_verifyColumnsProperties();
             } else {
                 $('#page_content').show();
                 PMA_ajaxShowMessage(data.error);
