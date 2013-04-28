@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-28 12:28+0200\n"
+"PO-Revision-Date: 2013-04-28 19:59+0200\n"
 "Last-Translator: Efraim Flashner <efraim.flashner@gmail.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/4-0/he/>\n"
 "Language: he\n"
@@ -1212,7 +1212,7 @@ msgstr "Persian"
 
 #: js/messages.php:119 server_status.php:135
 msgid "Traffic"
-msgstr "Traffic"
+msgstr "תעבורה"
 
 #: js/messages.php:120 libraries/Menu.class.php:486
 #: server_status_monitor.php:475
@@ -3830,7 +3830,7 @@ msgstr "יום ראשון"
 #: libraries/Util.class.php:1709
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y בזמן %I:%M %p"
 
 #: libraries/Util.class.php:2055
 #, php-format
@@ -7318,7 +7318,7 @@ msgstr "מילון"
 
 #: libraries/mysql_charsets.lib.php:288
 msgid "phone book"
-msgstr "phone book"
+msgstr "ספר טלפונים"
 
 #: libraries/mysql_charsets.lib.php:291
 msgid "Hungarian"
@@ -7334,7 +7334,7 @@ msgstr "יפנית"
 
 #: libraries/mysql_charsets.lib.php:300
 msgid "Latvian"
-msgstr "Latvian"
+msgstr "לטבית"
 
 #: libraries/mysql_charsets.lib.php:303
 msgid "Lithuanian"
@@ -7346,11 +7346,11 @@ msgstr ""
 
 #: libraries/mysql_charsets.lib.php:309
 msgid "Persian"
-msgstr "Persian"
+msgstr "פרסית"
 
 #: libraries/mysql_charsets.lib.php:312
 msgid "Polish"
-msgstr "Polish"
+msgstr "פולנית"
 
 #: libraries/mysql_charsets.lib.php:315 libraries/mysql_charsets.lib.php:363
 msgid "West European"
@@ -7800,7 +7800,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr "שרת"
+msgstr "שרת:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
 msgid "Username:"
