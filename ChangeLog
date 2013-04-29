@@ -3,6 +3,13 @@ phpMyAdmin - ChangeLog
 
 4.1.0.0 (not yet released)
 
+4.0.1.0 (not yet released)
+- bug #3879 Import broken for CSV using LOAD DATA
+- bug #3889 When login fails and error display is active, login data is displayed
+- bug #3890 [import] Web server upload directory import fails
+- bug #3891 [import] Server upload folder import file name missing in success message 
++ rfe #1421 [auth] Add retry button on connection failure with config auth
+
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
 + Patch #3480999 Activate codemirror in the query window
@@ -110,8 +117,19 @@ underscore
 - bug #3873 Can't copy table to target database if table exists there
 - bug #3683 Incorrect listing of records from to count
 - bug #3876 [import] PHP 5.2 - unexpected T_PAAMAYIM_NEKUDOTAYIM
+- [security] Local file inclusion vulnerability, reported by Janek Vind
+  (see PMASA-2013-4)
+- [security] Global variables overwrite in export.php, reported by Janek Vind
+  (see PMASA-2013-5)
+- bug #3892 [export] SQL Export files are empty
 
 3.5.9.0 (not yet released)
+
+3.5.8.1 (2013-04-24)
+- [security] Remote code execution (preg_replace), reported by Janek Vind
+  (see PMASA-2013-2)
+- [security] Locally Saved SQL Dump File Multiple File Extension Remote Code
+  Execution, reported by Janek Vind (see PMASA-2013-3)
 
 3.5.8.0 (2013-04-08)
 - bug #3828 MariaDB reported as MySQL

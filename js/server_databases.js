@@ -53,15 +53,13 @@ AJAX.registerOnload('server_databases.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strDropDatabaseStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+        var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
+            $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
         $(this).PMA_confirm(
             question,
-            $form.prop('action')
-                + '?' + $(this).serialize()
-                + '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
+            $form.prop('action') + '?' + $(this).serialize() +
+                '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
             function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 

@@ -541,7 +541,7 @@ if (count($columns) > 0) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
         $html_output .= '<fieldset>'
-            . '<label>' . __('Choose column to display') . ': </label>'
+            . '<label>' . __('Choose column to display:') . '</label>'
             . '<select name="display_field">'
             . '<option value="">---</option>';
 

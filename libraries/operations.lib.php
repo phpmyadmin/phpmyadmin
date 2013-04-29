@@ -72,7 +72,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Rename database to') . ':'
+    $html_output .= __('Rename database to:')
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
@@ -172,7 +172,7 @@ function PMA_getHtmlForCopyDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Copy database to') . ':'
+    $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
         . 'class="textfield" value="" /><br />'

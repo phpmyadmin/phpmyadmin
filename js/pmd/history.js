@@ -28,6 +28,44 @@ function panel(index)
 }
 
 /**
+ * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
+ *
+ * @param index index of history_array where change is to be made
+ *
+**/
+
+function detail(index)
+{
+    var type = history_array[index].get_type();
+    var str;
+    if (type == "Where") {
+        str = 'Where ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+    }
+    if (type == "Rename") {
+        str = 'Rename ' + history_array[index].get_column_name() + ' To ' + history_array[index].get_obj().getrename_to();
+    }
+    if (type == "Aggregate") {
+        str = 'Select ' + history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
+    }
+    if (type == "GroupBy") {
+        str = 'GroupBy ' + history_array[index].get_column_name();
+    }
+    if (type == "OrderBy") {
+        str = 'OrderBy ' + history_array[index].get_column_name();
+    }
+    if (type == "Having") {
+        str = 'Having ';
+        if (history_array[index].get_obj().get_operator() != 'None') {
+            str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
+            str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+        } else {
+            str = 'Having ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
+        }
+    }
+    return str;
+}
+
+/**
  * Sorts history_array[] first,using table name as the key and then generates the HTML code for history tab,
  * clubbing all objects of same tables together
  * This function is called whenever changes are made in history_array[]
@@ -40,11 +78,11 @@ function panel(index)
 
 function display(init, finit)
 {
-    var str, i, j, k, sto;
+    var str, i, j, k, sto, temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = history_array[i];
-        var temp = history_array[i].get_tab();//+ '.' + history_array[i].get_obj_no(); for Self JOINS
+        temp = history_array[i].get_tab();//+ '.' + history_array[i].get_obj_no(); for Self JOINS
         for (j = 0; j < i; j++) {
             if (temp > (history_array[j].get_tab())) {//+ '.' + history_array[j].get_obj_no())) { //for Self JOINS
                 for (k = i; k > j; k--) {
@@ -57,8 +95,8 @@ function display(init, finit)
     }
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
-    for (var i = 0; i < history_array.length; i++) {
-        var temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
+    for (i = 0; i < history_array.length; i++) {
+        temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
         str += '<h2 class="tiger"><a href="#">' + temp + '</a></h2>';
         str += '<div class="toggle_container">\n';
         while ((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
@@ -105,44 +143,6 @@ function and_or(index)
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
     panel(1);
-}
-
-/**
- * To display details of obects(where,rename,Having,aggregate,groupby,orderby,having)
- *
- * @param index index of history_array where change is to be made
- *
-**/
-
-function detail(index)
-{
-    var type = history_array[index].get_type();
-    var str;
-    if (type == "Where") {
-        str = 'Where ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
-    }
-    if (type == "Rename") {
-        str = 'Rename ' + history_array[index].get_column_name() + ' To ' + history_array[index].get_obj().getrename_to();
-    }
-    if (type == "Aggregate") {
-        str = 'Select ' + history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
-    }
-    if (type == "GroupBy") {
-        str = 'GroupBy ' + history_array[index].get_column_name();
-    }
-    if (type == "OrderBy") {
-        str = 'OrderBy ' + history_array[index].get_column_name();
-    }
-    if (type == "Having") {
-        str = 'Having ';
-        if (history_array[index].get_obj().get_operator() != 'None') {
-            str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
-            str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
-        } else {
-            str = 'Having ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
-        }
-    }
-    return str;
 }
 
 /**
@@ -431,10 +431,11 @@ var aggregate = function (noperator) {
 function unique(arrayName)
 {
     var newArray = [];
-    label: for (var i = 0; i < arrayName.length; i++) {
+uniquetop:
+    for (var i = 0; i < arrayName.length; i++) {
         for (var j = 0; j < newArray.length; j++) {
             if (newArray[j] == arrayName[i]) {
-                continue label;
+                continue uniquetop;
             }
         }
         newArray[newArray.length] = arrayName[i];
@@ -458,149 +459,6 @@ function found(arrayName, value)
         }
     }
     return -1;
-}
-
-/**
- * This function is the main function for query building.
- * uses history object details for this.
- *
- * @ uses query_where()
- * @ uses query_groupby()
- * @ uses query_having()
- * @ uses query_orderby()
- *
- * @param formtitle title for the form
- * @param fadin
- */
-
-function build_query(formtitle, fadin)
-{
-    var q_select = "SELECT ";
-    var temp;
-    for (var i = 0;i < select_field.length; i++) {
-        temp = check_aggregate(select_field[i]);
-        if (temp !== "") {
-            q_select += temp;
-            temp = check_rename(select_field[i]);
-            q_select += temp + ",";
-        } else {
-            temp = check_rename(select_field[i]);
-            q_select += select_field[i] + temp + ",";
-        }
-    }
-    q_select = q_select.substring(0, q_select.length - 1);
-    q_select += " FROM " + query_from();
-    if (query_where() !== "") {
-        q_select += "\n WHERE";
-        q_select += query_where();
-    }
-    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
-    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
-    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
-    var box = document.getElementById('box');
-    document.getElementById('filter').style.display = 'block';
-    var btitle = document.getElementById('boxtitle');
-    btitle.innerHTML = 'SELECT';//formtitle;
-    if (fadin) {
-        gradient("box", 0);
-        fadein("box");
-    } else {
-        box.style.display = 'block';
-    }
-    document.getElementById('textSqlquery').innerHTML = q_select;
-}
- /**
-  * This function builds from clause of query
-  * makes automatic joins.
-  *
-  *
-  */
-
-
-function query_from()
-{
-    var i;
-    var tab_left = [];
-    var tab_used = [];
-    var t_tab_used = [];
-    var t_tab_left = [];
-    var temp;
-    var query = "";
-    var quer = "";
-    var parts = [];
-    var t_array = [];
-    t_array = from_array;
-    var K = 0;
-    var k;
-    var key;
-    var key2;
-    var key3;
-    var parts1;
-    for (i = 0; i < history_array.length; i++) {
-        from_array.push(history_array[i].get_tab());
-    }
-    from_array = unique(from_array);
-    tab_left = from_array;
-    temp = tab_left.shift();
-    quer = temp;
-    tab_used.push(temp);
-    // if master table (key2) matches with tab used get all keys and check if tab_left matches
-    //after this check if master table (key2) matches with tab left then check if any foriegn matches with master .
-    for (i = 0; i < 2; i++) {
-        for (K in contr) {
-            for (key in contr[K]) {// contr name
-                for (key2 in contr[K][key]) {// table name
-                    parts = key2.split(".");
-                    if (found(tab_used, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split(".");
-                            if (found(tab_left, parts1[1]) > 0) {
-                                query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts1[0] + '`.`' + parts1[1] + '` ON ';
-                                query += '`' + parts[1] + '`.`' + key3 + '` = ';
-                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
-                                t_tab_left.push(parts1[1]);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        K = 0;
-        t_tab_left = unique(t_tab_left);
-        tab_used = add_array(t_tab_left, tab_used);
-        tab_left = remove_array(t_tab_left, tab_left);
-        t_tab_left = [];
-        for (K in contr) {
-            for (key in contr[K]) {
-                for (key2 in contr[K][key]) {// table name
-                    parts = key2.split(".");
-                    if (found(tab_left, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split(".");
-                            if (found(tab_used, parts1[1]) > 0) {
-                                query += "\n" + 'LEFT JOIN ';
-                                query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
-                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
-                                query += '`' + parts[1] + '`.`' + key3 + '` ';
-                                t_tab_left.push(parts[1]);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        t_tab_left = unique(t_tab_left);
-        tab_used = add_array(t_tab_left, tab_used);
-        tab_left = remove_array(t_tab_left, tab_left);
-        t_tab_left = [];
-    }
-    for (k in tab_left) {
-        quer += " , `" + tab_left[k] + "`";
-    }
-    query = quer + query;
-    from_array = t_array;
-    return query;
 }
 
 /**
@@ -778,6 +636,148 @@ function fadein(id)
         setTimeout("gradient('" + id + "'," + level + ")", (level * 1000) + 10);
         level += 0.01;
     }
+}
+
+ /**
+  * This function builds from clause of query
+  * makes automatic joins.
+  *
+  *
+  */
+function query_from()
+{
+    var i;
+    var tab_left = [];
+    var tab_used = [];
+    var t_tab_used = [];
+    var t_tab_left = [];
+    var temp;
+    var query = "";
+    var quer = "";
+    var parts = [];
+    var t_array = [];
+    t_array = from_array;
+    var K = 0;
+    var k;
+    var key;
+    var key2;
+    var key3;
+    var parts1;
+    for (i = 0; i < history_array.length; i++) {
+        from_array.push(history_array[i].get_tab());
+    }
+    from_array = unique(from_array);
+    tab_left = from_array;
+    temp = tab_left.shift();
+    quer = temp;
+    tab_used.push(temp);
+    // if master table (key2) matches with tab used get all keys and check if tab_left matches
+    //after this check if master table (key2) matches with tab left then check if any foriegn matches with master .
+    for (i = 0; i < 2; i++) {
+        for (K in contr) {
+            for (key in contr[K]) {// contr name
+                for (key2 in contr[K][key]) {// table name
+                    parts = key2.split(".");
+                    if (found(tab_used, parts[1]) > 0) {
+                        for (key3 in contr[K][key][key2]) {
+                            parts1 = contr[K][key][key2][key3][0].split(".");
+                            if (found(tab_left, parts1[1]) > 0) {
+                                query += "\n" + 'LEFT JOIN ';
+                                query += '`' + parts1[0] + '`.`' + parts1[1] + '` ON ';
+                                query += '`' + parts[1] + '`.`' + key3 + '` = ';
+                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                t_tab_left.push(parts1[1]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        K = 0;
+        t_tab_left = unique(t_tab_left);
+        tab_used = add_array(t_tab_left, tab_used);
+        tab_left = remove_array(t_tab_left, tab_left);
+        t_tab_left = [];
+        for (K in contr) {
+            for (key in contr[K]) {
+                for (key2 in contr[K][key]) {// table name
+                    parts = key2.split(".");
+                    if (found(tab_left, parts[1]) > 0) {
+                        for (key3 in contr[K][key][key2]) {
+                            parts1 = contr[K][key][key2][key3][0].split(".");
+                            if (found(tab_used, parts1[1]) > 0) {
+                                query += "\n" + 'LEFT JOIN ';
+                                query += '`' + parts[0] + '`.`' + parts[1] + '` ON ';
+                                query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                query += '`' + parts[1] + '`.`' + key3 + '` ';
+                                t_tab_left.push(parts[1]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        t_tab_left = unique(t_tab_left);
+        tab_used = add_array(t_tab_left, tab_used);
+        tab_left = remove_array(t_tab_left, tab_left);
+        t_tab_left = [];
+    }
+    for (k in tab_left) {
+        quer += " , `" + tab_left[k] + "`";
+    }
+    query = quer + query;
+    from_array = t_array;
+    return query;
+}
+
+/**
+ * This function is the main function for query building.
+ * uses history object details for this.
+ *
+ * @ uses query_where()
+ * @ uses query_groupby()
+ * @ uses query_having()
+ * @ uses query_orderby()
+ *
+ * @param formtitle title for the form
+ * @param fadin
+ */
+
+function build_query(formtitle, fadin)
+{
+    var q_select = "SELECT ";
+    var temp;
+    for (var i = 0;i < select_field.length; i++) {
+        temp = check_aggregate(select_field[i]);
+        if (temp !== "") {
+            q_select += temp;
+            temp = check_rename(select_field[i]);
+            q_select += temp + ",";
+        } else {
+            temp = check_rename(select_field[i]);
+            q_select += select_field[i] + temp + ",";
+        }
+    }
+    q_select = q_select.substring(0, q_select.length - 1);
+    q_select += " FROM " + query_from();
+    if (query_where() !== "") {
+        q_select += "\n WHERE";
+        q_select += query_where();
+    }
+    if (query_groupby() !== "") { q_select += "\nGROUP BY " + query_groupby(); }
+    if (query_having() !== "") { q_select += "\nHAVING " + query_having(); }
+    if (query_orderby() !== "") { q_select += "\nORDER BY " + query_orderby(); }
+    var box = document.getElementById('box');
+    document.getElementById('filter').style.display = 'block';
+    var btitle = document.getElementById('boxtitle');
+    btitle.innerHTML = 'SELECT';//formtitle;
+    if (fadin) {
+        gradient("box", 0);
+        fadein("box");
+    } else {
+        box.style.display = 'block';
+    }
+    document.getElementById('textSqlquery').innerHTML = q_select;
 }
 
 function closebox()

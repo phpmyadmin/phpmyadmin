@@ -379,6 +379,9 @@ function PMA_transformation_global_html_replace($buffer, $options = array())
  */
 function PMA_clearTransformations($db, $table = '', $column = '')
 {
+    if (! isset($cfgRelation['column_info'])) {
+        return false;
+    }
     $cfgRelation = PMA_getRelationsParam();
     
     $delete_sql = 'DELETE FROM '

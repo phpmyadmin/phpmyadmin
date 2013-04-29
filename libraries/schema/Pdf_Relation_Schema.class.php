@@ -1329,22 +1329,22 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
             $break = false;
             if (! empty($show_comment)) {
-                $pdf->Cell(0, 3, __('Table comments') . ' : ' . $show_comment, 0, 1);
+                $pdf->Cell(0, 3, __('Table comments:') . ' ' . $show_comment, 0, 1);
                 $break = true;
             }
 
             if (! empty($create_time)) {
-                $pdf->Cell(0, 3, __('Creation') . ': ' . $create_time, 0, 1);
+                $pdf->Cell(0, 3, __('Creation:') . ' ' . $create_time, 0, 1);
                 $break = true;
             }
 
             if (! empty($update_time)) {
-                $pdf->Cell(0, 3, __('Last update') . ': ' . $update_time, 0, 1);
+                $pdf->Cell(0, 3, __('Last update:') . ' ' . $update_time, 0, 1);
                 $break = true;
             }
 
             if (! empty($check_time)) {
-                $pdf->Cell(0, 3, __('Last check') . ': ' . $check_time, 0, 1);
+                $pdf->Cell(0, 3, __('Last check:') . ' ' . $check_time, 0, 1);
                 $break = true;
             }
 

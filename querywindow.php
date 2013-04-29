@@ -151,7 +151,7 @@ if (! empty($_sql_history)
     && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full')
 ) {
     $tab = $querydisplay_tab != 'full' ? 'sql' : 'full';
-    echo __('SQL history') . ':<br />'
+    echo __('SQL history:') . '<br />'
         . '<ul>';
     foreach ($_sql_history as $query) {
         echo '<li>' . "\n";
