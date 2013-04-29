@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-27 16:32+0200\n"
-"Last-Translator: Jin-oh Kang <jinoh67@gmail.com>\n"
+"PO-Revision-Date: 2013-04-29 07:36+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -8007,9 +8007,8 @@ msgstr "PARTITION 정의"
 #: libraries/tbl_select.lib.php:86 pmd_general.php:481 pmd_general.php:501
 #: pmd_general.php:623 pmd_general.php:636 pmd_general.php:699
 #: pmd_general.php:753
-#, fuzzy
 msgid "Operator"
-msgstr "테이블 작업"
+msgstr "연산자"
 
 #: libraries/tbl_select.lib.php:103
 #| msgid "Search"
@@ -9382,11 +9381,11 @@ msgstr "정렬"
 
 #: server_status.php:605
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "트랜잭션 코디네이터"
 
 #: server_status.php:617
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "모든 테이블 플러시(닫음)"
 
 #: server_status.php:619
 msgid "Show open tables"
