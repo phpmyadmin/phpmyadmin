@@ -163,7 +163,7 @@ if (isset($rownumber)) {
         . htmlspecialchars($rownumber) . '" />';
 }
 $output .= '<span class="formelement">'
-    . '<label for="input_foreign_filter">' . __('Search') . ':' . '</label>'
+    . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
     . '<input type="text" name="foreign_filter" id="input_foreign_filter" value="'
     . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') . '" />'
     . '<input type="submit" name="submit_foreign_filter" value="'

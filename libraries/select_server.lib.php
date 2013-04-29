@@ -36,12 +36,12 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
         if (! $ommit_fieldset) {
             $retval .= '<fieldset>';
         }
-        $retval .= '<label for="select_server">' . __('Current Server') . ':</label> ';
+        $retval .= '<label for="select_server">' . __('Current Server:') . '</label> ';
 
         $retval .= '<select name="server" id="select_server" class="autosubmit">';
         $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        $retval .= __('Current Server') . ':<br />';
+        $retval .= __('Current Server:') . '<br />';
         $retval .= '<ul id="list_server">';
     }
 

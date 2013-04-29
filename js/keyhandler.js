@@ -5,24 +5,24 @@
   * @param object   event data
   */
 
-AJAX.registerTeardown('keyhandler.js', function() {
+AJAX.registerTeardown('keyhandler.js', function () {
     $('#table_columns').die('keydown');
     $('table.insertRowTable').die('keydown');
 });
 
-AJAX.registerOnload('keyhandler.js', function() {
-    $('#table_columns').live('keydown', function(event) {
+AJAX.registerOnload('keyhandler.js', function () {
+    $('#table_columns').live('keydown', function (event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
-    $('table.insertRowTable').live('keydown', function(event) {
+    $('table.insertRowTable').live('keydown', function (event) {
         onKeyDownArrowsHandler(event.originalEvent);
     });
 });
 
 function onKeyDownArrowsHandler(e)
 {
-    e = e||window.event;
-    var o = (e.srcElement||e.target);
+    e = e || window.event;
+    var o = (e.srcElement || e.target);
     if (!o) {
         return;
     }
@@ -51,25 +51,25 @@ function onKeyDownArrowsHandler(e)
 
     var nO = null;
 
-    switch(e.keyCode) {
-        case 38:
-            // up
-            y--;
-            break;
-        case 40:
-            // down
-            y++;
-            break;
-        case 37:
-            // left
-            x--;
-            break;
-        case 39:
-            // right
-            x++;
-            break;
-        default:
-            return;
+    switch (e.keyCode) {
+    case 38:
+        // up
+        y--;
+        break;
+    case 40:
+        // down
+        y++;
+        break;
+    case 37:
+        // left
+        x--;
+        break;
+    case 39:
+        // right
+        x++;
+        break;
+    default:
+        return;
     }
 
     var id = "field_" + y + "_" + x;

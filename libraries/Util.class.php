@@ -540,9 +540,11 @@ class PMA_Util
             /* Provide consistent URL for testsuite */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
         } else if (file_exists('doc/html/index.html')) {
-            return './doc/html/' . $url;
-        } else if (defined('PMA_SETUP') && file_exists('../doc/html/index.html')) {
-            return '../doc/html/' . $url;
+            if (defined('PMA_SETUP')) {
+                return '../doc/html/' . $url;
+            } else {
+                return './doc/html/' . $url;
+            }
         } else {
             /* TODO: Should link to correct branch for released versions */
             return PMA_linkURL('http://docs.phpmyadmin.net/en/latest/' . $url);
@@ -669,7 +671,7 @@ class PMA_Util
             }
             // ---
             // modified to show the help on sql errors
-            $error_msg .= '<p><strong>' . __('SQL query') . ':</strong>' . "\n";
+            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SQL-Syntax', 'SELECT');
@@ -3959,10 +3961,18 @@ class PMA_Util
     public static function analyzeLimitClause($limit_clause)
     {
         $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
-        return array(
-            'start'  => trim($start_and_length[0]),
-            'length' => trim($start_and_length[1])
-        );
+        $size = count($start_and_length);
+        if ($size == 1) {
+            return array(
+                'start'  => '0',
+                'length' => trim($start_and_length[0])
+            );
+        } elseif ($size == 2) {
+            return array(
+                'start'  => trim($start_and_length[0]),
+                'length' => trim($start_and_length[1])
+            );
+        }
     }
 
     /**

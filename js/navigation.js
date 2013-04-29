@@ -8,7 +8,7 @@
 /**
  * Executed on page load
  */
-$(function() {
+$(function () {
     if (! $('#pma_navigation').length) {
         // Don't bother running any code if the navigation is not even on the page
         return;
@@ -21,7 +21,7 @@ $(function() {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
-    $('#pma_navigation_tree a.expander').live('click', function(event) {
+    $('#pma_navigation_tree a.expander').live('click', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
         var $this = $(this);
@@ -40,7 +40,8 @@ $(function() {
             var $throbber = $('#pma_navigation .throbber')
                 .first()
                 .clone()
-                .css('visibility', 'visible');
+                .css('visibility', 'visible')
+                .click(false);
             $icon.hide();
             $throbber.insertBefore($icon);
 
@@ -114,7 +115,7 @@ $(function() {
     $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseover',
         function () {
-            if ($('li:visible', this).length == 0) {
+            if ($('li:visible', this).length === 0) {
                 $(this).addClass('activePointer');
             }
         }
@@ -129,8 +130,8 @@ $(function() {
     /**
      * Jump to recent table
      */
-    $('#recentTable').live('change', function() {
-        if (this.value != '') {
+    $('#recentTable').live('change', function () {
+        if (this.value !== '') {
             var arr = jQuery.parseJSON(this.value);
             var $form = $(this).closest('form');
             $form.find('input[name=db]').val(arr['db']);
@@ -143,41 +144,41 @@ $(function() {
     $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
     $('li.new_trigger a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
     $('li.new_event a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
-        dialog.editorDialog(1, $(this))
+        dialog.editorDialog(1, $(this));
     });
 
     /** Edit Routines, Triggers and Events */
     $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
     $('li.trigger > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
     $('li.event > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('event');
-        dialog.editorDialog(0, $(this))
+        dialog.editorDialog(0, $(this));
     });
 
     /** Export Routines, Triggers and Events */
     $('li.procedure a.ajax img, li.function a.ajax img, li.trigger a.ajax img, li.event a.ajax img').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
-        dialog.exportDialog($(this).parent())
+        dialog.exportDialog($(this).parent());
     });
 
     /** New index */
@@ -186,7 +187,7 @@ $(function() {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + '&ajax_request=true';
-        var title = PMA_messages['strAddIndex'];
+        var title = PMA_messages.strAddIndex;
         indexEditorDialog(url, title);
     });
 
@@ -196,7 +197,7 @@ $(function() {
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
         ) + '&ajax_request=true';
-        var title = PMA_messages['strEditIndex'];
+        var title = PMA_messages.strEditIndex;
         indexEditorDialog(url, title);
     });
 
@@ -210,7 +211,7 @@ $(function() {
 /**
  * Reloads the whole navigation tree while preserving its state
  *
- * @param  function     the callback function 
+ * @param  function     the callback function
  * @return void
  */
 function PMA_reloadNavigation(callback) {
@@ -227,7 +228,7 @@ function PMA_reloadNavigation(callback) {
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
         if ($(this).find('img').is('.ic_b_minus')
-            && $(this).closest('li').find('div.list_container .ic_b_minus').length == 0
+            && $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
             params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
             params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
@@ -286,12 +287,13 @@ function PMA_navigationTreePagination($this)
 {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    var url, params;
     if ($this[0].tagName == 'A') {
-        var url = $this.attr('href');
-        var params = 'ajax_request=true';
+        url = $this.attr('href');
+        params = 'ajax_request=true';
     } else { // tagName == 'SELECT'
-        var url = 'navigation.php';
-        var params = $this.closest("form").serialize() + '&ajax_request=true';
+        url = 'navigation.php';
+        params = $this.closest("form").serialize() + '&ajax_request=true';
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {
@@ -381,14 +383,14 @@ var ResizeHandler = function () {
             $collapser
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages['strShowPanel']);
+                .prop('title', PMA_messages.strShowPanel);
         } else {
             $collapser
                 .css(this.left, pos)
                 .html(this.getSymbol(pos))
-                .prop('title', PMA_messages['strHidePanel']);
+                .prop('title', PMA_messages.strHidePanel);
         }
-        setTimeout(function (){
+        setTimeout(function () {
             $(window).trigger('resize');
         }, 4);
     };
@@ -424,13 +426,13 @@ var ResizeHandler = function () {
      */
     this.getSymbol = function (width) {
         if (this.left == 'left') {
-            if (width == 0) {
+            if (width === 0) {
                 return '&rarr;';
             } else {
                 return '&larr;';
             }
         } else {
-            if (width == 0) {
+            if (width === 0) {
                 return '&larr;';
             } else {
                 return '&rarr;';
@@ -505,12 +507,12 @@ var ResizeHandler = function () {
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')
-        .live('mousedown', {'resize_handler':this}, this.mousedown);
+        .live('mousedown', {'resize_handler': this}, this.mousedown);
     $(document)
-        .bind('mouseup', {'resize_handler':this}, this.mouseup)
-        .bind('mousemove', {'resize_handler':this}, $.throttle(this.mousemove, 4));
+        .bind('mouseup', {'resize_handler': this}, this.mouseup)
+        .bind('mousemove', {'resize_handler': this}, $.throttle(this.mousemove, 4));
     var $collapser = $('#pma_navigation_collapser');
-    $collapser.live('click', {'resize_handler':this}, this.collapse);
+    $collapser.live('click', {'resize_handler': this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
@@ -559,8 +561,8 @@ var PMA_fastFilter = {
         this.timeout = null;
 
         var $filterInput = $this.find('li.fast_filter input.searchClause');
-        if (   $filterInput.length != 0
-            && $filterInput.val() != ''
+        if ($filterInput.length !== 0
+            && $filterInput.val() !== ''
             && $filterInput.val() != $filterInput[0].defaultValue
         ) {
             this.request();
@@ -590,7 +592,7 @@ var PMA_fastFilter = {
         var $filterContainer = $this.closest('div.list_container');
         var $filterInput = $([]);
         while (1) {
-            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length != 0) {
+            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length !== 0) {
                 $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
                 break;
             } else if (! $filterContainer.is('div.list_container')) {
@@ -601,7 +603,7 @@ var PMA_fastFilter = {
                 .closest('div.list_container');
         }
         var searchClause2 = '';
-        if ($filterInput.length != 0
+        if ($filterInput.length !== 0
             && $filterInput.first().val() != $filterInput[0].defaultValue
         ) {
             searchClause2 = $filterInput.val();
@@ -628,7 +630,7 @@ var PMA_fastFilter = {
             }
         },
         blur: function (event) {
-            if ($(this).val() == '') {
+            if ($(this).val() === '') {
                 $(this).val(this.defaultValue);
             }
             var $obj = $(this).closest('div.list_container');
@@ -639,7 +641,7 @@ var PMA_fastFilter = {
         keyup: function (event) {
             var $obj = $(this).closest('div.list_container');
             var str = '';
-            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
                 str = $(this).val().toLowerCase();
             }
@@ -657,13 +659,13 @@ var PMA_fastFilter = {
                         container_filter($group); // recursive
                     }
                     $group.parent().show().removeClass('hidden');
-                    if ($group.children().not('.hidden').length == 0) {
+                    if ($group.children().not('.hidden').length === 0) {
                         $group.parent().hide().addClass('hidden');
                     }
                 });
             };
             container_filter($obj, str);
-            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
                         'fastFilter',
@@ -713,7 +715,7 @@ PMA_fastFilter.filter.prototype.request = function ()
 {
     var self = this;
     clearTimeout(self.timeout);
-    if (self.$this.find('li.fast_filter').find('img.throbber').length == 0) {
+    if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
         self.$this.find('li.fast_filter').append(
             $('<div class="throbber"></div>').append(
                 $('#pma_navigation_content')
@@ -730,7 +732,7 @@ PMA_fastFilter.filter.prototype.request = function ()
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         var results = self.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
         var params = self.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
-        if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length == 0) {
+        if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
             var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
             if ($input.length && $input.val() != $input[0].defaultValue) {
                 params += '&searchClause=' + encodeURIComponent($input.val());
@@ -745,9 +747,9 @@ PMA_fastFilter.filter.prototype.request = function ()
                 var data = $.parseJSON(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
-                    var $listItem = $('<li />', {'class':'moreResults'})
+                    var $listItem = $('<li />', {'class': 'moreResults'})
                         .appendTo(self.$this.find('li.fast_filter'));
-                    var $link = $('<a />', {href:'#'})
+                    var $link = $('<a />', {href: '#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {

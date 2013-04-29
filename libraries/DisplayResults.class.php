@@ -900,12 +900,12 @@ class PMA_DisplayResults
             . '" />'
             . '<input type="submit" name="navig"'
             . ' class="ajax"'
-            . ' value="' . __('Show') . ' :" />'
-            . __('Start row') . ': ' . "\n"
+            . ' value="' . __('Show:') . '" />'
+            . __('Start row:') . ' ' . "\n"
             . '<input type="text" name="pos" size="3" value="'
             . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
             . '" class="textfield" onfocus="this.select()" />'
-            . __('Number of rows') . ': ' . "\n"
+            . __('Number of rows:') . ' ' . "\n"
             . '<input type="text" name="session_max_rows" size="3" value="'
             . (($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
                 ? $_SESSION['tmp_user_values']['max_rows']
@@ -914,7 +914,7 @@ class PMA_DisplayResults
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
             // Display mode (horizontal/vertical and repeat headers)
-            $additional_fields_html .= __('Mode') . ': ' . "\n";
+            $additional_fields_html .= __('Mode:') . ' ' . "\n";
             $choices = array(
                     'horizontal'        => __('horizontal'),
                     'horizontalflipped' => __('horizontal (rotated headers)'),

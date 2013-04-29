@@ -110,7 +110,7 @@ $table_info_result = PMA_queryAsControlUser(
 );
 
 if (PMA_DBI_num_rows($table_info_result) > 0) {
-    echo '<p>' . __('Page') . ':';
+    echo '<p>' . __('Page:');
     echo '<select name="pdf_page_number">';
 
     while ($page = PMA_DBI_fetch_assoc($table_info_result)) {
@@ -138,7 +138,7 @@ echo '<br />';
 echo '<label for="newpage">' . __('New page name: ') . '</label>';
 echo '<input id="newpage" type="text" name="newpage" />';
 
-echo '<p>' . __('Export/Import to scale') . ':';
+echo '<p>' . __('Export/Import to scale:');
 ?>
       <select name="scale">
         <option value="1">1:1</option>

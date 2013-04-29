@@ -207,7 +207,7 @@ var PMA_querywindow = (function ($, window) {
                 );
             }
             if (! querywindow.opener) {
-               querywindow.opener = window.window;
+                querywindow.opener = window.window;
             }
             if (window.focus) {
                 querywindow.focus();
@@ -233,7 +233,7 @@ var PMA_querywindow = (function ($, window) {
                 var hiddenqueryform = querywindow
                     .document
                     .getElementById('hiddenqueryform');
-                if (hiddenqueryform.querydisplay_tab != 'sql' ) {
+                if (hiddenqueryform.querydisplay_tab != 'sql') {
                     hiddenqueryform.querydisplay_tab.value = "sql";
                     hiddenqueryform.sql_query.value = sql_query;
                     $(hiddenqueryform).addClass('disableAjax');
@@ -254,7 +254,7 @@ var PMA_querywindow = (function ($, window) {
         refresh: function (url) {
             if (! querywindow.closed && querywindow.location) {
                 var $form = $(querywindow.document).find('#sqlqueryform');
-                if ($form.find('#checkbox_lock:checked').length == 0) {
+                if ($form.find('#checkbox_lock:checked').length === 0) {
                     PMA_querywindow.open(url);
                 }
             }
@@ -272,7 +272,7 @@ var PMA_querywindow = (function ($, window) {
         reload: function (db, table, sql_query) {
             if (! querywindow.closed && querywindow.location) {
                 var $form = $(querywindow.document).find('#sqlqueryform');
-                if ($form.find('#checkbox_lock:checked').length == 0) {
+                if ($form.find('#checkbox_lock:checked').length === 0) {
                     var $hiddenform = $(querywindow.document)
                         .find('#hiddenqueryform');
                     $hiddenform.find('input[name=db]').val(db);

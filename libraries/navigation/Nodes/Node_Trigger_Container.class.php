@@ -33,7 +33,9 @@ class Node_Trigger_Container extends Node
         );
         $this->real_name = 'triggers';
 
-        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new trigger', 'New'));
+        $new        = PMA_NodeFactory::getInstance(
+            'Node', _pgettext('Create new trigger', 'New')
+        );
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_trigger_add.png', '');
         $new->links = array(

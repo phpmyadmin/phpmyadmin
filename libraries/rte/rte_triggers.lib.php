@@ -93,8 +93,8 @@ function PMA_TRI_handleEditor()
                         )
                         . '<br />'
                         . __('MySQL said: ') . PMA_DBI_getError(null);
-                        // We dropped the old item, but were unable to create the new one
-                        // Try to restore the backup query
+                        // We dropped the old item, but were unable to create the
+                        // new one. Try to restore the backup query.
                         $result = PMA_DBI_try_query($create_item);
                         if (! $result) {
                             // OMG, this is really bad! We dropped the query,
@@ -227,7 +227,7 @@ function PMA_TRI_handleEditor()
             }
             exit;
         } else {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),

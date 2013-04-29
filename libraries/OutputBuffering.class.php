@@ -1,5 +1,4 @@
-<?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
+<?php /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Output buffering wrapper
  *
@@ -50,8 +49,8 @@ class PMA_OutputBuffering
             } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
                 // If output buffering is enabled in php.ini it's not possible to
                 // add the ob_gzhandler without a warning message from php 4.3.0.
-                // Being better safe than sorry, check for any existing output handler
-                // instead of just checking the 'output_buffering' setting.
+                // Being better safe than sorry, check for any existing output
+                // handler instead of just checking the 'output_buffering' setting.
                 $mode = 0;
             } else {
                 $mode = 1;

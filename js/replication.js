@@ -13,15 +13,15 @@ function update_config()
     var conf_do = "binlog_do_db=";
     var database_list = '';
 
-    if ($('#db_select option:selected').size() == 0) {
+    if ($('#db_select option:selected').size() === 0) {
         $('#rep').text(conf_prefix);
     } else if ($('#db_type option:selected').val() == 'all') {
-        $('#db_select option:selected').each(function() {
+        $('#db_select option:selected').each(function () {
             database_list += conf_ignore + $(this).val() + "\n";
         });
         $('#rep').text(conf_prefix + database_list);
     } else {
-        $('#db_select option:selected').each(function() {
+        $('#db_select option:selected').each(function () {
             database_list += conf_do + $(this).val() + "\n";
         });
         $('#rep').text(conf_prefix + database_list);
@@ -31,7 +31,7 @@ function update_config()
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('replication.js', function() {
+AJAX.registerTeardown('replication.js', function () {
     $('#db_type').unbind('change');
     $('#db_select').unbind('change');
     $('#master_status_href').unbind('click');
@@ -43,30 +43,30 @@ AJAX.registerTeardown('replication.js', function() {
     $('#db_reset_href').unbind('click');
 });
 
-AJAX.registerOnload('replication.js', function() {
+AJAX.registerOnload('replication.js', function () {
     $('#rep').text(conf_prefix);
     $('#db_type').change(update_config);
     $('#db_select').change(update_config);
 
-    $('#master_status_href').click(function() {
+    $('#master_status_href').click(function () {
         $('#replication_master_section').toggle();
-        });
-    $('#master_slaves_href').click(function() {
+    });
+    $('#master_slaves_href').click(function () {
         $('#replication_slaves_section').toggle();
-        });
-    $('#slave_status_href').click(function() {
+    });
+    $('#slave_status_href').click(function () {
         $('#replication_slave_section').toggle();
-        });
-    $('#slave_control_href').click(function() {
+    });
+    $('#slave_control_href').click(function () {
         $('#slave_control_gui').toggle();
-        });
-    $('#slave_errormanagement_href').click(function() {
+    });
+    $('#slave_errormanagement_href').click(function () {
         $('#slave_errormanagement_gui').toggle();
-        });
-    $('#slave_synchronization_href').click(function() {
+    });
+    $('#slave_synchronization_href').click(function () {
         $('#slave_synchronization_gui').toggle();
-        });
-    $('#db_reset_href').click(function() {
+    });
+    $('#db_reset_href').click(function () {
         $('#db_select option:selected').prop('selected', false);
-        });
+    });
 });

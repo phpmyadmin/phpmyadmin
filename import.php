@@ -474,7 +474,8 @@ if (! $error) {
     $import_plugin = PMA_getPlugin(
         "import",
         $format,
-        'libraries/plugins/import/'
+        'libraries/plugins/import/',
+        $import_type
     );
     if ($import_plugin == null) {
         $error = true;

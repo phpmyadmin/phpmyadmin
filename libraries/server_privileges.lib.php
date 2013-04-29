@@ -1024,7 +1024,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . '<legend>' . __('Login Information') . '</legend>' . "\n"
         . '<div class="item">' . "\n"
         . '<label for="select_pred_username">' . "\n"
-        . '    ' . __('User name') . ':' . "\n"
+        . '    ' . __('User name:') . "\n"
         . '</label>' . "\n"
         . '<span class="options">' . "\n";
 
@@ -1081,7 +1081,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_hostname">' . "\n"
-        . '    ' . __('Host') . ':' . "\n"
+        . '    ' . __('Host:') . "\n"
         . '</label>' . "\n";
 
     $html_output .= '<span class="options">' . "\n"
@@ -1175,7 +1175,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
             )
             ? ' selected="selected"'
             : '') . '>'
-        . __('Use text field') . ':</option>' . "\n"
+        . __('Use text field:') . '</option>' . "\n"
         . '</select>' . "\n"
         . '</span>' . "\n";
 
@@ -1191,7 +1191,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_password">' . "\n"
-        . '    ' . __('Password') . ':' . "\n"
+        . '    ' . __('Password:') . "\n"
         . '</label>' . "\n"
         . '<span class="options">' . "\n"
         . '<select name="pred_password" id="select_pred_password" title="'
@@ -1226,7 +1226,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<div class="item" '
         . 'id="div_element_before_generate_password">' . "\n"
         . '<label for="text_pma_pw2">' . "\n"
-        . '    ' . __('Re-type') . ':' . "\n"
+        . '    ' . __('Re-type:') . "\n"
         . '</label>' . "\n"
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
@@ -2288,11 +2288,11 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
     $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
 
     $html_output = '<label for="text_dbname">'
-        . __('Add privileges on the following database') . ':</label>' . "\n";
+        . __('Add privileges on the following database:') . '</label>' . "\n";
     if (! empty($pred_db_array)) {
         $html_output .= '<select name="pred_dbname" class="autosubmit">' . "\n"
             . '<option value="" selected="selected">'
-            . __('Use text field') . ':</option>' . "\n";
+            . __('Use text field:') . '</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
             $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
@@ -2326,7 +2326,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
     $html_output = '<input type="hidden" name="dbname"
         '. 'value="' . htmlspecialchars($dbname) . '"/>' . "\n";
     $html_output .= '<label for="text_tablename">'
-        . __('Add privileges on the following table') . ':</label>' . "\n";
+        . __('Add privileges on the following table:') . '</label>' . "\n";
 
     $result = @PMA_DBI_try_query(
         'SHOW TABLES FROM ' . PMA_Util::backquote(
@@ -2860,7 +2860,7 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usredit.png')
-       . __('Edit Privileges') . ': '
+       . __('Edit Privileges:') . ' '
        . __('User');
 
     if (isset($dbname)) {

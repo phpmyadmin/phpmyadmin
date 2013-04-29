@@ -7,25 +7,12 @@
 /**
  *
  */
-function makeRequest(url, parameters)
-{
-    var $msg = PMA_ajaxShowMessage();
-    $.post(url, parameters, function (data) {
-        PMA_ajaxRemoveMessage($msg);
-        PrintXML(data);
-    });
-    return true;
-}
-
-/**
- *
- */
 function PrintXML(data)
 {
     var $root = $(data).find('root');
-    if ($root.length == 0) {
+    if ($root.length === 0) {
         // error
-        var myWin=window.open('','Report','width=400, height=250, resizable=1, scrollbars=1, status=1');
+        var myWin = window.open('', 'Report', 'width=400, height=250, resizable=1, scrollbars=1, status=1');
         var tmp = myWin.document;
         tmp.write(data);
         tmp.close();
@@ -57,4 +44,17 @@ function PrintXML(data)
             }
         }
     }
+}
+
+/**
+ *
+ */
+function makeRequest(url, parameters)
+{
+    var $msg = PMA_ajaxShowMessage();
+    $.post(url, parameters, function (data) {
+        PMA_ajaxRemoveMessage($msg);
+        PrintXML(data);
+    });
+    return true;
 }

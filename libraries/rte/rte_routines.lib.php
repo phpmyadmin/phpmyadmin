@@ -461,7 +461,7 @@ function PMA_RTN_handleEditor()
             }
             exit;
         } else {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
@@ -1179,7 +1179,7 @@ function PMA_RTN_getQueryFromRequest()
                 }
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
                     if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_param_type'][$i]) == 'CHAR') {
-                        $params .= ' CHARSET ' 
+                        $params .= ' CHARSET '
                             . strtolower($_REQUEST['item_param_opts_text'][$i]);
                     }
                 }
@@ -1475,7 +1475,7 @@ function PMA_RTN_handleExecute()
                 // Now deliberately fall through to displaying the routines list
             }
         } else {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
@@ -1515,7 +1515,7 @@ function PMA_RTN_handleExecute()
             }
             exit;
         } else if (($GLOBALS['is_ajax_request'] == true)) {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),

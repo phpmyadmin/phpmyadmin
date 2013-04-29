@@ -840,8 +840,8 @@ class PMA_Table
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
-            if (isset($GLOBALS['drop_if_exists'])
-                && $GLOBALS['drop_if_exists'] == 'true'
+            if (isset($_REQUEST['drop_if_exists'])
+                && $_REQUEST['drop_if_exists'] == 'true'
             ) {
                 if (PMA_Table::isView($target_db, $target_table)) {
                     $drop_query = 'DROP VIEW';
@@ -1161,7 +1161,7 @@ class PMA_Table
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
-                $this->errors[] = __('Invalid database') . ': ' . $new_db;
+                $this->errors[] = __('Invalid database:') . ' ' . $new_db;
                 return false;
             }
         } else {
@@ -1175,7 +1175,7 @@ class PMA_Table
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            $this->errors[] = __('Invalid table name') . ': '
+            $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;
         }
@@ -1575,7 +1575,7 @@ class PMA_Table
 
     /**
      * Get all column names which are MySQL reserved words
-     * 
+     *
      * @return array
      * @access public
      */
@@ -1589,7 +1589,7 @@ class PMA_Table
             if (PMA_SQP_isKeyWord($column_name)) {
                 $return[] = $column_name;
             }
-        }       
+        }
         return $return;
     }
 }

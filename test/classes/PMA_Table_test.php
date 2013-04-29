@@ -71,6 +71,26 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test Set & Get
+     *
+     * @return void
+     */
+    public function testSetAndGet()
+    {
+        $table = new PMA_Table('table1', 'pma_test');
+        $table->set('production', 'Phpmyadmin');
+        $table->set('db', 'mysql');
+        $this->assertEquals(
+            "Phpmyadmin",
+            $table->get("production")
+        );
+        $this->assertEquals(
+            "mysql",
+            $table->get("db")
+        );
+    }
+
+    /**
      * Test getting columns
      *
      * @return void

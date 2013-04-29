@@ -72,7 +72,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Rename database to') . ':'
+    $html_output .= __('Rename database to:')
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
@@ -172,7 +172,7 @@ function PMA_getHtmlForCopyDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Copy database to') . ':'
+    $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
         . 'class="textfield" value="" /><br />'
@@ -541,11 +541,11 @@ function PMA_handleTheViews($views, $move, $db)
     $_error = false;
     // temporarily force to add DROP IF EXIST to CREATE VIEW query,
     // to remove stand-in VIEW that was created earlier
-    // ( $GLOBALS['drop_if_exists'] is used in moveCopy() )
-    if (isset($GLOBALS['drop_if_exists'])) {
-        $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+    // ( $_REQUEST['drop_if_exists'] is used in moveCopy() )
+    if (isset($_REQUEST['drop_if_exists'])) {
+        $temp_drop_if_exists = $_REQUEST['drop_if_exists'];
     }
-    $GLOBALS['drop_if_exists'] = 'true';
+    $_REQUEST['drop_if_exists'] = 'true';
 
     foreach ($views as $view) {
         $copying_succeeded = PMA_Table::moveCopy(
@@ -556,10 +556,10 @@ function PMA_handleTheViews($views, $move, $db)
             break;
         }
     }
-    unset($GLOBALS['drop_if_exists']);
+    unset($_REQUEST['drop_if_exists']);
     if (isset($temp_drop_if_exists)) {
         // restore previous value
-        $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+        $_REQUEST['drop_if_exists'] = $temp_drop_if_exists;
     }
     return $_error;
 }
@@ -625,7 +625,7 @@ function PMA_getHtmlForOrderTheTable($columns)
             . 'value="' . htmlspecialchars($fieldname['Field']) . '">'
             . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
     }
-    $html_output .= '</select> ' . __('(singly)')
+    $html_output .= '</select> ' . __('(singly)') . ' '
         . '<select name="order_order">'
         . '<option value="asc">' . __('Ascending') . '</option>'
         . '<option value="desc">' . __('Descending') . '</option>'

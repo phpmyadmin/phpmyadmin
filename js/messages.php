@@ -57,15 +57,6 @@ $js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
-/* for server_status.js */
-$js_messages['strEdit'] = __('Edit');
-$js_messages['strLiveTrafficChart'] = __('Live traffic chart');
-$js_messages['strLiveConnChart'] = __('Live conn./process chart');
-$js_messages['strLiveQueryChart'] = __('Live query chart');
-
-$js_messages['strStaticData'] = __('Static data');
-/* l10n: Total number of queries */
-$js_messages['strTotal'] = __('Total');
 /* l10n: Other, small valued, queries */
 $js_messages['strOther'] = __('Other');
 /* l10n: Thousands separator */
