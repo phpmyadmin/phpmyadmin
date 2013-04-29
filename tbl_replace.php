@@ -152,6 +152,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
         = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
         ? $_REQUEST['funcs']['multi_edit'][$rownumber]
         : null;
+    $multi_edit_salt
+        = isset($_REQUEST['salt']['multi_edit'][$rownumber])
+        ? $_REQUEST['salt']['multi_edit'][$rownumber]
+        :null;
     $multi_edit_columns_type
         = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
@@ -205,9 +209,9 @@ foreach ($loop_array as $rownumber => $where_clause) {
         );
 
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
-            $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
-            $func_optional_param, $func_no_param, $key
+            $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs, 
+            $multi_edit_salt, $gis_from_text_functions, $current_value,
+            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
         );
 
         list($query_values, $query_fields)
