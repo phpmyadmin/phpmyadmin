@@ -1960,7 +1960,7 @@ function PMA_executeSqlQuery($url_params, $query)
 function PMA_getWarningMessages()
 {
     $warning_essages = array();
-    foreach (PMA_DBI_get_warnings() as $warning) {
+    foreach (PMA_DBI_getWarnings() as $warning) {
         $warning_essages[] = PMA_Message::sanitize(
             $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
         );

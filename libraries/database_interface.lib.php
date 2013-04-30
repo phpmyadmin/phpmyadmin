@@ -1845,7 +1845,7 @@ function PMA_DBI_getCompatibilities()
  *
  * @return array warnings
  */
-function PMA_DBI_get_warnings($link = null)
+function PMA_DBI_getWarnings($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

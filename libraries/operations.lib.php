@@ -1569,7 +1569,7 @@ function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 function PMA_getWarningMessagesArray()
 {
     $warning_messages = array();
-    foreach (PMA_DBI_get_warnings() as $warning) {
+    foreach (PMA_DBI_getWarnings() as $warning) {
         // In MariaDB 5.1.44, when altering a table from Maria to MyISAM
         // and if TRANSACTIONAL was set, the system reports an error;
         // I discussed with a Maria developer and he agrees that this
