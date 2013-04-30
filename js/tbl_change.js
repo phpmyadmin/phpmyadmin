@@ -153,14 +153,14 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     
     //TO generate the textbox that can take the salt
     var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]"
-    +" id=salt_"+evt.srcElement.id+" placeholder='enter Salt'>";
+    +" id=salt_"+target.id+" placeholder='enter Salt'>";
     
     //If AES_ENCRYPT is Selected then append the new textbox for salt    
-    if (evt.srcElement.value == "AES_ENCRYPT" && !($("#salt_"+evt.srcElement.id).length)) {
+    if (target.value == "AES_ENCRYPT" && !($("#salt_"+target.id).length)) {
         $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']").after(new_salt_box);
     } else {
         //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
-        $("#salt_"+evt.srcElement.id).remove();
+        $("#salt_"+target.id).remove();
     }
         
     // Unchecks the corresponding "NULL" control
