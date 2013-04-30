@@ -58,7 +58,7 @@ if (empty($is_table)
         $is_table = isset(PMA_Table::$cache[$db][$table]);
 
         if (! $is_table) {
-            $_result = PMA_DBI_try_query(
+            $_result = PMA_DBI_tryQuery(
                 'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';',
                 null, PMA_DBI_QUERY_STORE
             );
@@ -80,7 +80,7 @@ if (empty($is_table)
                  * @todo should this check really
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
-                $_result = PMA_DBI_try_query(
+                $_result = PMA_DBI_tryQuery(
                     'SELECT COUNT(*) FROM ' . PMA_Util::backquote($table) . ';',
                     null,
                     PMA_DBI_QUERY_STORE

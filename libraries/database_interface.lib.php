@@ -109,7 +109,7 @@ if (defined('TESTSUITE')) {
 function PMA_DBI_query($query, $link = null, $options = 0,
     $cache_affected_rows = true
 ) {
-    $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
+    $res = PMA_DBI_tryQuery($query, $link, $options, $cache_affected_rows)
         or PMA_Util::mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
 }
@@ -174,7 +174,7 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
  *
  * @return mixed
  */
-function PMA_DBI_try_query($query, $link = null, $options = 0,
+function PMA_DBI_tryQuery($query, $link = null, $options = 0,
     $cache_affected_rows = true
 ) {
     if (empty($link)) {
@@ -1594,7 +1594,7 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
     $value = false;
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return false if result is empty or false
@@ -1647,7 +1647,7 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
 function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
 {
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return null if result is empty or false
@@ -1731,7 +1731,7 @@ function PMA_DBI_fetch_result($result, $key = null, $value = null,
     $resultrows = array();
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options, false);
+        $result = PMA_DBI_tryQuery($result, $link, $options, false);
     }
 
     // return empty array if result is empty or false
@@ -1881,7 +1881,7 @@ function PMA_isSuperuser()
             $result = true;
         } else {
             // check access to mysql.user table
-            $result = (bool) PMA_DBI_try_query(
+            $result = (bool) PMA_DBI_tryQuery(
                 'SELECT COUNT(*) FROM mysql.user',
                 $GLOBALS['userlink'],
                 PMA_DBI_QUERY_STORE

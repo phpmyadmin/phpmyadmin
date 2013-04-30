@@ -1913,7 +1913,7 @@ function PMA_executeSqlQuery($url_params, $query)
             continue;
         }
         if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
-            $result = PMA_DBI_try_query($single_query);
+            $result = PMA_DBI_tryQuery($single_query);
         } else {
             $result = PMA_DBI_query($single_query);
         }
@@ -1993,7 +1993,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
-        $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+        $dispresult  = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
         if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
             list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
         }

@@ -118,7 +118,7 @@ function PMA_saveUserprefs(array $config_array)
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);
     }
-    if (!PMA_DBI_try_query($query, $GLOBALS['controllink'])) {
+    if (!PMA_DBI_tryQuery($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not save configuration'));
         $message->addMessage('<br /><br />');
         $message->addMessage(

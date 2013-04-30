@@ -219,7 +219,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             $_error = false;
 
             if (isset($create_user_real)) {
-                if (! PMA_DBI_try_query($create_user_real)) {
+                if (! PMA_DBI_tryQuery($create_user_real)) {
                     $_error = true;
                 }
                 $sql_query = $create_user_show . $sql_query;

@@ -5509,7 +5509,7 @@ class PMA_DisplayResults
                     . PMA_Util::backquote($map[$meta->name][1])
                     . $where_comparison;
 
-                $dispresult = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+                $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
                 if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                     list($dispval) = PMA_DBI_fetch_row($dispresult, 0);

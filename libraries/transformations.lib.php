@@ -404,7 +404,7 @@ function PMA_clearTransformations($db, $table = '', $column = '')
         $delete_sql .= '`db_name` = \'' . $db . '\' ';
     }
     
-    return PMA_DBI_try_query($delete_sql);
+    return PMA_DBI_tryQuery($delete_sql);
     
 }
 

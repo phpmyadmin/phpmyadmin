@@ -163,7 +163,7 @@ function PMA_extract_db_or_table($string, $what = 'db')
  *                        If it is set to null, it controls both SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
- * @return mixed output of PMA_DBI_try_query
+ * @return mixed output of PMA_DBI_tryQuery
  */
 function PMA_replication_slave_control($action, $control = null, $link = null)
 {
@@ -177,7 +177,7 @@ function PMA_replication_slave_control($action, $control = null, $link = null)
         return -1;
     }
 
-    return PMA_DBI_try_query($action . " SLAVE " . $control . ";", $link);
+    return PMA_DBI_tryQuery($action . " SLAVE " . $control . ";", $link);
 }
 
 /**
@@ -202,7 +202,7 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
         PMA_replication_slave_control("STOP", null, $link);
     }
 
-    $out = PMA_DBI_try_query(
+    $out = PMA_DBI_tryQuery(
         'CHANGE MASTER TO ' .
         'MASTER_HOST=\'' . $host . '\',' .
         'MASTER_PORT=' . ($port * 1) . ',' .

@@ -74,7 +74,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
         $upd_query .= ';';
-        PMA_DBI_try_query($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
+        PMA_DBI_tryQuery($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
         PMD_return_new(1, __('FOREIGN KEY relation added'));
     }
 } else { // internal (pmadb) relation

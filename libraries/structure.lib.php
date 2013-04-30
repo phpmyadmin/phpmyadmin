@@ -2349,7 +2349,7 @@ function PMA_updateColumns($db, $table)
     $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
     $sql_query .= ';';
-    $result    = PMA_DBI_try_query($sql_query);
+    $result    = PMA_DBI_tryQuery($sql_query);
 
     $response = PMA_Response::getInstance();
     if ($result !== false) {
@@ -2488,7 +2488,7 @@ function PMA_moveColumns($db, $table)
     $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
-    $result = PMA_DBI_try_query($move_query);
+    $result = PMA_DBI_tryQuery($move_query);
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
         $response->isSuccess(false);

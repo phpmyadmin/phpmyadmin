@@ -69,14 +69,14 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
+                $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
-            $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
+            $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
             break;
         case 'triggers':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -91,7 +91,7 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $retval = (int)PMA_DBI_num_rows(PMA_DBI_try_query($query));
+                $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
             }
             break;
         default:
@@ -133,7 +133,7 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $handle = PMA_DBI_try_query($query);
+                $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
@@ -150,7 +150,7 @@ class Node_Table extends Node
             $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
-            $handle = PMA_DBI_try_query($query);
+            $handle = PMA_DBI_tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
                 while ($arr = PMA_DBI_fetch_array($handle)) {
@@ -179,7 +179,7 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $handle = PMA_DBI_try_query($query);
+                $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
@@ -219,7 +219,7 @@ class Node_Table extends Node
             $db     = PMA_Util::backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";
             $query .= "WHERE Name = '$table'";
-            $arr = PMA_DBI_fetch_assoc(PMA_DBI_try_query($query));
+            $arr = PMA_DBI_fetch_assoc(PMA_DBI_tryQuery($query));
             $retval = $arr['Comment'];
         }
         return $retval;

@@ -405,7 +405,7 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $pdf->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }

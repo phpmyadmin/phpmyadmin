@@ -37,7 +37,7 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
             $cache_affected_rows
         );
     } else {
-        $result = @PMA_DBI_try_query(
+        $result = @PMA_DBI_tryQuery(
             $sql,
             $GLOBALS['controllink'],
             $options,

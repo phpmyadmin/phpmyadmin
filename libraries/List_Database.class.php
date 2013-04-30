@@ -498,7 +498,7 @@ class PMA_List_Database extends PMA_List
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
         $local_query .= ' AND `User` = \'';
         $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
-        $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
+        $rs          = PMA_DBI_tryQuery($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {

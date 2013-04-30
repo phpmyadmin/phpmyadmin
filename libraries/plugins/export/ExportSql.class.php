@@ -591,7 +591,7 @@ class ExportSql extends ExportPlugin
             if ($tmp_compat == 'NONE') {
                 $tmp_compat = '';
             }
-            PMA_DBI_try_query('SET SQL_MODE="' . $tmp_compat . '"');
+            PMA_DBI_tryQuery('SET SQL_MODE="' . $tmp_compat . '"');
             unset($tmp_compat);
         }
         $head  =  $this->_exportComment('phpMyAdmin SQL Dump')
@@ -1010,7 +1010,7 @@ class ExportSql extends ExportPlugin
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
         // column, nor does the mysqldump command. See MySQL bug 35796
-        $result = PMA_DBI_try_query(
+        $result = PMA_DBI_tryQuery(
             'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table)
         );
@@ -1557,7 +1557,7 @@ class ExportSql extends ExportPlugin
         //  are used, we did not get the true column name in case of aliases)
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
-        $result = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmp_error = PMA_DBI_getError();
         if ($tmp_error) {

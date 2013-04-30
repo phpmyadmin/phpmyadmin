@@ -196,7 +196,7 @@ function PMA_Bookmark_delete($db, $id)
         . ' WHERE (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . '        OR user = \'\')'
         . ' AND id = ' . $id;
-    return PMA_DBI_try_query($query, $controllink);
+    return PMA_DBI_tryQuery($query, $controllink);
 } // end of the 'PMA_Bookmark_delete()' function
 
 

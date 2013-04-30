@@ -218,7 +218,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $sql_query .= ';';
 
     // Executes the query
-    $result = PMA_DBI_try_query($sql_query);
+    $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result) {
 

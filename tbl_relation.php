@@ -182,7 +182,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $table, $existrel_foreign[$master_field]['constraint']
             );
             $display_query .= $drop_query . "\n";
-            PMA_DBI_try_query($drop_query);
+            PMA_DBI_tryQuery($drop_query);
             $tmp_error_drop = PMA_DBI_getError();
 
             if (! empty($tmp_error_drop)) {
@@ -203,7 +203,7 @@ if (isset($_REQUEST['destination_foreign'])) {
             );
 
             $display_query .= $create_query . "\n";
-            PMA_DBI_try_query($create_query);
+            PMA_DBI_tryQuery($create_query);
             $tmp_error_create = PMA_DBI_getError();
             if (! empty($tmp_error_create)) {
                 $seen_error = true;
@@ -241,7 +241,7 @@ if (isset($_REQUEST['destination_foreign'])) {
                     $options_array[$existrel_foreign[$master_field]['on_update']]
                 );
                 $display_query .= $sql_query_recreate . "\n";
-                PMA_DBI_try_query($sql_query_recreate);
+                PMA_DBI_tryQuery($sql_query_recreate);
             }
         }
     } // end foreach

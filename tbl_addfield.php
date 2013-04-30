@@ -167,7 +167,7 @@ if (isset($_REQUEST['do_save_data'])) {
     // on this db.
     PMA_DBI_select_db($db) or PMA_Util::mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url);
     $sql_query    = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ' . implode(', ', $definitions) . ';';
-    $result = PMA_DBI_try_query($sql_query);
+    $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result === true) {
         // If comments were sent, enable relation stuff

@@ -76,7 +76,7 @@ function PMA_TRI_handleEditor()
                 $trigger = PMA_TRI_getDataFromName($_REQUEST['item_original_name']);
                 $create_item = $trigger['create'];
                 $drop_item = $trigger['drop'] . ';';
-                $result = PMA_DBI_try_query($drop_item);
+                $result = PMA_DBI_tryQuery($drop_item);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
@@ -85,7 +85,7 @@ function PMA_TRI_handleEditor()
                     . '<br />'
                     . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
-                    $result = PMA_DBI_try_query($item_query);
+                    $result = PMA_DBI_tryQuery($item_query);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
@@ -95,7 +95,7 @@ function PMA_TRI_handleEditor()
                         . __('MySQL said: ') . PMA_DBI_getError(null);
                         // We dropped the old item, but were unable to create the new one
                         // Try to restore the backup query
-                        $result = PMA_DBI_try_query($create_item);
+                        $result = PMA_DBI_tryQuery($create_item);
                         if (! $result) {
                             // OMG, this is really bad! We dropped the query,
                             // failed to create a new one
@@ -123,7 +123,7 @@ function PMA_TRI_handleEditor()
                 }
             } else {
                 // 'Add a new item' mode
-                $result = PMA_DBI_try_query($item_query);
+                $result = PMA_DBI_tryQuery($item_query);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),

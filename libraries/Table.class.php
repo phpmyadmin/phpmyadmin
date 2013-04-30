@@ -543,7 +543,7 @@ class PMA_Table
                         // so use a LIMIT clause.
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
-                        $result = PMA_DBI_try_query(
+                        $result = PMA_DBI_tryQuery(
                             'SELECT 1 FROM ' . PMA_Util::backquote($db) . '.'
                             . PMA_Util::backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
@@ -1367,7 +1367,7 @@ class PMA_Table
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
-        $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+        $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
             $message = PMA_Message::error(__('Could not save table UI preferences'));
@@ -1389,7 +1389,7 @@ class PMA_Table
                 = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
-            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+            $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
 
             if (!$success) {
                 $message = PMA_Message::error(

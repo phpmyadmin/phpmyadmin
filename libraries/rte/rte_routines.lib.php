@@ -290,7 +290,7 @@ function PMA_RTN_handleEditor()
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . PMA_Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
-                    $result = PMA_DBI_try_query($drop_routine);
+                    $result = PMA_DBI_tryQuery($drop_routine);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
@@ -299,7 +299,7 @@ function PMA_RTN_handleEditor()
                         . '<br />'
                         . __('MySQL said: ') . PMA_DBI_getError(null);
                     } else {
-                        $result = PMA_DBI_try_query($routine_query);
+                        $result = PMA_DBI_tryQuery($routine_query);
                         if (! $result) {
                             $errors[] = sprintf(
                                 __('The following query has failed: "%s"'),
@@ -310,7 +310,7 @@ function PMA_RTN_handleEditor()
                             // We dropped the old routine,
                             // but were unable to create the new one
                             // Try to restore the backup query
-                            $result = PMA_DBI_try_query($create_routine);
+                            $result = PMA_DBI_tryQuery($create_routine);
                             if (! $result) {
                                 // OMG, this is really bad! We dropped the query,
                                 // failed to create a new one
@@ -340,7 +340,7 @@ function PMA_RTN_handleEditor()
                 }
             } else {
                 // 'Add a new routine' mode
-                $result = PMA_DBI_try_query($routine_query);
+                $result = PMA_DBI_tryQuery($routine_query);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),

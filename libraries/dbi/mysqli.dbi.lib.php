@@ -494,7 +494,7 @@ function PMA_DBI_getError($link = null)
  */
 function PMA_DBI_num_rows($result)
 {
-    // see the note for PMA_DBI_try_query();
+    // see the note for PMA_DBI_tryQuery();
     if (!is_bool($result)) {
         return @mysqli_num_rows($result);
     } else {

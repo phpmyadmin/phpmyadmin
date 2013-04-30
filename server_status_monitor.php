@@ -174,7 +174,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
             $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -234,7 +234,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
             $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -363,10 +363,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $_REQUEST['query']
         );
 
-        $result = PMA_DBI_try_query($query);
+        $result = PMA_DBI_tryQuery($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
-        $result = PMA_DBI_try_query('EXPLAIN ' . $query);
+        $result = PMA_DBI_tryQuery('EXPLAIN ' . $query);
         while ($row = PMA_DBI_fetch_assoc($result)) {
             $return['explain'][] = $row;
         }
@@ -378,7 +378,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($profiling) {
             $return['profiling'] = array();
-            $result = PMA_DBI_try_query(
+            $result = PMA_DBI_tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );

@@ -550,7 +550,7 @@ if (!empty($submit_mult) && !empty($what)) {
         if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
         }
-        $result = PMA_DBI_try_query($sql_query);
+        $result = PMA_DBI_tryQuery($sql_query);
         if (! isset($_REQUEST['fk_check'])
             && $query_type == 'drop_tbl'
             && $default_fk_check_value
@@ -559,7 +559,7 @@ if (!empty($submit_mult) && !empty($what)) {
         }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            $result = PMA_DBI_try_query($sql_query_views);
+            $result = PMA_DBI_tryQuery($sql_query_views);
             unset($sql_query_views);
         }
 
