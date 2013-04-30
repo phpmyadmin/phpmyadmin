@@ -1251,7 +1251,7 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql(
+        $sql = PMA_DBI_getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Non_unique = 0'
@@ -1288,7 +1288,7 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql(
+        $sql = PMA_DBI_getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Seq_in_index = 1'

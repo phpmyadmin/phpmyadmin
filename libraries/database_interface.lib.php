@@ -1365,7 +1365,7 @@ function PMA_DBI_getColumnNames($database, $table, $link = null)
 *
 * @return array   $indexes
 */
-function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
+function PMA_DBI_getTableIndexesSql($database, $table, $where = null)
 {
     if (PMA_DRIZZLE) {
         $sql = "SELECT
@@ -1411,7 +1411,7 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 */
 function PMA_DBI_get_table_indexes($database, $table, $link = null)
 {
-    $sql = PMA_DBI_get_table_indexes_sql($database, $table);
+    $sql = PMA_DBI_getTableIndexesSql($database, $table);
     $indexes = PMA_DBI_fetch_result($sql, null, null, $link);
 
     if (! is_array($indexes) || count($indexes) < 1) {
