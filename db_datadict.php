@@ -77,7 +77,7 @@ foreach ($tables as $table) {
      */
 
     PMA_DBI_select_db($db);
-    $indexes      = PMA_DBI_get_table_indexes($db, $table);
+    $indexes      = PMA_DBI_getTableIndexes($db, $table);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';

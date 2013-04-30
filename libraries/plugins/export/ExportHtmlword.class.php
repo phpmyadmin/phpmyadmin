@@ -290,7 +290,7 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -423,7 +423,7 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];

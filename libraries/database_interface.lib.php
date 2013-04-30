@@ -1409,7 +1409,7 @@ function PMA_DBI_getTableIndexesSql($database, $table, $where = null)
 *
 * @return array   $indexes
 */
-function PMA_DBI_get_table_indexes($database, $table, $link = null)
+function PMA_DBI_getTableIndexes($database, $table, $link = null)
 {
     $sql = PMA_DBI_getTableIndexesSql($database, $table);
     $indexes = PMA_DBI_fetchResult($sql, null, null, $link);

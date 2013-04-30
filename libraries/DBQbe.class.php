@@ -1026,7 +1026,7 @@ class PMA_DbQbe
         $index_columns = array();
 
         foreach ($all_tables as $table) {
-            $indexes = PMA_DBI_get_table_indexes($this->_db, $table);
+            $indexes = PMA_DBI_getTableIndexes($this->_db, $table);
             foreach ($indexes as $index) {
                 $column = $table . '.' . $index['Column_name'];
                 if (isset($all_columns[$column])) {
