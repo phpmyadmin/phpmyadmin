@@ -239,7 +239,7 @@ function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
  *
  * @return string  $message
  */
-function PMA_DBI_convert_message($message)
+function PMA_DBI_convertMessage($message)
 {
     // latin always last!
     $encodings = array(
@@ -2042,7 +2042,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 function PMA_DBI_formatError($error_number, $error_message)
 {
     if (! empty($error_message)) {
-        $error_message = PMA_DBI_convert_message($error_message);
+        $error_message = PMA_DBI_convertMessage($error_message);
     }
 
     $error_message = htmlspecialchars($error_message);
