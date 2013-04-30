@@ -4569,7 +4569,7 @@ class PMA_DisplayResults
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
 
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 "\n", $is_innodb
             );
@@ -4646,7 +4646,7 @@ class PMA_DisplayResults
         if (($is_display['nav_bar'] == '1')
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 '<br />' . "\n", $is_innodb
             );
@@ -5134,7 +5134,7 @@ class PMA_DisplayResults
      *
      * @see     _getTable()
      */
-    private function _getPlacedTableNavigatoins(
+    private function _getPlacedTableNavigations(
         $pos_next, $pos_prev, $place, $empty_line, $is_innodb
     ) {
 
@@ -5154,7 +5154,7 @@ class PMA_DisplayResults
 
         return $navigation_html;
 
-    } // end of the '_getPlacedTableNavigatoins()' function
+    } // end of the '_getPlacedTableNavigations()' function
 
 
     /**
