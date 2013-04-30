@@ -158,7 +158,7 @@ if (isset($_REQUEST['change_copy'])) {
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         . ' AND `Host` = '
         . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
-    $row = PMA_DBI_fetch_single_row(
+    $row = PMA_DBI_fetchSingleRow(
         'SELECT * FROM `mysql`.`user` ' . $user_host_condition
     );
     if (! $row) {

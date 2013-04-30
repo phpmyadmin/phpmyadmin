@@ -78,7 +78,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
     $grants = PMA_getGrantsArray();
 
     if (! empty($row) && isset($row['Table_priv'])) {
-        $row1 = PMA_DBI_fetch_single_row(
+        $row1 = PMA_DBI_fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
         );
@@ -388,7 +388,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         $sql_query = PMA_getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
-        $row = PMA_DBI_fetch_single_row($sql_query);
+        $row = PMA_DBI_fetchSingleRow($sql_query);
     }
     if (empty($row)) {
         if ($table == '*') {
@@ -411,7 +411,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         }
     }
     if (isset($row['Table_priv'])) {
-        $row1 = PMA_DBI_fetch_single_row(
+        $row1 = PMA_DBI_fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
         );

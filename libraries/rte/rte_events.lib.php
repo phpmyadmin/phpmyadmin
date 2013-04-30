@@ -190,7 +190,7 @@ function PMA_EVN_handleEditor()
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT " . $columns
                     . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where. ";";
-                $event   = PMA_DBI_fetch_single_row($query);
+                $event   = PMA_DBI_fetchSingleRow($query);
                 $response->addJSON(
                     'name',
                     htmlspecialchars(strtoupper($_REQUEST['item_name']))
@@ -322,7 +322,7 @@ function PMA_EVN_getDataFromName($name)
     $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "' "
              . "AND EVENT_NAME='" . PMA_Util::sqlAddSlashes($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
-    $item    = PMA_DBI_fetch_single_row($query);
+    $item    = PMA_DBI_fetchSingleRow($query);
     if (! $item) {
         return false;
     }

@@ -61,7 +61,7 @@ function PMA_loadUserprefs()
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\'';
-    $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
+    $row = PMA_DBI_fetchSingleRow($query, 'ASSOC', $GLOBALS['controllink']);
 
     return array(
         'config_data' => $row ? (array)json_decode($row['config_data']) : array(),

@@ -2252,7 +2252,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && $using_key && isset($multi_edit_columns_type)
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
-        $protected_row = PMA_DBI_fetch_single_row(
+        $protected_row = PMA_DBI_fetchSingleRow(
             'SELECT * FROM ' . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';'
         );

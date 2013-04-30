@@ -34,7 +34,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         if ($_REQUEST['type'] === 'getval') {
             // Send with correct charset
             header('Content-Type: text/html; charset=UTF-8');
-            $varValue = PMA_DBI_fetch_single_row(
+            $varValue = PMA_DBI_fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . PMA_Util::sqlAddSlashes($_REQUEST['varName']) . '";',
                 'NUM'
@@ -91,7 +91,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 )
             ) {
                 // Some values are rounded down etc.
-                $varValue = PMA_DBI_fetch_single_row(
+                $varValue = PMA_DBI_fetchSingleRow(
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                     . PMA_Util::sqlAddSlashes($_REQUEST['varName'])
                     . '";', 'NUM'

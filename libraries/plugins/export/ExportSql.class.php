@@ -924,7 +924,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::sqlAddSlashes($db) . "'
                           AND TABLE_NAME = '"
                         . PMA_Util::sqlAddSlashes($table) . "'";
-                    $tmpres = array_merge(PMA_DBI_fetch_single_row($sql), $tmpres);
+                    $tmpres = array_merge(PMA_DBI_fetchSingleRow($sql), $tmpres);
                 }
                 // Here we optionally add the AUTO_INCREMENT next value,
                 // but starting with MySQL 5.0.24, the clause is already included

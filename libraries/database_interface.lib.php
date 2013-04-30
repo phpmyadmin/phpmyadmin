@@ -1485,7 +1485,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
             );
         } else {
-            $version = PMA_DBI_fetch_single_row(
+            $version = PMA_DBI_fetchSingleRow(
                 'SELECT @@version, @@version_comment',
                 'ASSOC',
                 $link
@@ -1630,7 +1630,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
  *
  * <code>
  * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
- * $user = PMA_DBI_fetch_single_row($sql);
+ * $user = PMA_DBI_fetchSingleRow($sql);
  * // produces
  * // $user = array('id' => 123, 'name' => 'John Doe')
  * </code>
@@ -1644,7 +1644,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
  * @return array|boolean first row from result
  *                       or false if result is empty
  */
-function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
+function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
 {
     if (is_string($result)) {
         $result = PMA_DBI_tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);

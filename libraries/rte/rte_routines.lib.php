@@ -385,7 +385,7 @@ function PMA_RTN_handleEditor()
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
                     . "AND ROUTINE_TYPE='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_type']) . "'";
-                $routine  = PMA_DBI_fetch_single_row(
+                $routine  = PMA_DBI_fetchSingleRow(
                     "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES`"
                     . " WHERE $where;"
                 );
@@ -618,7 +618,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
              . "AND ROUTINE_TYPE='" . PMA_Util::sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
-    $routine = PMA_DBI_fetch_single_row($query);
+    $routine = PMA_DBI_fetchSingleRow($query);
 
     if (! $routine) {
         return false;

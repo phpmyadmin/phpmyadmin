@@ -613,7 +613,7 @@ function PMA_getDisplayField($db, $table)
               WHERE `db_name`    = \'' . PMA_Util::sqlAddSlashes($db) . '\'
                 AND `table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\'';
 
-        $row = PMA_DBI_fetch_single_row($disp_query, 'ASSOC', $GLOBALS['controllink']);
+        $row = PMA_DBI_fetchSingleRow($disp_query, 'ASSOC', $GLOBALS['controllink']);
         if (isset($row['display_field'])) {
             return $row['display_field'];
         }
