@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-25 14:42+0200\n"
-"PO-Revision-Date: 2013-04-26 10:42+0200\n"
+"PO-Revision-Date: 2013-04-30 13:21+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6478,10 +6478,9 @@ msgid "Re-type:"
 msgstr "Tik opnieuw in:"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Wachtwoord-hashing"
+msgstr "Wachtwoord-hashing:"
 
 # Kan ook vertaald worden als "werkt met …"
 #: libraries/display_change_password.lib.php:87
@@ -6497,10 +6496,9 @@ msgid "Create"
 msgstr "Aanmaken"
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Databank aanmaken"
+msgstr "Databank aanmaken:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2920 server_privileges.php:149
@@ -6686,10 +6684,9 @@ msgid "no branch"
 msgstr "geen tak"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Git revisie"
+msgstr "Git revisie:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7245,10 +7242,9 @@ msgid "Binary - do not edit"
 msgstr "Binair - niet aanpassen"
 
 #: libraries/insert_edit.lib.php:1185 libraries/sql_query_form.lib.php:480
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "uploadfolder op webserver"
+msgstr "uploadfolder op webserver:"
 
 #: libraries/insert_edit.lib.php:1400
 #, php-format
@@ -7655,10 +7651,9 @@ msgid "New"
 msgstr "Nieuwe view aanmaken"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Hernoem databank naar"
+msgstr "Hernoem databank naar:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -7689,10 +7684,9 @@ msgid "Data only"
 msgstr "Alleen gegevens"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Kopiëer databank naar"
+msgstr "Kopiëer databank naar:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7890,10 +7884,9 @@ msgid "Username:"
 msgstr "Gebruikersnaam:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Serverkeuze"
+msgstr "Serverkeuze:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -8052,24 +8045,21 @@ msgstr "Object-aanmaakopties"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Tabeltitel"
+msgstr "Tabeltitel:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Tabeltitel (vervolgd)"
+msgstr "Tabeltitel (vervolg):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Labelsleutel"
+msgstr "Labelsleutel:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8089,58 +8079,51 @@ msgid "Display MIME types"
 msgstr "Toon beschikbare MIME-types"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Veldnamen in de eerste rij plaatsen"
+msgstr "Veldnamen in de eerste regel plaatsen:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
 #: libraries/server_privileges.lib.php:1076 sql.php:1107
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Machine"
+msgstr "Machine:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
 #: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Genereertijd"
+msgstr "Gegenereerd op:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP-versie"
+msgstr "PHP-versie:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Databank"
+msgstr "Databank:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Data"
+msgstr "Gegevens:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Structuur"
+msgstr "Structuur:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -8316,10 +8299,9 @@ msgid "Export contents"
 msgstr "Exporteerinhoud"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/plugins/import/ImportCsv.class.php:109
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8710,10 +8692,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
 #: libraries/server_privileges.lib.php:1027
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Gebruikersnaam"
+msgstr "Gebruikersnaam:"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
@@ -8723,10 +8704,9 @@ msgid "User name"
 msgstr "Gebruikersnaam"
 
 #: libraries/replication_gui.lib.php:72
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Poort"
+msgstr "Poort:"
 
 #: libraries/replication_gui.lib.php:112
 msgid "Master status"
@@ -8775,10 +8755,9 @@ msgstr "Elke gebruiker"
 #: libraries/replication_gui.lib.php:372
 #: libraries/server_privileges.lib.php:1170
 #: libraries/server_privileges.lib.php:2274
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Tekstveld gebruiken"
+msgstr "Tekstveld gebruiken:"
 
 #: libraries/replication_gui.lib.php:326
 #: libraries/server_privileges.lib.php:1134
@@ -8815,10 +8794,9 @@ msgid "Re-type"
 msgstr "Type opnieuw"
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Wachtwoord genereren"
+msgstr "Wachtwoord genereren:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -8866,10 +8844,9 @@ msgstr "Gebeurtenis bewerken"
 #: libraries/rte/rte_routines.lib.php:1478
 #: libraries/rte/rte_routines.lib.php:1518
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Fout tijdens het uitvoeren van de opdracht"
+msgstr "Fout tijdens het uitvoeren van de opdracht:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
@@ -9382,10 +9359,9 @@ msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
 
 #: libraries/select_server.lib.php:39 libraries/select_server.lib.php:44
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Huidige server"
+msgstr "Huidige server:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
@@ -9769,10 +9745,9 @@ msgid "Column-specific privileges"
 msgstr "Kolom-specifieke rechten"
 
 #: libraries/server_privileges.lib.php:2270
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Rechten toevoegen op de volgende databank"
+msgstr "Rechten toevoegen op de volgende databank:"
 
 #: libraries/server_privileges.lib.php:2290
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
@@ -9781,10 +9756,9 @@ msgstr ""
 "gebruiken"
 
 #: libraries/server_privileges.lib.php:2308
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Rechten toevoegen op de volgende tabel"
+msgstr "Rechten toevoegen op de volgende tabel:"
 
 #: libraries/server_privileges.lib.php:2525
 msgid "Remove selected users"
@@ -9824,10 +9798,9 @@ msgid "Privileges for %s"
 msgstr "Rechten voor %s"
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Rechten wijzigen"
+msgstr "Rechten bewerken:"
 
 #: libraries/server_privileges.lib.php:2896
 msgid "Users overview"
@@ -9870,10 +9843,9 @@ msgid "Clear"
 msgstr "Leegmaken"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Deze SQL-query opslaan"
+msgstr "Deze SQL-query onthouden:"
 
 #: libraries/sql_query_form.lib.php:326 sql.php:1327
 msgid "Let every user access this bookmark"
@@ -10263,22 +10235,19 @@ msgid "Table name"
 msgstr "Tabelnaam"
 
 #: libraries/tbl_columns_definition_form.inc.php:838
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Opslag-engine"
+msgstr "Opslag-engine:"
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Collatie"
+msgstr "Collatie:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "PARTITION-definitie"
+msgstr "PARTITION-definitie:"
 
 #: libraries/tbl_common.inc.php:54
 #, php-format
@@ -10404,10 +10373,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Tabellen zonder relatie tonen/verbergen"
 
 #: pmd_general.php:218
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Aantal tabellen"
+msgstr "Aantal tabellen:"
 
 #: pmd_general.php:467
 msgid "Delete relation"
@@ -10455,10 +10423,9 @@ msgid "Page creation failed"
 msgstr "Het aanmaken van de pagina is mislukt"
 
 #: pmd_pdf.php:113
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Pagina"
+msgstr "Pagina:"
 
 #: pmd_pdf.php:123
 msgid "Import from selected page"
@@ -10477,10 +10444,9 @@ msgid "New page name: "
 msgstr "Nieuwe paginanaam: "
 
 #: pmd_pdf.php:141
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Exporteren/importeren naar schaal"
+msgstr "Exporteren/importeren naar schaal:"
 
 #: pmd_pdf.php:146
 msgid "recommended"
@@ -10499,10 +10465,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "De relatie FOREIGN KEY is toegevoegd"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "General relation features"
 msgid "General relation features:"
-msgstr "Algemene relatie-opties"
+msgstr "Algemene relatie-opties:"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -10598,10 +10563,9 @@ msgid "All"
 msgstr "Alle"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL-geschiedenis"
+msgstr "SQL-geschiedenis:"
 
 #: schema_edit.php:36 schema_edit.php:42 schema_edit.php:48 schema_edit.php:53
 #, php-format
