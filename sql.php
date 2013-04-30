@@ -1481,7 +1481,7 @@ function getTableHtmlForMultipleQueries(
     $table_html = '';
 
     $tables_array = PMA_DBI_getTables($db);
-    $databases_array = PMA_DBI_get_databases_full();
+    $databases_array = PMA_DBI_getDatabasesFull();
     $multi_sql = implode(";", $sql_data['valid_sql']);
     $querytime_before = array_sum(explode(' ', microtime()));
 

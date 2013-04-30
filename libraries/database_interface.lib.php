@@ -834,7 +834,7 @@ function PMA_DBI_getVirtualTables($db)
  *
  * @return array $databases
  */
-function PMA_DBI_get_databases_full($database = null, $force_stats = false,
+function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
     $limit_offset = 0, $limit_count = false
 ) {
