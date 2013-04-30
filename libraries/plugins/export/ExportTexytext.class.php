@@ -272,7 +272,7 @@ class ExportTexytext extends ExportPlugin
             . '|' . __('Default')
             . "\n|------\n";
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $text_output .= $this->formatOneColumnDefinition($column, $unique_keys);
             $text_output .= "\n";
@@ -383,7 +383,7 @@ class ExportTexytext extends ExportPlugin
         }
         $text_output .= "\n|------\n";
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         foreach ($columns as $column) {
             $text_output .= $this->formatOneColumnDefinition($column, $unique_keys);
             $field_name = $column['Field'];

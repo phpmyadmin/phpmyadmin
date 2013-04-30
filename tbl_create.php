@@ -26,7 +26,7 @@ if (strlen($db) == 0) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (PMA_DBI_get_columns($db, $table)) {
+if (PMA_DBI_getColumns($db, $table)) {
     // table exists already
     PMA_Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),

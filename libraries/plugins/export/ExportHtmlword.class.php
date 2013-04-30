@@ -297,7 +297,7 @@ class ExportHtmlword extends ExportPlugin
             }
         }
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $schema_insert .= $this->formatOneColumnDefinition(
                 $column,
@@ -418,7 +418,7 @@ class ExportHtmlword extends ExportPlugin
         }
         $schema_insert .= '</tr>';
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         /**
          * Get the unique keys in the table
          */

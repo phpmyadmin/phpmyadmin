@@ -1238,7 +1238,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
  */
 function PMA_getUsernameAndHostnameLength()
 {
-    $fields_info = PMA_DBI_get_columns('mysql', 'user', null, true);
+    $fields_info = PMA_DBI_getColumns('mysql', 'user', null, true);
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $val) {

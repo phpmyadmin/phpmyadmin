@@ -654,7 +654,7 @@ function PMA_getComments($db, $table = '')
 
     if ($table != '') {
         // MySQL native column comments
-        $columns = PMA_DBI_get_columns($db, $table, null, true);
+        $columns = PMA_DBI_getColumns($db, $table, null, true);
         if ($columns) {
             foreach ($columns as $column) {
                 if (! empty($column['Comment'])) {

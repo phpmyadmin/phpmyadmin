@@ -26,7 +26,7 @@ if (!PMA_DBI_select_db($db)) {
 }
 
 /* Check if table exists */
-if (!PMA_DBI_get_columns($db, $table)) {
+if (!PMA_DBI_getColumns($db, $table)) {
     PMA_Util::mysqlDie(__('Invalid table name'));
 }
 

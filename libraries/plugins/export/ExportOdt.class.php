@@ -368,7 +368,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
@@ -483,7 +483,7 @@ class ExportOdt extends ExportPlugin
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         foreach ($columns as $column) {
             $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);

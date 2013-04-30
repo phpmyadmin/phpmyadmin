@@ -2231,7 +2231,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
+        $fields_meta[] = PMA_DBI_getColumns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
     // set these globals because tbl_columns_definition_form.inc.php 
@@ -2248,7 +2248,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
     /**
      * @todo put this code into a require()
-     * or maybe make it part of PMA_DBI_get_columns();
+     * or maybe make it part of PMA_DBI_getColumns();
      */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since

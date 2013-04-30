@@ -573,7 +573,7 @@ class PMA_User_Schema
                 . '</u>';
 
             if (isset($with_field_names)) {
-                $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
+                $fields = PMA_DBI_getColumns($db, $temp_sh_page['table_name']);
                 // if the table has been dropped from outside phpMyAdmin,
                 // we can no longer obtain its columns list
                 if ($fields) {

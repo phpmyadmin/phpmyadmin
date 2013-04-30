@@ -275,7 +275,7 @@ class PMA_Tracker
 
         // Get data definition snapshot of table
 
-        $columns = PMA_DBI_get_columns($dbname, $tablename, null, true);
+        $columns = PMA_DBI_getColumns($dbname, $tablename, null, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size

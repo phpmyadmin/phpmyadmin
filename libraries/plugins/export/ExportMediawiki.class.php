@@ -202,7 +202,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         switch($export_mode) {
         case 'create_table':
-            $columns = PMA_DBI_get_columns($db, $table);
+            $columns = PMA_DBI_getColumns($db, $table);
             $columns = array_values($columns);
             $row_cnt = count($columns);
 

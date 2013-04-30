@@ -193,7 +193,7 @@ class PMA_DbSearch
     {
         $where_clause = '';
         // Columns to select
-        $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
+        $allColumns = PMA_DBI_getColumns($GLOBALS['db'], $table);
         $likeClauses = array();
         // Based on search type, decide like/regex & '%'/''
         $like_or_regex   = (($this->_criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');

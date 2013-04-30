@@ -3316,7 +3316,7 @@ class PMA_Util
 
         /* Fetch columns list if required */
         if (strpos($string, '@COLUMNS@') !== false) {
-            $columns_list = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
+            $columns_list = PMA_DBI_getColumns($GLOBALS['db'], $GLOBALS['table']);
 
             // sometimes the table no longer exists at this point
             if (! is_null($columns_list)) {

@@ -1210,7 +1210,7 @@ function PMA_DBI_getColumnsFull($database = null, $table = null,
 /**
  * Returns SQL query for fetching columns for a table
  *
- * The 'Key' column is not calculated properly, use PMA_DBI_get_columns() to get
+ * The 'Key' column is not calculated properly, use PMA_DBI_getColumns() to get
  * correct values.
  *
  * @param string  $database name of database
@@ -1218,7 +1218,7 @@ function PMA_DBI_getColumnsFull($database = null, $table = null,
  * @param string  $column   name of column, null to show all columns
  * @param boolean $full     whether to return full info or only column names
  *
- * @see PMA_DBI_get_columns()
+ * @see PMA_DBI_getColumns()
  *
  * @return string
  */
@@ -1290,7 +1290,7 @@ function PMA_DBI_getColumnsSql($database, $table, $column = null, $full = false)
  * @return false|array   array indexed by column names or,
  *                        if $column is given, flat array description
  */
-function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
+function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
     $link = null
 ) {
     $sql = PMA_DBI_getColumnsSql($database, $table, $column, $full);

@@ -116,7 +116,7 @@ foreach ($tables as $table) {
     /**
      * Gets columns properties
      */
-    $columns = PMA_DBI_get_columns($db, $table);
+    $columns = PMA_DBI_getColumns($db, $table);
     $fields_cnt  = count($columns);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {

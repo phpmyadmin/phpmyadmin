@@ -563,7 +563,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = PMA_DBI_get_columns($db, $table);
+        $fields = PMA_DBI_getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
                 = PMA_Util::extractColumnSpec(

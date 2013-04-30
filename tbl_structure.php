@@ -182,7 +182,7 @@ foreach (PMA_Index::getFromTable($table, $db) as $index) {
 unset($index, $columns, $column_name, $dummy);
 
 // 3. Get fields
-$fields = (array) PMA_DBI_get_columns($db, $table, null, true);
+$fields = (array) PMA_DBI_getColumns($db, $table, null, true);
 
 // Get more complete field information
 // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options

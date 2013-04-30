@@ -92,7 +92,7 @@ foreach ($the_tables as $key => $table) {
     /**
      * Gets fields properties
      */
-    $columns = PMA_DBI_get_columns($db, $table);
+    $columns = PMA_DBI_getColumns($db, $table);
 
 
     // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
