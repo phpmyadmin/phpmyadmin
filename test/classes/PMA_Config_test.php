@@ -13,6 +13,7 @@
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/Theme.class.php';
 
 class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 {
@@ -36,6 +37,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->object = new PMA_Config;
         $GLOBALS['server'] = 0;
+        $_SESSION['is_git_revision'] = true;
     }
 
     /**
@@ -71,7 +73,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertEquals('auto', $this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get("OBGzip"));
     }
 
     /**
@@ -127,6 +129,30 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '8.0',
             ),
             array(
+                'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+                'Win',
+                'IE',
+                '9.0',
+            ),
+            array(
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
+                'Win',
+                'IE',
+                '10.0',
+            ),
+            array(
+                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
+                'Win',
+                'IE',
+                '11.0',
+            ),
+            array(
+                'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22',
+                'Win',
+                'CHROME',
+                '25.0.1364.172',
+            ),
+            array(
                 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
                 'Unix',
                 'SAFARI',
@@ -146,18 +172,18 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             array(
                 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
                 'Linux',
-                'MOZILLA',
+                'FIREFOX',
                 '5.0',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
+                'Linux',
+                'FIREFOX',
+                '12.0',
             ),
             /**
              * @todo Is this version really expected?
              */
-            array(
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
-                'Linux',
-                'MOZILLA',
-                '5.0',
-            ),
             array(
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
                 'Linux',
@@ -269,7 +295,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->checkWebServerOs();
 
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win')) {
+            if (stristr(PHP_OS, 'darwin')) {
+                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+            } elseif (stristr(PHP_OS, 'win')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
                 $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
@@ -522,11 +550,13 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     public function testIsHttps()
     {
+        $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', 'http://some_host.com/phpMyAdmin');
         $this->assertFalse($this->object->isHttps());
-
+        
+        $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', 'https://some_host.com/phpMyAdmin');
-        $this->assertFalse($this->object->isHttps());
+        $this->assertTrue($this->object->isHttps());
     }
 
     public function testDetectHttps()
@@ -602,21 +632,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             $this->assertTrue(defined($define));
             $this->assertEquals(constant($define), $this->object->get($define));
         }
-    }
-
-    /**
-     * Should check for https detection
-     *
-     * @return void
-     *
-     * @todo Implement testCheckIsHttps().
-     */
-    public function testCheckIsHttps()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
     }
 
     /**
@@ -730,10 +745,27 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testGetThemeUniqueValue()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+
+        $partial_sum = (
+            PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
+            PHPUnit_Framework_Assert::readAttribute($this->object, 'default_source_mtime') +
+            $this->object->get('user_preferences_mtime') +
+            $_SESSION['PMA_Theme']->mtime_info +
+            $_SESSION['PMA_Theme']->filesize_info
         );
+
+        $this->object->set('fontsize', 10);
+        $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
+        $this->object->set('fontsize', null);
+
+        $_COOKIE['pma_fontsize'] = 20;
+        $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
+        unset($_COOKIE['pma_fontsize']);
+
+        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
+
     }
 
     /**
@@ -792,6 +824,37 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             )
         );
 
+    }
+
+    /**
+     * Test for isGitRevision
+     *
+     * @return void
+     */
+    public function testIsGitRevision()
+    {
+      $this->assertTrue(
+            $this->object->isGitRevision()
+        );
+    }
+
+    /**
+     * Test for Check HTTP
+     *
+     * @return void
+     */
+    public function testCheckHTTP()
+    {
+      $this->assertTrue(
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
+      );
+      $this->assertContains(
+            "TEST DATA",
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/data", true)
+      );
+      $this->assertFalse(
+            $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
+      );
     }
 
     /**

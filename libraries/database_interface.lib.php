@@ -612,7 +612,7 @@ function PMA_DBI_getTablesFull($database, $table = false,
                 $each_tables = apc_fetch($cacheKey);
             }
 
-            if (!$each_tables) {
+            if (! $each_tables) {
                 $each_tables = PMA_DBI_fetchResult($sql, 'Name', null, $link);
             }
 
@@ -855,7 +855,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
          * cause MySQL does not support natural ordering, we have to do it afterward
          */
         $limit = '';
-        if (!$GLOBALS['cfg']['NaturalOrder']) {
+        if (! $GLOBALS['cfg']['NaturalOrder']) {
             if ($limit_count) {
                 $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
@@ -1313,7 +1313,7 @@ function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
                 $has_pk_candidates = true;
             }
         }
-        if (!$has_pk && $has_pk_candidates) {
+        if (! $has_pk && $has_pk_candidates) {
             // check whether we can promote some unique index to PRI
             $sql = "
                 SELECT i.index_name, p.column_name

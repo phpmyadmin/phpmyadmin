@@ -72,7 +72,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Rename database to') . ':'
+    $html_output .= __('Rename database to:')
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
@@ -172,7 +172,7 @@ function PMA_getHtmlForCopyDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Copy database to') . ':'
+    $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
         . 'class="textfield" value="" /><br />'
@@ -1361,11 +1361,11 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
     $html_output .= '<ul>';
 
-    foreach ($foreign AS $master => $arr) {
+    foreach ($foreign as $master => $arr) {
         $join_query  = 'SELECT '
             . PMA_Util::backquote($GLOBALS['table']) . '.*'
             . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
-            . ' LEFT JOIN ' 
+            . ' LEFT JOIN '
             . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($arr['foreign_table']);
@@ -1378,13 +1378,13 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         $join_query .= ' ON '
             . PMA_Util::backquote($GLOBALS['table']) . '.'
             . PMA_Util::backquote($master)
-            . ' = ' 
-            . PMA_Util::backquote($arr['foreign_db']) 
+            . ' = '
+            . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])
             . ' WHERE '
-            . PMA_Util::backquote($arr['foreign_db']) 
+            . PMA_Util::backquote($arr['foreign_db'])
             . '.'
             . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])

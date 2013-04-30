@@ -59,7 +59,8 @@ if (empty($is_table)
 
         if (! $is_table) {
             $_result = PMA_DBI_tryQuery(
-                'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';',
+                'SHOW TABLES LIKE \'' . PMA_Util::sqlAddSlashes($table, true)
+                . '\';',
                 null, PMA_DBI_QUERY_STORE
             );
             $is_table = @PMA_DBI_num_rows($_result);

@@ -488,9 +488,9 @@ function getPrintMonitorHtml($ServerStatusData)
     $retval .= '<a href="#addNewChart">';
     $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
-    $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
-    $retval .= '</a>';
+    //$retval .= '<a href="#rearrangeCharts">';
+    //$retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
+    //$retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';

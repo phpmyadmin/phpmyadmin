@@ -1182,7 +1182,7 @@ function PMA_getSelectOptionForUpload($vkey, $column)
     } elseif (!empty($files)) {
         return "<br />\n"
             . '<i>' . __('Or') . '</i>' . ' '
-            . __('web server upload directory') . ':<br />' . "\n"
+            . __('web server upload directory:') . '<br />' . "\n"
             . '<select size="1" name="fields_uploadlocal'
             . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
             . '<option value="" selected="selected"></option>' . "\n"
@@ -2346,9 +2346,9 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
 function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, &$extra_data
 ) {
-    
+
     $extra_data['isNeedToRecheck'] = true;
-    
+
     $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
         . ' FROM ' . PMA_Util::backquote($db) . '.'
@@ -2360,7 +2360,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
-    
+
 }
 
 ?>

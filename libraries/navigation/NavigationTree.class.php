@@ -1031,7 +1031,14 @@ class PMA_NavigationTree
             $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
             $retval .= "<input class='searchClause' name='searchClause'";
-            $retval .= " value='" . __('filter databases by name') . "' />";
+            // allow html5 placeholder attribute
+            $placeholder_key = 'value';
+            if (PMA_USR_BROWSER_AGENT !== 'IE'
+                || PMA_USR_BROWSER_VER > 9
+            ) {
+                $placeholder_key = 'placeholder';
+            }
+            $retval .= " $placeholder_key='" . __('filter databases by name') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
@@ -1057,7 +1064,14 @@ class PMA_NavigationTree
             $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
             $retval .= "<input class='searchClause' name='searchClause2'";
-            $retval .= " value='" . __('filter items by name') . "' />";
+            // allow html5 placeholder attribute
+            $placeholder_key = 'value';
+            if (PMA_USR_BROWSER_AGENT !== 'IE'
+                || PMA_USR_BROWSER_VER > 9
+            ) {
+                $placeholder_key = 'placeholder';
+            }
+            $retval .= " $placeholder_key='" . __('filter items by name') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";

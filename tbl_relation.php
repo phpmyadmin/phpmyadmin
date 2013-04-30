@@ -541,11 +541,11 @@ if (count($columns) > 0) {
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
         $html_output .= '<fieldset>'
-            . '<label>' . __('Choose column to display') . ': </label>'
+            . '<label>' . __('Choose column to display:') . '</label>'
             . '<select name="display_field">'
             . '<option value="">---</option>';
 
-        foreach ($save_row AS $row) {
+        foreach ($save_row as $row) {
             $html_output .= '<option value="'
                 . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {

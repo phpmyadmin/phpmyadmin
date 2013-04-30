@@ -161,7 +161,7 @@ function PMA_DBI_connect(
         $client_flags |= MYSQLI_CLIENT_SSL;
     }
 
-    if (!$server) {
+    if (! $server) {
         $return_value = @PMA_DBI_real_connect(
             $link,
             $cfg['Server']['host'],
@@ -175,7 +175,7 @@ function PMA_DBI_connect(
         // Retry with empty password if we're allowed to
         if ($return_value == false
             && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword']
-            && !$is_controluser
+            && ! $is_controluser
         ) {
             $return_value = @PMA_DBI_real_connect(
                 $link,

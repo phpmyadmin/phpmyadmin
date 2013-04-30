@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays add field form and handles it
  *
  * @package PhpMyAdmin
  */
@@ -81,7 +82,9 @@ if (isset($_REQUEST['do_save_data'])) {
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i]) && $_REQUEST['field_name'][$i] != '0') {
+        if (empty($_REQUEST['field_name'][$i])
+            && $_REQUEST['field_name'][$i] != '0'
+        ) {
             continue;
         }
 
@@ -92,19 +95,19 @@ if (isset($_REQUEST['do_save_data'])) {
             $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
             isset($_REQUEST['field_collation'][$i])
-                ? $_REQUEST['field_collation'][$i]
-                : '',
+            ? $_REQUEST['field_collation'][$i]
+            : '',
             isset($_REQUEST['field_null'][$i])
-                ? $_REQUEST['field_null'][$i]
-                : 'NOT NULL',
+            ? $_REQUEST['field_null'][$i]
+            : 'NOT NULL',
             $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
-                ? $_REQUEST['field_extra'][$i]
-                : false,
+            ? $_REQUEST['field_extra'][$i]
+            : false,
             isset($_REQUEST['field_comments'][$i])
-                ? $_REQUEST['field_comments'][$i]
-                : '',
+            ? $_REQUEST['field_comments'][$i]
+            : '',
             $field_primary
         );
 
@@ -114,10 +117,12 @@ if (isset($_REQUEST['do_save_data'])) {
                 if ($_REQUEST['field_where'] == 'first') {
                     $definition .= ' FIRST';
                 } else {
-                    $definition .= ' AFTER ' . PMA_Util::backquote($_REQUEST['after_field']);
+                    $definition .= ' AFTER '
+                        . PMA_Util::backquote($_REQUEST['after_field']);
                 }
             } else {
-                $definition .= ' AFTER ' . PMA_Util::backquote($_REQUEST['field_name'][$i-1]);
+                $definition .= ' AFTER '
+                    . PMA_Util::backquote($_REQUEST['field_name'][$i-1]);
             }
         }
         $definitions[] = $definition;
@@ -165,8 +170,12 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    PMA_DBI_select_db($db) or PMA_Util::mysqlDie(PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url);
-    $sql_query    = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ' . implode(', ', $definitions) . ';';
+    PMA_DBI_select_db($db)
+        or PMA_Util::mysqlDie(
+            PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
+        );
+    $sql_query    = 'ALTER TABLE ' .
+        PMA_Util::backquote($table) . ' ' . implode(', ', $definitions) . ';';
     $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result === true) {
@@ -194,7 +203,9 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         // Go back to the structure sub-page
-        $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
+        $message = PMA_Message::success(
+            __('Table %1$s has been altered successfully')
+        );
         $message->addParam($table);
 
         if ($GLOBALS['is_ajax_request'] == true) {
@@ -217,7 +228,8 @@ if (isset($_REQUEST['do_save_data'])) {
         }
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in libraries/tbl_columns_definition_form.inc.php
+        // The variable $regenerate will be used to restore data in libraries/
+        // tbl_columns_definition_form.inc.php
         $num_fields = $_REQUEST['orig_num_fields'];
         if (isset($_REQUEST['orig_after_field'])) {
             $_REQUEST['after_field'] = $_REQUEST['orig_after_field'];

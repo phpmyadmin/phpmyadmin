@@ -182,7 +182,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Create_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Creation') . ': '; ?></td>
+                    <td class="right"><?php echo __('Creation:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                 </tr>
                 <?php
@@ -191,7 +191,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Update_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Last update') . ': '; ?></td>
+                    <td class="right"><?php echo __('Last update:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                 </tr>
                 <?php
@@ -200,7 +200,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Check_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Last check') . ': '; ?></td>
+                    <td class="right"><?php echo __('Last check:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                 </tr>
                 <?php

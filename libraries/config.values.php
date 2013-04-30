@@ -232,8 +232,14 @@ $cfg_db['_validators'] = array(
  * Additional validators used for user preferences
  */
 $cfg_db['_userValidators'] = array(
-    'MaxDbList'       => array(array('validate_upper_bound', 'value:MaxDbList')),
-    'MaxTableList'    => array(array('validate_upper_bound', 'value:MaxTableList')),
-    'QueryHistoryMax' => array(array('validate_upper_bound', 'value:QueryHistoryMax'))
+    'MaxDbList'       => array(
+        array('validate_upper_bound', 'value:MaxDbList')
+    ),
+    'MaxTableList'    => array(
+        array('validate_upper_bound', 'value:MaxTableList')
+    ),
+    'QueryHistoryMax' => array(
+        array('validate_upper_bound', 'value:QueryHistoryMax')
+    )
 );
 ?>

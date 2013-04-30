@@ -361,7 +361,7 @@ class PMA_DbQbe
     private function _getColumnNamesRow()
     {
         $html_output = '<tr class="odd noclick">';
-        $html_output .= '<th>' . __('Column') . ':</th>';
+        $html_output .= '<th>' . __('Column:') . '</th>';
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (isset($this->_criteriaColumnInsert[$column_index])
@@ -403,7 +403,7 @@ class PMA_DbQbe
     private function _getSortRow()
     {
         $html_output = '<tr class="even noclick">';
-        $html_output .= '<th>' . __('Sort') . ':</th>';
+        $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -465,7 +465,7 @@ class PMA_DbQbe
     private function _getShowRow()
     {
         $html_output = '<tr class="odd noclick">';
-        $html_output .= '<th>' . __('Show') . ':</th>';
+        $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -510,7 +510,7 @@ class PMA_DbQbe
     private function _getCriteriaInputboxRow()
     {
         $html_output = '<tr class="even noclick">';
-        $html_output .= '<th>' . __('Criteria') . ':</th>';
+        $html_output .= '<th>' . __('Criteria:') . '</th>';
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -650,11 +650,11 @@ class PMA_DbQbe
     private function _getAndOrColCell($column_number, $selected = null)
     {
         $html_output = '<td class="center">';
-        $html_output .= '<strong>' . __('Or') . ':</strong>';
+        $html_output .= '<strong>' . __('Or:') . '</strong>';
         $html_output .= '<input type="radio"'
             . ' name="criteriaAndOrColumn[' . $column_number . ']"'
             . ' value="or"' . $selected['or'] . ' />';
-        $html_output .= '&nbsp;&nbsp;<strong>' . __('And') . ':</strong>';
+        $html_output .= '&nbsp;&nbsp;<strong>' . __('And:') . '</strong>';
         $html_output .= '<input type="radio"'
             . ' name="criteriaAndOrColumn[' . $column_number . ']"'
             . ' value="and"' . $selected['and'] . ' />';
@@ -677,7 +677,7 @@ class PMA_DbQbe
     private function _getModifyColumnsRow()
     {
         $html_output = '<tr class="even noclick">';
-        $html_output .= '<th>' . __('Modify') . ':</th>';
+        $html_output .= '<th>' . __('Modify:') . '</th>';
         $new_column_count = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
@@ -734,12 +734,12 @@ class PMA_DbQbe
         $html_output .= '<table class="nospacing nopadding">';
         $html_output .= '<tr>';
         $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
-        $html_output .= '<small>' . __('Ins') . ':</small>';
+        $html_output .= '<small>' . __('Ins:') . '</small>';
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaRowInsert[' . $row_index . ']" />';
         $html_output .= '</td>';
         $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
-        $html_output .= '<strong>' . __('And') . ':</strong>';
+        $html_output .= '<strong>' . __('And:') . '</strong>';
         $html_output .= '</td>';
         $html_output .= '<td>';
         $html_output .= '<input type="radio"'
@@ -749,12 +749,12 @@ class PMA_DbQbe
         $html_output .= '</tr>';
         $html_output .= '<tr>';
         $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
-        $html_output .= '<small>' . __('Del') . ':</small>';
+        $html_output .= '<small>' . __('Del:') . '</small>';
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaRowDelete[' . $row_index . ']" />';
         $html_output .= '</td>';
         $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
-        $html_output .= '<strong>' . __('Or') . ':</strong>';
+        $html_output .= '<strong>' . __('Or:') . '</strong>';
         $html_output .= '</td>';
         $html_output .= '<td>';
         $html_output .= '<input type="radio"'

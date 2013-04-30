@@ -118,17 +118,17 @@ class ExportLatex extends ExportPlugin
             // create primary items and add them to the group
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_caption");
-            $leaf->setText(__('Table caption'));
+            $leaf->setText(__('Table caption:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_continued_caption");
-            $leaf->setText(__('Table caption (continued)'));
+            $leaf->setText(__('Table caption (continued):'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_label");
-            $leaf->setText(__('Label key'));
+            $leaf->setText(__('Label key:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
@@ -159,21 +159,21 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("columns");
-        $leaf->setText(__('Put columns names in the first row'));
+        $leaf->setText(__('Put columns names in the first row:'));
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_caption");
-        $leaf->setText(__('Table caption'));
+        $leaf->setText(__('Table caption:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_continued_caption");
-        $leaf->setText(__('Table caption (continued)'));
+        $leaf->setText(__('Table caption (continued):'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_label");
-        $leaf->setText(__('Label key'));
+        $leaf->setText(__('Label key:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
@@ -215,15 +215,15 @@ class ExportLatex extends ExportPlugin
             . '% version ' . PMA_VERSION . $crlf
             . '% http://www.phpmyadmin.net' . $crlf
             . '%' . $crlf
-            . '% ' . __('Host') . ': ' . $cfg['Server']['host'];
+            . '% ' . __('Host:') . ' ' . $cfg['Server']['host'];
         if (! empty($cfg['Server']['port'])) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-            . '% ' . __('Generation Time') . ': '
+            . '% ' . __('Generation Time:') . ' '
             . PMA_Util::localisedDate() . $crlf
-            . '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-            . '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
+            . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
     }
 
@@ -248,7 +248,7 @@ class ExportLatex extends ExportPlugin
     {
         global $crlf;
         $head = '% ' . $crlf
-            . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
+            . '% ' . __('Database:') . ' ' . '\'' . $db . '\'' . $crlf
             . '% ' . $crlf;
         return PMA_exportOutputHandler($head);
     }
@@ -298,7 +298,7 @@ class ExportLatex extends ExportPlugin
         }
         unset($i);
 
-        $buffer = $crlf . '%' . $crlf . '% ' . __('Data') . ': ' . $table
+        $buffer = $crlf . '%' . $crlf . '% ' . __('Data:') . ' ' . $table
             . $crlf . '%' . $crlf . ' \\begin{longtable}{|';
 
         for ($index = 0; $index < $columns_cnt; $index++) {
@@ -482,7 +482,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure') . ': ' . $table
+        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' ' . $table
             . $crlf . '%' . $crlf . ' \\begin{longtable}{';
         if (! PMA_exportOutputHandler($buffer)) {
             return false;

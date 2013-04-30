@@ -21,8 +21,8 @@ AJAX.registerOnload('keyhandler.js', function() {
 
 function onKeyDownArrowsHandler(e)
 {
-    e = e||window.event;
-    var o = (e.srcElement||e.target);
+    e = e || window.event;
+    var o = (e.srcElement || e.target);
     if (!o) {
         return;
     }
@@ -51,25 +51,25 @@ function onKeyDownArrowsHandler(e)
 
     var nO = null;
 
-    switch(e.keyCode) {
-        case 38:
-            // up
-            y--;
-            break;
-        case 40:
-            // down
-            y++;
-            break;
-        case 37:
-            // left
-            x--;
-            break;
-        case 39:
-            // right
-            x++;
-            break;
-        default:
-            return;
+    switch (e.keyCode) {
+    case 38:
+        // up
+        y--;
+        break;
+    case 40:
+        // down
+        y++;
+        break;
+    case 37:
+        // left
+        x--;
+        break;
+    case 39:
+        // right
+        x++;
+        break;
+    default:
+        return;
     }
 
     var is_firefox = navigator.userAgent.toLowerCase().indexOf("firefox/") > -1;

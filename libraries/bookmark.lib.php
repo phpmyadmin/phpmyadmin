@@ -122,9 +122,9 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
-    if (!$action_bookmark_all) {
+    if (! $action_bookmark_all) {
         $query .= ' AND (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\'';
-        if (!$exact_user_match) {
+        if (! $exact_user_match) {
             $query .= ' OR user = \'\'';
         }
         $query .= ')';

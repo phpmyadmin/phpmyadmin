@@ -129,14 +129,14 @@ function PMA_DBI_connect(
         $client_flags |= MYSQL_CLIENT_SSL;
     }
 
-    if (!$server) {
+    if (! $server) {
         $link = PMA_DBI_real_connect(
             $cfg['Server']['host'] . $server_port . $server_socket,
             $user, $password, empty($client_flags) ? null : $client_flags
         );
 
         // Retry with empty password if we're allowed to
-        if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
+        if (empty($link) && $cfg['Server']['nopassword'] && ! $is_controluser) {
             $link = PMA_DBI_real_connect(
                 $cfg['Server']['host'] . $server_port . $server_socket,
                 $user, '', empty($client_flags) ? null : $client_flags

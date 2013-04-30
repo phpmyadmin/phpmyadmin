@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Represents a database node in the navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
  */
 class Node_Database extends Node
 {

@@ -661,7 +661,8 @@ class PMA_Index
                     . '</td>';
 
                 if (PMA_MYSQL_INT_VERSION > 50500
-                    && $column->getSeqInIndex() == 1) {
+                    && $column->getSeqInIndex() == 1
+                ) {
                     $r .= '<td ' . $row_span . '>'
                         . htmlspecialchars($index->getComments()) . '</td>';
                 }

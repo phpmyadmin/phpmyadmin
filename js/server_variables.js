@@ -3,21 +3,21 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_variables.js', function() {
+AJAX.registerTeardown('server_variables.js', function () {
     $('#serverVariables .var-row').unbind('hover');
     $('#filterText').unbind('keyup');
     $('a.editLink').die('click');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
 
-AJAX.registerOnload('server_variables.js', function() {
+AJAX.registerOnload('server_variables.js', function () {
     var $editLink = $('a.editLink');
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
     var $filterField = $('#filterText');
 
     /* Show edit link on hover */
-    $('#serverVariables').delegate('.var-row', 'hover', function(event) {
+    $('#serverVariables').delegate('.var-row', 'hover', function (event) {
         if (event.type === 'mouseenter') {
             var $elm = $(this).find('.var-value');
             // Only add edit element if the element is not being edited
@@ -38,10 +38,10 @@ AJAX.registerOnload('server_variables.js', function() {
     });
 
     /* Event handler for variables filter */
-    $filterField.keyup(function() {
+    $filterField.keyup(function () {
         var textFilter = null, val = $(this).val();
         if (val.length !== 0) {
-            textFilter = new RegExp("(^| )"+val.replace(/_/g,' '),'i');
+            textFilter = new RegExp("(^| )" + val.replace(/_/g, ' '), 'i');
         }
         filterVariables(textFilter);
     });
@@ -54,9 +54,9 @@ AJAX.registerOnload('server_variables.js', function() {
     /* Filters the rows by the user given regexp */
     function filterVariables(textFilter) {
         var mark_next = false, $row, odd_row = false;
-        $('#serverVariables .var-row').not('.var-header').each(function() {
+        $('#serverVariables .var-row').not('.var-header').each(function () {
             $row = $(this);
-            if (   mark_next
+            if (mark_next
                 || textFilter === null
                 || textFilter.exec($row.find('.var-name').text())
             ) {
@@ -80,7 +80,7 @@ AJAX.registerOnload('server_variables.js', function() {
     /* Allows the user to edit a server variable */
     function editVariable(link) {
         var $cell = $(link).parent();
-        var varName = $cell.parent().find('.var-name').text().replace(/ /g,'_');
+        var varName = $cell.parent().find('.var-name').text().replace(/ /g, '_');
         var $mySaveLink = $saveLink.clone().show();
         var $myCancelLink = $cancelLink.clone().show();
         var $msgbox = PMA_ajaxShowMessage();
@@ -90,14 +90,14 @@ AJAX.registerOnload('server_variables.js', function() {
             .find('a.editLink')
             .remove(); // remove edit link
 
-        $mySaveLink.click(function() {
+        $mySaveLink.click(function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get($(this).attr('href'), {
                     ajax_request: true,
                     type: 'setval',
                     varName: varName,
                     varValue: $cell.find('input').val()
-                }, function(data) {
+                }, function (data) {
                     if (data.success) {
                         $cell
                             .html(data.variable)
@@ -112,7 +112,7 @@ AJAX.registerOnload('server_variables.js', function() {
             return false;
         });
 
-        $myCancelLink.click(function() {
+        $myCancelLink.click(function () {
             $cell
                 .html($cell.data('content'))
                 .removeClass('edit');
@@ -123,9 +123,9 @@ AJAX.registerOnload('server_variables.js', function() {
                 ajax_request: true,
                 type: 'getval',
                 varName: varName
-            }, function(data) {
+            }, function (data) {
                 if (data.success === true) {
-                    var $editor = $('<div />', {'class':'serverVariableEditor'})
+                    var $editor = $('<div />', {'class': 'serverVariableEditor'})
                         .append($myCancelLink)
                         .append(' ')
                         .append($mySaveLink)
@@ -141,7 +141,7 @@ AJAX.registerOnload('server_variables.js', function() {
                     .html($editor)
                     .find('input')
                     .focus()
-                    .keydown(function(event) { // Keyboard shortcuts
+                    .keydown(function (event) { // Keyboard shortcuts
                         if (event.keyCode === 13) { // Enter key
                             $mySaveLink.trigger('click');
                         } else if (event.keyCode === 27) { // Escape key

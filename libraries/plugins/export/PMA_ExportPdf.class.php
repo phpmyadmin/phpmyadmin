@@ -112,8 +112,8 @@ class PMA_ExportPdf extends PMA_PDF
             $this->Cell(
                 0,
                 $this->FontSizePt,
-                __('Database') . ': ' . $this->currentDb . ',  '
-                . __('Table') . ': ' . $this->currentTable,
+                __('Database:') . ' ' . $this->currentDb . ',  '
+                . __('Table:') . ' ' . $this->currentTable,
                 0, 1, 'L'
             );
             $l = ($this->lMargin);

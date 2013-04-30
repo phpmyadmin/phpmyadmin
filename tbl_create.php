@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays table create form and handles it
+ *
  * @package PhpMyAdmin
  */
 
@@ -98,19 +100,19 @@ if (isset($_REQUEST['do_save_data'])) {
             $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
             isset($_REQUEST['field_collation'][$i])
-                ? $_REQUEST['field_collation'][$i]
-                : '',
+            ? $_REQUEST['field_collation'][$i]
+            : '',
             isset($_REQUEST['field_null'][$i])
-                ? $_REQUEST['field_null'][$i]
-                : 'NOT NULL',
+            ? $_REQUEST['field_null'][$i]
+            : 'NOT NULL',
             $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
-                ? $_REQUEST['field_extra'][$i]
-                : false,
+            ? $_REQUEST['field_extra'][$i]
+            : false,
             isset($_REQUEST['field_comments'][$i])
-                ? $_REQUEST['field_comments'][$i]
-                : '',
+            ? $_REQUEST['field_comments'][$i]
+            : '',
             $field_primary,
             ''
         );
@@ -284,11 +286,12 @@ if (isset($_REQUEST['do_save_data'])) {
                     ($tblsize > 0) ? 1 : 0
                 );
                 if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
-                    list($formatted_overhead, $overhead_unit) = PMA_Util::formatByteDown(
-                        $tbl_stats['Data_free'],
-                        3,
-                        ($tbl_stats['Data_free'] > 0) ? 1 : 0
-                    );
+                    list($formatted_overhead, $overhead_unit)
+                        = PMA_Util::formatByteDown(
+                            $tbl_stats['Data_free'],
+                            3,
+                            ($tbl_stats['Data_free'] > 0) ? 1 : 0
+                        );
                     $overhead_size += $tbl_stats['Data_free'];
                 }
 
@@ -368,7 +371,8 @@ if (isset($_REQUEST['do_save_data'])) {
                 . '</td>' . "\n";
 
             $new_table_string .= '<td>'
-                . '<dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'
+                . '<dfn title="'
+                . PMA_getCollationDescr($tbl_stats['Collation']) . '">'
                 . $tbl_stats['Collation']
                 .'</dfn>'
                 . '</td>' . "\n";

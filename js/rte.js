@@ -16,17 +16,17 @@ var RTE = {
     object: function (type) {
         $.extend(this, RTE.COMMON);
         switch (type) {
-            case 'routine':
-                $.extend(this, RTE.ROUTINE);
-                break;
-            case 'trigger':
-                // nothing extra yet for triggers
-                break;
-            case 'event':
-                $.extend(this, RTE.EVENT);
-                break;
-            default:
-                break;
+        case 'routine':
+            $.extend(this, RTE.ROUTINE);
+            break;
+        case 'trigger':
+            // nothing extra yet for triggers
+            break;
+        case 'event':
+            $.extend(this, RTE.EVENT);
+            break;
+        default:
+            break;
         }
     },
     /**
@@ -72,7 +72,7 @@ RTE.COMMON = {
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.focus();
-            alert(PMA_messages['strFormEmpty']);
+            alert(PMA_messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
@@ -83,7 +83,7 @@ RTE.COMMON = {
             else {
                 $('textarea[name=item_definition]').last().focus();
             }
-            alert(PMA_messages['strFormEmpty']);
+            alert(PMA_messages.strFormEmpty);
             return false;
         }
         // The validation has so far passed, so now
@@ -119,17 +119,17 @@ RTE.COMMON = {
                  *                     for jQueryUI dialog buttons
                  */
                 var button_options = {};
-                button_options[PMA_messages['strClose']] = function () {
+                button_options[PMA_messages.strClose] = function () {
                     $(this).dialog("close").remove();
                 };
                 /**
                  * Display the dialog to the user
                  */
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                      width: 500,
-                                      buttons: button_options,
-                                      title: data.title
-                                  });
+                    width: 500,
+                    buttons: button_options,
+                    title: data.title
+                });
                 // Attach syntax highlited editor to export dialog
                 /**
                  * @var $elm jQuery object containing the reference
@@ -176,7 +176,7 @@ RTE.COMMON = {
                 PMA_ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[PMA_messages['strGo']] = function () {
+                that.buttonOptions[PMA_messages.strGo] = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof CodeMirror != 'undefined') {
@@ -189,7 +189,7 @@ RTE.COMMON = {
                          */
                         var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(
-                            PMA_messages['strProcessingRequest']
+                            PMA_messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
@@ -290,22 +290,22 @@ RTE.COMMON = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[PMA_messages['strClose']] = function () {
+                that.buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog("close");
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                                width: 700,
-                                minWidth: 500,
-                                buttons: that.buttonOptions,
-                                title: data.title,
-                                modal: true,
-                                close: function () {
-                                    $(this).remove();
-                                }
-                        });
+                    width: 700,
+                    minWidth: 500,
+                    buttons: that.buttonOptions,
+                    title: data.title,
+                    modal: true,
+                    close: function () {
+                        $(this).remove();
+                    }
+                });
                 that.$ajaxDialog.find('input[name=item_name]').focus();
                 that.$ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                     PMA_addDatepicker($(this).css('width', '95%'));
@@ -361,7 +361,7 @@ RTE.COMMON = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
                 if (data.success === true) {
                     /**
@@ -430,7 +430,7 @@ RTE.EVENT = {
             $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
             if ($elm.val() === '') {
                 $elm.focus();
-                alert(PMA_messages['strFormEmpty']);
+                alert(PMA_messages.strFormEmpty);
                 return false;
             }
         } else {
@@ -438,7 +438,7 @@ RTE.EVENT = {
             $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
             if ($elm.val() === '') {
                 $elm.focus();
-                alert(PMA_messages['strFormEmpty']);
+                alert(PMA_messages.strFormEmpty);
                 return false;
             }
         }
@@ -516,7 +516,7 @@ RTE.ROUTINE = {
             }
         });
         if (! isSuccess) {
-            alert(PMA_messages['strFormEmpty']);
+            alert(PMA_messages.strFormEmpty);
             return false;
         }
         this.$ajaxDialog.find('table.routine_params_table').last().find('tr').each(function () {
@@ -533,7 +533,7 @@ RTE.ROUTINE = {
             }
         });
         if (! isSuccess) {
-            alert(PMA_messages['strFormEmpty']);
+            alert(PMA_messages.strFormEmpty);
             return false;
         }
         if (this.$ajaxDialog.find('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
@@ -544,7 +544,7 @@ RTE.ROUTINE = {
             if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR')
                && $returnlen.val() === '') {
                 $returnlen.focus();
-                alert(PMA_messages['strFormEmpty']);
+                alert(PMA_messages.strFormEmpty);
                 return false;
             }
         }
@@ -552,7 +552,7 @@ RTE.ROUTINE = {
             // A function must contain a RETURN statement in its definition
             if (this.$ajaxDialog.find('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
                 this.syntaxHiglighter.focus();
-                alert(PMA_messages['MissingReturn']);
+                alert(PMA_messages.MissingReturn);
                 return false;
             }
         }
@@ -665,13 +665,13 @@ RTE.ROUTINE = {
                 if (data.dialog) {
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[PMA_messages['strGo']] = function () {
+                    that.buttonOptions[PMA_messages.strGo] = function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
                         $msg = PMA_ajaxShowMessage(
-                            PMA_messages['strProcessingRequest']
+                            PMA_messages.strProcessingRequest
                         );
                         $.post('db_routines.php', data, function (data) {
                             if (data.success === true) {
@@ -684,7 +684,7 @@ RTE.ROUTINE = {
                             }
                         });
                     };
-                    that.buttonOptions[PMA_messages['strClose']] = function () {
+                    that.buttonOptions[PMA_messages.strClose] = function () {
                         $(this).dialog("close");
                     };
                     /**
@@ -766,7 +766,7 @@ $(function () {
      */
     $('a.ajax.drop_anchor').live('click', function (event) {
         event.preventDefault();
-         var dialog = new RTE.object();
+        var dialog = new RTE.object();
         dialog.dropDialog($(this));
     }); // end $.live()
 

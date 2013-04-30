@@ -329,7 +329,7 @@ class PMA_User_Schema
                     echo 'even';
                 }
                 echo '">';
-                $odd_row = !$odd_row;
+                $odd_row = ! $odd_row;
 
                 echo '<td>';
                 echo '<select name="c_table_' . $i . '[name]">';
@@ -514,7 +514,7 @@ class PMA_User_Schema
                 $shoot       = true;
             }
         }
-        if (!$shoot) {
+        if (! $shoot) {
             return;
         }
         echo '<br /><form action="schema_edit.php" method="post">' . "\n"
@@ -569,7 +569,7 @@ class PMA_User_Schema
                 . 'class="pdflayout_table"'
                 . '>'
                 . '<u>'
-                . htmlspecialchars($temp_sh_page['table_name']) 
+                . htmlspecialchars($temp_sh_page['table_name'])
                 . '</u>';
 
             if (isset($with_field_names)) {

@@ -21,7 +21,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('db_structure.js', function() {
+AJAX.registerTeardown('db_structure.js', function () {
     $("span.fkc_switch").unbind('click');
     $('#fkc_checkbox').unbind('change');
     $("a.truncate_table_anchor.ajax").die('click');
@@ -36,13 +36,13 @@ AJAX.registerTeardown('db_structure.js', function() {
  */
 function PMA_adjustTotals() {
     var byteUnits = new Array(
-        PMA_messages['strB'],
-        PMA_messages['strKiB'],
-        PMA_messages['strMiB'],
-        PMA_messages['strGiB'],
-        PMA_messages['strTiB'],
-        PMA_messages['strPiB'],
-        PMA_messages['strEiB']
+        PMA_messages.strB,
+        PMA_messages.strKiB,
+        PMA_messages.strMiB,
+        PMA_messages.strGiB,
+        PMA_messages.strTiB,
+        PMA_messages.strPiB,
+        PMA_messages.strEiB
     );
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -57,15 +57,16 @@ function PMA_adjustTotals() {
 
     $allTr.each(function () {
         var $this = $(this);
+        var i, tmpVal;
         // Get the number of rows for this SQL table
         var strRows = $this.find('.tbl_rows').text();
         // If the value is approximated
-        if (strRows.indexOf('~') == 0) {
+        if (strRows.indexOf('~') === 0) {
             rowSumApproximated = true;
             // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
             strRows = strRows.substring(1, strRows.length - 1);
         }
-        strRows = strRows.replace(/[,.]/g , '');
+        strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
@@ -79,16 +80,16 @@ function PMA_adjustTotals() {
         var strOverheadUnit = $.trim($this.find('.tbl_overhead span.unit').text());
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400
-        for (var i = 0; i < byteUnits.length; i++) {
+        for (i = 0; i < byteUnits.length; i++) {
             if (strSizeUnit == byteUnits[i]) {
-                var tmpVal = parseFloat(strSize);
+                tmpVal = parseFloat(strSize);
                 valSize = tmpVal * Math.pow(1024, i);
                 break;
             }
         }
-        for (var i = 0; i < byteUnits.length; i++) {
+        for (i = 0; i < byteUnits.length; i++) {
             if (strOverheadUnit == byteUnits[i]) {
-                var tmpVal = parseFloat(strOverhead);
+                tmpVal = parseFloat(strOverhead);
                 valOverhead = tmpVal * Math.pow(1024, i);
                 break;
             }
@@ -123,13 +124,13 @@ function PMA_adjustTotals() {
 
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
-    $summary.find('.tbl_num').text($.sprintf(PMA_messages['strTables'], tableSum));
+    $summary.find('.tbl_num').text($.sprintf(PMA_messages.strTables, tableSum));
     $summary.find('.tbl_rows').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
 
-AJAX.registerOnload('db_structure.js', function() {
+AJAX.registerOnload('db_structure.js', function () {
     /**
      * Handler for the print view multisubmit.
      * All other multi submits can be handled via ajax, but this one needs
@@ -159,28 +160,28 @@ AJAX.registerOnload('db_structure.js', function() {
      * Event handler for 'Foreign Key Checks' disabling option
      * in the drop table confirmation form
      */
-    $("span.fkc_switch").click(function(event){
-       if ($("#fkc_checkbox").prop('checked')) {
-           $("#fkc_checkbox").prop('checked', false);
-           $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
-           return;
-       }
-       $("#fkc_checkbox").prop('checked', true);
-       $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+    $("span.fkc_switch").click(function (event) {
+        if ($("#fkc_checkbox").prop('checked')) {
+            $("#fkc_checkbox").prop('checked', false);
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
+            return;
+        }
+        $("#fkc_checkbox").prop('checked', true);
+        $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
     });
 
     $('#fkc_checkbox').change(function () {
         if ($(this).prop("checked")) {
-            $("#fkc_status").html(PMA_messages['strForeignKeyCheckEnabled']);
+            $("#fkc_status").html(PMA_messages.strForeignKeyCheckEnabled);
             return;
         }
-        $("#fkc_status").html(PMA_messages['strForeignKeyCheckDisabled']);
+        $("#fkc_status").html(PMA_messages.strForeignKeyCheckDisabled);
     }); // End of event handler for 'Foreign Key Check'
 
     /**
      * Ajax Event handler for 'Truncate Table'
      */
-    $("a.truncate_table_anchor.ajax").live('click', function(event) {
+    $("a.truncate_table_anchor.ajax").live('click', function (event) {
         event.preventDefault();
 
         /**
@@ -196,16 +197,15 @@ AJAX.registerOnload('db_structure.js', function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strTruncateTableStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
+        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
+            $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
+                if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Adjust table statistics
                     var $tr = $this_anchor.closest('tr');
@@ -221,7 +221,7 @@ AJAX.registerOnload('db_structure.js', function() {
                         .removeClass('truncate_table_anchor');
                     PMA_adjustTotals();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); //end $.PMA_confirm()
@@ -230,7 +230,7 @@ AJAX.registerOnload('db_structure.js', function() {
     /**
      * Ajax Event handler for 'Drop Table' or 'Drop View'
      */
-    $("a.drop_table_anchor.ajax").live('click', function(event) {
+    $("a.drop_table_anchor.ajax").live('click', function (event) {
         event.preventDefault();
 
         var $this_anchor = $(this);
@@ -253,20 +253,19 @@ AJAX.registerOnload('db_structure.js', function() {
          */
         var question;
         if (! is_view) {
-            question =
-                PMA_messages.strDropTableStrongWarning + ' '
-                + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
+            question = PMA_messages.strDropTableStrongWarning + ' ' +
+                $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
         } else {
             question =
                 $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
         }
 
-        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function(data) {
-                if (data.success == true) {
+            $.get(url, {'is_js_confirmed' : 1, 'ajax_request' : true}, function (data) {
+                if (data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
@@ -274,7 +273,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     PMA_reloadNavigation();
                     PMA_ajaxRemoveMessage($msg);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -283,7 +282,7 @@ AJAX.registerOnload('db_structure.js', function() {
     /**
      * Ajax Event handler for 'Drop tracking'
      */
-    $('a.drop_tracking_anchor.ajax').live('click', function(event) {
+    $('a.drop_tracking_anchor.ajax').live('click', function (event) {
         event.preventDefault();
 
         var $anchor = $(this);
@@ -295,14 +294,14 @@ AJAX.registerOnload('db_structure.js', function() {
          /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strDeleteTrackingData'];
+        var question = PMA_messages.strDeleteTrackingData;
 
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strDeletingTrackingData']);
+            PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
 
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if (data.success == true) {
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                if (data.success === true) {
                     var $tracked_table = $curr_tracking_row.parents('table');
                     var table_name = $curr_tracking_row.find('td:nth-child(2)').text();
 
@@ -313,7 +312,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     } else {
                         // There are more rows left after the deletion
                         toggleRowColors($curr_tracking_row.next());
-                        $curr_tracking_row.hide("slow", function() {
+                        $curr_tracking_row.hide("slow", function () {
                             $(this).remove();
                         });
                     }
@@ -325,7 +324,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     if ($untracked_table.length > 0) {
                         var $rows = $untracked_table.find('tbody tr');
 
-                        $rows.each(function(index) {
+                        $rows.each(function (index) {
                             var $row = $(this);
                             var tmp_tbl_name = $row.find('td:first-child').text();
                             var is_last_iteration = (index == ($rows.length - 1));
@@ -358,7 +357,7 @@ AJAX.registerOnload('db_structure.js', function() {
 
                     PMA_ajaxShowMessage(data.message);
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -369,15 +368,15 @@ AJAX.registerOnload('db_structure.js', function() {
      * Ajax Event handler for calculatig the real end for a InnoDB table
      *
      */
-    $('#real_end_input').live('click', function(event) {
+    $('#real_end_input').live('click', function (event) {
         event.preventDefault();
 
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages['strOperationTakesLongTime'];
+        var question = PMA_messages.strOperationTakesLongTime;
 
-        $(this).PMA_confirm(question, '', function() {
+        $(this).PMA_confirm(question, '', function () {
             return true;
         });
         return false;

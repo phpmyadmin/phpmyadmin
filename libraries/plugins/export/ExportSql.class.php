@@ -598,20 +598,20 @@ class ExportSql extends ExportPlugin
                .  $this->_exportComment('version ' . PMA_VERSION)
                .  $this->_exportComment('http://www.phpmyadmin.net')
                .  $this->_exportComment();
-        $host_string = __('Host') . ': ' .  $cfg['Server']['host'];
+        $host_string = __('Host:') . ' ' .  $cfg['Server']['host'];
         if (! empty($cfg['Server']['port'])) {
             $host_string .= ':' . $cfg['Server']['port'];
         }
         $head .= $this->_exportComment($host_string);
         $head .=
             $this->_exportComment(
-                __('Generation Time') . ': '
+                __('Generation Time:') . ' '
                 .  PMA_Util::localisedDate()
             )
             .  $this->_exportComment(
-                __('Server version') . ': ' . PMA_MYSQL_STR_VERSION
+                __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION
             )
-            .  $this->_exportComment(__('PHP Version') . ': ' . phpversion())
+            .  $this->_exportComment(__('PHP Version:') . ' ' . phpversion())
             .  $this->_possibleCRLF();
 
         if (isset($GLOBALS['sql_header_comment'])
@@ -757,7 +757,7 @@ class ExportSql extends ExportPlugin
         }
         $head = $this->_exportComment()
             . $this->_exportComment(
-                __('Database') . ': '
+                __('Database:') . ' '
                 . (isset($GLOBALS['sql_backquotes'])
                 ? PMA_Util::backquoteCompat($db, $compat)
                 : '\'' . $db . '\'')
@@ -943,7 +943,7 @@ class ExportSql extends ExportPlugin
                     && ! empty($tmpres['Create_time'])
                 ) {
                     $schema_create .= $this->_exportComment(
-                        __('Creation') . ': '
+                        __('Creation:') . ' '
                         . PMA_Util::localisedDate(
                             strtotime($tmpres['Create_time'])
                         )
@@ -956,7 +956,7 @@ class ExportSql extends ExportPlugin
                     && ! empty($tmpres['Update_time'])
                 ) {
                     $schema_create .= $this->_exportComment(
-                        __('Last update') . ': '
+                        __('Last update:') . ' '
                         . PMA_Util::localisedDate(
                             strtotime($tmpres['Update_time'])
                         )
@@ -969,7 +969,7 @@ class ExportSql extends ExportPlugin
                     && ! empty($tmpres['Check_time'])
                 ) {
                     $schema_create .= $this->_exportComment(
-                        __('Last check') . ': '
+                        __('Last check:') . ' '
                         . PMA_Util::localisedDate(
                             strtotime($tmpres['Check_time'])
                         )
@@ -1350,7 +1350,7 @@ class ExportSql extends ExportPlugin
                 . PMA_Util::backquote($table, $sql_backquotes) . ':'
             );
             @reset($mime_map);
-            foreach ($mime_map AS $mime_field => $mime) {
+            foreach ($mime_map as $mime_field => $mime) {
                 $schema_create .=
                     $this->_exportComment(
                         '  '
@@ -1375,7 +1375,7 @@ class ExportSql extends ExportPlugin
                     . PMA_Util::backquote($table, $sql_backquotes)
                     . ':'
                 );
-            foreach ($res_rel AS $rel_field => $rel) {
+            foreach ($res_rel as $rel_field => $rel) {
                 $schema_create .=
                     $this->_exportComment(
                         '  '
@@ -1542,7 +1542,7 @@ class ExportSql extends ExportPlugin
             $head = $this->_possibleCRLF()
               . $this->_exportComment()
               . $this->_exportComment('VIEW ' . ' ' . $formatted_table_name)
-              . $this->_exportComment(__('Data') . ': ' . __('None'))
+              . $this->_exportComment(__('Data:') . ' ' . __('None'))
               . $this->_exportComment()
               . $this->_possibleCRLF();
 

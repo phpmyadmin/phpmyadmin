@@ -77,7 +77,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );
 
-    foreach ($mime_options AS $key => $option) {
+    foreach ($mime_options as $key => $option) {
         if (substr($option, 0, 10) == '; charset=') {
             $mime_options['charset'] = $option;
         }

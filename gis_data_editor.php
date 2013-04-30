@@ -158,7 +158,7 @@ foreach ($gis_types as $gis_type) {
 }
 echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<label for="srid">' .  __("SRID") . ':</label>';
+echo '<label for="srid">' .  __('SRID:') . '</label>';
 echo '<input name="gis_data[srid]" type="text" value="' . $srid . '" />';
 echo '</div>';
 echo '<!-- End of header section -->';
@@ -181,7 +181,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     if ($geom_type == 'GEOMETRYCOLLECTION') {
         echo '<br/><br/>';
-        echo __("Geometry") . ' ' . ($a + 1) . ': ';
+        printf(__('Geometry %d:'), $a + 1);
         echo '<br/>';
         if (isset($gis_data[$a]['gis_type'])) {
             $type = $gis_data[$a]['gis_type'];
@@ -203,7 +203,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     if ($type == 'POINT') {
         echo '<br/>';
-        echo __("Point") . ': ';
+        echo __('Point:');
         echo '<label for="x">' . __("X") . '</label>';
         echo '<input name="gis_data[' . $a . '][POINT][x]" type="text"'
             . ' value="' . escape($gis_data[$a]['POINT']['x']) . '" />';
@@ -259,12 +259,12 @@ for ($a = 0; $a < $geom_count; $a++) {
         for ($i = 0; $i < $no_of_lines; $i++) {
             echo '<br/>';
             if ($type == 'MULTILINESTRING') {
-                echo __("Linestring") . ' ' . ($i + 1) . ':';
+                printf(__('Linestring %d:'), $i + 1);
             } else {
                 if ($i == 0) {
-                    echo __("Outer Ring") . ':';
+                    echo __('Outer ring:');
                 } else {
-                    echo __("Inner Ring") . ' ' . $i . ':';
+                    printf(__('Inner ring %d:'), $i);
                 }
             }
 
@@ -322,7 +322,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
         for ($k = 0; $k < $no_of_polygons; $k++) {
             echo '<br/>';
-            echo __("Polygon") . ' ' . ($k + 1) . ':';
+            printf(__('Polygon %d:'), $k + 1);
             $no_of_lines = isset($gis_data[$a][$type][$k]['no_of_lines'])
                 ? $gis_data[$a][$type][$k]['no_of_lines'] : 1;
             if ($no_of_lines < 1) {
@@ -338,9 +338,9 @@ for ($a = 0; $a < $geom_count; $a++) {
             for ($i = 0; $i < $no_of_lines; $i++) {
                 echo '<br/><br/>';
                 if ($i == 0) {
-                    echo __("Outer Ring") . ':';
+                    echo __('Outer ring:');
                 } else {
-                    echo __("Inner Ring") . ' ' . $i . ':';
+                    printf(__('Inner ring %d:'), $i);
                 }
 
                 $no_of_points = isset($gis_data[$a][$type][$k][$i]['no_of_points'])

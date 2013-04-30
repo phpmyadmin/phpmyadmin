@@ -300,7 +300,8 @@ if (isset($_REQUEST['snapshot'])) {
     $drop_create_statements = $data['ddlog'][0]['statement'];
 
     if (strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
-        || strstr($data['ddlog'][0]['statement'], 'DROP VIEW')) {
+        || strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
+    ) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code

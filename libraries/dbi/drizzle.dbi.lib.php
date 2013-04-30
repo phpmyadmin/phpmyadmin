@@ -108,14 +108,14 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
         $client_flags |= DRIZZLE_CAPABILITIES_SSL;
     }
 
-    if (!$server) {
+    if (! $server) {
         $link = @PMA_DBI_real_connect(
             $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
             $password, false, $client_flags
         );
         // Retry with empty password if we're allowed to
         if ($link == false && isset($cfg['Server']['nopassword'])
-            && $cfg['Server']['nopassword'] && !$is_controluser
+            && $cfg['Server']['nopassword'] && ! $is_controluser
         ) {
             $link = @PMA_DBI_real_connect(
                 $drizzle, $cfg['Server']['host'], $server_port, $server_socket,

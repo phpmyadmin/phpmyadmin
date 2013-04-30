@@ -1161,7 +1161,7 @@ class PMA_Table
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
-                $this->errors[] = __('Invalid database') . ': ' . $new_db;
+                $this->errors[] = __('Invalid database:') . ' ' . $new_db;
                 return false;
             }
         } else {
@@ -1175,7 +1175,7 @@ class PMA_Table
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            $this->errors[] = __('Invalid table name') . ': '
+            $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;
         }
@@ -1575,7 +1575,7 @@ class PMA_Table
 
     /**
      * Get all column names which are MySQL reserved words
-     * 
+     *
      * @return array
      * @access public
      */
@@ -1589,7 +1589,7 @@ class PMA_Table
             if (PMA_SQP_isKeyWord($column_name)) {
                 $return[] = $column_name;
             }
-        }       
+        }
         return $return;
     }
 }

@@ -900,12 +900,12 @@ class PMA_DisplayResults
             . '" />'
             . '<input type="submit" name="navig"'
             . ' class="ajax"'
-            . ' value="' . __('Show') . ' :" />'
-            . __('Start row') . ': ' . "\n"
+            . ' value="' . __('Show:') . '" />'
+            . __('Start row:') . ' ' . "\n"
             . '<input type="text" name="pos" size="3" value="'
             . (($pos_next >= $this->__get('unlim_num_rows')) ? 0 : $pos_next)
             . '" class="textfield" onfocus="this.select()" />'
-            . __('Number of rows') . ': ' . "\n"
+            . __('Number of rows:') . ' ' . "\n"
             . '<input type="text" name="session_max_rows" size="3" value="'
             . (($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
                 ? $_SESSION['tmp_user_values']['max_rows']
@@ -914,7 +914,7 @@ class PMA_DisplayResults
 
         if ($GLOBALS['cfg']['ShowDisplayDirection']) {
             // Display mode (horizontal/vertical and repeat headers)
-            $additional_fields_html .= __('Mode') . ': ' . "\n";
+            $additional_fields_html .= __('Mode:') . ' ' . "\n";
             $choices = array(
                     'horizontal'        => __('horizontal'),
                     'horizontalflipped' => __('horizontal (rotated headers)'),
@@ -2656,7 +2656,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get the values for one data row 
+     * Get the values for one data row
      *
      * @param integer &$dt_result         the link id associated to the query
      *                                    which results have to be displayed
@@ -2696,8 +2696,8 @@ class PMA_DisplayResults
 
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
 
-        for ($currentColumn = 0; 
-                $currentColumn < $this->__get('fields_cnt'); 
+        for ($currentColumn = 0;
+                $currentColumn < $this->__get('fields_cnt');
                 ++$currentColumn) {
 
             // assign $i with appropriate column order
@@ -3462,7 +3462,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Get the combined classes for a column 
+     * Get the combined classes for a column
      *
      * @param string  $grid_edit_class  the class for all editable columns
      * @param string  $not_null_class   the class for not null columns
@@ -4016,7 +4016,7 @@ class PMA_DisplayResults
         list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
 
         // Prepares data
-        foreach ($vertical_display['desc'] AS $j => $val) {
+        foreach ($vertical_display['desc'] as $j => $val) {
 
             // assign appropriate key with current column order
             $key = $col_order ? $col_order[$j] : $j;
@@ -4549,7 +4549,7 @@ class PMA_DisplayResults
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
 
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 "\n", $is_innodb
             );
@@ -4626,7 +4626,7 @@ class PMA_DisplayResults
         if (($is_display['nav_bar'] == '1')
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 '<br />' . "\n", $is_innodb
             );
@@ -5114,7 +5114,7 @@ class PMA_DisplayResults
      *
      * @see     _getTable()
      */
-    private function _getPlacedTableNavigatoins(
+    private function _getPlacedTableNavigations(
         $pos_next, $pos_prev, $place, $empty_line, $is_innodb
     ) {
 
@@ -5134,7 +5134,7 @@ class PMA_DisplayResults
 
         return $navigation_html;
 
-    } // end of the '_getPlacedTableNavigatoins()' function
+    } // end of the '_getPlacedTableNavigations()' function
 
 
     /**

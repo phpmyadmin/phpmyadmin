@@ -188,15 +188,15 @@ class ExportXml extends ExportPlugin
                .  '- version ' . PMA_VERSION . $crlf
                .  '- http://www.phpmyadmin.net' . $crlf
                .  '-' . $crlf
-               .  '- ' . __('Host') . ': ' . $cfg['Server']['host'];
+               .  '- ' . __('Host:') . ' ' . $cfg['Server']['host'];
         if (! empty($cfg['Server']['port'])) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-            . '- ' . __('Generation Time') . ': '
+            . '- ' . __('Generation Time:') . ' '
             . PMA_Util::localisedDate() . $crlf
-            . '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-            . '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
+            . '- ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '- ' . __('PHP Version:') . ' ' . phpversion() . $crlf
             . '-->' . $crlf . $crlf;
 
         $head .= '<pma_xml_export version="1.0"'
@@ -387,7 +387,7 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             $head = '    <!--' . $crlf
-                  . '    - ' . __('Database') . ': ' .  '\'' . $db . '\'' . $crlf
+                  . '    - ' . __('Database:') . ' ' .  '\'' . $db . '\'' . $crlf
                   . '    -->' . $crlf
                   . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
 

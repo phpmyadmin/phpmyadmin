@@ -43,6 +43,8 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = 'en';
+        $GLOBALS['message'] = 'phpmyadminmessage';
+        $GLOBALS['is_ajax_request'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';
@@ -71,6 +73,21 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
+    
+    /**
+     * Test for Set BodyId
+     *
+     * @return void
+     */
+    public function testSetBodyId()
+    {
+        $header = new PMA_Header();
+        $header->setBodyId('PMA_header_id');
+        $this->assertContains(
+            'PMA_header_id',
+            $header->getDisplay()
+        );
+    }
 
     /**
      * Test for print view
@@ -86,6 +103,46 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
+    
+    /**
+     * Test for Get JsParams
+     *
+     * @return void
+     */
+    public function testGetJsParams()
+    {
+        $header = new PMA_Header();
+        $this->assertArrayHasKey(
+            'common_query',
+            $header->getJsParams()
+        );
+    }
+        
+    /**
+     * Test for Get JsParamsCode
+     *
+     * @return void
+     */
+    public function testGetJsParamsCode()
+    {
+        $header = new PMA_Header();
+        $this->assertContains(
+            'PMA_commonParams.setAll',
+            $header->getJsParamsCode()
+        );
+    }
 
-
+    /**
+     * Test for Get Message 
+     *
+     * @return void
+     */
+    public function testGetMessage()
+    {
+        $header = new PMA_Header();
+        $this->assertContains(
+            'phpmyadminmessage',
+            $header->getMessage()
+        );
+    }
 }

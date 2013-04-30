@@ -191,7 +191,7 @@ class PMA_Export_Relation_Schema
     public function getAllTables($db, $pageNumber)
     {
         global $cfgRelation;
-        
+
         // Get All tables
         $tab_sql = 'SELECT table_name FROM '
             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
@@ -200,7 +200,7 @@ class PMA_Export_Relation_Schema
             . ' AND pdf_page_number = ' . $pageNumber;
 
         $tab_rs = PMA_queryAsControlUser($tab_sql, null, PMA_DBI_QUERY_STORE);
-        if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
+        if (! $tab_rs || ! PMA_DBI_num_rows($tab_rs) > 0) {
             $this->dieSchema('', __('This page does not contain any tables!'));
         }
         while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {

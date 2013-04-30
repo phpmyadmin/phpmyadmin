@@ -105,8 +105,8 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport()
     {
-        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
-        global $error, $timeout_passed, $finished;
+        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped;
+        global $error, $timeout_passed, $finished, $csv_new_line;
 
         $replacements = array(
             '\\n'   => "\n",
@@ -123,7 +123,7 @@ class ImportCsv extends AbstractImportCsv
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns terminated by'), false);
+            $message->addParam(__('Columns terminated with'), false);
             $error = true;
             $param_error = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -138,21 +138,21 @@ class ImportCsv extends AbstractImportCsv
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns enclosed by'), false);
+            $message->addParam(__('Columns enclosed with'), false);
             $error = true;
             $param_error = true;
         } elseif (strlen($csv_escaped) != 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns escaped by'), false);
+            $message->addParam(__('Columns escaped with'), false);
             $error = true;
             $param_error = true;
         } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Lines terminated by'), false);
+            $message->addParam(__('Lines terminated with'), false);
             $error = true;
             $param_error = true;
         }

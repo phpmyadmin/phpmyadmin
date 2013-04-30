@@ -40,7 +40,7 @@ function PMA_RTE_handleExport($item_name, $export_data)
         }
     } else {
         $_db = htmlspecialchars(PMA_Util::backquote($db));
-        $response = __('Error in Processing Request') . ' : '
+        $message  = __('Error in processing request:') . ' '
                   . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
         $response = PMA_message::error($response);
         if ($GLOBALS['is_ajax_request'] == true) {

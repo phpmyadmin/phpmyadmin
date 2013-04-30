@@ -671,7 +671,7 @@ class PMA_Util
             }
             // ---
             // modified to show the help on sql errors
-            $error_msg .= '<p><strong>' . __('SQL query') . ':</strong>' . "\n";
+            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
                 $error_msg .= self::showMySQLDocu('SQL-Syntax', 'SELECT');

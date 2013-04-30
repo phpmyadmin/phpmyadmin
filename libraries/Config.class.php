@@ -91,7 +91,7 @@ class PMA_Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->checkIsHttps();
+        $this->isHttps();
     }
 
     /**
@@ -101,7 +101,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.0.1-dev');
+        $this->set('PMA_VERSION', '4.1-dev');
         /**
          * @deprecated
          */
@@ -189,11 +189,11 @@ class PMA_Config
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
-            '@MSIE ([0-9].[0-9]{1,2})@',
+            '@(MS)?IE ([0-9]{1,2}.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
             '@OmniWeb/([0-9].[0-9]{1,2})@',
@@ -216,9 +216,9 @@ class PMA_Config
             '@Mozilla/([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version)
-            && preg_match('@Chrome/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
+            && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version2)
         ) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+            $this->set('PMA_USR_BROWSER_VER', $log_version2[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
         } elseif (preg_match(
@@ -242,6 +242,14 @@ class PMA_Config
                 'PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
+            // Firefox
+        } elseif (! strstr($HTTP_USER_AGENT, 'compatible')
+            && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version2)
+        ) {
+            $this->set(
+                'PMA_USR_BROWSER_VER', $log_version2[1]
+            );
+            $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
@@ -313,7 +321,7 @@ class PMA_Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win')) {
+            if (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
             } elseif (stristr(PHP_OS, 'OS/2')) {
@@ -604,7 +612,7 @@ class PMA_Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, !$commit);
+            $is_found = $this->checkHTTP($link, ! $commit);
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -713,7 +721,7 @@ class PMA_Config
         }
         $ch = curl_init($link);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_NOBODY, !$get_body);
+        curl_setopt($ch, CURLOPT_NOBODY, ! $get_body);
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -1163,14 +1171,14 @@ class PMA_Config
      * sets configuration variable
      *
      * @param string $setting configuration option
-     * @param string $value   new value for configuration option
+     * @param mixed  $value   new value for configuration option
      *
      * @return void
      */
     function set($setting, $value)
     {
         if (! isset($this->settings[$setting])
-            || $this->settings[$setting] != $value
+            || $this->settings[$setting] !== $value
         ) {
             $this->settings[$setting] = $value;
             $this->set_mtime = time();
@@ -1466,16 +1474,6 @@ class PMA_Config
     }
 
     /**
-     * check for https
-     *
-     * @return void
-     */
-    function checkIsHttps()
-    {
-        $this->set('is_https', $this->isHttps());
-    }
-
-    /**
      * Checks if protocol is https
      *
      * This function checks if the https protocol is used in the PmaAbsoluteUri
@@ -1486,19 +1484,21 @@ class PMA_Config
      */
     public function isHttps()
     {
-        static $is_https = null;
 
-        if (null !== $is_https) {
-            return $is_https;
+        if (null !== $this->get('is_https')) {
+            return $this->get('is_https');
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
+        $is_https = null;
 
         if (isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
         }
+
+        $this->set('is_https', $is_https);
 
         return $is_https;
     }
