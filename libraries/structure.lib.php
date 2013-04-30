@@ -740,7 +740,7 @@ function PMA_getHtmlForRepairtable(
  *
  * @return html data
  */
-function PMA_TableHeader($db_is_information_schema = false, $replication = false)
+function PMA_tableHeader($db_is_information_schema = false, $replication = false)
 {
     $cnt = 0; // Let's count the columns...
 

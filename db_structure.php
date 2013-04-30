@@ -132,7 +132,7 @@ $response->addHTML(
 $response->addHTML(PMA_generate_common_hidden_inputs($db));
 
 $response->addHTML(
-    PMA_TableHeader($db_is_information_schema, $server_slave_status)
+    PMA_tableHeader($db_is_information_schema, $server_slave_status)
 );
 
 $i = $sum_entries = 0;
@@ -263,7 +263,7 @@ foreach ($tables as $keyname => $current_table) {
             '</tr></tbody></table>'
         );
 
-        $response->addHTML(PMA_TableHeader(false, $server_slave_status));
+        $response->addHTML(PMA_tableHeader(false, $server_slave_status));
     }
 
     list($do, $ignored) = PMA_getServerSlaveStatus(
