@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-25 15:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-04-30 10:55+0200\n"
+"Last-Translator: Ahmad Zulhilmi Idris <ahmadzulhilmiidris@gmail.com>\n"
 "Language-Team: Malay <http://l10n.cihar.com/projects/phpmyadmin/3-5/ms/>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr "Pengkalan data %1$s telah dijana."
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "Komen pangkalan: "
+msgstr "Komen pangkalan data: "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -856,7 +856,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Jenis tidak sesuai!"
@@ -990,7 +989,7 @@ msgstr ""
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Memaparkan penanda halaman"
 
 #: import.php:180 import.php:415
 msgid "The bookmark has been deleted."
@@ -999,7 +998,7 @@ msgstr "TandaBuku telah dipadam."
 #: import.php:291 import.php:344 libraries/File.class.php:457
 #: libraries/File.class.php:540
 msgid "File could not be read"
-msgstr ""
+msgstr "Fail tidak boleh dibaca"
 
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
@@ -1009,6 +1008,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Anda telah mencuba untuk memuat fail yang tidak disokong oleh pemampat (%s). "
+"Sama ada ia tidak dilaksanakan atau dinyahaktifkan oleh konfigurasi anda."
 
 #: import.php:349
 msgid ""
