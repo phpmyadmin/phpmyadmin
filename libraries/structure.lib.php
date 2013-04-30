@@ -2400,7 +2400,8 @@ function PMA_updateColumns($db, $table)
     } else {
         // An error happened while inserting/updating a table definition
         $response->isSuccess(false);
-        $response->addJSON('message',
+        $response->addJSON(
+            'message',
             PMA_Message::rawError(__('Query error') . ':<br />'.PMA_DBI_getError())
         );
         $regenerate = true;
