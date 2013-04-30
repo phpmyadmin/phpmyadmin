@@ -92,7 +92,7 @@ class PMA_DbSearch
      */
     private function _setSearchParams()
     {
-        $this->_tables_names_only = PMA_DBI_get_tables($this->_db);
+        $this->_tables_names_only = PMA_DBI_getTables($this->_db);
 
         $this->_searchTypes = array(
             '1' => __('at least one of the words'),

@@ -57,7 +57,7 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$tables = PMA_DBI_get_tables($db);
+$tables = PMA_DBI_getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {

@@ -648,7 +648,7 @@ do {
                     $export_plugin->exportRoutines($current_db);
                 }
 
-                $tables = PMA_DBI_get_tables($current_db);
+                $tables = PMA_DBI_getTables($current_db);
                 $views = array();
                 foreach ($tables as $table) {
                     // if this is a view, collect it for later;

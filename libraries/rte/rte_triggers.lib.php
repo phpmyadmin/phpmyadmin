@@ -467,7 +467,7 @@ function PMA_TRI_getQueryFromRequest()
     }
     $query .= 'ON ';
     if (! empty($_REQUEST['item_table'])
-        && in_array($_REQUEST['item_table'], PMA_DBI_get_tables($db))
+        && in_array($_REQUEST['item_table'], PMA_DBI_getTables($db))
     ) {
         $query .= PMA_Util::backquote($_REQUEST['item_table']);
     } else {

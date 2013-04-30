@@ -170,7 +170,7 @@ if (! isset($sot_ready)) {
         // all tables in db
         // - get the total number of tables
         //  (needed for proper working of the MaxTableList feature)
-        $tables = PMA_DBI_get_tables($db);
+        $tables = PMA_DBI_getTables($db);
         $total_num_tables = count($tables);
         if (isset($sub_part) && $sub_part == '_export') {
             // (don't fetch only a subset if we are coming from db_export.php,

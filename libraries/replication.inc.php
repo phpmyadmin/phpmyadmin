@@ -324,9 +324,9 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
 {
     $src_db = $trg_db = $db;
 
-    $src_tables = PMA_DBI_get_tables($src_db, $src_link);
+    $src_tables = PMA_DBI_getTables($src_db, $src_link);
 
-    $trg_tables = PMA_DBI_get_tables($trg_db, $trg_link);
+    $trg_tables = PMA_DBI_getTables($trg_db, $trg_link);
 
     /**
      * initializing arrays to save table names

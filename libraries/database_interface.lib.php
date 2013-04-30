@@ -340,7 +340,7 @@ function PMA_DBI_convertMessage($message)
  *
  * @return array   tables names
  */
-function PMA_DBI_get_tables($database, $link = null)
+function PMA_DBI_getTables($database, $link = null)
 {
     return PMA_DBI_fetch_result(
         'SHOW TABLES FROM ' . PMA_Util::backquote($database) . ';',
@@ -1130,7 +1130,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
             }
             return $columns;
         } elseif (null === $table) {
-            $tables = PMA_DBI_get_tables($database);
+            $tables = PMA_DBI_getTables($database);
             foreach ($tables as $table) {
                 $columns[$table] = PMA_DBI_get_columns_full(
                     $database, $table, null, $link

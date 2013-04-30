@@ -330,7 +330,7 @@ class PMA_Menu
     private function _getDbTabs()
     {
         $db_is_information_schema = PMA_is_system_schema($this->_db);
-        $num_tables = count(PMA_DBI_get_tables($this->_db));
+        $num_tables = count(PMA_DBI_getTables($this->_db));
         $is_superuser = PMA_isSuperuser();
 
         /**
