@@ -214,7 +214,7 @@ function PMA_DBI_tryQuery($query, $link = null, $options = 0,
  *
  * @return mysqli_result collection | boolean(false)
  */
-function PMA_DBI_try_multi_query($multi_query = '', $link = null)
+function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
 {
 
     if (empty($link)) {

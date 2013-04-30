@@ -1487,7 +1487,7 @@ function getTableHtmlForMultipleQueries(
 
     // Assignment for variable is not needed since the results are
     // looiping using the connection
-    @PMA_DBI_try_multi_query($multi_sql);
+    @PMA_DBI_tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
     $querytime = $querytime_after - $querytime_before;

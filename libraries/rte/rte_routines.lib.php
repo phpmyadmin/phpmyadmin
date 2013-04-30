@@ -1349,7 +1349,7 @@ function PMA_RTN_handleExecute()
             $affected = 0;
 
             // Execute query
-            if (! PMA_DBI_try_multi_query($multiple_query)) {
+            if (! PMA_DBI_tryMultiQuery($multiple_query)) {
                 $outcome = false;
             }
 
