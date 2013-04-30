@@ -34,7 +34,7 @@ if (!PMA_DBI_getColumns($db, $table)) {
 $sql = 'SELECT ' . PMA_Util::backquote($transform_key)
     . ' FROM ' . PMA_Util::backquote($table)
     . ' WHERE ' . $where_clause . ';';
-$result = PMA_DBI_fetch_value($sql);
+$result = PMA_DBI_fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {

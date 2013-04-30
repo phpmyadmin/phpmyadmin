@@ -61,7 +61,7 @@ exit;
 function getServerTrafficHtml($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
-    $start_time = PMA_DBI_fetch_value(
+    $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
 

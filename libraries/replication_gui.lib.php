@@ -103,7 +103,7 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
     // [ERROR] Error reading packet from server: Misconfigured master - server id was not set ( server_errno=1236)
     // [ERROR] Got fatal error 1236: 'Misconfigured master - server id was not set' from master when reading data from binary log
     //
-    //$server_id = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'server_id'", 0, 1);
+    //$server_id = PMA_DBI_fetchValue("SHOW VARIABLES LIKE 'server_id'", 0, 1);
 
     echo '<div id="replication_' . $type . '_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';
 
@@ -294,7 +294,7 @@ function PMA_replication_gui_master_addslaveuser()
         . '</label>'
         . '<span class="options">'
         . '    <select name="pred_hostname" id="select_pred_hostname" title="' . __('Host') . '"';
-    $_current_user = PMA_DBI_fetch_value('SELECT USER();');
+    $_current_user = PMA_DBI_fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace("'", '', substr($_current_user, (strrpos($_current_user, '@') + 1)));
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {

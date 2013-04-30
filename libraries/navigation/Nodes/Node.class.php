@@ -395,7 +395,7 @@ class Node
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
             $query .= $this->_getWhereClause($searchClause); 
-            $retval = (int)PMA_DBI_fetch_value($query);
+            $retval = (int)PMA_DBI_fetchValue($query);
         } else {
             $query = "SHOW DATABASES ";
             if (! empty($searchClause)) {

@@ -419,7 +419,7 @@ function PMA_DBI_insert_id($link = null)
     // When no controluser is defined, using mysqli_insert_id($link)
     // does not always return the last insert id due to a mixup with
     // the tracking mechanism, but this works:
-    return PMA_DBI_fetch_value('SELECT LAST_INSERT_ID();', 0, 0, $link);
+    return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     // Curiously, this problem does not happen with the mysql extension but
     // there is another problem with BIGINT primary keys so PMA_DBI_insert_id()
     // in the mysql extension also uses this logic.

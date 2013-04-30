@@ -100,7 +100,7 @@ foreach ($the_tables as $key => $table) {
     // and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
-    $show_create_table = PMA_DBI_fetch_value(
+    $show_create_table = PMA_DBI_fetchValue(
         'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table),
         0, 1

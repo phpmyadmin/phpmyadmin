@@ -1079,7 +1079,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<span class="options">' . "\n"
         . '    <select name="pred_hostname" id="select_pred_hostname" '
         . 'title="' . __('Host') . '"' . "\n";
-    $_current_user = PMA_DBI_fetch_value('SELECT USER();');
+    $_current_user = PMA_DBI_fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace(
             "'",
@@ -3006,7 +3006,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
 
-    $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
+    $user_does_not_exists = (bool) ! PMA_DBI_fetchValue($sql);
 
     if ($user_does_not_exists) {
         $html_output .= PMA_Message::error(

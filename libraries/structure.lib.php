@@ -189,7 +189,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $default_engine = PMA_DBI_fetch_value(
+        $default_engine = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE \'storage_engine\';',
             0,
             1
@@ -2255,7 +2255,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
-    $show_create_table = PMA_DBI_fetch_value(
+    $show_create_table = PMA_DBI_fetchValue(
         'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
         0, 1
     );

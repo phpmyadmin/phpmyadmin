@@ -269,7 +269,7 @@ function PMA_DBI_convertMessage($message)
         'german'        => 'CP1252', //'latin1',
     );
 
-    $server_language = PMA_DBI_fetch_value(
+    $server_language = PMA_DBI_fetchValue(
         'SHOW VARIABLES LIKE \'language\';',
         0,
         1
@@ -1449,7 +1449,7 @@ function PMA_DBI_getVariable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
     default:
         $modifier = '';
     }
-    return PMA_DBI_fetch_value(
+    return PMA_DBI_fetchValue(
         'SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 0, 1, $link
     );
 }
@@ -1574,7 +1574,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  *
  * <code>
  * $sql = 'SELECT `name` FROM `user` WHERE `id` = 123';
- * $user_name = PMA_DBI_fetch_value($sql);
+ * $user_name = PMA_DBI_fetchValue($sql);
  * // produces
  * // $user_name = 'John Doe'
  * </code>
@@ -1589,7 +1589,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * @return mixed value of first field in first row from result
  *               or false if not found
  */
-function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
+function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
 {
     $value = false;
 
@@ -1941,7 +1941,7 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
     $query = 'SHOW CREATE ' . $which . ' '
         . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($name);
-    return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
+    return(PMA_DBI_fetchValue($query, 0, $returned_field[$which]));
 }
 
 /**

@@ -80,7 +80,7 @@ function PMA_EVN_getFooterLinks()
      * a form for toggling the state of the event scheduler
      */
     // Init options for the event scheduler toggle functionality
-    $es_state = PMA_DBI_fetch_value(
+    $es_state = PMA_DBI_fetchValue(
         "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
         0,
         1

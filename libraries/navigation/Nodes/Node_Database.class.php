@@ -65,7 +65,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $query  = "SHOW FULL TABLES FROM ";
                 $query .= PMA_Util::backquote($db);
@@ -96,7 +96,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $query  = "SHOW FULL TABLES FROM ";
                 $query .= PMA_Util::backquote($db);
@@ -127,7 +127,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
@@ -155,7 +155,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
@@ -182,7 +182,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $db    = PMA_Util::backquote($db);
                 $query = "SHOW EVENTS FROM $db ";

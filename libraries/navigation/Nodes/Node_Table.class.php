@@ -64,7 +64,7 @@ class Node_Table extends Node
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db'";
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
@@ -86,7 +86,7 @@ class Node_Table extends Node
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
-                $retval = (int)PMA_DBI_fetch_value($query);
+                $retval = (int)PMA_DBI_fetchValue($query);
             } else {
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
@@ -214,7 +214,7 @@ class Node_Table extends Node
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
             $query .= "AND `TABLE_NAME`='$table' ";
-            $retval = PMA_DBI_fetch_value($query);
+            $retval = PMA_DBI_fetchValue($query);
         } else {
             $db     = PMA_Util::backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";

@@ -5245,7 +5245,7 @@ class PMA_DisplayResults
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
-                $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
+                $_url_params['table'] = PMA_DBI_fetchValue("SHOW TABLES");
                 /* No result (probably no database selected) */
                 if ($_url_params['table'] === false) {
                     unset($_url_params['table']);

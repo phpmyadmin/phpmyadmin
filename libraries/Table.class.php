@@ -526,7 +526,7 @@ class PMA_Table
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
                 if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
-                    $row_count = PMA_DBI_fetch_value(
+                    $row_count = PMA_DBI_fetchValue(
                         'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                         . PMA_Util::backquote($table)
                     );
@@ -792,7 +792,7 @@ class PMA_Table
             if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
             } else {
-                $server_sql_mode = PMA_DBI_fetch_value(
+                $server_sql_mode = PMA_DBI_fetchValue(
                     "SHOW VARIABLES LIKE 'sql_mode'",
                     0,
                     1
@@ -1381,7 +1381,7 @@ class PMA_Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
-        $rows_count = PMA_DBI_fetch_value($sql_query);
+        $rows_count = PMA_DBI_fetchValue($sql_query);
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rows_count > $max_rows) {
             $num_rows_to_delete = $rows_count - $max_rows;

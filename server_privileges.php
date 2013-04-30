@@ -196,7 +196,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $hostname = '';
         break;
     case 'thishost':
-        $_user_name = PMA_DBI_fetch_value('SELECT USER()');
+        $_user_name = PMA_DBI_fetchValue('SELECT USER()');
         $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
         unset($_user_name);
         break;
@@ -204,7 +204,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql = "SELECT '1' FROM `mysql`.`user`"
         . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-    if (PMA_DBI_fetch_value($sql) == 1) {
+    if (PMA_DBI_fetchValue($sql) == 1) {
         $message = PMA_Message::error(__('The user %s already exists!'));
         $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;

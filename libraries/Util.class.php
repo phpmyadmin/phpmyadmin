@@ -1394,7 +1394,7 @@ class PMA_Util
             // and do not set a constant as we might be switching servers
             if (defined('PMA_MYSQL_INT_VERSION')
                 && (PMA_MYSQL_INT_VERSION >= 50037)
-                && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")
+                && PMA_DBI_fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
                 self::cacheSet('profiling_supported', true, true);
             } else {
@@ -3855,7 +3855,7 @@ class PMA_Util
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        $user = PMA_DBI_fetch_value("SELECT CURRENT_USER();");
+        $user = PMA_DBI_fetchValue("SELECT CURRENT_USER();");
         if ($user === false) {
             return false;
         }
@@ -3872,7 +3872,7 @@ class PMA_Util
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
-        $user_privileges = PMA_DBI_fetch_value(
+        $user_privileges = PMA_DBI_fetchValue(
             sprintf(
                 $query,
                 'USER_PRIVILEGES',
@@ -3889,7 +3889,7 @@ class PMA_Util
             // need to escape wildcards in db and table names, see bug #3518484
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
             $query .= " AND TABLE_SCHEMA='%s'";
-            $schema_privileges = PMA_DBI_fetch_value(
+            $schema_privileges = PMA_DBI_fetchValue(
                 sprintf(
                     $query,
                     'SCHEMA_PRIVILEGES',
@@ -3912,7 +3912,7 @@ class PMA_Util
             // need to escape wildcards in db and table names, see bug #3518484
             $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
             $query .= " AND TABLE_NAME='%s'";
-            $table_privileges = PMA_DBI_fetch_value(
+            $table_privileges = PMA_DBI_fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',

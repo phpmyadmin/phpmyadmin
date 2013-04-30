@@ -128,7 +128,7 @@ foreach ($tables as $table) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table);
-        $show_create_table = PMA_DBI_fetch_value(
+        $show_create_table = PMA_DBI_fetchValue(
             $show_create_table_query, 0, 1
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));

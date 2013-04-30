@@ -648,7 +648,7 @@ class ExportSql extends ExportPlugin
         /* Change timezone if we should export timestamps in UTC */
         if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
             $head .= 'SET time_zone = "+00:00";' . $crlf;
-            $GLOBALS['old_tz'] = PMA_DBI_fetch_value('SELECT @@session.time_zone');
+            $GLOBALS['old_tz'] = PMA_DBI_fetchValue('SELECT @@session.time_zone');
             PMA_DBI_query('SET time_zone = "+00:00"');
         }
 

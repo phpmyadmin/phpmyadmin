@@ -438,7 +438,7 @@ function PMA_DBI_insert_id($link = null)
     // and in the present function we don't know if the PK is BIGINT
     // so better play safe and use LAST_INSERT_ID()
     //
-    return PMA_DBI_fetch_value('SELECT LAST_INSERT_ID();', 0, 0, $link);
+    return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
 }
 
 /**

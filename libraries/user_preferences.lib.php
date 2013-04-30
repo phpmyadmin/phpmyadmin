@@ -102,7 +102,7 @@ function PMA_saveUserprefs(array $config_array)
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\'';
 
-    $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
+    $has_config = PMA_DBI_fetchValue($query, 0, 0, $GLOBALS['controllink']);
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '

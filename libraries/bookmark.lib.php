@@ -132,7 +132,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 
     $query .= ' AND ' . PMA_Util::backquote($id_field) . ' = ' . $id;
 
-    return PMA_DBI_fetch_value($query, 0, 0, $controllink);
+    return PMA_DBI_fetchValue($query, 0, 0, $controllink);
 } // end of the 'PMA_Bookmark_get()' function
 
 /**

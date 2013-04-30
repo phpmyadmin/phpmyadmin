@@ -55,7 +55,7 @@ class PMA_Partition
         if (! $already_checked) {
             if (PMA_MYSQL_INT_VERSION >= 50100) {
                 if (PMA_MYSQL_INT_VERSION < 50600) {
-                    if (PMA_DBI_fetch_value(
+                    if (PMA_DBI_fetchValue(
                         "SHOW VARIABLES LIKE 'have_partitioning';"
                     )) {
                         $have_partitioning = true;

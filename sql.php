@@ -735,7 +735,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
      * bug #2558 win: table list disappears (mixed case db names)
      * https://sourceforge.net/p/phpmyadmin/bugs/2558/
      * @todo RELEASE test and comit or rollback before release
-    $current_db = PMA_DBI_fetch_value('SELECT DATABASE()');
+    $current_db = PMA_DBI_fetchValue('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
         $reload = 1;
@@ -835,7 +835,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             // SELECT COUNT(*), f1 from t1 group by f1
             // and you click to sort on count(*)
             // }
-            $unlim_num_rows = PMA_DBI_fetch_value('SELECT FOUND_ROWS()');
+            $unlim_num_rows = PMA_DBI_fetchValue('SELECT FOUND_ROWS()');
         } // end else "just browsing"
 
     } else { // not $is_select

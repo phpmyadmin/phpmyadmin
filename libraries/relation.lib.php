@@ -519,7 +519,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
-        $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 1);
+        $show_create_table = PMA_DBI_fetchValue($show_create_table_query, 0, 1);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] as $one_key) {
@@ -901,7 +901,7 @@ function PMA_purgeHistory($username)
        ORDER BY `timevalue` DESC
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-    if ($max_time = PMA_DBI_fetch_value($search_query, 0, 0, $GLOBALS['controllink'])) {
+    if ($max_time = PMA_DBI_fetchValue($search_query, 0, 0, $GLOBALS['controllink'])) {
         PMA_queryAsControlUser(
             'DELETE FROM
                     ' . PMA_Util::backquote($cfgRelation['db']) . '.' . PMA_Util::backquote($cfgRelation['history']) . '
@@ -1108,7 +1108,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
             if (!empty($foreign_filter)) {
                 $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                 if ($res) {
-                    $the_total = PMA_DBI_fetch_value($res);
+                    $the_total = PMA_DBI_fetchValue($res);
                     @PMA_DBI_free_result($res);
                 } else {
                     $the_total = 0;
