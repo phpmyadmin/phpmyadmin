@@ -1717,7 +1717,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Row length'),
-            PMA_Util::formatNumber($showtable['Avg_row_length'], 0)
+            (PMA_Util::formatNumber($showtable['Avg_row_length'], 0) . ' ' . 'B')
         );
         $odd_row = !$odd_row;
     }
@@ -1747,6 +1747,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
             __('Creation'),
             PMA_Util::localisedDate(strtotime($showtable['Create_time']))
         );
+        $odd_row = !$odd_row;
     }
     if (isset($showtable['Update_time'])) {
         $html_output .= PMA_getHtmlForRowStatsTableRow(
@@ -2153,7 +2154,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<table id="tablespaceusage" class="data">'
-            . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
+            . '<caption class="tblHeaders">' . __('Space Usage') . '</caption>'
             . '<tbody>';
 
         $html_output .= PMA_getHtmlForSpaceUsageTableRow(
