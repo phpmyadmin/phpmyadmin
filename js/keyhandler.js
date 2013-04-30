@@ -18,7 +18,7 @@ AJAX.registerOnload('keyhandler.js', function() {
         onKeyDownArrowsHandler(event.originalEvent);
     });
 });
-console.log("cd");
+
 function onKeyDownArrowsHandler(e)
 {
     e = e||window.event;
