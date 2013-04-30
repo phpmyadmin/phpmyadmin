@@ -1429,7 +1429,7 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
  *
  * @return mixed   value for mysql server variable
  */
-function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
+function PMA_DBI_getVariable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
 {
     if ($link === null) {
         if (isset($GLOBALS['userlink'])) {
