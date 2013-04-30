@@ -788,7 +788,7 @@ class PMA_Util
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
-            $tables = PMA_DBI_get_tables_full(
+            $tables = PMA_DBI_getTablesFull(
                 $db, false, false, null, $limit_offset, $limit_count
             );
             if ($GLOBALS['cfg']['NaturalOrder']) {

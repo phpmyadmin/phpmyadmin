@@ -293,7 +293,7 @@ class PMA_Table
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
      *
-     * @todo PMA_DBI_get_tables_full needs to be merged somehow into this class
+     * @todo PMA_DBI_getTablesFull needs to be merged somehow into this class
      * or at least better documented
      *
      * @return mixed
@@ -306,7 +306,7 @@ class PMA_Table
         }
 
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
-            PMA_DBI_get_tables_full($db, $table);
+            PMA_DBI_getTablesFull($db, $table);
         }
 
         if (! isset(PMA_Table::$cache[$db][$table])) {
@@ -506,7 +506,7 @@ class PMA_Table
 
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                    $tmp_tables = PMA_DBI_get_tables_full($db, $table);
+                    $tmp_tables = PMA_DBI_getTablesFull($db, $table);
                     if (isset($tmp_tables[$table])) {
                         PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
                     }

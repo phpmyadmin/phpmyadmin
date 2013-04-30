@@ -17,9 +17,9 @@ $die_save_pos = 0;
 require_once 'pmd_save_pos.php';
 extract($_POST, EXTR_SKIP);
 
-$tables = PMA_DBI_get_tables_full($db, $T1);
+$tables = PMA_DBI_getTablesFull($db, $T1);
 $type_T1 = strtoupper($tables[$T1]['ENGINE']);
-$tables = PMA_DBI_get_tables_full($db, $T2);
+$tables = PMA_DBI_getTablesFull($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 // native foreign key

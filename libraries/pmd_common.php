@@ -27,7 +27,7 @@ function get_tables_info()
     $GLOBALS['PMD']['OWNER'] = array();
     $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
 
-    $tables = PMA_DBI_get_tables_full($GLOBALS['db']);
+    $tables = PMA_DBI_getTablesFull($GLOBALS['db']);
     // seems to be needed later
     PMA_DBI_select_db($GLOBALS['db']);
     $i = 0;

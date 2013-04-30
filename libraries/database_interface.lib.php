@@ -392,10 +392,10 @@ function PMA_usort_comparison_callback($a, $b)
  * if $tbl_is_group is 'comment, $table is used as filter for table comments
  *
  * <code>
- * PMA_DBI_get_tables_full('my_database');
- * PMA_DBI_get_tables_full('my_database', 'my_table'));
- * PMA_DBI_get_tables_full('my_database', 'my_tables_', true));
- * PMA_DBI_get_tables_full('my_database', 'my_tables_', 'comment'));
+ * PMA_DBI_getTablesFull('my_database');
+ * PMA_DBI_getTablesFull('my_database', 'my_table'));
+ * PMA_DBI_getTablesFull('my_database', 'my_tables_', true));
+ * PMA_DBI_getTablesFull('my_database', 'my_tables_', 'comment'));
  * </code>
  *
  * @param string          $database     database
@@ -411,7 +411,7 @@ function PMA_usort_comparison_callback($a, $b)
  *
  * @return array           list of tables in given db(s)
  */
-function PMA_DBI_get_tables_full($database, $table = false,
+function PMA_DBI_getTablesFull($database, $table = false,
     $tbl_is_group = false,  $link = null, $limit_offset = 0,
     $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
 ) {
@@ -802,7 +802,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
 function PMA_DBI_getVirtualTables($db)
 {
 
-    $tables_full = PMA_DBI_get_tables_full($db);
+    $tables_full = PMA_DBI_getTablesFull($db);
     $views = array();
 
     foreach ($tables_full as $table=>$tmp) {

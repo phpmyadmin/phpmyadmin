@@ -163,7 +163,7 @@ if (! isset($sot_ready)) {
 
     if (! empty($tbl_group)) {
         // only tables for selected group
-        $tables = PMA_DBI_get_tables_full(
+        $tables = PMA_DBI_getTablesFull(
             $db, $tbl_group, true, null, 0, false, $sort, $sort_order
         );
     } else {
@@ -180,12 +180,12 @@ if (! isset($sot_ready)) {
              *
              * @todo Page selector for table names?
              */
-            $tables = PMA_DBI_get_tables_full(
+            $tables = PMA_DBI_getTablesFull(
                 $db, false, false, null, 0, false, $sort, $sort_order
             );
         } else {
             // fetch the details for a possible limited subset
-            $tables = PMA_DBI_get_tables_full(
+            $tables = PMA_DBI_getTablesFull(
                 $db, false, false, null, $pos, true, $sort, $sort_order
             );
         }

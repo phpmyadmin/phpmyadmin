@@ -716,7 +716,7 @@ class PMA_User_Schema
              * and PBXT tables, as this logic is just to put
              * the tables on the layout, not to determine relations
              */
-            $tables = PMA_DBI_get_tables_full($db);
+            $tables = PMA_DBI_getTablesFull($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
                 if (PMA_Util::isForeignKeySupported($table_properties['ENGINE'])) {

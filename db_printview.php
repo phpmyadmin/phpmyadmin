@@ -30,7 +30,7 @@ $cfgRelation = PMA_getRelationsParam();
  * Gets the list of the table in the current db and informations about these
  * tables if possible
  *
- * @todo merge this speedup _optionaly_ into PMA_DBI_get_tables_full()
+ * @todo merge this speedup _optionaly_ into PMA_DBI_getTablesFull()
  *
 // speedup view on locked tables
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
@@ -82,7 +82,7 @@ if (! isset($sot_ready)) {
  * If there is at least one table, displays the printer friendly view, else
  * an error message
  */
-$tables = PMA_DBI_get_tables_full($db);
+$tables = PMA_DBI_getTablesFull($db);
 $num_tables = count($tables);
 
 echo '<br />';
