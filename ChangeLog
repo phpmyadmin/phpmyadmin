@@ -7,7 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3890 [import] Web server upload directory import fails
 - bug #3891 [import] Server upload folder import file name missing in success message 
 + rfe #1421 [auth] Add retry button on connection failure with config auth
-+ rfe #1422 [interface] Provide feedback if no columns selected for multi-submit
+- bug #3894 [interface] Provide feedback if no columns selected for multi-submit
 - bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
 - bug #3885 [browse] display_binary_as_hex option causes unexpected behavior
 
