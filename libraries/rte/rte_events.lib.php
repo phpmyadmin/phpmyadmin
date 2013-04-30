@@ -97,7 +97,7 @@ function PMA_EVN_handleEditor()
             // Execute the created query
             if (! empty($_REQUEST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
-                $create_item = PMA_DBI_get_definition(
+                $create_item = PMA_DBI_getDefinition(
                     $db,
                     'EVENT',
                     $_REQUEST['item_original_name']

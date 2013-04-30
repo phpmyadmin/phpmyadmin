@@ -66,7 +66,7 @@ function PMA_EVN_handleExport()
 
     if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
         $item_name = $_GET['item_name'];
-        $export_data = PMA_DBI_get_definition($db, 'EVENT', $item_name);
+        $export_data = PMA_DBI_getDefinition($db, 'EVENT', $item_name);
         PMA_RTE_handleExport($item_name, $export_data);
     }
 } // end PMA_EVN_handleExport()
@@ -86,7 +86,7 @@ function PMA_RTN_handleExport()
         && ! empty($_GET['item_type'])
     ) {
         if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
-            $export_data = PMA_DBI_get_definition(
+            $export_data = PMA_DBI_getDefinition(
                 $db,
                 $_GET['item_type'],
                 $_GET['item_name']

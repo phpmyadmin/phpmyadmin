@@ -464,7 +464,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($procedure_name)
                         . $delimiter . $crlf;
                 }
-                $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name)
+                $text .= PMA_DBI_getDefinition($db, 'PROCEDURE', $procedure_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -481,7 +481,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($function_name)
                         . $delimiter . $crlf;
                 }
-                $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name)
+                $text .= PMA_DBI_getDefinition($db, 'FUNCTION', $function_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -816,7 +816,7 @@ class ExportSql extends ExportPlugin
                             . PMA_Util::backquote($event_name)
                             . $delimiter . $crlf;
                     }
-                    $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name)
+                    $text .= PMA_DBI_getDefinition($db, 'EVENT', $event_name)
                         . $delimiter . $crlf . $crlf;
                 }
 

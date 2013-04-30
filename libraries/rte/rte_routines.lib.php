@@ -283,7 +283,7 @@ function PMA_RTN_handleEditor()
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
-                    $create_routine = PMA_DBI_get_definition(
+                    $create_routine = PMA_DBI_getDefinition(
                         $db, $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
                     );
@@ -628,7 +628,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
     $parsed_query = PMA_SQP_parse(
-        PMA_DBI_get_definition(
+        PMA_DBI_getDefinition(
             $db,
             $routine['ROUTINE_TYPE'],
             $routine['SPECIFIC_NAME']

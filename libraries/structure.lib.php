@@ -1445,7 +1445,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $create_view = PMA_DBI_get_definition(
+    $create_view = PMA_DBI_getDefinition(
         $GLOBALS['db'], 'VIEW', $GLOBALS['table']
     );
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);

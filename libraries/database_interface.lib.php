@@ -1930,7 +1930,7 @@ function PMA_DBI_getProceduresOrFunctions($db, $which, $link = null)
  *
  * @return string the definition
  */
-function PMA_DBI_get_definition($db, $which, $name, $link = null)
+function PMA_DBI_getDefinition($db, $which, $name, $link = null)
 {
     $returned_field = array(
         'PROCEDURE' => 'Create Procedure',

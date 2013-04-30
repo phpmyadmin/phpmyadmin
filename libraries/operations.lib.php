@@ -298,7 +298,7 @@ function PMA_runProcedureAndFunctionDefinitions($db)
     if ($procedure_names) {
         foreach ($procedure_names as $procedure_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition(
+            $tmp_query = PMA_DBI_getDefinition(
                 $db, 'PROCEDURE', $procedure_name
             );
             // collect for later display
@@ -312,7 +312,7 @@ function PMA_runProcedureAndFunctionDefinitions($db)
     if ($function_names) {
         foreach ($function_names as $function_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
+            $tmp_query = PMA_DBI_getDefinition($db, 'FUNCTION', $function_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -518,7 +518,7 @@ function PMA_runEventDefinitionsForDb($db)
     if ($event_names) {
         foreach ($event_names as $event_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition($db, 'EVENT', $event_name);
+            $tmp_query = PMA_DBI_getDefinition($db, 'EVENT', $event_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);

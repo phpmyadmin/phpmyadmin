@@ -308,7 +308,7 @@ class ExportXml extends ExportPlugin
                             . $function . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'FUNCTION', $function);
+                        $sql = PMA_DBI_getDefinition($db, 'FUNCTION', $function);
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -333,7 +333,7 @@ class ExportXml extends ExportPlugin
                             . $procedure . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure);
+                        $sql = PMA_DBI_getDefinition($db, 'PROCEDURE', $procedure);
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
