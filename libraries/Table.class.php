@@ -1181,7 +1181,7 @@ class PMA_Table
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = PMA_DBI_get_triggers($this->getDbName(), $this->getName(), '');
+        $triggers = PMA_DBI_getTriggers($this->getDbName(), $this->getName(), '');
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {

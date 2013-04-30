@@ -44,7 +44,7 @@ function PMA_TRI_main()
     /**
      * Display a list of available triggers
      */
-    $items = PMA_DBI_get_triggers($db, $table);
+    $items = PMA_DBI_getTriggers($db, $table);
     echo PMA_RTE_getList('trigger', $items);
     /**
      * Display a link for adding a new trigger,
@@ -156,7 +156,7 @@ function PMA_TRI_handleEditor()
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
-                $items = PMA_DBI_get_triggers($db, $table, '');
+                $items = PMA_DBI_getTriggers($db, $table, '');
                 $trigger = false;
                 foreach ($items as $value) {
                     if ($value['name'] == $_REQUEST['item_name']) {
@@ -280,7 +280,7 @@ function PMA_TRI_getDataFromName($name)
     global $db, $table, $_REQUEST;
 
     $temp = array();
-    $items = PMA_DBI_get_triggers($db, $table, '');
+    $items = PMA_DBI_getTriggers($db, $table, '');
     foreach ($items as $value) {
         if ($value['name'] == $name) {
             $temp = $value;

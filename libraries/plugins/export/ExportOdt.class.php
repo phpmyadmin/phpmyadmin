@@ -569,7 +569,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -647,7 +647,7 @@ class ExportOdt extends ExportPlugin
             );
             break;
         case 'triggers':
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $GLOBALS['odt_buffer'] .=
                     '<text:h text:outline-level="2" text:style-name="Heading_2"'

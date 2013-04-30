@@ -275,7 +275,7 @@ class ExportXml extends ExportPlugin
                     && $GLOBALS['xml_export_triggers']
                 ) {
                     // Export triggers
-                    $triggers = PMA_DBI_get_triggers($db, $table);
+                    $triggers = PMA_DBI_getTriggers($db, $table);
                     if ($triggers) {
                         foreach ($triggers as $trigger) {
                             $code = $trigger['create'];

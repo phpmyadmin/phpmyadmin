@@ -1953,7 +1953,7 @@ function PMA_DBI_getDefinition($db, $which, $name, $link = null)
  *
  * @return array information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
+function PMA_DBI_getTriggers($db, $table = '', $delimiter = '//')
 {
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support triggers

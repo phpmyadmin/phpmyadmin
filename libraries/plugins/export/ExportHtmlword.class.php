@@ -486,7 +486,7 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
 
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
@@ -557,7 +557,7 @@ class ExportHtmlword extends ExportPlugin
             break;
         case 'triggers':
             $dump = '';
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($table)

@@ -462,7 +462,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = PMA_DBI_get_triggers($db, $each_table, '');
+            $triggers = PMA_DBI_getTriggers($db, $each_table, '');
 
             if (! PMA_Table::moveCopy(
                 $db, $each_table, $_REQUEST['newname'], $each_table,

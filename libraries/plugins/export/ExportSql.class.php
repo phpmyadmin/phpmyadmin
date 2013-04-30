@@ -1460,7 +1460,7 @@ class ExportSql extends ExportPlugin
             break;
         case 'triggers':
             $dump = '';
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $dump .=  $this->_possibleCRLF()
                     . $this->_exportComment()
