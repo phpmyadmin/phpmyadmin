@@ -1344,7 +1344,7 @@ function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
  *
  * @return null|array
  */
-function PMA_DBI_get_column_names($database, $table, $link = null)
+function PMA_DBI_getColumnNames($database, $table, $link = null)
 {
     $sql = PMA_DBI_getColumnsSql($database, $table);
     // We only need the 'Field' column which contains the table's column names
