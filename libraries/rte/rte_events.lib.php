@@ -67,7 +67,7 @@ function PMA_EVN_main()
     $where   = "EVENT_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` "
              . "WHERE $where ORDER BY `EVENT_NAME` ASC;";
-    $items   = PMA_DBI_fetch_result($query);
+    $items   = PMA_DBI_fetchResult($query);
     echo PMA_RTE_getList('event', $items);
     /**
      * Display a link for adding a new event, if

@@ -494,7 +494,7 @@ class ImportCsv extends AbstractImportCsv
             }
 
             if (strlen($db)) {
-                $result = PMA_DBI_fetch_result('SHOW TABLES');
+                $result = PMA_DBI_fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE '.(count($result) + 1);
             } else {
                 $tbl_name = 'TBL_NAME';

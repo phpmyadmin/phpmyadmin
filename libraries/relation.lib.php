@@ -512,7 +512,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         if (strlen($column)) {
             $rel_query .= ' AND `master_field` = \'' . PMA_Util::sqlAddSlashes($column) . '\'';
         }
-        $foreign = PMA_DBI_fetch_result($rel_query, 'master_field', null, $GLOBALS['controllink']);
+        $foreign = PMA_DBI_fetchResult($rel_query, 'master_field', null, $GLOBALS['controllink']);
     }
 
     if (($source == 'both' || $source == 'foreign') && strlen($table)) {
@@ -868,7 +868,7 @@ function PMA_getHistory($username)
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($username) . '\'
        ORDER BY `id` DESC';
 
-    return PMA_DBI_fetch_result($hist_query, null, null, $GLOBALS['controllink']);
+    return PMA_DBI_fetchResult($hist_query, null, null, $GLOBALS['controllink']);
 } // end of 'PMA_getHistory()' function
 
 /**

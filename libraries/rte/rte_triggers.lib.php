@@ -334,7 +334,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
     $query .= "WHERE `TABLE_SCHEMA`='" . PMA_Util::sqlAddSlashes($db) . "' ";
     $query .= "AND `TABLE_TYPE`='BASE TABLE'";
-    $tables = PMA_DBI_fetch_result($query);
+    $tables = PMA_DBI_fetchResult($query);
 
     // Create the output
     $retval  = "";

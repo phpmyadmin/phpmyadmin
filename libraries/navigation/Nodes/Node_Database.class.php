@@ -235,7 +235,7 @@ class Node_Database extends Node
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+                $retval = PMA_DBI_fetchResult($query);
             } else {
                 $query  = " SHOW FULL TABLES FROM ";
                 $query .= PMA_Util::backquote($db);
@@ -278,7 +278,7 @@ class Node_Database extends Node
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+                $retval = PMA_DBI_fetchResult($query);
             } else {
                 $query  = "SHOW FULL TABLES FROM ";
                 $query .= PMA_Util::backquote($db);
@@ -321,7 +321,7 @@ class Node_Database extends Node
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+                $retval = PMA_DBI_fetchResult($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
@@ -361,7 +361,7 @@ class Node_Database extends Node
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+                $retval = PMA_DBI_fetchResult($query);
             } else {
                 $db    = PMA_Util::sqlAddSlashes($db);
                 $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
@@ -400,7 +400,7 @@ class Node_Database extends Node
                 }
                 $query .= "ORDER BY `EVENT_NAME` ASC ";
                 $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+                $retval = PMA_DBI_fetchResult($query);
             } else {
                 $db    = PMA_Util::backquote($db);
                 $query = "SHOW EVENTS FROM $db ";

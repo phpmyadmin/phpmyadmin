@@ -365,7 +365,7 @@ class Node
         $query .= $this->_getWhereClause($searchClause); 
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
-        return PMA_DBI_fetch_result($query);
+        return PMA_DBI_fetchResult($query);
     }
 
     /**

@@ -52,7 +52,7 @@ function PMA_RTN_main()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
-    $items    = PMA_DBI_fetch_result(
+    $items    = PMA_DBI_fetchResult(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
     echo PMA_RTE_getList('routine', $items);

@@ -42,7 +42,7 @@ if ($is_superuser && ! PMA_DRIZZLE) {
  */
 $binary_logs = PMA_DRIZZLE
     ? null
-    : PMA_DBI_fetch_result(
+    : PMA_DBI_fetchResult(
         'SHOW MASTER LOGS',
         'Log_name',
         null,

@@ -1270,7 +1270,7 @@ function PMA_getUsernameAndHostnameLength()
  */
 function PMA_getGrants($user, $host)
 {
-    $grants = PMA_DBI_fetch_result(
+    $grants = PMA_DBI_fetchResult(
         "SHOW GRANTS FOR '"
         . PMA_Util::sqlAddSlashes($user) . "'@'"
         . PMA_Util::sqlAddSlashes($host) . "'"
@@ -2232,7 +2232,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     // get data
 
     // we also want privielgs for this user not in table `db` but in other table
-    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+    $tables = PMA_DBI_fetchResult('SHOW TABLES FROM `mysql`;');
 
     /**
      * no db name given, so we want all privs for the given user
@@ -2264,7 +2264,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
  */
 function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
+    $pred_db_array =PMA_DBI_fetchResult('SHOW DATABASES;');
 
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database') . ':</label>' . "\n";
@@ -2615,7 +2615,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
 function PMA_getDbRightsForUserOverview()
 {
     // we also want users not in table `user` but in other table
-    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+    $tables = PMA_DBI_fetchResult('SHOW TABLES FROM `mysql`;');
 
     $tables_to_search_for_users = array(
         'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',

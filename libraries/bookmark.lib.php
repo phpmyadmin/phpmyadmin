@@ -65,7 +65,7 @@ function PMA_Bookmark_getList($db)
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
         . ' ORDER BY label';
-    $per_user = PMA_DBI_fetch_result(
+    $per_user = PMA_DBI_fetchResult(
         $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
     );
 
@@ -74,7 +74,7 @@ function PMA_Bookmark_getList($db)
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'\''
         . ' ORDER BY label';
-    $global = PMA_DBI_fetch_result(
+    $global = PMA_DBI_fetchResult(
         $query, 'id', 'label', $controllink, PMA_DBI_QUERY_STORE
     );
 

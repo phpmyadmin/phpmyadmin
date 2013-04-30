@@ -57,19 +57,19 @@ class PMA_ServerStatusData
         /**
          * get status from server
          */
-        $server_status = PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1);
+        $server_status = PMA_DBI_fetchResult('SHOW GLOBAL STATUS', 0, 1);
         if (PMA_DRIZZLE) {
             // Drizzle doesn't put query statistics into variables, add it
             $sql = "SELECT concat('Com_', variable_name), variable_value
                 FROM data_dictionary.GLOBAL_STATEMENTS";
-            $statements = PMA_DBI_fetch_result($sql, 0, 1);
+            $statements = PMA_DBI_fetchResult($sql, 0, 1);
             $server_status = array_merge($server_status, $statements);
         }
 
         /**
          * for some calculations we require also some server settings
          */
-        $server_variables = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1);
+        $server_variables = PMA_DBI_fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
         /**
          * cleanup of some deprecated values
@@ -275,7 +275,7 @@ class PMA_ServerStatusData
         }
 
         if (PMA_DRIZZLE) {
-            $used_queries = PMA_DBI_fetch_result(
+            $used_queries = PMA_DBI_fetchResult(
                 'SELECT * FROM data_dictionary.global_statements',
                 0,
                 1

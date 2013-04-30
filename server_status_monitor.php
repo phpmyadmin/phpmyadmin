@@ -107,7 +107,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required status variables
             if (count($statusVars)) {
-                $statusVarValues = PMA_DBI_fetch_result(
+                $statusVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL STATUS WHERE Variable_name='"
                     . implode("' OR Variable_name='", $statusVars) . "'",
                     0,
@@ -119,7 +119,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required server variables
             if (count($serverVars)) {
-                $serverVarValues = PMA_DBI_fetch_result(
+                $serverVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                     . implode("' OR Variable_name='", $serverVars) . "'",
                     0,
@@ -335,7 +335,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         }
 
-        $loggingVars = PMA_DBI_fetch_result(
+        $loggingVars = PMA_DBI_fetchResult(
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,

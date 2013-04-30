@@ -342,7 +342,7 @@ function PMA_DBI_convertMessage($message)
  */
 function PMA_DBI_getTables($database, $link = null)
 {
-    return PMA_DBI_fetch_result(
+    return PMA_DBI_fetchResult(
         'SHOW TABLES FROM ' . PMA_Util::backquote($database) . ';',
         null,
         0,
@@ -541,7 +541,7 @@ function PMA_DBI_getTablesFull($database, $table = false,
             $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
         }
 
-        $tables = PMA_DBI_fetch_result(
+        $tables = PMA_DBI_fetchResult(
             $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
         );
         unset($sql_where_table, $sql);
@@ -613,7 +613,7 @@ function PMA_DBI_getTablesFull($database, $table = false,
             }
 
             if (!$each_tables) {
-                $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+                $each_tables = PMA_DBI_fetchResult($sql, 'Name', null, $link);
             }
 
             if ($useStatusCache) {
@@ -935,7 +935,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
                 . $limit;
         }
 
-        $databases = PMA_DBI_fetch_result($sql, 'SCHEMA_NAME', null, $link);
+        $databases = PMA_DBI_fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
         $mysql_error = PMA_DBI_getError($link);
         if (! count($databases) && $GLOBALS['errno']) {
@@ -1119,7 +1119,7 @@ function PMA_DBI_getColumnsFull($database = null, $table = null,
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
         }
 
-        $columns = PMA_DBI_fetch_result($sql, $array_keys, null, $link);
+        $columns = PMA_DBI_fetchResult($sql, $array_keys, null, $link);
         unset($sql_wheres, $sql);
     } else {
         if (null === $database) {
@@ -1145,7 +1145,7 @@ function PMA_DBI_getColumnsFull($database = null, $table = null,
             $sql .= " LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'";
         }
 
-        $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
+        $columns = PMA_DBI_fetchResult($sql, 'Field', null, $link);
     }
     $ordinal_position = 1;
     foreach ($columns as $column_name => $each_column) {
@@ -1294,7 +1294,7 @@ function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
     $link = null
 ) {
     $sql = PMA_DBI_getColumnsSql($database, $table, $column, $full);
-    $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
+    $fields = PMA_DBI_fetchResult($sql, 'Field', null, $link);
     if (! is_array($fields) || count($fields) == 0) {
         return null;
     }
@@ -1324,7 +1324,7 @@ function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
                     AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                     AND i.is_unique
                         AND NOT i.is_nullable";
-            $fs = PMA_DBI_fetch_result($sql, 'index_name', null, $link);
+            $fs = PMA_DBI_fetchResult($sql, 'index_name', null, $link);
             $fs = $fs ? array_shift($fs) : array();
             foreach ($fs as $f) {
                 $fields[$f]['Key'] = 'PRI';
@@ -1348,7 +1348,7 @@ function PMA_DBI_getColumnNames($database, $table, $link = null)
 {
     $sql = PMA_DBI_getColumnsSql($database, $table);
     // We only need the 'Field' column which contains the table's column names
-    $fields = array_keys(PMA_DBI_fetch_result($sql, 'Field', null, $link));
+    $fields = array_keys(PMA_DBI_fetchResult($sql, 'Field', null, $link));
 
     if ( ! is_array($fields) || count($fields) == 0 ) {
         return null;
@@ -1412,7 +1412,7 @@ function PMA_DBI_getTableIndexesSql($database, $table, $where = null)
 function PMA_DBI_get_table_indexes($database, $table, $link = null)
 {
     $sql = PMA_DBI_getTableIndexesSql($database, $table);
-    $indexes = PMA_DBI_fetch_result($sql, null, null, $link);
+    $indexes = PMA_DBI_fetchResult($sql, null, null, $link);
 
     if (! is_array($indexes) || count($indexes) < 1) {
         return array();
@@ -1562,7 +1562,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             WHERE p.plugin_type = 'StorageEngine'
                 AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                 AND p.is_active = 'YES'";
-        $engines = PMA_DBI_fetch_result($sql, 'plugin_name', null, $link);
+        $engines = PMA_DBI_fetchResult($sql, 'plugin_name', null, $link);
         PMA_Util::cacheSet('drizzle_engines', $engines, true);
     }
 }
@@ -1678,39 +1678,39 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
  *
  * <code>
  * $sql = 'SELECT * FROM `user`';
- * $users = PMA_DBI_fetch_result($sql);
+ * $users = PMA_DBI_fetchResult($sql);
  * // produces
  * // $users[] = array('id' => 123, 'name' => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 'id');
+ * $users = PMA_DBI_fetchResult($sql, 'id');
  * // produces
  * // $users['123'] = array('id' => 123, 'name' => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 0);
+ * $users = PMA_DBI_fetchResult($sql, 0);
  * // produces
  * // $users['123'] = array(0 => 123, 1 => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 'id', 'name');
+ * $users = PMA_DBI_fetchResult($sql, 'id', 'name');
  * // or
- * $users = PMA_DBI_fetch_result($sql, 0, 1);
+ * $users = PMA_DBI_fetchResult($sql, 0, 1);
  * // produces
  * // $users['123'] = 'John Doe'
  *
  * $sql = 'SELECT `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql);
+ * $users = PMA_DBI_fetchResult($sql);
  * // produces
  * // $users[] = 'John Doe'
  *
  * $sql = 'SELECT `group`, `name` FROM `user`'
- * $users = PMA_DBI_fetch_result($sql, array('group', null), 'name');
+ * $users = PMA_DBI_fetchResult($sql, array('group', null), 'name');
  * // produces
  * // $users['admin'][] = 'John Doe'
  *
  * $sql = 'SELECT `group`, `name` FROM `user`'
- * $users = PMA_DBI_fetch_result($sql, array('group', 'name'), 'id');
+ * $users = PMA_DBI_fetchResult($sql, array('group', 'name'), 'id');
  * // produces
  * // $users['admin']['John Doe'] = '123'
  * </code>
@@ -1725,7 +1725,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
  *
  * @return array resultrows or values indexed by $key
  */
-function PMA_DBI_fetch_result($result, $key = null, $value = null,
+function PMA_DBI_fetchResult($result, $key = null, $value = null,
     $link = null, $options = 0
 ) {
     $resultrows = array();
@@ -1855,7 +1855,7 @@ function PMA_DBI_get_warnings($link = null)
         }
     }
 
-    return PMA_DBI_fetch_result('SHOW WARNINGS', null, null, $link);
+    return PMA_DBI_fetchResult('SHOW WARNINGS', null, null, $link);
 }
 
 /**
@@ -1910,7 +1910,7 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
         // Drizzle doesn't support functions and procedures
         return array();
     }
-    $shows = PMA_DBI_fetch_result('SHOW ' . $which . ' STATUS;', null, null, $link);
+    $shows = PMA_DBI_fetchResult('SHOW ' . $which . ' STATUS;', null, null, $link);
     $result = array();
     foreach ($shows as $one_show) {
         if ($one_show['Db'] == $db && $one_show['Type'] == $which) {
@@ -1982,7 +1982,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
         }
     }
 
-    if ($triggers = PMA_DBI_fetch_result($query)) {
+    if ($triggers = PMA_DBI_fetchResult($query)) {
         foreach ($triggers as $trigger) {
             if ($GLOBALS['cfg']['Server']['DisableIS']) {
                 $trigger['TRIGGER_NAME'] = $trigger['Trigger'];

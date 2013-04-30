@@ -511,7 +511,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
  */
 function PMA_runEventDefinitionsForDb($db)
 {
-    $event_names = PMA_DBI_fetch_result(
+    $event_names = PMA_DBI_fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
         . PMA_Util::sqlAddSlashes($db, true) . '\';'
     );

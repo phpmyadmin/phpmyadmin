@@ -199,7 +199,7 @@ class PMA_Table
         }
 
         // query information_schema
-        $result = PMA_DBI_fetch_result(
+        $result = PMA_DBI_fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -1256,7 +1256,7 @@ class PMA_Table
             $this->getName(),
             'Non_unique = 0'
         );
-        $uniques = PMA_DBI_fetch_result(
+        $uniques = PMA_DBI_fetchResult(
             $sql,
             array('Key_name', null),
             'Column_name'
@@ -1293,7 +1293,7 @@ class PMA_Table
             $this->getName(),
             'Seq_in_index = 1'
         );
-        $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
+        $indexed = PMA_DBI_fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1316,7 +1316,7 @@ class PMA_Table
     public function getColumns($backquoted = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $indexed = PMA_DBI_fetch_result($sql, 'Field', 'Field');
+        $indexed = PMA_DBI_fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {

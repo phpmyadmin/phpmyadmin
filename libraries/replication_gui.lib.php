@@ -184,7 +184,7 @@ function PMA_replication_print_slaves_table($hidden = false)
 {
 
     // Fetch data
-    $data = PMA_DBI_fetch_result('SHOW SLAVE HOSTS', null, null);
+    $data = PMA_DBI_fetchResult('SHOW SLAVE HOSTS', null, null);
 
     echo '  <br />';
     echo '  <div id="replication_slaves_section" style="' . ($hidden ? 'display: none;' : '') . '"> ';

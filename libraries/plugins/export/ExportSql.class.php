@@ -791,7 +791,7 @@ class ExportSql extends ExportPlugin
             $delimiter = '$$';
 
             if (PMA_MYSQL_INT_VERSION > 50100) {
-                $event_names = PMA_DBI_fetch_result(
+                $event_names = PMA_DBI_fetchResult(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
                     . ' EVENT_SCHEMA= \''
                     . PMA_Util::sqlAddSlashes($db, true)

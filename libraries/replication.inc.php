@@ -13,12 +13,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * get master replication from server
  */
-$server_master_replication = PMA_DBI_fetch_result('SHOW MASTER STATUS');
+$server_master_replication = PMA_DBI_fetchResult('SHOW MASTER STATUS');
 
 /**
  * get slave replication from server
  */
-$server_slave_replication = PMA_DBI_fetch_result('SHOW SLAVE STATUS');
+$server_slave_replication = PMA_DBI_fetchResult('SHOW SLAVE STATUS');
 
 /**
  * replication types
@@ -251,7 +251,7 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
  */
 function PMA_replication_slave_bin_log_master($link = null)
 {
-    $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
+    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
     $output = array();
 
     if (! empty($data)) {
@@ -272,7 +272,7 @@ function PMA_replication_slave_bin_log_master($link = null)
 function PMA_replication_master_replicated_dbs($link = null)
 {
     // let's find out, which databases are replicated
-    $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
+    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
 
     $do_db     = array();
     $ignore_db = array();

@@ -144,8 +144,8 @@ $output .= PMA_Util::getImage(
 /**
  * Sends the queries and buffers the results
  */
-$serverVarsSession = PMA_DBI_fetch_result('SHOW SESSION VARIABLES;', 0, 1);
-$serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
+$serverVarsSession = PMA_DBI_fetchResult('SHOW SESSION VARIABLES;', 0, 1);
+$serverVars = PMA_DBI_fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
 
 /**

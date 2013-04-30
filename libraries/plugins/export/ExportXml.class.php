@@ -207,7 +207,7 @@ class ExportXml extends ExportPlugin
 
         if ($export_struct) {
             if (PMA_DRIZZLE) {
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     "SELECT
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
@@ -216,7 +216,7 @@ class ExportXml extends ExportPlugin
                     . PMA_Util::sqlAddSlashes($db) . "'"
                 );
             } else {
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                     . ' = \''.PMA_Util::sqlAddSlashes($db).'\' LIMIT 1'
@@ -239,7 +239,7 @@ class ExportXml extends ExportPlugin
 
             foreach ($tables as $table) {
                 // Export tables and views
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
                     . PMA_Util::backquote($table),
                     0

@@ -254,7 +254,7 @@ function get_tab_pos()
                 `h` AS `H`
            FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
-    $tab_pos = PMA_DBI_fetch_result(
+    $tab_pos = PMA_DBI_fetchResult(
         $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
     );
     return count($tab_pos) ? $tab_pos : null;

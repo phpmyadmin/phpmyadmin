@@ -358,7 +358,7 @@ class ImportMediawiki extends ImportPlugin
     private function _setTableName(&$table_name)
     {
         if (empty($table_name)) {
-            $result = PMA_DBI_fetch_result('SHOW TABLES');
+            $result = PMA_DBI_fetchResult('SHOW TABLES');
             // todo check if the name below already exists
             $table_name = 'TABLE '.(count($result) + 1);
         }
