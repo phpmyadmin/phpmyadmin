@@ -301,7 +301,7 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_functions']
             ) {
                 // Export functions
-                $functions = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+                $functions = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
                 if ($functions) {
                     foreach ($functions as $function) {
                         $head .= '            <pma:function name="'
@@ -326,7 +326,7 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_procedures']
             ) {
                 // Export procedures
-                $procedures = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+                $procedures = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
                 if ($procedures) {
                     foreach ($procedures as $procedure) {
                         $head .= '            <pma:procedure name="'

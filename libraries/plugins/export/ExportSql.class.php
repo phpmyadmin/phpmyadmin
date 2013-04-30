@@ -444,8 +444,8 @@ class ExportSql extends ExportPlugin
         $text = '';
         $delimiter = '$$';
 
-        $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
-        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+        $procedure_names = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
+        $function_names = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
 
         if ($procedure_names || $function_names) {
             $text .= $crlf

@@ -1904,7 +1904,7 @@ function PMA_isSuperuser()
  *
  * @return array the procedure names or function names
  */
-function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
+function PMA_DBI_getProceduresOrFunctions($db, $which, $link = null)
 {
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support functions and procedures

@@ -294,7 +294,7 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
  */
 function PMA_runProcedureAndFunctionDefinitions($db)
 {
-    $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+    $procedure_names = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
     if ($procedure_names) {
         foreach ($procedure_names as $procedure_name) {
             PMA_DBI_select_db($db);
@@ -308,7 +308,7 @@ function PMA_runProcedureAndFunctionDefinitions($db)
         }
     }
 
-    $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+    $function_names = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
     if ($function_names) {
         foreach ($function_names as $function_name) {
             PMA_DBI_select_db($db);
