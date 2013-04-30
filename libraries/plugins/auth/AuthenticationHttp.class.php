@@ -159,7 +159,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // User logged out -> ensure the new username is not the same
-        $old_usr = $_REQUEST['old_usr'];
+        $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
         if (! empty($old_usr)
             && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
         ) {

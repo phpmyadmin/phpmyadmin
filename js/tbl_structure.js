@@ -54,7 +54,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
      */
-    $(".append_fields_form.ajax").bind('submit', function (event) {
+    $(".append_fields_form.ajax").die().live('submit', function(event) {
         event.preventDefault();
         /**
          * @var    the_form    object referring to the export form
@@ -72,24 +72,21 @@ AJAX.registerOnload('tbl_structure.js', function () {
             // OK, form passed validation step
             PMA_prepareForAjaxRequest($form);
             //User wants to submit the form
-            PMA_ajaxShowMessage();
-            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-                if ($("#sqlqueryresults").length !== 0) {
+            $msg = PMA_ajaxShowMessage();
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function(data) {
+                if ($("#sqlqueryresults").length != 0) {
                     $("#sqlqueryresults").remove();
-                } else if ($(".error").length !== 0) {
-                    $(".error").remove();
+                } else if ($(".error:not(.tab)").length != 0) {
+                    $(".error:not(.tab)").remove();
                 }
-                if (data.success === true) {
-                    $("<div id='sqlqueryresults'></div>").prependTo("#page_content");
-                    $("#sqlqueryresults").html(data.sql_query);
+                if (data.success == true) {
+                    $("#page_content")
+                        .empty()
+                        .append(data.message)
+                        .show();
                     $("#result_query .notice").remove();
-                    $("#result_query").prepend(data.message);
-                    /* Reload the field form */
-                    if ($("#fieldsForm").length) {
-                        reloadFieldForm(data.message);
-                    } else {
-                        PMA_ajaxShowMessage(data.message);
-                    }
+                    $form.remove();
+                    PMA_ajaxRemoveMessage($msg);
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
@@ -103,10 +100,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
      */
     $("a.change_column_anchor.ajax").live('click', function (event) {
         event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
         $('#page_content').hide();
         $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
+            PMA_ajaxRemoveMessage($msg);
             if (data.success) {
-                $('<div id="change_column_dialog"></div>')
+                $('<div id="change_column_dialog" class="margin"></div>')
                     .html(data.message)
                     .insertBefore('#page_content');
                 PMA_verifyColumnsProperties();
@@ -121,17 +120,24 @@ AJAX.registerOnload('tbl_structure.js', function () {
      */
     $("button.change_columns_anchor.ajax, input.change_columns_anchor.ajax").live('click', function (event) {
         event.preventDefault();
+        var $msg = PMA_ajaxShowMessage();
         $('#page_content').hide();
         var $form = $(this).closest('form');
         var params = $form.serialize() + "&ajax_request=true&submit_mult=change";
         $.post($form.prop("action"), params, function (data) {
+            PMA_ajaxRemoveMessage($msg);
             if (data.success) {
-                $('<div id="change_column_dialog"></div>')
-                    .html(data.message)
-                    .insertBefore('#page_content');
+                $('#page_content')
+                    .empty()
+                    .append(
+                        $('<div id="change_column_dialog"></div>')
+                            .html(data.message)
+                    )
+                    .show();
                 PMA_verifyColumnsProperties();
             } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
+                $('#page_content').show();
+                PMA_ajaxShowMessage(data.error);
             }
         });
     });

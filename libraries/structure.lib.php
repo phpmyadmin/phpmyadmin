@@ -2399,9 +2399,9 @@ function PMA_updateColumns($db, $table)
         );
     } else {
         // An error happened while inserting/updating a table definition
-        $message = PMA_Message::rawError(__('Query error'));
-        $response->addHTML(
-            PMA_Util::getMessage($message, $sql_query, 'error')
+        $response->isSuccess(false);
+        $response->addJSON('message',
+            PMA_Message::rawError(__('Query error') . ':<br />'.PMA_DBI_getError())
         );
         $regenerate = true;
     }

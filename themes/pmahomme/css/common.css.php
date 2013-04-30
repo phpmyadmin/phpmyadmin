@@ -2121,6 +2121,10 @@ table#index_columns select {
     border-radius: 2px;
 }
 
+.margin#change_column_dialog {
+    margin: 0 .5em;
+}
+
 /* config forms */
 .config-form ul.tabs {
     margin: 1.1em .2em 0;

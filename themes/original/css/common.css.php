@@ -1611,6 +1611,10 @@ input#input_import_file {
     margin: 0.1em;
 }
 
+.margin#change_column_dialog {
+    margin: 0 .5em;
+}
+
 /**
  * Indexes
  */
