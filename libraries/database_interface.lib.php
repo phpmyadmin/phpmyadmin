@@ -1041,7 +1041,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
  *
  * @return array
  */
-function PMA_DBI_get_columns_full($database = null, $table = null,
+function PMA_DBI_getColumnsFull($database = null, $table = null,
     $column = null, $link = null
 ) {
     $columns = array();
@@ -1124,7 +1124,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
     } else {
         if (null === $database) {
             foreach ($GLOBALS['pma']->databases as $database) {
-                $columns[$database] = PMA_DBI_get_columns_full(
+                $columns[$database] = PMA_DBI_getColumnsFull(
                     $database, null, null, $link
                 );
             }
@@ -1132,7 +1132,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
         } elseif (null === $table) {
             $tables = PMA_DBI_getTables($database);
             foreach ($tables as $table) {
-                $columns[$table] = PMA_DBI_get_columns_full(
+                $columns[$table] = PMA_DBI_getColumnsFull(
                     $database, $table, null, $link
                 );
             }

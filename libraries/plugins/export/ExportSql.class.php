@@ -857,7 +857,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query .= PMA_Util::backquote($view) . ' (' . $crlf;
         $tmp = array();
-        $columns = PMA_DBI_get_columns_full($db, $view);
+        $columns = PMA_DBI_getColumnsFull($db, $view);
         foreach ($columns as $column_name => $definition) {
             $tmp[] = PMA_Util::backquote($column_name) . ' ' .
                 $definition['Type'] . $crlf;

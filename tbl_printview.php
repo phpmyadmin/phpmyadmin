@@ -160,7 +160,7 @@ foreach ($the_tables as $key => $table) {
         // the latter.
         /**
          * @todo merge this logic with the one in tbl_structure.php
-         * or move it in a function similar to PMA_DBI_get_columns_full()
+         * or move it in a function similar to PMA_DBI_getColumnsFull()
          * but based on SHOW CREATE TABLE because information_schema
          * cannot be trusted in this case (MySQL bug)
          */

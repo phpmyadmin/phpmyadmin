@@ -2421,7 +2421,7 @@ function PMA_moveColumns($db, $table)
     /*
      * load the definitions for all columns
      */
-    $columns = PMA_DBI_get_columns_full($db, $table);
+    $columns = PMA_DBI_getColumnsFull($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
     $we_dont_change_keys = array();
