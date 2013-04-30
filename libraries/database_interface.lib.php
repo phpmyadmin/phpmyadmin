@@ -1222,7 +1222,7 @@ function PMA_DBI_getColumnsFull($database = null, $table = null,
  *
  * @return string
  */
-function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
+function PMA_DBI_getColumnsSql($database, $table, $column = null, $full = false)
 {
     if (PMA_DRIZZLE) {
         // `Key` column:
@@ -1293,7 +1293,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
     $link = null
 ) {
-    $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
+    $sql = PMA_DBI_getColumnsSql($database, $table, $column, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
     if (! is_array($fields) || count($fields) == 0) {
         return null;
@@ -1346,7 +1346,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
  */
 function PMA_DBI_get_column_names($database, $table, $link = null)
 {
-    $sql = PMA_DBI_get_columns_sql($database, $table);
+    $sql = PMA_DBI_getColumnsSql($database, $table);
     // We only need the 'Field' column which contains the table's column names
     $fields = array_keys(PMA_DBI_fetch_result($sql, 'Field', null, $link));
 

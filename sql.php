@@ -193,7 +193,7 @@ if (isset($_REQUEST['get_relational_values'])
  * Logic taken from libraries/DisplayResults.class.php
  */
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
-    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
+    $field_info_query = PMA_DBI_getColumnsSql($db, $table, $_REQUEST['column']);
 
     $field_info_result = PMA_DBI_fetch_result(
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
@@ -221,7 +221,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
  * Find possible values for set fields during grid edit.
  */
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
-    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
+    $field_info_query = PMA_DBI_getColumnsSql($db, $table, $_REQUEST['column']);
 
     $field_info_result = PMA_DBI_fetch_result(
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE

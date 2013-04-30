@@ -77,7 +77,7 @@ function get_columns_info()
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
         $fields_rs = PMA_DBI_query(
-            PMA_DBI_get_columns_sql(
+            PMA_DBI_getColumnsSql(
                 $GLOBALS['db'],
                 $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i],
                 null,
