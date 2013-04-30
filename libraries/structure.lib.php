@@ -2209,12 +2209,12 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 /**
  * Displays HTML for changing one or more columns
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
- * @param array   $selected                 the selected columns
- * @param string  $action                   target script to call
+ * @param string $db       database name
+ * @param string $table    table name
+ * @param array  $selected the selected columns
+ * @param string $action   target script to call
  *
- * @return boolean $regenerate              true if error occurred
+ * @return boolean $regenerate true if error occurred
  *
  */
 function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
@@ -2271,8 +2271,8 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 /**
  * Update the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
  *
  * @return boolean $regenerate              true if error occurred
  *
@@ -2411,8 +2411,10 @@ function PMA_updateColumns($db, $table)
 /**
  * Moves columns in the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
+ *
+ * @return void
  */
 function PMA_moveColumns($db, $table)
 {
