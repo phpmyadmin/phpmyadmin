@@ -831,7 +831,7 @@ class PMA_Types_Drizzle extends PMA_Types
                 WHERE plugin_name IN ('" . implode("','", $functions) . "')
                   AND plugin_type = 'Function'
                   AND is_active";
-            $drizzle_functions = PMA_DBI_fetch_result($sql, 'f', 'f');
+            $drizzle_functions = PMA_DBI_fetchResult($sql, 'f', 'f');
             if (count($drizzle_functions) > 0) {
                 $ret = array_merge($ret, $drizzle_functions);
                 sort($ret);

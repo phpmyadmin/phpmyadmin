@@ -328,7 +328,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <div id="foreignkeychk">
                 <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
                 <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php
-                $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+                $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
                 echo ($default_fk_check_value) ? ' checked="checked"' : '' ?>/></span>
                 <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
                 </div><?php
@@ -533,7 +533,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } // end for
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+        $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -550,7 +550,7 @@ if (!empty($submit_mult) && !empty($what)) {
         if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
         }
-        $result = PMA_DBI_try_query($sql_query);
+        $result = PMA_DBI_tryQuery($sql_query);
         if (! isset($_REQUEST['fk_check'])
             && $query_type == 'drop_tbl'
             && $default_fk_check_value
@@ -559,7 +559,7 @@ if (!empty($submit_mult) && !empty($what)) {
         }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            $result = PMA_DBI_try_query($sql_query_views);
+            $result = PMA_DBI_tryQuery($sql_query_views);
             unset($sql_query_views);
         }
 

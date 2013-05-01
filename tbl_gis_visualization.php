@@ -27,7 +27,7 @@ if (! isset($sql_query) || $sql_query == '') {
 }
 
 // Execute the query and return the result
-$result = PMA_DBI_try_query($sql_query);
+$result = PMA_DBI_tryQuery($sql_query);
 // Get the meta data of results
 $meta = PMA_DBI_get_fields_meta($result);
 
@@ -58,7 +58,7 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 
 // Convert geometric columns from bytes to text.
 $modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
-$modified_result = PMA_DBI_try_query($modified_query);
+$modified_result = PMA_DBI_tryQuery($modified_query);
 
 $data = array();
 while ($row = PMA_DBI_fetch_assoc($modified_result)) {

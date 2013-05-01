@@ -51,7 +51,7 @@ function PMA_analyseShowGrant()
     $GLOBALS['db_to_create']       = '';
     $GLOBALS['dbs_where_create_table_allowed'] = array();
 
-    $rs_usr = PMA_DBI_try_query('SHOW GRANTS');
+    $rs_usr = PMA_DBI_tryQuery('SHOW GRANTS');
 
     if (! $rs_usr) {
         return;
@@ -107,7 +107,7 @@ function PMA_analyseShowGrant()
                 // does this db exist?
                 if ((preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
                     && ! preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
-                    || (! PMA_DBI_try_query('USE ' .  preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test))
+                    || (! PMA_DBI_tryQuery('USE ' .  preg_replace('/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test))
                     && substr(PMA_DBI_getError(), 1, 4) != 1044)
                 ) {
                     /**

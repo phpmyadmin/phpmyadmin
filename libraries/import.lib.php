@@ -155,7 +155,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                                 $import_run_buffer['sql']
                             );
                         } else {
-                            $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                            $result = PMA_DBI_tryQuery($import_run_buffer['sql']);
                         }
 
                         $msg = '# ';

@@ -28,7 +28,7 @@ if (strlen($db) == 0) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (PMA_DBI_get_columns($db, $table)) {
+if (PMA_DBI_getColumns($db, $table)) {
     // table exists already
     PMA_Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
@@ -220,7 +220,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $sql_query .= ';';
 
     // Executes the query
-    $result = PMA_DBI_try_query($sql_query);
+    $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result) {
 

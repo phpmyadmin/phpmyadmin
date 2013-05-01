@@ -60,7 +60,7 @@ class Node_Function extends Node
         $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
         $query .= "AND `ROUTINE_NAME`='$routine' ";
         $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-        return PMA_DBI_fetch_value($query);
+        return PMA_DBI_fetchValue($query);
     }
 }
 

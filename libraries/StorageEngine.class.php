@@ -75,10 +75,10 @@ class PMA_StorageEngine
                         JOIN data_dictionary.modules m USING (module_name)
                     WHERE p.plugin_type = 'StorageEngine'
                         AND p.plugin_name NOT IN ('FunctionEngine', 'schema')";
-                $storage_engines = PMA_DBI_fetch_result($sql, 'Engine');
+                $storage_engines = PMA_DBI_fetchResult($sql, 'Engine');
             } else {
                 $storage_engines
-                    = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+                    = PMA_DBI_fetchResult('SHOW STORAGE ENGINES', 'Engine');
             }
         }
 

@@ -5245,7 +5245,7 @@ class PMA_DisplayResults
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
-                $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
+                $_url_params['table'] = PMA_DBI_fetchValue("SHOW TABLES");
                 /* No result (probably no database selected) */
                 if ($_url_params['table'] === false) {
                     unset($_url_params['table']);
@@ -5509,7 +5509,7 @@ class PMA_DisplayResults
                     . PMA_Util::backquote($map[$meta->name][1])
                     . $where_comparison;
 
-                $dispresult = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+                $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
                 if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                     list($dispval) = PMA_DBI_fetch_row($dispresult, 0);

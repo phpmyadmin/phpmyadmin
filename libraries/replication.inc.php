@@ -13,12 +13,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * get master replication from server
  */
-$server_master_replication = PMA_DBI_fetch_result('SHOW MASTER STATUS');
+$server_master_replication = PMA_DBI_fetchResult('SHOW MASTER STATUS');
 
 /**
  * get slave replication from server
  */
-$server_slave_replication = PMA_DBI_fetch_result('SHOW SLAVE STATUS');
+$server_slave_replication = PMA_DBI_fetchResult('SHOW SLAVE STATUS');
 
 /**
  * replication types
@@ -163,7 +163,7 @@ function PMA_extract_db_or_table($string, $what = 'db')
  *                        If it is set to null, it controls both SQL_THREAD and IO_THREAD
  * @param mixed  $link    mysql link
  *
- * @return mixed output of PMA_DBI_try_query
+ * @return mixed output of PMA_DBI_tryQuery
  */
 function PMA_replication_slave_control($action, $control = null, $link = null)
 {
@@ -177,7 +177,7 @@ function PMA_replication_slave_control($action, $control = null, $link = null)
         return -1;
     }
 
-    return PMA_DBI_try_query($action . " SLAVE " . $control . ";", $link);
+    return PMA_DBI_tryQuery($action . " SLAVE " . $control . ";", $link);
 }
 
 /**
@@ -202,7 +202,7 @@ function PMA_replication_slave_change_master($user, $password, $host, $port,
         PMA_replication_slave_control("STOP", null, $link);
     }
 
-    $out = PMA_DBI_try_query(
+    $out = PMA_DBI_tryQuery(
         'CHANGE MASTER TO ' .
         'MASTER_HOST=\'' . $host . '\',' .
         'MASTER_PORT=' . ($port * 1) . ',' .
@@ -251,7 +251,7 @@ function PMA_replication_connect_to_master($user, $password, $host = null, $port
  */
 function PMA_replication_slave_bin_log_master($link = null)
 {
-    $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
+    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
     $output = array();
 
     if (! empty($data)) {
@@ -272,7 +272,7 @@ function PMA_replication_slave_bin_log_master($link = null)
 function PMA_replication_master_replicated_dbs($link = null)
 {
     // let's find out, which databases are replicated
-    $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $link);
+    $data = PMA_DBI_fetchResult('SHOW MASTER STATUS', null, null, $link);
 
     $do_db     = array();
     $ignore_db = array();
@@ -324,9 +324,9 @@ function PMA_replication_synchronize_db($db, $src_link, $trg_link, $data = true)
 {
     $src_db = $trg_db = $db;
 
-    $src_tables = PMA_DBI_get_tables($src_db, $src_link);
+    $src_tables = PMA_DBI_getTables($src_db, $src_link);
 
-    $trg_tables = PMA_DBI_get_tables($trg_db, $trg_link);
+    $trg_tables = PMA_DBI_getTables($trg_db, $trg_link);
 
     /**
      * initializing arrays to save table names

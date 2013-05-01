@@ -218,7 +218,7 @@ function PMA_sqlQueryFormInsert(
         // Get the list and number of fields
         // we do a try_query here, because we could be in the query window,
         // trying to synchonize and the table has not yet been created
-        $fields_list = PMA_DBI_get_columns($db, $GLOBALS['table'], null, true);
+        $fields_list = PMA_DBI_getColumns($db, $GLOBALS['table'], null, true);
 
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_generate_common_url($db) . '"';

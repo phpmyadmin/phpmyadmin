@@ -270,7 +270,7 @@ class PMA_DbQbe
         }
         // The tables list gets from MySQL
         while (list($table) = PMA_DBI_fetch_row($all_tables)) {
-            $columns = PMA_DBI_get_columns($this->_db, $table);
+            $columns = PMA_DBI_getColumns($this->_db, $table);
 
             if (empty($this->_criteriaTables[$table])
                 && ! empty($_REQUEST['TableList'])
@@ -1026,7 +1026,7 @@ class PMA_DbQbe
         $index_columns = array();
 
         foreach ($all_tables as $table) {
-            $indexes = PMA_DBI_get_table_indexes($this->_db, $table);
+            $indexes = PMA_DBI_getTableIndexes($this->_db, $table);
             foreach ($indexes as $index) {
                 $column = $table . '.' . $index['Column_name'];
                 if (isset($all_columns[$column])) {

@@ -92,7 +92,7 @@ class PMA_DbSearch
      */
     private function _setSearchParams()
     {
-        $this->_tables_names_only = PMA_DBI_get_tables($this->_db);
+        $this->_tables_names_only = PMA_DBI_getTables($this->_db);
 
         $this->_searchTypes = array(
             '1' => __('at least one of the words'),
@@ -193,7 +193,7 @@ class PMA_DbSearch
     {
         $where_clause = '';
         // Columns to select
-        $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
+        $allColumns = PMA_DBI_getColumns($GLOBALS['db'], $table);
         $likeClauses = array();
         // Based on search type, decide like/regex & '%'/''
         $like_or_regex   = (($this->_criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
@@ -277,7 +277,7 @@ class PMA_DbSearch
             // Gets the SQL statements
             $newsearchsqls = $this->_getSearchSqls($each_table);
             // Executes the "COUNT" statement
-            $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
+            $res_cnt = PMA_DBI_fetchValue($newsearchsqls['select_count']);
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
             $html_output .= $this->_getResultsRow(

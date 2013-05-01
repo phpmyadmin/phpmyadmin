@@ -27,7 +27,7 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
+    if (PMA_DBI_tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
         $message = PMA_Message::error(
@@ -61,7 +61,7 @@ exit;
 function getServerTrafficHtml($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
-    $start_time = PMA_DBI_fetch_value(
+    $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
 

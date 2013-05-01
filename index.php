@@ -97,7 +97,7 @@ if ($server > 0) {
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
     }
-    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+    $mysql_cur_user_and_host = PMA_DBI_fetchValue('SELECT USER();');
 
     // should we add the port info here?
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
