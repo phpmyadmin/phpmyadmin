@@ -2452,10 +2452,9 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
 function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
 {
     $odd_row = true;
-    $index_checkbox = -1;
+    $index_checkbox = 0;
     $html_output = '';
     foreach ($db_rights as $user) {
-        $index_checkbox++;
         ksort($user);
         foreach ($user as $host) {
             $index_checkbox++;
