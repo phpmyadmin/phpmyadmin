@@ -774,12 +774,9 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     } else {
         $html_output .= __('Table-specific privileges');
     }
-    $html_output .= ' (<a href="#" '
-        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', true); '
-        . 'return false;">' . __('Check All') . '</a> /'
-        . '<a href="#" '
-        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', false); '
-        . 'return false;">' . __('Uncheck All') . '</a>)';
+    $html_output .= '<input type="checkbox" id="addUsersForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" /> '
+        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> ';
     $html_output .= '</legend>';
     $html_output .= '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English')
@@ -982,7 +979,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
             . '<legend>' . $privTable_names[$i] . '</legend>' . "\n";
         foreach ($table as $priv) {
             $html_output .= '<div class="item">' . "\n"
-                . '<input type="checkbox"'
+                . '<input type="checkbox" class="checkall"'
                 . ' name="' . $priv[0] . '_priv" '
                 . 'id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
@@ -2416,13 +2413,14 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '</table>' . "\n";
 
     $html_output .= '<div style="float:left;">'
-        .'<img class="selectallarrow"'
-        .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-        .' width="38" height="22"'
-        .' alt="' . __('With selected:') . '" />' . "\n"
-        .'<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
-        .'<label for="checkall">' . __('Check All') . '</label> '
-        .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        . '<img class="selectallarrow"'
+        . ' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
+        . ' width="38" height="22"'
+        . ' alt="' . __('With selected:') . '" />' . "\n"
+        . '<input type="checkbox" id="usersForm_checkall" class="checkall_box" '
+        . 'title="' . __('Check All') . '" /> '
+        . '<label for="usersForm_checkall">' . __('Check All') . '</label> '
+        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_export',

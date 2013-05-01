@@ -177,6 +177,7 @@ AJAX.registerTeardown('server_privileges.js', function() {
     $("a.export_user_anchor.ajax").die('click');
     $("#initials_table").find("a.ajax").die('click');
     $('#checkbox_drop_users_db').unbind('click');
+    $(".checkall_box").die("click");
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
@@ -361,6 +362,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     }
                     $div.html(data.message);
                     displayPasswordGenerateButton();
+                    $(checkboxes_sel).trigger("change");
                     PMA_ajaxRemoveMessage($msgbox);
                     PMA_showHints($div);
                 } else {
