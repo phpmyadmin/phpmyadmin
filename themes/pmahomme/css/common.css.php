@@ -729,7 +729,7 @@ div.error {
 
 h1.success,
 div.success {
-    border-color: #a2d246;    
+    border-color: #a2d246;
 }
 .success h1 {
     border-color: #00FF00;
@@ -757,7 +757,7 @@ div.notice {
 
 h1.error,
 div.error {
-    border-color: #333; 
+    border-color: #333;
 }
 
 div.error h1 {
@@ -1632,7 +1632,7 @@ div#queryboxcontainer div#bookmarkoptions {
 /* iconic view for ul items */
 
 li.no_bullets {
-    list-style-type:none !important;    
+    list-style-type:none !important;
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
@@ -2762,3 +2762,20 @@ body .ui-widget {
     color: #235A81;
 }
 
+/* Start CSS for login Captcha */
+
+.clsCenter      { text-align: center; }
+.clsSpacingTop  { margin-top: 6px; }
+.vAlignTop      { vertical-align: top }
+#divCaptcha #siimage { border: 1px solid #000; }
+
+#divCaptcha a {
+    text-decoration: none;
+    border-style: none;
+}
+
+#divCaptcha .clsBtnSize {
+    height: 30px; width: 30px;
+}
+
+/* End CSS for login Captcha */
