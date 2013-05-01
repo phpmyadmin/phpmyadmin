@@ -60,7 +60,7 @@ class Node_Procedure extends Node
         $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
         $query .= "AND `ROUTINE_NAME`='$routine' ";
         $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-        return PMA_DBI_fetch_value($query);
+        return PMA_DBI_fetchValue($query);
     }
 }
 

@@ -152,7 +152,7 @@ if ($cfg['ShowCreateDb']) {
  * Gets the databases list
  */
 if ($server > 0) {
-    $databases = PMA_DBI_get_databases_full(
+    $databases = PMA_DBI_getDatabasesFull(
         null, $dbstats, null, $sort_by, $sort_order, $pos, true
     );
     $databases_count = count($GLOBALS['pma']->databases);

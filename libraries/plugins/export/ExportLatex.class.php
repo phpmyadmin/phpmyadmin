@@ -290,7 +290,7 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result      = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
@@ -452,7 +452,7 @@ class ExportLatex extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -563,7 +563,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = PMA_DBI_get_columns($db, $table);
+        $fields = PMA_DBI_getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
                 = PMA_Util::extractColumnSpec(

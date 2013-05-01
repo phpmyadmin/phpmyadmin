@@ -184,7 +184,7 @@ function PMA_getMIME($db, $table, $strict = false)
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'' : '') . ')';
-    $result = PMA_DBI_fetch_result(
+    $result = PMA_DBI_fetchResult(
         $com_qry, 'column_name', null, $GLOBALS['controllink']
     );
 
@@ -404,7 +404,7 @@ function PMA_clearTransformations($db, $table = '', $column = '')
         $delete_sql .= '`db_name` = \'' . $db . '\' ';
     }
     
-    return PMA_DBI_try_query($delete_sql);
+    return PMA_DBI_tryQuery($delete_sql);
     
 }
 

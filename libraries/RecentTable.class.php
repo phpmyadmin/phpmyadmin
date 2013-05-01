@@ -108,7 +108,7 @@ class PMA_RecentTable
                     json_encode($this->tables)
                 ) . "')";
 
-        $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+        $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (! $success) {
             $message = PMA_Message::error(__('Could not save recent table'));

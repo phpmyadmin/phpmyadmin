@@ -133,7 +133,7 @@ if (! empty($disp_message)) {
  * Get the analysis of SHOW CREATE TABLE for this table
  * @todo should be handled by class Table
  */
-$show_create_table = PMA_DBI_fetch_value(
+$show_create_table = PMA_DBI_fetchValue(
     'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
     0, 1
 );
@@ -144,7 +144,7 @@ unset($show_create_table);
  * Get the list of the fields of the current table
  */
 PMA_DBI_select_db($db);
-$table_fields = array_values(PMA_DBI_get_columns($db, $table));
+$table_fields = array_values(PMA_DBI_getColumns($db, $table));
 
 $paramTableDbArray = array($table, $db);
 

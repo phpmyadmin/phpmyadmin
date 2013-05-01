@@ -59,7 +59,7 @@ class Node_Event extends Node
         $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
         $query .= "WHERE `EVENT_SCHEMA`='$db' ";
         $query .= "AND `EVENT_NAME`='$event' ";
-        return PMA_DBI_fetch_value($query);
+        return PMA_DBI_fetchValue($query);
     }
 }
 

@@ -64,7 +64,7 @@ if (strlen($db)
         // go back to current db, just in case
         PMA_DBI_select_db($db);
 
-        $tables_full = PMA_DBI_get_tables_full($db);
+        $tables_full = PMA_DBI_getTablesFull($db);
 
         include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors

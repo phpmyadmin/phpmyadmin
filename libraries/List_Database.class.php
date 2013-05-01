@@ -122,14 +122,14 @@ class PMA_List_Database extends PMA_List
             $command = $this->command;
         }
 
-        $database_list = PMA_DBI_fetch_result($command, null, null, $this->db_link);
+        $database_list = PMA_DBI_fetchResult($command, null, null, $this->db_link);
         PMA_DBI_getError();
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
             // (hopefully there is one and he has SHOW DATABASES right)
             $this->db_link = $this->db_link_control;
-            $database_list = PMA_DBI_fetch_result(
+            $database_list = PMA_DBI_fetchResult(
                 $command, null, null, $this->db_link
             );
 
@@ -438,7 +438,7 @@ class PMA_List_Database extends PMA_List
             WHERE `Select_priv` = 'Y'
             AND `User`
             IN ('" . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "', '')";
-        $tmp_mydbs = PMA_DBI_fetch_result(
+        $tmp_mydbs = PMA_DBI_fetchResult(
             $local_query, null, null, $GLOBALS['controllink']
         );
         if ($tmp_mydbs) {
@@ -498,7 +498,7 @@ class PMA_List_Database extends PMA_List
         $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
         $local_query .= ' AND `User` = \'';
         $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
-        $rs          = PMA_DBI_try_query($local_query, $GLOBALS['controllink']);
+        $rs          = PMA_DBI_tryQuery($local_query, $GLOBALS['controllink']);
         if ($rs && @PMA_DBI_num_rows($rs)) {
             while ($row = PMA_DBI_fetch_assoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {

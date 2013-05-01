@@ -78,7 +78,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
     $grants = PMA_getGrantsArray();
 
     if (! empty($row) && isset($row['Table_priv'])) {
-        $row1 = PMA_DBI_fetch_single_row(
+        $row1 = PMA_DBI_fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
         );
@@ -388,7 +388,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         $sql_query = PMA_getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
-        $row = PMA_DBI_fetch_single_row($sql_query);
+        $row = PMA_DBI_fetchSingleRow($sql_query);
     }
     if (empty($row)) {
         if ($table == '*') {
@@ -411,7 +411,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         }
     }
     if (isset($row['Table_priv'])) {
-        $row1 = PMA_DBI_fetch_single_row(
+        $row1 = PMA_DBI_fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
             'ASSOC', $GLOBALS['userlink']
         );
@@ -438,7 +438,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 
         // get columns
-        $res = PMA_DBI_try_query(
+        $res = PMA_DBI_tryQuery(
             'SHOW COLUMNS FROM '
             . PMA_Util::backquote(
                 PMA_Util::unescapeMysqlWildcards($db)
@@ -1084,7 +1084,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<span class="options">' . "\n"
         . '    <select name="pred_hostname" id="select_pred_hostname" '
         . 'title="' . __('Host') . '"' . "\n";
-    $_current_user = PMA_DBI_fetch_value('SELECT USER();');
+    $_current_user = PMA_DBI_fetchValue('SELECT USER();');
     if (! empty($_current_user)) {
         $thishost = str_replace(
             "'",
@@ -1243,7 +1243,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
  */
 function PMA_getUsernameAndHostnameLength()
 {
-    $fields_info = PMA_DBI_get_columns('mysql', 'user', null, true);
+    $fields_info = PMA_DBI_getColumns('mysql', 'user', null, true);
     $username_length = 16;
     $hostname_length = 41;
     foreach ($fields_info as $val) {
@@ -1275,7 +1275,7 @@ function PMA_getUsernameAndHostnameLength()
  */
 function PMA_getGrants($user, $host)
 {
-    $grants = PMA_DBI_fetch_result(
+    $grants = PMA_DBI_fetchResult(
         "SHOW GRANTS FOR '"
         . PMA_Util::sqlAddSlashes($user) . "'@'"
         . PMA_Util::sqlAddSlashes($host) . "'"
@@ -1337,7 +1337,7 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
             . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
             . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
 
-        PMA_DBI_try_query($local_query)
+        PMA_DBI_tryQuery($local_query)
             or PMA_Util::mysqlDie(
                 PMA_DBI_getError(), $sql_query, false, $err_url
             );
@@ -1378,7 +1378,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
         . PMA_Util::sqlAddSlashes($hostname) . '\';';
 
     PMA_DBI_query($sql_query0);
-    if (! PMA_DBI_try_query($sql_query1)) {
+    if (! PMA_DBI_tryQuery($sql_query1)) {
         // this one may fail, too...
         $sql_query1 = '';
     }
@@ -2250,7 +2250,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
     // get data
 
     // we also want privielgs for this user not in table `db` but in other table
-    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+    $tables = PMA_DBI_fetchResult('SHOW TABLES FROM `mysql`;');
 
     /**
      * no db name given, so we want all privs for the given user
@@ -2282,7 +2282,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
  */
 function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
+    $pred_db_array =PMA_DBI_fetchResult('SHOW DATABASES;');
 
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database:') . '</label>' . "\n";
@@ -2325,7 +2325,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
     $html_output .= '<label for="text_tablename">'
         . __('Add privileges on the following table:') . '</label>' . "\n";
 
-    $result = @PMA_DBI_try_query(
+    $result = @PMA_DBI_tryQuery(
         'SHOW TABLES FROM ' . PMA_Util::backquote(
             PMA_Util::unescapeMysqlWildcards($dbname)
         ) . ';',
@@ -2584,7 +2584,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         }
     }
 
-    $initials = PMA_DBI_try_query(
+    $initials = PMA_DBI_tryQuery(
         'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC',
         null,
         PMA_DBI_QUERY_STORE
@@ -2633,7 +2633,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
 function PMA_getDbRightsForUserOverview()
 {
     // we also want users not in table `user` but in other table
-    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+    $tables = PMA_DBI_fetchResult('SHOW TABLES FROM `mysql`;');
 
     $tables_to_search_for_users = array(
         'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
@@ -2693,7 +2693,7 @@ function PMA_deleteUser($queries)
         $drop_user_error = '';
         foreach ($queries as $sql_query) {
             if ($sql_query{0} != '#') {
-                if (! PMA_DBI_try_query($sql_query, $GLOBALS['userlink'])) {
+                if (! PMA_DBI_tryQuery($sql_query, $GLOBALS['userlink'])) {
                     $drop_user_error .= PMA_DBI_getError() . "\n";
                 }
             }
@@ -2756,13 +2756,13 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
         }
         $sql_query2 .= ';';
     }
-    if (! PMA_DBI_try_query($sql_query0)) {
+    if (! PMA_DBI_tryQuery($sql_query0)) {
         // This might fail when the executing user does not have
         // ALL PRIVILEGES himself.
         // See https://sourceforge.net/p/phpmyadmin/bugs/3270/
         $sql_query0 = '';
     }
-    if (isset($sql_query1) && ! PMA_DBI_try_query($sql_query1)) {
+    if (isset($sql_query1) && ! PMA_DBI_tryQuery($sql_query1)) {
         // this one may fail, too...
         $sql_query1 = '';
     }
@@ -2923,7 +2923,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         : '');
 
     $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
-    $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
+    $res = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_STORE);
 
     if (! $res) {
         // the query failed! This may have two reasons:
@@ -2932,7 +2932,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         // so let's try a more simple query
 
         $sql_query = 'SELECT * FROM `mysql`.`user`';
-        $res = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_STORE);
+        $res = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_STORE);
 
         if (! $res) {
             $html_output .= PMA_Message::error(__('No Privileges'))->getDisplay();
@@ -3024,7 +3024,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
 
-    $user_does_not_exists = (bool) ! PMA_DBI_fetch_value($sql);
+    $user_does_not_exists = (bool) ! PMA_DBI_fetchValue($sql);
 
     if ($user_does_not_exists) {
         $html_output .= PMA_Message::error(
@@ -3234,7 +3234,7 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     $username, $hostname, $dbname
 ) {
-    if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
+    if ($_error || ! PMA_DBI_tryQuery($real_sql_query)) {
         $_REQUEST['createdb-1'] = $_REQUEST['createdb-2']
             = $_REQUEST['createdb-3'] = false;
         $message = PMA_Message::rawError(PMA_DBI_getError());
@@ -3249,7 +3249,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
                 PMA_Util::sqlAddSlashes($username)
             ) . ';';
         $sql_query .= $q;
-        if (! PMA_DBI_try_query($q)) {
+        if (! PMA_DBI_tryQuery($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
         }
 
@@ -3268,7 +3268,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
             . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
-        if (! PMA_DBI_try_query($q)) {
+        if (! PMA_DBI_tryQuery($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
         }
     }
@@ -3282,7 +3282,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
             . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
-        if (! PMA_DBI_try_query($q)) {
+        if (! PMA_DBI_tryQuery($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
         }
     }
@@ -3296,7 +3296,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
         . PMA_Util::sqlAddSlashes($username)
         . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\';';
         $sql_query .= $q;
-        if (! PMA_DBI_try_query($q)) {
+        if (! PMA_DBI_tryQuery($q)) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
         }
     }

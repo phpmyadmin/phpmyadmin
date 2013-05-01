@@ -405,7 +405,7 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $pdf->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
         }
@@ -1189,7 +1189,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 'L', 0, $pdf->PMA_links['doc'][$table]['-']
             );
             // $pdf->Ln(1);
-            $fields = PMA_DBI_get_columns($GLOBALS['db'], $table);
+            $fields = PMA_DBI_getColumns($GLOBALS['db'], $table);
             foreach ($fields as $row) {
                 $pdf->SetX(20);
                 $field_name = $row['Field'];
@@ -1307,7 +1307,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets fields properties
              */
-            $columns = PMA_DBI_get_columns($db, $table);
+            $columns = PMA_DBI_getColumns($db, $table);
             // Check if we can use Relations
             if (!empty($cfgRelation['relation'])) {
                 // Find which tables are related with the current one and write it in

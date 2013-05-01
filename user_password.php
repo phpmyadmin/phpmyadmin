@@ -174,7 +174,7 @@ function PMA_ChangePassUrlParamsAndSubmitQuery(
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
-    if (! @PMA_DBI_try_query($local_query)) {
+    if (! @PMA_DBI_tryQuery($local_query)) {
         PMA_Util::mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
     }
 }

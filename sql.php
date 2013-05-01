@@ -193,9 +193,9 @@ if (isset($_REQUEST['get_relational_values'])
  * Logic taken from libraries/DisplayResults.class.php
  */
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
-    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
+    $field_info_query = PMA_DBI_getColumnsSql($db, $table, $_REQUEST['column']);
 
-    $field_info_result = PMA_DBI_fetch_result(
+    $field_info_result = PMA_DBI_fetchResult(
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
     );
 
@@ -221,9 +221,9 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
  * Find possible values for set fields during grid edit.
  */
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
-    $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
+    $field_info_query = PMA_DBI_getColumnsSql($db, $table, $_REQUEST['column']);
 
-    $field_info_result = PMA_DBI_fetch_result(
+    $field_info_result = PMA_DBI_fetchResult(
         $field_info_query, null, null, null, PMA_DBI_QUERY_STORE
     );
 
@@ -634,7 +634,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // Measure query time.
     $querytime_before = array_sum(explode(' ', microtime()));
 
-    $result   = @PMA_DBI_try_query($full_sql_query, null, PMA_DBI_QUERY_STORE);
+    $result   = @PMA_DBI_tryQuery($full_sql_query, null, PMA_DBI_QUERY_STORE);
 
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
@@ -725,7 +725,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
     // Grabs the profiling results
     if (isset($_SESSION['profiling']) && PMA_Util::profilingSupported()) {
-        $profiling_results = PMA_DBI_fetch_result('SHOW PROFILE;');
+        $profiling_results = PMA_DBI_fetchResult('SHOW PROFILE;');
     }
 
     // Checks if the current database has changed
@@ -735,7 +735,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
      * bug #2558 win: table list disappears (mixed case db names)
      * https://sourceforge.net/p/phpmyadmin/bugs/2558/
      * @todo RELEASE test and comit or rollback before release
-    $current_db = PMA_DBI_fetch_value('SELECT DATABASE()');
+    $current_db = PMA_DBI_fetchValue('SELECT DATABASE()');
     if ($db !== $current_db) {
         $db     = $current_db;
         $reload = 1;
@@ -819,7 +819,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
             // run the count query
 
-            PMA_DBI_try_query($count_query);
+            PMA_DBI_tryQuery($count_query);
             // if (mysql_error()) {
             // void.
             // I tried the case
@@ -835,7 +835,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             // SELECT COUNT(*), f1 from t1 group by f1
             // and you click to sort on count(*)
             // }
-            $unlim_num_rows = PMA_DBI_fetch_value('SELECT FOUND_ROWS()');
+            $unlim_num_rows = PMA_DBI_fetchValue('SELECT FOUND_ROWS()');
         } // end else "just browsing"
 
     } else { // not $is_select
@@ -1480,14 +1480,14 @@ function getTableHtmlForMultipleQueries(
 ) {
     $table_html = '';
 
-    $tables_array = PMA_DBI_get_tables($db);
-    $databases_array = PMA_DBI_get_databases_full();
+    $tables_array = PMA_DBI_getTables($db);
+    $databases_array = PMA_DBI_getDatabasesFull();
     $multi_sql = implode(";", $sql_data['valid_sql']);
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
     // looiping using the connection
-    @PMA_DBI_try_multi_query($multi_sql);
+    @PMA_DBI_tryMultiQuery($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
     $querytime = $querytime_after - $querytime_before;
