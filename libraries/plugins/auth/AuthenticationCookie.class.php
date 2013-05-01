@@ -77,8 +77,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $login_link = '<br /><br />[ ' .
                 sprintf(
-                    '<a href="%s" class="ajax login-link">%s</a>', 
-                    $GLOBALS['cfg']['PmaAbsoluteUri'], 
+                    '<a href="%s" class="ajax login-link">%s</a>',
+                    $GLOBALS['cfg']['PmaAbsoluteUri'],
                     __('Log in')
                 )
                 . ' ]';
@@ -239,6 +239,33 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['server'] . '" />';
         } // end if (server choice)
 
+        // Add captcha input field if $cfg['Servers'][$i]['captchaLogin'] is set to TRUE.
+        if ( isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
+               && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'] ) {
+            echo '<div class="item">
+                    <label for="input_captcha">' . __('Captcha:') . '</label>
+                    <input type="text" name="pma_captcha" id="input_captcha" size="24" class="textfield" />
+                    <div style="text-align: center;">
+                        <img id="siimage" style="border: 1px solid #000;"'
+                            . 'src="./secureimage/securimage_show.php?sid=' . md5(uniqid())
+                            . 'alt="CAPTCHA Image" align="center" />
+                        <br/>
+                        <object type="application/x-shockwave-flash" data="./secureimage/securimage_play.swf?bgcol=#eeeeee&amp;'
+                        . 'icon_file=./secureimage/images/audio_icon.png&amp;audio_file=./secureimage/securimage_play.php"
+                            height="30" width="30" style="margin-top: 6px;">
+                            <param name="movie" value="./secureimage/securimage_play.swf?bgcol=#ffffff&amp;icon_file=images/audio_icon.png&amp;audio_file=securimage_play.php" />
+                        </object>
+                        &nbsp;&nbsp;
+                        <a tabindex="-1" style="text-decoration: none; border-style: none;"
+                            href="#" title="Refresh Image" onclick="document.getElementById(\'siimage\')'
+                            . '.src=\'./secureimage/securimage_show.php?sid=\' + Math.random(); this.blur(); return false">
+                            <img src="./secureimage/images/refresh.png" alt="Reload Image" style="vertical-align: top; margin-top: 6px;"'
+                            . 'height="30 width="30" onclick="this.blur()" align="bottom" border="0" />
+                        </a>
+                    </div>
+                </div>';
+        }
+
         echo '</fieldset>
         <fieldset class="tblFooters">
             <input value="' . __('Go') . '" type="submit" id="input_go" />';
@@ -327,6 +354,20 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['PMA_Config']->removeCookie('pmaUser-' . $key);
             }
             return false;
+        }
+
+        // Check Captcha if set required.
+        if ( isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
+               && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'] ) {
+            /* Get the captcha service interface */
+            require_once './secureimage/securimage.php';
+
+            $securimage = new Securimage();
+            if ( !empty($_REQUEST['pma_captcha']) ) {
+                $check = $securimage->check($_REQUEST['pma_captcha']);
+                if ( $check === false )
+                    return false;
+            }
         }
 
         if (! empty($_REQUEST['old_usr'])) {
