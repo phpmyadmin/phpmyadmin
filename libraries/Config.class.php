@@ -906,7 +906,10 @@ class PMA_Config
         );
 
         // backup some settings
-        $org_fontsize = $this->settings['fontsize'];
+        $org_fontsize = '';
+        if (isset($this->settings['fontsize'])) {
+            $org_fontsize = $this->settings['fontsize'];
+        }
         // load config array
         $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
