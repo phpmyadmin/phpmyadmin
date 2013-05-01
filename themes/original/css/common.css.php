@@ -1259,7 +1259,7 @@ div#queryboxcontainer div#bookmarkoptions {
 /* iconic view for ul items */
 
 li.no_bullets {
-    list-style-type:none !important;    
+    list-style-type:none !important;
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
@@ -2534,3 +2534,22 @@ div.jqplot-noData-container {
     text-align: center;
     background-color: rgba(96%, 96%, 96%, 0.3);
 }
+
+/* Start CSS for login Captcha */
+
+.clsCenter      { text-align: center; }
+.clsSpacingTop  { margin-top: 6px; }
+.vAlignTop      { vertical-align: top }
+#divCaptcha #siimage { border: 1px solid #000; }
+
+#divCaptcha a {
+    text-decoration: none;
+    border-style: none;
+}
+
+#divCaptcha .clsBtnSize {
+    height: 30px; width: 30px;
+}
+
+/* End CSS for login Captcha */
+
