@@ -356,6 +356,10 @@ if (isset($_REQUEST['flush_privileges'])) {
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
 }
 
+if (isset($_REQUEST['validate_username'])) {
+    $message = PMA_Message::success();
+}
+
 /**
  * some standard links
  */
