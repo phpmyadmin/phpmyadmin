@@ -1977,7 +1977,7 @@ function PMA_getWarningMessages()
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
  *
- * @return string $dispval display value from the foriegn table
+ * @return string $dispval display value from the foreign table
  */
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
@@ -2010,7 +2010,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
  * @param string $where_comparison     string that contain relation field value
- * @param string $dispval              display value from the foriegn table
+ * @param string $dispval              display value from the foreign table
  * @param string $relation_field_value relation field value
  *
  * @return string $output HTML <a> tag

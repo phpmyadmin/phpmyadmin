@@ -545,7 +545,7 @@ function query_from()
     quer = temp;
     tab_used.push(temp);
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
-    //after this check if master table (key2) matches with tab left then check if any foriegn matches with master .
+    // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
     for (i =0; i<2 ; i++) {
         for (K in contr) {
             for (key in contr[K]) {// contr name

@@ -4584,7 +4584,7 @@ class PMA_DisplayResults
             $exist_rel = false;
         } else {
             // This method set the values for $map array
-            $this->_setParamForLinkForiegnKeyRelatedTables($map);
+            $this->_setParamForLinkForeignKeyRelatedTables($map);
         } // end if
         // end 2b
 
@@ -4967,7 +4967,7 @@ class PMA_DisplayResults
      *
      * @see      getTable()
      */
-    private function _setParamForLinkForiegnKeyRelatedTables(&$map)
+    private function _setParamForLinkForeignKeyRelatedTables(&$map)
     {
 
         // To be able to later display a link to the related table,
@@ -4997,7 +4997,7 @@ class PMA_DisplayResults
             } // end while
         } // end if
 
-    } // end of the '_setParamForLinkForiegnKeyRelatedTables()' function
+    } // end of the '_setParamForLinkForeignKeyRelatedTables()' function
 
 
     /**
