@@ -277,9 +277,9 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         . 'src="' .$pmaThemeImage .'arrow_'.$text_dir.'.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') .'" />';
-    $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') .'" />';
+    $html_output .= '<label for="tablesForm_checkall">' .__('Check All') . '</label>';
 
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
@@ -740,7 +740,7 @@ function PMA_getHtmlForRepairtable(
  *
  * @return html data
  */
-function PMA_TableHeader($db_is_information_schema = false, $replication = false)
+function PMA_tableHeader($db_is_information_schema = false, $replication = false)
 {
     $cnt = 0; // Let's count the columns...
 
@@ -1312,8 +1312,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
             . '<a class="change_column_anchor ajax"'
-            . ' href="tbl_structure.php?' 
-            . $url_query . '&amp;field=' . $field_encoded 
+            . ' href="tbl_structure.php?'
+            . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
@@ -1356,9 +1356,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') . '" />'
-        . '<label for="checkall">' . __('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
 
     $html_output .= '<i style="margin-left: 2em">'
         . __('With selected:') . '</i>';
@@ -2209,15 +2209,15 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 /**
  * Displays HTML for changing one or more columns
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
- * @param array   $selected                 the selected columns
- * @param string  $action                   target script to call 
+ * @param string $db       database name
+ * @param string $table    table name
+ * @param array  $selected the selected columns
+ * @param string $action   target script to call
  *
- * @return boolean $regenerate              true if error occurred
- * 
+ * @return boolean $regenerate true if error occurred
+ *
  */
-function PMA_displayHtmlForColumnChange($db, $table, $selected, $action) 
+function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
     // $selected comes from multi_submits.inc.php
     if (empty($selected)) {
@@ -2234,12 +2234,12 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
         $fields_meta[] = PMA_DBI_getColumns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
-    // set these globals because tbl_columns_definition_form.inc.php 
+    // set these globals because tbl_columns_definition_form.inc.php
     // verifies them
-    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses 
+    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
     // function params
     $GLOBALS['action'] = 'tbl_structure.php';
-    $GLOBALS['num_fields'] = $num_fields; 
+    $GLOBALS['num_fields'] = $num_fields;
 
     // Get more complete field information.
     // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
@@ -2271,8 +2271,8 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 /**
  * Update the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
  *
  * @return boolean $regenerate              true if error occurred
  *
@@ -2400,7 +2400,8 @@ function PMA_updateColumns($db, $table)
     } else {
         // An error happened while inserting/updating a table definition
         $response->isSuccess(false);
-        $response->addJSON('message',
+        $response->addJSON(
+            'message',
             PMA_Message::rawError(__('Query error') . ':<br />'.PMA_DBI_getError())
         );
         $regenerate = true;
@@ -2411,8 +2412,10 @@ function PMA_updateColumns($db, $table)
 /**
  * Moves columns in the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
+ *
+ * @return void
  */
 function PMA_moveColumns($db, $table)
 {

@@ -2,6 +2,9 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.1.0.0 (not yet released)
++ rfe #499 On user creation, warn if the user already exists
++ Use indeterminate check all checkbox in server privileges
++ Break server_status.php functions into smaller functions
 + PMA_DBI functions in database_interface.lib.php renamed to be compliant with PEAR standards
 
 4.0.1.0 (not yet released)

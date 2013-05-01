@@ -774,12 +774,9 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
     } else {
         $html_output .= __('Table-specific privileges');
     }
-    $html_output .= ' (<a href="#" '
-        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', true); '
-        . 'return false;">' . __('Check All') . '</a> /'
-        . '<a href="#" '
-        . 'onclick="setCheckboxes(\'fieldset_user_global_rights\', false); '
-        . 'return false;">' . __('Uncheck All') . '</a>)';
+    $html_output .= '<input type="checkbox" id="addUsersForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" /> '
+        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> ';
     $html_output .= '</legend>';
     $html_output .= '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English')
@@ -982,7 +979,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
             . '<legend>' . $privTable_names[$i] . '</legend>' . "\n";
         foreach ($table as $priv) {
             $html_output .= '<div class="item">' . "\n"
-                . '<input type="checkbox"'
+                . '<input type="checkbox" class="checkall"'
                 . ' name="' . $priv[0] . '_priv" '
                 . 'id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
@@ -1035,6 +1032,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '        onchange="'
         . 'if (this.value == \'any\') {'
         . '    username.value = \'\'; '
+        . '    user_exists_warning.style.display = \'none\'; '
         . '} else if (this.value == \'userdefined\') {'
         . '    username.focus(); username.select(); '
         . '}">' . "\n";
@@ -1068,8 +1066,15 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
-        . '</div>' . "\n";
+        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n";
+
+    $html_output .= '<div id="user_exists_warning"'
+        . ' name="user_exists_warning" style="display:none;">'
+        . PMA_Message::notice(
+            __('An account already exists with the same username but possibly a different hostname. Are you sure you wish to proceed?')
+        )->getDisplay()
+        . '</div>';
+    $html_output .= '</div>';
 
     $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_hostname">' . "\n"
@@ -1905,6 +1910,19 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
         $extra_data['new_privileges'] = $new_privileges;
     }
+
+    if (isset($_REQUEST['validate_username'])) {
+        $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
+            . $_REQUEST['username'] . "';";
+        $res = PMA_DBI_query($sql_query);
+        $row = PMA_DBI_fetch_row($res);
+        if (empty($row)) {
+            $extra_data['user_exists'] = false;
+        } else {
+            $extra_data['user_exists'] = true;
+        }
+    }
+
     return $extra_data;
 }
 
@@ -2395,13 +2413,14 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '</table>' . "\n";
 
     $html_output .= '<div style="float:left;">'
-        .'<img class="selectallarrow"'
-        .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-        .' width="38" height="22"'
-        .' alt="' . __('With selected:') . '" />' . "\n"
-        .'<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
-        .'<label for="checkall">' . __('Check All') . '</label> '
-        .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        . '<img class="selectallarrow"'
+        . ' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
+        . ' width="38" height="22"'
+        . ' alt="' . __('With selected:') . '" />' . "\n"
+        . '<input type="checkbox" id="usersForm_checkall" class="checkall_box" '
+        . 'title="' . __('Check All') . '" /> '
+        . '<label for="usersForm_checkall">' . __('Check All') . '</label> '
+        . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
     $html_output .= PMA_Util::getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_export',
@@ -2431,10 +2450,9 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
 function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
 {
     $odd_row = true;
-    $index_checkbox = -1;
+    $index_checkbox = 0;
     $html_output = '';
     foreach ($db_rights as $user) {
-        $index_checkbox++;
         ksort($user);
         foreach ($user as $host) {
             $index_checkbox++;

@@ -963,6 +963,10 @@ div#tablestatistics table {
 #fieldset_user_global_rights fieldset {
     float: <?php echo $left; ?>;
 }
+
+#fieldset_user_global_rights legend input {
+    margin-<?php echo $left; ?>: 2em;
+}
 /* END user privileges */
 
 
