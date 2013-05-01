@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 + Use indeterminate check all checkbox in server privileges
 + Break server_status.php functions into smaller functions
 + PMA_DBI functions in database_interface.lib.php renamed to be compliant with PEAR standards
++ [interface] Make warning about existing config directory clearer
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA

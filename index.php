@@ -457,7 +457,7 @@ if (! empty($_SESSION['auto_blowfish_secret'])
  */
 if (file_exists('config')) {
     trigger_error(
-        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'),
+        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. It is strongly recommended to remove it once phpMyAdmin has been configured. Otherwise the security of your server may be compromised by unauthorized people downloading your configuration.'),
         E_USER_WARNING
     );
 }
