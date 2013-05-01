@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.1.0.0 (not yet released)
++ PMA_DBI functions in database_interface.lib.php renamed to be compliant with PEAR standards
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
