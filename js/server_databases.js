@@ -36,8 +36,8 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var selected_dbs Array containing the names of the checked databases
          */
         var selected_dbs = [];
-        // loop over all checked checkboxes, except the #checkall checkbox
-        $form.find('input:checkbox:checked:not(#checkall)').each(function () {
+        // loop over all checked checkboxes, except the .checkall_box checkbox
+        $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });

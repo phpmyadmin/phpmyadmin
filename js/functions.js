@@ -3755,14 +3755,13 @@ $(function () {
 /**
  * Watches checkboxes in a form to set the checkall box accordingly
  */
-var checkboxes_sel = "input.checkall:checkbox:enabled";
-$(checkboxes_sel).live("change", function () {
+var checkboxes_changed = function () {
     var $form = $(this.form);
     // total number of checkboxes in current form
     var total_boxes = $form.find(checkboxes_sel).length;
     // number of checkboxes checked in current form
     var checked_boxes = $form.find(checkboxes_sel + ":checked").length;
-    var $checkall = $form.find("input#checkall");
+    var $checkall = $form.find("input.checkall_box");
     if (total_boxes == checked_boxes) {
         $checkall.prop({checked: true, indeterminate: false});
     }
@@ -3772,8 +3771,11 @@ $(checkboxes_sel).live("change", function () {
     else {
         $checkall.prop({checked: false, indeterminate: false});
     }
-});
-$("input#checkall").live("change", function () {
+};
+var checkboxes_sel = "input.checkall:checkbox:enabled";
+$(checkboxes_sel).live("change", checkboxes_changed);
+
+$("input.checkall_box").live("change", function () {
     var is_checked = $(this).is(":checked");
     $(this.form).find(checkboxes_sel).prop("checked", is_checked)
     .parents("tr").toggleClass("marked", is_checked);

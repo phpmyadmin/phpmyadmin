@@ -277,9 +277,9 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         . 'src="' .$pmaThemeImage .'arrow_'.$text_dir.'.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') .'" />';
-    $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') .'" />';
+    $html_output .= '<label for="tablesForm_checkall">' .__('Check All') . '</label>';
 
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
@@ -1356,9 +1356,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') . '" />'
-        . '<label for="checkall">' . __('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
 
     $html_output .= '<i style="margin-left: 2em">'
         . __('With selected:') . '</i>';

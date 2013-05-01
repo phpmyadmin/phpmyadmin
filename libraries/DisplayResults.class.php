@@ -5037,9 +5037,9 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="checkall" title="'
-            . __('Check All') . '" /> '
-            . '<label for="checkall">' . __('Check All') . '</label> '
+        $links_html .= '<input type="checkbox" id="resultsForm_checkall" '
+            . 'class="checkall_box" title="' . __('Check All') . '" /> '
+            . '<label for="resultsForm_checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_Util::getButtonOrImage(
