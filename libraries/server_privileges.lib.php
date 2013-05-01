@@ -1074,7 +1074,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     $html_output .= '<div id="user_exists_warning"'
         . ' name="user_exists_warning" style="display:none;">'
         . PMA_Message::notice(
-            __('Another account with the same username already exists, maybe you would like to check that.')
+            __('An account already exists with the same username but possibly a different hostname. Are you sure you wish to proceed?')
         )->getDisplay()
         . '</div>';
     $html_output .= '</div>';
