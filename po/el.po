@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-26 08:23+0200\n"
+"PO-Revision-Date: 2013-05-02 11:59+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -852,7 +852,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -864,8 +863,10 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "Ο φάκελος [code]config[/code], που χρησιμοποιήθηκε από τον κώδικα "
-"εγκατάστασης, υπάρχει ακόμα στο φάκελο phpMyAdmin. Πρέπει να τον διαγράψετε "
-"μόλις ρυθμιστεί το phpMyAdmin."
+"εγκατάστασης, υπάρχει ακόμα στο φάκελο phpMyAdmin. Προτείνεται να τον "
+"διαγράψετε μόλις ρυθμιστεί το phpMyAdmin. Σε αντίθετη περίπτωση η ασφάλεια "
+"του διακομιστή σας μπορεί να προσβηθεί από μη αδειοδοτημένους χρήστες που "
+"μπορούν να λάβουν τη ρύθμισή σας."
 
 #: index.php:470
 #, php-format
@@ -5852,7 +5853,6 @@ msgid "Display columns table"
 msgstr "Πίνακας προβολής στηλών"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7832,7 +7832,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Επαναπροσπάθεια για σύνδεση"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9584,6 +9584,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Ένας λογαριασμός με το ίδιο όνομα χρήστη υπάρχει ήδη αλλά πιθανά διαφορετικό "
+"φιλοξενητή. Θέλετε να συνεχίσετε;"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10413,10 +10415,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Προστέθηκε η συσχέτιση FOREIGN KEY"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
+msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης είναι απεπεργοποιημένα!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12571,10 +12572,9 @@ msgid "Choose column to display:"
 msgstr "Επιλέξτε στήλη για εμφάνιση:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Δεν επιλέχθηκαν γραμμές"
+msgstr "Δεν επιλέχθηκε στήλη."
 
 #: tbl_structure.php:149
 #, php-format
