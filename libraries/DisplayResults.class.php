@@ -5415,7 +5415,7 @@ class PMA_DisplayResults
                 /* Create link to download */
                 if (count($url_params) > 0) {
                     $result = '<a href="tbl_get_field.php'
-                        . PMA_generate_common_url($url_params) . '">'
+                        . PMA_generate_common_url($url_params) . '" class="disableAjax">'
                         . $result . '</a>';
                 }
             }

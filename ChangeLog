@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #3899 Git commit links to Github missing
 - bug #3900 CSP WARN in Firefox console
 - bug #3901 Setup script warning for config auth (stored login data) shows link BBcode
+- bug #3895 [browse] Fixed getting BLOB data
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
