@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-04-25 14:42+0200\n"
+"POT-Creation-Date: 2013-05-02 11:31+0200\n"
 "PO-Revision-Date: 2013-01-10 13:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
-#: libraries/server_privileges.lib.php:2604
+#: libraries/server_privileges.lib.php:2622
 msgid "Show all"
 msgstr "Rādīt visu"
 
@@ -52,8 +52,8 @@ msgstr "Meklēt"
 #: libraries/TableSearch.class.php:1141 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
-#: libraries/display_export.lib.php:447 libraries/display_import.lib.php:335
-#: libraries/index.lib.php:35 libraries/insert_edit.lib.php:1547
+#: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
+#: libraries/index.lib.php:37 libraries/insert_edit.lib.php:1547
 #: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:636
@@ -70,10 +70,10 @@ msgstr "Meklēt"
 #: libraries/schema/User_Schema.class.php:484
 #: libraries/schema/User_Schema.class.php:534
 #: libraries/server_privileges.lib.php:476
-#: libraries/server_privileges.lib.php:1474
-#: libraries/server_privileges.lib.php:1953
-#: libraries/server_privileges.lib.php:2544
-#: libraries/server_privileges.lib.php:3066
+#: libraries/server_privileges.lib.php:1479
+#: libraries/server_privileges.lib.php:1971
+#: libraries/server_privileges.lib.php:2562
+#: libraries/server_privileges.lib.php:3084
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:498 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
@@ -160,7 +160,7 @@ msgstr "Lauks"
 #: libraries/rte/rte_routines.lib.php:1577
 #: libraries/schema/Pdf_Relation_Schema.class.php:1359
 #: libraries/schema/Pdf_Relation_Schema.class.php:1382
-#: libraries/server_privileges.lib.php:1568 libraries/structure.lib.php:776
+#: libraries/server_privileges.lib.php:1573 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1180
 #: libraries/tbl_columns_definition_form.inc.php:96 tbl_printview.php:131
 #: tbl_tracking.php:325 tbl_tracking.php:383
@@ -231,13 +231,13 @@ msgstr "Komentāri"
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:566
 #: libraries/schema/Pdf_Relation_Schema.class.php:1414
-#: libraries/server_privileges.lib.php:1710
-#: libraries/server_privileges.lib.php:1845
-#: libraries/server_privileges.lib.php:1858
-#: libraries/server_privileges.lib.php:2139
-#: libraries/server_privileges.lib.php:2145
-#: libraries/server_privileges.lib.php:2464
-#: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:1715
+#: libraries/server_privileges.lib.php:1850
+#: libraries/server_privileges.lib.php:1863
+#: libraries/server_privileges.lib.php:2157
+#: libraries/server_privileges.lib.php:2163
+#: libraries/server_privileges.lib.php:2482
+#: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:430
 #: sql.php:525 sql.php:526 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
@@ -258,13 +258,13 @@ msgstr "Nē"
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:566
 #: libraries/schema/Pdf_Relation_Schema.class.php:1415
-#: libraries/server_privileges.lib.php:1710
-#: libraries/server_privileges.lib.php:1842
-#: libraries/server_privileges.lib.php:1856
-#: libraries/server_privileges.lib.php:2138
-#: libraries/server_privileges.lib.php:2143
-#: libraries/server_privileges.lib.php:2461
-#: libraries/server_privileges.lib.php:2478 libraries/structure.lib.php:1268
+#: libraries/server_privileges.lib.php:1715
+#: libraries/server_privileges.lib.php:1847
+#: libraries/server_privileges.lib.php:1861
+#: libraries/server_privileges.lib.php:2156
+#: libraries/server_privileges.lib.php:2161
+#: libraries/server_privileges.lib.php:2479
+#: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:131
 #: server_databases.php:103 server_databases.php:110 sql.php:523 sql.php:524
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
@@ -276,7 +276,7 @@ msgstr "Jā"
 msgid "View dump (schema) of database"
 msgstr "Apskatīt datubāzes dampu (shēmu)"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:552
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:553
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Tabulas nav atrastas šajā datubāzē."
@@ -320,9 +320,9 @@ msgstr ""
 #: libraries/plugins/export/ExportXml.class.php:457
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
 #: libraries/schema/User_Schema.class.php:298
-#: libraries/server_privileges.lib.php:1981
-#: libraries/server_privileges.lib.php:2212
-#: libraries/server_privileges.lib.php:2863 libraries/structure.lib.php:757
+#: libraries/server_privileges.lib.php:1999
+#: libraries/server_privileges.lib.php:2230
+#: libraries/server_privileges.lib.php:2881 libraries/structure.lib.php:757
 #: tbl_tracking.php:763
 msgid "Table"
 msgstr "Tabula"
@@ -381,8 +381,8 @@ msgstr "Izvēlieties vismaz vienu kolonnu attēlošanai"
 msgid "Switch to %svisual builder%s"
 msgstr "Pārslēgties uz %svisual builder%s"
 
-#: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
-#: libraries/plugins/auth/AuthenticationConfig.class.php:95
+#: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
+#: libraries/plugins/auth/AuthenticationConfig.class.php:96
 #: libraries/plugins/auth/AuthenticationCookie.class.php:587
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
@@ -404,10 +404,10 @@ msgstr ""
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
-#: libraries/server_privileges.lib.php:1971
-#: libraries/server_privileges.lib.php:2212
-#: libraries/server_privileges.lib.php:2854 server_databases.php:202
-#: server_status.php:324 tbl_tracking.php:762
+#: libraries/server_privileges.lib.php:1989
+#: libraries/server_privileges.lib.php:2230
+#: libraries/server_privileges.lib.php:2872 server_databases.php:202
+#: server_status.php:368 tbl_tracking.php:762
 msgid "Database"
 msgstr "Datubāze"
 
@@ -425,15 +425,15 @@ msgstr "Atjaunots"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:336 sql.php:1181 tbl_tracking.php:767
+#: server_status.php:380 sql.php:1184 tbl_tracking.php:767
 msgid "Status"
 msgstr "Statuss"
 
 #: db_tracking.php:84 libraries/Index.class.php:559
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
-#: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1571
-#: libraries/server_privileges.lib.php:2222
-#: libraries/server_privileges.lib.php:2386 libraries/structure.lib.php:765
+#: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1576
+#: libraries/server_privileges.lib.php:2240
+#: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:765
 #: libraries/structure.lib.php:1198 server_databases.php:237
 msgid "Action"
 msgstr "Darbība"
@@ -450,7 +450,7 @@ msgstr ""
 #: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
-#: server_databases.php:331
+#: server_databases.php:332
 msgid "Drop"
 msgstr "Likvidēt"
 
@@ -488,24 +488,24 @@ msgstr "Pārbaudīt tabulu"
 msgid "Database Log"
 msgstr "Datubāzes žurnāls"
 
-#: export.php:146
+#: export.php:147
 msgid "Bad type!"
 msgstr "Nepareizs tips!"
 
-#: export.php:197
+#: export.php:198
 msgid "Selected export type has to be saved in file!"
 msgstr "Izvēlētais eksporta tips atbalsta tikkai saglabāšanu failā!"
 
-#: export.php:226
+#: export.php:227
 msgid "Bad parameters!"
 msgstr "Nepareizi parametri!"
 
-#: export.php:330 export.php:361 export.php:921
+#: export.php:331 export.php:362 export.php:922
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Nepietiek vietas, lai saglabātu failu %s."
 
-#: export.php:501
+#: export.php:502
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -513,12 +513,12 @@ msgstr ""
 "Fails %s jau eksistē uz servera. Lūdzu nomainiet faila nosaukumu vai "
 "atzīmējiet failu pārrakstīšanas opciju."
 
-#: export.php:507 export.php:513
+#: export.php:508 export.php:514
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web serverim nav tiesību rakstīt failā %s."
 
-#: export.php:927
+#: export.php:928
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Damps tika saglabāts failā %s."
@@ -628,27 +628,27 @@ msgid ""
 "below into the \"Value\" field"
 msgstr ""
 
-#: import.php:105
+#: import.php:106
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
-#: import.php:248 import.php:513
+#: import.php:249 import.php:515
 msgid "Showing bookmark"
 msgstr "Rāda grāmatzīmi"
 
-#: import.php:263 import.php:509
+#: import.php:264 import.php:511
 msgid "The bookmark has been deleted."
 msgstr "Ieraksts tika dzēsts."
 
-#: import.php:358 import.php:419 libraries/File.class.php:432
+#: import.php:359 import.php:420 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
 msgstr "Nevar nolasīt failu"
 
-#: import.php:367 import.php:378 import.php:399 import.php:410
+#: import.php:368 import.php:379 import.php:400 import.php:411
 #: libraries/File.class.php:604
 #, php-format
 msgid ""
@@ -656,45 +656,45 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 
-#: import.php:425
+#: import.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: import.php:445
+#: import.php:446
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 
-#: import.php:482 libraries/display_import.lib.php:29
+#: import.php:484 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāciju!"
 
-#: import.php:516 sql.php:395 sql.php:1243
+#: import.php:518 sql.php:395 sql.php:1246
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Grāmatzīme %s izveidota"
 
-#: import.php:525 import.php:533
+#: import.php:527 import.php:539
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importēšana veiksmīga, %d pieprasījumi izpildīti."
 
-#: import.php:544
+#: import.php:554
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
 
-#: import.php:548
+#: import.php:558
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import.php:579 libraries/DisplayResults.class.php:4547
+#: import.php:589 libraries/DisplayResults.class.php:4527
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
@@ -798,7 +798,7 @@ msgstr "Piekļuves informācija"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
-#: libraries/display_export.lib.php:286 libraries/engines/pbxt.lib.php:112
+#: libraries/display_export.lib.php:292 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
@@ -875,8 +875,9 @@ msgstr "Konfigurācijas fails tagad prasa slepeno paroli (blowfish_secret)."
 #: index.php:460
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
-"exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
-"has been configured."
+"exists in your phpMyAdmin directory. It is strongly recommended to remove it "
+"once phpMyAdmin has been configured. Otherwise the security of your server "
+"may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 
 #: index.php:470
@@ -977,20 +978,20 @@ msgstr "Hosts nav norādīts!"
 msgid "The user name is empty!"
 msgstr "Lietotāja vārds nav norādīts!"
 
-#: js/messages.php:53 libraries/server_privileges.lib.php:1306
+#: js/messages.php:53 libraries/server_privileges.lib.php:1311
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Parole nav norādīta!"
 
-#: js/messages.php:54 libraries/server_privileges.lib.php:1304
+#: js/messages.php:54 libraries/server_privileges.lib.php:1309
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Paroles nesakrīt!"
 
-#: js/messages.php:55 libraries/server_privileges.lib.php:1434
-#: libraries/server_privileges.lib.php:1624
-#: libraries/server_privileges.lib.php:2519
-#: libraries/server_privileges.lib.php:2821
+#: js/messages.php:55 libraries/server_privileges.lib.php:1439
+#: libraries/server_privileges.lib.php:1629
+#: libraries/server_privileges.lib.php:2537
+#: libraries/server_privileges.lib.php:2839
 msgid "Add user"
 msgstr "Pievienot lietotāju"
 
@@ -1009,7 +1010,7 @@ msgstr "Aizvērt"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:61 libraries/ServerStatusData.class.php:198
-#: server_status_queries.php:154
+#: server_status_queries.php:170
 msgid "Other"
 msgstr "Cits"
 
@@ -1114,11 +1115,11 @@ msgstr ""
 msgid "Bytes received"
 msgstr "Saņemtie baiti"
 
-#: js/messages.php:95 server_status.php:211
+#: js/messages.php:95 server_status.php:243
 msgid "Connections"
 msgstr "Konekcijas"
 
-#: js/messages.php:96 server_status.php:383
+#: js/messages.php:96 server_status.php:424
 msgid "Processes"
 msgstr "Procesi"
 
@@ -1169,7 +1170,7 @@ msgstr "%d tabula(s)"
 msgid "Questions"
 msgstr "Jautājumi"
 
-#: js/messages.php:110 server_status.php:135
+#: js/messages.php:110 server_status.php:156
 msgid "Traffic"
 msgstr "Datu apmaiņa"
 
@@ -1196,11 +1197,11 @@ msgstr ""
 
 #: js/messages.php:117 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:840 libraries/TableSearch.class.php:984
-#: libraries/display_export.lib.php:377
+#: libraries/display_export.lib.php:383
 #: libraries/plugins/export/ExportSql.class.php:1545
-#: libraries/server_privileges.lib.php:2114
+#: libraries/server_privileges.lib.php:2132
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:471 server_status_monitor.php:667
+#: server_status.php:512 server_status_monitor.php:667
 msgid "None"
 msgstr "Nav"
 
@@ -1376,7 +1377,7 @@ msgstr "Izskaidrot izvadu"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:332 sql.php:1186
+#: libraries/rte/rte_list.lib.php:68 server_status.php:376 sql.php:1189
 msgid "Time"
 msgstr "Laiks"
 
@@ -1710,7 +1711,7 @@ msgstr "Labot"
 msgid "No rows selected"
 msgstr "Rindas nav iezīmētas"
 
-#: js/messages.php:266 libraries/DisplayResults.class.php:5067
+#: js/messages.php:266 libraries/DisplayResults.class.php:5047
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
 #: querywindow.php:85
 msgid "Change"
@@ -2295,79 +2296,79 @@ msgstr "lietošanā"
 msgid "Second"
 msgstr "sekundē"
 
-#: libraries/Advisor.class.php:77
+#: libraries/Advisor.class.php:78
 #, php-format
 msgid "PHP threw following error: %s"
 msgstr ""
 
-#: libraries/Advisor.class.php:104
+#: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
 msgstr ""
 
-#: libraries/Advisor.class.php:121
+#: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'"
 msgstr ""
 
-#: libraries/Advisor.class.php:140
+#: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'"
 msgstr ""
 
-#: libraries/Advisor.class.php:222
+#: libraries/Advisor.class.php:225
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/Advisor.class.php:378
+#: libraries/Advisor.class.php:395
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
 
-#: libraries/Advisor.class.php:395
+#: libraries/Advisor.class.php:412
 #, php-format
 msgid "Invalid rule declaration on line %s"
 msgstr ""
 
-#: libraries/Advisor.class.php:403
+#: libraries/Advisor.class.php:420
 #, php-format
 msgid "Unexpected characters on line %s"
 msgstr ""
 
-#: libraries/Advisor.class.php:417
+#: libraries/Advisor.class.php:434
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
 
-#: libraries/Advisor.class.php:450
+#: libraries/Advisor.class.php:467
 msgid "per second"
 msgstr "sekundē"
 
-#: libraries/Advisor.class.php:453
+#: libraries/Advisor.class.php:470
 msgid "per minute"
 msgstr "minūtē"
 
-#: libraries/Advisor.class.php:456 server_status.php:143 server_status.php:212
-#: server_status_queries.php:107
+#: libraries/Advisor.class.php:473 server_status.php:164 server_status.php:244
+#: server_status_queries.php:123
 msgid "per hour"
 msgstr "stundā"
 
-#: libraries/Advisor.class.php:459
+#: libraries/Advisor.class.php:476
 msgid "per day"
 msgstr ""
 
-#: libraries/Config.class.php:1115
+#: libraries/Config.class.php:1118
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:1145
+#: libraries/Config.class.php:1148
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1711
+#: libraries/Config.class.php:1714
 msgid "Font size"
 msgstr ""
 
@@ -2376,7 +2377,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:811
 #: libraries/operations.lib.php:630 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
-#: server_databases.php:220 server_status.php:420
+#: server_databases.php:220 server_status.php:461
 msgid "Ascending"
 msgstr "Augošā secībā"
 
@@ -2385,7 +2386,7 @@ msgstr "Augošā secībā"
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:631 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
-#: server_databases.php:220 server_status.php:417
+#: server_databases.php:220 server_status.php:458
 msgid "Descending"
 msgstr "Dilstošā secībā"
 
@@ -2524,7 +2525,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Dati tabulai"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3382
-#: libraries/DisplayResults.class.php:5043
+#: libraries/DisplayResults.class.php:5023
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
@@ -2612,7 +2613,7 @@ msgstr "Beigas"
 msgid "Start row:"
 msgstr "S"
 
-#: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:169
+#: libraries/DisplayResults.class.php:908 libraries/display_export.lib.php:175
 #: tbl_chart.php:245
 #, fuzzy
 #| msgid "Number of rows per page"
@@ -2664,8 +2665,7 @@ msgstr "Kārtot pēc atslēgas"
 #: libraries/plugins/export/ExportTexytext.class.php:51
 #: libraries/plugins/export/ExportXml.class.php:81
 #: libraries/plugins/export/ExportYaml.class.php:50
-#: libraries/plugins/import/ImportCsv.class.php:64
-#: libraries/plugins/import/ImportLdi.class.php:70
+#: libraries/plugins/import/AbstractImportCsv.class.php:40
 #: libraries/plugins/import/ImportMediawiki.class.php:60
 #: libraries/plugins/import/ImportOds.class.php:58
 #: libraries/plugins/import/ImportShp.class.php:56
@@ -2734,101 +2734,102 @@ msgid "The row has been deleted"
 msgstr "Ieraksts tika dzēsts"
 
 #: libraries/DisplayResults.class.php:3409
-#: libraries/DisplayResults.class.php:5043 server_status.php:467
+#: libraries/DisplayResults.class.php:5023 server_status.php:508
 msgid "Kill"
 msgstr "Nogalināt"
 
-#: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4473 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Var būt aptuvens skaits. Skatīt [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4889
+#: libraries/DisplayResults.class.php:4869
 msgid "in query"
 msgstr "vaicājumā"
 
-#: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4906 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4919
 msgid "Showing rows"
 msgstr "Parādu rindas"
 
-#: libraries/DisplayResults.class.php:4955
+#: libraries/DisplayResults.class.php:4935
 msgid "total"
 msgstr "kopā"
 
-#: libraries/DisplayResults.class.php:4966 sql.php:946
+#: libraries/DisplayResults.class.php:4946 sql.php:946
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Vaicājums ilga %01.4f s"
 
-#: libraries/DisplayResults.class.php:5057
-#: libraries/DisplayResults.class.php:5063 libraries/mult_submits.inc.php:42
-#: libraries/server_privileges.lib.php:2401
-#: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:278
+#: libraries/DisplayResults.class.php:5037
+#: libraries/DisplayResults.class.php:5043 libraries/mult_submits.inc.php:42
+#: libraries/server_privileges.lib.php:2419
+#: libraries/server_privileges.lib.php:2423 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
 #: libraries/structure.lib.php:1357 libraries/structure.lib.php:1364
-#: server_databases.php:323 server_databases.php:326
+#: server_databases.php:323 server_databases.php:327
 msgid "With selected:"
 msgstr "Ar iezīmēto:"
 
-#: libraries/DisplayResults.class.php:5061
-#: libraries/DisplayResults.class.php:5062
+#: libraries/DisplayResults.class.php:5041
+#: libraries/DisplayResults.class.php:5042
+#: libraries/server_privileges.lib.php:778
 #: libraries/server_privileges.lib.php:779
-#: libraries/server_privileges.lib.php:2402
-#: libraries/server_privileges.lib.php:2403 libraries/structure.lib.php:281
+#: libraries/server_privileges.lib.php:2421
+#: libraries/server_privileges.lib.php:2422 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1360
-#: libraries/structure.lib.php:1361 server_databases.php:324
-#: server_databases.php:325
+#: libraries/structure.lib.php:1361 server_databases.php:325
+#: server_databases.php:326
 msgid "Check All"
 msgstr "Iezīmēt visu"
 
-#: libraries/DisplayResults.class.php:5080
-#: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5060
+#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
 #: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
-#: libraries/server_privileges.lib.php:1786
-#: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
+#: libraries/server_privileges.lib.php:1791
+#: libraries/server_privileges.lib.php:2427 libraries/structure.lib.php:297
 #: prefs_manage.php:289 server_status_monitor.php:534
 #: setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Eksports"
 
-#: libraries/DisplayResults.class.php:5178
+#: libraries/DisplayResults.class.php:5158
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5202 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Izdrukas versija"
 
-#: libraries/DisplayResults.class.php:5220
+#: libraries/DisplayResults.class.php:5200
 msgid "Print view (with full texts)"
 msgstr "Drukas skats (ar pilniem tekstiem)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Rādīt PDF shēmu"
 
-#: libraries/DisplayResults.class.php:5316
+#: libraries/DisplayResults.class.php:5296
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5348 view_create.php:151
+#: libraries/DisplayResults.class.php:5328 view_create.php:151
 #, fuzzy
 msgid "Create view"
 msgstr "Servera versija"
 
-#: libraries/DisplayResults.class.php:5541
+#: libraries/DisplayResults.class.php:5517
 msgid "Link not found"
 msgstr "Links nav atrasts"
 
@@ -2964,7 +2965,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:391 libraries/Menu.class.php:450
 #: libraries/config/messages.inc.php:175
-#: libraries/server_privileges.lib.php:2854 server_databases.php:138
+#: libraries/server_privileges.lib.php:2872 server_databases.php:138
 msgid "Databases"
 msgstr "Datubāzes"
 
@@ -3046,9 +3047,9 @@ msgstr ""
 msgid "Query"
 msgstr "Vaicājums pēc parauga"
 
-#: libraries/Menu.class.php:387 libraries/server_privileges.lib.php:1569
-#: libraries/server_privileges.lib.php:2214
-#: libraries/server_privileges.lib.php:2780 server_privileges.php:146
+#: libraries/Menu.class.php:387 libraries/server_privileges.lib.php:1574
+#: libraries/server_privileges.lib.php:2232
+#: libraries/server_privileges.lib.php:2798 server_privileges.php:146
 msgid "Privileges"
 msgstr "Privilēģijas"
 
@@ -3151,7 +3152,7 @@ msgstr "Nav tabulu"
 msgid "There are no recent tables"
 msgstr ""
 
-#: libraries/ServerStatusData.class.php:181 server_status.php:340
+#: libraries/ServerStatusData.class.php:181 server_status.php:384
 msgid "SQL query"
 msgstr "SQL vaicājums"
 
@@ -3748,7 +3749,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Maksimālais izmērs: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1113
+#: libraries/Util.class.php:674 sql.php:1116
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3809,7 +3810,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr ""
 
-#: libraries/Util.class.php:1432 sql.php:1177
+#: libraries/Util.class.php:1432 sql.php:1180
 msgid "Profiling"
 msgstr ""
 
@@ -3916,7 +3917,7 @@ msgstr "Dati"
 
 #: libraries/build_html_for_db.lib.php:46 libraries/engines/innodb.lib.php:171
 #: libraries/structure.lib.php:2182 server_databases.php:272
-#: server_status.php:186 server_status.php:276 tbl_printview.php:331
+#: server_status.php:207 server_status.php:308 tbl_printview.php:331
 msgid "Total"
 msgstr "Kopā"
 
@@ -4043,7 +4044,7 @@ msgstr ""
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
-#: libraries/relation.lib.php:105 pmd_relation_new.php:82
+#: libraries/relation.lib.php:105
 msgid "Disabled"
 msgstr "Izslēgts"
 
@@ -4487,7 +4488,7 @@ msgstr "Likt kolonnu nosaukumus pirmajā rindā"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
-#: libraries/plugins/import/ImportCsv.class.php:194
+#: libraries/plugins/import/ImportCsv.class.php:141
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
@@ -4495,7 +4496,7 @@ msgstr "Lauki iekļauti iekš"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
-#: libraries/plugins/import/ImportCsv.class.php:201
+#: libraries/plugins/import/ImportCsv.class.php:148
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
@@ -4517,14 +4518,14 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
-#: libraries/plugins/import/ImportCsv.class.php:179
+#: libraries/plugins/import/ImportCsv.class.php:126
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
 msgstr "Rindas atdalītas ar"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
-#: libraries/plugins/import/ImportCsv.class.php:208
+#: libraries/plugins/import/ImportCsv.class.php:155
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
@@ -4604,7 +4605,7 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:115
-#: libraries/display_export.lib.php:226 libraries/display_export.lib.php:265
+#: libraries/display_export.lib.php:232 libraries/display_export.lib.php:271
 msgid "Overwrite existing file(s)"
 msgstr "Pārrakstīt eksistējošos failus"
 
@@ -4625,7 +4626,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Lietot apostrofa simbolu [`] tabulu un lauku nosaukumiem"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:262
-#: libraries/display_export.lib.php:444
+#: libraries/display_export.lib.php:450
 msgid "SQL compatibility mode"
 msgstr ""
 
@@ -5075,12 +5076,12 @@ msgid "Partial import: allow interrupt"
 msgstr ""
 
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
+#: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
 msgstr ""
 
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
-#: libraries/plugins/import/ImportCsv.class.php:78
-#: libraries/plugins/import/ImportLdi.class.php:84
+#: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
@@ -5095,6 +5096,7 @@ msgid "Format of imported file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:253
+#: libraries/plugins/import/ImportLdi.class.php:76
 msgid "Use LOCAL keyword"
 msgstr ""
 
@@ -5896,7 +5898,7 @@ msgstr "Rādu kolonnu komentārus"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
-"Leave blank for no \"persistent\" tables'UI preferences across sessions, "
+"Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 
@@ -6143,9 +6145,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:492 libraries/replication_gui.lib.php:65
 #: libraries/replication_gui.lib.php:365 libraries/replication_gui.lib.php:375
-#: libraries/server_privileges.lib.php:1190
-#: libraries/server_privileges.lib.php:1214
-#: libraries/server_privileges.lib.php:2379
+#: libraries/server_privileges.lib.php:1195
+#: libraries/server_privileges.lib.php:1219
+#: libraries/server_privileges.lib.php:2397
 msgid "Password"
 msgstr "Parole"
 
@@ -6429,20 +6431,20 @@ msgstr ""
 
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
-#: libraries/server_privileges.lib.php:1206
+#: libraries/server_privileges.lib.php:1211
 msgid "No Password"
 msgstr "Nav paroles"
 
 #: libraries/display_change_password.lib.php:61
 #: libraries/plugins/auth/AuthenticationCookie.class.php:219
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:361
-#: libraries/server_privileges.lib.php:1186
+#: libraries/server_privileges.lib.php:1191
 msgid "Password:"
 msgstr "Parole:"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:379
-#: libraries/server_privileges.lib.php:1221
+#: libraries/server_privileges.lib.php:1226
 #, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
@@ -6477,7 +6479,7 @@ msgid "Create database:"
 msgstr "Izveidot jaunu datubāzi"
 
 #: libraries/display_create_database.lib.php:47
-#: libraries/server_privileges.lib.php:2920 server_privileges.php:149
+#: libraries/server_privileges.lib.php:2938 server_privileges.php:149
 #: server_replication.php:34
 msgid "No Privileges"
 msgstr "Nav privilēģiju"
@@ -6515,97 +6517,97 @@ msgstr ""
 msgid "Exporting databases from the current server"
 msgstr "Ļauj bloķēt tabulas tekošajai darbībai."
 
-#: libraries/display_export.lib.php:102
+#: libraries/display_export.lib.php:103
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Izveidot jaunu tabulu datubāzē %s"
 
-#: libraries/display_export.lib.php:104
+#: libraries/display_export.lib.php:108
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Izveidot jaunu tabulu datubāzē %s"
 
-#: libraries/display_export.lib.php:116
+#: libraries/display_export.lib.php:122
 #, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Eksporta veids"
 
-#: libraries/display_export.lib.php:126
+#: libraries/display_export.lib.php:132
 msgid "Quick - display only the minimal options"
 msgstr ""
 
-#: libraries/display_export.lib.php:138
+#: libraries/display_export.lib.php:144
 msgid "Custom - display all possible options"
 msgstr ""
 
-#: libraries/display_export.lib.php:147
+#: libraries/display_export.lib.php:153
 #, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
 msgstr "Datubāzes"
 
-#: libraries/display_export.lib.php:149
+#: libraries/display_export.lib.php:155
 #, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabulas"
 
-#: libraries/display_export.lib.php:158 sql.php:1117
+#: libraries/display_export.lib.php:164 sql.php:1120
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Rindas"
 
-#: libraries/display_export.lib.php:166
+#: libraries/display_export.lib.php:172
 msgid "Dump some row(s)"
 msgstr ""
 
-#: libraries/display_export.lib.php:181
+#: libraries/display_export.lib.php:187
 msgid "Row to begin at:"
 msgstr ""
 
-#: libraries/display_export.lib.php:198
+#: libraries/display_export.lib.php:204
 msgid "Dump all rows"
 msgstr ""
 
-#: libraries/display_export.lib.php:206 libraries/display_export.lib.php:234
+#: libraries/display_export.lib.php:212 libraries/display_export.lib.php:240
 msgid "Output:"
 msgstr ""
 
-#: libraries/display_export.lib.php:215 libraries/display_export.lib.php:254
+#: libraries/display_export.lib.php:221 libraries/display_export.lib.php:260
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Saglabāt uz servera direktorijā %s"
 
-#: libraries/display_export.lib.php:244
+#: libraries/display_export.lib.php:250
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Saglabāt kā failu"
 
-#: libraries/display_export.lib.php:271
+#: libraries/display_export.lib.php:277
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "Faila nosaukuma šablons"
 
-#: libraries/display_export.lib.php:273
+#: libraries/display_export.lib.php:279
 msgid "@SERVER@ will become the server name"
 msgstr ""
 
-#: libraries/display_export.lib.php:275
+#: libraries/display_export.lib.php:281
 msgid ", @DATABASE@ will become the database name"
 msgstr ""
 
-#: libraries/display_export.lib.php:277
+#: libraries/display_export.lib.php:283
 msgid ", @TABLE@ will become the table name"
 msgstr ""
 
-#: libraries/display_export.lib.php:282
+#: libraries/display_export.lib.php:288
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -6613,65 +6615,65 @@ msgid ""
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
-#: libraries/display_export.lib.php:335
+#: libraries/display_export.lib.php:341
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:341 libraries/display_import.lib.php:255
+#: libraries/display_export.lib.php:347 libraries/display_import.lib.php:255
 #: libraries/display_import.lib.php:269 libraries/sql_query_form.lib.php:493
 msgid "Character set of the file:"
 msgstr "Tabulas kodējums:"
 
-#: libraries/display_export.lib.php:375
+#: libraries/display_export.lib.php:381
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Kompresija"
 
-#: libraries/display_export.lib.php:383
+#: libraries/display_export.lib.php:389
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "Arhivēts ar zip"
 
-#: libraries/display_export.lib.php:390
+#: libraries/display_export.lib.php:396
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "Arhivēts ar gzip"
 
-#: libraries/display_export.lib.php:397
+#: libraries/display_export.lib.php:403
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "Arhivēts ar bzip"
 
-#: libraries/display_export.lib.php:415
+#: libraries/display_export.lib.php:421
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "Saglabāt kā failu"
 
-#: libraries/display_export.lib.php:420 libraries/display_import.lib.php:312
+#: libraries/display_export.lib.php:426 libraries/display_import.lib.php:312
 #: libraries/plugins/export/ExportCodegen.class.php:107
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
 msgstr "Formats"
 
-#: libraries/display_export.lib.php:425
+#: libraries/display_export.lib.php:431
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Transformācijas opcijas"
 
-#: libraries/display_export.lib.php:427
+#: libraries/display_export.lib.php:433
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:436 libraries/display_import.lib.php:327
+#: libraries/display_export.lib.php:442 libraries/display_import.lib.php:327
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -7108,12 +7110,12 @@ msgstr "Relācijas"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/gis_visualization.lib.php:135
+#: libraries/gis_visualization.lib.php:141
 msgid "No data found for GIS visualization."
 msgstr ""
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
 
@@ -7161,7 +7163,7 @@ msgstr "Tikai struktūra"
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/index.lib.php:30
+#: libraries/index.lib.php:32
 #, fuzzy, php-format
 #| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
@@ -7555,7 +7557,7 @@ msgstr ""
 msgid "Columns"
 msgstr "Kolonnu nosaukumi"
 
-#: libraries/navigation/Nodes/Node_Column_Container.class.php:38
+#: libraries/navigation/Nodes/Node_Column_Container.class.php:40
 msgctxt "Create new column"
 msgid "New"
 msgstr ""
@@ -7595,7 +7597,7 @@ msgctxt "Create new procedure"
 msgid "New"
 msgstr ""
 
-#: libraries/navigation/Nodes/Node_Table_Container.class.php:40
+#: libraries/navigation/Nodes/Node_Table_Container.class.php:43
 msgctxt "Create new table"
 msgid "New"
 msgstr ""
@@ -7813,21 +7815,21 @@ msgstr "Šim formātam nav opciju"
 msgid "Cannot connect: invalid settings."
 msgstr "Nevar pieslēgties: kļūda konfigurācijā."
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:85
+#: libraries/plugins/auth/AuthenticationConfig.class.php:86
 #: libraries/plugins/auth/AuthenticationCookie.class.php:160
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
 msgstr "Laipni lūgti %s"
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:101
+#: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:121
+#: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -7838,6 +7840,10 @@ msgstr ""
 "pieslēgumu. Lūdzu pārbaudiet hostu, lietotājvārdu un paroli config.inc.php "
 "failā, un pārliecinieties, ka tie atbilst informācijai, ko Jums deva MySQL "
 "servera administrators."
+
+#: libraries/plugins/auth/AuthenticationConfig.class.php:142
+msgid "Retry to connect"
+msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7913,28 +7919,28 @@ msgid "Authenticating…"
 msgstr ""
 
 #: libraries/plugins/export/ExportCsv.class.php:93
-#: libraries/plugins/import/ImportCsv.class.php:82
+#: libraries/plugins/import/AbstractImportCsv.class.php:59
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Rindas atdalītas ar"
 
 #: libraries/plugins/export/ExportCsv.class.php:97
-#: libraries/plugins/import/ImportCsv.class.php:88
+#: libraries/plugins/import/AbstractImportCsv.class.php:65
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Lauki iekļauti iekš"
 
 #: libraries/plugins/export/ExportCsv.class.php:101
-#: libraries/plugins/import/ImportCsv.class.php:94
+#: libraries/plugins/import/AbstractImportCsv.class.php:71
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
 msgstr "Glābjoša (escape) rakstzīme ir"
 
 #: libraries/plugins/export/ExportCsv.class.php:105
-#: libraries/plugins/import/ImportCsv.class.php:100
+#: libraries/plugins/import/AbstractImportCsv.class.php:77
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
@@ -8098,7 +8104,7 @@ msgstr "Likt kolonnu nosaukumus pirmajā rindā"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1076 sql.php:1107
+#: libraries/server_privileges.lib.php:1081 sql.php:1110
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8106,7 +8112,7 @@ msgstr "Hosts"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1110
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1113
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8123,7 +8129,7 @@ msgstr "PHP Versija"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1108
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1111
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -8313,53 +8319,54 @@ msgstr ""
 msgid "Table:"
 msgstr "Tabula"
 
-#: libraries/plugins/import/ImportCsv.class.php:109
+#: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:74
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:118
+#: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:127
+#: libraries/plugins/import/ImportCsv.class.php:81
+#: libraries/plugins/import/ImportLdi.class.php:66
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
 msgstr "Kolonnu nosaukumi"
 
-#: libraries/plugins/import/ImportCsv.class.php:177
-#: libraries/plugins/import/ImportCsv.class.php:192
-#: libraries/plugins/import/ImportCsv.class.php:199
-#: libraries/plugins/import/ImportCsv.class.php:206
+#: libraries/plugins/import/ImportCsv.class.php:124
+#: libraries/plugins/import/ImportCsv.class.php:139
+#: libraries/plugins/import/ImportCsv.class.php:146
+#: libraries/plugins/import/ImportCsv.class.php:153
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:257
+#: libraries/plugins/import/ImportCsv.class.php:204
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:325
-#: libraries/plugins/import/ImportCsv.class.php:600
+#: libraries/plugins/import/ImportCsv.class.php:272
+#: libraries/plugins/import/ImportCsv.class.php:547
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:481
+#: libraries/plugins/import/ImportCsv.class.php:428
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportLdi.class.php:125
+#: libraries/plugins/import/ImportLdi.class.php:110
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -8674,7 +8681,6 @@ msgid "no description"
 msgstr "Bez apraksta"
 
 #: libraries/replication_gui.lib.php:35
-#: libraries/server_privileges.lib.php:782
 msgid "Uncheck All"
 msgstr "Neiezīmēt neko"
 
@@ -8693,7 +8699,7 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:273
-#: libraries/server_privileges.lib.php:1027
+#: libraries/server_privileges.lib.php:1024
 #, fuzzy
 #| msgid "User name"
 msgid "User name:"
@@ -8701,8 +8707,8 @@ msgstr "Lietotājvārds"
 
 #: libraries/replication_gui.lib.php:61 libraries/replication_gui.lib.php:276
 #: libraries/replication_gui.lib.php:283
-#: libraries/server_privileges.lib.php:1032
-#: libraries/server_privileges.lib.php:1062
+#: libraries/server_privileges.lib.php:1029
+#: libraries/server_privileges.lib.php:1060
 msgid "User name"
 msgstr "Lietotājvārds"
 
@@ -8730,10 +8736,10 @@ msgstr "Servera ID"
 
 #: libraries/replication_gui.lib.php:195 libraries/replication_gui.lib.php:296
 #: libraries/replication_gui.lib.php:353
-#: libraries/server_privileges.lib.php:1081
-#: libraries/server_privileges.lib.php:1177
-#: libraries/server_privileges.lib.php:1567
-#: libraries/server_privileges.lib.php:2378 server_status.php:320
+#: libraries/server_privileges.lib.php:1086
+#: libraries/server_privileges.lib.php:1182
+#: libraries/server_privileges.lib.php:1572
+#: libraries/server_privileges.lib.php:2396 server_status.php:364
 msgid "Host"
 msgstr "Hosts"
 
@@ -8748,48 +8754,48 @@ msgid "Add slave replication user"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:278
-#: libraries/server_privileges.lib.php:1046
+#: libraries/server_privileges.lib.php:1044
 msgid "Any user"
 msgstr "Jebkurš lietotājs"
 
 #: libraries/replication_gui.lib.php:279 libraries/replication_gui.lib.php:347
 #: libraries/replication_gui.lib.php:372
-#: libraries/server_privileges.lib.php:1170
-#: libraries/server_privileges.lib.php:2274
+#: libraries/server_privileges.lib.php:1175
+#: libraries/server_privileges.lib.php:2292
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
 msgstr "Lietot teksta lauku"
 
 #: libraries/replication_gui.lib.php:326
-#: libraries/server_privileges.lib.php:1134
+#: libraries/server_privileges.lib.php:1139
 msgid "Any host"
 msgstr "Jebkurš hosts"
 
 #: libraries/replication_gui.lib.php:330
-#: libraries/server_privileges.lib.php:1142
+#: libraries/server_privileges.lib.php:1147
 msgid "Local"
 msgstr "Lokāls"
 
 #: libraries/replication_gui.lib.php:336
-#: libraries/server_privileges.lib.php:1151
+#: libraries/server_privileges.lib.php:1156
 msgid "This Host"
 msgstr "Šis hosts"
 
 #: libraries/replication_gui.lib.php:342
-#: libraries/server_privileges.lib.php:1161
+#: libraries/server_privileges.lib.php:1166
 msgid "Use Host Table"
 msgstr "Lietot hostu tabulu"
 
 #: libraries/replication_gui.lib.php:356
-#: libraries/server_privileges.lib.php:1180
+#: libraries/server_privileges.lib.php:1185
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:382
-#: libraries/server_privileges.lib.php:1225
+#: libraries/server_privileges.lib.php:1230
 msgid "Re-type"
 msgstr "Atkārtojiet"
 
@@ -9431,80 +9437,80 @@ msgstr "Iekļauj visas privilēģijas, izņemot GRANT."
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:635
-#: libraries/server_privileges.lib.php:813 server_privileges.php:87
+#: libraries/server_privileges.lib.php:810 server_privileges.php:87
 msgid "Allows reading data."
 msgstr "Ļauj lasīt datus."
 
 #: libraries/server_privileges.lib.php:171
 #: libraries/server_privileges.lib.php:640
-#: libraries/server_privileges.lib.php:814 server_privileges.php:76
+#: libraries/server_privileges.lib.php:811 server_privileges.php:76
 msgid "Allows inserting and replacing data."
 msgstr "Ļauj ievietot un mainīt datus."
 
 #: libraries/server_privileges.lib.php:175
 #: libraries/server_privileges.lib.php:645
-#: libraries/server_privileges.lib.php:815 server_privileges.php:93
+#: libraries/server_privileges.lib.php:812 server_privileges.php:93
 msgid "Allows changing data."
 msgstr "Ļauj mainīt datus."
 
 #: libraries/server_privileges.lib.php:179
-#: libraries/server_privileges.lib.php:816 server_privileges.php:68
+#: libraries/server_privileges.lib.php:813 server_privileges.php:68
 msgid "Allows deleting data."
 msgstr "Ļauj dzēst datus."
 
 #: libraries/server_privileges.lib.php:183
-#: libraries/server_privileges.lib.php:842 server_privileges.php:62
+#: libraries/server_privileges.lib.php:839 server_privileges.php:62
 msgid "Allows creating new databases and tables."
 msgstr "Ļauj veidot jaunas datubāzes un tabulas."
 
 #: libraries/server_privileges.lib.php:187
-#: libraries/server_privileges.lib.php:854 server_privileges.php:69
+#: libraries/server_privileges.lib.php:851 server_privileges.php:69
 msgid "Allows dropping databases and tables."
 msgstr "Ļauj dzēst datubāzes un tabulas."
 
 #: libraries/server_privileges.lib.php:191
-#: libraries/server_privileges.lib.php:930 server_privileges.php:84
+#: libraries/server_privileges.lib.php:927 server_privileges.php:84
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Ļauj prlādēt servera iestādījumus un iztukšot servera kešu."
 
 #: libraries/server_privileges.lib.php:195
-#: libraries/server_privileges.lib.php:934 server_privileges.php:90
+#: libraries/server_privileges.lib.php:931 server_privileges.php:90
 msgid "Allows shutting down the server."
 msgstr "Ļauj apstādināt serveri."
 
 #: libraries/server_privileges.lib.php:199
-#: libraries/server_privileges.lib.php:926 server_privileges.php:82
+#: libraries/server_privileges.lib.php:923 server_privileges.php:82
 msgid "Allows viewing processes of all users"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:203
-#: libraries/server_privileges.lib.php:822 server_privileges.php:73
+#: libraries/server_privileges.lib.php:819 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
 msgstr "Ļauj importēt/eksportēt datus no/uz failiem."
 
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:650
-#: libraries/server_privileges.lib.php:947 server_privileges.php:83
+#: libraries/server_privileges.lib.php:944 server_privileges.php:83
 msgid "Has no effect in this MySQL version."
 msgstr "Nedarbojas šajā MySQL versijā."
 
 #: libraries/server_privileges.lib.php:211
-#: libraries/server_privileges.lib.php:850 server_privileges.php:75
+#: libraries/server_privileges.lib.php:847 server_privileges.php:75
 msgid "Allows creating and dropping indexes."
 msgstr "Ļauj veidot un dzēst indeksus."
 
 #: libraries/server_privileges.lib.php:215
-#: libraries/server_privileges.lib.php:848 server_privileges.php:60
+#: libraries/server_privileges.lib.php:845 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
 msgstr "Ļauj mainīt esošo tabulu struktūru."
 
 #: libraries/server_privileges.lib.php:219
-#: libraries/server_privileges.lib.php:938 server_privileges.php:88
+#: libraries/server_privileges.lib.php:935 server_privileges.php:88
 msgid "Gives access to the complete list of databases."
 msgstr "Dod pieeju pilnam datubāzu sarakstam."
 
 #: libraries/server_privileges.lib.php:223
-#: libraries/server_privileges.lib.php:922 server_privileges.php:91
+#: libraries/server_privileges.lib.php:919 server_privileges.php:91
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -9515,70 +9521,70 @@ msgstr ""
 "citu lietotāju procesu nogalināšana."
 
 #: libraries/server_privileges.lib.php:227
-#: libraries/server_privileges.lib.php:860 server_privileges.php:65
+#: libraries/server_privileges.lib.php:857 server_privileges.php:65
 msgid "Allows creating temporary tables."
 msgstr "Ļauj veidot pagaidu tabulas."
 
 #: libraries/server_privileges.lib.php:231
-#: libraries/server_privileges.lib.php:943 server_privileges.php:77
+#: libraries/server_privileges.lib.php:940 server_privileges.php:77
 msgid "Allows locking tables for the current thread."
 msgstr "Ļauj bloķēt tabulas tekošajai darbībai."
 
 #: libraries/server_privileges.lib.php:235
-#: libraries/server_privileges.lib.php:956 server_privileges.php:86
+#: libraries/server_privileges.lib.php:953 server_privileges.php:86
 msgid "Needed for the replication slaves."
 msgstr "Nepieciešams replikāciju kopijām."
 
 #: libraries/server_privileges.lib.php:239
-#: libraries/server_privileges.lib.php:952 server_privileges.php:85
+#: libraries/server_privileges.lib.php:949 server_privileges.php:85
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Dod lietotājam tiesības jautāt, kur ir replikācijas oriģināli / kopijas."
 
 #: libraries/server_privileges.lib.php:243
 #: libraries/server_privileges.lib.php:256
-#: libraries/server_privileges.lib.php:880
-#: libraries/server_privileges.lib.php:887 server_privileges.php:67
+#: libraries/server_privileges.lib.php:877
+#: libraries/server_privileges.lib.php:884 server_privileges.php:67
 #, fuzzy
 msgid "Allows creating new views."
 msgstr "Ļauj veidot jaunas tabulas."
 
 #: libraries/server_privileges.lib.php:247
-#: libraries/server_privileges.lib.php:894 server_privileges.php:71
+#: libraries/server_privileges.lib.php:891 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:251
-#: libraries/server_privileges.lib.php:898 server_privileges.php:92
+#: libraries/server_privileges.lib.php:895 server_privileges.php:92
 #, fuzzy
 msgid "Allows creating and dropping triggers"
 msgstr "Ļauj veidot un dzēst indeksus."
 
 #: libraries/server_privileges.lib.php:260
 #: libraries/server_privileges.lib.php:265
-#: libraries/server_privileges.lib.php:864 server_privileges.php:89
+#: libraries/server_privileges.lib.php:861 server_privileges.php:89
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:269
-#: libraries/server_privileges.lib.php:868 server_privileges.php:63
+#: libraries/server_privileges.lib.php:865 server_privileges.php:63
 #, fuzzy
 msgid "Allows creating stored routines."
 msgstr "Ļauj veidot jaunas tabulas."
 
 #: libraries/server_privileges.lib.php:273
-#: libraries/server_privileges.lib.php:872 server_privileges.php:61
+#: libraries/server_privileges.lib.php:869 server_privileges.php:61
 #, fuzzy
 msgid "Allows altering and dropping stored routines."
 msgstr "Ļauj veidot un dzēst indeksus."
 
 #: libraries/server_privileges.lib.php:277
-#: libraries/server_privileges.lib.php:960 server_privileges.php:66
+#: libraries/server_privileges.lib.php:957 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:281
-#: libraries/server_privileges.lib.php:874 server_privileges.php:72
+#: libraries/server_privileges.lib.php:871 server_privileges.php:72
 msgid "Allows executing stored routines."
 msgstr ""
 
@@ -9628,14 +9634,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:601
 #: libraries/server_privileges.lib.php:775
-#: libraries/server_privileges.lib.php:2206
-#: libraries/server_privileges.lib.php:2218
+#: libraries/server_privileges.lib.php:2224
+#: libraries/server_privileges.lib.php:2236
 msgid "Table-specific privileges"
 msgstr "Tabulu specifiskās privilēģijas"
 
 #: libraries/server_privileges.lib.php:603
-#: libraries/server_privileges.lib.php:785
-#: libraries/server_privileges.lib.php:2382
+#: libraries/server_privileges.lib.php:782
+#: libraries/server_privileges.lib.php:2400
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Piezīme: MySQL privilēģiju apzīmējumi tiek rakstīti angļu valodā"
 
@@ -9644,147 +9650,153 @@ msgid "Administration"
 msgstr "Administrācija"
 
 #: libraries/server_privileges.lib.php:771
-#: libraries/server_privileges.lib.php:2380
+#: libraries/server_privileges.lib.php:2398
 msgid "Global privileges"
 msgstr "Globālās privilēģijas"
 
 #: libraries/server_privileges.lib.php:773
-#: libraries/server_privileges.lib.php:2205
+#: libraries/server_privileges.lib.php:2223
 msgid "Database-specific privileges"
 msgstr "Datubāžu specifiskās privilēģijas"
 
-#: libraries/server_privileges.lib.php:843 server_privileges.php:64
+#: libraries/server_privileges.lib.php:840 server_privileges.php:64
 msgid "Allows creating new tables."
 msgstr "Ļauj veidot jaunas tabulas."
 
-#: libraries/server_privileges.lib.php:855 server_privileges.php:70
+#: libraries/server_privileges.lib.php:852 server_privileges.php:70
 msgid "Allows dropping tables."
 msgstr "Ļauj dzēst tabulas."
 
-#: libraries/server_privileges.lib.php:916 server_privileges.php:74
+#: libraries/server_privileges.lib.php:913 server_privileges.php:74
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Ļauj pievienot lietotājus un privilēģijas bez privilēģiju tabulu "
 "pārlādēšanas."
 
-#: libraries/server_privileges.lib.php:1024
+#: libraries/server_privileges.lib.php:1021
 msgid "Login Information"
 msgstr "Piekļuves informācija"
 
-#: libraries/server_privileges.lib.php:1055
-#: libraries/server_privileges.lib.php:1209
-#: libraries/server_privileges.lib.php:2330
+#: libraries/server_privileges.lib.php:1053
+#: libraries/server_privileges.lib.php:1214
+#: libraries/server_privileges.lib.php:2348
 msgid "Use text field"
 msgstr "Lietot teksta lauku"
 
-#: libraries/server_privileges.lib.php:1199
+#: libraries/server_privileges.lib.php:1074
+msgid ""
+"An account already exists with the same username but possibly a different "
+"hostname. Are you sure you wish to proceed?"
+msgstr ""
+
+#: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
 msgstr "Nemainīt paroli"
 
-#: libraries/server_privileges.lib.php:1340
+#: libraries/server_privileges.lib.php:1345
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lietotāja %s parole tika veiksmīgi mainīta."
 
-#: libraries/server_privileges.lib.php:1382
+#: libraries/server_privileges.lib.php:1387
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Jūs atņēmāt privilēgijas lietotājam %s"
 
-#: libraries/server_privileges.lib.php:1442
+#: libraries/server_privileges.lib.php:1447
 msgid "Database for user"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1446
+#: libraries/server_privileges.lib.php:1451
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1452
+#: libraries/server_privileges.lib.php:1457
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1460
+#: libraries/server_privileges.lib.php:1465
 #, fuzzy, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Pārbaudīt privilēģijas uz datubāzi &quot;%s&quot;."
 
-#: libraries/server_privileges.lib.php:1555
+#: libraries/server_privileges.lib.php:1560
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Lietotāji, kam ir pieja datubāzei &quot;%s&quot;"
 
-#: libraries/server_privileges.lib.php:1566
-#: libraries/server_privileges.lib.php:2377
-#: libraries/server_privileges.lib.php:2795
-#: libraries/server_privileges.lib.php:2843 server_status.php:316
+#: libraries/server_privileges.lib.php:1571
+#: libraries/server_privileges.lib.php:2395
+#: libraries/server_privileges.lib.php:2813
+#: libraries/server_privileges.lib.php:2861 server_status.php:360
 msgid "User"
 msgstr "Lietotājs"
 
-#: libraries/server_privileges.lib.php:1570
-#: libraries/server_privileges.lib.php:2215
-#: libraries/server_privileges.lib.php:2385
+#: libraries/server_privileges.lib.php:1575
+#: libraries/server_privileges.lib.php:2233
+#: libraries/server_privileges.lib.php:2403
 msgid "Grant"
 msgstr "Piešķirt"
 
-#: libraries/server_privileges.lib.php:1605
+#: libraries/server_privileges.lib.php:1610
 #, fuzzy
 msgid "User has been added."
 msgstr "Lauks %s tika izdzēsts"
 
-#: libraries/server_privileges.lib.php:1613
+#: libraries/server_privileges.lib.php:1618
 msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:1669
-#: libraries/server_privileges.lib.php:1835
-#: libraries/server_privileges.lib.php:2454
+#: libraries/server_privileges.lib.php:1674
+#: libraries/server_privileges.lib.php:1840
+#: libraries/server_privileges.lib.php:2472
 msgid "Any"
 msgstr "Jebkurš"
 
-#: libraries/server_privileges.lib.php:1684
+#: libraries/server_privileges.lib.php:1689
 msgid "global"
 msgstr "globāls"
 
-#: libraries/server_privileges.lib.php:1690
+#: libraries/server_privileges.lib.php:1695
 msgid "database-specific"
 msgstr "datubāzei specifisks"
 
-#: libraries/server_privileges.lib.php:1692
+#: libraries/server_privileges.lib.php:1697
 msgid "wildcard"
 msgstr "aizstājējzīme"
 
-#: libraries/server_privileges.lib.php:1739 server_privileges.php:165
+#: libraries/server_privileges.lib.php:1744 server_privileges.php:165
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Lietotāji netika atrasti."
 
-#: libraries/server_privileges.lib.php:1765
+#: libraries/server_privileges.lib.php:1770
 msgid "Edit Privileges"
 msgstr "Mainīt privilēģijas"
 
-#: libraries/server_privileges.lib.php:1776
+#: libraries/server_privileges.lib.php:1781
 msgid "Revoke"
 msgstr "Atsaukt"
 
-#: libraries/server_privileges.lib.php:1922
+#: libraries/server_privileges.lib.php:1940
 msgid "… keep the old one."
 msgstr "… paturēt veco lietotāju."
 
-#: libraries/server_privileges.lib.php:1923
+#: libraries/server_privileges.lib.php:1941
 msgid "… delete the old one from the user tables."
 msgstr "… dzēst veco lietotāju no lietotāju tabulas."
 
-#: libraries/server_privileges.lib.php:1924
+#: libraries/server_privileges.lib.php:1942
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 "… atņemt vecajam lietotājam visas aktīvās privilēģijas, un pēc tam dzēst "
 "viņu."
 
-#: libraries/server_privileges.lib.php:1925
+#: libraries/server_privileges.lib.php:1943
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
@@ -9792,85 +9804,85 @@ msgstr ""
 "… dzēst veco lietotāju no lietotāju tabulas, un pēc tam pārlādēt "
 "privilēģijas."
 
-#: libraries/server_privileges.lib.php:1936
+#: libraries/server_privileges.lib.php:1954
 msgid "Change Login Information / Copy User"
 msgstr "Mainīt piekļuves informāciju / Klonēt lietotāju"
 
-#: libraries/server_privileges.lib.php:1942
+#: libraries/server_privileges.lib.php:1960
 msgid "Create a new user with the same privileges and …"
 msgstr "Izveidot jaunu lietotāju ar tādām pašām privilēģijām un …"
 
-#: libraries/server_privileges.lib.php:2219
+#: libraries/server_privileges.lib.php:2237
 msgid "Column-specific privileges"
 msgstr "Kolonnu specifiskās privilēģijas"
 
-#: libraries/server_privileges.lib.php:2270
+#: libraries/server_privileges.lib.php:2288
 #, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
 msgstr "Pievienot privilēģijas uz sekojošo  datubāzi"
 
-#: libraries/server_privileges.lib.php:2290
+#: libraries/server_privileges.lib.php:2308
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Aizstājējzīmes _ un % jāaizsargā ar \\ priekšā, lai izmantotu tās burtiski"
 
-#: libraries/server_privileges.lib.php:2308
+#: libraries/server_privileges.lib.php:2326
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
 msgstr "Pievienot privilēģijas uz sekojošo tabulu"
 
-#: libraries/server_privileges.lib.php:2525
+#: libraries/server_privileges.lib.php:2543
 msgid "Remove selected users"
 msgstr "Dzēst izvēlētos lietotājus"
 
-#: libraries/server_privileges.lib.php:2529
+#: libraries/server_privileges.lib.php:2547
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Atņemt visas aktīvās privilēģijas lietotājiem, un pēc tam dzēst tos."
 
-#: libraries/server_privileges.lib.php:2533
-#: libraries/server_privileges.lib.php:2537
-#: libraries/server_privileges.lib.php:2538
+#: libraries/server_privileges.lib.php:2551
+#: libraries/server_privileges.lib.php:2555
+#: libraries/server_privileges.lib.php:2556
 msgid "Drop the databases that have the same names as the users."
 msgstr "Dzēst datubāzes, kurām ir tādi paši vārdi, kā lietotājiem."
 
-#: libraries/server_privileges.lib.php:2669
+#: libraries/server_privileges.lib.php:2687
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2672
+#: libraries/server_privileges.lib.php:2690
 msgid "Reloading the privileges"
 msgstr "Pārlādējam privilēģijas"
 
-#: libraries/server_privileges.lib.php:2691
+#: libraries/server_privileges.lib.php:2709
 msgid "The selected users have been deleted successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: libraries/server_privileges.lib.php:2757
+#: libraries/server_privileges.lib.php:2775
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Jūs modificējāt privilēģijas objektam %s."
 
-#: libraries/server_privileges.lib.php:2786
+#: libraries/server_privileges.lib.php:2804
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilēģijas"
 
-#: libraries/server_privileges.lib.php:2842
+#: libraries/server_privileges.lib.php:2860
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
 msgstr "Mainīt privilēģijas"
 
-#: libraries/server_privileges.lib.php:2896
+#: libraries/server_privileges.lib.php:2914
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Lietotāju pārskats"
 
-#: libraries/server_privileges.lib.php:2967
+#: libraries/server_privileges.lib.php:2985
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9883,11 +9895,11 @@ msgstr ""
 "lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams "
 "%spārlādēt privilēģijas%s pirms Jūs turpināt."
 
-#: libraries/server_privileges.lib.php:3013
+#: libraries/server_privileges.lib.php:3031
 msgid "The selected user was not found in the privilege table."
 msgstr "Izvēlētais lietotājs nav atrasts privilēģiju tabulā."
 
-#: libraries/server_privileges.lib.php:3224
+#: libraries/server_privileges.lib.php:3242
 msgid "You have added a new user."
 msgstr "Jūs pievienojāt jaunu lietotāju."
 
@@ -9912,7 +9924,7 @@ msgstr "Kalendārs"
 msgid "Bookmark this SQL query:"
 msgstr "Saglabāt šo SQL vaicājumu"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1327
+#: libraries/sql_query_form.lib.php:326 sql.php:1330
 msgid "Let every user access this bookmark"
 msgstr "Dot ikvienam lietotājam pieeju šai grāmatzīmei"
 
@@ -10227,13 +10239,13 @@ msgstr "Efektīvs"
 msgid "Table %1$s has been altered successfully"
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: libraries/structure.lib.php:2402 tbl_tracking.php:457 tbl_tracking.php:481
+#: libraries/structure.lib.php:2405 tbl_tracking.php:457 tbl_tracking.php:481
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
 msgstr "Vaicājuma tips"
 
-#: libraries/structure.lib.php:2498
+#: libraries/structure.lib.php:2501
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
@@ -10585,10 +10597,8 @@ msgid "FOREIGN KEY relation added"
 msgstr ""
 
 #: pmd_relation_new.php:82
-#, fuzzy
-#| msgid "General relation features"
-msgid "General relation features:"
-msgstr "Galvenās relāciju īpašības"
+msgid "Error: Relational features are disabled!"
+msgstr ""
 
 #: pmd_relation_new.php:98
 #, fuzzy
@@ -10702,11 +10712,11 @@ msgstr "Tabula \"%s\" neeksistē!"
 msgid "Select binary log to view"
 msgstr "Izvēlieties bināro log-failu apskatei"
 
-#: server_binlog.php:154 server_status.php:431
+#: server_binlog.php:154 server_status.php:472
 msgid "Truncate Shown Queries"
 msgstr "Ierobežot parādīto vaicājumu garumu"
 
-#: server_binlog.php:158 server_status.php:436
+#: server_binlog.php:158 server_status.php:477
 msgid "Show Full Queries"
 msgstr "Rādīt pilnos vaicājumus"
 
@@ -10747,11 +10757,11 @@ msgstr ""
 msgid "Slave replication"
 msgstr ""
 
-#: server_databases.php:338 server_databases.php:339
+#: server_databases.php:339 server_databases.php:340
 msgid "Enable Statistics"
 msgstr "Ieslēgt statistiku"
 
-#: server_databases.php:342
+#: server_databases.php:343
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -10759,7 +10769,7 @@ msgstr ""
 "Piezīme: Datubāzes statistikas ieslēgšana šeit var izsaukt palielināto datu "
 "apmaiņu starp webserveri un MySQL serveri."
 
-#: server_databases.php:349
+#: server_databases.php:350
 msgid "No databases"
 msgstr "Nav datubāzu"
 
@@ -11031,37 +11041,37 @@ msgstr ""
 msgid "Replication status"
 msgstr ""
 
-#: server_status.php:138
+#: server_status.php:159
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: server_status.php:148
+#: server_status.php:169
 msgid "Received"
 msgstr "Saņemts"
 
-#: server_status.php:167
+#: server_status.php:188
 msgid "Sent"
 msgstr "Nosūtīts"
 
-#: server_status.php:218
+#: server_status.php:250
 msgid "max. concurrent connections"
 msgstr ""
 
-#: server_status.php:228
+#: server_status.php:260
 msgid "Failed attempts"
 msgstr "Neveiksmīgi mēģinājumi"
 
-#: server_status.php:252
+#: server_status.php:284
 msgid "Aborted"
 msgstr "Pārtraukts"
 
-#: server_status.php:312
+#: server_status.php:356
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:328
+#: server_status.php:372
 msgid "Command"
 msgstr "Komanda"
 
@@ -11316,12 +11326,12 @@ msgstr "minūtē"
 msgid "per second:"
 msgstr "sekundē"
 
-#: server_status_queries.php:102
+#: server_status_queries.php:118
 msgid "Statements"
 msgstr "Parametrs"
 
 #. l10n: # = Amount of queries
-#: server_status_queries.php:105
+#: server_status_queries.php:121
 msgid "#"
 msgstr ""
 
@@ -12254,32 +12264,32 @@ msgstr ""
 msgid "Validated SQL"
 msgstr "Pārbaudīt SQL"
 
-#: sql.php:1105
+#: sql.php:1108
 msgid "SQL result"
 msgstr "SQL rezultāts"
 
-#: sql.php:1112
+#: sql.php:1115
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Uzģenerēja"
 
-#: sql.php:1234
+#: sql.php:1237
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
 msgstr ""
 
-#: sql.php:1283
+#: sql.php:1286
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problēmas ar indeksiem tabulā `%s`"
 
-#: sql.php:1315 sql.php:1335
+#: sql.php:1318 sql.php:1338
 msgid "Bookmark this SQL query"
 msgstr "Saglabāt šo SQL vaicājumu"
 
-#: sql.php:1319
+#: sql.php:1322
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -12380,7 +12390,7 @@ msgstr ""
 msgid "Table %s already exists!"
 msgstr "Lietotājs %s jau eksistē!"
 
-#: tbl_create.php:58 tbl_get_field.php:23
+#: tbl_create.php:58 tbl_get_field.php:37
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
@@ -12394,7 +12404,7 @@ msgstr "Tabula %s tika izdzēsta"
 msgid "View dump (schema) of table"
 msgstr "Apskatīt tabulas dampu (shēmu)"
 
-#: tbl_get_field.php:30
+#: tbl_get_field.php:44
 msgid "Invalid table name"
 msgstr ""
 
@@ -12545,7 +12555,13 @@ msgstr "Nav definēti indeksi!"
 msgid "Choose column to display:"
 msgstr "Izvēlieties, kuru lauku rādīt"
 
-#: tbl_structure.php:144
+#: tbl_structure.php:125
+#, fuzzy
+#| msgid "No rows selected"
+msgid "No column selected."
+msgstr "Rindas nav iezīmētas"
+
+#: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
@@ -13856,6 +13872,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "General relation features:"
+#~ msgstr "Galvenās relāciju īpašības"
 
 #~ msgid "Live traffic chart"
 #~ msgstr "Dzīvā satiksmes diagrama"

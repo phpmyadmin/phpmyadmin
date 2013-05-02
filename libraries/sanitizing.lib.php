@@ -26,6 +26,7 @@ function PMA_checkLink($url)
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '?page=form&';
+        $valid_starts[] = '?page=servers&';
     }
     foreach ($valid_starts as $val) {
         if (substr($url, 0, strlen($val)) == $val) {

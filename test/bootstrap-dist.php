@@ -1,8 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Bootstrap for phpMyAdmin tests
+ *
+ * @package PhpMyAdmin-test
+ */
 
 // Adding phpMyAdmin sources to include path
-set_include_path(get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php")));
+set_include_path(
+    get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
+);
 
 // Setting constants for testing
 define('PHPMYADMIN', 1);
