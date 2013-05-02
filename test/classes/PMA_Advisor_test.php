@@ -182,13 +182,13 @@ class Advisor_test extends PHPUnit_Framework_TestCase
                 array(
                     'justification' => 'Version string (%s) | value',
                     'name' => 'Distribution',
-	                'issue' => 'official MySQL binaries.',
+                    'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="http://phpma.org/">web</a>',
                 ),
                 array(
                     'justification' => 'Version string (0)',
                     'name' => 'Distribution',
-	                'issue' => 'official MySQL binaries.',
+                    'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2Fphpma.org%2F&amp;lang=en&amp;token=token">web</a>',
                     'id' => 'Distribution'
                 ),
