@@ -553,7 +553,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', 'http://some_host.com/phpMyAdmin');
         $this->assertFalse($this->object->isHttps());
-        
+
         $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', 'https://some_host.com/phpMyAdmin');
         $this->assertTrue($this->object->isHttps());
@@ -833,7 +833,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testIsGitRevision()
     {
-      $this->assertTrue(
+        $this->assertTrue(
             $this->object->isGitRevision()
         );
     }
@@ -845,16 +845,16 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckHTTP()
     {
-      $this->assertTrue(
+        $this->assertTrue(
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
-      );
-      $this->assertContains(
+        );
+        $this->assertContains(
             "TEST DATA",
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/data", true)
-      );
-      $this->assertFalse(
+        );
+        $this->assertFalse(
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/nothing")
-      );
+        );
     }
 
     /**
