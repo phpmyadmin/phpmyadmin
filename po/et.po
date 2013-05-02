@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-25 15:04+0200\n"
+"PO-Revision-Date: 2013-05-02 12:10+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -846,7 +846,6 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Seadistusfail vajab nüüd turvasõna (blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -859,7 +858,8 @@ msgid ""
 msgstr ""
 "[code]config[/code] kataloog, mida kasutab paigaldaja skript, asub endiselt "
 "sinu phpMyAdmini kataloogis. Kui phpMyAdmin on seadistatud, peaksid selle "
-"kataloogi kustutama."
+"kataloogi kindlasti kustutama. Vastasel korral võivad su serveri turvalisust "
+"ohustada isikud, kes on alla laadinud serveri seadistuste faili."
 
 #: index.php:470
 #, php-format
@@ -5775,7 +5775,6 @@ msgid "Display columns table"
 msgstr "Näita veergude tabelit"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5783,8 +5782,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" tabelite UI "
-"eelistused, soovitatav: [kbd]pma__table_uiprefs[/kbd]"
+"Jäta tühjaks, kui seansside vahel puuduvad \"püsivad\" tabelite UI eelistused, "
+"soovitatav: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -7706,7 +7705,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Proovi uuesti ühenduda"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9421,6 +9420,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Sama nimega kasutaja konto on on juba olemas, kuid ilmselt teise hosti "
+"nimega. Kas oled jätkamises kindel?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10245,10 +10246,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY seos on lisatud"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Viga: Seost ei lisatud."
+msgstr "Viga: Seoste omadused on keelatud!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12311,10 +12311,9 @@ msgid "Choose column to display:"
 msgstr "Vali veerg, mida näidata:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Ridu pole valitud"
+msgstr "Veerge ei ole valitud."
 
 #: tbl_structure.php:149
 #, php-format
