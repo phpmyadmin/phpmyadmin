@@ -244,15 +244,27 @@ class Advisor
             );
 
             // Replaces external Links with PMA_linkURL() generated links
-            $rule['recommendation'] = preg_replace(
-                '#href=("|\')(https?://[^\1]+)\1#ie',
-                '\'href="\' . PMA_linkURL("\2") . \'"\'',
+            $rule['recommendation'] = preg_replace_callback(
+                '#href=("|\')(https?://[^\1]+)\1#i',
+                array($this, '_replaceLinkURL'),
                 $rule['recommendation']
             );
             break;
         }
 
         $this->runResult[$type][] = $rule;
+    }
+
+    /**
+     * Callback for wrapping links with PMA_linkURL
+     *
+     * @param array $matches List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
+    private function _replaceLinkURL($matches)
+    {
+        return 'href="' . PMA_linkURL($matches[2]) . '"';
     }
 
     /**
