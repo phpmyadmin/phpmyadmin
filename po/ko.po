@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-05-02 10:29+0200\n"
+"PO-Revision-Date: 2013-05-02 10:37+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -3345,9 +3345,9 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:320 libraries/Types.class.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "날짜형 타입은 %1$s 부터 %2$s 까지 지원합니다."
+msgstr "날짜 타입, %1$s 부터 %2$s 까지 지원됨"
 
 #: libraries/Types.class.php:322 libraries/Types.class.php:724
 #, php-format
@@ -7547,10 +7547,9 @@ msgstr "열(컬럼) 감싸기:"
 
 #: libraries/plugins/export/ExportCsv.class.php:101
 #: libraries/plugins/import/ImportCsv.class.php:94
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "열(컬럼) 특수문자(escape) 처리"
+msgstr "열(컬럼) 특수문자 처리(escape) 방법:"
 
 #: libraries/plugins/export/ExportCsv.class.php:105
 #: libraries/plugins/import/ImportCsv.class.php:100
@@ -8614,13 +8613,13 @@ msgstr "필드 추가하기"
 #: libraries/rte/rte_words.lib.php:26
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "루틴(routine)을 작성하는데 필요한 권한을 가지고 있지 않습니다."
+msgstr "루틴을 작성하는데 필요한 권한을 가지고 있지 않습니다"
 
 #: libraries/rte/rte_words.lib.php:27
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "데이터베이스에 테이블이 없습니다."
+msgstr "데이터베이스 %2$s 에 %1$s 라는 이름의 루틴이 없음"
 
 #: libraries/rte/rte_words.lib.php:28
 msgid "There are no routines to display."
@@ -8642,7 +8641,7 @@ msgstr "트리거"
 #: libraries/rte/rte_words.lib.php:38
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다."
+msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다"
 
 #: libraries/rte/rte_words.lib.php:39
 #, fuzzy, php-format
@@ -9697,7 +9696,7 @@ msgstr ""
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:292
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "구성이 저장되었습니다."
+msgstr "설정 저장 완료"
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -11554,7 +11553,7 @@ msgstr "라벨"
 #: tbl_chart.php:38
 #| msgid "No data found"
 msgid "No data to display"
-msgstr "표시할 데이터가 없습니다."
+msgstr "표시할 데이터 없음"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
