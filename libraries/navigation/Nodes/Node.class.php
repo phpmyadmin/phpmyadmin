@@ -283,7 +283,7 @@ class Node
             $retval = true;
         } else {
             foreach ($this->parent->children as $child) {
-                if ($child != $this
+                if ($child !== $this
                     && ($child->type == Node::OBJECT || $child->hasChildren(false))
                 ) {
                     $retval = true;
