@@ -2288,31 +2288,31 @@ function PMA_updateColumns($db, $table)
     for ($i = 0; $i < $field_cnt; $i++) {
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             isset($_REQUEST['field_orig'][$i])
-                ? $_REQUEST['field_orig'][$i]
-                : '',
+            ? $_REQUEST['field_orig'][$i]
+            : '',
             $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
             $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
             isset($_REQUEST['field_collation'][$i])
-                ? $_REQUEST['field_collation'][$i]
-                : '',
+            ? $_REQUEST['field_collation'][$i]
+            : '',
             isset($_REQUEST['field_null'][$i])
-                ? $_REQUEST['field_null'][$i]
-                : 'NOT NULL',
+            ? $_REQUEST['field_null'][$i]
+            : 'NOT NULL',
             $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
-                ? $_REQUEST['field_extra'][$i]
-                : false,
+            ? $_REQUEST['field_extra'][$i]
+            : false,
             isset($_REQUEST['field_comments'][$i])
-                ? $_REQUEST['field_comments'][$i]
-                : '',
+            ? $_REQUEST['field_comments'][$i]
+            : '',
             $key_fields,
             $i,
             isset($_REQUEST['field_move_to'][$i])
-                ? $_REQUEST['field_move_to'][$i]
-                : ''
+            ? $_REQUEST['field_move_to'][$i]
+            : ''
         );
     } // end for
 
