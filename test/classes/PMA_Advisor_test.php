@@ -15,7 +15,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 
-class Advisor_test extends PHPUnit_Framework_TestCase
+class Advisor_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {

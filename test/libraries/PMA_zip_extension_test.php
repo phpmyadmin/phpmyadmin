@@ -12,7 +12,7 @@
 require_once 'libraries/zip_extension.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_zip_extension_test extends PHPUnit_Framework_TestCase
+class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test zip file content

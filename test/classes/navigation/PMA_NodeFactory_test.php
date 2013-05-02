@@ -11,7 +11,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
 
-class NodeFactory_test extends PHPUnit_Framework_TestCase
+class NodeFactory_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {

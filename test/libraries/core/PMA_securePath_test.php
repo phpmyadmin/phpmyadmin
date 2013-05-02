@@ -9,13 +9,22 @@
 
 require_once 'libraries/core.lib.php';
 
-class PMA_securePath extends PHPUnit_Framework_TestCase
+class PMA_SecurePath extends PHPUnit_Framework_TestCase
 {
     public function testReplaceDots()
     {
-        $this->assertEquals(PMA_securePath('../../../etc/passwd'), './././etc/passwd');
-        $this->assertEquals(PMA_securePath('/var/www/../phpmyadmin'), '/var/www/./phpmyadmin');
-        $this->assertEquals(PMA_securePath('./path/with..dots/../../file..php'), './path/with.dots/././file.php');
+        $this->assertEquals(
+            PMA_securePath('../../../etc/passwd'),
+            './././etc/passwd'
+        );
+        $this->assertEquals(
+            PMA_securePath('/var/www/../phpmyadmin'),
+            '/var/www/./phpmyadmin'
+        );
+        $this->assertEquals(
+            PMA_securePath('./path/with..dots/../../file..php'),
+            './path/with.dots/././file.php'
+        );
     }
 
 }

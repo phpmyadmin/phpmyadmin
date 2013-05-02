@@ -17,7 +17,7 @@ require_once 'libraries/Util.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
+class PMA_ExtractColumnSpec_Test extends PHPUnit_Framework_TestCase
 {
 
     protected function setUp()

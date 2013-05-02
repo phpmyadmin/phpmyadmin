@@ -30,7 +30,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 
 require_once 'config.sample.inc.php';
 
-class PMA_getTableCount_test extends PHPUnit_Framework_TestCase
+class PMA_GetTableCount_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

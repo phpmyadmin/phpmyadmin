@@ -11,7 +11,7 @@
  */
 require_once 'libraries/js_escape.lib.php';
 
-class PMA_escapeJsString_test extends PHPUnit_Framework_TestCase
+class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * PMA_escapeJsString tests

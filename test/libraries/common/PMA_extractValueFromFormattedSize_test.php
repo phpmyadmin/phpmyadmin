@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_extractValueFromFormattedSize_test extends PHPUnit_Framework_TestCase
+class PMA_ExtractValueFromFormattedSize_Test extends PHPUnit_Framework_TestCase
 {
 
     function testExtractValueFromFormattedSizeNoFormat()

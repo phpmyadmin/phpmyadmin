@@ -16,7 +16,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
 
-class PMA_showMessage_test extends PHPUnit_Framework_TestCase
+class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
 {
     function setUp()
     {

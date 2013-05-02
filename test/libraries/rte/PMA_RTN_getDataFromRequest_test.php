@@ -15,7 +15,7 @@ require_once './libraries/Types.class.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
-class PMA_RTN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
