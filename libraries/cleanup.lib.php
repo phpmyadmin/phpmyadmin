@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
  * @return void
  * @access public
  */
-function PMA_remove_request_vars(&$whitelist)
+function PMA_removeRequestVars(&$whitelist)
 {
     // do not check only $_REQUEST because it could have been overwritten
     // and use type casting because the variables could have become

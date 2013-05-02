@@ -775,7 +775,7 @@ class PMA_File
         }
 
         if ($GLOBALS['charset_conversion']) {
-            $result = PMA_convert_string($this->getCharset(), 'utf-8', $result);
+            $result = PMA_convertString($this->getCharset(), 'utf-8', $result);
         } else {
             /**
              * Skip possible byte order marks (I do not think we need more

@@ -306,7 +306,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string(
+                    $dump_buffer = PMA_convertString(
                         'utf-8',
                         $GLOBALS['charset_of_file'],
                         $dump_buffer
@@ -349,7 +349,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string(
+                $line = PMA_convertString(
                     'utf-8',
                     $GLOBALS['charset_of_file'],
                     $line
@@ -885,7 +885,7 @@ if ($save_on_server && isset($message)) {
 if (! empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string(
+        $dump_buffer = PMA_convertString(
             'utf-8',
             $GLOBALS['charset_of_file'],
             $dump_buffer
