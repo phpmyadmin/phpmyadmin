@@ -148,12 +148,75 @@ class Node_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($child->realParent(), $parent);
     }
 
-    public function testHasSiblings()
+    /**
+     * Tests whether Node->hasSiblings() method returns false
+     * when the node does not have any siblings.
+     *
+     * @return void
+     * @test
+     */
+    public function testHasSiblingsWithNoSiblings()
     {
         $parent = PMA_NodeFactory::getInstance();
         $child = PMA_NodeFactory::getInstance();
         $parent->addChild($child);
-        $this->assertEquals($child->hasSiblings(), false);
+        $this->assertEquals(false, $child->hasSiblings());
+    }
+
+    /**
+     * Tests whether Node->hasSiblings() method returns true
+     * when it actually has siblings.
+     *
+     * @return void
+     * @test
+     */
+    public function testHasSiblingsWithSiblings()
+    {
+        $parent = PMA_NodeFactory::getInstance();
+        $firstChild = PMA_NodeFactory::getInstance();
+        $parent->addChild($firstChild);
+        $secondChild = PMA_NodeFactory::getInstance();
+        $parent->addChild($secondChild);
+        // Normal case; two Node:NODE type siblings
+        $this->assertEquals(true, $firstChild->hasSiblings());
+
+        $parent = PMA_NodeFactory::getInstance();
+        $firstChild = PMA_NodeFactory::getInstance();
+        $parent->addChild($firstChild);
+        $secondChild = PMA_NodeFactory::getInstance(
+            'Node', 'default', Node::CONTAINER
+        );
+        $parent->addChild($secondChild);
+        // Empty Node::CONTAINER type node should not be considered in hasSiblings()
+        $this->assertEquals(false, $firstChild->hasSiblings());
+
+        $grandChild = PMA_NodeFactory::getInstance();
+        $secondChild->addChild($grandChild);
+        // Node::CONTAINER type nodes with children are counted for hasSiblings()
+        $this->assertEquals(true, $firstChild->hasSiblings());
+    }
+
+    /**
+     * It is expected that Node->hasSiblings() method always return true
+     * for Nodes that are 3 levels deep (columns and indexes).
+     *
+     * @return void
+     * @test
+     */
+    public function testHasSiblingsForNodesAtLevelThree()
+    {
+        $parent = PMA_NodeFactory::getInstance();
+        $child = PMA_NodeFactory::getInstance();
+        $parent->addChild($child);
+        $grandChild = PMA_NodeFactory::getInstance();
+        $child->addChild($grandChild);
+        $greatGrandChild = PMA_NodeFactory::getInstance();
+        $grandChild->addChild($greatGrandChild);
+
+        // Should return false for node that are two levels deeps
+        $this->assertEquals(false, $grandChild->hasSiblings());
+        // Should return true for node that are three levels deeps
+        $this->assertEquals(true, $greatGrandChild->hasSiblings());
     }
 
     public function testComment()
