@@ -63,7 +63,12 @@ class PMA_PDF extends TCPDF
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             $this->SetFont(PMA_PDF_FONT, '', 14);
-            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
+            $this->Cell(
+                0, 6,
+                __('Page number:') . ' '
+                . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(),
+                'T', 0, 'C'
+            );
             $this->Cell(0, 6, PMA_Util::localisedDate(), 0, 1, 'R');
             $this->SetY(20);
 
