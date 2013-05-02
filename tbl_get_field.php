@@ -12,6 +12,20 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
+/**
+ * Sets globals from $_GET
+ */
+$get_params = array(
+    'where_clause',
+    'transform_key'
+);
+
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
 /* Check parameters */
 PMA_Util::checkParameters(
     array('db', 'table', 'where_clause', 'transform_key')
