@@ -236,7 +236,7 @@ class PMA_Config
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]
+                'PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version2[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
