@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-05-02 12:10+0200\n"
+"PO-Revision-Date: 2013-05-02 13:27+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -12313,7 +12313,7 @@ msgstr "Vali veerg, mida näidata:"
 #: tbl_structure.php:125
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Veerge ei ole valitud."
+msgstr "Veergu ei ole valitud."
 
 #: tbl_structure.php:149
 #, php-format
