@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-03-21 14:39+0200\n"
+"PO-Revision-Date: 2013-05-02 11:36+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/3-5/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1976,7 +1976,7 @@ msgstr "Selecteer de primaire sleutel of een unieke sleutel"
 
 #: js/messages.php:340 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
-msgstr "Kies weer te geven veld"
+msgstr "Kies weer te geven kolom"
 
 #: js/messages.php:341
 msgid ""
@@ -3353,14 +3353,14 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Definieert welk type HTML-element zal worden gebruikt voor CHAR- en VARCHAR-"
-"velden; [kbd]input[/kbd] - maakt het mogelijk om de invoerlengte te "
+"Definiëert welk type HTML-element zal worden gebruikt voor CHAR- en VARCHAR-"
+"kolommen; [kbd]input[/kbd] - maakt het mogelijk om de invoerlengte te "
 "beperken, [kbd]textarea[/kbd] - maakt het mogelijk om meerdere regels in te "
 "vullen"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr "CHAR-velden bewerken"
+msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -3567,7 +3567,7 @@ msgstr "Compressie"
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
 msgid "Put columns names in the first row"
-msgstr "Veldnamen in de eerste rij plaatsen"
+msgstr "Kolomnamen in de eerste rij plaatsen"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
@@ -3591,7 +3591,7 @@ msgstr "NULL vervangen door"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:86
 msgid "Remove CRLF characters within columns"
-msgstr "Verwijder CRLF-tekens uit veld-waarden"
+msgstr "Verwijder CRLF-tekens uit kolommen"
 
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
@@ -4285,7 +4285,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Limit column characters"
-msgstr "Beperk lengte van veldweergave"
+msgstr "Beperk aantal tekens in een kolom"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -4458,8 +4458,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
-"[kbd]SMART[/kbd] - op aflopende volgorde voor velden van het type TIME, "
-"DATE, DATETIME en TIMESTAMP, oplopend voor overige velden"
+"[kbd]SMART[/kbd] - op aflopende volgorde voor kolommen van het type TIME, "
+"DATE, DATETIME en TIMESTAMP, oplopend voor overige kolommen"
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
@@ -4493,11 +4493,11 @@ msgstr "Iconen gebruiken bij tabelbewerkingen"
 
 #: libraries/config/messages.inc.php:337
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Blokkeer het bewerken van 'BLOB'- en 'BINARY'-velden"
+msgstr "Blokkeer het bewerken van 'BLOB'- en 'BINARY'-kolommen"
 
 #: libraries/config/messages.inc.php:338
 msgid "Protect binary columns"
-msgstr "Binaire velden beschermen"
+msgstr "Binaire kolommen beschermen"
 
 #: libraries/config/messages.inc.php:339
 msgid ""
@@ -4961,7 +4961,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:432
 msgid "Display columns table"
-msgstr "Toon veldentabel"
+msgstr "Tabel met kolomomschrijvingen"
 
 #: libraries/config/messages.inc.php:433
 msgid ""
@@ -5670,7 +5670,7 @@ msgstr "Naam"
 
 #: libraries/display_create_table.lib.php:55
 msgid "Number of columns"
-msgstr "Aantal velden"
+msgstr "Aantal kolommen"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
@@ -5988,7 +5988,7 @@ msgstr "Relationele sleutel"
 
 #: libraries/display_tbl.lib.php:668
 msgid "Relational display column"
-msgstr "Relationele weergaveveld"
+msgstr "Relationele weergave-kolom"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
@@ -6531,15 +6531,15 @@ msgstr "De PrimeBase Media Streaming (PBMS) home pagina"
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
 msgid "Columns separated with:"
-msgstr "Velden beëindigd door:"
+msgstr "Kolommen gescheiden door:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 msgid "Columns enclosed with:"
-msgstr "Velden ingesloten door:"
+msgstr "Kolommen omsloten met:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
 msgid "Columns escaped with:"
-msgstr "Velden ontweken door:"
+msgstr "Kolommen omgezet met wisselteken:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
@@ -6553,7 +6553,7 @@ msgstr "Vervang NULL door:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Verwijder CRLF-tekens uit veldwaarden"
+msgstr "Verwijder CRLF-tekens uit kolommen"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6941,7 +6941,7 @@ msgstr "Ongeldig formaat van CSV-invoer op regel %d."
 #: libraries/import/csv.php:337
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Verkeerd aantal velden in CSV-invoer op regel %d."
+msgstr "Verkeerd aantal kolommen in CSV-invoer op regel %d."
 
 #: libraries/import/docsql.php:28
 msgid "DocSQL"
@@ -8381,7 +8381,7 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Toont een veld met TIME, TIMESTAMP, DATETIME of numerieke Unix-tijdstempel "
+"Toont een kolom met TIME, TIMESTAMP, DATETIME of numerieke Unix-tijdstempel "
 "als een opgemaakte datum. De eerste optie is de offset (in uren) welke aan "
 "de tijdstip zal worden toegevoegd (Standaard: 0). De tweede optie kan worden "
 "gebruikt om een alternatieve opmaak te specificeren. Als derde optie kan "
@@ -9444,7 +9444,7 @@ msgstr "Rechten toevoegen op de volgende databank"
 #: server_privileges.php:2126
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Wildcards _ en % moeten worden ge-escaped met een \\ om ze letterlijk te "
+"Wildcards _ en % moeten worden voorafgegaan door een \\ om ze letterlijk te "
 "gebruiken"
 
 #: server_privileges.php:2129
@@ -11364,7 +11364,7 @@ msgstr "Tabel %1$s is bijgewerkt"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Vanwege z'n lengte,<br /> is dit veld misschien niet te wijzigen"
+msgstr "Vanwege z'n lengte,<br /> kan deze kolom mogelijk niet gewijzigd worden"
 
 #: tbl_change.php:817
 msgid "Remove BLOB Repository Reference"
@@ -11755,7 +11755,7 @@ msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
 #: tbl_select.php:180
 msgid "Select columns (at least one):"
-msgstr "Selecteer velden (minstens één):"
+msgstr "Selecteer kolommen (minstens één):"
 
 #: tbl_select.php:198
 msgid "Add search conditions (body of the \"where\" clause):"
