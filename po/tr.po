@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-25 15:13+0200\n"
+"PO-Revision-Date: 2013-05-02 12:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/4-0/tr/>\n"
 "Language: tr\n"
@@ -1597,7 +1597,7 @@ msgstr "Hata metni: %s"
 #: js/messages.php:227 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 server_databases.php:89
 msgid "No databases selected."
-msgstr "Veritabanı seçilmedi."
+msgstr "Seçilen veritabanları yok."
 
 #: js/messages.php:228
 msgid "Dropping Column"
@@ -1724,7 +1724,7 @@ msgstr "Sorgu kutusunu göster"
 
 #: js/messages.php:274 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "Satır seçilmedi"
+msgstr "Seçilen satırlar yok"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5067
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
