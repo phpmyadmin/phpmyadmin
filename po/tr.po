@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-02 12:27+0200\n"
+"PO-Revision-Date: 2013-05-02 13:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/4-0/tr/>\n"
 "Language: tr\n"
@@ -7729,7 +7729,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Bağlanmayı yeniden dene"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -12273,10 +12273,9 @@ msgid "No index defined! Create one below"
 msgstr "Tanımlı indeks yok! Aşağıdan bir tane oluşturun"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Seçilen satırlar yok"
+msgstr "Seçilen sütun yok."
 
 #: tbl_structure.php:149
 #, php-format
