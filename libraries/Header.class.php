@@ -448,9 +448,9 @@ class PMA_Header
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
             header(
-                "X-Content-Security-Policy: allow 'self';"
+                "X-Content-Security-Policy: allow 'self' http://www.google.com/;"
                 . "options inline-script eval-script;"
-                . "img-src 'self' data:"
+                . "img-src 'self' http://www.google.com/ data:"
                 . ($https ? "" : $mapTilesUrls)
                 . ";"
             );
@@ -466,10 +466,10 @@ class PMA_Header
                 );
             } else {
                 header(
-                    "X-WebKit-CSP: default-src 'self';"
-                    . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-                    . "style-src 'self' 'unsafe-inline';"
-                    . "img-src 'self' data:"
+                    "X-WebKit-CSP: default-src 'self' http://www.google.com/;"
+                    . "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com/;"
+                    . "style-src 'self' 'unsafe-inline' http://www.google.com/;"
+                    . "img-src 'self' http://www.google.com/ data:"
                     . ($https ? "" : $mapTilesUrls)
                     . ";"
                 );

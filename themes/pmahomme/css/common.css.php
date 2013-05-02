@@ -2761,21 +2761,3 @@ body .ui-widget {
 .ui-dialog fieldset legend a {
     color: #235A81;
 }
-
-/* Start CSS for login Captcha */
-
-.clsCenter      { text-align: center; }
-.clsSpacingTop  { margin-top: 6px; }
-.vAlignTop      { vertical-align: top }
-#divCaptcha #siimage { border: 1px solid #000; }
-
-#divCaptcha a {
-    text-decoration: none;
-    border-style: none;
-}
-
-#divCaptcha .clsBtnSize {
-    height: 30px; width: 30px;
-}
-
-/* End CSS for login Captcha */

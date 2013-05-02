@@ -37,3 +37,4 @@ phpunit.xml
 /test/bootstrap.php
 # Jenkins
 /build/
+/nbproject/private/
