@@ -310,8 +310,8 @@ class FormDisplay
         Form $form, $field, $system_path, $work_path,
         $translated_path, $show_restore_default, $userprefs_allow, array &$js_default
     ) {
-        $name = PMA_lang_name($system_path);
-        $description = PMA_lang_name($system_path, 'desc', '');
+        $name = PMA_langName($system_path);
+        $description = PMA_langName($system_path, 'desc', '');
 
         $cf = ConfigFile::getInstance();
         $value = $cf->get($work_path);
@@ -327,7 +327,7 @@ class FormDisplay
             'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default,
             'userprefs_allow' => $userprefs_allow,
-            'userprefs_comment' => PMA_lang_name($system_path, 'cmt', ''));
+            'userprefs_comment' => PMA_langName($system_path, 'cmt', ''));
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }
@@ -426,7 +426,7 @@ class FormDisplay
         foreach ($this->_errors as $system_path => $error_list) {
             if (isset($this->_systemPaths[$system_path])) {
                 $path = $this->_systemPaths[$system_path];
-                $name = PMA_lang_name($path);
+                $name = PMA_langName($path);
             } else {
                 $name = $GLOBALS["strConfigForm_$system_path"];
             }
@@ -539,7 +539,7 @@ class FormDisplay
                     } else {
                         $this->_errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
-                            '<i>' . PMA_lang_name($system_path) . '</i>'
+                            '<i>' . PMA_langName($system_path) . '</i>'
                         );
                         $result = false;
                         continue;
