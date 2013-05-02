@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-25 15:20+0200\n"
+"PO-Revision-Date: 2013-05-02 13:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -846,7 +846,6 @@ msgstr ""
 "souboru (config.inc.php)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -859,7 +858,8 @@ msgid ""
 msgstr ""
 "Adresář [code]config[/code], který používá nastavovací skript, pořád "
 "existuje v adresáři s phpMyAdminem. Měli byste ho odstranit, jakmile je "
-"phpMyAdmin nastaven."
+"phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
+"lidmi přistupujícími k vašemu nastavení."
 
 #: index.php:470
 #, php-format
@@ -5765,7 +5765,6 @@ msgid "Display columns table"
 msgstr "Tabulka s popisem polí"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7707,7 +7706,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Zkusit se připojit znovu"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9427,6 +9426,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Přístupové údaje pro tohoto uživatele již existují (možná s jiným "
+"hostitelem). Jste si jisti, že chcete pokračovat?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10250,10 +10251,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relace FOREIGN KEY byla vytvořena"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Chyba: relace nebyla přidána."
+msgstr "Chyba: Funkce relací jsou vypnuté!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12317,10 +12317,9 @@ msgid "Choose column to display:"
 msgstr "Zvolte která pole zobrazit:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nebyl vybrán žádný řádek"
+msgstr "Nebyl vybrán žádný sloupec."
 
 #: tbl_structure.php:149
 #, php-format
