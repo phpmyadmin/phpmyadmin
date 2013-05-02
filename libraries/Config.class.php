@@ -181,6 +181,12 @@ class PMA_Config
         // 2. browser and version
         // (must check everything else before Mozilla)
 
+        $is_mozilla = preg_match(
+            '@Mozilla/([0-9].[0-9]{1,2})@',
+            $HTTP_USER_AGENT,
+            $mozilla_version
+        );
+
         if (preg_match(
             '@Opera(/| )([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
@@ -212,19 +218,13 @@ class PMA_Config
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
+        } elseif ($is_mozilla
             && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version2)
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version2[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
+        } elseif ($is_mozilla
             && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version2)
         ) {
             $this->set(
@@ -232,10 +232,7 @@ class PMA_Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
+        } elseif ($is_mozilla
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
         ) {
             $this->set(
@@ -253,8 +250,8 @@ class PMA_Config
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+        } elseif ($is_mozilla) {
+            $this->set('PMA_USR_BROWSER_VER', $mozilla_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         } else {
             $this->set('PMA_USR_BROWSER_VER', 0);
