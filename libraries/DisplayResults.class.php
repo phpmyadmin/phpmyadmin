@@ -1552,7 +1552,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function  _getOptionsBlock()
+    private function _getOptionsBlock()
     {
 
         $options_html = '';
@@ -5920,7 +5920,7 @@ class PMA_DisplayResults
     }
 
     /**
-     * Display binary fields as hex string for PHP <5.4, 
+     * Display binary fields as hex string for PHP <5.4,
      * otherwise escape the contents if it may be displayed as hex
      *
      * @param string $content         String to parse
