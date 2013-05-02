@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-04-03 10:24+0200\n"
-"PO-Revision-Date: 2013-04-29 07:36+0200\n"
+"PO-Revision-Date: 2013-05-02 10:29+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
@@ -3905,7 +3905,7 @@ msgstr "양수가 아닙니다."
 #: libraries/config/FormDisplay.class.php:89
 #: libraries/config/validate.lib.php:548
 msgid "Not a non-negative number"
-msgstr "음수가 아닙니다."
+msgstr "음수가 아닙니다"
 
 #: libraries/config/FormDisplay.class.php:90
 #: libraries/config/validate.lib.php:504
@@ -7543,7 +7543,7 @@ msgstr "열(컬럼) 구분자:"
 #: libraries/plugins/import/ImportCsv.class.php:88
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "열(컬럼) 감싸기"
+msgstr "열(컬럼) 감싸기:"
 
 #: libraries/plugins/export/ExportCsv.class.php:101
 #: libraries/plugins/import/ImportCsv.class.php:94
@@ -10209,7 +10209,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 설정되었다는 안내 메시지를 볼 수 있을겁니다"
+"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 <b>설정되었다</b>는 안내 메시지를 볼 수 "
+"있을겁니다"
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
