@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-25 16:33+0200\n"
+"PO-Revision-Date: 2013-05-02 15:38+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -858,7 +858,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -870,8 +869,10 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "El directorio [code]config[/code], utilizado por el script de configuración, "
-"aún existe en el directorio phpMyAdmin. Deberías eliminarlo una vez que "
-"phpMyAdmin fue configurado."
+"aún existe en el directorio phpMyAdmin. Es muy recomendable eliminarlo una "
+"vez que configuró phpMyAdmin. De lo contrario, podría comprometer la "
+"seguridad de su servidor cuando personas no autorizadas descarguen su "
+"configuración."
 
 #: index.php:470
 #, php-format
@@ -5885,7 +5886,6 @@ msgid "Display columns table"
 msgstr "Mostrar tabla de columnas"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5893,9 +5893,9 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Deje en blanco para eliminar la \"persistencia\" de las preferencias de "
-"interfaz de tablas entre sesiones, valor sugerido: [kbd]pma__table_uiprefs[/"
-"kbd]"
+"Deje en blanco para eliminar la «persistencia» de las preferencias de "
+"interfaz de tablas entre sesiones, valor sugerido: "
+"[kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -7874,7 +7874,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Reintentar conexión"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
