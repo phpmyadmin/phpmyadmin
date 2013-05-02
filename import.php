@@ -32,7 +32,8 @@ $post_params = array(
     'MAX_FILE_SIZE',
     'message_to_show',
     'noplugin',
-    'skip_queries'
+    'skip_queries',
+    'local_import_file'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -77,7 +78,7 @@ if (! empty($sql_query)) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
-    
+
     $sql_query = '';
 } elseif (! empty($sql_localfile)) {
     // run SQL file on server
@@ -474,7 +475,8 @@ if (! $error) {
     $import_plugin = PMA_getPlugin(
         "import",
         $format,
-        'libraries/plugins/import/'
+        'libraries/plugins/import/',
+        $import_type
     );
     if ($import_plugin == null) {
         $error = true;
@@ -527,13 +529,21 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
             $message->addParam($executed_queries);
 
             $message->addString($import_notice);
-            $message->addString('(' . $_FILES['import_file']['name'] . ')');
+            if (isset($local_import_file)) {
+                $message->addString('(' . $local_import_file . ')');
+            } else {
+                $message->addString('(' . $_FILES['import_file']['name'] . ')');
+            }
         } else {
             $message = PMA_Message::success(
                 __('Import has been successfully finished, %d queries executed.')
             );
             $message->addParam($executed_queries);
-            $message->addString('(' . $_FILES['import_file']['name'] . ')');
+            if (isset($local_import_file)) {
+                $message->addString('(' . $local_import_file . ')');
+            } else {
+                $message->addString('(' . $_FILES['import_file']['name'] . ')');
+            }
         }
     }
 }
@@ -565,7 +575,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 
 // There was an error?
 if (isset($my_die)) {
-    foreach ($my_die AS $key => $die) {
+    foreach ($my_die as $key => $die) {
         PMA_Util::mysqlDie(
             $die['error'], $die['sql'], '', $err_url, $error
         );

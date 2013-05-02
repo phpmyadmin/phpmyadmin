@@ -91,7 +91,7 @@ class PMA_Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->checkIsHttps();
+        $this->isHttps();
     }
 
     /**
@@ -181,6 +181,12 @@ class PMA_Config
         // 2. browser and version
         // (must check everything else before Mozilla)
 
+        $is_mozilla = preg_match(
+            '@Mozilla/([0-9].[0-9]{1,2})@',
+            $HTTP_USER_AGENT,
+            $mozilla_version
+        );
+
         if (preg_match(
             '@Opera(/| )([0-9].[0-9]{1,2})@',
             $HTTP_USER_AGENT,
@@ -189,11 +195,11 @@ class PMA_Config
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
         } elseif (preg_match(
-            '@MSIE ([0-9].[0-9]{1,2})@',
+            '@(MS)?IE ([0-9]{1,2}.[0-9]{1,2})@',
             $HTTP_USER_AGENT,
             $log_version
         )) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+            $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match(
             '@OmniWeb/([0-9].[0-9]{1,2})@',
@@ -212,41 +218,40 @@ class PMA_Config
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
-            && preg_match('@Chrome/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
+        } elseif ($is_mozilla
+            && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]);
+            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
-            && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version2)
+        } elseif ($is_mozilla
+            && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version2[1]
+                'PMA_USR_BROWSER_VER', $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif (preg_match(
-            '@Mozilla/([0-9].[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version)
-            && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version2)
+        } elseif ($is_mozilla
+            && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1] . '.' . $log_version2[1]
+                'PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
+            // Firefox
+        } elseif (! strstr($HTTP_USER_AGENT, 'compatible')
+            && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
+        ) {
+            $this->set(
+                'PMA_USR_BROWSER_VER', $log_version[1]
+            );
+            $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@rv:1.9(.*)Gecko@', $HTTP_USER_AGENT)) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif (preg_match('@Mozilla/([0-9].[0-9]{1,2})@', $HTTP_USER_AGENT, $log_version)) {
-            $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
+        } elseif ($is_mozilla) {
+            $this->set('PMA_USR_BROWSER_VER', $mozilla_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         } else {
             $this->set('PMA_USR_BROWSER_VER', 0);
@@ -313,7 +318,7 @@ class PMA_Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win')) {
+            if (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
             } elseif (stristr(PHP_OS, 'OS/2')) {
@@ -462,22 +467,42 @@ class PMA_Config
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             } else {
+                $pack_names = array();
                 // work with packed data
-                if (! $packs = @file_get_contents($git_folder . '/objects/info/packs')) {
-                    return;
+                if ($packs = @file_get_contents($git_folder . '/objects/info/packs')) {
+                    // File exists. Read it, parse the file to get the names of the
+                    // packs. (to look for them in .git/object/pack directory later)
+                    foreach (explode("\n", $packs) as $line) {
+                        // skip blank lines
+                        if (strlen(trim($line)) == 0) {
+                            continue;
+                        }
+                        // skip non pack lines
+                        if ($line[0] != 'P') {
+                            continue;
+                        }
+                        // parse names
+                        $pack_names[] = substr($line, 2);
+                    }
+                } else {
+                    // '.git/objects/info/packs' file can be missing
+                    // (atlease in mysGit)
+                    // File missing. May be we can look in the .git/object/pack
+                    // directory for all the .pack files and use that list of
+                    // files instead
+                    $it = new DirectoryIterator($git_folder . '/objects/pack');
+                    foreach ($it as $file_info) {
+                        $file_name = $file_info->getFilename();
+                        // if this is a .pack file
+                        if ($file_info->isFile()
+                            && substr($file_name, -5) == '.pack'
+                        ) {
+                            $pack_names[] = $file_name;
+                        }
+                    }
                 }
                 $hash = strtolower($hash);
-                foreach (explode("\n", $packs) as $line) {
-                    // skip blank lines
-                    if (strlen(trim($line)) == 0) {
-                        continue;
-                    }
-                    // skip non pack lines
-                    if ($line[0] != 'P') {
-                        continue;
-                    }
-                    // parse names
-                    $pack_name = substr($line, 2);
+                foreach ($pack_names as $pack_name) {
                     $index_name = str_replace('.pack', '.idx', $pack_name);
 
                     // load index
@@ -584,7 +609,7 @@ class PMA_Config
         } else {
             $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
                 . $hash;
-            $is_found = $this->checkHTTP($link, !$commit);
+            $is_found = $this->checkHTTP($link, ! $commit);
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -693,12 +718,12 @@ class PMA_Config
         }
         $ch = curl_init($link);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_NOBODY, !$get_body);
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         $data = @curl_exec($ch);
         if ($data === false) {
@@ -886,7 +911,10 @@ class PMA_Config
         );
 
         // backup some settings
-        $org_fontsize = $this->settings['fontsize'];
+        $org_fontsize = '';
+        if (isset($this->settings['fontsize'])) {
+            $org_fontsize = $this->settings['fontsize'];
+        }
         // load config array
         $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
         $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
@@ -1143,14 +1171,14 @@ class PMA_Config
      * sets configuration variable
      *
      * @param string $setting configuration option
-     * @param string $value   new value for configuration option
+     * @param mixed  $value   new value for configuration option
      *
      * @return void
      */
     function set($setting, $value)
     {
         if (! isset($this->settings[$setting])
-            || $this->settings[$setting] != $value
+            || $this->settings[$setting] !== $value
         ) {
             $this->settings[$setting] = $value;
             $this->set_mtime = time();
@@ -1446,16 +1474,6 @@ class PMA_Config
     }
 
     /**
-     * check for https
-     *
-     * @return void
-     */
-    function checkIsHttps()
-    {
-        $this->set('is_https', $this->isHttps());
-    }
-
-    /**
      * Checks if protocol is https
      *
      * This function checks if the https protocol is used in the PmaAbsoluteUri
@@ -1466,19 +1484,21 @@ class PMA_Config
      */
     public function isHttps()
     {
-        static $is_https = null;
 
-        if (null !== $is_https) {
-            return $is_https;
+        if (null !== $this->get('is_https')) {
+            return $this->get('is_https');
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
+        $is_https = null;
 
         if (isset($url['scheme']) && $url['scheme'] == 'https') {
             $is_https = true;
         } else {
             $is_https = false;
         }
+
+        $this->set('is_https', $is_https);
 
         return $is_https;
     }

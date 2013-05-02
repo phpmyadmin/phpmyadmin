@@ -19,7 +19,7 @@ require_once 'libraries/Config.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
+class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
 {
 
     /**

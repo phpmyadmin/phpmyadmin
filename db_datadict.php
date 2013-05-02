@@ -57,7 +57,7 @@ if ($cfgRelation['commwork']) {
  * Selects the database and gets tables names
  */
 PMA_DBI_select_db($db);
-$tables = PMA_DBI_get_tables($db);
+$tables = PMA_DBI_getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {
@@ -77,7 +77,7 @@ foreach ($tables as $table) {
      */
 
     PMA_DBI_select_db($db);
-    $indexes      = PMA_DBI_get_table_indexes($db, $table);
+    $indexes      = PMA_DBI_getTableIndexes($db, $table);
     $primary      = '';
     $indexes      = array();
     $lastIndex    = '';
@@ -116,7 +116,7 @@ foreach ($tables as $table) {
     /**
      * Gets columns properties
      */
-    $columns = PMA_DBI_get_columns($db, $table);
+    $columns = PMA_DBI_getColumns($db, $table);
     $fields_cnt  = count($columns);
 
     if (PMA_MYSQL_INT_VERSION < 50025) {
@@ -128,7 +128,7 @@ foreach ($tables as $table) {
         $show_create_table_query = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table);
-        $show_create_table = PMA_DBI_fetch_value(
+        $show_create_table = PMA_DBI_fetchValue(
             $show_create_table_query, 0, 1
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -154,7 +154,7 @@ foreach ($tables as $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo __('Table comments') . ': ' . htmlspecialchars($show_comment) . '<br /><br />';
+        echo __('Table comments:') . ' ' . htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
@@ -218,7 +218,7 @@ foreach ($tables as $table) {
             // the latter.
             /**
              * @todo merge this logic with the one in tbl_structure.php
-             * or move it in a function similar to PMA_DBI_get_columns_full()
+             * or move it in a function similar to PMA_DBI_getColumnsFull()
              * but based on SHOW CREATE TABLE because information_schema
              * cannot be trusted in this case (MySQL bug)
              */

@@ -27,7 +27,7 @@ $ServerStatusData = new PMA_ServerStatusData();
  * Kills a selected process
  */
 if (! empty($_REQUEST['kill'])) {
-    if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
+    if (PMA_DBI_tryQuery('KILL ' . $_REQUEST['kill'] . ';')) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
         $message = PMA_Message::error(
@@ -61,7 +61,7 @@ exit;
 function getServerTrafficHtml($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
-    $start_time = PMA_DBI_fetch_value(
+    $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
 
@@ -128,7 +128,28 @@ function getServerTrafficHtml($ServerStatusData)
         }
     }
 
-    $retval .= '<table id="serverstatustraffic" class="data noclick">';
+    //display the server state traffic
+    $retval .= getServerStateTrafficHtml($ServerStatusData);
+
+    //display the server state connection information
+    $retval .= getServerStateConnectionsHtml($ServerStatusData);
+
+    //display the Table Process List information
+    $retval .= getTableProcesslistHtml($ServerStatusData);
+
+    return $retval;
+}
+
+/**
+ * Prints server state traffic information
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function getServerStateTrafficHtml($ServerStatusData)
+{   
+    $retval = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th colspan="2">';
@@ -203,9 +224,20 @@ function getServerTrafficHtml($ServerStatusData)
     $retval .= '</td>';
     $retval .= '</tr>';
     $retval .= '</tbody>';
-    $retval .= '</table>';
+    $retval .= '</table>'; 
+    return $retval;
+}
 
-    $retval .= '<table id="serverstatusconnections" class="data noclick">';
+/**
+ * Prints server state connections information
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function getServerStateConnectionsHtml($ServerStatusData)
+{
+    $retval = '<table id="serverstatusconnections" class="data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th colspan="2">' . __('Connections') . '</th>';
@@ -291,6 +323,18 @@ function getServerTrafficHtml($ServerStatusData)
     $retval .= '</tbody>';
     $retval .= '</table>';
 
+    return $retval;
+}
+
+/**
+ * Prints Table Process list
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function getTableProcesslistHtml($ServerStatusData)
+{
     $url_params = array();
 
     $show_full_sql = ! empty($_REQUEST['full']);
@@ -373,11 +417,8 @@ function getServerTrafficHtml($ServerStatusData)
     }
 
     $result = PMA_DBI_query($sql_query);
-
-    /**
-     * Displays the page
-     */
-    $retval .= '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
+    
+    $retval = '<table id="tableprocesslist" class="data clearfloat noclick sortable">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th>' . __('Processes') . '</th>';

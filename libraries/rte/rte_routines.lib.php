@@ -52,7 +52,7 @@ function PMA_RTN_main()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
-    $items    = PMA_DBI_fetch_result(
+    $items    = PMA_DBI_fetchResult(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
     echo PMA_RTE_getList('routine', $items);
@@ -283,14 +283,14 @@ function PMA_RTN_handleEditor()
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
-                    $create_routine = PMA_DBI_get_definition(
+                    $create_routine = PMA_DBI_getDefinition(
                         $db, $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
                     );
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . PMA_Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
-                    $result = PMA_DBI_try_query($drop_routine);
+                    $result = PMA_DBI_tryQuery($drop_routine);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
@@ -299,7 +299,7 @@ function PMA_RTN_handleEditor()
                         . '<br />'
                         . __('MySQL said: ') . PMA_DBI_getError(null);
                     } else {
-                        $result = PMA_DBI_try_query($routine_query);
+                        $result = PMA_DBI_tryQuery($routine_query);
                         if (! $result) {
                             $errors[] = sprintf(
                                 __('The following query has failed: "%s"'),
@@ -310,7 +310,7 @@ function PMA_RTN_handleEditor()
                             // We dropped the old routine,
                             // but were unable to create the new one
                             // Try to restore the backup query
-                            $result = PMA_DBI_try_query($create_routine);
+                            $result = PMA_DBI_tryQuery($create_routine);
                             if (! $result) {
                                 // OMG, this is really bad! We dropped the query,
                                 // failed to create a new one
@@ -340,7 +340,7 @@ function PMA_RTN_handleEditor()
                 }
             } else {
                 // 'Add a new routine' mode
-                $result = PMA_DBI_try_query($routine_query);
+                $result = PMA_DBI_tryQuery($routine_query);
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
@@ -385,7 +385,7 @@ function PMA_RTN_handleEditor()
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'"
                     . "AND ROUTINE_TYPE='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_type']) . "'";
-                $routine  = PMA_DBI_fetch_single_row(
+                $routine  = PMA_DBI_fetchSingleRow(
                     "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES`"
                     . " WHERE $where;"
                 );
@@ -461,7 +461,7 @@ function PMA_RTN_handleEditor()
             }
             exit;
         } else {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
@@ -618,7 +618,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
              . "AND ROUTINE_TYPE='" . PMA_Util::sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
-    $routine = PMA_DBI_fetch_single_row($query);
+    $routine = PMA_DBI_fetchSingleRow($query);
 
     if (! $routine) {
         return false;
@@ -628,7 +628,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_name'] = $routine['SPECIFIC_NAME'];
     $retval['item_type'] = $routine['ROUTINE_TYPE'];
     $parsed_query = PMA_SQP_parse(
-        PMA_DBI_get_definition(
+        PMA_DBI_getDefinition(
             $db,
             $routine['ROUTINE_TYPE'],
             $routine['SPECIFIC_NAME']
@@ -1179,7 +1179,7 @@ function PMA_RTN_getQueryFromRequest()
                 }
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
                     if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_param_type'][$i]) == 'CHAR') {
-                        $params .= ' CHARSET ' 
+                        $params .= ' CHARSET '
                             . strtolower($_REQUEST['item_param_opts_text'][$i]);
                     }
                 }
@@ -1349,7 +1349,7 @@ function PMA_RTN_handleExecute()
             $affected = 0;
 
             // Execute query
-            if (! PMA_DBI_try_multi_query($multiple_query)) {
+            if (! PMA_DBI_tryMultiQuery($multiple_query)) {
                 $outcome = false;
             }
 
@@ -1475,7 +1475,7 @@ function PMA_RTN_handleExecute()
                 // Now deliberately fall through to displaying the routines list
             }
         } else {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),
@@ -1515,7 +1515,7 @@ function PMA_RTN_handleExecute()
             }
             exit;
         } else if (($GLOBALS['is_ajax_request'] == true)) {
-            $message  = __('Error in processing request') . ' : ';
+            $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
                 htmlspecialchars(PMA_Util::backquote($_REQUEST['item_name'])),

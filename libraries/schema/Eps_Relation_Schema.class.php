@@ -418,7 +418,7 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $eps->dieSchema(
                 $pageNumber, "EPS",
@@ -837,7 +837,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
 
         $alltables = $this->getAllTables($db, $this->pageNumber);
 
-        foreach ($alltables AS $table) {
+        foreach ($alltables as $table) {
             if (! isset($this->_tables[$table])) {
                 $this->_tables[$table] = new Table_Stats(
                     $table, $eps->getFont(), $eps->getFontSize(), $this->pageNumber,

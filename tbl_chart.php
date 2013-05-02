@@ -28,7 +28,7 @@ if (isset($_REQUEST['ajax_request'])
     $sql_with_limit = 'SELECT * FROM( ' . $sql_query . ' ) AS `temp_res` LIMIT '
         . $_REQUEST['pos'] . ', ' . $_REQUEST['session_max_rows'];
     $data = array();
-    $result = PMA_DBI_try_query($sql_with_limit);
+    $result = PMA_DBI_tryQuery($sql_with_limit);
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $data[] = $row;
     }
@@ -102,7 +102,7 @@ if (strlen($GLOBALS['table'])) {
 
 $data = array();
 
-$result = PMA_DBI_try_query($sql_query);
+$result = PMA_DBI_tryQuery($sql_query);
 $fields_meta = PMA_DBI_get_fields_meta($result);
 while ($row = PMA_DBI_fetch_assoc($result)) {
     $data[] = $row;
@@ -238,11 +238,11 @@ $htmlString .= '<div style="float:left; padding-left:40px;">'
     . '<p style="clear:both;">&nbsp;</p>'
     . '<fieldset>'
     . '<div>'
-    . '<label for="pos">' . __('Start row') . ': ' . "\n" . '</label>'
+    . '<label for="pos">' . __('Start row:') . '</label>'
     . '<input type="text" name="pos" size="3" value="'
     . $_SESSION['tmp_user_values']['pos'] . '" />'
     . '<label for="session_max_rows">'
-    . __('Number of rows') . ': ' . "\n" . '</label>'
+    . __('Number of rows:') . '</label>'
     . '<input type="text" name="session_max_rows" size="3" value="'
     . (($_SESSION['tmp_user_values']['max_rows'] != 'all')
         ? $_SESSION['tmp_user_values']['max_rows']

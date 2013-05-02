@@ -365,7 +365,7 @@ class Node
         $query .= $this->_getWhereClause($searchClause); 
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
-        return PMA_DBI_fetch_result($query);
+        return PMA_DBI_fetchResult($query);
     }
 
     /**
@@ -395,7 +395,7 @@ class Node
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
             $query .= $this->_getWhereClause($searchClause); 
-            $retval = (int)PMA_DBI_fetch_value($query);
+            $retval = (int)PMA_DBI_fetchValue($query);
         } else {
             $query = "SHOW DATABASES ";
             if (! empty($searchClause)) {
@@ -405,7 +405,7 @@ class Node
                 );
                 $query .= "%' ";
             }
-            $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+            $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
         }
         return $retval;
     }

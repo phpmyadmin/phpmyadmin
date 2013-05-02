@@ -192,48 +192,54 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
  * Use only full paths and form ids
  */
 $cfg_db['_validators'] = array(
-    'CharTextareaCols' => 'validate_positive_number',
-    'CharTextareaRows' => 'validate_positive_number',
-    'ExecTimeLimit' => 'validate_non_negative_number',
-    'Export/sql_max_query_size' => 'validate_positive_number',
-    'ForeignKeyMaxLimit' => 'validate_positive_number',
-    'Import/csv_enclosed' => array(array('validate_by_regex', '/^.?$/')),
-    'Import/csv_escaped' => array(array('validate_by_regex', '/^.$/')),
-    'Import/csv_terminated' => array(array('validate_by_regex', '/^.$/')),
-    'Import/ldi_enclosed' => array(array('validate_by_regex', '/^.?$/')),
-    'Import/ldi_escaped' => array(array('validate_by_regex', '/^.$/')),
-    'Import/ldi_terminated' => array(array('validate_by_regex', '/^.$/')),
-    'Import/skip_queries' => 'validate_non_negative_number',
-    'InsertRows' => 'validate_positive_number',
-    'NumRecentTables' => 'validate_non_negative_number',
-    'LimitChars' => 'validate_positive_number',
-    'LoginCookieValidity' => 'validate_positive_number',
-    'LoginCookieStore' => 'validate_non_negative_number',
-    'MaxDbList' => 'validate_positive_number',
-    'MaxNavigationItems' => 'validate_positive_number',
-    'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
-    'MaxRows' => 'validate_positive_number',
-    'MaxTableList' => 'validate_positive_number',
-    'MemoryLimit' => array(array('validate_by_regex', '/^\d+(?:[kmg])?$/i')),
-    'NavigationTreeTableLevel' => 'validate_positive_number',
-    'QueryHistoryMax' => 'validate_positive_number',
-    'QueryWindowWidth' => 'validate_positive_number',
-    'QueryWindowHeight' => 'validate_positive_number',
-    'RepeatCells' => 'validate_non_negative_number',
-    'Server' => 'validate_server',
-    'Server_pmadb' => 'validate_pmadb',
-    'Servers/1/port' => 'validate_port_number',
-    'Servers/1/hide_db' => 'validate_regex',
-    'TextareaCols' => 'validate_positive_number',
-    'TextareaRows' => 'validate_positive_number',
-    'TrustedProxies' => 'validate_trusted_proxies');
+    'CharTextareaCols' => 'PMA_validatePositiveNumber',
+    'CharTextareaRows' => 'PMA_validatePositiveNumber',
+    'ExecTimeLimit' => 'PMA_validateNonNegativeNumber',
+    'Export/sql_max_query_size' => 'PMA_validatePositiveNumber',
+    'ForeignKeyMaxLimit' => 'PMA_validatePositiveNumber',
+    'Import/csv_enclosed' => array(array('PMA_validateByRegex', '/^.?$/')),
+    'Import/csv_escaped' => array(array('PMA_validateByRegex', '/^.$/')),
+    'Import/csv_terminated' => array(array('PMA_validateByRegex', '/^.$/')),
+    'Import/ldi_enclosed' => array(array('PMA_validateByRegex', '/^.?$/')),
+    'Import/ldi_escaped' => array(array('PMA_validateByRegex', '/^.$/')),
+    'Import/ldi_terminated' => array(array('PMA_validateByRegex', '/^.$/')),
+    'Import/skip_queries' => 'PMA_validateNonNegativeNumber',
+    'InsertRows' => 'PMA_validatePositiveNumber',
+    'NumRecentTables' => 'PMA_validateNonNegativeNumber',
+    'LimitChars' => 'PMA_validatePositiveNumber',
+    'LoginCookieValidity' => 'PMA_validatePositiveNumber',
+    'LoginCookieStore' => 'PMA_validateNonNegativeNumber',
+    'MaxDbList' => 'PMA_validatePositiveNumber',
+    'MaxNavigationItems' => 'PMA_validatePositiveNumber',
+    'MaxCharactersInDisplayedSQL' => 'PMA_validatePositiveNumber',
+    'MaxRows' => 'PMA_validatePositiveNumber',
+    'MaxTableList' => 'PMA_validatePositiveNumber',
+    'MemoryLimit' => array(array('PMA_validateByRegex', '/^\d+(?:[kmg])?$/i')),
+    'NavigationTreeTableLevel' => 'PMA_validatePositiveNumber',
+    'QueryHistoryMax' => 'PMA_validatePositiveNumber',
+    'QueryWindowWidth' => 'PMA_validatePositiveNumber',
+    'QueryWindowHeight' => 'PMA_validatePositiveNumber',
+    'RepeatCells' => 'PMA_validateNonNegativeNumber',
+    'Server' => 'PMA_validateServer',
+    'Server_pmadb' => 'PMA_validatePMAStorage',
+    'Servers/1/port' => 'PMA_validatePortNumber',
+    'Servers/1/hide_db' => 'PMA_validateRegex',
+    'TextareaCols' => 'PMA_validatePositiveNumber',
+    'TextareaRows' => 'PMA_validatePositiveNumber',
+    'TrustedProxies' => 'PMA_validateTrustedProxies');
 
 /**
  * Additional validators used for user preferences
  */
 $cfg_db['_userValidators'] = array(
-    'MaxDbList'       => array(array('validate_upper_bound', 'value:MaxDbList')),
-    'MaxTableList'    => array(array('validate_upper_bound', 'value:MaxTableList')),
-    'QueryHistoryMax' => array(array('validate_upper_bound', 'value:QueryHistoryMax'))
+    'MaxDbList'       => array(
+        array('PMA_validateUpperBound', 'value:MaxDbList')
+    ),
+    'MaxTableList'    => array(
+        array('PMA_validateUpperBound', 'value:MaxTableList')
+    ),
+    'QueryHistoryMax' => array(
+        array('PMA_validateUpperBound', 'value:QueryHistoryMax')
+    )
 );
 ?>

@@ -97,7 +97,7 @@ if ($server > 0) {
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
     }
-    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+    $mysql_cur_user_and_host = PMA_DBI_fetchValue('SELECT USER();');
 
     // should we add the port info here?
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
@@ -152,7 +152,7 @@ if ($server > 0
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                '. PMA_Util::getImage('s_asci.png') . " " 
+           . '                '. PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu(
@@ -233,28 +233,28 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(
-        __('Server') . ': ' . $server_info,
+        __('Server:') . ' ' . $server_info,
         'li_server_info'
     );
     PMA_printListItem(
-        __('Server type') . ': ' . PMA_Util::getServerType(),
+        __('Server type:') . ' ' . PMA_Util::getServerType(),
         'li_server_type'
     );
     PMA_printListItem(
-        __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
+        __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
         'li_server_version'
     );
     PMA_printListItem(
-        __('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
+        __('Protocol version:') . ' ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto'
     );
     PMA_printListItem(
-        __('User') . ': ' . htmlspecialchars($mysql_cur_user_and_host),
+        __('User:') . ' ' . htmlspecialchars($mysql_cur_user_and_host),
         'li_user_info'
     );
 
     echo '    <li id="li_select_mysql_charset">';
-    echo '        ' . __('Server charset') . ': '
+    echo '        ' . __('Server charset:') . ' '
        . '        <span lang="en" dir="ltr">'
        . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']] . "\n"
        . '           (' . $mysql_charset_map['utf-8'] . ')' . "\n"
@@ -279,11 +279,11 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
             PMA_printListItem(
-                __('Database client version') . ': ' . $client_version_str,
+                __('Database client version:') . ' ' . $client_version_str,
                 'li_mysql_client_version'
             );
 
-            $php_ext_string = __('PHP extension') . ': '
+            $php_ext_string = __('PHP extension:') . ' '
                 . $GLOBALS['cfg']['Server']['extension'] . ' '
                 . PMA_Util::showPHPDocu(
                     'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
@@ -320,7 +320,7 @@ if ($GLOBALS['cfg']['VersionCheck']
     $class = 'jsversioncheck';
 }
 PMA_printListItem(
-    __('Version information') . ': ' . PMA_VERSION,
+    __('Version information:') . ' ' . PMA_VERSION,
     'li_pma_version',
     null,
     null,

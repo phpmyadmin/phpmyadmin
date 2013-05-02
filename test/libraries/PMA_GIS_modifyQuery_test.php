@@ -13,7 +13,7 @@ require_once 'libraries/Util.class.php';
  */
 require_once 'libraries/gis_visualization.lib.php';
 
-class PMA_GIS_modifyQueryTest extends PHPUnit_Framework_TestCase
+class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test PMA_GIS_modifyQuery method

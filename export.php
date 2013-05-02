@@ -14,12 +14,117 @@ require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**
- * Sets globals from all $_POST (in export.php only)
- * Would it not be tiresome to list all export-plugin options here?
+ * Sets globals from $_POST
+ *
+ * - Please keep the parameters in order of their appearance in the form
+ * - Some of these parameters are not used, as the code below directly
+ *   verifies from the superglobal $_POST or $_REQUEST
  */
-foreach ($_POST as $one_post_param => $one_post_value) {
-    $GLOBALS[$one_post_param] = $one_post_value;
+$post_params = array(
+        'db',
+        'table',
+        'single_table',
+        'export_type',
+        'export_method',
+        'quick_or_custom',
+        'table_select',
+        'limit_to',
+        'limit_from',
+        'allrows',
+        'output_format',
+        'filename_template',
+        'remember_template',
+        'charset_of_file',
+        'compression',
+        'what',
+        'htmlword_structure_or_data',
+        'htmlword_null',
+        'htmlword_columns',
+        'mediawiki_structure_or_data',
+        'mediawiki_caption',
+        'pdf_report_title',
+        'pdf_structure_or_data',
+        'odt_structure_or_data',
+        'odt_relation',
+        'odt_comments',
+        'odt_mime',
+        'odt_columns',
+        'odt_null',
+        'codegen_structure_or_data',
+        'codegen_format',
+        'excel_null',
+        'excel_columns',
+        'excel_edition',
+        'excel_structure_or_data',
+        'yaml_structure_or_data',
+        'ods_null',
+        'ods_structure_or_data',
+        'ods_columns',
+        'json_structure_or_data',
+        'xml_structure_or_data',
+        'xml_export_functions',
+        'xml_export_procedures',
+        'xml_export_tables',
+        'xml_export_triggers',
+        'xml_export_views',
+        'xml_export_contents',
+        'texytext_structure_or_data',
+        'texytext_columns',
+        'texytext_null',
+        'phparray_structure_or_data',
+        'sql_include_comments',
+        'sql_header_comment',
+        'sql_dates',
+        'sql_relation',
+        'sql_mime',
+        'sql_use_transaction',
+        'sql_disable_fk',
+        'sql_compatibility',
+        'sql_structure_or_data',
+        'sql_drop_table',
+        'sql_procedure_function',
+        'sql_create_table_statements',
+        'sql_if_not_exists',
+        'sql_auto_increment',
+        'sql_backquotes',
+        'sql_truncate',
+        'sql_delayed',
+        'sql_ignore',
+        'sql_type',
+        'sql_insert_syntax',
+        'sql_max_query_size',
+        'sql_hex_for_blob',
+        'sql_utc_time',
+        'csv_separator',
+        'csv_enclosed',
+        'csv_escaped',
+        'csv_terminated',
+        'csv_null',
+        'csv_columns',
+        'csv_structure_or_data',
+        'latex_caption',
+        'latex_structure_or_data',
+        'latex_structure_caption',
+        'latex_structure_continued_caption',
+        'latex_structure_label',
+        'latex_relation',
+        'latex_comments',
+        'latex_mime',
+        'latex_columns',
+        'latex_data_caption',
+        'latex_data_continued_caption',
+        'latex_data_label',
+        'latex_null'
+);
+
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
 }
+
+// sanitize this parameter which will be used below in a file inclusion
+$what = PMA_securePath($what);
 
 PMA_Util::checkParameters(array('what', 'export_type'));
 
@@ -150,17 +255,17 @@ function PMA_isGzHandlerEnabled()
 
 /**
  * Detect whether gzencode is needed; it might not be needed if
- * the server is already compressing by itself 
+ * the server is already compressing by itself
  *
- * @return bool Whether gzencode is needed 
+ * @return bool Whether gzencode is needed
  */
 function PMA_gzencodeNeeded()
 {
+    // Here, we detect Apache's mod_deflate so we bet that
+    // this module is active for this instance of phpMyAdmin
+    // and therefore, will gzip encode the content
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
-        // Here, we detect Apache's mod_deflate so we bet that
-        // this module is active for this instance of phpMyAdmin
-        // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
@@ -201,7 +306,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string(
+                    $dump_buffer = PMA_convertString(
                         'utf-8',
                         $GLOBALS['charset_of_file'],
                         $dump_buffer
@@ -213,7 +318,7 @@ function PMA_exportOutputHandler($line)
                 ) {
                     $dump_buffer = bzcompress($dump_buffer);
                 } elseif ($GLOBALS['compression'] == 'gzip'
-                     && PMA_gzencodeNeeded() 
+                     && PMA_gzencodeNeeded()
                 ) {
                     // as a gzipped file
                     // without the optional parameter level because it bugs
@@ -244,7 +349,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string(
+                $line = PMA_convertString(
                     'utf-8',
                     $GLOBALS['charset_of_file'],
                     $line
@@ -352,7 +457,9 @@ if ($asfile) {
         }
     }
     $filename = PMA_Util::expandUserString($filename_template);
-    $filename = PMA_sanitizeFilename($filename);
+    // remove dots in filename (coming from either the template or already
+    // part of the filename) to avoid a remote code execution vulnerability
+    $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
@@ -541,7 +648,7 @@ do {
                     $export_plugin->exportRoutines($current_db);
                 }
 
-                $tables = PMA_DBI_get_tables($current_db);
+                $tables = PMA_DBI_getTables($current_db);
                 $views = array();
                 foreach ($tables as $table) {
                     // if this is a view, collect it for later;
@@ -778,7 +885,7 @@ if ($save_on_server && isset($message)) {
 if (! empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string(
+        $dump_buffer = PMA_convertString(
             'utf-8',
             $GLOBALS['charset_of_file'],
             $dump_buffer
@@ -852,15 +959,15 @@ if (! empty($asfile)) {
     echo "\n";
     echo '</div>' . "\n";
     echo "\n";
-?>
-<script type="text/javascript">
-//<![CDATA[
-    var $body = $("body");
-    $("#textSQLDUMP")
-        .width($body.width() - 50)
-        .height($body.height() - 100);
-//]]>
-</script>
-<?php
+    ?>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $body = $("body");
+        $("#textSQLDUMP")
+            .width($body.width() - 50)
+            .height($body.height() - 100);
+    //]]>
+    </script>
+    <?php
 } // end if
 ?>

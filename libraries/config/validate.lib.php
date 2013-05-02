@@ -114,10 +114,10 @@ function PMA_config_validate($validator_id, &$values, $isPostSource)
             if (is_array($r)) {
                 foreach ($r as $key => $error_list) {
                     // skip empty values if $isPostSource is false
-                    if (!$isPostSource && empty($error_list)) {
+                    if (! $isPostSource && empty($error_list)) {
                         continue;
                     }
-                    if (!isset($result[$key])) {
+                    if (! isset($result[$key])) {
                         $result[$key] = array();
                     }
                     $result[$key] = array_merge($result[$key], (array)$error_list);
@@ -155,7 +155,7 @@ function PMA_null_error_handler()
  *
  * @return void
  */
-function test_php_errormsg($start = true)
+function PMA_testPHPErrorMsg($start = true)
 {
     static $old_html_errors, $old_track_errors, $old_error_reporting;
     static $old_display_errors;
@@ -193,7 +193,7 @@ function test_php_errormsg($start = true)
  *
  * @return bool|array
  */
-function test_db_connection(
+function PMA_testDBConnection(
     $extension,
     $connect_type,
     $host,
@@ -203,14 +203,14 @@ function test_db_connection(
     $pass = null,
     $error_key = 'Server'
 ) {
-    //    test_php_errormsg();
+    //    PMA_testPHPErrorMsg();
     $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
     $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
     $error = null;
     if ($extension == 'drizzle') {
         while (1) {
             $drizzle = @drizzle_create();
-            if (!$drizzle) {
+            if (! $drizzle) {
                 $error = __('Could not initialize Drizzle connection library');
                 break;
             }
@@ -219,7 +219,7 @@ function test_db_connection(
                 : @drizzle_con_add_tcp(
                     $drizzle, $host, $port, $user, $pass, null, 0
                 );
-            if (!$conn) {
+            if (! $conn) {
                 $error = __('Could not connect to Drizzle server');
                 drizzle_free($drizzle);
                 break;
@@ -227,7 +227,7 @@ function test_db_connection(
             // connection object is set up but we have to send some query
             // to actually connect
             $res = @drizzle_query($conn, 'SELECT 1');
-            if (!$res) {
+            if (! $res) {
                 $error = __('Could not connect to Drizzle server');
             } else {
                 drizzle_result_free($res);
@@ -238,20 +238,20 @@ function test_db_connection(
         }
     } else if ($extension == 'mysql') {
         $conn = @mysql_connect($host . $socket . $port, $user, $pass);
-        if (!$conn) {
+        if (! $conn) {
             $error = __('Could not connect to MySQL server');
         } else {
             mysql_close($conn);
         }
     } else {
         $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
-        if (!$conn) {
+        if (! $conn) {
             $error = __('Could not connect to MySQL server');
         } else {
             mysqli_close($conn);
         }
     }
-    //    test_php_errormsg(false);
+    //    PMA_testPHPErrorMsg(false);
     if (isset($php_errormsg)) {
         $error .= " - $php_errormsg";
     }
@@ -266,7 +266,7 @@ function test_db_connection(
  *
  * @return array
  */
-function validate_server($path, $values)
+function PMA_validateServer($path, $values)
 {
     $result = array(
         'Server' => '',
@@ -299,10 +299,10 @@ function validate_server($path, $values)
         $error = true;
     }
 
-    if (!$error && $values['Servers/1/auth_type'] == 'config') {
+    if (! $error && $values['Servers/1/auth_type'] == 'config') {
         $password = $values['Servers/1/nopassword'] ? null
             : $values['Servers/1/password'];
-        $test = test_db_connection(
+        $test = PMA_testDBConnection(
             $values['Servers/1/extension'],
             $values['Servers/1/connect_type'],
             $values['Servers/1/host'],
@@ -327,7 +327,7 @@ function validate_server($path, $values)
  *
  * @return array
  */
-function validate_pmadb($path, $values)
+function PMA_validatePMAStorage($path, $values)
 {
     $result = array(
         'Server_pmadb' => '',
@@ -351,8 +351,8 @@ function validate_pmadb($path, $values)
             = __('Empty phpMyAdmin control user password while using pmadb');
         $error = true;
     }
-    if (!$error) {
-        $test = test_db_connection(
+    if (! $error) {
+        $test = PMA_testDBConnection(
             $values['Servers/1/extension'], $values['Servers/1/connect_type'],
             $values['Servers/1/host'], $values['Servers/1/port'],
             $values['Servers/1/socket'], $values['Servers/1/controluser'],
@@ -374,7 +374,7 @@ function validate_pmadb($path, $values)
  *
  * @return array
  */
-function validate_regex($path, $values)
+function PMA_validateRegex($path, $values)
 {
     $result = array($path => '');
 
@@ -382,14 +382,14 @@ function validate_regex($path, $values)
         return $result;
     }
 
-    test_php_errormsg();
+    PMA_testPHPErrorMsg();
 
     $matches = array();
     // in libraries/List_Database.class.php _checkHideDatabase(),
     // a '/' is used as the delimiter for hide_db
     preg_match('/' . $values[$path] . '/', '', $matches);
 
-    test_php_errormsg(false);
+    PMA_testPHPErrorMsg(false);
 
     if (isset($php_errormsg)) {
         $error = preg_replace('/^preg_match\(\): /', '', $php_errormsg);
@@ -407,7 +407,7 @@ function validate_regex($path, $values)
  *
  * @return array
  */
-function validate_trusted_proxies($path, $values)
+function PMA_validateTrustedProxies($path, $values)
 {
     $result = array($path => array());
 
@@ -432,7 +432,7 @@ function validate_trusted_proxies($path, $values)
         $matches = array();
         // we catch anything that may (or may not) be an IP
         if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-            $result[$path][] = __('Incorrect value') . ': ' . $line;
+            $result[$path][] = __('Incorrect value:') . ' ' . $line;
             continue;
         }
         // now let's check whether we really have an IP address
@@ -461,7 +461,7 @@ function validate_trusted_proxies($path, $values)
  *
  * @return string  empty string if test is successful
  */
-function test_number(
+function PMA_validateNumber(
     $path,
     $values,
     $allow_neg,
@@ -474,8 +474,8 @@ function test_number(
     }
 
     if (intval($values[$path]) != $values[$path]
-        || (!$allow_neg && $values[$path] < 0)
-        || (!$allow_zero && $values[$path] == 0)
+        || (! $allow_neg && $values[$path] < 0)
+        || (! $allow_zero && $values[$path] == 0)
         || $values[$path] > $max_value
     ) {
         return $error_string;
@@ -492,10 +492,10 @@ function test_number(
  *
  * @return array
  */
-function validate_port_number($path, $values)
+function PMA_validatePortNumber($path, $values)
 {
     return array(
-        $path => test_number(
+        $path => PMA_validateNumber(
             $path,
             $values,
             false,
@@ -514,10 +514,10 @@ function validate_port_number($path, $values)
  *
  * @return array
  */
-function validate_positive_number($path, $values)
+function PMA_validatePositiveNumber($path, $values)
 {
     return array(
-        $path => test_number(
+        $path => PMA_validateNumber(
             $path,
             $values,
             false,
@@ -536,10 +536,10 @@ function validate_positive_number($path, $values)
  *
  * @return array
  */
-function validate_non_negative_number($path, $values)
+function PMA_validateNonNegativeNumber($path, $values)
 {
     return array(
-        $path => test_number(
+        $path => PMA_validateNumber(
             $path,
             $values,
             false,
@@ -560,7 +560,7 @@ function validate_non_negative_number($path, $values)
  *
  * @return array
  */
-function validate_by_regex($path, $values, $regex)
+function PMA_validateByRegex($path, $values, $regex)
 {
     $result = preg_match($regex, $values[$path]);
     return array($path => ($result ? '' : __('Incorrect value')));
@@ -575,7 +575,7 @@ function validate_by_regex($path, $values, $regex)
  *
  * @return array
  */
-function validate_upper_bound($path, $values, $max_value)
+function PMA_validateUpperBound($path, $values, $max_value)
 {
     $result = $values[$path] <= $max_value;
     return array($path => ($result ? ''

@@ -12,7 +12,7 @@
  */
 require_once 'libraries/select_lang.lib.php';
 
-class PMA_langDetails_test extends PHPUnit_Framework_TestCase
+class PMA_LangDetails_Test extends PHPUnit_Framework_TestCase
 {
     function dataProvider()
     {

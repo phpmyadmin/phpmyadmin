@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+require_once 'libraries/plugins/import/AbstractImportCsv.class.php';
 
 /**
  * Handles the import for the CSV format
@@ -20,7 +20,7 @@ require_once 'libraries/plugins/ImportPlugin.class.php';
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
-class ImportCsv extends ImportPlugin
+class ImportCsv extends AbstractImportCsv
 {
     /**
      * Whether to analyze tables
@@ -51,55 +51,9 @@ class ImportCsv extends ImportPlugin
             $this->_setAnalyze(true);
         }
 
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
-
-        $importPluginProperties = new ImportPluginProperties();
-        $importPluginProperties->setText('CSV');
-        $importPluginProperties->setExtension('csv');
-        $importPluginProperties->setOptionsText(__('Options'));
-
-        // create the root group that will be the options field for
-        // $importPluginProperties
-        // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
-
-        // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
-        // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("replace");
-        $leaf->setText(__('Replace table data with file'));
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("terminated");
-        $leaf->setText(__('Columns separated with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("enclosed");
-        $leaf->setText(__('Columns enclosed with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("escaped");
-        $leaf->setText(__('Columns escaped with:'));
-        $leaf->setSize(2);
-        $leaf->setLen(2);
-        $generalOptions->addProperty($leaf);
-        $leaf = new TextPropertyItem();
-        $leaf->setName("new_line");
-        $leaf->setText(__('Lines terminated with:'));
-        $leaf->setSize(2);
-        $generalOptions->addProperty($leaf);
+        $generalOptions = parent::setProperties();
+        $this->properties->setText('CSV');
+        $this->properties->setExtension('csv');
 
         if ($GLOBALS['plugin_param'] !== 'table') {
             $leaf = new BoolPropertyItem();
@@ -129,13 +83,6 @@ class ImportCsv extends ImportPlugin
             );
             $generalOptions->addProperty($leaf);
         }
-
-        // add the main group to the root group
-        $importSpecificOptions->addProperty($generalOptions);
-
-        // set the options for the import plugin property item
-        $importPluginProperties->setOptions($importSpecificOptions);
-        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -158,8 +105,8 @@ class ImportCsv extends ImportPlugin
      */
     public function doImport()
     {
-        global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
-        global $error, $timeout_passed, $finished;
+        global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped;
+        global $error, $timeout_passed, $finished, $csv_new_line;
 
         $replacements = array(
             '\\n'   => "\n",
@@ -176,7 +123,7 @@ class ImportCsv extends ImportPlugin
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns terminated by'), false);
+            $message->addParam(__('Columns terminated with'), false);
             $error = true;
             $param_error = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -191,21 +138,21 @@ class ImportCsv extends ImportPlugin
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns enclosed by'), false);
+            $message->addParam(__('Columns enclosed with'), false);
             $error = true;
             $param_error = true;
         } elseif (strlen($csv_escaped) != 1) {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns escaped by'), false);
+            $message->addParam(__('Columns escaped with'), false);
             $error = true;
             $param_error = true;
         } elseif (strlen($csv_new_line) != 1 && $csv_new_line != 'auto') {
             $message = PMA_Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Lines terminated by'), false);
+            $message->addParam(__('Lines terminated with'), false);
             $error = true;
             $param_error = true;
         }
@@ -230,7 +177,7 @@ class ImportCsv extends ImportPlugin
             }
             $sql_template .= ' INTO ' . PMA_Util::backquote($table);
 
-            $tmp_fields = PMA_DBI_get_columns($db, $table);
+            $tmp_fields = PMA_DBI_getColumns($db, $table);
 
             if (empty($csv_columns)) {
                 $fields = $tmp_fields;
@@ -547,7 +494,7 @@ class ImportCsv extends ImportPlugin
             }
 
             if (strlen($db)) {
-                $result = PMA_DBI_fetch_result('SHOW TABLES');
+                $result = PMA_DBI_fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE '.(count($result) + 1);
             } else {
                 $tbl_name = 'TBL_NAME';

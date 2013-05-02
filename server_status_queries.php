@@ -76,26 +76,42 @@ function getQueryStatisticsHtml($ServerStatusData)
     );
     $retval .= '<br />';
     $retval .= '<span>';
-    $retval .= '&oslash; ' . __('per hour') . ': ';
+    $retval .= '&oslash; ' . __('per hour:') . ' ';
     $retval .= PMA_Util::formatNumber($total_queries * $hour_factor, 0);
     $retval .= '<br />';
-    $retval .= '&oslash; ' . __('per minute') . ': ';
+    $retval .= '&oslash; ' . __('per minute:') . ' ';
     $retval .= PMA_Util::formatNumber($total_queries * 60 / $ServerStatusData->status['Uptime'], 0);
     $retval .= '<br />';
     if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
-        $retval .= '&oslash; ' . __('per second') . ': ';
+        $retval .= '&oslash; ' . __('per second:') . ' ';
         $retval .= PMA_Util::formatNumber($total_queries / $ServerStatusData->status['Uptime'], 0);
     }
     $retval .= '</span>';
     $retval .= '</h3>';
 
+    $retval .= getServerStatusQueriesDetailsHtml($ServerStatusData);
+
+    return $retval;
+}
+
+/**
+ * Returns the html content for the query details
+ *
+ * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function getServerStatusQueriesDetailsHtml($ServerStatusData)
+{
+    $used_queries = $ServerStatusData->used_queries;
+    $total_queries = array_sum($used_queries);
     // reverse sort by value to show most used statements first
     arsort($used_queries);
 
     $odd_row        = true;
     $perc_factor    = 100 / $total_queries; //(- $ServerStatusData->status['Connections']);
 
-    $retval .= '<table id="serverstatusqueriesdetails" class="data sortable noclick">';
+    $retval = '<table id="serverstatusqueriesdetails" class="data sortable noclick">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" span="3" />';
     $retval .= '<thead>';
@@ -155,7 +171,7 @@ function getQueryStatisticsHtml($ServerStatusData)
     }
     $retval .= htmlspecialchars(json_encode($chart_json));
     $retval .= '</div>';
-
+    
     return $retval;
 }
 

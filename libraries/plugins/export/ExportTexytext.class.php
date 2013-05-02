@@ -249,7 +249,7 @@ class ExportTexytext extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $view);
+        $keys = PMA_DBI_getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -272,7 +272,7 @@ class ExportTexytext extends ExportPlugin
             . '|' . __('Default')
             . "\n|------\n";
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $text_output .= $this->formatOneColumnDefinition($column, $unique_keys);
             $text_output .= "\n";
@@ -323,7 +323,7 @@ class ExportTexytext extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        $keys        = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -383,7 +383,7 @@ class ExportTexytext extends ExportPlugin
         }
         $text_output .= "\n|------\n";
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         foreach ($columns as $column) {
             $text_output .= $this->formatOneColumnDefinition($column, $unique_keys);
             $field_name = $column['Field'];
@@ -437,7 +437,7 @@ class ExportTexytext extends ExportPlugin
         $dump .= '|' . __('Definition');
         $dump .= "\n|------\n";
 
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '|' . $trigger['name'];
@@ -501,7 +501,7 @@ class ExportTexytext extends ExportPlugin
             break;
         case 'triggers':
             $dump = '';
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $dump .= '== ' . __('Triggers') . ' ' .$table . "\n\n";
                 $dump .= $this->getTriggers($db, $table);

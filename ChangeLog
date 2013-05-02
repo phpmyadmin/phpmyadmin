@@ -2,6 +2,25 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.1.0.0 (not yet released)
++ rfe #499 On user creation, warn if the user already exists
++ Use indeterminate check all checkbox in server privileges
++ Break server_status.php functions into smaller functions
++ PMA_DBI functions in database_interface.lib.php renamed to be compliant with PEAR standards
++ [interface] Make warning about existing config directory clearer
+
+4.0.1.0 (not yet released)
+- bug #3879 Import broken for CSV using LOAD DATA
+- bug #3889 When login fails and error display is active, login data is displayed
+- bug #3890 [import] Web server upload directory import fails
+- bug #3891 [import] Server upload folder import file name missing in success message 
++ rfe #1421 [auth] Add retry button on connection failure with config auth
+- bug #3894 [interface] Provide feedback if no columns selected for multi-submit
+- bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
+- bug #3885 [browse] display_binary_as_hex option causes unexpected behavior
+- bug #3899 Git commit links to Github missing
+- bug #3900 CSP WARN in Firefox console
+- bug #3901 Setup script warning for config auth (stored login data) shows link BBcode
+- bug #3895 [browse] Fixed getting BLOB data
 
 4.0.0.0 (not yet released)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
@@ -103,8 +122,28 @@ underscore
 + rfe #1319 Permit to create index when creating foreign key
 - bug #3703 Incorrect updating of the list of users
 - bug #3853 Blowfish implementation might be broken (replace with phpseclib)
+- bug #3865 Using like operator on each backslash needs 4 backslash protection
+- bug #3860 Displayed git revision info is not set
+- bug #3871 Check referential integrity broken across databases
+- bug #3874 [export] No preselected option when exporting table
+- bug #3873 Can't copy table to target database if table exists there
+- bug #3683 Incorrect listing of records from to count
+- bug #3876 [import] PHP 5.2 - unexpected T_PAAMAYIM_NEKUDOTAYIM
+- [security] Local file inclusion vulnerability, reported by Janek Vind
+  (see PMASA-2013-4)
+- [security] Global variables overwrite in export.php, reported by Janek Vind
+  (see PMASA-2013-5)
+- bug #3892 [export] SQL Export files are empty
 
-3.5.8.0 (not yet released)
+3.5.9.0 (not yet released)
+
+3.5.8.1 (2013-04-24)
+- [security] Remote code execution (preg_replace), reported by Janek Vind
+  (see PMASA-2013-2)
+- [security] Locally Saved SQL Dump File Multiple File Extension Remote Code
+  Execution, reported by Janek Vind (see PMASA-2013-3)
+
+3.5.8.0 (2013-04-08)
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
 - bug #3705 Attempt to open trigger for edit gives NULL

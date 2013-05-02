@@ -123,7 +123,7 @@ class PMA_TableSearch
     private function _loadTableInfo()
     {
         // Gets the list and number of columns
-        $columns = PMA_DBI_get_columns($this->_db, $this->_table, null, true);
+        $columns = PMA_DBI_getColumns($this->_db, $this->_table, null, true);
         // Get details about the geometry fucntions
         $geom_types = PMA_Util::getGISDatatypes();
 
@@ -591,8 +591,13 @@ EOT;
                         . ' (' . implode(',', $values) . ')';
                 }
             } else {
-                $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
-                    . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
+                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                        . PMA_Util::sqlAddSlashes($criteriaValues, true) . $quot;
+                } else {
+                    $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                        . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                }
             }
         } // end if
 

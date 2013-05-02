@@ -215,7 +215,7 @@ echo '</table>';
 echo '</div>';
 
 echo '<div class="center">';
-echo __('Number of tables') . ': ' . $name_cnt;
+echo __('Number of tables:') . ' ' . $name_cnt;
 echo '</div>';
 echo '<div class="floatright">';
 echo '<div id="layer_menu_sizer" onmousedown="layer_menu_cur_click=1">';

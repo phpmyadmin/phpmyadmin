@@ -80,7 +80,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     }
 
     sort($mysql_collations_flat, SORT_STRING);
-    foreach ($mysql_collations AS $key => $value) {
+    foreach ($mysql_collations as $key => $value) {
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }
@@ -201,10 +201,10 @@ function PMA_getDbCollation($db)
             : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
             . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
             . '\' LIMIT 1';
-        return PMA_DBI_fetch_value($sql);
+        return PMA_DBI_fetchValue($sql);
     } else {
         PMA_DBI_select_db($db);
-        $return = PMA_DBI_fetch_value(
+        $return = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE \'collation_database\'', 0, 1
         );
         if ($db !== $GLOBALS['db']) {
@@ -221,7 +221,7 @@ function PMA_getDbCollation($db)
  */
 function PMA_getServerCollation()
 {
-    return PMA_DBI_fetch_value(
+    return PMA_DBI_fetchValue(
         'SHOW VARIABLES LIKE \'collation_server\'', 0, 1
     );
 }

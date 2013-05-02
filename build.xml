@@ -4,7 +4,7 @@
  <property name="source" value="."/>
  <property name="source_comma_sep" value="."/>
 
- <fileset dir="${source}" includes="js/*.js" id="jsfiles" />
+ <fileset dir="${source}" includes="js/pmd/*.js,js/*.js" id="jsfiles" />
  <pathconvert pathsep=" " property="js-list" refid="jsfiles" />
 
  <target name="clean" description="Clean up and create artifact directories">
@@ -107,7 +107,7 @@
 
  <target name="jshint" description="Javascript checks">
   <exec executable="jshint" output="${basedir}/build/logs/jslint.xml">
-   <arg line="--jslint-reporter ${js-list}" />
+   <arg line="--config ./.jshintrc --jslint-reporter ${js-list}" />
   </exec>
  </target>
 

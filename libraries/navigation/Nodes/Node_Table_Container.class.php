@@ -33,11 +33,15 @@ class Node_Table_Container extends Node
         );
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separator_depth = (int)($GLOBALS['cfg']['NavigationTreeTableLevel']);
+            $this->separator_depth = (int)(
+                $GLOBALS['cfg']['NavigationTreeTableLevel']
+            );
         }
         $this->real_name       = 'tables';
 
-        $new        = PMA_NodeFactory::getInstance('Node', _pgettext('Create new table', 'New'));
+        $new        = PMA_NodeFactory::getInstance(
+            'Node', _pgettext('Create new table', 'New')
+        );
         $new->isNew = true;
         $new->icon  = PMA_Util::getImage('b_table_add.png', '');
         $new->links = array(

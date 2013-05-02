@@ -12,6 +12,20 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
+/**
+ * Sets globals from $_GET
+ */
+$get_params = array(
+    'where_clause',
+    'transform_key'
+);
+
+foreach ($get_params as $one_get_param) {
+    if (isset($_GET[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    }
+}
+
 /* Check parameters */
 PMA_Util::checkParameters(
     array('db', 'table', 'where_clause', 'transform_key')
@@ -26,7 +40,7 @@ if (!PMA_DBI_select_db($db)) {
 }
 
 /* Check if table exists */
-if (!PMA_DBI_get_columns($db, $table)) {
+if (!PMA_DBI_getColumns($db, $table)) {
     PMA_Util::mysqlDie(__('Invalid table name'));
 }
 
@@ -34,7 +48,7 @@ if (!PMA_DBI_get_columns($db, $table)) {
 $sql = 'SELECT ' . PMA_Util::backquote($transform_key)
     . ' FROM ' . PMA_Util::backquote($table)
     . ' WHERE ' . $where_clause . ';';
-$result = PMA_DBI_fetch_value($sql);
+$result = PMA_DBI_fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {

@@ -329,7 +329,7 @@ class PMA_User_Schema
                     echo 'even';
                 }
                 echo '">';
-                $odd_row = !$odd_row;
+                $odd_row = ! $odd_row;
 
                 echo '<td>';
                 echo '<select name="c_table_' . $i . '[name]">';
@@ -514,7 +514,7 @@ class PMA_User_Schema
                 $shoot       = true;
             }
         }
-        if (!$shoot) {
+        if (! $shoot) {
             return;
         }
         echo '<br /><form action="schema_edit.php" method="post">' . "\n"
@@ -569,11 +569,11 @@ class PMA_User_Schema
                 . 'class="pdflayout_table"'
                 . '>'
                 . '<u>'
-                . htmlspecialchars($temp_sh_page['table_name']) 
+                . htmlspecialchars($temp_sh_page['table_name'])
                 . '</u>';
 
             if (isset($with_field_names)) {
-                $fields = PMA_DBI_get_columns($db, $temp_sh_page['table_name']);
+                $fields = PMA_DBI_getColumns($db, $temp_sh_page['table_name']);
                 // if the table has been dropped from outside phpMyAdmin,
                 // we can no longer obtain its columns list
                 if ($fields) {
@@ -716,7 +716,7 @@ class PMA_User_Schema
              * and PBXT tables, as this logic is just to put
              * the tables on the layout, not to determine relations
              */
-            $tables = PMA_DBI_get_tables_full($db);
+            $tables = PMA_DBI_getTablesFull($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
                 if (PMA_Util::isForeignKeySupported($table_properties['ENGINE'])) {

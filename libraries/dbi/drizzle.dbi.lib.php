@@ -108,14 +108,14 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
         $client_flags |= DRIZZLE_CAPABILITIES_SSL;
     }
 
-    if (!$server) {
+    if (! $server) {
         $link = @PMA_DBI_real_connect(
             $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
             $password, false, $client_flags
         );
         // Retry with empty password if we're allowed to
         if ($link == false && isset($cfg['Server']['nopassword'])
-            && $cfg['Server']['nopassword'] && !$is_controluser
+            && $cfg['Server']['nopassword'] && ! $is_controluser
         ) {
             $link = @PMA_DBI_real_connect(
                 $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
@@ -389,7 +389,7 @@ function PMA_DBI_getError($link = null)
  */
 function PMA_DBI_num_rows($result)
 {
-    // see the note for PMA_DBI_try_query();
+    // see the note for PMA_DBI_tryQuery();
     if (!is_bool($result)) {
         return @$result->numRows();
     } else {
@@ -419,7 +419,7 @@ function PMA_DBI_insert_id($link = null)
     // When no controluser is defined, using mysqli_insert_id($link)
     // does not always return the last insert id due to a mixup with
     // the tracking mechanism, but this works:
-    return PMA_DBI_fetch_value('SELECT LAST_INSERT_ID();', 0, 0, $link);
+    return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     // Curiously, this problem does not happen with the mysql extension but
     // there is another problem with BIGINT primary keys so PMA_DBI_insert_id()
     // in the mysql extension also uses this logic.

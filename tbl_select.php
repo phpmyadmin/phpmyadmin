@@ -39,7 +39,7 @@ foreach ($post_params as $one_post_param) {
 $table_search = new PMA_TableSearch($db, $table, "normal");
 
 /**
- * Not selection yet required -> displays the selection form
+ * No selection criteria received -> display the selection form
  */
 if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
     // Gets some core libraries

@@ -155,7 +155,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                                 $import_run_buffer['sql']
                             );
                         } else {
-                            $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                            $result = PMA_DBI_tryQuery($import_run_buffer['sql']);
                         }
 
                         $msg = '# ';
@@ -347,7 +347,7 @@ function PMA_importGetNextChunk($size = 32768)
     $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {
-        return PMA_convert_string($charset_of_file, 'utf-8', $result);
+        return PMA_convertString($charset_of_file, 'utf-8', $result);
     } else {
         /**
          * Skip possible byte order marks (I do not think we need more

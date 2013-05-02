@@ -72,7 +72,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Rename database to') . ':'
+    $html_output .= __('Rename database to:')
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
@@ -172,7 +172,7 @@ function PMA_getHtmlForCopyDatabase($db)
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $html_output .= PMA_Util::getImage('b_edit.png');
     }
-    $html_output .= __('Copy database to') . ':'
+    $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
         . 'class="textfield" value="" /><br />'
@@ -294,11 +294,11 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
  */
 function PMA_runProcedureAndFunctionDefinitions($db)
 {
-    $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+    $procedure_names = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
     if ($procedure_names) {
         foreach ($procedure_names as $procedure_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition(
+            $tmp_query = PMA_DBI_getDefinition(
                 $db, 'PROCEDURE', $procedure_name
             );
             // collect for later display
@@ -308,11 +308,11 @@ function PMA_runProcedureAndFunctionDefinitions($db)
         }
     }
 
-    $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+    $function_names = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
     if ($function_names) {
         foreach ($function_names as $function_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
+            $tmp_query = PMA_DBI_getDefinition($db, 'FUNCTION', $function_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -330,7 +330,7 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
     if (! PMA_DRIZZLE) {
-        $lower_case_table_names = PMA_DBI_fetch_value(
+        $lower_case_table_names = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
         if ($lower_case_table_names === '1') {
@@ -462,7 +462,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = PMA_DBI_get_triggers($db, $each_table, '');
+            $triggers = PMA_DBI_getTriggers($db, $each_table, '');
 
             if (! PMA_Table::moveCopy(
                 $db, $each_table, $_REQUEST['newname'], $each_table,
@@ -511,14 +511,14 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
  */
 function PMA_runEventDefinitionsForDb($db)
 {
-    $event_names = PMA_DBI_fetch_result(
+    $event_names = PMA_DBI_fetchResult(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
         . PMA_Util::sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
             PMA_DBI_select_db($db);
-            $tmp_query = PMA_DBI_get_definition($db, 'EVENT', $event_name);
+            $tmp_query = PMA_DBI_getDefinition($db, 'EVENT', $event_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -541,11 +541,11 @@ function PMA_handleTheViews($views, $move, $db)
     $_error = false;
     // temporarily force to add DROP IF EXIST to CREATE VIEW query,
     // to remove stand-in VIEW that was created earlier
-    // ( $GLOBALS['drop_if_exists'] is used in moveCopy() )
-    if (isset($GLOBALS['drop_if_exists'])) {
-        $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+    // ( $_REQUEST['drop_if_exists'] is used in moveCopy() )
+    if (isset($_REQUEST['drop_if_exists'])) {
+        $temp_drop_if_exists = $_REQUEST['drop_if_exists'];
     }
-    $GLOBALS['drop_if_exists'] = 'true';
+    $_REQUEST['drop_if_exists'] = 'true';
 
     foreach ($views as $view) {
         $copying_succeeded = PMA_Table::moveCopy(
@@ -556,10 +556,10 @@ function PMA_handleTheViews($views, $move, $db)
             break;
         }
     }
-    unset($GLOBALS['drop_if_exists']);
+    unset($_REQUEST['drop_if_exists']);
     if (isset($temp_drop_if_exists)) {
         // restore previous value
-        $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+        $_REQUEST['drop_if_exists'] = $temp_drop_if_exists;
     }
     return $_error;
 }
@@ -625,7 +625,7 @@ function PMA_getHtmlForOrderTheTable($columns)
             . 'value="' . htmlspecialchars($fieldname['Field']) . '">'
             . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
     }
-    $html_output .= '</select> ' . __('(singly)')
+    $html_output .= '</select> ' . __('(singly)') . ' '
         . '<select name="order_order">'
         . '<option value="asc">' . __('Ascending') . '</option>'
         . '<option value="desc">' . __('Descending') . '</option>'
@@ -1361,11 +1361,14 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
     $html_output .= '<ul>';
 
-    foreach ($foreign AS $master => $arr) {
+    foreach ($foreign as $master => $arr) {
         $join_query  = 'SELECT '
             . PMA_Util::backquote($GLOBALS['table']) . '.*'
             . ' FROM ' . PMA_Util::backquote($GLOBALS['table'])
-            . ' LEFT JOIN ' . PMA_Util::backquote($arr['foreign_table']);
+            . ' LEFT JOIN '
+            . PMA_Util::backquote($arr['foreign_db'])
+            . '.'
+            . PMA_Util::backquote($arr['foreign_table']);
         if ($arr['foreign_table'] == $GLOBALS['table']) {
             $foreign_table = $GLOBALS['table'] . '1';
             $join_query .= ' AS ' . PMA_Util::backquote($foreign_table);
@@ -1375,9 +1378,14 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         $join_query .= ' ON '
             . PMA_Util::backquote($GLOBALS['table']) . '.'
             . PMA_Util::backquote($master)
-            . ' = ' . PMA_Util::backquote($foreign_table) . '.'
+            . ' = '
+            . PMA_Util::backquote($arr['foreign_db'])
+            . '.'
+            . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])
             . ' WHERE '
+            . PMA_Util::backquote($arr['foreign_db'])
+            . '.'
             . PMA_Util::backquote($foreign_table) . '.'
             . PMA_Util::backquote($arr['foreign_field'])
             . ' IS NULL AND '
@@ -1561,7 +1569,7 @@ function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 function PMA_getWarningMessagesArray()
 {
     $warning_messages = array();
-    foreach (PMA_DBI_get_warnings() as $warning) {
+    foreach (PMA_DBI_getWarnings() as $warning) {
         // In MariaDB 5.1.44, when altering a table from Maria to MyISAM
         // and if TRANSACTIONAL was set, the system reports an error;
         // I discussed with a Maria developer and he agrees that this

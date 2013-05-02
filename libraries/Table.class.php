@@ -199,7 +199,7 @@ class PMA_Table
         }
 
         // query information_schema
-        $result = PMA_DBI_fetch_result(
+        $result = PMA_DBI_fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
             WHERE TABLE_SCHEMA = '" . PMA_Util::sqlAddSlashes($db) . "'
@@ -293,7 +293,7 @@ class PMA_Table
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
      *
-     * @todo PMA_DBI_get_tables_full needs to be merged somehow into this class
+     * @todo PMA_DBI_getTablesFull needs to be merged somehow into this class
      * or at least better documented
      *
      * @return mixed
@@ -306,7 +306,7 @@ class PMA_Table
         }
 
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
-            PMA_DBI_get_tables_full($db, $table);
+            PMA_DBI_getTablesFull($db, $table);
         }
 
         if (! isset(PMA_Table::$cache[$db][$table])) {
@@ -506,7 +506,7 @@ class PMA_Table
 
             if (! $force_exact) {
                 if (! isset(PMA_Table::$cache[$db][$table]['Rows']) && ! $is_view) {
-                    $tmp_tables = PMA_DBI_get_tables_full($db, $table);
+                    $tmp_tables = PMA_DBI_getTablesFull($db, $table);
                     if (isset($tmp_tables[$table])) {
                         PMA_Table::$cache[$db][$table] = $tmp_tables[$table];
                     }
@@ -526,7 +526,7 @@ class PMA_Table
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
                 if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
-                    $row_count = PMA_DBI_fetch_value(
+                    $row_count = PMA_DBI_fetchValue(
                         'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                         . PMA_Util::backquote($table)
                     );
@@ -543,7 +543,7 @@ class PMA_Table
                         // so use a LIMIT clause.
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
-                        $result = PMA_DBI_try_query(
+                        $result = PMA_DBI_tryQuery(
                             'SELECT 1 FROM ' . PMA_Util::backquote($db) . '.'
                             . PMA_Util::backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
@@ -792,7 +792,7 @@ class PMA_Table
             if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
             } else {
-                $server_sql_mode = PMA_DBI_fetch_value(
+                $server_sql_mode = PMA_DBI_fetchValue(
                     "SHOW VARIABLES LIKE 'sql_mode'",
                     0,
                     1
@@ -840,8 +840,8 @@ class PMA_Table
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
-            if (isset($GLOBALS['drop_if_exists'])
-                && $GLOBALS['drop_if_exists'] == 'true'
+            if (isset($_REQUEST['drop_if_exists'])
+                && $_REQUEST['drop_if_exists'] == 'true'
             ) {
                 if (PMA_Table::isView($target_db, $target_table)) {
                     $drop_query = 'DROP VIEW';
@@ -1161,7 +1161,7 @@ class PMA_Table
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
             if (! $GLOBALS['pma']->databases->exists($new_db)) {
-                $this->errors[] = __('Invalid database') . ': ' . $new_db;
+                $this->errors[] = __('Invalid database:') . ' ' . $new_db;
                 return false;
             }
         } else {
@@ -1175,13 +1175,13 @@ class PMA_Table
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            $this->errors[] = __('Invalid table name') . ': '
+            $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;
         }
 
         // If the table is moved to a different database drop its triggers first
-        $triggers = PMA_DBI_get_triggers($this->getDbName(), $this->getName(), '');
+        $triggers = PMA_DBI_getTriggers($this->getDbName(), $this->getName(), '');
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
@@ -1251,12 +1251,12 @@ class PMA_Table
      */
     public function getUniqueColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql(
+        $sql = PMA_DBI_getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Non_unique = 0'
         );
-        $uniques = PMA_DBI_fetch_result(
+        $uniques = PMA_DBI_fetchResult(
             $sql,
             array('Key_name', null),
             'Column_name'
@@ -1288,12 +1288,12 @@ class PMA_Table
      */
     public function getIndexedColumns($backquoted = true)
     {
-        $sql = PMA_DBI_get_table_indexes_sql(
+        $sql = PMA_DBI_getTableIndexesSql(
             $this->getDbName(),
             $this->getName(),
             'Seq_in_index = 1'
         );
-        $indexed = PMA_DBI_fetch_result($sql, 'Column_name', 'Column_name');
+        $indexed = PMA_DBI_fetchResult($sql, 'Column_name', 'Column_name');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1316,7 +1316,7 @@ class PMA_Table
     public function getColumns($backquoted = true)
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $indexed = PMA_DBI_fetch_result($sql, 'Field', 'Field');
+        $indexed = PMA_DBI_fetchResult($sql, 'Field', 'Field');
 
         $return = array();
         foreach ($indexed as $column) {
@@ -1367,7 +1367,7 @@ class PMA_Table
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
-        $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+        $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (!$success) {
             $message = PMA_Message::error(__('Could not save table UI preferences'));
@@ -1381,7 +1381,7 @@ class PMA_Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sql_query = 'SELECT COUNT(*) FROM ' . $pma_table;
-        $rows_count = PMA_DBI_fetch_value($sql_query);
+        $rows_count = PMA_DBI_fetchValue($sql_query);
         $max_rows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rows_count > $max_rows) {
             $num_rows_to_delete = $rows_count - $max_rows;
@@ -1389,7 +1389,7 @@ class PMA_Table
                 = ' DELETE FROM ' . $pma_table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
-            $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
+            $success = PMA_DBI_tryQuery($sql_query, $GLOBALS['controllink']);
 
             if (!$success) {
                 $message = PMA_Message::error(
@@ -1575,7 +1575,7 @@ class PMA_Table
 
     /**
      * Get all column names which are MySQL reserved words
-     * 
+     *
      * @return array
      * @access public
      */
@@ -1589,7 +1589,7 @@ class PMA_Table
             if (PMA_SQP_isKeyWord($column_name)) {
                 $return[] = $column_name;
             }
-        }       
+        }
         return $return;
     }
 }

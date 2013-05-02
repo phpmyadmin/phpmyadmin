@@ -13,7 +13,7 @@ require_once 'libraries/Scripts.class.php';
 require_once 'libraries/js_escape.lib.php';
 
 
-class PMA_Scripts_test extends PHPUnit_Framework_TestCase
+class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -65,9 +65,6 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _includeFile
-     *
-     * @param array  $files  A list of files to include
-     * @param string $output output from the _includeFile method
      *
      * @return void
      */

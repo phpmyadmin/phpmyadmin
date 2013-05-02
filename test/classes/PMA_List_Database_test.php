@@ -13,7 +13,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/List_Database.class.php';
 require_once 'libraries/relation.lib.php';
 
-class PMA_List_Database_test extends PHPUnit_Framework_TestCase
+class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {

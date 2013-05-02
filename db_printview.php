@@ -30,7 +30,7 @@ $cfgRelation = PMA_getRelationsParam();
  * Gets the list of the table in the current db and informations about these
  * tables if possible
  *
- * @todo merge this speedup _optionaly_ into PMA_DBI_get_tables_full()
+ * @todo merge this speedup _optionaly_ into PMA_DBI_getTablesFull()
  *
 // speedup view on locked tables
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
@@ -82,7 +82,7 @@ if (! isset($sot_ready)) {
  * If there is at least one table, displays the printer friendly view, else
  * an error message
  */
-$tables = PMA_DBI_get_tables_full($db);
+$tables = PMA_DBI_getTablesFull($db);
 $num_tables = count($tables);
 
 echo '<br />';
@@ -182,7 +182,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Create_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Creation') . ': '; ?></td>
+                    <td class="right"><?php echo __('Creation:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Create_time'])); ?></td>
                 </tr>
                 <?php
@@ -191,7 +191,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Update_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Last update') . ': '; ?></td>
+                    <td class="right"><?php echo __('Last update:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Update_time'])); ?></td>
                 </tr>
                 <?php
@@ -200,7 +200,7 @@ if ($num_tables == 0) {
             if (! empty($sts_data['Check_time'])) {
                 ?>
                 <tr>
-                    <td class="right"><?php echo __('Last check') . ': '; ?></td>
+                    <td class="right"><?php echo __('Last check:'); ?></td>
                     <td class="right"><?php echo PMA_Util::localisedDate(strtotime($sts_data['Check_time'])); ?></td>
                 </tr>
                 <?php

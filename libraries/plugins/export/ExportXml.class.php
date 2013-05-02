@@ -188,15 +188,15 @@ class ExportXml extends ExportPlugin
                .  '- version ' . PMA_VERSION . $crlf
                .  '- http://www.phpmyadmin.net' . $crlf
                .  '-' . $crlf
-               .  '- ' . __('Host') . ': ' . $cfg['Server']['host'];
+               .  '- ' . __('Host:') . ' ' . $cfg['Server']['host'];
         if (! empty($cfg['Server']['port'])) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-            . '- ' . __('Generation Time') . ': '
+            . '- ' . __('Generation Time:') . ' '
             . PMA_Util::localisedDate() . $crlf
-            . '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-            . '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
+            . '- ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '- ' . __('PHP Version:') . ' ' . phpversion() . $crlf
             . '-->' . $crlf . $crlf;
 
         $head .= '<pma_xml_export version="1.0"'
@@ -207,7 +207,7 @@ class ExportXml extends ExportPlugin
 
         if ($export_struct) {
             if (PMA_DRIZZLE) {
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     "SELECT
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
@@ -216,7 +216,7 @@ class ExportXml extends ExportPlugin
                     . PMA_Util::sqlAddSlashes($db) . "'"
                 );
             } else {
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                     . ' = \''.PMA_Util::sqlAddSlashes($db).'\' LIMIT 1'
@@ -239,7 +239,7 @@ class ExportXml extends ExportPlugin
 
             foreach ($tables as $table) {
                 // Export tables and views
-                $result = PMA_DBI_fetch_result(
+                $result = PMA_DBI_fetchResult(
                     'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
                     . PMA_Util::backquote($table),
                     0
@@ -275,7 +275,7 @@ class ExportXml extends ExportPlugin
                     && $GLOBALS['xml_export_triggers']
                 ) {
                     // Export triggers
-                    $triggers = PMA_DBI_get_triggers($db, $table);
+                    $triggers = PMA_DBI_getTriggers($db, $table);
                     if ($triggers) {
                         foreach ($triggers as $trigger) {
                             $code = $trigger['create'];
@@ -301,14 +301,14 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_functions']
             ) {
                 // Export functions
-                $functions = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+                $functions = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
                 if ($functions) {
                     foreach ($functions as $function) {
                         $head .= '            <pma:function name="'
                             . $function . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'FUNCTION', $function);
+                        $sql = PMA_DBI_getDefinition($db, 'FUNCTION', $function);
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -326,14 +326,14 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_procedures']
             ) {
                 // Export procedures
-                $procedures = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
+                $procedures = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
                 if ($procedures) {
                     foreach ($procedures as $procedure) {
                         $head .= '            <pma:procedure name="'
                             . $procedure . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure);
+                        $sql = PMA_DBI_getDefinition($db, 'PROCEDURE', $procedure);
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -387,7 +387,7 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             $head = '    <!--' . $crlf
-                  . '    - ' . __('Database') . ': ' .  '\'' . $db . '\'' . $crlf
+                  . '    - ' . __('Database:') . ' ' .  '\'' . $db . '\'' . $crlf
                   . '    -->' . $crlf
                   . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
 

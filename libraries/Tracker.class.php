@@ -275,7 +275,7 @@ class PMA_Tracker
 
         // Get data definition snapshot of table
 
-        $columns = PMA_DBI_get_columns($dbname, $tablename, null, true);
+        $columns = PMA_DBI_getColumns($dbname, $tablename, null, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
@@ -283,7 +283,7 @@ class PMA_Tracker
             unset($columns[$i]['Privileges']);
         }
 
-        $indexes = PMA_DBI_get_table_indexes($dbname, $tablename);
+        $indexes = PMA_DBI_getTableIndexes($dbname, $tablename);
 
         $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
         $snapshot = serialize($snapshot);
@@ -941,6 +941,9 @@ class PMA_Tracker
         if (empty($dbname)) {
             return;
         }
+        // Remove null bytes (preg_replace() is vulnerable in some
+        // PHP versions)
+        $dbname = str_replace("\0", "", $dbname);
 
         // If we found a valid statement
         if (isset($result['identifier'])) {

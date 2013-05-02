@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Shared code for server pages
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -42,7 +44,7 @@ if ($is_superuser && ! PMA_DRIZZLE) {
  */
 $binary_logs = PMA_DRIZZLE
     ? null
-    : PMA_DBI_fetch_result(
+    : PMA_DBI_fetchResult(
         'SHOW MASTER LOGS',
         'Log_name',
         null,

@@ -12,7 +12,7 @@
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
-class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
+class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

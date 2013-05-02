@@ -368,7 +368,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
@@ -483,7 +483,7 @@ class ExportOdt extends ExportPlugin
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         foreach ($columns as $column) {
             $field_name = $column['Field'];
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column);
@@ -569,7 +569,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -647,7 +647,7 @@ class ExportOdt extends ExportPlugin
             );
             break;
         case 'triggers':
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $GLOBALS['odt_buffer'] .=
                     '<text:h text:outline-level="2" text:style-name="Heading_2"'

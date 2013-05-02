@@ -8,7 +8,7 @@ function show_hide_clauses($thisDropdown)
     // here, one span contains the label and the clause dropdown
     // and we have one span for ON DELETE and one for ON UPDATE
     //
-    if ($thisDropdown.val() != '') {
+    if ($thisDropdown.val() !== '') {
         $thisDropdown.parent().nextAll('span').show();
     } else {
         $thisDropdown.parent().nextAll('span').hide();
@@ -18,17 +18,17 @@ function show_hide_clauses($thisDropdown)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_relation.js', function() {
+AJAX.registerTeardown('tbl_relation.js', function () {
     $('select.referenced_column_dropdown').unbind('change');
 });
 
-AJAX.registerOnload('tbl_relation.js', function() {
+AJAX.registerOnload('tbl_relation.js', function () {
     // initial display
-    $('select.referenced_column_dropdown').each(function(index, one_dropdown) {
+    $('select.referenced_column_dropdown').each(function (index, one_dropdown) {
         show_hide_clauses($(one_dropdown));
     });
     // change
-    $('select.referenced_column_dropdown').change(function() {
+    $('select.referenced_column_dropdown').change(function () {
         show_hide_clauses($(this));
     });
 });

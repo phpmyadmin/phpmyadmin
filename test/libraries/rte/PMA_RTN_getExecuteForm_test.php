@@ -18,7 +18,7 @@ require_once 'libraries/Tracker.class.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
-class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

@@ -15,7 +15,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 
-class Advisor_test extends PHPUnit_Framework_TestCase
+class Advisor_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
@@ -177,6 +177,22 @@ class Advisor_test extends PHPUnit_Framework_TestCase
                 ),
                 array(),
                 'Failed formatting string for rule \'Failure\'. PHP threw following error: Use of undefined constant fsafdsa - assumed \'fsafdsa\'',
+            ),
+            array(
+                array(
+                    'justification' => 'Version string (%s) | value',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="http://phpma.org/">web</a>',
+                ),
+                array(
+                    'justification' => 'Version string (0)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2Fphpma.org%2F&amp;lang=en&amp;token=token">web</a>',
+                    'id' => 'Distribution'
+                ),
+                null,
             ),
         );
     }

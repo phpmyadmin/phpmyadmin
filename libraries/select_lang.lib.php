@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_langName($tmplang)
+function PMA_languageName($tmplang)
 {
     $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 
@@ -257,6 +257,8 @@ function PMA_langDetails($lang)
         return array('hu|hungarian', 'hu', 'Magyar');
     case 'hy':
         return array('hy|armenian', 'hy', 'Հայերէն');
+    case 'ia':
+        return array('ia|interlingua', 'ia', 'Interlingua');
     case 'id':
         return array('id|indonesian', 'id', 'Bahasa Indonesia');
     case 'it':
@@ -495,8 +497,12 @@ if (! function_exists('__')) {
     PMA_fatalError('Bad invocation!');
 }
 
-/* l10n: Text direction for language, use either "ltr" or "rtl" */
-$GLOBALS['text_dir'] = __('ltr');
+/* Text direction for language */
+if (in_array($GLOBALS['lang'], array('ar', 'fa', 'he', 'ur'))) {
+    $GLOBALS['text_dir'] = 'rtl';
+} else {
+    $GLOBALS['text_dir'] = 'ltr';
+}
 
 /* TCPDF */
 $GLOBALS['l'] = array();

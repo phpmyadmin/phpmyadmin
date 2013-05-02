@@ -14,7 +14,7 @@ require_once 'libraries/engines/binlog.lib.php';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_binlog_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_binlog_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

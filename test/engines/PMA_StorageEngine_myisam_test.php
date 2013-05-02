@@ -15,7 +15,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_myisam_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_myisam_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

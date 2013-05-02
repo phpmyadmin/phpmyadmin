@@ -1,7 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(), PMA_arrayMergeRecursive(),
+ * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
+ * PMA_arrayMergeRecursive(),
  * PMA_arrayWalkRecursive() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
@@ -12,7 +13,7 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_array_test extends PHPUnit_Framework_TestCase
+class PMA_Array_Test extends PHPUnit_Framework_TestCase
 {
     function testPMA_arrayRead()
     {
@@ -20,36 +21,81 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
-        $this->assertEquals(PMA_arrayRead('int', $arr), $arr['int']);
+        $this->assertEquals(
+            PMA_arrayRead('int', $arr),
+            $arr['int']
+        );
 
-        $this->assertEquals(PMA_arrayRead('str', $arr), $arr['str']);
+        $this->assertEquals(
+            PMA_arrayRead('str', $arr),
+            $arr['str']
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/0', $arr), $arr['arr'][0]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/0', $arr),
+            $arr['arr'][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/1', $arr), $arr['arr'][1]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/1', $arr),
+            $arr['arr'][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/2', $arr), $arr['arr'][2]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/2', $arr),
+            $arr['arr'][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/0', $arr), $arr['sarr']['arr1'][0]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/0', $arr),
+            $arr['sarr']['arr1'][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/1', $arr), $arr['sarr']['arr1'][1]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/1', $arr),
+            $arr['sarr']['arr1'][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/2', $arr), $arr['sarr']['arr1'][2]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/2', $arr),
+            $arr['sarr']['arr1'][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/0', $arr), $arr['sarr'][0][0]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/0', $arr),
+            $arr['sarr'][0][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/1', $arr), $arr['sarr'][0][1]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/1', $arr),
+            $arr['sarr'][0][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/1/2', $arr), $arr['sarr'][0][1][2]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/1/2', $arr),
+            $arr['sarr'][0][1][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr), null);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr),
+            null
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr, 0), 0);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr, 0),
+            0
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr, 'defailt_val'), 'defailt_val');
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
+            'default_val'
+        );
     }
 
     function testPMA_arrayWrite()
@@ -58,7 +104,10 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
         PMA_arrayWrite('int', $arr, 5);
@@ -104,7 +153,10 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
         PMA_arrayRemove('int', $arr);
@@ -167,13 +219,36 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(PMA_arrayMergeRecursive('str1', $arr2), $arr2);
 
-        $this->assertEquals(PMA_arrayMergeRecursive($arr1, $arr2), array('key1' => 4, 'key2' => 5, 'key3' => 6));
+        $this->assertEquals(
+            PMA_arrayMergeRecursive($arr1, $arr2),
+            array('key1' => 4, 'key2' => 5, 'key3' => 6)
+        );
 
-        $this->assertEquals(PMA_arrayMergeRecursive($arr1, $arr3), array('key1' => 1, 'key2' => 2.3, 'key3' => 'str3', 'key4' => 7, 'key5' => 'str8', 'key6' => 9));
+        $this->assertEquals(
+            PMA_arrayMergeRecursive($arr1, $arr3),
+            array(
+                'key1' => 1,
+                'key2' => 2.3,
+                'key3' => 'str3',
+                'key4' => 7,
+                'key5' => 'str8',
+                'key6' => 9
+            )
+        );
 
         $this->assertEquals(PMA_arrayMergeRecursive($arr2, $arr4), array(1, 2, 3));
 
-        $this->assertEquals(PMA_arrayMergeRecursive($arr1, $arr2, $arr3), array('key1' => 4, 'key2' => 5, 'key3' => 6, 'key4' => 7, 'key5' => 'str8', 'key6' => 9));
+        $this->assertEquals(
+            PMA_arrayMergeRecursive($arr1, $arr2, $arr3),
+            array(
+                'key1' => 4,
+                'key2' => 5,
+                'key3' => 6,
+                'key4' => 7,
+                'key5' => 'str8',
+                'key6' => 9
+            )
+        );
     }
 
 
@@ -185,7 +260,12 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
         }
 
         $arr = array(1, 2, 3, 4);
-        $target = array('val: 1 processed', 'val: 2 processed', 'val: 3 processed', 'val: 4 processed');
+        $target = array(
+            'val: 1 processed',
+            'val: 2 processed',
+            'val: 3 processed',
+            'val: 4 processed'
+        );
 
         PMA_arrayWalkRecursive($arr, 'fConcat');
         $this->assertEquals($arr, $target);
@@ -213,8 +293,18 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
      */
     function testPMA_arrayWalkRecursiveSubArray()
     {
-        $arr = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'), 'key3'=>'val3');
-        $target = array('key1'=>'val: val1 processed', 'key2'=> array('skey1'=>'val: sval1 processed', 'skey2'=>'val: sval2 processed'), 'key3'=>'val: val3 processed');
+        $arr = array(
+            "key1"=>'val1',
+            'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'),
+            'key3'=>'val3'
+        );
+        $target = array(
+            'key1'=>'val: val1 processed',
+            'key2'=> array(
+                'skey1'=>'val: sval1 processed', 'skey2'=>'val: sval2 processed'
+            ),
+            'key3'=>'val: val3 processed'
+        );
 
         PMA_arrayWalkRecursive($arr, 'fConcat');
         $this->assertEquals($arr, $target);
@@ -222,8 +312,16 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
 
     function testPMA_arrayWalkRecursiveApplyToKeysStripSlashes()
     {
-        $arr = array("key\\1"=>'v\\\\al1', 'k\\ey2'=>array('s\\\\key1'=>'sval\\1', 's\\k\\ey2'=>'s\\v\\al2'), 'key3'=>'val3');
-        $target = array("key1"=>'val1', 'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'), 'key3'=>'val3');
+        $arr = array(
+            "key\\1"=>'v\\\\al1',
+            'k\\ey2'=>array('s\\\\key1'=>'sval\\1', 's\\k\\ey2'=>'s\\v\\al2'),
+            'key3'=>'val3'
+        );
+        $target = array(
+            "key1"=>'val1',
+            'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'),
+            'key3'=>'val3'
+        );
 
         PMA_arrayWalkRecursive($arr, 'stripslashes', true);
         $this->assertEquals($arr, $target);

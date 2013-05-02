@@ -38,7 +38,7 @@ function checkIndexType()
     if ($select_index_type.val() == 'SPATIAL') {
         // Disable and hide the size column
         $size_header.hide();
-        $size_inputs.each(function(){
+        $size_inputs.each(function () {
             $(this)
                 .prop('disabled', true)
                 .parent('td').hide();
@@ -46,7 +46,7 @@ function checkIndexType()
 
         // Disable and hide the columns of the index other than the first one
         var initial = true;
-        $column_inputs.each(function() {
+        $column_inputs.each(function () {
             $column_input = $(this);
             if (! initial) {
                 $column_input
@@ -62,14 +62,14 @@ function checkIndexType()
     } else {
         // Enable and show the size column
         $size_header.show();
-        $size_inputs.each(function() {
+        $size_inputs.each(function () {
             $(this)
                 .prop('disabled', false)
                 .parent('td').show();
         });
 
         // Enable and show the columns of the index
-        $column_inputs.each(function() {
+        $column_inputs.each(function () {
             $(this)
                 .prop('disabled', false)
                 .parent('td').show();
@@ -83,7 +83,7 @@ function checkIndexType()
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('indexes.js', function() {
+AJAX.registerTeardown('indexes.js', function () {
     $('#select_index_type').die('change');
     $('a.drop_primary_key_index_anchor.ajax').die('click');
     $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
@@ -99,10 +99,10 @@ AJAX.registerTeardown('indexes.js', function() {
  * <li>create/edit/drop indexes</li>
  * </ul>
  */
-AJAX.registerOnload('indexes.js', function() {
+AJAX.registerOnload('indexes.js', function () {
     checkIndexType();
     checkIndexName("index_frm");
-    $('#select_index_type').live('change', function(event){
+    $('#select_index_type').live('change', function (event) {
         event.preventDefault();
         checkIndexType();
         checkIndexName("index_frm");
@@ -111,7 +111,7 @@ AJAX.registerOnload('indexes.js', function() {
     /**
      * Ajax Event handler for 'Drop Index'
      */
-    $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
+    $('a.drop_primary_key_index_anchor.ajax').live('click', function (event) {
         event.preventDefault();
         var $anchor = $(this);
         /**
@@ -132,15 +132,15 @@ AJAX.registerOnload('indexes.js', function() {
                 .val()
         );
 
-        $anchor.PMA_confirm(question, $anchor.attr('href'), function(url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages['strDroppingPrimaryKeyIndex'], false);
-            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function(data) {
-                if (data.success == true) {
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
+            $.get(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
                     if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
-                        $table_ref.hide('medium', function() {
+                        $table_ref.hide('medium', function () {
                             $('div.no_indexes_defined').show('medium');
                             $rows_to_hide.remove();
                         });
@@ -151,8 +151,8 @@ AJAX.registerOnload('indexes.js', function() {
                         $rows_to_hide.hide("medium", function () {
                             $(this).remove();
                         });
-                }
-                        if ($('#result_query').length) {
+                    }
+                    if ($('#result_query').length) {
                         $('#result_query').remove();
                     }
                     if (data.sql_query) {
@@ -160,12 +160,12 @@ AJAX.registerOnload('indexes.js', function() {
                             .html(data.sql_query)
                             .prependTo('#page_content');
                     }
-                    PMA_commonActions.refreshMain(false, function() {
+                    PMA_commonActions.refreshMain(false, function () {
                         $("a.ajax[href^=#indexes]").click();
                     });
                     PMA_reloadNavigation();
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -174,9 +174,10 @@ AJAX.registerOnload('indexes.js', function() {
     /**
      *Ajax event handler for index edit
     **/
-    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function(event) {
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").live('click', function (event) {
         event.preventDefault();
-        if ($(this).find("a").length == 0) {
+        var url, title;
+        if ($(this).find("a").length === 0) {
             // Add index
             var valid = checkFormElementInRange(
                 $(this).closest('form')[0],
@@ -186,20 +187,20 @@ AJAX.registerOnload('indexes.js', function() {
             if (! valid) {
                 return;
             }
-            var url = $(this).closest('form').serialize();
-            var title = PMA_messages['strAddIndex'];
+            url = $(this).closest('form').serialize();
+            title = PMA_messages.strAddIndex;
         } else {
             // Edit index
-            var url = $(this).find("a").attr("href");
+            url = $(this).find("a").attr("href");
             if (url.substring(0, 16) == "tbl_indexes.php?") {
                 url = url.substring(16, url.length);
             }
-            var title = PMA_messages['strEditIndex'];
+            title = PMA_messages.strEditIndex;
         }
         url += "&ajax_request=true";
-        indexEditorDialog(url, title, function() {
+        indexEditorDialog(url, title, function () {
             // refresh the page using ajax
-            PMA_commonActions.refreshMain(false, function() {
+            PMA_commonActions.refreshMain(false, function () {
                 $("a.ajax[href^=#indexes]").click();
             });
         });

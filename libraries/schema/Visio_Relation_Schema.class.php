@@ -224,8 +224,8 @@ class Table_Stats
 
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
-        if (!$result || !PMA_DBI_num_rows($result)) {
+        $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
+        if (! $result || ! PMA_DBI_num_rows($result)) {
             $visio->dieSchema(
                 $pageNumber,
                 "VISIO",
@@ -275,7 +275,7 @@ class Table_Stats
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
 
-        if (!$result || !PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_num_rows($result)) {
             $visio->dieSchema(
                 $pageNumber,
                 "VISIO",

@@ -86,7 +86,7 @@ class ExportMediawiki extends ExportPlugin
 
         // export table headers
         $leaf = new BoolPropertyItem();
-        $leaf->setName("caption");
+        $leaf->setName("headers");
         $leaf->setText(__('Export table headers'));
         $generalOptions->addProperty($leaf);
         //add the main group to the root group
@@ -202,7 +202,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         switch($export_mode) {
         case 'create_table':
-            $columns = PMA_DBI_get_columns($db, $table);
+            $columns = PMA_DBI_getColumns($db, $table);
             $columns = array_values($columns);
             $row_cnt = count($columns);
 
@@ -300,7 +300,7 @@ class ExportMediawiki extends ExportPlugin
         // Add the table headers
         if ($GLOBALS['mediawiki_headers']) {
             // Get column names
-            $column_names = PMA_DBI_get_column_names($db, $table);
+            $column_names = PMA_DBI_getColumnNames($db, $table);
 
             // Add column names as table headers
             if ( ! is_null($column_names) ) {

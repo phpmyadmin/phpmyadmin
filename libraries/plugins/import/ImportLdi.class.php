@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the import interface */
-require_once 'libraries/plugins/ImportPlugin.class.php';
+require_once 'libraries/plugins/import/AbstractImportCsv.class.php';
 
 // We need relations enabled and we work only on database
 if ($GLOBALS['plugin_param'] !== 'table') {
@@ -25,7 +25,7 @@ if ($GLOBALS['plugin_param'] !== 'table') {
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
-class ImportLdi extends ImportPlugin
+class ImportLdi extends AbstractImportCsv
 {
     /**
      * Constructor
@@ -46,7 +46,7 @@ class ImportLdi extends ImportPlugin
         if ($GLOBALS['cfg']['Import']['ldi_local_option'] == 'auto') {
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
-            $result = PMA_DBI_try_query('SHOW VARIABLES LIKE \'local\\_infile\';');
+            $result = PMA_DBI_tryQuery('SHOW VARIABLES LIKE \'local\\_infile\';');
             if ($result != false && PMA_DBI_num_rows($result) > 0) {
                 $tmp = PMA_DBI_fetch_row($result);
                 if ($tmp[1] == 'ON') {
@@ -57,39 +57,24 @@ class ImportLdi extends ImportPlugin
             unset($result);
         }
 
-        $props = 'libraries/properties/';
-        include_once "$props/plugins/ImportPluginProperties.class.php";
-        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        include_once "$props/options/items/BoolPropertyItem.class.php";
-        include_once "$props/options/items/TextPropertyItem.class.php";
+        $generalOptions = parent::setProperties();
+        $this->properties->setText('CSV using LOAD DATA');
+        $this->properties->setExtension('ldi');
 
-        $importPluginProperties = new ImportPluginProperties();
-        $importPluginProperties->setText('CSV using LOAD DATA');
-        $importPluginProperties->setExtension('ldi');
-        $importPluginProperties->setOptionsText(__('Options'));
-
-        // create the root group that will be the options field for
-        // $importPluginProperties
-        // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup();
-        $importSpecificOptions->setName("Format Specific Options");
-
-        // general options main group
-        $generalOptions = new OptionsPropertyMainGroup();
-        $generalOptions->setName("general_opts");
-        // create primary items and add them to the group
-        $leaf = new BoolPropertyItem();
-        $leaf->setName("replace");
-        $leaf->setText(__('Replace table data with file'));
+        $leaf = new TextPropertyItem();
+        $leaf->setName("columns");
+        $leaf->setText(__('Column names: '));
         $generalOptions->addProperty($leaf);
 
-        // add the main group to the root group
-        $importSpecificOptions->addProperty($generalOptions);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("ignore");
+        $leaf->setText(__('Do not abort on INSERT error'));
+        $generalOptions->addProperty($leaf);
 
-        // set the options for the import plugin property item
-        $importPluginProperties->setOptions($importSpecificOptions);
-        $this->properties = $importPluginProperties;
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("local_option");
+        $leaf->setText(__('Use LOCAL keyword'));
+        $generalOptions->addProperty($leaf);
     }
 
     /**
@@ -114,7 +99,7 @@ class ImportLdi extends ImportPlugin
     {
         global $finished, $error, $import_file, $compression, $charset_conversion;
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
-            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+            $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns, $table;
 
         if ($import_file == 'none'
             || $compression != 'none'

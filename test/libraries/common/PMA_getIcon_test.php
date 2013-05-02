@@ -13,7 +13,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
-class PMA_getIcon_test extends PHPUnit_Framework_TestCase
+class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
 {
     function setup()
     {

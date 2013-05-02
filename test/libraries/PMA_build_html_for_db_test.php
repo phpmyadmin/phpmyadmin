@@ -21,7 +21,7 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
-class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
+class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -107,12 +107,11 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
      *
      * @param array   $current
      * @param boolean $is_superuser
-     * @param string  $checkall
      * @param string  $url_query
      * @param array   $column_order
      * @param array   $replication_types
      * @param array   $replication_info
-     * @param string  $output
+     * @param array   $tags
      *
      * @return void
      * @dataProvider providerForTestBuildHtmlForDb

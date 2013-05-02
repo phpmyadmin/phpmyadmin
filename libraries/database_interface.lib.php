@@ -109,7 +109,7 @@ if (defined('TESTSUITE')) {
 function PMA_DBI_query($query, $link = null, $options = 0,
     $cache_affected_rows = true
 ) {
-    $res = PMA_DBI_try_query($query, $link, $options, $cache_affected_rows)
+    $res = PMA_DBI_tryQuery($query, $link, $options, $cache_affected_rows)
         or PMA_Util::mysqlDie(PMA_DBI_getError($link), $query);
     return $res;
 }
@@ -174,7 +174,7 @@ function PMA_DBI_DBG_query($query, $link, $result, $time)
  *
  * @return mixed
  */
-function PMA_DBI_try_query($query, $link = null, $options = 0,
+function PMA_DBI_tryQuery($query, $link = null, $options = 0,
     $cache_affected_rows = true
 ) {
     if (empty($link)) {
@@ -214,7 +214,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
  *
  * @return mysqli_result collection | boolean(false)
  */
-function PMA_DBI_try_multi_query($multi_query = '', $link = null)
+function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
 {
 
     if (empty($link)) {
@@ -239,7 +239,7 @@ function PMA_DBI_try_multi_query($multi_query = '', $link = null)
  *
  * @return string  $message
  */
-function PMA_DBI_convert_message($message)
+function PMA_DBI_convertMessage($message)
 {
     // latin always last!
     $encodings = array(
@@ -269,7 +269,7 @@ function PMA_DBI_convert_message($message)
         'german'        => 'CP1252', //'latin1',
     );
 
-    $server_language = PMA_DBI_fetch_value(
+    $server_language = PMA_DBI_fetchValue(
         'SHOW VARIABLES LIKE \'language\';',
         0,
         1
@@ -340,9 +340,9 @@ function PMA_DBI_convert_message($message)
  *
  * @return array   tables names
  */
-function PMA_DBI_get_tables($database, $link = null)
+function PMA_DBI_getTables($database, $link = null)
 {
-    return PMA_DBI_fetch_result(
+    return PMA_DBI_fetchResult(
         'SHOW TABLES FROM ' . PMA_Util::backquote($database) . ';',
         null,
         0,
@@ -392,10 +392,10 @@ function PMA_usort_comparison_callback($a, $b)
  * if $tbl_is_group is 'comment, $table is used as filter for table comments
  *
  * <code>
- * PMA_DBI_get_tables_full('my_database');
- * PMA_DBI_get_tables_full('my_database', 'my_table'));
- * PMA_DBI_get_tables_full('my_database', 'my_tables_', true));
- * PMA_DBI_get_tables_full('my_database', 'my_tables_', 'comment'));
+ * PMA_DBI_getTablesFull('my_database');
+ * PMA_DBI_getTablesFull('my_database', 'my_table'));
+ * PMA_DBI_getTablesFull('my_database', 'my_tables_', true));
+ * PMA_DBI_getTablesFull('my_database', 'my_tables_', 'comment'));
  * </code>
  *
  * @param string          $database     database
@@ -411,7 +411,7 @@ function PMA_usort_comparison_callback($a, $b)
  *
  * @return array           list of tables in given db(s)
  */
-function PMA_DBI_get_tables_full($database, $table = false,
+function PMA_DBI_getTablesFull($database, $table = false,
     $tbl_is_group = false,  $link = null, $limit_offset = 0,
     $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
 ) {
@@ -541,7 +541,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
             $sql .= ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
         }
 
-        $tables = PMA_DBI_fetch_result(
+        $tables = PMA_DBI_fetchResult(
             $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
         );
         unset($sql_where_table, $sql);
@@ -612,8 +612,8 @@ function PMA_DBI_get_tables_full($database, $table = false,
                 $each_tables = apc_fetch($cacheKey);
             }
 
-            if (!$each_tables) {
-                $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+            if (! $each_tables) {
+                $each_tables = PMA_DBI_fetchResult($sql, 'Name', null, $link);
             }
 
             if ($useStatusCache) {
@@ -802,7 +802,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
 function PMA_DBI_getVirtualTables($db)
 {
 
-    $tables_full = PMA_DBI_get_tables_full($db);
+    $tables_full = PMA_DBI_getTablesFull($db);
     $views = array();
 
     foreach ($tables_full as $table=>$tmp) {
@@ -834,7 +834,7 @@ function PMA_DBI_getVirtualTables($db)
  *
  * @return array $databases
  */
-function PMA_DBI_get_databases_full($database = null, $force_stats = false,
+function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
     $limit_offset = 0, $limit_count = false
 ) {
@@ -855,7 +855,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
          * cause MySQL does not support natural ordering, we have to do it afterward
          */
         $limit = '';
-        if (!$GLOBALS['cfg']['NaturalOrder']) {
+        if (! $GLOBALS['cfg']['NaturalOrder']) {
             if ($limit_count) {
                 $limit = ' LIMIT ' . $limit_count . ' OFFSET ' . $limit_offset;
             }
@@ -935,7 +935,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                 . $limit;
         }
 
-        $databases = PMA_DBI_fetch_result($sql, 'SCHEMA_NAME', null, $link);
+        $databases = PMA_DBI_fetchResult($sql, 'SCHEMA_NAME', null, $link);
 
         $mysql_error = PMA_DBI_getError($link);
         if (! count($databases) && $GLOBALS['errno']) {
@@ -1041,7 +1041,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
  *
  * @return array
  */
-function PMA_DBI_get_columns_full($database = null, $table = null,
+function PMA_DBI_getColumnsFull($database = null, $table = null,
     $column = null, $link = null
 ) {
     $columns = array();
@@ -1119,20 +1119,20 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
         }
 
-        $columns = PMA_DBI_fetch_result($sql, $array_keys, null, $link);
+        $columns = PMA_DBI_fetchResult($sql, $array_keys, null, $link);
         unset($sql_wheres, $sql);
     } else {
         if (null === $database) {
             foreach ($GLOBALS['pma']->databases as $database) {
-                $columns[$database] = PMA_DBI_get_columns_full(
+                $columns[$database] = PMA_DBI_getColumnsFull(
                     $database, null, null, $link
                 );
             }
             return $columns;
         } elseif (null === $table) {
-            $tables = PMA_DBI_get_tables($database);
+            $tables = PMA_DBI_getTables($database);
             foreach ($tables as $table) {
-                $columns[$table] = PMA_DBI_get_columns_full(
+                $columns[$table] = PMA_DBI_getColumnsFull(
                     $database, $table, null, $link
                 );
             }
@@ -1145,7 +1145,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
             $sql .= " LIKE '" . PMA_Util::sqlAddSlashes($column, true) . "'";
         }
 
-        $columns = PMA_DBI_fetch_result($sql, 'Field', null, $link);
+        $columns = PMA_DBI_fetchResult($sql, 'Field', null, $link);
     }
     $ordinal_position = 1;
     foreach ($columns as $column_name => $each_column) {
@@ -1210,7 +1210,7 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
 /**
  * Returns SQL query for fetching columns for a table
  *
- * The 'Key' column is not calculated properly, use PMA_DBI_get_columns() to get
+ * The 'Key' column is not calculated properly, use PMA_DBI_getColumns() to get
  * correct values.
  *
  * @param string  $database name of database
@@ -1218,11 +1218,11 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  * @param string  $column   name of column, null to show all columns
  * @param boolean $full     whether to return full info or only column names
  *
- * @see PMA_DBI_get_columns()
+ * @see PMA_DBI_getColumns()
  *
  * @return string
  */
-function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
+function PMA_DBI_getColumnsSql($database, $table, $column = null, $full = false)
 {
     if (PMA_DRIZZLE) {
         // `Key` column:
@@ -1290,11 +1290,11 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
  * @return false|array   array indexed by column names or,
  *                        if $column is given, flat array description
  */
-function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
+function PMA_DBI_getColumns($database, $table, $column = null, $full = false,
     $link = null
 ) {
-    $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
-    $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
+    $sql = PMA_DBI_getColumnsSql($database, $table, $column, $full);
+    $fields = PMA_DBI_fetchResult($sql, 'Field', null, $link);
     if (! is_array($fields) || count($fields) == 0) {
         return null;
     }
@@ -1313,7 +1313,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
                 $has_pk_candidates = true;
             }
         }
-        if (!$has_pk && $has_pk_candidates) {
+        if (! $has_pk && $has_pk_candidates) {
             // check whether we can promote some unique index to PRI
             $sql = "
                 SELECT i.index_name, p.column_name
@@ -1324,7 +1324,7 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
                     AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                     AND i.is_unique
                         AND NOT i.is_nullable";
-            $fs = PMA_DBI_fetch_result($sql, 'index_name', null, $link);
+            $fs = PMA_DBI_fetchResult($sql, 'index_name', null, $link);
             $fs = $fs ? array_shift($fs) : array();
             foreach ($fs as $f) {
                 $fields[$f]['Key'] = 'PRI';
@@ -1344,11 +1344,11 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
  *
  * @return null|array
  */
-function PMA_DBI_get_column_names($database, $table, $link = null)
+function PMA_DBI_getColumnNames($database, $table, $link = null)
 {
-    $sql = PMA_DBI_get_columns_sql($database, $table);
+    $sql = PMA_DBI_getColumnsSql($database, $table);
     // We only need the 'Field' column which contains the table's column names
-    $fields = array_keys(PMA_DBI_fetch_result($sql, 'Field', null, $link));
+    $fields = array_keys(PMA_DBI_fetchResult($sql, 'Field', null, $link));
 
     if ( ! is_array($fields) || count($fields) == 0 ) {
         return null;
@@ -1365,7 +1365,7 @@ function PMA_DBI_get_column_names($database, $table, $link = null)
 *
 * @return array   $indexes
 */
-function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
+function PMA_DBI_getTableIndexesSql($database, $table, $where = null)
 {
     if (PMA_DRIZZLE) {
         $sql = "SELECT
@@ -1409,10 +1409,10 @@ function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 *
 * @return array   $indexes
 */
-function PMA_DBI_get_table_indexes($database, $table, $link = null)
+function PMA_DBI_getTableIndexes($database, $table, $link = null)
 {
-    $sql = PMA_DBI_get_table_indexes_sql($database, $table);
-    $indexes = PMA_DBI_fetch_result($sql, null, null, $link);
+    $sql = PMA_DBI_getTableIndexesSql($database, $table);
+    $indexes = PMA_DBI_fetchResult($sql, null, null, $link);
 
     if (! is_array($indexes) || count($indexes) < 1) {
         return array();
@@ -1429,7 +1429,7 @@ function PMA_DBI_get_table_indexes($database, $table, $link = null)
  *
  * @return mixed   value for mysql server variable
  */
-function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
+function PMA_DBI_getVariable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null)
 {
     if ($link === null) {
         if (isset($GLOBALS['userlink'])) {
@@ -1449,7 +1449,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
     default:
         $modifier = '';
     }
-    return PMA_DBI_fetch_value(
+    return PMA_DBI_fetchValue(
         'SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 0, 1, $link
     );
 }
@@ -1485,7 +1485,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
                 PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
             );
         } else {
-            $version = PMA_DBI_fetch_single_row(
+            $version = PMA_DBI_fetchSingleRow(
                 'SELECT @@version, @@version_comment',
                 'ASSOC',
                 $link
@@ -1562,7 +1562,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
             WHERE p.plugin_type = 'StorageEngine'
                 AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                 AND p.is_active = 'YES'";
-        $engines = PMA_DBI_fetch_result($sql, 'plugin_name', null, $link);
+        $engines = PMA_DBI_fetchResult($sql, 'plugin_name', null, $link);
         PMA_Util::cacheSet('drizzle_engines', $engines, true);
     }
 }
@@ -1574,7 +1574,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  *
  * <code>
  * $sql = 'SELECT `name` FROM `user` WHERE `id` = 123';
- * $user_name = PMA_DBI_fetch_value($sql);
+ * $user_name = PMA_DBI_fetchValue($sql);
  * // produces
  * // $user_name = 'John Doe'
  * </code>
@@ -1589,12 +1589,12 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
  * @return mixed value of first field in first row from result
  *               or false if not found
  */
-function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
+function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
 {
     $value = false;
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return false if result is empty or false
@@ -1630,7 +1630,7 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
  *
  * <code>
  * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
- * $user = PMA_DBI_fetch_single_row($sql);
+ * $user = PMA_DBI_fetchSingleRow($sql);
  * // produces
  * // $user = array('id' => 123, 'name' => 'John Doe')
  * </code>
@@ -1644,10 +1644,10 @@ function PMA_DBI_fetch_value($result, $row_number = 0, $field = 0, $link = null)
  * @return array|boolean first row from result
  *                       or false if result is empty
  */
-function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
+function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
 {
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, PMA_DBI_QUERY_STORE, false);
+        $result = PMA_DBI_tryQuery($result, $link, PMA_DBI_QUERY_STORE, false);
     }
 
     // return null if result is empty or false
@@ -1678,39 +1678,39 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
  *
  * <code>
  * $sql = 'SELECT * FROM `user`';
- * $users = PMA_DBI_fetch_result($sql);
+ * $users = PMA_DBI_fetchResult($sql);
  * // produces
  * // $users[] = array('id' => 123, 'name' => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 'id');
+ * $users = PMA_DBI_fetchResult($sql, 'id');
  * // produces
  * // $users['123'] = array('id' => 123, 'name' => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 0);
+ * $users = PMA_DBI_fetchResult($sql, 0);
  * // produces
  * // $users['123'] = array(0 => 123, 1 => 'John Doe')
  *
  * $sql = 'SELECT `id`, `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql, 'id', 'name');
+ * $users = PMA_DBI_fetchResult($sql, 'id', 'name');
  * // or
- * $users = PMA_DBI_fetch_result($sql, 0, 1);
+ * $users = PMA_DBI_fetchResult($sql, 0, 1);
  * // produces
  * // $users['123'] = 'John Doe'
  *
  * $sql = 'SELECT `name` FROM `user`';
- * $users = PMA_DBI_fetch_result($sql);
+ * $users = PMA_DBI_fetchResult($sql);
  * // produces
  * // $users[] = 'John Doe'
  *
  * $sql = 'SELECT `group`, `name` FROM `user`'
- * $users = PMA_DBI_fetch_result($sql, array('group', null), 'name');
+ * $users = PMA_DBI_fetchResult($sql, array('group', null), 'name');
  * // produces
  * // $users['admin'][] = 'John Doe'
  *
  * $sql = 'SELECT `group`, `name` FROM `user`'
- * $users = PMA_DBI_fetch_result($sql, array('group', 'name'), 'id');
+ * $users = PMA_DBI_fetchResult($sql, array('group', 'name'), 'id');
  * // produces
  * // $users['admin']['John Doe'] = '123'
  * </code>
@@ -1725,13 +1725,13 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
  *
  * @return array resultrows or values indexed by $key
  */
-function PMA_DBI_fetch_result($result, $key = null, $value = null,
+function PMA_DBI_fetchResult($result, $key = null, $value = null,
     $link = null, $options = 0
 ) {
     $resultrows = array();
 
     if (is_string($result)) {
-        $result = PMA_DBI_try_query($result, $link, $options, false);
+        $result = PMA_DBI_tryQuery($result, $link, $options, false);
     }
 
     // return empty array if result is empty or false
@@ -1845,7 +1845,7 @@ function PMA_DBI_getCompatibilities()
  *
  * @return array warnings
  */
-function PMA_DBI_get_warnings($link = null)
+function PMA_DBI_getWarnings($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -1855,7 +1855,7 @@ function PMA_DBI_get_warnings($link = null)
         }
     }
 
-    return PMA_DBI_fetch_result('SHOW WARNINGS', null, null, $link);
+    return PMA_DBI_fetchResult('SHOW WARNINGS', null, null, $link);
 }
 
 /**
@@ -1881,7 +1881,7 @@ function PMA_isSuperuser()
             $result = true;
         } else {
             // check access to mysql.user table
-            $result = (bool) PMA_DBI_try_query(
+            $result = (bool) PMA_DBI_tryQuery(
                 'SELECT COUNT(*) FROM mysql.user',
                 $GLOBALS['userlink'],
                 PMA_DBI_QUERY_STORE
@@ -1904,13 +1904,13 @@ function PMA_isSuperuser()
  *
  * @return array the procedure names or function names
  */
-function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
+function PMA_DBI_getProceduresOrFunctions($db, $which, $link = null)
 {
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support functions and procedures
         return array();
     }
-    $shows = PMA_DBI_fetch_result('SHOW ' . $which . ' STATUS;', null, null, $link);
+    $shows = PMA_DBI_fetchResult('SHOW ' . $which . ' STATUS;', null, null, $link);
     $result = array();
     foreach ($shows as $one_show) {
         if ($one_show['Db'] == $db && $one_show['Type'] == $which) {
@@ -1930,7 +1930,7 @@ function PMA_DBI_get_procedures_or_functions($db, $which, $link = null)
  *
  * @return string the definition
  */
-function PMA_DBI_get_definition($db, $which, $name, $link = null)
+function PMA_DBI_getDefinition($db, $which, $name, $link = null)
 {
     $returned_field = array(
         'PROCEDURE' => 'Create Procedure',
@@ -1941,7 +1941,7 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
     $query = 'SHOW CREATE ' . $which . ' '
         . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($name);
-    return(PMA_DBI_fetch_value($query, 0, $returned_field[$which]));
+    return(PMA_DBI_fetchValue($query, 0, $returned_field[$which]));
 }
 
 /**
@@ -1953,7 +1953,7 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  *
  * @return array information about triggers (may be empty)
  */
-function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
+function PMA_DBI_getTriggers($db, $table = '', $delimiter = '//')
 {
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support triggers
@@ -1982,7 +1982,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
         }
     }
 
-    if ($triggers = PMA_DBI_fetch_result($query)) {
+    if ($triggers = PMA_DBI_fetchResult($query)) {
         foreach ($triggers as $trigger) {
             if ($GLOBALS['cfg']['Server']['DisableIS']) {
                 $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
@@ -2042,7 +2042,7 @@ function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 function PMA_DBI_formatError($error_number, $error_message)
 {
     if (! empty($error_message)) {
-        $error_message = PMA_DBI_convert_message($error_message);
+        $error_message = PMA_DBI_convertMessage($error_message);
     }
 
     $error_message = htmlspecialchars($error_message);

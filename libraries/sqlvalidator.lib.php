@@ -67,7 +67,8 @@ function PMA_validateSQL($sql)
         ) {
             $str = sprintf(
                 __('The SQL validator could not be initialized. Please check if you have installed the necessary PHP extensions as described in the %sdocumentation%s.'),
-                '<a href="' . PMA_Util::getDocuLink('faq', 'faqsqlvalidator') .  '" target="documentation">',
+                '<a href="' . PMA_Util::getDocuLink('faq', 'faqsqlvalidator')
+                .  '" target="documentation">',
                 '</a>'
             );
         } else {

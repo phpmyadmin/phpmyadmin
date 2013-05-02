@@ -22,7 +22,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/rte/rte_events.lib.php';
 
 
-class PMA_EVN_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
+class PMA_EVN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provider

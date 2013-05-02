@@ -1182,7 +1182,7 @@ function PMA_getSelectOptionForUpload($vkey, $column)
     } elseif (!empty($files)) {
         return "<br />\n"
             . '<i>' . __('Or') . '</i>' . ' '
-            . __('web server upload directory') . ':<br />' . "\n"
+            . __('web server upload directory:') . '<br />' . "\n"
             . '<select size="1" name="fields_uploadlocal'
             . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
             . '<option value="" selected="selected"></option>' . "\n"
@@ -1913,7 +1913,7 @@ function PMA_executeSqlQuery($url_params, $query)
             continue;
         }
         if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
-            $result = PMA_DBI_try_query($single_query);
+            $result = PMA_DBI_tryQuery($single_query);
         } else {
             $result = PMA_DBI_query($single_query);
         }
@@ -1960,7 +1960,7 @@ function PMA_executeSqlQuery($url_params, $query)
 function PMA_getWarningMessages()
 {
     $warning_essages = array();
-    foreach (PMA_DBI_get_warnings() as $warning) {
+    foreach (PMA_DBI_getWarnings() as $warning) {
         $warning_essages[] = PMA_Message::sanitize(
             $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
         );
@@ -1977,7 +1977,7 @@ function PMA_getWarningMessages()
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
  *
- * @return string $dispval display value from the foriegn table
+ * @return string $dispval display value from the foreign table
  */
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
@@ -1993,7 +1993,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . '.' . PMA_Util::backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
-        $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+        $dispresult  = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
         if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
             list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
         }
@@ -2010,7 +2010,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
  *                                     table or optionally a given column in a table
  * @param string $relation_field       relation field
  * @param string $where_comparison     string that contain relation field value
- * @param string $dispval              display value from the foriegn table
+ * @param string $dispval              display value from the foreign table
  * @param string $relation_field_value relation field value
  *
  * @return string $output HTML <a> tag
@@ -2133,7 +2133,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         return $current_value;
     } elseif ('UUID' === $multi_edit_funcs[$key]) {
         /* This way user will know what UUID new row has */
-        $uuid = PMA_DBI_fetch_value('SELECT UUID()');
+        $uuid = PMA_DBI_fetchValue('SELECT UUID()');
         return "'" . $uuid . "'";
     } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
         && substr($current_value, 0, 3) == "'''")
@@ -2252,7 +2252,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && $using_key && isset($multi_edit_columns_type)
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
-        $protected_row = PMA_DBI_fetch_single_row(
+        $protected_row = PMA_DBI_fetchSingleRow(
             'SELECT * FROM ' . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';'
         );
@@ -2346,21 +2346,21 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
 function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
     $db, $table, $column_name, &$extra_data
 ) {
-    
+
     $extra_data['isNeedToRecheck'] = true;
-    
+
     $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
         . ' FROM ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table)
         . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-    if (PMA_DBI_fetch_value($sql_for_real_value) !== false) {
-        $extra_data['truncatableFieldValue'] = PMA_DBI_fetch_value($sql_for_real_value);
+    if (PMA_DBI_fetchValue($sql_for_real_value) !== false) {
+        $extra_data['truncatableFieldValue'] = PMA_DBI_fetchValue($sql_for_real_value);
     } else {
         $extra_data['isNeedToRecheck'] = false;
     }
-    
+
 }
 
 ?>

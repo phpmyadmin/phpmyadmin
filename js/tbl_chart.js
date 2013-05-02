@@ -9,7 +9,7 @@ var currentSettings = null;
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('tbl_chart.js', function() {
+AJAX.registerTeardown('tbl_chart.js', function () {
     $('input[name="chartType"]').unbind('click');
     $('input[name="barStacked"]').unbind('click');
     $('input[name="chartTitle"]').unbind('focus').unbind('keyup').unbind('blur');
@@ -20,7 +20,7 @@ AJAX.registerTeardown('tbl_chart.js', function() {
     $('#resizer').unbind('resizestop');
 });
 
-AJAX.registerOnload('tbl_chart.js', function() {
+AJAX.registerOnload('tbl_chart.js', function () {
 
     // from jQuery UI
     $('#resizer').resizable({
@@ -29,7 +29,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     })
     .width($('#div_view_options').width() - 50);
 
-    $('#resizer').bind('resizestop', function(event, ui) {
+    $('#resizer').bind('resizestop', function (event, ui) {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);
@@ -46,12 +46,12 @@ AJAX.registerOnload('tbl_chart.js', function() {
         yaxisLabel : $('input[name="yaxis_label"]').val(),
         title : $('input[name="chartTitle"]').val(),
         stackSeries : false,
-        mainAxis : parseInt($('select[name="chartXAxis"]').val()),
+        mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
         selectedSeries : getSelectedSeries()
     };
 
     // handle chart type changes
-    $('input[name="chartType"]').click(function() {
+    $('input[name="chartType"]').click(function () {
         currentSettings.type = $(this).val();
         drawChart();
         if ($(this).val() == 'bar' || $(this).val() == 'column'
@@ -64,7 +64,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle stacking for bar, column and area charts
-    $('input[name="barStacked"]').click(function() {
+    $('input[name="barStacked"]').click(function () {
         if (this.checked) {
             $.extend(true, currentSettings, {stackSeries : true});
         } else {
@@ -74,16 +74,16 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle changes in chart title
-    $('input[name="chartTitle"]').focus(function() {
+    $('input[name="chartTitle"]').focus(function () {
         temp_chart_title = $(this).val();
-    }).keyup(function() {
+    }).keyup(function () {
         var title = $(this).val();
-        if (title.length == 0) {
+        if (title.length === 0) {
             title = ' ';
         }
         currentSettings.title = $('input[name="chartTitle"]').val();
         drawChart();
-    }).blur(function() {
+    }).blur(function () {
         if ($(this).val() != temp_chart_title) {
             drawChart();
         }
@@ -91,13 +91,13 @@ AJAX.registerOnload('tbl_chart.js', function() {
 
     var dateTimeCols = [];
     var vals = $('input[name="dateTimeCols"]').val().split(' ');
-    $.each(vals, function(i, v) {
-        dateTimeCols.push(parseInt(v));
+    $.each(vals, function (i, v) {
+        dateTimeCols.push(parseInt(v, 10));
     });
 
     // handle changing the x-axis
-    $('select[name="chartXAxis"]').change(function() {
-        currentSettings.mainAxis = parseInt($(this).val());
+    $('select[name="chartXAxis"]').change(function () {
+        currentSettings.mainAxis = parseInt($(this).val(), 10);
         if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
             $('span.span_timeline').show();
         } else {
@@ -114,7 +114,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle changing the selected data series
-    $('select[name="chartSeries"]').change(function() {
+    $('select[name="chartSeries"]').change(function () {
         currentSettings.selectedSeries = getSelectedSeries();
         var yaxis_title;
         if (currentSettings.selectedSeries.length == 1) {
@@ -126,7 +126,7 @@ AJAX.registerOnload('tbl_chart.js', function() {
                 $('input#radio_line').prop('checked', true);
                 currentSettings.type = 'line';
             }
-            yaxis_title = PMA_messages['strYValues'];
+            yaxis_title = PMA_messages.strYValues;
         }
         $('input[name="yaxis_label"]').val(yaxis_title);
         currentSettings.yaxisLabel = yaxis_title;
@@ -134,11 +134,11 @@ AJAX.registerOnload('tbl_chart.js', function() {
     });
 
     // handle manual changes to the chart axis labels
-    $('input[name="xaxis_label"]').keyup(function() {
+    $('input[name="xaxis_label"]').keyup(function () {
         currentSettings.xaxisLabel = $(this).val();
         drawChart();
     });
-    $('input[name="yaxis_label"]').keyup(function() {
+    $('input[name="yaxis_label"]').keyup(function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });
@@ -150,9 +150,9 @@ AJAX.registerOnload('tbl_chart.js', function() {
  * Ajax Event handler for 'Go' button click
  *
  */
-$("#tblchartform").live('submit', function(event) {
-    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages['strNotValidRowNumber'], 1)
-        || !checkFormElementInRange(this, 'pos', PMA_messages['strNotValidRowNumber'], 0 - 1)) {
+$("#tblchartform").live('submit', function (event) {
+    if (!checkFormElementInRange(this, 'session_max_rows', PMA_messages.strNotValidRowNumber, 1)
+        || !checkFormElementInRange(this, 'pos', PMA_messages.strNotValidRowNumber, 0 - 1)) {
         return false;
     }
 
@@ -165,8 +165,8 @@ $("#tblchartform").live('submit', function(event) {
     var $msgbox = PMA_ajaxShowMessage();
     PMA_prepareForAjaxRequest($form);
 
-    $.post($form.attr('action'), $form.serialize(), function(data) {
-        if (data.success == true) {
+    $.post($form.attr('action'), $form.serialize(), function (data) {
+        if (data.success === true) {
             $('.success').fadeOut();
             if (typeof data.chartData != 'undefined') {
                 chart_data = jQuery.parseJSON(data.chartData);
@@ -195,17 +195,17 @@ function drawChart() {
     currentSettings.height = $('#resizer').height() - 20;
 
     // todo: a better way using .redraw() ?
-    if (currentChart != null) {
+    if (currentChart !== null) {
         currentChart.destroy();
     }
 
     var columnNames = [];
-    $('select[name="chartXAxis"] option').each(function() {
+    $('select[name="chartXAxis"] option').each(function () {
         columnNames.push($(this).text());
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
-    } catch(err) {
+    } catch (err) {
         PMA_ajaxShowMessage(err.message, false);
     }
 }
@@ -213,8 +213,8 @@ function drawChart() {
 function getSelectedSeries() {
     var val = $('select[name="chartSeries"]').val() || [];
     var ret = [];
-    $.each(val, function(i, v) {
-        ret.push(parseInt(v));
+    $.each(val, function (i, v) {
+        ret.push(parseInt(v, 10));
     });
     return ret;
 }
@@ -223,14 +223,14 @@ function extractDate(dateString) {
     var matches, match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
-    
+
     matches = dateTimeRegExp.exec(dateString);
-    if (matches != null && matches.length > 0) {
+    if (matches !== null && matches.length > 0) {
         match = matches[0];
         return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
     } else {
         matches = dateRegExp.exec(dateString);
-        if (matches != null && matches.length > 0) {
+        if (matches !== null && matches.length > 0) {
             match = matches[0];
             return new Date(match.substr(0, 4), match.substr(5, 2), match.substr(8, 2));
         }
@@ -239,7 +239,7 @@ function extractDate(dateString) {
 }
 
 function PMA_queryChart(data, columnNames, settings) {
-    if ($('#querychart').length == 0) {
+    if ($('#querychart').length === 0) {
         return;
     }
 
@@ -285,22 +285,22 @@ function PMA_queryChart(data, columnNames, settings) {
     } else {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
-    $.each(settings.selectedSeries, function(index, element) {
+    $.each(settings.selectedSeries, function (index, element) {
         dataTable.addColumn(ColumnType.NUMBER, columnNames[element]);
     });
 
     // set data to the data table
     var columnsToExtract = [ settings.mainAxis ];
-    $.each(settings.selectedSeries, function(index, element) {
+    $.each(settings.selectedSeries, function (index, element) {
         columnsToExtract.push(element);
     });
     var values = [], newRow, row, col;
-    for ( var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
         row = data[i];
         newRow = [];
-        for ( var j = 0; j < columnsToExtract.length; j++) {
+        for (var j = 0; j < columnsToExtract.length; j++) {
             col = columnNames[columnsToExtract[j]];
-            if (j == 0) {
+            if (j === 0) {
                 if (settings.type == 'timeline') { // first column is date type
                     newRow.push(extractDate(row[col]));
                 } else { // first column is string type

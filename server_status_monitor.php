@@ -107,7 +107,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required status variables
             if (count($statusVars)) {
-                $statusVarValues = PMA_DBI_fetch_result(
+                $statusVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL STATUS WHERE Variable_name='"
                     . implode("' OR Variable_name='", $statusVars) . "'",
                     0,
@@ -119,7 +119,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required server variables
             if (count($serverVars)) {
-                $serverVarValues = PMA_DBI_fetch_result(
+                $serverVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                     . implode("' OR Variable_name='", $serverVars) . "'",
                     0,
@@ -174,7 +174,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
             $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -234,7 +234,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
             $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -335,7 +335,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         }
 
-        $loggingVars = PMA_DBI_fetch_result(
+        $loggingVars = PMA_DBI_fetchResult(
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
@@ -363,10 +363,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $_REQUEST['query']
         );
 
-        $result = PMA_DBI_try_query($query);
+        $result = PMA_DBI_tryQuery($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
-        $result = PMA_DBI_try_query('EXPLAIN ' . $query);
+        $result = PMA_DBI_tryQuery('EXPLAIN ' . $query);
         while ($row = PMA_DBI_fetch_assoc($result)) {
             $return['explain'][] = $row;
         }
@@ -378,7 +378,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($profiling) {
             $return['profiling'] = array();
-            $result = PMA_DBI_try_query(
+            $result = PMA_DBI_tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
@@ -488,9 +488,9 @@ function getPrintMonitorHtml($ServerStatusData)
     $retval .= '<a href="#addNewChart">';
     $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
-    $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
-    $retval .= '</a>';
+    //$retval .= '<a href="#rearrangeCharts">';
+    //$retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
+    //$retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
     $retval .= '<div class="floatleft">';
     $retval .= __('Refresh rate') . '<br />';

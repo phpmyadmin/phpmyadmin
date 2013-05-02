@@ -105,7 +105,7 @@ class Form
                 }
                 $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
             }
-            if (!$has_string_keys) {
+            if (! $has_string_keys) {
                 $value = array_combine($keys, $value);
             }
         }

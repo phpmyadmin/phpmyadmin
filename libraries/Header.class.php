@@ -439,15 +439,20 @@ class PMA_Header
      */
     public function sendHttpHeaders()
     {
+        $https = $GLOBALS['PMA_Config']->isHttps();
+        $mapTilesUrls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
+
         /**
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
             header(
-                "X-Content-Security-Policy: allow 'self';"
+                "X-Content-Security-Policy: default-src 'self';"
                 . "options inline-script eval-script;"
-                . "img-src 'self' data:; "
+                . "img-src 'self' data:"
+                . ($https ? "" : $mapTilesUrls)
+                . ";"
             );
             if (PMA_USR_BROWSER_AGENT == 'SAFARI'
                 && PMA_USR_BROWSER_VER < '6.0.0'
@@ -455,13 +460,18 @@ class PMA_Header
                 header(
                     "X-WebKit-CSP: allow 'self';"
                     . "options inline-script eval-script;"
-                    . "img-src 'self' data:; "
+                    . "img-src 'self' data:"
+                    . ($https ? "" : $mapTilesUrls)
+                    . ";"
                 );
             } else {
                 header(
                     "X-WebKit-CSP: default-src 'self';"
                     . "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-                    . "style-src 'self' 'unsafe-inline'"
+                    . "style-src 'self' 'unsafe-inline';"
+                    . "img-src 'self' data:"
+                    . ($https ? "" : $mapTilesUrls)
+                    . ";"
                 );
             }
         }
@@ -484,7 +494,9 @@ class PMA_Header
         $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
-        $retval .= "<html lang='$lang' dir='$dir'>";
+        $retval .= "<html lang='$lang' dir='$dir' class='";
+        $retval .= strtolower(PMA_USR_BROWSER_AGENT) . " ";
+        $retval .= strtolower(PMA_USR_BROWSER_AGENT) . intval(PMA_USR_BROWSER_VER) . "'>";
 
         return $retval;
     }
