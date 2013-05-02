@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-25 17:42+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2013-05-02 18:01+0200\n"
+"Last-Translator: Renato Leonel <renato.leonel@fatec.sp.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -850,7 +850,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -862,8 +861,10 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "O diretório [code]config[/code], que é usado pelo script de configuração, "
-"ainda existe no seu diretório phpMyAdmin. Você deve removê-lo assim que o "
-"phpMyAdmin for configurado."
+"ainda existe no seu diretório phpMyAdmin. É altamente recomendado removê-lo "
+"assim que o phpMyAdmin for configurado. Caso contrário a segurança de seu "
+"servidor pode ser comprometida por indivíduos não autorizados realizando "
+"downloads de suas configurações."
 
 #: index.php:470
 #, php-format
@@ -5844,7 +5845,6 @@ msgid "Display columns table"
 msgstr "Exibir tabela de colunas"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5852,8 +5852,9 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Deixe em branco para não usar tabelas persistentes de preferências visuais "
-"entre sessões, sugestão:  [kbd]pma__table_uiprefs[/kbd]"
+"Deixe em branco para não usar tabelas' \"persistentes\" com preferências de "
+"interfaces de usuário em todas as sessões, sugestão: "
+"[kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -7813,7 +7814,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Tente se conectar novamente"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9545,6 +9546,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
+"nome de host diferente. Você tem certeza que deseja continuar?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10371,10 +10374,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Adicionado relacionamento de FOREIGN KEY"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Erro: relacionamento não adicionado."
+msgstr "Erro: Relacionamentos estão desativados!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12485,10 +12487,9 @@ msgid "Choose column to display:"
 msgstr "Marque a coluna para exibir:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nenhum registro selecionado"
+msgstr "Nenhuma coluna selecionada."
 
 #: tbl_structure.php:149
 #, php-format

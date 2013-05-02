@@ -11,7 +11,7 @@
  */
 require_once 'libraries/sqlparser.lib.php';
 
-class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
+class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.

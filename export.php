@@ -255,17 +255,17 @@ function PMA_isGzHandlerEnabled()
 
 /**
  * Detect whether gzencode is needed; it might not be needed if
- * the server is already compressing by itself 
+ * the server is already compressing by itself
  *
- * @return bool Whether gzencode is needed 
+ * @return bool Whether gzencode is needed
  */
 function PMA_gzencodeNeeded()
 {
+    // Here, we detect Apache's mod_deflate so we bet that
+    // this module is active for this instance of phpMyAdmin
+    // and therefore, will gzip encode the content
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
-        // Here, we detect Apache's mod_deflate so we bet that
-        // this module is active for this instance of phpMyAdmin
-        // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
@@ -306,7 +306,7 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string(
+                    $dump_buffer = PMA_convertString(
                         'utf-8',
                         $GLOBALS['charset_of_file'],
                         $dump_buffer
@@ -318,7 +318,7 @@ function PMA_exportOutputHandler($line)
                 ) {
                     $dump_buffer = bzcompress($dump_buffer);
                 } elseif ($GLOBALS['compression'] == 'gzip'
-                     && PMA_gzencodeNeeded() 
+                     && PMA_gzencodeNeeded()
                 ) {
                     // as a gzipped file
                     // without the optional parameter level because it bugs
@@ -349,7 +349,7 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string(
+                $line = PMA_convertString(
                     'utf-8',
                     $GLOBALS['charset_of_file'],
                     $line
@@ -885,7 +885,7 @@ if ($save_on_server && isset($message)) {
 if (! empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string(
+        $dump_buffer = PMA_convertString(
             'utf-8',
             $GLOBALS['charset_of_file'],
             $dump_buffer
@@ -959,15 +959,15 @@ if (! empty($asfile)) {
     echo "\n";
     echo '</div>' . "\n";
     echo "\n";
-?>
-<script type="text/javascript">
-//<![CDATA[
-    var $body = $("body");
-    $("#textSQLDUMP")
-        .width($body.width() - 50)
-        .height($body.height() - 100);
-//]]>
-</script>
-<?php
+    ?>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $body = $("body");
+        $("#textSQLDUMP")
+            .width($body.width() - 50)
+            .height($body.height() - 100);
+    //]]>
+    </script>
+    <?php
 } // end if
 ?>

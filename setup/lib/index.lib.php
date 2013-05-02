@@ -340,7 +340,7 @@ function perform_config_checks()
         // should be enabled if possible
         //
         if (!$cf->getValue("Servers/$i/ssl")) {
-            $title = PMA_lang(PMA_lang_name('Servers/1/ssl')) . " ($server_name)";
+            $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($server_name)";
             messages_set(
                 'notice',
                 "Servers/$i/ssl",
@@ -354,7 +354,7 @@ function perform_config_checks()
         // warn about using 'mysql'
         //
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
-            $title = PMA_lang(PMA_lang_name('Servers/1/extension'))
+            $title = PMA_lang(PMA_langName('Servers/1/extension'))
                 . " ($server_name)";
             messages_set(
                 'notice',
@@ -372,7 +372,7 @@ function perform_config_checks()
             && $cf->getValue("Servers/$i/user") != ''
             && $cf->getValue("Servers/$i/password") != ''
         ) {
-            $title = PMA_lang(PMA_lang_name('Servers/1/auth_type'))
+            $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
                 . " ($server_name)";
             messages_set(
                 'notice',
@@ -391,7 +391,7 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/AllowRoot")
             && $cf->getValue("Servers/$i/AllowNoPassword")
         ) {
-            $title = PMA_lang(PMA_lang_name('Servers/1/AllowNoPassword'))
+            $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
                 . " ($server_name)";
             messages_set(
                 'notice',
@@ -413,7 +413,7 @@ function perform_config_checks()
             messages_set(
                 'notice',
                 'blowfish_secret_created',
-                PMA_lang(PMA_lang_name('blowfish_secret')),
+                PMA_lang(PMA_langName('blowfish_secret')),
                 $strBlowfishSecretMsg
             );
         } else {
@@ -434,7 +434,7 @@ function perform_config_checks()
                 messages_set(
                     'error',
                     'blowfish_warnings' . count($blowfish_warnings),
-                    PMA_lang(PMA_lang_name('blowfish_secret')),
+                    PMA_lang(PMA_langName('blowfish_secret')),
                     implode('<br />', $blowfish_warnings)
                 );
             }
@@ -449,7 +449,7 @@ function perform_config_checks()
         messages_set(
             'notice',
             'ForceSSL',
-            PMA_lang(PMA_lang_name('ForceSSL')),
+            PMA_lang(PMA_langName('ForceSSL')),
             PMA_lang($strForceSSLNotice)
         );
     }
@@ -462,7 +462,7 @@ function perform_config_checks()
         messages_set(
             'notice',
             'AllowArbitraryServer',
-            PMA_lang(PMA_lang_name('AllowArbitraryServer')),
+            PMA_lang(PMA_langName('AllowArbitraryServer')),
             PMA_lang($strAllowArbitraryServerWarning)
         );
     }
@@ -480,7 +480,7 @@ function perform_config_checks()
         messages_set(
             $message_type,
             'LoginCookieValidity',
-            PMA_lang(PMA_lang_name('LoginCookieValidity')),
+            PMA_lang(PMA_langName('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning)
         );
     }
@@ -493,7 +493,7 @@ function perform_config_checks()
         messages_set(
             'notice',
             'LoginCookieValidity',
-            PMA_lang(PMA_lang_name('LoginCookieValidity')),
+            PMA_lang(PMA_langName('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning2)
         );
     }
@@ -509,7 +509,7 @@ function perform_config_checks()
         messages_set(
             'error',
             'LoginCookieValidity',
-            PMA_lang(PMA_lang_name('LoginCookieValidity')),
+            PMA_lang(PMA_langName('LoginCookieValidity')),
             PMA_lang($strLoginCookieValidityWarning3)
         );
     }
@@ -522,7 +522,7 @@ function perform_config_checks()
         messages_set(
             'notice',
             'SaveDir',
-            PMA_lang(PMA_lang_name('SaveDir')),
+            PMA_lang(PMA_langName('SaveDir')),
             PMA_lang($strDirectoryNotice)
         );
     }
@@ -535,7 +535,7 @@ function perform_config_checks()
         messages_set(
             'notice',
             'TempDir',
-            PMA_lang(PMA_lang_name('TempDir')),
+            PMA_lang(PMA_langName('TempDir')),
             PMA_lang($strDirectoryNotice)
         );
     }
@@ -550,7 +550,7 @@ function perform_config_checks()
         messages_set(
             'error',
             'GZipDump',
-            PMA_lang(PMA_lang_name('GZipDump')),
+            PMA_lang(PMA_langName('GZipDump')),
             PMA_lang($strGZipDumpWarning, 'gzencode')
         );
     }
@@ -571,7 +571,7 @@ function perform_config_checks()
         messages_set(
             'error',
             'BZipDump',
-            PMA_lang(PMA_lang_name('BZipDump')),
+            PMA_lang(PMA_langName('BZipDump')),
             PMA_lang($strBZipDumpWarning, $functions)
         );
     }
@@ -584,7 +584,7 @@ function perform_config_checks()
         messages_set(
             'error',
             'ZipDump_import',
-            PMA_lang(PMA_lang_name('ZipDump')),
+            PMA_lang(PMA_langName('ZipDump')),
             PMA_lang($strZipDumpImportWarning, 'zip_open')
         );
     }
@@ -597,7 +597,7 @@ function perform_config_checks()
         messages_set(
             'error',
             'ZipDump_export',
-            PMA_lang(PMA_lang_name('ZipDump')),
+            PMA_lang(PMA_langName('ZipDump')),
             PMA_lang($strZipDumpExportWarning, 'gzcompress')
         );
     }

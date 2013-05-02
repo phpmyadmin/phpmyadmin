@@ -19,7 +19,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 
-class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
+class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

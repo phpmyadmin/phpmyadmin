@@ -497,7 +497,7 @@ if ($token_mismatch) {
     /**
      * Do actual cleanup
      */
-    PMA_remove_request_vars($allow_list);
+    PMA_removeRequestVars($allow_list);
 
 }
 

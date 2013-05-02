@@ -23,7 +23,7 @@ require_once 'libraries/Tracker.class.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
+class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

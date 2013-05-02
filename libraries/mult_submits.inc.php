@@ -477,7 +477,11 @@ if (!empty($submit_mult) && !empty($what)) {
 
         case 'add_prefix_tbl':
             $newtablename = $_POST['add_prefix'] . $selected[$i];
-            $a_query = 'ALTER TABLE ' . PMA_Util::backquote($selected[$i]) . ' RENAME ' . PMA_Util::backquote($newtablename); // ADD PREFIX TO TABLE NAME
+            // ADD PREFIX TO TABLE NAME
+            $a_query = 'ALTER TABLE '
+                . PMA_Util::backquote($selected[$i])
+                . ' RENAME '
+                . PMA_Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -488,10 +492,11 @@ if (!empty($submit_mult) && !empty($what)) {
             } else {
                 $newtablename = $current;
             }
-            $a_query = 'ALTER TABLE ' 
-                . PMA_Util::backquote($selected[$i]) 
-                . ' RENAME ' 
-                . PMA_Util::backquote($newtablename) ; // CHANGE PREFIX PATTERN
+            // CHANGE PREFIX PATTERN
+            $a_query = 'ALTER TABLE '
+                . PMA_Util::backquote($selected[$i])
+                . ' RENAME '
+                . PMA_Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -503,10 +508,11 @@ if (!empty($submit_mult) && !empty($what)) {
                 $newtablename = $current;
             }
             $newtablename = $to_prefix . substr($current, strlen($from_prefix));
-            $a_query = 'CREATE TABLE ' 
-                . PMA_Util::backquote($newtablename) 
-                . ' SELECT * FROM ' 
-                . PMA_Util::backquote($selected[$i]) ; // COPY TABLE AND CHANGE PREFIX PATTERN
+            // COPY TABLE AND CHANGE PREFIX PATTERN
+            $a_query = 'CREATE TABLE '
+                . PMA_Util::backquote($newtablename)
+                . ' SELECT * FROM '
+                . PMA_Util::backquote($selected[$i]);
             $run_parts = true;
             break;
 

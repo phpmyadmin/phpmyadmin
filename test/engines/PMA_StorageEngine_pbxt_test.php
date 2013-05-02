@@ -17,7 +17,7 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

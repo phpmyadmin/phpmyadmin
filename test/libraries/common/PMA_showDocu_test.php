@@ -14,7 +14,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_showDocu_test extends PHPUnit_Framework_TestCase
+class PMA_ShowDocu_Test extends PHPUnit_Framework_TestCase
 {
     function setup()
     {

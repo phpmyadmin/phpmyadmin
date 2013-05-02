@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return string
  */
-function PMA_langName($tmplang)
+function PMA_languageName($tmplang)
 {
     $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 

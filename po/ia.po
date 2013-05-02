@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-16 10:13+0200\n"
+"PO-Revision-Date: 2013-05-02 14:08+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -45,10 +45,9 @@ msgstr ""
 "es configurate pro blocar actualisationes inter fenestras."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Cerca"
+msgstr "Cerca:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -123,10 +122,9 @@ msgstr "Commento del base de datos: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Commentos de tabella"
+msgstr "Commentos de tabella:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -345,24 +343,21 @@ msgstr "in uso"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Creation"
+msgstr "Creation:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Ultime actualisation"
+msgstr "Ultime actualisation:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Ultime controlo"
+msgstr "Ultime controlo:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -532,22 +527,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Usa OpenStreetMaps como disposition o nivello basic"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometria"
+msgstr "Geometria %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Puncto"
+msgstr "Puncto:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -571,22 +564,21 @@ msgid "Add a point"
 msgstr "Adde un puncto"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linestring (catena de linea)"
+msgstr "Linestring (catena de linea) %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Circulo externe"
+msgstr "Circulo externe:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Circulo interne"
+msgstr "Circulo interne %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -597,10 +589,10 @@ msgid "Add an inner ring"
 msgstr "Adde un circulo interne"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polygono"
+msgstr "Polygono %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -651,6 +643,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Tu es essayante importar un file con un typo de compression (%s) non "
+"supportate. Le supporto pro iste typo de compression poterea ancora non "
+"esser actuate o esser dishabilitate in tu configuration."
 
 #: import.php:426
 msgid ""
@@ -658,15 +653,22 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Il non ha recipite datos de importar. O il non ha indicate alcun nomine de "
+"file, o il ha superate le grandor maxime permittite per tu configuration de "
+"PHP pro incargar un file. Tu vide  [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:446
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"Il non es possibile converter le insimul de characteres del file sin un "
+"biblioteca de conversion de insimul de characteres"
 
 #: import.php:484 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Il non es possibile cargar plugins de importar, pro favor tu verifica tu "
+"installation!"
 
 #: import.php:518 sql.php:395 sql.php:1246
 #, php-format
@@ -676,7 +678,7 @@ msgstr "Marcator de libro %s create"
 #: import.php:527 import.php:539
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "Importation executate con successo, %d demandas executate."
 
 #: import.php:554
 msgid ""
@@ -695,7 +697,7 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
-msgstr ""
+msgstr "Le demanda SQL ha essite executate con successo"
 
 #: import_status.php:101 libraries/Util.class.php:765
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
@@ -713,7 +715,7 @@ msgstr "Modifica contrasigno"
 
 #: index.php:156
 msgid "Server connection collation"
-msgstr ""
+msgstr "Colliger de connexion de servitor"
 
 #: index.php:182
 msgid "Appearance Settings"
@@ -729,65 +731,57 @@ msgstr "Servitor de base de datos"
 
 #: index.php:236 libraries/plugins/auth/AuthenticationCookie.class.php:201
 msgid "Server:"
-msgstr ""
+msgstr "Servitor:"
 
 #: index.php:240
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Typo de servitor"
+msgstr "Typo de servitor:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Version de servitor"
+msgstr "Version de servitor:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Version de protocollo"
+msgstr "Version de protocollo:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Usator"
+msgstr "Usator:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Insimul de characteres del servitor"
+msgstr "Insimul de characteres del servitor:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Servitor web"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Version del cliente de base de datos"
+msgstr "Version del cliente de base de datos:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Extension de PHP"
+msgstr "Extension de PHP:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Monstra information de PHP"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Information de version"
+msgstr "Information de version:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -856,6 +850,8 @@ msgstr ""
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
+"Nunc on necessita un contrasigno pro le file de configuration "
+"(blowfish_secret)."
 
 #: index.php:460
 msgid ""
@@ -871,6 +867,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
+"Le configuration de phpMyAdmin non es complete, ergo alcuna characteristicas "
+"additional ha essite deactivate. Pro discoperir perque tu pulsa %shic%s."
 
 #: index.php:502
 #, php-format
@@ -893,7 +891,7 @@ msgstr ""
 #: js/messages.php:30
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "Tu es vermente secur que tu vole executar \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:477
 msgid "You are about to DESTROY a complete database!"
@@ -2253,20 +2251,18 @@ msgid "Descending"
 msgstr ""
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Columna"
+msgstr "Columna:"
 
 #: libraries/DBQbe.class.php:406
 msgid "Sort:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:468 libraries/DisplayResults.class.php:903
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Monstra"
+msgstr "Monstra:"
 
 #: libraries/DBQbe.class.php:513
 msgid "Criteria:"
@@ -3746,10 +3742,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/common.inc.php:654
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Servitor"
+msgstr "Servitor %d"
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
@@ -6089,10 +6085,9 @@ msgid "Create"
 msgstr ""
 
 #: libraries/display_create_database.lib.php:43
-#, fuzzy
 #| msgid "Created"
 msgid "Create database:"
-msgstr "Create"
+msgstr "Crea base de datos:"
 
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2938 server_privileges.php:149
@@ -7194,10 +7189,9 @@ msgid "Data only"
 msgstr ""
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Database Log"
 msgid "Copy database to:"
-msgstr "Registro de base de datos"
+msgstr "Copia base de datos in:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -7391,10 +7385,9 @@ msgid "Username:"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server Choice:"
-msgstr "Insimul de characteres del servitor"
+msgstr "Selection de servitor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:583
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
@@ -7551,10 +7544,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table caption:"
-msgstr "Commentos de tabella"
+msgstr "Legenda de tabella:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
@@ -7604,32 +7596,28 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:614
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP Version:"
-msgstr "Extension de PHP"
+msgstr "Version de PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1111
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Base de datos"
+msgstr "Base de datos:"
 
 #: libraries/plugins/export/ExportLatex.class.php:301
 #: libraries/plugins/export/ExportSql.class.php:1545
-#, fuzzy
 #| msgid "Database"
 msgid "Data:"
-msgstr "Base de datos"
+msgstr "Datos:"
 
 #: libraries/plugins/export/ExportLatex.class.php:485
-#, fuzzy
 #| msgid "Structure snapshot"
 msgid "Structure:"
-msgstr "Fragmento de structura"
+msgstr "Structura:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -7782,10 +7770,9 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabula"
+msgstr "Tabula:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:74
@@ -8199,10 +8186,9 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:386
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate Password:"
-msgstr "Modifica contrasigno"
+msgstr "Genera contrasigno:"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:296
@@ -9574,10 +9560,9 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:842
-#, fuzzy
 #| msgid "Creation"
 msgid "Collation:"
-msgstr "Creation"
+msgstr "Colliger:"
 
 #: libraries/tbl_columns_definition_form.inc.php:876
 msgid "PARTITION definition:"
@@ -11588,10 +11573,9 @@ msgid "The table name is empty!"
 msgstr ""
 
 #: tbl_printview.php:65
-#, fuzzy
 #| msgid "Show all"
 msgid "Showing tables:"
-msgstr "Monstra omnes"
+msgstr "Monstra tabulas:"
 
 #: tbl_printview.php:296
 msgid "Space usage:"
@@ -11629,10 +11613,9 @@ msgid "No index defined! Create one below"
 msgstr ""
 
 #: tbl_relation.php:544
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Choose column to display:"
-msgstr "Tu debe seliger al minus un columna de monstrar"
+msgstr "Selige columna de monstrar:"
 
 #: tbl_structure.php:125
 msgid "No column selected."

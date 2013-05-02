@@ -73,7 +73,7 @@ if ($PMA_recoding_engine == PMA_CHARSET_ICONV_AIX) {
  * @access  public
  *
  */
-function PMA_convert_string($src_charset, $dest_charset, $what)
+function PMA_convertString($src_charset, $dest_charset, $what)
 {
     if ($src_charset == $dest_charset) {
         return $what;
@@ -92,6 +92,6 @@ function PMA_convert_string($src_charset, $dest_charset, $what)
     default:
         return $what;
     }
-} //  end of the "PMA_convert_string()" function
+} //  end of the "PMA_convertString()" function
 
 ?>

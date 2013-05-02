@@ -15,7 +15,7 @@ require_once 'libraries/Tracker.class.php';
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 
-class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
+class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

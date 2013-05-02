@@ -71,7 +71,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
 
         uasort($GLOBALS['available_languages'], 'PMA_languageCmp');
         foreach ($GLOBALS['available_languages'] as $id => $tmplang) {
-            $lang_name = PMA_langName($tmplang);
+            $lang_name = PMA_languageName($tmplang);
 
             //Is current one active?
             if ($lang == $id) {

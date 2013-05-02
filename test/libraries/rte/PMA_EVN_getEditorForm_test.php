@@ -13,7 +13,7 @@ require_once 'libraries/Util.class.php';
  */
 require_once 'libraries/rte/rte_events.lib.php';
 
-class PMA_EVN_getEditorForm_test extends PHPUnit_Framework_TestCase
+class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
