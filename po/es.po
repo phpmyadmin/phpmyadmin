@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-05-02 15:38+0200\n"
+"PO-Revision-Date: 2013-05-02 15:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -9625,6 +9625,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Ya existe una cuenta con el mismo nombre de usuario pero posiblemente un "
+"nombre de servidor diferente. ¿Seguro que desea proceder?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10463,10 +10465,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Se añadió una relación CLAVE FORÁNEA"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Error: no se añadió la relación."
+msgstr "Error: ¡Las funcionalidades relacionales están desactivadas!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12610,10 +12611,9 @@ msgid "Choose column to display:"
 msgstr "Elegir la columna a mostrar:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "No se seleccionaron filas"
+msgstr "No se seleccionaron columnas."
 
 #: tbl_structure.php:149
 #, php-format
