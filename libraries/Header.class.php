@@ -448,7 +448,7 @@ class PMA_Header
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
             header(
-                "X-Content-Security-Policy: allow 'self';"
+                "X-Content-Security-Policy: default-src 'self';"
                 . "options inline-script eval-script;"
                 . "img-src 'self' data:"
                 . ($https ? "" : $mapTilesUrls)
