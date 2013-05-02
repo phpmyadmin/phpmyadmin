@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-25 15:12+0200\n"
+"PO-Revision-Date: 2013-05-02 12:27+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/3-5/tr/>\n"
 "Language: tr\n"
@@ -1852,7 +1852,7 @@ msgstr "Sorgu kutusunu göster"
 
 #: js/messages.php:285 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr "Satır seçilmedi"
+msgstr "Seçilen satırlar yok"
 
 #: js/messages.php:286 libraries/common.lib.php:2742
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
@@ -8953,7 +8953,7 @@ msgstr "Karakter Grupları ve Karşılaştırmalar"
 
 #: server_databases.php:69
 msgid "No databases selected."
-msgstr "Veritabanı seçilmedi."
+msgstr "Seçilen veritabanları yok."
 
 #: server_databases.php:80
 #, php-format
