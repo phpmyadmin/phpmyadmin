@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-04-03 10:24+0200\n"
+"POT-Creation-Date: 2013-05-02 13:12+0200\n"
 "PO-Revision-Date: 2013-04-03 08:17+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/4-0/ca/>\n"
@@ -21,7 +21,7 @@ msgid "Show all"
 msgstr "Mostra tot"
 
 #: browse_foreigners.php:77 libraries/PDF.class.php:66
-#: libraries/Util.class.php:2545
+#: libraries/Util.class.php:2547
 #: libraries/schema/Pdf_Relation_Schema.class.php:1183
 #: libraries/schema/Pdf_Relation_Schema.class.php:1207
 #: libraries/schema/User_Schema.class.php:427
@@ -40,15 +40,15 @@ msgstr ""
 "finestres per la teva configuració de seguretat."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
-#: libraries/Menu.class.php:352 libraries/Util.class.php:3223
-#: libraries/Util.class.php:3230 libraries/Util.class.php:3440
-#: libraries/Util.class.php:3441
+#: libraries/Menu.class.php:352 libraries/Util.class.php:3225
+#: libraries/Util.class.php:3232 libraries/Util.class.php:3442
+#: libraries/Util.class.php:3443
 msgid "Search"
 msgstr "Cerca"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:218
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
-#: libraries/TableSearch.class.php:1136 libraries/core.lib.php:556
+#: libraries/TableSearch.class.php:1141 libraries/core.lib.php:556
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:441 libraries/display_import.lib.php:335
@@ -125,7 +125,7 @@ msgstr "Comentaris de la taula"
 
 #: db_datadict.php:166 libraries/DBQbe.class.php:364
 #: libraries/Index.class.php:565 libraries/TableSearch.class.php:183
-#: libraries/TableSearch.class.php:1184 libraries/insert_edit.lib.php:1566
+#: libraries/TableSearch.class.php:1189 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -166,7 +166,7 @@ msgid "Type"
 msgstr "Tipus"
 
 #: db_datadict.php:169 libraries/Index.class.php:568
-#: libraries/TableSearch.class.php:1185 libraries/insert_edit.lib.php:1575
+#: libraries/TableSearch.class.php:1190 libraries/insert_edit.lib.php:1575
 #: libraries/plugins/export/ExportHtmlword.class.php:282
 #: libraries/plugins/export/ExportHtmlword.class.php:397
 #: libraries/plugins/export/ExportLatex.class.php:510
@@ -222,8 +222,8 @@ msgstr "Comentaris"
 #: db_datadict.php:240 js/messages.php:240 libraries/Index.class.php:431
 #: libraries/Index.class.php:470 libraries/Index.class.php:838
 #: libraries/config.values.php:50 libraries/config.values.php:65
-#: libraries/config/FormDisplay.tpl.php:260 libraries/mult_submits.inc.php:340
-#: libraries/mult_submits.inc.php:341
+#: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:342
+#: libraries/mult_submits.inc.php:343
 #: libraries/plugins/export/ExportHtmlword.class.php:631
 #: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:724
@@ -245,12 +245,12 @@ msgstr "No"
 #: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:432
 #: libraries/Index.class.php:469 libraries/Index.class.php:838
 #: libraries/config.values.php:49 libraries/config.values.php:64
-#: libraries/config/FormDisplay.tpl.php:260 libraries/mult_submits.inc.php:69
-#: libraries/mult_submits.inc.php:101 libraries/mult_submits.inc.php:110
-#: libraries/mult_submits.inc.php:115 libraries/mult_submits.inc.php:120
-#: libraries/mult_submits.inc.php:125 libraries/mult_submits.inc.php:288
-#: libraries/mult_submits.inc.php:305 libraries/mult_submits.inc.php:334
-#: libraries/mult_submits.inc.php:335 libraries/mult_submits.inc.php:348
+#: libraries/config/FormDisplay.tpl.php:258 libraries/mult_submits.inc.php:71
+#: libraries/mult_submits.inc.php:103 libraries/mult_submits.inc.php:112
+#: libraries/mult_submits.inc.php:117 libraries/mult_submits.inc.php:122
+#: libraries/mult_submits.inc.php:127 libraries/mult_submits.inc.php:290
+#: libraries/mult_submits.inc.php:307 libraries/mult_submits.inc.php:336
+#: libraries/mult_submits.inc.php:337 libraries/mult_submits.inc.php:350
 #: libraries/plugins/export/ExportHtmlword.class.php:632
 #: libraries/plugins/export/ExportLatex.class.php:587
 #: libraries/plugins/export/ExportOdt.class.php:725
@@ -274,7 +274,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Veure el bolcat (esquema) de la base de dades"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:446
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:553
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Base de dades sense taules."
@@ -339,7 +339,7 @@ msgstr "Mida"
 msgid "in use"
 msgstr "en ús"
 
-#: db_printview.php:185 libraries/Util.class.php:4078
+#: db_printview.php:185 libraries/Util.class.php:4088
 #: libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
 #: libraries/structure.lib.php:798 libraries/structure.lib.php:1747
@@ -347,7 +347,7 @@ msgstr "en ús"
 msgid "Creation"
 msgstr "Creació"
 
-#: db_printview.php:194 libraries/Util.class.php:4084
+#: db_printview.php:194 libraries/Util.class.php:4094
 #: libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
 #: libraries/structure.lib.php:805 libraries/structure.lib.php:1754
@@ -355,7 +355,7 @@ msgstr "Creació"
 msgid "Last update"
 msgstr "Darrera actualització"
 
-#: db_printview.php:203 libraries/Util.class.php:4090
+#: db_printview.php:203 libraries/Util.class.php:4100
 #: libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
 #: libraries/structure.lib.php:812 libraries/structure.lib.php:1762
@@ -379,8 +379,8 @@ msgstr "Has de triar al menys una columna per mostrar"
 msgid "Switch to %svisual builder%s"
 msgstr "Canviar al %sconstructor visual%s"
 
-#: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
-#: libraries/plugins/auth/AuthenticationConfig.class.php:95
+#: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
+#: libraries/plugins/auth/AuthenticationConfig.class.php:96
 #: libraries/plugins/auth/AuthenticationCookie.class.php:587
 #: libraries/plugins/auth/AuthenticationHttp.class.php:65
 #: libraries/plugins/auth/AuthenticationSignon.class.php:253
@@ -449,7 +449,7 @@ msgid "Delete tracking data for this table"
 msgstr "Esborra les dades de seguiment per aquesta taula"
 
 #: db_tracking.php:103 libraries/Index.class.php:625
-#: libraries/Util.class.php:3445 libraries/Util.class.php:3446
+#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
 #: libraries/structure.lib.php:307 libraries/structure.lib.php:1378
 #: libraries/structure.lib.php:2042 libraries/structure.lib.php:2044
 #: server_databases.php:327
@@ -488,24 +488,24 @@ msgstr "Segueix taula"
 msgid "Database Log"
 msgstr "Registre de la base de dades"
 
-#: export.php:42
+#: export.php:147
 msgid "Bad type!"
 msgstr "Tipus incorrecte!"
 
-#: export.php:93
+#: export.php:198
 msgid "Selected export type has to be saved in file!"
 msgstr "El tipus d'exportació triat s'ha de desar en un arxiu!"
 
-#: export.php:122
+#: export.php:227
 msgid "Bad parameters!"
 msgstr "Paràmetres incorrectes!"
 
-#: export.php:226 export.php:257 export.php:815
+#: export.php:331 export.php:362 export.php:922
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "No hi ha prou espai per desar  l'arxiu %s."
 
-#: export.php:395
+#: export.php:502
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -513,12 +513,12 @@ msgstr ""
 "L'arxiu %s ja existeix al servidor, canvia el nom o marca l'opció de "
 "sobreescriure."
 
-#: export.php:401 export.php:407
+#: export.php:508 export.php:514
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "El servidor web no té permisos per a desar l'arxiu %s."
 
-#: export.php:821
+#: export.php:928
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "El bolcat s'ha desat amb el nom d'arxiu %s."
@@ -532,7 +532,7 @@ msgstr "Tipus d'exportació incorrecte"
 msgid "Value for the column \"%s\""
 msgstr "Valor per la columna \"%s\""
 
-#: gis_data_editor.php:140 tbl_gis_visualization.php:161
+#: gis_data_editor.php:140 tbl_gis_visualization.php:163
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Utilitzar OpenStreetMaps com a capa base"
 
@@ -614,7 +614,7 @@ msgstr ""
 "Tria \"GeomFromText\" de la columna \"Funció\" i enganxa la cadena següent "
 "al camp \"Valor\""
 
-#: import.php:105
+#: import.php:106
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -623,20 +623,20 @@ msgstr ""
 "Probablement has triat d'enviar un arxiu que és massa gran. Consulta la "
 "%sdocumentació%s per trobar formes de modificar aquest límit."
 
-#: import.php:248 import.php:513
+#: import.php:249 import.php:515
 msgid "Showing bookmark"
 msgstr "Mostrant consultes desades"
 
-#: import.php:263 import.php:509
+#: import.php:264 import.php:511
 msgid "The bookmark has been deleted."
 msgstr "S'ha esborrat la consulta desada."
 
-#: import.php:358 import.php:419 libraries/File.class.php:432
+#: import.php:359 import.php:420 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
 msgstr "No es pot llegir l'arxiu"
 
-#: import.php:367 import.php:378 import.php:399 import.php:410
+#: import.php:368 import.php:379 import.php:400 import.php:411
 #: libraries/File.class.php:604
 #, php-format
 msgid ""
@@ -646,7 +646,7 @@ msgstr ""
 "S'intenta carregar un arxiu amb una compresió no suportada (%s). O bé aquest "
 "suport no s'ha implementat encara o bé el teniu desactivat a la configuració."
 
-#: import.php:425
+#: import.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -656,29 +656,29 @@ msgstr ""
 "o el tamany de l'arxiu es més gran que el permès per la configuració del "
 "vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
 
-#: import.php:445
+#: import.php:446
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "No es pot convertir el joc de caracters de l'arxivu sense la biblioteca "
 "corresponent"
 
-#: import.php:482 libraries/display_import.lib.php:29
+#: import.php:484 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No es poden carregar les extensions d'importació, comprova l'instal.lació!"
 
-#: import.php:516 sql.php:395 sql.php:1243
+#: import.php:518 sql.php:395 sql.php:1243
 #, php-format
 msgid "Bookmark %s created"
 msgstr "%s creat com a Consulta desada"
 
-#: import.php:525 import.php:533
+#: import.php:527 import.php:539
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Importació finalitzada correctament, %d consultes executades."
 
-#: import.php:544
+#: import.php:554
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -686,7 +686,7 @@ msgstr ""
 "Temps exaurit de l'arxiu d'ordres, si voleu finalitzar l'importació, torneu "
 "a enviar el mateix arxiu a importar i el procés continuarà."
 
-#: import.php:548
+#: import.php:558
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -695,14 +695,14 @@ msgstr ""
 "indica que phpMyAdmin no ha pogut finalitzar aquesta importació a menys que "
 "incrementeu els límits de temps de php."
 
-#: import.php:579 libraries/DisplayResults.class.php:4547
+#: import.php:589 libraries/DisplayResults.class.php:4527
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:184
 #: tbl_relation.php:250 tbl_row_action.php:122 view_operations.php:56
 msgid "Your SQL query has been executed successfully"
 msgstr "La vostra comanda SQL ha estat executada amb èxit"
 
-#: import_status.php:101 libraries/Util.class.php:763
+#: import_status.php:101 libraries/Util.class.php:765
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:239
 msgid "Back"
 msgstr "Enrere"
@@ -784,14 +784,14 @@ msgid "Version information"
 msgstr "Informació de versió"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
-#: libraries/config/FormDisplay.tpl.php:147
+#: libraries/config/FormDisplay.tpl.php:145
 #: libraries/display_export.lib.php:281 libraries/engines/pbxt.lib.php:112
 #: libraries/navigation/NavigationHeader.class.php:229
 #: libraries/relation.lib.php:90 server_variables.php:137
 msgid "Documentation"
 msgstr "Documentació"
 
-#: index.php:339 libraries/config/FormDisplay.tpl.php:148
+#: index.php:339 libraries/config/FormDisplay.tpl.php:146
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -918,7 +918,7 @@ msgstr "Instrucció \"DROP DATABASE\" desactivada."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Realment vols fer \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:314 sql.php:477
+#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:477
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ets a punt de DESTRUIR completament una base de dades!"
 
@@ -1008,8 +1008,8 @@ msgstr "Tanca"
 
 #: js/messages.php:61 js/messages.php:273
 #: libraries/DisplayResults.class.php:3311 libraries/Index.class.php:591
-#: libraries/Util.class.php:697 libraries/Util.class.php:1242
-#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
+#: libraries/Util.class.php:699 libraries/Util.class.php:1244
+#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
 #: libraries/config/messages.inc.php:486
 #: libraries/schema/User_Schema.class.php:216 server_variables.php:130
 #: setup/frames/index.inc.php:147
@@ -1047,12 +1047,12 @@ msgid "Other"
 msgstr "Altre"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/Util.class.php:1511
+#: js/messages.php:72 libraries/Util.class.php:1513
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/Util.class.php:1513
+#: js/messages.php:74 libraries/Util.class.php:1515
 msgid "."
 msgstr "."
 
@@ -1158,39 +1158,39 @@ msgid "Processes"
 msgstr "Processos"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:108 libraries/Util.class.php:1457
+#: js/messages.php:108 libraries/Util.class.php:1459
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:109 libraries/Util.class.php:1459
+#: js/messages.php:109 libraries/Util.class.php:1461
 #: server_status_monitor.php:648
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:110 libraries/Util.class.php:1461
+#: js/messages.php:110 libraries/Util.class.php:1463
 #: server_status_monitor.php:649
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:111 libraries/Util.class.php:1463
+#: js/messages.php:111 libraries/Util.class.php:1465
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:112 libraries/Util.class.php:1465
+#: js/messages.php:112 libraries/Util.class.php:1467
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:113 libraries/Util.class.php:1467
+#: js/messages.php:113 libraries/Util.class.php:1469
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:114 libraries/Util.class.php:1469
+#: js/messages.php:114 libraries/Util.class.php:1471
 msgid "EiB"
 msgstr "EB"
 
@@ -1230,7 +1230,7 @@ msgid "Please add at least one variable to the series"
 msgstr "Afegeix al menys una variable a la serie"
 
 #: js/messages.php:126 libraries/DisplayResults.class.php:1288
-#: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
+#: libraries/TableSearch.class.php:840 libraries/TableSearch.class.php:984
 #: libraries/display_export.lib.php:371
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2114
@@ -1655,15 +1655,15 @@ msgstr "Amagar índex"
 msgid "Show indexes"
 msgstr "Mostra índex"
 
-#: js/messages.php:246 libraries/mult_submits.inc.php:327
+#: js/messages.php:246 libraries/mult_submits.inc.php:329
 msgid "Foreign key check:"
 msgstr "Comprovació de clau externa:"
 
-#: js/messages.php:247 libraries/mult_submits.inc.php:331
+#: js/messages.php:247 libraries/mult_submits.inc.php:333
 msgid "(Enabled)"
 msgstr "(Activat)"
 
-#: js/messages.php:248 libraries/mult_submits.inc.php:331
+#: js/messages.php:248 libraries/mult_submits.inc.php:333
 msgid "(Disabled)"
 msgstr "(Desactivat)"
 
@@ -1731,7 +1731,7 @@ msgstr "Mostrar quadre de consultes"
 msgid "No rows selected"
 msgstr "No s'han triat arxius"
 
-#: js/messages.php:275 libraries/DisplayResults.class.php:5067
+#: js/messages.php:275 libraries/DisplayResults.class.php:5047
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
 #: querywindow.php:85
 msgid "Change"
@@ -1747,7 +1747,7 @@ msgstr "Temps d'execució de la consulta"
 msgid "%d is not valid row number."
 msgstr "%d no és un num. vàlid de fila."
 
-#: js/messages.php:280 libraries/config/FormDisplay.tpl.php:394
+#: js/messages.php:280 libraries/config/FormDisplay.tpl.php:392
 #: libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
@@ -2041,63 +2041,63 @@ msgid "December"
 msgstr "Desembre"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/Util.class.php:1668
+#: js/messages.php:435 libraries/Util.class.php:1670
 msgid "Jan"
 msgstr "Gen"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/Util.class.php:1670
+#: js/messages.php:437 libraries/Util.class.php:1672
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/Util.class.php:1672
+#: js/messages.php:439 libraries/Util.class.php:1674
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/Util.class.php:1674
+#: js/messages.php:441 libraries/Util.class.php:1676
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/Util.class.php:1676
+#: js/messages.php:443 libraries/Util.class.php:1678
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/Util.class.php:1678
+#: js/messages.php:445 libraries/Util.class.php:1680
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/Util.class.php:1680
+#: js/messages.php:447 libraries/Util.class.php:1682
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/Util.class.php:1682
+#: js/messages.php:449 libraries/Util.class.php:1684
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:451 libraries/Util.class.php:1684
+#: js/messages.php:451 libraries/Util.class.php:1686
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:453 libraries/Util.class.php:1686
+#: js/messages.php:453 libraries/Util.class.php:1688
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:455 libraries/Util.class.php:1688
+#: js/messages.php:455 libraries/Util.class.php:1690
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1690
+#: js/messages.php:457 libraries/Util.class.php:1692
 msgid "Dec"
 msgstr "Des"
 
@@ -2135,32 +2135,32 @@ msgid "Sun"
 msgstr "Diu"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/Util.class.php:1695
+#: js/messages.php:478 libraries/Util.class.php:1697
 msgid "Mon"
 msgstr "Dll"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/Util.class.php:1697
+#: js/messages.php:480 libraries/Util.class.php:1699
 msgid "Tue"
 msgstr "Dma"
 
 #. l10n: Short week day name
-#: js/messages.php:482 libraries/Util.class.php:1699
+#: js/messages.php:482 libraries/Util.class.php:1701
 msgid "Wed"
 msgstr "Dcr"
 
 #. l10n: Short week day name
-#: js/messages.php:484 libraries/Util.class.php:1701
+#: js/messages.php:484 libraries/Util.class.php:1703
 msgid "Thu"
 msgstr "Dij"
 
 #. l10n: Short week day name
-#: js/messages.php:486 libraries/Util.class.php:1703
+#: js/messages.php:486 libraries/Util.class.php:1705
 msgid "Fri"
 msgstr "Div"
 
 #. l10n: Short week day name
-#: js/messages.php:488 libraries/Util.class.php:1705
+#: js/messages.php:488 libraries/Util.class.php:1707
 msgid "Sat"
 msgstr "Dis"
 
@@ -2252,7 +2252,7 @@ msgstr "Ha fallat l'execució de la prova per la regla '%s'"
 msgid "Failed formatting string for rule '%s'."
 msgstr "Error de format de cadena per a la regla '%s'."
 
-#: libraries/Advisor.class.php:378
+#: libraries/Advisor.class.php:390
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
@@ -2260,58 +2260,58 @@ msgstr ""
 "Declaració regla no vàlida a la línia %1$s, s'esperava la línia %2$s de la "
 "regla anterior"
 
-#: libraries/Advisor.class.php:395
+#: libraries/Advisor.class.php:407
 #, php-format
 msgid "Invalid rule declaration on line %s"
 msgstr "Declaració incorrecta de regla a la línia %s"
 
-#: libraries/Advisor.class.php:403
+#: libraries/Advisor.class.php:415
 #, php-format
 msgid "Unexpected characters on line %s"
 msgstr "Caràcters no esperats en la línia %s"
 
-#: libraries/Advisor.class.php:417
+#: libraries/Advisor.class.php:429
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
 "Caràcter inesperat en la línia %1$s. S'esperava una tabulació, però s'ha "
 "trobat \"%2$s\""
 
-#: libraries/Advisor.class.php:450 server_status_queries.php:86
+#: libraries/Advisor.class.php:462 server_status_queries.php:86
 msgid "per second"
 msgstr "per segon"
 
-#: libraries/Advisor.class.php:453 server_status_queries.php:82
+#: libraries/Advisor.class.php:465 server_status_queries.php:82
 msgid "per minute"
 msgstr "per minut"
 
-#: libraries/Advisor.class.php:456 server_status.php:143 server_status.php:212
+#: libraries/Advisor.class.php:468 server_status.php:143 server_status.php:212
 #: server_status_queries.php:79 server_status_queries.php:107
 msgid "per hour"
 msgstr "per hora"
 
-#: libraries/Advisor.class.php:459
+#: libraries/Advisor.class.php:471
 msgid "per day"
 msgstr "per dia"
 
-#: libraries/Config.class.php:1087
+#: libraries/Config.class.php:1110
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "No es pot llegir l'arxiu de configuració existent (%s)."
 
-#: libraries/Config.class.php:1117
+#: libraries/Config.class.php:1140
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisos incorrectes a l'arxiu de configuració, no pot ser modificable per "
 "tothom!"
 
-#: libraries/Config.class.php:1691
+#: libraries/Config.class.php:1714
 msgid "Font size"
 msgstr "Tamany de lletra"
 
 #: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1272
 #: libraries/DisplayResults.class.php:2007
-#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:806
+#: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:811
 #: libraries/operations.lib.php:630 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:202
 #: server_databases.php:219 server_status.php:420
@@ -2320,7 +2320,7 @@ msgstr "Ascendent"
 
 #: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1284
 #: libraries/DisplayResults.class.php:2002
-#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:807
+#: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:631 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:202
 #: server_databases.php:219 server_status.php:417
@@ -2352,7 +2352,7 @@ msgid "Use Tables"
 msgstr "Usa Taules"
 
 #: libraries/DBQbe.class.php:653 libraries/DBQbe.class.php:757
-#: libraries/TableSearch.class.php:774 libraries/insert_edit.lib.php:1184
+#: libraries/TableSearch.class.php:779 libraries/insert_edit.lib.php:1184
 #: libraries/server_privileges.lib.php:323 tbl_indexes.php:347
 msgid "Or"
 msgstr "O"
@@ -2378,7 +2378,7 @@ msgstr "Modificar"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Consulta SQL a la base de dades <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1271
+#: libraries/DBQbe.class.php:1336 libraries/Util.class.php:1273
 msgid "Submit Query"
 msgstr "Executa consulta"
 
@@ -2418,8 +2418,8 @@ msgstr[0] "%1$s resultat a <strong>%2$s</strong>"
 msgstr[1] "%1$s resultats a <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:346 libraries/Menu.class.php:250
-#: libraries/Util.class.php:3225 libraries/Util.class.php:3438
-#: libraries/Util.class.php:3439 libraries/structure.lib.php:1368
+#: libraries/Util.class.php:3227 libraries/Util.class.php:3440
+#: libraries/Util.class.php:3441 libraries/structure.lib.php:1368
 msgid "Browse"
 msgstr "Navega"
 
@@ -2429,7 +2429,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Esborrar les coincidències per a la taula %s?"
 
 #: libraries/DbSearch.class.php:357 libraries/DisplayResults.class.php:3382
-#: libraries/DisplayResults.class.php:5043
+#: libraries/DisplayResults.class.php:5023
 #: libraries/schema/User_Schema.class.php:217
 #: libraries/schema/User_Schema.class.php:299
 #: libraries/schema/User_Schema.class.php:352
@@ -2471,26 +2471,26 @@ msgstr "Desar dades editades"
 msgid "Restore column order"
 msgstr "Reataurar ordre de columnes"
 
-#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2554
-#: libraries/Util.class.php:2558
+#: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2556
+#: libraries/Util.class.php:2560
 msgctxt "First page"
 msgid "Begin"
 msgstr "Inici"
 
-#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2556
-#: libraries/Util.class.php:2559 server_binlog.php:141 server_binlog.php:143
+#: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2558
+#: libraries/Util.class.php:2561 server_binlog.php:141 server_binlog.php:143
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Pàgina anterior"
 
-#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2591
-#: libraries/Util.class.php:2594 server_binlog.php:174 server_binlog.php:176
+#: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2593
+#: libraries/Util.class.php:2596 server_binlog.php:174 server_binlog.php:176
 msgctxt "Next page"
 msgid "Next"
 msgstr "Pàgina següent"
 
-#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2592
-#: libraries/Util.class.php:2595
+#: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2594
+#: libraries/Util.class.php:2597
 msgctxt "Last page"
 msgid "End"
 msgstr "Darrera pàgina"
@@ -2528,7 +2528,7 @@ msgstr "Capceleres cada %s files"
 msgid "Sort by key"
 msgstr "Classifica per la clau"
 
-#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:748
+#: libraries/DisplayResults.class.php:1578 libraries/TableSearch.class.php:753
 #: libraries/import.lib.php:1195 libraries/import.lib.php:1221
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2545,8 +2545,7 @@ msgstr "Classifica per la clau"
 #: libraries/plugins/export/ExportTexytext.class.php:51
 #: libraries/plugins/export/ExportXml.class.php:81
 #: libraries/plugins/export/ExportYaml.class.php:50
-#: libraries/plugins/import/ImportCsv.class.php:64
-#: libraries/plugins/import/ImportLdi.class.php:70
+#: libraries/plugins/import/AbstractImportCsv.class.php:40
 #: libraries/plugins/import/ImportMediawiki.class.php:60
 #: libraries/plugins/import/ImportOds.class.php:58
 #: libraries/plugins/import/ImportShp.class.php:56
@@ -2605,19 +2604,19 @@ msgid "The row has been deleted"
 msgstr "S'ha esborrat la fila"
 
 #: libraries/DisplayResults.class.php:3409
-#: libraries/DisplayResults.class.php:5043 server_status.php:467
+#: libraries/DisplayResults.class.php:5023 server_status.php:467
 msgid "Kill"
 msgstr "Finalitzar"
 
-#: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4473 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4889
+#: libraries/DisplayResults.class.php:4869
 msgid "in query"
 msgstr "en consulta"
 
-#: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4906 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2625,21 +2624,21 @@ msgid ""
 msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
-#: libraries/DisplayResults.class.php:4939
+#: libraries/DisplayResults.class.php:4919
 msgid "Showing rows"
 msgstr "Mostrant registres"
 
-#: libraries/DisplayResults.class.php:4955
+#: libraries/DisplayResults.class.php:4935
 msgid "total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:4966 sql.php:946
+#: libraries/DisplayResults.class.php:4946 sql.php:946
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "La consulta tarda %01.4f seg"
 
-#: libraries/DisplayResults.class.php:5057
-#: libraries/DisplayResults.class.php:5063 libraries/mult_submits.inc.php:40
+#: libraries/DisplayResults.class.php:5037
+#: libraries/DisplayResults.class.php:5043 libraries/mult_submits.inc.php:42
 #: libraries/server_privileges.lib.php:2401
 #: libraries/server_privileges.lib.php:2404 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:293 libraries/structure.lib.php:295
@@ -2648,8 +2647,8 @@ msgstr "La consulta tarda %01.4f seg"
 msgid "With selected:"
 msgstr "Amb marca:"
 
-#: libraries/DisplayResults.class.php:5061
-#: libraries/DisplayResults.class.php:5062
+#: libraries/DisplayResults.class.php:5041
+#: libraries/DisplayResults.class.php:5042
 #: libraries/server_privileges.lib.php:779
 #: libraries/server_privileges.lib.php:2402
 #: libraries/server_privileges.lib.php:2403 libraries/structure.lib.php:281
@@ -2659,10 +2658,10 @@ msgstr "Amb marca:"
 msgid "Check All"
 msgstr "Marcar-ho tot"
 
-#: libraries/DisplayResults.class.php:5080
-#: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:279
+#: libraries/DisplayResults.class.php:5060
+#: libraries/DisplayResults.class.php:5258 libraries/Menu.class.php:279
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:478
-#: libraries/Util.class.php:3451 libraries/Util.class.php:3452
+#: libraries/Util.class.php:3453 libraries/Util.class.php:3454
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:94
 #: libraries/server_privileges.lib.php:1786
 #: libraries/server_privileges.lib.php:2408 libraries/structure.lib.php:297
@@ -2671,33 +2670,33 @@ msgstr "Marcar-ho tot"
 msgid "Export"
 msgstr "Exporta"
 
-#: libraries/DisplayResults.class.php:5178
+#: libraries/DisplayResults.class.php:5158
 msgid "Query results operations"
 msgstr "Operacions de resultats de consultes"
 
-#: libraries/DisplayResults.class.php:5202 libraries/Header.class.php:334
+#: libraries/DisplayResults.class.php:5182 libraries/Header.class.php:334
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1481
 msgid "Print view"
 msgstr "Imprimeix vista"
 
-#: libraries/DisplayResults.class.php:5220
+#: libraries/DisplayResults.class.php:5200
 msgid "Print view (with full texts)"
 msgstr "Vista d'impresió (amb texts sencers)"
 
-#: libraries/DisplayResults.class.php:5291 tbl_chart.php:151
+#: libraries/DisplayResults.class.php:5271 tbl_chart.php:151
 msgid "Display chart"
 msgstr "Mostra el gràfic"
 
-#: libraries/DisplayResults.class.php:5316
+#: libraries/DisplayResults.class.php:5296
 msgid "Visualize GIS data"
 msgstr "Visualitzar dades GIS"
 
-#: libraries/DisplayResults.class.php:5348 view_create.php:151
+#: libraries/DisplayResults.class.php:5328 view_create.php:151
 msgid "Create view"
 msgstr "Crea una vista"
 
-#: libraries/DisplayResults.class.php:5541
+#: libraries/DisplayResults.class.php:5517
 msgid "Link not found"
 msgstr "No s'ha trobat l'enllaç"
 
@@ -2764,13 +2763,13 @@ msgstr "Obrir nova finestra de phpMyAdmin"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
-#: libraries/Header.class.php:609
+#: libraries/Header.class.php:619
 #: libraries/plugins/auth/AuthenticationCookie.class.php:269
 msgid "Cookies must be enabled past this point."
 msgstr ""
 "A partir d'aquest punt és necessari tenir les galetes -cookies- activades."
 
-#: libraries/Header.class.php:614
+#: libraries/Header.class.php:624
 #: libraries/plugins/auth/AuthenticationCookie.class.php:172
 msgid "Javascript must be enabled past this point"
 msgstr "A partir d'aquest punt és necessari tenir el javascript activat"
@@ -2848,8 +2847,8 @@ msgid "View"
 msgstr "Vista"
 
 #: libraries/Menu.class.php:256 libraries/Menu.class.php:344
-#: libraries/Util.class.php:3221 libraries/Util.class.php:3228
-#: libraries/Util.class.php:3444 libraries/config/setup.forms.php:292
+#: libraries/Util.class.php:3223 libraries/Util.class.php:3230
+#: libraries/Util.class.php:3446 libraries/config/setup.forms.php:292
 #: libraries/config/setup.forms.php:329 libraries/config/setup.forms.php:355
 #: libraries/config/user_preferences.forms.php:195
 #: libraries/config/user_preferences.forms.php:232
@@ -2863,20 +2862,20 @@ msgid "Structure"
 msgstr "Estructura"
 
 #: libraries/Menu.class.php:260 libraries/Menu.class.php:349
-#: libraries/Menu.class.php:454 libraries/Util.class.php:3222
-#: libraries/Util.class.php:3229 libraries/config/messages.inc.php:212
+#: libraries/Menu.class.php:454 libraries/Util.class.php:3224
+#: libraries/Util.class.php:3231 libraries/config/messages.inc.php:212
 #: querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:273 libraries/Util.class.php:3224
-#: libraries/Util.class.php:3442 libraries/Util.class.php:3443
+#: libraries/Menu.class.php:273 libraries/Util.class.php:3226
+#: libraries/Util.class.php:3444 libraries/Util.class.php:3445
 #: libraries/sql_query_form.lib.php:291 libraries/sql_query_form.lib.php:294
 msgid "Insert"
 msgstr "Insereix"
 
 #: libraries/Menu.class.php:292 libraries/Menu.class.php:315
-#: libraries/Menu.class.php:379 libraries/Util.class.php:3231
+#: libraries/Menu.class.php:379 libraries/Util.class.php:3233
 #: view_operations.php:86
 msgid "Operations"
 msgstr "Operacions"
@@ -2963,7 +2962,7 @@ msgstr "Complements"
 msgid "Engines"
 msgstr "Motors"
 
-#: libraries/Message.class.php:199 libraries/Util.class.php:659
+#: libraries/Message.class.php:199 libraries/Util.class.php:661
 #: libraries/core.lib.php:232 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1180 tbl_chart.php:24 tbl_operations.php:186
 #: view_operations.php:57
@@ -3007,7 +3006,7 @@ msgstr "Taules recents"
 msgid "There are no recent tables"
 msgstr "No hi ha taules recents"
 
-#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:672
+#: libraries/ServerStatusData.class.php:181 libraries/Util.class.php:674
 #: server_status.php:340 sql.php:1113
 msgid "SQL query"
 msgstr "Consulta SQL"
@@ -3150,7 +3149,7 @@ msgstr "No s'ha trobat la base de dades destí `%s`!"
 msgid "Invalid database"
 msgstr "Base de dades incorrecte"
 
-#: libraries/Table.class.php:1178 tbl_get_field.php:30
+#: libraries/Table.class.php:1178 tbl_get_field.php:44
 msgid "Invalid table name"
 msgstr "Nom de taula incorrecte"
 
@@ -3199,7 +3198,7 @@ msgstr "Funció"
 msgid "Operator"
 msgstr "Operador"
 
-#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1186
+#: libraries/TableSearch.class.php:187 libraries/TableSearch.class.php:1191
 #: libraries/insert_edit.lib.php:1576 libraries/replication_gui.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1581 pmd_general.php:525
 #: pmd_general.php:584 pmd_general.php:707 pmd_general.php:824
@@ -3215,58 +3214,58 @@ msgstr "Cerca de taules"
 msgid "Edit/Insert"
 msgstr "Edita/Insereix"
 
-#: libraries/TableSearch.class.php:755
+#: libraries/TableSearch.class.php:760
 msgid "Select columns (at least one):"
 msgstr "Tria les columnes (una com a mínim):"
 
-#: libraries/TableSearch.class.php:775
+#: libraries/TableSearch.class.php:780
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "Afegeix condicions de recerca (cos de la clàusula \"where\" ):"
 
-#: libraries/TableSearch.class.php:787
+#: libraries/TableSearch.class.php:792
 msgid "Number of rows per page"
 msgstr "Número de registres per pàgina"
 
-#: libraries/TableSearch.class.php:797
+#: libraries/TableSearch.class.php:802
 msgid "Display order:"
 msgstr "Ordre del llistat:"
 
-#: libraries/TableSearch.class.php:833
+#: libraries/TableSearch.class.php:838
 msgid "Use this column to label each point"
 msgstr "Utilitza aquesta columna per etiquetar cada punt"
 
-#: libraries/TableSearch.class.php:854
+#: libraries/TableSearch.class.php:859
 msgid "Maximum rows to plot"
 msgstr "Màxim nombre de files a dibuixar"
 
-#: libraries/TableSearch.class.php:882 libraries/TableSearch.class.php:1154
+#: libraries/TableSearch.class.php:887 libraries/TableSearch.class.php:1159
 #: sql.php:172 tbl_change.php:236
 msgid "Browse foreign values"
 msgstr "Navega valors externs"
 
-#: libraries/TableSearch.class.php:971
+#: libraries/TableSearch.class.php:976
 msgid "Additional search criteria"
 msgstr "Criteri de cerca addicionals"
 
-#: libraries/TableSearch.class.php:1109
+#: libraries/TableSearch.class.php:1114
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
 "Fer una \"consulta segons exemple\" (comodí: \"%\") per a dos columnes "
 "diferents"
 
-#: libraries/TableSearch.class.php:1119
+#: libraries/TableSearch.class.php:1124
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
 
-#: libraries/TableSearch.class.php:1163
+#: libraries/TableSearch.class.php:1168
 msgid "Browse/Edit the points"
 msgstr "Veure / editar els punts"
 
-#: libraries/TableSearch.class.php:1170
+#: libraries/TableSearch.class.php:1175
 msgid "How to use"
 msgstr "Cóm utilitzar"
 
-#: libraries/TableSearch.class.php:1175
+#: libraries/TableSearch.class.php:1180
 msgid "Reset zoom"
 msgstr "Reinicia l'ampliació"
 
@@ -3648,7 +3647,7 @@ msgstr "Una enumeració, triada de la llista de valors definits"
 msgid "Max: %s%s"
 msgstr "Màx: %s%s"
 
-#: libraries/Util.class.php:716 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.class.php:718 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:300
 #: libraries/rte/rte_routines.lib.php:309
@@ -3661,117 +3660,117 @@ msgstr "Màx: %s%s"
 msgid "MySQL said: "
 msgstr "MySQL diu: "
 
-#: libraries/Util.class.php:1166
+#: libraries/Util.class.php:1168
 msgid "Failed to connect to SQL validator!"
 msgstr "No es pot connectar al validador SQL!"
 
-#: libraries/Util.class.php:1208 libraries/config/messages.inc.php:487
+#: libraries/Util.class.php:1210 libraries/config/messages.inc.php:487
 msgid "Explain SQL"
 msgstr "Explica SQL"
 
-#: libraries/Util.class.php:1216
+#: libraries/Util.class.php:1218
 msgid "Skip Explain SQL"
 msgstr "Salta l'explicació de l'SQL"
 
-#: libraries/Util.class.php:1256
+#: libraries/Util.class.php:1258
 msgid "Without PHP Code"
 msgstr "Sense codi PHP"
 
-#: libraries/Util.class.php:1259 libraries/config/messages.inc.php:489
+#: libraries/Util.class.php:1261 libraries/config/messages.inc.php:489
 msgid "Create PHP Code"
 msgstr "Crea codi PHP"
 
-#: libraries/Util.class.php:1285 libraries/config/messages.inc.php:488
+#: libraries/Util.class.php:1287 libraries/config/messages.inc.php:488
 #: server_status_variables.php:80
 msgid "Refresh"
 msgstr "Refresca"
 
-#: libraries/Util.class.php:1295
+#: libraries/Util.class.php:1297
 msgid "Skip Validate SQL"
 msgstr "Salta la Validació de l'SQL"
 
-#: libraries/Util.class.php:1298 libraries/config/messages.inc.php:491
+#: libraries/Util.class.php:1300 libraries/config/messages.inc.php:491
 msgid "Validate SQL"
 msgstr "Valida l'SQL"
 
-#: libraries/Util.class.php:1360
+#: libraries/Util.class.php:1362
 msgid "Inline edit of this query"
 msgstr "Editar aquesta consulta en línia"
 
-#: libraries/Util.class.php:1362
+#: libraries/Util.class.php:1364
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "En línia"
 
-#: libraries/Util.class.php:1430 sql.php:1177
+#: libraries/Util.class.php:1432 sql.php:1177
 msgid "Profiling"
 msgstr "Perfils"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1693
+#: libraries/Util.class.php:1695
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Diu"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1709
+#: libraries/Util.class.php:1711
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d-%m-%Y a les %H:%M:%S"
 
-#: libraries/Util.class.php:2055
+#: libraries/Util.class.php:2057
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dies, %s hores, %s minuts i %s segons"
 
-#: libraries/Util.class.php:2144
+#: libraries/Util.class.php:2146
 msgid "Missing parameter:"
 msgstr "Falta paràmetre:"
 
-#: libraries/Util.class.php:2664
+#: libraries/Util.class.php:2666
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Vés a la base de dades &quot;%s&quot;."
 
-#: libraries/Util.class.php:2688
+#: libraries/Util.class.php:2690
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "La funcionalitat %s es veu afectada per un error conegut, veieu %s"
 
-#: libraries/Util.class.php:2864
+#: libraries/Util.class.php:2866
 msgid "Click to toggle"
 msgstr "Prem per canviar"
 
-#: libraries/Util.class.php:3357 libraries/sql_query_form.lib.php:455
+#: libraries/Util.class.php:3359 libraries/sql_query_form.lib.php:455
 #: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Navega al teu ordinador:"
 
-#: libraries/Util.class.php:3382
+#: libraries/Util.class.php:3384
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 "Selecciona des del directori de pujada d'arxius del servidor web <b>%s</b>:"
 
-#: libraries/Util.class.php:3411 libraries/insert_edit.lib.php:1181
+#: libraries/Util.class.php:3413 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:464
 msgid "The directory you set for upload work cannot be reached"
 msgstr "No està disponible el directori indicat per pujar arxius"
 
-#: libraries/Util.class.php:3422
+#: libraries/Util.class.php:3424
 msgid "There are no files to upload"
 msgstr "No hi ha cap arxiu per pujar"
 
-#: libraries/Util.class.php:3447 libraries/Util.class.php:3448
+#: libraries/Util.class.php:3449 libraries/Util.class.php:3450
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Buida"
 
-#: libraries/Util.class.php:3453 libraries/Util.class.php:3454
+#: libraries/Util.class.php:3455 libraries/Util.class.php:3456
 msgid "Execute"
 msgstr "Executar"
 
-#: libraries/Util.class.php:3977
+#: libraries/Util.class.php:3987
 msgid "Print"
 msgstr "Imprimeix"
 
@@ -3906,7 +3905,7 @@ msgid "Double click"
 msgstr "Doble clic"
 
 #: libraries/config.values.php:71 libraries/config.values.php:102
-#: libraries/config/FormDisplay.tpl.php:225 libraries/relation.lib.php:98
+#: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
 #: libraries/relation.lib.php:105 pmd_relation_new.php:82
 msgid "Disabled"
 msgstr "Desactivat"
@@ -4043,25 +4042,25 @@ msgstr "No s'ha trobat l'extensió SOAP"
 msgid "maximum %s"
 msgstr "màxim %s"
 
-#: libraries/config/FormDisplay.tpl.php:223
+#: libraries/config/FormDisplay.tpl.php:221
 msgid "This setting is disabled, it will not be applied to your configuration"
 msgstr "Aquesta opció està desactivada, no s'aplicarà a la teva configuració"
 
-#: libraries/config/FormDisplay.tpl.php:311
+#: libraries/config/FormDisplay.tpl.php:309
 #, php-format
 msgid "Set value: %s"
 msgstr "Estableix valor: %s"
 
-#: libraries/config/FormDisplay.tpl.php:316
+#: libraries/config/FormDisplay.tpl.php:314
 #: libraries/config/messages.inc.php:359
 msgid "Restore default value"
 msgstr "Restaura el valor per defecte"
 
-#: libraries/config/FormDisplay.tpl.php:330
+#: libraries/config/FormDisplay.tpl.php:328
 msgid "Allow users to customize this value"
 msgstr "Permet als usuaris configurar aquest valor"
 
-#: libraries/config/FormDisplay.tpl.php:396 libraries/insert_edit.lib.php:1549
+#: libraries/config/FormDisplay.tpl.php:394 libraries/insert_edit.lib.php:1549
 #: libraries/schema/User_Schema.class.php:555 prefs_manage.php:320
 #: prefs_manage.php:325
 msgid "Reset"
@@ -4323,7 +4322,7 @@ msgid "Character set of the file"
 msgstr "Joc de caràcters de l'arxiu"
 
 #: libraries/config/messages.inc.php:70 libraries/config/messages.inc.php:86
-#: libraries/structure.lib.php:1682 tbl_gis_visualization.php:176
+#: libraries/structure.lib.php:1682 tbl_gis_visualization.php:181
 #: tbl_printview.php:350
 msgid "Format"
 msgstr "Format"
@@ -4349,13 +4348,13 @@ msgstr "Posa els noms de columnes a la primera fila"
 
 #: libraries/config/messages.inc.php:73 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250
-#: libraries/plugins/import/ImportCsv.class.php:194
+#: libraries/plugins/import/ImportCsv.class.php:141
 msgid "Columns enclosed by"
 msgstr "Columnes englobades per"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251
-#: libraries/plugins/import/ImportCsv.class.php:201
+#: libraries/plugins/import/ImportCsv.class.php:148
 msgid "Columns escaped by"
 msgstr "Columnes amb marca d'escapada"
 
@@ -4373,12 +4372,12 @@ msgstr "Treu caràcters CRLF de dins de les columnes"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255
-#: libraries/plugins/import/ImportCsv.class.php:179
+#: libraries/plugins/import/ImportCsv.class.php:126
 msgid "Columns terminated by"
 msgstr "Columnes acabades amb"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:242
-#: libraries/plugins/import/ImportCsv.class.php:208
+#: libraries/plugins/import/ImportCsv.class.php:155
 msgid "Lines terminated by"
 msgstr "Línies acabades amb"
 
@@ -4917,12 +4916,12 @@ msgid "Partial import: allow interrupt"
 msgstr "Importació parcial: permet interrompre"
 
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
+#: libraries/plugins/import/ImportLdi.class.php:71
 msgid "Do not abort on INSERT error"
 msgstr "No avortar en cas d'error d' INSERT"
 
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
-#: libraries/plugins/import/ImportCsv.class.php:78
-#: libraries/plugins/import/ImportLdi.class.php:84
+#: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Canviar les dades de la taula per l'arxiu"
 
@@ -4939,6 +4938,7 @@ msgid "Format of imported file"
 msgstr "Format de l'arxiu importat"
 
 #: libraries/config/messages.inc.php:253
+#: libraries/plugins/import/ImportLdi.class.php:76
 msgid "Use LOCAL keyword"
 msgstr "Usa clau LOCAL"
 
@@ -7067,7 +7067,7 @@ msgid "No data found for GIS visualization."
 msgstr "No s'han trobat dades per a visualització GIS."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:41
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
 
@@ -7206,40 +7206,40 @@ msgstr "Cap"
 msgid "Convert to Kana"
 msgstr "Converteix a Kana"
 
-#: libraries/mult_submits.inc.php:277 libraries/structure.lib.php:321
+#: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:321
 msgid "Replace table prefix"
 msgstr "Canvia el prefix de la taula"
 
-#: libraries/mult_submits.inc.php:277 libraries/structure.lib.php:323
+#: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:323
 msgid "Copy table with prefix"
 msgstr "Copia la taula amb prefix"
 
-#: libraries/mult_submits.inc.php:280
+#: libraries/mult_submits.inc.php:282
 msgid "From"
 msgstr "De"
 
-#: libraries/mult_submits.inc.php:283
+#: libraries/mult_submits.inc.php:285
 msgid "To"
 msgstr "A"
 
-#: libraries/mult_submits.inc.php:289 libraries/mult_submits.inc.php:306
+#: libraries/mult_submits.inc.php:291 libraries/mult_submits.inc.php:308
 #: libraries/sql_query_form.lib.php:407
 msgid "Submit"
 msgstr "Envia"
 
-#: libraries/mult_submits.inc.php:297
+#: libraries/mult_submits.inc.php:299
 msgid "Add table prefix"
 msgstr "Afegir prefix de taula"
 
-#: libraries/mult_submits.inc.php:300
+#: libraries/mult_submits.inc.php:302
 msgid "Add prefix"
 msgstr "Afegir prefix"
 
-#: libraries/mult_submits.inc.php:316 sql.php:517
+#: libraries/mult_submits.inc.php:318 sql.php:517
 msgid "Do you really want to execute the following query?"
 msgstr "Realment vols executar la següent consulta?"
 
-#: libraries/mult_submits.inc.php:559 tbl_replace.php:247
+#: libraries/mult_submits.inc.php:576 tbl_replace.php:247
 msgid "No change"
 msgstr "Sense canvis"
 
@@ -7721,14 +7721,14 @@ msgstr "Aquest format no té opcions"
 msgid "Cannot connect: invalid settings."
 msgstr "No puc connectar: paràmetres incorrectes."
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:85
+#: libraries/plugins/auth/AuthenticationConfig.class.php:86
 #: libraries/plugins/auth/AuthenticationCookie.class.php:160
 #: libraries/plugins/auth/AuthenticationHttp.class.php:70
 #, php-format
 msgid "Welcome to %s"
 msgstr "Benvingut a %s"
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:101
+#: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -7737,7 +7737,7 @@ msgstr ""
 "La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
 "Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
 
-#: libraries/plugins/auth/AuthenticationConfig.class.php:121
+#: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -7748,6 +7748,10 @@ msgstr ""
 "ha rebutjat la connexió. Comprova el host, el nom d'usuari i la contrasenya "
 "a l'arxiu config.inc.php i mira que es correspongui amb l'informació "
 "facilitada per l'administrador del servidor de MySQL."
+
+#: libraries/plugins/auth/AuthenticationConfig.class.php:142
+msgid "Retry to connect"
+msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7830,22 +7834,22 @@ msgid "Authenticating…"
 msgstr "Autenticant…"
 
 #: libraries/plugins/export/ExportCsv.class.php:93
-#: libraries/plugins/import/ImportCsv.class.php:82
+#: libraries/plugins/import/AbstractImportCsv.class.php:59
 msgid "Columns separated with:"
 msgstr "Columnes separades amb:"
 
 #: libraries/plugins/export/ExportCsv.class.php:97
-#: libraries/plugins/import/ImportCsv.class.php:88
+#: libraries/plugins/import/AbstractImportCsv.class.php:65
 msgid "Columns enclosed with:"
 msgstr "Columnes englobades per:"
 
 #: libraries/plugins/export/ExportCsv.class.php:101
-#: libraries/plugins/import/ImportCsv.class.php:94
+#: libraries/plugins/import/AbstractImportCsv.class.php:71
 msgid "Columns escaped with:"
 msgstr "Columnes amb marca d'escapada:"
 
 #: libraries/plugins/export/ExportCsv.class.php:105
-#: libraries/plugins/import/ImportCsv.class.php:100
+#: libraries/plugins/import/AbstractImportCsv.class.php:77
 msgid "Lines terminated with:"
 msgstr "Línies acabades amb:"
 
@@ -8158,7 +8162,7 @@ msgstr "Opcions de creació d'objectes (es recomanen totes)"
 msgid "Export contents"
 msgstr "Exporta contingut"
 
-#: libraries/plugins/import/ImportCsv.class.php:109
+#: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:74
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -8167,7 +8171,7 @@ msgstr ""
 "La primera línia de l'arxiu conté els noms de les columnes de la taula <i>"
 "(si no es marca això, la primera línia formarà part de les dades)</i>"
 
-#: libraries/plugins/import/ImportCsv.class.php:118
+#: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -8177,19 +8181,20 @@ msgstr ""
 "de dades, especifica els corresponents noms aquí. Els noms de columna s'han "
 "de separar amb comes i no poden estar inclosos entre cometes."
 
-#: libraries/plugins/import/ImportCsv.class.php:127
+#: libraries/plugins/import/ImportCsv.class.php:81
+#: libraries/plugins/import/ImportLdi.class.php:66
 msgid "Column names: "
 msgstr "Nom de les columnes:"
 
-#: libraries/plugins/import/ImportCsv.class.php:177
-#: libraries/plugins/import/ImportCsv.class.php:192
-#: libraries/plugins/import/ImportCsv.class.php:199
-#: libraries/plugins/import/ImportCsv.class.php:206
+#: libraries/plugins/import/ImportCsv.class.php:124
+#: libraries/plugins/import/ImportCsv.class.php:139
+#: libraries/plugins/import/ImportCsv.class.php:146
+#: libraries/plugins/import/ImportCsv.class.php:153
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Paràmetre incorrecte per importació CSV: %s"
 
-#: libraries/plugins/import/ImportCsv.class.php:257
+#: libraries/plugins/import/ImportCsv.class.php:204
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -8199,18 +8204,18 @@ msgstr ""
 "s'han escrit correctament, separats per comes i sense incloure'ls entre "
 "cometes."
 
-#: libraries/plugins/import/ImportCsv.class.php:325
-#: libraries/plugins/import/ImportCsv.class.php:600
+#: libraries/plugins/import/ImportCsv.class.php:272
+#: libraries/plugins/import/ImportCsv.class.php:547
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format incorrecte a l'entrada CSV a la línia %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:481
+#: libraries/plugins/import/ImportCsv.class.php:428
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 
-#: libraries/plugins/import/ImportLdi.class.php:125
+#: libraries/plugins/import/ImportLdi.class.php:110
 msgid "This plugin does not support compressed imports!"
 msgstr "Aquesta extensió no suporta importacions comprimides!"
 
@@ -9927,12 +9932,12 @@ msgstr "Utilització d'espai"
 msgid "Effective"
 msgstr "Efectiu"
 
-#: libraries/structure.lib.php:2357 tbl_addfield.php:192 tbl_indexes.php:112
+#: libraries/structure.lib.php:2357 tbl_addfield.php:197 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr "S'ha modificat la taula %1$s correctament"
 
-#: libraries/structure.lib.php:2402 tbl_tracking.php:456 tbl_tracking.php:480
+#: libraries/structure.lib.php:2404 tbl_tracking.php:456 tbl_tracking.php:480
 msgid "Query error"
 msgstr "Error de consulta"
 
@@ -11719,7 +11724,7 @@ msgid "Global value"
 msgstr "Valor global"
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:244
-#: tbl_gis_visualization.php:189
+#: tbl_gis_visualization.php:194
 msgid "Download"
 msgstr "Descarrega"
 
@@ -12178,7 +12183,7 @@ msgstr "Etiqueta de l'eix Y:"
 msgid "Table %s already exists!"
 msgstr "La taula %s ja existeix!"
 
-#: tbl_create.php:56 tbl_get_field.php:23
+#: tbl_create.php:56 tbl_get_field.php:37
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "la base de dades '%s' no existeix."
@@ -12212,7 +12217,7 @@ msgstr "Columna espacial"
 msgid "Redraw"
 msgstr "Redibuixa"
 
-#: tbl_gis_visualization.php:173
+#: tbl_gis_visualization.php:178
 msgid "File name"
 msgstr "Nom de l'arxiu"
 
@@ -12307,7 +12312,13 @@ msgstr "Nom de la restricció"
 msgid "No index defined! Create one below"
 msgstr "No s'ha definit l'índex! Crea un a baix"
 
-#: tbl_structure.php:144
+#: tbl_structure.php:125
+#, fuzzy
+#| msgid "No rows selected"
+msgid "No column selected."
+msgstr "No s'han triat arxius"
+
+#: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "El nom de columna '%s' és una paraula clau reservada de MySQL."
