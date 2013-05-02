@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-04-27 11:34+0200\n"
-"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2013-05-02 12:47+0200\n"
+"Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -846,7 +846,6 @@ msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Konfigurationsfilen behöver nu ett hemligt lösenord (blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -858,8 +857,9 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "Katalogen [code]config[/code], som används av installationsskriptet, finns "
-"fortfarande i din phpMyAdmin-katalog. Du borde ta bort den när phpMyAdmin "
-"har konfigurerats."
+"fortfarande i din phpMyAdmin-katalog. Det rekommenderas kraftigt att ta bort "
+"den när phpMyAdmin har konfigurerats. I annat fall kan din servers säkerhet "
+"hotas av obehöriga som laddar ner din konfiguration."
 
 #: index.php:470
 #, php-format
@@ -5781,7 +5781,6 @@ msgid "Display columns table"
 msgstr "Visa tabellkolumner"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -5789,8 +5788,9 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av \"ihållande\" tabellers UI-preferenser som "
-"sparas över sessioner, förslag: [kbd]pma__table_uiprefs[/kbd]"
+"Lämna tomt för att stänga av \"ihållande\" tabellers "
+"användargränssnittspreferenser som sparas över sessioner, förslag: "
+"[kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:436
 msgid "UI preferences table"
@@ -9455,6 +9455,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Ett konto existerar redan med samma användarnamn men möjligen ett annat "
+"värdnamn. Är du säker att du vill fortsätta?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -12366,10 +12368,9 @@ msgid "Choose column to display:"
 msgstr "Välj kolumn att visa:"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Inga rader valda"
+msgstr "Ingen kolumn vald."
 
 #: tbl_structure.php:149
 #, php-format
