@@ -1007,7 +1007,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     exit();
     // end no rows returned
 } else {
-    $html_output=''
+    $html_output='';
     // At least one row is returned -> displays a table with results
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
@@ -1075,7 +1075,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 $result, $disp_mode, $analyzed_sql
             );
             $response = PMA_Response::getInstance();
-            $response->addHTML($html_output)
+            $response->addHTML($html_output);
             exit();
         }
     }
@@ -1346,7 +1346,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     } // end print case
     $html_output .= '</div>'; // end sqlqueryresults div
     $response = PMA_Response::getInstance();
-    $response->addHTML($html_output)
+    $response->addHTML($html_output);
 } // end rows returned
 
 $_SESSION['is_multi_query'] = false;
