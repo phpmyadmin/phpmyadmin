@@ -255,17 +255,17 @@ function PMA_isGzHandlerEnabled()
 
 /**
  * Detect whether gzencode is needed; it might not be needed if
- * the server is already compressing by itself 
+ * the server is already compressing by itself
  *
- * @return bool Whether gzencode is needed 
+ * @return bool Whether gzencode is needed
  */
 function PMA_gzencodeNeeded()
 {
+    // Here, we detect Apache's mod_deflate so we bet that
+    // this module is active for this instance of phpMyAdmin
+    // and therefore, will gzip encode the content
     if (@function_exists('gzencode')
         && ! @ini_get('zlib.output_compression')
-        // Here, we detect Apache's mod_deflate so we bet that
-        // this module is active for this instance of phpMyAdmin
-        // and therefore, will gzip encode the content
         && ! (function_exists('apache_get_modules')
             && in_array('mod_deflate', apache_get_modules()))
         && ! PMA_isGzHandlerEnabled()
@@ -318,7 +318,7 @@ function PMA_exportOutputHandler($line)
                 ) {
                     $dump_buffer = bzcompress($dump_buffer);
                 } elseif ($GLOBALS['compression'] == 'gzip'
-                     && PMA_gzencodeNeeded() 
+                     && PMA_gzencodeNeeded()
                 ) {
                     // as a gzipped file
                     // without the optional parameter level because it bugs
@@ -959,15 +959,15 @@ if (! empty($asfile)) {
     echo "\n";
     echo '</div>' . "\n";
     echo "\n";
-?>
-<script type="text/javascript">
-//<![CDATA[
-    var $body = $("body");
-    $("#textSQLDUMP")
-        .width($body.width() - 50)
-        .height($body.height() - 100);
-//]]>
-</script>
-<?php
+    ?>
+    <script type="text/javascript">
+    //<![CDATA[
+        var $body = $("body");
+        $("#textSQLDUMP")
+            .width($body.width() - 50)
+            .height($body.height() - 100);
+    //]]>
+    </script>
+    <?php
 } // end if
 ?>
