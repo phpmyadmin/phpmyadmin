@@ -74,7 +74,10 @@ class Advisor
     {
         $this->runResult['errors'][] = $description
             . ' '
-            . sprintf(__('PHP threw following error: %s'), $exception->getMessage());
+            . sprintf(
+                __('PHP threw following error: %s'),
+                $exception->getMessage()
+            );
     }
 
     /**
@@ -239,7 +242,8 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php?' . PMA_generate_common_url() . '&filter=\1">\1</a>',
+                '<a href="server_variables.php?' . PMA_generate_common_url()
+                . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
 
@@ -351,7 +355,8 @@ class Advisor
         // Error handling
         if ($err) {
             throw new Exception(
-                strip_tags($err) . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
+                strip_tags($err)
+                . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
         return $value;
