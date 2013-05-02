@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.4-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-10-16 14:37+0200\n"
-"PO-Revision-Date: 2013-04-29 07:36+0200\n"
+"PO-Revision-Date: 2013-05-02 10:37+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
 "Language: ko\n"
@@ -3134,7 +3134,7 @@ msgstr "양수가 아닙니다."
 #: libraries/config/FormDisplay.class.php:84
 #: libraries/config/validate.lib.php:450
 msgid "Not a non-negative number"
-msgstr "음수가 아닙니다."
+msgstr "음수가 아닙니다"
 
 #: libraries/config/FormDisplay.class.php:85
 #: libraries/config/validate.lib.php:426
@@ -6243,13 +6243,12 @@ msgstr "열(컬럼) 구분자:"
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "열(컬럼) 감싸기"
+msgstr "열(컬럼) 감싸기:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "열(컬럼) 특수문자(escape) 처리"
+msgstr "열(컬럼) 특수문자 처리(escape) 방법:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 #, fuzzy
@@ -7491,13 +7490,13 @@ msgstr "필드 추가하기"
 #: libraries/rte/rte_words.lib.php:22
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "루틴(routine)을 작성하는데 필요한 권한을 가지고 있지 않습니다."
+msgstr "루틴을 작성하는데 필요한 권한을 가지고 있지 않습니다"
 
 #: libraries/rte/rte_words.lib.php:23
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
-msgstr "데이터베이스에 테이블이 없습니다."
+msgstr "데이터베이스 %2$s 에 %1$s 라는 이름의 루틴이 없음"
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
@@ -7519,7 +7518,7 @@ msgstr "트리거"
 #: libraries/rte/rte_words.lib.php:34
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다."
+msgstr "트리거를 생성하는데 필요한 권한을 가지고 있지 않습니다"
 
 #: libraries/rte/rte_words.lib.php:35
 #, fuzzy, php-format
@@ -8124,7 +8123,7 @@ msgstr ""
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
-msgstr "구성이 저장되었습니다."
+msgstr "설정 저장 완료"
 
 #: libraries/user_preferences.inc.php:71
 #, php-format
@@ -9249,7 +9248,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 설정되었다는 안내 메시지를 볼 수 있을겁니다"
+"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 <b>설정되었다</b>는 안내 메시지를 볼 수 "
+"있을겁니다"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
