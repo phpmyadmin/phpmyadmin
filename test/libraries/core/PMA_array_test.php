@@ -1,7 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(), PMA_arrayMergeRecursive(),
+ * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
+ * PMA_arrayMergeRecursive(),
  * PMA_arrayWalkRecursive() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
@@ -12,7 +13,7 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_array_test extends PHPUnit_Framework_TestCase
+class PMA_Array_Test extends PHPUnit_Framework_TestCase
 {
     function testPMA_arrayRead()
     {
@@ -20,36 +21,81 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
-        $this->assertEquals(PMA_arrayRead('int', $arr), $arr['int']);
+        $this->assertEquals(
+            PMA_arrayRead('int', $arr),
+            $arr['int']
+        );
 
-        $this->assertEquals(PMA_arrayRead('str', $arr), $arr['str']);
+        $this->assertEquals(
+            PMA_arrayRead('str', $arr),
+            $arr['str']
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/0', $arr), $arr['arr'][0]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/0', $arr),
+            $arr['arr'][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/1', $arr), $arr['arr'][1]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/1', $arr),
+            $arr['arr'][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('arr/2', $arr), $arr['arr'][2]);
+        $this->assertEquals(
+            PMA_arrayRead('arr/2', $arr),
+            $arr['arr'][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/0', $arr), $arr['sarr']['arr1'][0]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/0', $arr),
+            $arr['sarr']['arr1'][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/1', $arr), $arr['sarr']['arr1'][1]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/1', $arr),
+            $arr['sarr']['arr1'][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/arr1/2', $arr), $arr['sarr']['arr1'][2]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/arr1/2', $arr),
+            $arr['sarr']['arr1'][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/0', $arr), $arr['sarr'][0][0]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/0', $arr),
+            $arr['sarr'][0][0]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/1', $arr), $arr['sarr'][0][1]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/1', $arr),
+            $arr['sarr'][0][1]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/0/1/2', $arr), $arr['sarr'][0][1][2]);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/0/1/2', $arr),
+            $arr['sarr'][0][1][2]
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr), null);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr),
+            null
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr, 0), 0);
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr, 0),
+            0
+        );
 
-        $this->assertEquals(PMA_arrayRead('sarr/not_exiting/1', $arr, 'defailt_val'), 'defailt_val');
+        $this->assertEquals(
+            PMA_arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
+            'default_val'
+        );
     }
 
     function testPMA_arrayWrite()
@@ -58,7 +104,10 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
         PMA_arrayWrite('int', $arr, 5);
@@ -104,7 +153,10 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "int" => 1,
             "str" => "str_val",
             "arr" => array('val1', 'val2', 'val3'),
-            "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
+            "sarr" => array(
+                'arr1' => array(1, 2, 3),
+                array(3, array('a', 'b', 'c'), 4)
+            )
         );
 
         PMA_arrayRemove('int', $arr);

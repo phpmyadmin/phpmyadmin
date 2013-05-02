@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
+class PMA_WhichCrlf_Test extends PHPUnit_Framework_TestCase
 {
 
     /**

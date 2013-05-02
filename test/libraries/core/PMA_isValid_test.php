@@ -11,7 +11,7 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_isValid_test extends PHPUnit_Framework_TestCase
+class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
 {
     public static function providerNoVarTypeProvider()
     {

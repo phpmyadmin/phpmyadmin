@@ -13,7 +13,7 @@ require_once 'libraries/Error.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
-class PMA_Error_test extends PHPUnit_Framework_TestCase
+class PMA_Error_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

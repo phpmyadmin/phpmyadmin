@@ -13,7 +13,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/sqlparser.data.php';
 
-class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
+class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -22,7 +22,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testAddSlashes()
     {
         $string = "\'test''\''\'\r\t\n";
-        
+
         $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_Util::sqlAddSlashes($string, true, true, true));
         $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", PMA_Util::sqlAddSlashes($string, true, true, false));
         $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", PMA_Util::sqlAddSlashes($string, true, false, true));

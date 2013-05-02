@@ -13,7 +13,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_formatNumberByteDown_test extends PHPUnit_Framework_TestCase
+class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * temporary variable for globals array

@@ -11,7 +11,7 @@
  */
 require_once 'libraries/core.lib.php';
 
-class PMA_ifSetOr_test extends PHPUnit_Framework_TestCase
+class PMA_IfSetOr_Test extends PHPUnit_Framework_TestCase
 {
     public function testVarSet()
     {

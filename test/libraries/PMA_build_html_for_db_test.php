@@ -21,7 +21,7 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
-class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
+class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.

@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_cache_test extends PHPUnit_Framework_TestCase
+class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -49,7 +49,7 @@ class PMA_cache_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test if PMA_Util::cacheGet does not return data for non existing caache entries
+     * Test if PMA_Util::cacheGet does not return data for non existing cache entries
      */
     public function testCacheGet()
     {

@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_unsupportedDatatypes_test extends PHPUnit_Framework_TestCase
+class PMA_UnsupportedDatatypes_Test extends PHPUnit_Framework_TestCase
 {
 
     function testNotSupportedDataTypes()

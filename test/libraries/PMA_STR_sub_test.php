@@ -8,7 +8,7 @@
 
 require_once 'libraries/string.lib.php';
 
-class PMA_STR_sub_test extends PHPUnit_Framework_TestCase
+class PMA_STR_Sub_Test extends PHPUnit_Framework_TestCase
 {
     public function testMultiByte()
     {

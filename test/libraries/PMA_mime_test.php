@@ -12,7 +12,7 @@
 
 require_once 'libraries/mime.lib.php';
 
-class PMA_mime_test extends PHPUnit_Framework_TestCase
+class PMA_MIME_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test for PMA_detectMIME

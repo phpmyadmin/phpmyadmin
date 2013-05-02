@@ -12,7 +12,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/File.class.php';
 
-class PMA_File_test extends PHPUnit_Framework_TestCase
+class PMA_File_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
