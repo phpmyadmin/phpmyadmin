@@ -31,15 +31,18 @@ foreach ($drops as $each_drop) {
     }
 }
 unset($drops, $each_drop);
-
+unset($_SESSION['redirected']);
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
-    if($_REQUEST['target'] == "import.php")
-         $_SESSION['redirected'] = true;  //let's store that we have redirected from index
+    if ($_REQUEST['target'] == "import.php") {
+        $_SESSION['redirected'] = true;  // let's store that we have redirected from index
+        $GLOBALS['db'] = $_SESSION['dbase'];
+        $GLOBALS['table'] = $_SESSION['table'];
+    }
     include $_REQUEST['target'];
     exit;
 }
