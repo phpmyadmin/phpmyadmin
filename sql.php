@@ -995,8 +995,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         if (strlen($goto) > 0){
         	$active_page = $goto;
         	include '' . $goto;
-        }
-        else{
+        } else {
         	echo " ";
         }
         
