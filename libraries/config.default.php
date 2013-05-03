@@ -168,6 +168,15 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['controlhost'] = '';
 
 /**
+ * MySQL control port. This permits to use a port different than the
+ * main port, for the phpMyAdmin configuration storage. If left empty,
+ * $cfg['Servers'][$i]['port'] is used instead.
+ *
+ * @global string $cfg['Servers'][$i]['controlport']
+ */
+$cfg['Servers'][$i]['controlport'] = '';
+
+/**
  * MySQL control user settings (this user must have read-only
  * access to the "mysql/user" and "mysql/db" tables). The controluser is also
  * used for all relational features (pmadb)

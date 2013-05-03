@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 + Break server_status.php functions into smaller functions
 + PMA_DBI functions in database_interface.lib.php renamed to be compliant with PEAR standards
 + [interface] Make warning about existing config directory clearer
++ rfe #1414 Allow specifying crontrolport
 
 4.0.1.0 (not yet released)
 - bug #3879 Import broken for CSV using LOAD DATA
