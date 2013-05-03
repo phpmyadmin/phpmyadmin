@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.0.0.0 (not yet released)
+4.0.0.0 (2013-05-03)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
 + Patch #3480999 Activate codemirror in the query window
 - Patch #3495284 XML Import - fix message and redirect
@@ -113,8 +113,6 @@ underscore
 - [security] Global variables overwrite in export.php, reported by Janek Vind
   (see PMASA-2013-5)
 - bug #3892 [export] SQL Export files are empty
-
-3.5.9.0 (not yet released)
 
 3.5.8.1 (2013-04-24)
 - [security] Remote code execution (preg_replace), reported by Janek Vind
