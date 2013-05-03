@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-05-03 14:27+0200\n"
+"PO-Revision-Date: 2013-05-03 14:59+0200\n"
 "Last-Translator: Genti Ereqi <gereqi@gmail.com>\n"
 "Language-Team: Albanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
@@ -41,10 +41,9 @@ msgstr ""
 "ndalojnë përditësimet nëpërmjet dritareve."
 
 #: browse_foreigners.php:166
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Kërko"
+msgstr "Kërkim:"
 
 #: browse_foreigners.php:170 gis_data_editor.php:396 js/messages.php:209
 #: libraries/DbSearch.class.php:455 libraries/DisplayResults.class.php:1657
@@ -119,10 +118,9 @@ msgstr "Komenti për databazën: "
 
 #: db_datadict.php:157 libraries/schema/Pdf_Relation_Schema.class.php:1332
 #: libraries/tbl_columns_definition_form.inc.php:836 tbl_printview.php:120
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Komentet e tabelës"
+msgstr "Kërkim:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
@@ -341,24 +339,21 @@ msgstr "në përdorim"
 
 #: db_printview.php:185 libraries/plugins/export/ExportSql.class.php:946
 #: libraries/schema/Pdf_Relation_Schema.class.php:1337
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Krijimi"
+msgstr "Krijim:"
 
 #: db_printview.php:194 libraries/plugins/export/ExportSql.class.php:959
 #: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Ndryshimi i fundit"
+msgstr "Ndryshimi i fundit:"
 
 #: db_printview.php:203 libraries/plugins/export/ExportSql.class.php:972
 #: libraries/schema/Pdf_Relation_Schema.class.php:1347
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Kontrolli i fundit"
+msgstr "Kontrolli i fundit:"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
 #, php-format
@@ -528,22 +523,20 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Përdor OpenStreetMaps si nivel bazë"
 
 #: gis_data_editor.php:161
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:184
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Gjeometria"
+msgstr "Gjeometria %d:"
 
 #: gis_data_editor.php:206
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Pikë"
+msgstr "Pika:"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:300
@@ -567,22 +560,21 @@ msgid "Add a point"
 msgstr "Shto një pikë të re"
 
 #: gis_data_editor.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Linjë-varg"
+msgstr "Linjë-varg %d:"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Rrethi i Jashtëm"
+msgstr "Rrethi i jashtëm:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Rrethi i Brendshëm"
+msgstr "Rrethi i brendshëm %d:"
 
 #: gis_data_editor.php:303
 msgid "Add a linestring"
@@ -593,10 +585,10 @@ msgid "Add an inner ring"
 msgstr "Shto një rreth të brendshëm"
 
 #: gis_data_editor.php:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Shumëkëndësh"
+msgstr "Shumëkëndësh %d:"
 
 #: gis_data_editor.php:384 js/messages.php:311
 msgid "Add a polygon"
@@ -745,61 +737,53 @@ msgid "Server:"
 msgstr "Serveri:"
 
 #: index.php:240
-#, fuzzy
 msgid "Server type:"
-msgstr "Zgjedhja e serverit"
+msgstr "Tipi i serverit:"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:612
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Versioni i MySQL"
+msgstr "Versioni i serverit:"
 
 #: index.php:248
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Versioni i protokollit"
+msgstr "Versioni i protokollit:"
 
 #: index.php:252
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Përdorues"
+msgstr "Përdoruesi:"
 
 #: index.php:257
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Kodifikimi karaktereve te server"
+msgstr "Familja e karaktereve të server:"
 
 #: index.php:269
 msgid "Web server"
 msgstr "Serveri web"
 
 #: index.php:282
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Versioni i klientit të bazës së të dhënave"
+msgstr "Versioni i klientit të bazës së të dhënave:"
 
 #: index.php:286
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Shtesa PHP"
+msgstr "Shtesa PHP:"
 
 #: index.php:300
 msgid "Show PHP information"
 msgstr "Afisho informacion mbi PHP"
 
 #: index.php:323
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informacione mbi versionin"
+msgstr "Informacione mbi versionin:"
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
@@ -849,7 +833,7 @@ msgid ""
 msgstr ""
 "Ju keni aktivizuar mbstring.func_overload ne konfigurimin e PHP ne sistemin "
 "tuaj. Ky opsion nuk eshte i pajtueshem me phpMyAdmin dhe mund te shkaktojne "
-"korruptim te te dhenave"
+"korruptimin e disa te dhenave!"
 
 #: index.php:414
 msgid ""
@@ -857,6 +841,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"Ekstensioni PHP mbstring nuk gjendet dhe duket se ju po përdorni një set "
+"karakteresh multibyte. Pa ekstensionin mbstring phpMyAdmin e ka të pamundur "
+"që të ndajë vargjet saktë dhe mund të sjellë rezultate të papritura."
 
 #: index.php:425
 msgid ""
@@ -865,12 +852,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Parametri juaj PHP "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] është më i ulët se vlefshmëria "
+"e cookie të konfiguruar në phpMyAdmin, për këtë arsye, login do të skadojë "
+"më shpejt se sa është konfiguruar në phpMyAdmin."
 
 #: index.php:437
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Ruajtja e cookie të login është më e ulët se vlefshmëria e cookie të "
+"konfiguruar në phpMyAdmin, për këtë arsye, login juaj do të skadojë më "
+"shpejt se sa është konfiguruar në phpMyAdmin."
 
 #: index.php:449
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -879,7 +874,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -892,7 +886,9 @@ msgid ""
 msgstr ""
 "Dosja [code]config[/code], e cila përdoret nga skripti i instalimit, "
 "ekziston akoma në dosjen tuaj të phpMyAdmin. Ju këshillojmë që ta hiqni pasi "
-"të keni konfiguruar phpMyAdmin."
+"të keni konfiguruar phpMyAdmin. Në të kundërt siguria e serverit tuaj mund "
+"të kompromentohet duke lejuar persona të pa-autorizuar që të shkarkojnë "
+"konfigurimin tuaj."
 
 #: index.php:470
 #, php-format
@@ -979,10 +975,9 @@ msgstr "Shtojini %s fushë(a) të re(ja) indeksit"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:48 tbl_chart.php:236
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Vlerë"
+msgstr "Vlerat për Y"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1117,15 +1112,15 @@ msgstr "Swap në cache"
 
 #: js/messages.php:90
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap i përdorur"
 
 #: js/messages.php:91
 msgid "Free Swap"
-msgstr ""
+msgstr "Swap i lirë"
 
 #: js/messages.php:93
 msgid "Bytes sent"
-msgstr ""
+msgstr "Byte të dërguar"
 
 #: js/messages.php:94
 msgid "Bytes received"
@@ -1201,15 +1196,15 @@ msgstr "Hiqe grafikun"
 
 #: js/messages.php:113
 msgid "Edit title and labels"
-msgstr ""
+msgstr "Modifiko titullin dhe etiketat"
 
 #: js/messages.php:114
 msgid "Add chart to grid"
-msgstr ""
+msgstr "Shto diagramë në rrjetë"
 
 #: js/messages.php:116
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "Ju lutem shtoni së paku një ndryshore në seri"
 
 #: js/messages.php:117 libraries/DisplayResults.class.php:1288
 #: libraries/TableSearch.class.php:840 libraries/TableSearch.class.php:984
@@ -1223,35 +1218,35 @@ msgstr "Asnjë lloj"
 
 #: js/messages.php:118
 msgid "Resume monitor"
-msgstr ""
+msgstr "Rifillo monitorimin"
 
 #: js/messages.php:119
 msgid "Pause monitor"
-msgstr ""
+msgstr "Ndalo monitorimin"
 
 #: js/messages.php:121
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log dhe slow_query_log janë të aktivizuar."
 
 #: js/messages.php:122
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log është i aktivizuar."
 
 #: js/messages.php:123
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log është i aktivizuar."
 
 #: js/messages.php:124
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log dhe general_log janë të ç'aktivizuar."
 
 #: js/messages.php:125
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nuk është vendosur në TABLE."
 
 #: js/messages.php:126
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output është vendosur në TABLE."
 
 #: js/messages.php:127
 #, php-format
@@ -2297,10 +2292,9 @@ msgid "Descending"
 msgstr "Në zbritje"
 
 #: libraries/DBQbe.class.php:364
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Kolonë(a)"
+msgstr "Kolonë(a):"
 
 #: libraries/DBQbe.class.php:406
 #, fuzzy
@@ -2464,14 +2458,12 @@ msgid "Save edited data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:704
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Shto/Fshi kollonat e fushës"
+msgstr "Rivendos renditjen e kolonave"
 
 #: libraries/DisplayResults.class.php:775 libraries/Util.class.php:2556
 #: libraries/Util.class.php:2560
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2479,7 +2471,6 @@ msgstr "Fillim"
 
 #: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2558
 #: libraries/Util.class.php:2561 server_binlog.php:141 server_binlog.php:143
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -2487,19 +2478,17 @@ msgstr "Paraardhësi"
 
 #: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2593
 #: libraries/Util.class.php:2596 server_binlog.php:174 server_binlog.php:176
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "Në vazhdim"
+msgstr "Pasardhëse"
 
 #: libraries/DisplayResults.class.php:863 libraries/Util.class.php:2594
 #: libraries/Util.class.php:2597
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "Fund"
+msgstr "Fundi"
 
 #: libraries/DisplayResults.class.php:904 tbl_chart.php:241
 #, fuzzy
@@ -2533,10 +2522,10 @@ msgid "vertical"
 msgstr "vertikal"
 
 #: libraries/DisplayResults.class.php:933
-#, fuzzy, php-format
+#, php-format
 #| msgid "Execute bookmarked query"
 msgid "Headers every %s rows"
-msgstr "Zbaton query nga libërshënuesi"
+msgstr "Tituj çdo %s rreshta"
 
 #: libraries/DisplayResults.class.php:1230
 msgid "Sort by key"
@@ -2566,28 +2555,24 @@ msgstr "Rendit sipas kyçit"
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:57
 #: libraries/rte/rte_routines.lib.php:970 libraries/structure.lib.php:1693
-#, fuzzy
 msgid "Options"
-msgstr "Operacione"
+msgstr "Mundësitë"
 
 #: libraries/DisplayResults.class.php:1584
 #: libraries/DisplayResults.class.php:1690
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Tekst i pjesëshëm"
+msgstr "Tekst i pjesshëm"
 
 #: libraries/DisplayResults.class.php:1585
 #: libraries/DisplayResults.class.php:1694
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Teksti i plotë"
 
 #: libraries/DisplayResults.class.php:1599
-#, fuzzy
 msgid "Relational key"
-msgstr "Skema relacionale"
+msgstr "Çelësi relacional"
 
 #: libraries/DisplayResults.class.php:1600
 #, fuzzy
