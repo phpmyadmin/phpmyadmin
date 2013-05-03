@@ -237,6 +237,15 @@ Server connection settings
     Permits to use an alternate host to hold the configuration storage
     data.
 
+.. _controlport:
+.. config:option:: $cfg['Servers'][$i]['controlport']
+
+    :type: string
+    :default: ``''``
+
+    Permits to use an alternate port to connect to the host that 
+    holds the configuration storage.
+
 .. _controluser:
 .. config:option:: $cfg['Servers'][$i]['controluser']
 
