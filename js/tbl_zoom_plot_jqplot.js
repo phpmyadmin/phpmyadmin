@@ -377,7 +377,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 }
             }
             sql_query = sql_query.substring(0, sql_query.length - 2);
-            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey]['where_clause']);
+            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 
             //Post SQL query to sql.php
             $.post('sql.php', {
@@ -546,7 +546,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 // extra Y values
                 value[dataLabel], // for highlighter
                                   // (may set an undefined value)
-                value['where_clause'], // for click on point
+                value.where_clause, // for click on point
                 key               // key from searchedData
             ]);
         });
