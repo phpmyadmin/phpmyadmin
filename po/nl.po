@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 11:31+0200\n"
-"PO-Revision-Date: 2013-05-02 13:50+0200\n"
+"PO-Revision-Date: 2013-05-03 11:41+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -854,7 +854,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -865,9 +864,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"De [code]config[/code]-directory, gebruikt door het setup-script, bestaat "
-"nog in de phpMyAdmin-directory. Het kan beter worden verwijderd zodra "
-"phpMyAdmin is geconfigureerd."
+"De [code]config[/code]-folder, gebruikt door het setup-script, bestaat nog "
+"in de phpMyAdmin-folder. Het is ten sterkste aanbevolen om deze te "
+"verwijderen zodra phpMyAdmin is geconfigureerd. Anders kan de beveiliging "
+"van uw server aangetast worden omdat ongepriviligeerde personen uw "
+"configuratie kunnen downloaden."
 
 #: index.php:470
 #, php-format
@@ -5845,7 +5846,6 @@ msgid "Display columns table"
 msgstr "Tabel met kolomomschrijvingen"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7824,7 +7824,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Opnieuw proberen te verbinden"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9576,6 +9576,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
+"andere hostnaam. Weet u zeker dat u wilt doorgaan?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10411,10 +10413,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "De relatie FOREIGN KEY is toegevoegd"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Fout: relatie niet toegevoegd."
+msgstr "Fout: relatiefuncties zijn uitgeschakeld!"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
