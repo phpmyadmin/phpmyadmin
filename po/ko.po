@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-02 10:37+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2013-05-04 21:14+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -3769,7 +3769,7 @@ msgstr "서버 %1$s의 호스트 이름이 잘못되었습니다. 설정을 확�
 
 #: libraries/common.inc.php:847
 msgid "Invalid authentication method set in configuration:"
-msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.: "
+msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
 #: libraries/common.inc.php:969
 #, php-format
@@ -6929,7 +6929,7 @@ msgstr ""
 
 #: libraries/mult_submits.inc.php:318 sql.php:517
 msgid "Do you really want to execute the following query?"
-msgstr "정말로 다음 쿼리를 실행하시겠습니까? "
+msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 
 #: libraries/mult_submits.inc.php:576 tbl_replace.php:247
 msgid "No change"
@@ -7436,9 +7436,8 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했"
-"습니다. 당신의 설정의 호스트, ID, 패스워드가 맞게 입력됐는지, 또는 MySQL 서버"
-"의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요. "
+"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했습니다. 당신의 설정의 호스트, ID, "
+"패스워드가 맞게 입력됐는지, 또는 MySQL 서버의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
