@@ -341,7 +341,7 @@ function PMA_DBI_realQuery($query, $link = null, $options = 0)
  *
  * @return array
  */
-function PMA_DBI_fetch_any($result)
+function PMA_DBI_fetchAny($result)
 {
     $query_data = $GLOBALS['dummy_queries'][$result];
     if ($query_data['pos'] >= count($query_data['result'])) {
@@ -361,7 +361,7 @@ function PMA_DBI_fetch_any($result)
  */
 function PMA_DBI_fetchArray($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         foreach ($data as $key => $val) {
             $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
@@ -380,7 +380,7 @@ function PMA_DBI_fetchArray($result)
  */
 function PMA_DBI_fetchAssoc($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         $ret = array();
         foreach ($data as $key => $val) {
@@ -400,7 +400,7 @@ function PMA_DBI_fetchAssoc($result)
  */
 function PMA_DBI_fetchRow($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     return $data;
 }
 
