@@ -279,7 +279,7 @@ class PMA_StorageEngine
                     = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
             }
         }
-        PMA_DBI_free_result($res);
+        PMA_DBI_freeResult($res);
 
         return $mysql_vars;
     }

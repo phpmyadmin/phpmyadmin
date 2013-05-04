@@ -1938,7 +1938,7 @@ function PMA_executeSqlQuery($url_params, $query)
                 $last_message->addParam($insert_id);
                 $last_messages[] = $last_message;
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
         $warning_messages = PMA_getWarningMessages();
     }
@@ -1997,7 +1997,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
         if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
             list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
         }
-        @PMA_DBI_free_result($dispresult);
+        @PMA_DBI_freeResult($dispresult);
         return $dispval;
     }
     return '';

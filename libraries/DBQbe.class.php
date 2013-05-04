@@ -296,7 +296,7 @@ class PMA_DbQbe
                 } // end foreach
             } // end if
         } // end while
-        PMA_DBI_free_result($all_tables);
+        PMA_DBI_freeResult($all_tables);
 
         // sets the largest width found
         $this->_realwidth = $this->_form_column_width . 'ex';

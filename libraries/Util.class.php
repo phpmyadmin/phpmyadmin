@@ -3186,7 +3186,7 @@ class PMA_Util
             $srid = $wktarr[1];
             $wktval = "'" . $wktval . "'," . $srid;
         }
-        @PMA_DBI_free_result($wktresult);
+        @PMA_DBI_freeResult($wktresult);
 
         return $wktval;
     }

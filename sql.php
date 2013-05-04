@@ -1271,7 +1271,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         );
 
         $html_output .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
     }
 
     // BEGIN INDEX CHECK See if indexes should be checked.
@@ -1609,7 +1609,7 @@ function getTableHtmlForMultipleQueries(
         );
 
         // Free the result to save the memory
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         $sql_no++;
 

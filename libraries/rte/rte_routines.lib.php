@@ -1415,7 +1415,7 @@ function PMA_RTN_handleExecute()
 
                     $output .= "<br/>";
 
-                    PMA_DBI_free_result($result);
+                    PMA_DBI_freeResult($result);
 
                 } while (PMA_DBI_next_result());
 

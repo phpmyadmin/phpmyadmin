@@ -48,7 +48,7 @@ while ($row = PMA_DBI_fetchAssoc($res)) {
     $modules[$row['module_name']]['info'] = $row;
     $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
 }
-PMA_DBI_free_result($res);
+PMA_DBI_freeResult($res);
 
 // sort plugin list (modules are already sorted)
 ksort($plugins);

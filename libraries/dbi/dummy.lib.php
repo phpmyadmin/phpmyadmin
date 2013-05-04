@@ -428,7 +428,7 @@ function PMA_DBI_dataSeek($result, $offset)
  *
  * @return void
  */
-function PMA_DBI_free_result($result)
+function PMA_DBI_freeResult($result)
 {
     return;
 }

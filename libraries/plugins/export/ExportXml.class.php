@@ -479,7 +479,7 @@ class ExportXml extends ExportPlugin
                     return false;
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
 
         return true;

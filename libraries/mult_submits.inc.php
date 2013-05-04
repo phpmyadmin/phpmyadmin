@@ -95,7 +95,7 @@ if (! empty($submit_mult)
                     $primary .= $row['Column_name'] . ', ';
                 }
             } // end while
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
             if (empty($primary)) {
                 // no primary key, so we can safely create new
                 unset($submit_mult);
@@ -374,7 +374,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 $primary .= $row['Column_name'] . ', ';
             }
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
     }
 
     $rebuild_database_list = false;

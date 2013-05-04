@@ -552,7 +552,7 @@ class PMA_Table
                         );
                         if (!PMA_DBI_getError()) {
                             $row_count = PMA_DBI_num_rows($result);
-                            PMA_DBI_free_result($result);
+                            PMA_DBI_freeResult($result);
                         }
                     }
                 }
@@ -680,7 +680,7 @@ class PMA_Table
                 $last_id = PMA_DBI_insert_id();
             } // end while
 
-            PMA_DBI_free_result($table_copy_rs);
+            PMA_DBI_freeResult($table_copy_rs);
 
             return $last_id;
         }
@@ -983,7 +983,7 @@ class PMA_Table
                                     . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
-                    PMA_DBI_free_result($comments_copy_rs);
+                    PMA_DBI_freeResult($comments_copy_rs);
                     unset($comments_copy_rs);
                 }
 

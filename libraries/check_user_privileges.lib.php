@@ -135,7 +135,7 @@ function PMA_analyseShowGrant()
         } // end if
     } // end while
 
-    PMA_DBI_free_result($rs_usr);
+    PMA_DBI_freeResult($rs_usr);
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php

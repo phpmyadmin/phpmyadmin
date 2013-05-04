@@ -251,7 +251,7 @@ class ExportHtmlword extends ExportPlugin
                 return false;
             }
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         if (! PMA_exportOutputHandler('</table>')) {
             return false;
         }

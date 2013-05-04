@@ -78,7 +78,7 @@ if (true === $cfg['SkipLockedTables']) {
                 $sot_cache[$tmp[0]] = true;
             }
         }
-        PMA_DBI_free_result($db_info_result);
+        PMA_DBI_freeResult($db_info_result);
 
         if (isset($sot_cache)) {
             $db_info_result = PMA_DBI_query(
@@ -93,7 +93,7 @@ if (true === $cfg['SkipLockedTables']) {
                             . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
                         );
                         $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);
-                        PMA_DBI_free_result($sts_result);
+                        PMA_DBI_freeResult($sts_result);
                         unset($sts_result);
 
                         if (! isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
@@ -123,13 +123,13 @@ if (true === $cfg['SkipLockedTables']) {
 
                 $sot_ready = true;
             } elseif ($db_info_result) {
-                PMA_DBI_free_result($db_info_result);
+                PMA_DBI_freeResult($db_info_result);
             }
             unset($sot_cache);
         }
         unset($tmp);
     } elseif ($db_info_result) {
-        PMA_DBI_free_result($db_info_result);
+        PMA_DBI_freeResult($db_info_result);
     }
 }
 

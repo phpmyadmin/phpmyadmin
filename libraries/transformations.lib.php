@@ -284,7 +284,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_DBI_fetchAssoc($test_rs);
-        PMA_DBI_free_result($test_rs);
+        PMA_DBI_freeResult($test_rs);
 
         if (! $forcedelete
             && (strlen($mimetype) || strlen($transformation)

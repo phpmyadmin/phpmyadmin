@@ -269,7 +269,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';'
             );
             $tbl_stats = PMA_DBI_fetchAssoc($tbl_stats_result);
-            PMA_DBI_free_result($tbl_stats_result);
+            PMA_DBI_freeResult($tbl_stats_result);
             unset($tbl_stats_result);
 
             if ($is_show_stats) {

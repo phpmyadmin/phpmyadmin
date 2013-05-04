@@ -53,7 +53,7 @@ class ImportLdi extends AbstractImportCsv
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
             unset($result);
         }
 

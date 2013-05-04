@@ -422,7 +422,7 @@ function PMA__getRelationsParam()
             $cfgRelation['userconfig'] = $curr_table[0];
         }
     } // end while
-    PMA_DBI_free_result($tab_rs);
+    PMA_DBI_freeResult($tab_rs);
 
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
@@ -708,7 +708,7 @@ function PMA_getDbComment($db)
             $row = PMA_DBI_fetchAssoc($com_rs);
             $comment = $row['comment'];
         }
-        PMA_DBI_free_result($com_rs);
+        PMA_DBI_freeResult($com_rs);
     }
 
     return $comment;
@@ -740,7 +740,7 @@ function PMA_getDbComments()
                 $comments[$row['db_name']] = $row['comment'];
             }
         }
-        PMA_DBI_free_result($com_rs);
+        PMA_DBI_freeResult($com_rs);
     }
 
     return $comments;
@@ -1128,7 +1128,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
                 $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                 if ($res) {
                     $the_total = PMA_DBI_fetchValue($res);
-                    @PMA_DBI_free_result($res);
+                    @PMA_DBI_freeResult($res);
                 } else {
                     $the_total = 0;
                 }
@@ -1144,7 +1144,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
                 while ($single_disp_row = @PMA_DBI_fetchAssoc($disp)) {
                     $disp_row[] = $single_disp_row;
                 }
-                @PMA_DBI_free_result($disp);
+                @PMA_DBI_freeResult($disp);
             }
         } else {
             $disp_row = null;

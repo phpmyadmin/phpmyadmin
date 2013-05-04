@@ -1301,7 +1301,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 }
             } // end while
             if ($result) {
-                PMA_DBI_free_result($result);
+                PMA_DBI_freeResult($result);
             }
 
             /**

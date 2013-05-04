@@ -431,7 +431,7 @@ class PMA_User_Schema
                     echo '                <option value="' . $pages['page_nr'] . '">'
                         . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
                 } // end while
-                PMA_DBI_free_result($test_rs);
+                PMA_DBI_freeResult($test_rs);
                 unset($test_rs);
                 ?>
             </select><br />

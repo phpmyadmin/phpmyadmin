@@ -45,7 +45,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     while ($row = PMA_DBI_fetchAssoc($result)) {
         $index_array1[$row['Column_name']] = 1;
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
 
     $result = PMA_DBI_query(
         'SHOW INDEX FROM ' . PMA_Util::backquote($db)
@@ -55,7 +55,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     while ($row = PMA_DBI_fetchAssoc($result)) {
         $index_array2[$row['Column_name']] = 1;
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
 
     if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
         $upd_query  = 'ALTER TABLE ' . PMA_Util::backquote($db)

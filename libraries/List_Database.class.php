@@ -489,7 +489,7 @@ class PMA_List_Database extends PMA_List
                     } // end if ... elseif ...
                 } // end while
             } // end else
-            PMA_DBI_free_result($tmp_alldbs);
+            PMA_DBI_freeResult($tmp_alldbs);
             unset($tmp_mydbs);
         } // end if
 
@@ -505,7 +505,7 @@ class PMA_List_Database extends PMA_List
                     $dblist[] = $row['Db'];
                 }
             } // end while
-            PMA_DBI_free_result($rs);
+            PMA_DBI_freeResult($rs);
         } // end if
     }
 }

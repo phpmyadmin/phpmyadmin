@@ -405,7 +405,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
                     $row[$row1[0]] = 'N';
                 }
             }
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
         } else {
             $row = array('Table_priv' => '');
         }
@@ -455,7 +455,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
                     'References' => false
                 );
             }
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
         }
         unset($res, $row1);
     }
@@ -590,7 +590,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db,
             $columns[$row1[0]][$current] = true;
         }
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
     unset($res, $row1, $current);
 
     $html_output = '<input type="hidden" name="grant_count" '
@@ -2074,7 +2074,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         $db_rights[$db_rights_row[$dbOrTableName]] = $db_rights_row;
     }
 
-    PMA_DBI_free_result($db_rights_result);
+    PMA_DBI_freeResult($db_rights_result);
 
     if (! strlen($dbname)) {
         $sql_query = 'SELECT * FROM `mysql`.`db`'
@@ -2105,7 +2105,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             $db_rights[$row['Db']]['can_delete'] = true;
         }
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $db_rights;
 }
 
@@ -2340,7 +2340,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
                 $pred_tbl_array[] = $row[0];
             }
         }
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         if (! empty($pred_tbl_array)) {
             $html_output .= '<select name="pred_tablename" '
@@ -2383,7 +2383,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
     }
-    @PMA_DBI_free_result($result);
+    @PMA_DBI_freeResult($result);
 
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
@@ -2668,7 +2668,7 @@ function PMA_getDbRightsForUserOverview()
         $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
             = $db_rights_row;
     }
-    PMA_DBI_free_result($db_rights_result);
+    PMA_DBI_freeResult($db_rights_result);
     ksort($db_rights);
 
     return $db_rights;
@@ -2936,7 +2936,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 
         if (! $res) {
             $html_output .= PMA_Message::error(__('No Privileges'))->getDisplay();
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
             unset($res);
         } else {
             // This message is hardcoded because I will replace it by
@@ -3209,7 +3209,7 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
             . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
 
     $queries = PMA_getTablePrivsQueriesForChangeOrCopyUser(
         $user_host_condition, $queries, $username, $hostname

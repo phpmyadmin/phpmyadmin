@@ -5517,7 +5517,7 @@ class PMA_DisplayResults
                     $dispval = __('Link not found');
                 }
 
-                @PMA_DBI_free_result($dispresult);
+                @PMA_DBI_freeResult($dispresult);
 
             } else {
                 $dispval     = '';

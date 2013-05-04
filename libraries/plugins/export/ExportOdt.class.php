@@ -319,7 +319,7 @@ class ExportOdt extends ExportPlugin
             } // end for
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 

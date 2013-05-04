@@ -276,7 +276,7 @@ function PMA_DBI_dataSeek($result, $offset)
  *
  * @return void
  */
-function PMA_DBI_free_result($result)
+function PMA_DBI_freeResult($result)
 {
     if (is_resource($result) && get_resource_type($result) === 'mysql result') {
         mysql_free_result($result);

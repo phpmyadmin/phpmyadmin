@@ -391,7 +391,7 @@ class PMA_ExportPdf extends PMA_PDF
 
         ksort($this->tablewidths);
 
-        PMA_DBI_free_result($this->results);
+        PMA_DBI_freeResult($this->results);
 
         // Pass 2
 
@@ -400,7 +400,7 @@ class PMA_ExportPdf extends PMA_PDF
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
-        PMA_DBI_free_result($this->results);
+        PMA_DBI_freeResult($this->results);
 
     } // end of mysqlReport function
 

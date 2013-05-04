@@ -324,7 +324,7 @@ class ExportOds extends ExportPlugin
             } // end for
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         $GLOBALS['ods_buffer'] .= '</table:table>';
 

@@ -29,7 +29,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
         $mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']]
             = $row['DESCRIPTION'];
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
 
     sort($mysql_charsets, SORT_STRING);
 
@@ -60,7 +60,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
             = !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
             || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
     unset($res, $row);
 
     if (PMA_DRIZZLE

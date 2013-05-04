@@ -1002,7 +1002,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
                     $databases[$database_name]['SCHEMA_LENGTH']
                         += $row['Data_length'] + $row['Index_length'];
                 }
-                PMA_DBI_free_result($res);
+                PMA_DBI_freeResult($res);
                 unset($res);
             }
         }
@@ -1614,7 +1614,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
     for ($i = 0; $i <= $row_number; $i++) {
         $row = $fetch_function($result);
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
 
     // return requested field
     if (isset($row[$field])) {
@@ -1669,7 +1669,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
     }
 
     $row = $fetch_function($result);
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $row;
 }
 
@@ -1806,7 +1806,7 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
         }
     }
 
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $resultrows;
 }
 

@@ -977,7 +977,7 @@ class ExportSql extends ExportPlugin
                     $new_crlf = $this->_exportComment() . $crlf;
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
 
         $schema_create .= $new_crlf;
@@ -1295,7 +1295,7 @@ class ExportSql extends ExportPlugin
 
         $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         return $schema_create . ($add_semicolon ? ';' . $crlf : '');
     } // end of the 'getTableDef()' function
 
@@ -1869,7 +1869,7 @@ class ExportSql extends ExportPlugin
                 }
             }
         } // end if ($result != false)
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         return true;
     } // end of the 'exportData()' function

@@ -44,7 +44,7 @@ if ($cfg['SkipLockedTables'] == true) {
                 $sot_cache[$tmp[0]] = true;
             }
         }
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         if (isset($sot_cache)) {
             $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
@@ -58,7 +58,7 @@ if ($cfg['SkipLockedTables'] == true) {
                         $tables[]    = array('Name' => $tmp[0]);
                     }
                 }
-                PMA_DBI_free_result($result);
+                PMA_DBI_freeResult($result);
                 $sot_ready = true;
             }
         }
@@ -72,7 +72,7 @@ if (! isset($sot_ready)) {
         while ($sts_tmp = PMA_DBI_fetchAssoc($result)) {
             $tables[] = $sts_tmp;
         }
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         unset($res);
     }
 }

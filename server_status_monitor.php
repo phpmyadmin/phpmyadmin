@@ -213,7 +213,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return['sum']['TOTAL'] = array_sum($return['sum']);
             $return['numRows'] = count($return['rows']);
 
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
 
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
@@ -313,7 +313,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return['sum']['TOTAL'] = array_sum($return['sum']);
             $return['numRows'] = count($return['rows']);
 
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
 
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
@@ -374,7 +374,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         // In case an error happened
         $return['error'] = PMA_DBI_getError();
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         if ($profiling) {
             $return['profiling'] = array();
@@ -385,7 +385,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             while ($row = PMA_DBI_fetchAssoc($result)) {
                 $return['profiling'][]= $row;
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
 
         PMA_Response::getInstance()->addJSON('message', $return);
