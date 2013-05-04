@@ -720,7 +720,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     if (! $is_affected) {
         $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
     } elseif (! isset($num_rows)) {
-        $num_rows = @PMA_DBI_affected_rows();
+        $num_rows = @PMA_DBI_affectedRows();
     }
 
     // Grabs the profiling results
@@ -1578,7 +1578,7 @@ function getTableHtmlForMultipleQueries(
         if (! $is_affected) {
             $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
         } elseif (! isset($num_rows)) {
-            $num_rows = @PMA_DBI_affected_rows();
+            $num_rows = @PMA_DBI_affectedRows();
         }
 
         if (isset($sql_data['valid_sql'][$sql_no])) {

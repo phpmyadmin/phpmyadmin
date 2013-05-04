@@ -192,7 +192,7 @@ function PMA_DBI_tryQuery($query, $link = null, $options = 0,
     $result = PMA_DBI_realQuery($query, $link, $options);
 
     if ($cache_affected_rows) {
-        $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, false);
+        $GLOBALS['cached_affected_rows'] = PMA_DBI_affectedRows($link, false);
     }
 
     if ($GLOBALS['cfg']['DBG']['sql']) {

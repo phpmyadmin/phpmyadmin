@@ -477,7 +477,7 @@ function PMA_DBI_numRows($result)
  *
  * @return string|int
  */
-function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
+function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
 {
     return 0;
 }

@@ -1921,7 +1921,7 @@ function PMA_executeSqlQuery($url_params, $query)
             $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
         } else {
             // The next line contains a real assignment, it's not a typo
-            if ($tmp = @PMA_DBI_affected_rows()) {
+            if ($tmp = @PMA_DBI_affectedRows()) {
                 $total_affected_rows += $tmp;
             }
             unset($tmp);
