@@ -254,13 +254,13 @@ class ExportCsv extends ExportPlugin
             $schema_insert = '';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($csv_enclosed == '') {
-                    $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
+                    $schema_insert .= stripslashes(PMA_DBI_fieldName($result, $i));
                 } else {
                     $schema_insert .= $csv_enclosed
                         . str_replace(
                             $csv_enclosed,
                             $csv_escaped . $csv_enclosed,
-                            stripslashes(PMA_DBI_field_name($result, $i))
+                            stripslashes(PMA_DBI_fieldName($result, $i))
                         )
                         .  $csv_enclosed;
                 }

@@ -450,7 +450,7 @@ class ExportXml extends ExportPlugin
             $columns_cnt = PMA_DBI_numFields($result);
             $columns = array();
             for ($i = 0; $i < $columns_cnt; $i++) {
-                $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+                $columns[$i] = stripslashes(PMA_DBI_fieldName($result, $i));
             }
             unset($i);
 

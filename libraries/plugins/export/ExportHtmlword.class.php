@@ -221,7 +221,7 @@ class ExportHtmlword extends ExportPlugin
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $schema_insert .= '<td class="print"><strong>'
                     . htmlspecialchars(
-                        stripslashes(PMA_DBI_field_name($result, $i))
+                        stripslashes(PMA_DBI_fieldName($result, $i))
                     )
                     . '</strong></td>';
             } // end for

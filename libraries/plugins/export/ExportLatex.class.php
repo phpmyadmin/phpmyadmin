@@ -294,7 +294,7 @@ class ExportLatex extends ExportPlugin
 
         $columns_cnt = PMA_DBI_numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = PMA_DBI_field_name($result, $i);
+            $columns[$i] = PMA_DBI_fieldName($result, $i);
         }
         unset($i);
 

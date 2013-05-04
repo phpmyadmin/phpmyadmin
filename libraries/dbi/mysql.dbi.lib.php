@@ -522,7 +522,7 @@ function PMA_DBI_fieldLen($result, $i)
  *
  * @return string name of $i. field in $result
  */
-function PMA_DBI_field_name($result, $i)
+function PMA_DBI_fieldName($result, $i)
 {
     return mysql_field_name($result, $i);
 }

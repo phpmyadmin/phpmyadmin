@@ -197,7 +197,7 @@ class ExportTexytext extends ExportPlugin
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $text_output .= '|'
                     . htmlspecialchars(
-                        stripslashes(PMA_DBI_field_name($result, $i))
+                        stripslashes(PMA_DBI_fieldName($result, $i))
                     );
             } // end for
             $text_output .= "\n|------\n";

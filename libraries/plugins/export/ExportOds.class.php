@@ -245,7 +245,7 @@ class ExportOds extends ExportPlugin
                     '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars(
-                        stripslashes(PMA_DBI_field_name($result, $i))
+                        stripslashes(PMA_DBI_fieldName($result, $i))
                     )
                     . '</text:p>'
                     . '</table:table-cell>';
