@@ -92,7 +92,7 @@ if ($server > 0) {
         }
     }
     if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-        $server_info .= PMA_DBI_get_host_info();
+        $server_info .= PMA_DBI_getHostInfo();
     }
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';

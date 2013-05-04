@@ -318,7 +318,7 @@ function PMA_DBI_nextResult()
  *
  * @return string type of connection used
  */
-function PMA_DBI_get_host_info($link = null)
+function PMA_DBI_getHostInfo($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {
