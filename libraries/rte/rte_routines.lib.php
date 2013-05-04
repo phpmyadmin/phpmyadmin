@@ -1417,7 +1417,7 @@ function PMA_RTN_handleExecute()
 
                     PMA_DBI_freeResult($result);
 
-                } while (PMA_DBI_next_result());
+                } while (PMA_DBI_nextResult());
 
                 $output .= "</fieldset>";
 

@@ -448,7 +448,7 @@ function PMA_DBI_moreResults()
  *
  * @return boo false
  */
-function PMA_DBI_next_result()
+function PMA_DBI_nextResult()
 {
     return false;
 }

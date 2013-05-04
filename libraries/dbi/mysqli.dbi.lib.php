@@ -369,7 +369,7 @@ function PMA_DBI_moreResults($link = null)
  *
  * @return bool true or false
  */
-function PMA_DBI_next_result($link = null)
+function PMA_DBI_nextResult($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

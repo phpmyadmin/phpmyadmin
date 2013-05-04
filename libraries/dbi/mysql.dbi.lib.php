@@ -302,7 +302,7 @@ function PMA_DBI_moreResults()
  *
  * @return boo false
  */
-function PMA_DBI_next_result()
+function PMA_DBI_nextResult()
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always

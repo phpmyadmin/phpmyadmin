@@ -643,7 +643,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
         if (! PMA_DBI_moreResults()) {
             break;
         }
-    } while (PMA_DBI_next_result());
+    } while (PMA_DBI_nextResult());
 
     $is_procedure = false;
     if (stripos($full_sql_query, 'call') !== false) {
@@ -1613,7 +1613,7 @@ function getTableHtmlForMultipleQueries(
 
         $sql_no++;
 
-    } while (PMA_DBI_moreResults() && PMA_DBI_next_result());
+    } while (PMA_DBI_moreResults() && PMA_DBI_nextResult());
 
     return $table_html;
 }
