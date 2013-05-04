@@ -254,7 +254,7 @@ function PMA_DBI_selectDb($dbname, $link = null)
  *
  * @return mysqli_result|bool
  */
-function PMA_DBI_real_query($query, $link, $options)
+function PMA_DBI_realQuery($query, $link, $options)
 {
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         $method = MYSQLI_STORE_RESULT;

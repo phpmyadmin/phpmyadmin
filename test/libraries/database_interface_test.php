@@ -39,7 +39,7 @@ class PMA_DBI_Test extends PHPUnit_Framework_TestCase
      */
     function testQuery()
     {
-        $this->assertEquals(0, PMA_DBI_real_query('SELECT 1'));
+        $this->assertEquals(0, PMA_DBI_realQuery('SELECT 1'));
     }
 
     /**

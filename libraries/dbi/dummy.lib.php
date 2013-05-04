@@ -317,7 +317,7 @@ function PMA_DBI_selectDb($dbname, $link = null)
  *
  * @return mixed
  */
-function PMA_DBI_real_query($query, $link = null, $options = 0)
+function PMA_DBI_realQuery($query, $link = null, $options = 0)
 {
     $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
     for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {

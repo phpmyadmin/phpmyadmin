@@ -209,7 +209,7 @@ function PMA_DBI_selectDb($dbname, $link = null)
  *
  * @return mixed
  */
-function PMA_DBI_real_query($query, $link, $options)
+function PMA_DBI_realQuery($query, $link, $options)
 {
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         return mysql_query($query, $link);

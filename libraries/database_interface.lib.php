@@ -189,7 +189,7 @@ function PMA_DBI_tryQuery($query, $link = null, $options = 0,
         $time = microtime(true);
     }
 
-    $result = PMA_DBI_real_query($query, $link, $options);
+    $result = PMA_DBI_realQuery($query, $link, $options);
 
     if ($cache_affected_rows) {
         $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, false);
