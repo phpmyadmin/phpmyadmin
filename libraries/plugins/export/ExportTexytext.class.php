@@ -259,7 +259,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         /**
          * Displays the table structure
@@ -333,7 +333,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {

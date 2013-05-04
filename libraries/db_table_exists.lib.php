@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (empty($is_db)) {
     if (strlen($db)) {
-        $is_db = @PMA_DBI_select_db($db);
+        $is_db = @PMA_DBI_selectDb($db);
     } else {
         $is_db = false;
     }

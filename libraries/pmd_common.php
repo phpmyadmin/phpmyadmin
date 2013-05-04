@@ -29,7 +29,7 @@ function get_tables_info()
 
     $tables = PMA_DBI_getTablesFull($GLOBALS['db']);
     // seems to be needed later
-    PMA_DBI_select_db($GLOBALS['db']);
+    PMA_DBI_selectDb($GLOBALS['db']);
     $i = 0;
     foreach ($tables as $one_table) {
         $GLOBALS['PMD']['TABLE_NAME'][$i]
@@ -73,7 +73,7 @@ function get_tables_info()
  */
 function get_columns_info()
 {
-    PMA_DBI_select_db($GLOBALS['db']);
+    PMA_DBI_selectDb($GLOBALS['db']);
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
         $fields_rs = PMA_DBI_query(
@@ -106,7 +106,7 @@ function get_columns_info()
  */
 function get_script_contr()
 {
-    PMA_DBI_select_db($GLOBALS['db']);
+    PMA_DBI_selectDb($GLOBALS['db']);
     $con["C_NAME"] = array();
     $i = 0;
     $alltab_rs = PMA_DBI_query(

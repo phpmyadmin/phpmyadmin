@@ -349,7 +349,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $return = array();
 
         if (strlen($_REQUEST['database'])) {
-            PMA_DBI_select_db($_REQUEST['database']);
+            PMA_DBI_selectDb($_REQUEST['database']);
         }
 
         if ($profiling = PMA_Util::profilingSupported()) {

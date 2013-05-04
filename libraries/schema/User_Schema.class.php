@@ -638,7 +638,7 @@ class PMA_User_Schema
             $export_type = 'pdf';
         }
 
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         include "libraries/schema/" . ucfirst($export_type)
             . "_Relation_Schema.class.php";

@@ -1065,7 +1065,7 @@ class PMA_DbQbe
     private function _getLeftJoinColumnCandidates($all_tables, $all_columns,
         $where_clause_columns
     ) {
-        PMA_DBI_select_db($this->_db);
+        PMA_DBI_selectDb($this->_db);
         $candidate_columns = array();
 
         // Get unique columns and index columns

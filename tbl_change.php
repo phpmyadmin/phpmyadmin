@@ -143,7 +143,7 @@ unset($show_create_table);
 /**
  * Get the list of the fields of the current table
  */
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 $table_fields = array_values(PMA_DBI_getColumns($db, $table));
 
 $paramTableDbArray = array($table, $db);

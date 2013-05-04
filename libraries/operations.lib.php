@@ -297,13 +297,13 @@ function PMA_runProcedureAndFunctionDefinitions($db)
     $procedure_names = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
     if ($procedure_names) {
         foreach ($procedure_names as $procedure_name) {
-            PMA_DBI_select_db($db);
+            PMA_DBI_selectDb($db);
             $tmp_query = PMA_DBI_getDefinition(
                 $db, 'PROCEDURE', $procedure_name
             );
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_selectDb($_REQUEST['newname']);
             PMA_DBI_query($tmp_query);
         }
     }
@@ -311,11 +311,11 @@ function PMA_runProcedureAndFunctionDefinitions($db)
     $function_names = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
     if ($function_names) {
         foreach ($function_names as $function_name) {
-            PMA_DBI_select_db($db);
+            PMA_DBI_selectDb($db);
             $tmp_query = PMA_DBI_getDefinition($db, 'FUNCTION', $function_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_selectDb($_REQUEST['newname']);
             PMA_DBI_query($tmp_query);
         }
     }
@@ -415,7 +415,7 @@ function PMA_getViewsAndCreateSqlViewStandIn(
             $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
                 $db, $each_table, "\n"
             );
-            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_selectDb($_REQUEST['newname']);
             PMA_DBI_query($sql_view_standin);
             $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
         }
@@ -476,7 +476,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
             }
             // apply the triggers to the destination db+table
             if ($triggers) {
-                PMA_DBI_select_db($_REQUEST['newname']);
+                PMA_DBI_selectDb($_REQUEST['newname']);
                 foreach ($triggers as $trigger) {
                     PMA_DBI_query($trigger['create']);
                     $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
@@ -517,11 +517,11 @@ function PMA_runEventDefinitionsForDb($db)
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
-            PMA_DBI_select_db($db);
+            PMA_DBI_selectDb($db);
             $tmp_query = PMA_DBI_getDefinition($db, 'EVENT', $event_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_selectDb($_REQUEST['newname']);
             PMA_DBI_query($tmp_query);
         }
     }
@@ -571,7 +571,7 @@ function PMA_handleTheViews($views, $move, $db)
  */
 function PMA_createAllAccumulatedConstraints()
 {
-    PMA_DBI_select_db($_REQUEST['newname']);
+    PMA_DBI_selectDb($_REQUEST['newname']);
     foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
         PMA_DBI_query($one_query);
         // and prepare to display them

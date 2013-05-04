@@ -616,7 +616,7 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
 }
 
 if (strlen($db)) {
-    PMA_DBI_select_db($db);
+    PMA_DBI_selectDb($db);
 }
 
 //  E x e c u t e    t h e    q u e r y

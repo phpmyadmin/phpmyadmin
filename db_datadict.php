@@ -56,7 +56,7 @@ if ($cfgRelation['commwork']) {
 /**
  * Selects the database and gets tables names
  */
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 $tables = PMA_DBI_getTables($db);
 
 $count  = 0;
@@ -76,7 +76,7 @@ foreach ($tables as $table) {
      * Gets table keys and retains them
      */
 
-    PMA_DBI_select_db($db);
+    PMA_DBI_selectDb($db);
     $indexes      = PMA_DBI_getTableIndexes($db, $table);
     $primary      = '';
     $indexes      = array();

@@ -748,7 +748,7 @@ class PMA_Table
 
         // Doing a select_db could avoid some problems with replicated databases,
         // when moving table from replicated one to not replicated one
-        PMA_DBI_select_db($target_db);
+        PMA_DBI_selectDb($target_db);
 
         $target = PMA_Util::backquote($target_db) . '.' . PMA_Util::backquote($target_table);
 
@@ -936,7 +936,7 @@ class PMA_Table
 
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            PMA_DBI_select_db($source_db);
+            PMA_DBI_selectDb($source_db);
 
             if (PMA_Table::isView($source_db, $source_table)) {
                 $sql_drop_query = 'DROP VIEW';
@@ -1201,7 +1201,7 @@ class PMA_Table
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             // Restore triggers in the old database
             if ($handle_triggers) {
-                PMA_DBI_select_db($this->getDbName());
+                PMA_DBI_selectDb($this->getDbName());
                 foreach ($triggers as $trigger) {
                     PMA_DBI_query($trigger['create']);
                 }

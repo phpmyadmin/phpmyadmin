@@ -22,7 +22,7 @@ $scripts->addFile('server_privileges.js');
  * script
  */
 if (! $cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
+    $cfg['ShowChgPassword'] = PMA_DBI_selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     PMA_Message::error(

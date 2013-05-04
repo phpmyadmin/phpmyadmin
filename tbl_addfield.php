@@ -170,7 +170,7 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    PMA_DBI_select_db($db)
+    PMA_DBI_selectDb($db)
         or PMA_Util::mysqlDie(
             PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
         );

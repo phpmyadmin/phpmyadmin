@@ -365,7 +365,7 @@ function PMA__getRelationsParam()
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
-        || ! PMA_DBI_select_db($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+        || ! PMA_DBI_selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,

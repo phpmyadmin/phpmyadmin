@@ -25,7 +25,7 @@ require_once 'libraries/insert_edit.lib.php';
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table', 'goto'));
 
-PMA_DBI_select_db($GLOBALS['db']);
+PMA_DBI_selectDb($GLOBALS['db']);
 
 /**
  * Initializes some variables

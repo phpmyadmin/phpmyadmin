@@ -233,7 +233,7 @@ function PMA_DBI_connect(
  *
  * @return boolean
  */
-function PMA_DBI_select_db($dbname, $link = null)
+function PMA_DBI_selectDb($dbname, $link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

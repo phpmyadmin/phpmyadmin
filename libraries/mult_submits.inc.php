@@ -86,7 +86,7 @@ if (! empty($submit_mult)
             break;
         case 'primary':
             // Gets table primary key
-            PMA_DBI_select_db($db);
+            PMA_DBI_selectDb($db);
             $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
             $primary     = '';
             while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -365,7 +365,7 @@ if (!empty($submit_mult) && !empty($what)) {
 
     if ($query_type == 'primary_fld') {
         // Gets table primary key
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
         $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
         $primary     = '';
         while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -523,7 +523,7 @@ if (!empty($submit_mult) && !empty($what)) {
         if ($run_parts) {
             $sql_query .= $a_query . ';' . "\n";
             if ($query_type != 'drop_db') {
-                PMA_DBI_select_db($db);
+                PMA_DBI_selectDb($db);
             }
             $result = PMA_DBI_query($a_query);
 
@@ -551,7 +551,7 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($use_sql) {
         include './sql.php';
     } elseif (!$run_parts) {
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
         // for disabling foreign key checks while dropping tables
         if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');

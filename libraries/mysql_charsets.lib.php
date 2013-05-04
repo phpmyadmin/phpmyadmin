@@ -203,12 +203,12 @@ function PMA_getDbCollation($db)
             . '\' LIMIT 1';
         return PMA_DBI_fetchValue($sql);
     } else {
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
         $return = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE \'collation_database\'', 0, 1
         );
         if ($db !== $GLOBALS['db']) {
-            PMA_DBI_select_db($GLOBALS['db']);
+            PMA_DBI_selectDb($GLOBALS['db']);
         }
         return $return;
     }

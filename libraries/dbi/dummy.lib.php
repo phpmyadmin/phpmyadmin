@@ -302,7 +302,7 @@ function PMA_DBI_connect(
  *
  * @return bool
  */
-function PMA_DBI_select_db($dbname, $link = null)
+function PMA_DBI_selectDb($dbname, $link = null)
 {
     $GLOBALS['dummy_db'] = $dbname;
     return true;

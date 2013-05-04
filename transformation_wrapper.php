@@ -46,7 +46,7 @@ foreach ($request_params as $one_request_param) {
 /**
  * Get the list of the fields of the current table
  */
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 if (isset($where_clause)) {
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';',
