@@ -175,7 +175,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                                 return;
                             }
                         } else {
-                            $a_num_rows = (int)@PMA_DBI_num_rows($result);
+                            $a_num_rows = (int)@PMA_DBI_numRows($result);
                             $a_aff_rows = (int)@PMA_DBI_affected_rows();
                             if ($a_num_rows > 0) {
                                 $msg .= __('Rows'). ': ' . $a_num_rows;

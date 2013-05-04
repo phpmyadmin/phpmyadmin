@@ -903,7 +903,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+        // need to use PMA_DBI_QUERY_STORE with PMA_DBI_numRows() in mysqli
         $result = PMA_DBI_query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
             . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\'',
@@ -911,7 +911,7 @@ class ExportSql extends ExportPlugin
             PMA_DBI_QUERY_STORE
         );
         if ($result != false) {
-            if (PMA_DBI_num_rows($result) > 0) {
+            if (PMA_DBI_numRows($result) > 0) {
                 $tmpres = PMA_DBI_fetchAssoc($result);
                 if (PMA_DRIZZLE && $show_dates) {
                     // Drizzle doesn't give Create_time and Update_time in

@@ -419,7 +419,7 @@ class Table_Stats
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
         $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_numRows($result)) {
             $eps->dieSchema(
                 $pageNumber, "EPS",
                 sprintf(__('The %s table doesn\'t exist!'), $tableName)
@@ -467,7 +467,7 @@ class Table_Stats
             . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
 
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_numRows($result)) {
             $eps->dieSchema(
                 $pageNumber, "EPS",
                 sprintf(
@@ -486,7 +486,7 @@ class Table_Stats
             'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
             null, PMA_DBI_QUERY_STORE
         );
-        if (PMA_DBI_num_rows($result) > 0) {
+        if (PMA_DBI_numRows($result) > 0) {
             while ($row = PMA_DBI_fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];

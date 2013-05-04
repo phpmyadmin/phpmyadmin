@@ -67,7 +67,7 @@ $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
 $all_tables_result = PMA_queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
-if (PMA_DBI_num_rows($all_tables_result) > 0) {
+if (PMA_DBI_numRows($all_tables_result) > 0) {
 ?>
     <div id="tracked_tables">
     <h3><?php echo __('Tracked tables');?></h3>

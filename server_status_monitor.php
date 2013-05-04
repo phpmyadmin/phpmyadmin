@@ -64,7 +64,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         case 'proc':
                             $result = PMA_DBI_query('SHOW PROCESSLIST');
                             $ret[$chart_id][$node_id][$point_id]['value']
-                                = PMA_DBI_num_rows($result);
+                                = PMA_DBI_numRows($result);
                             break;
 
                         case 'cpu':

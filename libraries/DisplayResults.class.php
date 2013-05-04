@@ -5511,7 +5511,7 @@ class PMA_DisplayResults
 
                 $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
-                if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
+                if ($dispresult && PMA_DBI_numRows($dispresult) > 0) {
                     list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
                 } else {
                     $dispval = __('Link not found');

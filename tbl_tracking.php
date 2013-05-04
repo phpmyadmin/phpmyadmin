@@ -715,7 +715,7 @@ $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
 
 $sql_result = PMA_queryAsControlUser($sql_query);
 
-if (PMA_DBI_num_rows($sql_result) > 0) {
+if (PMA_DBI_numRows($sql_result) > 0) {
     echo '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     echo '<select name="table">';
     while ($entries = PMA_DBI_fetchArray($sql_result)) {

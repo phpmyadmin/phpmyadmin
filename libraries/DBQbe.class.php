@@ -263,7 +263,7 @@ class PMA_DbQbe
             null,
             PMA_DBI_QUERY_STORE
         );
-        $all_tables_count = PMA_DBI_num_rows($all_tables);
+        $all_tables_count = PMA_DBI_numRows($all_tables);
         if (0 == $all_tables_count) {
             PMA_Message::error(__('No tables found in database.'))->display();
             exit;

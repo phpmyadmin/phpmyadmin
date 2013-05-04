@@ -499,7 +499,7 @@ class PMA_List_Database extends PMA_List
         $local_query .= ' AND `User` = \'';
         $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_tryQuery($local_query, $GLOBALS['controllink']);
-        if ($rs && @PMA_DBI_num_rows($rs)) {
+        if ($rs && @PMA_DBI_numRows($rs)) {
             while ($row = PMA_DBI_fetchAssoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {
                     $dblist[] = $row['Db'];

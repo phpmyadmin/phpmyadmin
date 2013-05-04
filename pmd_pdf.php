@@ -109,7 +109,7 @@ $table_info_result = PMA_queryAsControlUser(
     . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
 );
 
-if (PMA_DBI_num_rows($table_info_result) > 0) {
+if (PMA_DBI_numRows($table_info_result) > 0) {
     echo '<p>' . __('Page:');
     echo '<select name="pdf_page_number">';
 

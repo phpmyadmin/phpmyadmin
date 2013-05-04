@@ -362,7 +362,7 @@ if ($cfgRelation['relwork']
 } // end if
 
 // Now find out the columns of our $table
-// need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+// need to use PMA_DBI_QUERY_STORE with PMA_DBI_numRows() in mysqli
 $columns = PMA_DBI_getColumns($db, $table);
 
 if (count($columns) > 0) {

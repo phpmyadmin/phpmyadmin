@@ -718,7 +718,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // mysql_affected_rows() reports about the last query done)
 
     if (! $is_affected) {
-        $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+        $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
     } elseif (! isset($num_rows)) {
         $num_rows = @PMA_DBI_affected_rows();
     }
@@ -1576,7 +1576,7 @@ function getTableHtmlForMultipleQueries(
         }
 
         if (! $is_affected) {
-            $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+            $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
         } elseif (! isset($num_rows)) {
             $num_rows = @PMA_DBI_affected_rows();
         }

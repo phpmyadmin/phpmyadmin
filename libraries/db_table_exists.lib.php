@@ -63,7 +63,7 @@ if (empty($is_table)
                 . '\';',
                 null, PMA_DBI_QUERY_STORE
             );
-            $is_table = @PMA_DBI_num_rows($_result);
+            $is_table = @PMA_DBI_numRows($_result);
             PMA_DBI_freeResult($_result);
         }
     } else {
@@ -86,7 +86,7 @@ if (empty($is_table)
                     null,
                     PMA_DBI_QUERY_STORE
                 );
-                $is_table = ($_result && @PMA_DBI_num_rows($_result));
+                $is_table = ($_result && @PMA_DBI_numRows($_result));
                 PMA_DBI_freeResult($_result);
             }
 

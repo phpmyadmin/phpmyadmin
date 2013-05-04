@@ -408,7 +408,7 @@ function PMA_DBI_getError($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     if (!is_bool($result)) {
         return mysql_num_rows($result);

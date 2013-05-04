@@ -492,7 +492,7 @@ function PMA_DBI_getError($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     // see the note for PMA_DBI_tryQuery();
     if (!is_bool($result)) {

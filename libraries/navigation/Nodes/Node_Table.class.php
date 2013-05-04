@@ -69,14 +69,14 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::backquote($table);
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
-                $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'indexes':
             $db     = PMA_Util::backquote($db);
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
-            $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+            $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             break;
         case 'triggers':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -91,7 +91,7 @@ class Node_Table extends Node
                 $db     = PMA_Util::backquote($db);
                 $table  = PMA_Util::sqlAddSlashes($table);
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
-                $retval = (int)PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = (int)PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         default:

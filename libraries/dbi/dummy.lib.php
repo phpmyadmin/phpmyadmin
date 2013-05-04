@@ -460,7 +460,7 @@ function PMA_DBI_nextResult()
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     if (!is_bool($result)) {
         return count($GLOBALS['dummy_queries'][$result]['result']);

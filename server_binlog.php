@@ -54,7 +54,7 @@ $result = PMA_DBI_query($sql_query);
  */
 // Gets the list of fields properties
 if (isset($result) && $result) {
-    $num_rows = PMA_DBI_num_rows($result);
+    $num_rows = PMA_DBI_numRows($result);
 } else {
     $num_rows = 0;
 }

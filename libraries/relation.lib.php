@@ -704,7 +704,7 @@ function PMA_getDbComment($db)
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
+        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
             $row = PMA_DBI_fetchAssoc($com_rs);
             $comment = $row['comment'];
         }
@@ -735,7 +735,7 @@ function PMA_getDbComments()
               WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
+        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
             while ($row = PMA_DBI_fetchAssoc($com_rs)) {
                 $comments[$row['db_name']] = $row['comment'];
             }
@@ -1135,7 +1135,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
             }
 
             $disp  = PMA_DBI_query($f_query_main . $f_query_from . $f_query_filter . $f_query_order . $f_query_limit);
-            if ($disp && PMA_DBI_num_rows($disp) > 0) {
+            if ($disp && PMA_DBI_numRows($disp) > 0) {
                 // If a resultset has been created, pre-cache it in the $disp_row array
                 // This helps us from not needing to use mysql_data_seek by accessing a pre-cached
                 // PHP array. Usually those resultsets are not that big, so a performance hit should

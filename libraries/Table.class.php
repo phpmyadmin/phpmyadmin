@@ -551,7 +551,7 @@ class PMA_Table
                             PMA_DBI_QUERY_STORE
                         );
                         if (!PMA_DBI_getError()) {
-                            $row_count = PMA_DBI_num_rows($result);
+                            $row_count = PMA_DBI_numRows($result);
                             PMA_DBI_freeResult($result);
                         }
                     }

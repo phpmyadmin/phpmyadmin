@@ -185,7 +185,7 @@ class PMA_User_Schema
             $page_query, false, PMA_DBI_QUERY_STORE
         );
 
-        if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
+        if ($page_rs && PMA_DBI_numRows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
             <fieldset>
@@ -747,7 +747,7 @@ class PMA_User_Schema
             $master_tables_rs = PMA_queryAsControlUser(
                 $master_tables, false, PMA_DBI_QUERY_STORE
             );
-            if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
+            if ($master_tables_rs && PMA_DBI_numRows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
                  * the schema
@@ -889,7 +889,7 @@ class PMA_User_Schema
                     $test_query, false, PMA_DBI_QUERY_STORE
                 );
                 //echo $test_query;
-                if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
+                if ($test_rs && PMA_DBI_numRows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                         $ch_query = 'DELETE FROM '
                             . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])

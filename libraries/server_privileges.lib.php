@@ -2958,7 +2958,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
          * Displays the initials
          * Also not necassary if there is less than 20 privileges
          */
-        if (PMA_DBI_num_rows($res) > 20 ) {
+        if (PMA_DBI_numRows($res) > 20 ) {
             $html_output .= PMA_getHtmlForDisplayTheInitials(
                 $array_initials, $conditional_class
             );
@@ -2970,7 +2970,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         */
         if (isset($_REQUEST['initial'])
             || isset($_REQUEST['showall'])
-            || PMA_DBI_num_rows($res) < 50
+            || PMA_DBI_numRows($res) < 50
         ) {
             $html_output .= PMA_getUsersOverview(
                 $res, $db_rights, $link_edit, $pmaThemeImage,

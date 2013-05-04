@@ -71,7 +71,7 @@ if (true === $cfg['SkipLockedTables']) {
     );
 
     // Blending out tables in use
-    if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
+    if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
         while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[1])) {
@@ -85,7 +85,7 @@ if (true === $cfg['SkipLockedTables']) {
                 'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
                 null, PMA_DBI_QUERY_STORE
             );
-            if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
+            if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query(

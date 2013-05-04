@@ -1599,7 +1599,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
 
     // return false if result is empty or false
     // or requested row is larger than rows in result
-    if (PMA_DBI_num_rows($result) < ($row_number + 1)) {
+    if (PMA_DBI_numRows($result) < ($row_number + 1)) {
         return $value;
     }
 
@@ -1651,7 +1651,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
     }
 
     // return null if result is empty or false
-    if (! PMA_DBI_num_rows($result)) {
+    if (! PMA_DBI_numRows($result)) {
         return false;
     }
 
