@@ -545,7 +545,7 @@ function PMA_DBI_fieldFlags($result, $i)
  *
  * @return false
  */
-function PMA_DBI_store_result()
+function PMA_DBI_storeResult()
 {
     return false;
 }

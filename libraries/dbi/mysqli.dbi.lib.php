@@ -386,7 +386,7 @@ function PMA_DBI_nextResult($link = null)
  *
  * @return mixed false when empty results / result set when not empty
  */
-function PMA_DBI_store_result()
+function PMA_DBI_storeResult()
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

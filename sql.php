@@ -639,7 +639,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
     do {
-        PMA_DBI_store_result();
+        PMA_DBI_storeResult();
         if (! PMA_DBI_moreResults()) {
             break;
         }
@@ -1502,7 +1502,7 @@ function getTableHtmlForMultipleQueries(
         $analyzed_sql = array();
         $is_affected = false;
 
-        $result = PMA_DBI_store_result();
+        $result = PMA_DBI_storeResult();
         $fields_meta = ($result !== false)
             ? PMA_DBI_getFieldsMeta($result)
             : array();

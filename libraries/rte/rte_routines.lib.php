@@ -1373,7 +1373,7 @@ function PMA_RTN_handleExecute()
 
                 do {
 
-                    $result = PMA_DBI_store_result();
+                    $result = PMA_DBI_storeResult();
                     $num_rows = PMA_DBI_numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
