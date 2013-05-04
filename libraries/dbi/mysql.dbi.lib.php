@@ -424,7 +424,7 @@ function PMA_DBI_numRows($result)
  *
  * @return string|int
  */
-function PMA_DBI_insert_id($link = null)
+function PMA_DBI_insertId($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {

@@ -509,7 +509,7 @@ function PMA_DBI_numRows($result)
  *
  * @return string|int
  */
-function PMA_DBI_insert_id($link = null)
+function PMA_DBI_insertId($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -523,7 +523,7 @@ function PMA_DBI_insert_id($link = null)
     // the tracking mechanism, but this works:
     return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     // Curiously, this problem does not happen with the mysql extension but
-    // there is another problem with BIGINT primary keys so PMA_DBI_insert_id()
+    // there is another problem with BIGINT primary keys so PMA_DBI_insertId()
     // in the mysql extension also uses this logic.
 }
 

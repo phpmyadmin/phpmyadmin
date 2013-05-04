@@ -677,7 +677,7 @@ class PMA_Table
                      \'' . implode('\', \'', $new_value_parts) . '\')';
 
                 PMA_queryAsControlUser($new_table_query);
-                $last_id = PMA_DBI_insert_id();
+                $last_id = PMA_DBI_insertId();
             } // end while
 
             PMA_DBI_freeResult($table_copy_rs);

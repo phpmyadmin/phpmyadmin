@@ -1408,7 +1408,7 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         . PMA_Util::sqlAddSlashes($newpage) . '\')';
     PMA_queryAsControlUser($ins_query, false);
 
-    return PMA_DBI_insert_id(
+    return PMA_DBI_insertId(
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );
 }

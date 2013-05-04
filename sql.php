@@ -905,7 +905,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         } else {
             $message = PMA_Message::getMessageForInsertedRows($num_rows);
         }
-        $insert_id = PMA_DBI_insert_id();
+        $insert_id = PMA_DBI_insertId();
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
