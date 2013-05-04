@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-03 15:57+0200\n"
-"PO-Revision-Date: 2013-05-02 13:10+0200\n"
+"PO-Revision-Date: 2013-05-04 21:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -5524,20 +5524,20 @@ msgid "Control host"
 msgstr "Kontrolní host"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the already defined port"
-msgstr "Jiný server na kterém bude umístěno úložiště nastavení phpMyAdmina"
+msgstr ""
+"Jiný port pro připojení k serveru serveru, na kterém bude umístěno úložiště "
+"nastavení phpMyAdmina"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Kontrolní host"
+msgstr "Kontrolní port"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
