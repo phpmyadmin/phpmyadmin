@@ -126,7 +126,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
          * exit if we want the message to be displayed
          */
     } else {// end if (no row returned)
-        $meta = PMA_DBI_get_fields_meta($result[$key_id]);
+        $meta = PMA_DBI_getFieldsMeta($result[$key_id]);
 
         list($unique_condition, $tmp_clause_is_unique)
             = PMA_Util::getUniqueCondition(
@@ -1788,7 +1788,7 @@ function PMA_setSessionForEditNext($one_where_clause)
 
     $res            = PMA_DBI_query($local_query);
     $row            = PMA_DBI_fetchRow($res);
-    $meta           = PMA_DBI_get_fields_meta($res);
+    $meta           = PMA_DBI_getFieldsMeta($res);
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)

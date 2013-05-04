@@ -1379,7 +1379,7 @@ function PMA_RTN_handleExecute()
                     if (($result !== false) && ($num_rows > 0)) {
 
                         $output .= "<table><tr>";
-                        foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+                        foreach (PMA_DBI_getFieldsMeta($result) as $key => $field) {
                             $output .= "<th>";
                             $output .= htmlspecialchars($field->name);
                             $output .= "</th>";

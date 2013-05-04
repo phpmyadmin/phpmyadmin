@@ -456,7 +456,7 @@ function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
  *
  * @return array meta info for fields in $result
  */
-function PMA_DBI_get_fields_meta($result)
+function PMA_DBI_getFieldsMeta($result)
 {
     // Build an associative array for a type look up
     $typeAr = array();

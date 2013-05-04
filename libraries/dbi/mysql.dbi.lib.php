@@ -475,7 +475,7 @@ function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
  *
  * @todo add missing keys like in mysqli_query (decimals)
  */
-function PMA_DBI_get_fields_meta($result)
+function PMA_DBI_getFieldsMeta($result)
 {
     $fields       = array();
     $num_fields   = mysql_num_fields($result);

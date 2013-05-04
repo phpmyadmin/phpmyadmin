@@ -103,7 +103,7 @@ if (strlen($GLOBALS['table'])) {
 $data = array();
 
 $result = PMA_DBI_tryQuery($sql_query);
-$fields_meta = PMA_DBI_get_fields_meta($result);
+$fields_meta = PMA_DBI_getFieldsMeta($result);
 while ($row = PMA_DBI_fetchAssoc($result)) {
     $data[] = $row;
 }

@@ -162,7 +162,7 @@ class ExportJson extends ExportPlugin
         $columns_cnt = PMA_DBI_num_fields($result);
 
         // Get field information
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_meta = PMA_DBI_getFieldsMeta($result);
 
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));

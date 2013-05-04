@@ -279,7 +279,7 @@ class PMA_ExportPdf extends PMA_PDF
          */
         $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
         $this->numFields  = PMA_DBI_num_fields($this->results);
-        $this->fields = PMA_DBI_get_fields_meta($this->results);
+        $this->fields = PMA_DBI_getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;

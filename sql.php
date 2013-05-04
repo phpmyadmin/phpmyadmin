@@ -1027,7 +1027,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_meta = PMA_DBI_getFieldsMeta($result);
             $fields_cnt  = count($fields_meta);
         }
 
@@ -1153,7 +1153,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Gets the list of fields properties
     if (isset($result) && $result) {
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_meta = PMA_DBI_getFieldsMeta($result);
         $fields_cnt  = count($fields_meta);
     }
 
@@ -1504,7 +1504,7 @@ function getTableHtmlForMultipleQueries(
 
         $result = PMA_DBI_store_result();
         $fields_meta = ($result !== false)
-            ? PMA_DBI_get_fields_meta($result)
+            ? PMA_DBI_getFieldsMeta($result)
             : array();
         $fields_cnt  = count($fields_meta);
 
