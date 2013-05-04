@@ -1012,7 +1012,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true) {
-        $row = PMA_DBI_fetch_row($result);
+        $row = PMA_DBI_fetchRow($result);
         $response = PMA_Response::getInstance();
         $response->addJSON('value', $row[0]);
         exit;

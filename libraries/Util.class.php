@@ -3179,7 +3179,7 @@ class PMA_Util
         }
 
         $wktresult  = PMA_DBI_tryQuery($wktsql, null, PMA_DBI_QUERY_STORE);
-        $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+        $wktarr     = PMA_DBI_fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
 
         if ($includeSRID) {

@@ -1605,7 +1605,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
 
     // if $field is an integer use non associative mysql fetch function
     if (is_int($field)) {
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     } else {
         $fetch_function = 'PMA_DBI_fetchAssoc';
     }
@@ -1657,7 +1657,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
 
     switch ($type) {
     case 'NUM' :
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
         break;
     case 'ASSOC' :
         $fetch_function = 'PMA_DBI_fetchAssoc';
@@ -1744,12 +1744,12 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
     // no nested array if only one field is in result
     if (null === $key && 1 === PMA_DBI_num_fields($result)) {
         $value = 0;
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     }
 
     // if $key is an integer use non associative mysql fetch function
     if (is_int($key)) {
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     }
 
     if (null === $key && null === $value) {

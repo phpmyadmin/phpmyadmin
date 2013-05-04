@@ -48,7 +48,7 @@ class ImportLdi extends AbstractImportCsv
 
             $result = PMA_DBI_tryQuery('SHOW VARIABLES LIKE \'local\\_infile\';');
             if ($result != false && PMA_DBI_num_rows($result) > 0) {
-                $tmp = PMA_DBI_fetch_row($result);
+                $tmp = PMA_DBI_fetchRow($result);
                 if ($tmp[1] == 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }

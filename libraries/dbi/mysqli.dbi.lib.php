@@ -311,7 +311,7 @@ function PMA_DBI_fetchAssoc($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_row($result)
+function PMA_DBI_fetchRow($result)
 {
     return mysqli_fetch_array($result, MYSQLI_NUM);
 }

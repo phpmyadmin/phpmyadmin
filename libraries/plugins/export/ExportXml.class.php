@@ -459,7 +459,7 @@ class ExportXml extends ExportPlugin
                 return false;
             }
 
-            while ($record = PMA_DBI_fetch_row($result)) {
+            while ($record = PMA_DBI_fetchRow($result)) {
                 $buffer = '        <table name="'
                     . htmlspecialchars($table) . '">' . $crlf;
                 for ($i = 0; $i < $columns_cnt; $i++) {

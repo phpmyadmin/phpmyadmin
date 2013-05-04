@@ -395,7 +395,7 @@ function PMA__getRelationsParam()
         return $cfgRelation;
     }
 
-    while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
+    while ($curr_table = @PMA_DBI_fetchRow($tab_rs)) {
         if ($curr_table[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
             $cfgRelation['bookmark']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['relation']) {

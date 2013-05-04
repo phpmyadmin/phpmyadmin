@@ -250,7 +250,7 @@ class PMA_User_Schema
             null,
             PMA_DBI_QUERY_STORE
         );
-        while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
+        while ($val = @PMA_DBI_fetchRow($alltab_rs)) {
                $selectboxall[] = $val[0];
         }
 
@@ -752,7 +752,7 @@ class PMA_User_Schema
                  * of the list, so they are near the center of
                  * the schema
                  */
-                while (list(, $master_table) = PMA_DBI_fetch_row($master_tables_rs)) {
+                while (list(, $master_table) = PMA_DBI_fetchRow($master_tables_rs)) {
                        $all_tables[] = $master_table;
                 }
 

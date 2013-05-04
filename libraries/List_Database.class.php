@@ -455,11 +455,11 @@ class PMA_List_Database extends PMA_List
             $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
             // all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
-                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
                     $dblist[] = $tmp_row[0];
                 } // end while
             } else {
-                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
                     $tmp_db = $tmp_row[0];
                     if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
                         $dblist[]           = $tmp_db;

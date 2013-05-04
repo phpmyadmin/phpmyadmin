@@ -207,7 +207,7 @@ class ExportTexytext extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             $text_output = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {

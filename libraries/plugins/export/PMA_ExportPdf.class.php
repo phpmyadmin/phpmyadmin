@@ -178,7 +178,7 @@ class PMA_ExportPdf extends PMA_PDF
         $tmpheight = array();
         $maxpage = $this->page;
 
-        while ($data = PMA_DBI_fetch_row($this->results)) {
+        while ($data = PMA_DBI_fetchRow($this->results)) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth+$l, $h);
@@ -345,7 +345,7 @@ class PMA_ExportPdf extends PMA_PDF
         /**
           * @todo force here a LIMIT to avoid reading all rows
           */
-        while ($row = PMA_DBI_fetch_row($this->results)) {
+        while ($row = PMA_DBI_fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {

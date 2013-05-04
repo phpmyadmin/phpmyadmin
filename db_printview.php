@@ -38,7 +38,7 @@ if ($cfg['SkipLockedTables'] == true) {
     $result = PMA_DBI_query('SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';');
     // Blending out tables in use
     if ($result != false && PMA_DBI_num_rows($result) > 0) {
-        while ($tmp = PMA_DBI_fetch_row($result)) {
+        while ($tmp = PMA_DBI_fetchRow($result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[0])) {
                 $sot_cache[$tmp[0]] = true;
@@ -49,7 +49,7 @@ if ($cfg['SkipLockedTables'] == true) {
         if (isset($sot_cache)) {
             $result      = PMA_DBI_query('SHOW TABLES FROM ' . PMA_Util::backquote($db) . ';', null, PMA_DBI_QUERY_STORE);
             if ($result != false && PMA_DBI_num_rows($result) > 0) {
-                while ($tmp = PMA_DBI_fetch_row($result)) {
+                while ($tmp = PMA_DBI_fetchRow($result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db) . ' LIKE \'' . sqlAddSlashes($tmp[0], true) . '\';');
                         $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);

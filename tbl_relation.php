@@ -336,7 +336,7 @@ if ($cfgRelation['relwork']
     $selectboxall[] = '';
     $selectboxall_foreign[] = '';
 
-    while ($curr_table = PMA_DBI_fetch_row($tab_rs)) {
+    while ($curr_table = PMA_DBI_fetchRow($tab_rs)) {
         $current_table = new PMA_Table($curr_table[0], $db);
 
         // explicitely ask for non-quoted list of indexed columns

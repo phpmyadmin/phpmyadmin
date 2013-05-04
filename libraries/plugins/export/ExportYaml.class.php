@@ -166,7 +166,7 @@ class ExportYaml extends ExportPlugin
 
         $buffer = '';
         $record_cnt = 0;
-        while ($record = PMA_DBI_fetch_row($result)) {
+        while ($record = PMA_DBI_fetchRow($result)) {
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table

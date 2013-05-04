@@ -252,7 +252,7 @@ class ExportCodegen extends ExportPlugin
         );
         if ($result) {
             $tableProperties = array();
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $tableProperties[] = new TableProperty($row);
             }
             PMA_DBI_free_result($result);
@@ -343,7 +343,7 @@ class ExportCodegen extends ExportPlugin
             )
         );
         if ($result) {
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $tableProperty = new TableProperty($row);
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(

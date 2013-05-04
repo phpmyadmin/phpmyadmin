@@ -1020,7 +1020,7 @@ class ExportSql extends ExportPlugin
             return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
         }
 
-        if ($result != false && ($row = PMA_DBI_fetch_row($result))) {
+        if ($result != false && ($row = PMA_DBI_fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
 
@@ -1697,7 +1697,7 @@ class ExportSql extends ExportPlugin
                 $separator      = ';';
             }
 
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 if ($current_row == 0) {
                     $head = $this->_possibleCRLF()
                         . $this->_exportComment()

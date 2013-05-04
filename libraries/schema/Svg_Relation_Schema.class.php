@@ -409,7 +409,7 @@ class Table_Stats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -445,7 +445,7 @@ class Table_Stats
                 )
             );
         }
-        list($this->x, $this->y) = PMA_DBI_fetch_row($result);
+        list($this->x, $this->y) = PMA_DBI_fetchRow($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         // displayfield

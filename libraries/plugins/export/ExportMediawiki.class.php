@@ -318,7 +318,7 @@ class ExportMediawiki extends ExportPlugin
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
         $fields_cnt = PMA_DBI_num_fields($result);
 
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             $output .= "|-" . $this->_exportCRLF();
 
             // Use '|' for separating table columns

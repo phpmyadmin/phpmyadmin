@@ -2509,7 +2509,7 @@ class PMA_DisplayResults
             || ($_SESSION['tmp_user_values']['disp_direction']
                 == self::DISP_DIR_HORIZONTAL_FLIPPED);
 
-        while ($row = PMA_DBI_fetch_row($dt_result)) {
+        while ($row = PMA_DBI_fetchRow($dt_result)) {
 
             // "vertical display" mode stuff
             $table_body_html .= $this->_getVerticalDisplaySupportSegments(
@@ -4773,7 +4773,7 @@ class PMA_DisplayResults
             if ($sorted_column_index !== false) {
 
                 // fetch first row of the result set
-                $row = PMA_DBI_fetch_row($dt_result);
+                $row = PMA_DBI_fetchRow($dt_result);
 
                 // initializing default arguments
                 $default_function = '_mimeDefaultFunction';
@@ -4803,7 +4803,7 @@ class PMA_DisplayResults
 
                 // fetch last row of the result set
                 PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
-                $row = PMA_DBI_fetch_row($dt_result);
+                $row = PMA_DBI_fetchRow($dt_result);
 
                 // check for non printable sorted row data
                 $meta = $fields_meta[$sorted_column_index];
@@ -5074,7 +5074,7 @@ class PMA_DisplayResults
 
         // fetch last row of the result set
         PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
-        $row = PMA_DBI_fetch_row($dt_result);
+        $row = PMA_DBI_fetchRow($dt_result);
 
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
@@ -5512,7 +5512,7 @@ class PMA_DisplayResults
                 $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
                 if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                    list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+                    list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
                 } else {
                     $dispval = __('Link not found');
                 }

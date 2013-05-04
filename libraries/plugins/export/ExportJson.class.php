@@ -171,7 +171,7 @@ class ExportJson extends ExportPlugin
 
         $buffer = '';
         $record_cnt = 0;
-        while ($record = PMA_DBI_fetch_row($result)) {
+        while ($record = PMA_DBI_fetchRow($result)) {
 
             $record_cnt++;
 

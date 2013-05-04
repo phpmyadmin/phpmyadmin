@@ -1787,7 +1787,7 @@ function PMA_setSessionForEditNext($one_where_clause)
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
     $res            = PMA_DBI_query($local_query);
-    $row            = PMA_DBI_fetch_row($res);
+    $row            = PMA_DBI_fetchRow($res);
     $meta           = PMA_DBI_get_fields_meta($res);
     // must find a unique condition based on unique key,
     // not a combination of all fields
@@ -1995,7 +1995,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . $where_comparison;
         $dispresult  = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
         if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-            list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+            list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
         }
         @PMA_DBI_free_result($dispresult);
         return $dispval;

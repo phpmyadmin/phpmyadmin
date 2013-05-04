@@ -398,7 +398,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
                 $sql_query = 'SHOW COLUMNS FROM `mysql`.`db`;';
             }
             $res = PMA_DBI_query($sql_query);
-            while ($row1 = PMA_DBI_fetch_row($res)) {
+            while ($row1 = PMA_DBI_fetchRow($res)) {
                 if (substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
@@ -447,7 +447,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         );
         $columns = array();
         if ($res) {
-            while ($row1 = PMA_DBI_fetch_row($res)) {
+            while ($row1 = PMA_DBI_fetchRow($res)) {
                 $columns[$row1[0]] = array(
                     'Select' => false,
                     'Insert' => false,
@@ -584,7 +584,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db,
         .' = \'' . PMA_Util::sqlAddSlashes($table) . '\';'
     );
 
-    while ($row1 = PMA_DBI_fetch_row($res)) {
+    while ($row1 = PMA_DBI_fetchRow($res)) {
         $row1[1] = explode(',', $row1[1]);
         foreach ($row1[1] as $current) {
             $columns[$row1[0]][$current] = true;
@@ -1915,7 +1915,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
             . $_REQUEST['username'] . "';";
         $res = PMA_DBI_query($sql_query);
-        $row = PMA_DBI_fetch_row($res);
+        $row = PMA_DBI_fetchRow($res);
         if (empty($row)) {
             $extra_data['user_exists'] = false;
         } else {
@@ -2335,7 +2335,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 
     if ($result) {
         $pred_tbl_array = array();
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
                 $pred_tbl_array[] = $row[0];
             }
@@ -2589,7 +2589,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         null,
         PMA_DBI_QUERY_STORE
     );
-    while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+    while (list($tmp_initial) = PMA_DBI_fetchRow($initials)) {
         $array_initials[$tmp_initial] = true;
     }
 

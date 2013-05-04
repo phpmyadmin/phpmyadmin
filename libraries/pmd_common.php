@@ -114,7 +114,7 @@ function get_script_contr()
         null,
         PMA_DBI_QUERY_STORE
     );
-    while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
+    while ($val = @PMA_DBI_fetchRow($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
         //echo "<br> internal ".$GLOBALS['db']." - ".$val[0]." - ";
         //print_r($row);

@@ -226,7 +226,7 @@ function PMA_DBI_fetchAssoc($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_row($result)
+function PMA_DBI_fetchRow($result)
 {
     return $result->fetchRow(PMA_Drizzle::FETCH_NUM);
 }
