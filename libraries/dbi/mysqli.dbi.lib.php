@@ -652,7 +652,7 @@ function PMA_DBI_numFields($result)
  *
  * @return int length of field
  */
-function PMA_DBI_field_len($result, $i)
+function PMA_DBI_fieldLen($result, $i)
 {
     return mysqli_fetch_field_direct($result, $i)->length;
 }

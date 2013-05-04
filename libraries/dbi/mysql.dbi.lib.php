@@ -509,7 +509,7 @@ function PMA_DBI_numFields($result)
  *
  * @return int length of field
  */
-function PMA_DBI_field_len($result, $i)
+function PMA_DBI_fieldLen($result, $i)
 {
     return mysql_field_len($result, $i);
 }
