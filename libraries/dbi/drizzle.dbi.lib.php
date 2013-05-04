@@ -42,7 +42,7 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return PMA_DrizzleCon
  */
-function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password,
+function PMA_DBI_realConnect($drizzle, $host, $port, $uds, $user, $password,
     $db = null, $options = DRIZZLE_CON_NONE
 ) {
     if ($uds) {
@@ -109,7 +109,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
     }
 
     if (! $server) {
-        $link = @PMA_DBI_real_connect(
+        $link = @PMA_DBI_realConnect(
             $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
             $password, false, $client_flags
         );
@@ -117,13 +117,13 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
         if ($link == false && isset($cfg['Server']['nopassword'])
             && $cfg['Server']['nopassword'] && ! $is_controluser
         ) {
-            $link = @PMA_DBI_real_connect(
+            $link = @PMA_DBI_realConnect(
                 $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
                 $user, null, false, $client_flags
             );
         }
     } else {
-        $link = @PMA_DBI_real_connect(
+        $link = @PMA_DBI_realConnect(
             $drizzle, $server['host'], $server_port, $server_socket,
             $user, $password
         );

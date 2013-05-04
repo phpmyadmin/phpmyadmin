@@ -70,7 +70,7 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
  *
  * @return bool
  */
-function PMA_DBI_real_connect(
+function PMA_DBI_realConnect(
     $link, $host, $user, $password, $dbname, $server_port,
     $server_socket, $client_flags = null, $persistent = false
 ) {
@@ -162,7 +162,7 @@ function PMA_DBI_connect(
     }
 
     if (! $server) {
-        $return_value = @PMA_DBI_real_connect(
+        $return_value = @PMA_DBI_realConnect(
             $link,
             $cfg['Server']['host'],
             $user,
@@ -177,7 +177,7 @@ function PMA_DBI_connect(
             && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword']
             && ! $is_controluser
         ) {
-            $return_value = @PMA_DBI_real_connect(
+            $return_value = @PMA_DBI_realConnect(
                 $link,
                 $cfg['Server']['host'],
                 $user,
@@ -189,7 +189,7 @@ function PMA_DBI_connect(
             );
         }
     } else {
-        $return_value = @PMA_DBI_real_connect(
+        $return_value = @PMA_DBI_realConnect(
             $link,
             $server['host'],
             $user,

@@ -38,7 +38,7 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return mixed   false on error or a mysql connection resource on success
  */
-function PMA_DBI_real_connect($server, $user, $password, $client_flags,
+function PMA_DBI_realConnect($server, $user, $password, $client_flags,
     $persistent = false
 ) {
     global $cfg;
@@ -130,23 +130,23 @@ function PMA_DBI_connect(
     }
 
     if (! $server) {
-        $link = PMA_DBI_real_connect(
+        $link = PMA_DBI_realConnect(
             $cfg['Server']['host'] . $server_port . $server_socket,
             $user, $password, empty($client_flags) ? null : $client_flags
         );
 
         // Retry with empty password if we're allowed to
         if (empty($link) && $cfg['Server']['nopassword'] && ! $is_controluser) {
-            $link = PMA_DBI_real_connect(
+            $link = PMA_DBI_realConnect(
                 $cfg['Server']['host'] . $server_port . $server_socket,
                 $user, '', empty($client_flags) ? null : $client_flags
             );
         }
     } else {
         if (!isset($server['host'])) {
-            $link = PMA_DBI_real_connect($server_socket, $user, $password, null);
+            $link = PMA_DBI_realConnect($server_socket, $user, $password, null);
         } else {
-            $link = PMA_DBI_real_connect(
+            $link = PMA_DBI_realConnect(
                 $server['host'] . $server_port . $server_socket,
                 $user, $password, null
             );
