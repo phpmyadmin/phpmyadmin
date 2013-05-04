@@ -607,7 +607,7 @@ function PMA_DBI_getFieldsMeta($result)
         $fields[$k]->_type = $field->type;
         $fields[$k]->type = $typeAr[$field->type];
         $fields[$k]->_flags = $field->flags;
-        $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
+        $fields[$k]->flags = PMA_DBI_fieldFlags($result, $k);
 
         // Enhance the field objects for mysql-extension compatibilty
         //$flags = explode(' ', $fields[$k]->flags);
@@ -678,7 +678,7 @@ function PMA_DBI_fieldName($result, $i)
  *
  * @return string field flags
  */
-function PMA_DBI_field_flags($result, $i)
+function PMA_DBI_fieldFlags($result, $i)
 {
     // This is missing from PHP 5.2.5, see http://bugs.php.net/bug.php?id=44846
     if (! defined('MYSQLI_ENUM_FLAG')) {

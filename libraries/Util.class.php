@@ -2185,7 +2185,7 @@ class PMA_Util
             $condition   = '';
             $con_key     = '';
             $con_val     = '';
-            $field_flags = PMA_DBI_field_flags($handle, $i);
+            $field_flags = PMA_DBI_fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition

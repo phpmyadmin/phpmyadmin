@@ -2860,7 +2860,7 @@ class PMA_DisplayResults
 
                 // PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
-                $field_flags = PMA_DBI_field_flags($dt_result, $i);
+                $field_flags = PMA_DBI_fieldFlags($dt_result, $i);
 
                 $vertical_display['data'][$row_no][$i]
                     = $this->_getDataCellForBlobColumns(
@@ -3839,7 +3839,7 @@ class PMA_DisplayResults
     ) {
 
         $is_analyse = $this->__get('is_analyse');
-        $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
+        $field_flags = PMA_DBI_fieldFlags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
             || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')

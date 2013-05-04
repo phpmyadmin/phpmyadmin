@@ -249,7 +249,7 @@ class ExportOdt extends ExportPlugin
         $fields_meta = PMA_DBI_getFieldsMeta($result);
         $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = PMA_DBI_field_flags($result, $j);
+            $field_flags[$j] = PMA_DBI_fieldFlags($result, $j);
         }
 
         $GLOBALS['odt_buffer'] .=

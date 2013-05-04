@@ -523,7 +523,7 @@ function PMA_DBI_getFieldsMeta($result)
         $c->charsetnr = $column->charset();
         $c->type = $typeAr[$column->typeDrizzle()];
         $c->_type = $column->type();
-        $c->flags = PMA_DBI_field_flags($result, $k);
+        $c->flags = PMA_DBI_fieldFlags($result, $k);
         $c->_flags = $column->flags();
 
         $c->multiple_key = (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY);
@@ -589,7 +589,7 @@ function PMA_DBI_fieldName($result, $i)
  *
  * @return string field flags
  */
-function PMA_DBI_field_flags($result, $i)
+function PMA_DBI_fieldFlags($result, $i)
 {
     $columns = $result->getColumns();
     $f = $columns[$i];

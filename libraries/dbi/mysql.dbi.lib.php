@@ -535,7 +535,7 @@ function PMA_DBI_fieldName($result, $i)
  *
  * @return string field flags
  */
-function PMA_DBI_field_flags($result, $i)
+function PMA_DBI_fieldFlags($result, $i)
 {
     return mysql_field_flags($result, $i);
 }
