@@ -216,7 +216,7 @@ JQPlotChartFactory.prototype.createChart = function (type, elementId) {
  */
 var JQPlotChart = function (elementId) {
     Chart.call(this, elementId);
-    this.plot;
+    this.plot = null;
     this.validator;
 };
 JQPlotChart.prototype = new Chart();
