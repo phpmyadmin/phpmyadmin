@@ -287,7 +287,7 @@ function PMA_DBI_realMultiQuery($link, $query)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
     return mysqli_fetch_array($result, MYSQLI_BOTH);
 }

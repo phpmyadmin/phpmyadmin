@@ -104,7 +104,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
     }
 
     $style = 'odd';
-    while ($one_result = PMA_DBI_fetch_array($all_tables_result)) {
+    while ($one_result = PMA_DBI_fetchArray($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
              PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
@@ -114,7 +114,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
              . '\' AND `version` = \'' . $version_number . '\'';
 
         $table_result = PMA_queryAsControlUser($table_query);
-        $version_data = PMA_DBI_fetch_array($table_result);
+        $version_data = PMA_DBI_fetchArray($table_result);
 
         if ($version_data['tracking_active'] == 1) {
             $version_status = __('active');

@@ -1343,7 +1343,7 @@ class PMA_Table
             . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
             . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
 
-        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
+        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {

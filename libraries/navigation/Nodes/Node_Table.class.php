@@ -136,7 +136,7 @@ class Node_Table extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Field'];
                             $count++;
@@ -153,7 +153,7 @@ class Node_Table extends Node
             $handle = PMA_DBI_tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                while ($arr = PMA_DBI_fetch_array($handle)) {
+                while ($arr = PMA_DBI_fetchArray($handle)) {
                     if (! in_array($arr['Key_name'], $retval)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Key_name'];
@@ -182,7 +182,7 @@ class Node_Table extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Trigger'];
                             $count++;

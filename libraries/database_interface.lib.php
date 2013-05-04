@@ -1664,7 +1664,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
         break;
     case 'BOTH' :
     default :
-        $fetch_function = 'PMA_DBI_fetch_array';
+        $fetch_function = 'PMA_DBI_fetchArray';
         break;
     }
 

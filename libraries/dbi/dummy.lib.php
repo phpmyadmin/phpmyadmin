@@ -359,7 +359,7 @@ function PMA_DBI_fetch_any($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
     $data = PMA_DBI_fetch_any($result);
     if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {

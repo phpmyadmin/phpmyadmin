@@ -202,7 +202,7 @@ function PMA_DBI_realQuery($query, $link, $options)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
     return $result->fetchRow(PMA_Drizzle::FETCH_BOTH);
 }
