@@ -441,7 +441,7 @@ function PMA_DBI_getProtoInfo($link = null)
  *
  * @return string MySQL client library version
  */
-function PMA_DBI_get_client_info()
+function PMA_DBI_getClientInfo()
 {
     return mysqli_get_client_info();
 }
