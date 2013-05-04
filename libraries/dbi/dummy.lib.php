@@ -438,7 +438,7 @@ function PMA_DBI_freeResult($result)
  *
  * @return bool false
  */
-function PMA_DBI_more_results()
+function PMA_DBI_moreResults()
 {
     return false;
 }

@@ -1409,7 +1409,7 @@ function PMA_RTN_handleExecute()
 
                     }
 
-                    if (! PMA_DBI_more_results()) {
+                    if (! PMA_DBI_moreResults()) {
                         break;
                     }
 

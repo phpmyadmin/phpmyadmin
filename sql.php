@@ -640,7 +640,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // queued up and waiting to be flushed from the buffer. So let's do that.
     do {
         PMA_DBI_store_result();
-        if (! PMA_DBI_more_results()) {
+        if (! PMA_DBI_moreResults()) {
             break;
         }
     } while (PMA_DBI_next_result());
@@ -1613,7 +1613,7 @@ function getTableHtmlForMultipleQueries(
 
         $sql_no++;
 
-    } while (PMA_DBI_more_results() && PMA_DBI_next_result());
+    } while (PMA_DBI_moreResults() && PMA_DBI_next_result());
 
     return $table_html;
 }
