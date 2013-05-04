@@ -299,7 +299,7 @@ function PMA_DBI_fetchArray($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_assoc($result)
+function PMA_DBI_fetchAssoc($result)
 {
     return mysqli_fetch_array($result, MYSQLI_ASSOC);
 }

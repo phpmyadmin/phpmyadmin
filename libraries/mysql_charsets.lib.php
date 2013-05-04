@@ -22,7 +22,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     $res = PMA_DBI_query($sql);
 
     $mysql_charsets = array();
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         $mysql_charsets[] = $row['CHARACTER_SET_NAME'];
         // never used
         //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
@@ -41,7 +41,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
         ? 'SELECT * FROM data_dictionary.COLLATIONS'
         : 'SELECT * FROM information_schema.COLLATIONS';
     $res = PMA_DBI_query($sql);
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         if (! is_array($mysql_collations[$row['CHARACTER_SET_NAME']])) {
             $mysql_collations[$row['CHARACTER_SET_NAME']]
                 = array($row['COLLATION_NAME']);

@@ -659,7 +659,7 @@ class PMA_Table
                 $table_copy_query, true, PMA_DBI_QUERY_STORE
             );
 
-            while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
+            while ($table_copy_row = @PMA_DBI_fetchAssoc($table_copy_rs)) {
                 $value_parts = array();
                 foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
@@ -969,7 +969,7 @@ class PMA_Table
                     $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
+                    while ($comments_copy_row = PMA_DBI_fetchAssoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
                                     . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('

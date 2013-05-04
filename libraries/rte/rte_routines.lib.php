@@ -1388,7 +1388,7 @@ function PMA_RTN_handleExecute()
 
                         $color_class = 'odd';
 
-                        while ($row = PMA_DBI_fetch_assoc($result)) {
+                        while ($row = PMA_DBI_fetchAssoc($result)) {
                             $output .= "<tr>";
                             foreach ($row as $key => $value) {
                                 if ($value === null) {

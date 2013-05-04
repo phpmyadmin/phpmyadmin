@@ -92,7 +92,7 @@ if (true === $cfg['SkipLockedTables']) {
                             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
                             . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
                         );
-                        $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
+                        $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);
                         PMA_DBI_free_result($sts_result);
                         unset($sts_result);
 

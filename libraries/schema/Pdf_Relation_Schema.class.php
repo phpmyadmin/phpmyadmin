@@ -215,7 +215,7 @@ class PMA_Schema_PDF extends PMA_PDF
                 . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
                 . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_queryAsControlUser($test_query);
-            $pages = @PMA_DBI_fetch_assoc($test_rs);
+            $pages = @PMA_DBI_fetchAssoc($test_rs);
             $this->SetFont($this->_ff, 'B', 14);
             $this->Cell(0, 6, ucfirst($pages['page_descr']), 'B', 1, 'C');
             $this->SetFont($this->_ff, '');
@@ -467,7 +467,7 @@ class Table_Stats
             null, PMA_DBI_QUERY_STORE
         );
         if (PMA_DBI_num_rows($result) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }
@@ -1271,7 +1271,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $indexes_data = array();
             $pk_array = array(); // will be use to emphasis prim. keys in the table
             // view
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 // Backups the list of primary keys
                 if ($row['Key_name'] == 'PRIMARY') {
                     $primary .= $row['Column_name'] . ', ';

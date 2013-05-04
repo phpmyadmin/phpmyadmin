@@ -88,7 +88,7 @@ function get_columns_info()
         );
         $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
-        while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
+        while ($row = PMA_DBI_fetchAssoc($fields_rs)) {
             $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
             $tab_column[$tbl_name_i]['COLUMN_NAME'][$j] = $row['Field'];
             $tab_column[$tbl_name_i]['TYPE'][$j]        = $row['Type'];

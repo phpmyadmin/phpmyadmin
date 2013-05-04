@@ -154,7 +154,7 @@ class PMA_DbSearch
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * PMA_backquote
      * PMA_DBI_free_result
-     * PMA_DBI_fetch_assoc
+     * PMA_DBI_fetchAssoc
      * $GLOBALS['db']
      * explode
      * count

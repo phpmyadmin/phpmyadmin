@@ -203,7 +203,7 @@ class PMA_Export_Relation_Schema
         if (! $tab_rs || ! PMA_DBI_num_rows($tab_rs) > 0) {
             $this->dieSchema('', __('This page does not contain any tables!'));
         }
-        while ($curr_table = @PMA_DBI_fetch_assoc($tab_rs)) {
+        while ($curr_table = @PMA_DBI_fetchAssoc($tab_rs)) {
             $alltables[] = PMA_Util::sqlAddSlashes($curr_table['table_name']);
         }
         return $alltables;

@@ -1595,7 +1595,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         .'  `Host` ASC,'
         .'  `Db` ASC;';
     $res = PMA_DBI_query($sql_query);
-    $row = PMA_DBI_fetch_assoc($res);
+    $row = PMA_DBI_fetchAssoc($res);
     if ($row) {
         $found = true;
     }
@@ -1660,7 +1660,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     && $current_host == $row['Host']
             ) {
                 $current_privileges[] = $row;
-                $row = PMA_DBI_fetch_assoc($res);
+                $row = PMA_DBI_fetchAssoc($res);
             }
             $html_output .= '<tr '
                 . 'class="noclick ' . ($odd_row ? 'odd' : 'even')
@@ -2061,7 +2061,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+    while ($db_rights_row = PMA_DBI_fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
         if (! strlen($dbname)) {
             // only Db names in the table `mysql`.`db` uses wildcards
@@ -2092,7 +2092,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     $result = PMA_DBI_query($sql_query);
     $sql_query = '';
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         if (isset($db_rights[$row[$dbOrTableName]])) {
             $db_rights[$row[$dbOrTableName]]
                 = array_merge($db_rights[$row[$dbOrTableName]], $row);
@@ -2133,7 +2133,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
            . '</tr>' . "\n";
     } else {
         $odd_row = true;
-        //while ($row = PMA_DBI_fetch_assoc($res)) {
+        //while ($row = PMA_DBI_fetchAssoc($res)) {
         foreach ($db_rights as $row) {
             $found_rows[] = (! strlen($dbname)) ? $row['Db'] : $row['Table_name'];
 
@@ -2379,7 +2379,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export
 ) {
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
     }
@@ -2663,7 +2663,7 @@ function PMA_getDbRightsForUserOverview()
 
     $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+    while ($db_rights_row = PMA_DBI_fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
         $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
             = $db_rights_row;
@@ -3119,7 +3119,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         $GLOBALS['userlink'],
         PMA_DBI_QUERY_STORE
     );
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
 
         $res2 = PMA_DBI_QUERY(
             'SELECT `Column_name`, `Column_priv`'
@@ -3145,7 +3145,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             'References' => array()
         );
 
-        while ($row2 = PMA_DBI_fetch_assoc($res2)) {
+        while ($row2 = PMA_DBI_fetchAssoc($res2)) {
             $tmp_array = explode(',', $row2['Column_priv']);
             if (in_array('Select', $tmp_array)) {
                 $tmp_privs2['Select'][] = $row2['Column_name'];
@@ -3202,7 +3202,7 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
 
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
             .' ON ' . PMA_Util::backquote($row['Db']) . '.*'
             .' TO \'' . PMA_Util::sqlAddSlashes($username)

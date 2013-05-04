@@ -982,7 +982,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
                     . PMA_Util::backquote($database_name) . ';'
                 );
 
-                while ($row = PMA_DBI_fetch_assoc($res)) {
+                while ($row = PMA_DBI_fetchAssoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
                     $databases[$database_name]['SCHEMA_TABLE_ROWS']
                         += $row['Rows'];
@@ -1607,7 +1607,7 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
     if (is_int($field)) {
         $fetch_function = 'PMA_DBI_fetch_row';
     } else {
-        $fetch_function = 'PMA_DBI_fetch_assoc';
+        $fetch_function = 'PMA_DBI_fetchAssoc';
     }
 
     // get requested row
@@ -1660,7 +1660,7 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
         $fetch_function = 'PMA_DBI_fetch_row';
         break;
     case 'ASSOC' :
-        $fetch_function = 'PMA_DBI_fetch_assoc';
+        $fetch_function = 'PMA_DBI_fetchAssoc';
         break;
     case 'BOTH' :
     default :
@@ -1739,7 +1739,7 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
         return $resultrows;
     }
 
-    $fetch_function = 'PMA_DBI_fetch_assoc';
+    $fetch_function = 'PMA_DBI_fetchAssoc';
 
     // no nested array if only one field is in result
     if (null === $key && 1 === PMA_DBI_num_fields($result)) {

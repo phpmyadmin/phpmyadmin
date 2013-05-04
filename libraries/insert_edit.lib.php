@@ -83,7 +83,7 @@ function PMA_analyzeWhereClauses(
             . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
         $result[$key_id] = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
+        $rows[$key_id]   = PMA_DBI_fetchAssoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
         $has_unique_condition   = PMA_showEmptyResultMessageOrSetUniqueCondition(

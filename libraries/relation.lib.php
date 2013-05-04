@@ -705,7 +705,7 @@ function PMA_getDbComment($db)
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
         if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
-            $row = PMA_DBI_fetch_assoc($com_rs);
+            $row = PMA_DBI_fetchAssoc($com_rs);
             $comment = $row['comment'];
         }
         PMA_DBI_free_result($com_rs);
@@ -736,7 +736,7 @@ function PMA_getDbComments()
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
         if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($com_rs)) {
+            while ($row = PMA_DBI_fetchAssoc($com_rs)) {
                 $comments[$row['db_name']] = $row['comment'];
             }
         }
@@ -1141,7 +1141,7 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
                 // PHP array. Usually those resultsets are not that big, so a performance hit should
                 // not be expected.
                 $disp_row = array();
-                while ($single_disp_row = @PMA_DBI_fetch_assoc($disp)) {
+                while ($single_disp_row = @PMA_DBI_fetchAssoc($disp)) {
                     $disp_row[] = $single_disp_row;
                 }
                 @PMA_DBI_free_result($disp);
@@ -1199,7 +1199,7 @@ function PMA_getRelatives($all_tables, $master)
                    . '   AND ' . $from . '_table IN ' . $in_know
                    . '   AND ' . $to   . '_table IN ' . $in_left;
         $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
-        while ($row = PMA_DBI_fetch_assoc($relations)) {
+        while ($row = PMA_DBI_fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
             if (isset($remaining_tables[$found_table])) {
                 $fromclause

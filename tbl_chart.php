@@ -29,7 +29,7 @@ if (isset($_REQUEST['ajax_request'])
         . $_REQUEST['pos'] . ', ' . $_REQUEST['session_max_rows'];
     $data = array();
     $result = PMA_DBI_tryQuery($sql_with_limit);
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         $data[] = $row;
     }
 
@@ -104,7 +104,7 @@ $data = array();
 
 $result = PMA_DBI_tryQuery($sql_query);
 $fields_meta = PMA_DBI_get_fields_meta($result);
-while ($row = PMA_DBI_fetch_assoc($result)) {
+while ($row = PMA_DBI_fetchAssoc($result)) {
     $data[] = $row;
 }
 

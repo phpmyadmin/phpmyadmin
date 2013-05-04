@@ -370,7 +370,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = PMA_DBI_fetch_assoc($result)) {
+        while ($record = PMA_DBI_fetchAssoc($result)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {

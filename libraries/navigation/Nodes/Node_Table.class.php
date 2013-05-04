@@ -219,7 +219,7 @@ class Node_Table extends Node
             $db     = PMA_Util::backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";
             $query .= "WHERE Name = '$table'";
-            $arr = PMA_DBI_fetch_assoc(PMA_DBI_tryQuery($query));
+            $arr = PMA_DBI_fetchAssoc(PMA_DBI_tryQuery($query));
             $retval = $arr['Comment'];
         }
         return $retval;

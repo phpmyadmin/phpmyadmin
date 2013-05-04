@@ -179,7 +179,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 $type = strtolower(
                     substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
                 );
@@ -244,7 +244,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $removeVars = isset($_REQUEST['removeVariables'])
                 && $_REQUEST['removeVariables'];
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
@@ -367,7 +367,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
         $result = PMA_DBI_tryQuery('EXPLAIN ' . $query);
-        while ($row = PMA_DBI_fetch_assoc($result)) {
+        while ($row = PMA_DBI_fetchAssoc($result)) {
             $return['explain'][] = $row;
         }
 
@@ -382,7 +382,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 $return['profiling'][]= $row;
             }
             PMA_DBI_free_result($result);

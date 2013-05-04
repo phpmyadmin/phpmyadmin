@@ -912,7 +912,7 @@ class ExportSql extends ExportPlugin
         );
         if ($result != false) {
             if (PMA_DBI_num_rows($result) > 0) {
-                $tmpres = PMA_DBI_fetch_assoc($result);
+                $tmpres = PMA_DBI_fetchAssoc($result);
                 if (PMA_DRIZZLE && $show_dates) {
                     // Drizzle doesn't give Create_time and Update_time in
                     // SHOW TABLE STATUS, add it

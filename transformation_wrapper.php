@@ -53,14 +53,14 @@ if (isset($where_clause)) {
         null,
         PMA_DBI_QUERY_STORE
     );
-    $row = PMA_DBI_fetch_assoc($result);
+    $row = PMA_DBI_fetchAssoc($result);
 } else {
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_Util::backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
-    $row = PMA_DBI_fetch_assoc($result);
+    $row = PMA_DBI_fetchAssoc($result);
 }
 
 // No row returned

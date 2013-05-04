@@ -296,7 +296,7 @@ class Table_Stats
             PMA_DBI_QUERY_STORE
         );
         if (PMA_DBI_num_rows($result) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }

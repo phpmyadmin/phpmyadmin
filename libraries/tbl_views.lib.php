@@ -106,7 +106,7 @@ function PMA_getNewTransformationDataSql(
     $column_count = 0;
     $add_comma = false;
 
-    while ($data_row = PMA_DBI_fetch_assoc($pma_tranformation_data)) {
+    while ($data_row = PMA_DBI_fetchAssoc($pma_tranformation_data)) {
 
         foreach ($column_map as $column) {
 

@@ -89,7 +89,7 @@ if (! empty($submit_mult)
             PMA_DBI_selectDb($db);
             $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
             $primary     = '';
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 // Backups the list of primary keys
                 if ($row['Key_name'] == 'PRIMARY') {
                     $primary .= $row['Column_name'] . ', ';
@@ -368,7 +368,7 @@ if (!empty($submit_mult) && !empty($what)) {
         PMA_DBI_selectDb($db);
         $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_Util::backquote($table) . ';');
         $primary     = '';
-        while ($row = PMA_DBI_fetch_assoc($result)) {
+        while ($row = PMA_DBI_fetchAssoc($result)) {
             // Backups the list of primary keys
             if ($row['Key_name'] == 'PRIMARY') {
                 $primary .= $row['Column_name'] . ', ';

@@ -192,7 +192,7 @@ echo  '</td>'
     . '<tbody>';
 
 $odd_row = true;
-while ($value = PMA_DBI_fetch_assoc($result)) {
+while ($value = PMA_DBI_fetchAssoc($result)) {
     if (! $dontlimitchars
         && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
     ) {

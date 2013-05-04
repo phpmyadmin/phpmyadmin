@@ -197,7 +197,7 @@ class PMA_User_Schema
             <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
-            while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {
+            while ($curr_page = PMA_DBI_fetchAssoc($page_rs)) {
                 echo "\n" . '        '
                     . '<option value="' . $curr_page['page_nr'] . '"';
                 if (isset($this->chosenPage)
@@ -271,7 +271,7 @@ class PMA_User_Schema
                 . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_queryAsControlUser($page_query, false);
             $array_sh_page = array();
-            while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
+            while ($temp_sh_page = @PMA_DBI_fetchAssoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
             }
             /*
@@ -427,7 +427,7 @@ class PMA_User_Schema
             <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
             <select name="pdf_page_number" id="pdf_page_number_opt">
                 <?php
-                while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
+                while ($pages = @PMA_DBI_fetchAssoc($test_rs)) {
                     echo '                <option value="' . $pages['page_nr'] . '">'
                         . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
                 } // end while

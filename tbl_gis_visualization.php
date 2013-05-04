@@ -61,7 +61,7 @@ $modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
 $modified_result = PMA_DBI_tryQuery($modified_query);
 
 $data = array();
-while ($row = PMA_DBI_fetch_assoc($modified_result)) {
+while ($row = PMA_DBI_fetchAssoc($modified_result)) {
     $data[] = $row;
 }
 

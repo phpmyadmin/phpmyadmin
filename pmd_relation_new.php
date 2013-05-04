@@ -42,7 +42,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
         . '.' . PMA_Util::backquote($T1) . ';'
     );
     $index_array1 = array(); // will be use to emphasis prim. keys in the table view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         $index_array1[$row['Column_name']] = 1;
     }
     PMA_DBI_free_result($result);
@@ -52,7 +52,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
         . '.' . PMA_Util::backquote($T2) . ';'
     );
     $index_array2 = array(); // will be used to emphasis prim. keys in the table view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         $index_array2[$row['Column_name']] = 1;
     }
     PMA_DBI_free_result($result);
