@@ -1569,7 +1569,7 @@ class ExportSql extends ExportPlugin
         }
 
         if ($result != false) {
-            $fields_cnt = PMA_DBI_num_fields($result);
+            $fields_cnt = PMA_DBI_numFields($result);
 
             // Get field information
             $fields_meta = PMA_DBI_getFieldsMeta($result);

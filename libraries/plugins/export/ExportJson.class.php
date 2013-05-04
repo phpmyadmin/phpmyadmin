@@ -159,7 +159,7 @@ class ExportJson extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = PMA_DBI_numFields($result);
 
         // Get field information
         $fields_meta = PMA_DBI_getFieldsMeta($result);

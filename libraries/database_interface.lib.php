@@ -1742,7 +1742,7 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
     $fetch_function = 'PMA_DBI_fetchAssoc';
 
     // no nested array if only one field is in result
-    if (null === $key && 1 === PMA_DBI_num_fields($result)) {
+    if (null === $key && 1 === PMA_DBI_numFields($result)) {
         $value = 0;
         $fetch_function = 'PMA_DBI_fetchRow';
     }

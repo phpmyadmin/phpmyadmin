@@ -292,7 +292,7 @@ class ExportLatex extends ExportPlugin
     {
         $result      = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = PMA_DBI_numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = PMA_DBI_field_name($result, $i);
         }

@@ -247,7 +247,7 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $fields_cnt = PMA_DBI_numFields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns'])) {

@@ -227,7 +227,7 @@ class ExportOds extends ExportPlugin
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $fields_cnt = PMA_DBI_numFields($result);
         $fields_meta = PMA_DBI_getFieldsMeta($result);
         $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {

@@ -489,7 +489,7 @@ function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
  *
  * @return int  field count
  */
-function PMA_DBI_num_fields($result)
+function PMA_DBI_numFields($result)
 {
     if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         return count($GLOBALS['dummy_queries'][$result]['columns']);

@@ -639,7 +639,7 @@ function PMA_DBI_getFieldsMeta($result)
  *
  * @return int field count
  */
-function PMA_DBI_num_fields($result)
+function PMA_DBI_numFields($result)
 {
     return mysqli_num_fields($result);
 }
