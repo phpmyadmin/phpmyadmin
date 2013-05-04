@@ -4802,7 +4802,7 @@ class PMA_DisplayResults
                 );
 
                 // fetch last row of the result set
-                PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
+                PMA_DBI_dataSeek($dt_result, $this->__get('num_rows') - 1);
                 $row = PMA_DBI_fetchRow($dt_result);
 
                 // check for non printable sorted row data
@@ -4826,7 +4826,7 @@ class PMA_DisplayResults
                 );
 
                 // reset to first row for the loop in _getTableBody()
-                PMA_DBI_data_seek($dt_result, 0);
+                PMA_DBI_dataSeek($dt_result, 0);
 
                 // we could also use here $sort_expression_nodirection
                 return ' [' . htmlspecialchars($sort_column)
@@ -5073,7 +5073,7 @@ class PMA_DisplayResults
         }
 
         // fetch last row of the result set
-        PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
+        PMA_DBI_dataSeek($dt_result, $this->__get('num_rows') - 1);
         $row = PMA_DBI_fetchRow($dt_result);
 
         // $clause_is_unique is needed by getTable() to generate the proper param
@@ -5087,7 +5087,7 @@ class PMA_DisplayResults
             );
 
         // reset to first row for the loop in _getTableBody()
-        PMA_DBI_data_seek($dt_result, 0);
+        PMA_DBI_dataSeek($dt_result, 0);
 
         $links_html .= '<input type="hidden" name="clause_is_unique"'
             .' value="' . $clause_is_unique . '" />' . "\n";

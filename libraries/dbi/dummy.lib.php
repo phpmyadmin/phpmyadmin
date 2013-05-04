@@ -412,7 +412,7 @@ function PMA_DBI_fetchRow($result)
  *
  * @return bool true on success, false on failure
  */
-function PMA_DBI_data_seek($result, $offset)
+function PMA_DBI_dataSeek($result, $offset)
 {
     if ($offset > count($GLOBALS['dummy_queries'][$i]['result'])) {
         return false;
