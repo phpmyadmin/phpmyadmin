@@ -405,7 +405,7 @@ AJAX.registerOnload('server_privileges.js', function () {
 
         // If any option other than 'keep the old one'(option 4) is chosen, we need to remove
         // the old one from the table.
-        var $row_to_remove;
+        var $row_to_remove = null;
         if (curr_submit_name == 'change_copy'
                 && $('input[name=mode]:checked', '#fieldset_mode').val() != '4') {
             var old_username = $t.find('input[name="old_username"]').val();
