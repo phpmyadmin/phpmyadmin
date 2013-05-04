@@ -69,7 +69,7 @@ function PMA_DBI_realConnect($server, $user, $password, $client_flags,
  * @return boolean false always false since mysql extention not support
  *                       for multi query executions
  */
-function PMA_DBI_real_multi_query($link, $query)
+function PMA_DBI_realMultiQuery($link, $query)
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always

@@ -270,7 +270,7 @@ if (! defined('PMA_DRIZZLE')) {
  * @return boolean false always false since mysql extention not support
  *                       for multi query executions
  */
-function PMA_DBI_real_multi_query($link, $query)
+function PMA_DBI_realMultiQuery($link, $query)
 {
     return false;
 }

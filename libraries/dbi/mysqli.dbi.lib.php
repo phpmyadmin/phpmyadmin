@@ -275,7 +275,7 @@ function PMA_DBI_real_query($query, $link, $options)
  *
  * @return mysqli_result collection | boolean(false)
  */
-function PMA_DBI_real_multi_query($link, $query)
+function PMA_DBI_realMultiQuery($link, $query)
 {
     return mysqli_multi_query($link, $query);
 }

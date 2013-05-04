@@ -225,7 +225,7 @@ function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
         }
     }
 
-    return PMA_DBI_real_multi_query($link, $multi_query);
+    return PMA_DBI_realMultiQuery($link, $multi_query);
 
 }
 
