@@ -67,7 +67,7 @@ function make_zero() {   // Function called if the user stays after seeing the c
 
 
 var dx, dy, dy2;
-var cur_click;
+var cur_click = null;
 // update in Main()
 var sm_x = 2, sm_y = 2;
 var sm_s           = 0;
