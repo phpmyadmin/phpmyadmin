@@ -245,7 +245,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_version'
     );
     PMA_printListItem(
-        __('Protocol version:') . ' ' . PMA_DBI_get_proto_info(),
+        __('Protocol version:') . ' ' . PMA_DBI_getProtoInfo(),
         'li_mysql_proto'
     );
     PMA_printListItem(
