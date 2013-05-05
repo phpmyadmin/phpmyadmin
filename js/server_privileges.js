@@ -16,15 +16,15 @@
  */
 function checkAddUser(the_form)
 {
-    if (the_form.elements['pred_hostname'].value == 'userdefined' && the_form.elements['hostname'].value === '') {
+    if (the_form.elements.pred_hostname.value == 'userdefined' && the_form.elements.hostname.value === '') {
         alert(PMA_messages.strHostEmpty);
-        the_form.elements['hostname'].focus();
+        the_form.elements.hostname.focus();
         return false;
     }
 
-    if (the_form.elements['pred_username'].value == 'userdefined' && the_form.elements['username'].value === '') {
+    if (the_form.elements.pred_username.value == 'userdefined' && the_form.elements.username.value === '') {
         alert(PMA_messages.strUserEmpty);
-        the_form.elements['username'].focus();
+        the_form.elements.username.focus();
         return false;
     }
 
@@ -196,7 +196,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 'username' : username
             };
             $.get(href, params, function(data) {
-                if (data['user_exists']) {
+                if (data.user_exists) {
                     $warning.show();
                 } else {
                     $warning.hide();

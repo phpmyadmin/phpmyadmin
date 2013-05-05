@@ -1444,9 +1444,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 .dblclick(function (e) {
                     e.preventDefault();
                     $("<div/>")
-                    .prop("title", PMA_messages["strColNameCopyTitle"])
+                    .prop("title", PMA_messages.strColNameCopyTitle)
                     .addClass("modal-copy")
-                    .text(PMA_messages["strColNameCopyText"])
+                    .text(PMA_messages.strColNameCopyText)
                     .append(
                         $("<input/>")
                         .prop("readonly", true)

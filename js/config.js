@@ -670,7 +670,7 @@ AJAX.registerOnload('config.js', function () {
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
-    var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
+    var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
