@@ -992,7 +992,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $goto = 'index.php';
         }
         // Loads to target script
-        if (strlen($goto) > 0){
+        if (strlen($goto) > 0) {
         	$active_page = $goto;
         	include '' . $goto;
         } else {
