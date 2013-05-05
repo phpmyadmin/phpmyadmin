@@ -7,7 +7,7 @@
  */
 
 /**
- *
+ * requirements
  */
 require_once 'libraries/common.inc.php';
 
@@ -16,6 +16,7 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/server_common.inc.php';
 
+$response = PMA_Response::getInstance();
 $url_params = array();
 
 /**
@@ -69,30 +70,30 @@ if (empty($_REQUEST['dontlimitchars'])) {
 /**
  * Displays the sub-page heading
  */
-echo '<h2>' . "\n"
-   . PMA_Util::getImage('s_tbl.png')
-   . '    ' . __('Binary log') . "\n"
-   . '</h2>' . "\n";
+$html = '<h2>' . "\n"
+    . PMA_Util::getImage('s_tbl.png')
+    . '    ' . __('Binary log') . "\n"
+    . '</h2>' . "\n";
 
 /**
  * Display log selector.
  */
 if (count($binary_logs) > 1) {
-    echo '<form action="server_binlog.php" method="get">';
-    echo PMA_generate_common_hidden_inputs($url_params);
-    echo '<fieldset><legend>';
-    echo __('Select binary log to view');
-    echo '</legend><select name="log">';
+    $html .= '<form action="server_binlog.php" method="get">';
+    $html .= PMA_generate_common_hidden_inputs($url_params);
+    $html .= '<fieldset><legend>';
+    $html .= __('Select binary log to view');
+    $html .= '</legend><select name="log">';
     $full_size = 0;
     foreach ($binary_logs as $each_log) {
-        echo '<option value="' . $each_log['Log_name'] . '"';
+        $html .= '<option value="' . $each_log['Log_name'] . '"';
         if ($each_log['Log_name'] == $_REQUEST['log']) {
-            echo ' selected="selected"';
+            $html .= ' selected="selected"';
         }
-        echo '>' . $each_log['Log_name'];
+        $html .= '>' . $each_log['Log_name'];
         if (isset($each_log['File_size'])) {
             $full_size += $each_log['File_size'];
-            echo ' ('
+            $html .= ' ('
                 . implode(
                     ' ',
                     PMA_Util::formatByteDown(
@@ -101,28 +102,28 @@ if (count($binary_logs) > 1) {
                 )
                 . ')';
         }
-        echo '</option>';
+        $html .= '</option>';
     }
-    echo '</select> ';
-    echo count($binary_logs) . ' ' . __('Files') . ', ';
+    $html .= '</select> ';
+    $html .= count($binary_logs) . ' ' . __('Files') . ', ';
     if ($full_size > 0) {
-        echo implode(
+        $html .= implode(
             ' ', PMA_Util::formatByteDown($full_size)
         );
     }
-    echo '</fieldset>';
-    echo '<fieldset class="tblFooters">';
-    echo '<input type="submit" value="' . __('Go') . '" />';
-    echo '</fieldset>';
-    echo '</form>';
+    $html .= '</fieldset>';
+    $html .= '<fieldset class="tblFooters">';
+    $html .= '<input type="submit" value="' . __('Go') . '" />';
+    $html .= '</fieldset>';
+    $html .= '</form>';
 }
 
-echo PMA_Util::getMessage(PMA_Message::success());
+$html .= PMA_Util::getMessage(PMA_Message::success());
 
 /**
  * Displays the page
  */
-echo '<table cellpadding="2" cellspacing="1">'
+$html .= '<table cellpadding="2" cellspacing="1">'
     . '<thead>'
     . '<tr>'
     . '<td colspan="6" class="center">';
@@ -135,14 +136,14 @@ if ($pos > 0) {
         $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
     }
 
-    echo '<a href="server_binlog.php'
+    $html .= '<a href="server_binlog.php'
         . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo ' title="' . _pgettext('Previous page', 'Previous') . '">';
+        $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
     } else {
-        echo '>' . _pgettext('Previous page', 'Previous');
+        $html .= '>' . _pgettext('Previous page', 'Previous');
     } // end if... else...
-    echo ' &lt; </a> - ';
+    $html .= ' &lt; </a> - ';
 }
 
 $this_url_params = $url_params;
@@ -158,7 +159,7 @@ if ($dontlimitchars) {
     $tempTitle = __('Show Full Queries');
     $tempImgMode = 'full';
 }
-echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
+$html .= '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
     . '" title="' . $tempTitle . '">'
     . '<img src="' .$pmaThemeImage . 's_' . $tempImgMode . 'text.png"'
     . 'alt="' . $tempTitle . '" /></a>';
@@ -168,17 +169,17 @@ echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
 if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
     $this_url_params = $url_params;
     $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
-    echo ' - <a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
+    $html .= ' - <a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
         . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
-        echo ' title="' . _pgettext('Next page', 'Next') . '">';
+        $html .= ' title="' . _pgettext('Next page', 'Next') . '">';
     } else {
-        echo '>' . _pgettext('Next page', 'Next');
+        $html .= '>' . _pgettext('Next page', 'Next');
     } // end if... else...
-    echo ' &gt; </a>';
+    $html .= ' &gt; </a>';
 }
 
-echo  '</td>'
+$html .=  '</td>'
     . '</tr>'
     . '<tr>'
     . '<th>' . __('Log name') . '</th>'
@@ -201,7 +202,7 @@ while ($value = PMA_DBI_fetchAssoc($result)) {
         ) . '...';
     }
 
-    echo '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
+    $html .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
         . '<td>&nbsp;' . $value['Log_name'] . '&nbsp;</td>'
         . '<td class="right">&nbsp;' . $value['Pos'] . '&nbsp;</td>'
         . '<td>&nbsp;' . $value['Event_type'] . '&nbsp;</td>'
@@ -215,5 +216,7 @@ while ($value = PMA_DBI_fetchAssoc($result)) {
 
     $odd_row = !$odd_row;
 }
-echo '</tbody>'
+$html .= '</tbody>'
     . '</table>';
+
+$response->addHTML($html);
