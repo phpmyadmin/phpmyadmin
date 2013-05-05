@@ -1218,6 +1218,10 @@ div#tablestatistics table {
 #fieldset_user_global_rights fieldset {
     float: <?php echo $left; ?>;
 }
+
+#fieldset_user_global_rights legend input {
+    margin-<?php echo $left; ?>: 2em;
+}
 /* END user privileges */
 
 
@@ -2119,6 +2123,10 @@ table#index_columns select {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
+}
+
+.margin#change_column_dialog {
+    margin: 0 .5em;
 }
 
 /* config forms */

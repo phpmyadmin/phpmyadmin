@@ -290,14 +290,14 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
             }
         }
 
-        $columns = PMA_DBI_get_columns($db, $view);
+        $columns = PMA_DBI_getColumns($db, $view);
         foreach ($columns as $column) {
             $schema_insert .= $this->formatOneColumnDefinition(
                 $column,
@@ -418,12 +418,12 @@ class ExportHtmlword extends ExportPlugin
         }
         $schema_insert .= '</tr>';
 
-        $columns = PMA_DBI_get_columns($db, $table);
+        $columns = PMA_DBI_getColumns($db, $table);
         /**
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -486,7 +486,7 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
 
-        $triggers = PMA_DBI_get_triggers($db, $table);
+        $triggers = PMA_DBI_getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
@@ -557,7 +557,7 @@ class ExportHtmlword extends ExportPlugin
             break;
         case 'triggers':
             $dump = '';
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($table)

@@ -172,7 +172,7 @@ class PMA_Index
             return true;
         }
 
-        $_raw_indexes = PMA_DBI_get_table_indexes($schema, $table);
+        $_raw_indexes = PMA_DBI_getTableIndexes($schema, $table);
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
             if (! isset(PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']])) {

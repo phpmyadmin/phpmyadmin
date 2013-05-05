@@ -444,8 +444,8 @@ class ExportSql extends ExportPlugin
         $text = '';
         $delimiter = '$$';
 
-        $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
-        $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
+        $procedure_names = PMA_DBI_getProceduresOrFunctions($db, 'PROCEDURE');
+        $function_names = PMA_DBI_getProceduresOrFunctions($db, 'FUNCTION');
 
         if ($procedure_names || $function_names) {
             $text .= $crlf
@@ -464,7 +464,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($procedure_name)
                         . $delimiter . $crlf;
                 }
-                $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name)
+                $text .= PMA_DBI_getDefinition($db, 'PROCEDURE', $procedure_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -481,7 +481,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::backquote($function_name)
                         . $delimiter . $crlf;
                 }
-                $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name)
+                $text .= PMA_DBI_getDefinition($db, 'FUNCTION', $function_name)
                     . $delimiter . $crlf . $crlf;
             }
         }
@@ -591,7 +591,7 @@ class ExportSql extends ExportPlugin
             if ($tmp_compat == 'NONE') {
                 $tmp_compat = '';
             }
-            PMA_DBI_try_query('SET SQL_MODE="' . $tmp_compat . '"');
+            PMA_DBI_tryQuery('SET SQL_MODE="' . $tmp_compat . '"');
             unset($tmp_compat);
         }
         $head  =  $this->_exportComment('phpMyAdmin SQL Dump')
@@ -648,7 +648,7 @@ class ExportSql extends ExportPlugin
         /* Change timezone if we should export timestamps in UTC */
         if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
             $head .= 'SET time_zone = "+00:00";' . $crlf;
-            $GLOBALS['old_tz'] = PMA_DBI_fetch_value('SELECT @@session.time_zone');
+            $GLOBALS['old_tz'] = PMA_DBI_fetchValue('SELECT @@session.time_zone');
             PMA_DBI_query('SET time_zone = "+00:00"');
         }
 
@@ -791,7 +791,7 @@ class ExportSql extends ExportPlugin
             $delimiter = '$$';
 
             if (PMA_MYSQL_INT_VERSION > 50100) {
-                $event_names = PMA_DBI_fetch_result(
+                $event_names = PMA_DBI_fetchResult(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
                     . ' EVENT_SCHEMA= \''
                     . PMA_Util::sqlAddSlashes($db, true)
@@ -816,7 +816,7 @@ class ExportSql extends ExportPlugin
                             . PMA_Util::backquote($event_name)
                             . $delimiter . $crlf;
                     }
-                    $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name)
+                    $text .= PMA_DBI_getDefinition($db, 'EVENT', $event_name)
                         . $delimiter . $crlf . $crlf;
                 }
 
@@ -857,7 +857,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query .= PMA_Util::backquote($view) . ' (' . $crlf;
         $tmp = array();
-        $columns = PMA_DBI_get_columns_full($db, $view);
+        $columns = PMA_DBI_getColumnsFull($db, $view);
         foreach ($columns as $column_name => $definition) {
             $tmp[] = PMA_Util::backquote($column_name) . ' ' .
                 $definition['Type'] . $crlf;
@@ -924,7 +924,7 @@ class ExportSql extends ExportPlugin
                         . PMA_Util::sqlAddSlashes($db) . "'
                           AND TABLE_NAME = '"
                         . PMA_Util::sqlAddSlashes($table) . "'";
-                    $tmpres = array_merge(PMA_DBI_fetch_single_row($sql), $tmpres);
+                    $tmpres = array_merge(PMA_DBI_fetchSingleRow($sql), $tmpres);
                 }
                 // Here we optionally add the AUTO_INCREMENT next value,
                 // but starting with MySQL 5.0.24, the clause is already included
@@ -1010,7 +1010,7 @@ class ExportSql extends ExportPlugin
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
         // column, nor does the mysqldump command. See MySQL bug 35796
-        $result = PMA_DBI_try_query(
+        $result = PMA_DBI_tryQuery(
             'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
             . PMA_Util::backquote($table)
         );
@@ -1460,7 +1460,7 @@ class ExportSql extends ExportPlugin
             break;
         case 'triggers':
             $dump = '';
-            $triggers = PMA_DBI_get_triggers($db, $table);
+            $triggers = PMA_DBI_getTriggers($db, $table);
             if ($triggers) {
                 $dump .=  $this->_possibleCRLF()
                     . $this->_exportComment()
@@ -1557,7 +1557,7 @@ class ExportSql extends ExportPlugin
         //  are used, we did not get the true column name in case of aliases)
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
 
-        $result = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmp_error = PMA_DBI_getError();
         if ($tmp_error) {

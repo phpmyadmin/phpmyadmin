@@ -41,7 +41,7 @@ function PMA_lang($lang_key, $args = null)
  *
  * @return string
  */
-function PMA_lang_name($canonical_path, $type = 'name', $default = 'key')
+function PMA_langName($canonical_path, $type = 'name', $default = 'key')
 {
     $lang_key = str_replace(
         array('Servers/1/', '/'),

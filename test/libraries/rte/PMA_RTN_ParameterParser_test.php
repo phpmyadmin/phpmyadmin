@@ -18,7 +18,7 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/rte/rte_routines.lib.php';
 
 
-class PMA_RTN_parameterParser_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider definer_provider

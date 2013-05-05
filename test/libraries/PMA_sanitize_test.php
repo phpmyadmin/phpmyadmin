@@ -14,7 +14,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
 
-class PMA_sanitize_test extends PHPUnit_Framework_TestCase
+class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Setup various pre conditions

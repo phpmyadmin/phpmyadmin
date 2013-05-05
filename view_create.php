@@ -62,7 +62,7 @@ if (isset($_REQUEST['createview'])) {
         }
     }
 
-    if (PMA_DBI_try_query($sql_query)) {
+    if (PMA_DBI_tryQuery($sql_query)) {
         
         include_once './libraries/tbl_views.lib.php';
         
@@ -85,7 +85,7 @@ if (isset($_REQUEST['createview'])) {
             
             // Store new transformations
             if ($new_transformations_sql != '') {
-                PMA_DBI_try_query($new_transformations_sql);
+                PMA_DBI_tryQuery($new_transformations_sql);
             }
             
         }

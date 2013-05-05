@@ -33,6 +33,8 @@ $AUTH_MAP = array(
 /**
  * Simple function to show HTML page with given content.
  *
+ * @param string $contents Content to include in page
+ *
  * @return void
  */
 function show_page($contents)
@@ -40,25 +42,25 @@ function show_page($contents)
     header('Content-Type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     ?>
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
+    <!DOCTYPE HTML>
+    <html lang="en" dir="ltr">
+    <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <meta charset="utf-8" />
     <title>phpMyAdmin OpenID signon example</title>
-</head>
-<body>
-<?php
-if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
-    echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
-    unset($_SESSION['PMA_single_signon_message']);
-}
-echo $contents;
-?>
-</body>
-</html>
-<?php
+    </head>
+    <body>
+    <?php
+    if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
+        echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
+        unset($_SESSION['PMA_single_signon_message']);
+    }
+    echo $contents;
+    ?>
+    </body>
+    </html>
+    <?php
 }
 
 /* Need to have cookie visible from parent directory */

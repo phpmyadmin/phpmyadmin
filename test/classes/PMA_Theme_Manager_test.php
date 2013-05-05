@@ -17,7 +17,7 @@ require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/core.lib.php';
 
-class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
+class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {

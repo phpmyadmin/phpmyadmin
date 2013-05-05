@@ -52,7 +52,7 @@ if (! empty($db_collation)) {
 }
 $sql_query .= ';';
 
-$result = PMA_DBI_try_query($sql_query);
+$result = PMA_DBI_tryQuery($sql_query);
 
 if (! $result) {
     $message = PMA_Message::rawError(PMA_DBI_getError());

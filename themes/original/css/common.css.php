@@ -963,6 +963,10 @@ div#tablestatistics table {
 #fieldset_user_global_rights fieldset {
     float: <?php echo $left; ?>;
 }
+
+#fieldset_user_global_rights legend input {
+    margin-<?php echo $left; ?>: 2em;
+}
 /* END user privileges */
 
 
@@ -1609,6 +1613,10 @@ input#input_import_file {
 #fieldsForm ul.table-structure-actions .submenu li {
     padding: 0.3em;
     margin: 0.1em;
+}
+
+.margin#change_column_dialog {
+    margin: 0 .5em;
 }
 
 /**

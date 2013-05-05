@@ -163,14 +163,14 @@ if (! isset($sot_ready)) {
 
     if (! empty($tbl_group)) {
         // only tables for selected group
-        $tables = PMA_DBI_get_tables_full(
+        $tables = PMA_DBI_getTablesFull(
             $db, $tbl_group, true, null, 0, false, $sort, $sort_order
         );
     } else {
         // all tables in db
         // - get the total number of tables
         //  (needed for proper working of the MaxTableList feature)
-        $tables = PMA_DBI_get_tables($db);
+        $tables = PMA_DBI_getTables($db);
         $total_num_tables = count($tables);
         if (isset($sub_part) && $sub_part == '_export') {
             // (don't fetch only a subset if we are coming from db_export.php,
@@ -180,12 +180,12 @@ if (! isset($sot_ready)) {
              *
              * @todo Page selector for table names?
              */
-            $tables = PMA_DBI_get_tables_full(
+            $tables = PMA_DBI_getTablesFull(
                 $db, false, false, null, 0, false, $sort, $sort_order
             );
         } else {
             // fetch the details for a possible limited subset
-            $tables = PMA_DBI_get_tables_full(
+            $tables = PMA_DBI_getTablesFull(
                 $db, false, false, null, $pos, true, $sort, $sort_order
             );
         }

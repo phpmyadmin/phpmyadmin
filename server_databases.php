@@ -152,7 +152,7 @@ if ($cfg['ShowCreateDb']) {
  * Gets the databases list
  */
 if ($server > 0) {
-    $databases = PMA_DBI_get_databases_full(
+    $databases = PMA_DBI_getDatabasesFull(
         null, $dbstats, null, $sort_by, $sort_order, $pos, true
     );
     $databases_count = count($GLOBALS['pma']->databases);
@@ -321,8 +321,9 @@ if ($databases_count > 0) {
         $html .= '<img class="selectallarrow" src="' 
             . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
             . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-            . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
-            . '<label for="checkall">' . __('Check All') . '</label> '
+            . '<input type="checkbox" id="dbStatsForm_checkall" class="checkall_box" '
+            . 'title="' . __('Check All') . '" /> '
+            . '<label for="dbStatsForm_checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         $html .= PMA_Util::getButtonOrImage(
             '',

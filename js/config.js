@@ -202,7 +202,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_positive_number: function (isKeyUp) {
+    PMA_validatePositiveNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -214,7 +214,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_non_negative_number: function (isKeyUp) {
+    PMA_validateNonNegativeNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -226,7 +226,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_port_number: function (isKeyUp) {
+    PMA_validatePortNumber: function (isKeyUp) {
         if (this.value === '') {
             return true;
         }
@@ -239,7 +239,7 @@ var validators = {
      * @param {boolean} isKeyUp
      * @param {string}  regexp
      */
-    validate_by_regex: function (isKeyUp, regexp) {
+    PMA_validateByRegex: function (isKeyUp, regexp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -254,7 +254,7 @@ var validators = {
      * @param {boolean} isKeyUp
      * @param {int} max_value
      */
-    validate_upper_bound: function (isKeyUp, max_value) {
+    PMA_validateUpperBound: function (isKeyUp, max_value) {
         var val = parseInt(this.value, 10);
         if (isNaN(val)) {
             return true;
@@ -670,7 +670,7 @@ AJAX.registerOnload('config.js', function () {
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
-    var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
+    var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {

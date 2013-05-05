@@ -22,7 +22,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     /**
      * Displays the header and tabs
      */
-    if (! empty($table) && in_array($table, PMA_DBI_get_tables($db))) {
+    if (! empty($table) && in_array($table, PMA_DBI_getTables($db))) {
         include_once './libraries/tbl_common.inc.php';
     } else {
         $table = '';

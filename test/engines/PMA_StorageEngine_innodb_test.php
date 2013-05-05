@@ -16,7 +16,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_innodb_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

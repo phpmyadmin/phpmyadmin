@@ -13,7 +13,7 @@ require_once 'libraries/Scripts.class.php';
 require_once 'libraries/js_escape.lib.php';
 
 
-class PMA_Scripts_test extends PHPUnit_Framework_TestCase
+class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

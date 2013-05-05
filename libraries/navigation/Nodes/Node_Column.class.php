@@ -64,7 +64,7 @@ class Node_Column extends Node
         $query .= "WHERE `TABLE_SCHEMA`='$db' ";
         $query .= "AND `TABLE_NAME`='$table' ";
         $query .= "AND `COLUMN_NAME`='$column' ";
-        return PMA_DBI_fetch_value($query);
+        return PMA_DBI_fetchValue($query);
     }
 }
 

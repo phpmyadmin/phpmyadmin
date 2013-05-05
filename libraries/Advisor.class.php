@@ -32,13 +32,13 @@ class Advisor
 
         // Step 1: Get some variables to evaluate on
         $this->variables = array_merge(
-            PMA_DBI_fetch_result('SHOW GLOBAL STATUS', 0, 1),
-            PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES', 0, 1)
+            PMA_DBI_fetchResult('SHOW GLOBAL STATUS', 0, 1),
+            PMA_DBI_fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
         );
         if (PMA_DRIZZLE) {
             $this->variables = array_merge(
                 $this->variables,
-                PMA_DBI_fetch_result(
+                PMA_DBI_fetchResult(
                     "SELECT concat('Com_', variable_name), variable_value
                     FROM data_dictionary.GLOBAL_STATEMENTS", 0, 1
                 )
@@ -74,7 +74,10 @@ class Advisor
     {
         $this->runResult['errors'][] = $description
             . ' '
-            . sprintf(__('PHP threw following error: %s'), $exception->getMessage());
+            . sprintf(
+                __('PHP threw following error: %s'),
+                $exception->getMessage()
+            );
     }
 
     /**
@@ -239,20 +242,33 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php?' . PMA_generate_common_url() . '&filter=\1">\1</a>',
+                '<a href="server_variables.php?' . PMA_generate_common_url()
+                . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
 
             // Replaces external Links with PMA_linkURL() generated links
-            $rule['recommendation'] = preg_replace(
-                '#href=("|\')(https?://[^\1]+)\1#ie',
-                '\'href="\' . PMA_linkURL("\2") . \'"\'',
+            $rule['recommendation'] = preg_replace_callback(
+                '#href=("|\')(https?://[^\1]+)\1#i',
+                array($this, '_replaceLinkURL'),
                 $rule['recommendation']
             );
             break;
         }
 
         $this->runResult[$type][] = $rule;
+    }
+
+    /**
+     * Callback for wrapping links with PMA_linkURL
+     *
+     * @param array $matches List of matched elements form preg_replace_callback
+     *
+     * @return Replacement value
+     */
+    private function _replaceLinkURL($matches)
+    {
+        return 'href="' . PMA_linkURL($matches[2]) . '"';
     }
 
     /**
@@ -339,7 +355,8 @@ class Advisor
         // Error handling
         if ($err) {
             throw new Exception(
-                strip_tags($err) . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
+                strip_tags($err)
+                . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
         return $value;

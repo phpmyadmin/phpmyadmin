@@ -11,7 +11,7 @@
 
 require_once 'libraries/php-gettext/streams.php';
 
-class PMA_StreamReader_test extends PHPUnit_Framework_TestCase
+class PMA_StreamReader_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

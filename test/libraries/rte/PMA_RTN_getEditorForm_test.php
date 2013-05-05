@@ -19,7 +19,7 @@ require_once 'libraries/mysql_charsets.lib.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
-class PMA_RTN_getEditorForm_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {

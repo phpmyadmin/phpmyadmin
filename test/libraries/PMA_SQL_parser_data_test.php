@@ -11,7 +11,7 @@
  */
 require_once 'libraries/sqlparser.data.php';
 
-class PMA_SQL_parser_data_test extends PHPUnit_Framework_TestCase
+class PMA_SQLParser_Data_Test extends PHPUnit_Framework_TestCase
 {
     private function _assertSorted($array)
     {

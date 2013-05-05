@@ -1,10 +1,12 @@
 <?php
-
 /**
  * This example configuration shows how to configure phpMyAdmin for
  * many hosts that all have identical configuration otherwise. To add
  * a new host, just drop it into $hosts below. Contributed by
  * Matthew Hawkins.
+ *
+ * @package    PhpMyAdmin
+ * @subpackage Example
  */
 
 $i=0;

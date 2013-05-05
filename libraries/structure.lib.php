@@ -189,7 +189,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $default_engine = PMA_DBI_fetch_value(
+        $default_engine = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE \'storage_engine\';',
             0,
             1
@@ -277,9 +277,9 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
         . 'src="' .$pmaThemeImage .'arrow_'.$text_dir.'.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') .'" />';
-    $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') .'" />';
+    $html_output .= '<label for="tablesForm_checkall">' .__('Check All') . '</label>';
 
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
@@ -740,7 +740,7 @@ function PMA_getHtmlForRepairtable(
  *
  * @return html data
  */
-function PMA_TableHeader($db_is_information_schema = false, $replication = false)
+function PMA_tableHeader($db_is_information_schema = false, $replication = false)
 {
     $cnt = 0; // Let's count the columns...
 
@@ -1312,8 +1312,8 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
             . '<a class="change_column_anchor ajax"'
-            . ' href="tbl_structure.php?' 
-            . $url_query . '&amp;field=' . $field_encoded 
+            . ' href="tbl_structure.php?'
+            . $url_query . '&amp;field=' . $field_encoded
             . '&amp;change_column=1">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
@@ -1356,9 +1356,9 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
-    $html_output .= '<input type="checkbox" id="checkall" '
-        . 'title="' . __('Check All') . '" />'
-        . '<label for="checkall">' . __('Check All') . '</label>';
+    $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
+        . 'class="checkall_box" title="' . __('Check All') . '" />'
+        . '<label for="fieldsForm_checkall">' . __('Check All') . '</label>';
 
     $html_output .= '<i style="margin-left: 2em">'
         . __('With selected:') . '</i>';
@@ -1445,7 +1445,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $create_view = PMA_DBI_get_definition(
+    $create_view = PMA_DBI_getDefinition(
         $GLOBALS['db'], 'VIEW', $GLOBALS['table']
     );
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
@@ -2209,15 +2209,15 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
 /**
  * Displays HTML for changing one or more columns
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
- * @param array   $selected                 the selected columns
- * @param string  $action                   target script to call 
+ * @param string $db       database name
+ * @param string $table    table name
+ * @param array  $selected the selected columns
+ * @param string $action   target script to call
  *
- * @return boolean $regenerate              true if error occurred
- * 
+ * @return boolean $regenerate true if error occurred
+ *
  */
-function PMA_displayHtmlForColumnChange($db, $table, $selected, $action) 
+function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 {
     // $selected comes from multi_submits.inc.php
     if (empty($selected)) {
@@ -2231,15 +2231,15 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $fields_meta[] = PMA_DBI_get_columns($db, $table, $selected[$i], true);
+        $fields_meta[] = PMA_DBI_getColumns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
-    // set these globals because tbl_columns_definition_form.inc.php 
+    // set these globals because tbl_columns_definition_form.inc.php
     // verifies them
-    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses 
+    // @todo: refactor tbl_columns_definition_form.inc.php so that it uses
     // function params
     $GLOBALS['action'] = 'tbl_structure.php';
-    $GLOBALS['num_fields'] = $num_fields; 
+    $GLOBALS['num_fields'] = $num_fields;
 
     // Get more complete field information.
     // For now, this is done to obtain MySQL 4.1.2+ new TIMESTAMP options
@@ -2248,14 +2248,14 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // could be executed to replace the info given by SHOW FULL COLUMNS FROM.
     /**
      * @todo put this code into a require()
-     * or maybe make it part of PMA_DBI_get_columns();
+     * or maybe make it part of PMA_DBI_getColumns();
      */
 
     // We also need this to correctly learn if a TIMESTAMP is NOT NULL, since
     // SHOW FULL COLUMNS says NULL and SHOW CREATE TABLE says NOT NULL (tested
     // in MySQL 4.0.25).
 
-    $show_create_table = PMA_DBI_fetch_value(
+    $show_create_table = PMA_DBI_fetchValue(
         'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
         0, 1
     );
@@ -2271,8 +2271,8 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 /**
  * Update the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
  *
  * @return boolean $regenerate              true if error occurred
  *
@@ -2288,31 +2288,31 @@ function PMA_updateColumns($db, $table)
     for ($i = 0; $i < $field_cnt; $i++) {
         $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
             isset($_REQUEST['field_orig'][$i])
-                ? $_REQUEST['field_orig'][$i]
-                : '',
+            ? $_REQUEST['field_orig'][$i]
+            : '',
             $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
             $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
             isset($_REQUEST['field_collation'][$i])
-                ? $_REQUEST['field_collation'][$i]
-                : '',
+            ? $_REQUEST['field_collation'][$i]
+            : '',
             isset($_REQUEST['field_null'][$i])
-                ? $_REQUEST['field_null'][$i]
-                : 'NOT NULL',
+            ? $_REQUEST['field_null'][$i]
+            : 'NOT NULL',
             $_REQUEST['field_default_type'][$i],
             $_REQUEST['field_default_value'][$i],
             isset($_REQUEST['field_extra'][$i])
-                ? $_REQUEST['field_extra'][$i]
-                : false,
+            ? $_REQUEST['field_extra'][$i]
+            : false,
             isset($_REQUEST['field_comments'][$i])
-                ? $_REQUEST['field_comments'][$i]
-                : '',
+            ? $_REQUEST['field_comments'][$i]
+            : '',
             $key_fields,
             $i,
             isset($_REQUEST['field_move_to'][$i])
-                ? $_REQUEST['field_move_to'][$i]
-                : ''
+            ? $_REQUEST['field_move_to'][$i]
+            : ''
         );
     } // end for
 
@@ -2349,7 +2349,7 @@ function PMA_updateColumns($db, $table)
     $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
     $sql_query .= ';';
-    $result    = PMA_DBI_try_query($sql_query);
+    $result    = PMA_DBI_tryQuery($sql_query);
 
     $response = PMA_Response::getInstance();
     if ($result !== false) {
@@ -2399,9 +2399,10 @@ function PMA_updateColumns($db, $table)
         );
     } else {
         // An error happened while inserting/updating a table definition
-        $message = PMA_Message::rawError(__('Query error'));
-        $response->addHTML(
-            PMA_Util::getMessage($message, $sql_query, 'error')
+        $response->isSuccess(false);
+        $response->addJSON(
+            'message',
+            PMA_Message::rawError(__('Query error') . ':<br />'.PMA_DBI_getError())
         );
         $regenerate = true;
     }
@@ -2411,8 +2412,10 @@ function PMA_updateColumns($db, $table)
 /**
  * Moves columns in the table's structure based on $_REQUEST
  *
- * @param string  $db                       database name
- * @param string  $table                    table name
+ * @param string $db    database name
+ * @param string $table table name
+ *
+ * @return void
  */
 function PMA_moveColumns($db, $table)
 {
@@ -2421,7 +2424,7 @@ function PMA_moveColumns($db, $table)
     /*
      * load the definitions for all columns
      */
-    $columns = PMA_DBI_get_columns_full($db, $table);
+    $columns = PMA_DBI_getColumnsFull($db, $table);
     $column_names = array_keys($columns);
     $changes = array();
     $we_dont_change_keys = array();
@@ -2488,7 +2491,7 @@ function PMA_moveColumns($db, $table)
     $move_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
-    $result = PMA_DBI_try_query($move_query);
+    $result = PMA_DBI_tryQuery($move_query);
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
         $response->isSuccess(false);

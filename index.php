@@ -97,7 +97,7 @@ if ($server > 0) {
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
     }
-    $mysql_cur_user_and_host = PMA_DBI_fetch_value('SELECT USER();');
+    $mysql_cur_user_and_host = PMA_DBI_fetchValue('SELECT USER();');
 
     // should we add the port info here?
     $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
@@ -457,7 +457,7 @@ if (! empty($_SESSION['auto_blowfish_secret'])
  */
 if (file_exists('config')) {
     trigger_error(
-        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'),
+        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. It is strongly recommended to remove it once phpMyAdmin has been configured. Otherwise the security of your server may be compromised by unauthorized people downloading your configuration.'),
         E_USER_WARNING
     );
 }

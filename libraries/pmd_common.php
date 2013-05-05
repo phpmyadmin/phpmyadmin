@@ -27,7 +27,7 @@ function get_tables_info()
     $GLOBALS['PMD']['OWNER'] = array();
     $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
 
-    $tables = PMA_DBI_get_tables_full($GLOBALS['db']);
+    $tables = PMA_DBI_getTablesFull($GLOBALS['db']);
     // seems to be needed later
     PMA_DBI_select_db($GLOBALS['db']);
     $i = 0;
@@ -77,7 +77,7 @@ function get_columns_info()
     $tab_column = array();
     for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
         $fields_rs = PMA_DBI_query(
-            PMA_DBI_get_columns_sql(
+            PMA_DBI_getColumnsSql(
                 $GLOBALS['db'],
                 $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i],
                 null,
@@ -254,7 +254,7 @@ function get_tab_pos()
                 `h` AS `H`
            FROM " . PMA_Util::backquote($cfgRelation['db'])
         . "." . PMA_Util::backquote($cfgRelation['designer_coords']);
-    $tab_pos = PMA_DBI_fetch_result(
+    $tab_pos = PMA_DBI_fetchResult(
         $query, 'name', null, $GLOBALS['controllink'], PMA_DBI_QUERY_STORE
     );
     return count($tab_pos) ? $tab_pos : null;

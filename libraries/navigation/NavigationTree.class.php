@@ -160,7 +160,7 @@ class PMA_NavigationTree
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
             $query .= "WHERE `SCHEMA_NAME` < '%s' ";
             $query .= "ORDER BY `SCHEMA_NAME` ASC";
-            $retval = PMA_DBI_fetch_value(
+            $retval = PMA_DBI_fetchValue(
                 sprintf(
                     $query,
                     (int)$GLOBALS['cfg']['MaxNavigationItems'],

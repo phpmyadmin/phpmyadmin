@@ -176,7 +176,7 @@ if (isset($_REQUEST['do_save_data'])) {
         );
     $sql_query    = 'ALTER TABLE ' .
         PMA_Util::backquote($table) . ' ' . implode(', ', $definitions) . ';';
-    $result = PMA_DBI_try_query($sql_query);
+    $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result === true) {
         // If comments were sent, enable relation stuff

@@ -145,4 +145,19 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getMessage()
         );
     }
+
+    /**
+     * Test for Disable Warnings 
+     *
+     * @return void
+     */
+    public function testDisableWarnings()
+    {
+        $header = new PMA_Header();
+        $header->disableWarnings();
+        $this->assertNotContains(
+            'Javascript must be enabled past this point',
+            $header->getDisplay()
+        );
+    }
 }

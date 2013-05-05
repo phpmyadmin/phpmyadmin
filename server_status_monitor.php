@@ -107,7 +107,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required status variables
             if (count($statusVars)) {
-                $statusVarValues = PMA_DBI_fetch_result(
+                $statusVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL STATUS WHERE Variable_name='"
                     . implode("' OR Variable_name='", $statusVars) . "'",
                     0,
@@ -119,7 +119,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             // Retrieve all required server variables
             if (count($serverVars)) {
-                $serverVarValues = PMA_DBI_fetch_result(
+                $serverVarValues = PMA_DBI_fetchResult(
                     "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                     . implode("' OR Variable_name='", $serverVars) . "'",
                     0,
@@ -174,7 +174,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
             $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -234,7 +234,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
             $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
-            $result = PMA_DBI_try_query($q);
+            $result = PMA_DBI_tryQuery($q);
 
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
@@ -335,7 +335,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         }
 
-        $loggingVars = PMA_DBI_fetch_result(
+        $loggingVars = PMA_DBI_fetchResult(
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
@@ -363,10 +363,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $_REQUEST['query']
         );
 
-        $result = PMA_DBI_try_query($query);
+        $result = PMA_DBI_tryQuery($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
-        $result = PMA_DBI_try_query('EXPLAIN ' . $query);
+        $result = PMA_DBI_tryQuery('EXPLAIN ' . $query);
         while ($row = PMA_DBI_fetch_assoc($result)) {
             $return['explain'][] = $row;
         }
@@ -378,7 +378,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($profiling) {
             $return['profiling'] = array();
-            $result = PMA_DBI_try_query(
+            $result = PMA_DBI_tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
@@ -467,78 +467,8 @@ exit;
  */
 function getPrintMonitorHtml($ServerStatusData)
 {
-    $retval  = '<div class="tabLinks">';
-    $retval .= '<a href="#pauseCharts">';
-    $retval .= PMA_Util::getImage('play.png') . __('Start Monitor');
-    $retval .= '</a>';
-    $retval .= '<a href="#settingsPopup" class="popupLink">';
-    $retval .= PMA_Util::getImage('s_cog.png') .  __('Settings');
-    $retval .= '</a>';
-    if (! PMA_DRIZZLE) {
-        $retval .= '<a href="#monitorInstructionsDialog">';
-        $retval .= PMA_Util::getImage('b_help.png') . __('Instructions/Setup');
-    }
-    $retval .= '<a href="#endChartEditMode" style="display:none;">';
-    $retval .= PMA_Util::getImage('s_okay.png');
-    $retval .= __('Done rearranging/editing charts');
-    $retval .= '</a>';
-    $retval .= '</div>';
-
-    $retval .= '<div class="popupContent settingsPopup">';
-    $retval .= '<a href="#addNewChart">';
-    $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
-    $retval .= '</a>';
-    //$retval .= '<a href="#rearrangeCharts">';
-    //$retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
-    //$retval .= '</a>';
-    $retval .= '<div class="clearfloat paddingtop"></div>';
-    $retval .= '<div class="floatleft">';
-    $retval .= __('Refresh rate') . '<br />';
-    $retval .= PMA_getRefreshList(
-        'gridChartRefresh',
-        5,
-        Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
-    );
-    $retval .= '<br />';
-    $retval .= '</div>';
-    $retval .= '<div class="floatleft">';
-    $retval .= __('Chart columns');
-    $retval .= '<br />';
-    $retval .= '<select name="chartColumns">';
-    $retval .= '<option>1</option>';
-    $retval .= '<option>2</option>';
-    $retval .= '<option>3</option>';
-    $retval .= '<option>4</option>';
-    $retval .= '<option>5</option>';
-    $retval .= '<option>6</option>';
-    $retval .= '<option>7</option>';
-    $retval .= '<option>8</option>';
-    $retval .= '<option>9</option>';
-    $retval .= '<option>10</option>';
-    $retval .= '</select>';
-    $retval .= '</div>';
-    $retval .= '<div class="clearfloat paddingtop">';
-    $retval .= '<b>' . __('Chart arrangement') . '</b> ';
-    $retval .= PMA_Util::showHint(
-        __(
-            'The arrangement of the charts is stored to the browsers local storage. '
-            . 'You may want to export it if you have a complicated set up.'
-        )
-    );
-    $retval .= '<br/>';
-    $retval .= '<a class="ajax" href="#importMonitorConfig">';
-    $retval .= __('Import');
-    $retval .= '</a>';
-    $retval .= '&nbsp;&nbsp;';
-    $retval .= '<a class="disableAjax" href="#exportMonitorConfig">';
-    $retval .= __('Export');
-    $retval .= '</a>';
-    $retval .= '&nbsp;&nbsp;';
-    $retval .= '<a href="#clearMonitorConfig">';
-    $retval .= __('Reset to default');
-    $retval .= '</a>';
-    $retval .= '</div>';
-    $retval .= '</div>';
+    $retval = getTabLinksHtml();
+    $retval .= getPopContentHtml();
 
     $retval .= '<div id="monitorInstructionsDialog" title="';
     $retval .= __('Monitor Instructions') . '" style="display:none;">';
@@ -751,6 +681,103 @@ function PMA_getRefreshList($name,
     }
     $return .= '</select>';
     return $return;
+}
+
+/**
+ * Prints html with Tab Links
+ *
+ * @param null
+ *
+ * @return string
+ */
+function getTabLinksHtml()
+{
+    $retval  = '<div class="tabLinks">';
+    $retval .= '<a href="#pauseCharts">';
+    $retval .= PMA_Util::getImage('play.png') . __('Start Monitor');
+    $retval .= '</a>';
+    $retval .= '<a href="#settingsPopup" class="popupLink">';
+    $retval .= PMA_Util::getImage('s_cog.png') .  __('Settings');
+    $retval .= '</a>';
+    if (! PMA_DRIZZLE) {
+        $retval .= '<a href="#monitorInstructionsDialog">';
+        $retval .= PMA_Util::getImage('b_help.png') . __('Instructions/Setup');
+    }
+    $retval .= '<a href="#endChartEditMode" style="display:none;">';
+    $retval .= PMA_Util::getImage('s_okay.png');
+    $retval .= __('Done rearranging/editing charts');
+    $retval .= '</a>';
+    $retval .= '</div>';
+    
+    return $retval;
+}
+
+/**
+ * Prints html with Pop Content
+ *
+ * @param null
+ *
+ * @return string
+ */
+function getPopContentHtml()
+{
+    $retval  = '<div class="popupContent settingsPopup">';
+    $retval .= '<a href="#addNewChart">';
+    $retval .= PMA_Util::getImage('b_chart.png') . __('Add chart');
+    $retval .= '</a>';
+    //$retval .= '<a href="#rearrangeCharts">';
+    //$retval .= PMA_Util::getImage('b_tblops.png') . __('Rearrange/edit charts');
+    //$retval .= '</a>';
+    $retval .= '<div class="clearfloat paddingtop"></div>';
+    $retval .= '<div class="floatleft">';
+    $retval .= __('Refresh rate') . '<br />';
+    $retval .= PMA_getRefreshList(
+        'gridChartRefresh',
+        5,
+        Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
+    );
+    $retval .= '<br />';
+    $retval .= '</div>';
+    $retval .= '<div class="floatleft">';
+    $retval .= __('Chart columns');
+    $retval .= '<br />';
+    $retval .= '<select name="chartColumns">';
+    $retval .= '<option>1</option>';
+    $retval .= '<option>2</option>';
+    $retval .= '<option>3</option>';
+    $retval .= '<option>4</option>';
+    $retval .= '<option>5</option>';
+    $retval .= '<option>6</option>';
+    $retval .= '<option>7</option>';
+    $retval .= '<option>8</option>';
+    $retval .= '<option>9</option>';
+    $retval .= '<option>10</option>';
+    $retval .= '</select>';
+    $retval .= '</div>';
+    $retval .= '<div class="clearfloat paddingtop">';
+    $retval .= '<b>' . __('Chart arrangement') . '</b> ';
+    $retval .= PMA_Util::showHint(
+        __(
+            'The arrangement of the charts is stored to the browsers local storage. '
+            . 'You may want to export it if you have a complicated set up.'
+        )
+    );
+    $retval .= '<br/>';
+    $retval .= '<a class="ajax" href="#importMonitorConfig">';
+    $retval .= __('Import');
+    $retval .= '</a>';
+    $retval .= '&nbsp;&nbsp;';
+    $retval .= '<a class="disableAjax" href="#exportMonitorConfig">';
+    $retval .= __('Export');
+    $retval .= '</a>';
+    $retval .= '&nbsp;&nbsp;';
+    $retval .= '<a href="#clearMonitorConfig">';
+    $retval .= __('Reset to default');
+    $retval .= '</a>';
+    $retval .= '</div>';
+    $retval .= '</div>';
+
+    return $retval;
 }
 
 ?>

@@ -328,7 +328,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <div id="foreignkeychk">
                 <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
                 <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php
-                $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+                $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
                 echo ($default_fk_check_value) ? ' checked="checked"' : '' ?>/></span>
                 <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
                 </div><?php
@@ -477,7 +477,11 @@ if (!empty($submit_mult) && !empty($what)) {
 
         case 'add_prefix_tbl':
             $newtablename = $_POST['add_prefix'] . $selected[$i];
-            $a_query = 'ALTER TABLE ' . PMA_Util::backquote($selected[$i]) . ' RENAME ' . PMA_Util::backquote($newtablename); // ADD PREFIX TO TABLE NAME
+            // ADD PREFIX TO TABLE NAME
+            $a_query = 'ALTER TABLE '
+                . PMA_Util::backquote($selected[$i])
+                . ' RENAME '
+                . PMA_Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -488,10 +492,11 @@ if (!empty($submit_mult) && !empty($what)) {
             } else {
                 $newtablename = $current;
             }
-            $a_query = 'ALTER TABLE ' 
-                . PMA_Util::backquote($selected[$i]) 
-                . ' RENAME ' 
-                . PMA_Util::backquote($newtablename) ; // CHANGE PREFIX PATTERN
+            // CHANGE PREFIX PATTERN
+            $a_query = 'ALTER TABLE '
+                . PMA_Util::backquote($selected[$i])
+                . ' RENAME '
+                . PMA_Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -503,10 +508,11 @@ if (!empty($submit_mult) && !empty($what)) {
                 $newtablename = $current;
             }
             $newtablename = $to_prefix . substr($current, strlen($from_prefix));
-            $a_query = 'CREATE TABLE ' 
-                . PMA_Util::backquote($newtablename) 
-                . ' SELECT * FROM ' 
-                . PMA_Util::backquote($selected[$i]) ; // COPY TABLE AND CHANGE PREFIX PATTERN
+            // COPY TABLE AND CHANGE PREFIX PATTERN
+            $a_query = 'CREATE TABLE '
+                . PMA_Util::backquote($newtablename)
+                . ' SELECT * FROM '
+                . PMA_Util::backquote($selected[$i]);
             $run_parts = true;
             break;
 
@@ -533,7 +539,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } // end for
 
     if ($query_type == 'drop_tbl') {
-        $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
+        $default_fk_check_value = (PMA_DBI_fetchValue('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
         if (!empty($sql_query)) {
             $sql_query .= ';';
         } elseif (!empty($sql_query_views)) {
@@ -550,7 +556,7 @@ if (!empty($submit_mult) && !empty($what)) {
         if (! isset($_REQUEST['fk_check']) && $query_type == 'drop_tbl') {
             PMA_DBI_query('SET FOREIGN_KEY_CHECKS = 0;');
         }
-        $result = PMA_DBI_try_query($sql_query);
+        $result = PMA_DBI_tryQuery($sql_query);
         if (! isset($_REQUEST['fk_check'])
             && $query_type == 'drop_tbl'
             && $default_fk_check_value
@@ -559,7 +565,7 @@ if (!empty($submit_mult) && !empty($what)) {
         }
         if ($result && !empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
-            $result = PMA_DBI_try_query($sql_query_views);
+            $result = PMA_DBI_tryQuery($sql_query_views);
             unset($sql_query_views);
         }
 

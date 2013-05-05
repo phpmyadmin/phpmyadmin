@@ -158,7 +158,7 @@ if (isset($_REQUEST['change_copy'])) {
         . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
         . ' AND `Host` = '
         . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
-    $row = PMA_DBI_fetch_single_row(
+    $row = PMA_DBI_fetchSingleRow(
         'SELECT * FROM `mysql`.`user` ' . $user_host_condition
     );
     if (! $row) {
@@ -196,7 +196,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $hostname = '';
         break;
     case 'thishost':
-        $_user_name = PMA_DBI_fetch_value('SELECT USER()');
+        $_user_name = PMA_DBI_fetchValue('SELECT USER()');
         $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
         unset($_user_name);
         break;
@@ -204,7 +204,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql = "SELECT '1' FROM `mysql`.`user`"
         . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
         . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-    if (PMA_DBI_fetch_value($sql) == 1) {
+    if (PMA_DBI_fetchValue($sql) == 1) {
         $message = PMA_Message::error(__('The user %s already exists!'));
         $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;
@@ -219,7 +219,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             $_error = false;
 
             if (isset($create_user_real)) {
-                if (! PMA_DBI_try_query($create_user_real)) {
+                if (! PMA_DBI_tryQuery($create_user_real)) {
                     $_error = true;
                 }
                 $sql_query = $create_user_show . $sql_query;
@@ -354,6 +354,10 @@ if (isset($_REQUEST['flush_privileges'])) {
     $sql_query = 'FLUSH PRIVILEGES;';
     PMA_DBI_query($sql_query);
     $message = PMA_Message::success(__('The privileges were reloaded successfully.'));
+}
+
+if (isset($_REQUEST['validate_username'])) {
+    $message = PMA_Message::success();
 }
 
 /**

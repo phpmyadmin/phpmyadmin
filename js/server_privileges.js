@@ -16,15 +16,15 @@
  */
 function checkAddUser(the_form)
 {
-    if (the_form.elements['pred_hostname'].value == 'userdefined' && the_form.elements['hostname'].value === '') {
+    if (the_form.elements.pred_hostname.value == 'userdefined' && the_form.elements.hostname.value === '') {
         alert(PMA_messages.strHostEmpty);
-        the_form.elements['hostname'].focus();
+        the_form.elements.hostname.focus();
         return false;
     }
 
-    if (the_form.elements['pred_username'].value == 'userdefined' && the_form.elements['username'].value === '') {
+    if (the_form.elements.pred_username.value == 'userdefined' && the_form.elements.username.value === '') {
         alert(PMA_messages.strUserEmpty);
-        the_form.elements['username'].focus();
+        the_form.elements.username.focus();
         return false;
     }
 
@@ -165,7 +165,8 @@ function addUser($form)
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_privileges.js', function () {
+AJAX.registerTeardown('server_privileges.js', function() {
+    $("#fieldset_add_user_login input[name='username']").die("focusout");
     $("#fieldset_add_user a.ajax").die("click");
     $('form[name=usersForm]').unbind('submit');
     $("#reload_privileges_anchor.ajax").die("click");
@@ -176,9 +177,35 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $("a.export_user_anchor.ajax").die('click');
     $("#initials_table").find("a.ajax").die('click');
     $('#checkbox_drop_users_db').unbind('click');
+    $(".checkall_box").die("click");
 });
 
 AJAX.registerOnload('server_privileges.js', function () {
+    /**
+     * Display a warning if there is already a user by the name entered as the username.
+     */
+    $("#fieldset_add_user_login input[name='username']").live("focusout", function() {
+        var username = $(this).val();
+        var $warning = $("#user_exists_warning");
+        if ($("#select_pred_username").val() == 'userdefined' && username != '') {
+            var href = $("form[name='usersForm']").attr('action');
+            var params = {
+                'ajax_request' : true,
+                'token' : PMA_commonParams.get('token'),
+                'validate_username' : true,
+                'username' : username
+            };
+            $.get(href, params, function(data) {
+                if (data.user_exists) {
+                    $warning.show();
+                } else {
+                    $warning.hide();
+                }
+            });
+        } else {
+            $warning.hide();
+        }
+    });
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -335,6 +362,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     }
                     $div.html(data.message);
                     displayPasswordGenerateButton();
+                    $(checkboxes_sel).trigger("change");
                     PMA_ajaxRemoveMessage($msgbox);
                     PMA_showHints($div);
                 } else {

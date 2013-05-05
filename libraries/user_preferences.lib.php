@@ -61,7 +61,7 @@ function PMA_loadUserprefs()
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\'';
-    $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
+    $row = PMA_DBI_fetchSingleRow($query, 'ASSOC', $GLOBALS['controllink']);
 
     return array(
         'config_data' => $row ? (array)json_decode($row['config_data']) : array(),
@@ -102,7 +102,7 @@ function PMA_saveUserprefs(array $config_array)
         FROM ' . $query_table . '
           WHERE `username` = \'' . PMA_Util::sqlAddSlashes($cfgRelation['user']) . '\'';
 
-    $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
+    $has_config = PMA_DBI_fetchValue($query, 0, 0, $GLOBALS['controllink']);
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '
@@ -118,7 +118,7 @@ function PMA_saveUserprefs(array $config_array)
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);
     }
-    if (!PMA_DBI_try_query($query, $GLOBALS['controllink'])) {
+    if (!PMA_DBI_tryQuery($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not save configuration'));
         $message->addMessage('<br /><br />');
         $message->addMessage(

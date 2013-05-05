@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_langName from select_lang.lib.php
+ * Test for PMA_languageName from select_lang.lib.php
  *
  * @package PhpMyAdmin-test
  * @group select_lang.lib-tests
@@ -12,7 +12,7 @@
  */
 require_once 'libraries/select_lang.lib.php';
 
-class PMA_langName_test extends PHPUnit_Framework_TestCase
+class PMA_LangName_Test extends PHPUnit_Framework_TestCase
 {
     function dataProvider()
     {
@@ -29,6 +29,6 @@ class PMA_langName_test extends PHPUnit_Framework_TestCase
      */
     function testLangName($test, $result)
     {
-        $this->assertEquals($result, PMA_langName($test));
+        $this->assertEquals($result, PMA_languageName($test));
     }
 }

@@ -23,7 +23,7 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
     $column_map = array();
     // Select query which give results for VIEW
-    $real_source_result = PMA_DBI_try_query($sql_query);
+    $real_source_result = PMA_DBI_tryQuery($sql_query);
 
     if ($real_source_result !== false) {
 
@@ -75,7 +75,7 @@ function PMA_getExistingTranformationData($db)
         . ' WHERE `db_name` = \''
         . PMA_Util::sqlAddSlashes($db) . '\'';
 
-    return PMA_DBI_try_query($pma_transformation_sql);
+    return PMA_DBI_tryQuery($pma_transformation_sql);
 
 }
 

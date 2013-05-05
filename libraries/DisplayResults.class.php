@@ -1552,7 +1552,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function  _getOptionsBlock()
+    private function _getOptionsBlock()
     {
 
         $options_html = '';
@@ -3760,23 +3760,13 @@ class PMA_DisplayResults
                 );
 
             } else {
-                // Prepare in  Well Known Binary(WKB) format.
+                // Prepare in  Well Known Binary (WKB) format.
 
                 if ($_SESSION['tmp_user_values']['display_binary']) {
 
                     $where_comparison = ' = ' . $column;
 
-                    if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                        && PMA_Util::containsNonPrintableAscii($column)
-                    ) {
-                        $wkbval = PMA_substr(bin2hex($column), 8);
-                    } else {
-                        $wkbval = htmlspecialchars(
-                            PMA_Util::replaceBinaryContents(
-                                $column
-                            )
-                        );
-                    }
+                    $wkbval = $this->_displayBinaryAsPrintable($column, 'binary', 8);
 
                     if ((PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
                         && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
@@ -3894,17 +3884,7 @@ class PMA_DisplayResults
 
                     // user asked to see the real contents of BINARY
                     // fields
-                    if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                        && PMA_Util::containsNonPrintableAscii($column)
-                    ) {
-                        $column = bin2hex($column);
-                    } else {
-                        $column = htmlspecialchars(
-                            PMA_Util::replaceBinaryContents(
-                                $column
-                            )
-                        );
-                    }
+                    $column = $this->_displayBinaryAsPrintable($column, 'binary');
 
                 } else {
                     // we show the BINARY message and field's size
@@ -4569,7 +4549,7 @@ class PMA_DisplayResults
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
 
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 "\n", $is_innodb
             );
@@ -4604,7 +4584,7 @@ class PMA_DisplayResults
             $exist_rel = false;
         } else {
             // This method set the values for $map array
-            $this->_setParamForLinkForiegnKeyRelatedTables($map);
+            $this->_setParamForLinkForeignKeyRelatedTables($map);
         } // end if
         // end 2b
 
@@ -4646,7 +4626,7 @@ class PMA_DisplayResults
         if (($is_display['nav_bar'] == '1')
             && empty($analyzed_sql[0]['limit_clause'])
         ) {
-            $table_html .= $this->_getPlacedTableNavigatoins(
+            $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 '<br />' . "\n", $is_innodb
             );
@@ -4987,7 +4967,7 @@ class PMA_DisplayResults
      *
      * @see      getTable()
      */
-    private function _setParamForLinkForiegnKeyRelatedTables(&$map)
+    private function _setParamForLinkForeignKeyRelatedTables(&$map)
     {
 
         // To be able to later display a link to the related table,
@@ -5017,7 +4997,7 @@ class PMA_DisplayResults
             } // end while
         } // end if
 
-    } // end of the '_setParamForLinkForiegnKeyRelatedTables()' function
+    } // end of the '_setParamForLinkForeignKeyRelatedTables()' function
 
 
     /**
@@ -5057,9 +5037,9 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="checkall" title="'
-            . __('Check All') . '" /> '
-            . '<label for="checkall">' . __('Check All') . '</label> '
+        $links_html .= '<input type="checkbox" id="resultsForm_checkall" '
+            . 'class="checkall_box" title="' . __('Check All') . '" /> '
+            . '<label for="resultsForm_checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_Util::getButtonOrImage(
@@ -5134,7 +5114,7 @@ class PMA_DisplayResults
      *
      * @see     _getTable()
      */
-    private function _getPlacedTableNavigatoins(
+    private function _getPlacedTableNavigations(
         $pos_next, $pos_prev, $place, $empty_line, $is_innodb
     ) {
 
@@ -5154,7 +5134,7 @@ class PMA_DisplayResults
 
         return $navigation_html;
 
-    } // end of the '_getPlacedTableNavigatoins()' function
+    } // end of the '_getPlacedTableNavigations()' function
 
 
     /**
@@ -5265,7 +5245,7 @@ class PMA_DisplayResults
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
-                $_url_params['table'] = PMA_DBI_fetch_value("SHOW TABLES");
+                $_url_params['table'] = PMA_DBI_fetchValue("SHOW TABLES");
                 /* No result (probably no database selected) */
                 if ($_url_params['table'] === false) {
                     unset($_url_params['table']);
@@ -5429,17 +5409,13 @@ class PMA_DisplayResults
                     && $_SESSION['tmp_user_values']['display_blob']
                 ) {
                     // in this case, restart from the original $content
-                    $result = htmlspecialchars(
-                        PMA_Util::replaceBinaryContents(
-                            $content
-                        )
-                    );
+                    $result = $this->_displayBinaryAsPrintable($content, 'blob');
                 }
 
                 /* Create link to download */
                 if (count($url_params) > 0) {
                     $result = '<a href="tbl_get_field.php'
-                        . PMA_generate_common_url($url_params) . '">'
+                        . PMA_generate_common_url($url_params) . '" class="disableAjax">'
                         . $result . '</a>';
                 }
             }
@@ -5533,7 +5509,7 @@ class PMA_DisplayResults
                     . PMA_Util::backquote($map[$meta->name][1])
                     . $where_comparison;
 
-                $dispresult = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+                $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
                 if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                     list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
@@ -5943,5 +5919,44 @@ class PMA_DisplayResults
         return $buffer;
     }
 
+    /**
+     * Display binary fields as hex string for PHP <5.4,
+     * otherwise escape the contents if it may be displayed as hex
+     *
+     * @param string $content         String to parse
+     * @param string $binary_or_blob  'binary' or 'blob'
+     * @param int    $hexlength       optional, get substring
+     *
+     * @return Displayable version of the binary string
+     *
+     * @access private
+     *
+     * @see    _getDataCellForGeometryColumns
+     *         _getDataCellForNonNumericAndNonBlobColumns
+     *         _handleNonPrintableContents
+     */
+    private function _displayBinaryAsPrintable(
+        $content, $binary_or_blob, $hexlength = null
+    ) {
+        if (PMA_PHP_INT_VERSION < 50400
+            || ($binary_or_blob === 'binary'
+                && $_SESSION['tmp_user_values']['display_binary_as_hex']
+                && PMA_Util::containsNonPrintableAscii($content)
+            )
+        ) {
+            $content = bin2hex($content);
+            if ($hexlength !== null) {
+                $content = PMA_substr($content, $hexlength);
+            }
+        } else {
+            $content = htmlspecialchars(
+                PMA_Util::replaceBinaryContents(
+                    $content
+                ),
+                ENT_SUBSTITUTE
+            );
+        }
+        return $content;
+    }
 }
 ?>

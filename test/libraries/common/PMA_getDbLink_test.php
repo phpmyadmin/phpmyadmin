@@ -15,7 +15,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
+class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
 {
     function setUp()
     {

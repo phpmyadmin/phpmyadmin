@@ -177,7 +177,7 @@ class ImportCsv extends AbstractImportCsv
             }
             $sql_template .= ' INTO ' . PMA_Util::backquote($table);
 
-            $tmp_fields = PMA_DBI_get_columns($db, $table);
+            $tmp_fields = PMA_DBI_getColumns($db, $table);
 
             if (empty($csv_columns)) {
                 $fields = $tmp_fields;
@@ -494,7 +494,7 @@ class ImportCsv extends AbstractImportCsv
             }
 
             if (strlen($db)) {
-                $result = PMA_DBI_fetch_result('SHOW TABLES');
+                $result = PMA_DBI_fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE '.(count($result) + 1);
             } else {
                 $tbl_name = 'TBL_NAME';
