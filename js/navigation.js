@@ -134,8 +134,8 @@ $(function () {
         if (this.value !== '') {
             var arr = jQuery.parseJSON(this.value);
             var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr['db']);
-            $form.find('input[name=table]').val(arr['table']);
+            $form.find('input[name=db]').val(arr.db);
+            $form.find('input[name=table]').val(arr.table);
             $form.submit();
         }
     });
