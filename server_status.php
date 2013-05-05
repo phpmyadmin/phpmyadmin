@@ -60,6 +60,30 @@ exit;
  */
 function getServerTrafficHtml($ServerStatusData)
 {
+    //display the server state General Information
+    $retval  = getServerStateGeneralInfoHtml($ServerStatusData);
+
+    //display the server state traffic
+    $retval .= getServerStateTrafficHtml($ServerStatusData);
+
+    //display the server state connection information
+    $retval .= getServerStateConnectionsHtml($ServerStatusData);
+
+    //display the Table Process List information
+    $retval .= getTableProcesslistHtml($ServerStatusData);
+
+    return $retval;
+}
+
+/**
+ * Prints server state General information
+ *
+ * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ *
+ * @return string
+ */
+function getServerStateGeneralInfoHtml($ServerStatusData)
+{ 
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $start_time = PMA_DBI_fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
@@ -127,16 +151,7 @@ function getServerTrafficHtml($ServerStatusData)
             }
         }
     }
-
-    //display the server state traffic
-    $retval .= getServerStateTrafficHtml($ServerStatusData);
-
-    //display the server state connection information
-    $retval .= getServerStateConnectionsHtml($ServerStatusData);
-
-    //display the Table Process List information
-    $retval .= getTableProcesslistHtml($ServerStatusData);
-
+    
     return $retval;
 }
 
