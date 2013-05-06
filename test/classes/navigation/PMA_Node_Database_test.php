@@ -11,7 +11,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
 
-class Node_Column_Test extends PHPUnit_Framework_TestCase
+class Node_Database_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
@@ -22,21 +22,21 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
 
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Column');
+        $parent = PMA_NodeFactory::getInstance('Node_Database');
         $this->assertArrayHasKey(
             'text',
             $parent->links
         );
         $this->assertContains(
-            'tbl_structure.php',
+            'db_structure.php',
             $parent->links['text']
         );
     }
 
     public function testAddNode()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Column', 'parent');
-        $child = PMA_NodeFactory::getInstance('Node_Column', 'child');
+        $parent = PMA_NodeFactory::getInstance('Node_Database', 'parent');
+        $child = PMA_NodeFactory::getInstance('Node_Database', 'child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
