@@ -270,7 +270,7 @@ if (! defined('PMA_DRIZZLE')) {
  * @return boolean false always false since mysql extention not support
  *                       for multi query executions
  */
-function PMA_DBI_real_multi_query($link, $query)
+function PMA_DBI_realMultiQuery($link, $query)
 {
     return false;
 }
@@ -302,7 +302,7 @@ function PMA_DBI_connect(
  *
  * @return bool
  */
-function PMA_DBI_select_db($dbname, $link = null)
+function PMA_DBI_selectDb($dbname, $link = null)
 {
     $GLOBALS['dummy_db'] = $dbname;
     return true;
@@ -317,7 +317,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @return mixed
  */
-function PMA_DBI_real_query($query, $link = null, $options = 0)
+function PMA_DBI_realQuery($query, $link = null, $options = 0)
 {
     $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
     for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
@@ -341,7 +341,7 @@ function PMA_DBI_real_query($query, $link = null, $options = 0)
  *
  * @return array
  */
-function PMA_DBI_fetch_any($result)
+function PMA_DBI_fetchAny($result)
 {
     $query_data = $GLOBALS['dummy_queries'][$result];
     if ($query_data['pos'] >= count($query_data['result'])) {
@@ -359,9 +359,9 @@ function PMA_DBI_fetch_any($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         foreach ($data as $key => $val) {
             $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
@@ -378,9 +378,9 @@ function PMA_DBI_fetch_array($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_assoc($result)
+function PMA_DBI_fetchAssoc($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     if (is_array($data) && isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         $ret = array();
         foreach ($data as $key => $val) {
@@ -398,9 +398,9 @@ function PMA_DBI_fetch_assoc($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_row($result)
+function PMA_DBI_fetchRow($result)
 {
-    $data = PMA_DBI_fetch_any($result);
+    $data = PMA_DBI_fetchAny($result);
     return $data;
 }
 
@@ -412,7 +412,7 @@ function PMA_DBI_fetch_row($result)
  *
  * @return bool true on success, false on failure
  */
-function PMA_DBI_data_seek($result, $offset)
+function PMA_DBI_dataSeek($result, $offset)
 {
     if ($offset > count($GLOBALS['dummy_queries'][$i]['result'])) {
         return false;
@@ -428,7 +428,7 @@ function PMA_DBI_data_seek($result, $offset)
  *
  * @return void
  */
-function PMA_DBI_free_result($result)
+function PMA_DBI_freeResult($result)
 {
     return;
 }
@@ -438,7 +438,7 @@ function PMA_DBI_free_result($result)
  *
  * @return bool false
  */
-function PMA_DBI_more_results()
+function PMA_DBI_moreResults()
 {
     return false;
 }
@@ -448,7 +448,7 @@ function PMA_DBI_more_results()
  *
  * @return boo false
  */
-function PMA_DBI_next_result()
+function PMA_DBI_nextResult()
 {
     return false;
 }
@@ -460,7 +460,7 @@ function PMA_DBI_next_result()
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     if (!is_bool($result)) {
         return count($GLOBALS['dummy_queries'][$result]['result']);
@@ -477,7 +477,7 @@ function PMA_DBI_num_rows($result)
  *
  * @return string|int
  */
-function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
+function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
 {
     return 0;
 }
@@ -489,7 +489,7 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  *
  * @return int  field count
  */
-function PMA_DBI_num_fields($result)
+function PMA_DBI_numFields($result)
 {
     if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
         return count($GLOBALS['dummy_queries'][$result]['columns']);

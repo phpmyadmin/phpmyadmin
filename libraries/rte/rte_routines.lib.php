@@ -1373,13 +1373,13 @@ function PMA_RTN_handleExecute()
 
                 do {
 
-                    $result = PMA_DBI_store_result();
-                    $num_rows = PMA_DBI_num_rows($result);
+                    $result = PMA_DBI_storeResult();
+                    $num_rows = PMA_DBI_numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
 
                         $output .= "<table><tr>";
-                        foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+                        foreach (PMA_DBI_getFieldsMeta($result) as $key => $field) {
                             $output .= "<th>";
                             $output .= htmlspecialchars($field->name);
                             $output .= "</th>";
@@ -1388,7 +1388,7 @@ function PMA_RTN_handleExecute()
 
                         $color_class = 'odd';
 
-                        while ($row = PMA_DBI_fetch_assoc($result)) {
+                        while ($row = PMA_DBI_fetchAssoc($result)) {
                             $output .= "<tr>";
                             foreach ($row as $key => $value) {
                                 if ($value === null) {
@@ -1409,15 +1409,15 @@ function PMA_RTN_handleExecute()
 
                     }
 
-                    if (! PMA_DBI_more_results()) {
+                    if (! PMA_DBI_moreResults()) {
                         break;
                     }
 
                     $output .= "<br/>";
 
-                    PMA_DBI_free_result($result);
+                    PMA_DBI_freeResult($result);
 
-                } while (PMA_DBI_next_result());
+                } while (PMA_DBI_nextResult());
 
                 $output .= "</fieldset>";
 

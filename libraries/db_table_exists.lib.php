@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 if (empty($is_db)) {
     if (strlen($db)) {
-        $is_db = @PMA_DBI_select_db($db);
+        $is_db = @PMA_DBI_selectDb($db);
     } else {
         $is_db = false;
     }
@@ -63,8 +63,8 @@ if (empty($is_table)
                 . '\';',
                 null, PMA_DBI_QUERY_STORE
             );
-            $is_table = @PMA_DBI_num_rows($_result);
-            PMA_DBI_free_result($_result);
+            $is_table = @PMA_DBI_numRows($_result);
+            PMA_DBI_freeResult($_result);
         }
     } else {
         $is_table = false;
@@ -86,8 +86,8 @@ if (empty($is_table)
                     null,
                     PMA_DBI_QUERY_STORE
                 );
-                $is_table = ($_result && @PMA_DBI_num_rows($_result));
-                PMA_DBI_free_result($_result);
+                $is_table = ($_result && @PMA_DBI_numRows($_result));
+                PMA_DBI_freeResult($_result);
             }
 
             if (! $is_table) {

@@ -252,10 +252,10 @@ class ExportCodegen extends ExportPlugin
         );
         if ($result) {
             $tableProperties = array();
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $tableProperties[] = new TableProperty($row);
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
             $lines[] = 'using System;';
             $lines[] = 'using System.Collections;';
             $lines[] = 'using System.Collections.Generic;';
@@ -343,7 +343,7 @@ class ExportCodegen extends ExportPlugin
             )
         );
         if ($result) {
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $tableProperty = new TableProperty($row);
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(
@@ -365,7 +365,7 @@ class ExportCodegen extends ExportPlugin
                     );
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';

@@ -29,7 +29,7 @@ if (! isset($sql_query) || $sql_query == '') {
 // Execute the query and return the result
 $result = PMA_DBI_tryQuery($sql_query);
 // Get the meta data of results
-$meta = PMA_DBI_get_fields_meta($result);
+$meta = PMA_DBI_getFieldsMeta($result);
 
 // Find the candidate fields for label column and spatial column
 $labelCandidates = array(); $spatialCandidates = array();
@@ -61,7 +61,7 @@ $modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
 $modified_result = PMA_DBI_tryQuery($modified_query);
 
 $data = array();
-while ($row = PMA_DBI_fetch_assoc($modified_result)) {
+while ($row = PMA_DBI_fetchAssoc($modified_result)) {
     $data[] = $row;
 }
 

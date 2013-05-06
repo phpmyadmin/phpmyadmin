@@ -165,9 +165,9 @@ class ExportPhparray extends ExportPlugin
     {
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = PMA_DBI_numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+            $columns[$i] = stripslashes(PMA_DBI_fieldName($result, $i));
         }
         unset($i);
 
@@ -191,7 +191,7 @@ class ExportPhparray extends ExportPlugin
 
         $buffer = '';
         $record_cnt = 0;
-        while ($record = PMA_DBI_fetch_row($result)) {
+        while ($record = PMA_DBI_fetchRow($result)) {
             $record_cnt++;
 
             // Output table name as comment if it's the first record of the table
@@ -219,7 +219,7 @@ class ExportPhparray extends ExportPlugin
             return false;
         }
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         return true;
     }
 }

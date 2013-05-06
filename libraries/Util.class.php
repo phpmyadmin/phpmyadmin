@@ -2185,7 +2185,7 @@ class PMA_Util
             $condition   = '';
             $con_key     = '';
             $con_val     = '';
-            $field_flags = PMA_DBI_field_flags($handle, $i);
+            $field_flags = PMA_DBI_fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
 
             // do not use a column alias in a condition
@@ -3179,14 +3179,14 @@ class PMA_Util
         }
 
         $wktresult  = PMA_DBI_tryQuery($wktsql, null, PMA_DBI_QUERY_STORE);
-        $wktarr     = PMA_DBI_fetch_row($wktresult, 0);
+        $wktarr     = PMA_DBI_fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
 
         if ($includeSRID) {
             $srid = $wktarr[1];
             $wktval = "'" . $wktval . "'," . $srid;
         }
-        @PMA_DBI_free_result($wktresult);
+        @PMA_DBI_freeResult($wktresult);
 
         return $wktval;
     }

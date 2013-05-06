@@ -263,13 +263,13 @@ class PMA_DbQbe
             null,
             PMA_DBI_QUERY_STORE
         );
-        $all_tables_count = PMA_DBI_num_rows($all_tables);
+        $all_tables_count = PMA_DBI_numRows($all_tables);
         if (0 == $all_tables_count) {
             PMA_Message::error(__('No tables found in database.'))->display();
             exit;
         }
         // The tables list gets from MySQL
-        while (list($table) = PMA_DBI_fetch_row($all_tables)) {
+        while (list($table) = PMA_DBI_fetchRow($all_tables)) {
             $columns = PMA_DBI_getColumns($this->_db, $table);
 
             if (empty($this->_criteriaTables[$table])
@@ -296,7 +296,7 @@ class PMA_DbQbe
                 } // end foreach
             } // end if
         } // end while
-        PMA_DBI_free_result($all_tables);
+        PMA_DBI_freeResult($all_tables);
 
         // sets the largest width found
         $this->_realwidth = $this->_form_column_width . 'ex';
@@ -1065,7 +1065,7 @@ class PMA_DbQbe
     private function _getLeftJoinColumnCandidates($all_tables, $all_columns,
         $where_clause_columns
     ) {
-        PMA_DBI_select_db($this->_db);
+        PMA_DBI_selectDb($this->_db);
         $candidate_columns = array();
 
         // Get unique columns and index columns

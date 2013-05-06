@@ -43,12 +43,12 @@ $sql = "SELECT p.plugin_name, p.plugin_type, p.is_active, m.module_name, m.modul
 $res = PMA_DBI_query($sql);
 $plugins = array();
 $modules = array();
-while ($row = PMA_DBI_fetch_assoc($res)) {
+while ($row = PMA_DBI_fetchAssoc($res)) {
     $plugins[$row['plugin_type']][] = $row;
     $modules[$row['module_name']]['info'] = $row;
     $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
 }
-PMA_DBI_free_result($res);
+PMA_DBI_freeResult($res);
 
 // sort plugin list (modules are already sorted)
 ksort($plugins);

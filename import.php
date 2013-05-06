@@ -181,7 +181,7 @@ if ($import_type == 'table') {
 
 
 if (strlen($db)) {
-    PMA_DBI_select_db($db);
+    PMA_DBI_selectDb($db);
 }
 
 @set_time_limit($cfg['ExecTimeLimit']);

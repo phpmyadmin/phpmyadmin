@@ -22,14 +22,14 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     $res = PMA_DBI_query($sql);
 
     $mysql_charsets = array();
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         $mysql_charsets[] = $row['CHARACTER_SET_NAME'];
         // never used
         //$mysql_charsets_maxlen[$row['Charset']] = $row['Maxlen'];
         $mysql_charsets_descriptions[$row['CHARACTER_SET_NAME']]
             = $row['DESCRIPTION'];
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
 
     sort($mysql_charsets, SORT_STRING);
 
@@ -41,7 +41,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
         ? 'SELECT * FROM data_dictionary.COLLATIONS'
         : 'SELECT * FROM information_schema.COLLATIONS';
     $res = PMA_DBI_query($sql);
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         if (! is_array($mysql_collations[$row['CHARACTER_SET_NAME']])) {
             $mysql_collations[$row['CHARACTER_SET_NAME']]
                 = array($row['COLLATION_NAME']);
@@ -60,7 +60,7 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
             = !empty($mysql_charsets_available[$row['CHARACTER_SET_NAME']])
             || !empty($mysql_collations_available[$row['COLLATION_NAME']]);
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
     unset($res, $row);
 
     if (PMA_DRIZZLE
@@ -203,12 +203,12 @@ function PMA_getDbCollation($db)
             . '\' LIMIT 1';
         return PMA_DBI_fetchValue($sql);
     } else {
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
         $return = PMA_DBI_fetchValue(
             'SHOW VARIABLES LIKE \'collation_database\'', 0, 1
         );
         if ($db !== $GLOBALS['db']) {
-            PMA_DBI_select_db($GLOBALS['db']);
+            PMA_DBI_selectDb($GLOBALS['db']);
         }
         return $return;
     }

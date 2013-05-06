@@ -385,7 +385,7 @@ class Table_Stats
         $this->_tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
         $result = PMA_DBI_tryQuery($sql, null, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_numRows($result)) {
             $svg->dieSchema(
                 $pageNumber,
                 "SVG",
@@ -409,7 +409,7 @@ class Table_Stats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -435,7 +435,7 @@ class Table_Stats
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
 
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        if (! $result || ! PMA_DBI_numRows($result)) {
             $svg->dieSchema(
                 $pageNumber,
                 "SVG",
@@ -445,7 +445,7 @@ class Table_Stats
                 )
             );
         }
-        list($this->x, $this->y) = PMA_DBI_fetch_row($result);
+        list($this->x, $this->y) = PMA_DBI_fetchRow($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         // displayfield
@@ -456,8 +456,8 @@ class Table_Stats
             null,
             PMA_DBI_QUERY_STORE
         );
-        if (PMA_DBI_num_rows($result) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+        if (PMA_DBI_numRows($result) > 0) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }

@@ -285,7 +285,7 @@ function PMA_replication_master_replicated_dbs($link = null)
     }
 
     $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $link);
-    while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+    while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
         if (PMA_is_system_schema($tmp_row[0])) {
             continue;
         }

@@ -42,7 +42,7 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return PMA_DrizzleCon
  */
-function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password,
+function PMA_DBI_realConnect($drizzle, $host, $port, $uds, $user, $password,
     $db = null, $options = DRIZZLE_CON_NONE
 ) {
     if ($uds) {
@@ -109,7 +109,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
     }
 
     if (! $server) {
-        $link = @PMA_DBI_real_connect(
+        $link = @PMA_DBI_realConnect(
             $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
             $password, false, $client_flags
         );
@@ -117,13 +117,13 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
         if ($link == false && isset($cfg['Server']['nopassword'])
             && $cfg['Server']['nopassword'] && ! $is_controluser
         ) {
-            $link = @PMA_DBI_real_connect(
+            $link = @PMA_DBI_realConnect(
                 $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
                 $user, null, false, $client_flags
             );
         }
     } else {
-        $link = @PMA_DBI_real_connect(
+        $link = @PMA_DBI_realConnect(
             $drizzle, $server['host'], $server_port, $server_socket,
             $user, $password
         );
@@ -165,7 +165,7 @@ function PMA_DBI_connect($user, $password, $is_controluser = false,
  *
  * @return bool
  */
-function PMA_DBI_select_db($dbname, $link = null)
+function PMA_DBI_selectDb($dbname, $link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -186,7 +186,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @return PMA_DrizzleResult
  */
-function PMA_DBI_real_query($query, $link, $options)
+function PMA_DBI_realQuery($query, $link, $options)
 {
     $buffer_mode = $options & PMA_DBI_QUERY_UNBUFFERED
         ? PMA_Drizzle::BUFFER_ROW
@@ -202,7 +202,7 @@ function PMA_DBI_real_query($query, $link, $options)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
     return $result->fetchRow(PMA_Drizzle::FETCH_BOTH);
 }
@@ -214,7 +214,7 @@ function PMA_DBI_fetch_array($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_assoc($result)
+function PMA_DBI_fetchAssoc($result)
 {
     return $result->fetchRow(PMA_Drizzle::FETCH_ASSOC);
 }
@@ -226,7 +226,7 @@ function PMA_DBI_fetch_assoc($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_row($result)
+function PMA_DBI_fetchRow($result)
 {
     return $result->fetchRow(PMA_Drizzle::FETCH_NUM);
 }
@@ -239,7 +239,7 @@ function PMA_DBI_fetch_row($result)
  *
  * @return boolean true on success, false on failure
  */
-function PMA_DBI_data_seek($result, $offset)
+function PMA_DBI_dataSeek($result, $offset)
 {
     return $result->seek($offset);
 }
@@ -251,7 +251,7 @@ function PMA_DBI_data_seek($result, $offset)
  *
  * @return void
  */
-function PMA_DBI_free_result($result)
+function PMA_DBI_freeResult($result)
 {
     if ($result instanceof PMA_DrizzleResult) {
         $result->free();
@@ -263,7 +263,7 @@ function PMA_DBI_free_result($result)
  *
  * @return bool false
  */
-function PMA_DBI_more_results()
+function PMA_DBI_moreResults()
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
@@ -277,7 +277,7 @@ function PMA_DBI_more_results()
  *
  * @return bool false
  */
-function PMA_DBI_next_result()
+function PMA_DBI_nextResult()
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
@@ -293,7 +293,7 @@ function PMA_DBI_next_result()
  *
  * @return string type of connection used
  */
-function PMA_DBI_get_host_info($link = null)
+function PMA_DBI_getHostInfo($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {
@@ -316,7 +316,7 @@ function PMA_DBI_get_host_info($link = null)
  *
  * @return int version of the Drizzle protocol used
  */
-function PMA_DBI_get_proto_info($link = null)
+function PMA_DBI_getProtoInfo($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {
@@ -334,7 +334,7 @@ function PMA_DBI_get_proto_info($link = null)
  *
  * @return string Drizzle client library version
  */
-function PMA_DBI_get_client_info()
+function PMA_DBI_getClientInfo()
 {
     return 'libdrizzle (Drizzle ' . drizzle_version() . ')';
 }
@@ -387,7 +387,7 @@ function PMA_DBI_getError($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     // see the note for PMA_DBI_tryQuery();
     if (!is_bool($result)) {
@@ -404,7 +404,7 @@ function PMA_DBI_num_rows($result)
  *
  * @return string|int
  */
-function PMA_DBI_insert_id($link = null)
+function PMA_DBI_insertId($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -421,7 +421,7 @@ function PMA_DBI_insert_id($link = null)
     // the tracking mechanism, but this works:
     return PMA_DBI_fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     // Curiously, this problem does not happen with the mysql extension but
-    // there is another problem with BIGINT primary keys so PMA_DBI_insert_id()
+    // there is another problem with BIGINT primary keys so PMA_DBI_insertId()
     // in the mysql extension also uses this logic.
 }
 
@@ -433,7 +433,7 @@ function PMA_DBI_insert_id($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
+function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -456,7 +456,7 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  *
  * @return array meta info for fields in $result
  */
-function PMA_DBI_get_fields_meta($result)
+function PMA_DBI_getFieldsMeta($result)
 {
     // Build an associative array for a type look up
     $typeAr = array();
@@ -523,7 +523,7 @@ function PMA_DBI_get_fields_meta($result)
         $c->charsetnr = $column->charset();
         $c->type = $typeAr[$column->typeDrizzle()];
         $c->_type = $column->type();
-        $c->flags = PMA_DBI_field_flags($result, $k);
+        $c->flags = PMA_DBI_fieldFlags($result, $k);
         $c->_flags = $column->flags();
 
         $c->multiple_key = (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY);
@@ -548,7 +548,7 @@ function PMA_DBI_get_fields_meta($result)
  *
  * @return int field count
  */
-function PMA_DBI_num_fields($result)
+function PMA_DBI_numFields($result)
 {
     return $result->numColumns();
 }
@@ -561,7 +561,7 @@ function PMA_DBI_num_fields($result)
  *
  * @return int length of field
  */
-function PMA_DBI_field_len($result, $i)
+function PMA_DBI_fieldLen($result, $i)
 {
     $colums = $result->getColumns();
     return $colums[$i]->size();
@@ -575,7 +575,7 @@ function PMA_DBI_field_len($result, $i)
  *
  * @return string name of $i. field in $result
  */
-function PMA_DBI_field_name($result, $i)
+function PMA_DBI_fieldName($result, $i)
 {
     $colums = $result->getColumns();
     return $colums[$i]->name();
@@ -589,7 +589,7 @@ function PMA_DBI_field_name($result, $i)
  *
  * @return string field flags
  */
-function PMA_DBI_field_flags($result, $i)
+function PMA_DBI_fieldFlags($result, $i)
 {
     $columns = $result->getColumns();
     $f = $columns[$i];
@@ -659,7 +659,7 @@ function PMA_DBI_field_flags($result, $i)
  *
  * @return false
  */
-function PMA_DBI_store_result()
+function PMA_DBI_storeResult()
 {
     return false;
 }

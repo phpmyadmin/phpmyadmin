@@ -903,7 +903,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+        // need to use PMA_DBI_QUERY_STORE with PMA_DBI_numRows() in mysqli
         $result = PMA_DBI_query(
             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
             . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\'',
@@ -911,8 +911,8 @@ class ExportSql extends ExportPlugin
             PMA_DBI_QUERY_STORE
         );
         if ($result != false) {
-            if (PMA_DBI_num_rows($result) > 0) {
-                $tmpres = PMA_DBI_fetch_assoc($result);
+            if (PMA_DBI_numRows($result) > 0) {
+                $tmpres = PMA_DBI_fetchAssoc($result);
                 if (PMA_DRIZZLE && $show_dates) {
                     // Drizzle doesn't give Create_time and Update_time in
                     // SHOW TABLE STATUS, add it
@@ -977,7 +977,7 @@ class ExportSql extends ExportPlugin
                     $new_crlf = $this->_exportComment() . $crlf;
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
 
         $schema_create .= $new_crlf;
@@ -1020,7 +1020,7 @@ class ExportSql extends ExportPlugin
             return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
         }
 
-        if ($result != false && ($row = PMA_DBI_fetch_row($result))) {
+        if ($result != false && ($row = PMA_DBI_fetchRow($result))) {
             $create_query = $row[1];
             unset($row);
 
@@ -1295,7 +1295,7 @@ class ExportSql extends ExportPlugin
 
         $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         return $schema_create . ($add_semicolon ? ';' . $crlf : '');
     } // end of the 'getTableDef()' function
 
@@ -1569,13 +1569,13 @@ class ExportSql extends ExportPlugin
         }
 
         if ($result != false) {
-            $fields_cnt = PMA_DBI_num_fields($result);
+            $fields_cnt = PMA_DBI_numFields($result);
 
             // Get field information
-            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_meta = PMA_DBI_getFieldsMeta($result);
             $field_flags = array();
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $field_flags[$j] = PMA_DBI_field_flags($result, $j);
+                $field_flags[$j] = PMA_DBI_fieldFlags($result, $j);
             }
 
             for ($j = 0; $j < $fields_cnt; $j++) {
@@ -1697,7 +1697,7 @@ class ExportSql extends ExportPlugin
                 $separator      = ';';
             }
 
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = PMA_DBI_fetchRow($result)) {
                 if ($current_row == 0) {
                     $head = $this->_possibleCRLF()
                         . $this->_exportComment()
@@ -1869,7 +1869,7 @@ class ExportSql extends ExportPlugin
                 }
             }
         } // end if ($result != false)
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         return true;
     } // end of the 'exportData()' function
