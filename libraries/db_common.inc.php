@@ -36,7 +36,7 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  */
 if (! isset($is_db) || ! $is_db) {
     if (strlen($db)) {
-        $is_db = PMA_DBI_select_db($db);
+        $is_db = PMA_DBI_selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
         // the db but it's not necessarily wrong

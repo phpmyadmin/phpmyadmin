@@ -365,7 +365,7 @@ function PMA__getRelationsParam()
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
-        || ! PMA_DBI_select_db($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+        || ! PMA_DBI_selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
@@ -395,7 +395,7 @@ function PMA__getRelationsParam()
         return $cfgRelation;
     }
 
-    while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
+    while ($curr_table = @PMA_DBI_fetchRow($tab_rs)) {
         if ($curr_table[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
             $cfgRelation['bookmark']        = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['relation']) {
@@ -422,7 +422,7 @@ function PMA__getRelationsParam()
             $cfgRelation['userconfig'] = $curr_table[0];
         }
     } // end while
-    PMA_DBI_free_result($tab_rs);
+    PMA_DBI_freeResult($tab_rs);
 
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
@@ -704,11 +704,11 @@ function PMA_getDbComment($db)
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
-            $row = PMA_DBI_fetch_assoc($com_rs);
+        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
+            $row = PMA_DBI_fetchAssoc($com_rs);
             $comment = $row['comment'];
         }
-        PMA_DBI_free_result($com_rs);
+        PMA_DBI_freeResult($com_rs);
     }
 
     return $comment;
@@ -735,12 +735,12 @@ function PMA_getDbComments()
               WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
-        if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($com_rs)) {
+        if ($com_rs && PMA_DBI_numRows($com_rs) > 0) {
+            while ($row = PMA_DBI_fetchAssoc($com_rs)) {
                 $comments[$row['db_name']] = $row['comment'];
             }
         }
-        PMA_DBI_free_result($com_rs);
+        PMA_DBI_freeResult($com_rs);
     }
 
     return $comments;
@@ -1128,23 +1128,23 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
                 $res = PMA_DBI_query('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                 if ($res) {
                     $the_total = PMA_DBI_fetchValue($res);
-                    @PMA_DBI_free_result($res);
+                    @PMA_DBI_freeResult($res);
                 } else {
                     $the_total = 0;
                 }
             }
 
             $disp  = PMA_DBI_query($f_query_main . $f_query_from . $f_query_filter . $f_query_order . $f_query_limit);
-            if ($disp && PMA_DBI_num_rows($disp) > 0) {
+            if ($disp && PMA_DBI_numRows($disp) > 0) {
                 // If a resultset has been created, pre-cache it in the $disp_row array
                 // This helps us from not needing to use mysql_data_seek by accessing a pre-cached
                 // PHP array. Usually those resultsets are not that big, so a performance hit should
                 // not be expected.
                 $disp_row = array();
-                while ($single_disp_row = @PMA_DBI_fetch_assoc($disp)) {
+                while ($single_disp_row = @PMA_DBI_fetchAssoc($disp)) {
                     $disp_row[] = $single_disp_row;
                 }
-                @PMA_DBI_free_result($disp);
+                @PMA_DBI_freeResult($disp);
             }
         } else {
             $disp_row = null;
@@ -1199,7 +1199,7 @@ function PMA_getRelatives($all_tables, $master)
                    . '   AND ' . $from . '_table IN ' . $in_know
                    . '   AND ' . $to   . '_table IN ' . $in_left;
         $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
-        while ($row = PMA_DBI_fetch_assoc($relations)) {
+        while ($row = PMA_DBI_fetchAssoc($relations)) {
             $found_table                = $row[$to . '_table'];
             if (isset($remaining_tables[$found_table])) {
                 $fromclause
@@ -1408,7 +1408,7 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         . PMA_Util::sqlAddSlashes($newpage) . '\')';
     PMA_queryAsControlUser($ins_query, false);
 
-    return PMA_DBI_insert_id(
+    return PMA_DBI_insertId(
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );
 }

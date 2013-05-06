@@ -62,7 +62,7 @@ if (strlen($db)
         PMA_runProcedureAndFunctionDefinitions($db);
 
         // go back to current db, just in case
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         $tables_full = PMA_DBI_getTablesFull($db);
 
@@ -109,7 +109,7 @@ if (strlen($db)
         }
 
         // go back to current db, just in case
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
         PMA_duplicateBookmarks($_error, $db);

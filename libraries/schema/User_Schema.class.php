@@ -185,7 +185,7 @@ class PMA_User_Schema
             $page_query, false, PMA_DBI_QUERY_STORE
         );
 
-        if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
+        if ($page_rs && PMA_DBI_numRows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
             <fieldset>
@@ -197,7 +197,7 @@ class PMA_User_Schema
             <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
             <?php
-            while ($curr_page = PMA_DBI_fetch_assoc($page_rs)) {
+            while ($curr_page = PMA_DBI_fetchAssoc($page_rs)) {
                 echo "\n" . '        '
                     . '<option value="' . $curr_page['page_nr'] . '"';
                 if (isset($this->chosenPage)
@@ -250,7 +250,7 @@ class PMA_User_Schema
             null,
             PMA_DBI_QUERY_STORE
         );
-        while ($val = @PMA_DBI_fetch_row($alltab_rs)) {
+        while ($val = @PMA_DBI_fetchRow($alltab_rs)) {
                $selectboxall[] = $val[0];
         }
 
@@ -271,7 +271,7 @@ class PMA_User_Schema
                 . PMA_Util::sqlAddSlashes($this->chosenPage) . '\'';
             $page_rs    = PMA_queryAsControlUser($page_query, false);
             $array_sh_page = array();
-            while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
+            while ($temp_sh_page = @PMA_DBI_fetchAssoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
             }
             /*
@@ -427,11 +427,11 @@ class PMA_User_Schema
             <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
             <select name="pdf_page_number" id="pdf_page_number_opt">
                 <?php
-                while ($pages = @PMA_DBI_fetch_assoc($test_rs)) {
+                while ($pages = @PMA_DBI_fetchAssoc($test_rs)) {
                     echo '                <option value="' . $pages['page_nr'] . '">'
                         . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
                 } // end while
-                PMA_DBI_free_result($test_rs);
+                PMA_DBI_freeResult($test_rs);
                 unset($test_rs);
                 ?>
             </select><br />
@@ -638,7 +638,7 @@ class PMA_User_Schema
             $export_type = 'pdf';
         }
 
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         include "libraries/schema/" . ucfirst($export_type)
             . "_Relation_Schema.class.php";
@@ -747,12 +747,12 @@ class PMA_User_Schema
             $master_tables_rs = PMA_queryAsControlUser(
                 $master_tables, false, PMA_DBI_QUERY_STORE
             );
-            if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
+            if ($master_tables_rs && PMA_DBI_numRows($master_tables_rs) > 0) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
                  * the schema
                  */
-                while (list(, $master_table) = PMA_DBI_fetch_row($master_tables_rs)) {
+                while (list(, $master_table) = PMA_DBI_fetchRow($master_tables_rs)) {
                        $all_tables[] = $master_table;
                 }
 
@@ -889,7 +889,7 @@ class PMA_User_Schema
                     $test_query, false, PMA_DBI_QUERY_STORE
                 );
                 //echo $test_query;
-                if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
+                if ($test_rs && PMA_DBI_numRows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                         $ch_query = 'DELETE FROM '
                             . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])

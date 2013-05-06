@@ -247,20 +247,20 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $fields_cnt = PMA_DBI_numFields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns'])) {
             $schema_insert = '';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 if ($csv_enclosed == '') {
-                    $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
+                    $schema_insert .= stripslashes(PMA_DBI_fieldName($result, $i));
                 } else {
                     $schema_insert .= $csv_enclosed
                         . str_replace(
                             $csv_enclosed,
                             $csv_escaped . $csv_enclosed,
-                            stripslashes(PMA_DBI_field_name($result, $i))
+                            stripslashes(PMA_DBI_fieldName($result, $i))
                         )
                         .  $csv_enclosed;
                 }
@@ -273,7 +273,7 @@ class ExportCsv extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -336,7 +336,7 @@ class ExportCsv extends ExportPlugin
                 return false;
             }
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         return true;
     }

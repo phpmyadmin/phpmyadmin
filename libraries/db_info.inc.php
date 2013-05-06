@@ -71,29 +71,29 @@ if (true === $cfg['SkipLockedTables']) {
     );
 
     // Blending out tables in use
-    if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
-        while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
+    if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
+        while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
             // if in use memorize tablename
             if (preg_match('@in_use=[1-9]+@i', $tmp[1])) {
                 $sot_cache[$tmp[0]] = true;
             }
         }
-        PMA_DBI_free_result($db_info_result);
+        PMA_DBI_freeResult($db_info_result);
 
         if (isset($sot_cache)) {
             $db_info_result = PMA_DBI_query(
                 'SHOW TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql . ';',
                 null, PMA_DBI_QUERY_STORE
             );
-            if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
-                while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
+            if ($db_info_result && PMA_DBI_numRows($db_info_result) > 0) {
+                while ($tmp = PMA_DBI_fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query(
                             'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
                             . ' LIKE \'' . PMA_Util::sqlAddSlashes($tmp[0], true) . '\';'
                         );
-                        $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
-                        PMA_DBI_free_result($sts_result);
+                        $sts_tmp     = PMA_DBI_fetchAssoc($sts_result);
+                        PMA_DBI_freeResult($sts_result);
                         unset($sts_result);
 
                         if (! isset($sts_tmp['Type']) && isset($sts_tmp['Engine'])) {
@@ -123,13 +123,13 @@ if (true === $cfg['SkipLockedTables']) {
 
                 $sot_ready = true;
             } elseif ($db_info_result) {
-                PMA_DBI_free_result($db_info_result);
+                PMA_DBI_freeResult($db_info_result);
             }
             unset($sot_cache);
         }
         unset($tmp);
     } elseif ($db_info_result) {
-        PMA_DBI_free_result($db_info_result);
+        PMA_DBI_freeResult($db_info_result);
     }
 }
 

@@ -150,9 +150,9 @@ function getTableHtmlForMultipleQueries(
         $analyzed_sql = array();
         $is_affected = false;
 
-        $result = PMA_DBI_store_result();
+        $result = PMA_DBI_storeResult();
         $fields_meta = ($result !== false)
-            ? PMA_DBI_get_fields_meta($result)
+            ? PMA_DBI_getFieldsMeta($result)
             : array();
         $fields_cnt  = count($fields_meta);
 
@@ -224,9 +224,9 @@ function getTableHtmlForMultipleQueries(
         }
 
         if (! $is_affected) {
-            $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+            $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
         } elseif (! isset($num_rows)) {
-            $num_rows = @PMA_DBI_affected_rows();
+            $num_rows = @PMA_DBI_affectedRows();
         }
 
         if (isset($sql_data['valid_sql'][$sql_no])) {
@@ -257,11 +257,11 @@ function getTableHtmlForMultipleQueries(
         );
 
         // Free the result to save the memory
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         $sql_no++;
 
-    } while (PMA_DBI_more_results() && PMA_DBI_next_result());
+    } while (PMA_DBI_moreResults() && PMA_DBI_nextResult());
 
     return $table_html;
 }

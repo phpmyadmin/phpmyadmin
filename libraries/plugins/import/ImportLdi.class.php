@@ -47,13 +47,13 @@ class ImportLdi extends AbstractImportCsv
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
             $result = PMA_DBI_tryQuery('SHOW VARIABLES LIKE \'local\\_infile\';');
-            if ($result != false && PMA_DBI_num_rows($result) > 0) {
-                $tmp = PMA_DBI_fetch_row($result);
+            if ($result != false && PMA_DBI_numRows($result) > 0) {
+                $tmp = PMA_DBI_fetchRow($result);
                 if ($tmp[1] == 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
             unset($result);
         }
 

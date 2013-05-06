@@ -22,7 +22,7 @@ $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
 /**
  * Selects the database to work with
  */
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 
 $goto = $cfg['DefaultTabTable'];
 

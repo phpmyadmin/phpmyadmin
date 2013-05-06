@@ -502,7 +502,7 @@ function getTableProcesslistHtml($ServerStatusData)
     $retval .= '<tbody>';
 
     $odd_row = true;
-    while ($process = PMA_DBI_fetch_assoc($result)) {
+    while ($process = PMA_DBI_fetchAssoc($result)) {
 
         // Array keys need to modify due to the way it has used
         // to display column values

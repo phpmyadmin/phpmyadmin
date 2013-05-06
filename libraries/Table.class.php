@@ -551,8 +551,8 @@ class PMA_Table
                             PMA_DBI_QUERY_STORE
                         );
                         if (!PMA_DBI_getError()) {
-                            $row_count = PMA_DBI_num_rows($result);
-                            PMA_DBI_free_result($result);
+                            $row_count = PMA_DBI_numRows($result);
+                            PMA_DBI_freeResult($result);
                         }
                     }
                 }
@@ -659,7 +659,7 @@ class PMA_Table
                 $table_copy_query, true, PMA_DBI_QUERY_STORE
             );
 
-            while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
+            while ($table_copy_row = @PMA_DBI_fetchAssoc($table_copy_rs)) {
                 $value_parts = array();
                 foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
@@ -677,10 +677,10 @@ class PMA_Table
                      \'' . implode('\', \'', $new_value_parts) . '\')';
 
                 PMA_queryAsControlUser($new_table_query);
-                $last_id = PMA_DBI_insert_id();
+                $last_id = PMA_DBI_insertId();
             } // end while
 
-            PMA_DBI_free_result($table_copy_rs);
+            PMA_DBI_freeResult($table_copy_rs);
 
             return $last_id;
         }
@@ -748,7 +748,7 @@ class PMA_Table
 
         // Doing a select_db could avoid some problems with replicated databases,
         // when moving table from replicated one to not replicated one
-        PMA_DBI_select_db($target_db);
+        PMA_DBI_selectDb($target_db);
 
         $target = PMA_Util::backquote($target_db) . '.' . PMA_Util::backquote($target_table);
 
@@ -936,7 +936,7 @@ class PMA_Table
 
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            PMA_DBI_select_db($source_db);
+            PMA_DBI_selectDb($source_db);
 
             if (PMA_Table::isView($source_db, $source_table)) {
                 $sql_drop_query = 'DROP VIEW';
@@ -969,7 +969,7 @@ class PMA_Table
                     $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
+                    while ($comments_copy_row = PMA_DBI_fetchAssoc($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
                                     . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
@@ -983,7 +983,7 @@ class PMA_Table
                                     . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
-                    PMA_DBI_free_result($comments_copy_rs);
+                    PMA_DBI_freeResult($comments_copy_rs);
                     unset($comments_copy_rs);
                 }
 
@@ -1201,7 +1201,7 @@ class PMA_Table
         if (! PMA_DBI_query($GLOBALS['sql_query'])) {
             // Restore triggers in the old database
             if ($handle_triggers) {
-                PMA_DBI_select_db($this->getDbName());
+                PMA_DBI_selectDb($this->getDbName());
                 foreach ($triggers as $trigger) {
                     PMA_DBI_query($trigger['create']);
                 }
@@ -1343,7 +1343,7 @@ class PMA_Table
             . " AND `db_name` = '" . PMA_Util::sqlAddSlashes($this->db_name) . "'"
             . " AND `table_name` = '" . PMA_Util::sqlAddSlashes($this->name) . "'";
 
-        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
+        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {

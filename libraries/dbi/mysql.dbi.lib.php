@@ -38,7 +38,7 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return mixed   false on error or a mysql connection resource on success
  */
-function PMA_DBI_real_connect($server, $user, $password, $client_flags,
+function PMA_DBI_realConnect($server, $user, $password, $client_flags,
     $persistent = false
 ) {
     global $cfg;
@@ -69,7 +69,7 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags,
  * @return boolean false always false since mysql extention not support
  *                       for multi query executions
  */
-function PMA_DBI_real_multi_query($link, $query)
+function PMA_DBI_realMultiQuery($link, $query)
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
@@ -130,23 +130,23 @@ function PMA_DBI_connect(
     }
 
     if (! $server) {
-        $link = PMA_DBI_real_connect(
+        $link = PMA_DBI_realConnect(
             $cfg['Server']['host'] . $server_port . $server_socket,
             $user, $password, empty($client_flags) ? null : $client_flags
         );
 
         // Retry with empty password if we're allowed to
         if (empty($link) && $cfg['Server']['nopassword'] && ! $is_controluser) {
-            $link = PMA_DBI_real_connect(
+            $link = PMA_DBI_realConnect(
                 $cfg['Server']['host'] . $server_port . $server_socket,
                 $user, '', empty($client_flags) ? null : $client_flags
             );
         }
     } else {
         if (!isset($server['host'])) {
-            $link = PMA_DBI_real_connect($server_socket, $user, $password, null);
+            $link = PMA_DBI_realConnect($server_socket, $user, $password, null);
         } else {
-            $link = PMA_DBI_real_connect(
+            $link = PMA_DBI_realConnect(
                 $server['host'] . $server_port . $server_socket,
                 $user, $password, null
             );
@@ -188,7 +188,7 @@ function PMA_DBI_connect(
  *
  * @return bool
  */
-function PMA_DBI_select_db($dbname, $link = null)
+function PMA_DBI_selectDb($dbname, $link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -209,7 +209,7 @@ function PMA_DBI_select_db($dbname, $link = null)
  *
  * @return mixed
  */
-function PMA_DBI_real_query($query, $link, $options)
+function PMA_DBI_realQuery($query, $link, $options)
 {
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         return mysql_query($query, $link);
@@ -227,7 +227,7 @@ function PMA_DBI_real_query($query, $link, $options)
  *
  * @return array
  */
-function PMA_DBI_fetch_array($result)
+function PMA_DBI_fetchArray($result)
 {
     return mysql_fetch_array($result, MYSQL_BOTH);
 }
@@ -239,7 +239,7 @@ function PMA_DBI_fetch_array($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_assoc($result)
+function PMA_DBI_fetchAssoc($result)
 {
     return mysql_fetch_array($result, MYSQL_ASSOC);
 }
@@ -251,7 +251,7 @@ function PMA_DBI_fetch_assoc($result)
  *
  * @return array
  */
-function PMA_DBI_fetch_row($result)
+function PMA_DBI_fetchRow($result)
 {
     return mysql_fetch_array($result, MYSQL_NUM);
 }
@@ -264,7 +264,7 @@ function PMA_DBI_fetch_row($result)
  *
  * @return bool true on success, false on failure
  */
-function PMA_DBI_data_seek($result, $offset)
+function PMA_DBI_dataSeek($result, $offset)
 {
     return mysql_data_seek($result, $offset);
 }
@@ -276,7 +276,7 @@ function PMA_DBI_data_seek($result, $offset)
  *
  * @return void
  */
-function PMA_DBI_free_result($result)
+function PMA_DBI_freeResult($result)
 {
     if (is_resource($result) && get_resource_type($result) === 'mysql result') {
         mysql_free_result($result);
@@ -288,7 +288,7 @@ function PMA_DBI_free_result($result)
  *
  * @return bool false
  */
-function PMA_DBI_more_results()
+function PMA_DBI_moreResults()
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
@@ -302,7 +302,7 @@ function PMA_DBI_more_results()
  *
  * @return boo false
  */
-function PMA_DBI_next_result()
+function PMA_DBI_nextResult()
 {
     // N.B.: PHP's 'mysql' extension does not support
     // multi_queries so this function will always
@@ -318,7 +318,7 @@ function PMA_DBI_next_result()
  *
  * @return string type of connection used
  */
-function PMA_DBI_get_host_info($link = null)
+function PMA_DBI_getHostInfo($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {
@@ -337,7 +337,7 @@ function PMA_DBI_get_host_info($link = null)
  *
  * @return int version of the MySQL protocol used
  */
-function PMA_DBI_get_proto_info($link = null)
+function PMA_DBI_getProtoInfo($link = null)
 {
     if (null === $link) {
         if (isset($GLOBALS['userlink'])) {
@@ -354,7 +354,7 @@ function PMA_DBI_get_proto_info($link = null)
  *
  * @return string MySQL client library version
  */
-function PMA_DBI_get_client_info()
+function PMA_DBI_getClientInfo()
 {
     return mysql_get_client_info();
 }
@@ -408,7 +408,7 @@ function PMA_DBI_getError($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_num_rows($result)
+function PMA_DBI_numRows($result)
 {
     if (!is_bool($result)) {
         return mysql_num_rows($result);
@@ -424,7 +424,7 @@ function PMA_DBI_num_rows($result)
  *
  * @return string|int
  */
-function PMA_DBI_insert_id($link = null)
+function PMA_DBI_insertId($link = null)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -449,7 +449,7 @@ function PMA_DBI_insert_id($link = null)
  *
  * @return string|int
  */
-function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
+function PMA_DBI_affectedRows($link = null, $get_from_cache = true)
 {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
@@ -475,7 +475,7 @@ function PMA_DBI_affected_rows($link = null, $get_from_cache = true)
  *
  * @todo add missing keys like in mysqli_query (decimals)
  */
-function PMA_DBI_get_fields_meta($result)
+function PMA_DBI_getFieldsMeta($result)
 {
     $fields       = array();
     $num_fields   = mysql_num_fields($result);
@@ -496,7 +496,7 @@ function PMA_DBI_get_fields_meta($result)
  *
  * @return int  field count
  */
-function PMA_DBI_num_fields($result)
+function PMA_DBI_numFields($result)
 {
     return mysql_num_fields($result);
 }
@@ -509,7 +509,7 @@ function PMA_DBI_num_fields($result)
  *
  * @return int length of field
  */
-function PMA_DBI_field_len($result, $i)
+function PMA_DBI_fieldLen($result, $i)
 {
     return mysql_field_len($result, $i);
 }
@@ -522,7 +522,7 @@ function PMA_DBI_field_len($result, $i)
  *
  * @return string name of $i. field in $result
  */
-function PMA_DBI_field_name($result, $i)
+function PMA_DBI_fieldName($result, $i)
 {
     return mysql_field_name($result, $i);
 }
@@ -535,7 +535,7 @@ function PMA_DBI_field_name($result, $i)
  *
  * @return string field flags
  */
-function PMA_DBI_field_flags($result, $i)
+function PMA_DBI_fieldFlags($result, $i)
 {
     return mysql_field_flags($result, $i);
 }
@@ -545,7 +545,7 @@ function PMA_DBI_field_flags($result, $i)
  *
  * @return false
  */
-function PMA_DBI_store_result()
+function PMA_DBI_storeResult()
 {
     return false;
 }

@@ -32,7 +32,7 @@ PMA_Util::checkParameters(
 );
 
 /* Select database */
-if (!PMA_DBI_select_db($db)) {
+if (!PMA_DBI_selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', ''

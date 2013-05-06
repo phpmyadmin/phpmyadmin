@@ -52,7 +52,7 @@ foreach ($post_params as $one_post_param) {
 if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
     $export_type = 'pdf';
 }
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 
 $path = PMA_securePath(ucfirst($export_type));
 if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {

@@ -43,7 +43,7 @@ require_once 'libraries/Partition.class.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
-PMA_DBI_select_db($GLOBALS['db']);
+PMA_DBI_selectDb($GLOBALS['db']);
 
 /**
  * Gets tables informations
@@ -364,7 +364,7 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $is_innodb) {
-    PMA_DBI_select_db($GLOBALS['db']);
+    PMA_DBI_selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
     if ($foreign) {

@@ -292,9 +292,9 @@ class ExportLatex extends ExportPlugin
     {
         $result      = PMA_DBI_tryQuery($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = PMA_DBI_numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = PMA_DBI_field_name($result, $i);
+            $columns[$i] = PMA_DBI_fieldName($result, $i);
         }
         unset($i);
 
@@ -370,7 +370,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = PMA_DBI_fetch_assoc($result)) {
+        while ($record = PMA_DBI_fetchAssoc($result)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -403,7 +403,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         return true;
     } // end getTableLaTeX
 
@@ -462,7 +462,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {

@@ -53,7 +53,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
 /**
  * Selects the database to work with
  */
-if (!PMA_DBI_select_db($db)) {
+if (!PMA_DBI_selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -268,8 +268,8 @@ if (isset($_REQUEST['do_save_data'])) {
                 'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($db)
                 . ' LIKE \'' . PMA_Util::sqlAddSlashes($table, true) . '\';'
             );
-            $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
-            PMA_DBI_free_result($tbl_stats_result);
+            $tbl_stats = PMA_DBI_fetchAssoc($tbl_stats_result);
+            PMA_DBI_freeResult($tbl_stats_result);
             unset($tbl_stats_result);
 
             if ($is_show_stats) {

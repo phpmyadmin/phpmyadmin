@@ -189,10 +189,10 @@ function PMA_DBI_tryQuery($query, $link = null, $options = 0,
         $time = microtime(true);
     }
 
-    $result = PMA_DBI_real_query($query, $link, $options);
+    $result = PMA_DBI_realQuery($query, $link, $options);
 
     if ($cache_affected_rows) {
-        $GLOBALS['cached_affected_rows'] = PMA_DBI_affected_rows($link, false);
+        $GLOBALS['cached_affected_rows'] = PMA_DBI_affectedRows($link, false);
     }
 
     if ($GLOBALS['cfg']['DBG']['sql']) {
@@ -225,7 +225,7 @@ function PMA_DBI_tryMultiQuery($multi_query = '', $link = null)
         }
     }
 
-    return PMA_DBI_real_multi_query($link, $multi_query);
+    return PMA_DBI_realMultiQuery($link, $multi_query);
 
 }
 
@@ -982,7 +982,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
                     . PMA_Util::backquote($database_name) . ';'
                 );
 
-                while ($row = PMA_DBI_fetch_assoc($res)) {
+                while ($row = PMA_DBI_fetchAssoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
                     $databases[$database_name]['SCHEMA_TABLE_ROWS']
                         += $row['Rows'];
@@ -1002,7 +1002,7 @@ function PMA_DBI_getDatabasesFull($database = null, $force_stats = false,
                     $databases[$database_name]['SCHEMA_LENGTH']
                         += $row['Data_length'] + $row['Index_length'];
                 }
-                PMA_DBI_free_result($res);
+                PMA_DBI_freeResult($res);
                 unset($res);
             }
         }
@@ -1599,22 +1599,22 @@ function PMA_DBI_fetchValue($result, $row_number = 0, $field = 0, $link = null)
 
     // return false if result is empty or false
     // or requested row is larger than rows in result
-    if (PMA_DBI_num_rows($result) < ($row_number + 1)) {
+    if (PMA_DBI_numRows($result) < ($row_number + 1)) {
         return $value;
     }
 
     // if $field is an integer use non associative mysql fetch function
     if (is_int($field)) {
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     } else {
-        $fetch_function = 'PMA_DBI_fetch_assoc';
+        $fetch_function = 'PMA_DBI_fetchAssoc';
     }
 
     // get requested row
     for ($i = 0; $i <= $row_number; $i++) {
         $row = $fetch_function($result);
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
 
     // return requested field
     if (isset($row[$field])) {
@@ -1651,25 +1651,25 @@ function PMA_DBI_fetchSingleRow($result, $type = 'ASSOC', $link = null)
     }
 
     // return null if result is empty or false
-    if (! PMA_DBI_num_rows($result)) {
+    if (! PMA_DBI_numRows($result)) {
         return false;
     }
 
     switch ($type) {
     case 'NUM' :
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
         break;
     case 'ASSOC' :
-        $fetch_function = 'PMA_DBI_fetch_assoc';
+        $fetch_function = 'PMA_DBI_fetchAssoc';
         break;
     case 'BOTH' :
     default :
-        $fetch_function = 'PMA_DBI_fetch_array';
+        $fetch_function = 'PMA_DBI_fetchArray';
         break;
     }
 
     $row = $fetch_function($result);
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $row;
 }
 
@@ -1739,17 +1739,17 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
         return $resultrows;
     }
 
-    $fetch_function = 'PMA_DBI_fetch_assoc';
+    $fetch_function = 'PMA_DBI_fetchAssoc';
 
     // no nested array if only one field is in result
-    if (null === $key && 1 === PMA_DBI_num_fields($result)) {
+    if (null === $key && 1 === PMA_DBI_numFields($result)) {
         $value = 0;
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     }
 
     // if $key is an integer use non associative mysql fetch function
     if (is_int($key)) {
-        $fetch_function = 'PMA_DBI_fetch_row';
+        $fetch_function = 'PMA_DBI_fetchRow';
     }
 
     if (null === $key && null === $value) {
@@ -1806,7 +1806,7 @@ function PMA_DBI_fetchResult($result, $key = null, $value = null,
         }
     }
 
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $resultrows;
 }
 

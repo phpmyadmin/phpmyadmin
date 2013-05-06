@@ -260,7 +260,7 @@ class PMA_StorageEngine
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = PMA_DBI_query($sql_query);
-        while ($row = PMA_DBI_fetch_assoc($res)) {
+        while ($row = PMA_DBI_fetchAssoc($res)) {
             if (isset($variables[$row['Variable_name']])) {
                 $mysql_vars[$row['Variable_name']] = $variables[$row['Variable_name']];
             } elseif (! $like
@@ -279,7 +279,7 @@ class PMA_StorageEngine
                     = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
             }
         }
-        PMA_DBI_free_result($res);
+        PMA_DBI_freeResult($res);
 
         return $mysql_vars;
     }

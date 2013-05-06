@@ -405,7 +405,7 @@ class Node
                 );
                 $query .= "%' ";
             }
-            $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+            $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
         }
         return $retval;
     }

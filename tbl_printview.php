@@ -43,7 +43,7 @@ if (strlen($table)) {
 /**
  * Selects the database
  */
-PMA_DBI_select_db($db);
+PMA_DBI_selectDb($db);
 
 
 /**
