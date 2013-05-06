@@ -26,7 +26,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertArrayHasKey(
             'pma_form1',
-            $parent->fields
+            $form->fields
         );
     }
 }
