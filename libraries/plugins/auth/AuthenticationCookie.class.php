@@ -239,6 +239,26 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['server'] . '" />';
         } // end if (server choice)
 
+        // Add captcha input field if $cfg['Servers'][$i]['captchaLogin'] is set to TRUE.
+        if (  !empty($GLOBALS['cfg']['captchaLoginPrivateKey'])
+           && !empty($GLOBALS['cfg']['captchaLoginPublicKey'])
+           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
+           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin']
+        ) {
+            // If enabled show captcha to the user on the login screen.
+            echo '<script type="text/javascript"
+                    src="http://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '">
+                 </script>
+                 <noscript>
+                    <iframe src="http://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['captchaLoginPublicKey'] . '"
+                        height="300" width="500" frameborder="0"></iframe><br>
+                    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                    </textarea>
+                    <input type="hidden" name="recaptcha_response_field"
+                        value="manual_challenge">
+                 </noscript>';
+        }
+
         echo '</fieldset>
         <fieldset class="tblFooters">
             <input value="' . __('Go') . '" type="submit" id="input_go" />';
@@ -329,6 +349,34 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
+        // Verify Captcha if it is required.
+        if (  !empty($GLOBALS['cfg']['captchaLoginPrivateKey'])
+           && !empty($GLOBALS['cfg']['captchaLoginPublicKey'])
+           && isset($GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin'])
+           && $GLOBALS['cfg']['Servers'][$GLOBALS['url_params']['server']]['captchaLogin']
+        ) {
+            if (  !empty($_POST["recaptcha_challenge_field"])
+               && !empty( $_POST["recaptcha_response_field"])
+            ) {
+                require_once('libraries/plugins/auth/recaptchalib.php');
+
+                // Use private key to verify captcha status.
+                $resp = recaptcha_check_answer (
+                    $GLOBALS['cfg']['captchaLoginPrivateKey'],
+                    $_SERVER["REMOTE_ADDR"],
+                    $_POST["recaptcha_challenge_field"],
+                    $_POST["recaptcha_response_field"]
+                );
+
+                // Check if the captcha entered is valid, if not stop the login.
+                if ( !$resp->is_valid ) {
+                    return false;
+                }
+            } else {
+                // Check if the user wants to login without entered captcha.
+            }
+        }
+        
         if (! empty($_REQUEST['old_usr'])) {
             // The user wants to be logged out
             // -> delete his choices that were stored in session
