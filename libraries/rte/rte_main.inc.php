@@ -36,7 +36,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * create the missing $url_query variable
      */
     if (strlen($db)) {
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
         if (! isset($url_query)) {
             $url_query = PMA_generate_common_url($db, $table);
         }

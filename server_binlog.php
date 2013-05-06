@@ -55,7 +55,7 @@ $result = PMA_DBI_query($sql_query);
  */
 // Gets the list of fields properties
 if (isset($result) && $result) {
-    $num_rows = PMA_DBI_num_rows($result);
+    $num_rows = PMA_DBI_numRows($result);
 } else {
     $num_rows = 0;
 }
@@ -193,7 +193,7 @@ $html .=  '</td>'
     . '<tbody>';
 
 $odd_row = true;
-while ($value = PMA_DBI_fetch_assoc($result)) {
+while ($value = PMA_DBI_fetchAssoc($result)) {
     if (! $dontlimitchars
         && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']
     ) {

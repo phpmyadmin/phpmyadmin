@@ -526,7 +526,7 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
 }
 
 if (strlen($db)) {
-    PMA_DBI_select_db($db);
+    PMA_DBI_selectDb($db);
 }
 
 //  E x e c u t e    t h e    q u e r y
@@ -549,11 +549,11 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
     do {
-        PMA_DBI_store_result();
-        if (! PMA_DBI_more_results()) {
+        PMA_DBI_storeResult();
+        if (! PMA_DBI_moreResults()) {
             break;
         }
-    } while (PMA_DBI_next_result());
+    } while (PMA_DBI_nextResult());
 
     $is_procedure = false;
     if (stripos($full_sql_query, 'call') !== false) {
@@ -628,9 +628,9 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     // mysql_affected_rows() reports about the last query done)
 
     if (! $is_affected) {
-        $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+        $num_rows = ($result) ? @PMA_DBI_numRows($result) : 0;
     } elseif (! isset($num_rows)) {
-        $num_rows = @PMA_DBI_affected_rows();
+        $num_rows = @PMA_DBI_affectedRows();
     }
 
     // Grabs the profiling results
@@ -815,7 +815,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         } else {
             $message = PMA_Message::getMessageForInsertedRows($num_rows);
         }
-        $insert_id = PMA_DBI_insert_id();
+        $insert_id = PMA_DBI_insertId();
         if ($insert_id != 0) {
             // insert_id is id of FIRST record inserted in one insert,
             // so if we inserted multiple rows, we had to increment this
@@ -922,7 +922,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     //If we are retrieving the full value of a truncated field or the original
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true) {
-        $row = PMA_DBI_fetch_row($result);
+        $row = PMA_DBI_fetchRow($result);
         $response = PMA_Response::getInstance();
         $response->addJSON('value', $row[0]);
         exit;
@@ -937,7 +937,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $fields_meta = PMA_DBI_get_fields_meta($result);
+            $fields_meta = PMA_DBI_getFieldsMeta($result);
             $fields_cnt  = count($fields_meta);
         }
 
@@ -1063,7 +1063,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Gets the list of fields properties
     if (isset($result) && $result) {
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_meta = PMA_DBI_getFieldsMeta($result);
         $fields_cnt  = count($fields_meta);
     }
 
@@ -1181,7 +1181,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         );
 
         $html_output .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
     }
 
     // BEGIN INDEX CHECK See if indexes should be checked.

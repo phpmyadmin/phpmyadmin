@@ -328,8 +328,8 @@ function PMA_getTableCount($db)
         null, PMA_DBI_QUERY_STORE
     );
     if ($tables) {
-        $num_tables = PMA_DBI_num_rows($tables);
-        PMA_DBI_free_result($tables);
+        $num_tables = PMA_DBI_numRows($tables);
+        PMA_DBI_freeResult($tables);
     } else {
         $num_tables = 0;
     }

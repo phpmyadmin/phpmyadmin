@@ -64,7 +64,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         case 'proc':
                             $result = PMA_DBI_query('SHOW PROCESSLIST');
                             $ret[$chart_id][$node_id][$point_id]['value']
-                                = PMA_DBI_num_rows($result);
+                                = PMA_DBI_numRows($result);
                             break;
 
                         case 'cpu':
@@ -179,7 +179,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return = array('rows' => array(), 'sum' => array());
             $type = '';
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 $type = strtolower(
                     substr($row['sql_text'], 0, strpos($row['sql_text'], ' '))
                 );
@@ -213,7 +213,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return['sum']['TOTAL'] = array_sum($return['sum']);
             $return['numRows'] = count($return['rows']);
 
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
 
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
@@ -244,7 +244,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $removeVars = isset($_REQUEST['removeVariables'])
                 && $_REQUEST['removeVariables'];
 
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 preg_match('/^(\w+)\s/', $row['argument'], $match);
                 $type = strtolower($match[1]);
 
@@ -313,7 +313,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $return['sum']['TOTAL'] = array_sum($return['sum']);
             $return['numRows'] = count($return['rows']);
 
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
 
             PMA_Response::getInstance()->addJSON('message', $return);
             exit;
@@ -349,7 +349,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $return = array();
 
         if (strlen($_REQUEST['database'])) {
-            PMA_DBI_select_db($_REQUEST['database']);
+            PMA_DBI_selectDb($_REQUEST['database']);
         }
 
         if ($profiling = PMA_Util::profilingSupported()) {
@@ -367,14 +367,14 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
         $result = PMA_DBI_tryQuery('EXPLAIN ' . $query);
-        while ($row = PMA_DBI_fetch_assoc($result)) {
+        while ($row = PMA_DBI_fetchAssoc($result)) {
             $return['explain'][] = $row;
         }
 
         // In case an error happened
         $return['error'] = PMA_DBI_getError();
 
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         if ($profiling) {
             $return['profiling'] = array();
@@ -382,10 +382,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+            while ($row = PMA_DBI_fetchAssoc($result)) {
                 $return['profiling'][]= $row;
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
 
         PMA_Response::getInstance()->addJSON('message', $return);

@@ -213,7 +213,7 @@ class ExportHtmlword extends ExportPlugin
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $fields_cnt = PMA_DBI_numFields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['htmlword_columns'])) {
@@ -221,7 +221,7 @@ class ExportHtmlword extends ExportPlugin
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $schema_insert .= '<td class="print"><strong>'
                     . htmlspecialchars(
-                        stripslashes(PMA_DBI_field_name($result, $i))
+                        stripslashes(PMA_DBI_fieldName($result, $i))
                     )
                     . '</strong></td>';
             } // end for
@@ -232,7 +232,7 @@ class ExportHtmlword extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             $schema_insert = '<tr class="print-category">';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -251,7 +251,7 @@ class ExportHtmlword extends ExportPlugin
                 return false;
             }
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
         if (! PMA_exportOutputHandler('</table>')) {
             return false;
         }
@@ -353,7 +353,7 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {

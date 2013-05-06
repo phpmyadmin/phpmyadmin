@@ -245,11 +245,11 @@ class ExportOdt extends ExportPlugin
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_cnt = PMA_DBI_numFields($result);
+        $fields_meta = PMA_DBI_getFieldsMeta($result);
         $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = PMA_DBI_field_flags($result, $j);
+            $field_flags[$j] = PMA_DBI_fieldFlags($result, $j);
         }
 
         $GLOBALS['odt_buffer'] .=
@@ -270,7 +270,7 @@ class ExportOdt extends ExportPlugin
                     '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                         . htmlspecialchars(
-                            stripslashes(PMA_DBI_field_name($result, $i))
+                            stripslashes(PMA_DBI_fieldName($result, $i))
                         )
                     . '</text:p>'
                     . '</table:table-cell>';
@@ -279,7 +279,7 @@ class ExportOdt extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -319,7 +319,7 @@ class ExportOdt extends ExportPlugin
             } // end for
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         } // end while
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
@@ -340,7 +340,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         /**
          * Displays the table structure
@@ -416,7 +416,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        PMA_DBI_selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {

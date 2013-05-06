@@ -455,11 +455,11 @@ class PMA_List_Database extends PMA_List
             $tmp_alldbs = PMA_DBI_query('SHOW DATABASES;', $GLOBALS['controllink']);
             // all databases cases - part 2
             if (isset($tmp_mydbs['%'])) {
-                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
                     $dblist[] = $tmp_row[0];
                 } // end while
             } else {
-                while ($tmp_row = PMA_DBI_fetch_row($tmp_alldbs)) {
+                while ($tmp_row = PMA_DBI_fetchRow($tmp_alldbs)) {
                     $tmp_db = $tmp_row[0];
                     if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
                         $dblist[]           = $tmp_db;
@@ -489,7 +489,7 @@ class PMA_List_Database extends PMA_List
                     } // end if ... elseif ...
                 } // end while
             } // end else
-            PMA_DBI_free_result($tmp_alldbs);
+            PMA_DBI_freeResult($tmp_alldbs);
             unset($tmp_mydbs);
         } // end if
 
@@ -499,13 +499,13 @@ class PMA_List_Database extends PMA_List
         $local_query .= ' AND `User` = \'';
         $local_query .= PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . '\'';
         $rs          = PMA_DBI_tryQuery($local_query, $GLOBALS['controllink']);
-        if ($rs && @PMA_DBI_num_rows($rs)) {
-            while ($row = PMA_DBI_fetch_assoc($rs)) {
+        if ($rs && @PMA_DBI_numRows($rs)) {
+            while ($row = PMA_DBI_fetchAssoc($rs)) {
                 if (!in_array($row['Db'], $dblist)) {
                     $dblist[] = $row['Db'];
                 }
             } // end while
-            PMA_DBI_free_result($rs);
+            PMA_DBI_freeResult($rs);
         } // end if
     }
 }

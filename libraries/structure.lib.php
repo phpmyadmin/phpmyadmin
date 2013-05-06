@@ -2338,7 +2338,7 @@ function PMA_updateColumns($db, $table)
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    if (! PMA_DBI_select_db($db)) {
+    if (! PMA_DBI_selectDb($db)) {
         PMA_Util::mysqlDie(
             PMA_DBI_getError(),
             'USE ' . PMA_Util::backquote($db) . ';',
@@ -2419,7 +2419,7 @@ function PMA_updateColumns($db, $table)
  */
 function PMA_moveColumns($db, $table)
 {
-    PMA_DBI_select_db($db);
+    PMA_DBI_selectDb($db);
 
     /*
      * load the definitions for all columns

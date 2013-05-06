@@ -83,7 +83,7 @@ function PMA_analyzeWhereClauses(
             . PMA_Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
         $result[$key_id] = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
+        $rows[$key_id]   = PMA_DBI_fetchAssoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
         $has_unique_condition   = PMA_showEmptyResultMessageOrSetUniqueCondition(
@@ -126,7 +126,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
          * exit if we want the message to be displayed
          */
     } else {// end if (no row returned)
-        $meta = PMA_DBI_get_fields_meta($result[$key_id]);
+        $meta = PMA_DBI_getFieldsMeta($result[$key_id]);
 
         list($unique_condition, $tmp_clause_is_unique)
             = PMA_Util::getUniqueCondition(
@@ -1787,8 +1787,8 @@ function PMA_setSessionForEditNext($one_where_clause)
         . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
     $res            = PMA_DBI_query($local_query);
-    $row            = PMA_DBI_fetch_row($res);
-    $meta           = PMA_DBI_get_fields_meta($res);
+    $row            = PMA_DBI_fetchRow($res);
+    $meta           = PMA_DBI_getFieldsMeta($res);
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
@@ -1921,12 +1921,12 @@ function PMA_executeSqlQuery($url_params, $query)
             $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
         } else {
             // The next line contains a real assignment, it's not a typo
-            if ($tmp = @PMA_DBI_affected_rows()) {
+            if ($tmp = @PMA_DBI_affectedRows()) {
                 $total_affected_rows += $tmp;
             }
             unset($tmp);
 
-            $insert_id = PMA_DBI_insert_id();
+            $insert_id = PMA_DBI_insertId();
             if ($insert_id != 0) {
                 // insert_id is id of FIRST record inserted in one insert, so if we
                 // inserted multiple rows, we had to increment this
@@ -1938,7 +1938,7 @@ function PMA_executeSqlQuery($url_params, $query)
                 $last_message->addParam($insert_id);
                 $last_messages[] = $last_message;
             }
-            PMA_DBI_free_result($result);
+            PMA_DBI_freeResult($result);
         }
         $warning_messages = PMA_getWarningMessages();
     }
@@ -1994,10 +1994,10 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . ' WHERE ' . PMA_Util::backquote($map[$relation_field]['foreign_field'])
             . $where_comparison;
         $dispresult  = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
-        if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-            list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+        if ($dispresult && PMA_DBI_numRows($dispresult) > 0) {
+            list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
         }
-        @PMA_DBI_free_result($dispresult);
+        @PMA_DBI_freeResult($dispresult);
         return $dispval;
     }
     return '';

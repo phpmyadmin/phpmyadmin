@@ -27,7 +27,7 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
     if ($real_source_result !== false) {
 
-        $real_source_fields_meta = PMA_DBI_get_fields_meta($real_source_result);
+        $real_source_fields_meta = PMA_DBI_getFieldsMeta($real_source_result);
 
         if (count($real_source_fields_meta) > 0) {
 
@@ -106,7 +106,7 @@ function PMA_getNewTransformationDataSql(
     $column_count = 0;
     $add_comma = false;
 
-    while ($data_row = PMA_DBI_fetch_assoc($pma_tranformation_data)) {
+    while ($data_row = PMA_DBI_fetchAssoc($pma_tranformation_data)) {
 
         foreach ($column_map as $column) {
 

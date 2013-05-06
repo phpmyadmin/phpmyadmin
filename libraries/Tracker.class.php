@@ -213,7 +213,7 @@ class PMA_Tracker
         " AND table_name = '" . PMA_Util::sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
 
-        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
+        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
 
         if (isset($row['tracking_active']) && $row['tracking_active'] == 1) {
             return true;
@@ -560,7 +560,7 @@ class PMA_Tracker
                 ? ' AND tracking & ' . self::_transformTrackingSet($statement) . ' <> 0'
                 : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
-        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
+        $row = PMA_DBI_fetchArray(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
             ? $row[0]
             : -1;
@@ -592,7 +592,7 @@ class PMA_Tracker
         $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version) ."' ".
                      " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = PMA_DBI_fetch_assoc(PMA_queryAsControlUser($sql_query));
+        $mixed = PMA_DBI_fetchAssoc(PMA_queryAsControlUser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);

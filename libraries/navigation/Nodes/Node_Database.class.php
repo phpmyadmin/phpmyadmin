@@ -81,7 +81,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'views':
@@ -112,7 +112,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'procedures':
@@ -140,7 +140,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'functions':
@@ -168,7 +168,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         case 'events':
@@ -195,7 +195,7 @@ class Node_Database extends Node
                     );
                     $query .= "%'";
                 }
-                $retval = PMA_DBI_num_rows(PMA_DBI_tryQuery($query));
+                $retval = PMA_DBI_numRows(PMA_DBI_tryQuery($query));
             }
             break;
         default:
@@ -254,7 +254,7 @@ class Node_Database extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr[0];
                             $count++;
@@ -297,7 +297,7 @@ class Node_Database extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr[0];
                             $count++;
@@ -337,7 +337,7 @@ class Node_Database extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Name'];
                             $count++;
@@ -377,7 +377,7 @@ class Node_Database extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Name'];
                             $count++;
@@ -416,7 +416,7 @@ class Node_Database extends Node
                 $handle = PMA_DBI_tryQuery($query);
                 if ($handle !== false) {
                     $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                    while ($arr = PMA_DBI_fetchArray($handle)) {
                         if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Name'];
                             $count++;

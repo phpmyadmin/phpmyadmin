@@ -2509,7 +2509,7 @@ class PMA_DisplayResults
             || ($_SESSION['tmp_user_values']['disp_direction']
                 == self::DISP_DIR_HORIZONTAL_FLIPPED);
 
-        while ($row = PMA_DBI_fetch_row($dt_result)) {
+        while ($row = PMA_DBI_fetchRow($dt_result)) {
 
             // "vertical display" mode stuff
             $table_body_html .= $this->_getVerticalDisplaySupportSegments(
@@ -2860,7 +2860,7 @@ class PMA_DisplayResults
 
                 // PMA_mysql_fetch_fields returns BLOB in place of
                 // TEXT fields type so we have to ensure it's really a BLOB
-                $field_flags = PMA_DBI_field_flags($dt_result, $i);
+                $field_flags = PMA_DBI_fieldFlags($dt_result, $i);
 
                 $vertical_display['data'][$row_no][$i]
                     = $this->_getDataCellForBlobColumns(
@@ -3839,7 +3839,7 @@ class PMA_DisplayResults
     ) {
 
         $is_analyse = $this->__get('is_analyse');
-        $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
+        $field_flags = PMA_DBI_fieldFlags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
             || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')
@@ -4773,7 +4773,7 @@ class PMA_DisplayResults
             if ($sorted_column_index !== false) {
 
                 // fetch first row of the result set
-                $row = PMA_DBI_fetch_row($dt_result);
+                $row = PMA_DBI_fetchRow($dt_result);
 
                 // initializing default arguments
                 $default_function = '_mimeDefaultFunction';
@@ -4802,8 +4802,8 @@ class PMA_DisplayResults
                 );
 
                 // fetch last row of the result set
-                PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
-                $row = PMA_DBI_fetch_row($dt_result);
+                PMA_DBI_dataSeek($dt_result, $this->__get('num_rows') - 1);
+                $row = PMA_DBI_fetchRow($dt_result);
 
                 // check for non printable sorted row data
                 $meta = $fields_meta[$sorted_column_index];
@@ -4826,7 +4826,7 @@ class PMA_DisplayResults
                 );
 
                 // reset to first row for the loop in _getTableBody()
-                PMA_DBI_data_seek($dt_result, 0);
+                PMA_DBI_dataSeek($dt_result, 0);
 
                 // we could also use here $sort_expression_nodirection
                 return ' [' . htmlspecialchars($sort_column)
@@ -5073,8 +5073,8 @@ class PMA_DisplayResults
         }
 
         // fetch last row of the result set
-        PMA_DBI_data_seek($dt_result, $this->__get('num_rows') - 1);
-        $row = PMA_DBI_fetch_row($dt_result);
+        PMA_DBI_dataSeek($dt_result, $this->__get('num_rows') - 1);
+        $row = PMA_DBI_fetchRow($dt_result);
 
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
@@ -5087,7 +5087,7 @@ class PMA_DisplayResults
             );
 
         // reset to first row for the loop in _getTableBody()
-        PMA_DBI_data_seek($dt_result, 0);
+        PMA_DBI_dataSeek($dt_result, 0);
 
         $links_html .= '<input type="hidden" name="clause_is_unique"'
             .' value="' . $clause_is_unique . '" />' . "\n";
@@ -5511,13 +5511,13 @@ class PMA_DisplayResults
 
                 $dispresult = PMA_DBI_tryQuery($dispsql, null, PMA_DBI_QUERY_STORE);
 
-                if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                    list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+                if ($dispresult && PMA_DBI_numRows($dispresult) > 0) {
+                    list($dispval) = PMA_DBI_fetchRow($dispresult, 0);
                 } else {
                     $dispval = __('Link not found');
                 }
 
-                @PMA_DBI_free_result($dispresult);
+                @PMA_DBI_freeResult($dispresult);
 
             } else {
                 $dispval     = '';

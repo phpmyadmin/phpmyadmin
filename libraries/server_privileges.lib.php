@@ -398,14 +398,14 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
                 $sql_query = 'SHOW COLUMNS FROM `mysql`.`db`;';
             }
             $res = PMA_DBI_query($sql_query);
-            while ($row1 = PMA_DBI_fetch_row($res)) {
+            while ($row1 = PMA_DBI_fetchRow($res)) {
                 if (substr($row1[0], 0, 4) == 'max_') {
                     $row[$row1[0]] = 0;
                 } else {
                     $row[$row1[0]] = 'N';
                 }
             }
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
         } else {
             $row = array('Table_priv' => '');
         }
@@ -447,7 +447,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
         );
         $columns = array();
         if ($res) {
-            while ($row1 = PMA_DBI_fetch_row($res)) {
+            while ($row1 = PMA_DBI_fetchRow($res)) {
                 $columns[$row1[0]] = array(
                     'Select' => false,
                     'Insert' => false,
@@ -455,7 +455,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
                     'References' => false
                 );
             }
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
         }
         unset($res, $row1);
     }
@@ -584,13 +584,13 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db,
         .' = \'' . PMA_Util::sqlAddSlashes($table) . '\';'
     );
 
-    while ($row1 = PMA_DBI_fetch_row($res)) {
+    while ($row1 = PMA_DBI_fetchRow($res)) {
         $row1[1] = explode(',', $row1[1]);
         foreach ($row1[1] as $current) {
             $columns[$row1[0]][$current] = true;
         }
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
     unset($res, $row1, $current);
 
     $html_output = '<input type="hidden" name="grant_count" '
@@ -1595,7 +1595,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         .'  `Host` ASC,'
         .'  `Db` ASC;';
     $res = PMA_DBI_query($sql_query);
-    $row = PMA_DBI_fetch_assoc($res);
+    $row = PMA_DBI_fetchAssoc($res);
     if ($row) {
         $found = true;
     }
@@ -1660,7 +1660,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
                     && $current_host == $row['Host']
             ) {
                 $current_privileges[] = $row;
-                $row = PMA_DBI_fetch_assoc($res);
+                $row = PMA_DBI_fetchAssoc($res);
             }
             $html_output .= '<tr '
                 . 'class="noclick ' . ($odd_row ? 'odd' : 'even')
@@ -1915,7 +1915,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
             . $_REQUEST['username'] . "';";
         $res = PMA_DBI_query($sql_query);
-        $row = PMA_DBI_fetch_row($res);
+        $row = PMA_DBI_fetchRow($res);
         if (empty($row)) {
             $extra_data['user_exists'] = false;
         } else {
@@ -2061,7 +2061,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 
     $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+    while ($db_rights_row = PMA_DBI_fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
         if (! strlen($dbname)) {
             // only Db names in the table `mysql`.`db` uses wildcards
@@ -2074,7 +2074,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
         $db_rights[$db_rights_row[$dbOrTableName]] = $db_rights_row;
     }
 
-    PMA_DBI_free_result($db_rights_result);
+    PMA_DBI_freeResult($db_rights_result);
 
     if (! strlen($dbname)) {
         $sql_query = 'SELECT * FROM `mysql`.`db`'
@@ -2092,7 +2092,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     $result = PMA_DBI_query($sql_query);
     $sql_query = '';
 
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         if (isset($db_rights[$row[$dbOrTableName]])) {
             $db_rights[$row[$dbOrTableName]]
                 = array_merge($db_rights[$row[$dbOrTableName]], $row);
@@ -2105,7 +2105,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             $db_rights[$row['Db']]['can_delete'] = true;
         }
     }
-    PMA_DBI_free_result($result);
+    PMA_DBI_freeResult($result);
     return $db_rights;
 }
 
@@ -2133,7 +2133,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
            . '</tr>' . "\n";
     } else {
         $odd_row = true;
-        //while ($row = PMA_DBI_fetch_assoc($res)) {
+        //while ($row = PMA_DBI_fetchAssoc($res)) {
         foreach ($db_rights as $row) {
             $found_rows[] = (! strlen($dbname)) ? $row['Db'] : $row['Table_name'];
 
@@ -2335,12 +2335,12 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 
     if ($result) {
         $pred_tbl_array = array();
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = PMA_DBI_fetchRow($result)) {
             if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
                 $pred_tbl_array[] = $row[0];
             }
         }
-        PMA_DBI_free_result($result);
+        PMA_DBI_freeResult($result);
 
         if (! empty($pred_tbl_array)) {
             $html_output .= '<select name="pred_tablename" '
@@ -2379,11 +2379,11 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export
 ) {
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    while ($row = PMA_DBI_fetchAssoc($result)) {
         $row['privs'] = PMA_extractPrivInfo($row, true);
         $db_rights[$row['User']][$row['Host']] = $row;
     }
-    @PMA_DBI_free_result($result);
+    @PMA_DBI_freeResult($result);
 
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
@@ -2589,7 +2589,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
         null,
         PMA_DBI_QUERY_STORE
     );
-    while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+    while (list($tmp_initial) = PMA_DBI_fetchRow($initials)) {
         $array_initials[$tmp_initial] = true;
     }
 
@@ -2663,12 +2663,12 @@ function PMA_getDbRightsForUserOverview()
 
     $db_rights_result = PMA_DBI_query($db_rights_sql);
 
-    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+    while ($db_rights_row = PMA_DBI_fetchAssoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
         $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
             = $db_rights_row;
     }
-    PMA_DBI_free_result($db_rights_result);
+    PMA_DBI_freeResult($db_rights_result);
     ksort($db_rights);
 
     return $db_rights;
@@ -2936,7 +2936,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 
         if (! $res) {
             $html_output .= PMA_Message::error(__('No Privileges'))->getDisplay();
-            PMA_DBI_free_result($res);
+            PMA_DBI_freeResult($res);
             unset($res);
         } else {
             // This message is hardcoded because I will replace it by
@@ -2958,7 +2958,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
          * Displays the initials
          * Also not necassary if there is less than 20 privileges
          */
-        if (PMA_DBI_num_rows($res) > 20 ) {
+        if (PMA_DBI_numRows($res) > 20 ) {
             $html_output .= PMA_getHtmlForDisplayTheInitials(
                 $array_initials, $conditional_class
             );
@@ -2970,7 +2970,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         */
         if (isset($_REQUEST['initial'])
             || isset($_REQUEST['showall'])
-            || PMA_DBI_num_rows($res) < 50
+            || PMA_DBI_numRows($res) < 50
         ) {
             $html_output .= PMA_getUsersOverview(
                 $res, $db_rights, $link_edit, $pmaThemeImage,
@@ -3119,7 +3119,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         $GLOBALS['userlink'],
         PMA_DBI_QUERY_STORE
     );
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
 
         $res2 = PMA_DBI_QUERY(
             'SELECT `Column_name`, `Column_priv`'
@@ -3145,7 +3145,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             'References' => array()
         );
 
-        while ($row2 = PMA_DBI_fetch_assoc($res2)) {
+        while ($row2 = PMA_DBI_fetchAssoc($res2)) {
             $tmp_array = explode(',', $row2['Column_priv']);
             if (in_array('Select', $tmp_array)) {
                 $tmp_privs2['Select'][] = $row2['Column_name'];
@@ -3202,14 +3202,14 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 
     $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
 
-    while ($row = PMA_DBI_fetch_assoc($res)) {
+    while ($row = PMA_DBI_fetchAssoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
             .' ON ' . PMA_Util::backquote($row['Db']) . '.*'
             .' TO \'' . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
             . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_freeResult($res);
 
     $queries = PMA_getTablePrivsQueriesForChangeOrCopyUser(
         $user_host_condition, $queries, $username, $hostname

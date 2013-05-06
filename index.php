@@ -92,7 +92,7 @@ if ($server > 0) {
         }
     }
     if ($GLOBALS['cfg']['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-        $server_info .= PMA_DBI_get_host_info();
+        $server_info .= PMA_DBI_getHostInfo();
     }
     if (! empty($cfg['Server']['verbose']) && $GLOBALS['cfg']['ShowServerInfo']) {
         $server_info .= ')';
@@ -245,7 +245,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_version'
     );
     PMA_printListItem(
-        __('Protocol version:') . ' ' . PMA_DBI_get_proto_info(),
+        __('Protocol version:') . ' ' . PMA_DBI_getProtoInfo(),
         'li_mysql_proto'
     );
     PMA_printListItem(
@@ -272,7 +272,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
         if ($server > 0) {
-            $client_version_str = PMA_DBI_get_client_info();
+            $client_version_str = PMA_DBI_getClientInfo();
             if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
                 && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))
             ) {
@@ -486,12 +486,12 @@ if ($server > 0) {
  * (a difference on the third digit does not count).
  * If someday there is a constant that we can check about mysqlnd,
  * we can use it instead of strpos().
- * If no default server is set, PMA_DBI_get_client_info() is not defined yet.
+ * If no default server is set, PMA_DBI_getClientInfo() is not defined yet.
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
  */
-if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
-    $_client_info = PMA_DBI_get_client_info();
+if (function_exists('PMA_DBI_getClientInfo') && !PMA_DRIZZLE) {
+    $_client_info = PMA_DBI_getClientInfo();
     if ($server > 0
         && strpos($_client_info, 'mysqlnd') === false
         && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)
