@@ -43,6 +43,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = 'en';
+        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
@@ -73,7 +74,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-    
+
     /**
      * Test for Set BodyId
      *
@@ -103,7 +104,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-    
+
     /**
      * Test for Get JsParams
      *
@@ -117,7 +118,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getJsParams()
         );
     }
-        
+
     /**
      * Test for Get JsParamsCode
      *
@@ -133,7 +134,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for Get Message 
+     * Test for Get Message
      *
      * @return void
      */
@@ -147,17 +148,40 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for Disable Warnings 
+     * Test for Disable Warnings
      *
      * @return void
+     * @test
+     * @covers PMA_Header::disableWarnings
      */
     public function testDisableWarnings()
     {
         $header = new PMA_Header();
         $header->disableWarnings();
-        $this->assertNotContains(
-            'Javascript must be enabled past this point',
-            $header->getDisplay()
+        $this->assertAttributeEquals(
+            false,
+            '_warningsEnabled',
+            $header
         );
+    }
+
+    /**
+     * Tests private method _getWarnings when warnings are disabled
+     *
+     * @return void
+     * @test
+     * @covers PMA_Header::_getWarnings
+     * @depends testDisableWarnings
+     */
+    public function testGetWarningsWithWarningsDisabled()
+    {
+        $method = new ReflectionMethod(
+            'PMA_Header', '_getWarnings'
+        );
+        $method->setAccessible(true);
+
+        $header = new PMA_Header();
+        $header->disableWarnings();
+        $this->assertEmpty($method->invoke($header));
     }
 }
