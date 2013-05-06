@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
+require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/config/Form.class.php';
 require_once 'libraries/Util.class.php';
 
