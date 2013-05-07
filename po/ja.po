@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-04-25 13:51+0200\n"
+"PO-Revision-Date: 2013-05-07 15:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-0/ja/>\n"
 "Language: ja\n"
@@ -4454,7 +4454,7 @@ msgstr "SQL 互換モード"
 #: libraries/config/messages.inc.php:120
 #: libraries/plugins/export/ExportSql.class.php:262
 msgid "<code>CREATE TABLE</code> options:"
-msgstr "<code>CREATE TABLE</code> オプション"
+msgstr "<code>CREATE TABLE</code> オプション："
 
 #: libraries/config/messages.inc.php:121
 msgid "Creation/Update/Check dates"
@@ -8116,7 +8116,7 @@ msgstr "挿入前にテーブルを空にする"
 
 #: libraries/plugins/export/ExportSql.class.php:305
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<code>INSERT</code> 文の代わりに以下を使う"
+msgstr "<code>INSERT</code> 文の代わりに以下を使う："
 
 #: libraries/plugins/export/ExportSql.class.php:311
 msgid "<code>INSERT DELAYED</code> statements"
@@ -8133,7 +8133,7 @@ msgstr "データをダンプするときに使うコマンド:"
 
 #: libraries/plugins/export/ExportSql.class.php:348
 msgid "Syntax to use when inserting data:"
-msgstr "データを挿入するときに使う構文"
+msgstr "データを挿入するときに使う構文："
 
 #: libraries/plugins/export/ExportSql.class.php:356
 msgid ""
@@ -10566,11 +10566,11 @@ msgstr ""
 
 #: server_replication.php:210
 msgid "Replicate all databases; Ignore:"
-msgstr "特定のデータベースだけを除いた残り全てをレプリケーションする"
+msgstr "特定のデータベースだけを除いた残り全てをレプリケーションする："
 
 #: server_replication.php:211
 msgid "Ignore all databases; Replicate:"
-msgstr "特定のデータベースだけレプリケーションする"
+msgstr "特定のデータベースだけレプリケーションする："
 
 #: server_replication.php:214
 msgid "Please select databases:"
