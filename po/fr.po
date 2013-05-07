@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-04-25 22:16+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2013-05-07 23:09+0200\n"
+"Last-Translator: Jean-Noël AVILA <jn.avila@free.fr>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -855,7 +854,6 @@ msgstr ""
 "secrète (blowfish_secret)."
 
 #: index.php:460
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -867,8 +865,10 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 "Le répertoire [code]config[/code], utilisé par le script setup, est encore "
-"présent dans votre répertoire phpMyAdmin. Vous devriez le supprimer quand "
-"vous aurez terminé la configuration de phpMyAdmin."
+"présent dans votre répertoire phpMyAdmin. Il est fortement recommandé de le "
+"supprimer dès que phpMyAdmin a été configuré. Sinon, la sécurité de votre "
+"serveur peut être compromise par le téléchargement de votre configuration "
+"par des personnes non autorisées."
 
 #: index.php:470
 #, php-format
@@ -5605,7 +5605,6 @@ msgid "Control host"
 msgstr "Serveur de contrôle"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5614,14 +5613,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Un serveur alternatif pour le stockage des configurations; laisser vide pour "
-"utiliser le serveur déjà défini"
+"Un port alternatif pour la connexion au serveur de stockage des "
+"configurations ; laisser vide pour utiliser le port par défaut ou déjà "
+"défini si le serveur est serveur de contrôle"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Serveur de contrôle"
+msgstr "Port de contrôle"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
@@ -5862,7 +5861,6 @@ msgid "Display columns table"
 msgstr "Table pour colonnes descriptives"
 
 #: libraries/config/messages.inc.php:437
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -7863,7 +7861,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
-msgstr ""
+msgstr "Réessayer de se connecter"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:44
 msgid "Failed to use Blowfish from mcrypt!"
@@ -9619,6 +9617,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Un compte existe déjà avec le même nom d'utilisateur, mais éventuellement un "
+"nom d'hôte différent. Êtes-vous sûr de vouloir continuer ?"
 
 #: libraries/server_privileges.lib.php:1204
 msgid "Do not change the password"
@@ -10441,10 +10441,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "Relation de type FOREIGN KEY ajoutée"
 
 #: pmd_relation_new.php:82
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Erreur: relation non ajoutée."
+msgstr "Erreur : fonctionnalités relationnelles désactivées !"
 
 #: pmd_relation_new.php:98
 msgid "Internal relation added"
@@ -12534,10 +12533,9 @@ msgid "Choose column to display:"
 msgstr "Colonne descriptive : "
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Aucune ligne n'a été sélectionnée"
+msgstr "Aucune colonne n'a été sélectionnée."
 
 #: tbl_structure.php:149
 #, php-format
