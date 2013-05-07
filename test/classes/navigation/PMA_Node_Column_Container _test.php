@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for NodeFactory class and Node_Column class
+ * tests for NodeFactory class and Node_Column_Container class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,7 +11,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 
 
-class Node_Column_Test extends PHPUnit_Framework_TestCase
+class Node_Column_Container_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
@@ -22,7 +22,7 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
 
     public function testConstructor()
     {
-        $parent = PMA_NodeFactory::getInstance('Node_Column');
+        $parent = PMA_NodeFactory::getInstance('Node_Column_Container');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -31,6 +31,7 @@ class Node_Column_Test extends PHPUnit_Framework_TestCase
             'tbl_structure.php',
             $parent->links['text']
         );
+        $this->assertEquals('columns', $parent->real_name);
     }
 }
 ?>
