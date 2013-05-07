@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-04-25 15:49+0200\n"
+"PO-Revision-Date: 2013-05-07 17:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/4-0/"
-"uz@latin/>\n"
+"Language-Team: Uzbek (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-0/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Brauzerning nishondagi oynasini yangilab bo‘lmadi. Ehtimol, bosh oyna "
 "yopilgan yoki brauzer xavfsizlik yuzasidan oynalararo yangilashni blokirovka "
-"qilmoqda"
+"qilmoqda."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3225
@@ -379,7 +379,7 @@ msgstr[1] "Jadvallar soni: \"%s\""
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
-msgstr "So‘rovni bajarish uchun, maydon/maydonlar tanlangan bo‘lishi kerak."
+msgstr "So‘rovni bajarish uchun, maydon/maydonlar tanlangan bo‘lishi kerak"
 
 #: db_qbe.php:60
 #, fuzzy, php-format
@@ -694,8 +694,8 @@ msgstr ""
 #: import.php:484 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"Import modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining libraries/"
-"export katalogini tekshiring."
+"Import modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining "
+"libraries/export katalogini tekshiring!"
 
 #: import.php:518 sql.php:395 sql.php:1243
 #, php-format
@@ -1918,7 +1918,7 @@ msgstr "SQL so‘rovlari qutisi"
 #: js/messages.php:274 tbl_row_action.php:21
 msgid "No rows selected"
 msgstr ""
-"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak."
+"Amalni amalga oshirish uchun bitta yoki bir nechta qatorni tanlash kerak"
 
 #: js/messages.php:275 libraries/DisplayResults.class.php:5047
 #: libraries/structure.lib.php:1374 libraries/structure.lib.php:2040
@@ -4029,7 +4029,7 @@ msgstr "Muolajalar"
 #: libraries/Util.class.php:2666
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "\"%s\" ma`lumotlar bazasiga o‘tish"
+msgstr "\"%s\" ma`lumotlar bazasiga o‘tish."
 
 #: libraries/Util.class.php:2690
 #, php-format
@@ -4121,7 +4121,7 @@ msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
 #: libraries/build_html_for_db.lib.php:170
 #, php-format
 msgid "Check privileges for database &quot;%s&quot;."
-msgstr "\"%s\" ma`lumotlar bazasining privilegiyalarni tekshirish"
+msgstr "\"%s\" ma`lumotlar bazasining privilegiyalarni tekshirish."
 
 #: libraries/build_html_for_db.lib.php:175
 msgid "Check Privileges"
@@ -4402,7 +4402,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Agar yoqilgan bo‘lsa, foydalanuvchi cookie-autentifikatsiya vaqtida login "
-"formasiga istalgan MySQL-servernikiritishi mumkin."
+"formasiga istalgan MySQL-servernikiritishi mumkin"
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
@@ -5122,7 +5122,7 @@ msgid ""
 "what they are for"
 msgstr ""
 "Kengaytirilgan server konfiguarsiyasi, agar ularning ma`nosini aniq "
-"bilmasangiz, yaxshisi, ularga tegmang."
+"bilmasangiz, yaxshisi, ularga tegmang"
 
 #: libraries/config/messages.inc.php:201
 msgid "Enter server connection parameters"
@@ -5542,7 +5542,7 @@ msgid ""
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
 "Skript uchun ajratiladigan baylardagi xotira miqdori, masalan [kbd]32M[/kbd] "
-"([kbd]0[/kbd] - chegaralanmagan)."
+"([kbd]0[/kbd] - chegaralanmagan)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -6402,7 +6402,7 @@ msgstr "\"config\" autentifikatsiya usuli foydalanuvchisi"
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "MySQL serveri ishlayotgan xost server nomi"
+msgstr "MySQL serveri ishlayotgan xost server nomi."
 
 #: libraries/config/messages.inc.php:454
 msgid "Verbose name of this server"
@@ -6961,8 +6961,8 @@ msgstr "Maydonlar soni "
 #: libraries/display_export.lib.php:49
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"Eksport modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining libraries/"
-"export katalogini tekshiring."
+"Eksport modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining "
+"libraries/export katalogini tekshiring!"
 
 #: libraries/display_export.lib.php:96
 #, fuzzy
@@ -7311,7 +7311,7 @@ msgstr "Ma`lumotlar uchun uy katalog"
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
-"InnoDB ma`lumotlar fayllari saqlanadigan katalog yo‘lining umumiy qismi"
+"InnoDB ma`lumotlar fayllari saqlanadigan katalog yo‘lining umumiy qismi."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
@@ -7339,7 +7339,7 @@ msgid ""
 "tables."
 msgstr ""
 "Ma`lumotlarni va jadval indekslarini keshlashda InnoDB ishlatadigan xotira "
-"buferi hajmi"
+"buferi hajmi."
 
 #: libraries/engines/innodb.lib.php:143
 msgid "Buffer Pool"
@@ -9072,7 +9072,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
-msgstr "Rasmni yuklab olish uchun bog‘ ko‘rsatish"
+msgstr "Rasmni yuklab olish uchun bog‘ ko‘rsatish."
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
@@ -9093,7 +9093,7 @@ msgstr ""
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
 msgstr ""
-"Matnni sintaksisi rang bilan belgilangan SQL so‘rov sifatida formatlaydi"
+"Matnni sintaksisi rang bilan belgilangan SQL so‘rov sifatida formatlaydi."
 
 #: libraries/plugins/transformations/abstract/SubstringTransformationsPlugin.class.php:31
 msgid ""
@@ -10005,44 +10005,44 @@ msgstr "Joriy sеrvеr"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
 msgid "No privileges."
-msgstr "Privilegiyalar yo‘q"
+msgstr "Privilegiyalar yo‘q."
 
 #: libraries/server_privileges.lib.php:145 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi"
+msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi."
 
 #: libraries/server_privileges.lib.php:167
 #: libraries/server_privileges.lib.php:635
 #: libraries/server_privileges.lib.php:813 server_privileges.php:87
 msgid "Allows reading data."
-msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
+msgstr "Ma`lumotlarni chaqirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:171
 #: libraries/server_privileges.lib.php:640
 #: libraries/server_privileges.lib.php:814 server_privileges.php:76
 msgid "Allows inserting and replacing data."
-msgstr "Ma`lumot qo‘yish va o‘zgartirishga ruxsat beradi"
+msgstr "Ma`lumot qo‘yish va o‘zgartirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:175
 #: libraries/server_privileges.lib.php:645
 #: libraries/server_privileges.lib.php:815 server_privileges.php:93
 msgid "Allows changing data."
-msgstr "Ma`lumotlarni o‘zgartirishga ruxsat beradi"
+msgstr "Ma`lumotlarni o‘zgartirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:179
 #: libraries/server_privileges.lib.php:816 server_privileges.php:68
 msgid "Allows deleting data."
-msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi"
+msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:183
 #: libraries/server_privileges.lib.php:842 server_privileges.php:62
 msgid "Allows creating new databases and tables."
-msgstr "Yangi ma`lumotlar bazalari va jadvallar tuzishga ruxsat beradi"
+msgstr "Yangi ma`lumotlar bazalari va jadvallar tuzishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:187
 #: libraries/server_privileges.lib.php:854 server_privileges.php:69
 msgid "Allows dropping databases and tables."
-msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi"
+msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi."
 
 #: libraries/server_privileges.lib.php:191
 #: libraries/server_privileges.lib.php:930 server_privileges.php:84
