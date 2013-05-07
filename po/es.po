@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-03 16:34+0200\n"
+"PO-Revision-Date: 2013-05-07 15:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-0/es/>\n"
 "Language: es\n"
@@ -12322,7 +12322,7 @@ msgstr "Etiqueta del eje Y:"
 #: tbl_create.php:32
 #, php-format
 msgid "Table %s already exists!"
-msgstr "La tabla %s ya existe."
+msgstr "La tabla %s ya existe!"
 
 #: tbl_create.php:56 tbl_get_field.php:37
 #, php-format
@@ -12364,15 +12364,15 @@ msgstr "Nombre del archivo"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "El nombre de la clave primaria debe ser «PRIMARY»."
+msgstr "El nombre de la clave primaria debe ser «PRIMARY»!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
-msgstr "No se puede cambiar el nombre del índice a PRIMARY."
+msgstr "No se puede cambiar el nombre del índice a PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
-msgstr "No se han definido las partes del índice."
+msgstr "No se han definido las partes del índice!"
 
 #: tbl_indexes.php:197
 msgid "Edit index"
