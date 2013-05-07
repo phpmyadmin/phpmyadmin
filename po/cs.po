@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-04 21:11+0200\n"
+"PO-Revision-Date: 2013-05-07 16:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -5526,7 +5526,6 @@ msgid "Control host"
 msgstr "Kontrolní host"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate port to connect to the host that holds the configuration "
 #| "storage; leave blank to use the already defined port"
@@ -5536,7 +5535,8 @@ msgid ""
 "if the controlhost equals host"
 msgstr ""
 "Jiný port pro připojení k serveru serveru, na kterém bude umístěno úložiště "
-"nastavení phpMyAdmina"
+"nastavení phpMyAdmina; ponechte prázdné pro použití výchozího portu, nebo "
+"již nastaveného, pokud je nastaven stejný server jako pro připojení"
 
 #: libraries/config/messages.inc.php:390
 msgid "Control port"
