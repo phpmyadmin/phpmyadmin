@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-03 15:57+0200\n"
+"POT-Creation-Date: 2013-05-07 15:39+0200\n"
 "PO-Revision-Date: 2013-05-05 08:54+0200\n"
 "Last-Translator: Seunggyun Hong <me@zyn.kr>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +49,13 @@ msgstr "검색:"
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
-#: libraries/index.lib.php:37 libraries/insert_edit.lib.php:1547
-#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
-#: libraries/operations.lib.php:1055 libraries/operations.lib.php:1339
+#: libraries/display_indexes.lib.php:202 libraries/index.lib.php:37
+#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
+#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:210 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:636 libraries/operations.lib.php:689
+#: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
+#: libraries/operations.lib.php:1339
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -72,10 +74,10 @@ msgstr "검색:"
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:498 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
-#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
+#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:116
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:521 tbl_tracking.php:684
-#: view_create.php:224 view_operations.php:98
+#: tbl_tracking.php:521 tbl_tracking.php:684 view_create.php:224
+#: view_operations.php:98
 msgid "Go"
 msgstr "실행"
 
@@ -120,7 +122,7 @@ msgstr "테이블 설명:"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
-#: libraries/insert_edit.lib.php:1566
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -131,9 +133,8 @@ msgstr "테이블 설명:"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
-#: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:324
-#: tbl_tracking.php:386
+#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: tbl_relation.php:378 tbl_tracking.php:324 tbl_tracking.php:386
 msgid "Column"
 msgstr "컬럼명"
 
@@ -231,8 +232,8 @@ msgstr "설명"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2482
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:430
-#: sql.php:525 sql.php:526 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:340
+#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "아니오"
@@ -259,7 +260,7 @@ msgstr "아니오"
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:131
-#: server_databases.php:103 server_databases.php:110 sql.php:523 sql.php:524
+#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -269,7 +270,7 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:553
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:554
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
@@ -324,7 +325,8 @@ msgstr "테이블"
 msgid "Rows"
 msgstr "행"
 
-#: db_printview.php:104 libraries/structure.lib.php:787 tbl_indexes.php:264
+#: db_printview.php:104 libraries/display_indexes.lib.php:118
+#: libraries/structure.lib.php:787
 msgid "Size"
 msgstr "크기"
 
@@ -387,7 +389,7 @@ msgstr "추적된 테이블"
 #: libraries/server_privileges.lib.php:1989
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2872 server_databases.php:202
-#: server_status.php:368 tbl_tracking.php:762
+#: server_status.php:383 tbl_tracking.php:762
 msgid "Database"
 msgstr "데이터베이스"
 
@@ -405,7 +407,7 @@ msgstr "수정됨"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:380 sql.php:1184 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
 msgid "Status"
 msgstr "상태"
 
@@ -466,24 +468,24 @@ msgstr "테이블 추적"
 msgid "Database Log"
 msgstr "데이터베이스 로그"
 
-#: export.php:147
+#: export.php:148
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
-#: export.php:198
+#: export.php:199
 msgid "Selected export type has to be saved in file!"
 msgstr "선택한 내보내기가 파일에 저장되었습니다!"
 
-#: export.php:227
+#: export.php:228
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
-#: export.php:331 export.php:362 export.php:922
+#: export.php:332 export.php:363 export.php:923
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "파일 %s를 저장하기에 공간이 부족합니다."
 
-#: export.php:502
+#: export.php:503
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -491,12 +493,12 @@ msgstr ""
 "%s 라는 이름의 파일이 이미 서버에 존재합니다. 파일명을 변경하거나 덮어쓰기 옵"
 "션을 설정해주세요."
 
-#: export.php:508 export.php:514
+#: export.php:509 export.php:515
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "웹 서버에 파일 %s를 저장할 권한이 없습니다."
 
-#: export.php:928
+#: export.php:929
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "덤프 파일이 %s에 저장되었습니다."
@@ -653,7 +655,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:518 sql.php:395 sql.php:1246
+#: import.php:518 sql.php:305 sql.php:1156
 #, php-format
 msgid "Bookmark %s created"
 msgstr "북마크 %s가 생성되었습니다."
@@ -886,7 +888,7 @@ msgstr ""
 "Server 가 Suhosin 으로 운영중입니다. 이로 인해 발생할 수 있는 문제는 "
 "%sdocumentation%s 에서 확인이 가능합니다."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:355
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
@@ -895,7 +897,7 @@ msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "정말로 \"%s\"을/를 실행하시겠습니까?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:477
+#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:387
 msgid "You are about to DESTROY a complete database!"
 msgstr "이 데이터베이스 전체를 제거하려고 합니다!"
 
@@ -935,7 +937,8 @@ msgstr "인덱스 추가"
 msgid "Edit Index"
 msgstr "인덱스 수정"
 
-#: js/messages.php:44 tbl_indexes.php:349 tbl_indexes.php:357
+#: js/messages.php:44 libraries/display_indexes.lib.php:199
+#: libraries/display_indexes.lib.php:205
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "인덱스에 %s 열 추가"
@@ -1090,11 +1093,11 @@ msgstr "바이트 보냄"
 msgid "Bytes received"
 msgstr "바이트 받음"
 
-#: js/messages.php:95 server_status.php:243
+#: js/messages.php:95 server_status.php:258
 msgid "Connections"
 msgstr "연결 수"
 
-#: js/messages.php:96 server_status.php:424
+#: js/messages.php:96 server_status.php:439
 msgid "Processes"
 msgstr "프로세스"
 
@@ -1105,13 +1108,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1461
-#: server_status_monitor.php:648
+#: server_status_monitor.php:578
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1463
-#: server_status_monitor.php:649
+#: server_status_monitor.php:579
 msgid "MiB"
 msgstr "MB"
 
@@ -1145,12 +1148,12 @@ msgstr "%d개 테이블(s)"
 msgid "Questions"
 msgstr "질의"
 
-#: js/messages.php:110 server_status.php:156
+#: js/messages.php:110 server_status.php:171
 msgid "Traffic"
 msgstr "소통량"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
-#: server_status_monitor.php:475
+#: server_status_monitor.php:700
 msgid "Settings"
 msgstr "설정"
 
@@ -1176,7 +1179,7 @@ msgstr "최소 한개이상의 변수를 시리즈에 추가하십시오"
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2132
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:512 server_status_monitor.php:667
+#: server_status.php:527 server_status_monitor.php:597
 msgid "None"
 msgstr "없음"
 
@@ -1276,7 +1279,7 @@ msgstr "설정 변경"
 msgid "Current settings"
 msgstr "현재 설정"
 
-#: js/messages.php:142 server_status_monitor.php:608
+#: js/messages.php:142 server_status_monitor.php:538
 msgid "Chart Title"
 msgstr "차트 제목"
 
@@ -1360,7 +1363,7 @@ msgstr "SQL 해석"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:376 sql.php:1189
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
 msgid "Time"
 msgstr "시간"
 
@@ -1453,7 +1456,7 @@ msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. �
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:482
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:232 server_status_monitor.php:530
+#: prefs_manage.php:232 server_status_monitor.php:767
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "가져오기"
@@ -1510,7 +1513,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:568
+#: server_status_monitor.php:498
 msgid "Loading"
 msgstr "불러오는 중"
 
@@ -1688,11 +1691,11 @@ msgid "%d is not valid row number."
 msgstr "%d는 올바른 행번호가 아닙니다."
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:392
-#: libraries/insert_edit.lib.php:1460
+#: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_indexes.php:344 tbl_relation.php:563
+#: tbl_relation.php:563
 msgid "Save"
 msgstr "저장"
 
@@ -1748,8 +1751,8 @@ msgstr "쿼리 결과"
 msgid "Data point content"
 msgstr "데이터 포인트 내용"
 
-#: js/messages.php:298 tbl_change.php:269 tbl_indexes.php:279
-#: tbl_indexes.php:317
+#: js/messages.php:298 libraries/display_indexes.lib.php:134
+#: libraries/display_indexes.lib.php:170 tbl_change.php:269
 msgid "Ignore"
 msgstr "무시"
 
@@ -2240,7 +2243,7 @@ msgstr "초당"
 msgid "per minute"
 msgstr "분당"
 
-#: libraries/Advisor.class.php:473 server_status.php:164 server_status.php:244
+#: libraries/Advisor.class.php:473 server_status.php:179 server_status.php:259
 #: server_status_queries.php:123
 msgid "per hour"
 msgstr "시간당"
@@ -2268,7 +2271,7 @@ msgstr "글꼴 크기"
 #: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:811
 #: libraries/operations.lib.php:630 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
-#: server_databases.php:220 server_status.php:461
+#: server_databases.php:220 server_status.php:476
 msgid "Ascending"
 msgstr "오름차순"
 
@@ -2277,7 +2280,7 @@ msgstr "오름차순"
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:631 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
-#: server_databases.php:220 server_status.php:458
+#: server_databases.php:220 server_status.php:473
 msgid "Descending"
 msgstr "내림차순"
 
@@ -2446,13 +2449,13 @@ msgid "Begin"
 msgstr "처음"
 
 #: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2558
-#: libraries/Util.class.php:2561 server_binlog.php:141 server_binlog.php:143
+#: libraries/Util.class.php:2561 server_binlog.php:142 server_binlog.php:144
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
 #: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2593
-#: libraries/Util.class.php:2596 server_binlog.php:174 server_binlog.php:176
+#: libraries/Util.class.php:2596 server_binlog.php:175 server_binlog.php:177
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
@@ -2556,7 +2559,6 @@ msgid "Show binary contents as HEX"
 msgstr "2진수 데이터를 HEX형식으로 표시"
 
 #: libraries/DisplayResults.class.php:1633
-#| msgid "Version information"
 msgid "Hide browser transformation"
 msgstr "브라우저 정보 숨기기"
 
@@ -2574,7 +2576,7 @@ msgid "The row has been deleted"
 msgstr "선택한 줄(레코드)을 삭제 하였습니다."
 
 #: libraries/DisplayResults.class.php:3409
-#: libraries/DisplayResults.class.php:5023 server_status.php:508
+#: libraries/DisplayResults.class.php:5023 server_status.php:523
 msgid "Kill"
 msgstr "Kill"
 
@@ -2602,7 +2604,7 @@ msgstr "행(레코드) 보기"
 msgid "total"
 msgstr "합계"
 
-#: libraries/DisplayResults.class.php:4946 sql.php:946
+#: libraries/DisplayResults.class.php:4946 sql.php:856
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "질의 실행시간 %01.4f 초"
@@ -2636,7 +2638,7 @@ msgstr "모두 체크"
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
 #: libraries/server_privileges.lib.php:2427 libraries/structure.lib.php:297
-#: prefs_manage.php:289 server_status_monitor.php:534
+#: prefs_manage.php:289 server_status_monitor.php:771
 #: setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "내보내기"
@@ -2911,7 +2913,7 @@ msgid "Users"
 msgstr "사용자"
 
 #: libraries/Menu.class.php:495 libraries/ServerStatusData.class.php:187
-#: server_binlog.php:74
+#: server_binlog.php:75
 msgid "Binary log"
 msgstr "바이너리 로그"
 
@@ -2979,7 +2981,7 @@ msgstr "최근 테이블"
 msgid "There are no recent tables"
 msgstr "최근 테이블이 없습니다."
 
-#: libraries/ServerStatusData.class.php:181 server_status.php:384
+#: libraries/ServerStatusData.class.php:181 server_status.php:399
 msgid "SQL query"
 msgstr "SQL 질의"
 
@@ -3027,7 +3029,7 @@ msgstr "테이블"
 msgid "Transaction coordinator"
 msgstr "트랜잭션 코디네이터"
 
-#: libraries/ServerStatusData.class.php:196 server_binlog.php:107
+#: libraries/ServerStatusData.class.php:196 server_binlog.php:108
 msgid "Files"
 msgstr "파일들"
 
@@ -3188,8 +3190,8 @@ msgstr "편집/삽입"
 msgid "Select columns (at least one):"
 msgstr "컬럼 선택 (하나 이상):"
 
-#: libraries/TableSearch.class.php:779 libraries/insert_edit.lib.php:1184
-#: libraries/server_privileges.lib.php:323 tbl_indexes.php:347
+#: libraries/TableSearch.class.php:779 libraries/display_indexes.lib.php:197
+#: libraries/insert_edit.lib.php:1184 libraries/server_privileges.lib.php:323
 msgid "Or"
 msgstr "또는"
 
@@ -3214,7 +3216,7 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: libraries/TableSearch.class.php:887 libraries/TableSearch.class.php:1159
-#: sql.php:172 tbl_change.php:236
+#: libraries/sql.lib.php:418 tbl_change.php:236
 msgid "Browse foreign values"
 msgstr ""
 
@@ -3578,7 +3580,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "최대: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1116
+#: libraries/Util.class.php:674 sql.php:1026
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3639,7 +3641,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "인라인"
 
-#: libraries/Util.class.php:1432 sql.php:1180
+#: libraries/Util.class.php:1432 sql.php:1090
 msgid "Profiling"
 msgstr "프로파일링"
 
@@ -3694,7 +3696,6 @@ msgid "The directory you set for upload work cannot be reached"
 msgstr "업로드 디렉토리에 접근할 수 없습니다"
 
 #: libraries/Util.class.php:3424
-#| msgid "There are no recent tables"
 msgid "There are no files to upload"
 msgstr "업로드할 파일이 없습니다."
 
@@ -3708,25 +3709,21 @@ msgid "Execute"
 msgstr "실행하기"
 
 #: libraries/Util.class.php:3987
-#| msgid "Print view"
 msgid "Print"
 msgstr "인쇄"
 
 #: libraries/Util.class.php:4088 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1747 tbl_printview.php:410
-#| msgid "Creation:"
 msgid "Creation"
 msgstr "생성"
 
 #: libraries/Util.class.php:4094 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1754 tbl_printview.php:421
-#| msgid "Last update:"
 msgid "Last update"
 msgstr "마지막 업데이트"
 
 #: libraries/Util.class.php:4100 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1762 tbl_printview.php:432
-#| msgid "Last check:"
 msgid "Last check"
 msgstr "마지막 검사"
 
@@ -3743,14 +3740,12 @@ msgstr "공유"
 #: libraries/config/user_preferences.forms.php:268
 #: libraries/server_privileges.lib.php:748 libraries/structure.lib.php:2160
 #: tbl_printview.php:299
-#| msgid "Database"
 msgid "Data"
 msgstr "데이터"
 
 #: libraries/build_html_for_db.lib.php:46 libraries/engines/innodb.lib.php:171
 #: libraries/structure.lib.php:2182 server_databases.php:272
-#: server_status.php:207 server_status.php:308 tbl_printview.php:331
-#| msgid "Total:"
+#: server_status.php:222 server_status.php:323 tbl_printview.php:331
 msgid "Total"
 msgstr "전체 쿼리수"
 
@@ -3760,7 +3755,6 @@ msgid "Overhead"
 msgstr "부담"
 
 #: libraries/build_html_for_db.lib.php:94
-#| msgid "up to date"
 msgid "Jump to database"
 msgstr "데이터베이스로 이동"
 
@@ -3769,7 +3763,6 @@ msgid "Not replicated"
 msgstr "복제되지 않음"
 
 #: libraries/build_html_for_db.lib.php:153
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "복제"
 
@@ -3779,12 +3772,10 @@ msgid "Check privileges for database &quot;%s&quot;."
 msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:175
-#| msgid "Privileges"
 msgid "Check Privileges"
 msgstr "사용권한 검사"
 
 #: libraries/common.inc.php:578
-#| msgid "Local monitor configuration incompatible"
 msgid "Failed to read configuration file"
 msgstr "설정 파일을 읽는데 실패했습니다."
 
@@ -3792,7 +3783,9 @@ msgstr "설정 파일을 읽는데 실패했습니다."
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
-msgstr "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십시오."
+msgstr ""
+"일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
+"시오."
 
 #: libraries/common.inc.php:587
 #, php-format
@@ -3803,11 +3796,11 @@ msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
-msgstr "환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니다!"
+msgstr ""
+"환경설정 파일에 [code]$cfg['PmaAbsoluteUri'][/code] 변수가 정의되어야 합니다!"
 
 #: libraries/common.inc.php:627
 #, php-format
-#| msgid "Invalid rule declaration on line %s"
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
@@ -3875,7 +3868,6 @@ msgstr "더블 클릭"
 #: libraries/config.values.php:71 libraries/config.values.php:102
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:98
 #: libraries/relation.lib.php:105
-#| msgid "(Disabled)"
 msgid "Disabled"
 msgstr "사용불가"
 
@@ -3884,7 +3876,6 @@ msgid "Open"
 msgstr "열기"
 
 #: libraries/config.values.php:101
-#| msgid "Close"
 msgid "Closed"
 msgstr "닫기"
 
@@ -3895,7 +3886,6 @@ msgstr "닫기"
 #: libraries/plugins/export/ExportOdt.class.php:83
 #: libraries/plugins/export/ExportSql.class.php:197
 #: libraries/plugins/export/ExportTexytext.class.php:68
-#| msgid "Structure"
 msgid "structure"
 msgstr "구조"
 
@@ -3916,7 +3906,6 @@ msgstr "데이터"
 #: libraries/plugins/export/ExportOdt.class.php:85
 #: libraries/plugins/export/ExportSql.class.php:199
 #: libraries/plugins/export/ExportTexytext.class.php:70
-#| msgid "Structure snapshot"
 msgid "structure and data"
 msgstr "구조와 데이터 모두"
 
@@ -3964,7 +3953,6 @@ msgstr "음수가 아닙니다"
 
 #: libraries/config/FormDisplay.class.php:90
 #: libraries/config/validate.lib.php:504
-#| msgid "%d is not valid row number."
 msgid "Not a valid port number"
 msgstr "유효한 포트번호가 아닙니다."
 
@@ -3982,13 +3970,11 @@ msgstr "값은 %s보다 작거나 같아야합니다."
 
 #: libraries/config/FormDisplay.class.php:541
 #, php-format
-#| msgid "Missing a temporary folder."
 msgid "Missing data for %s"
 msgstr "%s 데이터 누락"
 
 #: libraries/config/FormDisplay.class.php:765
 #: libraries/config/FormDisplay.class.php:771
-#| msgid "Variables"
 msgid "unavailable"
 msgstr "사용불가"
 
@@ -4013,7 +3999,6 @@ msgid "SQL Validator is disabled"
 msgstr "SQL 유효화검증기가 비활성화되어 있습니다"
 
 #: libraries/config/FormDisplay.class.php:815
-#| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "SOAP 확장을 찾을 수 없습니다."
 
@@ -4049,7 +4034,9 @@ msgstr "리세트"
 #: libraries/config/messages.inc.php:17
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
-msgstr "활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 사용하여 입장할 수 있습니다."
+msgstr ""
+"활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 "
+"사용하여 입장할 수 있습니다."
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
@@ -4090,7 +4077,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
-"가져오기와 내보내기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성화합니다."
+"가져오기와 내보내기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압"
+"축을 활성화합니다."
 
 #: libraries/config/messages.inc.php:27
 msgid "Bzip2"
@@ -4102,8 +4090,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제한 가능, "
-"[kbd]textarea[/kbd] - 줄 바꿈 허용"
+"CHAR와 VARCHAR 행에 사용될 편집 입력창 정의; [kbd]input[/kbd] - 입력 길이 제"
+"한 가능, [kbd]textarea[/kbd] - 줄 바꿈 허용"
 
 #: libraries/config/messages.inc.php:29
 msgid "CHAR columns editing"
@@ -4114,8 +4102,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
-"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 줄 번호 지원)로 SQL "
-"쿼리를 편집"
+"사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 "
+"줄 번호 지원)로 SQL 쿼리를 편집"
 
 #: libraries/config/messages.inc.php:31
 msgid "Enable CodeMirror"
@@ -4146,7 +4134,6 @@ msgid "Number of columns for CHAR/VARCHAR textareas"
 msgstr "CHAR/VARCHAR 형식의 컬럼 갯수"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Add/Delete columns"
 msgid "CHAR textarea columns"
 msgstr "CHAR 텍스트입력 컬럼"
 
@@ -4167,8 +4154,8 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
-"많은 메모리가 필요없이 즉시 'gzip/bzip2' 수출(들) 압축; 생성된 'gzip/bzip2' 파일에 문제가 생기면, 기능을 "
-"비활성화 하세요."
+"많은 메모리가 필요없이 즉시 'gzip/bzip2' 수출(들) 압축; 생성된 'gzip/bzip2' "
+"파일에 문제가 생기면, 기능을 비활성화 하세요."
 
 #: libraries/config/messages.inc.php:42
 msgid "Compress on the fly"
@@ -4183,7 +4170,8 @@ msgstr "설정 파일"
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
-msgstr "데이터가 사라지기 전에 경고 메시지(&quot;정말 확실합니까&quot;) 출력 여부"
+msgstr ""
+"데이터가 사라지기 전에 경고 메시지(&quot;정말 확실합니까&quot;) 출력 여부"
 
 #: libraries/config/messages.inc.php:45
 msgid "Confirm DROP queries"
@@ -4194,7 +4182,6 @@ msgid "Debug SQL"
 msgstr "SQl 디버그"
 
 #: libraries/config/messages.inc.php:47
-#| msgid "Relational display column"
 msgid "Default display direction"
 msgstr "기본 표시 방향"
 
@@ -4211,7 +4198,6 @@ msgid "Tab that is displayed when entering a server"
 msgstr "서버에 들어왔을 때 보여줄 탭"
 
 #: libraries/config/messages.inc.php:51
-#| msgid "Database server"
 msgid "Default server tab"
 msgstr "기본 서버 탭"
 
@@ -4232,7 +4218,6 @@ msgid "Hide table structure actions"
 msgstr "테이블 구조 관련 기능 숨기기"
 
 #: libraries/config/messages.inc.php:56
-#| msgid "Show binary contents as HEX"
 msgid "Show binary contents as HEX by default"
 msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
 
@@ -4248,7 +4233,9 @@ msgstr "서버들을 목록으로 표시"
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
-msgstr "선택한 테이블을 최적화 하거나 복구하는 등의 대규모 유지 보수 작업을 해제합니다."
+msgstr ""
+"선택한 테이블을 최적화 하거나 복구하는 등의 대규모 유지 보수 작업을 해제합니"
+"다."
 
 #: libraries/config/messages.inc.php:61
 msgid "Disable multi table maintenance"
@@ -4263,7 +4250,6 @@ msgid "Edit in window"
 msgstr "새창에서 편집하기"
 
 #: libraries/config/messages.inc.php:64
-#| msgid "Display chart"
 msgid "Display errors"
 msgstr "오류 표시"
 
@@ -4275,10 +4261,10 @@ msgstr "오류 수집"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
-msgstr "스크립트가 실행 가능한 시간을 초단위로 설정합니다. ([kbd]0[/kbd] 이면 무제한)"
+msgstr ""
+"스크립트가 실행 가능한 시간을 초단위로 설정합니다. ([kbd]0[/kbd] 이면 무제한)"
 
 #: libraries/config/messages.inc.php:67
-#| msgid "Query execution time"
 msgid "Maximum execution time"
 msgstr "최대 실행 시간"
 
@@ -4354,17 +4340,14 @@ msgid "Excel edition"
 msgstr "Excel 버전"
 
 #: libraries/config/messages.inc.php:83
-#| msgid "The database name is empty!"
 msgid "Database name template"
 msgstr "데이터베이스명 템플릿"
 
 #: libraries/config/messages.inc.php:84
-#| msgid "Server type:"
 msgid "Server name template"
 msgstr "서버명 템플릿"
 
 #: libraries/config/messages.inc.php:85
-#| msgid "The database name is empty!"
 msgid "Table name template"
 msgstr "파일명 템플릿"
 
@@ -4376,18 +4359,15 @@ msgstr "파일명 템플릿"
 #: libraries/plugins/export/ExportMediawiki.class.php:63
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
-#| msgid "Jump to Log table"
 msgid "Dump table"
 msgstr "덤프 테이블"
 
 #: libraries/config/messages.inc.php:90
 #: libraries/plugins/export/ExportLatex.class.php:89
-#| msgid "Invalid table name:"
 msgid "Include table caption"
 msgstr "테이블 설명 포함하기"
 
 #: libraries/config/messages.inc.php:93 libraries/config/messages.inc.php:99
-#| msgid "Table comments:"
 msgid "Table caption"
 msgstr "테이블 설명"
 
@@ -4408,17 +4388,14 @@ msgstr "MIME 형식"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:134 tbl_relation.php:376
-#| msgid "Replication"
 msgid "Relations"
 msgstr "관계"
 
 #: libraries/config/messages.inc.php:103
-#| msgid "Export"
 msgid "Export method"
 msgstr "내보내기 방법"
 
 #: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:114
-#| msgid "Web server"
 msgid "Save on server"
 msgstr "서버에 저장"
 
@@ -4455,13 +4432,11 @@ msgid "Creation/Update/Check dates"
 msgstr "생성/갱신/검사일자"
 
 #: libraries/config/messages.inc.php:122
-#| msgid "Delayed inserts"
 msgid "Use delayed inserts"
 msgstr "지연 삽입 사용"
 
 #: libraries/config/messages.inc.php:123
 #: libraries/plugins/export/ExportSql.class.php:141
-#| msgid "Foreign key check:"
 msgid "Disable foreign key checks"
 msgstr "외래 키(foreign key) 체크 사용 안함"
 
@@ -4469,7 +4444,6 @@ msgstr "외래 키(foreign key) 체크 사용 안함"
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:133
 #: libraries/operations.lib.php:190 libraries/operations.lib.php:1024
 #, php-format
-#| msgid "Add user"
 msgid "Add %s"
 msgstr "%s 추가"
 
@@ -4478,7 +4452,6 @@ msgid "Use hexadecimal for BLOB"
 msgstr "BLOB을 헥사 숫자로 사용"
 
 #: libraries/config/messages.inc.php:128
-#| msgid "Delayed inserts"
 msgid "Use ignore inserts"
 msgstr "삽입 무시기능 사용"
 
@@ -4492,7 +4465,6 @@ msgid "Maximal length of created query"
 msgstr "CREATE 질의 최대 길이"
 
 #: libraries/config/messages.inc.php:136
-#| msgid "Export"
 msgid "Export type"
 msgstr "내보내기 형식"
 
@@ -4517,7 +4489,9 @@ msgstr "강제적인 SSL 연결"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
-msgstr "외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/kbd]: 키 값"
+msgstr ""
+"외래키 드롭다운 박스 항목을 정렬; [kbd]content[/kbd]: 참조 데이터, [kbd]id[/"
+"kbd]: 키 값"
 
 #: libraries/config/messages.inc.php:149
 msgid "Foreign key dropdown order"
@@ -4528,7 +4502,6 @@ msgid "A dropdown will be used if fewer items are present"
 msgstr ""
 
 #: libraries/config/messages.inc.php:151
-#| msgid "Foreign key check:"
 msgid "Foreign key limit"
 msgstr "외래키 제한"
 
@@ -4565,7 +4538,6 @@ msgid "Settings for phpMyAdmin developers"
 msgstr "phpMyAdmin 개발자를 위한 설정"
 
 #: libraries/config/messages.inc.php:160
-#| msgid "Edit Index"
 msgid "Edit mode"
 msgstr "편집 모드"
 
@@ -4587,7 +4559,6 @@ msgid "Features"
 msgstr "특징"
 
 #: libraries/config/messages.inc.php:166
-#| msgid "Generate"
 msgid "General"
 msgstr "일반"
 
@@ -4616,7 +4587,6 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:176
-#| msgid "Log table filter options"
 msgid "Databases display options"
 msgstr "데이터베이스 표시 선택사항"
 
@@ -4630,7 +4600,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:179 libraries/select_server.lib.php:42
 #: setup/frames/index.inc.php:117
-#| msgid "Server"
 msgid "Servers"
 msgstr "서버"
 
@@ -4639,12 +4608,10 @@ msgid "Servers display options"
 msgstr "서버보기 옵션"
 
 #: libraries/config/messages.inc.php:182
-#| msgid "Log table filter options"
 msgid "Tables display options"
 msgstr "테이블보기 옵션"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:20
-#| msgid "Hide Panel"
 msgid "Main panel"
 msgstr "메인 패널"
 
@@ -4653,12 +4620,10 @@ msgid "Microsoft Office"
 msgstr "마이크로소프트 오피스"
 
 #: libraries/config/messages.inc.php:186
-#| msgid "Documentation"
 msgid "Open Document"
 msgstr "Open Document 형식"
 
 #: libraries/config/messages.inc.php:188
-#| msgid "More settings"
 msgid "Other core settings"
 msgstr "기타 핵심기능 설정"
 
@@ -4696,22 +4661,18 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:196
-#| msgid "Change settings"
 msgid "Basic settings"
 msgstr "기본 설정"
 
 #: libraries/config/messages.inc.php:197
-#| msgid "Justification"
 msgid "Authentication"
 msgstr "인증"
 
 #: libraries/config/messages.inc.php:198
-#| msgid "Current settings"
 msgid "Authentication settings"
 msgstr "인증설정"
 
 #: libraries/config/messages.inc.php:199
-#| msgid "Server connection collation"
 msgid "Server configuration"
 msgstr "서버 환경설정"
 
@@ -4722,7 +4683,6 @@ msgid ""
 msgstr "고급 서버 설정 (이 옵션에 대해 자세히 모른다면 변경하지 마세요.)"
 
 #: libraries/config/messages.inc.php:201
-#| msgid "Server connection collation"
 msgid "Enter server connection parameters"
 msgstr "서버 연결 파라미터 입력"
 
@@ -4738,7 +4698,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:204
-#| msgid "Change settings"
 msgid "Changes tracking"
 msgstr "추적 변경"
 
@@ -4766,12 +4725,10 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:211 libraries/config/messages.inc.php:216
 #: setup/frames/menu.inc.php:18
-#| msgid "SQL query"
 msgid "SQL queries"
 msgstr "SQL 질의문"
 
 #: libraries/config/messages.inc.php:213
-#| msgid "Show query box"
 msgid "SQL Query box"
 msgstr "SQL 질의 상자"
 
@@ -4780,7 +4737,6 @@ msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/config/messages.inc.php:217
-#| msgid "More settings"
 msgid "SQL queries settings"
 msgstr "SQL 질의문 설정"
 
@@ -4805,7 +4761,6 @@ msgid "Customize startup page"
 msgstr ""
 
 #: libraries/config/messages.inc.php:222
-#| msgid "Database server"
 msgid "Database structure"
 msgstr "데이터베이스 구조"
 
@@ -4814,7 +4769,6 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:224
-#| msgid "Structure"
 msgid "Table structure"
 msgstr "테이블 구조"
 
@@ -4880,8 +4834,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"임포트 중 시간 제한에 근접할 것을 스크립트가 발견할 경우, 임포트를 중지하는 것을 허용합니다. 이는, 크기가 큰 파일을 임포트할 때 "
-"유용합니다. 하지만, 트랜잭션이 끊어질 수 있습니다."
+"임포트 중 시간 제한에 근접할 것을 스크립트가 발견할 경우, 임포트를 중지하는 "
+"것을 허용합니다. 이는, 크기가 큰 파일을 임포트할 때 유용합니다. 하지만, 트랜"
+"잭션이 끊어질 수 있습니다."
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
@@ -4951,7 +4906,6 @@ msgid "How many rows can be inserted at one time"
 msgstr ""
 
 #: libraries/config/messages.inc.php:268
-#| msgid "Number of rows:"
 msgid "Number of inserted rows"
 msgstr "입력된 행 갯수"
 
@@ -5031,7 +4985,6 @@ msgid "Maximum number of databases displayed in database list"
 msgstr ""
 
 #: libraries/config/messages.inc.php:285
-#| msgid "Invalid database:"
 msgid "Maximum databases"
 msgstr "데이터베이스의 최대 갯수"
 
@@ -5079,7 +5032,9 @@ msgstr "mcrypt 경고"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 무제한)"
+msgstr ""
+"스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 "
+"무제한)"
 
 #: libraries/config/messages.inc.php:296
 msgid "Memory limit"
@@ -5090,7 +5045,6 @@ msgid "Show logo in navigation panel"
 msgstr "메뉴 패널에 로고를 보여줌"
 
 #: libraries/config/messages.inc.php:298
-#| msgid "Display chart"
 msgid "Display logo"
 msgstr "로고 출력"
 
@@ -5099,7 +5053,6 @@ msgid "URL where logo in the navigation panel will point to"
 msgstr ""
 
 #: libraries/config/messages.inc.php:300
-#| msgid "Go to link"
 msgid "Logo link URL"
 msgstr "로고 링크URL"
 
@@ -5184,7 +5137,6 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
 
 #: libraries/config/messages.inc.php:319
-#| msgid "Recent tables"
 msgid "Recently used tables"
 msgstr "최근 사용한 테이블"
 
@@ -5235,7 +5187,6 @@ msgid "Use persistent connections to MySQL databases"
 msgstr ""
 
 #: libraries/config/messages.inc.php:331
-#| msgid "Connections"
 msgid "Persistent connections"
 msgstr "영속적인 연결"
 
@@ -5281,7 +5232,6 @@ msgid "Disallow BLOB and BINARY columns from editing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:341
-#| msgid "Show binary contents"
 msgid "Protect binary columns"
 msgstr "바이너리 컬럼 보호"
 
@@ -5333,7 +5283,6 @@ msgid "Select which functions will be used for character set conversion"
 msgstr "문자열 변환을 위한 함수를 선택하세요"
 
 #: libraries/config/messages.inc.php:354
-#| msgid "Reloading Privileges"
 msgid "Recoding engine"
 msgstr "기록 엔진"
 
@@ -5347,7 +5296,8 @@ msgstr "테이블의 정렬 순서 기억하기"
 
 #: libraries/config/messages.inc.php:357
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr "X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화"
+msgstr ""
+"X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat headers"
@@ -5366,7 +5316,6 @@ msgid "Directory where exports can be saved on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:363
-#| msgid "Save edited data"
 msgid "Save directory"
 msgstr "저장 디렉토리"
 
@@ -5428,7 +5377,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:377
-#| msgid "Bookmark %s created"
 msgid "Bookmark table"
 msgstr "테이블 즐겨찾기"
 
@@ -5449,7 +5397,6 @@ msgid "Compress connection to MySQL server"
 msgstr "MySQL 서버와 연결 압축"
 
 #: libraries/config/messages.inc.php:381
-#| msgid "Connections"
 msgid "Compress connection"
 msgstr "연결 압축"
 
@@ -5458,12 +5405,10 @@ msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
 #: libraries/config/messages.inc.php:383
-#| msgid "Connections"
 msgid "Connection type"
 msgstr "연결 형식"
 
 #: libraries/config/messages.inc.php:384
-#| msgid "Change password"
 msgid "Control user password"
 msgstr "유저 비밀번호 제어"
 
@@ -5474,7 +5419,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Contribute"
 msgid "Control user"
 msgstr "유저 제어"
 
@@ -5491,7 +5435,8 @@ msgstr "호스트 제어"
 #: libraries/config/messages.inc.php:389
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
-"storage; leave blank to use the already defined port"
+"storage; leave blank to use the default port, or the already defined port, "
+"if the controlhost equals host"
 msgstr ""
 
 #: libraries/config/messages.inc.php:390
@@ -5507,7 +5452,6 @@ msgid "Count tables when showing database list"
 msgstr "데이터베이스에 테이블이 없습니다."
 
 #: libraries/config/messages.inc.php:392
-#| msgid "Recent tables"
 msgid "Count tables"
 msgstr "테이블 카운트"
 
@@ -5538,7 +5482,6 @@ msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
 
 #: libraries/config/messages.inc.php:398
-#| msgid "PHP extension:"
 msgid "PHP extension to use"
 msgstr "사용할 PHP 확장"
 
@@ -5549,7 +5492,6 @@ msgid "Hide databases matching regular expression (PCRE)"
 msgstr "정규표현식"
 
 #: libraries/config/messages.inc.php:400
-#| msgid "Invalid database:"
 msgid "Hide databases"
 msgstr "데이터베이스 숨기기"
 
@@ -5568,7 +5510,6 @@ msgid "Hostname where MySQL server is running"
 msgstr ""
 
 #: libraries/config/messages.inc.php:404
-#| msgid "Server type:"
 msgid "Server hostname"
 msgstr "서버 호스트명"
 
@@ -5591,7 +5532,6 @@ msgid "Try to connect without password"
 msgstr "암호없이 연결 시도"
 
 #: libraries/config/messages.inc.php:409
-#| msgid "Change password"
 msgid "Connect without password"
 msgstr "암호없이 연결"
 
@@ -5601,8 +5541,8 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"MySQL 와일드카드 문자 (%와 _)를 쓸 수 있습니다. 원래 의미로 쓰기 위해서는 이스케이프 "
-"하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
+"MySQL 와일드카드 문자 (%와 _)를 쓸 수 있습니다. 원래 의미로 쓰기 위해서는 이"
+"스케이프 하세요([kbd]'my_db'[/kbd]로 하지 말고 [kbd]'my\\_db'[/kbd])."
 
 #: libraries/config/messages.inc.php:411
 #, fuzzy
@@ -5635,7 +5575,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#| msgid "Database"
 msgid "Database name"
 msgstr "데이터베이스명"
 
@@ -5644,7 +5583,6 @@ msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
-#| msgid "Server"
 msgid "Server port"
 msgstr "서버 포트"
 
@@ -5655,7 +5593,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
-#| msgid "Recent tables"
 msgid "Recently used table"
 msgstr "최근에 사용한 테이블"
 
@@ -5666,7 +5603,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:423
-#| msgid "Relational key"
 msgid "Relation table"
 msgstr "연관된 테이블"
 
@@ -5697,7 +5633,6 @@ msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
 #: libraries/config/messages.inc.php:430
-#| msgid "Server charset:"
 msgid "Server socket"
 msgstr "서버 소켓"
 
@@ -5765,7 +5700,8 @@ msgstr "DROP TABLE 추가"
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
-msgstr "뷰를 생성할 때 로그의 첫 번째 줄에 DROP VIEW IF EXISTS 구문을 추가할지 여부."
+msgstr ""
+"뷰를 생성할 때 로그의 첫 번째 줄에 DROP VIEW IF EXISTS 구문을 추가할지 여부."
 
 #: libraries/config/messages.inc.php:444
 msgid "Add DROP VIEW"
@@ -5783,7 +5719,9 @@ msgstr ""
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
-msgstr "SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]pma__tracking[/kbd]"
+msgstr ""
+"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
+"pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "SQL query tracking table"
@@ -5891,7 +5829,6 @@ msgid ""
 msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 여부 정의"
 
 #: libraries/config/messages.inc.php:471
-#| msgid "Show indexes"
 msgid "Show field types"
 msgstr "필드 타입 출력"
 
@@ -5908,7 +5845,6 @@ msgid "Whether to show hint or not"
 msgstr "힌트 보여주기 여부"
 
 #: libraries/config/messages.inc.php:475
-#| msgid "Show indexes"
 msgid "Show hint"
 msgstr "힌트 보여주기"
 
@@ -5916,7 +5852,8 @@ msgstr "힌트 보여주기"
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
-msgstr "[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시"
+msgstr ""
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시"
 
 #: libraries/config/messages.inc.php:477
 msgid "Show phpinfo() link"
@@ -5931,7 +5868,6 @@ msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr "phpMyAdmin이 생성한 SQL 쿼리를 표시할지 여부를 정의"
 
 #: libraries/config/messages.inc.php:480
-#| msgid "SQL query"
 msgid "Show SQL queries"
 msgstr "SQL 쿼리 보기"
 
@@ -5951,7 +5887,6 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:484
-#| msgid "Query statistics"
 msgid "Show statistics"
 msgstr "통계보기"
 
@@ -5979,7 +5914,6 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1195
 #: libraries/server_privileges.lib.php:1219
 #: libraries/server_privileges.lib.php:2397
-#| msgid "Change Password"
 msgid "Password"
 msgstr "암호"
 
@@ -6001,7 +5935,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:498 tbl_tracking.php:556
 #: tbl_tracking.php:618
-#| msgid "Keyname"
 msgid "Username"
 msgstr "사용자명"
 
@@ -6046,7 +5979,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:508
-#| msgid "Default"
 msgid "Default title"
 msgstr "기본 제목"
 
@@ -6083,7 +6015,6 @@ msgid "Allow for searching inside the entire database"
 msgstr "\"전체 데이타베이스\" 안에서 찾기 허락해"
 
 #: libraries/config/messages.inc.php:518
-#| msgid "Database server"
 msgid "Use database search"
 msgstr "데이터베이스 찾기 사용"
 
@@ -6091,14 +6022,14 @@ msgstr "데이터베이스 찾기 사용"
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
-msgstr "사용불가일때, 아래의 선택을 할수 없습니다, 오른쪽에 체크박스에 관계없이."
+msgstr ""
+"사용불가일때, 아래의 선택을 할수 없습니다, 오른쪽에 체크박스에 관계없이."
 
 #: libraries/config/messages.inc.php:520
 msgid "Enable the Developer tab in settings"
 msgstr "설정화면에서 개발자 탭을 가능하게 함"
 
 #: libraries/config/messages.inc.php:521 setup/frames/index.inc.php:275
-#| msgid ", latest stable version:"
 msgid "Check for latest version"
 msgstr "마지막 버전을 확인"
 
@@ -6111,7 +6042,6 @@ msgstr "주 phpMyAdmin 면(쪽)에서 마지막 버전확인 하는것을 가능
 #: setup/lib/index.lib.php:175 setup/lib/index.lib.php:187
 #: setup/lib/index.lib.php:195 setup/lib/index.lib.php:202
 #: setup/lib/index.lib.php:243
-#| msgid "Versions"
 msgid "Version check"
 msgstr "버전 확인"
 
@@ -6120,8 +6050,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
-"가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
-"compression 가능하게 함"
+"가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/ZIP_"
+"(file_format)]ZIP[/a] compression 가능하게 함"
 
 #: libraries/config/messages.inc.php:525
 msgid "ZIP"
@@ -6166,7 +6096,6 @@ msgstr "사용자 지정"
 
 #: libraries/config/setup.forms.php:289
 #: libraries/config/user_preferences.forms.php:191
-#| msgid "Database client version:"
 msgid "Database export options"
 msgstr "데이터베이스 내보내기 옵션"
 
@@ -6269,7 +6198,6 @@ msgstr ""
 #: libraries/display_change_password.lib.php:53
 #: libraries/replication_gui.lib.php:371
 #: libraries/server_privileges.lib.php:1211
-#| msgid "Change Password"
 msgid "No Password"
 msgstr "암호 없음"
 
@@ -6277,7 +6205,6 @@ msgstr "암호 없음"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:219
 #: libraries/replication_gui.lib.php:64 libraries/replication_gui.lib.php:361
 #: libraries/server_privileges.lib.php:1191
-#| msgid "Change Password"
 msgid "Password:"
 msgstr "암호:"
 
@@ -6298,12 +6225,10 @@ msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 호환성"
 
 #: libraries/display_create_database.lib.php:23
-#| msgid "Search in database"
 msgid "Create database"
 msgstr "새 데이터베이스 만들기"
 
 #: libraries/display_create_database.lib.php:37
-#| msgid "Created"
 msgid "Create"
 msgstr "만들기"
 
@@ -6316,12 +6241,10 @@ msgstr "잘못된 데이터베이스:"
 #: libraries/display_create_database.lib.php:47
 #: libraries/server_privileges.lib.php:2938 server_privileges.php:149
 #: server_replication.php:34
-#| msgid "Privileges"
 msgid "No Privileges"
 msgstr "권한 없음"
 
 #: libraries/display_create_table.lib.php:46 pmd_general.php:100
-#| msgid "Create view"
 msgid "Create table"
 msgstr "새 테이블 만들기"
 
@@ -6338,14 +6261,13 @@ msgid "Name"
 msgstr "이름"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of rows:"
 msgid "Number of columns"
 msgstr "컬럼수"
 
 #: libraries/display_export.lib.php:49
-#| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load export plugins, please check your installation!"
-msgstr "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
+msgstr ""
+"내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/display_export.lib.php:100
 msgid "Exporting databases from the current server"
@@ -6353,7 +6275,6 @@ msgstr "현재 서버에서 데이터베이스를 내보내기"
 
 #: libraries/display_export.lib.php:103
 #, php-format
-#| msgid "No tables found in database"
 msgid "Exporting tables from \"%s\" database"
 msgstr "데이터베이스 %s에서 테이블을 추출"
 
@@ -6363,7 +6284,6 @@ msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: libraries/display_export.lib.php:122
-#| msgid "Export"
 msgid "Export Method:"
 msgstr "내보내기 방식:"
 
@@ -6376,17 +6296,14 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:153
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "데이터베이스 :"
 
 #: libraries/display_export.lib.php:155
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "테이블 :"
 
-#: libraries/display_export.lib.php:164 sql.php:1120
-#| msgid "Rows"
+#: libraries/display_export.lib.php:164 sql.php:1030
 msgid "Rows:"
 msgstr "행 :"
 
@@ -6403,7 +6320,6 @@ msgid "Dump all rows"
 msgstr ""
 
 #: libraries/display_export.lib.php:212 libraries/display_export.lib.php:240
-#| msgid "Output"
 msgid "Output:"
 msgstr "출력:"
 
@@ -6413,7 +6329,6 @@ msgid "Save on server in the directory <b>%s</b>"
 msgstr "서버의 <b>%s</b> 디렉토리에 저장"
 
 #: libraries/display_export.lib.php:250
-#| msgid "Set log_output to %s"
 msgid "Save output to a file"
 msgstr "파일로 저장"
 
@@ -6440,8 +6355,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"이 값은 %1$sstrftime%2$s에 의해 생성되었습니다. 따라서, 시간 포맷 문자열을 써서 변경할 수 있습니다. 또한, 다음과 같은 "
-"변환도 일어납니다: %3$s. 그 외의 문자는 그대로 유지됩니다. 자세한 정보는 %4$sFAQ%5$s를 참고하세요."
+"이 값은 %1$sstrftime%2$s에 의해 생성되었습니다. 따라서, 시간 포맷 문자열을 써"
+"서 변경할 수 있습니다. 또한, 다음과 같은 변환도 일어납니다: %3$s. 그 외의 문"
+"자는 그대로 유지됩니다. 자세한 정보는 %4$sFAQ%5$s를 참고하세요."
 
 #: libraries/display_export.lib.php:341
 msgid "use this for future exports"
@@ -6453,7 +6369,6 @@ msgid "Character set of the file:"
 msgstr "파일 문자셋:"
 
 #: libraries/display_export.lib.php:381
-#| msgid "Creation:"
 msgid "Compression:"
 msgstr "압축:"
 
@@ -6614,13 +6529,38 @@ msgstr ""
 msgid "Format-Specific Options:"
 msgstr ""
 
+#: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2004
+#: libraries/structure.lib.php:2007
+msgid "Add index"
+msgstr "인덱스 추가"
+
+#: libraries/display_indexes.lib.php:52
+msgid "Edit index"
+msgstr "인덱스 편집"
+
+#: libraries/display_indexes.lib.php:63
+msgid "Index name:"
+msgstr "인덱스 이름:"
+
+#: libraries/display_indexes.lib.php:67
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!)"
+
+#: libraries/display_indexes.lib.php:85
+msgid "Comment:"
+msgstr "설명:"
+
+#: libraries/display_indexes.lib.php:99
+msgid "Index type:"
+msgstr "인덱스 종류:"
+
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
 msgid "Language"
 msgstr "언어"
 
 #: libraries/engines/bdb.lib.php:25
-#| msgid "Version information:"
 msgid "Version information"
 msgstr "버전 정보"
 
@@ -6633,7 +6573,6 @@ msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:32
-#| msgid "Databases"
 msgid "Data files"
 msgstr "데이터 파일"
 
@@ -6658,7 +6597,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:143
-#| msgid "Buffered memory"
 msgid "Buffer Pool"
 msgstr "버퍼풀"
 
@@ -6701,12 +6639,10 @@ msgid "Buffer Pool Activity"
 msgstr ""
 
 #: libraries/engines/innodb.lib.php:250
-#| msgid "Cancel request"
 msgid "Read requests"
 msgstr "읽기 요청"
 
 #: libraries/engines/innodb.lib.php:258
-#| msgid "Cancel request"
 msgid "Write requests"
 msgstr "쓰기 요청"
 
@@ -6791,7 +6727,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
-#| msgid "Query cache used"
 msgid "Index cache size"
 msgstr "인덱스 캐시 크기"
 
@@ -6802,7 +6737,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:33
-#| msgid "Query cache used"
 msgid "Record cache size"
 msgstr "레코드 캐시 크기"
 
@@ -6814,7 +6748,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:38
-#| msgid "Query cache used"
 msgid "Log cache size"
 msgstr "로그 캐시 크기"
 
@@ -6835,7 +6768,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:48
-#| msgid "Transaction coordinator"
 msgid "Transaction buffer size"
 msgstr "트랜잭션 버퍼 크기"
 
@@ -6936,7 +6868,7 @@ msgid "No data found for GIS visualization."
 msgstr "GIS 시각화를 위한 데이터를 찾을 수 없습니다."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:851 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
@@ -6960,7 +6892,6 @@ msgstr ""
 
 #: libraries/import.lib.php:1197
 #, php-format
-#| msgid "No databases selected."
 msgid "Go to database: %s"
 msgstr "데이터베이스 이동: %s"
 
@@ -6971,7 +6902,6 @@ msgstr ""
 
 #: libraries/import.lib.php:1223
 #, php-format
-#| msgid "Show open tables"
 msgid "Go to table: %s"
 msgstr "테이블 이동: %s"
 
@@ -6998,7 +6928,6 @@ msgstr "숨기기"
 
 #: libraries/insert_edit.lib.php:458 libraries/mysql_charsets.lib.php:239
 #: libraries/mysql_charsets.lib.php:440
-#| msgid "Binary log"
 msgid "Binary"
 msgstr "바이너리"
 
@@ -7024,7 +6953,6 @@ msgid "and then"
 msgstr "이어서"
 
 #: libraries/insert_edit.lib.php:1463
-#| msgid "Insert Table"
 msgid "Insert as new row"
 msgstr "새 행을 삽입합니다"
 
@@ -7033,7 +6961,6 @@ msgid "Insert as new row and ignore errors"
 msgstr "새 행을 삽입하고 에러를 무시합니다"
 
 #: libraries/insert_edit.lib.php:1469
-#| msgid "Show query box"
 msgid "Show insert query"
 msgstr "삽입 쿼리 보기"
 
@@ -7050,7 +6977,6 @@ msgid "Go back to this page"
 msgstr ""
 
 #: libraries/insert_edit.lib.php:1519
-#| msgid "Edit Index"
 msgid "Edit next row"
 msgstr "다음 행 수정"
 
@@ -7059,12 +6985,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:936
-#| msgid "SQL query"
+#: libraries/insert_edit.lib.php:1912 sql.php:846
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:916
+#: libraries/insert_edit.lib.php:1937 sql.php:826
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7082,7 +7007,6 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:321
-#| msgid "Recent tables"
 msgid "Replace table prefix"
 msgstr "테이블의 접두사를 교체"
 
@@ -7100,7 +7024,6 @@ msgstr "To"
 
 #: libraries/mult_submits.inc.php:291 libraries/mult_submits.inc.php:308
 #: libraries/sql_query_form.lib.php:420
-#| msgid "Submit Query"
 msgid "Submit"
 msgstr "확인"
 
@@ -7114,13 +7037,11 @@ msgstr ""
 msgid "Add prefix"
 msgstr "인덱스 추가"
 
-#: libraries/mult_submits.inc.php:318 sql.php:517
-#| msgid "Do you really want to execute \"%s\"?"
+#: libraries/mult_submits.inc.php:318 sql.php:427
 msgid "Do you really want to execute the following query?"
 msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 
 #: libraries/mult_submits.inc.php:582 tbl_replace.php:247
-#| msgid "List of changes"
 msgid "No change"
 msgstr "변화 없음"
 
@@ -7217,7 +7138,6 @@ msgid "Korean"
 msgstr "한국어"
 
 #: libraries/mysql_charsets.lib.php:309
-#| msgid "Versions"
 msgid "Persian"
 msgstr "페르시아어"
 
@@ -7333,7 +7253,6 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: libraries/navigation/NavigationHeader.class.php:214
-#| msgid "Documentation"
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 설명서"
 
@@ -7373,7 +7292,6 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/sql_query_form.lib.php:281
-#| msgid "Column"
 msgid "Columns"
 msgstr "열(컬럼)"
 
@@ -7408,7 +7326,6 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:458
 #: libraries/plugins/export/ExportXml.class.php:111
-#| msgid "Processes"
 msgid "Procedures"
 msgstr "프로시저"
 
@@ -7430,7 +7347,6 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_View_Container.class.php:26
 #: libraries/plugins/export/ExportXml.class.php:125
-#| msgid "View"
 msgid "Views"
 msgstr "뷰"
 
@@ -7447,12 +7363,10 @@ msgstr "데이터베이스 이름을 변경중입니다"
 
 #: libraries/operations.lib.php:107
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Database %s has been dropped."
 msgstr "데이터베이스 %s 를 제거했습니다."
 
 #: libraries/operations.lib.php:119
-#| msgid "Reload Database"
 msgid "Remove database"
 msgstr "데이터베이스 제거"
 
@@ -7462,13 +7376,11 @@ msgstr "데이터베이스 제거 (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1013
 #: tbl_tracking.php:506
-#| msgid "Structure"
 msgid "Structure only"
 msgstr "구조만"
 
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1014
 #: tbl_tracking.php:512
-#| msgid "Structure snapshot"
 msgid "Structure and data"
 msgstr "구조와 데이터 모두"
 
@@ -7488,12 +7400,10 @@ msgid "CREATE DATABASE before copying"
 msgstr "복사 전에 CREATE DATABASE 실행"
 
 #: libraries/operations.lib.php:199 libraries/operations.lib.php:1036
-#| msgid "Add a linestring"
 msgid "Add constraints"
 msgstr "제약조건 추가"
 
 #: libraries/operations.lib.php:207
-#| msgid "Search in database"
 msgid "Switch to copied database"
 msgstr "복사한 테이블로 옮겨감"
 
@@ -7510,22 +7420,18 @@ msgid "(singly)"
 msgstr "(단독으로)"
 
 #: libraries/operations.lib.php:661
-#| msgid "SQL query on database <b>%s</b>:"
 msgid "Move table to (database<b>.</b>table):"
 msgstr "테이블 이동 (데이터베이스명<b>.</b>테이블명):"
 
 #: libraries/operations.lib.php:772
-#| msgid "Log table filter options"
 msgid "Table options"
 msgstr "테이블 옵션"
 
 #: libraries/operations.lib.php:776
-#| msgid "Recent tables"
 msgid "Rename table to"
 msgstr "테이블 이름 바꾸기"
 
 #: libraries/operations.lib.php:784
-#| msgid "Table comments:"
 msgid "Table comments"
 msgstr "테이블 설명"
 
@@ -7534,37 +7440,30 @@ msgid "Storage Engine"
 msgstr "스토리지 엔진"
 
 #: libraries/operations.lib.php:996
-#| msgid "SQL query on database <b>%s</b>:"
 msgid "Copy table to (database<b>.</b>table):"
 msgstr "테이블 복사 (데이터베이스명<b>.</b>테이블명):"
 
 #: libraries/operations.lib.php:1051
-#| msgid "Show open tables"
 msgid "Switch to copied table"
 msgstr "복사한 테이블로 옮겨감"
 
 #: libraries/operations.lib.php:1078
-#| msgid "Table Search"
 msgid "Table maintenance"
 msgstr "테이블 유지보수"
 
 #: libraries/operations.lib.php:1116 libraries/structure.lib.php:309
-#| msgid "Track table"
 msgid "Check table"
 msgstr "테이블 검사"
 
 #: libraries/operations.lib.php:1129
-#| msgid "Recent tables"
 msgid "Defragment table"
 msgstr "테이블 단편화 제거"
 
 #: libraries/operations.lib.php:1143 libraries/structure.lib.php:317
-#| msgid "Untracked tables"
 msgid "Analyze table"
 msgstr "테이블 분석"
 
 #: libraries/operations.lib.php:1156 libraries/structure.lib.php:314
-#| msgid "Recent tables"
 msgid "Repair table"
 msgstr "테이블 복구"
 
@@ -7575,7 +7474,6 @@ msgstr "테이블 최적화"
 
 #: libraries/operations.lib.php:1183
 #, php-format
-#| msgid "Table %1$s has been renamed to %2$s."
 msgid "Table %s has been flushed"
 msgstr "테이블 %s 을 닫았습니다(캐시 삭제)"
 
@@ -7584,7 +7482,6 @@ msgid "Flush the table (FLUSH)"
 msgstr "테이블 갱신 (캐시 삭제)"
 
 #: libraries/operations.lib.php:1237
-#| msgid "Delete tracking data for this table"
 msgid "Delete data or table"
 msgstr "데이터나 테이블 삭제"
 
@@ -7597,12 +7494,10 @@ msgid "Delete the table (DROP)"
 msgstr "테이블 삭제(DROP)"
 
 #: libraries/operations.lib.php:1295
-#| msgid "Analyzing…"
 msgid "Analyze"
 msgstr "분석"
 
 #: libraries/operations.lib.php:1296
-#| msgid "Check All"
 msgid "Check"
 msgstr "검사"
 
@@ -7628,7 +7523,6 @@ msgid "Partition %s"
 msgstr ""
 
 #: libraries/operations.lib.php:1334
-#| msgid "Remove chart"
 msgid "Remove partitioning"
 msgstr "파티셔닝 삭제"
 
@@ -7656,7 +7550,9 @@ msgstr "%s에 오셨습니다"
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
-msgstr "설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파일을 생성할 수 있습니다."
+msgstr ""
+"설정 파일을 생성하지 않은 것 같습니다. %1$ssetup script%2$s 를 사용해 설정 파"
+"일을 생성할 수 있습니다."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -7665,8 +7561,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했습니다. 당신의 설정의 호스트, ID, "
-"패스워드가 맞게 입력됐는지, 또는 MySQL 서버의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
+"phpMyAdmin이 MySQL 서버에 접속하려 했으나 실패했습니다. 서버가 연결을 거부했"
+"습니다. 당신의 설정의 호스트, ID, 패스워드가 맞게 입력됐는지, 또는 MySQL 서버"
+"의 관리자가 제공해 준 정보를 맞게 입력했는지 확인하세요."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:142
 msgid "Retry to connect"
@@ -7691,7 +7588,6 @@ msgid "You can enter hostname/IP address and port separated by space."
 msgstr "호스트이름/IP주소와 포트를 공백으로 구분하여 입력할 수 있습니다."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:213
-#| msgid "User:"
 msgid "Username:"
 msgstr "사용자명:"
 
@@ -7705,18 +7601,20 @@ msgstr "서버 타입:"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr "암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세요)"
+msgstr ""
+"암호가 없는 로그인이 설정으로 차단되어 있습니다 (AllowNoLogin 항목을 참조하세"
+"요)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:590
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr "최근 %s초 동안 아무 동작이 없어 로그아웃 되었습니다. 다시 로그인해주세요."
+msgstr ""
+"최근 %s초 동안 아무 동작이 없어 로그아웃 되었습니다. 다시 로그인해주세요."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:595
 #: libraries/plugins/auth/AuthenticationCookie.class.php:597
 #: libraries/plugins/auth/AuthenticationSignon.class.php:265
-#| msgid "%s is available on this MySQL server."
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL 서버에 로그인할 수 없습니다"
 
@@ -7743,7 +7641,6 @@ msgid "No valid authentication key plugged"
 msgstr "유효하지 않은 인증키가 입력되었습니다."
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
-#| msgid "Analyzing…"
 msgid "Authenticating…"
 msgstr "인증중입니다…"
 
@@ -7800,7 +7697,6 @@ msgstr "데이터 덤프 옵션"
 #: libraries/plugins/export/ExportOdt.class.php:258
 #: libraries/plugins/export/ExportSql.class.php:1705
 #: libraries/plugins/export/ExportTexytext.class.php:185
-#| msgid "Delete tracking data for this table"
 msgid "Dumping data for table"
 msgstr "테이블의 덤프 데이터"
 
@@ -7808,7 +7704,6 @@ msgstr "테이블의 덤프 데이터"
 #: libraries/plugins/export/ExportOdt.class.php:565
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
-#| msgid "Events"
 msgid "Event"
 msgstr "이벤트"
 
@@ -7818,7 +7713,6 @@ msgstr "이벤트"
 #: libraries/rte/rte_events.lib.php:513
 #: libraries/rte/rte_routines.lib.php:1031
 #: libraries/rte/rte_triggers.lib.php:401
-#| msgid "Description"
 msgid "Definition"
 msgstr "정의"
 
@@ -7833,7 +7727,6 @@ msgstr "테이블 구조"
 #: libraries/plugins/export/ExportOdt.class.php:665
 #: libraries/plugins/export/ExportSql.class.php:1483
 #: libraries/plugins/export/ExportTexytext.class.php:511
-#| msgid "Structure"
 msgid "Structure for view"
 msgstr "뷰 구조"
 
@@ -7906,13 +7799,13 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1110
+#: libraries/server_privileges.lib.php:1081 sql.php:1020
 msgid "Host:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1113
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
 #, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
@@ -7929,7 +7822,7 @@ msgstr "PHP 확장:"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1111
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -7953,7 +7846,6 @@ msgid "Export table names"
 msgstr "테이블 이름 내보내기"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "테이블 제목(header) 내보내기"
 
@@ -8088,7 +7980,6 @@ msgid "RELATIONS FOR TABLE"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1566
-#| msgid "Error while creating PDF:"
 msgid "Error reading data:"
 msgstr "데이터 읽기 오류:"
 
@@ -8124,7 +8015,6 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
-#| msgid "Copy column name"
 msgid "Column names: "
 msgstr "열(컬럼) 이름: "
 
@@ -8142,8 +8032,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 "
-"묶지 않도록 하세요."
+"지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마"
+"로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 묶지 않도록 하세요."
 
 #: libraries/plugins/import/ImportCsv.class.php:272
 #: libraries/plugins/import/ImportCsv.class.php:547
@@ -8335,7 +8225,6 @@ msgid "OK"
 msgstr "확인"
 
 #: libraries/relation.lib.php:97
-#| msgid "(Enabled)"
 msgid "Enabled"
 msgstr "사용가능"
 
@@ -8375,12 +8264,10 @@ msgid ""
 msgstr ""
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:400
-#| msgid "SQL query"
 msgid "Bookmarked SQL query"
 msgstr "북마크된 SQL 질의"
 
 #: libraries/relation.lib.php:194 querywindow.php:70
-#| msgid "SQL query"
 msgid "SQL history"
 msgstr "SQL 내력(히스토리)"
 
@@ -8424,12 +8311,10 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: libraries/relation.lib.php:1400
-#| msgid "Description"
 msgid "no description"
 msgstr "설명이 없습니다"
 
 #: libraries/replication_gui.lib.php:35
-#| msgid "Check All"
 msgid "Uncheck All"
 msgstr "모두 체크안함"
 
@@ -8458,7 +8343,6 @@ msgstr "사용자:"
 #: libraries/replication_gui.lib.php:283
 #: libraries/server_privileges.lib.php:1029
 #: libraries/server_privileges.lib.php:1060
-#| msgid "Keyname"
 msgid "User name"
 msgstr "사용자명"
 
@@ -8475,18 +8359,15 @@ msgid "Master status"
 msgstr "마스터 상태 보기"
 
 #: libraries/replication_gui.lib.php:114
-#| msgid "Show slave status"
 msgid "Slave status"
 msgstr "슬레이브 스테이터스"
 
 #: libraries/replication_gui.lib.php:123 libraries/sql_query_form.lib.php:412
 #: server_status_variables.php:232 server_variables.php:166
-#| msgid "Variables"
 msgid "Variable"
 msgstr "변수"
 
-#: libraries/replication_gui.lib.php:194 server_binlog.php:187
-#| msgid "Server"
+#: libraries/replication_gui.lib.php:194 server_binlog.php:188
 msgid "Server ID"
 msgstr "서버 아이디"
 
@@ -8495,7 +8376,7 @@ msgstr "서버 아이디"
 #: libraries/server_privileges.lib.php:1086
 #: libraries/server_privileges.lib.php:1182
 #: libraries/server_privileges.lib.php:1572
-#: libraries/server_privileges.lib.php:2396 server_status.php:364
+#: libraries/server_privileges.lib.php:2396 server_status.php:379
 msgid "Host"
 msgstr "호스트"
 
@@ -8511,7 +8392,6 @@ msgstr "슬레이브 리플리케이션 사용자 추가"
 
 #: libraries/replication_gui.lib.php:278
 #: libraries/server_privileges.lib.php:1044
-#| msgid "Add user"
 msgid "Any user"
 msgstr "아무나"
 
@@ -8584,13 +8464,11 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Event %1$s has been modified."
 msgstr "이벤트 %1$s 를 변경했습니다."
 
 #: libraries/rte/rte_events.lib.php:164
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Event %1$s has been created."
 msgstr "이벤트 %1$s 를 생성했습니다."
 
@@ -8600,7 +8478,6 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:228
-#| msgid "Events"
 msgid "Edit event"
 msgstr "이벤트 수정"
 
@@ -8616,23 +8493,19 @@ msgstr "요청 처리중 에러가 발생했습니다"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:931
 #: libraries/rte/rte_triggers.lib.php:347
-#| msgid "Rule details"
 msgid "Details"
 msgstr "자세한 내용"
 
 #: libraries/rte/rte_events.lib.php:420
-#| msgid "Events"
 msgid "Event name"
 msgstr "이벤트 이름"
 
-#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
-#| msgid "Server type:"
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:187
 msgid "Event type"
 msgstr "이벤트 종류"
 
 #: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:954
 #, php-format
-#| msgid "Change settings"
 msgid "Change to %s"
 msgstr "%s 로 변경"
 
@@ -8755,7 +8628,6 @@ msgid "Routine name"
 msgstr "루틴"
 
 #: libraries/rte/rte_routines.lib.php:960
-#| msgid "Bad parameters!"
 msgid "Parameters"
 msgstr "파라미터"
 
@@ -8771,17 +8643,14 @@ msgid "Length/Values"
 msgstr "길이/값*"
 
 #: libraries/rte/rte_routines.lib.php:984
-#| msgid "Bad parameters!"
 msgid "Add parameter"
 msgstr "파라미터 추가"
 
 #: libraries/rte/rte_routines.lib.php:988
-#| msgid "Bad parameters!"
 msgid "Remove last parameter"
 msgstr "마지막 파라미터 제거"
 
 #: libraries/rte/rte_routines.lib.php:993
-#| msgid "Server type:"
 msgid "Return type"
 msgstr "반환(return) 종류"
 
@@ -8853,7 +8722,6 @@ msgstr "루틴 실행"
 
 #: libraries/rte/rte_routines.lib.php:1569
 #: libraries/rte/rte_routines.lib.php:1572
-#| msgid "Bad parameters!"
 msgid "Routine parameters"
 msgstr "루틴 파라미터"
 
@@ -8863,28 +8731,23 @@ msgstr "죄송합니다만, 삭제한 트리거를 복구하지 못했습니다.
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, php-format
-#| msgid "Table %1$s has been renamed to %2$s."
 msgid "Trigger %1$s has been modified."
 msgstr "트리거 %1$s가 수정되었습니다."
 
 #: libraries/rte/rte_triggers.lib.php:136
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "트리거 %1$s를 생성했습니다."
 
 #: libraries/rte/rte_triggers.lib.php:204
-#| msgid "Triggers"
 msgid "Edit trigger"
 msgstr "트리거 수정"
 
 #: libraries/rte/rte_triggers.lib.php:350
-#| msgid "Triggers"
 msgid "Trigger name"
 msgstr "트리거 이름"
 
 #: libraries/rte/rte_triggers.lib.php:373
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "시간"
@@ -8910,7 +8773,6 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:27
-#| msgid "Add a point"
 msgid "Add routine"
 msgstr "루틴 추가하기"
 
@@ -8931,7 +8793,6 @@ msgstr "루틴을 작성하는데 필요한 권한을 가지고 있지 않습니
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
-#| msgid "No tables found in database"
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "데이터베이스 %2$s 에 %1$s 라는 이름의 루틴이 없음"
 
@@ -8942,7 +8803,6 @@ msgid "There are no routines to display."
 msgstr "최근 테이블이 없습니다."
 
 #: libraries/rte/rte_words.lib.php:39
-#| msgid "Triggers"
 msgid "Add trigger"
 msgstr "트리거 추가"
 
@@ -8952,7 +8812,6 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:42
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "트리거"
 
@@ -8973,7 +8832,6 @@ msgid "There are no triggers to display."
 msgstr "최근 테이블이 없습니다."
 
 #: libraries/rte/rte_words.lib.php:51
-#| msgid "Add geometry"
 msgid "Add event"
 msgstr "이벤트 추가"
 
@@ -8983,7 +8841,6 @@ msgid "Export of event %s"
 msgstr "이벤트 %s 추출"
 
 #: libraries/rte/rte_words.lib.php:54
-#| msgid "Events"
 msgid "event"
 msgstr "이벤트"
 
@@ -8993,12 +8850,10 @@ msgstr "이벤트를 생성할 권한이 부족함"
 
 #: libraries/rte/rte_words.lib.php:56
 #, php-format
-#| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
 msgstr "데이터베이스 %2$s에 %1$s라는 이름의 이벤트가 없음"
 
 #: libraries/rte/rte_words.lib.php:57
-#| msgid "There are no recent tables"
 msgid "There are no events to display."
 msgstr "표시할 이벤트가 없습니다."
 
@@ -9044,7 +8899,6 @@ msgid "Relational schema"
 msgstr "관계키"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1175
-#| msgid "Table comments:"
 msgid "Table of contents"
 msgstr "목차(차례)"
 
@@ -9052,7 +8906,6 @@ msgstr "목차(차례)"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1182
 #: libraries/tbl_columns_definition_form.inc.php:115
-#| msgid "Contribute"
 msgid "Attributes"
 msgstr "보기"
 
@@ -9063,7 +8916,6 @@ msgid "Extra"
 msgstr "추가"
 
 #: libraries/schema/User_Schema.class.php:130
-#| msgid "Create view"
 msgid "Create a page"
 msgstr "새 페이지 만들기"
 
@@ -9090,7 +8942,6 @@ msgid "Please choose a page to edit"
 msgstr "편집할 페이지를 선택하세요"
 
 #: libraries/schema/User_Schema.class.php:198
-#| msgid "Select All"
 msgid "Select page"
 msgstr "페이지를 선택하세요"
 
@@ -9101,7 +8952,6 @@ msgid "Select Tables"
 msgstr "모두 선택"
 
 #: libraries/schema/User_Schema.class.php:382 view_create.php:182
-#| msgid "Copy column name"
 msgid "Column names"
 msgstr "열(칼럼) 이름"
 
@@ -9114,12 +8964,10 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:448
-#| msgid "Show indexes"
 msgid "Show grid"
 msgstr "grid 보기"
 
 #: libraries/schema/User_Schema.class.php:450
-#| msgid "Show all"
 msgid "Show color"
 msgstr "색깔 보기"
 
@@ -9184,7 +9032,6 @@ msgid "Current Server:"
 msgstr "서버:"
 
 #: libraries/server_privileges.lib.php:135 server_privileges.php:94
-#| msgid "Privileges"
 msgid "No privileges."
 msgstr "권한 없음."
 
@@ -9201,7 +9048,6 @@ msgstr "데이터 읽기 허용."
 #: libraries/server_privileges.lib.php:171
 #: libraries/server_privileges.lib.php:640
 #: libraries/server_privileges.lib.php:811 server_privileges.php:76
-#| msgid "Deleting tracking data"
 msgid "Allows inserting and replacing data."
 msgstr "데이터 추가(insert) 및 변경(replace) 허용."
 
@@ -9249,7 +9095,6 @@ msgstr "데이터를 파일에서 가져오기 및 파일로 내보내기 허용
 #: libraries/server_privileges.lib.php:207
 #: libraries/server_privileges.lib.php:650
 #: libraries/server_privileges.lib.php:944 server_privileges.php:83
-#| msgid "%s is available on this MySQL server."
 msgid "Has no effect in this MySQL version."
 msgstr "이 버전의 MySQL에는 소용이 없습니다."
 
@@ -9278,7 +9123,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:227
 #: libraries/server_privileges.lib.php:857 server_privileges.php:65
-#| msgid "Missing a temporary folder."
 msgid "Allows creating temporary tables."
 msgstr "임시테이블 생성 허용."
 
@@ -9397,13 +9241,11 @@ msgstr "관리"
 
 #: libraries/server_privileges.lib.php:771
 #: libraries/server_privileges.lib.php:2398
-#| msgid "Reloading Privileges"
 msgid "Global privileges"
 msgstr "전체적 권한"
 
 #: libraries/server_privileges.lib.php:773
 #: libraries/server_privileges.lib.php:2223
-#| msgid "Database server"
 msgid "Database-specific privileges"
 msgstr "데이터베이스에 관한 권한"
 
@@ -9412,7 +9254,6 @@ msgid "Allows creating new tables."
 msgstr "테이블 생성 허용."
 
 #: libraries/server_privileges.lib.php:852 server_privileges.php:70
-#| msgid "Show open tables"
 msgid "Allows dropping tables."
 msgstr "테이블 삭제 허용."
 
@@ -9422,7 +9263,6 @@ msgid ""
 msgstr "권한 테이블을 갱신하지 않고 사용자와 권한 추가하기 허용."
 
 #: libraries/server_privileges.lib.php:1021
-#| msgid "Version information:"
 msgid "Login Information"
 msgstr "로그인 정보"
 
@@ -9439,7 +9279,6 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1204
-#| msgid "Change password"
 msgid "Do not change the password"
 msgstr "암호를 변경하지 않음"
 
@@ -9480,8 +9319,7 @@ msgstr "&quot;%s&quot; 에 접근할 수 있는 사용자들"
 #: libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2395
 #: libraries/server_privileges.lib.php:2813
-#: libraries/server_privileges.lib.php:2861 server_status.php:360
-#| msgid "User:"
+#: libraries/server_privileges.lib.php:2861 server_status.php:375
 msgid "User"
 msgstr "사용자"
 
@@ -9492,7 +9330,6 @@ msgid "Grant"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1610
-#| msgid "The row has been deleted"
 msgid "User has been added."
 msgstr "사용자가 추가되었습니다."
 
@@ -9522,12 +9359,10 @@ msgid "wildcard"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1744 server_privileges.php:165
-#| msgid "No data found"
 msgid "No user found."
 msgstr "사용자가 없습니다."
 
 #: libraries/server_privileges.lib.php:1770
-#| msgid "Privileges"
 msgid "Edit Privileges"
 msgstr "권한 수정"
 
@@ -9581,7 +9416,6 @@ msgid "Add privileges on the following table:"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2543
-#| msgid "Removing Selected Users"
 msgid "Remove selected users"
 msgstr "선택한 사용자를 삭제"
 
@@ -9600,12 +9434,10 @@ msgid "No users selected for deleting!"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2690
-#| msgid "Reloading Privileges"
 msgid "Reloading the privileges"
 msgstr "사용권한을 갱신합니다(Reloading the privileges)"
 
 #: libraries/server_privileges.lib.php:2709
-#| msgid "Your SQL query has been executed successfully"
 msgid "The selected users have been deleted successfully."
 msgstr "선택한 사용자들을 삭제했습니다."
 
@@ -9640,8 +9472,6 @@ msgid ""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3031
-#| msgid ""
-#| "The requested page was not found in the history, it may have expired."
 msgid "The selected user was not found in the privilege table."
 msgstr "선택한 사용자는 사용권한 테이블에 존재하지 않습니다."
 
@@ -9656,7 +9486,6 @@ msgstr "서버 %s에 SQL 질의를 실행"
 
 #: libraries/sql_query_form.lib.php:209 libraries/sql_query_form.lib.php:233
 #, php-format
-#| msgid "SQL query on database <b>%s</b>:"
 msgid "Run SQL query/queries on database %s"
 msgstr "데이터베이스 %s에 SQL 질의를 실행"
 
@@ -9668,7 +9497,7 @@ msgstr ""
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1330
+#: libraries/sql_query_form.lib.php:326 sql.php:1240
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -9689,7 +9518,6 @@ msgid "Show this query here again"
 msgstr "이 질의를 다시 보여줌"
 
 #: libraries/sql_query_form.lib.php:424
-#| msgid "View"
 msgid "View only"
 msgstr "보기만"
 
@@ -9698,7 +9526,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"SQL 질의문에 에러가 있습니다. MySQL 서버가 다음과 같은 에러를 출력했습니다. 이것이 문제를 진단하는데 도움이 될 것입니다"
+"SQL 질의문에 에러가 있습니다. MySQL 서버가 다음과 같은 에러를 출력했습니다. "
+"이것이 문제를 진단하는데 도움이 될 것입니다"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -9712,10 +9541,13 @@ msgid ""
 "please reduce your SQL query input to the single query that causes problems, "
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
-"SQL 파서에 버그가 있을 가능성이 있습니다. 꼼꼼하게 쿼리를 확인하시고, 따옴표를 맞게 썼는지 확인해보세요. 다른 가능성으로, 업로드한 "
-"파일에서 따옴표 밖에 바이너리 데이터가 있을 수 있습니다. 또한 MySQL CLI에서 쿼리를 테스트 해보세요. 아래에 나오는 MySQL "
-"서버 에러는 문제 해결에 도움이 될 수 있습니다. 문제가 해결되지 않거나, 파서에 에러가 있다고 판단될 경우, SQL 쿼리를 같은 "
-"에러를 발생시키는 단일 쿼리로 수정한 후, 버그 리포트에 제출해주세요. CUT 섹션 밑에 있는 데이터 청크도 같이 말입니다:"
+"SQL 파서에 버그가 있을 가능성이 있습니다. 꼼꼼하게 쿼리를 확인하시고, 따옴표"
+"를 맞게 썼는지 확인해보세요. 다른 가능성으로, 업로드한 파일에서 따옴표 밖에 "
+"바이너리 데이터가 있을 수 있습니다. 또한 MySQL CLI에서 쿼리를 테스트 해보세"
+"요. 아래에 나오는 MySQL 서버 에러는 문제 해결에 도움이 될 수 있습니다. 문제"
+"가 해결되지 않거나, 파서에 에러가 있다고 판단될 경우, SQL 쿼리를 같은 에러를 "
+"발생시키는 단일 쿼리로 수정한 후, 버그 리포트에 제출해주세요. CUT 섹션 밑에 "
+"있는 데이터 청크도 같이 말입니다:"
 
 #: libraries/sqlparser.lib.php:173
 msgid "BEGIN CUT"
@@ -9742,7 +9574,6 @@ msgid "Unclosed quote"
 msgstr "따옴표(quote)가 닫히지 않았음"
 
 #: libraries/sqlparser.lib.php:533
-#| msgid "Invalid database:"
 msgid "Invalid Identifer"
 msgstr "잘못된 식별자(Identifer)"
 
@@ -9755,11 +9586,12 @@ msgstr ""
 msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
-msgstr "질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 설치했는지 확인해 보십시오."
+msgstr ""
+"질의 검사기가 초기화되지 않았습니다. %s문서%s에서 설명한 필수 PHP 확장모듈을 "
+"설치했는지 확인해 보십시오."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:311
 #, php-format
-#| msgid "Table %1$s has been renamed to %2$s."
 msgid "Table %s has been emptied"
 msgstr "테이블 %s 을 비웠습니다"
 
@@ -9768,24 +9600,20 @@ msgid "Tracking is active."
 msgstr "트래킹이 활성화되었습니다."
 
 #: libraries/structure.lib.php:98 tbl_create.php:330
-#| msgid "not active"
 msgid "Tracking is not active."
 msgstr "트래킹이 활성화되어 있지 않습니다."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:329
 #, php-format
-#| msgid "Index %s has been dropped"
 msgid "View %s has been dropped"
 msgstr "뷰 %s가 제거되었습니다."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:330
 #, php-format
-#| msgid "Index %s has been dropped"
 msgid "Table %s has been dropped"
 msgstr "테이블 %s를 삭제했습니다."
 
 #: libraries/structure.lib.php:185
-#| msgid "Su"
 msgid "Sum"
 msgstr "계"
 
@@ -9798,19 +9626,16 @@ msgid "Check tables having overhead"
 msgstr "오버헤드를 가진 테이블들을 체크"
 
 #: libraries/structure.lib.php:851
-#| msgid "Sort:"
 msgid "Sort"
 msgstr "정렬"
 
 #: libraries/structure.lib.php:1279 tbl_tracking.php:359
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "없음"
 
 #: libraries/structure.lib.php:1329
 #, php-format
-#| msgid "Index %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "컬럼 %s을 삭제했습니다"
 
@@ -9824,7 +9649,6 @@ msgstr "기본"
 #: libraries/structure.lib.php:2058 libraries/structure.lib.php:2166
 #: libraries/tbl_columns_definition_form.inc.php:123
 #: libraries/tbl_columns_definition_form.inc.php:576 tbl_printview.php:306
-#| msgid "Indexes"
 msgid "Index"
 msgstr "인덱스"
 
@@ -9836,12 +9660,10 @@ msgstr ""
 #: libraries/structure.lib.php:1408 libraries/structure.lib.php:2054
 #: libraries/structure.lib.php:2064
 #: libraries/tbl_columns_definition_form.inc.php:584
-#| msgid "Full texts"
 msgid "Fulltext"
 msgstr "Fulltext"
 
 #: libraries/structure.lib.php:1423 libraries/structure.lib.php:1519
-#| msgid "Add columns"
 msgid "Move columns"
 msgstr "컬럼 이동"
 
@@ -9867,7 +9689,6 @@ msgstr "제안하는 테이블 구조"
 
 #: libraries/structure.lib.php:1541
 #: libraries/tbl_columns_definition_form.inc.php:758
-#| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
 msgstr "적어도 한 개 이상의 컬럼을 추가해야 합니다."
 
@@ -9898,7 +9719,6 @@ msgid "After %s"
 msgstr "%s 다음에"
 
 #: libraries/structure.lib.php:1670
-#| msgid "Query statistics"
 msgid "Row Statistics"
 msgstr "행(레코드) 통계"
 
@@ -9919,7 +9739,6 @@ msgid "Row length"
 msgstr "행 길이"
 
 #: libraries/structure.lib.php:1731 tbl_printview.php:390
-#| msgid "Font size"
 msgid "Row size"
 msgstr "행 크기"
 
@@ -9930,34 +9749,23 @@ msgstr "다음 자동인덱스"
 #: libraries/structure.lib.php:1864 libraries/structure.lib.php:1945
 #: libraries/structure.lib.php:1953 libraries/structure.lib.php:1970
 #, php-format
-#| msgid "Index %s has been dropped"
 msgid "An index has been added on %s"
 msgstr "%s 에 인덱스가 걸렸습니다"
 
 #: libraries/structure.lib.php:1935
 #, php-format
-#| msgid "The primary key has been dropped"
 msgid "A primary key has been added on %s"
 msgstr "%s에 기본 키가 추가되었습니다"
 
 #: libraries/structure.lib.php:1995 libraries/structure.lib.php:2066
-#| msgid "Use this value"
 msgid "Distinct values"
 msgstr "중복되지 않은 값"
 
 #: libraries/structure.lib.php:1998 libraries/structure.lib.php:2001
-#| msgid "Adding Primary Key"
 msgid "Add primary key"
 msgstr "기본키 추가"
 
-#: libraries/structure.lib.php:2004 libraries/structure.lib.php:2007
-#: tbl_indexes.php:195
-#| msgid "Add Index"
-msgid "Add index"
-msgstr "인덱스 추가"
-
 #: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
-#| msgid "Add Index"
 msgid "Add unique index"
 msgstr "유일 인덱스 추가"
 
@@ -9971,19 +9779,17 @@ msgstr "인덱스 추가"
 msgid "Add FULLTEXT index"
 msgstr "FULLTEXT 인덱스 추가"
 
-#: libraries/structure.lib.php:2151 server_binlog.php:189
+#: libraries/structure.lib.php:2151 server_binlog.php:190
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Information"
 msgstr "PHP 정보 보기"
 
 #: libraries/structure.lib.php:2156
-#| msgid "Query cache usage"
 msgid "Space usage"
 msgstr "공간 사용량"
 
 #: libraries/structure.lib.php:2176 tbl_printview.php:322
-#| msgid "active"
 msgid "Effective"
 msgstr "실제량"
 
@@ -9994,12 +9800,10 @@ msgid "Table %1$s has been altered successfully"
 msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
 #: libraries/structure.lib.php:2405 tbl_tracking.php:457 tbl_tracking.php:481
-#| msgid "Query cache"
 msgid "Query error"
 msgstr "질의 오류"
 
 #: libraries/structure.lib.php:2501
-#| msgid "Your SQL query has been executed successfully"
 msgid "The columns have been moved successfully."
 msgstr "컬럼을 이동했습니다."
 
@@ -10010,8 +9814,9 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a','b','c'…<br />여기에 "
-"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
+"오: 'a','b','c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, "
+"그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.inc.php:110
 msgid ""
@@ -10020,7 +9825,6 @@ msgid ""
 msgstr "기본값에는, 역슬래시나 따옴표 없이 단 하나의 값을 넣으십시오. (예: a)"
 
 #: libraries/tbl_columns_definition_form.inc.php:149
-#| msgid "Inside column:"
 msgid "Move column"
 msgstr "컬럼 이동"
 
@@ -10032,7 +9836,6 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:171
-#| msgid "Transaction coordinator"
 msgid "Transformation options"
 msgstr "변환 옵션"
 
@@ -10043,8 +9846,9 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시오: 'a',100, b,'c'…<br />여기에 "
-"역슬래시(\\)나 작은 따옴표(')를 넣어야 한다면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
+"필드 종류가 \"enum\"이나 \"set\"일 경우, 다음과 같은 형식으로 값을 입력하십시"
+"오: 'a',100, b,'c'…<br />여기에 역슬래시(\\)나 작은 따옴표(')를 넣어야 한다"
+"면, 그 앞에 역슬래시를 사용하십시오. (예: '\\\\xyz' 또는 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.inc.php:412
 msgid "ENUM or SET data too long?"
@@ -10055,13 +9859,11 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.inc.php:430
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "없음"
 
 #: libraries/tbl_columns_definition_form.inc.php:431
-#| msgid "Access denied"
 msgid "As defined:"
 msgstr "사용자 정의:"
 
@@ -10075,7 +9877,6 @@ msgid "after %s"
 msgstr "%s 다음에"
 
 #: libraries/tbl_columns_definition_form.inc.php:737
-#| msgid "Table"
 msgid "Table name"
 msgstr "테이블 이름"
 
@@ -10233,7 +10034,6 @@ msgid "Number of tables:"
 msgstr "행 갯수:"
 
 #: pmd_general.php:467
-#| msgid "Deleting"
 msgid "Delete relation"
 msgstr "관계(relation) 삭제"
 
@@ -10250,7 +10050,6 @@ msgstr ""
 
 #: pmd_general.php:525 pmd_general.php:584 pmd_general.php:707
 #: pmd_general.php:824
-#| msgid "in query"
 msgid "subquery"
 msgstr "서브쿼리"
 
@@ -10291,7 +10090,6 @@ msgid "Page:"
 msgstr ""
 
 #: pmd_pdf.php:123
-#| msgid "No rows selected"
 msgid "Import from selected page"
 msgstr "선택된 페이지 내보내기"
 
@@ -10340,7 +10138,6 @@ msgid "Internal relation added"
 msgstr ""
 
 #: pmd_relation_upd.php:66
-#| msgid "Relational key"
 msgid "Relation deleted"
 msgstr "릴레이션 제거됨"
 
@@ -10422,7 +10219,6 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: querywindow.php:64
-#| msgid "Import"
 msgid "Import files"
 msgstr "파일 가져오기"
 
@@ -10443,28 +10239,27 @@ msgstr ""
 msgid "File doesn't exist"
 msgstr "파일이 존재하지 않습니다."
 
-#: server_binlog.php:84
+#: server_binlog.php:85
 msgid "Select binary log to view"
 msgstr ""
 
-#: server_binlog.php:154 server_status.php:472
+#: server_binlog.php:155 server_status.php:487
 msgid "Truncate Shown Queries"
 msgstr ""
 
-#: server_binlog.php:158 server_status.php:477
+#: server_binlog.php:159 server_status.php:492
 msgid "Show Full Queries"
 msgstr "전체 쿼리 보기"
 
-#: server_binlog.php:184
+#: server_binlog.php:185
 msgid "Log name"
 msgstr "로그 이름"
 
-#: server_binlog.php:185
-#| msgid "Description"
+#: server_binlog.php:186
 msgid "Position"
 msgstr "위치"
 
-#: server_binlog.php:188
+#: server_binlog.php:189
 msgid "Original position"
 msgstr "원본 위치"
 
@@ -10480,7 +10275,6 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "질의가 성공적으로 실행되었습니다."
 
 #: server_databases.php:138
-#| msgid "Query statistics"
 msgid "Databases statistics"
 msgstr "데이터베이스 사용량 통계"
 
@@ -10498,7 +10292,6 @@ msgid "Slave replication"
 msgstr "복제"
 
 #: server_databases.php:339 server_databases.php:340
-#| msgid "Query statistics"
 msgid "Enable Statistics"
 msgstr "통계 보기"
 
@@ -10506,10 +10299,10 @@ msgstr "통계 보기"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr "주의: 데이터베이스 통계 보기는 웹서버와 MySQL 서버 사이에 큰 부하를 줍니다."
+msgstr ""
+"주의: 데이터베이스 통계 보기는 웹서버와 MySQL 서버 사이에 큰 부하를 줍니다."
 
 #: server_databases.php:350
-#| msgid "Databases"
 msgid "No databases"
 msgstr "데이터베이스가 없습니다"
 
@@ -10530,8 +10323,6 @@ msgid "Modules"
 msgstr ""
 
 #: server_plugins.php:87
-#| msgctxt "First page"
-#| msgid "Begin"
 msgid "Begin"
 msgstr "처음"
 
@@ -10550,7 +10341,6 @@ msgid "Library"
 msgstr ""
 
 #: server_plugins.php:97 server_plugins.php:132 tbl_tracking.php:764
-#| msgid "Versions"
 msgid "Version"
 msgstr "버전"
 
@@ -10563,19 +10353,16 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:165
-#| msgid "(Disabled)"
 msgid "disabled"
 msgstr "사용불가"
 
 #: server_privileges.php:208
 #, php-format
-#| msgid "The user name is empty!"
 msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
 #: server_privileges.php:311
 #, php-format
-#| msgid "Deleting"
 msgid "Deleting %s"
 msgstr "%s 을 삭제합니다"
 
@@ -10664,8 +10451,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 <b>설정되었다</b>는 안내 메시지를 볼 수 "
-"있을겁니다"
+"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 "
+"<b>설정되었다</b>는 안내 메시지를 볼 수 있을겁니다"
 
 #: server_replication.php:281
 msgid "Slave SQL Thread not running!"
@@ -10760,82 +10547,81 @@ msgstr "쓰레드 %s 를 죽였습니다."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin이 쓰레드 %s를 종료하는데 실패했습니다. 이미 해당 쓰레드가 종료되었을 것입니다."
+msgstr ""
+"phpMyAdmin이 쓰레드 %s를 종료하는데 실패했습니다. 이미 해당 쓰레드가 종료되었"
+"을 것입니다."
 
-#: server_status.php:70
+#: server_status.php:94
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:83
+#: server_status.php:107
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날짜는 %2$s 입니다."
 
-#: server_status.php:93
+#: server_status.php:117
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
 
-#: server_status.php:98
+#: server_status.php:122
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:103
+#: server_status.php:127
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:109
+#: server_status.php:133
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
 
-#: server_status.php:122
+#: server_status.php:146
 #, fuzzy
 #| msgid "Replication"
 msgid "Replication status"
 msgstr "복제"
 
-#: server_status.php:159
+#: server_status.php:174
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: server_status.php:169
-#| msgid "Bytes received"
+#: server_status.php:184
 msgid "Received"
 msgstr "받음"
 
-#: server_status.php:188
+#: server_status.php:203
 msgid "Sent"
 msgstr "보냄"
 
-#: server_status.php:250
+#: server_status.php:265
 msgid "max. concurrent connections"
 msgstr "최대 동시 연결"
 
-#: server_status.php:260
+#: server_status.php:275
 msgid "Failed attempts"
 msgstr "실패한 시도"
 
-#: server_status.php:284
+#: server_status.php:299
 msgid "Aborted"
 msgstr "중지됨"
 
-#: server_status.php:356
+#: server_status.php:371
 msgid "ID"
 msgstr "아이디"
 
-#: server_status.php:372
-#| msgid "Comment"
+#: server_status.php:387
 msgid "Command"
 msgstr "커맨드"
 
 #: server_status_advisor.php:29
-#| msgid "Connections"
 msgid "Instructions"
 msgstr "안내 설명"
 
@@ -10843,7 +10629,8 @@ msgstr "안내 설명"
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
-msgstr "어드바이저 시스템은 서버의 상태 변수를 분석하고, 변수 값을 추천해줍니다."
+msgstr ""
+"어드바이저 시스템은 서버의 상태 변수를 분석하고, 변수 값을 추천해줍니다."
 
 #: server_status_advisor.php:41
 msgid ""
@@ -10866,55 +10653,11 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 
-#: server_status_monitor.php:472
-#| msgid "Monitor"
-msgid "Start Monitor"
-msgstr "모니터링 시작"
-
-#: server_status_monitor.php:479
-msgid "Instructions/Setup"
-msgstr ""
-
-#: server_status_monitor.php:483
-msgid "Done rearranging/editing charts"
-msgstr ""
-
-#: server_status_monitor.php:489 server_status_monitor.php:606
-#| msgid "Edit chart"
-msgid "Add chart"
-msgstr "차트 추가"
-
-#: server_status_monitor.php:496
-#, fuzzy
-#| msgid "Generate"
-msgid "Refresh rate"
-msgstr "생성"
-
-#: server_status_monitor.php:505
-#, fuzzy
-#| msgid "Add columns"
-msgid "Chart columns"
-msgstr "세로열 추가하기"
-
-#: server_status_monitor.php:521
-msgid "Chart arrangement"
-msgstr ""
-
-#: server_status_monitor.php:524
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-
-#: server_status_monitor.php:538
-msgid "Reset to default"
-msgstr ""
-
-#: server_status_monitor.php:544
+#: server_status_monitor.php:474
 msgid "Monitor Instructions"
 msgstr ""
 
-#: server_status_monitor.php:546
+#: server_status_monitor.php:476
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10923,7 +10666,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status_monitor.php:558
+#: server_status_monitor.php:488
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10931,20 +10674,20 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status_monitor.php:573
+#: server_status_monitor.php:503
 #, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
 msgstr "모니터링 정지"
 
-#: server_status_monitor.php:576
+#: server_status_monitor.php:506
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status_monitor.php:582
+#: server_status_monitor.php:512
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10952,11 +10695,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status_monitor.php:592
+#: server_status_monitor.php:522
 msgid "Please note:"
 msgstr ""
 
-#: server_status_monitor.php:595
+#: server_status_monitor.php:525
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10964,105 +10707,145 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status_monitor.php:610
+#: server_status_monitor.php:536 server_status_monitor.php:726
+msgid "Add chart"
+msgstr "차트 추가"
+
+#: server_status_monitor.php:540
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
 msgstr "차트 삭제"
 
-#: server_status_monitor.php:614
+#: server_status_monitor.php:544
 #, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
 msgstr "모든 상태 변수"
 
-#: server_status_monitor.php:617
+#: server_status_monitor.php:547
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Select series:"
 msgstr "외래키 선택"
 
-#: server_status_monitor.php:619
+#: server_status_monitor.php:549
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status_monitor.php:635
+#: server_status_monitor.php:565
 #, fuzzy
 #| msgid "Invalid table name:"
 msgid "or type variable name:"
 msgstr "잘못된 테이블 이름:"
 
-#: server_status_monitor.php:642
+#: server_status_monitor.php:572
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status_monitor.php:645
+#: server_status_monitor.php:575
 #, fuzzy
 #| msgid "Advisor"
 msgid "Apply a divisor"
 msgstr "시스템 분석 / 조언"
 
-#: server_status_monitor.php:653
+#: server_status_monitor.php:583
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status_monitor.php:659
+#: server_status_monitor.php:589
 #, fuzzy
 #| msgid "Add user"
 msgid "Add this series"
 msgstr "사용자 추가"
 
-#: server_status_monitor.php:661
+#: server_status_monitor.php:591
 msgid "Clear series"
 msgstr ""
 
-#: server_status_monitor.php:664
+#: server_status_monitor.php:594
 msgid "Series in Chart:"
 msgstr ""
 
-#: server_status_monitor.php:675
-#| msgid "Query statistics"
+#: server_status_monitor.php:605
 msgid "Log statistics"
 msgstr "로그 통계"
 
-#: server_status_monitor.php:676
+#: server_status_monitor.php:606
 msgid "Selected time range:"
 msgstr ""
 
-#: server_status_monitor.php:682
+#: server_status_monitor.php:612
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status_monitor.php:687
+#: server_status_monitor.php:617
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status_monitor.php:690
+#: server_status_monitor.php:620
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "통계가 생성될 로그를 선택하세요."
 
-#: server_status_monitor.php:693
+#: server_status_monitor.php:623
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status_monitor.php:697
-#| msgid "Query cache"
+#: server_status_monitor.php:627
 msgid "Query analyzer"
 msgstr "질의 분석기"
 
-#: server_status_monitor.php:745
+#: server_status_monitor.php:675
 #, fuzzy, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "초당"
 
-#: server_status_monitor.php:748
+#: server_status_monitor.php:678
 #, fuzzy, php-format
 #| msgid "per minute"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "분당"
+
+#: server_status_monitor.php:697
+msgid "Start Monitor"
+msgstr "모니터링 시작"
+
+#: server_status_monitor.php:704
+msgid "Instructions/Setup"
+msgstr ""
+
+#: server_status_monitor.php:708
+msgid "Done rearranging/editing charts"
+msgstr ""
+
+#: server_status_monitor.php:733
+#, fuzzy
+#| msgid "Generate"
+msgid "Refresh rate"
+msgstr "생성"
+
+#: server_status_monitor.php:742
+#, fuzzy
+#| msgid "Add columns"
+msgid "Chart columns"
+msgstr "세로열 추가하기"
+
+#: server_status_monitor.php:758
+msgid "Chart arrangement"
+msgstr ""
+
+#: server_status_monitor.php:761
+msgid ""
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr ""
+
+#: server_status_monitor.php:775
+msgid "Reset to default"
+msgstr ""
 
 #: server_status_queries.php:67
 #, php-format
@@ -11088,7 +10871,6 @@ msgid "per second:"
 msgstr "초당"
 
 #: server_status_queries.php:118
-#| msgid "Status"
 msgid "Statements"
 msgstr "명세"
 
@@ -11118,7 +10900,6 @@ msgid "Filter by category…"
 msgstr ""
 
 #: server_status_variables.php:114
-#| msgid "Show master status"
 msgid "Show unformatted values"
 msgstr "원본 값 보기"
 
@@ -11126,33 +10907,33 @@ msgstr "원본 값 보기"
 msgid "Related links:"
 msgstr "추천 링크:"
 
-#: server_status_variables.php:331
+#: server_status_variables.php:330
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr "연결을 닫지 않고 클라이언트가 종료되어서 실패한 연결의 숫자"
 
-#: server_status_variables.php:335
+#: server_status_variables.php:334
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL 서버에 연결 실패한 횟수"
 
-#: server_status_variables.php:338
+#: server_status_variables.php:337
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
 
-#: server_status_variables.php:343
+#: server_status_variables.php:342
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 
-#: server_status_variables.php:346
+#: server_status_variables.php:345
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "MySQL 서버에 연결 시도한 횟수"
 
-#: server_status_variables.php:350
+#: server_status_variables.php:349
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -11160,78 +10941,78 @@ msgid ""
 "based instead of disk-based."
 msgstr ""
 
-#: server_status_variables.php:357
+#: server_status_variables.php:356
 msgid "How many temporary files mysqld has created."
 msgstr ""
 
-#: server_status_variables.php:360
+#: server_status_variables.php:359
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
 
-#: server_status_variables.php:364
+#: server_status_variables.php:363
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
 
-#: server_status_variables.php:368
+#: server_status_variables.php:367
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
 
-#: server_status_variables.php:373
+#: server_status_variables.php:372
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 
-#: server_status_variables.php:376
+#: server_status_variables.php:375
 msgid "The number of executed FLUSH statements."
 msgstr ""
 
-#: server_status_variables.php:379
+#: server_status_variables.php:378
 msgid "The number of internal COMMIT statements."
 msgstr ""
 
-#: server_status_variables.php:382
+#: server_status_variables.php:381
 msgid "The number of times a row was deleted from a table."
 msgstr ""
 
-#: server_status_variables.php:385
+#: server_status_variables.php:384
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 
-#: server_status_variables.php:391
+#: server_status_variables.php:390
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 
-#: server_status_variables.php:397
+#: server_status_variables.php:396
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 
-#: server_status_variables.php:402
+#: server_status_variables.php:401
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
 
-#: server_status_variables.php:407
+#: server_status_variables.php:406
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
-#: server_status_variables.php:411
+#: server_status_variables.php:410
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -11239,7 +11020,7 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 
-#: server_status_variables.php:418
+#: server_status_variables.php:417
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -11247,42 +11028,42 @@ msgid ""
 "advantage of the indexes you have."
 msgstr ""
 
-#: server_status_variables.php:425
+#: server_status_variables.php:424
 msgid "The number of internal ROLLBACK statements."
 msgstr ""
 
-#: server_status_variables.php:428
+#: server_status_variables.php:427
 msgid "The number of requests to update a row in a table."
 msgstr ""
 
-#: server_status_variables.php:431
+#: server_status_variables.php:430
 msgid "The number of requests to insert a row in a table."
 msgstr ""
 
-#: server_status_variables.php:434
+#: server_status_variables.php:433
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 
-#: server_status_variables.php:437
+#: server_status_variables.php:436
 msgid "The number of pages currently dirty."
 msgstr "디스크에 저장이 필요한 페이지 수."
 
-#: server_status_variables.php:440
+#: server_status_variables.php:439
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
-#: server_status_variables.php:444
+#: server_status_variables.php:443
 msgid "The number of free pages."
 msgstr ""
 
-#: server_status_variables.php:447
+#: server_status_variables.php:446
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
 
-#: server_status_variables.php:452
+#: server_status_variables.php:451
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -11290,33 +11071,33 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 
-#: server_status_variables.php:459
+#: server_status_variables.php:458
 msgid "Total size of buffer pool, in pages."
 msgstr ""
 
-#: server_status_variables.php:462
+#: server_status_variables.php:461
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
 
-#: server_status_variables.php:467
+#: server_status_variables.php:466
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 
-#: server_status_variables.php:471
+#: server_status_variables.php:470
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 
-#: server_status_variables.php:474
+#: server_status_variables.php:473
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 
-#: server_status_variables.php:478
+#: server_status_variables.php:477
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -11325,242 +11106,242 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 
-#: server_status_variables.php:486
+#: server_status_variables.php:485
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr ""
 
-#: server_status_variables.php:489
+#: server_status_variables.php:488
 msgid "The number of fsync() operations so far."
 msgstr ""
 
-#: server_status_variables.php:492
+#: server_status_variables.php:491
 msgid "The current number of pending fsync() operations."
 msgstr ""
 
-#: server_status_variables.php:495
+#: server_status_variables.php:494
 msgid "The current number of pending reads."
 msgstr ""
 
-#: server_status_variables.php:498
+#: server_status_variables.php:497
 msgid "The current number of pending writes."
 msgstr ""
 
-#: server_status_variables.php:501
+#: server_status_variables.php:500
 msgid "The amount of data read so far, in bytes."
 msgstr ""
 
-#: server_status_variables.php:504
+#: server_status_variables.php:503
 msgid "The total number of data reads."
 msgstr ""
 
-#: server_status_variables.php:507
+#: server_status_variables.php:506
 msgid "The total number of data writes."
 msgstr ""
 
-#: server_status_variables.php:510
+#: server_status_variables.php:509
 msgid "The amount of data written so far, in bytes."
 msgstr ""
 
-#: server_status_variables.php:513
+#: server_status_variables.php:512
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 
-#: server_status_variables.php:517
+#: server_status_variables.php:516
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 
-#: server_status_variables.php:520
+#: server_status_variables.php:519
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 
-#: server_status_variables.php:524
+#: server_status_variables.php:523
 msgid "The number of log write requests."
 msgstr ""
 
-#: server_status_variables.php:527
+#: server_status_variables.php:526
 msgid "The number of physical writes to the log file."
 msgstr ""
 
-#: server_status_variables.php:530
+#: server_status_variables.php:529
 msgid "The number of fsync() writes done to the log file."
 msgstr ""
 
-#: server_status_variables.php:533
+#: server_status_variables.php:532
 msgid "The number of pending log file fsyncs."
 msgstr ""
 
-#: server_status_variables.php:536
+#: server_status_variables.php:535
 msgid "Pending log file writes."
 msgstr ""
 
-#: server_status_variables.php:539
+#: server_status_variables.php:538
 msgid "The number of bytes written to the log file."
 msgstr ""
 
-#: server_status_variables.php:542
+#: server_status_variables.php:541
 msgid "The number of pages created."
 msgstr ""
 
-#: server_status_variables.php:545
+#: server_status_variables.php:544
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
-#: server_status_variables.php:550
+#: server_status_variables.php:549
 msgid "The number of pages read."
 msgstr ""
 
-#: server_status_variables.php:553
+#: server_status_variables.php:552
 msgid "The number of pages written."
 msgstr ""
 
-#: server_status_variables.php:556
+#: server_status_variables.php:555
 msgid "The number of row locks currently being waited for."
 msgstr ""
 
-#: server_status_variables.php:559
+#: server_status_variables.php:558
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: server_status_variables.php:562
+#: server_status_variables.php:561
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 
-#: server_status_variables.php:565
+#: server_status_variables.php:564
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr ""
 
-#: server_status_variables.php:568
+#: server_status_variables.php:567
 msgid "The number of times a row lock had to be waited for."
 msgstr ""
 
-#: server_status_variables.php:571
+#: server_status_variables.php:570
 msgid "The number of rows deleted from InnoDB tables."
 msgstr ""
 
-#: server_status_variables.php:574
+#: server_status_variables.php:573
 msgid "The number of rows inserted in InnoDB tables."
 msgstr ""
 
-#: server_status_variables.php:577
+#: server_status_variables.php:576
 msgid "The number of rows read from InnoDB tables."
 msgstr ""
 
-#: server_status_variables.php:580
+#: server_status_variables.php:579
 msgid "The number of rows updated in InnoDB tables."
 msgstr ""
 
-#: server_status_variables.php:583
+#: server_status_variables.php:582
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 
-#: server_status_variables.php:588
+#: server_status_variables.php:587
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
 
-#: server_status_variables.php:592
+#: server_status_variables.php:591
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
 
-#: server_status_variables.php:597
+#: server_status_variables.php:596
 msgid "Percentage of used key cache (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:600
+#: server_status_variables.php:599
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 
-#: server_status_variables.php:603
+#: server_status_variables.php:602
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 
-#: server_status_variables.php:609
+#: server_status_variables.php:608
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:613
+#: server_status_variables.php:612
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 
-#: server_status_variables.php:616
+#: server_status_variables.php:615
 msgid "The number of physical writes of a key block to disk."
 msgstr ""
 
-#: server_status_variables.php:619
+#: server_status_variables.php:618
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:623
+#: server_status_variables.php:622
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
 
-#: server_status_variables.php:629
+#: server_status_variables.php:628
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status_variables.php:633
+#: server_status_variables.php:632
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 
-#: server_status_variables.php:636
+#: server_status_variables.php:635
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
 
-#: server_status_variables.php:640
+#: server_status_variables.php:639
 msgid "The number of files that are open."
 msgstr ""
 
-#: server_status_variables.php:643
+#: server_status_variables.php:642
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
-#: server_status_variables.php:646
+#: server_status_variables.php:645
 msgid "The number of tables that are open."
 msgstr ""
 
-#: server_status_variables.php:649
+#: server_status_variables.php:648
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status_variables.php:654
+#: server_status_variables.php:653
 msgid "The amount of free memory for query cache."
 msgstr ""
 
-#: server_status_variables.php:657
+#: server_status_variables.php:656
 msgid "The number of cache hits."
 msgstr ""
 
-#: server_status_variables.php:660
+#: server_status_variables.php:659
 msgid "The number of queries added to the cache."
 msgstr ""
 
-#: server_status_variables.php:663
+#: server_status_variables.php:662
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -11568,101 +11349,101 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 
-#: server_status_variables.php:670
+#: server_status_variables.php:669
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
 
-#: server_status_variables.php:674
+#: server_status_variables.php:673
 msgid "The number of queries registered in the cache."
 msgstr ""
 
-#: server_status_variables.php:677
+#: server_status_variables.php:676
 msgid "The total number of blocks in the query cache."
 msgstr ""
 
-#: server_status_variables.php:680
+#: server_status_variables.php:679
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: server_status_variables.php:683
+#: server_status_variables.php:682
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
 
-#: server_status_variables.php:687
+#: server_status_variables.php:686
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 
-#: server_status_variables.php:690
+#: server_status_variables.php:689
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 
-#: server_status_variables.php:695
+#: server_status_variables.php:694
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
 
-#: server_status_variables.php:699
+#: server_status_variables.php:698
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 
-#: server_status_variables.php:702
+#: server_status_variables.php:701
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 
-#: server_status_variables.php:706
+#: server_status_variables.php:705
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
 
-#: server_status_variables.php:710
+#: server_status_variables.php:709
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 
-#: server_status_variables.php:713
+#: server_status_variables.php:712
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 
-#: server_status_variables.php:717
+#: server_status_variables.php:716
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 
-#: server_status_variables.php:721
+#: server_status_variables.php:720
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: server_status_variables.php:726
+#: server_status_variables.php:725
 msgid "The number of sorts that were done with ranges."
 msgstr "지정된 범위에 완료된 정렬 수."
 
-#: server_status_variables.php:729
+#: server_status_variables.php:728
 #, fuzzy
 #| msgid "Number of rows:"
 msgid "The number of sorted rows."
 msgstr "행 갯수:"
 
-#: server_status_variables.php:732
+#: server_status_variables.php:731
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 
-#: server_status_variables.php:735
+#: server_status_variables.php:734
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
 
-#: server_status_variables.php:738
+#: server_status_variables.php:737
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -11670,18 +11451,18 @@ msgid ""
 "tables or use replication."
 msgstr ""
 
-#: server_status_variables.php:744
+#: server_status_variables.php:743
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
 
-#: server_status_variables.php:749
+#: server_status_variables.php:748
 msgid "The number of currently open connections."
 msgstr ""
 
-#: server_status_variables.php:752
+#: server_status_variables.php:751
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -11689,11 +11470,11 @@ msgid ""
 "implementation.)"
 msgstr ""
 
-#: server_status_variables.php:759
+#: server_status_variables.php:758
 msgid "Thread cache hit rate (calculated value)"
 msgstr "스레드 캐시 적중률 (계산된 값)"
 
-#: server_status_variables.php:762
+#: server_status_variables.php:761
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
@@ -11779,12 +11560,10 @@ msgid "There are no configured servers"
 msgstr "최근 테이블이 없습니다."
 
 #: setup/frames/index.inc.php:166
-#| msgid "Web server"
 msgid "New server"
 msgstr "새 서버"
 
 #: setup/frames/index.inc.php:199
-#| msgid "Default"
 msgid "Default language"
 msgstr "기본 언어"
 
@@ -11793,13 +11572,10 @@ msgid "let the user choose"
 msgstr "사용자 선택"
 
 #: setup/frames/index.inc.php:221
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "- none -"
 msgstr "-없음-"
 
 #: setup/frames/index.inc.php:225
-#| msgid "Database server"
 msgid "Default server"
 msgstr "기본 서버"
 
@@ -11808,12 +11584,10 @@ msgid "End of line"
 msgstr "줄 끝"
 
 #: setup/frames/index.inc.php:243
-#| msgid "Display chart"
 msgid "Display"
 msgstr "보기"
 
 #: setup/frames/index.inc.php:250
-#| msgid "Loading"
 msgid "Load"
 msgstr "로드"
 
@@ -11826,12 +11600,10 @@ msgid "Donate"
 msgstr "기부"
 
 #: setup/frames/servers.inc.php:29
-#| msgid "Web server"
 msgid "Edit server"
 msgstr "서버 수정"
 
 #: setup/frames/servers.inc.php:39
-#| msgid "Add a linestring"
 msgid "Add a new server"
 msgstr "새 서버 추가"
 
@@ -11858,7 +11630,6 @@ msgid "Ignore errors"
 msgstr "무시"
 
 #: setup/lib/form_processing.lib.php:52
-#| msgid "Show PHP information"
 msgid "Show form"
 msgstr "폼 보기"
 
@@ -12012,60 +11783,57 @@ msgstr "키는 문자, 숫자 [em]그리고[/em] 특수문자가 포함되어야
 msgid "Wrong data"
 msgstr "잘못된 데이터"
 
-#: sql.php:317
+#: sql.php:227
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:399
+#: sql.php:309
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "북마크 %s가 생성되었습니다."
 
-#: sql.php:933
+#: sql.php:843
 msgid "Showing as PHP code"
 msgstr "PHP 코드 보기"
 
-#: sql.php:938
+#: sql.php:848
 msgid "Validated SQL"
 msgstr "SQL 검사"
 
-#: sql.php:1108
-#| msgid "Query results"
+#: sql.php:1018
 msgid "SQL result"
 msgstr "SQL 결과"
 
-#: sql.php:1115
+#: sql.php:1025
 #, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
 msgstr "생성"
 
-#: sql.php:1237
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#: sql.php:1147
 msgid ""
 "This table does not contain a unique column. Grid edit, checkbox, Edit, Copy "
 "and Delete features are not available."
-msgstr "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, 복사, 삭제 기능을 사용할 수 없습니다."
+msgstr ""
+"이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
+"복사, 삭제 기능을 사용할 수 없습니다."
 
-#: sql.php:1286
+#: sql.php:1196
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1318 sql.php:1338
+#: sql.php:1228 sql.php:1248
 msgid "Bookmark this SQL query"
 msgstr "이 SQL 질의를 북마크함"
 
-#: sql.php:1322
+#: sql.php:1232
 msgid "Label:"
 msgstr ""
 
 #: tbl_chart.php:38
-#| msgid "No data found"
 msgid "No data to display"
 msgstr "표시할 데이터 없음"
 
@@ -12114,7 +11882,6 @@ msgid "Pie"
 msgstr "PB"
 
 #: tbl_chart.php:170
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "타임라인"
@@ -12124,7 +11891,6 @@ msgid "Stacked"
 msgstr ""
 
 #: tbl_chart.php:180
-#| msgid "Chart Title"
 msgid "Chart title"
 msgstr "차트 제목"
 
@@ -12143,7 +11909,6 @@ msgid "X-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:232
-#| msgid "Y Values"
 msgid "X Values"
 msgstr "X 값"
 
@@ -12163,17 +11928,14 @@ msgstr "'%s'라는 데이터베이스가 존재하지 않습니다."
 
 #: tbl_create.php:248
 #, php-format
-#| msgid "Database %1$s has been created."
 msgid "Table %1$s has been created."
 msgstr "테이블 %1$s이 생성되었습니다."
 
 #: tbl_export.php:27
-#| msgid "View dump (schema) of database"
 msgid "View dump (schema) of table"
 msgstr "테이블의 덤프(스키마) 데이터 보기"
 
 #: tbl_get_field.php:44
-#| msgid "Invalid table name:"
 msgid "Invalid table name"
 msgstr "잘못된 테이블 이름"
 
@@ -12202,7 +11964,6 @@ msgid "Redraw"
 msgstr "다시그리기"
 
 #: tbl_gis_visualization.php:178
-#| msgid "Keyname"
 msgid "File name"
 msgstr "파일명"
 
@@ -12220,31 +11981,6 @@ msgstr "인덱스 이름을 기본 키로 바꿀 수 없습니다!"
 msgid "No index parts defined!"
 msgstr "인덱스가 설정되지 않았습니다!"
 
-#: tbl_indexes.php:197
-#| msgid "Edit Index"
-msgid "Edit index"
-msgstr "인덱스 편집"
-
-#: tbl_indexes.php:209
-#| msgid "Invalid table name:"
-msgid "Index name:"
-msgstr "인덱스 이름:"
-
-#: tbl_indexes.php:214
-msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!)"
-
-#: tbl_indexes.php:234
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "설명:"
-
-#: tbl_indexes.php:249
-#| msgid "Invalid export type"
-msgid "Index type:"
-msgstr "인덱스 종류:"
-
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
@@ -12255,18 +11991,15 @@ msgstr "같은 테이블이 있어 복사할 수 없음!"
 
 #: tbl_move_copy.php:55
 #, php-format
-#| msgid "Table %1$s has been renamed to %2$s."
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
 #: tbl_move_copy.php:57
 #, php-format
-#| msgid "Database %1$s has been copied to %2$s"
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
 #: tbl_move_copy.php:79
-#| msgid "The database name is empty!"
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -12304,7 +12037,6 @@ msgid ""
 msgstr ""
 
 #: tbl_relation.php:395
-#| msgid "Foreign key check:"
 msgid "Foreign key constraint"
 msgstr "외래키 제약"
 
@@ -12405,7 +12137,6 @@ msgid "Delete tracking data row from report"
 msgstr "이 테이블에 대한 추적 데이터를 제거"
 
 #: tbl_tracking.php:546
-#| msgid "No data found"
 msgid "No data"
 msgstr "데이터 없음"
 
@@ -12436,29 +12167,24 @@ msgid "This option will replace your table and contained data."
 msgstr "이 옵션은 테이블과 그 안에 담겨 있는 데이터를 교체하게 됩니다."
 
 #: tbl_tracking.php:681
-#| msgid "Query execution time"
 msgid "SQL execution"
 msgstr "SQL 실행"
 
 #: tbl_tracking.php:699
 #, php-format
-#| msgid "Export"
 msgid "Export as %s"
 msgstr "%s로 내보내기"
 
 #: tbl_tracking.php:736
-#| msgid "Versions"
 msgid "Show versions"
 msgstr "버전 보기"
 
 #: tbl_tracking.php:824
 #, php-format
-#| msgid "Delete tracking data for this table"
 msgid "Deactivate tracking for %s"
 msgstr "%s 에 대한 추적을 비활성화하기"
 
 #: tbl_tracking.php:830
-#| msgid "active"
 msgid "Deactivate now"
 msgstr "지금 비활성화"
 
@@ -12509,7 +12235,6 @@ msgid "Available transformations"
 msgstr "버전 정보"
 
 #: transformation_overview.php:39
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "설명"
@@ -12519,7 +12244,6 @@ msgid "You don't have sufficient privileges to be here right now!"
 msgstr "어떻게 들어오셨어요? 지금 여기 있을 권한이 없습니다!"
 
 #: user_password.php:106
-#| msgid "The row has been deleted"
 msgid "The profile has been updated."
 msgstr "프로파일을 업데이트했습니다."
 
@@ -12539,13 +12263,17 @@ msgstr "업타임이 1일 미만임"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "업타임이 1일 미만인 관계로 정보 부족으로 인해 성능 최적화가 부정확할 수 있습니다."
+msgstr ""
+"업타임이 1일 미만인 관계로 정보 부족으로 인해 성능 최적화가 부정확할 수 있습"
+"니다."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
-msgstr "더 정확한 평균값을 계산하기 위해 서버를 하루 이상 가동하신 후 이 아날라이저를 사용하시는 것을 권장합니다"
+msgstr ""
+"더 정확한 평균값을 계산하기 위해 서버를 하루 이상 가동하신 후 이 아날라이저"
+"를 사용하시는 것을 권장합니다"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
@@ -12596,7 +12324,6 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#| msgid "Show query box"
 msgid "Slow query rate"
 msgstr "속도저하 쿼리 비율"
 
@@ -12632,17 +12359,14 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:82
 #, php-format
-#| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time이 %d초로 설정되었습니다."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#| msgid "Show query box"
 msgid "Slow query logging"
 msgstr "지연 쿼리 로깅"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
 msgstr "느린 쿼리에 대한 로깅이 비활성화 상태입니다."
 
@@ -12651,8 +12375,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"{log_slow_queries}를 'ON' 으로 설정하면 느린 쿼리에 대해 로깅할 수 있습니다. 이는 성능에 악영향을 주는 쿼리 문제를 "
-"해결하는데 도움이 될 겁니다."
+"{log_slow_queries}를 'ON' 으로 설정하면 느린 쿼리에 대해 로깅할 수 있습니다. "
+"이는 성능에 악영향을 주는 쿼리 문제를 해결하는데 도움이 될 겁니다."
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -12665,7 +12389,6 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:96
-#| msgid "slow_query_log is enabled."
 msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log가 OFF로 설정되었습니다."
 
@@ -12688,12 +12411,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
 #, php-format
-#| msgid "Current settings"
 msgid "Current version: %s"
 msgstr "현재 버전: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#| msgid "Versions"
 msgid "Minor Version"
 msgstr "마이너 버전"
 
@@ -12717,7 +12438,6 @@ msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합�
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
-#| msgid "Description"
 msgid "Distribution"
 msgstr "배포"
 
@@ -12742,7 +12462,9 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr "Percona에 관한 문서는 http://www.percona.com/docs/wiki/ 에서 찾을 수 있습니다."
+msgstr ""
+"Percona에 관한 문서는 http://www.percona.com/docs/wiki/ 에서 찾을 수 있습니"
+"다."
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -12771,8 +12493,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"(서버가 localhost에 있다고 간주할 시)시스템의 RAM 용량이 3GiB이상이어서 MySQL이 메모리를 전부 사용하지 못할 수 "
-"있습니다. 64비트 버전의 MySQL을 설치하시는 것을 고려하시기 바랍니다."
+"(서버가 localhost에 있다고 간주할 시)시스템의 RAM 용량이 3GiB이상이어서 MySQL"
+"이 메모리를 전부 사용하지 못할 수 있습니다. 64비트 버전의 MySQL을 설치하시는 "
+"것을 고려하시기 바랍니다."
 
 #: libraries/advisory_rules.txt:147
 #, php-format
@@ -12780,7 +12503,6 @@ msgid "Available memory on this host: %s"
 msgstr "사용할 수 있는 메모리: %s"
 
 #: libraries/advisory_rules.txt:153
-#| msgid "Query cache used"
 msgid "Query cache disabled"
 msgstr "쿼리 캐시가 비활성화되어 있습니다"
 
@@ -12798,10 +12520,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr "query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되어 있습니다."
+msgstr ""
+"query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되"
+"어 있습니다."
 
 #: libraries/advisory_rules.txt:160
-#| msgid "Query cache used"
 msgid "Query caching method"
 msgstr "쿼리 캐시 방법"
 
@@ -12823,11 +12546,11 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"쿼리 캐시를 사용할 수 있고, 서버가 초당 %d Query를 받습니다. 이 규칙은 초당 100개 이상의 쿼리가 있으면 불에 탑니다."
+"쿼리 캐시를 사용할 수 있고, 서버가 초당 %d Query를 받습니다. 이 규칙은 초당 "
+"100개 이상의 쿼리가 있으면 불에 탑니다."
 
 #: libraries/advisory_rules.txt:167
 #, php-format
-#| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
 msgstr "질의 캐시 효율 (%%)"
 
@@ -12845,7 +12568,6 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다"
 
 #: libraries/advisory_rules.txt:174
-#| msgid "Query cache usage"
 msgid "Query Cache usage"
 msgstr "질의(쿼리) 캐시 사용(율)"
 
@@ -12865,10 +12587,11 @@ msgstr ""
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr "전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니다. 80%%보다 높아야 됩니다"
+msgstr ""
+"전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
+"다. 80%%보다 높아야 됩니다"
 
 #: libraries/advisory_rules.txt:181
-#| msgid "Query cache usage"
 msgid "Query cache fragmentation"
 msgstr "쿼리 캐시 분열(단편화)"
 
@@ -12923,7 +12646,6 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:195
-#| msgid "Query cache used"
 msgid "Query cache max size"
 msgstr "쿼리 캐시의 최대 크기"
 
@@ -12945,7 +12667,6 @@ msgid "Current query cache size: %s"
 msgstr "쿼리 캐시의 크기: %s"
 
 #: libraries/advisory_rules.txt:202
-#| msgid "Query cache used"
 msgid "Query cache min result size"
 msgstr "쿼리 캐시 최소 결과 크기"
 
@@ -12965,11 +12686,12 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
-"{query_cache_limit}를 변경(일반적으로 증가)하여 효율을 높일 수 있습니다. 이 값은 쿼리 캐시에 넣을 수 있는 쿼리 "
-"결과의 최댓값을 결정합니다. 만약 1 MiB 이상의 캐시될 가능성이 높은 쿼리 결과(많은 읽기, 적은 쓰기)가 많다면, "
-"{query_cache_limit}를 증가하는 것이 효율을 높일 수 있습니다. 반면, 1 MiB 이상의 캐시될 가능성이 낮은 쿼리 "
-"결과(테이블 업데이트로 캐시가 무효화된다던가)가 많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 "
-"있습니다."
+"{query_cache_limit}를 변경(일반적으로 증가)하여 효율을 높일 수 있습니다. 이 "
+"값은 쿼리 캐시에 넣을 수 있는 쿼리 결과의 최댓값을 결정합니다. 만약 1 MiB 이"
+"상의 캐시될 가능성이 높은 쿼리 결과(많은 읽기, 적은 쓰기)가 많다면, "
+"{query_cache_limit}를 증가하는 것이 효율을 높일 수 있습니다. 반면, 1 MiB 이상"
+"의 캐시될 가능성이 낮은 쿼리 결과(테이블 업데이트로 캐시가 무효화된다던가)가 "
+"많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 있습니다."
 
 #: libraries/advisory_rules.txt:207
 msgid "query_cache_limit is set to 1 MiB"
@@ -12987,14 +12709,18 @@ msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합�
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
-msgstr "시스템의 메모리 한계값에 따라 {sort_buffer_size} 나 {read_rnd_buffer_size} 값을 증가시키세요"
+msgstr ""
+"시스템의 메모리 한계값에 따라 {sort_buffer_size} 나 {read_rnd_buffer_size} 값"
+"을 증가시키세요"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr "정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니다."
+msgstr ""
+"정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니"
+"다."
 
 #: libraries/advisory_rules.txt:218
 msgid "Rate of sorts that cause temporary tables"
@@ -13007,7 +12733,6 @@ msgid ""
 msgstr "임시 테이블 평균: %s, 이 값은 시간당 1보다 작아야합니다."
 
 #: libraries/advisory_rules.txt:225
-#| msgid "Start row:"
 msgid "Sort rows"
 msgstr "행 정렬"
 
@@ -13064,10 +12789,11 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 "
-"씁니다. 이런 테이블들이 대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 전체 "
-"인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 "
-"있습니다."
+"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 "
+"스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 씁니다. 이런 테이블들이 "
+"대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 "
+"전체 인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트"
+"(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 있습니다."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -13088,8 +12814,8 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
-"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 "
-"추가하세요."
+"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱"
+"스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 추가하세요."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -13201,7 +12927,9 @@ msgstr "키 버퍼가 초기화되지 않았습니다. MyISAM 인덱스가 캐�
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
-msgstr "MyISAM 크기에 따라 {key_buffer_size}를 설정하십시오. (초기값은 64M를 권장합니다.)"
+msgstr ""
+"MyISAM 크기에 따라 {key_buffer_size}를 설정하십시오. (초기값은 64M를 권장합니"
+"다.)"
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
@@ -13322,7 +13050,9 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:352 libraries/advisory_rules.txt:359
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr "쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습니다."
+msgstr ""
+"쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습"
+"니다."
 
 #: libraries/advisory_rules.txt:353
 #, php-format
@@ -13339,7 +13069,6 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "테이블락 대기 비율: %s, 이 값은 시간당 1 미만이어야 합니다."
 
 #: libraries/advisory_rules.txt:362
-#| msgid "Key cache"
 msgid "Thread cache"
 msgstr "스레드 캐시"
 
@@ -13347,7 +13076,9 @@ msgstr "스레드 캐시"
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
-msgstr "스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하가 발생합니다."
+msgstr ""
+"스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하"
+"가 발생합니다."
 
 #: libraries/advisory_rules.txt:366
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
@@ -13363,7 +13094,6 @@ msgid "Thread cache hit rate %%"
 msgstr "쓰레드 캐시 히트율 %%"
 
 #: libraries/advisory_rules.txt:372
-#| msgid "Query cache efficiency"
 msgid "Thread cache is not efficient."
 msgstr "스레드 캐시가 비효율적입니다."
 
@@ -13411,7 +13141,6 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:388
 #, php-format
-#| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time이 %s로 설정되어 있습니다."
 
@@ -13436,7 +13165,8 @@ msgstr ""
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr "max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
+msgstr ""
+"max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -13483,8 +13213,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"MySQL 커넥션을 확실히 닫아주지 않으면 다음 접속시 거부당할 수 있습니다. 네트웍 문제이거나 코드상에서의 DB 핸들러가 적절하게 "
-"연결을 닫아주지 않아서 이런 문제가 발생합니다. 네트웍 상태와 소스 코드를 확인해보세요."
+"MySQL 커넥션을 확실히 닫아주지 않으면 다음 접속시 거부당할 수 있습니다. 네트"
+"웍 문제이거나 코드상에서의 DB 핸들러가 적절하게 연결을 닫아주지 않아서 이런 "
+"문제가 발생합니다. 네트웍 상태와 소스 코드를 확인해보세요."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
@@ -13505,7 +13236,6 @@ msgid "Is InnoDB disabled?"
 msgstr "InnoDB를 비활성화할까요?"
 
 #: libraries/advisory_rules.txt:432
-#| msgid "Could not save recent table"
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB가 활성화되지 않았습니다."
 
@@ -13541,20 +13271,24 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
-"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, {innodb_log_file_size}값을 "
-"크게 할 수록, 데이터베이스가 크러시한 경우의 복구 시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 "
-"설정하는 게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버를 완전히 종료한 후, InnoDB 로그 파일을 "
-"제거하고, my.cnf에 새 값을 설정한 후 서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: <a "
-"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the proper "
-"way</a> (영어)"
+"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
+"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
+"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
+"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
+"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
+"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
+"<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
+"proper way</a> (영어)"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어야 합니다"
+msgstr ""
+"InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어"
+"야 합니다"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"

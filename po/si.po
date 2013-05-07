@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-03 15:57+0200\n"
+"POT-Creation-Date: 2013-05-07 15:39+0200\n"
 "PO-Revision-Date: 2013-01-20 17:30+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -51,12 +51,13 @@ msgstr "සෙවීම"
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
-#: libraries/index.lib.php:37 libraries/insert_edit.lib.php:1547
-#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
-#: libraries/operations.lib.php:1055 libraries/operations.lib.php:1339
+#: libraries/display_indexes.lib.php:202 libraries/index.lib.php:37
+#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
+#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:210 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:636 libraries/operations.lib.php:689
+#: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
+#: libraries/operations.lib.php:1339
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -75,10 +76,10 @@ msgstr "සෙවීම"
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:498 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
-#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
+#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:116
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:521 tbl_tracking.php:684
-#: view_create.php:224 view_operations.php:98
+#: tbl_tracking.php:521 tbl_tracking.php:684 view_create.php:224
+#: view_operations.php:98
 msgid "Go"
 msgstr "යන්න"
 
@@ -123,7 +124,7 @@ msgstr "වගු විස්තර"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
-#: libraries/insert_edit.lib.php:1566
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -134,9 +135,8 @@ msgstr "වගු විස්තර"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
-#: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:324
-#: tbl_tracking.php:386
+#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: tbl_relation.php:378 tbl_tracking.php:324 tbl_tracking.php:386
 msgid "Column"
 msgstr "තීර"
 
@@ -234,8 +234,8 @@ msgstr "විස්තරය"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2482
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:430
-#: sql.php:525 sql.php:526 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:340
+#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "නැත"
@@ -262,7 +262,7 @@ msgstr "නැත"
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:131
-#: server_databases.php:103 server_databases.php:110 sql.php:523 sql.php:524
+#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -272,7 +272,7 @@ msgstr "ඔව්"
 msgid "View dump (schema) of database"
 msgstr "දත්තගබඩාවේ නික්ෂේපනය (ක්‍රමානුරූපය) දර්ශනය කරන්න"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:553
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:554
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
@@ -327,7 +327,8 @@ msgstr "වගුව"
 msgid "Rows"
 msgstr "පේළි"
 
-#: db_printview.php:104 libraries/structure.lib.php:787 tbl_indexes.php:264
+#: db_printview.php:104 libraries/display_indexes.lib.php:118
+#: libraries/structure.lib.php:787
 msgid "Size"
 msgstr "ප්‍රමාණය"
 
@@ -397,7 +398,7 @@ msgstr "අවධානය සක්‍රීය වගු"
 #: libraries/server_privileges.lib.php:1989
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2872 server_databases.php:202
-#: server_status.php:368 tbl_tracking.php:762
+#: server_status.php:383 tbl_tracking.php:762
 msgid "Database"
 msgstr "දත්තගබඩාව"
 
@@ -415,7 +416,7 @@ msgstr "යාවත්කාලීන කරන ලදි"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:380 sql.php:1184 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
 msgid "Status"
 msgstr "තත්වය"
 
@@ -477,24 +478,24 @@ msgstr "වගුව අවධානයට ලක් කරන්න"
 msgid "Database Log"
 msgstr "දත්තගබඩා ලොගය"
 
-#: export.php:147
+#: export.php:148
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
-#: export.php:198
+#: export.php:199
 msgid "Selected export type has to be saved in file!"
 msgstr "තෝරාගත් අපනයන වර්ගය ගොනුව තුල සුරැකිය යුතුයි!"
 
-#: export.php:227
+#: export.php:228
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
-#: export.php:331 export.php:362 export.php:922
+#: export.php:332 export.php:363 export.php:923
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s ගොනුව සුරැකීමට ප්‍රමාණවත් ඉඩ අවකාශ නොමැත."
 
-#: export.php:502
+#: export.php:503
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -502,12 +503,12 @@ msgstr ""
 "%s ගොනුව මේ වන විටත් සේවාදායකයෙහි පවතී, ගොනු නාමය වෙනස් කරන්න නැතහොත් උඩින් ලිවීමේ හැකියාව "
 "සලකා බලන්න."
 
-#: export.php:508 export.php:514
+#: export.php:509 export.php:515
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "වෙබ් සේවාදායකයට %s ගොනුව සුරැකීමට අවසර නොමැත."
 
-#: export.php:928
+#: export.php:929
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකින ලදි."
@@ -664,7 +665,7 @@ msgstr "අක්ෂර කට්ටල හැරවීම් පුස්තක
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
-#: import.php:518 sql.php:395 sql.php:1246
+#: import.php:518 sql.php:305 sql.php:1156
 #, php-format
 msgid "Bookmark %s created"
 msgstr "%s පොත් සලකුණ සාදන ලදි"
@@ -914,7 +915,7 @@ msgstr ""
 "සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් %sලියකියවිලි%s "
 "බලන්න."
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:355
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."
 
@@ -923,7 +924,7 @@ msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇ
 msgid "Do you really want to execute \"%s\"?"
 msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:477
+#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:387
 msgid "You are about to DESTROY a complete database!"
 msgstr "ඔබ සූදානම් වන්නේ සම්පූර්ණ දත්තගබඩාවක් විනාශකර දැමීමටයි!"
 
@@ -963,7 +964,8 @@ msgstr "සුචිය එක් කරන්න"
 msgid "Edit Index"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
-#: js/messages.php:44 tbl_indexes.php:349 tbl_indexes.php:357
+#: js/messages.php:44 libraries/display_indexes.lib.php:199
+#: libraries/display_indexes.lib.php:205
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කරන්න"
@@ -1115,11 +1117,11 @@ msgstr "යැවුණු බයිට ගණන"
 msgid "Bytes received"
 msgstr "ලැබුණු බයිට ගණන"
 
-#: js/messages.php:95 server_status.php:243
+#: js/messages.php:95 server_status.php:258
 msgid "Connections"
 msgstr "සම්බන්ධතා"
 
-#: js/messages.php:96 server_status.php:424
+#: js/messages.php:96 server_status.php:439
 msgid "Processes"
 msgstr "ක්‍රියාවලි"
 
@@ -1130,13 +1132,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1461
-#: server_status_monitor.php:648
+#: server_status_monitor.php:578
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1463
-#: server_status_monitor.php:649
+#: server_status_monitor.php:579
 msgid "MiB"
 msgstr "MiB"
 
@@ -1170,12 +1172,12 @@ msgstr "වගු %d"
 msgid "Questions"
 msgstr "ප්‍රශ්න"
 
-#: js/messages.php:110 server_status.php:156
+#: js/messages.php:110 server_status.php:171
 msgid "Traffic"
 msgstr "තදබදය"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
-#: server_status_monitor.php:475
+#: server_status_monitor.php:700
 msgid "Settings"
 msgstr "සිටුවම්"
 
@@ -1201,7 +1203,7 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2132
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:512 server_status_monitor.php:667
+#: server_status.php:527 server_status_monitor.php:597
 msgid "None"
 msgstr "කිසිවක් නැත"
 
@@ -1301,7 +1303,7 @@ msgstr "සිටුවම් වෙනස් කිරීම"
 msgid "Current settings"
 msgstr "වර්තමාන සිටුවම්"
 
-#: js/messages.php:142 server_status_monitor.php:608
+#: js/messages.php:142 server_status_monitor.php:538
 msgid "Chart Title"
 msgstr "ප්‍රස්තාර මාතෘකාව"
 
@@ -1381,7 +1383,7 @@ msgstr "ප්‍රතිදානය පහදන්න"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:376 sql.php:1189
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
 msgid "Time"
 msgstr "කාලය"
 
@@ -1476,7 +1478,7 @@ msgstr ""
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:482
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:232 server_status_monitor.php:530
+#: prefs_manage.php:232 server_status_monitor.php:767
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "ආනයනය"
@@ -1533,7 +1535,7 @@ msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:568
+#: server_status_monitor.php:498
 msgid "Loading"
 msgstr "පූරණය කෙරෙමින්"
 
@@ -1713,11 +1715,11 @@ msgid "%d is not valid row number."
 msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:392
-#: libraries/insert_edit.lib.php:1460
+#: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_indexes.php:344 tbl_relation.php:563
+#: tbl_relation.php:563
 msgid "Save"
 msgstr "සුරකින්න"
 
@@ -1773,8 +1775,8 @@ msgstr "විමසුම් ප්‍රථිඵල"
 msgid "Data point content"
 msgstr "ලක්ෂයට අදාල දත්ත"
 
-#: js/messages.php:298 tbl_change.php:269 tbl_indexes.php:279
-#: tbl_indexes.php:317
+#: js/messages.php:298 libraries/display_indexes.lib.php:134
+#: libraries/display_indexes.lib.php:170 tbl_change.php:269
 msgid "Ignore"
 msgstr "නොසලකන්න"
 
@@ -2263,7 +2265,7 @@ msgstr "තප්පරයකට"
 msgid "per minute"
 msgstr "මිනිත්තුවකට"
 
-#: libraries/Advisor.class.php:473 server_status.php:164 server_status.php:244
+#: libraries/Advisor.class.php:473 server_status.php:179 server_status.php:259
 #: server_status_queries.php:123
 msgid "per hour"
 msgstr "පැයකට"
@@ -2290,7 +2292,7 @@ msgstr "ෆොන්ටයෙහි ප්‍රමාණය"
 #: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:811
 #: libraries/operations.lib.php:630 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
-#: server_databases.php:220 server_status.php:461
+#: server_databases.php:220 server_status.php:476
 msgid "Ascending"
 msgstr "ආරෝහන"
 
@@ -2299,7 +2301,7 @@ msgstr "ආරෝහන"
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:631 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
-#: server_databases.php:220 server_status.php:458
+#: server_databases.php:220 server_status.php:473
 msgid "Descending"
 msgstr "අවරෝහන"
 
@@ -2480,13 +2482,13 @@ msgid "Begin"
 msgstr "ඇරඹුම"
 
 #: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2558
-#: libraries/Util.class.php:2561 server_binlog.php:141 server_binlog.php:143
+#: libraries/Util.class.php:2561 server_binlog.php:142 server_binlog.php:144
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "පෙර"
 
 #: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2593
-#: libraries/Util.class.php:2596 server_binlog.php:174 server_binlog.php:176
+#: libraries/Util.class.php:2596 server_binlog.php:175 server_binlog.php:177
 msgctxt "Next page"
 msgid "Next"
 msgstr "මීලඟ"
@@ -2611,7 +2613,7 @@ msgid "The row has been deleted"
 msgstr "පේළිය ඉවත් කරන ලදි"
 
 #: libraries/DisplayResults.class.php:3409
-#: libraries/DisplayResults.class.php:5023 server_status.php:508
+#: libraries/DisplayResults.class.php:5023 server_status.php:523
 msgid "Kill"
 msgstr "නවතා දමන්න"
 
@@ -2639,7 +2641,7 @@ msgstr "පේළි පෙන්වමින්"
 msgid "total"
 msgstr "මුළු එකතුව"
 
-#: libraries/DisplayResults.class.php:4946 sql.php:946
+#: libraries/DisplayResults.class.php:4946 sql.php:856
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි"
@@ -2673,7 +2675,7 @@ msgstr "සියල්ල කතිර කොටුගත කරන්න"
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
 #: libraries/server_privileges.lib.php:2427 libraries/structure.lib.php:297
-#: prefs_manage.php:289 server_status_monitor.php:534
+#: prefs_manage.php:289 server_status_monitor.php:771
 #: setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "අපනයනය"
@@ -2944,7 +2946,7 @@ msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
 #: libraries/Menu.class.php:495 libraries/ServerStatusData.class.php:187
-#: server_binlog.php:74
+#: server_binlog.php:75
 msgid "Binary log"
 msgstr "ද්වීමය ලොගය"
 
@@ -3015,7 +3017,7 @@ msgstr "මෑතදී භාවිතා කල වගු"
 msgid "There are no recent tables"
 msgstr "මෑතදී භාවිතා කල වගු කිසිවක් නොමැත"
 
-#: libraries/ServerStatusData.class.php:181 server_status.php:384
+#: libraries/ServerStatusData.class.php:181 server_status.php:399
 msgid "SQL query"
 msgstr "SQL විමසුම"
 
@@ -3063,7 +3065,7 @@ msgstr "වගු"
 msgid "Transaction coordinator"
 msgstr "ගනුදෙනු සම්බන්ධීකාරක"
 
-#: libraries/ServerStatusData.class.php:196 server_binlog.php:107
+#: libraries/ServerStatusData.class.php:196 server_binlog.php:108
 msgid "Files"
 msgstr "ගොනු"
 
@@ -3228,8 +3230,8 @@ msgstr "සංස්කරණය/ඇතුල් කරන්න"
 msgid "Select columns (at least one):"
 msgstr "පේළි තෝරන්න (අවම වශයෙන් එකක්):"
 
-#: libraries/TableSearch.class.php:779 libraries/insert_edit.lib.php:1184
-#: libraries/server_privileges.lib.php:323 tbl_indexes.php:347
+#: libraries/TableSearch.class.php:779 libraries/display_indexes.lib.php:197
+#: libraries/insert_edit.lib.php:1184 libraries/server_privileges.lib.php:323
 msgid "Or"
 msgstr "හෝ"
 
@@ -3254,7 +3256,7 @@ msgid "Maximum rows to plot"
 msgstr "උපරිම තීර ගණන"
 
 #: libraries/TableSearch.class.php:887 libraries/TableSearch.class.php:1159
-#: sql.php:172 tbl_change.php:236
+#: libraries/sql.lib.php:418 tbl_change.php:236
 msgid "Browse foreign values"
 msgstr "අන්‍ය අගයන් පිරික්සන්න"
 
@@ -3643,7 +3645,7 @@ msgstr "අර්ථදක්වන ලද අගයන් අඩංගු ල�
 msgid "Max: %s%s"
 msgstr "උපරිම: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1116
+#: libraries/Util.class.php:674 sql.php:1026
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3704,7 +3706,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "පේළිගත"
 
-#: libraries/Util.class.php:1432 sql.php:1180
+#: libraries/Util.class.php:1432 sql.php:1090
 msgid "Profiling"
 msgstr ""
 
@@ -3808,7 +3810,7 @@ msgstr "දත්ත"
 
 #: libraries/build_html_for_db.lib.php:46 libraries/engines/innodb.lib.php:171
 #: libraries/structure.lib.php:2182 server_databases.php:272
-#: server_status.php:207 server_status.php:308 tbl_printview.php:331
+#: server_status.php:222 server_status.php:323 tbl_printview.php:331
 msgid "Total"
 msgstr "මුළු එකතුව"
 
@@ -5541,7 +5543,8 @@ msgstr "පාලක දායකයා"
 #| "the already defined host"
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
-"storage; leave blank to use the already defined port"
+"storage; leave blank to use the default port, or the already defined port, "
+"if the controlhost equals host"
 msgstr ""
 "වින්‍යාස ගබඩාව තබා ගැනීම සඳහා විකල්ප දායකයෙක්; දැනට අර්ථ දක්වා ඇති දායකයා භාවිතා කිරීමට "
 "හිස්ව තබන්න"
@@ -6427,7 +6430,7 @@ msgstr "දත්තගබඩා(ව):"
 msgid "Table(s):"
 msgstr "වගු(ව):"
 
-#: libraries/display_export.lib.php:164 sql.php:1120
+#: libraries/display_export.lib.php:164 sql.php:1030
 msgid "Rows:"
 msgstr "පේළි:"
 
@@ -6665,6 +6668,32 @@ msgstr "පළමු පේළියේ සිට අත්හළ යුතු �
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
 msgstr "ආකෘති-විශේෂී තෝරා ගැනීම්:"
+
+#: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2004
+#: libraries/structure.lib.php:2007
+msgid "Add index"
+msgstr "සුචිය එක් කරන්න"
+
+#: libraries/display_indexes.lib.php:52
+msgid "Edit index"
+msgstr "සුචිය සංස්කරණය කරන්න"
+
+#: libraries/display_indexes.lib.php:63
+msgid "Index name:"
+msgstr "සූචියේ නම:"
+
+#: libraries/display_indexes.lib.php:67
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(\"PRIMARY\" නාමය ප්‍රාථමික මූලය සඳහා <b>පමණක්</b> භාවිතා කල <b>යුතුය</b>!)"
+
+#: libraries/display_indexes.lib.php:85
+msgid "Comment:"
+msgstr "ටීකාව:"
+
+#: libraries/display_indexes.lib.php:99
+msgid "Index type:"
+msgstr "සූචි වර්ගය:"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
@@ -6975,7 +7004,7 @@ msgid "No data found for GIS visualization."
 msgstr "ජ්‍යාමිතික නිරූපණයට දත්ත කිසිවක් හමු නොවිණි."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:851 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
@@ -7093,11 +7122,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1912 sql.php:936
+#: libraries/insert_edit.lib.php:1912 sql.php:846
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:916
+#: libraries/insert_edit.lib.php:1937 sql.php:826
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"
@@ -7141,7 +7170,7 @@ msgstr "වගු නාම මූලයක් එක් කරන්න"
 msgid "Add prefix"
 msgstr "නාම මූලයක් එක් කරන්න"
 
-#: libraries/mult_submits.inc.php:318 sql.php:517
+#: libraries/mult_submits.inc.php:318 sql.php:427
 msgid "Do you really want to execute the following query?"
 msgstr "පහත විමසුම ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
@@ -7896,7 +7925,7 @@ msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1110
+#: libraries/server_privileges.lib.php:1081 sql.php:1020
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -7904,7 +7933,7 @@ msgstr "දායකයා"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1113
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -7921,7 +7950,7 @@ msgstr "PHP අනුවාදය"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1111
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -8505,7 +8534,7 @@ msgstr "අනුගාමි සේවාදායකයේ තත්වය"
 msgid "Variable"
 msgstr "විචල්‍යය"
 
-#: libraries/replication_gui.lib.php:194 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:188
 msgid "Server ID"
 msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 
@@ -8514,7 +8543,7 @@ msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 #: libraries/server_privileges.lib.php:1086
 #: libraries/server_privileges.lib.php:1182
 #: libraries/server_privileges.lib.php:1572
-#: libraries/server_privileges.lib.php:2396 server_status.php:364
+#: libraries/server_privileges.lib.php:2396 server_status.php:379
 msgid "Host"
 msgstr "දායකයා"
 
@@ -8640,7 +8669,7 @@ msgstr "තොරතුරු"
 msgid "Event name"
 msgstr "සිද්ධියේ නම"
 
-#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:187
 msgid "Event type"
 msgstr "සිද්ධි වර්ගය"
 
@@ -9423,7 +9452,7 @@ msgstr "&quot;%s&quot; වෙත ප්‍රවේශ වරප්‍රසා�
 #: libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2395
 #: libraries/server_privileges.lib.php:2813
-#: libraries/server_privileges.lib.php:2861 server_status.php:360
+#: libraries/server_privileges.lib.php:2861 server_status.php:375
 msgid "User"
 msgstr "භාවිතා කරන්නා"
 
@@ -9605,7 +9634,7 @@ msgstr "මකන්න"
 msgid "Bookmark this SQL query:"
 msgstr "මෙම SQL විමසුම පොත් සලකුණුගත කරන්න"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1330
+#: libraries/sql_query_form.lib.php:326 sql.php:1240
 msgid "Let every user access this bookmark"
 msgstr "සියලු භාවිතා කරන්නනට මෙම පොත් සලකුණට පිවිසීමට ඉඩ දෙන්න"
 
@@ -9855,11 +9884,6 @@ msgstr "එකිනෙකට වෙනස් අගයන්"
 msgid "Add primary key"
 msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 
-#: libraries/structure.lib.php:2004 libraries/structure.lib.php:2007
-#: tbl_indexes.php:195
-msgid "Add index"
-msgstr "සුචිය එක් කරන්න"
-
 #: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
 msgid "Add unique index"
 msgstr "අනන්‍ය මූලය එක් කරන්න"
@@ -9872,7 +9896,7 @@ msgstr "SPATIAL මූලය එක් කරන්න"
 msgid "Add FULLTEXT index"
 msgstr "FULLTEXT මූලය එක් කරන්න"
 
-#: libraries/structure.lib.php:2151 server_binlog.php:189
+#: libraries/structure.lib.php:2151 server_binlog.php:190
 msgid "Information"
 msgstr "තොරතුරු"
 
@@ -10312,27 +10336,27 @@ msgstr ""
 msgid "File doesn't exist"
 msgstr "ගොනුව නොපවතියි"
 
-#: server_binlog.php:84
+#: server_binlog.php:85
 msgid "Select binary log to view"
 msgstr "පෙන්වීම සඳහා ද්වීමය ලොගය තෝරන්න"
 
-#: server_binlog.php:154 server_status.php:472
+#: server_binlog.php:155 server_status.php:487
 msgid "Truncate Shown Queries"
 msgstr ""
 
-#: server_binlog.php:158 server_status.php:477
+#: server_binlog.php:159 server_status.php:492
 msgid "Show Full Queries"
 msgstr "සම්පූර්ණ විමසුම් පෙන්වන්න"
 
-#: server_binlog.php:184
+#: server_binlog.php:185
 msgid "Log name"
 msgstr "ලොග් නම"
 
-#: server_binlog.php:185
+#: server_binlog.php:186
 msgid "Position"
 msgstr "පිහිටුම"
 
-#: server_binlog.php:188
+#: server_binlog.php:189
 msgid "Original position"
 msgstr "මුල් පිහිටුම"
 
@@ -10605,17 +10629,17 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 
-#: server_status.php:70
+#: server_status.php:94
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "ආරම්භයේ සිට ජාලය හරහා ගමන් ගත් දත්ත ප්‍රමාණය: %s"
 
-#: server_status.php:83
+#: server_status.php:107
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "මෙම MySQL සේවාදායකය %1$s තිස්සේ ක්‍රියාත්මකයි. මෙය ඇරඹුයේ %2$s."
 
-#: server_status.php:93
+#: server_status.php:117
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -10623,19 +10647,19 @@ msgstr ""
 "මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන</b> හා <b>අනුගාමි</b> "
 "සේවාදායක ලෙස ක්‍රියාකරයි."
 
-#: server_status.php:98
+#: server_status.php:122
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>ප්‍රධාන සේවාදායකය</b> ලෙස "
 "ක්‍රියාකරයි."
 
-#: server_status.php:103
+#: server_status.php:127
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "මෙම MySQL සේවාදායකය <b>අනුරූකරණ</b> ක්‍රියාවලියේදී <b>අනුගාමි සේවාදායකය</b> ලෙස "
 "ක්‍රියාකරයි."
 
-#: server_status.php:109
+#: server_status.php:133
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -10643,41 +10667,41 @@ msgstr ""
 "සේවාදායකයේ අනුරූකරණ තත්වය පිළිබඳ වැඩි විස්තර සඳහා කරුණාකර <a href=\"#replication"
 "\">අනුරූකරණ අංශය</a> වෙත යන්න."
 
-#: server_status.php:122
+#: server_status.php:146
 msgid "Replication status"
 msgstr "අනුරූ කරණයේ තත්වය"
 
-#: server_status.php:159
+#: server_status.php:174
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
 
-#: server_status.php:169
+#: server_status.php:184
 msgid "Received"
 msgstr "ලබන ලද"
 
-#: server_status.php:188
+#: server_status.php:203
 msgid "Sent"
 msgstr "යවන ලද"
 
-#: server_status.php:250
+#: server_status.php:265
 msgid "max. concurrent connections"
 msgstr "උපරිම සමගාමී සම්බන්ධතා"
 
-#: server_status.php:260
+#: server_status.php:275
 msgid "Failed attempts"
 msgstr "අසාර්ථක උත්සාහයන්"
 
-#: server_status.php:284
+#: server_status.php:299
 msgid "Aborted"
 msgstr "අත්හැර දමන ලදි"
 
-#: server_status.php:356
+#: server_status.php:371
 msgid "ID"
 msgstr "හැඳුනුම් අංකය"
 
-#: server_status.php:372
+#: server_status.php:387
 msgid "Command"
 msgstr "විධානය"
 
@@ -10722,51 +10746,11 @@ msgstr ""
 "දත්තගබඩාව නිරීක්ෂණය කිරීම හා පෙර අවස්ථා සමග සසැදීමත්, මැනිය හැකි වර්ධනයක් ගෙන නොදෙන වෙනස් "
 "කිරීම් ප්‍රතිවර්තනය කිරීමත් ය."
 
-#: server_status_monitor.php:472
-msgid "Start Monitor"
-msgstr "අධීක්ෂණය අරඹන්න"
-
-#: server_status_monitor.php:479
-msgid "Instructions/Setup"
-msgstr "උපදෙස්/පිහිටුවීම"
-
-#: server_status_monitor.php:483
-msgid "Done rearranging/editing charts"
-msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
-
-#: server_status_monitor.php:489 server_status_monitor.php:606
-msgid "Add chart"
-msgstr "ප්‍රස්ථාර එක් කරන්න"
-
-#: server_status_monitor.php:496
-msgid "Refresh rate"
-msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව"
-
-#: server_status_monitor.php:505
-msgid "Chart columns"
-msgstr "ප්‍රස්ථාරයේ තීර"
-
-#: server_status_monitor.php:521
-msgid "Chart arrangement"
-msgstr "ප්‍රස්ථාර සැකසුම"
-
-#: server_status_monitor.php:524
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-"ප්‍රස්ථාර සැකැස්ම බ්‍රවුසරයේ ගබඩාවේ ගබඩා කර ඇත. සංකීර්ණ වූ සැකැස්මක් ඇත්නම් ඔබට එය අපනයනය "
-"කර ගැනීමට අවශ්‍ය විය හැකිය."
-
-#: server_status_monitor.php:538
-msgid "Reset to default"
-msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
-
-#: server_status_monitor.php:544
+#: server_status_monitor.php:474
 msgid "Monitor Instructions"
 msgstr "අධීක්ෂකය පිලිබඳ උපදෙස්"
 
-#: server_status_monitor.php:546
+#: server_status_monitor.php:476
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10780,7 +10764,7 @@ msgstr ""
 "general_log ය ඉතා විශාල දත්ත ප්‍රමාණයක් උත්පාදනය කරන බව සහ එමගින් සේවාදායකය මත භාරය "
 "15% දක්වා ඉහල යා හැකි බව සලකන්න"
 
-#: server_status_monitor.php:558
+#: server_status_monitor.php:488
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10792,11 +10776,11 @@ msgstr ""
 "MySQL 5.1.6 හෝ පසු අනුවාදයක සිදු කල හැක. කෙසේ නමුත් ඔබට සේවාදායකයේ ප්‍රස්ථාර විශේෂාංග "
 "භාවිතා කල හැක."
 
-#: server_status_monitor.php:573
+#: server_status_monitor.php:503
 msgid "Using the monitor:"
 msgstr "අධීක්ෂකය භාවිතා කිරීම:"
 
-#: server_status_monitor.php:576
+#: server_status_monitor.php:506
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -10806,7 +10790,7 @@ msgstr ""
 "ප්‍රස්ථාර එකතු කිරීම, 'සිටුවම්' භාවිතා කරමින් යාවත්කාලීන කරන වේගය වෙනස් කිරීම හෝ අදාල ප්‍රස්ථාරය "
 "මත ඇති අයිකනය භාවිතා කර ඕනෑම ප්‍රස්ථාරයක් ඉවත් කිරීම සිදු කල හැක."
 
-#: server_status_monitor.php:582
+#: server_status_monitor.php:512
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10818,11 +10802,11 @@ msgstr ""
 "පූරණය කෙරෙනු ඇත. එහි ඇතුලත් ඕනෑම SELECT ප්‍රකාශයක් ක්ලික් කිරීමෙන් එය තවදුරටත් විශ්ලේෂණය කල "
 "හැක."
 
-#: server_status_monitor.php:592
+#: server_status_monitor.php:522
 msgid "Please note:"
 msgstr "කරුණාවෙන් සලකන්න:"
 
-#: server_status_monitor.php:595
+#: server_status_monitor.php:525
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10834,91 +10818,131 @@ msgstr ""
 "මේ සඳහා කුඩා කාල පරාසයක් තෝරා ගැනීමද අධීක්ෂණය තවදුරටත් අවශ්‍ය නොවන විට general_log "
 "අක්‍රීය කිරීම හා ඊට අයත් වගුව හිස් කිරීම ද නිර්දේශිතය."
 
-#: server_status_monitor.php:610
+#: server_status_monitor.php:536 server_status_monitor.php:726
+msgid "Add chart"
+msgstr "ප්‍රස්ථාර එක් කරන්න"
+
+#: server_status_monitor.php:540
 msgid "Preset chart"
 msgstr "පෙරසැදි ප්‍රස්ථාර"
 
-#: server_status_monitor.php:614
+#: server_status_monitor.php:544
 msgid "Status variable(s)"
 msgstr "තත්ව විචල්‍ය(ය)"
 
-#: server_status_monitor.php:617
+#: server_status_monitor.php:547
 msgid "Select series:"
 msgstr "ශ්‍රේණිය තෝරන්න:"
 
-#: server_status_monitor.php:619
+#: server_status_monitor.php:549
 msgid "Commonly monitored"
 msgstr "සාමාන්‍යයෙන් අධීක්ෂණය කරනු ලබන"
 
-#: server_status_monitor.php:635
+#: server_status_monitor.php:565
 msgid "or type variable name:"
 msgstr "හෝ විචල්‍ය නාමය යතුරු කරන්න:"
 
-#: server_status_monitor.php:642
+#: server_status_monitor.php:572
 msgid "Display as differential value"
 msgstr "ආන්තර අගයන් ලෙස පෙන්වන්න"
 
-#: server_status_monitor.php:645
+#: server_status_monitor.php:575
 msgid "Apply a divisor"
 msgstr "භාජකයක් භාවිතා කරන්න"
 
-#: server_status_monitor.php:653
+#: server_status_monitor.php:583
 msgid "Append unit to data values"
 msgstr "දත්ත අගයන් සඳහා ඒකකයක් එක් කරන්න"
 
-#: server_status_monitor.php:659
+#: server_status_monitor.php:589
 msgid "Add this series"
 msgstr "මෙම ශ්‍රේණිය එක් කරන්න"
 
-#: server_status_monitor.php:661
+#: server_status_monitor.php:591
 msgid "Clear series"
 msgstr "ශ්‍රේණිය ඉවත් කරන්න"
 
-#: server_status_monitor.php:664
+#: server_status_monitor.php:594
 msgid "Series in Chart:"
 msgstr "ප්‍රස්ථාරයේ ශ්‍රේණි:"
 
-#: server_status_monitor.php:675
+#: server_status_monitor.php:605
 msgid "Log statistics"
 msgstr "ලොග සංඛ්‍යලේඛන"
 
-#: server_status_monitor.php:676
+#: server_status_monitor.php:606
 msgid "Selected time range:"
 msgstr "තෝරාගත් කාල පරාසය:"
 
-#: server_status_monitor.php:682
+#: server_status_monitor.php:612
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "SELECT,INSERT,UPDATE සහ DELETE ප්‍රකාශ පමණක් ලබාගන්න"
 
-#: server_status_monitor.php:687
+#: server_status_monitor.php:617
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "වඩා හොඳ සමූහනයන් සඳහා INSERT ප්‍රකාශ වල අඩංගු විචල්‍ය දත්ත ඉවත් කරන්න"
 
-#: server_status_monitor.php:690
+#: server_status_monitor.php:620
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "සංඛ්‍යාලේඛන උත්පාදනය කල යුත්තේ කුමන ලොගයෙන් දැයි තෝරන්න."
 
-#: server_status_monitor.php:693
+#: server_status_monitor.php:623
 msgid "Results are grouped by query text."
 msgstr "ප්‍රතිඵල විමසුම් පෙළ මගින් සමූහනය කර ඇත."
 
-#: server_status_monitor.php:697
+#: server_status_monitor.php:627
 msgid "Query analyzer"
 msgstr "විමසුම් විශ්ලේශකය"
 
-#: server_status_monitor.php:745
+#: server_status_monitor.php:675
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "තත්පර %dක්"
 msgstr[1] "තත්පර %dක්"
 
-#: server_status_monitor.php:748
+#: server_status_monitor.php:678
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "මිනිත්තු %dක්"
 msgstr[1] "මිනිත්තු %dක්"
+
+#: server_status_monitor.php:697
+msgid "Start Monitor"
+msgstr "අධීක්ෂණය අරඹන්න"
+
+#: server_status_monitor.php:704
+msgid "Instructions/Setup"
+msgstr "උපදෙස්/පිහිටුවීම"
+
+#: server_status_monitor.php:708
+msgid "Done rearranging/editing charts"
+msgstr "ප්‍රස්ථාර වෙනස් කර/අනුපිලිවෙල සකස්කර අවසානයි"
+
+#: server_status_monitor.php:733
+msgid "Refresh rate"
+msgstr "යාවත්කාලීන කිරීමේ ශ්‍රීඝ‍්‍රතාව"
+
+#: server_status_monitor.php:742
+msgid "Chart columns"
+msgstr "ප්‍රස්ථාරයේ තීර"
+
+#: server_status_monitor.php:758
+msgid "Chart arrangement"
+msgstr "ප්‍රස්ථාර සැකසුම"
+
+#: server_status_monitor.php:761
+msgid ""
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr ""
+"ප්‍රස්ථාර සැකැස්ම බ්‍රවුසරයේ ගබඩාවේ ගබඩා කර ඇත. සංකීර්ණ වූ සැකැස්මක් ඇත්නම් ඔබට එය අපනයනය "
+"කර ගැනීමට අවශ්‍ය විය හැකිය."
+
+#: server_status_monitor.php:775
+msgid "Reset to default"
+msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
 #: server_status_queries.php:67
 #, php-format
@@ -10976,33 +11000,33 @@ msgstr "ආකෘතික අගයන් පෙන්වන්න"
 msgid "Related links:"
 msgstr "අදාල සබැඳි:"
 
-#: server_status_variables.php:331
+#: server_status_variables.php:330
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: server_status_variables.php:335
+#: server_status_variables.php:334
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL සේවාදායකය හා සම්බන්ද වීමට ගත් අසාර්ථක උත්සාහ ගණන."
 
-#: server_status_variables.php:338
+#: server_status_variables.php:337
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
 
-#: server_status_variables.php:343
+#: server_status_variables.php:342
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 
-#: server_status_variables.php:346
+#: server_status_variables.php:345
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status_variables.php:350
+#: server_status_variables.php:349
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -11010,78 +11034,78 @@ msgid ""
 "based instead of disk-based."
 msgstr ""
 
-#: server_status_variables.php:357
+#: server_status_variables.php:356
 msgid "How many temporary files mysqld has created."
 msgstr ""
 
-#: server_status_variables.php:360
+#: server_status_variables.php:359
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
 
-#: server_status_variables.php:364
+#: server_status_variables.php:363
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
 
-#: server_status_variables.php:368
+#: server_status_variables.php:367
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
 
-#: server_status_variables.php:373
+#: server_status_variables.php:372
 msgid "The number of INSERT DELAYED rows written."
 msgstr ""
 
-#: server_status_variables.php:376
+#: server_status_variables.php:375
 msgid "The number of executed FLUSH statements."
 msgstr ""
 
-#: server_status_variables.php:379
+#: server_status_variables.php:378
 msgid "The number of internal COMMIT statements."
 msgstr ""
 
-#: server_status_variables.php:382
+#: server_status_variables.php:381
 msgid "The number of times a row was deleted from a table."
 msgstr ""
 
-#: server_status_variables.php:385
+#: server_status_variables.php:384
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 
-#: server_status_variables.php:391
+#: server_status_variables.php:390
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 
-#: server_status_variables.php:397
+#: server_status_variables.php:396
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 
-#: server_status_variables.php:402
+#: server_status_variables.php:401
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
 
-#: server_status_variables.php:407
+#: server_status_variables.php:406
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
-#: server_status_variables.php:411
+#: server_status_variables.php:410
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -11089,7 +11113,7 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 
-#: server_status_variables.php:418
+#: server_status_variables.php:417
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -11097,42 +11121,42 @@ msgid ""
 "advantage of the indexes you have."
 msgstr ""
 
-#: server_status_variables.php:425
+#: server_status_variables.php:424
 msgid "The number of internal ROLLBACK statements."
 msgstr "අභ්‍යන්තරව සිදු කෙරුණු ROLLBACK ප්‍රකාශ ගණන."
 
-#: server_status_variables.php:428
+#: server_status_variables.php:427
 msgid "The number of requests to update a row in a table."
 msgstr "වගුවක පේළියක් යාවත්කාලීන කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
-#: server_status_variables.php:431
+#: server_status_variables.php:430
 msgid "The number of requests to insert a row in a table."
 msgstr "වගුවකට පේළියක් ඇතුලු කිරීම සඳහා කෙරුණු ඉල්ලීම් ගණන."
 
-#: server_status_variables.php:434
+#: server_status_variables.php:433
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "දත්ත අඩංගු පිටු ගණන (අපවිත්‍ර හෝ පවිත්‍ර)."
 
-#: server_status_variables.php:437
+#: server_status_variables.php:436
 msgid "The number of pages currently dirty."
 msgstr "දැනට අපවිත්‍රව ඇති පිටු ගණන."
 
-#: server_status_variables.php:440
+#: server_status_variables.php:439
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 
-#: server_status_variables.php:444
+#: server_status_variables.php:443
 msgid "The number of free pages."
 msgstr "නිදහස් පිටු ගණන."
 
-#: server_status_variables.php:447
+#: server_status_variables.php:446
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
 
-#: server_status_variables.php:452
+#: server_status_variables.php:451
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -11140,33 +11164,33 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 
-#: server_status_variables.php:459
+#: server_status_variables.php:458
 msgid "Total size of buffer pool, in pages."
 msgstr ""
 
-#: server_status_variables.php:462
+#: server_status_variables.php:461
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
 
-#: server_status_variables.php:467
+#: server_status_variables.php:466
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 
-#: server_status_variables.php:471
+#: server_status_variables.php:470
 msgid "The number of logical read requests InnoDB has done."
 msgstr ""
 
-#: server_status_variables.php:474
+#: server_status_variables.php:473
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 
-#: server_status_variables.php:478
+#: server_status_variables.php:477
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -11175,243 +11199,243 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 
-#: server_status_variables.php:486
+#: server_status_variables.php:485
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr ""
 
-#: server_status_variables.php:489
+#: server_status_variables.php:488
 msgid "The number of fsync() operations so far."
 msgstr ""
 
-#: server_status_variables.php:492
+#: server_status_variables.php:491
 msgid "The current number of pending fsync() operations."
 msgstr ""
 
-#: server_status_variables.php:495
+#: server_status_variables.php:494
 msgid "The current number of pending reads."
 msgstr ""
 
-#: server_status_variables.php:498
+#: server_status_variables.php:497
 msgid "The current number of pending writes."
 msgstr ""
 
-#: server_status_variables.php:501
+#: server_status_variables.php:500
 msgid "The amount of data read so far, in bytes."
 msgstr ""
 
-#: server_status_variables.php:504
+#: server_status_variables.php:503
 msgid "The total number of data reads."
 msgstr "මුළු දත්ත කියැවුම් ගණන."
 
-#: server_status_variables.php:507
+#: server_status_variables.php:506
 msgid "The total number of data writes."
 msgstr "මුළු දත්ත ලියැවුම් ගණන."
 
-#: server_status_variables.php:510
+#: server_status_variables.php:509
 msgid "The amount of data written so far, in bytes."
 msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
-#: server_status_variables.php:513
+#: server_status_variables.php:512
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "ද්විත්ව-ලිවීම් මෙහෙයුම් සඳහා ලියැවුණු පිටු ගණන."
 
-#: server_status_variables.php:517
+#: server_status_variables.php:516
 msgid "The number of doublewrite operations that have been performed."
 msgstr "සිදු කෙරුණු ද්විත්ව-ලිවීම් මෙහෙයුම් ගණන."
 
-#: server_status_variables.php:520
+#: server_status_variables.php:519
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 "ලොග බෆරය කුඩා වීම නිසා ඉදිරියට යාමට පෙර එය හිස් කෙරෙන තුරු බලා සිටීමට සිදු වූ වාර ගණන."
 
-#: server_status_variables.php:524
+#: server_status_variables.php:523
 msgid "The number of log write requests."
 msgstr "ලොගය වෙත ලිවීමට කෙරුණු ඉල්ලීම් ගණන."
 
-#: server_status_variables.php:527
+#: server_status_variables.php:526
 msgid "The number of physical writes to the log file."
 msgstr ""
 
-#: server_status_variables.php:530
+#: server_status_variables.php:529
 msgid "The number of fsync() writes done to the log file."
 msgstr "ලොග ගොනුව වෙත සිදු කරන ලද fsync() ලිවීම් ගණන."
 
-#: server_status_variables.php:533
+#: server_status_variables.php:532
 msgid "The number of pending log file fsyncs."
 msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති fsync ගණන."
 
-#: server_status_variables.php:536
+#: server_status_variables.php:535
 msgid "Pending log file writes."
 msgstr "ඉදිරියේදී ලොග ගොනුව වෙත සිදු කිරීමට ඇති ලිවීම්."
 
-#: server_status_variables.php:539
+#: server_status_variables.php:538
 msgid "The number of bytes written to the log file."
 msgstr "ලොග ගොනුව වෙත ලියන ලද බයිට ගණන."
 
-#: server_status_variables.php:542
+#: server_status_variables.php:541
 msgid "The number of pages created."
 msgstr "සාදන ලද පිටු ගණන."
 
-#: server_status_variables.php:545
+#: server_status_variables.php:544
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
 
-#: server_status_variables.php:550
+#: server_status_variables.php:549
 msgid "The number of pages read."
 msgstr "කියවන ලද පිටු ගණන."
 
-#: server_status_variables.php:553
+#: server_status_variables.php:552
 msgid "The number of pages written."
 msgstr "ලියන ලද පිටු ගණන."
 
-#: server_status_variables.php:556
+#: server_status_variables.php:555
 msgid "The number of row locks currently being waited for."
 msgstr "නිදහස් වන තුරු බලා සිටින පේළි අගුලු ගණන."
 
-#: server_status_variables.php:559
+#: server_status_variables.php:558
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "පේළි අගුලක් අත්පත් කර ගැනීමට ගතවූ මධ්‍යන්‍ය කාලය, මිලිතත්පර වලින්."
 
-#: server_status_variables.php:562
+#: server_status_variables.php:561
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "පේළි අගුලු අත්පත් කර ගැනීමට ගතවූ මුළු කාලය, මිලිතත්පර වලින්."
 
-#: server_status_variables.php:565
+#: server_status_variables.php:564
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "පේළි අගුලක් අත්පත් කර ගැනීමට ගතවූ උපරිම කාලය, මිලිතත්පර වලින්."
 
-#: server_status_variables.php:568
+#: server_status_variables.php:567
 msgid "The number of times a row lock had to be waited for."
 msgstr "පේළි අගුලක් නිදහස් වන තුරු බලා සිටීමට සිදු වූ අවස්ථා ගණන."
 
-#: server_status_variables.php:571
+#: server_status_variables.php:570
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB වගු වලින් ඉවත් කෙරුණු පේළි ගණන."
 
-#: server_status_variables.php:574
+#: server_status_variables.php:573
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB වගු වෙත ඇතුල් කෙරුණු පේළි ගණන."
 
-#: server_status_variables.php:577
+#: server_status_variables.php:576
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB වගු වෙතින් කියැවුණු පේළි ගණන."
 
-#: server_status_variables.php:580
+#: server_status_variables.php:579
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB වගු තුල යාවත්කාලීන කෙරුණු පේළි ගණන."
 
-#: server_status_variables.php:583
+#: server_status_variables.php:582
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 
-#: server_status_variables.php:588
+#: server_status_variables.php:587
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
 
-#: server_status_variables.php:592
+#: server_status_variables.php:591
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
 
-#: server_status_variables.php:597
+#: server_status_variables.php:596
 msgid "Percentage of used key cache (calculated value)"
 msgstr "යතුරු කෑෂයේ භාවිතා කරන ලද ප්‍රතිශතය (ගණනය කරන ලද අගයකි)"
 
-#: server_status_variables.php:600
+#: server_status_variables.php:599
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
 
-#: server_status_variables.php:603
+#: server_status_variables.php:602
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
 
-#: server_status_variables.php:609
+#: server_status_variables.php:608
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:613
+#: server_status_variables.php:612
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
 
-#: server_status_variables.php:616
+#: server_status_variables.php:615
 msgid "The number of physical writes of a key block to disk."
 msgstr ""
 
-#: server_status_variables.php:619
+#: server_status_variables.php:618
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:623
+#: server_status_variables.php:622
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
 
-#: server_status_variables.php:629
+#: server_status_variables.php:628
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status_variables.php:633
+#: server_status_variables.php:632
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 
-#: server_status_variables.php:636
+#: server_status_variables.php:635
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
 
-#: server_status_variables.php:640
+#: server_status_variables.php:639
 msgid "The number of files that are open."
 msgstr ""
 
-#: server_status_variables.php:643
+#: server_status_variables.php:642
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 
-#: server_status_variables.php:646
+#: server_status_variables.php:645
 msgid "The number of tables that are open."
 msgstr ""
 
-#: server_status_variables.php:649
+#: server_status_variables.php:648
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status_variables.php:654
+#: server_status_variables.php:653
 msgid "The amount of free memory for query cache."
 msgstr ""
 
-#: server_status_variables.php:657
+#: server_status_variables.php:656
 msgid "The number of cache hits."
 msgstr ""
 
-#: server_status_variables.php:660
+#: server_status_variables.php:659
 msgid "The number of queries added to the cache."
 msgstr ""
 
-#: server_status_variables.php:663
+#: server_status_variables.php:662
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -11419,99 +11443,99 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 
-#: server_status_variables.php:670
+#: server_status_variables.php:669
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
 
-#: server_status_variables.php:674
+#: server_status_variables.php:673
 msgid "The number of queries registered in the cache."
 msgstr ""
 
-#: server_status_variables.php:677
+#: server_status_variables.php:676
 msgid "The total number of blocks in the query cache."
 msgstr ""
 
-#: server_status_variables.php:680
+#: server_status_variables.php:679
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: server_status_variables.php:683
+#: server_status_variables.php:682
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
 
-#: server_status_variables.php:687
+#: server_status_variables.php:686
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 
-#: server_status_variables.php:690
+#: server_status_variables.php:689
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
 
-#: server_status_variables.php:695
+#: server_status_variables.php:694
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
 
-#: server_status_variables.php:699
+#: server_status_variables.php:698
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 
-#: server_status_variables.php:702
+#: server_status_variables.php:701
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 
-#: server_status_variables.php:706
+#: server_status_variables.php:705
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
 
-#: server_status_variables.php:710
+#: server_status_variables.php:709
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 
-#: server_status_variables.php:713
+#: server_status_variables.php:712
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 
-#: server_status_variables.php:717
+#: server_status_variables.php:716
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 
-#: server_status_variables.php:721
+#: server_status_variables.php:720
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: server_status_variables.php:726
+#: server_status_variables.php:725
 msgid "The number of sorts that were done with ranges."
 msgstr ""
 
-#: server_status_variables.php:729
+#: server_status_variables.php:728
 msgid "The number of sorted rows."
 msgstr ""
 
-#: server_status_variables.php:732
+#: server_status_variables.php:731
 msgid "The number of sorts that were done by scanning the table."
 msgstr ""
 
-#: server_status_variables.php:735
+#: server_status_variables.php:734
 msgid "The number of times that a table lock was acquired immediately."
 msgstr ""
 
-#: server_status_variables.php:738
+#: server_status_variables.php:737
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -11519,18 +11543,18 @@ msgid ""
 "tables or use replication."
 msgstr ""
 
-#: server_status_variables.php:744
+#: server_status_variables.php:743
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
 
-#: server_status_variables.php:749
+#: server_status_variables.php:748
 msgid "The number of currently open connections."
 msgstr ""
 
-#: server_status_variables.php:752
+#: server_status_variables.php:751
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -11538,13 +11562,13 @@ msgid ""
 "implementation.)"
 msgstr ""
 
-#: server_status_variables.php:759
+#: server_status_variables.php:758
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
 msgstr "අවධානය අක්‍රීයයි."
 
-#: server_status_variables.php:762
+#: server_status_variables.php:761
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
@@ -11857,34 +11881,34 @@ msgstr "මූලයේ අක්ෂර, ඉලක්කම් [em]සහ[/em] �
 msgid "Wrong data"
 msgstr "වැරදි දත්ත"
 
-#: sql.php:317
+#: sql.php:227
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්."
 
-#: sql.php:399
+#: sql.php:309
 msgid "Bookmark not created"
 msgstr "පොත් සලකුණ නොසාදන ලදි"
 
-#: sql.php:933
+#: sql.php:843
 msgid "Showing as PHP code"
 msgstr "PHP කේත ලෙස පෙන්වමින්"
 
-#: sql.php:938
+#: sql.php:848
 msgid "Validated SQL"
 msgstr "තහවුරු කරන ලද SQL"
 
-#: sql.php:1108
+#: sql.php:1018
 msgid "SQL result"
 msgstr "SQL ප්‍රතිළුල"
 
-#: sql.php:1115
+#: sql.php:1025
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "උත්පාදනය කරන ලද්දේ"
 
-#: sql.php:1237
+#: sql.php:1147
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -11896,16 +11920,16 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: sql.php:1286
+#: sql.php:1196
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: sql.php:1318 sql.php:1338
+#: sql.php:1228 sql.php:1248
 msgid "Bookmark this SQL query"
 msgstr "මෙම SQL විමසුම පොත් සලකුණුගත කරන්න"
 
-#: sql.php:1322
+#: sql.php:1232
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -12044,27 +12068,6 @@ msgstr ""
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
 msgstr ""
-
-#: tbl_indexes.php:197
-msgid "Edit index"
-msgstr "සුචිය සංස්කරණය කරන්න"
-
-#: tbl_indexes.php:209
-msgid "Index name:"
-msgstr "සූචියේ නම:"
-
-#: tbl_indexes.php:214
-msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" නාමය ප්‍රාථමික මූලය සඳහා <b>පමණක්</b> භාවිතා කල <b>යුතුය</b>!)"
-
-#: tbl_indexes.php:234
-msgid "Comment:"
-msgstr "ටීකාව:"
-
-#: tbl_indexes.php:249
-msgid "Index type:"
-msgstr "සූචි වර්ගය:"
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"

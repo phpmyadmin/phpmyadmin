@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-03 15:57+0200\n"
+"POT-Creation-Date: 2013-05-07 15:39+0200\n"
 "PO-Revision-Date: 2013-01-09 16:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -52,12 +52,13 @@ msgstr "Hľadať"
 #: libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:453 libraries/display_import.lib.php:335
-#: libraries/index.lib.php:37 libraries/insert_edit.lib.php:1547
-#: libraries/insert_edit.lib.php:1582 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:636
-#: libraries/operations.lib.php:689 libraries/operations.lib.php:738
-#: libraries/operations.lib.php:1055 libraries/operations.lib.php:1339
+#: libraries/display_indexes.lib.php:202 libraries/index.lib.php:37
+#: libraries/insert_edit.lib.php:1547 libraries/insert_edit.lib.php:1582
+#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:210 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:636 libraries/operations.lib.php:689
+#: libraries/operations.lib.php:738 libraries/operations.lib.php:1055
+#: libraries/operations.lib.php:1339
 #: libraries/plugins/auth/AuthenticationCookie.class.php:244
 #: libraries/replication_gui.lib.php:79 libraries/replication_gui.lib.php:396
 #: libraries/rte/rte_events.lib.php:542
@@ -76,10 +77,10 @@ msgstr "Hľadať"
 #: libraries/sql_query_form.lib.php:378 libraries/sql_query_form.lib.php:435
 #: libraries/sql_query_form.lib.php:498 libraries/structure.lib.php:1582
 #: libraries/tbl_columns_definition_form.inc.php:754 pmd_pdf.php:151
-#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:115
+#: prefs_manage.php:266 prefs_manage.php:316 server_binlog.php:116
 #: server_replication.php:224 server_replication.php:327 tbl_chart.php:251
-#: tbl_indexes.php:352 tbl_tracking.php:521 tbl_tracking.php:684
-#: view_create.php:224 view_operations.php:98
+#: tbl_tracking.php:521 tbl_tracking.php:684 view_create.php:224
+#: view_operations.php:98
 msgid "Go"
 msgstr "Vykonaj"
 
@@ -126,7 +127,7 @@ msgstr "Komentár k tabuľke"
 
 #: db_datadict.php:166 libraries/Index.class.php:565
 #: libraries/TableSearch.class.php:183 libraries/TableSearch.class.php:1189
-#: libraries/insert_edit.lib.php:1566
+#: libraries/display_indexes.lib.php:117 libraries/insert_edit.lib.php:1566
 #: libraries/plugins/export/ExportHtmlword.class.php:276
 #: libraries/plugins/export/ExportHtmlword.class.php:391
 #: libraries/plugins/export/ExportLatex.class.php:508
@@ -137,9 +138,8 @@ msgstr "Komentár k tabuľke"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
-#: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:324
-#: tbl_tracking.php:386
+#: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
+#: tbl_relation.php:378 tbl_tracking.php:324 tbl_tracking.php:386
 msgid "Column"
 msgstr "Stĺpec"
 
@@ -237,8 +237,8 @@ msgstr "Komentáre"
 #: libraries/server_privileges.lib.php:2163
 #: libraries/server_privileges.lib.php:2482
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
-#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:430
-#: sql.php:525 sql.php:526 tbl_printview.php:186 tbl_tracking.php:345
+#: libraries/user_preferences.lib.php:282 prefs_manage.php:132 sql.php:340
+#: sql.php:435 sql.php:436 tbl_printview.php:186 tbl_tracking.php:345
 #: tbl_tracking.php:399 tbl_tracking.php:404
 msgid "No"
 msgstr "Nie"
@@ -265,7 +265,7 @@ msgstr "Nie"
 #: libraries/server_privileges.lib.php:2479
 #: libraries/server_privileges.lib.php:2496 libraries/structure.lib.php:1268
 #: libraries/user_preferences.lib.php:280 prefs_manage.php:131
-#: server_databases.php:103 server_databases.php:110 sql.php:523 sql.php:524
+#: server_databases.php:103 server_databases.php:110 sql.php:433 sql.php:434
 #: tbl_printview.php:187 tbl_structure.php:84 tbl_tracking.php:345
 #: tbl_tracking.php:397 tbl_tracking.php:402
 msgid "Yes"
@@ -275,7 +275,7 @@ msgstr "Áno"
 msgid "View dump (schema) of database"
 msgstr "Zobraziť dump (schému) databázy"
 
-#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:553
+#: db_export.php:33 db_printview.php:92 db_tracking.php:49 export.php:554
 #: libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
@@ -330,7 +330,8 @@ msgstr "Tabuľka"
 msgid "Rows"
 msgstr "Riadkov"
 
-#: db_printview.php:104 libraries/structure.lib.php:787 tbl_indexes.php:264
+#: db_printview.php:104 libraries/display_indexes.lib.php:118
+#: libraries/structure.lib.php:787
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -401,7 +402,7 @@ msgstr "Sledované tabuľky"
 #: libraries/server_privileges.lib.php:1989
 #: libraries/server_privileges.lib.php:2230
 #: libraries/server_privileges.lib.php:2872 server_databases.php:202
-#: server_status.php:368 tbl_tracking.php:762
+#: server_status.php:383 tbl_tracking.php:762
 msgid "Database"
 msgstr "Databáza"
 
@@ -419,7 +420,7 @@ msgstr "Aktualizované"
 
 #: db_tracking.php:83 js/messages.php:163 libraries/Menu.class.php:458
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
-#: server_status.php:380 sql.php:1184 tbl_tracking.php:767
+#: server_status.php:395 sql.php:1094 tbl_tracking.php:767
 msgid "Status"
 msgstr "Stav"
 
@@ -480,24 +481,24 @@ msgstr "Sledovať tabuľku"
 msgid "Database Log"
 msgstr "Databázový log"
 
-#: export.php:147
+#: export.php:148
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
-#: export.php:198
+#: export.php:199
 msgid "Selected export type has to be saved in file!"
 msgstr "Vybraný typ exportu musí byť uložený do súboru!"
 
-#: export.php:227
+#: export.php:228
 msgid "Bad parameters!"
 msgstr "Chybné parametre!"
 
-#: export.php:331 export.php:362 export.php:922
+#: export.php:332 export.php:363 export.php:923
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Nedostatok miesta pre uloženie súboru %s."
 
-#: export.php:502
+#: export.php:503
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -505,12 +506,12 @@ msgstr ""
 "Súbor %s už existuje na servery, zmente názov súboru alebo zvolte prepísanie "
 "súboru."
 
-#: export.php:508 export.php:514
+#: export.php:509 export.php:515
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web server nemá oprávenia na uloženie do súboru %s."
 
-#: export.php:928
+#: export.php:929
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
@@ -672,7 +673,7 @@ msgstr ""
 "Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
 "inštaláciu!"
 
-#: import.php:518 sql.php:395 sql.php:1246
+#: import.php:518 sql.php:305 sql.php:1156
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Príkaz %s bol zaradený medzi obľúbené"
@@ -919,7 +920,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:27 libraries/import.lib.php:118 sql.php:355
+#: js/messages.php:27 libraries/import.lib.php:118 sql.php:265
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
@@ -928,7 +929,7 @@ msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Skutočne chcete vykonať príkaz \"%s\"?"
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:477
+#: js/messages.php:31 libraries/mult_submits.inc.php:316 sql.php:387
 msgid "You are about to DESTROY a complete database!"
 msgstr "Chystáte sa ZMAZAŤ celú databázu!"
 
@@ -969,7 +970,8 @@ msgstr "Pridať index"
 msgid "Edit Index"
 msgstr "Upraviť index"
 
-#: js/messages.php:44 tbl_indexes.php:349 tbl_indexes.php:357
+#: js/messages.php:44 libraries/display_indexes.lib.php:199
+#: libraries/display_indexes.lib.php:205
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Pridať %s polí do indexu"
@@ -1124,11 +1126,11 @@ msgstr "Odoslaných bajtov"
 msgid "Bytes received"
 msgstr "Prijatých bajtov"
 
-#: js/messages.php:95 server_status.php:243
+#: js/messages.php:95 server_status.php:258
 msgid "Connections"
 msgstr "Spojenia"
 
-#: js/messages.php:96 server_status.php:424
+#: js/messages.php:96 server_status.php:439
 msgid "Processes"
 msgstr "Procesy"
 
@@ -1139,13 +1141,13 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:100 libraries/Util.class.php:1461
-#: server_status_monitor.php:648
+#: server_status_monitor.php:578
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:101 libraries/Util.class.php:1463
-#: server_status_monitor.php:649
+#: server_status_monitor.php:579
 msgid "MiB"
 msgstr "MiB"
 
@@ -1179,12 +1181,12 @@ msgstr "%d tabuliek"
 msgid "Questions"
 msgstr "Dopyty"
 
-#: js/messages.php:110 server_status.php:156
+#: js/messages.php:110 server_status.php:171
 msgid "Traffic"
 msgstr "Vyťaženie"
 
 #: js/messages.php:111 libraries/Menu.class.php:486
-#: server_status_monitor.php:475
+#: server_status_monitor.php:700
 msgid "Settings"
 msgstr "Nastavenia"
 
@@ -1210,7 +1212,7 @@ msgstr "Pridajte prosím aspoň jednu hodnotu do série"
 #: libraries/plugins/export/ExportSql.class.php:1545
 #: libraries/server_privileges.lib.php:2132
 #: libraries/tbl_columns_definition_form.inc.php:687 pmd_general.php:559
-#: server_status.php:512 server_status_monitor.php:667
+#: server_status.php:527 server_status_monitor.php:597
 msgid "None"
 msgstr "Žiadny"
 
@@ -1310,7 +1312,7 @@ msgstr "Zmeniť nastavenia"
 msgid "Current settings"
 msgstr "Aktuálne nastavenia"
 
-#: js/messages.php:142 server_status_monitor.php:608
+#: js/messages.php:142 server_status_monitor.php:538
 msgid "Chart Title"
 msgstr "Názov grafu"
 
@@ -1399,7 +1401,7 @@ msgstr "Vysvetliť výstup"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:562
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:68 server_status.php:376 sql.php:1189
+#: libraries/rte/rte_list.lib.php:68 server_status.php:391 sql.php:1099
 msgid "Time"
 msgstr "Čas"
 
@@ -1496,7 +1498,7 @@ msgstr ""
 #: js/messages.php:190 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:375 libraries/Menu.class.php:482
 #: libraries/config/messages.inc.php:168 libraries/display_import.lib.php:187
-#: prefs_manage.php:232 server_status_monitor.php:530
+#: prefs_manage.php:232 server_status_monitor.php:767
 #: setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Import"
@@ -1553,7 +1555,7 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: js/messages.php:213 libraries/navigation/NavigationHeader.class.php:54
-#: server_status_monitor.php:568
+#: server_status_monitor.php:498
 msgid "Loading"
 msgstr "Načítanie"
 
@@ -1732,11 +1734,11 @@ msgid "%d is not valid row number."
 msgstr "%d nie je platné číslo riadku."
 
 #: js/messages.php:271 libraries/config/FormDisplay.tpl.php:392
-#: libraries/insert_edit.lib.php:1460
+#: libraries/display_indexes.lib.php:195 libraries/insert_edit.lib.php:1460
 #: libraries/schema/User_Schema.class.php:383
 #: libraries/tbl_columns_definition_form.inc.php:898 server_variables.php:132
 #: setup/frames/config.inc.php:39 setup/frames/index.inc.php:246
-#: tbl_indexes.php:344 tbl_relation.php:563
+#: tbl_relation.php:563
 msgid "Save"
 msgstr "Uložiť"
 
@@ -1792,8 +1794,8 @@ msgstr "Výsledky dopytu"
 msgid "Data point content"
 msgstr "Obsah datového bodu"
 
-#: js/messages.php:298 tbl_change.php:269 tbl_indexes.php:279
-#: tbl_indexes.php:317
+#: js/messages.php:298 libraries/display_indexes.lib.php:134
+#: libraries/display_indexes.lib.php:170 tbl_change.php:269
 msgid "Ignore"
 msgstr "Ignorovať"
 
@@ -2286,7 +2288,7 @@ msgstr "za sekundu"
 msgid "per minute"
 msgstr "za minútu"
 
-#: libraries/Advisor.class.php:473 server_status.php:164 server_status.php:244
+#: libraries/Advisor.class.php:473 server_status.php:179 server_status.php:259
 #: server_status_queries.php:123
 msgid "per hour"
 msgstr "za hodinu"
@@ -2315,7 +2317,7 @@ msgstr "Veľkosť písma"
 #: libraries/DisplayResults.class.php:2015 libraries/TableSearch.class.php:811
 #: libraries/operations.lib.php:630 libraries/structure.lib.php:860
 #: libraries/structure.lib.php:877 server_databases.php:203
-#: server_databases.php:220 server_status.php:461
+#: server_databases.php:220 server_status.php:476
 msgid "Ascending"
 msgstr "Vzostupne"
 
@@ -2324,7 +2326,7 @@ msgstr "Vzostupne"
 #: libraries/DisplayResults.class.php:2020 libraries/TableSearch.class.php:812
 #: libraries/operations.lib.php:631 libraries/structure.lib.php:865
 #: libraries/structure.lib.php:882 server_databases.php:203
-#: server_databases.php:220 server_status.php:458
+#: server_databases.php:220 server_status.php:473
 msgid "Descending"
 msgstr "Zostupne"
 
@@ -2507,13 +2509,13 @@ msgid "Begin"
 msgstr "Začiatok"
 
 #: libraries/DisplayResults.class.php:778 libraries/Util.class.php:2558
-#: libraries/Util.class.php:2561 server_binlog.php:141 server_binlog.php:143
+#: libraries/Util.class.php:2561 server_binlog.php:142 server_binlog.php:144
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Predchádzajúci"
 
 #: libraries/DisplayResults.class.php:835 libraries/Util.class.php:2593
-#: libraries/Util.class.php:2596 server_binlog.php:174 server_binlog.php:176
+#: libraries/Util.class.php:2596 server_binlog.php:175 server_binlog.php:177
 msgctxt "Next page"
 msgid "Next"
 msgstr "Ďalší"
@@ -2638,7 +2640,7 @@ msgid "The row has been deleted"
 msgstr "Riadok bol zmazaný"
 
 #: libraries/DisplayResults.class.php:3409
-#: libraries/DisplayResults.class.php:5023 server_status.php:508
+#: libraries/DisplayResults.class.php:5023 server_status.php:523
 msgid "Kill"
 msgstr "Zabiť"
 
@@ -2666,7 +2668,7 @@ msgstr "Zobrazené riadky"
 msgid "total"
 msgstr "celkovo"
 
-#: libraries/DisplayResults.class.php:4946 sql.php:946
+#: libraries/DisplayResults.class.php:4946 sql.php:856
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "Dopyt zabral %01.4f s"
@@ -2700,7 +2702,7 @@ msgstr "Označiť všetko"
 #: libraries/config/messages.inc.php:162 libraries/display_export.lib.php:98
 #: libraries/server_privileges.lib.php:1791
 #: libraries/server_privileges.lib.php:2427 libraries/structure.lib.php:297
-#: prefs_manage.php:289 server_status_monitor.php:534
+#: prefs_manage.php:289 server_status_monitor.php:771
 #: setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Exportovať"
@@ -2977,7 +2979,7 @@ msgid "Users"
 msgstr "Používatelia"
 
 #: libraries/Menu.class.php:495 libraries/ServerStatusData.class.php:187
-#: server_binlog.php:74
+#: server_binlog.php:75
 msgid "Binary log"
 msgstr "Binárny log"
 
@@ -3051,7 +3053,7 @@ msgstr "Nedávne tabuľky"
 msgid "There are no recent tables"
 msgstr "Neboli nájdené žiadne nedávne tabuľky"
 
-#: libraries/ServerStatusData.class.php:181 server_status.php:384
+#: libraries/ServerStatusData.class.php:181 server_status.php:399
 msgid "SQL query"
 msgstr "SQL dopyt"
 
@@ -3099,7 +3101,7 @@ msgstr "Tabuľky"
 msgid "Transaction coordinator"
 msgstr "Koordinátor transakcií"
 
-#: libraries/ServerStatusData.class.php:196 server_binlog.php:107
+#: libraries/ServerStatusData.class.php:196 server_binlog.php:108
 msgid "Files"
 msgstr "Súbory"
 
@@ -3260,8 +3262,8 @@ msgstr "Upraviť/Vložiť"
 msgid "Select columns (at least one):"
 msgstr "Zvoliť stĺpec (najmenej jeden):"
 
-#: libraries/TableSearch.class.php:779 libraries/insert_edit.lib.php:1184
-#: libraries/server_privileges.lib.php:323 tbl_indexes.php:347
+#: libraries/TableSearch.class.php:779 libraries/display_indexes.lib.php:197
+#: libraries/insert_edit.lib.php:1184 libraries/server_privileges.lib.php:323
 msgid "Or"
 msgstr "Alebo"
 
@@ -3286,7 +3288,7 @@ msgid "Maximum rows to plot"
 msgstr "Maximálny počet zobrazených riadkov"
 
 #: libraries/TableSearch.class.php:887 libraries/TableSearch.class.php:1159
-#: sql.php:172 tbl_change.php:236
+#: libraries/sql.lib.php:418 tbl_change.php:236
 msgid "Browse foreign values"
 msgstr "Prejsť hodnoty cudzích kľúčov"
 
@@ -3632,7 +3634,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Maximálna veľkosť: %s%s"
 
-#: libraries/Util.class.php:674 sql.php:1116
+#: libraries/Util.class.php:674 sql.php:1026
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3693,7 +3695,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Upraviť tu"
 
-#: libraries/Util.class.php:1432 sql.php:1180
+#: libraries/Util.class.php:1432 sql.php:1090
 msgid "Profiling"
 msgstr "Profilovanie"
 
@@ -3797,7 +3799,7 @@ msgstr "Dáta"
 
 #: libraries/build_html_for_db.lib.php:46 libraries/engines/innodb.lib.php:171
 #: libraries/structure.lib.php:2182 server_databases.php:272
-#: server_status.php:207 server_status.php:308 tbl_printview.php:331
+#: server_status.php:222 server_status.php:323 tbl_printview.php:331
 msgid "Total"
 msgstr "Celkom"
 
@@ -5607,7 +5609,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:389
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
-"storage; leave blank to use the already defined port"
+"storage; leave blank to use the default port, or the already defined port, "
+"if the controlhost equals host"
 msgstr ""
 
 #: libraries/config/messages.inc.php:390
@@ -6577,7 +6580,7 @@ msgstr "Databáza(y):"
 msgid "Table(s):"
 msgstr "Tabuľka(y):"
 
-#: libraries/display_export.lib.php:164 sql.php:1120
+#: libraries/display_export.lib.php:164 sql.php:1030
 msgid "Rows:"
 msgstr "Riadky:"
 
@@ -6824,6 +6827,34 @@ msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť:"
 #: libraries/display_import.lib.php:318
 msgid "Format-Specific Options:"
 msgstr "Formát - špecifické voľby:"
+
+#: libraries/display_indexes.lib.php:50 libraries/structure.lib.php:2004
+#: libraries/structure.lib.php:2007
+msgid "Add index"
+msgstr "Pridať index"
+
+#: libraries/display_indexes.lib.php:52
+msgid "Edit index"
+msgstr "Upraviť index"
+
+#: libraries/display_indexes.lib.php:63
+msgid "Index name:"
+msgstr "Meno indexu&nbsp;:"
+
+#: libraries/display_indexes.lib.php:67
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr "(\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)"
+
+#: libraries/display_indexes.lib.php:85
+#, fuzzy
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "Komentár"
+
+#: libraries/display_indexes.lib.php:99
+msgid "Index type:"
+msgstr "Typ indexu&nbsp;:"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:75
@@ -7157,7 +7188,7 @@ msgid "No data found for GIS visualization."
 msgstr "Neboli nájdené žiadne dáta pre GIS vizualizáciu."
 
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
-#: libraries/rte/rte_routines.lib.php:1443 sql.php:941 tbl_get_field.php:55
+#: libraries/rte/rte_routines.lib.php:1443 sql.php:851 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
@@ -7277,11 +7308,11 @@ msgstr ""
 "Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými "
 "smermi klávesy CTRL+šípky"
 
-#: libraries/insert_edit.lib.php:1912 sql.php:936
+#: libraries/insert_edit.lib.php:1912 sql.php:846
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1937 sql.php:916
+#: libraries/insert_edit.lib.php:1937 sql.php:826
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -7325,7 +7356,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "Pridať prefix"
 
-#: libraries/mult_submits.inc.php:318 sql.php:517
+#: libraries/mult_submits.inc.php:318 sql.php:427
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -8085,7 +8116,7 @@ msgstr "Pridať názvy polí na prvý riadok"
 #: libraries/plugins/export/ExportSql.class.php:601
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:68 libraries/replication_gui.lib.php:293
-#: libraries/server_privileges.lib.php:1081 sql.php:1110
+#: libraries/server_privileges.lib.php:1081 sql.php:1020
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8093,7 +8124,7 @@ msgstr "Hostiteľ"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:608
-#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1113
+#: libraries/plugins/export/ExportXml.class.php:196 sql.php:1023
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8110,7 +8141,7 @@ msgstr "Verzia PHP"
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:760
 #: libraries/plugins/export/ExportXml.class.php:390
-#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1111
+#: libraries/plugins/export/PMA_ExportPdf.class.php:115 sql.php:1021
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -8685,7 +8716,7 @@ msgstr "Stav podriadených hostov"
 msgid "Variable"
 msgstr "Premenná"
 
-#: libraries/replication_gui.lib.php:194 server_binlog.php:187
+#: libraries/replication_gui.lib.php:194 server_binlog.php:188
 msgid "Server ID"
 msgstr "ID servra"
 
@@ -8694,7 +8725,7 @@ msgstr "ID servra"
 #: libraries/server_privileges.lib.php:1086
 #: libraries/server_privileges.lib.php:1182
 #: libraries/server_privileges.lib.php:1572
-#: libraries/server_privileges.lib.php:2396 server_status.php:364
+#: libraries/server_privileges.lib.php:2396 server_status.php:379
 msgid "Host"
 msgstr "Hostiteľ"
 
@@ -8820,7 +8851,7 @@ msgstr "Podrobnosti"
 msgid "Event name"
 msgstr "Meno udalosti"
 
-#: libraries/rte/rte_events.lib.php:441 server_binlog.php:186
+#: libraries/rte/rte_events.lib.php:441 server_binlog.php:187
 msgid "Event type"
 msgstr "Typ udalosti"
 
@@ -9621,7 +9652,7 @@ msgstr "Používatelia majúci prístup k &quot;%s&quot;"
 #: libraries/server_privileges.lib.php:1571
 #: libraries/server_privileges.lib.php:2395
 #: libraries/server_privileges.lib.php:2813
-#: libraries/server_privileges.lib.php:2861 server_status.php:360
+#: libraries/server_privileges.lib.php:2861 server_status.php:375
 msgid "User"
 msgstr "Používateľ"
 
@@ -9811,7 +9842,7 @@ msgstr "Vyčistiť"
 msgid "Bookmark this SQL query:"
 msgstr "Pridať tento SQL dopyt do obľúbených"
 
-#: libraries/sql_query_form.lib.php:326 sql.php:1330
+#: libraries/sql_query_form.lib.php:326 sql.php:1240
 msgid "Let every user access this bookmark"
 msgstr "Dovoliť používať túto položku všetkým používateľom"
 
@@ -10079,11 +10110,6 @@ msgstr "Prechádzať iné hodnoty"
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2004 libraries/structure.lib.php:2007
-#: tbl_indexes.php:195
-msgid "Add index"
-msgstr "Pridať index"
-
 #: libraries/structure.lib.php:2010 libraries/structure.lib.php:2013
 msgid "Add unique index"
 msgstr "Pridať unikátny index"
@@ -10096,7 +10122,7 @@ msgstr "Pridať SPATIAL index"
 msgid "Add FULLTEXT index"
 msgstr "Pridať fulltextový index"
 
-#: libraries/structure.lib.php:2151 server_binlog.php:189
+#: libraries/structure.lib.php:2151 server_binlog.php:190
 msgid "Information"
 msgstr "Informácia"
 
@@ -10544,27 +10570,27 @@ msgstr "Tabuľka <b>%s</b> nebola nájdená alebo nie je nastavená v %s"
 msgid "File doesn't exist"
 msgstr "Súbor neexistuje"
 
-#: server_binlog.php:84
+#: server_binlog.php:85
 msgid "Select binary log to view"
 msgstr "Vyberte binárny log na zobrazenie"
 
-#: server_binlog.php:154 server_status.php:472
+#: server_binlog.php:155 server_status.php:487
 msgid "Truncate Shown Queries"
 msgstr "Zobraziť skrátene dopyty"
 
-#: server_binlog.php:158 server_status.php:477
+#: server_binlog.php:159 server_status.php:492
 msgid "Show Full Queries"
 msgstr "Zobraziť kompletné dopyty"
 
-#: server_binlog.php:184
+#: server_binlog.php:185
 msgid "Log name"
 msgstr "Názov logu"
 
-#: server_binlog.php:185
+#: server_binlog.php:186
 msgid "Position"
 msgstr "Pozícia"
 
-#: server_binlog.php:188
+#: server_binlog.php:189
 msgid "Original position"
 msgstr "Pôvodná pozícia"
 
@@ -10837,17 +10863,17 @@ msgid ""
 msgstr ""
 "Neporadilo za ukončiť vlákno %s. Jeho beh bol pravdepodobne už ukončený."
 
-#: server_status.php:70
+#: server_status.php:94
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:83
+#: server_status.php:107
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Tento MySQL server beží %1$s. Bol spustený %2$s."
 
-#: server_status.php:93
+#: server_status.php:117
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -10855,18 +10881,18 @@ msgstr ""
 "Tento server je nakonfigurovaný ako <b>master</b> a <b>slave</b> v "
 "<b>replikačnom</b> procese."
 
-#: server_status.php:98
+#: server_status.php:122
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Tento MYSQL server je nakonfigurovaný ako <b>master</b> v <b>replikačnom</b> "
 "procese."
 
-#: server_status.php:103
+#: server_status.php:127
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Tento MYSQL server pracuje ako <b>slave</b> v <b>replikačnom</b> procese."
 
-#: server_status.php:109
+#: server_status.php:133
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -10874,11 +10900,11 @@ msgstr ""
 "Pre viac informácií o stave replikácie na tomto serveri navštívte prosím <a "
 "href=\"#replication\">sekciu replikácie</a>."
 
-#: server_status.php:122
+#: server_status.php:146
 msgid "Replication status"
 msgstr "Stav replikácie"
 
-#: server_status.php:159
+#: server_status.php:174
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -10886,31 +10912,31 @@ msgstr ""
 "Na vyťaženom serveri môže dôjsť k pretečeniu počítadiel, takže štatistiky "
 "servera môžu byť nepresné."
 
-#: server_status.php:169
+#: server_status.php:184
 msgid "Received"
 msgstr "Prijaté"
 
-#: server_status.php:188
+#: server_status.php:203
 msgid "Sent"
 msgstr "Odoslané"
 
-#: server_status.php:250
+#: server_status.php:265
 msgid "max. concurrent connections"
 msgstr "max. súčasných pripojení"
 
-#: server_status.php:260
+#: server_status.php:275
 msgid "Failed attempts"
 msgstr "Nepodarených pokusov"
 
-#: server_status.php:284
+#: server_status.php:299
 msgid "Aborted"
 msgstr "Prerušené"
 
-#: server_status.php:356
+#: server_status.php:371
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:372
+#: server_status.php:387
 msgid "Command"
 msgstr "Príkaz"
 
@@ -10945,49 +10971,11 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 
-#: server_status_monitor.php:472
-msgid "Start Monitor"
-msgstr "Spustiť monitor"
-
-#: server_status_monitor.php:479
-msgid "Instructions/Setup"
-msgstr "Pokyny/Nastavenie"
-
-#: server_status_monitor.php:483
-msgid "Done rearranging/editing charts"
-msgstr ""
-
-#: server_status_monitor.php:489 server_status_monitor.php:606
-msgid "Add chart"
-msgstr "Pridať graf"
-
-#: server_status_monitor.php:496
-msgid "Refresh rate"
-msgstr "Obnovovacia frekvencia"
-
-#: server_status_monitor.php:505
-msgid "Chart columns"
-msgstr "Stĺpce grafu"
-
-#: server_status_monitor.php:521
-msgid "Chart arrangement"
-msgstr ""
-
-#: server_status_monitor.php:524
-msgid ""
-"The arrangement of the charts is stored to the browsers local storage. You "
-"may want to export it if you have a complicated set up."
-msgstr ""
-
-#: server_status_monitor.php:538
-msgid "Reset to default"
-msgstr "Obnoviť predvolené"
-
-#: server_status_monitor.php:544
+#: server_status_monitor.php:474
 msgid "Monitor Instructions"
 msgstr "Monitor inštrukcie"
 
-#: server_status_monitor.php:546
+#: server_status_monitor.php:476
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10996,7 +10984,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status_monitor.php:558
+#: server_status_monitor.php:488
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -11004,18 +10992,18 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status_monitor.php:573
+#: server_status_monitor.php:503
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status_monitor.php:576
+#: server_status_monitor.php:506
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status_monitor.php:582
+#: server_status_monitor.php:512
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11023,11 +11011,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status_monitor.php:592
+#: server_status_monitor.php:522
 msgid "Please note:"
 msgstr ""
 
-#: server_status_monitor.php:595
+#: server_status_monitor.php:525
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11035,79 +11023,83 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status_monitor.php:610
+#: server_status_monitor.php:536 server_status_monitor.php:726
+msgid "Add chart"
+msgstr "Pridať graf"
+
+#: server_status_monitor.php:540
 msgid "Preset chart"
 msgstr ""
 
-#: server_status_monitor.php:614
+#: server_status_monitor.php:544
 msgid "Status variable(s)"
 msgstr ""
 
-#: server_status_monitor.php:617
+#: server_status_monitor.php:547
 msgid "Select series:"
 msgstr "Vybrať série:"
 
-#: server_status_monitor.php:619
+#: server_status_monitor.php:549
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status_monitor.php:635
+#: server_status_monitor.php:565
 msgid "or type variable name:"
 msgstr "alebo zadajte meno premennej:"
 
-#: server_status_monitor.php:642
+#: server_status_monitor.php:572
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status_monitor.php:645
+#: server_status_monitor.php:575
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status_monitor.php:653
+#: server_status_monitor.php:583
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status_monitor.php:659
+#: server_status_monitor.php:589
 msgid "Add this series"
 msgstr "Pridať túto sériu"
 
-#: server_status_monitor.php:661
+#: server_status_monitor.php:591
 msgid "Clear series"
 msgstr ""
 
-#: server_status_monitor.php:664
+#: server_status_monitor.php:594
 msgid "Series in Chart:"
 msgstr "Série v grafe:"
 
-#: server_status_monitor.php:675
+#: server_status_monitor.php:605
 msgid "Log statistics"
 msgstr ""
 
-#: server_status_monitor.php:676
+#: server_status_monitor.php:606
 msgid "Selected time range:"
 msgstr "Zvolený časový rozsah:"
 
-#: server_status_monitor.php:682
+#: server_status_monitor.php:612
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status_monitor.php:687
+#: server_status_monitor.php:617
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status_monitor.php:690
+#: server_status_monitor.php:620
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status_monitor.php:693
+#: server_status_monitor.php:623
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status_monitor.php:697
+#: server_status_monitor.php:627
 msgid "Query analyzer"
 msgstr "Analyzátor dopytov"
 
-#: server_status_monitor.php:745
+#: server_status_monitor.php:675
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
@@ -11115,13 +11107,47 @@ msgstr[0] "%d sekunda"
 msgstr[1] "%d sekundy"
 msgstr[2] "%d sekúnd"
 
-#: server_status_monitor.php:748
+#: server_status_monitor.php:678
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minúta"
 msgstr[1] "%d minúty"
 msgstr[2] "%d minút"
+
+#: server_status_monitor.php:697
+msgid "Start Monitor"
+msgstr "Spustiť monitor"
+
+#: server_status_monitor.php:704
+msgid "Instructions/Setup"
+msgstr "Pokyny/Nastavenie"
+
+#: server_status_monitor.php:708
+msgid "Done rearranging/editing charts"
+msgstr ""
+
+#: server_status_monitor.php:733
+msgid "Refresh rate"
+msgstr "Obnovovacia frekvencia"
+
+#: server_status_monitor.php:742
+msgid "Chart columns"
+msgstr "Stĺpce grafu"
+
+#: server_status_monitor.php:758
+msgid "Chart arrangement"
+msgstr ""
+
+#: server_status_monitor.php:761
+msgid ""
+"The arrangement of the charts is stored to the browsers local storage. You "
+"may want to export it if you have a complicated set up."
+msgstr ""
+
+#: server_status_monitor.php:775
+msgid "Reset to default"
+msgstr "Obnoviť predvolené"
 
 #: server_status_queries.php:67
 #, php-format
@@ -11179,17 +11205,17 @@ msgstr "Zobraziť neformátované hodnoty"
 msgid "Related links:"
 msgstr "Súvisiace odkazy:"
 
-#: server_status_variables.php:331
+#: server_status_variables.php:330
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: server_status_variables.php:335
+#: server_status_variables.php:334
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Počet neúspešných pokusov o pripojenie k MySQL serveru."
 
-#: server_status_variables.php:338
+#: server_status_variables.php:337
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -11199,16 +11225,16 @@ msgstr ""
 "ale zároveň prekročili hodnotu binlog_cache_size a museli tak použiť dočasný "
 "súbor na uloženie príkazov transakcie."
 
-#: server_status_variables.php:343
+#: server_status_variables.php:342
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Počet transakcií, ktoré využili vyrovnávaciu pamäť binárneho logu."
 
-#: server_status_variables.php:346
+#: server_status_variables.php:345
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status_variables.php:350
+#: server_status_variables.php:349
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -11220,11 +11246,11 @@ msgstr ""
 "hodnotu tmp_table_size  aby boli dočasné tabuľky ukladané do pamäte a nie na "
 "disk."
 
-#: server_status_variables.php:357
+#: server_status_variables.php:356
 msgid "How many temporary files mysqld has created."
 msgstr "Počet dočasných súborov vytvorených servrom mysqld."
 
-#: server_status_variables.php:360
+#: server_status_variables.php:359
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -11232,7 +11258,7 @@ msgstr ""
 "Počet dočasných, v pamäti uložených tabuliek, vytvorených servrom pri "
 "vykonávaní príkazov."
 
-#: server_status_variables.php:364
+#: server_status_variables.php:363
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -11240,7 +11266,7 @@ msgstr ""
 "Počet riadkov pridaných príkazom INSERT DELAYED, pri ktorých sa vyskytla "
 "chyba (pravdepodobne opakujúci sa kľúč)."
 
-#: server_status_variables.php:368
+#: server_status_variables.php:367
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -11248,23 +11274,23 @@ msgstr ""
 "Počet vlákien používaných príkazmi INSERT DELAYED. Každá samostatná tabuľka, "
 "na ktorú je použitý príkaz INSERT DELAYED, ma svoje vlastné vlákno."
 
-#: server_status_variables.php:373
+#: server_status_variables.php:372
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Počet riadkov vložených príkazom INSERT DELAYED."
 
-#: server_status_variables.php:376
+#: server_status_variables.php:375
 msgid "The number of executed FLUSH statements."
 msgstr "Počet vykonaných príkazov FLUSH."
 
-#: server_status_variables.php:379
+#: server_status_variables.php:378
 msgid "The number of internal COMMIT statements."
 msgstr "Počet interných príkazov COMMIT."
 
-#: server_status_variables.php:382
+#: server_status_variables.php:381
 msgid "The number of times a row was deleted from a table."
 msgstr "Koľkokrát bol z tabuľky odstránený riadok."
 
-#: server_status_variables.php:385
+#: server_status_variables.php:384
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -11274,7 +11300,7 @@ msgstr ""
 "tabuľky s daným menom. Tento proces sa nazýva objavovanie. Handler_discover "
 "zobrazuje počet doposiaľ objavených tabuliek."
 
-#: server_status_variables.php:391
+#: server_status_variables.php:390
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -11284,7 +11310,7 @@ msgstr ""
 "znamená to že server vykonáva príliš veľa kompletných prechádzaní indexov; "
 "napríklad, SELECT col1 FROM foo, za predpokladu že col1 je indexovaný."
 
-#: server_status_variables.php:397
+#: server_status_variables.php:396
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -11292,7 +11318,7 @@ msgstr ""
 "Počet požiadavkov na načítanie riadku podľa kľúča. Ak je táto hodnota "
 "vysoká, je to dobrým znamením že sú príkazy a tabuľky správne indexované."
 
-#: server_status_variables.php:402
+#: server_status_variables.php:401
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -11302,7 +11328,7 @@ msgstr ""
 "Táto hodnota sa zvyšuje ak sa načítava indexovaný stĺpec v danom rozsahu "
 "alebo ak sa vykonáva prehľadávanie indexu."
 
-#: server_status_variables.php:407
+#: server_status_variables.php:406
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -11311,7 +11337,7 @@ msgstr ""
 "čítacia metóda sa použiva hlavne na optimalizáciu príkazov typu ORDER BY … "
 "DESC."
 
-#: server_status_variables.php:411
+#: server_status_variables.php:410
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -11324,7 +11350,7 @@ msgstr ""
 "kompletne prehľadávať tabuľky, alebo sa používajú zjednotenia, ktoré správne "
 "nevyužívajú kľúče."
 
-#: server_status_variables.php:418
+#: server_status_variables.php:417
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -11336,35 +11362,35 @@ msgstr ""
 "tabuľky nie sú správne indexované alebo príkazy nedostatočne využívajú "
 "dostupné indexy."
 
-#: server_status_variables.php:425
+#: server_status_variables.php:424
 msgid "The number of internal ROLLBACK statements."
 msgstr "Počet interných príkazov ROLLBACK."
 
-#: server_status_variables.php:428
+#: server_status_variables.php:427
 msgid "The number of requests to update a row in a table."
 msgstr "Počet požiadavkov na zmenu riadku v tabuľke."
 
-#: server_status_variables.php:431
+#: server_status_variables.php:430
 msgid "The number of requests to insert a row in a table."
 msgstr "Počet požiadavkov na vloženie nového riadku do tabuľky."
 
-#: server_status_variables.php:434
+#: server_status_variables.php:433
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Počet stránok obsahujúcich dáta (nečistých aj čistých)."
 
-#: server_status_variables.php:437
+#: server_status_variables.php:436
 msgid "The number of pages currently dirty."
 msgstr "Počet nečistých stránok."
 
-#: server_status_variables.php:440
+#: server_status_variables.php:439
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Počet stránok, na ktoré je požiadavka na vyprázdnenie."
 
-#: server_status_variables.php:444
+#: server_status_variables.php:443
 msgid "The number of free pages."
 msgstr "Počet voľných stránok."
 
-#: server_status_variables.php:447
+#: server_status_variables.php:446
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -11374,7 +11400,7 @@ msgstr ""
 "momentálne číta alebo zapisuje, prípadne nemôžu byť vyprázdnené ani "
 "odstránené z nejakého iného dôvodu."
 
-#: server_status_variables.php:452
+#: server_status_variables.php:451
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -11386,11 +11412,11 @@ msgstr ""
 "hodnota sa tiež môže vypočítať ako Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: server_status_variables.php:459
+#: server_status_variables.php:458
 msgid "Total size of buffer pool, in pages."
 msgstr "Celkový počet stránok vo vyrovnávacej pamäti InnoDB."
 
-#: server_status_variables.php:462
+#: server_status_variables.php:461
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -11398,7 +11424,7 @@ msgstr ""
 "Počet \"náhodných\" predčítaní vykonaných InnoDB. Táto situácia nastáva pri "
 "príkazoch, ktoré prehľadávajú veľkú časť tabuľky, ale v náhodnom poradí."
 
-#: server_status_variables.php:467
+#: server_status_variables.php:466
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -11406,11 +11432,11 @@ msgstr ""
 "Počet sekvenčných predčítaní vykonaných InnoDB. Táto situácia nastáva pri "
 "vykonávaní sekvenčného prehľadávania celej tabuľky."
 
-#: server_status_variables.php:471
+#: server_status_variables.php:470
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Počet požiadavkov na logické načítavanie."
 
-#: server_status_variables.php:474
+#: server_status_variables.php:473
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -11418,7 +11444,7 @@ msgstr ""
 "Počet logických načítaní, ktoré sa nemohli vykonať z vyrovnávacej pamäte a "
 "namiesto toho bolo vykonané načítanie celej jednej stránky."
 
-#: server_status_variables.php:478
+#: server_status_variables.php:477
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -11432,88 +11458,88 @@ msgstr ""
 "počet týchto čakaní a ak bola správne nastavená veľkosť vyrovnávacej pamäte, "
 "mala by byť nízka."
 
-#: server_status_variables.php:486
+#: server_status_variables.php:485
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Počet zápisov do vyrovnávacej pamäte InnoDB."
 
-#: server_status_variables.php:489
+#: server_status_variables.php:488
 msgid "The number of fsync() operations so far."
 msgstr "Počet vykonaných fsync() operácií."
 
-#: server_status_variables.php:492
+#: server_status_variables.php:491
 msgid "The current number of pending fsync() operations."
 msgstr "Aktuálny počet prebiehajúcich fsync() operácií."
 
-#: server_status_variables.php:495
+#: server_status_variables.php:494
 msgid "The current number of pending reads."
 msgstr "Počet aktuálne prebiehajúcich načítavaní."
 
-#: server_status_variables.php:498
+#: server_status_variables.php:497
 msgid "The current number of pending writes."
 msgstr "Počet aktuálne prebiehajúcich zápisov."
 
-#: server_status_variables.php:501
+#: server_status_variables.php:500
 msgid "The amount of data read so far, in bytes."
 msgstr "Množstvo už načítaných dát, v bajtoch."
 
-#: server_status_variables.php:504
+#: server_status_variables.php:503
 msgid "The total number of data reads."
 msgstr "Celkový počet načítaní dát."
 
-#: server_status_variables.php:507
+#: server_status_variables.php:506
 msgid "The total number of data writes."
 msgstr "Celkový počet zápisov dát."
 
-#: server_status_variables.php:510
+#: server_status_variables.php:509
 msgid "The amount of data written so far, in bytes."
 msgstr "Množstvo už zapísaných dát, v bajtoch."
 
-#: server_status_variables.php:513
+#: server_status_variables.php:512
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Počet vykonaných dvojitých zápisov a počet stránok zapísaných pre tento účel."
 
-#: server_status_variables.php:517
+#: server_status_variables.php:516
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "Počet vykonaných dvojitých zápisov a počet stránok zapísaných pre tento účel."
 
-#: server_status_variables.php:520
+#: server_status_variables.php:519
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 "Počet čakaní na vyprázdnenie vyrovnávacej pamäte logu z dôvodu jej zaplnenia."
 
-#: server_status_variables.php:524
+#: server_status_variables.php:523
 msgid "The number of log write requests."
 msgstr "Počet požiadaviek na zápis do logovacieho súboru."
 
-#: server_status_variables.php:527
+#: server_status_variables.php:526
 msgid "The number of physical writes to the log file."
 msgstr "Počet fyzických zápisov do logovacieho súboru."
 
-#: server_status_variables.php:530
+#: server_status_variables.php:529
 msgid "The number of fsync() writes done to the log file."
 msgstr "Počet fsync() zápisov vykonaných do logovacieho súboru."
 
-#: server_status_variables.php:533
+#: server_status_variables.php:532
 msgid "The number of pending log file fsyncs."
 msgstr "Počet prebiehajúcich synchronizácií logovacieho súboru."
 
-#: server_status_variables.php:536
+#: server_status_variables.php:535
 msgid "Pending log file writes."
 msgstr "Počet prebiehajúcich zápisov do logovacieho súboru."
 
-#: server_status_variables.php:539
+#: server_status_variables.php:538
 msgid "The number of bytes written to the log file."
 msgstr "Množstvo bajtov zapísaných do logovacieho súboru."
 
-#: server_status_variables.php:542
+#: server_status_variables.php:541
 msgid "The number of pages created."
 msgstr "Počet vytvorených stránok."
 
-#: server_status_variables.php:545
+#: server_status_variables.php:544
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -11522,51 +11548,51 @@ msgstr ""
 "hodnôt sa udáva v stránkach; pomocou veľkosti stránky je možné ich premeniť "
 "na bajty."
 
-#: server_status_variables.php:550
+#: server_status_variables.php:549
 msgid "The number of pages read."
 msgstr "Počet načítaných stránok."
 
-#: server_status_variables.php:553
+#: server_status_variables.php:552
 msgid "The number of pages written."
 msgstr "Počet zapísaných stránok."
 
-#: server_status_variables.php:556
+#: server_status_variables.php:555
 msgid "The number of row locks currently being waited for."
 msgstr "Počet zámkov na riadky, na ktoré sa čaká."
 
-#: server_status_variables.php:559
+#: server_status_variables.php:558
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Priemerný čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status_variables.php:562
+#: server_status_variables.php:561
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Celkový čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status_variables.php:565
+#: server_status_variables.php:564
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maximálny čas potrebný na získanie zámku na riadok, v milisekundách."
 
-#: server_status_variables.php:568
+#: server_status_variables.php:567
 msgid "The number of times a row lock had to be waited for."
 msgstr "Koľkokrát sa muselo čakať na zámok na riadok."
 
-#: server_status_variables.php:571
+#: server_status_variables.php:570
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Počet riadkov odstránených z InnoDB tabuliek."
 
-#: server_status_variables.php:574
+#: server_status_variables.php:573
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Počet riadkov vložených do InnoDB tabuliek."
 
-#: server_status_variables.php:577
+#: server_status_variables.php:576
 msgid "The number of rows read from InnoDB tables."
 msgstr "Počet načítaných riadkov z InnoDB tabuliek."
 
-#: server_status_variables.php:580
+#: server_status_variables.php:579
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Počet upravených riadkov v InnoDB tabuľkách."
 
-#: server_status_variables.php:583
+#: server_status_variables.php:582
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -11575,7 +11601,7 @@ msgstr ""
 "neboli zapísané na disk. Predtým sa táto hodnota nazývala "
 "Not_flushed_key_blocks."
 
-#: server_status_variables.php:588
+#: server_status_variables.php:587
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -11583,7 +11609,7 @@ msgstr ""
 "Počet nevyužitých blokov vo vyrovnávacej pamäti kľúčov. Z tejto hodnoty "
 "môžete zistiť koľko vyrovnávacej pamäte sa práve používa."
 
-#: server_status_variables.php:592
+#: server_status_variables.php:591
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -11592,17 +11618,17 @@ msgstr ""
 "Počet využitých blokov vo vyrovnávacej pamäti kľúčov. Táto hodnota určuje "
 "najväčšie množstvo blokov, ktoré kedy naraz použité."
 
-#: server_status_variables.php:597
+#: server_status_variables.php:596
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Formát importovaného súboru"
 
-#: server_status_variables.php:600
+#: server_status_variables.php:599
 msgid "The number of requests to read a key block from the cache."
 msgstr "Počet požiadavkov na načítanie kľúčového bloku z vyrovnávacej pamäti."
 
-#: server_status_variables.php:603
+#: server_status_variables.php:602
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -11613,26 +11639,26 @@ msgstr ""
 "je príliš malá. Úspešnosť vyrovnávacej pamäte si môžte vypočítať zo vzťahu "
 "Key_reads/Key_read_requests."
 
-#: server_status_variables.php:609
+#: server_status_variables.php:608
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:613
+#: server_status_variables.php:612
 msgid "The number of requests to write a key block to the cache."
 msgstr "Počet požiadavkov na zápis kľúčového bloku do vyrovnávacej pamäti."
 
-#: server_status_variables.php:616
+#: server_status_variables.php:615
 msgid "The number of physical writes of a key block to disk."
 msgstr "Počet fyzických zápisov kľúčového bloku na disk."
 
-#: server_status_variables.php:619
+#: server_status_variables.php:618
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 
-#: server_status_variables.php:623
+#: server_status_variables.php:622
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -11643,17 +11669,17 @@ msgstr ""
 "požiadavku. Prednastavená hodnota 0 znamená, že doposiaľ neboli skompilované "
 "žiadne príkazy."
 
-#: server_status_variables.php:629
+#: server_status_variables.php:628
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status_variables.php:633
+#: server_status_variables.php:632
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Počet riadkov čakajúcich na zápis cez INSERT DELAYED."
 
-#: server_status_variables.php:636
+#: server_status_variables.php:635
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -11661,38 +11687,38 @@ msgstr ""
 "Počet doposiaľ otvorených tabuliek. Ak je táto hodnota príliš vysoká, "
 "pravdepodobne je vyrovnávacia pamäť pre tabuľky príliš malá."
 
-#: server_status_variables.php:640
+#: server_status_variables.php:639
 msgid "The number of files that are open."
 msgstr "Počet otvorených súborov."
 
-#: server_status_variables.php:643
+#: server_status_variables.php:642
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Počet otvorených streamov (väčšinou využívané na logovanie)."
 
-#: server_status_variables.php:646
+#: server_status_variables.php:645
 msgid "The number of tables that are open."
 msgstr "Počet práve otvorených tabuliek."
 
-#: server_status_variables.php:649
+#: server_status_variables.php:648
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status_variables.php:654
+#: server_status_variables.php:653
 msgid "The amount of free memory for query cache."
 msgstr "Veľkosť voľnej pamäti pre vyrovnávaciu pamäť príkazov."
 
-#: server_status_variables.php:657
+#: server_status_variables.php:656
 msgid "The number of cache hits."
 msgstr "Počet zásahov vyrovnávacej pamäti."
 
-#: server_status_variables.php:660
+#: server_status_variables.php:659
 msgid "The number of queries added to the cache."
 msgstr "Počet príkazov pridaných do vyrovnávacej pamäti."
 
-#: server_status_variables.php:663
+#: server_status_variables.php:662
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -11704,7 +11730,7 @@ msgstr ""
 "veľkosti vyrovnávacej pamäte príkazov. Vyrovnávacia pamäť príkazov používa "
 "stratégiu (LRU), odstránenie najdlhšie nepoužitých príkazov ako prvých."
 
-#: server_status_variables.php:670
+#: server_status_variables.php:669
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -11712,19 +11738,19 @@ msgstr ""
 "Počet príkazov neumiestnených do vyrovnávacej pamäti (nie sú cachovateľné "
 "alebo nevyhovujú nastaveniu query_cache_type)."
 
-#: server_status_variables.php:674
+#: server_status_variables.php:673
 msgid "The number of queries registered in the cache."
 msgstr "Počet príkazov registrovaných vo vyrovnávacej pamäti."
 
-#: server_status_variables.php:677
+#: server_status_variables.php:676
 msgid "The total number of blocks in the query cache."
 msgstr "Celkové množstvo blokov vo vyrovnávacej pamäti príkazov."
 
-#: server_status_variables.php:680
+#: server_status_variables.php:679
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Stav failsafe replikácie (zatiaľ neimplementované)."
 
-#: server_status_variables.php:683
+#: server_status_variables.php:682
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -11732,12 +11758,12 @@ msgstr ""
 "Počet spojení, ktoré nevyužívajú indexy. Ak sa táto hodnota nerovná 0, mali "
 "by ste starostlivo skontrolovať indexy vašich tabuliek."
 
-#: server_status_variables.php:687
+#: server_status_variables.php:686
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Počet spojení, ktoré na referenčnej tabuľke využili intervalové vyhľadávanie."
 
-#: server_status_variables.php:690
+#: server_status_variables.php:689
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -11746,7 +11772,7 @@ msgstr ""
 "(ak táto hodnota nie je 0, mali by ste starostlivo skontrolovať indexy "
 "vašich tabuliek.)"
 
-#: server_status_variables.php:695
+#: server_status_variables.php:694
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -11754,15 +11780,15 @@ msgstr ""
 "Počet spojení, ktoré na prvej tabuľke využili intervalové vyhľadávanie (táto "
 "hodnota nie je kritická ani v prípade, že je vysoká.)"
 
-#: server_status_variables.php:699
+#: server_status_variables.php:698
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Počet spojení, ktoré vykonali kompletné prehľadanie prvej tabuľky."
 
-#: server_status_variables.php:702
+#: server_status_variables.php:701
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Počet dočasných tabuliek, otvorených podriadeným SQL vláknom."
 
-#: server_status_variables.php:706
+#: server_status_variables.php:705
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -11770,13 +11796,13 @@ msgstr ""
 "Celkový počet (od spustenia) pokusov replikačného podriadeného SQL vlákna o "
 "znovuobnovenie transakcie."
 
-#: server_status_variables.php:710
+#: server_status_variables.php:709
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Táto položka obsahuje hodnotu ON ak je tento server podriadeným a je "
 "pripojený k prislúchajúcemu nadriadenému servru."
 
-#: server_status_variables.php:713
+#: server_status_variables.php:712
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -11784,14 +11810,14 @@ msgstr ""
 "Počet vlákien, ktorých vytvorenie zabralo viac ako je hodnota "
 "slow_launch_time."
 
-#: server_status_variables.php:717
+#: server_status_variables.php:716
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Počet príkazov, ktorých vykonanie zabralo viac ako je hodnota "
 "long_query_time."
 
-#: server_status_variables.php:721
+#: server_status_variables.php:720
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -11801,23 +11827,23 @@ msgstr ""
 "je táto hodnota prílis veľká, mali by ste pouvažovať nad zvýšením hodnoty "
 "systémového nastavania sort_buffer_size."
 
-#: server_status_variables.php:726
+#: server_status_variables.php:725
 msgid "The number of sorts that were done with ranges."
 msgstr "Počet rozsahom obmedzených zoraďovaní."
 
-#: server_status_variables.php:729
+#: server_status_variables.php:728
 msgid "The number of sorted rows."
 msgstr "Počet zoradených riadkov."
 
-#: server_status_variables.php:732
+#: server_status_variables.php:731
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Počet zoradení uskutočnených prehľadávaním tabuľky."
 
-#: server_status_variables.php:735
+#: server_status_variables.php:734
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Počet zámkov tabuliek, ktoré boli získané okamžite."
 
-#: server_status_variables.php:738
+#: server_status_variables.php:737
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -11829,7 +11855,7 @@ msgstr ""
 "najprv optimalizovať vaše príkazy a potom buď rozdeliť tabuľku/tabuľky alebo "
 "použiť replikáciu."
 
-#: server_status_variables.php:744
+#: server_status_variables.php:743
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -11839,11 +11865,11 @@ msgstr ""
 "dá vypočítať zo vzťahu Threads_created/Connections. Ak je táto hodnota v "
 "červenom, mali by ste zvýšiť hodnotu thread_cache_size."
 
-#: server_status_variables.php:749
+#: server_status_variables.php:748
 msgid "The number of currently open connections."
 msgstr "Počet momentálne otvorených spojení."
 
-#: server_status_variables.php:752
+#: server_status_variables.php:751
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -11854,13 +11880,13 @@ msgstr ""
 "Threads_created vysoká, mohli by ste zvýšiť hodnotu thread_cache_size (to "
 "však nespôsobí žiadnu citeľnú zmenu ak máte vlákna dobre implementované.)"
 
-#: server_status_variables.php:759
+#: server_status_variables.php:758
 #, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Sledovanie nie je aktívne."
 
-#: server_status_variables.php:762
+#: server_status_variables.php:761
 msgid "The number of threads that are not sleeping."
 msgstr "Počet nespiacich vlákien."
 
@@ -12161,36 +12187,36 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Nesprávne dáta"
 
-#: sql.php:317
+#: sql.php:227
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:399
+#: sql.php:309
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Príkaz %s bol zaradený medzi obľúbené"
 
-#: sql.php:933
+#: sql.php:843
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: sql.php:938
+#: sql.php:848
 msgid "Validated SQL"
 msgstr "Skontrolované SQL"
 
-#: sql.php:1108
+#: sql.php:1018
 msgid "SQL result"
 msgstr "Výsledok SQL dopytu"
 
-#: sql.php:1115
+#: sql.php:1025
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Vygenerované"
 
-#: sql.php:1237
+#: sql.php:1147
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12203,16 +12229,16 @@ msgstr ""
 "zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
 "uložení."
 
-#: sql.php:1286
+#: sql.php:1196
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"
 
-#: sql.php:1318 sql.php:1338
+#: sql.php:1228 sql.php:1248
 msgid "Bookmark this SQL query"
 msgstr "Pridať tento SQL dopyt do obľúbených"
 
-#: sql.php:1322
+#: sql.php:1232
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
@@ -12355,29 +12381,6 @@ msgstr "Nie je možné premenovať index na PRIMARY!"
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
 msgstr "Časti indexu neboli definované!"
-
-#: tbl_indexes.php:197
-msgid "Edit index"
-msgstr "Upraviť index"
-
-#: tbl_indexes.php:209
-msgid "Index name:"
-msgstr "Meno indexu&nbsp;:"
-
-#: tbl_indexes.php:214
-msgid ""
-"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
-msgstr "(\"PRIMARY\" <b>musí</b> byť <b>iba</b> meno primárneho kľúča!)"
-
-#: tbl_indexes.php:234
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "Komentár"
-
-#: tbl_indexes.php:249
-msgid "Index type:"
-msgstr "Typ indexu&nbsp;:"
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
