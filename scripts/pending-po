@@ -1,0 +1,7 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+
+LOCS=`ls po/*.po.pending | sed 's@.*/\(.*\)\.po\.pending@\1@'`
+for loc in $LOCS ; do
+    ./scripts/pendingpo.py po/$loc.po po/$loc.po.pending
+done

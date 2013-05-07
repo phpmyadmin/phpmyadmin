@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="phpMyAdmin Standard">
+  <!-- http://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php -->
+  <description>phpMyAdmin custom coding standard</description>
+
+  <rule ref="PEAR">
+    <exclude name="PEAR.Commenting.FileComment" />
+    <exclude name="PEAR.Commenting.ClassComment" />
+    <exclude name="PEAR.Commenting.FunctionComment" />
+    <exclude name="PEAR.Commenting.InlineComment" />
+    <exclude name="Generic.Files.LineLength" />
+  </rule>
+</ruleset>
+

@@ -1,0 +1,18 @@
+Guide to run the AllSeleniumTests.php (Yasitha Pandithawatta)
+=============================================================
+
+1. Tested with version 4.0
+2. Configure the testing environment - Browser and add the following fields to
+ phpunit.xml.dist
+    <php>
+        <const name="TESTSUITE_SERVER" value="localhost"/>
+        <const name="TESTSUITE_USER" value="root"/>
+        <const name="TESTSUITE_PASSWORD" value="root"/>
+        <const name="TESTSUITE_DATABASE" value="test"/>
+        <const name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost" />
+        <const name="TESTSUITE_PHPMYADMIN_URL" value="/phpmyadmin-dev" />
+    </php>
+3. Start the selenium server
+4. Run $ phpunit test/AllSeleniumTests.php
+
+Note: Only PmaSeleniumLoginTest.php is fixed and added to the test suit.
