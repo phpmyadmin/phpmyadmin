@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-05 08:54+0200\n"
-"Last-Translator: Seunggyun Hong <me@zyn.kr>\n"
+"PO-Revision-Date: 2013-05-07 15:03+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: js/messages.php:333
 msgid "Add an option for column "
-msgstr "필드 옵션 추가"
+msgstr "필드 옵션 추가 "
 
 #: js/messages.php:334
 #, php-format
