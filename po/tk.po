@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2012-03-23 10:42+0200\n"
+"PO-Revision-Date: 2013-05-07 17:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Turkmen <tk@li.org>\n"
+"Language-Team: Turkmen "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tk/>\n"
 "Language: tk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -110,12 +111,12 @@ msgid ""
 "for more information."
 msgstr ""
 "%s faýly sistemada ýok, has giňişleýin maglumatlar üçin www.phpmyadmin.net "
-"sahypa seretmegiňizi haýyş edýäris"
+"sahypa seretmegiňizi haýyş edýäris."
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s maglumatlar ulgamy döredildi"
+msgstr "%1$s maglumatlar ulgamy döredildi."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
