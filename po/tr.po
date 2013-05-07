@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-02 12:27+0200\n"
+"PO-Revision-Date: 2013-05-07 17:41+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5573,7 +5573,6 @@ msgid "Control host"
 msgstr "Denetim anamakinesi"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5582,14 +5581,15 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Yapılandırma depolamasını tutmak için alternatif anamakine; zaten "
-"tanımlanmış anamakineyi kullanmak için boş bırakın"
+"Yapılandırma depolamasını tutan anamakineye bağlanmak için alternatif "
+"bağlantı noktası; varsayılan bağlantı noktasını ya da denetim anamakinesi, "
+"anamakineye eşitse zaten tanımlanmış bağlantı noktasını kullanmak için boş "
+"bırakın"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Denetim anamakinesi"
+msgstr "Denetim bağlantı noktası"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
