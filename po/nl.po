@@ -5611,7 +5611,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:390
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Controle poort"
+msgstr "Controlepoort"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
