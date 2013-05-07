@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-07 15:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-05-07 15:39+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-0/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -12364,11 +12364,11 @@ msgstr "Nombre del archivo"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "El nombre de la clave primaria debe ser «PRIMARY»!"
+msgstr "¡El nombre de la clave primaria debe ser «PRIMARY»!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
-msgstr "No se puede cambiar el nombre del índice a PRIMARY!"
+msgstr "¡No se puede cambiar el nombre del índice a PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
