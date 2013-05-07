@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-04-04 15:29+0200\n"
-"Last-Translator: LOL DJ <diopralinato@live.it>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2013-05-07 17:13+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -1791,7 +1791,7 @@ msgstr "Passando il mouse su un punto mostrerà la sua etichetta."
 
 #: js/messages.php:284
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Per effettuare lo zoom, scegliere una sezione del plot con il mouse"
+msgstr "Per effettuare lo zoom, scegliere una sezione del plot con il mouse."
 
 #: js/messages.php:286
 #, fuzzy
