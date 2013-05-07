@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-07 22:57+0200\n"
+"PO-Revision-Date: 2013-05-07 22:59+0200\n"
 "Last-Translator: Jean-Noël AVILA <jn.avila@free.fr>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-0/fr/>\n"
 "Language: fr\n"
@@ -12359,7 +12359,7 @@ msgstr "Aucun index n'est défini ! Créez-en un dans le dialogue plus bas"
 #: tbl_structure.php:125
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Aucune colonne n'a été sélectionnée"
+msgstr "Aucune colonne n'a été sélectionnée."
 
 #: tbl_structure.php:149
 #, php-format
