@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-07 15:07+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-05-07 18:01+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@live.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5605,7 +5605,6 @@ msgid "Control host"
 msgstr "Controle de host"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5614,14 +5613,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Um servidor alternativo para armazenar a configuração; deixe em branco para "
-"usar um servidor já definido"
+"Uma por alternativa para conectar ao host que armazena as configurações; "
+"deixe em branco para usar a porta padrão, ou a porta já definida, se o "
+"controlhost for igual ao host"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Controle de host"
+msgstr "Porta de controle"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
