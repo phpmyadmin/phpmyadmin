@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-01-10 13:37+0200\n"
+"PO-Revision-Date: 2013-05-07 17:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian <http://l10n.cihar.com/projects/phpmyadmin/master/sr/"
-">\n"
+"Language-Team: Serbian <http://l10n.cihar.com/projects/phpmyadmin/4-0/sr/>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.4-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:344
 #: libraries/DisplayResults.class.php:809
@@ -39,7 +38,7 @@ msgid ""
 msgstr ""
 "Одредишни прозор претраживача није могао да буде ажуриран. Можда сте "
 "затворили матични прозор, или ваш претраживач онемогућава ажурирање међу "
-"прозорима због сигурносних подешавања"
+"прозорима због сигурносних подешавања."
 
 #: browse_foreigners.php:166 libraries/Menu.class.php:263
 #: libraries/Menu.class.php:352 libraries/Util.class.php:3225
@@ -725,7 +724,7 @@ msgid ""
 msgstr ""
 "Међутим, при последњем покретању подаци нису били обрађени, што обично значи "
 "да phpMyAdmin неће бити у могућности да заврши овај увоз осим ако не "
-"повећате временска ограничења у PHP-у"
+"повећате временска ограничења у PHP-у."
 
 #: import.php:589 libraries/DisplayResults.class.php:4527
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1424
@@ -7057,7 +7056,7 @@ msgid ""
 "tables when no MAX_ROWS option is specified."
 msgstr ""
 "Подразумевана величина показивача у бајтовима, користи се при CREATE TABLE "
-"за MyISAM табеле када није задата опција MAX_ROWS"
+"за MyISAM табеле када није задата опција MAX_ROWS."
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
@@ -7097,7 +7096,7 @@ msgid ""
 msgstr ""
 "Ако би привремена датотека која се користи за брзо креирање MyISAM индекса "
 "била већа него при коришћењу кеша кључева за овде задату вредност, користи "
-"метод кеширања кључева"
+"метод кеширања кључева."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
@@ -8654,7 +8653,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Приказује умањену слику на коју је могуће кликнути; опције: ширина, висина у "
-"пикселима (чува оригинални однос)"
+"пикселима (чува оригинални однос)."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
@@ -11695,7 +11694,7 @@ msgstr "Укупан број уписа података."
 
 #: server_status_variables.php:510
 msgid "The amount of data written so far, in bytes."
-msgstr "Количина података уписаних до сада, у бајтовима"
+msgstr "Количина података уписаних до сада, у бајтовима."
 
 #: server_status_variables.php:513
 msgid "The number of pages that have been written for doublewrite operations."
