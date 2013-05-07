@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2012-11-05 10:06+0200\n"
+"PO-Revision-Date: 2013-05-07 17:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <http://l10n.cihar.com/projects/phpmyadmin/master/cy/>\n"
 "Language: cy\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
-"X-Generator: Weblate 1.3-dev\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -392,7 +392,7 @@ msgstr "Mynediad wedi'i wrthod"
 
 #: db_structure.php:86
 msgid "No tables found in database"
-msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
+msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
@@ -650,7 +650,7 @@ msgstr "Cafodd y clustnod ei ddileu."
 #: import.php:359 import.php:420 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
-msgstr "Nid oedd modd darllen y ffeil hon."
+msgstr "Nid oedd modd darllen y ffeil hon"
 
 #: import.php:368 import.php:379 import.php:400 import.php:411
 #: libraries/File.class.php:604
@@ -3506,7 +3506,7 @@ msgstr "Dim llwybr delwedd dilys ar gael ar gyfer thema %s!"
 
 #: libraries/Theme.class.php:459
 msgid "No preview available."
-msgstr "Dim rhagolwg ar gael"
+msgstr "Dim rhagolwg ar gael."
 
 #: libraries/Theme.class.php:461
 msgid "take it"
@@ -7918,7 +7918,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:73
 msgid "Cannot connect: invalid settings."
-msgstr "Methu â chysylltu: gosodiadau annilys"
+msgstr "Methu â chysylltu: gosodiadau annilys."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
 #: libraries/plugins/auth/AuthenticationCookie.class.php:160
@@ -10030,11 +10030,11 @@ msgstr "Cafodd tabl %s ei wagu"
 
 #: libraries/structure.lib.php:91 tbl_create.php:324
 msgid "Tracking is active."
-msgstr "Mae tracio'n weithredol"
+msgstr "Mae tracio'n weithredol."
 
 #: libraries/structure.lib.php:98 tbl_create.php:330
 msgid "Tracking is not active."
-msgstr "Nid yw tracio'n weithredol"
+msgstr "Nid yw tracio'n weithredol."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:329
 #, php-format
