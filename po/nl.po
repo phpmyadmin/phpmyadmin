@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-07 15:33+0200\n"
+"PO-Revision-Date: 2013-05-07 17:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -5600,7 +5600,6 @@ msgid "Control host"
 msgstr "Controle machine"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate port to connect to the host that holds the configuration "
 #| "storage; leave blank to use the already defined port"
@@ -5610,7 +5609,8 @@ msgid ""
 "if the controlhost equals host"
 msgstr ""
 "Een alternatieve poort om te verbinden met de machine voor de "
-"configuratieopslag; laat leeg om de standaardpoort te gebruiken"
+"configuratieopslag; laat leeg om de standaardpoort te gebruiken, of de reeds "
+"gedefiniëerde poort als controlhost gelijk is aan host"
 
 #: libraries/config/messages.inc.php:390
 msgid "Control port"
