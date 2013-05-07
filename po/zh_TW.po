@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-07 15:04+0200\n"
+"PO-Revision-Date: 2013-05-07 17:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -6902,7 +6902,7 @@ msgstr "索引快取大小"
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
-msgstr "用於索引快取的記憶體大小。預設值爲 32MB。該快取僅用於快取索引頁"
+msgstr "用於索引快取的記憶體大小。預設值爲 32MB。該快取僅用於快取索引頁。"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
@@ -6913,9 +6913,7 @@ msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
-msgstr ""
-"用於快取表資料的快取記憶體大小。預設值爲 32MB。該快取用於記錄處理器資料 (*."
-"xtd) 和行指標 (*.xtr) 檔案"
+msgstr "用於快取表資料的快取記憶體大小。預設值爲 32MB。該快取用於記錄處理器資料 (*.xtd) 和行指標 (*.xtr) 檔案。"
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
@@ -6925,7 +6923,7 @@ msgstr "日誌快取大小"
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
-msgstr "用於快取交易日誌的記憶體快取區大小。預設值爲 16MB"
+msgstr "用於快取交易日誌的記憶體快取區大小。預設值爲 16MB。"
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
@@ -6935,7 +6933,7 @@ msgstr "日志檔案閾值"
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
-msgstr "回滾和新日誌建立前交易日誌的大小。預設值爲 16MB"
+msgstr "回滾和新日誌建立前交易日誌的大小。預設值爲 16MB。"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
@@ -6945,7 +6943,7 @@ msgstr "交易快取大小"
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
-msgstr "全域交易日誌快取 (資料引擎會分配兩個該大小的快取區)。預設值爲 1MB"
+msgstr "全域交易日誌快取 (資料引擎會分配兩個該大小的快取區)。預設值爲 1MB。"
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "Checkpoint frequency"
@@ -6955,7 +6953,7 @@ msgstr "檢查點頻率"
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
-msgstr "在檢查點前最大可以寫入交易日誌的最大資料大小。預設值爲 24MB"
+msgstr "在檢查點前最大可以寫入交易日誌的最大資料大小。預設值爲 24MB。"
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "Data log threshold"
@@ -6968,8 +6966,7 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"資料日志檔案的最大大小。預設值爲 64MB。PBXT 最多可以建立 32000 個資料日誌，可"
-"用於所有的表。增加該值可以增加資料庫所能儲存資料的大小"
+"資料日志檔案的最大大小。預設值爲 64MB。PBXT 最多可以建立 32000 個資料日誌，可用於所有的表。增加該值可以增加資料庫所能儲存資料的大小。"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
@@ -6979,7 +6976,7 @@ msgstr "垃圾閾值"
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
-msgstr "資料日志檔案中壓縮前無效資料所佔的比率。值域爲 1 到 99，預設值爲50"
+msgstr "資料日志檔案中壓縮前無效資料所佔的比率。值域爲 1 到 99，預設值爲50。"
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
@@ -6990,9 +6987,7 @@ msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
-msgstr ""
-"寫入資料日誌時使用的快取大小。預設值爲 256MB。資料引擎會爲每一個需要進行資料"
-"日誌寫入的程序分配一個快取區"
+msgstr "寫入資料日誌時使用的快取大小。預設值爲 256MB。資料引擎會爲每一個需要進行資料日誌寫入的程序分配一個快取區。"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
@@ -7000,7 +6995,7 @@ msgstr "資料檔案增長大小"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "處理器資料檔案 (*.xtd) 增長大小"
+msgstr "處理器資料檔案 (*.xtd) 增長大小。"
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "Row file grow size"
@@ -7008,7 +7003,7 @@ msgstr "行檔案增長大小"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr "行指標檔案 (*.xtr) 增長大小"
+msgstr "行指標檔案 (*.xtr) 增長大小。"
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
@@ -7020,16 +7015,14 @@ msgid ""
 "system will maintain. If the number of logs exceeds this value then old logs "
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
-msgstr ""
-"系統維護的交易日誌數量 (pbxt/system/*.xt)。如果日誌數量大於此值，舊的日誌將會"
-"被刪除，或者被以升序數字序列重命名"
+msgstr "系統維護的交易日誌數量 (pbxt/system/*.xt)。如果日誌數量大於此值，舊的日誌將會被刪除，或者被以升序數字序列重命名。"
 
 #: libraries/engines/pbxt.lib.php:131
 #, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
-msgstr "關於 PBXT 的檔案和更多資訊請參見 %sPrimeBase XT 首頁%s"
+msgstr "關於 PBXT 的檔案和更多資訊請參見 %sPrimeBase XT 首頁%s。"
 
 #: libraries/engines/pbxt.lib.php:133
 msgid "Related Links"
@@ -7046,7 +7039,7 @@ msgstr "沒有找到 GIS 虛擬所需資料。"
 #: libraries/import.lib.php:187 libraries/insert_edit.lib.php:120
 #: libraries/rte/rte_routines.lib.php:1443 sql.php:851 tbl_get_field.php:55
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL 返回的查詢結果爲空 (即零行)"
+msgstr "MySQL 返回的查詢結果爲空 (即零行)。"
 
 #: libraries/import.lib.php:1190
 msgid ""
@@ -8201,9 +8194,7 @@ msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
-msgstr ""
-"若檔案每行的資料和資料庫中的順序不一致，請在此列出對應的欄位名稱。欄位名稱間"
-"用半角逗號分隔且不能用引號括起"
+msgstr "若檔案每行的資料和資料庫中的順序不一致，請在此列出對應的欄位名稱。欄位名稱間用半角逗號分隔且不能用引號括起。"
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
@@ -8223,20 +8214,18 @@ msgstr "匯入 CSV 檔案 %s 時有無效參數"
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
-msgstr ""
-"無效欄位 (%s)！請檢查欄位名稱是否拼寫正確，使用半角逗號分隔，並且不要用引號括"
-"起"
+msgstr "無效欄位 (%s)！請檢查欄位名稱是否拼寫正確，使用半角逗號分隔，並且不要用引號括起。"
 
 #: libraries/plugins/import/ImportCsv.class.php:272
 #: libraries/plugins/import/ImportCsv.class.php:547
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "CSV 輸入的第 %d 行格式有錯"
+msgstr "CSV 輸入的第 %d 行格式有錯。"
 
 #: libraries/plugins/import/ImportCsv.class.php:428
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "CSV 輸入的第 %d 行欄位數有錯"
+msgstr "CSV 輸入的第 %d 行欄位數有錯。"
 
 #: libraries/plugins/import/ImportLdi.class.php:110
 msgid "This plugin does not support compressed imports!"
@@ -8266,7 +8255,7 @@ msgstr "匯入貨幣 <i>(如: $5.00 將被匯入爲 5.00)</i>"
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
-msgstr "該 XML 檔案有錯誤或者不完整。請修復錯誤後重試"
+msgstr "該 XML 檔案有錯誤或者不完整。請修復錯誤後重試。"
 
 #: libraries/plugins/import/ImportShp.class.php:53
 msgid "ESRI Shape File"
@@ -8329,11 +8318,10 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"將一個 TIME、TIMESTAMP、DATETIME 或數字 UNIX 時間戳欄位格式化顯示爲日期。第一"
-"個選項是小時偏移量，該值將加到時間戳中 (預設：0)。第二個選項用於指定時間格式"
-"字元串。第三個選項決定顯示本地時間還是 UTC 時間 (填入“local”或“utc”)，所以"
-"填“local”(參見 PHP 的 strftime() 函數檔案)和“utc”(參見 PHP 的 gmdate() 函數文"
-"檔)所到的結果是不一樣的"
+"將一個 TIME、TIMESTAMP、DATETIME 或數字 UNIX 時間戳欄位格式化顯示爲日期。第一個選項是小時偏移量，該值將加到時間戳中 "
+"(預設：0)。第二個選項用於指定時間格式字元串。第三個選項決定顯示本地時間還是 UTC 時間 "
+"(填入“local”或“utc”)，所以填“local”(參見 PHP 的 strftime() 函數檔案)和“utc”(參見 PHP 的 "
+"gmdate() 函數文檔)所到的結果是不一樣的。"
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -8342,9 +8330,8 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"欄位中顯示一個二進制資料的下載連線。第一個選項是檔案名稱，或使用第二個選項，"
-"用資料表中的一個欄位值作爲檔案名稱。如果想使用欄位值作爲檔案名稱，第一個選項"
-"必須留空"
+"欄位中顯示一個二進制資料的下載連線。第一個選項是檔案名稱，或使用第二個選項，用資料表中的一個欄位值作爲檔案名稱。如果想使用欄位值作爲檔案名稱，第一個選項"
+"必須留空。"
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
 #, fuzzy
@@ -8382,36 +8369,33 @@ msgstr ""
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr ""
-"顯示欄位的原始內容，不使用 htmlspecialchars() 處理。即假定內容爲合法的 HTML "
-"程式碼"
+msgstr "顯示欄位的原始內容，不使用 htmlspecialchars() 處理。即假定內容爲合法的 HTML 程式碼。"
 
 #: libraries/plugins/transformations/abstract/HexTransformationsPlugin.class.php:31
 msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
-msgstr ""
-"顯示十六進制的資料。第一個參數設定需要增加多少個空格 (預設值爲一個字元寬度)"
+msgstr "顯示十六進制的資料。第一個參數設定需要增加多少個空格 (預設值爲一個字元寬度)。"
 
 #: libraries/plugins/transformations/abstract/ImageLinkTransformationsPlugin.class.php:33
 msgid "Displays a link to download this image."
-msgstr "顯示下載此圖片的連結"
+msgstr "顯示下載此圖片的連結。"
 
 #: libraries/plugins/transformations/abstract/InlineTransformationsPlugin.class.php:33
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
-msgstr "顯示可點選的縮圖。在原比例不變的情況下，可按像素指定最大寬度或高度"
+msgstr "顯示可點選的縮圖。在原比例不變的情況下，可按像素指定最大寬度或高度。"
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
-msgstr "將一個 IPv4 (互聯網協定第四版) 網址轉換成點分十進制標準格式"
+msgstr "將一個 IPv4 (互聯網協定第四版) 網址轉換成點分十進制標準格式。"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "將文字以 SQL 語法醒目提示顯示"
+msgstr "將文字以 SQL 語法醒目提示顯示。"
 
 #: libraries/plugins/transformations/abstract/SubstringTransformationsPlugin.class.php:31
 msgid ""
@@ -8421,9 +8405,8 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"顯示部分字元串。第一個選項定義了文字開始輸出的字數 (預設爲 0)。第二個選項是要"
-"返回的字數 (預設直到結尾)。第三個選項是當發生截取的時候，將會加在字元串之前/"
-"後的輸出 (預設爲：“…”)"
+"顯示部分字元串。第一個選項定義了文字開始輸出的字數 (預設爲 0)。第二個選項是要返回的字數 "
+"(預設直到結尾)。第三個選項是當發生截取的時候，將會加在字元串之前/後的輸出 (預設爲：“…”)。"
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -8431,17 +8414,15 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example."
-"com/”這樣的 URL 前綴。第二和第三個選項是以像素爲單位的寬度和高度"
+"顯示圖片和連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣的 URL "
+"前綴。第二和第三個選項是以像素爲單位的寬度和高度。"
 
 #: libraries/plugins/transformations/abstract/TextLinkTransformationsPlugin.class.php:33
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
-msgstr ""
-"顯示連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣"
-"的 URL 前綴。第二個選項是連結的標題"
+msgstr "顯示連結，欄位內包含檔案名稱。第一個選項是類似“http://www.example.com/”這樣的 URL 前綴。第二個選項是連結的標題。"
 
 #: libraries/relation.lib.php:87
 msgid "not OK"
@@ -8512,23 +8493,23 @@ msgstr "快速設定進階功能:"
 #: libraries/relation.lib.php:259
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表"
+msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表。"
 
 #: libraries/relation.lib.php:265
 msgid "Create a pma user and give access to these tables."
-msgstr "建立一個使用者並授予其訪問上一步操作中建立的資料表的權限"
+msgstr "建立一個使用者並授予其訪問上一步操作中建立的資料表的權限。"
 
 #: libraries/relation.lib.php:270
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"在設定檔案 (<code>config.inc.php</code>) 中啓用進階功能，參見 <code>config."
-"sample.inc.php</code> 中的範例"
+"在設定檔案 (<code>config.inc.php</code>) 中啓用進階功能，參見 "
+"<code>config.sample.inc.php</code> 中的範例。"
 
 #: libraries/relation.lib.php:278
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "請重新登錄 phpMyAdmin 以載入新設定並使其生效"
+msgstr "請重新登錄 phpMyAdmin 以載入新設定並使其生效。"
 
 #: libraries/relation.lib.php:1400
 msgid "no description"
@@ -8604,7 +8585,7 @@ msgstr "主機"
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
-msgstr "僅透過 --report-host=主機名 參數啓動的從伺服器可見"
+msgstr "僅透過 --report-host=主機名 參數啓動的從伺服器可見。"
 
 #: libraries/replication_gui.lib.php:264 server_replication.php:183
 msgid "Add slave replication user"
@@ -8649,7 +8630,7 @@ msgstr "使用主機表"
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
-msgstr "使用主機表時，此處的資料會被主機資料表中的資料所替換"
+msgstr "使用主機表時，此處的資料會被主機資料表中的資料所替換。"
 
 #: libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
