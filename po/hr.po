@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-02-25 08:19+0200\n"
-"Last-Translator: Roby Clai <icyphoenixx@gmail.com>\n"
-"Language-Team: Croatian <http://l10n.cihar.com/projects/phpmyadmin/master/hr/"
-">\n"
+"PO-Revision-Date: 2013-05-07 17:20+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Croatian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -2081,7 +2081,7 @@ msgid ""
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
 "Nova verzija phpMyAdmina-a je dostupna i bi da razmislite o nadogradnji. "
-"Najnovija verzija je %s objavljena na %s"
+"Najnovija verzija je %s objavljena na %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:372
@@ -8944,7 +8944,7 @@ msgstr "Pretvaranje preglednika"
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr ""
-"Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments."
+"Pogledajte dokumentaciju radi uputa o ažuriranju tablice column_comments"
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:400
 msgid "Bookmarked SQL query"
@@ -10559,7 +10559,7 @@ msgstr "Na snazi"
 #: libraries/structure.lib.php:2357 tbl_addfield.php:207 tbl_indexes.php:112
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Tablica %1$s uspješno je izmijenjena."
+msgstr "Tablica %1$s uspješno je izmijenjena"
 
 #: libraries/structure.lib.php:2405 tbl_tracking.php:457 tbl_tracking.php:481
 #, fuzzy
@@ -12279,7 +12279,7 @@ msgid ""
 msgstr ""
 "Broj spojeva bez ključeva koji provjeravaju upotrebu ključa nakon svakog "
 "retka. (Ako ovaj iznos nije 0, bit će potrebno da pažljivo provjerite "
-"indekse vaših tablica."
+"indekse vaših tablica.)"
 
 #: server_status_variables.php:694
 msgid ""
