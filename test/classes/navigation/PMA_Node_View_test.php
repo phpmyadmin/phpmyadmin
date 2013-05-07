@@ -32,20 +32,5 @@ class Node_View_Test extends PHPUnit_Framework_TestCase
             $parent->links['text']
         );
     }
-
-    public function testAddNode()
-    {
-        $parent = PMA_NodeFactory::getInstance('Node_View', 'parent');
-        $child = PMA_NodeFactory::getInstance('Node_View', 'child');
-        $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child
-        );
-        $this->assertEquals(
-            $parent->getChild($child->real_name, true),
-            $child
-        );
-    }
 }
 ?>

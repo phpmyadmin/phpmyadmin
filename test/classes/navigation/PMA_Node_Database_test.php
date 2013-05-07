@@ -32,20 +32,5 @@ class Node_Database_Test extends PHPUnit_Framework_TestCase
             $parent->links['text']
         );
     }
-
-    public function testAddNode()
-    {
-        $parent = PMA_NodeFactory::getInstance('Node_Database', 'parent');
-        $child = PMA_NodeFactory::getInstance('Node_Database', 'child');
-        $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child
-        );
-        $this->assertEquals(
-            $parent->getChild($child->real_name, true),
-            $child
-        );
-    }
 }
 ?>
