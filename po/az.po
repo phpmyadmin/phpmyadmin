@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-01-29 13:26+0200\n"
-"Last-Translator: Nail BALAYEV <nail.turkabadli@gmail.com>\n"
-"Language-Team: Azerbaijani <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"az/>\n"
+"PO-Revision-Date: 2013-05-07 17:14+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Azerbaijani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.6-dev\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:335
 #: libraries/DisplayResults.class.php:809
@@ -8638,7 +8638,7 @@ msgid ""
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
 "Displays a clickable thumbnail; options: width,height in pixels (keeps the "
-"original ratio)"
+"original ratio)."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
@@ -9365,7 +9365,7 @@ msgstr "\"%s\" cedveli mövcud deyil!"
 #: libraries/schema/Visio_Relation_Schema.class.php:283
 #, php-format
 msgid "Please configure the coordinates for table %s"
-msgstr "Xahiş edirem, %s cedveli üçün koordinatları yeniden müeyyen et."
+msgstr "Xahiş edirem, %s cedveli üçün koordinatları yeniden müeyyen et"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:828
 #: libraries/schema/Pdf_Relation_Schema.class.php:865
@@ -10260,7 +10260,7 @@ msgstr "%s üzerine indeks elave edildi"
 #: libraries/structure.lib.php:1935
 #, php-format
 msgid "A primary key has been added on %s"
-msgstr "%s üzerine Birinci Dereceli Açar elave edildi."
+msgstr "%s üzerine Birinci Dereceli Açar elave edildi"
 
 #: libraries/structure.lib.php:1995 libraries/structure.lib.php:2066
 #, fuzzy
