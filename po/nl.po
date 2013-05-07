@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-03 15:57+0200\n"
-"PO-Revision-Date: 2013-05-03 11:41+0200\n"
+"PO-Revision-Date: 2013-05-07 15:33+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -5598,7 +5598,6 @@ msgid "Control host"
 msgstr "Controle machine"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5606,14 +5605,13 @@ msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the already defined port"
 msgstr ""
-"Een alternatieve machine voor de configuratieopslag; laat leeg om de reeds "
-"gedefinieerde machine te gebruiken"
+"Een alternatieve poort om te verbinden met de machine voor de "
+"configuratieopslag; laat leeg om de standaardpoort te gebruiken"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Controle machine"
+msgstr "Controle poort"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
