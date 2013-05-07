@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-03 16:35+0200\n"
+"PO-Revision-Date: 2013-05-07 15:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt_BR/>\n"
@@ -116,7 +116,7 @@ msgstr "O banco de dados %1$s foi criado."
 
 #: db_datadict.php:51 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "Comentário do banco de dados:"
+msgstr "Comentário do banco de dados: "
 
 #: db_datadict.php:157 libraries/operations.lib.php:784
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
@@ -6477,7 +6477,7 @@ msgstr "Banco(s) de dados:"
 
 #: libraries/display_export.lib.php:145
 msgid "Table(s):"
-msgstr "Tabela(s)"
+msgstr "Tabela(s):"
 
 #: libraries/display_export.lib.php:154
 msgid "Rows:"
@@ -8198,7 +8198,7 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:66
 msgid "Column names: "
-msgstr "Nome das colunas:"
+msgstr "Nome das colunas: "
 
 #: libraries/plugins/import/ImportCsv.class.php:124
 #: libraries/plugins/import/ImportCsv.class.php:139
