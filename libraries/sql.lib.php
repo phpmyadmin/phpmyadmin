@@ -619,4 +619,32 @@ function PMA_setGlobals($params, $param_keys)
         }
     }
 }
+
+/**
+ * Adds the required javascript scripts to the response header
+ *
+ * @return void
+ */
+function PMA_addScripts()
+{
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+    $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+    $scripts->addFile('tbl_change.js');
+    // the next one needed because sql.php may do a "goto" to tbl_structure.php
+    $scripts->addFile('tbl_structure.js');
+    $scripts->addFile('indexes.js');
+    $scripts->addFile('gis_data_editor.js');
+
+    if (isset($_SESSION['profiling'])) {
+        /* < IE 9 doesn't support canvas natively */
+        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+            $scripts->addFile('canvg/flashcanvas.js');
+        }
+        $scripts->addFile('jqplot/jquery.jqplot.js');
+        $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('canvg/canvg.js');
+    }
+}
 ?>
