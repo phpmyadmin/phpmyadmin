@@ -20,7 +20,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
         $form = new Form($form_name, array('pma_form1','pma_form2'), 1);
        
         $form_display = new FormDisplay();
-        $form_display->registerForm($form_name, $form);
+        $form_display->registerForm($form_name, array($form));
 
         $this->assertFalse($form_display->hasErrors());
     }
