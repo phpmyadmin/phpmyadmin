@@ -13531,10 +13531,9 @@ msgid "Rate of reading next table row"
 msgstr "Tasa de lectura de la siguiente fila de una tabla"
 
 #: libraries/advisory_rules.txt:257
-#, fuzzy
 #| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Donde mostrar los enlaces de filas de tabla"
+msgstr "La tasa de lecutra de la siguiente fila de una tabla es alta."
 
 #: libraries/advisory_rules.txt:258
 msgid ""
