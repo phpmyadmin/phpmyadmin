@@ -12834,10 +12834,9 @@ msgid "You don't have sufficient privileges to be here right now!"
 msgstr "¡Usted no tiene suficientes privilegios para estar aquí ahora!"
 
 #: user_password.php:106
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The profile has been updated."
-msgstr "La fila se ha borrado"
+msgstr "Se actualizó el perfil."
 
 #: view_create.php:177
 #, fuzzy
