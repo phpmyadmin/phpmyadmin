@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:05+0200\n"
+"PO-Revision-Date: 2013-05-09 10:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12975,10 +12975,9 @@ msgid "Slow query logging"
 msgstr "Registros de consultas lentas"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "«slow_query_log» activo."
+msgstr "El registro de consultas lentas está desactivado."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
