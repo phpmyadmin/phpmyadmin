@@ -12872,10 +12872,9 @@ msgid "The uptime is only %s"
 msgstr "El tiempo de actividad es sólo %s"
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Preguntas"
+msgstr "Menos de 1000 consultas"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
