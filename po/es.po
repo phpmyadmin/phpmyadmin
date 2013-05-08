@@ -12560,10 +12560,10 @@ msgid "Can't copy table to same one!"
 msgstr "¡No es posible copiar la tabla a la misma!"
 
 #: tbl_move_copy.php:55
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been renamed to %2$s."
 msgid "Table %s has been moved to %s."
-msgstr "La tabla %1$s ahora se llama %2$s."
+msgstr "La tabla %s se movió a %s."
 
 #: tbl_move_copy.php:57
 #, fuzzy, php-format
