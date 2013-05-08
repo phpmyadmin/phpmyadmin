@@ -12758,10 +12758,9 @@ msgid "Export as %s"
 msgstr "Exportar como %s"
 
 #: tbl_tracking.php:736
-#, fuzzy
 #| msgid "Versions"
 msgid "Show versions"
-msgstr "Versiones"
+msgstr "Mostrar versiones"
 
 #: tbl_tracking.php:824
 #, fuzzy, php-format
