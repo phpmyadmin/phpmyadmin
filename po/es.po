@@ -13440,7 +13440,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:230
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Promedio de filas ordenadas: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
