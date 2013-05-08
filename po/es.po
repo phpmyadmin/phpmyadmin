@@ -12829,10 +12829,9 @@ msgid "Description"
 msgstr "Descripción"
 
 #: user_password.php:29
-#, fuzzy
 #| msgid "You do not have the necessary privileges to create a routine"
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "No posee los privilegios necesarios para crear una rutina"
+msgstr "¡Usted no tiene suficientes privilegios para estar aquí ahora!"
 
 #: user_password.php:106
 #, fuzzy
