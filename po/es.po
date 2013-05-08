@@ -13681,7 +13681,7 @@ msgstr "Porcentaje máximo del búfer de claves MyISAM usado en algún momento"
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "El porcentaje del búfer de claves MyISAM (caché de índices) es bajo."
 
 #: libraries/advisory_rules.txt:307 libraries/advisory_rules.txt:315
 msgid ""
