@@ -13240,10 +13240,9 @@ msgstr ""
 "total es %s%%. Debería ser mayor al 80%%"
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache usage"
 msgid "Query cache fragmentation"
-msgstr "Uso del caché de consultas"
+msgstr "Fragmentación del caché de consultas"
 
 #: libraries/advisory_rules.txt:184
 msgid "The query cache is considerably fragmented."
