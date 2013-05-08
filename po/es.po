@@ -13200,6 +13200,8 @@ msgstr "Eficiencia del caché de consultas (%%)"
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"El caché de consultas no está ejecutando eficientemente, tiene una baja tasa "
+"de aciertos."
 
 #: libraries/advisory_rules.txt:171
 msgid "Consider increasing {query_cache_limit}."
