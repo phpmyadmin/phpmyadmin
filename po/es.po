@@ -12964,10 +12964,10 @@ msgstr ""
 "entorno. Usualmente, un valor entre 1 y 5 segundos es el sugerido."
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "«long_query_time» está configurado a %d segundo(s)."
+msgstr "«long_query_time» está configurado a %ds."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
 #, fuzzy
