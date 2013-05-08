@@ -13469,7 +13469,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:240
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Tasa de lectura del primer índice"
 
 #: libraries/advisory_rules.txt:243
 msgid "The rate of reading the first index entry is high."
