@@ -13698,6 +13698,8 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"Maxímo %% de búfer de claves MyISAM utilizado en algún momento: %s%%, este "
+"valor debería ser mayor a 95%%"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
