@@ -12823,7 +12823,6 @@ msgid "Available transformations"
 msgstr "Transformaciones disponibles"
 
 #: transformation_overview.php:39
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
