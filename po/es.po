@@ -13484,6 +13484,13 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Esto normalmente indica escruitinios completos de índices. Éstos son más "
+"rápidos que escrutinios de tablas pero requieren gran cantidad de clicos de "
+"CPU en tablas grandes. Si dichas tablas tienen o han tenido una gran "
+"cantidad de actualizaciones («UPDATE» o «DELETE»), ejecutar «OPTIMIZE TABLE» "
+"podría reducir dicha cantidad y/o acelerar los escrutinios completos de "
+"índices. De otra forma, la cantidad de escrutinios completos de índices sólo "
+"puede ser reducida re-escribiendo las consultas."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
