@@ -12970,10 +12970,9 @@ msgid "long_query_time is currently set to %ds."
 msgstr "«long_query_time» está configurado a %ds."
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Mostrar ventana de consultas SQL"
+msgstr "Registros de consultas lentas"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
 #, fuzzy
