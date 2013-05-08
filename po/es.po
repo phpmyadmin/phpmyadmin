@@ -13423,7 +13423,7 @@ msgstr "Filas ordenadas"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Hay demasiadas filas siendo ordenadas."
 
 #: libraries/advisory_rules.txt:229
 msgid ""
