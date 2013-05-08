@@ -13651,10 +13651,9 @@ msgstr ""
 "menor a 1 por hora"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Organizar el tamaño del búfer de memoria"
+msgstr "Tamaño de búfer de claves MyISAM"
 
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
