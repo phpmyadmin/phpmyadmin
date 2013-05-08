@@ -12780,10 +12780,9 @@ msgid "Activate tracking for %s"
 msgstr "Activar el seguimiento para %s"
 
 #: tbl_tracking.php:846
-#, fuzzy
 #| msgid "Active options"
 msgid "Activate now"
-msgstr "Opciones activas"
+msgstr "Activar ahora"
 
 #: tbl_tracking.php:859
 #, fuzzy, php-format
