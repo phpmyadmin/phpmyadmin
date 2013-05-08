@@ -12918,6 +12918,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"El porcentaje de consultas lentas debería de ser menor a 5%%, el valor "
+"actual es %s%%."
 
 #: libraries/advisory_rules.txt:70
 #, fuzzy
