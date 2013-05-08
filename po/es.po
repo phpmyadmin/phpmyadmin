@@ -13671,7 +13671,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:301
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "«key_buffer_size» es 0"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
