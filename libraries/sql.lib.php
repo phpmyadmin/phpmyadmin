@@ -526,4 +526,37 @@ function PMA_getHtmlForOptionsList($values, $selected_values)
     }
     return $options;
 }
+
+/**
+ * Checks the sql query for 'DROP DATABASE'
+ *
+ * @param string   $sql_query        SQL query
+ *
+ * @return bool    $is_drop_database SQL query contains 'DROP DATABASE'
+ */
+function PMA_isDropDatabase($sql_query)
+{
+    $is_drop_database = preg_match(
+        '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
+        $sql_query
+    );
+    return $is_drop_database;
+}
+
+/**
+ * Displays a MySQL error message when 'DROP DATABASE' statements are disabled
+ *
+ * @param string   $err_url     error url to return
+ *
+ * @return void
+ */
+function PMA_showDropDatabaseErrorMessage($err_url)
+{
+    PMA_Util::mysqlDie(
+        __('"DROP DATABASE" statements are disabled.'),
+        '',
+        '',
+        $err_url
+    );
+}
 ?>

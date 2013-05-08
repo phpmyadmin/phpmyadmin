@@ -244,10 +244,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
 }
 
 // instead of doing the test twice
-$is_drop_database = preg_match(
-    '/DROP[[:space:]]+(DATABASE|SCHEMA)[[:space:]]+/i',
-    $sql_query
-);
+$is_drop_database = PMA_isDropDatabase($sql_query);
 
 /**
  * Check rights in case of DROP DATABASE
@@ -261,12 +258,7 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    PMA_Util::mysqlDie(
-        __('"DROP DATABASE" statements are disabled.'),
-        '',
-        '',
-        $err_url
-    );
+    PMA_showDropDatabaseErrorMessage($err_url);
 } // end if
 
 // Include PMA_Index class for use in PMA_DisplayResults class
