@@ -12611,6 +12611,8 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
+"No es necesaria una relación interna cuando existe una relación CLAVE "
+"FORÁNEA correspondiente."
 
 #: tbl_relation.php:395
 #, fuzzy
