@@ -42,6 +42,18 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+// lets check if this page has been redirected from index
+// if redirected then load the lastpage stored in SESSION
+if ($_SESSION['redirected']) {
+    $GLOBALS['db'] = $_SESSION['dbase'];
+    $GLOBALS['table'] = $_SESSION['table'];
+    $sql_query = $_SESSION['sql_query'];
+    $import_type = $_SESSION['import_type'];
+    $format = $_SESSION['format'];
+    include $_SESSION['last_import_url'];
+    $_SESSION['redirected'] = false; // Reset session value for redirected
+    exit;
+}
 // reset import messages for ajax request
 $_SESSION['Import_message']['message'] = null;
 $_SESSION['Import_message']['go_back_url'] = null;
@@ -590,8 +602,15 @@ if (! empty($last_query_with_results)) {
     $sql_query = $last_query_with_results;
     $go_sql = true;
 }
-
+// store the values in session
+$_SESSION['sql_query'] = $sql_query;
+$_SESSION['last_import_url'] = $goto;
+$_SESSION['format'] = $format;
+$_SESSION['import_type'] = $import_type;
+$_SESSION['dbase'] = $GLOBALS['db'];
+$_SESSION['table'] = $GLOBALS['table'];
 if ($go_sql) {
+    $_SESSION['last_import_url'] = "sql.php";
     include 'sql.php';
 } else {
     $active_page = $goto;
