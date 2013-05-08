@@ -13236,6 +13236,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"La tasa actual de memoria libre del caché de consultas respecto del tamaño "
+"total es %s%%. Debería ser mayor al 80%%"
 
 #: libraries/advisory_rules.txt:181
 #, fuzzy
