@@ -12844,10 +12844,9 @@ msgid "VIEW name"
 msgstr "VER nombre"
 
 #: view_operations.php:90
-#, fuzzy
 #| msgid "Rename to"
 msgid "Rename view to"
-msgstr "Cambiar el nombre a"
+msgstr "Cambiar el nombre de la vista a"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
