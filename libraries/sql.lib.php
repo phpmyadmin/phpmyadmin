@@ -559,4 +559,64 @@ function PMA_showDropDatabaseErrorMessage($err_url)
         $err_url
     );
 }
+
+/**
+ * Set globals from $_POST parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromPostParameters()
+{
+    $post_params = array(
+        'bkm_all_users',
+        'fields',
+        'store_bkm'
+    );
+    PMA_setGlobals($_POST, $post_params);
+}
+
+/**
+ * Set globals from $_GET parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromGetParameters()
+{
+    $get_params = array(
+        'id_bookmark',
+        'label',
+        'sql_query'
+    );
+    PMA_setGlobals($_GET, $get_params);
+}
+
+/**
+ * Set globals from $_REQUEST parameters
+ *
+ * @return void
+ */
+function PMA_setGlobalsFromRequestParameters()
+{
+    $request_params = array(
+        'printview'
+    );
+    PMA_setGlobals($_REQUEST, $request_params);
+}
+
+/**
+ * Set globals from the given parameter list
+ *
+ * @param array    $params      list of parameters
+ * @param array    $param_keys  list of keys of the parameters
+ * 
+ * @return void
+ */
+function PMA_setGlobals($params, $param_keys)
+{
+    foreach ($param_keys as $one_param_key) {
+        if (isset($params[$one_param_key])) {
+            $GLOBALS[$one_param_key] = $params[$one_param_key];
+        }
+    }
+}
 ?>
