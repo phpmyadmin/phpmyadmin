@@ -12566,10 +12566,10 @@ msgid "Table %s has been moved to %s."
 msgstr "La tabla %s se movió a %s."
 
 #: tbl_move_copy.php:57
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Table %s has been copied to %s."
-msgstr "La base de datos %1$s ha sido copiada a %2$s"
+msgstr "La tabla %s se copió a %s."
 
 #: tbl_move_copy.php:79
 #, fuzzy
