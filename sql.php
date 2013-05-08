@@ -1059,51 +1059,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     if (isset($profiling_results)) {
         // pma_token/url_query needed for chart export
-        $html_output .= '<script type="text/javascript">';
-        $html_output .= 'pma_token = \'' . $_SESSION[' PMA_token '] . '\';';
-        $html_output .= 'url_query = \''
-            . (isset($url_query) ? $url_query : PMA_generate_common_url($db))
-            . '\';';
-        $html_output .= 'AJAX.registerOnload(\'sql.js\',makeProfilingChart);';
-        $html_output .= '</script>';
+        $token = $_SESSION[' PMA_token '];
+        $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db))
 
-        $html_output .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
-        $html_output .= '<div style="float: left;">';
-        $html_output .= '<table>' . "\n";
-        $html_output .= ' <tr>' .  "\n";
-        $html_output .= '  <th>' . __('Status')
-            . PMA_Util::showMySQLDocu(
-                'general-thread-states', 'general-thread-states'
-            )
-            .  '</th>' . "\n";
-        $html_output .= '  <th>' . __('Time') . '</th>' . "\n";
-        $html_output .= ' </tr>' .  "\n";
-
-        $chart_json = Array();
-        foreach ($profiling_results as $one_result) {
-            $html_output .= ' <tr>' .  "\n";
-            $html_output .= '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
-            $html_output .= '<td class="right">'
-                . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
-                . 's</td>' .  "\n";
-            if (isset($chart_json[ucwords($one_result['Status'])])) {
-                $chart_json[ucwords($one_result['Status'])]
-                    += $one_result['Duration'];
-            } else {
-                $chart_json[ucwords($one_result['Status'])]
-                    = $one_result['Duration'];
-            }
-        }
-
-        $html_output .= '</table>' . "\n";
-        $html_output .= '</div>';
-        //require_once 'libraries/chart.lib.php';
-        $html_output .= '<div id="profilingChartData" style="display:none;">';
-        $html_output .= json_encode($chart_json);
-        $html_output .= '</div>';
-        $html_output .= '<div id="profilingchart" style="display:none;">';
-        $html_output .= '</div>';
-        $html_output .= '</fieldset>' . "\n";
+        $html_output .= PMA_getHtmlForProfilingChart(
+            $url, $token, $profiling_results
+        );
     }
 
     // Displays the results in a table

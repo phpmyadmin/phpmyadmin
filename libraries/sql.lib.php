@@ -476,6 +476,64 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
 }
 
 /**
+ * Get the HTML for the profiling table and accompanying chart
+ *
+ * @param string    $url_query            the url query
+ * @param string    $pma_token            the pma token
+ * @param array     $profiling_results    array containing the profiling info
+ *
+ * @return string   $profiling_table      html for the profiling table and chart
+ */
+function PMA_getHtmlForProfilingChart($url_query, $pma_token, $profiling_results)
+{
+    $profiling_table .= '<script type="text/javascript">';
+    $profiling_table .= 'pma_token = \'' . $pma_token . '\';';
+    $profiling_table .= 'url_query = \'' . $url_query . '\';';
+    $profiling_table .= 'AJAX.registerOnload(\'sql.js\',makeProfilingChart);';
+    $profiling_table .= '</script>';
+
+    $profiling_table .= '<fieldset><legend>' . __('Profiling') . '</legend>' . "\n";
+    $profiling_table .= '<div style="float: left;">';
+    $profiling_table .= '<table>' . "\n";
+    $profiling_table .= ' <tr>' .  "\n";
+    $profiling_table .= '  <th>' . __('Status')
+        . PMA_Util::showMySQLDocu(
+            'general-thread-states', 'general-thread-states'
+        )
+        .  '</th>' . "\n";
+    $profiling_table .= '  <th>' . __('Time') . '</th>' . "\n";
+    $profiling_table .= ' </tr>' .  "\n";
+
+    $chart_json = Array();
+    foreach ($profiling_results as $one_result) {
+        $profiling_table .= ' <tr>' .  "\n";
+        $profiling_table .= '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
+        $profiling_table .= '<td class="right">'
+            . (PMA_Util::formatNumber($one_result['Duration'], 3, 1))
+            . 's</td>' .  "\n";
+        if (isset($chart_json[ucwords($one_result['Status'])])) {
+            $chart_json[ucwords($one_result['Status'])]
+                += $one_result['Duration'];
+        } else {
+            $chart_json[ucwords($one_result['Status'])]
+                = $one_result['Duration'];
+        }
+    }
+
+    $profiling_table .= '</table>' . "\n";
+    $profiling_table .= '</div>';
+    //require_once 'libraries/chart.lib.php';
+    $profiling_table .= '<div id="profilingChartData" style="display:none;">';
+    $profiling_table .= json_encode($chart_json);
+    $profiling_table .= '</div>';
+    $profiling_table .= '<div id="profilingchart" style="display:none;">';
+    $profiling_table .= '</div>';
+    $profiling_table .= '</fieldset>' . "\n";
+
+    return $profiling_table;
+}
+
+/**
  * Get the HTML for the enum column dropdown
  * During grid edit, if we have a enum field, returns the html for the
  * dropdown
