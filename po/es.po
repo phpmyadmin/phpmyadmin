@@ -12839,10 +12839,9 @@ msgid "The profile has been updated."
 msgstr "Se actualizó el perfil."
 
 #: view_create.php:177
-#, fuzzy
 #| msgid "Event name"
 msgid "VIEW name"
-msgstr "Nombre del evento"
+msgstr "VER nombre"
 
 #: view_operations.php:90
 #, fuzzy
