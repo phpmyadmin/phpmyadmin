@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:02+0200\n"
+"PO-Revision-Date: 2013-05-09 10:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12818,10 +12818,9 @@ msgid "Available MIME types"
 msgstr "MIME-types disponibles"
 
 #: transformation_overview.php:34
-#, fuzzy
 #| msgid "Hide browser transformation"
 msgid "Available transformations"
-msgstr "Ocultar transformación del navegador"
+msgstr "Transformaciones disponibles"
 
 #: transformation_overview.php:39
 #, fuzzy
