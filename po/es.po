@@ -13011,7 +13011,7 @@ msgstr "Serie de versiones"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "La versión del servidor MySQL es menor a 5.1."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
