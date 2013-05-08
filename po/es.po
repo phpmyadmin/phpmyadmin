@@ -13392,6 +13392,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
+"Considere aumentar {sort_buffer_size} y/o {read_rnd_buffer_size} dependiendo "
+"de los límites de memoria del sistema"
 
 #: libraries/advisory_rules.txt:216
 #, php-format
