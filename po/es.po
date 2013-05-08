@@ -12615,10 +12615,9 @@ msgstr ""
 "FORÁNEA correspondiente."
 
 #: tbl_relation.php:395
-#, fuzzy
 #| msgid "Foreign key limit"
 msgid "Foreign key constraint"
-msgstr "Límite de las claves foráneas"
+msgstr "Restricción de clave foránea"
 
 #: tbl_relation.php:498
 #, fuzzy
