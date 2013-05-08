@@ -12654,7 +12654,7 @@ msgstr "Informe de seguimiento para la tabla `%s`"
 #: tbl_tracking.php:205
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "Se ha creado la versión %1$s, se ha activado el seguimiento para %2$s."
 
 #: tbl_tracking.php:222
 #, fuzzy, php-format
