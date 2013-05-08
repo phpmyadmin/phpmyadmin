@@ -12670,7 +12670,7 @@ msgstr "Seguimiento de %1$s activado en versión %2$s."
 
 #: tbl_tracking.php:253
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Sentencias SQL ejecutadas."
 
 #: tbl_tracking.php:260
 msgid ""
