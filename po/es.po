@@ -12643,7 +12643,7 @@ msgstr "No se seleccionaron columnas."
 #: tbl_structure.php:149
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
-msgstr ""
+msgstr "El nombre de columna «%s» es una palabra clave reservada de MySQL."
 
 #: tbl_tracking.php:135
 #, fuzzy, php-format
