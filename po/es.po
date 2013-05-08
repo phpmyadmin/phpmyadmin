@@ -12796,7 +12796,7 @@ msgstr "Hacer un seguimiento de estas sentencias de definición de datos:"
 
 #: tbl_tracking.php:875
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Hacer un seguimiento de estas sentencias de manipulación de datos:"
 
 #: tbl_tracking.php:885
 #, fuzzy
