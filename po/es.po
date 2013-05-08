@@ -12547,10 +12547,9 @@ msgid "Can't rename index to PRIMARY!"
 msgstr "No se puede cambiar el nombre del índice a PRIMARY!"
 
 #: tbl_indexes.php:97
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index parts defined!"
-msgstr "¡No se ha definido ningún índice!"
+msgstr "No se han definido las partes del índice!"
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
