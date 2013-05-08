@@ -12691,7 +12691,7 @@ msgstr "Sentencias SQL exportadas. Copia el volcado o ejecútalo."
 #: tbl_tracking.php:310
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "Captura de la versión %s (código SQL)"
 
 #: tbl_tracking.php:454
 msgid "Tracking data definition successfully deleted"
