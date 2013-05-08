@@ -13676,7 +13676,7 @@ msgstr "«key_buffer_size» es 0"
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
+msgstr "Porcentaje máximo del búfer de claves MyISAM usado en algún momento"
 
 #: libraries/advisory_rules.txt:306 libraries/advisory_rules.txt:314
 #, php-format
