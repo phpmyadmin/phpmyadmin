@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:16+0200\n"
+"PO-Revision-Date: 2013-05-09 10:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -13658,6 +13658,8 @@ msgstr "Tamaño de búfer de claves MyISAM"
 #: libraries/advisory_rules.txt:299
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"El búfer de claves no fue inicializado. No se utilizará un caché de claves "
+"MyISAM."
 
 #: libraries/advisory_rules.txt:300
 msgid ""
