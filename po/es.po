@@ -12855,6 +12855,8 @@ msgstr "Tiempo de actividad menor a un día"
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"El tiempo de actividad es menor a 1 día, los ajustes de performance puede no "
+"ser precisos."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
