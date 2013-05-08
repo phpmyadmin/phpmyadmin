@@ -136,6 +136,10 @@ var AJAX = {
             return true;
         } else if (href && href.match(/^mailto/)) {
             return true;
+        } else if ($(this).hasClass('ui-datepicker-next') || 
+                   $(this).hasClass('ui-datepicker-prev')
+                  ) {
+            return true;
         }
 
         if (typeof event != 'undefined') {
