@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 09:58+0200\n"
+"PO-Revision-Date: 2013-05-09 09:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12646,10 +12646,10 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "El nombre de columna «%s» es una palabra clave reservada de MySQL."
 
 #: tbl_tracking.php:135
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Tracking report for table `%s`"
-msgstr "Informe de seguimiento"
+msgstr "Informe de seguimiento para la tabla `%s`"
 
 #: tbl_tracking.php:205
 #, php-format
