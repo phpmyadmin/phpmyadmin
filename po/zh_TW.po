@@ -8631,11 +8631,14 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr "使用主機表時，此處的資料會被主機資料表中的資料所替換。"
+<<<<<<< HEAD
 
 #: libraries/replication_gui.lib.php:382
 #: libraries/server_privileges.lib.php:1230
 msgid "Re-type"
 msgstr "重新輸入"
+=======
+>>>>>>> QA_4_0
 
 #: libraries/replication_gui.lib.php:386
 #, fuzzy
