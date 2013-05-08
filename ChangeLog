@@ -1,7 +1,6 @@
 phpMyAdmin - ChangeLog
 ======================
 
-<<<<<<< HEAD
 4.1.0.0 (not yet released)
 + rfe #499 On user creation, warn if the user already exists
 + Use indeterminate check all checkbox in server privileges
@@ -27,6 +26,8 @@ phpMyAdmin - ChangeLog
 - bug #3895 [browse] Fixed getting BLOB data
 - bug #3905 [export] Custom Exporting exports all databases
 - bug #3909 [import] Import of CSV FIle to selected table doesn't work
+- bug #3904 Browsing an empty table should not display its Structure
+- bug #3908 Calendar widget improperly redirects to home 
 
 4.0.0.0 (2013-05-03)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement

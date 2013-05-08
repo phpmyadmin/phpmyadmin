@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-02 15:40+0200\n"
+"PO-Revision-Date: 2013-05-08 16:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -5640,7 +5640,6 @@ msgid "Control host"
 msgstr "Anfitrión de control"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5649,14 +5648,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Alternativa para guardar el almacenamiento de configuración; deje vacío para "
-"utilizar el ya definido"
+"Puerto alternativo para conectarse al servidor que posee el almacenamiento "
+"de configuración; deje vacío para utilizar el puerto predeterminado o el "
+"puerto ya definido si el el servidor de control es el mismo"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Anfitrión de control"
+msgstr "Puerto de control"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
@@ -12545,15 +12544,41 @@ msgstr "Nombre del archivo"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
+<<<<<<< HEAD
+msgstr "¡El nombre de la clave primaria tiene que ser «PRIMARY»!"
+=======
 msgstr "¡El nombre de la clave primaria debe ser «PRIMARY»!"
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
-msgstr "No se puede cambiar el nombre del índice a PRIMARY!"
+msgstr "¡No se puede cambiar el nombre del índice a PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
-msgstr "¡No se han definido las partes del índice!"
+msgstr "No se han definido las partes del índice!"
+
+#: tbl_indexes.php:197
+msgid "Edit index"
+msgstr "Editar índice"
+
+#: tbl_indexes.php:209
+msgid "Index name:"
+msgstr "Nombre del índice:"
+
+#: tbl_indexes.php:214
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr ""
+"(«PRIMARY» <b>debe</b> ser el nombre <b>exclusivamente</b> de una clave "
+"primaria)"
+
+#: tbl_indexes.php:234
+msgid "Comment:"
+msgstr "Comentario:"
+
+#: tbl_indexes.php:249
+msgid "Index type:"
+msgstr "Tipo de índice&nbsp;:"
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
@@ -12578,16 +12603,8 @@ msgid "The table name is empty!"
 msgstr "¡El nombre de la tabla está vacío!"
 
 #: tbl_printview.php:65
-msgid "Showing tables:"
-msgstr "Mostrando las tablas:"
-
-#: tbl_printview.php:296
-msgid "Space usage:"
-msgstr "Espacio utilizado:"
-
-#: tbl_printview.php:345
-msgid "Row Statistics:"
-msgstr "Estadísticas de la fila:"
+msgid "Showing tables"
+msgstr "Mostrando las tablas"
 
 #: tbl_relation.php:213
 #, php-format
@@ -12619,11 +12636,8 @@ msgstr "Nombre de la restricción"
 msgid "No index defined! Create one below"
 msgstr "¡No se ha definido ningún índice! Cree uno más abajo"
 
-#: tbl_relation.php:544
-msgid "Choose column to display:"
-msgstr "Elegir la columna a mostrar:"
-
 #: tbl_structure.php:125
+#| msgid "No rows selected"
 msgid "No column selected."
 msgstr "No se seleccionaron columnas."
 
@@ -12672,111 +12686,107 @@ msgstr "Comenta estas dos líneas si no las necesitas."
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "Sentencias SQL exportadas. Copia el volcado o ejecútalo."
 
-#: tbl_tracking.php:310
+#: tbl_tracking.php:309
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Captura de la versión %s (código SQL)"
 
-#: tbl_tracking.php:454
+#: tbl_tracking.php:453
 msgid "Tracking data definition successfully deleted"
 msgstr "Definición de seguimiento de datos eliminado exitosamente"
 
-#: tbl_tracking.php:478
+#: tbl_tracking.php:477
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Manipulación de seguimiento de datos eliminada exitosamente"
 
-#: tbl_tracking.php:493
+#: tbl_tracking.php:492
 msgid "Tracking statements"
 msgstr "Realizando el seguimiento de las sentencias"
 
-#: tbl_tracking.php:524 tbl_tracking.php:672
+#: tbl_tracking.php:523 tbl_tracking.php:671
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Muestra %1$s con fechas de %2$s a %3$s por parte del usuario %4$s %5$s"
 
-#: tbl_tracking.php:532
+#: tbl_tracking.php:531
 msgid "Delete tracking data row from report"
 msgstr "Borrar fila de seguimiento de datos del reporte"
 
-#: tbl_tracking.php:546
+#: tbl_tracking.php:545
 msgid "No data"
 msgstr "No hay datos"
 
-#: tbl_tracking.php:555 tbl_tracking.php:617
+#: tbl_tracking.php:554 tbl_tracking.php:616
 msgid "Date"
 msgstr "Fecha"
 
-#: tbl_tracking.php:557
+#: tbl_tracking.php:556
 msgid "Data definition statement"
 msgstr "Sentencia de definición de datos"
 
-#: tbl_tracking.php:619
+#: tbl_tracking.php:618
 msgid "Data manipulation statement"
 msgstr "Sentencia de manipulación de datos"
 
-#: tbl_tracking.php:677
+#: tbl_tracking.php:676
 msgid "SQL dump (file download)"
 msgstr "Volcado SQL (descarga de archivo)"
 
-#: tbl_tracking.php:678
+#: tbl_tracking.php:677
 msgid "SQL dump"
 msgstr "Volcado SQL"
 
-#: tbl_tracking.php:680
+#: tbl_tracking.php:679
 msgid "This option will replace your table and contained data."
 msgstr "Esta opción sustituirá tu tabla y los datos que contiene."
 
-#: tbl_tracking.php:681
+#: tbl_tracking.php:680
 msgid "SQL execution"
 msgstr "Ejecución SQL"
 
-#: tbl_tracking.php:699
+#: tbl_tracking.php:698
 #, php-format
 msgid "Export as %s"
 msgstr "Exportar como %s"
 
-#: tbl_tracking.php:736
+#: tbl_tracking.php:735
 msgid "Show versions"
 msgstr "Mostrar versiones"
 
-#: tbl_tracking.php:824
+#: tbl_tracking.php:823
 #, php-format
 msgid "Deactivate tracking for %s"
 msgstr "Desactivar el seguimiento para %s"
 
-#: tbl_tracking.php:830
+#: tbl_tracking.php:829
 msgid "Deactivate now"
 msgstr "Desactivar ahora"
 
-#: tbl_tracking.php:840
+#: tbl_tracking.php:839
 #, php-format
 msgid "Activate tracking for %s"
 msgstr "Activar el seguimiento para %s"
 
-#: tbl_tracking.php:846
+#: tbl_tracking.php:845
 msgid "Activate now"
 msgstr "Activar ahora"
 
-#: tbl_tracking.php:859
+#: tbl_tracking.php:858
 #, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "Crear versión %1$s de %2$s"
 
-#: tbl_tracking.php:867
+#: tbl_tracking.php:866
 msgid "Track these data definition statements:"
 msgstr "Hacer un seguimiento de estas sentencias de definición de datos:"
 
-#: tbl_tracking.php:875
+#: tbl_tracking.php:874
 msgid "Track these data manipulation statements:"
 msgstr "Hacer un seguimiento de estas sentencias de manipulación de datos:"
 
-#: tbl_tracking.php:885
+#: tbl_tracking.php:884
 msgid "Create version"
 msgstr "Crear versión"
-
-#: themes.php:16 themes.php:21
-msgid "Theme"
-msgstr "Tema"
 
 #: themes.php:24
 msgid "Get more themes!"
@@ -14121,43 +14131,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
 
-#~| msgid "General relation features"
-#~ msgid "General relation features:"
-#~ msgstr "Opciones de relación general:"
-
-#~ msgid "Live traffic chart"
-#~ msgstr "Gráfico de tráfico en vivo"
-
-#~ msgid "Live conn./process chart"
-#~ msgstr "Gráfico de procesos/conexiones en vivo"
-
-#~ msgid "Live query chart"
-#~ msgstr "Gráfico de consultas en vivo"
-
-#~ msgid "Static data"
-#~ msgstr "Datos estáticos"
-
-#~ msgid "And"
-#~ msgstr "y luego"
-
-#~ msgid "Number of rows"
-#~ msgstr "Número de filas"
-
-#~ msgid "Columns enclosed by"
-#~ msgstr "Columnas encerradas por"
-
-#~ msgid "Columns escaped by"
-#~ msgstr "Caracter de escape de columnas"
-
-#~ msgid "Replace NULL by"
-#~ msgstr "Reemplazar NULL por"
-
-#~ msgid "Lines terminated by"
-#~ msgstr "Líneas terminadas en"
-
-#~ msgid "Rearrange/edit charts"
-#~ msgstr "Reorganizar/editar gráficos"
-
 #~ msgid "ltr"
 #~ msgstr "ltr"
 
@@ -14975,6 +14948,9 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgid "MySQL client version"
 #~ msgstr "Versión del cliente"
 
+#~ msgid "Outer Ring:"
+#~ msgstr "Círculo exterior:"
+
 #~ msgid "Drag and select an area in the plot to zoom into it."
 #~ msgstr "Arrastre y seleccione un área en el gráfico para ampliarla."
 
@@ -15256,3 +15232,4 @@ msgstr "«concurrent_insert» está definido como 0"
 
 #~ msgid "Choose…"
 #~ msgstr "Elegir…"
+>>>>>>> QA_4_0

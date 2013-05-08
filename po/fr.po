@@ -12535,7 +12535,15 @@ msgstr "Colonne descriptive : "
 #: tbl_structure.php:125
 #| msgid "No rows selected"
 msgid "No column selected."
+<<<<<<< HEAD
+<<<<<<< HEAD
 msgstr "Aucune colonne n'a été sélectionnée."
+=======
+msgstr "Aucune colonne n'a été sélectionnée"
+>>>>>>> QA_4_0
+=======
+msgstr "Aucune colonne n'a été sélectionnée."
+>>>>>>> QA_4_0
 
 #: tbl_structure.php:149
 #, php-format

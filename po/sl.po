@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-02 13:04+0200\n"
+"PO-Revision-Date: 2013-05-08 17:04+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5574,7 +5574,6 @@ msgid "Control host"
 msgstr "Krmilni gostitelj"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5583,14 +5582,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Nadomestni gostitelj, ki ima shrambo konfiguracije; pustite prazno, če "
-"želite uporabiti že opredeljen gostitelj"
+"Nadomestna vrata za povezavo do gostitelja, ki ima shrambo konfiguracije; "
+"pustite prazno, če želite uporabiti privzeta vrata ali že nastavljena vrata "
+"v primeru, ko je nadzorni gostitelj enak gostitelju"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Krmilni gostitelj"
+msgstr "Krmilna vrata"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
