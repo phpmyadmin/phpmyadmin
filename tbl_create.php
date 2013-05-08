@@ -67,137 +67,15 @@ if (!PMA_DBI_selectDb($db)) {
  */
 if (isset($_REQUEST['do_save_data'])) {
     $sql_query = '';
-
-    // Transforms the radio button field_key into 3 arrays
-    $field_cnt = count($_REQUEST['field_name']);
-    for ($i = 0; $i < $field_cnt; ++$i) {
-        if (isset($_REQUEST['field_key'][$i])) {
-            if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
-                $field_primary[] = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'index_' . $i) {
-                $field_index[]   = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
-                $field_unique[]  = $i;
-            }
-        } // end if
-    } // end for
-
-    // Builds the fields creation statements
-    for ($i = 0; $i < $field_cnt; $i++) {
-        // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i])
-            && $_REQUEST['field_name'][$i] != '0'
-        ) {
-            continue;
-        }
-
-        $query = PMA_Table::generateFieldSpec(
-            $_REQUEST['field_name'][$i],
-            $_REQUEST['field_type'][$i],
-            $i,
-            $_REQUEST['field_length'][$i],
-            $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i])
-            ? $_REQUEST['field_collation'][$i]
-            : '',
-            isset($_REQUEST['field_null'][$i])
-            ? $_REQUEST['field_null'][$i]
-            : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i],
-            $_REQUEST['field_default_value'][$i],
-            isset($_REQUEST['field_extra'][$i])
-            ? $_REQUEST['field_extra'][$i]
-            : false,
-            isset($_REQUEST['field_comments'][$i])
-            ? $_REQUEST['field_comments'][$i]
-            : '',
-            $field_primary,
-            ''
-        );
-
-        $query .= ', ';
-        $sql_query .= $query;
-    } // end for
-    unset($field_cnt, $query);
-    $sql_query = preg_replace('@, $@', '', $sql_query);
-
-    // Builds the primary keys statements
-    $primary     = '';
-    $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
-    for ($i = 0; $i < $primary_cnt; $i++) {
-        $j = $field_primary[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $primary .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($primary_cnt);
-    $primary = preg_replace('@, $@', '', $primary);
-    if (strlen($primary)) {
-        $sql_query .= ', PRIMARY KEY (' . $primary . ')';
-    }
-    unset($primary);
-
-    // Builds the indexes statements
-    $index     = '';
-    $index_cnt = (isset($field_index) ? count($field_index) : 0);
-    for ($i = 0;$i < $index_cnt; $i++) {
-        $j = $field_index[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $index .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($index_cnt);
-    $index = preg_replace('@, $@', '', $index);
-    if (strlen($index)) {
-        $sql_query .= ', INDEX (' . $index . ')';
-    }
-    unset($index);
-
-    // Builds the uniques statements
-    $unique     = '';
-    $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
-    for ($i = 0; $i < $unique_cnt; $i++) {
-        $j = $field_unique[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $unique .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-    unset($unique_cnt);
-    $unique = preg_replace('@, $@', '', $unique);
-    if (strlen($unique)) {
-        $sql_query .= ', UNIQUE (' . $unique . ')';
-    }
-    unset($unique);
-
-    // Builds the FULLTEXT statements
-    $fulltext     = '';
-    $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
-    for ($i = 0; $i < $fulltext_cnt; $i++) {
-        $j = $field_fulltext[$i];
-        if (isset($_REQUEST['field_name'][$j])
-            && strlen($_REQUEST['field_name'][$j])
-        ) {
-            $fulltext .= PMA_Util::backquote($_REQUEST['field_name'][$j]) . ', ';
-        }
-    } // end for
-
-    $fulltext = preg_replace('@, $@', '', $fulltext);
-    if (strlen($fulltext)) {
-        $sql_query .= ', FULLTEXT (' . $fulltext . ')';
-    }
-    unset($fulltext);
-
+    
+    require_once 'libraries/create_addfield.lib.php';
+    // get field addition statements
+    $sql_statement = PMA_getFieldCreationStatements(true);
+    $sql_statement = preg_replace('@, $@', '', $sql_statement);
+    
     // Builds the 'create table' statement
     $sql_query = 'CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table) . ' (' . $sql_query . ')';
+        . PMA_Util::backquote($table) . ' (' . $sql_statement . ')';
 
     // Adds table type, character set, comments and partition definition
     if (!empty($_REQUEST['tbl_storage_engine'])

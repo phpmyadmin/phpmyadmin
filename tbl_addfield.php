@@ -50,123 +50,10 @@ if (isset($_REQUEST['do_save_data'])) {
     //avoid an incorrect calling of PMA_updateColumns() via
     //tbl_structure.php below
     unset($_REQUEST['do_save_data']);
-
-    $query = '';
-    $definitions = array();
-
-    // Transforms the radio button field_key into 3 arrays
-    $field_cnt      = count($_REQUEST['field_name']);
-    $field_primary  = array();
-    $field_index    = array();
-    $field_unique   = array();
-    $field_fulltext = array();
-    for ($i = 0; $i < $field_cnt; ++$i) {
-        if (isset($_REQUEST['field_key'][$i])
-            && strlen($_REQUEST['field_name'][$i])
-        ) {
-            if ($_REQUEST['field_key'][$i] == 'primary_' . $i) {
-                $field_primary[] = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'index_' . $i) {
-                $field_index[]   = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'unique_' . $i) {
-                $field_unique[]  = $i;
-            }
-            if ($_REQUEST['field_key'][$i] == 'fulltext_' . $i) {
-                $field_fulltext[]  = $i;
-            }
-        } // end if
-    } // end for
-
-    // Builds the field creation statement and alters the table
-    for ($i = 0; $i < $field_cnt; ++$i) {
-        // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i])
-            && $_REQUEST['field_name'][$i] != '0'
-        ) {
-            continue;
-        }
-
-        $definition = ' ADD ' . PMA_Table::generateFieldSpec(
-            $_REQUEST['field_name'][$i],
-            $_REQUEST['field_type'][$i],
-            $i,
-            $_REQUEST['field_length'][$i],
-            $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i])
-            ? $_REQUEST['field_collation'][$i]
-            : '',
-            isset($_REQUEST['field_null'][$i])
-            ? $_REQUEST['field_null'][$i]
-            : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i],
-            $_REQUEST['field_default_value'][$i],
-            isset($_REQUEST['field_extra'][$i])
-            ? $_REQUEST['field_extra'][$i]
-            : false,
-            isset($_REQUEST['field_comments'][$i])
-            ? $_REQUEST['field_comments'][$i]
-            : '',
-            $field_primary
-        );
-
-        if ($_REQUEST['field_where'] != 'last') {
-            // Only the first field can be added somewhere other than at the end
-            if ($i == 0) {
-                if ($_REQUEST['field_where'] == 'first') {
-                    $definition .= ' FIRST';
-                } else {
-                    $definition .= ' AFTER '
-                        . PMA_Util::backquote($_REQUEST['after_field']);
-                }
-            } else {
-                $definition .= ' AFTER '
-                    . PMA_Util::backquote($_REQUEST['field_name'][$i-1]);
-            }
-        }
-        $definitions[] = $definition;
-    } // end for
-
-    // Builds the primary keys statements and updates the table
-    if (count($field_primary)) {
-        $fields = array();
-        foreach ($field_primary as $field_nr) {
-            $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
-        }
-        $definitions[] = ' ADD PRIMARY KEY (' . implode(', ', $fields) . ') ';
-        unset($fields);
-    }
-
-    // Builds the indexes statements and updates the table
-    if (count($field_index)) {
-        $fields = array();
-        foreach ($field_index as $field_nr) {
-            $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
-        }
-        $definitions[] = ' ADD INDEX (' . implode(', ', $fields) . ') ';
-        unset($fields);
-    }
-
-    // Builds the uniques statements and updates the table
-    if (count($field_unique)) {
-        $fields = array();
-        foreach ($field_unique as $field_nr) {
-            $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
-        }
-        $definitions[] = ' ADD UNIQUE (' . implode(', ', $fields) . ') ';
-        unset($fields);
-    }
-
-    // Builds the fulltext statements and updates the table
-    if (count($field_fulltext)) {
-        $fields = array();
-        foreach ($field_fulltext as $field_nr) {
-            $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
-        }
-        $definitions[] = ' ADD FULLTEXT (' . implode(', ', $fields) . ') ';
-        unset($fields);
-    }
+    
+    require_once 'libraries/create_addfield.lib.php';
+    // get field addition statements
+    $sql_statement = PMA_getFieldCreationStatements(false);
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
@@ -175,7 +62,7 @@ if (isset($_REQUEST['do_save_data'])) {
             PMA_DBI_getError(), 'USE ' . PMA_Util::backquote($db), '', $err_url
         );
     $sql_query    = 'ALTER TABLE ' .
-        PMA_Util::backquote($table) . ' ' . implode(', ', $definitions) . ';';
+        PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
     $result = PMA_DBI_tryQuery($sql_query);
 
     if ($result === true) {
