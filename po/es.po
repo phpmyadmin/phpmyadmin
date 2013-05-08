@@ -12989,7 +12989,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "«slow_query_log» está definido como 'OFF'"
 
 #: libraries/advisory_rules.txt:95
 msgid ""
