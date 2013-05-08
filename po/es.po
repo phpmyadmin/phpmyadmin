@@ -13513,6 +13513,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Esto indica que muchas consultas necesitan ordenar resultados y/o realizar "
+"un escrutinio completo de tablas, incluyendo consultas con uniones («JOIN») "
+"que no utilizan índices. Agregue índices donde sea aplicable."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
