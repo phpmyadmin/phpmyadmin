@@ -137,14 +137,8 @@ msgstr "Komen jadual"
 #: libraries/plugins/export/ExportTexytext.class.php:432
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 #: libraries/schema/Pdf_Relation_Schema.class.php:1381
-<<<<<<< HEAD
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_printview.php:130
 #: tbl_relation.php:378 tbl_tracking.php:324 tbl_tracking.php:386
-=======
-#: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
-#: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:323
-#: tbl_tracking.php:385
->>>>>>> QA_4_0
 #, fuzzy
 msgid "Column"
 msgstr "Pangkalan data %1$s telah dijana."

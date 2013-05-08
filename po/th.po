@@ -724,12 +724,8 @@ msgid "Server:"
 msgstr "เซิร์ฟเวอร์"
 
 #: index.php:240
-<<<<<<< HEAD
 #, fuzzy
 msgid "Server type:"
-=======
-msgid "Server type"
->>>>>>> QA_4_0
 msgstr "ตัวเลือกเซิร์ฟเวอร์"
 
 #: index.php:244 libraries/plugins/export/ExportLatex.class.php:225
@@ -778,16 +774,10 @@ msgstr "ส่วนขยาย PHP"
 msgid "Show PHP information"
 msgstr "แสดงข้อมูลของ PHP"
 
-<<<<<<< HEAD
 #: index.php:323
 #, fuzzy
 msgid "Version information:"
 msgstr "ข้อมูลล็อกอิน"
-=======
-#: index.php:323 libraries/engines/bdb.lib.php:25
-msgid "Version information"
-msgstr "ข้อมูลเวอร์ชัน"
->>>>>>> QA_4_0
 
 #: index.php:332 libraries/Util.class.php:430 libraries/Util.class.php:516
 #: libraries/config/FormDisplay.tpl.php:145
