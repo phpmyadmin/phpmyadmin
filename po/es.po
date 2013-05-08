@@ -13282,10 +13282,9 @@ msgstr ""
 "utilizados y libres. Este valor debería ser menor al 20%%."
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Caché de consultas utilizado"
+msgstr "Reducciones al caché de consultas por falta de memoria"
 
 #: libraries/advisory_rules.txt:191
 #, fuzzy
