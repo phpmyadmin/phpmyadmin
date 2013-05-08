@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:04+0200\n"
+"PO-Revision-Date: 2013-05-09 10:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12922,10 +12922,9 @@ msgstr ""
 "actual es %s%%."
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query rate"
-msgstr "Mostrar ventana de consultas SQL"
+msgstr "Frecuencia de consultas lentas"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
