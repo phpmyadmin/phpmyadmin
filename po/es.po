@@ -13557,7 +13557,7 @@ msgstr "«tmp_table_size» vs. «max_heap_table_size»"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} y {max_heap_table_size} no son iguales."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
