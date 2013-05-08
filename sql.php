@@ -1009,7 +1009,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $header = $response->getHeader();
         $header->enablePrintView();
 
-        $html_output .= PMA_getHtmlForPrintViewHeader($db, $full_sql_query, $num_rows)
+        $html_output .= PMA_getHtmlForPrintViewHeader(
+            $db, $full_sql_query, $num_rows
+        );
     } else {
         $response = PMA_Response::getInstance();
         $header = $response->getHeader();
@@ -1060,7 +1062,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($profiling_results)) {
         // pma_token/url_query needed for chart export
         $token = $_SESSION[' PMA_token '];
-        $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db))
+        $url = (isset($url_query) ? $url_query : PMA_generate_common_url($db));
 
         $html_output .= PMA_getHtmlForProfilingChart(
             $url, $token, $profiling_results
