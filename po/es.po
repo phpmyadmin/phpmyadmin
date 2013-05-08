@@ -13161,10 +13161,9 @@ msgstr ""
 "como 'OFF'"
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query caching method"
-msgstr "Caché de consultas utilizado"
+msgstr "Método de caché de consultas"
 
 #: libraries/advisory_rules.txt:163
 msgid "Suboptimal caching method."
