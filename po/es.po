@@ -12752,10 +12752,10 @@ msgid "SQL execution"
 msgstr "Ejecución SQL"
 
 #: tbl_tracking.php:699
-#, fuzzy, php-format
+#, php-format
 #| msgid "Export defaults"
 msgid "Export as %s"
-msgstr "Exportar las opciones predeterminadas"
+msgstr "Exportar como %s"
 
 #: tbl_tracking.php:736
 #, fuzzy
