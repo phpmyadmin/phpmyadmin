@@ -12904,7 +12904,7 @@ msgstr "Porcentajes de consultas lentas"
 #: libraries/advisory_rules.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Hay muchas consultas lentas en comparación con el total de consultas."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
