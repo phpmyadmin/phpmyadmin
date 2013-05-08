@@ -28,7 +28,7 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
             $parent->links
         );
         $this->assertContains(
-            'sql.php',
+            'db_structure.php',
             $parent->links['text']
         );
         $this->assertEquals('tables', $parent->real_name);
