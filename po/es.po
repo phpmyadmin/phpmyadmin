@@ -13106,6 +13106,7 @@ msgstr "La documentación de Drizzle se encuentra en http://docs.drizzle.org/"
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
+"La cadena de versión (%s) coincide con el esquema de versionado de Drizzle"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
