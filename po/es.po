@@ -12682,7 +12682,7 @@ msgstr ""
 
 #: tbl_tracking.php:262
 msgid "Comment out these two lines if you do not need them."
-msgstr ""
+msgstr "Comenta estas dos líneas si no las necesitas."
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
