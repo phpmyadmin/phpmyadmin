@@ -12736,7 +12736,7 @@ msgstr "Sentencia de manipulación de datos"
 
 #: tbl_tracking.php:677
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "Volcado SQL (descarga de archivo)"
 
 #: tbl_tracking.php:678
 msgid "SQL dump"
