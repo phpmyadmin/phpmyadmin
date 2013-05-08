@@ -13064,7 +13064,7 @@ msgstr "Distribución"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versión compilada de código fuente, no un ejecutable MySQL oficial."
 
 #: libraries/advisory_rules.txt:125
 msgid ""
