@@ -12804,10 +12804,9 @@ msgid "Create version"
 msgstr "Crear versión"
 
 #: themes.php:16 themes.php:21
-#, fuzzy
 #| msgid "Theme:"
 msgid "Theme"
-msgstr "Tema:"
+msgstr "Tema"
 
 #: themes.php:24
 msgid "Get more themes!"
