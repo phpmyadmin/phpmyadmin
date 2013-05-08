@@ -1,7 +1,6 @@
 phpMyAdmin - ChangeLog
 ======================
 
-<<<<<<< HEAD
 4.1.0.0 (not yet released)
 + rfe #499 On user creation, warn if the user already exists
 + Use indeterminate check all checkbox in server privileges
