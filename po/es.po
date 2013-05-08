@@ -12799,10 +12799,9 @@ msgid "Track these data manipulation statements:"
 msgstr "Hacer un seguimiento de estas sentencias de manipulación de datos:"
 
 #: tbl_tracking.php:885
-#, fuzzy
 #| msgid "Last version"
 msgid "Create version"
-msgstr "Última versión"
+msgstr "Crear versión"
 
 #: themes.php:16 themes.php:21
 #, fuzzy
