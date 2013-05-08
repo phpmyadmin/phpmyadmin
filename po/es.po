@@ -12553,7 +12553,7 @@ msgstr "No se han definido las partes del índice!"
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "¡No es posible mover la tabla a la misma!"
 
 #: tbl_move_copy.php:45
 msgid "Can't copy table to same one!"
