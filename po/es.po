@@ -13505,7 +13505,7 @@ msgstr "Tasa de lectura de una posición fija"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "La tasa de lecutura de datos de una posición fija es alta."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
