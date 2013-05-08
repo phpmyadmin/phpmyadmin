@@ -13130,7 +13130,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:147
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Memoria disponible en este equipo: %s"
 
 #: libraries/advisory_rules.txt:153
 #, fuzzy
