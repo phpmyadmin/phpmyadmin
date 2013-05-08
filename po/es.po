@@ -13432,6 +13432,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Si bien no hay nada de malo en ordenar una gran cantidad de filas, es "
+"probable que desee asegurarse que las consultas que requieren gran cantidad "
+"de ordenación utilicen campos indexados en la cláusula «ORDER BY», lo que "
+"resultará en una ordenación más rápida"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
