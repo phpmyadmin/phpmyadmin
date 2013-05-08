@@ -12813,10 +12813,9 @@ msgid "Get more themes!"
 msgstr "¡Obtener más temas!"
 
 #: transformation_overview.php:21
-#, fuzzy
 #| msgid "Display MIME types"
 msgid "Available MIME types"
-msgstr "Tipos MIME disponibles"
+msgstr "MIME-types disponibles"
 
 #: transformation_overview.php:34
 #, fuzzy
