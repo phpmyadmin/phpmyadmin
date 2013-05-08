@@ -13023,10 +13023,10 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current Server:"
 msgid "Current version: %s"
-msgstr "Servidor actual:"
+msgstr "Versión actual: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
 #, fuzzy
