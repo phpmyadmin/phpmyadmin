@@ -13339,7 +13339,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:200
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "Tamaño del caché de consultas: %s"
 
 #: libraries/advisory_rules.txt:202
 #, fuzzy
