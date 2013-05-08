@@ -12850,7 +12850,7 @@ msgstr "Cambiar el nombre de la vista a"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Tiempo de actividad menor a un día"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
