@@ -13325,6 +13325,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"El tamaño del caché de consultas es mayor a 128 MiB. Grandes cachés pueden "
+"causar grandes sobrecargas para manterlo."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
