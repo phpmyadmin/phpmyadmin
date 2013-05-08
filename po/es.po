@@ -13005,10 +13005,9 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr "slow_query_log está definido como 'OFF'"
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Clear series"
 msgid "Release Series"
-msgstr "Vaciar serie"
+msgstr "Serie de versiones"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
