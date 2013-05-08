@@ -140,19 +140,8 @@ $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'tbl_structure.php';
 
 // Check column names for MySQL reserved words
-if ($cfg['ReservedWordDisableWarning'] === false) {
-    $pma_table = new PMA_Table($table, $db);
-    $columns = $pma_table->getReservedColumnNames();
-    if (! empty($columns)) {
-        foreach ($columns as $column) {
-            $msg = PMA_message::notice(
-                __('The column name \'%s\' is a MySQL reserved keyword.')
-            );
-            $msg->addParam($column);
-            $response->addHTML($msg);
-        }
-    }
-}
+$reserved_word_column_messages = PMA_getReservedWordColumnNameMessages($db ,$table);
+$response->addHTML($reserved_word_column_messages);
 
 /**
  * Prepares the table structure display
@@ -170,16 +159,7 @@ require_once 'libraries/Index.class.php';
 // @todo should be: $server->db($db)->table($table)->primary()
 $primary = PMA_Index::getPrimary($table, $db);
 
-$columns_with_unique_index = array();
-foreach (PMA_Index::getFromTable($table, $db) as $index) {
-    if ($index->isUnique() && $index->getChoice() == 'UNIQUE') {
-        $columns = $index->getColumns();
-        foreach ($columns as $column_name => $dummy) {
-            $columns_with_unique_index[$column_name] = 1;
-        }
-    }
-}
-unset($index, $columns, $column_name, $dummy);
+$columns_with_unique_index = PMA_getColumnsWithUniqueIndex($db ,$table);
 
 // 3. Get fields
 $fields = (array) PMA_DBI_getColumns($db, $table, null, true);
