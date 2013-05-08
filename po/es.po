@@ -12557,7 +12557,7 @@ msgstr "¡No es posible mover la tabla a la misma!"
 
 #: tbl_move_copy.php:45
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "¡No es posible copiar la tabla a la misma!"
 
 #: tbl_move_copy.php:55
 #, fuzzy, php-format
