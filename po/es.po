@@ -13100,7 +13100,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "La documentación de Drizzle se encuentra en http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
