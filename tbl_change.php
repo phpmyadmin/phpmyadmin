@@ -216,33 +216,47 @@ $url_params = PMA_urlParamsInEditMode(
 );
 
 //form for find and relace feature
-    			
-$html_output .= '<div id="find_replace_div" style="display: block; width: auto; min-height: 0px; height: auto; padding-top: 0px;" class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">';
+$html_output .= '<div id="find_replace_div" '
+    .'style="display: block; width: auto;'
+    .'min-height: 0px; height: auto; padding-top: 0px;"'
+    .'class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">';
 $fields_cnt = count($table_fields);
-	$choices=array();
+$choices=array();
 
-$html_output .= '<form name="find_replace_form" id="find_replace_form" >
-				<h4>Find and replace column wise:
-				<input type="radio" name="option" value="bystring" id="bystring" checked/>by string &nbsp;&nbsp;
-				<input type="radio" name="option" value="byword" id="byword" />by word &nbsp&nbsp
-				<input type="radio" name="option" value="bycolumn" id="bycolumn"/>by column&nbsp&nbsp</h4>';
+$html_output .= '<form name="find_replace_form" id="find_replace_form" >'
+    .'<h4>Find and replace column wise:'
+    .'<input type="radio" name="option" value="bystring" id="bystring" checked/>'
+    .'by string &nbsp;&nbsp;'
+    .'<input type="radio" name="option" value="byword" id="byword" />'
+    .'by word &nbsp&nbsp'
+    .'<input type="radio" name="option" value="bycolumn" id="bycolumn"/>'
+    .'by column&nbsp&nbsp</h4>';
 
 //adding columns to the form
 for ($i = 0; $i < $fields_cnt; $i++) {
-	$column=$table_fields[$i]['Field'];
-	$html_output .='<input type="radio" name="column" value="'.$column.'" id="'.$column.'"/>'.$column.'&nbsp&nbsp';
+    $column=$table_fields[$i]['Field'];
+    $html_output .='<input type="radio" name="column" '
+        .'value="'.$column.'" id="'.$column.'"/>'.$column.'&nbsp&nbsp';
 }
 
-$html_output .='<br><br><input type="text" name="find_text" id="find_text" name="find_text" value="" size="20" />
-				<button type="button" onclick="countNow();" value="Find" id="find" name="find" >Count</button>
-				<button type="button" value="up" onclick="goUp();" id="up" name="up">Find:Up</button>
-				<button type="button" value="down" onclick="goDown();" id="down" name="down">Find:Down</button><br>
-				<input type="text" name="replace_text" id="replace_text" value="" size="20" />
-				<button type="button" value="replace_once" onclick="replaceOnce();" id="replace_once" name="replace_once">Replace Once</button>
-				<button type="button" value="replace_all" onclick="replaceAll();" id="replace_all" name="replace_all">Replace All</button>
-				&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" value="reset" onclick="resetAll();" id="reset_all" name="reset_all">Reset All</button>
-				</form></div>
-				<button type="button"  onclick="minmax();" id="find_replace_button" name="find_replace_button">find & replace: HIDE</button><br>';
+$html_output .= '<br><br><input type="text" name="find_text" '
+    .'id="find_text" name="find_text" value="" size="20" />'
+    .'<button type="button" onclick="countNow();" value="Find" '
+    .'id="find" name="find" >Count</button>'
+    .'<button type="button" value="up" onclick="goUp();" id="up" name="up">'
+    .'Find:Up</button>'
+    .'<button type="button" value="down" onclick="goDown();" '
+    .'id="down" name="down">Find:Down</button><br>'
+    .'<input type="text" name="replace_text" id="replace_text" value="" size="20" />'
+    .'<button type="button" value="replace_once" onclick="replaceOnce();" '
+    .'id="replace_once" name="replace_once">Replace Once</button>'
+    .'<button type="button" value="replace_all" onclick="replaceAll();" '
+    .'id="replace_all" name="replace_all">Replace All</button>'
+    .'&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" value="reset" '
+    .'onclick="resetAll();" id="reset_all" name="reset_all">Reset All</button>'
+    .'</form></div>'
+    .'<button type="button"  onclick="minmax();" id="find_replace_button" '
+    .'name="find_replace_button">find & replace: HIDE</button><br>';
 
 
 //Insert/Edit form
