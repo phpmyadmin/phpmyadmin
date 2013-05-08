@@ -12636,10 +12636,9 @@ msgid "Choose column to display:"
 msgstr "Elegir la columna a mostrar"
 
 #: tbl_structure.php:125
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "No se seleccionaron filas"
+msgstr "No se seleccionaron columnas."
 
 #: tbl_structure.php:149
 #, php-format
