@@ -13456,6 +13456,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Esto significa que las uniones («JOIN») están realizando escrutinios "
+"completos sobre tablas. Agregar índices a los campos utilizados en las "
+"condiciones de la unión las acelerarán en gran medida"
 
 #: libraries/advisory_rules.txt:238
 #, php-format
