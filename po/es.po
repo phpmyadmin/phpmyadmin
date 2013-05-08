@@ -12625,10 +12625,9 @@ msgid "Constraint name"
 msgstr "Nombre de la restricción"
 
 #: tbl_relation.php:529
-#, fuzzy
 #| msgid "No index defined!"
 msgid "No index defined! Create one below"
-msgstr "¡No se ha definido ningún índice!"
+msgstr "¡No se ha definido ningún índice! Cree uno más abajo"
 
 #: tbl_relation.php:544
 #, fuzzy
