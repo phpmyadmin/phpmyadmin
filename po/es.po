@@ -13000,10 +13000,9 @@ msgstr ""
 "Esto ayudará a analizar consultas con mala performance."
 
 #: libraries/advisory_rules.txt:96
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "«slow_query_log» activo."
+msgstr "slow_query_log está definido como 'OFF'"
 
 #: libraries/advisory_rules.txt:100
 #, fuzzy
