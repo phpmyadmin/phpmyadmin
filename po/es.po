@@ -13138,10 +13138,9 @@ msgid "Query cache disabled"
 msgstr "Caché de consultas desactivado"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "The server is not responding."
 msgid "The query cache is not enabled."
-msgstr "El servidor no está respondiendo."
+msgstr "El caché de consultas no está habilitado."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
