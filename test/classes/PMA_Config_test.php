@@ -14,6 +14,7 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/vendor_config.php';
 
 class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 {
@@ -38,6 +39,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object = new PMA_Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
+        $GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
     }
 
     /**
@@ -57,6 +59,22 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertNotNull($this->object->get('PMA_VERSION'));
         $this->assertNotEmpty($this->object->get('PMA_THEME_VERSION'));
         $this->assertNotEmpty($this->object->get('PMA_THEME_GENERATION'));
+    }
+
+    public function testGetFontsizeSelection()
+    {  
+        $this->assertContains(
+            '<label for="select_fontsize">',
+            PMA_Config::getFontsizeSelection()
+        );
+    }
+
+    public function testGetFontsizeForm()
+    {  
+        $this->assertContains(
+            '<form name="form_fontsize_selection" id="form_fontsize_selection"',
+            PMA_Config::getFontsizeForm()
+        );
     }
 
     public function testCheckOutputCompression()
