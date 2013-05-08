@@ -13620,7 +13620,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
-msgstr ""
+msgstr "Tasa de tablas temporales en el disco"
 
 #: libraries/advisory_rules.txt:280
 msgid ""
