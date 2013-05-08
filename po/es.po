@@ -13096,6 +13096,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
 msgstr ""
+"se encontró 'percona' en el comentario de la versión («version_comment»)"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
