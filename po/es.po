@@ -13176,6 +13176,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Está utilizando el caché de consultas MySQL en una base de datos de bastante "
+"tráfico. Probablemente quiera considerar utilizar <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> en lugar del caché de consultas de MySQL, "
+"especialmente si tiene muchos esclavos."
 
 #: libraries/advisory_rules.txt:165
 #, php-format
