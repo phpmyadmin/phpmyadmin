@@ -13615,6 +13615,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de todas las tablas temporales son escritas al disco, este valor "
+"debería de ser menor a 25%%"
 
 #: libraries/advisory_rules.txt:276
 msgid "Temp disk rate"
