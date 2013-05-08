@@ -13703,7 +13703,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "Porcentaje de búfer de claves MyISAM utilizado"
 
 #: libraries/advisory_rules.txt:316
 #, php-format
