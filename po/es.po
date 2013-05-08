@@ -12602,10 +12602,9 @@ msgstr ""
 "dato)"
 
 #: tbl_relation.php:381
-#, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Relaciones internas"
+msgstr "Relación interna"
 
 #: tbl_relation.php:385
 msgid ""
