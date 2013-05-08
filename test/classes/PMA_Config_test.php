@@ -59,6 +59,19 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($this->object->get('PMA_THEME_GENERATION'));
     }
 
+    public function testGetFontsizeForm()
+    {  
+        $this->assertContains(
+            '<form name="form_fontsize_selection" id="form_fontsize_selection"',
+            PMA_Config::getFontsizeForm()
+        );
+
+        $this->assertContains(
+            '<label for="select_fontsize">',
+            PMA_Config::getFontsizeForm()
+        );
+    }
+
     public function testCheckOutputCompression()
     {
 
