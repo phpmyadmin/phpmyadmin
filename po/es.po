@@ -12702,10 +12702,9 @@ msgid "Tracking data manipulation successfully deleted"
 msgstr "Manipulación de seguimiento de datos eliminada exitosamente"
 
 #: tbl_tracking.php:493
-#, fuzzy
 #| msgid "Tracking is active."
 msgid "Tracking statements"
-msgstr "El seguimiento está activo."
+msgstr "Realizando el seguimiento de las sentencias"
 
 #: tbl_tracking.php:524 tbl_tracking.php:672
 #, php-format
