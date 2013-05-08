@@ -13210,7 +13210,7 @@ msgstr "Considere aumentando «query_cache_limit»."
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "La tasa de aciertos actual del caché de consultas %s%% es menor a 20%%"
 
 #: libraries/advisory_rules.txt:174
 #, fuzzy
