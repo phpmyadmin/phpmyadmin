@@ -13444,7 +13444,7 @@ msgstr "Promedio de filas ordenadas: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "Tasa de uniones («JOIN») sin índices"
 
 #: libraries/advisory_rules.txt:236
 #, fuzzy
