@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-07 15:39+0200\n"
-"PO-Revision-Date: 2013-05-02 11:59+0200\n"
+"PO-Revision-Date: 2013-05-08 09:11+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -5610,7 +5610,6 @@ msgid "Control host"
 msgstr "Έλεγχος φιλοξηνητή"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5619,14 +5618,14 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Ένας εναλλακτικός φιλοξενητής για αποθήκευση των ρυθμίσεων, αφήστε το κενό "
-"για χρήση του ήδη ορισμένου"
+"Μια εναλλακτική θύρα για σύνδεση με τον φιλοξενητή που διατηρεί την "
+"αποθήκευση των ρυθμίσεων, αφήστε το κενό για χρήση της προεπιλεγμένης θύρας "
+"ή της ήδη ορισμένης θύρας αν το controlhost ισούται με το host"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Έλεγχος φιλοξηνητή"
+msgstr "Θύρα ελέγχου"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
