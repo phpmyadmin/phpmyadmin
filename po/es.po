@@ -13587,6 +13587,8 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Muchas tablas temporales están siendo escritas la disco en lugar de ser "
+"mantenidas en memoria."
 
 #: libraries/advisory_rules.txt:273
 msgid ""
