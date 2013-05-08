@@ -12939,6 +12939,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Hay una frecuencia de consultas lentas de %s por hora, debería de tener "
+"menos de 1%% por hora."
 
 #: libraries/advisory_rules.txt:77
 #, fuzzy
