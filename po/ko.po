@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-02 13:12+0200\n"
-"PO-Revision-Date: 2013-05-08 15:44+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2013-05-09 03:47+0200\n"
+"Last-Translator: Jin-oh Kang <jinoh67@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-0/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2223,7 +2223,7 @@ msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
-msgstr ""
+msgstr "이전 규칙의 %2$s 줄이 예상되었으나 규칙 %1$s이 잘못되었습니다"
 
 #: libraries/Advisor.class.php:407
 #, php-format
