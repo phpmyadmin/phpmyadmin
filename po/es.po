@@ -12960,6 +12960,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Se sugiere configurar «long_query_time» a un valor menor dependiendo de su "
+"entorno. Usualmente, un valor entre 1 y 5 segundos es el sugerido."
 
 #: libraries/advisory_rules.txt:82
 #, fuzzy, php-format
