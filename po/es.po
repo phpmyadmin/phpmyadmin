@@ -12620,10 +12620,9 @@ msgid "Foreign key constraint"
 msgstr "Restricción de clave foránea"
 
 #: tbl_relation.php:498
-#, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Filtros para la tabla"
+msgstr "Nombre de la restricción"
 
 #: tbl_relation.php:529
 #, fuzzy
