@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:14+0200\n"
+"PO-Revision-Date: 2013-05-09 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -13528,7 +13528,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:254
 msgid "Rate of reading next table row"
-msgstr ""
+msgstr "Tasa de lectura de la siguiente fila de una tabla"
 
 #: libraries/advisory_rules.txt:257
 #, fuzzy
