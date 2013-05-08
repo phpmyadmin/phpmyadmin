@@ -13018,6 +13018,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Debería actualizar ya que MySQL 5.1 tiene mejor performance, y ésta es aún "
+"mejor en MySQL 5.5."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
