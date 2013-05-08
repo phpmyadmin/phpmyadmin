@@ -13058,10 +13058,9 @@ msgstr "Debería actualizar a una versión estable de MySQL 5.5"
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 #: libraries/advisory_rules.txt:135
-#, fuzzy
 #| msgid "Description"
 msgid "Distribution"
-msgstr "Descripción"
+msgstr "Distribución"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
