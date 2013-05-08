@@ -12545,7 +12545,11 @@ msgstr "Nombre del archivo"
 
 #: tbl_indexes.php:71
 msgid "The name of the primary key must be \"PRIMARY\"!"
+<<<<<<< HEAD
 msgstr "¡El nombre de la clave primaria debe ser «PRIMARY»!"
+=======
+msgstr "El nombre de la clave primaria debe ser «PRIMARY»!"
+>>>>>>> QA_4_0
 
 #: tbl_indexes.php:81
 msgid "Can't rename index to PRIMARY!"
@@ -12553,7 +12557,34 @@ msgstr "No se puede cambiar el nombre del índice a PRIMARY!"
 
 #: tbl_indexes.php:97
 msgid "No index parts defined!"
+<<<<<<< HEAD
 msgstr "¡No se han definido las partes del índice!"
+=======
+msgstr "No se han definido las partes del índice!"
+
+#: tbl_indexes.php:197
+msgid "Edit index"
+msgstr "Editar índice"
+
+#: tbl_indexes.php:209
+msgid "Index name:"
+msgstr "Nombre del índice:"
+
+#: tbl_indexes.php:214
+msgid ""
+"(\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!)"
+msgstr ""
+"(«PRIMARY» <b>debe</b> ser el nombre <b>exclusivamente</b> de una clave "
+"primaria)"
+
+#: tbl_indexes.php:234
+msgid "Comment:"
+msgstr "Comentario:"
+
+#: tbl_indexes.php:249
+msgid "Index type:"
+msgstr "Tipo de índice&nbsp;:"
+>>>>>>> QA_4_0
 
 #: tbl_move_copy.php:43
 msgid "Can't move table to same one!"
