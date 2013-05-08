@@ -13383,10 +13383,9 @@ msgid "Percentage of sorts that cause temporary tables"
 msgstr "Porcentaje de ordenaciones que causan tablas temporales"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permite la creación de tablas temporales."
+msgstr "Demasiadas ordenaciones causan tablas temporales."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
 msgid ""
