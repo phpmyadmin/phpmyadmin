@@ -28,7 +28,7 @@ class Node_Index_Container_Test extends PHPUnit_Framework_TestCase
             $parent->links
         );
         $this->assertContains(
-            'tbl_indexes.php',
+            'tbl_structure.php',
             $parent->links['text']
         );
         $this->assertEquals('indexes', $parent->real_name);
