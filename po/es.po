@@ -12810,7 +12810,7 @@ msgstr "Tema"
 
 #: themes.php:24
 msgid "Get more themes!"
-msgstr ""
+msgstr "¡Obtener más temas!"
 
 #: transformation_overview.php:21
 #, fuzzy
