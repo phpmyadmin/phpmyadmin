@@ -13342,10 +13342,9 @@ msgid "Current query cache size: %s"
 msgstr "Tamaño del caché de consultas: %s"
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache min result size"
-msgstr "Caché de consultas utilizado"
+msgstr "Tamaño mínimo de resultado en caché de consultas"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
