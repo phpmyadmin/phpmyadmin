@@ -12943,10 +12943,9 @@ msgstr ""
 "menos de 1%% por hora."
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "Consultas SQL"
+msgstr "Tiempo de consultas lentas"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
