@@ -13080,6 +13080,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
 msgstr ""
+"se encontró 'fuente' («source») en el comentario de la versión "
+"(«version_comment»)"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
 msgid "The MySQL manual only is accurate for official MySQL binaries."
