@@ -327,7 +327,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     unset($book_sql_query);
 
     // set $goto to what will be displayed if query returns 0 rows
-    $goto = 'tbl_structure.php';
+    $goto = '';
 } else {
     // Now we can check the parameters
     PMA_Util::checkParameters(array('sql_query'));
@@ -992,8 +992,14 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $goto = 'index.php';
         }
         // Loads to target script
-        $active_page = $goto;
-        include '' . $goto;
+        if (strlen($goto) > 0) {
+            $active_page = $goto;
+            include '' . $goto;
+        } else {
+            // Echo at least one character to prevent showing last page from history
+            echo " ";
+        }
+        
     } else {
         // avoid a redirect loop when last record was deleted
         if (0 == $num_rows && 'sql.php' == $cfg['DefaultTabTable']) {
