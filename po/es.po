@@ -12747,10 +12747,9 @@ msgid "This option will replace your table and contained data."
 msgstr "Esta opción sustituirá tu tabla y los datos que contiene."
 
 #: tbl_tracking.php:681
-#, fuzzy
 #| msgid "Query execution time"
 msgid "SQL execution"
-msgstr "Tiempo de ejecución de la consulta"
+msgstr "Ejecución SQL"
 
 #: tbl_tracking.php:699
 #, fuzzy, php-format
