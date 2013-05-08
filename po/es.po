@@ -12695,7 +12695,7 @@ msgstr "Captura de la versión %s (código SQL)"
 
 #: tbl_tracking.php:454
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "Definición de seguimiento de datos eliminado exitosamente"
 
 #: tbl_tracking.php:478
 msgid "Tracking data manipulation successfully deleted"
