@@ -13114,7 +13114,7 @@ msgstr "Arquitectura MySQL"
 
 #: libraries/advisory_rules.txt:145
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL no fue compilado como un paquete de 64-bits."
 
 #: libraries/advisory_rules.txt:146
 msgid ""
