@@ -1667,7 +1667,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     $odd_row = false;
     $html_output = '<table id="tablerowstats" class="data">';
     $html_output .= '<caption class="tblHeaders">'
-        . __('Row Statistics') . '</caption>';
+        . __('Row statistics') . '</caption>';
     $html_output .= '<tbody>';
 
     if (isset($showtable['Row_format'])) {
@@ -1717,7 +1717,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row,
             __('Row length'),
-            PMA_Util::formatNumber($showtable['Avg_row_length'], 0)
+            (PMA_Util::formatNumber($showtable['Avg_row_length'], 0) . ' B')
         );
         $odd_row = !$odd_row;
     }
@@ -1747,6 +1747,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
             __('Creation'),
             PMA_Util::localisedDate(strtotime($showtable['Create_time']))
         );
+        $odd_row = !$odd_row;
     }
     if (isset($showtable['Update_time'])) {
         $html_output .= PMA_getHtmlForRowStatsTableRow(
