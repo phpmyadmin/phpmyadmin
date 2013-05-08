@@ -21,9 +21,7 @@ require_once 'libraries/sql.lib.php';
 // Add the required javascript scripts to the response header
 PMA_addScripts();
 
-/**
- * Set ajax_reload in the response if it was already set
- */
+// Set ajax_reload in the response if it was already set
 if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
     $response->addJSON('ajax_reload', $ajax_reload);
 }
@@ -62,12 +60,7 @@ if (! empty($goto)) {
 } // end if
 
 if (! isset($err_url)) {
-    $err_url = (! empty($back) ? $back : $goto)
-        . '?' . PMA_generate_common_url($db)
-        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
-            ? '&amp;table=' . urlencode($table)
-            : ''
-        );
+    $err_url = PMA_getErrorUrl($back, $goto, $db, $table);
 } // end if
 
 // Coming from a bookmark dialog

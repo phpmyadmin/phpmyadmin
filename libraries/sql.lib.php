@@ -647,4 +647,26 @@ function PMA_addScripts()
         $scripts->addFile('canvg/canvg.js');
     }
 }
+
+/**
+ * Returns the error url
+ *
+ * @param string   $back        go back file name
+ * @param string   $goto        go forward file name
+ * @param string   $db          current database
+ * @param string   $table       current table
+ *
+ * @return string  $err_url     error url
+ */
+function PMA_getErrorUrl($back, $goto, $db, $table)
+{
+    $err_url = (! empty($back) ? $back : $goto)
+        . '?' . PMA_generate_common_url($db)
+        . ((strpos(' ' . $goto, 'db_') != 1 && strlen($table))
+            ? '&amp;table=' . urlencode($table)
+            : ''
+        );
+    return $err_url;
+}
+
 ?>
