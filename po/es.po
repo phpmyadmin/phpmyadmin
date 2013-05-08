@@ -12598,6 +12598,8 @@ msgstr "Estadísticas de la fila"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
+"Ocurrió un error al crear la clave foránea en %1$s (revise los tipos de "
+"dato)"
 
 #: tbl_relation.php:381
 #, fuzzy
