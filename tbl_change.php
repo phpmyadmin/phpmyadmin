@@ -116,6 +116,8 @@ $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('gis_data_editor.js');
+//for find and replace feature
+$scripts->addFile('findreplace.js');
 
 /**
  * Displays the query submitted and its result
