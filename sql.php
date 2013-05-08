@@ -27,6 +27,8 @@ $scripts->addFile('tbl_change.js');
 $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
+//for find and replace feature
+$scripts->addFile('findreplace.js');
 
 /**
  * Set ajax_reload in the response if it was already set
