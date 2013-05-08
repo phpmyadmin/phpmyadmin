@@ -13380,7 +13380,7 @@ msgstr "«query_cache_limit» está definido a 1 MiB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
-msgstr ""
+msgstr "Porcentaje de ordenaciones que causan tablas temporales"
 
 #: libraries/advisory_rules.txt:214 libraries/advisory_rules.txt:221
 #, fuzzy
