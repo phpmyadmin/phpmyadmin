@@ -13566,6 +13566,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Si ha modificado alguno de ellos deliberadamente: el servidor utiliza el "
+"valor menor de ellos para determinar el tamaño máximo de tablas en memoria. "
+"Si desea aumentar el límite de tamaño de tablas en memoria deberá también "
+"aumentar el otro valor."
 
 #: libraries/advisory_rules.txt:267
 #, php-format
