@@ -13647,6 +13647,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"La tasa de tablas temporales escritas al disco: %s, este valor debería ser "
+"menor a 1 por hora"
 
 #: libraries/advisory_rules.txt:296
 #, fuzzy
