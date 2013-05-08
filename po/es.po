@@ -13192,10 +13192,10 @@ msgstr ""
 "segundo. Esta regla se dispara si hay más de 100 consultas por segundo."
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency"
 msgid "Query cache efficiency (%%)"
-msgstr "Eficiencia del caché de consultas"
+msgstr "Eficiencia del caché de consultas (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
