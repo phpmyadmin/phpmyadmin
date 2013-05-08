@@ -13301,6 +13301,10 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Podría llegar a querer aumentar «query_cache_size». Recuerde sin embargo que "
+"la sobrecarga de mantener el caché es probable que aumente con su tamaño, "
+"por lo que se recomienda hacerlo en pequeñas cantidades y monitorizar los "
+"resultados."
 
 #: libraries/advisory_rules.txt:193
 #, php-format
