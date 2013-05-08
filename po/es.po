@@ -12895,7 +12895,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr ""
+msgstr "Cantidad de consultas actuales: %s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
