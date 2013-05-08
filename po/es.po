@@ -13220,7 +13220,7 @@ msgstr "Uso del caché de consultas"
 #: libraries/advisory_rules.txt:177
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Menos del 80%% del caché de consultas está siendo utilizado."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
