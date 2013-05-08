@@ -13122,6 +13122,10 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Tiene uan capacidad de memoria por sobre 3 GiB (asumiendo que el servidor "
+"MySQL está en el mismo equipo que el servidor phpMyAdmin), es posible que "
+"MySQL no pueda acceder a toda la memoria. Podría llegar a desear instalar la "
+"versión de 64-bits de MySQL."
 
 #: libraries/advisory_rules.txt:147
 #, php-format
