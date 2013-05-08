@@ -13689,6 +13689,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Podría necesitar aumentar el valor de «key_buffer_size», examine sus tablas "
+"nuevamente para ver si se han eliminado índices o sus consultas y las "
+"expectativas de uso de los índices."
 
 #: libraries/advisory_rules.txt:308
 #, php-format
