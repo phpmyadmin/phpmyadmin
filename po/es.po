@@ -13312,6 +13312,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"La tasa de consultas eliminadas respecto de las agregadas es %s%%. Mejor es "
+"mientras menor sea este valor (el límite de disparo de la regla es: 0.1%%)"
 
 #: libraries/advisory_rules.txt:195
 #, fuzzy
