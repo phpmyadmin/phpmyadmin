@@ -13259,6 +13259,16 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Alta fragmentación probablemente aumente (más) «Qcache_lowmem_prunes». Esto "
+"puede ser causado por la cantidad de reducciones realizadas al caché de "
+"consultas por falta de memoria debido a que «query_cache_size» es muy "
+"pequeño. Una solución inmediata pero a corto plazo debería de vaciar el "
+"caché de consultas (puede bloquear el caché de consultas por un largo "
+"tiempo). Ajustar cuidadosamente «query_cache_min_res_unit» a un valor menor "
+"podría ayudar también; por ejemplo, podría definirlo como el tamaño promedio "
+"de las consultas en el caché utilizando la siguiente fórmula: "
+"(«query_cache_size» - «qcache_free_memory») / «qcache_queries_in_cache» "
+"((tamaño_caché - memoria_libre_caché) / cantidad_consultas_en_caché)"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
