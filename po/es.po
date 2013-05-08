@@ -13316,10 +13316,9 @@ msgstr ""
 "mientras menor sea este valor (el límite de disparo de la regla es: 0.1%%)"
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache max size"
-msgstr "Caché de consultas utilizado"
+msgstr "Tamaño máximo del caché de consultas"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
