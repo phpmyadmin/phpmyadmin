@@ -12930,6 +12930,8 @@ msgstr "Frecuencia de consultas lentas"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Hay un gran cantidad de consultas lentas respecto del tiempo de actividad "
+"del servidor."
 
 #: libraries/advisory_rules.txt:75
 #, php-format
