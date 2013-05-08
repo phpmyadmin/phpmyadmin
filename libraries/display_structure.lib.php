@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Display the form to edit/create an index
+ * Displays the table structure ('show table' works correct since 3.23.03)
  *
  * @package PhpMyAdmin
  */
@@ -16,9 +16,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Displays the table structure ('show table' works correct since 3.23.03)
- */
 /* TABLE INFORMATION */
 // table header
 
