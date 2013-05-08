@@ -13090,6 +13090,8 @@ msgstr "El manual MySQL sólo es preciso para los ejecutables MySQL oficiales."
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr ""
+"La documentación de Percona se encuentra en "
+"http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
