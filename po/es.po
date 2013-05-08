@@ -12899,7 +12899,7 @@ msgstr "Cantidad de consultas actuales: %s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
-msgstr ""
+msgstr "Porcentajes de consultas lentas"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
