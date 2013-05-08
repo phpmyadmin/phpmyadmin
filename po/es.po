@@ -12723,7 +12723,7 @@ msgstr "No hay datos"
 
 #: tbl_tracking.php:555 tbl_tracking.php:617
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: tbl_tracking.php:557
 #, fuzzy
