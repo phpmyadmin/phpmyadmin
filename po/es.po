@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 09:57+0200\n"
+"PO-Revision-Date: 2013-05-09 09:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12572,10 +12572,9 @@ msgid "Table %s has been copied to %s."
 msgstr "La tabla %s se copió a %s."
 
 #: tbl_move_copy.php:79
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "The table name is empty!"
-msgstr "¡El nombre de la base de datos está vacío!"
+msgstr "¡El nombre de la tabla está vacío!"
 
 #: tbl_printview.php:65
 #, fuzzy
