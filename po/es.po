@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-09 10:10+0200\n"
+"PO-Revision-Date: 2013-05-09 10:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -13246,7 +13246,7 @@ msgstr "Fragmentación del caché de consultas"
 
 #: libraries/advisory_rules.txt:184
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "El caché de consultas está fragmentado considerablemente."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
