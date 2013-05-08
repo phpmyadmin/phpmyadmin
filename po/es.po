@@ -12686,7 +12686,7 @@ msgstr "Comenta estas dos líneas si no las necesitas."
 
 #: tbl_tracking.php:272
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr ""
+msgstr "Sentencias SQL exportadas. Copia el volcado o ejecútalo."
 
 #: tbl_tracking.php:310
 #, php-format
