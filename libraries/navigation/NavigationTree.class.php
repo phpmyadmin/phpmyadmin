@@ -203,8 +203,17 @@ class PMA_NavigationTree
             $this->_pos,
             $this->_searchClause
         );
-        foreach ($data as $db) {
+        foreach ($data as $db) 
+        {
+			$count = "";
+			if ($GLOBALS['cfg']['Server']['CountTables'] === true)
+			{
+				$exploded_name = explode(" ", $db);
+				$count = " ".array_pop($exploded_name);
+				$db = implode(" ", $exploded_name);
+			}
             $node = PMA_NodeFactory::getInstance('Node_Database', $db);
+            $node->name .= " ".$count;
             $this->_tree->addChild($node);
         }
 
