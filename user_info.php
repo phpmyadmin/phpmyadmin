@@ -6,6 +6,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/database_interface.lib.php';
 require_once './libraries/user_info.lib.php';
+require_once './libraries/mime.lib.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -44,7 +45,10 @@ if (isset($_POST['editform'])) {
     $newdesc = nl2br($newdesc);
     
     if (($_FILES['new_img']['size']/1024)<64) { // if uploaded image is of less than 64KB
-           if ((substr($_FILES['new_img']['type'], 0, 5) == "image")) { // if uploaded image is of image type
+        $file_contents=file_get_contents($_FILES['new_img']['tmp_name']);
+        $detectedMIME = PMA_detectMIME($file_contents);
+        
+           if ((substr($detectedMIME, 0, 5) == "image")) { // if uploaded image is of image type
             $newimg = $_FILES['new_img']['tmp_name'];
         } else {
             PMA_Message::error('Selected File is not of Image Type')->display();
@@ -107,7 +111,5 @@ $html .=   " <div id = 'user_info' class = 'user_info'>"
       . ' <input type = submit value = update id = btn_submitform>'
       . ' </form></div>';
 
-echo $html;  //needs upgrade. $response->addHTML() should be used. 
-             //However in that case error messages are not displayed 
-        
+echo $html;  
 ?>

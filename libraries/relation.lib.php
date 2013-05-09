@@ -494,6 +494,7 @@ function PMA__getRelationsParam()
         && $cfgRelation['recentwork'] && $cfgRelation['uiprefswork']
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
+        && $cfgRelation['userinfowork']
     ) {
         $cfgRelation['allworks'] = true;
     }
