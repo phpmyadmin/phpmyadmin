@@ -38,6 +38,13 @@ class Node
      */
     public $real_name = "";
 
+	/**
+     * @var string A non-unique identifier for the node
+     *             This will never change after being assigned
+	 *				Used for showing label
+     */
+	public $label_name = "";
+
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
@@ -127,6 +134,7 @@ class Node
         if (! empty($name)) {
             $this->name      = $name;
             $this->real_name = $name;
+            $this->label_name = $name;
         }
         if ($type === Node::CONTAINER) {
             $this->type = Node::CONTAINER;

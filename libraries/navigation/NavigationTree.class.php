@@ -213,7 +213,7 @@ class PMA_NavigationTree
 				$db = implode(" ", $exploded_name);
 			}
             $node = PMA_NodeFactory::getInstance('Node_Database', $db);
-            $node->name .= " ".$count;
+            $node->label_name .= " ".$count;
             $this->_tree->addChild($node);
         }
 
@@ -943,7 +943,7 @@ class PMA_NavigationTree
                         $title = '';
                     }
                     $retval .= "<a$linkClass$title href='$link'>";
-                    $retval .= htmlspecialchars($node->real_name);
+                    $retval .= htmlspecialchars($node->label_name);
                     $retval .= "</a>";
                 }
             } else {
