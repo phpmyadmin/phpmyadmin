@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - bug #3904 Browsing an empty table should not display its Structure
 - bug #3908 Calendar widget improperly redirects to home 
 - bug #3916 [interface] Missing scrollbar (original theme)
++ [vendor] add tcpdf path to vendor_config.php
 
 4.0.0.0 (2013-05-03)
 + Patch #3481047 for rfe #3480477 Insert as new row enhancement
