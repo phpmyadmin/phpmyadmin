@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-09 08:26+0200\n"
-"PO-Revision-Date: 2013-05-07 15:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2013-05-09 21:34+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5564,7 +5563,6 @@ msgid "Control host"
 msgstr "Kontrolvært"
 
 #: libraries/config/messages.inc.php:389
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5573,14 +5571,15 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"En alternativ vært til lageropbevaring af konfiguration; lad stå tom for at "
-"benytte den vært som allerede er defineret"
+"En alternativ port til at skabe forbindelse til værten, der varetager "
+"lageropbevaringen af konfiguration; lad stå tom for at benytte "
+"standardporten, eller den allerede angivne port, hvis kontrolværten er lig "
+"værten"
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Kontrolvært"
+msgstr "Kontrolport"
 
 #: libraries/config/messages.inc.php:391
 msgid "Count tables when showing database list"
