@@ -370,7 +370,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 // Check if the captcha entered is valid, if not stop the login.
                 if ( !$resp->is_valid ) {
-                    echo "Invalid captcha!";
+                    return false;
                     $_SESSION['last_valid_captcha'] = false;
                 } else {
                     $_SESSION['last_valid_captcha'] = true;
