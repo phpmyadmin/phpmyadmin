@@ -942,11 +942,6 @@ ul#topmenu2 a {
 
 }
 
-/* disabled tabs */
-ul#topmenu span.tab {
-    color: #666;
-}
-
 fieldset.caution a {
     color: #FF0000;
 }
@@ -1021,13 +1016,6 @@ ul#topmenu2 a.tabactive {
 ul#topmenu > li.active {
     /* border-bottom: 0pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>; */
     border-right: 0;
-}
-
-/* disabled tabs */
-ul#topmenu span.tab,
-a.error {
-    cursor: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('error.ico');?>), default;
-    color: #ccc;
 }
 /* end topmenu */
 
